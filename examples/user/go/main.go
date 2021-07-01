@@ -11,7 +11,8 @@ func main() {
 		if err != nil {
 			return err
 		}
-
 		ctx.Export("username", user.Name)
+
+		return nil
 	})
 }
