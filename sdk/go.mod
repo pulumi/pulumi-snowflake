@@ -1,5 +1,9 @@
-module github.com/pulumi/pulumi-xyz/sdk
+module github.com/pulumi/pulumi-snowflake/sdk
 
 go 1.14
 
-require github.com/pulumi/pulumi/sdk/v3 v3.4.0
+require (
+	github.com/blang/semver v3.5.1+incompatible
+	github.com/pkg/errors v0.9.1
+	github.com/pulumi/pulumi/sdk/v3 v3.4.0
+)

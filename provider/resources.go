@@ -12,27 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package xyz
+package snowflake
 
 import (
 	"fmt"
 	"path/filepath"
 	"unicode"
 
-	"github.com/pulumi/pulumi-xyz/provider/pkg/version"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	snowflake "github.com/chanzuckerberg/terraform-provider-snowflake/pkg/provider"
+	"github.com/pulumi/pulumi-snowflake/provider/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
-	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v1"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
-	"github.com/terraform-providers/terraform-provider-xyz/xyz"
 )
 
 // all of the token components used below.
 const (
 	// packages:
-	mainPkg = "xyz"
+	mainPkg = "snowflake"
 	// modules:
 	mainMod = "index" // the y module
 )
@@ -63,91 +60,86 @@ func makeResource(mod string, res string) tokens.Type {
 	return makeType(mod+"/"+fn, res)
 }
 
-// boolRef returns a reference to the bool argument.
-func boolRef(b bool) *bool {
-	return &b
-}
-
-// stringValue gets a string value from a property map if present, else ""
-func stringValue(vars resource.PropertyMap, prop resource.PropertyKey) string {
-	val, ok := vars[prop]
-	if ok && val.IsString() {
-		return val.StringValue()
-	}
-	return ""
-}
-
-// preConfigureCallback is called before the providerConfigure function of the underlying provider.
-// It should validate that the provider can be configured, and provide actionable errors in the case
-// it cannot be. Configuration variables can be read from `vars` using the `stringValue` function -
-// for example `stringValue(vars, "accessKey")`.
-func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) error {
-	return nil
-}
-
-// managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
-var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
-
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-	p := shimv1.NewProvider(xyz.Provider().(*schema.Provider))
+	p := shimv2.NewProvider(snowflake.Provider())
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
 		P:           p,
-		Name:        "xyz",
-		Description: "A Pulumi package for creating and managing xyz cloud resources.",
-		Keywords:    []string{"pulumi", "xyz"},
+		Name:        "snowflake",
+		Description: "A Pulumi package for creating and managing snowflake cloud resources.",
+		Keywords:    []string{"pulumi", "snowflake"},
 		License:     "Apache-2.0",
 		Homepage:    "https://pulumi.io",
-		Repository:  "https://github.com/pulumi/pulumi-xyz",
-		Config:      map[string]*tfbridge.SchemaInfo{
-			// Add any required configuration here, or remove the example below if
-			// no additional points are required.
-			// "region": {
-			// 	Type: makeType("region", "Region"),
-			// 	Default: &tfbridge.DefaultInfo{
-			// 		EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
-			// 	},
-			// },
-		},
-		PreConfigureCallback: preConfigureCallback,
-		Resources:            map[string]*tfbridge.ResourceInfo{
-			// Map each resource in the Terraform provider to a Pulumi type. Two examples
-			// are below - the single line form is the common case. The multi-line form is
-			// needed only if you wish to override types or other default options.
-			//
-			// "aws_iam_role": {Tok: makeResource(mainMod, "IamRole")}
-			//
-			// "aws_acm_certificate": {
-			// 	Tok: makeResource(mainMod, "Certificate"),
-			// 	Fields: map[string]*tfbridge.SchemaInfo{
-			// 		"tags": {Type: makeType(mainPkg, "Tags")},
-			// 	},
-			// },
+		GitHubOrg:   "chanzuckerberg",
+		Repository:  "https://github.com/pulumi/pulumi-snowflake",
+		Config:      map[string]*tfbridge.SchemaInfo{},
+		Resources: map[string]*tfbridge.ResourceInfo{
+			"snowflake_account_grant":             {Tok: makeResource(mainMod, "AccountGrant")},
+			"snowflake_api_integration":           {Tok: makeResource(mainMod, "ApiIntegration")},
+			"snowflake_database":                  {Tok: makeResource(mainMod, "Database")},
+			"snowflake_database_grant":            {Tok: makeResource(mainMod, "DatabaseGrant")},
+			"snowflake_external_function":         {Tok: makeResource(mainMod, "ExternalFunction")},
+			"snowflake_external_table":            {Tok: makeResource(mainMod, "ExternalTable")},
+			"snowflake_external_table_grant":      {Tok: makeResource(mainMod, "ExternalTableGrant")},
+			"snowflake_file_format":               {Tok: makeResource(mainMod, "FileFormat")},
+			"snowflake_file_format_grant":         {Tok: makeResource(mainMod, "FileFormatGrant")},
+			"snowflake_function_grant":            {Tok: makeResource(mainMod, "FunctionGrant")},
+			"snowflake_integration_grant":         {Tok: makeResource(mainMod, "IntegrationGrant")},
+			"snowflake_managed_account":           {Tok: makeResource(mainMod, "ManagedAccount")},
+			"snowflake_masking_policy":            {Tok: makeResource(mainMod, "MaskingPolicy")},
+			"snowflake_masking_policy_grant":      {Tok: makeResource(mainMod, "MaskingPolicyGrant")},
+			"snowflake_materialized_view":         {Tok: makeResource(mainMod, "MaterializedView")},
+			"snowflake_materialized_view_grant":   {Tok: makeResource(mainMod, "MaterializedViewGrant")},
+			"snowflake_network_policy":            {Tok: makeResource(mainMod, "NetworkPolicy")},
+			"snowflake_network_policy_attachment": {Tok: makeResource(mainMod, "NetworkPolicyAttachment")},
+			"snowflake_notification_integration":  {Tok: makeResource(mainMod, "NotificationIntegration")},
+			"snowflake_pipe":                      {Tok: makeResource(mainMod, "Pipe")},
+			"snowflake_procedure_grant":           {Tok: makeResource(mainMod, "ProcedureGrant")},
+			"snowflake_resource_monitor":          {Tok: makeResource(mainMod, "ResourceMonitor")},
+			"snowflake_resource_monitor_grant":    {Tok: makeResource(mainMod, "ResourceMonitorGrant")},
+			"snowflake_role":                      {Tok: makeResource(mainMod, "Role")},
+			"snowflake_role_grants":               {Tok: makeResource(mainMod, "RoleGrants")},
+			"snowflake_schema":                    {Tok: makeResource(mainMod, "Schema")},
+			"snowflake_schema_grant":              {Tok: makeResource(mainMod, "SchemaGrant")},
+			"snowflake_scim_integration":          {Tok: makeResource(mainMod, "ScimIntegration")},
+			"snowflake_sequence":                  {Tok: makeResource(mainMod, "Sequence")},
+			"snowflake_sequence_grant":            {Tok: makeResource(mainMod, "SequenceGrant")},
+			"snowflake_share":                     {Tok: makeResource(mainMod, "Share")},
+			"snowflake_stage":                     {Tok: makeResource(mainMod, "Stage")},
+			"snowflake_stage_grant":               {Tok: makeResource(mainMod, "StageGrant")},
+			"snowflake_storage_integration":       {Tok: makeResource(mainMod, "StorageIntegration")},
+			"snowflake_stream":                    {Tok: makeResource(mainMod, "Stream")},
+			"snowflake_stream_grant":              {Tok: makeResource(mainMod, "StreamGrant")},
+			"snowflake_table":                     {Tok: makeResource(mainMod, "Table")},
+			"snowflake_table_grant":               {Tok: makeResource(mainMod, "TableGrant")},
+			"snowflake_task":                      {Tok: makeResource(mainMod, "Task")},
+			"snowflake_user":                      {Tok: makeResource(mainMod, "User")},
+			"snowflake_user_public_keys":          {Tok: makeResource(mainMod, "UserPublicKeys")},
+			"snowflake_view":                      {Tok: makeResource(mainMod, "View")},
+			"snowflake_view_grant":                {Tok: makeResource(mainMod, "ViewGrant")},
+			"snowflake_warehouse":                 {Tok: makeResource(mainMod, "Warehouse")},
+			"snowflake_warehouse_grant":           {Tok: makeResource(mainMod, "WarehouseGrant")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
-			// Map each resource in the Terraform provider to a Pulumi function. An example
-			// is below.
-			// "aws_ami": {Tok: makeDataSource(mainMod, "getAmi")},
+			"snowflake_current_account":                    {Tok: makeDataSource(mainMod, "getCurrentAccount")},
+			"snowflake_system_generate_scim_access_token":  {Tok: makeDataSource(mainMod, "getSystemGenerateScimAccessToken")},
+			"snowflake_system_get_aws_sns_iam_policy":      {Tok: makeDataSource(mainMod, "getSystemGetAwsSnsIamPolicy")},
+			"snowflake_system_get_privatelink_config":      {Tok: makeDataSource(mainMod, "getSystemGetPrivateLinkConfig")},
+			"snowflake_system_get_snowflake_platform_info": {Tok: makeDataSource(mainMod, "getSystemGetSnowflakePlatformInfo")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
-			// List any npm dependencies and their versions
 			Dependencies: map[string]string{
 				"@pulumi/pulumi": "^3.0.0",
 			},
 			DevDependencies: map[string]string{
-				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
+				"@types/node": "^10.0.0",
 				"@types/mime": "^2.0.0",
 			},
-			// See the documentation for tfbridge.OverlayInfo for how to lay out this
-			// section, or refer to the AWS provider. Delete this section if there are
-			// no overlay files.
-			//Overlay: &tfbridge.OverlayInfo{},
 		},
 		Python: &tfbridge.PythonInfo{
-			// List any Python dependencies and their version ranges
 			Requires: map[string]string{
 				"pulumi": ">=3.0.0,<4.0.0",
 			},
@@ -163,8 +155,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi":                       "3.*",
-				"System.Collections.Immutable": "1.6.0",
+				"Pulumi": "3.*",
 			},
 		},
 	}
