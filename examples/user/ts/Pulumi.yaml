@@ -1,0 +1,3 @@
+name: snowflake-ts-user
+runtime: nodejs
+description: A minimal TypeScript Pulumi program
