@@ -11,6 +11,48 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewTable(ctx, "table", &snowflake.TableArgs{
+// 			ClusterBies: pulumi.StringArray{
+// 				pulumi.String("to_date(DATE)"),
+// 			},
+// 			Columns: TableColumnArray{
+// 				&TableColumnArgs{
+// 					Name: pulumi.String("id"),
+// 					Type: pulumi.String("int"),
+// 				},
+// 				&TableColumnArgs{
+// 					Name: pulumi.String("data"),
+// 					Type: pulumi.String("text"),
+// 				},
+// 				&TableColumnArgs{
+// 					Name: pulumi.String("DATE"),
+// 					Type: pulumi.String("TIMESTAMP_NTZ(9)"),
+// 				},
+// 			},
+// 			Comment:  pulumi.String("A table."),
+// 			Database: pulumi.String("database"),
+// 			Schema:   pulumi.String("schmea"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // # format is database name | schema name | table name

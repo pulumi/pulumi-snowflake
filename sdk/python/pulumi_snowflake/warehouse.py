@@ -18,10 +18,12 @@ class WarehouseArgs:
                  comment: Optional[pulumi.Input[str]] = None,
                  initially_suspended: Optional[pulumi.Input[bool]] = None,
                  max_cluster_count: Optional[pulumi.Input[int]] = None,
+                 max_concurrency_level: Optional[pulumi.Input[int]] = None,
                  min_cluster_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_monitor: Optional[pulumi.Input[str]] = None,
                  scaling_policy: Optional[pulumi.Input[str]] = None,
+                 statement_queued_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  statement_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  wait_for_provisioning: Optional[pulumi.Input[bool]] = None,
                  warehouse_size: Optional[pulumi.Input[str]] = None):
@@ -31,9 +33,11 @@ class WarehouseArgs:
         :param pulumi.Input[int] auto_suspend: Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
         :param pulumi.Input[bool] initially_suspended: Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         :param pulumi.Input[int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
+        :param pulumi.Input[int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
         :param pulumi.Input[str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
         :param pulumi.Input[str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
+        :param pulumi.Input[int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
         :param pulumi.Input[int] statement_timeout_in_seconds: Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
         :param pulumi.Input[bool] wait_for_provisioning: Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         """
@@ -47,6 +51,8 @@ class WarehouseArgs:
             pulumi.set(__self__, "initially_suspended", initially_suspended)
         if max_cluster_count is not None:
             pulumi.set(__self__, "max_cluster_count", max_cluster_count)
+        if max_concurrency_level is not None:
+            pulumi.set(__self__, "max_concurrency_level", max_concurrency_level)
         if min_cluster_count is not None:
             pulumi.set(__self__, "min_cluster_count", min_cluster_count)
         if name is not None:
@@ -55,6 +61,8 @@ class WarehouseArgs:
             pulumi.set(__self__, "resource_monitor", resource_monitor)
         if scaling_policy is not None:
             pulumi.set(__self__, "scaling_policy", scaling_policy)
+        if statement_queued_timeout_in_seconds is not None:
+            pulumi.set(__self__, "statement_queued_timeout_in_seconds", statement_queued_timeout_in_seconds)
         if statement_timeout_in_seconds is not None:
             pulumi.set(__self__, "statement_timeout_in_seconds", statement_timeout_in_seconds)
         if wait_for_provisioning is not None:
@@ -120,6 +128,18 @@ class WarehouseArgs:
         pulumi.set(self, "max_cluster_count", value)
 
     @property
+    @pulumi.getter(name="maxConcurrencyLevel")
+    def max_concurrency_level(self) -> Optional[pulumi.Input[int]]:
+        """
+        Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+        """
+        return pulumi.get(self, "max_concurrency_level")
+
+    @max_concurrency_level.setter
+    def max_concurrency_level(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_concurrency_level", value)
+
+    @property
     @pulumi.getter(name="minClusterCount")
     def min_cluster_count(self) -> Optional[pulumi.Input[int]]:
         """
@@ -163,6 +183,18 @@ class WarehouseArgs:
     @scaling_policy.setter
     def scaling_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "scaling_policy", value)
+
+    @property
+    @pulumi.getter(name="statementQueuedTimeoutInSeconds")
+    def statement_queued_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+        """
+        return pulumi.get(self, "statement_queued_timeout_in_seconds")
+
+    @statement_queued_timeout_in_seconds.setter
+    def statement_queued_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "statement_queued_timeout_in_seconds", value)
 
     @property
     @pulumi.getter(name="statementTimeoutInSeconds")
@@ -206,10 +238,12 @@ class _WarehouseState:
                  comment: Optional[pulumi.Input[str]] = None,
                  initially_suspended: Optional[pulumi.Input[bool]] = None,
                  max_cluster_count: Optional[pulumi.Input[int]] = None,
+                 max_concurrency_level: Optional[pulumi.Input[int]] = None,
                  min_cluster_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_monitor: Optional[pulumi.Input[str]] = None,
                  scaling_policy: Optional[pulumi.Input[str]] = None,
+                 statement_queued_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  statement_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  wait_for_provisioning: Optional[pulumi.Input[bool]] = None,
                  warehouse_size: Optional[pulumi.Input[str]] = None):
@@ -219,9 +253,11 @@ class _WarehouseState:
         :param pulumi.Input[int] auto_suspend: Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
         :param pulumi.Input[bool] initially_suspended: Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         :param pulumi.Input[int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
+        :param pulumi.Input[int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
         :param pulumi.Input[str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
         :param pulumi.Input[str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
+        :param pulumi.Input[int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
         :param pulumi.Input[int] statement_timeout_in_seconds: Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
         :param pulumi.Input[bool] wait_for_provisioning: Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         """
@@ -235,6 +271,8 @@ class _WarehouseState:
             pulumi.set(__self__, "initially_suspended", initially_suspended)
         if max_cluster_count is not None:
             pulumi.set(__self__, "max_cluster_count", max_cluster_count)
+        if max_concurrency_level is not None:
+            pulumi.set(__self__, "max_concurrency_level", max_concurrency_level)
         if min_cluster_count is not None:
             pulumi.set(__self__, "min_cluster_count", min_cluster_count)
         if name is not None:
@@ -243,6 +281,8 @@ class _WarehouseState:
             pulumi.set(__self__, "resource_monitor", resource_monitor)
         if scaling_policy is not None:
             pulumi.set(__self__, "scaling_policy", scaling_policy)
+        if statement_queued_timeout_in_seconds is not None:
+            pulumi.set(__self__, "statement_queued_timeout_in_seconds", statement_queued_timeout_in_seconds)
         if statement_timeout_in_seconds is not None:
             pulumi.set(__self__, "statement_timeout_in_seconds", statement_timeout_in_seconds)
         if wait_for_provisioning is not None:
@@ -308,6 +348,18 @@ class _WarehouseState:
         pulumi.set(self, "max_cluster_count", value)
 
     @property
+    @pulumi.getter(name="maxConcurrencyLevel")
+    def max_concurrency_level(self) -> Optional[pulumi.Input[int]]:
+        """
+        Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+        """
+        return pulumi.get(self, "max_concurrency_level")
+
+    @max_concurrency_level.setter
+    def max_concurrency_level(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_concurrency_level", value)
+
+    @property
     @pulumi.getter(name="minClusterCount")
     def min_cluster_count(self) -> Optional[pulumi.Input[int]]:
         """
@@ -351,6 +403,18 @@ class _WarehouseState:
     @scaling_policy.setter
     def scaling_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "scaling_policy", value)
+
+    @property
+    @pulumi.getter(name="statementQueuedTimeoutInSeconds")
+    def statement_queued_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+        """
+        return pulumi.get(self, "statement_queued_timeout_in_seconds")
+
+    @statement_queued_timeout_in_seconds.setter
+    def statement_queued_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "statement_queued_timeout_in_seconds", value)
 
     @property
     @pulumi.getter(name="statementTimeoutInSeconds")
@@ -396,10 +460,12 @@ class Warehouse(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[str]] = None,
                  initially_suspended: Optional[pulumi.Input[bool]] = None,
                  max_cluster_count: Optional[pulumi.Input[int]] = None,
+                 max_concurrency_level: Optional[pulumi.Input[int]] = None,
                  min_cluster_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_monitor: Optional[pulumi.Input[str]] = None,
                  scaling_policy: Optional[pulumi.Input[str]] = None,
+                 statement_queued_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  statement_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  wait_for_provisioning: Optional[pulumi.Input[bool]] = None,
                  warehouse_size: Optional[pulumi.Input[str]] = None,
@@ -428,9 +494,11 @@ class Warehouse(pulumi.CustomResource):
         :param pulumi.Input[int] auto_suspend: Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
         :param pulumi.Input[bool] initially_suspended: Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         :param pulumi.Input[int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
+        :param pulumi.Input[int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
         :param pulumi.Input[str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
         :param pulumi.Input[str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
+        :param pulumi.Input[int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
         :param pulumi.Input[int] statement_timeout_in_seconds: Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
         :param pulumi.Input[bool] wait_for_provisioning: Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         """
@@ -478,10 +546,12 @@ class Warehouse(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[str]] = None,
                  initially_suspended: Optional[pulumi.Input[bool]] = None,
                  max_cluster_count: Optional[pulumi.Input[int]] = None,
+                 max_concurrency_level: Optional[pulumi.Input[int]] = None,
                  min_cluster_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_monitor: Optional[pulumi.Input[str]] = None,
                  scaling_policy: Optional[pulumi.Input[str]] = None,
+                 statement_queued_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  statement_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  wait_for_provisioning: Optional[pulumi.Input[bool]] = None,
                  warehouse_size: Optional[pulumi.Input[str]] = None,
@@ -502,10 +572,12 @@ class Warehouse(pulumi.CustomResource):
             __props__.__dict__["comment"] = comment
             __props__.__dict__["initially_suspended"] = initially_suspended
             __props__.__dict__["max_cluster_count"] = max_cluster_count
+            __props__.__dict__["max_concurrency_level"] = max_concurrency_level
             __props__.__dict__["min_cluster_count"] = min_cluster_count
             __props__.__dict__["name"] = name
             __props__.__dict__["resource_monitor"] = resource_monitor
             __props__.__dict__["scaling_policy"] = scaling_policy
+            __props__.__dict__["statement_queued_timeout_in_seconds"] = statement_queued_timeout_in_seconds
             __props__.__dict__["statement_timeout_in_seconds"] = statement_timeout_in_seconds
             __props__.__dict__["wait_for_provisioning"] = wait_for_provisioning
             __props__.__dict__["warehouse_size"] = warehouse_size
@@ -524,10 +596,12 @@ class Warehouse(pulumi.CustomResource):
             comment: Optional[pulumi.Input[str]] = None,
             initially_suspended: Optional[pulumi.Input[bool]] = None,
             max_cluster_count: Optional[pulumi.Input[int]] = None,
+            max_concurrency_level: Optional[pulumi.Input[int]] = None,
             min_cluster_count: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_monitor: Optional[pulumi.Input[str]] = None,
             scaling_policy: Optional[pulumi.Input[str]] = None,
+            statement_queued_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
             statement_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
             wait_for_provisioning: Optional[pulumi.Input[bool]] = None,
             warehouse_size: Optional[pulumi.Input[str]] = None) -> 'Warehouse':
@@ -542,9 +616,11 @@ class Warehouse(pulumi.CustomResource):
         :param pulumi.Input[int] auto_suspend: Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
         :param pulumi.Input[bool] initially_suspended: Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         :param pulumi.Input[int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
+        :param pulumi.Input[int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
         :param pulumi.Input[str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
         :param pulumi.Input[str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
+        :param pulumi.Input[int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
         :param pulumi.Input[int] statement_timeout_in_seconds: Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
         :param pulumi.Input[bool] wait_for_provisioning: Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         """
@@ -557,10 +633,12 @@ class Warehouse(pulumi.CustomResource):
         __props__.__dict__["comment"] = comment
         __props__.__dict__["initially_suspended"] = initially_suspended
         __props__.__dict__["max_cluster_count"] = max_cluster_count
+        __props__.__dict__["max_concurrency_level"] = max_concurrency_level
         __props__.__dict__["min_cluster_count"] = min_cluster_count
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_monitor"] = resource_monitor
         __props__.__dict__["scaling_policy"] = scaling_policy
+        __props__.__dict__["statement_queued_timeout_in_seconds"] = statement_queued_timeout_in_seconds
         __props__.__dict__["statement_timeout_in_seconds"] = statement_timeout_in_seconds
         __props__.__dict__["wait_for_provisioning"] = wait_for_provisioning
         __props__.__dict__["warehouse_size"] = warehouse_size
@@ -604,6 +682,14 @@ class Warehouse(pulumi.CustomResource):
         return pulumi.get(self, "max_cluster_count")
 
     @property
+    @pulumi.getter(name="maxConcurrencyLevel")
+    def max_concurrency_level(self) -> pulumi.Output[Optional[int]]:
+        """
+        Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+        """
+        return pulumi.get(self, "max_concurrency_level")
+
+    @property
     @pulumi.getter(name="minClusterCount")
     def min_cluster_count(self) -> pulumi.Output[int]:
         """
@@ -631,6 +717,14 @@ class Warehouse(pulumi.CustomResource):
         Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
         """
         return pulumi.get(self, "scaling_policy")
+
+    @property
+    @pulumi.getter(name="statementQueuedTimeoutInSeconds")
+    def statement_queued_timeout_in_seconds(self) -> pulumi.Output[Optional[int]]:
+        """
+        Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+        """
+        return pulumi.get(self, "statement_queued_timeout_in_seconds")
 
     @property
     @pulumi.getter(name="statementTimeoutInSeconds")

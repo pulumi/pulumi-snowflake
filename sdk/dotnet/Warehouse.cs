@@ -67,6 +67,12 @@ namespace Pulumi.Snowflake
         public Output<int> MaxClusterCount { get; private set; } = null!;
 
         /// <summary>
+        /// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+        /// </summary>
+        [Output("maxConcurrencyLevel")]
+        public Output<int?> MaxConcurrencyLevel { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
         /// </summary>
         [Output("minClusterCount")]
@@ -86,6 +92,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("scalingPolicy")]
         public Output<string> ScalingPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+        /// </summary>
+        [Output("statementQueuedTimeoutInSeconds")]
+        public Output<int?> StatementQueuedTimeoutInSeconds { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
@@ -176,6 +188,12 @@ namespace Pulumi.Snowflake
         public Input<int>? MaxClusterCount { get; set; }
 
         /// <summary>
+        /// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+        /// </summary>
+        [Input("maxConcurrencyLevel")]
+        public Input<int>? MaxConcurrencyLevel { get; set; }
+
+        /// <summary>
         /// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
         /// </summary>
         [Input("minClusterCount")]
@@ -195,6 +213,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("scalingPolicy")]
         public Input<string>? ScalingPolicy { get; set; }
+
+        /// <summary>
+        /// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+        /// </summary>
+        [Input("statementQueuedTimeoutInSeconds")]
+        public Input<int>? StatementQueuedTimeoutInSeconds { get; set; }
 
         /// <summary>
         /// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
@@ -246,6 +270,12 @@ namespace Pulumi.Snowflake
         public Input<int>? MaxClusterCount { get; set; }
 
         /// <summary>
+        /// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+        /// </summary>
+        [Input("maxConcurrencyLevel")]
+        public Input<int>? MaxConcurrencyLevel { get; set; }
+
+        /// <summary>
         /// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
         /// </summary>
         [Input("minClusterCount")]
@@ -265,6 +295,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("scalingPolicy")]
         public Input<string>? ScalingPolicy { get; set; }
+
+        /// <summary>
+        /// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+        /// </summary>
+        [Input("statementQueuedTimeoutInSeconds")]
+        public Input<int>? StatementQueuedTimeoutInSeconds { get; set; }
 
         /// <summary>
         /// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system

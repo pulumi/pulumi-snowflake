@@ -33,11 +33,17 @@ class GetSystemGetSnowflakePlatformInfoResult:
     @property
     @pulumi.getter(name="awsVpcIds")
     def aws_vpc_ids(self) -> Sequence[str]:
+        """
+        Snowflake AWS Virtual Private Cloud IDs
+        """
         return pulumi.get(self, "aws_vpc_ids")
 
     @property
     @pulumi.getter(name="azureVnetSubnetIds")
     def azure_vnet_subnet_ids(self) -> Sequence[str]:
+        """
+        Snowflake Azure Virtual Network Subnet IDs
+        """
         return pulumi.get(self, "azure_vnet_subnet_ids")
 
     @property
