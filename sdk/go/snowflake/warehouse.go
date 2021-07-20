@@ -51,6 +51,8 @@ type Warehouse struct {
 	InitiallySuspended pulumi.BoolPtrOutput `pulumi:"initiallySuspended"`
 	// Specifies the maximum number of server clusters for the warehouse.
 	MaxClusterCount pulumi.IntOutput `pulumi:"maxClusterCount"`
+	// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+	MaxConcurrencyLevel pulumi.IntPtrOutput `pulumi:"maxConcurrencyLevel"`
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount pulumi.IntOutput    `pulumi:"minClusterCount"`
 	Name            pulumi.StringOutput `pulumi:"name"`
@@ -58,6 +60,8 @@ type Warehouse struct {
 	ResourceMonitor pulumi.StringOutput `pulumi:"resourceMonitor"`
 	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
 	ScalingPolicy pulumi.StringOutput `pulumi:"scalingPolicy"`
+	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+	StatementQueuedTimeoutInSeconds pulumi.IntPtrOutput `pulumi:"statementQueuedTimeoutInSeconds"`
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
 	StatementTimeoutInSeconds pulumi.IntPtrOutput `pulumi:"statementTimeoutInSeconds"`
 	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
@@ -103,6 +107,8 @@ type warehouseState struct {
 	InitiallySuspended *bool `pulumi:"initiallySuspended"`
 	// Specifies the maximum number of server clusters for the warehouse.
 	MaxClusterCount *int `pulumi:"maxClusterCount"`
+	// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+	MaxConcurrencyLevel *int `pulumi:"maxConcurrencyLevel"`
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount *int    `pulumi:"minClusterCount"`
 	Name            *string `pulumi:"name"`
@@ -110,6 +116,8 @@ type warehouseState struct {
 	ResourceMonitor *string `pulumi:"resourceMonitor"`
 	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
 	ScalingPolicy *string `pulumi:"scalingPolicy"`
+	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+	StatementQueuedTimeoutInSeconds *int `pulumi:"statementQueuedTimeoutInSeconds"`
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
 	StatementTimeoutInSeconds *int `pulumi:"statementTimeoutInSeconds"`
 	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
@@ -127,6 +135,8 @@ type WarehouseState struct {
 	InitiallySuspended pulumi.BoolPtrInput
 	// Specifies the maximum number of server clusters for the warehouse.
 	MaxClusterCount pulumi.IntPtrInput
+	// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+	MaxConcurrencyLevel pulumi.IntPtrInput
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount pulumi.IntPtrInput
 	Name            pulumi.StringPtrInput
@@ -134,6 +144,8 @@ type WarehouseState struct {
 	ResourceMonitor pulumi.StringPtrInput
 	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
 	ScalingPolicy pulumi.StringPtrInput
+	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+	StatementQueuedTimeoutInSeconds pulumi.IntPtrInput
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
 	StatementTimeoutInSeconds pulumi.IntPtrInput
 	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
@@ -155,6 +167,8 @@ type warehouseArgs struct {
 	InitiallySuspended *bool `pulumi:"initiallySuspended"`
 	// Specifies the maximum number of server clusters for the warehouse.
 	MaxClusterCount *int `pulumi:"maxClusterCount"`
+	// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+	MaxConcurrencyLevel *int `pulumi:"maxConcurrencyLevel"`
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount *int    `pulumi:"minClusterCount"`
 	Name            *string `pulumi:"name"`
@@ -162,6 +176,8 @@ type warehouseArgs struct {
 	ResourceMonitor *string `pulumi:"resourceMonitor"`
 	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
 	ScalingPolicy *string `pulumi:"scalingPolicy"`
+	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+	StatementQueuedTimeoutInSeconds *int `pulumi:"statementQueuedTimeoutInSeconds"`
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
 	StatementTimeoutInSeconds *int `pulumi:"statementTimeoutInSeconds"`
 	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
@@ -180,6 +196,8 @@ type WarehouseArgs struct {
 	InitiallySuspended pulumi.BoolPtrInput
 	// Specifies the maximum number of server clusters for the warehouse.
 	MaxClusterCount pulumi.IntPtrInput
+	// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+	MaxConcurrencyLevel pulumi.IntPtrInput
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount pulumi.IntPtrInput
 	Name            pulumi.StringPtrInput
@@ -187,6 +205,8 @@ type WarehouseArgs struct {
 	ResourceMonitor pulumi.StringPtrInput
 	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
 	ScalingPolicy pulumi.StringPtrInput
+	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+	StatementQueuedTimeoutInSeconds pulumi.IntPtrInput
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
 	StatementTimeoutInSeconds pulumi.IntPtrInput
 	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.

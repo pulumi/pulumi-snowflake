@@ -10,6 +10,49 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var table = new Snowflake.Table("table", new Snowflake.TableArgs
+    ///         {
+    ///             ClusterBies = 
+    ///             {
+    ///                 "to_date(DATE)",
+    ///             },
+    ///             Columns = 
+    ///             {
+    ///                 new Snowflake.Inputs.TableColumnArgs
+    ///                 {
+    ///                     Name = "id",
+    ///                     Type = "int",
+    ///                 },
+    ///                 new Snowflake.Inputs.TableColumnArgs
+    ///                 {
+    ///                     Name = "data",
+    ///                     Type = "text",
+    ///                 },
+    ///                 new Snowflake.Inputs.TableColumnArgs
+    ///                 {
+    ///                     Name = "DATE",
+    ///                     Type = "TIMESTAMP_NTZ(9)",
+    ///                 },
+    ///             },
+    ///             Comment = "A table.",
+    ///             Database = "database",
+    ///             Schema = "schmea",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// # format is database name | schema name | table name

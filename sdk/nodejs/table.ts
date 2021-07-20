@@ -30,7 +30,6 @@ import * as utilities from "./utilities";
  *     ],
  *     comment: "A table.",
  *     database: "database",
- *     owner: "me",
  *     schema: "schmea",
  * });
  * ```

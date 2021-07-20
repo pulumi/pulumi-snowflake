@@ -4902,7 +4902,7 @@
             }
         },
         "snowflake:index/table:Table": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst table = new snowflake.Table(\"table\", {\n    clusterBies: [\"to_date(DATE)\"],\n    columns: [\n        {\n            name: \"id\",\n            type: \"int\",\n        },\n        {\n            name: \"data\",\n            type: \"text\",\n        },\n        {\n            name: \"DATE\",\n            type: \"TIMESTAMP_NTZ(9)\",\n        },\n    ],\n    comment: \"A table.\",\n    database: \"database\",\n    owner: \"me\",\n    schema: \"schmea\",\n});\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | table name\n\n```sh\n $ pulumi import snowflake:index/table:Table example 'databaseName|schemaName|tableName'\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst table = new snowflake.Table(\"table\", {\n    clusterBies: [\"to_date(DATE)\"],\n    columns: [\n        {\n            name: \"id\",\n            type: \"int\",\n        },\n        {\n            name: \"data\",\n            type: \"text\",\n        },\n        {\n            name: \"DATE\",\n            type: \"TIMESTAMP_NTZ(9)\",\n        },\n    ],\n    comment: \"A table.\",\n    database: \"database\",\n    schema: \"schmea\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ntable = snowflake.Table(\"table\",\n    cluster_bies=[\"to_date(DATE)\"],\n    columns=[\n        snowflake.TableColumnArgs(\n            name=\"id\",\n            type=\"int\",\n        ),\n        snowflake.TableColumnArgs(\n            name=\"data\",\n            type=\"text\",\n        ),\n        snowflake.TableColumnArgs(\n            name=\"DATE\",\n            type=\"TIMESTAMP_NTZ(9)\",\n        ),\n    ],\n    comment=\"A table.\",\n    database=\"database\",\n    schema=\"schmea\")\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var table = new Snowflake.Table(\"table\", new Snowflake.TableArgs\n        {\n            ClusterBies = \n            {\n                \"to_date(DATE)\",\n            },\n            Columns = \n            {\n                new Snowflake.Inputs.TableColumnArgs\n                {\n                    Name = \"id\",\n                    Type = \"int\",\n                },\n                new Snowflake.Inputs.TableColumnArgs\n                {\n                    Name = \"data\",\n                    Type = \"text\",\n                },\n                new Snowflake.Inputs.TableColumnArgs\n                {\n                    Name = \"DATE\",\n                    Type = \"TIMESTAMP_NTZ(9)\",\n                },\n            },\n            Comment = \"A table.\",\n            Database = \"database\",\n            Schema = \"schmea\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewTable(ctx, \"table\", \u0026snowflake.TableArgs{\n\t\t\tClusterBies: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"to_date(DATE)\"),\n\t\t\t},\n\t\t\tColumns: TableColumnArray{\n\t\t\t\t\u0026TableColumnArgs{\n\t\t\t\t\tName: pulumi.String(\"id\"),\n\t\t\t\t\tType: pulumi.String(\"int\"),\n\t\t\t\t},\n\t\t\t\t\u0026TableColumnArgs{\n\t\t\t\t\tName: pulumi.String(\"data\"),\n\t\t\t\t\tType: pulumi.String(\"text\"),\n\t\t\t\t},\n\t\t\t\t\u0026TableColumnArgs{\n\t\t\t\t\tName: pulumi.String(\"DATE\"),\n\t\t\t\t\tType: pulumi.String(\"TIMESTAMP_NTZ(9)\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tComment:  pulumi.String(\"A table.\"),\n\t\t\tDatabase: pulumi.String(\"database\"),\n\t\t\tSchema:   pulumi.String(\"schmea\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | table name\n\n```sh\n $ pulumi import snowflake:index/table:Table example 'databaseName|schemaName|tableName'\n```\n\n ",
             "properties": {
                 "clusterBies": {
                     "type": "array",
@@ -5853,6 +5853,10 @@
                     "type": "integer",
                     "description": "Specifies the maximum number of server clusters for the warehouse.\n"
                 },
+                "maxConcurrencyLevel": {
+                    "type": "integer",
+                    "description": "Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.\n"
+                },
                 "minClusterCount": {
                     "type": "integer",
                     "description": "Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).\n"
@@ -5867,6 +5871,10 @@
                 "scalingPolicy": {
                     "type": "string",
                     "description": "Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.\n"
+                },
+                "statementQueuedTimeoutInSeconds": {
+                    "type": "integer",
+                    "description": "Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.\n"
                 },
                 "statementTimeoutInSeconds": {
                     "type": "integer",
@@ -5910,6 +5918,10 @@
                     "type": "integer",
                     "description": "Specifies the maximum number of server clusters for the warehouse.\n"
                 },
+                "maxConcurrencyLevel": {
+                    "type": "integer",
+                    "description": "Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.\n"
+                },
                 "minClusterCount": {
                     "type": "integer",
                     "description": "Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).\n"
@@ -5924,6 +5936,10 @@
                 "scalingPolicy": {
                     "type": "string",
                     "description": "Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.\n"
+                },
+                "statementQueuedTimeoutInSeconds": {
+                    "type": "integer",
+                    "description": "Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.\n"
                 },
                 "statementTimeoutInSeconds": {
                     "type": "integer",
@@ -5959,6 +5975,10 @@
                         "type": "integer",
                         "description": "Specifies the maximum number of server clusters for the warehouse.\n"
                     },
+                    "maxConcurrencyLevel": {
+                        "type": "integer",
+                        "description": "Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.\n"
+                    },
                     "minClusterCount": {
                         "type": "integer",
                         "description": "Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).\n"
@@ -5973,6 +5993,10 @@
                     "scalingPolicy": {
                         "type": "string",
                         "description": "Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.\n"
+                    },
+                    "statementQueuedTimeoutInSeconds": {
+                        "type": "integer",
+                        "description": "Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.\n"
                     },
                     "statementTimeoutInSeconds": {
                         "type": "integer",
@@ -6223,13 +6247,15 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "Snowflake AWS Virtual Private Cloud IDs\n"
                     },
                     "azureVnetSubnetIds": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "Snowflake Azure Virtual Network Subnet IDs\n"
                     },
                     "id": {
                         "type": "string",

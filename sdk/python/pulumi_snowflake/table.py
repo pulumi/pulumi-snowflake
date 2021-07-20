@@ -246,6 +246,33 @@ class Table(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        table = snowflake.Table("table",
+            cluster_bies=["to_date(DATE)"],
+            columns=[
+                snowflake.TableColumnArgs(
+                    name="id",
+                    type="int",
+                ),
+                snowflake.TableColumnArgs(
+                    name="data",
+                    type="text",
+                ),
+                snowflake.TableColumnArgs(
+                    name="DATE",
+                    type="TIMESTAMP_NTZ(9)",
+                ),
+            ],
+            comment="A table.",
+            database="database",
+            schema="schmea")
+        ```
+
         ## Import
 
         # format is database name | schema name | table name
@@ -270,6 +297,33 @@ class Table(pulumi.CustomResource):
                  args: TableArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        table = snowflake.Table("table",
+            cluster_bies=["to_date(DATE)"],
+            columns=[
+                snowflake.TableColumnArgs(
+                    name="id",
+                    type="int",
+                ),
+                snowflake.TableColumnArgs(
+                    name="data",
+                    type="text",
+                ),
+                snowflake.TableColumnArgs(
+                    name="DATE",
+                    type="TIMESTAMP_NTZ(9)",
+                ),
+            ],
+            comment="A table.",
+            database="database",
+            schema="schmea")
+        ```
+
         ## Import
 
         # format is database name | schema name | table name

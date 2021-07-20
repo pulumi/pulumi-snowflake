@@ -69,6 +69,10 @@ export class Warehouse extends pulumi.CustomResource {
      */
     public readonly maxClusterCount!: pulumi.Output<number>;
     /**
+     * Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+     */
+    public readonly maxConcurrencyLevel!: pulumi.Output<number | undefined>;
+    /**
      * Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
      */
     public readonly minClusterCount!: pulumi.Output<number>;
@@ -81,6 +85,10 @@ export class Warehouse extends pulumi.CustomResource {
      * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
      */
     public readonly scalingPolicy!: pulumi.Output<string>;
+    /**
+     * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+     */
+    public readonly statementQueuedTimeoutInSeconds!: pulumi.Output<number | undefined>;
     /**
      * Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
      */
@@ -109,10 +117,12 @@ export class Warehouse extends pulumi.CustomResource {
             inputs["comment"] = state ? state.comment : undefined;
             inputs["initiallySuspended"] = state ? state.initiallySuspended : undefined;
             inputs["maxClusterCount"] = state ? state.maxClusterCount : undefined;
+            inputs["maxConcurrencyLevel"] = state ? state.maxConcurrencyLevel : undefined;
             inputs["minClusterCount"] = state ? state.minClusterCount : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceMonitor"] = state ? state.resourceMonitor : undefined;
             inputs["scalingPolicy"] = state ? state.scalingPolicy : undefined;
+            inputs["statementQueuedTimeoutInSeconds"] = state ? state.statementQueuedTimeoutInSeconds : undefined;
             inputs["statementTimeoutInSeconds"] = state ? state.statementTimeoutInSeconds : undefined;
             inputs["waitForProvisioning"] = state ? state.waitForProvisioning : undefined;
             inputs["warehouseSize"] = state ? state.warehouseSize : undefined;
@@ -123,10 +133,12 @@ export class Warehouse extends pulumi.CustomResource {
             inputs["comment"] = args ? args.comment : undefined;
             inputs["initiallySuspended"] = args ? args.initiallySuspended : undefined;
             inputs["maxClusterCount"] = args ? args.maxClusterCount : undefined;
+            inputs["maxConcurrencyLevel"] = args ? args.maxConcurrencyLevel : undefined;
             inputs["minClusterCount"] = args ? args.minClusterCount : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceMonitor"] = args ? args.resourceMonitor : undefined;
             inputs["scalingPolicy"] = args ? args.scalingPolicy : undefined;
+            inputs["statementQueuedTimeoutInSeconds"] = args ? args.statementQueuedTimeoutInSeconds : undefined;
             inputs["statementTimeoutInSeconds"] = args ? args.statementTimeoutInSeconds : undefined;
             inputs["waitForProvisioning"] = args ? args.waitForProvisioning : undefined;
             inputs["warehouseSize"] = args ? args.warehouseSize : undefined;
@@ -160,6 +172,10 @@ export interface WarehouseState {
      */
     maxClusterCount?: pulumi.Input<number>;
     /**
+     * Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+     */
+    maxConcurrencyLevel?: pulumi.Input<number>;
+    /**
      * Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
      */
     minClusterCount?: pulumi.Input<number>;
@@ -172,6 +188,10 @@ export interface WarehouseState {
      * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
      */
     scalingPolicy?: pulumi.Input<string>;
+    /**
+     * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+     */
+    statementQueuedTimeoutInSeconds?: pulumi.Input<number>;
     /**
      * Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
      */
@@ -205,6 +225,10 @@ export interface WarehouseArgs {
      */
     maxClusterCount?: pulumi.Input<number>;
     /**
+     * Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+     */
+    maxConcurrencyLevel?: pulumi.Input<number>;
+    /**
      * Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
      */
     minClusterCount?: pulumi.Input<number>;
@@ -217,6 +241,10 @@ export interface WarehouseArgs {
      * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
      */
     scalingPolicy?: pulumi.Input<string>;
+    /**
+     * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+     */
+    statementQueuedTimeoutInSeconds?: pulumi.Input<number>;
     /**
      * Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
      */
