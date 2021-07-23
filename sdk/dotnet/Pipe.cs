@@ -52,6 +52,12 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the name of the notification integration used for error notifications.
+        /// </summary>
+        [Output("errorIntegration")]
+        public Output<string?> ErrorIntegration { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies an integration for the pipe.
         /// </summary>
         [Output("integration")]
@@ -158,6 +164,12 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
+        /// Specifies the name of the notification integration used for error notifications.
+        /// </summary>
+        [Input("errorIntegration")]
+        public Input<string>? ErrorIntegration { get; set; }
+
+        /// <summary>
         /// Specifies an integration for the pipe.
         /// </summary>
         [Input("integration")]
@@ -211,6 +223,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
+
+        /// <summary>
+        /// Specifies the name of the notification integration used for error notifications.
+        /// </summary>
+        [Input("errorIntegration")]
+        public Input<string>? ErrorIntegration { get; set; }
 
         /// <summary>
         /// Specifies an integration for the pipe.

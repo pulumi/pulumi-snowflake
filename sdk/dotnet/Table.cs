@@ -31,11 +31,13 @@ namespace Pulumi.Snowflake
     ///                 new Snowflake.Inputs.TableColumnArgs
     ///                 {
     ///                     Name = "id",
+    ///                     Nullable = true,
     ///                     Type = "int",
     ///                 },
     ///                 new Snowflake.Inputs.TableColumnArgs
     ///                 {
     ///                     Name = "data",
+    ///                     Nullable = false,
     ///                     Type = "text",
     ///                 },
     ///                 new Snowflake.Inputs.TableColumnArgs
@@ -46,6 +48,14 @@ namespace Pulumi.Snowflake
     ///             },
     ///             Comment = "A table.",
     ///             Database = "database",
+    ///             PrimaryKey = new Snowflake.Inputs.TablePrimaryKeyArgs
+    ///             {
+    ///                 Keys = 
+    ///                 {
+    ///                     "data",
+    ///                 },
+    ///                 Name = "my_key",
+    ///             },
     ///             Schema = "schmea",
     ///         });
     ///     }
@@ -65,7 +75,7 @@ namespace Pulumi.Snowflake
     public partial class Table : Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of one of more table columns/expressions to be used as clustering key(s) for the table
+        /// A list of one or more table columns/expressions to be used as clustering key(s) for the table
         /// </summary>
         [Output("clusterBies")]
         public Output<ImmutableArray<string>> ClusterBies { get; private set; } = null!;
@@ -99,6 +109,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("owner")]
         public Output<string> Owner { get; private set; } = null!;
+
+        /// <summary>
+        /// Definitions of primary key constraint to create on table
+        /// </summary>
+        [Output("primaryKey")]
+        public Output<Outputs.TablePrimaryKey?> PrimaryKey { get; private set; } = null!;
 
         /// <summary>
         /// The schema in which to create the table.
@@ -156,7 +172,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _clusterBies;
 
         /// <summary>
-        /// A list of one of more table columns/expressions to be used as clustering key(s) for the table
+        /// A list of one or more table columns/expressions to be used as clustering key(s) for the table
         /// </summary>
         public InputList<string> ClusterBies
         {
@@ -195,6 +211,12 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Definitions of primary key constraint to create on table
+        /// </summary>
+        [Input("primaryKey")]
+        public Input<Inputs.TablePrimaryKeyArgs>? PrimaryKey { get; set; }
+
+        /// <summary>
         /// The schema in which to create the table.
         /// </summary>
         [Input("schema", required: true)]
@@ -211,7 +233,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _clusterBies;
 
         /// <summary>
-        /// A list of one of more table columns/expressions to be used as clustering key(s) for the table
+        /// A list of one or more table columns/expressions to be used as clustering key(s) for the table
         /// </summary>
         public InputList<string> ClusterBies
         {
@@ -254,6 +276,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }
+
+        /// <summary>
+        /// Definitions of primary key constraint to create on table
+        /// </summary>
+        [Input("primaryKey")]
+        public Input<Inputs.TablePrimaryKeyGetArgs>? PrimaryKey { get; set; }
 
         /// <summary>
         /// The schema in which to create the table.

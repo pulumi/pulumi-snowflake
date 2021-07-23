@@ -19,6 +19,7 @@ class PipeArgs:
                  auto_ingest: Optional[pulumi.Input[bool]] = None,
                  aws_sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
+                 error_integration: Optional[pulumi.Input[str]] = None,
                  integration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
@@ -29,6 +30,7 @@ class PipeArgs:
         :param pulumi.Input[bool] auto_ingest: Specifies a auto_ingest param for the pipe.
         :param pulumi.Input[str] aws_sns_topic_arn: Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
         :param pulumi.Input[str] comment: Specifies a comment for the pipe.
+        :param pulumi.Input[str] error_integration: Specifies the name of the notification integration used for error notifications.
         :param pulumi.Input[str] integration: Specifies an integration for the pipe.
         :param pulumi.Input[str] name: Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
         """
@@ -41,6 +43,8 @@ class PipeArgs:
             pulumi.set(__self__, "aws_sns_topic_arn", aws_sns_topic_arn)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if error_integration is not None:
+            pulumi.set(__self__, "error_integration", error_integration)
         if integration is not None:
             pulumi.set(__self__, "integration", integration)
         if name is not None:
@@ -119,6 +123,18 @@ class PipeArgs:
         pulumi.set(self, "comment", value)
 
     @property
+    @pulumi.getter(name="errorIntegration")
+    def error_integration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the notification integration used for error notifications.
+        """
+        return pulumi.get(self, "error_integration")
+
+    @error_integration.setter
+    def error_integration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_integration", value)
+
+    @property
     @pulumi.getter
     def integration(self) -> Optional[pulumi.Input[str]]:
         """
@@ -151,6 +167,7 @@ class _PipeState:
                  comment: Optional[pulumi.Input[str]] = None,
                  copy_statement: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 error_integration: Optional[pulumi.Input[str]] = None,
                  integration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_channel: Optional[pulumi.Input[str]] = None,
@@ -163,6 +180,7 @@ class _PipeState:
         :param pulumi.Input[str] comment: Specifies a comment for the pipe.
         :param pulumi.Input[str] copy_statement: Specifies the copy statement for the pipe.
         :param pulumi.Input[str] database: The database in which to create the pipe.
+        :param pulumi.Input[str] error_integration: Specifies the name of the notification integration used for error notifications.
         :param pulumi.Input[str] integration: Specifies an integration for the pipe.
         :param pulumi.Input[str] name: Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
         :param pulumi.Input[str] notification_channel: Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
@@ -179,6 +197,8 @@ class _PipeState:
             pulumi.set(__self__, "copy_statement", copy_statement)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if error_integration is not None:
+            pulumi.set(__self__, "error_integration", error_integration)
         if integration is not None:
             pulumi.set(__self__, "integration", integration)
         if name is not None:
@@ -251,6 +271,18 @@ class _PipeState:
         pulumi.set(self, "database", value)
 
     @property
+    @pulumi.getter(name="errorIntegration")
+    def error_integration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the notification integration used for error notifications.
+        """
+        return pulumi.get(self, "error_integration")
+
+    @error_integration.setter
+    def error_integration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_integration", value)
+
+    @property
     @pulumi.getter
     def integration(self) -> Optional[pulumi.Input[str]]:
         """
@@ -321,6 +353,7 @@ class Pipe(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[str]] = None,
                  copy_statement: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 error_integration: Optional[pulumi.Input[str]] = None,
                  integration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
@@ -341,6 +374,7 @@ class Pipe(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the pipe.
         :param pulumi.Input[str] copy_statement: Specifies the copy statement for the pipe.
         :param pulumi.Input[str] database: The database in which to create the pipe.
+        :param pulumi.Input[str] error_integration: Specifies the name of the notification integration used for error notifications.
         :param pulumi.Input[str] integration: Specifies an integration for the pipe.
         :param pulumi.Input[str] name: Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
         :param pulumi.Input[str] schema: The schema in which to create the pipe.
@@ -380,6 +414,7 @@ class Pipe(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[str]] = None,
                  copy_statement: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 error_integration: Optional[pulumi.Input[str]] = None,
                  integration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
@@ -404,6 +439,7 @@ class Pipe(pulumi.CustomResource):
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
+            __props__.__dict__["error_integration"] = error_integration
             __props__.__dict__["integration"] = integration
             __props__.__dict__["name"] = name
             if schema is None and not opts.urn:
@@ -426,6 +462,7 @@ class Pipe(pulumi.CustomResource):
             comment: Optional[pulumi.Input[str]] = None,
             copy_statement: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
+            error_integration: Optional[pulumi.Input[str]] = None,
             integration: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             notification_channel: Optional[pulumi.Input[str]] = None,
@@ -443,6 +480,7 @@ class Pipe(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the pipe.
         :param pulumi.Input[str] copy_statement: Specifies the copy statement for the pipe.
         :param pulumi.Input[str] database: The database in which to create the pipe.
+        :param pulumi.Input[str] error_integration: Specifies the name of the notification integration used for error notifications.
         :param pulumi.Input[str] integration: Specifies an integration for the pipe.
         :param pulumi.Input[str] name: Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
         :param pulumi.Input[str] notification_channel: Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
@@ -458,6 +496,7 @@ class Pipe(pulumi.CustomResource):
         __props__.__dict__["comment"] = comment
         __props__.__dict__["copy_statement"] = copy_statement
         __props__.__dict__["database"] = database
+        __props__.__dict__["error_integration"] = error_integration
         __props__.__dict__["integration"] = integration
         __props__.__dict__["name"] = name
         __props__.__dict__["notification_channel"] = notification_channel
@@ -504,6 +543,14 @@ class Pipe(pulumi.CustomResource):
         The database in which to create the pipe.
         """
         return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="errorIntegration")
+    def error_integration(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the name of the notification integration used for error notifications.
+        """
+        return pulumi.get(self, "error_integration")
 
     @property
     @pulumi.getter

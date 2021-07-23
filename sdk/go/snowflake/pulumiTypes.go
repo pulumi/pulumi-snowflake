@@ -552,6 +552,8 @@ func (o ProcedureGrantArgumentArrayOutput) Index(i pulumi.IntInput) ProcedureGra
 type TableColumn struct {
 	// Column name
 	Name string `pulumi:"name"`
+	// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+	Nullable *bool `pulumi:"nullable"`
 	// Column type, e.g. VARIANT
 	Type string `pulumi:"type"`
 }
@@ -570,6 +572,8 @@ type TableColumnInput interface {
 type TableColumnArgs struct {
 	// Column name
 	Name pulumi.StringInput `pulumi:"name"`
+	// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+	Nullable pulumi.BoolPtrInput `pulumi:"nullable"`
 	// Column type, e.g. VARIANT
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -630,6 +634,11 @@ func (o TableColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TableColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+func (o TableColumnOutput) Nullable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TableColumn) *bool { return v.Nullable }).(pulumi.BoolPtrOutput)
+}
+
 // Column type, e.g. VARIANT
 func (o TableColumnOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TableColumn) string { return v.Type }).(pulumi.StringOutput)
@@ -655,6 +664,156 @@ func (o TableColumnArrayOutput) Index(i pulumi.IntInput) TableColumnOutput {
 	}).(TableColumnOutput)
 }
 
+type TablePrimaryKey struct {
+	// Columns to use in primary key
+	Keys []string `pulumi:"keys"`
+	// Name of constraint
+	Name *string `pulumi:"name"`
+}
+
+// TablePrimaryKeyInput is an input type that accepts TablePrimaryKeyArgs and TablePrimaryKeyOutput values.
+// You can construct a concrete instance of `TablePrimaryKeyInput` via:
+//
+//          TablePrimaryKeyArgs{...}
+type TablePrimaryKeyInput interface {
+	pulumi.Input
+
+	ToTablePrimaryKeyOutput() TablePrimaryKeyOutput
+	ToTablePrimaryKeyOutputWithContext(context.Context) TablePrimaryKeyOutput
+}
+
+type TablePrimaryKeyArgs struct {
+	// Columns to use in primary key
+	Keys pulumi.StringArrayInput `pulumi:"keys"`
+	// Name of constraint
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (TablePrimaryKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablePrimaryKey)(nil)).Elem()
+}
+
+func (i TablePrimaryKeyArgs) ToTablePrimaryKeyOutput() TablePrimaryKeyOutput {
+	return i.ToTablePrimaryKeyOutputWithContext(context.Background())
+}
+
+func (i TablePrimaryKeyArgs) ToTablePrimaryKeyOutputWithContext(ctx context.Context) TablePrimaryKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablePrimaryKeyOutput)
+}
+
+func (i TablePrimaryKeyArgs) ToTablePrimaryKeyPtrOutput() TablePrimaryKeyPtrOutput {
+	return i.ToTablePrimaryKeyPtrOutputWithContext(context.Background())
+}
+
+func (i TablePrimaryKeyArgs) ToTablePrimaryKeyPtrOutputWithContext(ctx context.Context) TablePrimaryKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablePrimaryKeyOutput).ToTablePrimaryKeyPtrOutputWithContext(ctx)
+}
+
+// TablePrimaryKeyPtrInput is an input type that accepts TablePrimaryKeyArgs, TablePrimaryKeyPtr and TablePrimaryKeyPtrOutput values.
+// You can construct a concrete instance of `TablePrimaryKeyPtrInput` via:
+//
+//          TablePrimaryKeyArgs{...}
+//
+//  or:
+//
+//          nil
+type TablePrimaryKeyPtrInput interface {
+	pulumi.Input
+
+	ToTablePrimaryKeyPtrOutput() TablePrimaryKeyPtrOutput
+	ToTablePrimaryKeyPtrOutputWithContext(context.Context) TablePrimaryKeyPtrOutput
+}
+
+type tablePrimaryKeyPtrType TablePrimaryKeyArgs
+
+func TablePrimaryKeyPtr(v *TablePrimaryKeyArgs) TablePrimaryKeyPtrInput {
+	return (*tablePrimaryKeyPtrType)(v)
+}
+
+func (*tablePrimaryKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablePrimaryKey)(nil)).Elem()
+}
+
+func (i *tablePrimaryKeyPtrType) ToTablePrimaryKeyPtrOutput() TablePrimaryKeyPtrOutput {
+	return i.ToTablePrimaryKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *tablePrimaryKeyPtrType) ToTablePrimaryKeyPtrOutputWithContext(ctx context.Context) TablePrimaryKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablePrimaryKeyPtrOutput)
+}
+
+type TablePrimaryKeyOutput struct{ *pulumi.OutputState }
+
+func (TablePrimaryKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablePrimaryKey)(nil)).Elem()
+}
+
+func (o TablePrimaryKeyOutput) ToTablePrimaryKeyOutput() TablePrimaryKeyOutput {
+	return o
+}
+
+func (o TablePrimaryKeyOutput) ToTablePrimaryKeyOutputWithContext(ctx context.Context) TablePrimaryKeyOutput {
+	return o
+}
+
+func (o TablePrimaryKeyOutput) ToTablePrimaryKeyPtrOutput() TablePrimaryKeyPtrOutput {
+	return o.ToTablePrimaryKeyPtrOutputWithContext(context.Background())
+}
+
+func (o TablePrimaryKeyOutput) ToTablePrimaryKeyPtrOutputWithContext(ctx context.Context) TablePrimaryKeyPtrOutput {
+	return o.ApplyT(func(v TablePrimaryKey) *TablePrimaryKey {
+		return &v
+	}).(TablePrimaryKeyPtrOutput)
+}
+
+// Columns to use in primary key
+func (o TablePrimaryKeyOutput) Keys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TablePrimaryKey) []string { return v.Keys }).(pulumi.StringArrayOutput)
+}
+
+// Name of constraint
+func (o TablePrimaryKeyOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TablePrimaryKey) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type TablePrimaryKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (TablePrimaryKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablePrimaryKey)(nil)).Elem()
+}
+
+func (o TablePrimaryKeyPtrOutput) ToTablePrimaryKeyPtrOutput() TablePrimaryKeyPtrOutput {
+	return o
+}
+
+func (o TablePrimaryKeyPtrOutput) ToTablePrimaryKeyPtrOutputWithContext(ctx context.Context) TablePrimaryKeyPtrOutput {
+	return o
+}
+
+func (o TablePrimaryKeyPtrOutput) Elem() TablePrimaryKeyOutput {
+	return o.ApplyT(func(v *TablePrimaryKey) TablePrimaryKey { return *v }).(TablePrimaryKeyOutput)
+}
+
+// Columns to use in primary key
+func (o TablePrimaryKeyPtrOutput) Keys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TablePrimaryKey) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Keys
+	}).(pulumi.StringArrayOutput)
+}
+
+// Name of constraint
+func (o TablePrimaryKeyPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TablePrimaryKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExternalFunctionArgOutput{})
 	pulumi.RegisterOutputType(ExternalFunctionArgArrayOutput{})
@@ -668,4 +827,6 @@ func init() {
 	pulumi.RegisterOutputType(ProcedureGrantArgumentArrayOutput{})
 	pulumi.RegisterOutputType(TableColumnOutput{})
 	pulumi.RegisterOutputType(TableColumnArrayOutput{})
+	pulumi.RegisterOutputType(TablePrimaryKeyOutput{})
+	pulumi.RegisterOutputType(TablePrimaryKeyPtrOutput{})
 }

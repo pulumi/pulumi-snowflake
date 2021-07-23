@@ -15,6 +15,7 @@ __all__ = [
     'FunctionGrantArgumentArgs',
     'ProcedureGrantArgumentArgs',
     'TableColumnArgs',
+    'TablePrimaryKeyArgs',
 ]
 
 @pulumi.input_type
@@ -221,13 +222,17 @@ class ProcedureGrantArgumentArgs:
 class TableColumnArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[str],
+                 nullable: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] name: Column name
         :param pulumi.Input[str] type: Column type, e.g. VARIANT
+        :param pulumi.Input[bool] nullable: Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
+        if nullable is not None:
+            pulumi.set(__self__, "nullable", nullable)
 
     @property
     @pulumi.getter
@@ -252,5 +257,55 @@ class TableColumnArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def nullable(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+        """
+        return pulumi.get(self, "nullable")
+
+    @nullable.setter
+    def nullable(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "nullable", value)
+
+
+@pulumi.input_type
+class TablePrimaryKeyArgs:
+    def __init__(__self__, *,
+                 keys: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] keys: Columns to use in primary key
+        :param pulumi.Input[str] name: Name of constraint
+        """
+        pulumi.set(__self__, "keys", keys)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def keys(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Columns to use in primary key
+        """
+        return pulumi.get(self, "keys")
+
+    @keys.setter
+    def keys(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "keys", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of constraint
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 

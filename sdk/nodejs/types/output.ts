@@ -69,8 +69,23 @@ export interface TableColumn {
      */
     name: string;
     /**
+     * Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+     */
+    nullable?: boolean;
+    /**
      * Column type, e.g. VARIANT
      */
     type: string;
+}
+
+export interface TablePrimaryKey {
+    /**
+     * Columns to use in primary key
+     */
+    keys: string[];
+    /**
+     * Name of constraint
+     */
+    name?: string;
 }
 

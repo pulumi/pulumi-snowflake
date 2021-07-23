@@ -18,6 +18,10 @@ namespace Pulumi.Snowflake.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+        /// </summary>
+        public readonly bool? Nullable;
+        /// <summary>
         /// Column type, e.g. VARIANT
         /// </summary>
         public readonly string Type;
@@ -26,9 +30,12 @@ namespace Pulumi.Snowflake.Outputs
         private TableColumn(
             string name,
 
+            bool? nullable,
+
             string type)
         {
             Name = name;
+            Nullable = nullable;
             Type = type;
         }
     }

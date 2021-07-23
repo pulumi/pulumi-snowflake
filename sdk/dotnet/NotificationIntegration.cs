@@ -13,16 +13,34 @@ namespace Pulumi.Snowflake
     public partial class NotificationIntegration : Pulumi.CustomResource
     {
         /// <summary>
+        /// AWS SQS queue ARN for notification integration to connect to
+        /// </summary>
+        [Output("awsSqsArn")]
+        public Output<string?> AwsSqsArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The external ID that Snowflake will use when assuming the AWS role
+        /// </summary>
+        [Output("awsSqsExternalId")]
+        public Output<string?> AwsSqsExternalId { get; private set; } = null!;
+
+        /// <summary>
+        /// AWS IAM role ARN for notification integration to assume
+        /// </summary>
+        [Output("awsSqsRoleArn")]
+        public Output<string?> AwsSqsRoleArn { get; private set; } = null!;
+
+        /// <summary>
         /// The queue ID for the Azure Queue Storage queue created for Event Grid notifications
         /// </summary>
         [Output("azureStorageQueuePrimaryUri")]
-        public Output<string> AzureStorageQueuePrimaryUri { get; private set; } = null!;
+        public Output<string?> AzureStorageQueuePrimaryUri { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Azure Active Directory tenant used for identity management
         /// </summary>
         [Output("azureTenantId")]
-        public Output<string> AzureTenantId { get; private set; } = null!;
+        public Output<string?> AzureTenantId { get; private set; } = null!;
 
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
@@ -33,14 +51,26 @@ namespace Pulumi.Snowflake
         [Output("createdOn")]
         public Output<string> CreatedOn { get; private set; } = null!;
 
+        /// <summary>
+        /// Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
+        /// </summary>
+        [Output("direction")]
+        public Output<string?> Direction { get; private set; } = null!;
+
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
+        /// </summary>
+        [Output("gcpPubsubSubscriptionName")]
+        public Output<string?> GcpPubsubSubscriptionName { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE)
+        /// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
         /// </summary>
         [Output("notificationProvider")]
         public Output<string?> NotificationProvider { get; private set; } = null!;
@@ -59,7 +89,7 @@ namespace Pulumi.Snowflake
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public NotificationIntegration(string name, NotificationIntegrationArgs args, CustomResourceOptions? options = null)
+        public NotificationIntegration(string name, NotificationIntegrationArgs? args = null, CustomResourceOptions? options = null)
             : base("snowflake:index/notificationIntegration:NotificationIntegration", name, args ?? new NotificationIntegrationArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -98,28 +128,58 @@ namespace Pulumi.Snowflake
     public sealed class NotificationIntegrationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// AWS SQS queue ARN for notification integration to connect to
+        /// </summary>
+        [Input("awsSqsArn")]
+        public Input<string>? AwsSqsArn { get; set; }
+
+        /// <summary>
+        /// The external ID that Snowflake will use when assuming the AWS role
+        /// </summary>
+        [Input("awsSqsExternalId")]
+        public Input<string>? AwsSqsExternalId { get; set; }
+
+        /// <summary>
+        /// AWS IAM role ARN for notification integration to assume
+        /// </summary>
+        [Input("awsSqsRoleArn")]
+        public Input<string>? AwsSqsRoleArn { get; set; }
+
+        /// <summary>
         /// The queue ID for the Azure Queue Storage queue created for Event Grid notifications
         /// </summary>
-        [Input("azureStorageQueuePrimaryUri", required: true)]
-        public Input<string> AzureStorageQueuePrimaryUri { get; set; } = null!;
+        [Input("azureStorageQueuePrimaryUri")]
+        public Input<string>? AzureStorageQueuePrimaryUri { get; set; }
 
         /// <summary>
         /// The ID of the Azure Active Directory tenant used for identity management
         /// </summary>
-        [Input("azureTenantId", required: true)]
-        public Input<string> AzureTenantId { get; set; } = null!;
+        [Input("azureTenantId")]
+        public Input<string>? AzureTenantId { get; set; }
 
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        /// <summary>
+        /// Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
+        /// </summary>
+        [Input("direction")]
+        public Input<string>? Direction { get; set; }
+
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
+        /// </summary>
+        [Input("gcpPubsubSubscriptionName")]
+        public Input<string>? GcpPubsubSubscriptionName { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE)
+        /// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
         /// </summary>
         [Input("notificationProvider")]
         public Input<string>? NotificationProvider { get; set; }
@@ -137,6 +197,24 @@ namespace Pulumi.Snowflake
 
     public sealed class NotificationIntegrationState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// AWS SQS queue ARN for notification integration to connect to
+        /// </summary>
+        [Input("awsSqsArn")]
+        public Input<string>? AwsSqsArn { get; set; }
+
+        /// <summary>
+        /// The external ID that Snowflake will use when assuming the AWS role
+        /// </summary>
+        [Input("awsSqsExternalId")]
+        public Input<string>? AwsSqsExternalId { get; set; }
+
+        /// <summary>
+        /// AWS IAM role ARN for notification integration to assume
+        /// </summary>
+        [Input("awsSqsRoleArn")]
+        public Input<string>? AwsSqsRoleArn { get; set; }
+
         /// <summary>
         /// The queue ID for the Azure Queue Storage queue created for Event Grid notifications
         /// </summary>
@@ -158,14 +236,26 @@ namespace Pulumi.Snowflake
         [Input("createdOn")]
         public Input<string>? CreatedOn { get; set; }
 
+        /// <summary>
+        /// Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
+        /// </summary>
+        [Input("direction")]
+        public Input<string>? Direction { get; set; }
+
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
+        /// </summary>
+        [Input("gcpPubsubSubscriptionName")]
+        public Input<string>? GcpPubsubSubscriptionName { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE)
+        /// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
         /// </summary>
         [Input("notificationProvider")]
         public Input<string>? NotificationProvider { get; set; }

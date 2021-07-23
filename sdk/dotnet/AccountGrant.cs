@@ -37,10 +37,10 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// # format is account name | privilege | true/false for with_grant_option
+    /// # format is account name | | | privilege | true/false for with_grant_option
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/accountGrant:AccountGrant example 'accountName|USAGE|true'
+    ///  $ pulumi import snowflake:index/accountGrant:AccountGrant example 'accountName|||USAGE|true'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/accountGrant:AccountGrant")]

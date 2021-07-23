@@ -80,6 +80,10 @@ export class Pipe extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
+     * Specifies the name of the notification integration used for error notifications.
+     */
+    public readonly errorIntegration!: pulumi.Output<string | undefined>;
+    /**
      * Specifies an integration for the pipe.
      */
     public readonly integration!: pulumi.Output<string | undefined>;
@@ -118,6 +122,7 @@ export class Pipe extends pulumi.CustomResource {
             inputs["comment"] = state ? state.comment : undefined;
             inputs["copyStatement"] = state ? state.copyStatement : undefined;
             inputs["database"] = state ? state.database : undefined;
+            inputs["errorIntegration"] = state ? state.errorIntegration : undefined;
             inputs["integration"] = state ? state.integration : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["notificationChannel"] = state ? state.notificationChannel : undefined;
@@ -139,6 +144,7 @@ export class Pipe extends pulumi.CustomResource {
             inputs["comment"] = args ? args.comment : undefined;
             inputs["copyStatement"] = args ? args.copyStatement : undefined;
             inputs["database"] = args ? args.database : undefined;
+            inputs["errorIntegration"] = args ? args.errorIntegration : undefined;
             inputs["integration"] = args ? args.integration : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["schema"] = args ? args.schema : undefined;
@@ -176,6 +182,10 @@ export interface PipeState {
      * The database in which to create the pipe.
      */
     database?: pulumi.Input<string>;
+    /**
+     * Specifies the name of the notification integration used for error notifications.
+     */
+    errorIntegration?: pulumi.Input<string>;
     /**
      * Specifies an integration for the pipe.
      */
@@ -222,6 +232,10 @@ export interface PipeArgs {
      * The database in which to create the pipe.
      */
     database: pulumi.Input<string>;
+    /**
+     * Specifies the name of the notification integration used for error notifications.
+     */
+    errorIntegration?: pulumi.Input<string>;
     /**
      * Specifies an integration for the pipe.
      */
