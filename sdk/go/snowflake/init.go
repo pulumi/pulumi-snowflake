@@ -60,6 +60,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NotificationIntegration{}
 	case "snowflake:index/pipe:Pipe":
 		r = &Pipe{}
+	case "snowflake:index/pipeGrant:PipeGrant":
+		r = &PipeGrant{}
 	case "snowflake:index/procedureGrant:ProcedureGrant":
 		r = &ProcedureGrant{}
 	case "snowflake:index/resourceMonitor:ResourceMonitor":
@@ -98,6 +100,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TableGrant{}
 	case "snowflake:index/task:Task":
 		r = &Task{}
+	case "snowflake:index/taskGrant:TaskGrant":
+		r = &TaskGrant{}
 	case "snowflake:index/user:User":
 		r = &User{}
 	case "snowflake:index/userPublicKeys:UserPublicKeys":
@@ -243,6 +247,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/pipeGrant",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/procedureGrant",
 		&module{version},
 	)
@@ -334,6 +343,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/task",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/taskGrant",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -88,3 +88,4 @@ export interface TablePrimaryKey {
      */
     name?: pulumi.Input<string>;
 }
+

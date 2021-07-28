@@ -16,6 +16,10 @@ __all__ = [
     'ProcedureGrantArgument',
     'TableColumn',
     'TablePrimaryKey',
+    'GetMaterializedViewsMaterializedViewResult',
+    'GetSchemasSchemaResult',
+    'GetTablesTableResult',
+    'GetViewsViewResult',
 ]
 
 @pulumi.output_type
@@ -260,5 +264,130 @@ class TablePrimaryKey(dict):
         Name of constraint
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetMaterializedViewsMaterializedViewResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 database: str,
+                 name: str,
+                 schema: str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def database(self) -> str:
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> str:
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetSchemasSchemaResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 database: str,
+                 name: str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def database(self) -> str:
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetTablesTableResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 database: str,
+                 name: str,
+                 schema: str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def database(self) -> str:
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> str:
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetViewsViewResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 database: str,
+                 name: str,
+                 schema: str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def database(self) -> str:
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> str:
+        return pulumi.get(self, "schema")
 
 

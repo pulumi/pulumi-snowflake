@@ -10,13 +10,51 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewNotificationIntegration(ctx, "integration", &snowflake.NotificationIntegrationArgs{
+// 			AwsSqsArn:                   pulumi.String("..."),
+// 			AwsSqsRoleArn:               pulumi.String("..."),
+// 			AzureStorageQueuePrimaryUri: pulumi.String("..."),
+// 			AzureTenantId:               pulumi.String("..."),
+// 			Comment:                     pulumi.String("A notification integration."),
+// 			Direction:                   pulumi.String("OUTBOUND"),
+// 			Enabled:                     pulumi.Bool(true),
+// 			NotificationProvider:        pulumi.String("AWS_SQS"),
+// 			Type:                        pulumi.String("QUEUE"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Import
+//
+// ```sh
+//  $ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name
+// ```
 type NotificationIntegration struct {
 	pulumi.CustomResourceState
 
 	// AWS SQS queue ARN for notification integration to connect to
 	AwsSqsArn pulumi.StringPtrOutput `pulumi:"awsSqsArn"`
 	// The external ID that Snowflake will use when assuming the AWS role
-	AwsSqsExternalId pulumi.StringPtrOutput `pulumi:"awsSqsExternalId"`
+	AwsSqsExternalId pulumi.StringOutput `pulumi:"awsSqsExternalId"`
+	// The Snowflake user that will attempt to assume the AWS role.
+	AwsSqsIamUserArn pulumi.StringOutput `pulumi:"awsSqsIamUserArn"`
 	// AWS IAM role ARN for notification integration to assume
 	AwsSqsRoleArn pulumi.StringPtrOutput `pulumi:"awsSqsRoleArn"`
 	// The queue ID for the Azure Queue Storage queue created for Event Grid notifications
@@ -71,6 +109,8 @@ type notificationIntegrationState struct {
 	AwsSqsArn *string `pulumi:"awsSqsArn"`
 	// The external ID that Snowflake will use when assuming the AWS role
 	AwsSqsExternalId *string `pulumi:"awsSqsExternalId"`
+	// The Snowflake user that will attempt to assume the AWS role.
+	AwsSqsIamUserArn *string `pulumi:"awsSqsIamUserArn"`
 	// AWS IAM role ARN for notification integration to assume
 	AwsSqsRoleArn *string `pulumi:"awsSqsRoleArn"`
 	// The queue ID for the Azure Queue Storage queue created for Event Grid notifications
@@ -97,6 +137,8 @@ type NotificationIntegrationState struct {
 	AwsSqsArn pulumi.StringPtrInput
 	// The external ID that Snowflake will use when assuming the AWS role
 	AwsSqsExternalId pulumi.StringPtrInput
+	// The Snowflake user that will attempt to assume the AWS role.
+	AwsSqsIamUserArn pulumi.StringPtrInput
 	// AWS IAM role ARN for notification integration to assume
 	AwsSqsRoleArn pulumi.StringPtrInput
 	// The queue ID for the Azure Queue Storage queue created for Event Grid notifications
@@ -125,8 +167,6 @@ func (NotificationIntegrationState) ElementType() reflect.Type {
 type notificationIntegrationArgs struct {
 	// AWS SQS queue ARN for notification integration to connect to
 	AwsSqsArn *string `pulumi:"awsSqsArn"`
-	// The external ID that Snowflake will use when assuming the AWS role
-	AwsSqsExternalId *string `pulumi:"awsSqsExternalId"`
 	// AWS IAM role ARN for notification integration to assume
 	AwsSqsRoleArn *string `pulumi:"awsSqsRoleArn"`
 	// The queue ID for the Azure Queue Storage queue created for Event Grid notifications
@@ -150,8 +190,6 @@ type notificationIntegrationArgs struct {
 type NotificationIntegrationArgs struct {
 	// AWS SQS queue ARN for notification integration to connect to
 	AwsSqsArn pulumi.StringPtrInput
-	// The external ID that Snowflake will use when assuming the AWS role
-	AwsSqsExternalId pulumi.StringPtrInput
 	// AWS IAM role ARN for notification integration to assume
 	AwsSqsRoleArn pulumi.StringPtrInput
 	// The queue ID for the Azure Queue Storage queue created for Event Grid notifications

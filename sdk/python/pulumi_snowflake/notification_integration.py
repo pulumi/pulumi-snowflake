@@ -14,7 +14,6 @@ __all__ = ['NotificationIntegrationArgs', 'NotificationIntegration']
 class NotificationIntegrationArgs:
     def __init__(__self__, *,
                  aws_sqs_arn: Optional[pulumi.Input[str]] = None,
-                 aws_sqs_external_id: Optional[pulumi.Input[str]] = None,
                  aws_sqs_role_arn: Optional[pulumi.Input[str]] = None,
                  azure_storage_queue_primary_uri: Optional[pulumi.Input[str]] = None,
                  azure_tenant_id: Optional[pulumi.Input[str]] = None,
@@ -28,7 +27,6 @@ class NotificationIntegrationArgs:
         """
         The set of arguments for constructing a NotificationIntegration resource.
         :param pulumi.Input[str] aws_sqs_arn: AWS SQS queue ARN for notification integration to connect to
-        :param pulumi.Input[str] aws_sqs_external_id: The external ID that Snowflake will use when assuming the AWS role
         :param pulumi.Input[str] aws_sqs_role_arn: AWS IAM role ARN for notification integration to assume
         :param pulumi.Input[str] azure_storage_queue_primary_uri: The queue ID for the Azure Queue Storage queue created for Event Grid notifications
         :param pulumi.Input[str] azure_tenant_id: The ID of the Azure Active Directory tenant used for identity management
@@ -39,8 +37,6 @@ class NotificationIntegrationArgs:
         """
         if aws_sqs_arn is not None:
             pulumi.set(__self__, "aws_sqs_arn", aws_sqs_arn)
-        if aws_sqs_external_id is not None:
-            pulumi.set(__self__, "aws_sqs_external_id", aws_sqs_external_id)
         if aws_sqs_role_arn is not None:
             pulumi.set(__self__, "aws_sqs_role_arn", aws_sqs_role_arn)
         if azure_storage_queue_primary_uri is not None:
@@ -73,18 +69,6 @@ class NotificationIntegrationArgs:
     @aws_sqs_arn.setter
     def aws_sqs_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "aws_sqs_arn", value)
-
-    @property
-    @pulumi.getter(name="awsSqsExternalId")
-    def aws_sqs_external_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The external ID that Snowflake will use when assuming the AWS role
-        """
-        return pulumi.get(self, "aws_sqs_external_id")
-
-    @aws_sqs_external_id.setter
-    def aws_sqs_external_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "aws_sqs_external_id", value)
 
     @property
     @pulumi.getter(name="awsSqsRoleArn")
@@ -203,6 +187,7 @@ class _NotificationIntegrationState:
     def __init__(__self__, *,
                  aws_sqs_arn: Optional[pulumi.Input[str]] = None,
                  aws_sqs_external_id: Optional[pulumi.Input[str]] = None,
+                 aws_sqs_iam_user_arn: Optional[pulumi.Input[str]] = None,
                  aws_sqs_role_arn: Optional[pulumi.Input[str]] = None,
                  azure_storage_queue_primary_uri: Optional[pulumi.Input[str]] = None,
                  azure_tenant_id: Optional[pulumi.Input[str]] = None,
@@ -218,6 +203,7 @@ class _NotificationIntegrationState:
         Input properties used for looking up and filtering NotificationIntegration resources.
         :param pulumi.Input[str] aws_sqs_arn: AWS SQS queue ARN for notification integration to connect to
         :param pulumi.Input[str] aws_sqs_external_id: The external ID that Snowflake will use when assuming the AWS role
+        :param pulumi.Input[str] aws_sqs_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
         :param pulumi.Input[str] aws_sqs_role_arn: AWS IAM role ARN for notification integration to assume
         :param pulumi.Input[str] azure_storage_queue_primary_uri: The queue ID for the Azure Queue Storage queue created for Event Grid notifications
         :param pulumi.Input[str] azure_tenant_id: The ID of the Azure Active Directory tenant used for identity management
@@ -231,6 +217,8 @@ class _NotificationIntegrationState:
             pulumi.set(__self__, "aws_sqs_arn", aws_sqs_arn)
         if aws_sqs_external_id is not None:
             pulumi.set(__self__, "aws_sqs_external_id", aws_sqs_external_id)
+        if aws_sqs_iam_user_arn is not None:
+            pulumi.set(__self__, "aws_sqs_iam_user_arn", aws_sqs_iam_user_arn)
         if aws_sqs_role_arn is not None:
             pulumi.set(__self__, "aws_sqs_role_arn", aws_sqs_role_arn)
         if azure_storage_queue_primary_uri is not None:
@@ -277,6 +265,18 @@ class _NotificationIntegrationState:
     @aws_sqs_external_id.setter
     def aws_sqs_external_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "aws_sqs_external_id", value)
+
+    @property
+    @pulumi.getter(name="awsSqsIamUserArn")
+    def aws_sqs_iam_user_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Snowflake user that will attempt to assume the AWS role.
+        """
+        return pulumi.get(self, "aws_sqs_iam_user_arn")
+
+    @aws_sqs_iam_user_arn.setter
+    def aws_sqs_iam_user_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aws_sqs_iam_user_arn", value)
 
     @property
     @pulumi.getter(name="awsSqsRoleArn")
@@ -408,7 +408,6 @@ class NotificationIntegration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_sqs_arn: Optional[pulumi.Input[str]] = None,
-                 aws_sqs_external_id: Optional[pulumi.Input[str]] = None,
                  aws_sqs_role_arn: Optional[pulumi.Input[str]] = None,
                  azure_storage_queue_primary_uri: Optional[pulumi.Input[str]] = None,
                  azure_tenant_id: Optional[pulumi.Input[str]] = None,
@@ -421,11 +420,33 @@ class NotificationIntegration(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a NotificationIntegration resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        integration = snowflake.NotificationIntegration("integration",
+            aws_sqs_arn="...",
+            aws_sqs_role_arn="...",
+            azure_storage_queue_primary_uri="...",
+            azure_tenant_id="...",
+            comment="A notification integration.",
+            direction="OUTBOUND",
+            enabled=True,
+            notification_provider="AWS_SQS",
+            type="QUEUE")
+        ```
+
+        ## Import
+
+        ```sh
+         $ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_sqs_arn: AWS SQS queue ARN for notification integration to connect to
-        :param pulumi.Input[str] aws_sqs_external_id: The external ID that Snowflake will use when assuming the AWS role
         :param pulumi.Input[str] aws_sqs_role_arn: AWS IAM role ARN for notification integration to assume
         :param pulumi.Input[str] azure_storage_queue_primary_uri: The queue ID for the Azure Queue Storage queue created for Event Grid notifications
         :param pulumi.Input[str] azure_tenant_id: The ID of the Azure Active Directory tenant used for identity management
@@ -441,7 +462,30 @@ class NotificationIntegration(pulumi.CustomResource):
                  args: Optional[NotificationIntegrationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a NotificationIntegration resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        integration = snowflake.NotificationIntegration("integration",
+            aws_sqs_arn="...",
+            aws_sqs_role_arn="...",
+            azure_storage_queue_primary_uri="...",
+            azure_tenant_id="...",
+            comment="A notification integration.",
+            direction="OUTBOUND",
+            enabled=True,
+            notification_provider="AWS_SQS",
+            type="QUEUE")
+        ```
+
+        ## Import
+
+        ```sh
+         $ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name
+        ```
+
         :param str resource_name: The name of the resource.
         :param NotificationIntegrationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -458,7 +502,6 @@ class NotificationIntegration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_sqs_arn: Optional[pulumi.Input[str]] = None,
-                 aws_sqs_external_id: Optional[pulumi.Input[str]] = None,
                  aws_sqs_role_arn: Optional[pulumi.Input[str]] = None,
                  azure_storage_queue_primary_uri: Optional[pulumi.Input[str]] = None,
                  azure_tenant_id: Optional[pulumi.Input[str]] = None,
@@ -482,7 +525,6 @@ class NotificationIntegration(pulumi.CustomResource):
             __props__ = NotificationIntegrationArgs.__new__(NotificationIntegrationArgs)
 
             __props__.__dict__["aws_sqs_arn"] = aws_sqs_arn
-            __props__.__dict__["aws_sqs_external_id"] = aws_sqs_external_id
             __props__.__dict__["aws_sqs_role_arn"] = aws_sqs_role_arn
             __props__.__dict__["azure_storage_queue_primary_uri"] = azure_storage_queue_primary_uri
             __props__.__dict__["azure_tenant_id"] = azure_tenant_id
@@ -493,6 +535,8 @@ class NotificationIntegration(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_provider"] = notification_provider
             __props__.__dict__["type"] = type
+            __props__.__dict__["aws_sqs_external_id"] = None
+            __props__.__dict__["aws_sqs_iam_user_arn"] = None
             __props__.__dict__["created_on"] = None
         super(NotificationIntegration, __self__).__init__(
             'snowflake:index/notificationIntegration:NotificationIntegration',
@@ -506,6 +550,7 @@ class NotificationIntegration(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             aws_sqs_arn: Optional[pulumi.Input[str]] = None,
             aws_sqs_external_id: Optional[pulumi.Input[str]] = None,
+            aws_sqs_iam_user_arn: Optional[pulumi.Input[str]] = None,
             aws_sqs_role_arn: Optional[pulumi.Input[str]] = None,
             azure_storage_queue_primary_uri: Optional[pulumi.Input[str]] = None,
             azure_tenant_id: Optional[pulumi.Input[str]] = None,
@@ -526,6 +571,7 @@ class NotificationIntegration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_sqs_arn: AWS SQS queue ARN for notification integration to connect to
         :param pulumi.Input[str] aws_sqs_external_id: The external ID that Snowflake will use when assuming the AWS role
+        :param pulumi.Input[str] aws_sqs_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
         :param pulumi.Input[str] aws_sqs_role_arn: AWS IAM role ARN for notification integration to assume
         :param pulumi.Input[str] azure_storage_queue_primary_uri: The queue ID for the Azure Queue Storage queue created for Event Grid notifications
         :param pulumi.Input[str] azure_tenant_id: The ID of the Azure Active Directory tenant used for identity management
@@ -541,6 +587,7 @@ class NotificationIntegration(pulumi.CustomResource):
 
         __props__.__dict__["aws_sqs_arn"] = aws_sqs_arn
         __props__.__dict__["aws_sqs_external_id"] = aws_sqs_external_id
+        __props__.__dict__["aws_sqs_iam_user_arn"] = aws_sqs_iam_user_arn
         __props__.__dict__["aws_sqs_role_arn"] = aws_sqs_role_arn
         __props__.__dict__["azure_storage_queue_primary_uri"] = azure_storage_queue_primary_uri
         __props__.__dict__["azure_tenant_id"] = azure_tenant_id
@@ -564,11 +611,19 @@ class NotificationIntegration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsSqsExternalId")
-    def aws_sqs_external_id(self) -> pulumi.Output[Optional[str]]:
+    def aws_sqs_external_id(self) -> pulumi.Output[str]:
         """
         The external ID that Snowflake will use when assuming the AWS role
         """
         return pulumi.get(self, "aws_sqs_external_id")
+
+    @property
+    @pulumi.getter(name="awsSqsIamUserArn")
+    def aws_sqs_iam_user_arn(self) -> pulumi.Output[str]:
+        """
+        The Snowflake user that will attempt to assume the AWS role.
+        """
+        return pulumi.get(self, "aws_sqs_iam_user_arn")
 
     @property
     @pulumi.getter(name="awsSqsRoleArn")

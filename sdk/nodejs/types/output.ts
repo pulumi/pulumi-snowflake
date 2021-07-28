@@ -52,6 +52,33 @@ export interface FunctionGrantArgument {
     type: string;
 }
 
+export interface GetMaterializedViewsMaterializedView {
+    comment: string;
+    database: string;
+    name: string;
+    schema: string;
+}
+
+export interface GetSchemasSchema {
+    comment: string;
+    database: string;
+    name: string;
+}
+
+export interface GetTablesTable {
+    comment: string;
+    database: string;
+    name: string;
+    schema: string;
+}
+
+export interface GetViewsView {
+    comment: string;
+    database: string;
+    name: string;
+    schema: string;
+}
+
 export interface ProcedureGrantArgument {
     /**
      * The argument name
@@ -88,4 +115,3 @@ export interface TablePrimaryKey {
      */
     name?: string;
 }
-

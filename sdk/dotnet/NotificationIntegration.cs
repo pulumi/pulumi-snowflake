@@ -9,6 +9,40 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var integration = new Snowflake.NotificationIntegration("integration", new Snowflake.NotificationIntegrationArgs
+    ///         {
+    ///             AwsSqsArn = "...",
+    ///             AwsSqsRoleArn = "...",
+    ///             AzureStorageQueuePrimaryUri = "...",
+    ///             AzureTenantId = "...",
+    ///             Comment = "A notification integration.",
+    ///             Direction = "OUTBOUND",
+    ///             Enabled = true,
+    ///             NotificationProvider = "AWS_SQS",
+    ///             Type = "QUEUE",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    ///  $ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name
+    /// ```
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/notificationIntegration:NotificationIntegration")]
     public partial class NotificationIntegration : Pulumi.CustomResource
     {
@@ -22,7 +56,13 @@ namespace Pulumi.Snowflake
         /// The external ID that Snowflake will use when assuming the AWS role
         /// </summary>
         [Output("awsSqsExternalId")]
-        public Output<string?> AwsSqsExternalId { get; private set; } = null!;
+        public Output<string> AwsSqsExternalId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Snowflake user that will attempt to assume the AWS role.
+        /// </summary>
+        [Output("awsSqsIamUserArn")]
+        public Output<string> AwsSqsIamUserArn { get; private set; } = null!;
 
         /// <summary>
         /// AWS IAM role ARN for notification integration to assume
@@ -134,12 +174,6 @@ namespace Pulumi.Snowflake
         public Input<string>? AwsSqsArn { get; set; }
 
         /// <summary>
-        /// The external ID that Snowflake will use when assuming the AWS role
-        /// </summary>
-        [Input("awsSqsExternalId")]
-        public Input<string>? AwsSqsExternalId { get; set; }
-
-        /// <summary>
         /// AWS IAM role ARN for notification integration to assume
         /// </summary>
         [Input("awsSqsRoleArn")]
@@ -208,6 +242,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("awsSqsExternalId")]
         public Input<string>? AwsSqsExternalId { get; set; }
+
+        /// <summary>
+        /// The Snowflake user that will attempt to assume the AWS role.
+        /// </summary>
+        [Input("awsSqsIamUserArn")]
+        public Input<string>? AwsSqsIamUserArn { get; set; }
 
         /// <summary>
         /// AWS IAM role ARN for notification integration to assume

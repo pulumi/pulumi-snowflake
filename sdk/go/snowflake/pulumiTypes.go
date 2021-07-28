@@ -814,6 +814,448 @@ func (o TablePrimaryKeyPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetMaterializedViewsMaterializedView struct {
+	Comment  string `pulumi:"comment"`
+	Database string `pulumi:"database"`
+	Name     string `pulumi:"name"`
+	Schema   string `pulumi:"schema"`
+}
+
+// GetMaterializedViewsMaterializedViewInput is an input type that accepts GetMaterializedViewsMaterializedViewArgs and GetMaterializedViewsMaterializedViewOutput values.
+// You can construct a concrete instance of `GetMaterializedViewsMaterializedViewInput` via:
+//
+//          GetMaterializedViewsMaterializedViewArgs{...}
+type GetMaterializedViewsMaterializedViewInput interface {
+	pulumi.Input
+
+	ToGetMaterializedViewsMaterializedViewOutput() GetMaterializedViewsMaterializedViewOutput
+	ToGetMaterializedViewsMaterializedViewOutputWithContext(context.Context) GetMaterializedViewsMaterializedViewOutput
+}
+
+type GetMaterializedViewsMaterializedViewArgs struct {
+	Comment  pulumi.StringInput `pulumi:"comment"`
+	Database pulumi.StringInput `pulumi:"database"`
+	Name     pulumi.StringInput `pulumi:"name"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
+}
+
+func (GetMaterializedViewsMaterializedViewArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMaterializedViewsMaterializedView)(nil)).Elem()
+}
+
+func (i GetMaterializedViewsMaterializedViewArgs) ToGetMaterializedViewsMaterializedViewOutput() GetMaterializedViewsMaterializedViewOutput {
+	return i.ToGetMaterializedViewsMaterializedViewOutputWithContext(context.Background())
+}
+
+func (i GetMaterializedViewsMaterializedViewArgs) ToGetMaterializedViewsMaterializedViewOutputWithContext(ctx context.Context) GetMaterializedViewsMaterializedViewOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMaterializedViewsMaterializedViewOutput)
+}
+
+// GetMaterializedViewsMaterializedViewArrayInput is an input type that accepts GetMaterializedViewsMaterializedViewArray and GetMaterializedViewsMaterializedViewArrayOutput values.
+// You can construct a concrete instance of `GetMaterializedViewsMaterializedViewArrayInput` via:
+//
+//          GetMaterializedViewsMaterializedViewArray{ GetMaterializedViewsMaterializedViewArgs{...} }
+type GetMaterializedViewsMaterializedViewArrayInput interface {
+	pulumi.Input
+
+	ToGetMaterializedViewsMaterializedViewArrayOutput() GetMaterializedViewsMaterializedViewArrayOutput
+	ToGetMaterializedViewsMaterializedViewArrayOutputWithContext(context.Context) GetMaterializedViewsMaterializedViewArrayOutput
+}
+
+type GetMaterializedViewsMaterializedViewArray []GetMaterializedViewsMaterializedViewInput
+
+func (GetMaterializedViewsMaterializedViewArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMaterializedViewsMaterializedView)(nil)).Elem()
+}
+
+func (i GetMaterializedViewsMaterializedViewArray) ToGetMaterializedViewsMaterializedViewArrayOutput() GetMaterializedViewsMaterializedViewArrayOutput {
+	return i.ToGetMaterializedViewsMaterializedViewArrayOutputWithContext(context.Background())
+}
+
+func (i GetMaterializedViewsMaterializedViewArray) ToGetMaterializedViewsMaterializedViewArrayOutputWithContext(ctx context.Context) GetMaterializedViewsMaterializedViewArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMaterializedViewsMaterializedViewArrayOutput)
+}
+
+type GetMaterializedViewsMaterializedViewOutput struct{ *pulumi.OutputState }
+
+func (GetMaterializedViewsMaterializedViewOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMaterializedViewsMaterializedView)(nil)).Elem()
+}
+
+func (o GetMaterializedViewsMaterializedViewOutput) ToGetMaterializedViewsMaterializedViewOutput() GetMaterializedViewsMaterializedViewOutput {
+	return o
+}
+
+func (o GetMaterializedViewsMaterializedViewOutput) ToGetMaterializedViewsMaterializedViewOutputWithContext(ctx context.Context) GetMaterializedViewsMaterializedViewOutput {
+	return o
+}
+
+func (o GetMaterializedViewsMaterializedViewOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMaterializedViewsMaterializedView) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetMaterializedViewsMaterializedViewOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMaterializedViewsMaterializedView) string { return v.Database }).(pulumi.StringOutput)
+}
+
+func (o GetMaterializedViewsMaterializedViewOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMaterializedViewsMaterializedView) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetMaterializedViewsMaterializedViewOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMaterializedViewsMaterializedView) string { return v.Schema }).(pulumi.StringOutput)
+}
+
+type GetMaterializedViewsMaterializedViewArrayOutput struct{ *pulumi.OutputState }
+
+func (GetMaterializedViewsMaterializedViewArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMaterializedViewsMaterializedView)(nil)).Elem()
+}
+
+func (o GetMaterializedViewsMaterializedViewArrayOutput) ToGetMaterializedViewsMaterializedViewArrayOutput() GetMaterializedViewsMaterializedViewArrayOutput {
+	return o
+}
+
+func (o GetMaterializedViewsMaterializedViewArrayOutput) ToGetMaterializedViewsMaterializedViewArrayOutputWithContext(ctx context.Context) GetMaterializedViewsMaterializedViewArrayOutput {
+	return o
+}
+
+func (o GetMaterializedViewsMaterializedViewArrayOutput) Index(i pulumi.IntInput) GetMaterializedViewsMaterializedViewOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetMaterializedViewsMaterializedView {
+		return vs[0].([]GetMaterializedViewsMaterializedView)[vs[1].(int)]
+	}).(GetMaterializedViewsMaterializedViewOutput)
+}
+
+type GetSchemasSchema struct {
+	Comment  string `pulumi:"comment"`
+	Database string `pulumi:"database"`
+	Name     string `pulumi:"name"`
+}
+
+// GetSchemasSchemaInput is an input type that accepts GetSchemasSchemaArgs and GetSchemasSchemaOutput values.
+// You can construct a concrete instance of `GetSchemasSchemaInput` via:
+//
+//          GetSchemasSchemaArgs{...}
+type GetSchemasSchemaInput interface {
+	pulumi.Input
+
+	ToGetSchemasSchemaOutput() GetSchemasSchemaOutput
+	ToGetSchemasSchemaOutputWithContext(context.Context) GetSchemasSchemaOutput
+}
+
+type GetSchemasSchemaArgs struct {
+	Comment  pulumi.StringInput `pulumi:"comment"`
+	Database pulumi.StringInput `pulumi:"database"`
+	Name     pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSchemasSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemasSchema)(nil)).Elem()
+}
+
+func (i GetSchemasSchemaArgs) ToGetSchemasSchemaOutput() GetSchemasSchemaOutput {
+	return i.ToGetSchemasSchemaOutputWithContext(context.Background())
+}
+
+func (i GetSchemasSchemaArgs) ToGetSchemasSchemaOutputWithContext(ctx context.Context) GetSchemasSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasSchemaOutput)
+}
+
+// GetSchemasSchemaArrayInput is an input type that accepts GetSchemasSchemaArray and GetSchemasSchemaArrayOutput values.
+// You can construct a concrete instance of `GetSchemasSchemaArrayInput` via:
+//
+//          GetSchemasSchemaArray{ GetSchemasSchemaArgs{...} }
+type GetSchemasSchemaArrayInput interface {
+	pulumi.Input
+
+	ToGetSchemasSchemaArrayOutput() GetSchemasSchemaArrayOutput
+	ToGetSchemasSchemaArrayOutputWithContext(context.Context) GetSchemasSchemaArrayOutput
+}
+
+type GetSchemasSchemaArray []GetSchemasSchemaInput
+
+func (GetSchemasSchemaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSchemasSchema)(nil)).Elem()
+}
+
+func (i GetSchemasSchemaArray) ToGetSchemasSchemaArrayOutput() GetSchemasSchemaArrayOutput {
+	return i.ToGetSchemasSchemaArrayOutputWithContext(context.Background())
+}
+
+func (i GetSchemasSchemaArray) ToGetSchemasSchemaArrayOutputWithContext(ctx context.Context) GetSchemasSchemaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasSchemaArrayOutput)
+}
+
+type GetSchemasSchemaOutput struct{ *pulumi.OutputState }
+
+func (GetSchemasSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemasSchema)(nil)).Elem()
+}
+
+func (o GetSchemasSchemaOutput) ToGetSchemasSchemaOutput() GetSchemasSchemaOutput {
+	return o
+}
+
+func (o GetSchemasSchemaOutput) ToGetSchemasSchemaOutputWithContext(ctx context.Context) GetSchemasSchemaOutput {
+	return o
+}
+
+func (o GetSchemasSchemaOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemasSchema) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetSchemasSchemaOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemasSchema) string { return v.Database }).(pulumi.StringOutput)
+}
+
+func (o GetSchemasSchemaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemasSchema) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSchemasSchemaArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSchemasSchemaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSchemasSchema)(nil)).Elem()
+}
+
+func (o GetSchemasSchemaArrayOutput) ToGetSchemasSchemaArrayOutput() GetSchemasSchemaArrayOutput {
+	return o
+}
+
+func (o GetSchemasSchemaArrayOutput) ToGetSchemasSchemaArrayOutputWithContext(ctx context.Context) GetSchemasSchemaArrayOutput {
+	return o
+}
+
+func (o GetSchemasSchemaArrayOutput) Index(i pulumi.IntInput) GetSchemasSchemaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSchemasSchema {
+		return vs[0].([]GetSchemasSchema)[vs[1].(int)]
+	}).(GetSchemasSchemaOutput)
+}
+
+type GetTablesTable struct {
+	Comment  string `pulumi:"comment"`
+	Database string `pulumi:"database"`
+	Name     string `pulumi:"name"`
+	Schema   string `pulumi:"schema"`
+}
+
+// GetTablesTableInput is an input type that accepts GetTablesTableArgs and GetTablesTableOutput values.
+// You can construct a concrete instance of `GetTablesTableInput` via:
+//
+//          GetTablesTableArgs{...}
+type GetTablesTableInput interface {
+	pulumi.Input
+
+	ToGetTablesTableOutput() GetTablesTableOutput
+	ToGetTablesTableOutputWithContext(context.Context) GetTablesTableOutput
+}
+
+type GetTablesTableArgs struct {
+	Comment  pulumi.StringInput `pulumi:"comment"`
+	Database pulumi.StringInput `pulumi:"database"`
+	Name     pulumi.StringInput `pulumi:"name"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
+}
+
+func (GetTablesTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTablesTable)(nil)).Elem()
+}
+
+func (i GetTablesTableArgs) ToGetTablesTableOutput() GetTablesTableOutput {
+	return i.ToGetTablesTableOutputWithContext(context.Background())
+}
+
+func (i GetTablesTableArgs) ToGetTablesTableOutputWithContext(ctx context.Context) GetTablesTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTablesTableOutput)
+}
+
+// GetTablesTableArrayInput is an input type that accepts GetTablesTableArray and GetTablesTableArrayOutput values.
+// You can construct a concrete instance of `GetTablesTableArrayInput` via:
+//
+//          GetTablesTableArray{ GetTablesTableArgs{...} }
+type GetTablesTableArrayInput interface {
+	pulumi.Input
+
+	ToGetTablesTableArrayOutput() GetTablesTableArrayOutput
+	ToGetTablesTableArrayOutputWithContext(context.Context) GetTablesTableArrayOutput
+}
+
+type GetTablesTableArray []GetTablesTableInput
+
+func (GetTablesTableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTablesTable)(nil)).Elem()
+}
+
+func (i GetTablesTableArray) ToGetTablesTableArrayOutput() GetTablesTableArrayOutput {
+	return i.ToGetTablesTableArrayOutputWithContext(context.Background())
+}
+
+func (i GetTablesTableArray) ToGetTablesTableArrayOutputWithContext(ctx context.Context) GetTablesTableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTablesTableArrayOutput)
+}
+
+type GetTablesTableOutput struct{ *pulumi.OutputState }
+
+func (GetTablesTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTablesTable)(nil)).Elem()
+}
+
+func (o GetTablesTableOutput) ToGetTablesTableOutput() GetTablesTableOutput {
+	return o
+}
+
+func (o GetTablesTableOutput) ToGetTablesTableOutputWithContext(ctx context.Context) GetTablesTableOutput {
+	return o
+}
+
+func (o GetTablesTableOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTablesTable) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetTablesTableOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTablesTable) string { return v.Database }).(pulumi.StringOutput)
+}
+
+func (o GetTablesTableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTablesTable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetTablesTableOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTablesTable) string { return v.Schema }).(pulumi.StringOutput)
+}
+
+type GetTablesTableArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTablesTableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTablesTable)(nil)).Elem()
+}
+
+func (o GetTablesTableArrayOutput) ToGetTablesTableArrayOutput() GetTablesTableArrayOutput {
+	return o
+}
+
+func (o GetTablesTableArrayOutput) ToGetTablesTableArrayOutputWithContext(ctx context.Context) GetTablesTableArrayOutput {
+	return o
+}
+
+func (o GetTablesTableArrayOutput) Index(i pulumi.IntInput) GetTablesTableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTablesTable {
+		return vs[0].([]GetTablesTable)[vs[1].(int)]
+	}).(GetTablesTableOutput)
+}
+
+type GetViewsView struct {
+	Comment  string `pulumi:"comment"`
+	Database string `pulumi:"database"`
+	Name     string `pulumi:"name"`
+	Schema   string `pulumi:"schema"`
+}
+
+// GetViewsViewInput is an input type that accepts GetViewsViewArgs and GetViewsViewOutput values.
+// You can construct a concrete instance of `GetViewsViewInput` via:
+//
+//          GetViewsViewArgs{...}
+type GetViewsViewInput interface {
+	pulumi.Input
+
+	ToGetViewsViewOutput() GetViewsViewOutput
+	ToGetViewsViewOutputWithContext(context.Context) GetViewsViewOutput
+}
+
+type GetViewsViewArgs struct {
+	Comment  pulumi.StringInput `pulumi:"comment"`
+	Database pulumi.StringInput `pulumi:"database"`
+	Name     pulumi.StringInput `pulumi:"name"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
+}
+
+func (GetViewsViewArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetViewsView)(nil)).Elem()
+}
+
+func (i GetViewsViewArgs) ToGetViewsViewOutput() GetViewsViewOutput {
+	return i.ToGetViewsViewOutputWithContext(context.Background())
+}
+
+func (i GetViewsViewArgs) ToGetViewsViewOutputWithContext(ctx context.Context) GetViewsViewOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetViewsViewOutput)
+}
+
+// GetViewsViewArrayInput is an input type that accepts GetViewsViewArray and GetViewsViewArrayOutput values.
+// You can construct a concrete instance of `GetViewsViewArrayInput` via:
+//
+//          GetViewsViewArray{ GetViewsViewArgs{...} }
+type GetViewsViewArrayInput interface {
+	pulumi.Input
+
+	ToGetViewsViewArrayOutput() GetViewsViewArrayOutput
+	ToGetViewsViewArrayOutputWithContext(context.Context) GetViewsViewArrayOutput
+}
+
+type GetViewsViewArray []GetViewsViewInput
+
+func (GetViewsViewArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetViewsView)(nil)).Elem()
+}
+
+func (i GetViewsViewArray) ToGetViewsViewArrayOutput() GetViewsViewArrayOutput {
+	return i.ToGetViewsViewArrayOutputWithContext(context.Background())
+}
+
+func (i GetViewsViewArray) ToGetViewsViewArrayOutputWithContext(ctx context.Context) GetViewsViewArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetViewsViewArrayOutput)
+}
+
+type GetViewsViewOutput struct{ *pulumi.OutputState }
+
+func (GetViewsViewOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetViewsView)(nil)).Elem()
+}
+
+func (o GetViewsViewOutput) ToGetViewsViewOutput() GetViewsViewOutput {
+	return o
+}
+
+func (o GetViewsViewOutput) ToGetViewsViewOutputWithContext(ctx context.Context) GetViewsViewOutput {
+	return o
+}
+
+func (o GetViewsViewOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetViewsView) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetViewsViewOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v GetViewsView) string { return v.Database }).(pulumi.StringOutput)
+}
+
+func (o GetViewsViewOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetViewsView) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetViewsViewOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v GetViewsView) string { return v.Schema }).(pulumi.StringOutput)
+}
+
+type GetViewsViewArrayOutput struct{ *pulumi.OutputState }
+
+func (GetViewsViewArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetViewsView)(nil)).Elem()
+}
+
+func (o GetViewsViewArrayOutput) ToGetViewsViewArrayOutput() GetViewsViewArrayOutput {
+	return o
+}
+
+func (o GetViewsViewArrayOutput) ToGetViewsViewArrayOutputWithContext(ctx context.Context) GetViewsViewArrayOutput {
+	return o
+}
+
+func (o GetViewsViewArrayOutput) Index(i pulumi.IntInput) GetViewsViewOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetViewsView {
+		return vs[0].([]GetViewsView)[vs[1].(int)]
+	}).(GetViewsViewOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExternalFunctionArgOutput{})
 	pulumi.RegisterOutputType(ExternalFunctionArgArrayOutput{})
@@ -829,4 +1271,12 @@ func init() {
 	pulumi.RegisterOutputType(TableColumnArrayOutput{})
 	pulumi.RegisterOutputType(TablePrimaryKeyOutput{})
 	pulumi.RegisterOutputType(TablePrimaryKeyPtrOutput{})
+	pulumi.RegisterOutputType(GetMaterializedViewsMaterializedViewOutput{})
+	pulumi.RegisterOutputType(GetMaterializedViewsMaterializedViewArrayOutput{})
+	pulumi.RegisterOutputType(GetSchemasSchemaOutput{})
+	pulumi.RegisterOutputType(GetSchemasSchemaArrayOutput{})
+	pulumi.RegisterOutputType(GetTablesTableOutput{})
+	pulumi.RegisterOutputType(GetTablesTableArrayOutput{})
+	pulumi.RegisterOutputType(GetViewsViewOutput{})
+	pulumi.RegisterOutputType(GetViewsViewArrayOutput{})
 }

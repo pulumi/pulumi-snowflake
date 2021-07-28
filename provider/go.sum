@@ -320,6 +320,8 @@ github.com/chanzuckerberg/terraform-provider-snowflake v0.25.11 h1:+lXWsF1UFapE3
 github.com/chanzuckerberg/terraform-provider-snowflake v0.25.11/go.mod h1:htjzSzpvOBMU/qL1AYObrF5SZ/UfTIcf8bGS9BcJWsc=
 github.com/chanzuckerberg/terraform-provider-snowflake v0.25.12 h1:Ss5J688c3E3GD2DU8GoG97uFvkfC7/v4RVJEQGrCK5Q=
 github.com/chanzuckerberg/terraform-provider-snowflake v0.25.12/go.mod h1:6T0w7ZLM/g4BfzRsYU8R72R0PVlRyYVJ7dDe+nmCeo0=
+github.com/chanzuckerberg/terraform-provider-snowflake v0.25.13 h1:ngucSzU1z2W1Ag/yD41iJe4RV8CLCs2eA+FQmmilAoc=
+github.com/chanzuckerberg/terraform-provider-snowflake v0.25.13/go.mod h1:6T0w7ZLM/g4BfzRsYU8R72R0PVlRyYVJ7dDe+nmCeo0=
 github.com/cheggaaa/pb v1.0.18/go.mod h1:pQciLPpbU0oxA0h+VJYYLxO+XeDQb5pZijXscXHm81s=
 github.com/cheggaaa/pb v1.0.27 h1:wIkZHkNfC7R6GI5w7l/PdAdzXzlrbcI3p8OAlnkTsnc=
 github.com/cheggaaa/pb v1.0.27/go.mod h1:pQciLPpbU0oxA0h+VJYYLxO+XeDQb5pZijXscXHm81s=

@@ -4,6 +4,32 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const integration = new snowflake.NotificationIntegration("integration", {
+ *     awsSqsArn: "...",
+ *     awsSqsRoleArn: "...",
+ *     azureStorageQueuePrimaryUri: "...",
+ *     azureTenantId: "...",
+ *     comment: "A notification integration.",
+ *     direction: "OUTBOUND",
+ *     enabled: true,
+ *     notificationProvider: "AWS_SQS",
+ *     type: "QUEUE",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * ```sh
+ *  $ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name
+ * ```
+ */
 export class NotificationIntegration extends pulumi.CustomResource {
     /**
      * Get an existing NotificationIntegration resource's state with the given name, ID, and optional extra
@@ -39,7 +65,11 @@ export class NotificationIntegration extends pulumi.CustomResource {
     /**
      * The external ID that Snowflake will use when assuming the AWS role
      */
-    public readonly awsSqsExternalId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly awsSqsExternalId!: pulumi.Output<string>;
+    /**
+     * The Snowflake user that will attempt to assume the AWS role.
+     */
+    public /*out*/ readonly awsSqsIamUserArn!: pulumi.Output<string>;
     /**
      * AWS IAM role ARN for notification integration to assume
      */
@@ -91,6 +121,7 @@ export class NotificationIntegration extends pulumi.CustomResource {
             const state = argsOrState as NotificationIntegrationState | undefined;
             inputs["awsSqsArn"] = state ? state.awsSqsArn : undefined;
             inputs["awsSqsExternalId"] = state ? state.awsSqsExternalId : undefined;
+            inputs["awsSqsIamUserArn"] = state ? state.awsSqsIamUserArn : undefined;
             inputs["awsSqsRoleArn"] = state ? state.awsSqsRoleArn : undefined;
             inputs["azureStorageQueuePrimaryUri"] = state ? state.azureStorageQueuePrimaryUri : undefined;
             inputs["azureTenantId"] = state ? state.azureTenantId : undefined;
@@ -105,7 +136,6 @@ export class NotificationIntegration extends pulumi.CustomResource {
         } else {
             const args = argsOrState as NotificationIntegrationArgs | undefined;
             inputs["awsSqsArn"] = args ? args.awsSqsArn : undefined;
-            inputs["awsSqsExternalId"] = args ? args.awsSqsExternalId : undefined;
             inputs["awsSqsRoleArn"] = args ? args.awsSqsRoleArn : undefined;
             inputs["azureStorageQueuePrimaryUri"] = args ? args.azureStorageQueuePrimaryUri : undefined;
             inputs["azureTenantId"] = args ? args.azureTenantId : undefined;
@@ -116,6 +146,8 @@ export class NotificationIntegration extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["notificationProvider"] = args ? args.notificationProvider : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["awsSqsExternalId"] = undefined /*out*/;
+            inputs["awsSqsIamUserArn"] = undefined /*out*/;
             inputs["createdOn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -137,6 +169,10 @@ export interface NotificationIntegrationState {
      * The external ID that Snowflake will use when assuming the AWS role
      */
     awsSqsExternalId?: pulumi.Input<string>;
+    /**
+     * The Snowflake user that will attempt to assume the AWS role.
+     */
+    awsSqsIamUserArn?: pulumi.Input<string>;
     /**
      * AWS IAM role ARN for notification integration to assume
      */
@@ -182,10 +218,6 @@ export interface NotificationIntegrationArgs {
      * AWS SQS queue ARN for notification integration to connect to
      */
     awsSqsArn?: pulumi.Input<string>;
-    /**
-     * The external ID that Snowflake will use when assuming the AWS role
-     */
-    awsSqsExternalId?: pulumi.Input<string>;
     /**
      * AWS IAM role ARN for notification integration to assume
      */
