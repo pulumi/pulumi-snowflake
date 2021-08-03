@@ -29,12 +29,14 @@ import (
 // 			},
 // 			Columns: TableColumnArray{
 // 				&TableColumnArgs{
-// 					Name: pulumi.String("id"),
-// 					Type: pulumi.String("int"),
+// 					Name:     pulumi.String("id"),
+// 					Nullable: pulumi.Bool(true),
+// 					Type:     pulumi.String("int"),
 // 				},
 // 				&TableColumnArgs{
-// 					Name: pulumi.String("data"),
-// 					Type: pulumi.String("text"),
+// 					Name:     pulumi.String("data"),
+// 					Nullable: pulumi.Bool(false),
+// 					Type:     pulumi.String("text"),
 // 				},
 // 				&TableColumnArgs{
 // 					Name: pulumi.String("DATE"),
@@ -43,7 +45,13 @@ import (
 // 			},
 // 			Comment:  pulumi.String("A table."),
 // 			Database: pulumi.String("database"),
-// 			Schema:   pulumi.String("schmea"),
+// 			PrimaryKey: &TablePrimaryKeyArgs{
+// 				Keys: pulumi.StringArray{
+// 					pulumi.String("data"),
+// 				},
+// 				Name: pulumi.String("my_key"),
+// 			},
+// 			Schema: pulumi.String("schmea"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -63,7 +71,7 @@ import (
 type Table struct {
 	pulumi.CustomResourceState
 
-	// A list of one of more table columns/expressions to be used as clustering key(s) for the table
+	// A list of one or more table columns/expressions to be used as clustering key(s) for the table
 	ClusterBies pulumi.StringArrayOutput `pulumi:"clusterBies"`
 	// Definitions of a column to create in the table. Minimum one required.
 	Columns TableColumnArrayOutput `pulumi:"columns"`
@@ -75,6 +83,8 @@ type Table struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of the role that owns the table.
 	Owner pulumi.StringOutput `pulumi:"owner"`
+	// Definitions of primary key constraint to create on table
+	PrimaryKey TablePrimaryKeyPtrOutput `pulumi:"primaryKey"`
 	// The schema in which to create the table.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 }
@@ -117,7 +127,7 @@ func GetTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Table resources.
 type tableState struct {
-	// A list of one of more table columns/expressions to be used as clustering key(s) for the table
+	// A list of one or more table columns/expressions to be used as clustering key(s) for the table
 	ClusterBies []string `pulumi:"clusterBies"`
 	// Definitions of a column to create in the table. Minimum one required.
 	Columns []TableColumn `pulumi:"columns"`
@@ -129,12 +139,14 @@ type tableState struct {
 	Name *string `pulumi:"name"`
 	// Name of the role that owns the table.
 	Owner *string `pulumi:"owner"`
+	// Definitions of primary key constraint to create on table
+	PrimaryKey *TablePrimaryKey `pulumi:"primaryKey"`
 	// The schema in which to create the table.
 	Schema *string `pulumi:"schema"`
 }
 
 type TableState struct {
-	// A list of one of more table columns/expressions to be used as clustering key(s) for the table
+	// A list of one or more table columns/expressions to be used as clustering key(s) for the table
 	ClusterBies pulumi.StringArrayInput
 	// Definitions of a column to create in the table. Minimum one required.
 	Columns TableColumnArrayInput
@@ -146,6 +158,8 @@ type TableState struct {
 	Name pulumi.StringPtrInput
 	// Name of the role that owns the table.
 	Owner pulumi.StringPtrInput
+	// Definitions of primary key constraint to create on table
+	PrimaryKey TablePrimaryKeyPtrInput
 	// The schema in which to create the table.
 	Schema pulumi.StringPtrInput
 }
@@ -155,7 +169,7 @@ func (TableState) ElementType() reflect.Type {
 }
 
 type tableArgs struct {
-	// A list of one of more table columns/expressions to be used as clustering key(s) for the table
+	// A list of one or more table columns/expressions to be used as clustering key(s) for the table
 	ClusterBies []string `pulumi:"clusterBies"`
 	// Definitions of a column to create in the table. Minimum one required.
 	Columns []TableColumn `pulumi:"columns"`
@@ -165,13 +179,15 @@ type tableArgs struct {
 	Database string `pulumi:"database"`
 	// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
 	Name *string `pulumi:"name"`
+	// Definitions of primary key constraint to create on table
+	PrimaryKey *TablePrimaryKey `pulumi:"primaryKey"`
 	// The schema in which to create the table.
 	Schema string `pulumi:"schema"`
 }
 
 // The set of arguments for constructing a Table resource.
 type TableArgs struct {
-	// A list of one of more table columns/expressions to be used as clustering key(s) for the table
+	// A list of one or more table columns/expressions to be used as clustering key(s) for the table
 	ClusterBies pulumi.StringArrayInput
 	// Definitions of a column to create in the table. Minimum one required.
 	Columns TableColumnArrayInput
@@ -181,6 +197,8 @@ type TableArgs struct {
 	Database pulumi.StringInput
 	// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
 	Name pulumi.StringPtrInput
+	// Definitions of primary key constraint to create on table
+	PrimaryKey TablePrimaryKeyPtrInput
 	// The schema in which to create the table.
 	Schema pulumi.StringInput
 }

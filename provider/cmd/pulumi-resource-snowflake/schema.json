@@ -220,6 +220,15 @@
                         }
                     }
                 },
+                "nullable": {
+                    "type": "boolean",
+                    "description": "Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "type": {
                     "type": "string",
                     "description": "Column type, e.g. VARIANT\n",
@@ -235,6 +244,218 @@
                 "name",
                 "type"
             ]
+        },
+        "snowflake:index/TablePrimaryKey:TablePrimaryKey": {
+            "properties": {
+                "keys": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Columns to use in primary key\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of constraint\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "keys"
+            ]
+        },
+        "snowflake:index/getMaterializedViewsMaterializedView:getMaterializedViewsMaterializedView": {
+            "properties": {
+                "comment": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "database": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "schema": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "comment",
+                "database",
+                "name",
+                "schema"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getSchemasSchema:getSchemasSchema": {
+            "properties": {
+                "comment": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "database": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "comment",
+                "database",
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getTablesTable:getTablesTable": {
+            "properties": {
+                "comment": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "database": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "schema": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "comment",
+                "database",
+                "name",
+                "schema"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getViewsView:getViewsView": {
+            "properties": {
+                "comment": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "database": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "schema": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "comment",
+                "database",
+                "name",
+                "schema"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
     },
     "provider": {
@@ -340,7 +561,7 @@
     },
     "resources": {
         "snowflake:index/accountGrant:AccountGrant": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.AccountGrant(\"grant\", {\n    privilege: \"CREATE ROLE\",\n    roles: [\n        \"role1\",\n        \"role2\",\n    ],\n    withGrantOption: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ngrant = snowflake.AccountGrant(\"grant\",\n    privilege=\"CREATE ROLE\",\n    roles=[\n        \"role1\",\n        \"role2\",\n    ],\n    with_grant_option=False)\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var grant = new Snowflake.AccountGrant(\"grant\", new Snowflake.AccountGrantArgs\n        {\n            Privilege = \"CREATE ROLE\",\n            Roles = \n            {\n                \"role1\",\n                \"role2\",\n            },\n            WithGrantOption = false,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewAccountGrant(ctx, \"grant\", \u0026snowflake.AccountGrantArgs{\n\t\t\tPrivilege: pulumi.String(\"CREATE ROLE\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"role1\"),\n\t\t\t\tpulumi.String(\"role2\"),\n\t\t\t},\n\t\t\tWithGrantOption: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is account name | privilege | true/false for with_grant_option\n\n```sh\n $ pulumi import snowflake:index/accountGrant:AccountGrant example 'accountName|USAGE|true'\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.AccountGrant(\"grant\", {\n    privilege: \"CREATE ROLE\",\n    roles: [\n        \"role1\",\n        \"role2\",\n    ],\n    withGrantOption: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ngrant = snowflake.AccountGrant(\"grant\",\n    privilege=\"CREATE ROLE\",\n    roles=[\n        \"role1\",\n        \"role2\",\n    ],\n    with_grant_option=False)\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var grant = new Snowflake.AccountGrant(\"grant\", new Snowflake.AccountGrantArgs\n        {\n            Privilege = \"CREATE ROLE\",\n            Roles = \n            {\n                \"role1\",\n                \"role2\",\n            },\n            WithGrantOption = false,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewAccountGrant(ctx, \"grant\", \u0026snowflake.AccountGrantArgs{\n\t\t\tPrivilege: pulumi.String(\"CREATE ROLE\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"role1\"),\n\t\t\t\tpulumi.String(\"role2\"),\n\t\t\t},\n\t\t\tWithGrantOption: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is account name | | | privilege | true/false for with_grant_option\n\n```sh\n $ pulumi import snowflake:index/accountGrant:AccountGrant example 'accountName|||USAGE|true'\n```\n\n ",
             "properties": {
                 "privilege": {
                     "type": "string",
@@ -2901,7 +3122,24 @@
             }
         },
         "snowflake:index/notificationIntegration:NotificationIntegration": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst integration = new snowflake.NotificationIntegration(\"integration\", {\n    awsSqsArn: \"...\",\n    awsSqsRoleArn: \"...\",\n    azureStorageQueuePrimaryUri: \"...\",\n    azureTenantId: \"...\",\n    comment: \"A notification integration.\",\n    direction: \"OUTBOUND\",\n    enabled: true,\n    notificationProvider: \"AWS_SQS\",\n    type: \"QUEUE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nintegration = snowflake.NotificationIntegration(\"integration\",\n    aws_sqs_arn=\"...\",\n    aws_sqs_role_arn=\"...\",\n    azure_storage_queue_primary_uri=\"...\",\n    azure_tenant_id=\"...\",\n    comment=\"A notification integration.\",\n    direction=\"OUTBOUND\",\n    enabled=True,\n    notification_provider=\"AWS_SQS\",\n    type=\"QUEUE\")\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var integration = new Snowflake.NotificationIntegration(\"integration\", new Snowflake.NotificationIntegrationArgs\n        {\n            AwsSqsArn = \"...\",\n            AwsSqsRoleArn = \"...\",\n            AzureStorageQueuePrimaryUri = \"...\",\n            AzureTenantId = \"...\",\n            Comment = \"A notification integration.\",\n            Direction = \"OUTBOUND\",\n            Enabled = true,\n            NotificationProvider = \"AWS_SQS\",\n            Type = \"QUEUE\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewNotificationIntegration(ctx, \"integration\", \u0026snowflake.NotificationIntegrationArgs{\n\t\t\tAwsSqsArn:                   pulumi.String(\"...\"),\n\t\t\tAwsSqsRoleArn:               pulumi.String(\"...\"),\n\t\t\tAzureStorageQueuePrimaryUri: pulumi.String(\"...\"),\n\t\t\tAzureTenantId:               pulumi.String(\"...\"),\n\t\t\tComment:                     pulumi.String(\"A notification integration.\"),\n\t\t\tDirection:                   pulumi.String(\"OUTBOUND\"),\n\t\t\tEnabled:                     pulumi.Bool(true),\n\t\t\tNotificationProvider:        pulumi.String(\"AWS_SQS\"),\n\t\t\tType:                        pulumi.String(\"QUEUE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name\n```\n\n ",
             "properties": {
+                "awsSqsArn": {
+                    "type": "string",
+                    "description": "AWS SQS queue ARN for notification integration to connect to\n"
+                },
+                "awsSqsExternalId": {
+                    "type": "string",
+                    "description": "The external ID that Snowflake will use when assuming the AWS role\n"
+                },
+                "awsSqsIamUserArn": {
+                    "type": "string",
+                    "description": "The Snowflake user that will attempt to assume the AWS role.\n"
+                },
+                "awsSqsRoleArn": {
+                    "type": "string",
+                    "description": "AWS IAM role ARN for notification integration to assume\n"
+                },
                 "azureStorageQueuePrimaryUri": {
                     "type": "string",
                     "description": "The queue ID for the Azure Queue Storage queue created for Event Grid notifications\n"
@@ -2917,15 +3155,23 @@
                     "type": "string",
                     "description": "Date and time when the notification integration was created.\n"
                 },
+                "direction": {
+                    "type": "string",
+                    "description": "Direction of the cloud messaging with respect to Snowflake (required only for error notifications)\n"
+                },
                 "enabled": {
                     "type": "boolean"
+                },
+                "gcpPubsubSubscriptionName": {
+                    "type": "string",
+                    "description": "The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.\n"
                 },
                 "name": {
                     "type": "string"
                 },
                 "notificationProvider": {
                     "type": "string",
-                    "description": "The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE)\n"
+                    "description": "The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)\n"
                 },
                 "type": {
                     "type": "string",
@@ -2933,12 +3179,20 @@
                 }
             },
             "required": [
-                "azureStorageQueuePrimaryUri",
-                "azureTenantId",
+                "awsSqsExternalId",
+                "awsSqsIamUserArn",
                 "createdOn",
                 "name"
             ],
             "inputProperties": {
+                "awsSqsArn": {
+                    "type": "string",
+                    "description": "AWS SQS queue ARN for notification integration to connect to\n"
+                },
+                "awsSqsRoleArn": {
+                    "type": "string",
+                    "description": "AWS IAM role ARN for notification integration to assume\n"
+                },
                 "azureStorageQueuePrimaryUri": {
                     "type": "string",
                     "description": "The queue ID for the Azure Queue Storage queue created for Event Grid notifications\n"
@@ -2950,28 +3204,48 @@
                 "comment": {
                     "type": "string"
                 },
+                "direction": {
+                    "type": "string",
+                    "description": "Direction of the cloud messaging with respect to Snowflake (required only for error notifications)\n"
+                },
                 "enabled": {
                     "type": "boolean"
+                },
+                "gcpPubsubSubscriptionName": {
+                    "type": "string",
+                    "description": "The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.\n"
                 },
                 "name": {
                     "type": "string"
                 },
                 "notificationProvider": {
                     "type": "string",
-                    "description": "The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE)\n"
+                    "description": "The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)\n"
                 },
                 "type": {
                     "type": "string",
                     "description": "A type of integration\n"
                 }
             },
-            "requiredInputs": [
-                "azureStorageQueuePrimaryUri",
-                "azureTenantId"
-            ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering NotificationIntegration resources.\n",
                 "properties": {
+                    "awsSqsArn": {
+                        "type": "string",
+                        "description": "AWS SQS queue ARN for notification integration to connect to\n"
+                    },
+                    "awsSqsExternalId": {
+                        "type": "string",
+                        "description": "The external ID that Snowflake will use when assuming the AWS role\n"
+                    },
+                    "awsSqsIamUserArn": {
+                        "type": "string",
+                        "description": "The Snowflake user that will attempt to assume the AWS role.\n"
+                    },
+                    "awsSqsRoleArn": {
+                        "type": "string",
+                        "description": "AWS IAM role ARN for notification integration to assume\n"
+                    },
                     "azureStorageQueuePrimaryUri": {
                         "type": "string",
                         "description": "The queue ID for the Azure Queue Storage queue created for Event Grid notifications\n"
@@ -2987,15 +3261,23 @@
                         "type": "string",
                         "description": "Date and time when the notification integration was created.\n"
                     },
+                    "direction": {
+                        "type": "string",
+                        "description": "Direction of the cloud messaging with respect to Snowflake (required only for error notifications)\n"
+                    },
                     "enabled": {
                         "type": "boolean"
+                    },
+                    "gcpPubsubSubscriptionName": {
+                        "type": "string",
+                        "description": "The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.\n"
                     },
                     "name": {
                         "type": "string"
                     },
                     "notificationProvider": {
                         "type": "string",
-                        "description": "The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE)\n"
+                        "description": "The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)\n"
                     },
                     "type": {
                         "type": "string",
@@ -3027,6 +3309,10 @@
                 "database": {
                     "type": "string",
                     "description": "The database in which to create the pipe.\n"
+                },
+                "errorIntegration": {
+                    "type": "string",
+                    "description": "Specifies the name of the notification integration used for error notifications.\n"
                 },
                 "integration": {
                     "type": "string",
@@ -3078,6 +3364,10 @@
                     "type": "string",
                     "description": "The database in which to create the pipe.\n"
                 },
+                "errorIntegration": {
+                    "type": "string",
+                    "description": "Specifies the name of the notification integration used for error notifications.\n"
+                },
                 "integration": {
                     "type": "string",
                     "description": "Specifies an integration for the pipe.\n"
@@ -3119,6 +3409,10 @@
                         "type": "string",
                         "description": "The database in which to create the pipe.\n"
                     },
+                    "errorIntegration": {
+                        "type": "string",
+                        "description": "Specifies the name of the notification integration used for error notifications.\n"
+                    },
                     "integration": {
                         "type": "string",
                         "description": "Specifies an integration for the pipe.\n"
@@ -3138,6 +3432,119 @@
                     "schema": {
                         "type": "string",
                         "description": "The schema in which to create the pipe.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "snowflake:index/pipeGrant:PipeGrant": {
+            "properties": {
+                "databaseName": {
+                    "type": "string",
+                    "description": "The name of the database containing the current or future pipes on which to grant privileges.\n"
+                },
+                "onFuture": {
+                    "type": "boolean",
+                    "description": "When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When\nthis is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name\nfield must be unset in order to use on_future.\n"
+                },
+                "pipeName": {
+                    "type": "string",
+                    "description": "The name of the pipe on which to grant privileges immediately (only valid if on_future is false).\n"
+                },
+                "privilege": {
+                    "type": "string",
+                    "description": "The privilege to grant on the current or future pipe.\n"
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Grants privilege to these roles.\n"
+                },
+                "schemaName": {
+                    "type": "string",
+                    "description": "The name of the schema containing the current or future pipes on which to grant privileges.\n"
+                },
+                "withGrantOption": {
+                    "type": "boolean",
+                    "description": "When this is set to true, allows the recipient role to grant the privileges to other roles.\n"
+                }
+            },
+            "required": [
+                "databaseName",
+                "schemaName"
+            ],
+            "inputProperties": {
+                "databaseName": {
+                    "type": "string",
+                    "description": "The name of the database containing the current or future pipes on which to grant privileges.\n"
+                },
+                "onFuture": {
+                    "type": "boolean",
+                    "description": "When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When\nthis is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name\nfield must be unset in order to use on_future.\n"
+                },
+                "pipeName": {
+                    "type": "string",
+                    "description": "The name of the pipe on which to grant privileges immediately (only valid if on_future is false).\n"
+                },
+                "privilege": {
+                    "type": "string",
+                    "description": "The privilege to grant on the current or future pipe.\n"
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Grants privilege to these roles.\n"
+                },
+                "schemaName": {
+                    "type": "string",
+                    "description": "The name of the schema containing the current or future pipes on which to grant privileges.\n"
+                },
+                "withGrantOption": {
+                    "type": "boolean",
+                    "description": "When this is set to true, allows the recipient role to grant the privileges to other roles.\n"
+                }
+            },
+            "requiredInputs": [
+                "databaseName",
+                "schemaName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering PipeGrant resources.\n",
+                "properties": {
+                    "databaseName": {
+                        "type": "string",
+                        "description": "The name of the database containing the current or future pipes on which to grant privileges.\n"
+                    },
+                    "onFuture": {
+                        "type": "boolean",
+                        "description": "When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When\nthis is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name\nfield must be unset in order to use on_future.\n"
+                    },
+                    "pipeName": {
+                        "type": "string",
+                        "description": "The name of the pipe on which to grant privileges immediately (only valid if on_future is false).\n"
+                    },
+                    "privilege": {
+                        "type": "string",
+                        "description": "The privilege to grant on the current or future pipe.\n"
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Grants privilege to these roles.\n"
+                    },
+                    "schemaName": {
+                        "type": "string",
+                        "description": "The name of the schema containing the current or future pipes on which to grant privileges.\n"
+                    },
+                    "withGrantOption": {
+                        "type": "boolean",
+                        "description": "When this is set to true, allows the recipient role to grant the privileges to other roles.\n"
                     }
                 },
                 "type": "object"
@@ -4902,14 +5309,14 @@
             }
         },
         "snowflake:index/table:Table": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst table = new snowflake.Table(\"table\", {\n    clusterBies: [\"to_date(DATE)\"],\n    columns: [\n        {\n            name: \"id\",\n            type: \"int\",\n        },\n        {\n            name: \"data\",\n            type: \"text\",\n        },\n        {\n            name: \"DATE\",\n            type: \"TIMESTAMP_NTZ(9)\",\n        },\n    ],\n    comment: \"A table.\",\n    database: \"database\",\n    schema: \"schmea\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ntable = snowflake.Table(\"table\",\n    cluster_bies=[\"to_date(DATE)\"],\n    columns=[\n        snowflake.TableColumnArgs(\n            name=\"id\",\n            type=\"int\",\n        ),\n        snowflake.TableColumnArgs(\n            name=\"data\",\n            type=\"text\",\n        ),\n        snowflake.TableColumnArgs(\n            name=\"DATE\",\n            type=\"TIMESTAMP_NTZ(9)\",\n        ),\n    ],\n    comment=\"A table.\",\n    database=\"database\",\n    schema=\"schmea\")\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var table = new Snowflake.Table(\"table\", new Snowflake.TableArgs\n        {\n            ClusterBies = \n            {\n                \"to_date(DATE)\",\n            },\n            Columns = \n            {\n                new Snowflake.Inputs.TableColumnArgs\n                {\n                    Name = \"id\",\n                    Type = \"int\",\n                },\n                new Snowflake.Inputs.TableColumnArgs\n                {\n                    Name = \"data\",\n                    Type = \"text\",\n                },\n                new Snowflake.Inputs.TableColumnArgs\n                {\n                    Name = \"DATE\",\n                    Type = \"TIMESTAMP_NTZ(9)\",\n                },\n            },\n            Comment = \"A table.\",\n            Database = \"database\",\n            Schema = \"schmea\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewTable(ctx, \"table\", \u0026snowflake.TableArgs{\n\t\t\tClusterBies: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"to_date(DATE)\"),\n\t\t\t},\n\t\t\tColumns: TableColumnArray{\n\t\t\t\t\u0026TableColumnArgs{\n\t\t\t\t\tName: pulumi.String(\"id\"),\n\t\t\t\t\tType: pulumi.String(\"int\"),\n\t\t\t\t},\n\t\t\t\t\u0026TableColumnArgs{\n\t\t\t\t\tName: pulumi.String(\"data\"),\n\t\t\t\t\tType: pulumi.String(\"text\"),\n\t\t\t\t},\n\t\t\t\t\u0026TableColumnArgs{\n\t\t\t\t\tName: pulumi.String(\"DATE\"),\n\t\t\t\t\tType: pulumi.String(\"TIMESTAMP_NTZ(9)\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tComment:  pulumi.String(\"A table.\"),\n\t\t\tDatabase: pulumi.String(\"database\"),\n\t\t\tSchema:   pulumi.String(\"schmea\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | table name\n\n```sh\n $ pulumi import snowflake:index/table:Table example 'databaseName|schemaName|tableName'\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst table = new snowflake.Table(\"table\", {\n    clusterBies: [\"to_date(DATE)\"],\n    columns: [\n        {\n            name: \"id\",\n            nullable: true,\n            type: \"int\",\n        },\n        {\n            name: \"data\",\n            nullable: false,\n            type: \"text\",\n        },\n        {\n            name: \"DATE\",\n            type: \"TIMESTAMP_NTZ(9)\",\n        },\n    ],\n    comment: \"A table.\",\n    database: \"database\",\n    primaryKey: {\n        keys: [\"data\"],\n        name: \"my_key\",\n    },\n    schema: \"schmea\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ntable = snowflake.Table(\"table\",\n    cluster_bies=[\"to_date(DATE)\"],\n    columns=[\n        snowflake.TableColumnArgs(\n            name=\"id\",\n            nullable=True,\n            type=\"int\",\n        ),\n        snowflake.TableColumnArgs(\n            name=\"data\",\n            nullable=False,\n            type=\"text\",\n        ),\n        snowflake.TableColumnArgs(\n            name=\"DATE\",\n            type=\"TIMESTAMP_NTZ(9)\",\n        ),\n    ],\n    comment=\"A table.\",\n    database=\"database\",\n    primary_key=snowflake.TablePrimaryKeyArgs(\n        keys=[\"data\"],\n        name=\"my_key\",\n    ),\n    schema=\"schmea\")\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var table = new Snowflake.Table(\"table\", new Snowflake.TableArgs\n        {\n            ClusterBies = \n            {\n                \"to_date(DATE)\",\n            },\n            Columns = \n            {\n                new Snowflake.Inputs.TableColumnArgs\n                {\n                    Name = \"id\",\n                    Nullable = true,\n                    Type = \"int\",\n                },\n                new Snowflake.Inputs.TableColumnArgs\n                {\n                    Name = \"data\",\n                    Nullable = false,\n                    Type = \"text\",\n                },\n                new Snowflake.Inputs.TableColumnArgs\n                {\n                    Name = \"DATE\",\n                    Type = \"TIMESTAMP_NTZ(9)\",\n                },\n            },\n            Comment = \"A table.\",\n            Database = \"database\",\n            PrimaryKey = new Snowflake.Inputs.TablePrimaryKeyArgs\n            {\n                Keys = \n                {\n                    \"data\",\n                },\n                Name = \"my_key\",\n            },\n            Schema = \"schmea\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewTable(ctx, \"table\", \u0026snowflake.TableArgs{\n\t\t\tClusterBies: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"to_date(DATE)\"),\n\t\t\t},\n\t\t\tColumns: TableColumnArray{\n\t\t\t\t\u0026TableColumnArgs{\n\t\t\t\t\tName:     pulumi.String(\"id\"),\n\t\t\t\t\tNullable: pulumi.Bool(true),\n\t\t\t\t\tType:     pulumi.String(\"int\"),\n\t\t\t\t},\n\t\t\t\t\u0026TableColumnArgs{\n\t\t\t\t\tName:     pulumi.String(\"data\"),\n\t\t\t\t\tNullable: pulumi.Bool(false),\n\t\t\t\t\tType:     pulumi.String(\"text\"),\n\t\t\t\t},\n\t\t\t\t\u0026TableColumnArgs{\n\t\t\t\t\tName: pulumi.String(\"DATE\"),\n\t\t\t\t\tType: pulumi.String(\"TIMESTAMP_NTZ(9)\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tComment:  pulumi.String(\"A table.\"),\n\t\t\tDatabase: pulumi.String(\"database\"),\n\t\t\tPrimaryKey: \u0026TablePrimaryKeyArgs{\n\t\t\t\tKeys: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"data\"),\n\t\t\t\t},\n\t\t\t\tName: pulumi.String(\"my_key\"),\n\t\t\t},\n\t\t\tSchema: pulumi.String(\"schmea\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | table name\n\n```sh\n $ pulumi import snowflake:index/table:Table example 'databaseName|schemaName|tableName'\n```\n\n ",
             "properties": {
                 "clusterBies": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of one of more table columns/expressions to be used as clustering key(s) for the table\n"
+                    "description": "A list of one or more table columns/expressions to be used as clustering key(s) for the table\n"
                 },
                 "columns": {
                     "type": "array",
@@ -4934,6 +5341,10 @@
                     "type": "string",
                     "description": "Name of the role that owns the table.\n"
                 },
+                "primaryKey": {
+                    "$ref": "#/types/snowflake:index/TablePrimaryKey:TablePrimaryKey",
+                    "description": "Definitions of primary key constraint to create on table\n"
+                },
                 "schema": {
                     "type": "string",
                     "description": "The schema in which to create the table.\n"
@@ -4952,7 +5363,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of one of more table columns/expressions to be used as clustering key(s) for the table\n"
+                    "description": "A list of one or more table columns/expressions to be used as clustering key(s) for the table\n"
                 },
                 "columns": {
                     "type": "array",
@@ -4973,6 +5384,10 @@
                     "type": "string",
                     "description": "Specifies the identifier for the table; must be unique for the database and schema in which the table is created.\n"
                 },
+                "primaryKey": {
+                    "$ref": "#/types/snowflake:index/TablePrimaryKey:TablePrimaryKey",
+                    "description": "Definitions of primary key constraint to create on table\n"
+                },
                 "schema": {
                     "type": "string",
                     "description": "The schema in which to create the table.\n"
@@ -4991,7 +5406,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of one of more table columns/expressions to be used as clustering key(s) for the table\n"
+                        "description": "A list of one or more table columns/expressions to be used as clustering key(s) for the table\n"
                     },
                     "columns": {
                         "type": "array",
@@ -5015,6 +5430,10 @@
                     "owner": {
                         "type": "string",
                         "description": "Name of the role that owns the table.\n"
+                    },
+                    "primaryKey": {
+                        "$ref": "#/types/snowflake:index/TablePrimaryKey:TablePrimaryKey",
+                        "description": "Definitions of primary key constraint to create on table\n"
                     },
                     "schema": {
                         "type": "string",
@@ -5331,6 +5750,119 @@
                     "when": {
                         "type": "string",
                         "description": "Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "snowflake:index/taskGrant:TaskGrant": {
+            "properties": {
+                "databaseName": {
+                    "type": "string",
+                    "description": "The name of the database containing the current or future tasks on which to grant privileges.\n"
+                },
+                "onFuture": {
+                    "type": "boolean",
+                    "description": "When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When\nthis is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name\nfield must be unset in order to use on_future.\n"
+                },
+                "privilege": {
+                    "type": "string",
+                    "description": "The privilege to grant on the current or future task.\n"
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Grants privilege to these roles.\n"
+                },
+                "schemaName": {
+                    "type": "string",
+                    "description": "The name of the schema containing the current or future tasks on which to grant privileges.\n"
+                },
+                "taskName": {
+                    "type": "string",
+                    "description": "The name of the task on which to grant privileges immediately (only valid if on_future is false).\n"
+                },
+                "withGrantOption": {
+                    "type": "boolean",
+                    "description": "When this is set to true, allows the recipient role to grant the privileges to other roles.\n"
+                }
+            },
+            "required": [
+                "databaseName",
+                "schemaName"
+            ],
+            "inputProperties": {
+                "databaseName": {
+                    "type": "string",
+                    "description": "The name of the database containing the current or future tasks on which to grant privileges.\n"
+                },
+                "onFuture": {
+                    "type": "boolean",
+                    "description": "When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When\nthis is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name\nfield must be unset in order to use on_future.\n"
+                },
+                "privilege": {
+                    "type": "string",
+                    "description": "The privilege to grant on the current or future task.\n"
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Grants privilege to these roles.\n"
+                },
+                "schemaName": {
+                    "type": "string",
+                    "description": "The name of the schema containing the current or future tasks on which to grant privileges.\n"
+                },
+                "taskName": {
+                    "type": "string",
+                    "description": "The name of the task on which to grant privileges immediately (only valid if on_future is false).\n"
+                },
+                "withGrantOption": {
+                    "type": "boolean",
+                    "description": "When this is set to true, allows the recipient role to grant the privileges to other roles.\n"
+                }
+            },
+            "requiredInputs": [
+                "databaseName",
+                "schemaName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering TaskGrant resources.\n",
+                "properties": {
+                    "databaseName": {
+                        "type": "string",
+                        "description": "The name of the database containing the current or future tasks on which to grant privileges.\n"
+                    },
+                    "onFuture": {
+                        "type": "boolean",
+                        "description": "When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When\nthis is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name\nfield must be unset in order to use on_future.\n"
+                    },
+                    "privilege": {
+                        "type": "string",
+                        "description": "The privilege to grant on the current or future task.\n"
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Grants privilege to these roles.\n"
+                    },
+                    "schemaName": {
+                        "type": "string",
+                        "description": "The name of the schema containing the current or future tasks on which to grant privileges.\n"
+                    },
+                    "taskName": {
+                        "type": "string",
+                        "description": "The name of the task on which to grant privileges immediately (only valid if on_future is false).\n"
+                    },
+                    "withGrantOption": {
+                        "type": "boolean",
+                        "description": "When this is set to true, allows the recipient role to grant the privileges to other roles.\n"
                     }
                 },
                 "type": "object"
@@ -6122,6 +6654,90 @@
                 ]
             }
         },
+        "snowflake:index/getMaterializedViews:getMaterializedViews": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getMaterializedViews.\n",
+                "properties": {
+                    "database": {
+                        "type": "string"
+                    },
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "database",
+                    "schema"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getMaterializedViews.\n",
+                "properties": {
+                    "database": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "materializedViews": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/getMaterializedViewsMaterializedView:getMaterializedViewsMaterializedView"
+                        }
+                    },
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "database",
+                    "materializedViews",
+                    "schema",
+                    "id"
+                ]
+            }
+        },
+        "snowflake:index/getSchemas:getSchemas": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getSchemas.\n",
+                "properties": {
+                    "database": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "database"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSchemas.\n",
+                "properties": {
+                    "database": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "schemas": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/getSchemasSchema:getSchemasSchema"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "database",
+                    "schemas",
+                    "id"
+                ]
+            }
+        },
         "snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken": {
             "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst scim = pulumi.output(snowflake.getSystemGenerateScimAccessToken({\n    integrationName: \"AAD_PROVISIONING\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nscim = snowflake.get_system_generate_scim_access_token(integration_name=\"AAD_PROVISIONING\")\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var scim = Output.Create(Snowflake.GetSystemGenerateScimAccessToken.InvokeAsync(new Snowflake.GetSystemGenerateScimAccessTokenArgs\n        {\n            IntegrationName = \"AAD_PROVISIONING\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.GetSystemGenerateScimAccessToken(ctx, \u0026GetSystemGenerateScimAccessTokenArgs{\n\t\t\tIntegrationName: \"AAD_PROVISIONING\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
@@ -6266,6 +6882,98 @@
                 "required": [
                     "awsVpcIds",
                     "azureVnetSubnetIds",
+                    "id"
+                ]
+            }
+        },
+        "snowflake:index/getTables:getTables": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getTables.\n",
+                "properties": {
+                    "database": {
+                        "type": "string"
+                    },
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "database",
+                    "schema"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getTables.\n",
+                "properties": {
+                    "database": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "schema": {
+                        "type": "string"
+                    },
+                    "tables": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/getTablesTable:getTablesTable"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "database",
+                    "schema",
+                    "tables",
+                    "id"
+                ]
+            }
+        },
+        "snowflake:index/getViews:getViews": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getViews.\n",
+                "properties": {
+                    "database": {
+                        "type": "string"
+                    },
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "database",
+                    "schema"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getViews.\n",
+                "properties": {
+                    "database": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "schema": {
+                        "type": "string"
+                    },
+                    "views": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/getViewsView:getViewsView"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "database",
+                    "schema",
+                    "views",
                     "id"
                 ]
             }

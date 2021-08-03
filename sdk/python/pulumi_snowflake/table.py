@@ -20,15 +20,17 @@ class TableArgs:
                  schema: pulumi.Input[str],
                  cluster_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 primary_key: Optional[pulumi.Input['TablePrimaryKeyArgs']] = None):
         """
         The set of arguments for constructing a Table resource.
         :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[str] database: The database in which to create the table.
         :param pulumi.Input[str] schema: The schema in which to create the table.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one of more table columns/expressions to be used as clustering key(s) for the table
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[str] comment: Specifies a comment for the table.
         :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+        :param pulumi.Input['TablePrimaryKeyArgs'] primary_key: Definitions of primary key constraint to create on table
         """
         pulumi.set(__self__, "columns", columns)
         pulumi.set(__self__, "database", database)
@@ -39,6 +41,8 @@ class TableArgs:
             pulumi.set(__self__, "comment", comment)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
 
     @property
     @pulumi.getter
@@ -80,7 +84,7 @@ class TableArgs:
     @pulumi.getter(name="clusterBies")
     def cluster_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of one of more table columns/expressions to be used as clustering key(s) for the table
+        A list of one or more table columns/expressions to be used as clustering key(s) for the table
         """
         return pulumi.get(self, "cluster_bies")
 
@@ -112,6 +116,18 @@ class TableArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[pulumi.Input['TablePrimaryKeyArgs']]:
+        """
+        Definitions of primary key constraint to create on table
+        """
+        return pulumi.get(self, "primary_key")
+
+    @primary_key.setter
+    def primary_key(self, value: Optional[pulumi.Input['TablePrimaryKeyArgs']]):
+        pulumi.set(self, "primary_key", value)
+
 
 @pulumi.input_type
 class _TableState:
@@ -122,15 +138,17 @@ class _TableState:
                  database: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
+                 primary_key: Optional[pulumi.Input['TablePrimaryKeyArgs']] = None,
                  schema: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Table resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one of more table columns/expressions to be used as clustering key(s) for the table
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[str] comment: Specifies a comment for the table.
         :param pulumi.Input[str] database: The database in which to create the table.
         :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input[str] owner: Name of the role that owns the table.
+        :param pulumi.Input['TablePrimaryKeyArgs'] primary_key: Definitions of primary key constraint to create on table
         :param pulumi.Input[str] schema: The schema in which to create the table.
         """
         if cluster_bies is not None:
@@ -145,6 +163,8 @@ class _TableState:
             pulumi.set(__self__, "name", name)
         if owner is not None:
             pulumi.set(__self__, "owner", owner)
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
 
@@ -152,7 +172,7 @@ class _TableState:
     @pulumi.getter(name="clusterBies")
     def cluster_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of one of more table columns/expressions to be used as clustering key(s) for the table
+        A list of one or more table columns/expressions to be used as clustering key(s) for the table
         """
         return pulumi.get(self, "cluster_bies")
 
@@ -221,6 +241,18 @@ class _TableState:
         pulumi.set(self, "owner", value)
 
     @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[pulumi.Input['TablePrimaryKeyArgs']]:
+        """
+        Definitions of primary key constraint to create on table
+        """
+        return pulumi.get(self, "primary_key")
+
+    @primary_key.setter
+    def primary_key(self, value: Optional[pulumi.Input['TablePrimaryKeyArgs']]):
+        pulumi.set(self, "primary_key", value)
+
+    @property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
         """
@@ -243,6 +275,7 @@ class Table(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 primary_key: Optional[pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -257,10 +290,12 @@ class Table(pulumi.CustomResource):
             columns=[
                 snowflake.TableColumnArgs(
                     name="id",
+                    nullable=True,
                     type="int",
                 ),
                 snowflake.TableColumnArgs(
                     name="data",
+                    nullable=False,
                     type="text",
                 ),
                 snowflake.TableColumnArgs(
@@ -270,6 +305,10 @@ class Table(pulumi.CustomResource):
             ],
             comment="A table.",
             database="database",
+            primary_key=snowflake.TablePrimaryKeyArgs(
+                keys=["data"],
+                name="my_key",
+            ),
             schema="schmea")
         ```
 
@@ -283,11 +322,12 @@ class Table(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one of more table columns/expressions to be used as clustering key(s) for the table
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[str] comment: Specifies a comment for the table.
         :param pulumi.Input[str] database: The database in which to create the table.
         :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+        :param pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']] primary_key: Definitions of primary key constraint to create on table
         :param pulumi.Input[str] schema: The schema in which to create the table.
         """
         ...
@@ -308,10 +348,12 @@ class Table(pulumi.CustomResource):
             columns=[
                 snowflake.TableColumnArgs(
                     name="id",
+                    nullable=True,
                     type="int",
                 ),
                 snowflake.TableColumnArgs(
                     name="data",
+                    nullable=False,
                     type="text",
                 ),
                 snowflake.TableColumnArgs(
@@ -321,6 +363,10 @@ class Table(pulumi.CustomResource):
             ],
             comment="A table.",
             database="database",
+            primary_key=snowflake.TablePrimaryKeyArgs(
+                keys=["data"],
+                name="my_key",
+            ),
             schema="schmea")
         ```
 
@@ -352,6 +398,7 @@ class Table(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 primary_key: Optional[pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -374,6 +421,7 @@ class Table(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
             __props__.__dict__["name"] = name
+            __props__.__dict__["primary_key"] = primary_key
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
@@ -394,6 +442,7 @@ class Table(pulumi.CustomResource):
             database: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
+            primary_key: Optional[pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']]] = None,
             schema: Optional[pulumi.Input[str]] = None) -> 'Table':
         """
         Get an existing Table resource's state with the given name, id, and optional extra
@@ -402,12 +451,13 @@ class Table(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one of more table columns/expressions to be used as clustering key(s) for the table
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[str] comment: Specifies a comment for the table.
         :param pulumi.Input[str] database: The database in which to create the table.
         :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input[str] owner: Name of the role that owns the table.
+        :param pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']] primary_key: Definitions of primary key constraint to create on table
         :param pulumi.Input[str] schema: The schema in which to create the table.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -420,6 +470,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["database"] = database
         __props__.__dict__["name"] = name
         __props__.__dict__["owner"] = owner
+        __props__.__dict__["primary_key"] = primary_key
         __props__.__dict__["schema"] = schema
         return Table(resource_name, opts=opts, __props__=__props__)
 
@@ -427,7 +478,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="clusterBies")
     def cluster_bies(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of one of more table columns/expressions to be used as clustering key(s) for the table
+        A list of one or more table columns/expressions to be used as clustering key(s) for the table
         """
         return pulumi.get(self, "cluster_bies")
 
@@ -470,6 +521,14 @@ class Table(pulumi.CustomResource):
         Name of the role that owns the table.
         """
         return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> pulumi.Output[Optional['outputs.TablePrimaryKey']]:
+        """
+        Definitions of primary key constraint to create on table
+        """
+        return pulumi.get(self, "primary_key")
 
     @property
     @pulumi.getter

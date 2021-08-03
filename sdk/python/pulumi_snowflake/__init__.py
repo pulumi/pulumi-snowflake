@@ -16,10 +16,14 @@ from .file_format import *
 from .file_format_grant import *
 from .function_grant import *
 from .get_current_account import *
+from .get_materialized_views import *
+from .get_schemas import *
 from .get_system_generate_scim_access_token import *
 from .get_system_get_aws_sns_iam_policy import *
 from .get_system_get_private_link_config import *
 from .get_system_get_snowflake_platform_info import *
+from .get_tables import *
+from .get_views import *
 from .integration_grant import *
 from .managed_account import *
 from .masking_policy import *
@@ -30,6 +34,7 @@ from .network_policy import *
 from .network_policy_attachment import *
 from .notification_integration import *
 from .pipe import *
+from .pipe_grant import *
 from .procedure_grant import *
 from .provider import *
 from .resource_monitor import *
@@ -50,6 +55,7 @@ from .stream_grant import *
 from .table import *
 from .table_grant import *
 from .task import *
+from .task_grant import *
 from .user import *
 from .user_public_keys import *
 from .view import *
@@ -230,6 +236,14 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/pipeGrant",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/pipeGrant:PipeGrant": "PipeGrant"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/procedureGrant",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -378,6 +392,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/task:Task": "Task"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/taskGrant",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/taskGrant:TaskGrant": "TaskGrant"
   }
  },
  {

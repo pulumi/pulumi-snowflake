@@ -17,10 +17,12 @@ import * as utilities from "./utilities";
  *     columns: [
  *         {
  *             name: "id",
+ *             nullable: true,
  *             type: "int",
  *         },
  *         {
  *             name: "data",
+ *             nullable: false,
  *             type: "text",
  *         },
  *         {
@@ -30,6 +32,10 @@ import * as utilities from "./utilities";
  *     ],
  *     comment: "A table.",
  *     database: "database",
+ *     primaryKey: {
+ *         keys: ["data"],
+ *         name: "my_key",
+ *     },
  *     schema: "schmea",
  * });
  * ```
@@ -71,7 +77,7 @@ export class Table extends pulumi.CustomResource {
     }
 
     /**
-     * A list of one of more table columns/expressions to be used as clustering key(s) for the table
+     * A list of one or more table columns/expressions to be used as clustering key(s) for the table
      */
     public readonly clusterBies!: pulumi.Output<string[] | undefined>;
     /**
@@ -94,6 +100,10 @@ export class Table extends pulumi.CustomResource {
      * Name of the role that owns the table.
      */
     public /*out*/ readonly owner!: pulumi.Output<string>;
+    /**
+     * Definitions of primary key constraint to create on table
+     */
+    public readonly primaryKey!: pulumi.Output<outputs.TablePrimaryKey | undefined>;
     /**
      * The schema in which to create the table.
      */
@@ -118,6 +128,7 @@ export class Table extends pulumi.CustomResource {
             inputs["database"] = state ? state.database : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["owner"] = state ? state.owner : undefined;
+            inputs["primaryKey"] = state ? state.primaryKey : undefined;
             inputs["schema"] = state ? state.schema : undefined;
         } else {
             const args = argsOrState as TableArgs | undefined;
@@ -135,6 +146,7 @@ export class Table extends pulumi.CustomResource {
             inputs["comment"] = args ? args.comment : undefined;
             inputs["database"] = args ? args.database : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["primaryKey"] = args ? args.primaryKey : undefined;
             inputs["schema"] = args ? args.schema : undefined;
             inputs["owner"] = undefined /*out*/;
         }
@@ -150,7 +162,7 @@ export class Table extends pulumi.CustomResource {
  */
 export interface TableState {
     /**
-     * A list of one of more table columns/expressions to be used as clustering key(s) for the table
+     * A list of one or more table columns/expressions to be used as clustering key(s) for the table
      */
     clusterBies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -174,6 +186,10 @@ export interface TableState {
      */
     owner?: pulumi.Input<string>;
     /**
+     * Definitions of primary key constraint to create on table
+     */
+    primaryKey?: pulumi.Input<inputs.TablePrimaryKey>;
+    /**
      * The schema in which to create the table.
      */
     schema?: pulumi.Input<string>;
@@ -184,7 +200,7 @@ export interface TableState {
  */
 export interface TableArgs {
     /**
-     * A list of one of more table columns/expressions to be used as clustering key(s) for the table
+     * A list of one or more table columns/expressions to be used as clustering key(s) for the table
      */
     clusterBies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -203,6 +219,10 @@ export interface TableArgs {
      * Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Definitions of primary key constraint to create on table
+     */
+    primaryKey?: pulumi.Input<inputs.TablePrimaryKey>;
     /**
      * The schema in which to create the table.
      */

@@ -31,6 +31,8 @@ type Pipe struct {
 	CopyStatement pulumi.StringOutput `pulumi:"copyStatement"`
 	// The database in which to create the pipe.
 	Database pulumi.StringOutput `pulumi:"database"`
+	// Specifies the name of the notification integration used for error notifications.
+	ErrorIntegration pulumi.StringPtrOutput `pulumi:"errorIntegration"`
 	// Specifies an integration for the pipe.
 	Integration pulumi.StringPtrOutput `pulumi:"integration"`
 	// Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
@@ -91,6 +93,8 @@ type pipeState struct {
 	CopyStatement *string `pulumi:"copyStatement"`
 	// The database in which to create the pipe.
 	Database *string `pulumi:"database"`
+	// Specifies the name of the notification integration used for error notifications.
+	ErrorIntegration *string `pulumi:"errorIntegration"`
 	// Specifies an integration for the pipe.
 	Integration *string `pulumi:"integration"`
 	// Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
@@ -114,6 +118,8 @@ type PipeState struct {
 	CopyStatement pulumi.StringPtrInput
 	// The database in which to create the pipe.
 	Database pulumi.StringPtrInput
+	// Specifies the name of the notification integration used for error notifications.
+	ErrorIntegration pulumi.StringPtrInput
 	// Specifies an integration for the pipe.
 	Integration pulumi.StringPtrInput
 	// Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
@@ -141,6 +147,8 @@ type pipeArgs struct {
 	CopyStatement string `pulumi:"copyStatement"`
 	// The database in which to create the pipe.
 	Database string `pulumi:"database"`
+	// Specifies the name of the notification integration used for error notifications.
+	ErrorIntegration *string `pulumi:"errorIntegration"`
 	// Specifies an integration for the pipe.
 	Integration *string `pulumi:"integration"`
 	// Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
@@ -161,6 +169,8 @@ type PipeArgs struct {
 	CopyStatement pulumi.StringInput
 	// The database in which to create the pipe.
 	Database pulumi.StringInput
+	// Specifies the name of the notification integration used for error notifications.
+	ErrorIntegration pulumi.StringPtrInput
 	// Specifies an integration for the pipe.
 	Integration pulumi.StringPtrInput
 	// Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.

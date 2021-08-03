@@ -69,7 +69,23 @@ export interface TableColumn {
      */
     name: pulumi.Input<string>;
     /**
+     * Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+     */
+    nullable?: pulumi.Input<boolean>;
+    /**
      * Column type, e.g. VARIANT
      */
     type: pulumi.Input<string>;
 }
+
+export interface TablePrimaryKey {
+    /**
+     * Columns to use in primary key
+     */
+    keys: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Name of constraint
+     */
+    name?: pulumi.Input<string>;
+}
+

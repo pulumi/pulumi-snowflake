@@ -7,23 +7,70 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewNotificationIntegration(ctx, "integration", &snowflake.NotificationIntegrationArgs{
+// 			AwsSqsArn:                   pulumi.String("..."),
+// 			AwsSqsRoleArn:               pulumi.String("..."),
+// 			AzureStorageQueuePrimaryUri: pulumi.String("..."),
+// 			AzureTenantId:               pulumi.String("..."),
+// 			Comment:                     pulumi.String("A notification integration."),
+// 			Direction:                   pulumi.String("OUTBOUND"),
+// 			Enabled:                     pulumi.Bool(true),
+// 			NotificationProvider:        pulumi.String("AWS_SQS"),
+// 			Type:                        pulumi.String("QUEUE"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Import
+//
+// ```sh
+//  $ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name
+// ```
 type NotificationIntegration struct {
 	pulumi.CustomResourceState
 
+	// AWS SQS queue ARN for notification integration to connect to
+	AwsSqsArn pulumi.StringPtrOutput `pulumi:"awsSqsArn"`
+	// The external ID that Snowflake will use when assuming the AWS role
+	AwsSqsExternalId pulumi.StringOutput `pulumi:"awsSqsExternalId"`
+	// The Snowflake user that will attempt to assume the AWS role.
+	AwsSqsIamUserArn pulumi.StringOutput `pulumi:"awsSqsIamUserArn"`
+	// AWS IAM role ARN for notification integration to assume
+	AwsSqsRoleArn pulumi.StringPtrOutput `pulumi:"awsSqsRoleArn"`
 	// The queue ID for the Azure Queue Storage queue created for Event Grid notifications
-	AzureStorageQueuePrimaryUri pulumi.StringOutput `pulumi:"azureStorageQueuePrimaryUri"`
+	AzureStorageQueuePrimaryUri pulumi.StringPtrOutput `pulumi:"azureStorageQueuePrimaryUri"`
 	// The ID of the Azure Active Directory tenant used for identity management
-	AzureTenantId pulumi.StringOutput    `pulumi:"azureTenantId"`
+	AzureTenantId pulumi.StringPtrOutput `pulumi:"azureTenantId"`
 	Comment       pulumi.StringPtrOutput `pulumi:"comment"`
 	// Date and time when the notification integration was created.
-	CreatedOn pulumi.StringOutput  `pulumi:"createdOn"`
-	Enabled   pulumi.BoolPtrOutput `pulumi:"enabled"`
-	Name      pulumi.StringOutput  `pulumi:"name"`
-	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE)
+	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
+	// Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
+	Direction pulumi.StringPtrOutput `pulumi:"direction"`
+	Enabled   pulumi.BoolPtrOutput   `pulumi:"enabled"`
+	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
+	GcpPubsubSubscriptionName pulumi.StringPtrOutput `pulumi:"gcpPubsubSubscriptionName"`
+	Name                      pulumi.StringOutput    `pulumi:"name"`
+	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
 	NotificationProvider pulumi.StringPtrOutput `pulumi:"notificationProvider"`
 	// A type of integration
 	Type pulumi.StringPtrOutput `pulumi:"type"`
@@ -33,15 +80,9 @@ type NotificationIntegration struct {
 func NewNotificationIntegration(ctx *pulumi.Context,
 	name string, args *NotificationIntegrationArgs, opts ...pulumi.ResourceOption) (*NotificationIntegration, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &NotificationIntegrationArgs{}
 	}
 
-	if args.AzureStorageQueuePrimaryUri == nil {
-		return nil, errors.New("invalid value for required argument 'AzureStorageQueuePrimaryUri'")
-	}
-	if args.AzureTenantId == nil {
-		return nil, errors.New("invalid value for required argument 'AzureTenantId'")
-	}
 	var resource NotificationIntegration
 	err := ctx.RegisterResource("snowflake:index/notificationIntegration:NotificationIntegration", name, args, &resource, opts...)
 	if err != nil {
@@ -64,6 +105,14 @@ func GetNotificationIntegration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotificationIntegration resources.
 type notificationIntegrationState struct {
+	// AWS SQS queue ARN for notification integration to connect to
+	AwsSqsArn *string `pulumi:"awsSqsArn"`
+	// The external ID that Snowflake will use when assuming the AWS role
+	AwsSqsExternalId *string `pulumi:"awsSqsExternalId"`
+	// The Snowflake user that will attempt to assume the AWS role.
+	AwsSqsIamUserArn *string `pulumi:"awsSqsIamUserArn"`
+	// AWS IAM role ARN for notification integration to assume
+	AwsSqsRoleArn *string `pulumi:"awsSqsRoleArn"`
 	// The queue ID for the Azure Queue Storage queue created for Event Grid notifications
 	AzureStorageQueuePrimaryUri *string `pulumi:"azureStorageQueuePrimaryUri"`
 	// The ID of the Azure Active Directory tenant used for identity management
@@ -71,15 +120,27 @@ type notificationIntegrationState struct {
 	Comment       *string `pulumi:"comment"`
 	// Date and time when the notification integration was created.
 	CreatedOn *string `pulumi:"createdOn"`
+	// Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
+	Direction *string `pulumi:"direction"`
 	Enabled   *bool   `pulumi:"enabled"`
-	Name      *string `pulumi:"name"`
-	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE)
+	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
+	GcpPubsubSubscriptionName *string `pulumi:"gcpPubsubSubscriptionName"`
+	Name                      *string `pulumi:"name"`
+	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
 	NotificationProvider *string `pulumi:"notificationProvider"`
 	// A type of integration
 	Type *string `pulumi:"type"`
 }
 
 type NotificationIntegrationState struct {
+	// AWS SQS queue ARN for notification integration to connect to
+	AwsSqsArn pulumi.StringPtrInput
+	// The external ID that Snowflake will use when assuming the AWS role
+	AwsSqsExternalId pulumi.StringPtrInput
+	// The Snowflake user that will attempt to assume the AWS role.
+	AwsSqsIamUserArn pulumi.StringPtrInput
+	// AWS IAM role ARN for notification integration to assume
+	AwsSqsRoleArn pulumi.StringPtrInput
 	// The queue ID for the Azure Queue Storage queue created for Event Grid notifications
 	AzureStorageQueuePrimaryUri pulumi.StringPtrInput
 	// The ID of the Azure Active Directory tenant used for identity management
@@ -87,9 +148,13 @@ type NotificationIntegrationState struct {
 	Comment       pulumi.StringPtrInput
 	// Date and time when the notification integration was created.
 	CreatedOn pulumi.StringPtrInput
+	// Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
+	Direction pulumi.StringPtrInput
 	Enabled   pulumi.BoolPtrInput
-	Name      pulumi.StringPtrInput
-	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE)
+	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
+	GcpPubsubSubscriptionName pulumi.StringPtrInput
+	Name                      pulumi.StringPtrInput
+	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
 	NotificationProvider pulumi.StringPtrInput
 	// A type of integration
 	Type pulumi.StringPtrInput
@@ -100,14 +165,22 @@ func (NotificationIntegrationState) ElementType() reflect.Type {
 }
 
 type notificationIntegrationArgs struct {
+	// AWS SQS queue ARN for notification integration to connect to
+	AwsSqsArn *string `pulumi:"awsSqsArn"`
+	// AWS IAM role ARN for notification integration to assume
+	AwsSqsRoleArn *string `pulumi:"awsSqsRoleArn"`
 	// The queue ID for the Azure Queue Storage queue created for Event Grid notifications
-	AzureStorageQueuePrimaryUri string `pulumi:"azureStorageQueuePrimaryUri"`
+	AzureStorageQueuePrimaryUri *string `pulumi:"azureStorageQueuePrimaryUri"`
 	// The ID of the Azure Active Directory tenant used for identity management
-	AzureTenantId string  `pulumi:"azureTenantId"`
+	AzureTenantId *string `pulumi:"azureTenantId"`
 	Comment       *string `pulumi:"comment"`
-	Enabled       *bool   `pulumi:"enabled"`
-	Name          *string `pulumi:"name"`
-	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE)
+	// Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
+	Direction *string `pulumi:"direction"`
+	Enabled   *bool   `pulumi:"enabled"`
+	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
+	GcpPubsubSubscriptionName *string `pulumi:"gcpPubsubSubscriptionName"`
+	Name                      *string `pulumi:"name"`
+	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
 	NotificationProvider *string `pulumi:"notificationProvider"`
 	// A type of integration
 	Type *string `pulumi:"type"`
@@ -115,14 +188,22 @@ type notificationIntegrationArgs struct {
 
 // The set of arguments for constructing a NotificationIntegration resource.
 type NotificationIntegrationArgs struct {
+	// AWS SQS queue ARN for notification integration to connect to
+	AwsSqsArn pulumi.StringPtrInput
+	// AWS IAM role ARN for notification integration to assume
+	AwsSqsRoleArn pulumi.StringPtrInput
 	// The queue ID for the Azure Queue Storage queue created for Event Grid notifications
-	AzureStorageQueuePrimaryUri pulumi.StringInput
+	AzureStorageQueuePrimaryUri pulumi.StringPtrInput
 	// The ID of the Azure Active Directory tenant used for identity management
-	AzureTenantId pulumi.StringInput
+	AzureTenantId pulumi.StringPtrInput
 	Comment       pulumi.StringPtrInput
-	Enabled       pulumi.BoolPtrInput
-	Name          pulumi.StringPtrInput
-	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE)
+	// Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
+	Direction pulumi.StringPtrInput
+	Enabled   pulumi.BoolPtrInput
+	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
+	GcpPubsubSubscriptionName pulumi.StringPtrInput
+	Name                      pulumi.StringPtrInput
+	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
 	NotificationProvider pulumi.StringPtrInput
 	// A type of integration
 	Type pulumi.StringPtrInput

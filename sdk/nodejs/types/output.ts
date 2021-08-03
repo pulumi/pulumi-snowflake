@@ -52,6 +52,33 @@ export interface FunctionGrantArgument {
     type: string;
 }
 
+export interface GetMaterializedViewsMaterializedView {
+    comment: string;
+    database: string;
+    name: string;
+    schema: string;
+}
+
+export interface GetSchemasSchema {
+    comment: string;
+    database: string;
+    name: string;
+}
+
+export interface GetTablesTable {
+    comment: string;
+    database: string;
+    name: string;
+    schema: string;
+}
+
+export interface GetViewsView {
+    comment: string;
+    database: string;
+    name: string;
+    schema: string;
+}
+
 export interface ProcedureGrantArgument {
     /**
      * The argument name
@@ -69,8 +96,22 @@ export interface TableColumn {
      */
     name: string;
     /**
+     * Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+     */
+    nullable?: boolean;
+    /**
      * Column type, e.g. VARIANT
      */
     type: string;
 }
 
+export interface TablePrimaryKey {
+    /**
+     * Columns to use in primary key
+     */
+    keys: string[];
+    /**
+     * Name of constraint
+     */
+    name?: string;
+}

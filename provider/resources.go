@@ -97,6 +97,7 @@ func Provider() tfbridge.ProviderInfo {
 			"snowflake_network_policy_attachment": {Tok: makeResource(mainMod, "NetworkPolicyAttachment")},
 			"snowflake_notification_integration":  {Tok: makeResource(mainMod, "NotificationIntegration")},
 			"snowflake_pipe":                      {Tok: makeResource(mainMod, "Pipe")},
+			"snowflake_pipe_grant":                {Tok: makeResource(mainMod, "PipeGrant")},
 			"snowflake_procedure_grant":           {Tok: makeResource(mainMod, "ProcedureGrant")},
 			"snowflake_resource_monitor":          {Tok: makeResource(mainMod, "ResourceMonitor")},
 			"snowflake_resource_monitor_grant":    {Tok: makeResource(mainMod, "ResourceMonitorGrant")},
@@ -116,6 +117,7 @@ func Provider() tfbridge.ProviderInfo {
 			"snowflake_table":                     {Tok: makeResource(mainMod, "Table")},
 			"snowflake_table_grant":               {Tok: makeResource(mainMod, "TableGrant")},
 			"snowflake_task":                      {Tok: makeResource(mainMod, "Task")},
+			"snowflake_task_grant":                {Tok: makeResource(mainMod, "TaskGrant")},
 			"snowflake_user":                      {Tok: makeResource(mainMod, "User")},
 			"snowflake_user_public_keys":          {Tok: makeResource(mainMod, "UserPublicKeys")},
 			"snowflake_view":                      {Tok: makeResource(mainMod, "View")},
@@ -129,6 +131,10 @@ func Provider() tfbridge.ProviderInfo {
 			"snowflake_system_get_aws_sns_iam_policy":      {Tok: makeDataSource(mainMod, "getSystemGetAwsSnsIamPolicy")},
 			"snowflake_system_get_privatelink_config":      {Tok: makeDataSource(mainMod, "getSystemGetPrivateLinkConfig")},
 			"snowflake_system_get_snowflake_platform_info": {Tok: makeDataSource(mainMod, "getSystemGetSnowflakePlatformInfo")},
+			"snowflake_materialized_views":                 {Tok: makeDataSource(mainMod, "getMaterializedViews")},
+			"snowflake_schemas":                            {Tok: makeDataSource(mainMod, "getSchemas")},
+			"snowflake_tables":                             {Tok: makeDataSource(mainMod, "getTables")},
+			"snowflake_views":                              {Tok: makeDataSource(mainMod, "getViews")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

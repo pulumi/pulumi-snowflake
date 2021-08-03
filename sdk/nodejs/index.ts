@@ -16,10 +16,14 @@ export * from "./fileFormat";
 export * from "./fileFormatGrant";
 export * from "./functionGrant";
 export * from "./getCurrentAccount";
+export * from "./getMaterializedViews";
+export * from "./getSchemas";
 export * from "./getSystemGenerateScimAccessToken";
 export * from "./getSystemGetAwsSnsIamPolicy";
 export * from "./getSystemGetPrivateLinkConfig";
 export * from "./getSystemGetSnowflakePlatformInfo";
+export * from "./getTables";
+export * from "./getViews";
 export * from "./integrationGrant";
 export * from "./managedAccount";
 export * from "./maskingPolicy";
@@ -30,6 +34,7 @@ export * from "./networkPolicy";
 export * from "./networkPolicyAttachment";
 export * from "./notificationIntegration";
 export * from "./pipe";
+export * from "./pipeGrant";
 export * from "./procedureGrant";
 export * from "./provider";
 export * from "./resourceMonitor";
@@ -50,6 +55,7 @@ export * from "./streamGrant";
 export * from "./table";
 export * from "./tableGrant";
 export * from "./task";
+export * from "./taskGrant";
 export * from "./user";
 export * from "./userPublicKeys";
 export * from "./view";
@@ -87,6 +93,7 @@ import { NetworkPolicy } from "./networkPolicy";
 import { NetworkPolicyAttachment } from "./networkPolicyAttachment";
 import { NotificationIntegration } from "./notificationIntegration";
 import { Pipe } from "./pipe";
+import { PipeGrant } from "./pipeGrant";
 import { ProcedureGrant } from "./procedureGrant";
 import { ResourceMonitor } from "./resourceMonitor";
 import { ResourceMonitorGrant } from "./resourceMonitorGrant";
@@ -106,6 +113,7 @@ import { StreamGrant } from "./streamGrant";
 import { Table } from "./table";
 import { TableGrant } from "./tableGrant";
 import { Task } from "./task";
+import { TaskGrant } from "./taskGrant";
 import { User } from "./user";
 import { UserPublicKeys } from "./userPublicKeys";
 import { View } from "./view";
@@ -157,6 +165,8 @@ const _module = {
                 return new NotificationIntegration(name, <any>undefined, { urn })
             case "snowflake:index/pipe:Pipe":
                 return new Pipe(name, <any>undefined, { urn })
+            case "snowflake:index/pipeGrant:PipeGrant":
+                return new PipeGrant(name, <any>undefined, { urn })
             case "snowflake:index/procedureGrant:ProcedureGrant":
                 return new ProcedureGrant(name, <any>undefined, { urn })
             case "snowflake:index/resourceMonitor:ResourceMonitor":
@@ -195,6 +205,8 @@ const _module = {
                 return new TableGrant(name, <any>undefined, { urn })
             case "snowflake:index/task:Task":
                 return new Task(name, <any>undefined, { urn })
+            case "snowflake:index/taskGrant:TaskGrant":
+                return new TaskGrant(name, <any>undefined, { urn })
             case "snowflake:index/user:User":
                 return new User(name, <any>undefined, { urn })
             case "snowflake:index/userPublicKeys:UserPublicKeys":
@@ -232,6 +244,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/networkPolicy", _modul
 pulumi.runtime.registerResourceModule("snowflake", "index/networkPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/notificationIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/pipe", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/pipeGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/procedureGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/resourceMonitor", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/resourceMonitorGrant", _module)
@@ -251,6 +264,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/streamGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/table", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tableGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/task", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/taskGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/user", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/userPublicKeys", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/view", _module)
