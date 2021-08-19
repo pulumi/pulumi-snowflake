@@ -24,9 +24,7 @@ class PipeGrantArgs:
         The set of arguments for constructing a PipeGrant resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future pipes on which to grant privileges.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future pipes on which to grant privileges.
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-               this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-               field must be unset in order to use on_future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
         :param pulumi.Input[str] pipe_name: The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future pipe.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
@@ -73,9 +71,7 @@ class PipeGrantArgs:
     @pulumi.getter(name="onFuture")
     def on_future(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-        this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-        field must be unset in order to use on_future.
+        When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
         """
         return pulumi.get(self, "on_future")
 
@@ -145,9 +141,7 @@ class _PipeGrantState:
         """
         Input properties used for looking up and filtering PipeGrant resources.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future pipes on which to grant privileges.
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-               this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-               field must be unset in order to use on_future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
         :param pulumi.Input[str] pipe_name: The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future pipe.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
@@ -185,9 +179,7 @@ class _PipeGrantState:
     @pulumi.getter(name="onFuture")
     def on_future(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-        this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-        field must be unset in order to use on_future.
+        When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
         """
         return pulumi.get(self, "on_future")
 
@@ -270,13 +262,18 @@ class PipeGrant(pulumi.CustomResource):
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a PipeGrant resource with the given unique name, props, and options.
+        ## Import
+
+        # format is database name | schema name | pipe name | privilege | true/false for with_grant_option
+
+        ```sh
+         $ pulumi import snowflake:index/pipeGrant:PipeGrant example 'dbName|schemaName|pipeName|OPERATE|false'
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future pipes on which to grant privileges.
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-               this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-               field must be unset in order to use on_future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
         :param pulumi.Input[str] pipe_name: The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future pipe.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
@@ -290,7 +287,14 @@ class PipeGrant(pulumi.CustomResource):
                  args: PipeGrantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a PipeGrant resource with the given unique name, props, and options.
+        ## Import
+
+        # format is database name | schema name | pipe name | privilege | true/false for with_grant_option
+
+        ```sh
+         $ pulumi import snowflake:index/pipeGrant:PipeGrant example 'dbName|schemaName|pipeName|OPERATE|false'
+        ```
+
         :param str resource_name: The name of the resource.
         :param PipeGrantArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -361,9 +365,7 @@ class PipeGrant(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future pipes on which to grant privileges.
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-               this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-               field must be unset in order to use on_future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
         :param pulumi.Input[str] pipe_name: The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future pipe.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
@@ -395,9 +397,7 @@ class PipeGrant(pulumi.CustomResource):
     @pulumi.getter(name="onFuture")
     def on_future(self) -> pulumi.Output[Optional[bool]]:
         """
-        When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-        this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-        field must be unset in order to use on_future.
+        When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
         """
         return pulumi.get(self, "on_future")
 

@@ -68,7 +68,7 @@ import (
 type ProcedureGrant struct {
 	pulumi.CustomResourceState
 
-	// List of the arguments for the procedure (must be present if procedureName is present)
+	// List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
 	Arguments ProcedureGrantArgumentArrayOutput `pulumi:"arguments"`
 	// The name of the database containing the current or future procedures on which to grant privileges.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
@@ -125,7 +125,7 @@ func GetProcedureGrant(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProcedureGrant resources.
 type procedureGrantState struct {
-	// List of the arguments for the procedure (must be present if procedureName is present)
+	// List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
 	Arguments []ProcedureGrantArgument `pulumi:"arguments"`
 	// The name of the database containing the current or future procedures on which to grant privileges.
 	DatabaseName *string `pulumi:"databaseName"`
@@ -148,7 +148,7 @@ type procedureGrantState struct {
 }
 
 type ProcedureGrantState struct {
-	// List of the arguments for the procedure (must be present if procedureName is present)
+	// List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
 	Arguments ProcedureGrantArgumentArrayInput
 	// The name of the database containing the current or future procedures on which to grant privileges.
 	DatabaseName pulumi.StringPtrInput
@@ -175,7 +175,7 @@ func (ProcedureGrantState) ElementType() reflect.Type {
 }
 
 type procedureGrantArgs struct {
-	// List of the arguments for the procedure (must be present if procedureName is present)
+	// List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
 	Arguments []ProcedureGrantArgument `pulumi:"arguments"`
 	// The name of the database containing the current or future procedures on which to grant privileges.
 	DatabaseName string `pulumi:"databaseName"`
@@ -199,7 +199,7 @@ type procedureGrantArgs struct {
 
 // The set of arguments for constructing a ProcedureGrant resource.
 type ProcedureGrantArgs struct {
-	// List of the arguments for the procedure (must be present if procedureName is present)
+	// List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
 	Arguments ProcedureGrantArgumentArrayInput
 	// The name of the database containing the current or future procedures on which to grant privileges.
 	DatabaseName pulumi.StringInput

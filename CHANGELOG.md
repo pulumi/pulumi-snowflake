@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v0.25.17 of the Snowflake Terraform PRovider
 
 ---
 

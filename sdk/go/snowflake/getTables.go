@@ -7,6 +7,29 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.GetTables(ctx, &GetTablesArgs{
+// 			Database: "MYDB",
+// 			Schema:   "MYSCHEMA",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetTables(ctx *pulumi.Context, args *GetTablesArgs, opts ...pulumi.InvokeOption) (*GetTablesResult, error) {
 	var rv GetTablesResult
 	err := ctx.Invoke("snowflake:index/getTables:getTables", args, &rv, opts...)
@@ -18,15 +41,20 @@ func GetTables(ctx *pulumi.Context, args *GetTablesArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getTables.
 type GetTablesArgs struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the tables from.
+	Schema string `pulumi:"schema"`
 }
 
 // A collection of values returned by getTables.
 type GetTablesResult struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string           `pulumi:"id"`
-	Schema string           `pulumi:"schema"`
+	Id string `pulumi:"id"`
+	// The schema from which to return the tables from.
+	Schema string `pulumi:"schema"`
+	// The tables in the schema
 	Tables []GetTablesTable `pulumi:"tables"`
 }

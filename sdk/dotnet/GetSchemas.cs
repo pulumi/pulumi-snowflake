@@ -11,6 +11,30 @@ namespace Pulumi.Snowflake
 {
     public static class GetSchemas
     {
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var current = Output.Create(Snowflake.GetSchemas.InvokeAsync(new Snowflake.GetSchemasArgs
+        ///         {
+        ///             Database = "MYDB",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetSchemasResult> InvokeAsync(GetSchemasArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSchemasResult>("snowflake:index/getSchemas:getSchemas", args ?? new GetSchemasArgs(), options.WithVersion());
     }
@@ -18,6 +42,9 @@ namespace Pulumi.Snowflake
 
     public sealed class GetSchemasArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database", required: true)]
         public string Database { get; set; } = null!;
 
@@ -30,11 +57,17 @@ namespace Pulumi.Snowflake
     [OutputType]
     public sealed class GetSchemasResult
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         public readonly string Database;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The schemas in the database
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetSchemasSchemaResult> Schemas;
 
         [OutputConstructor]

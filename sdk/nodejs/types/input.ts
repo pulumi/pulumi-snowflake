@@ -41,7 +41,23 @@ export interface ExternalTableColumn {
     type: pulumi.Input<string>;
 }
 
+export interface FunctionArgument {
+    name: pulumi.Input<string>;
+    type: pulumi.Input<string>;
+}
+
 export interface FunctionGrantArgument {
+    /**
+     * The argument name
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The argument type
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface ProcedureArgument {
     /**
      * The argument name
      */
@@ -65,6 +81,14 @@ export interface ProcedureGrantArgument {
 
 export interface TableColumn {
     /**
+     * Column comment
+     */
+    comment?: pulumi.Input<string>;
+    /**
+     * Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
+     */
+    default?: pulumi.Input<inputs.TableColumnDefault>;
+    /**
      * Column name
      */
     name: pulumi.Input<string>;
@@ -78,6 +102,12 @@ export interface TableColumn {
     type: pulumi.Input<string>;
 }
 
+export interface TableColumnDefault {
+    constant?: pulumi.Input<string>;
+    expression?: pulumi.Input<string>;
+    sequence?: pulumi.Input<string>;
+}
+
 export interface TablePrimaryKey {
     /**
      * Columns to use in primary key
@@ -88,4 +118,3 @@ export interface TablePrimaryKey {
      */
     name?: pulumi.Input<string>;
 }
-

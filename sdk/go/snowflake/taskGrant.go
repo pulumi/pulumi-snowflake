@@ -11,14 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// # format is database name | schema name | task name | privilege | true/false for with_grant_option
+//
+// ```sh
+//  $ pulumi import snowflake:index/taskGrant:TaskGrant example 'dbName|schemaName|taskName|OPERATE|false'
+// ```
 type TaskGrant struct {
 	pulumi.CustomResourceState
 
 	// The name of the database containing the current or future tasks on which to grant privileges.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
-	// this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
-	// field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
 	// The privilege to grant on the current or future task.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
@@ -26,7 +31,7 @@ type TaskGrant struct {
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current or future tasks on which to grant privileges.
 	SchemaName pulumi.StringOutput `pulumi:"schemaName"`
-	// The name of the task on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the task on which to grant privileges immediately (only valid if onFuture is false).
 	TaskName pulumi.StringPtrOutput `pulumi:"taskName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrOutput `pulumi:"withGrantOption"`
@@ -69,9 +74,7 @@ func GetTaskGrant(ctx *pulumi.Context,
 type taskGrantState struct {
 	// The name of the database containing the current or future tasks on which to grant privileges.
 	DatabaseName *string `pulumi:"databaseName"`
-	// When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
-	// this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
-	// field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future task.
 	Privilege *string `pulumi:"privilege"`
@@ -79,7 +82,7 @@ type taskGrantState struct {
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future tasks on which to grant privileges.
 	SchemaName *string `pulumi:"schemaName"`
-	// The name of the task on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the task on which to grant privileges immediately (only valid if onFuture is false).
 	TaskName *string `pulumi:"taskName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
@@ -88,9 +91,7 @@ type taskGrantState struct {
 type TaskGrantState struct {
 	// The name of the database containing the current or future tasks on which to grant privileges.
 	DatabaseName pulumi.StringPtrInput
-	// When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
-	// this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
-	// field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future task.
 	Privilege pulumi.StringPtrInput
@@ -98,7 +99,7 @@ type TaskGrantState struct {
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future tasks on which to grant privileges.
 	SchemaName pulumi.StringPtrInput
-	// The name of the task on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the task on which to grant privileges immediately (only valid if onFuture is false).
 	TaskName pulumi.StringPtrInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
@@ -111,9 +112,7 @@ func (TaskGrantState) ElementType() reflect.Type {
 type taskGrantArgs struct {
 	// The name of the database containing the current or future tasks on which to grant privileges.
 	DatabaseName string `pulumi:"databaseName"`
-	// When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
-	// this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
-	// field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future task.
 	Privilege *string `pulumi:"privilege"`
@@ -121,7 +120,7 @@ type taskGrantArgs struct {
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future tasks on which to grant privileges.
 	SchemaName string `pulumi:"schemaName"`
-	// The name of the task on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the task on which to grant privileges immediately (only valid if onFuture is false).
 	TaskName *string `pulumi:"taskName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
@@ -131,9 +130,7 @@ type taskGrantArgs struct {
 type TaskGrantArgs struct {
 	// The name of the database containing the current or future tasks on which to grant privileges.
 	DatabaseName pulumi.StringInput
-	// When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
-	// this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
-	// field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future task.
 	Privilege pulumi.StringPtrInput
@@ -141,7 +138,7 @@ type TaskGrantArgs struct {
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future tasks on which to grant privileges.
 	SchemaName pulumi.StringInput
-	// The name of the task on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the task on which to grant privileges immediately (only valid if onFuture is false).
 	TaskName pulumi.StringPtrInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput

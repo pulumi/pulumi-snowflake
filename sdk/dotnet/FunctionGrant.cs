@@ -66,7 +66,7 @@ namespace Pulumi.Snowflake
     public partial class FunctionGrant : Pulumi.CustomResource
     {
         /// <summary>
-        /// List of the arguments for the function (must be present if function_name is present)
+        /// List of the arguments for the function (must be present if function has arguments and function_name is present)
         /// </summary>
         [Output("arguments")]
         public Output<ImmutableArray<Outputs.FunctionGrantArgument>> Arguments { get; private set; } = null!;
@@ -175,7 +175,7 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.FunctionGrantArgumentArgs>? _arguments;
 
         /// <summary>
-        /// List of the arguments for the function (must be present if function_name is present)
+        /// List of the arguments for the function (must be present if function has arguments and function_name is present)
         /// </summary>
         public InputList<Inputs.FunctionGrantArgumentArgs> Arguments
         {
@@ -260,7 +260,7 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.FunctionGrantArgumentGetArgs>? _arguments;
 
         /// <summary>
-        /// List of the arguments for the function (must be present if function_name is present)
+        /// List of the arguments for the function (must be present if function has arguments and function_name is present)
         /// </summary>
         public InputList<Inputs.FunctionGrantArgumentGetArgs> Arguments
         {

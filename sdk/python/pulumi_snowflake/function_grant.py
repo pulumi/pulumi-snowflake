@@ -29,7 +29,7 @@ class FunctionGrantArgs:
         The set of arguments for constructing a FunctionGrant resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future functions on which to grant privileges.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future functions on which to grant privileges.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionGrantArgumentArgs']]] arguments: List of the arguments for the function (must be present if function_name is present)
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionGrantArgumentArgs']]] arguments: List of the arguments for the function (must be present if function has arguments and function_name is present)
         :param pulumi.Input[str] function_name: The name of the function on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future function.
@@ -85,7 +85,7 @@ class FunctionGrantArgs:
     @pulumi.getter
     def arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionGrantArgumentArgs']]]]:
         """
-        List of the arguments for the function (must be present if function_name is present)
+        List of the arguments for the function (must be present if function has arguments and function_name is present)
         """
         return pulumi.get(self, "arguments")
 
@@ -193,7 +193,7 @@ class _FunctionGrantState:
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering FunctionGrant resources.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionGrantArgumentArgs']]] arguments: List of the arguments for the function (must be present if function_name is present)
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionGrantArgumentArgs']]] arguments: List of the arguments for the function (must be present if function has arguments and function_name is present)
         :param pulumi.Input[str] database_name: The name of the database containing the current or future functions on which to grant privileges.
         :param pulumi.Input[str] function_name: The name of the function on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
@@ -229,7 +229,7 @@ class _FunctionGrantState:
     @pulumi.getter
     def arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionGrantArgumentArgs']]]]:
         """
-        List of the arguments for the function (must be present if function_name is present)
+        List of the arguments for the function (must be present if function has arguments and function_name is present)
         """
         return pulumi.get(self, "arguments")
 
@@ -403,7 +403,7 @@ class FunctionGrant(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionGrantArgumentArgs']]]] arguments: List of the arguments for the function (must be present if function_name is present)
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionGrantArgumentArgs']]]] arguments: List of the arguments for the function (must be present if function has arguments and function_name is present)
         :param pulumi.Input[str] database_name: The name of the database containing the current or future functions on which to grant privileges.
         :param pulumi.Input[str] function_name: The name of the function on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
@@ -537,7 +537,7 @@ class FunctionGrant(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionGrantArgumentArgs']]]] arguments: List of the arguments for the function (must be present if function_name is present)
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionGrantArgumentArgs']]]] arguments: List of the arguments for the function (must be present if function has arguments and function_name is present)
         :param pulumi.Input[str] database_name: The name of the database containing the current or future functions on which to grant privileges.
         :param pulumi.Input[str] function_name: The name of the function on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
@@ -568,7 +568,7 @@ class FunctionGrant(pulumi.CustomResource):
     @pulumi.getter
     def arguments(self) -> pulumi.Output[Optional[Sequence['outputs.FunctionGrantArgument']]]:
         """
-        List of the arguments for the function (must be present if function_name is present)
+        List of the arguments for the function (must be present if function has arguments and function_name is present)
         """
         return pulumi.get(self, "arguments")
 

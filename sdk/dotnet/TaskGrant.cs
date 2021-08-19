@@ -9,6 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// # format is database name | schema name | task name | privilege | true/false for with_grant_option
+    /// 
+    /// ```sh
+    ///  $ pulumi import snowflake:index/taskGrant:TaskGrant example 'dbName|schemaName|taskName|OPERATE|false'
+    /// ```
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/taskGrant:TaskGrant")]
     public partial class TaskGrant : Pulumi.CustomResource
     {
@@ -19,9 +28,7 @@ namespace Pulumi.Snowflake
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
-        /// this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
-        /// field must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
         /// </summary>
         [Output("onFuture")]
         public Output<bool?> OnFuture { get; private set; } = null!;
@@ -109,9 +116,7 @@ namespace Pulumi.Snowflake
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
-        /// this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
-        /// field must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -166,9 +171,7 @@ namespace Pulumi.Snowflake
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
-        /// this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
-        /// field must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }

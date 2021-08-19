@@ -68,7 +68,7 @@ import (
 type FunctionGrant struct {
 	pulumi.CustomResourceState
 
-	// List of the arguments for the function (must be present if functionName is present)
+	// List of the arguments for the function (must be present if function has arguments and functionName is present)
 	Arguments FunctionGrantArgumentArrayOutput `pulumi:"arguments"`
 	// The name of the database containing the current or future functions on which to grant privileges.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
@@ -125,7 +125,7 @@ func GetFunctionGrant(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FunctionGrant resources.
 type functionGrantState struct {
-	// List of the arguments for the function (must be present if functionName is present)
+	// List of the arguments for the function (must be present if function has arguments and functionName is present)
 	Arguments []FunctionGrantArgument `pulumi:"arguments"`
 	// The name of the database containing the current or future functions on which to grant privileges.
 	DatabaseName *string `pulumi:"databaseName"`
@@ -148,7 +148,7 @@ type functionGrantState struct {
 }
 
 type FunctionGrantState struct {
-	// List of the arguments for the function (must be present if functionName is present)
+	// List of the arguments for the function (must be present if function has arguments and functionName is present)
 	Arguments FunctionGrantArgumentArrayInput
 	// The name of the database containing the current or future functions on which to grant privileges.
 	DatabaseName pulumi.StringPtrInput
@@ -175,7 +175,7 @@ func (FunctionGrantState) ElementType() reflect.Type {
 }
 
 type functionGrantArgs struct {
-	// List of the arguments for the function (must be present if functionName is present)
+	// List of the arguments for the function (must be present if function has arguments and functionName is present)
 	Arguments []FunctionGrantArgument `pulumi:"arguments"`
 	// The name of the database containing the current or future functions on which to grant privileges.
 	DatabaseName string `pulumi:"databaseName"`
@@ -199,7 +199,7 @@ type functionGrantArgs struct {
 
 // The set of arguments for constructing a FunctionGrant resource.
 type FunctionGrantArgs struct {
-	// List of the arguments for the function (must be present if functionName is present)
+	// List of the arguments for the function (must be present if function has arguments and functionName is present)
 	Arguments FunctionGrantArgumentArrayInput
 	// The name of the database containing the current or future functions on which to grant privileges.
 	DatabaseName pulumi.StringInput

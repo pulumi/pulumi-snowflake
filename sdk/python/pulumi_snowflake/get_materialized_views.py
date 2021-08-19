@@ -37,6 +37,9 @@ class GetMaterializedViewsResult:
     @property
     @pulumi.getter
     def database(self) -> str:
+        """
+        The database from which to return the schemas from.
+        """
         return pulumi.get(self, "database")
 
     @property
@@ -50,11 +53,17 @@ class GetMaterializedViewsResult:
     @property
     @pulumi.getter(name="materializedViews")
     def materialized_views(self) -> Sequence['outputs.GetMaterializedViewsMaterializedViewResult']:
+        """
+        The views in the schema
+        """
         return pulumi.get(self, "materialized_views")
 
     @property
     @pulumi.getter
     def schema(self) -> str:
+        """
+        The schema from which to return the views from.
+        """
         return pulumi.get(self, "schema")
 
 
@@ -74,7 +83,19 @@ def get_materialized_views(database: Optional[str] = None,
                            schema: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMaterializedViewsResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_materialized_views(database="MYDB",
+        schema="MYSCHEMA")
+    ```
+
+
+    :param str database: The database from which to return the schemas from.
+    :param str schema: The schema from which to return the views from.
     """
     __args__ = dict()
     __args__['database'] = database

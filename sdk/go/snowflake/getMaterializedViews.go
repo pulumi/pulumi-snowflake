@@ -7,6 +7,29 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.GetMaterializedViews(ctx, &GetMaterializedViewsArgs{
+// 			Database: "MYDB",
+// 			Schema:   "MYSCHEMA",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetMaterializedViews(ctx *pulumi.Context, args *GetMaterializedViewsArgs, opts ...pulumi.InvokeOption) (*GetMaterializedViewsResult, error) {
 	var rv GetMaterializedViewsResult
 	err := ctx.Invoke("snowflake:index/getMaterializedViews:getMaterializedViews", args, &rv, opts...)
@@ -18,15 +41,20 @@ func GetMaterializedViews(ctx *pulumi.Context, args *GetMaterializedViewsArgs, o
 
 // A collection of arguments for invoking getMaterializedViews.
 type GetMaterializedViewsArgs struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the views from.
+	Schema string `pulumi:"schema"`
 }
 
 // A collection of values returned by getMaterializedViews.
 type GetMaterializedViewsResult struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                string                                 `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The views in the schema
 	MaterializedViews []GetMaterializedViewsMaterializedView `pulumi:"materializedViews"`
-	Schema            string                                 `pulumi:"schema"`
+	// The schema from which to return the views from.
+	Schema string `pulumi:"schema"`
 }

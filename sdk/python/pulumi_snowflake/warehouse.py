@@ -35,11 +35,13 @@ class WarehouseArgs:
         :param pulumi.Input[int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
+        :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account.
         :param pulumi.Input[str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
         :param pulumi.Input[str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
         :param pulumi.Input[int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
         :param pulumi.Input[int] statement_timeout_in_seconds: Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
         :param pulumi.Input[bool] wait_for_provisioning: Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
+        :param pulumi.Input[str] warehouse_size: Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
         """
         if auto_resume is not None:
             pulumi.set(__self__, "auto_resume", auto_resume)
@@ -154,6 +156,9 @@ class WarehouseArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier for the virtual warehouse; must be unique for your account.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -223,6 +228,9 @@ class WarehouseArgs:
     @property
     @pulumi.getter(name="warehouseSize")
     def warehouse_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+        """
         return pulumi.get(self, "warehouse_size")
 
     @warehouse_size.setter
@@ -255,11 +263,13 @@ class _WarehouseState:
         :param pulumi.Input[int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
+        :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account.
         :param pulumi.Input[str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
         :param pulumi.Input[str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
         :param pulumi.Input[int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
         :param pulumi.Input[int] statement_timeout_in_seconds: Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
         :param pulumi.Input[bool] wait_for_provisioning: Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
+        :param pulumi.Input[str] warehouse_size: Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
         """
         if auto_resume is not None:
             pulumi.set(__self__, "auto_resume", auto_resume)
@@ -374,6 +384,9 @@ class _WarehouseState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier for the virtual warehouse; must be unique for your account.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -443,6 +456,9 @@ class _WarehouseState:
     @property
     @pulumi.getter(name="warehouseSize")
     def warehouse_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+        """
         return pulumi.get(self, "warehouse_size")
 
     @warehouse_size.setter
@@ -496,11 +512,13 @@ class Warehouse(pulumi.CustomResource):
         :param pulumi.Input[int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
+        :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account.
         :param pulumi.Input[str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
         :param pulumi.Input[str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
         :param pulumi.Input[int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
         :param pulumi.Input[int] statement_timeout_in_seconds: Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
         :param pulumi.Input[bool] wait_for_provisioning: Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
+        :param pulumi.Input[str] warehouse_size: Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
         """
         ...
     @overload
@@ -618,11 +636,13 @@ class Warehouse(pulumi.CustomResource):
         :param pulumi.Input[int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
+        :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account.
         :param pulumi.Input[str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
         :param pulumi.Input[str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
         :param pulumi.Input[int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
         :param pulumi.Input[int] statement_timeout_in_seconds: Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
         :param pulumi.Input[bool] wait_for_provisioning: Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
+        :param pulumi.Input[str] warehouse_size: Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -700,6 +720,9 @@ class Warehouse(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Identifier for the virtual warehouse; must be unique for your account.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -745,5 +768,8 @@ class Warehouse(pulumi.CustomResource):
     @property
     @pulumi.getter(name="warehouseSize")
     def warehouse_size(self) -> pulumi.Output[str]:
+        """
+        Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+        """
         return pulumi.get(self, "warehouse_size")
 

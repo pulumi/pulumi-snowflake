@@ -5,6 +5,18 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const current = pulumi.output(snowflake.getSchemas({
+ *     database: "MYDB",
+ * }));
+ * ```
+ */
 export function getSchemas(args: GetSchemasArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemasResult> {
     if (!opts) {
         opts = {}
@@ -22,6 +34,9 @@ export function getSchemas(args: GetSchemasArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getSchemas.
  */
 export interface GetSchemasArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
 }
 
@@ -29,10 +44,16 @@ export interface GetSchemasArgs {
  * A collection of values returned by getSchemas.
  */
 export interface GetSchemasResult {
+    /**
+     * The database from which to return the schemas from.
+     */
     readonly database: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The schemas in the database
+     */
     readonly schemas: outputs.GetSchemasSchema[];
 }

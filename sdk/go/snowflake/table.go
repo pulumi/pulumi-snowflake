@@ -23,35 +23,59 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewTable(ctx, "table", &snowflake.TableArgs{
+// 		schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
+// 			Database:          pulumi.String("database"),
+// 			DataRetentionDays: pulumi.Int(1),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		sequence, err := snowflake.NewSequence(ctx, "sequence", &snowflake.SequenceArgs{
+// 			Database: schema.Database,
+// 			Schema:   schema.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewTable(ctx, "table", &snowflake.TableArgs{
+// 			Database: schema.Database,
+// 			Schema:   schema.Name,
+// 			Comment:  pulumi.String("A table."),
 // 			ClusterBies: pulumi.StringArray{
 // 				pulumi.String("to_date(DATE)"),
 // 			},
+// 			DataRetentionDays: schema.DataRetentionDays,
+// 			ChangeTracking:    pulumi.Bool(false),
 // 			Columns: TableColumnArray{
 // 				&TableColumnArgs{
 // 					Name:     pulumi.String("id"),
-// 					Nullable: pulumi.Bool(true),
 // 					Type:     pulumi.String("int"),
+// 					Nullable: pulumi.Bool(true),
+// 					Default: &TableColumnDefaultArgs{
+// 						Sequence: sequence.FullyQualifiedName,
+// 					},
 // 				},
 // 				&TableColumnArgs{
 // 					Name:     pulumi.String("data"),
-// 					Nullable: pulumi.Bool(false),
 // 					Type:     pulumi.String("text"),
+// 					Nullable: pulumi.Bool(false),
 // 				},
 // 				&TableColumnArgs{
 // 					Name: pulumi.String("DATE"),
 // 					Type: pulumi.String("TIMESTAMP_NTZ(9)"),
 // 				},
+// 				&TableColumnArgs{
+// 					Name:    pulumi.String("extra"),
+// 					Type:    pulumi.String("VARIANT"),
+// 					Comment: pulumi.String("extra data"),
+// 				},
 // 			},
-// 			Comment:  pulumi.String("A table."),
-// 			Database: pulumi.String("database"),
 // 			PrimaryKey: &TablePrimaryKeyArgs{
+// 				Name: pulumi.String("my_key"),
 // 				Keys: pulumi.StringArray{
 // 					pulumi.String("data"),
 // 				},
-// 				Name: pulumi.String("my_key"),
 // 			},
-// 			Schema: pulumi.String("schmea"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -71,12 +95,16 @@ import (
 type Table struct {
 	pulumi.CustomResourceState
 
+	// Specifies whether to enable change tracking on the table. Default false.
+	ChangeTracking pulumi.BoolPtrOutput `pulumi:"changeTracking"`
 	// A list of one or more table columns/expressions to be used as clustering key(s) for the table
 	ClusterBies pulumi.StringArrayOutput `pulumi:"clusterBies"`
 	// Definitions of a column to create in the table. Minimum one required.
 	Columns TableColumnArrayOutput `pulumi:"columns"`
 	// Specifies a comment for the table.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
+	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+	DataRetentionDays pulumi.IntPtrOutput `pulumi:"dataRetentionDays"`
 	// The database in which to create the table.
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
@@ -127,12 +155,16 @@ func GetTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Table resources.
 type tableState struct {
+	// Specifies whether to enable change tracking on the table. Default false.
+	ChangeTracking *bool `pulumi:"changeTracking"`
 	// A list of one or more table columns/expressions to be used as clustering key(s) for the table
 	ClusterBies []string `pulumi:"clusterBies"`
 	// Definitions of a column to create in the table. Minimum one required.
 	Columns []TableColumn `pulumi:"columns"`
 	// Specifies a comment for the table.
 	Comment *string `pulumi:"comment"`
+	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+	DataRetentionDays *int `pulumi:"dataRetentionDays"`
 	// The database in which to create the table.
 	Database *string `pulumi:"database"`
 	// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
@@ -146,12 +178,16 @@ type tableState struct {
 }
 
 type TableState struct {
+	// Specifies whether to enable change tracking on the table. Default false.
+	ChangeTracking pulumi.BoolPtrInput
 	// A list of one or more table columns/expressions to be used as clustering key(s) for the table
 	ClusterBies pulumi.StringArrayInput
 	// Definitions of a column to create in the table. Minimum one required.
 	Columns TableColumnArrayInput
 	// Specifies a comment for the table.
 	Comment pulumi.StringPtrInput
+	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+	DataRetentionDays pulumi.IntPtrInput
 	// The database in which to create the table.
 	Database pulumi.StringPtrInput
 	// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
@@ -169,12 +205,16 @@ func (TableState) ElementType() reflect.Type {
 }
 
 type tableArgs struct {
+	// Specifies whether to enable change tracking on the table. Default false.
+	ChangeTracking *bool `pulumi:"changeTracking"`
 	// A list of one or more table columns/expressions to be used as clustering key(s) for the table
 	ClusterBies []string `pulumi:"clusterBies"`
 	// Definitions of a column to create in the table. Minimum one required.
 	Columns []TableColumn `pulumi:"columns"`
 	// Specifies a comment for the table.
 	Comment *string `pulumi:"comment"`
+	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+	DataRetentionDays *int `pulumi:"dataRetentionDays"`
 	// The database in which to create the table.
 	Database string `pulumi:"database"`
 	// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
@@ -187,12 +227,16 @@ type tableArgs struct {
 
 // The set of arguments for constructing a Table resource.
 type TableArgs struct {
+	// Specifies whether to enable change tracking on the table. Default false.
+	ChangeTracking pulumi.BoolPtrInput
 	// A list of one or more table columns/expressions to be used as clustering key(s) for the table
 	ClusterBies pulumi.StringArrayInput
 	// Definitions of a column to create in the table. Minimum one required.
 	Columns TableColumnArrayInput
 	// Specifies a comment for the table.
 	Comment pulumi.StringPtrInput
+	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+	DataRetentionDays pulumi.IntPtrInput
 	// The database in which to create the table.
 	Database pulumi.StringInput
 	// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.

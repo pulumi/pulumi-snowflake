@@ -14,16 +14,32 @@ from .external_table import *
 from .external_table_grant import *
 from .file_format import *
 from .file_format_grant import *
+from .function import *
 from .function_grant import *
 from .get_current_account import *
+from .get_external_functions import *
+from .get_external_tables import *
+from .get_file_formats import *
+from .get_functions import *
+from .get_masking_policies import *
 from .get_materialized_views import *
+from .get_pipes import *
+from .get_procedures import *
+from .get_resource_monitors import *
+from .get_row_access_policies import *
 from .get_schemas import *
+from .get_sequences import *
+from .get_stages import *
+from .get_storage_integrations import *
+from .get_streams import *
 from .get_system_generate_scim_access_token import *
 from .get_system_get_aws_sns_iam_policy import *
 from .get_system_get_private_link_config import *
 from .get_system_get_snowflake_platform_info import *
 from .get_tables import *
+from .get_tasks import *
 from .get_views import *
+from .get_warehouses import *
 from .integration_grant import *
 from .managed_account import *
 from .masking_policy import *
@@ -35,12 +51,15 @@ from .network_policy_attachment import *
 from .notification_integration import *
 from .pipe import *
 from .pipe_grant import *
+from .procedure import *
 from .procedure_grant import *
 from .provider import *
 from .resource_monitor import *
 from .resource_monitor_grant import *
 from .role import *
 from .role_grants import *
+from .row_access_policy import *
+from .row_access_policy_grant import *
 from .schema import *
 from .schema_grant import *
 from .scim_integration import *
@@ -148,6 +167,14 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/function",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/function:Function": "Function"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/functionGrant",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -244,6 +271,14 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/procedure",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/procedure:Procedure": "Procedure"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/procedureGrant",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -280,6 +315,22 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/roleGrants:RoleGrants": "RoleGrants"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/rowAccessPolicy",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/rowAccessPolicy:RowAccessPolicy": "RowAccessPolicy"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/rowAccessPolicyGrant",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant": "RowAccessPolicyGrant"
   }
  },
  {

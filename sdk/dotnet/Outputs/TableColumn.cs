@@ -14,6 +14,14 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class TableColumn
     {
         /// <summary>
+        /// Column comment
+        /// </summary>
+        public readonly string? Comment;
+        /// <summary>
+        /// Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
+        /// </summary>
+        public readonly Outputs.TableColumnDefault? Default;
+        /// <summary>
         /// Column name
         /// </summary>
         public readonly string Name;
@@ -28,12 +36,18 @@ namespace Pulumi.Snowflake.Outputs
 
         [OutputConstructor]
         private TableColumn(
+            string? comment,
+
+            Outputs.TableColumnDefault? @default,
+
             string name,
 
             bool? nullable,
 
             string type)
         {
+            Comment = comment;
+            Default = @default;
             Name = name;
             Nullable = nullable;
             Type = type;

@@ -37,6 +37,9 @@ class GetViewsResult:
     @property
     @pulumi.getter
     def database(self) -> str:
+        """
+        The database from which to return the schemas from.
+        """
         return pulumi.get(self, "database")
 
     @property
@@ -50,11 +53,17 @@ class GetViewsResult:
     @property
     @pulumi.getter
     def schema(self) -> str:
+        """
+        The schema from which to return the views from.
+        """
         return pulumi.get(self, "schema")
 
     @property
     @pulumi.getter
     def views(self) -> Sequence['outputs.GetViewsViewResult']:
+        """
+        The views in the schema
+        """
         return pulumi.get(self, "views")
 
 
@@ -74,7 +83,19 @@ def get_views(database: Optional[str] = None,
               schema: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetViewsResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_views(database="MYDB",
+        schema="MYSCHEMA")
+    ```
+
+
+    :param str database: The database from which to return the schemas from.
+    :param str schema: The schema from which to return the views from.
     """
     __args__ = dict()
     __args__['database'] = database

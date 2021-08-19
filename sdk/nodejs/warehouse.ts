@@ -76,6 +76,9 @@ export class Warehouse extends pulumi.CustomResource {
      * Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
      */
     public readonly minClusterCount!: pulumi.Output<number>;
+    /**
+     * Identifier for the virtual warehouse; must be unique for your account.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
@@ -97,6 +100,9 @@ export class Warehouse extends pulumi.CustomResource {
      * Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
      */
     public readonly waitForProvisioning!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+     */
     public readonly warehouseSize!: pulumi.Output<string>;
 
     /**
@@ -179,6 +185,9 @@ export interface WarehouseState {
      * Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
      */
     minClusterCount?: pulumi.Input<number>;
+    /**
+     * Identifier for the virtual warehouse; must be unique for your account.
+     */
     name?: pulumi.Input<string>;
     /**
      * Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
@@ -200,6 +209,9 @@ export interface WarehouseState {
      * Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
      */
     waitForProvisioning?: pulumi.Input<boolean>;
+    /**
+     * Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+     */
     warehouseSize?: pulumi.Input<string>;
 }
 
@@ -232,6 +244,9 @@ export interface WarehouseArgs {
      * Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
      */
     minClusterCount?: pulumi.Input<number>;
+    /**
+     * Identifier for the virtual warehouse; must be unique for your account.
+     */
     name?: pulumi.Input<string>;
     /**
      * Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
@@ -253,5 +268,8 @@ export interface WarehouseArgs {
      * Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
      */
     waitForProvisioning?: pulumi.Input<boolean>;
+    /**
+     * Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+     */
     warehouseSize?: pulumi.Input<string>;
 }
