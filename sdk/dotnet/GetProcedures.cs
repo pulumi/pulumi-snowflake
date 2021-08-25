@@ -11,6 +11,31 @@ namespace Pulumi.Snowflake
 {
     public static class GetProcedures
     {
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var current = Output.Create(Snowflake.GetProcedures.InvokeAsync(new Snowflake.GetProceduresArgs
+        ///         {
+        ///             Database = "MYDB",
+        ///             Schema = "MYSCHEMA",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetProceduresResult> InvokeAsync(GetProceduresArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProceduresResult>("snowflake:index/getProcedures:getProcedures", args ?? new GetProceduresArgs(), options.WithVersion());
     }
@@ -18,9 +43,15 @@ namespace Pulumi.Snowflake
 
     public sealed class GetProceduresArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database", required: true)]
         public string Database { get; set; } = null!;
 
+        /// <summary>
+        /// The schema from which to return the procedures from.
+        /// </summary>
         [Input("schema", required: true)]
         public string Schema { get; set; } = null!;
 
@@ -33,12 +64,21 @@ namespace Pulumi.Snowflake
     [OutputType]
     public sealed class GetProceduresResult
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         public readonly string Database;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The procedures in the schema
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetProceduresProcedureResult> Procedures;
+        /// <summary>
+        /// The schema from which to return the procedures from.
+        /// </summary>
         public readonly string Schema;
 
         [OutputConstructor]

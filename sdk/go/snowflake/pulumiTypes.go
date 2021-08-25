@@ -338,7 +338,9 @@ func (o ExternalTableColumnArrayOutput) Index(i pulumi.IntInput) ExternalTableCo
 }
 
 type FunctionArgument struct {
+	// The argument name
 	Name string `pulumi:"name"`
+	// The argument type
 	Type string `pulumi:"type"`
 }
 
@@ -354,7 +356,9 @@ type FunctionArgumentInput interface {
 }
 
 type FunctionArgumentArgs struct {
+	// The argument name
 	Name pulumi.StringInput `pulumi:"name"`
+	// The argument type
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -409,10 +413,12 @@ func (o FunctionArgumentOutput) ToFunctionArgumentOutputWithContext(ctx context.
 	return o
 }
 
+// The argument name
 func (o FunctionArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionArgument) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The argument type
 func (o FunctionArgumentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionArgument) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1563,10 +1569,12 @@ func (o GetFileFormatsFileFormatArrayOutput) Index(i pulumi.IntInput) GetFileFor
 type GetFunctionsFunction struct {
 	ArgumentTypes []string `pulumi:"argumentTypes"`
 	Comment       string   `pulumi:"comment"`
-	Database      string   `pulumi:"database"`
-	Name          string   `pulumi:"name"`
-	ReturnType    string   `pulumi:"returnType"`
-	Schema        string   `pulumi:"schema"`
+	// The database from which to return the schemas from.
+	Database   string `pulumi:"database"`
+	Name       string `pulumi:"name"`
+	ReturnType string `pulumi:"returnType"`
+	// The schema from which to return the functions from.
+	Schema string `pulumi:"schema"`
 }
 
 // GetFunctionsFunctionInput is an input type that accepts GetFunctionsFunctionArgs and GetFunctionsFunctionOutput values.
@@ -1583,10 +1591,12 @@ type GetFunctionsFunctionInput interface {
 type GetFunctionsFunctionArgs struct {
 	ArgumentTypes pulumi.StringArrayInput `pulumi:"argumentTypes"`
 	Comment       pulumi.StringInput      `pulumi:"comment"`
-	Database      pulumi.StringInput      `pulumi:"database"`
-	Name          pulumi.StringInput      `pulumi:"name"`
-	ReturnType    pulumi.StringInput      `pulumi:"returnType"`
-	Schema        pulumi.StringInput      `pulumi:"schema"`
+	// The database from which to return the schemas from.
+	Database   pulumi.StringInput `pulumi:"database"`
+	Name       pulumi.StringInput `pulumi:"name"`
+	ReturnType pulumi.StringInput `pulumi:"returnType"`
+	// The schema from which to return the functions from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetFunctionsFunctionArgs) ElementType() reflect.Type {
@@ -1648,6 +1658,7 @@ func (o GetFunctionsFunctionOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionsFunction) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// The database from which to return the schemas from.
 func (o GetFunctionsFunctionOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionsFunction) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -1660,6 +1671,7 @@ func (o GetFunctionsFunctionOutput) ReturnType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionsFunction) string { return v.ReturnType }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the functions from.
 func (o GetFunctionsFunctionOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionsFunction) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -2053,10 +2065,12 @@ func (o GetPipesPipeArrayOutput) Index(i pulumi.IntInput) GetPipesPipeOutput {
 type GetProceduresProcedure struct {
 	ArgumentTypes []string `pulumi:"argumentTypes"`
 	Comment       string   `pulumi:"comment"`
-	Database      string   `pulumi:"database"`
-	Name          string   `pulumi:"name"`
-	ReturnType    string   `pulumi:"returnType"`
-	Schema        string   `pulumi:"schema"`
+	// The database from which to return the schemas from.
+	Database   string `pulumi:"database"`
+	Name       string `pulumi:"name"`
+	ReturnType string `pulumi:"returnType"`
+	// The schema from which to return the procedures from.
+	Schema string `pulumi:"schema"`
 }
 
 // GetProceduresProcedureInput is an input type that accepts GetProceduresProcedureArgs and GetProceduresProcedureOutput values.
@@ -2073,10 +2087,12 @@ type GetProceduresProcedureInput interface {
 type GetProceduresProcedureArgs struct {
 	ArgumentTypes pulumi.StringArrayInput `pulumi:"argumentTypes"`
 	Comment       pulumi.StringInput      `pulumi:"comment"`
-	Database      pulumi.StringInput      `pulumi:"database"`
-	Name          pulumi.StringInput      `pulumi:"name"`
-	ReturnType    pulumi.StringInput      `pulumi:"returnType"`
-	Schema        pulumi.StringInput      `pulumi:"schema"`
+	// The database from which to return the schemas from.
+	Database   pulumi.StringInput `pulumi:"database"`
+	Name       pulumi.StringInput `pulumi:"name"`
+	ReturnType pulumi.StringInput `pulumi:"returnType"`
+	// The schema from which to return the procedures from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetProceduresProcedureArgs) ElementType() reflect.Type {
@@ -2138,6 +2154,7 @@ func (o GetProceduresProcedureOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProceduresProcedure) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// The database from which to return the schemas from.
 func (o GetProceduresProcedureOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProceduresProcedure) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -2150,6 +2167,7 @@ func (o GetProceduresProcedureOutput) ReturnType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProceduresProcedure) string { return v.ReturnType }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the procedures from.
 func (o GetProceduresProcedureOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProceduresProcedure) string { return v.Schema }).(pulumi.StringOutput)
 }

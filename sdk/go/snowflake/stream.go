@@ -27,6 +27,8 @@ type Stream struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The database in which to create the stream.
 	Database pulumi.StringOutput `pulumi:"database"`
+	// Create an insert only stream type.
+	InsertOnly pulumi.BoolPtrOutput `pulumi:"insertOnly"`
 	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of the table the stream will monitor.
@@ -80,6 +82,8 @@ type streamState struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the stream.
 	Database *string `pulumi:"database"`
+	// Create an insert only stream type.
+	InsertOnly *bool `pulumi:"insertOnly"`
 	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
 	Name *string `pulumi:"name"`
 	// Name of the table the stream will monitor.
@@ -99,6 +103,8 @@ type StreamState struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the stream.
 	Database pulumi.StringPtrInput
+	// Create an insert only stream type.
+	InsertOnly pulumi.BoolPtrInput
 	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
 	Name pulumi.StringPtrInput
 	// Name of the table the stream will monitor.
@@ -122,6 +128,8 @@ type streamArgs struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the stream.
 	Database string `pulumi:"database"`
+	// Create an insert only stream type.
+	InsertOnly *bool `pulumi:"insertOnly"`
 	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
 	Name *string `pulumi:"name"`
 	// Name of the table the stream will monitor.
@@ -140,6 +148,8 @@ type StreamArgs struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the stream.
 	Database pulumi.StringInput
+	// Create an insert only stream type.
+	InsertOnly pulumi.BoolPtrInput
 	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
 	Name pulumi.StringPtrInput
 	// Name of the table the stream will monitor.

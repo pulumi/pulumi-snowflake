@@ -7,6 +7,29 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.GetProcedures(ctx, &GetProceduresArgs{
+// 			Database: "MYDB",
+// 			Schema:   "MYSCHEMA",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetProcedures(ctx *pulumi.Context, args *GetProceduresArgs, opts ...pulumi.InvokeOption) (*GetProceduresResult, error) {
 	var rv GetProceduresResult
 	err := ctx.Invoke("snowflake:index/getProcedures:getProcedures", args, &rv, opts...)
@@ -18,15 +41,20 @@ func GetProcedures(ctx *pulumi.Context, args *GetProceduresArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getProcedures.
 type GetProceduresArgs struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the procedures from.
+	Schema string `pulumi:"schema"`
 }
 
 // A collection of values returned by getProcedures.
 type GetProceduresResult struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string                   `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The procedures in the schema
 	Procedures []GetProceduresProcedure `pulumi:"procedures"`
-	Schema     string                   `pulumi:"schema"`
+	// The schema from which to return the procedures from.
+	Schema string `pulumi:"schema"`
 }

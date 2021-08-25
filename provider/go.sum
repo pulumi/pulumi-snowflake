@@ -375,6 +375,8 @@ github.com/chanzuckerberg/terraform-provider-snowflake v0.25.13 h1:ngucSzU1z2W1A
 github.com/chanzuckerberg/terraform-provider-snowflake v0.25.13/go.mod h1:6T0w7ZLM/g4BfzRsYU8R72R0PVlRyYVJ7dDe+nmCeo0=
 github.com/chanzuckerberg/terraform-provider-snowflake v0.25.17 h1:nnktWTEqLDR8yVTkamolLxES5oX1hRT4TYR8xJoeb8g=
 github.com/chanzuckerberg/terraform-provider-snowflake v0.25.17/go.mod h1:24yZDQWWIcBmwjyTpiSC//k+AUatygzGJvQHO/d8nbk=
+github.com/chanzuckerberg/terraform-provider-snowflake v0.25.18 h1:rwC8/RnwIjVWMQorQhVbgumwjcffDBYdjNB/SRCZJDU=
+github.com/chanzuckerberg/terraform-provider-snowflake v0.25.18/go.mod h1:KAddZf22BHo7Hn8eLPtFcAOx/PjF4dNqPRdLjICpqCs=
 github.com/cheggaaa/pb v1.0.18/go.mod h1:pQciLPpbU0oxA0h+VJYYLxO+XeDQb5pZijXscXHm81s=
 github.com/cheggaaa/pb v1.0.27 h1:wIkZHkNfC7R6GI5w7l/PdAdzXzlrbcI3p8OAlnkTsnc=
 github.com/cheggaaa/pb v1.0.27/go.mod h1:pQciLPpbU0oxA0h+VJYYLxO+XeDQb5pZijXscXHm81s=
@@ -1579,6 +1581,8 @@ github.com/xordataexchange/crypt v0.0.3-0.20170626215501-b2862e3d0a77 h1:ESFSdwY
 github.com/xordataexchange/crypt v0.0.3-0.20170626215501-b2862e3d0a77/go.mod h1:aYKd//L2LvnjZzWKhF00oedf4jCCReLcmhLdhm1A27Q=
 github.com/yalp/jsonpath v0.0.0-20180802001716-5cc68e5049a0 h1:6fRhSjgLCkTD3JnJxvaJ4Sj+TYblw757bqYgZaOq5ZY=
 github.com/yalp/jsonpath v0.0.0-20180802001716-5cc68e5049a0/go.mod h1:/LWChgwKmvncFJFHJ7Gvn9wZArjbV5/FppcK2fKk/tI=
+github.com/youmark/pkcs8 v0.0.0-20201027041543-1326539a0a0a h1:fZHgsYlfvtyqToslyjUt3VOPF4J7aK/3MPcK7xp3PDk=
+github.com/youmark/pkcs8 v0.0.0-20201027041543-1326539a0a0a/go.mod h1:ul22v+Nro/R083muKhosV54bj5niojjWZvU8xrevuH4=
 github.com/yudai/gojsondiff v1.0.0 h1:27cbfqXLVEJ1o8I6v3y9lg8Ydm53EKqHXAOMxEGlCOA=
 github.com/yudai/gojsondiff v1.0.0/go.mod h1:AY32+k2cwILAkW1fbgxQ5mUmMiZFgLIV+FBNExI05xg=
 github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 h1:BHyfKlQyqbsFN5p3IfnEUduWvb9is428/nNb5L3U01M=

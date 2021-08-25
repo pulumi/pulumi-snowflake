@@ -34,6 +34,11 @@ export class Provider extends pulumi.ProviderResource {
     public readonly oauthRefreshToken!: pulumi.Output<string | undefined>;
     public readonly password!: pulumi.Output<string | undefined>;
     public readonly privateKey!: pulumi.Output<string | undefined>;
+    /**
+     * Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
+     * des-ede3-cbc
+     */
+    public readonly privateKeyPassphrase!: pulumi.Output<string | undefined>;
     public readonly privateKeyPath!: pulumi.Output<string | undefined>;
     public readonly region!: pulumi.Output<string>;
     public readonly role!: pulumi.Output<string | undefined>;
@@ -69,6 +74,7 @@ export class Provider extends pulumi.ProviderResource {
             inputs["oauthRefreshToken"] = args ? args.oauthRefreshToken : undefined;
             inputs["password"] = args ? args.password : undefined;
             inputs["privateKey"] = args ? args.privateKey : undefined;
+            inputs["privateKeyPassphrase"] = args ? args.privateKeyPassphrase : undefined;
             inputs["privateKeyPath"] = args ? args.privateKeyPath : undefined;
             inputs["region"] = args ? args.region : undefined;
             inputs["role"] = args ? args.role : undefined;
@@ -95,6 +101,11 @@ export interface ProviderArgs {
     oauthRefreshToken?: pulumi.Input<string>;
     password?: pulumi.Input<string>;
     privateKey?: pulumi.Input<string>;
+    /**
+     * Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
+     * des-ede3-cbc
+     */
+    privateKeyPassphrase?: pulumi.Input<string>;
     privateKeyPath?: pulumi.Input<string>;
     region: pulumi.Input<string>;
     role?: pulumi.Input<string>;

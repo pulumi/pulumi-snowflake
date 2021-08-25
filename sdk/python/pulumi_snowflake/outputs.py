@@ -161,17 +161,27 @@ class FunctionArgument(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
+        """
+        :param str name: The argument name
+        :param str type: The argument type
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The argument name
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The argument type
+        """
         return pulumi.get(self, "type")
 
 
@@ -538,6 +548,10 @@ class GetFunctionsFunctionResult(dict):
                  name: str,
                  return_type: str,
                  schema: str):
+        """
+        :param str database: The database from which to return the schemas from.
+        :param str schema: The schema from which to return the functions from.
+        """
         pulumi.set(__self__, "argument_types", argument_types)
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "database", database)
@@ -558,6 +572,9 @@ class GetFunctionsFunctionResult(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
+        """
+        The database from which to return the schemas from.
+        """
         return pulumi.get(self, "database")
 
     @property
@@ -573,6 +590,9 @@ class GetFunctionsFunctionResult(dict):
     @property
     @pulumi.getter
     def schema(self) -> str:
+        """
+        The schema from which to return the functions from.
+        """
         return pulumi.get(self, "schema")
 
 
@@ -728,6 +748,10 @@ class GetProceduresProcedureResult(dict):
                  name: str,
                  return_type: str,
                  schema: str):
+        """
+        :param str database: The database from which to return the schemas from.
+        :param str schema: The schema from which to return the procedures from.
+        """
         pulumi.set(__self__, "argument_types", argument_types)
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "database", database)
@@ -748,6 +772,9 @@ class GetProceduresProcedureResult(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
+        """
+        The database from which to return the schemas from.
+        """
         return pulumi.get(self, "database")
 
     @property
@@ -763,6 +790,9 @@ class GetProceduresProcedureResult(dict):
     @property
     @pulumi.getter
     def schema(self) -> str:
+        """
+        The schema from which to return the procedures from.
+        """
         return pulumi.get(self, "schema")
 
 

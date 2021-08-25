@@ -110,6 +110,10 @@ export class ExternalTable extends pulumi.CustomResource {
      */
     public readonly partitionBies!: pulumi.Output<string[] | undefined>;
     /**
+     * Specifies the file names and/or paths on the external stage to match.
+     */
+    public readonly pattern!: pulumi.Output<string | undefined>;
+    /**
      * Specifies weather to refresh when an external table is created.
      */
     public readonly refreshOnCreate!: pulumi.Output<boolean | undefined>;
@@ -142,6 +146,7 @@ export class ExternalTable extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["owner"] = state ? state.owner : undefined;
             inputs["partitionBies"] = state ? state.partitionBies : undefined;
+            inputs["pattern"] = state ? state.pattern : undefined;
             inputs["refreshOnCreate"] = state ? state.refreshOnCreate : undefined;
             inputs["schema"] = state ? state.schema : undefined;
         } else {
@@ -171,6 +176,7 @@ export class ExternalTable extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["partitionBies"] = args ? args.partitionBies : undefined;
+            inputs["pattern"] = args ? args.pattern : undefined;
             inputs["refreshOnCreate"] = args ? args.refreshOnCreate : undefined;
             inputs["schema"] = args ? args.schema : undefined;
             inputs["owner"] = undefined /*out*/;
@@ -231,6 +237,10 @@ export interface ExternalTableState {
      */
     partitionBies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Specifies the file names and/or paths on the external stage to match.
+     */
+    pattern?: pulumi.Input<string>;
+    /**
      * Specifies weather to refresh when an external table is created.
      */
     refreshOnCreate?: pulumi.Input<boolean>;
@@ -284,6 +294,10 @@ export interface ExternalTableArgs {
      * Specifies any partition columns to evaluate for the external table.
      */
     partitionBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the file names and/or paths on the external stage to match.
+     */
+    pattern?: pulumi.Input<string>;
     /**
      * Specifies weather to refresh when an external table is created.
      */

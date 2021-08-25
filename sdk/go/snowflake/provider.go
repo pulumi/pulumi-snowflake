@@ -27,10 +27,13 @@ type Provider struct {
 	OauthRefreshToken pulumi.StringPtrOutput `pulumi:"oauthRefreshToken"`
 	Password          pulumi.StringPtrOutput `pulumi:"password"`
 	PrivateKey        pulumi.StringPtrOutput `pulumi:"privateKey"`
-	PrivateKeyPath    pulumi.StringPtrOutput `pulumi:"privateKeyPath"`
-	Region            pulumi.StringOutput    `pulumi:"region"`
-	Role              pulumi.StringPtrOutput `pulumi:"role"`
-	Username          pulumi.StringOutput    `pulumi:"username"`
+	// Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
+	// des-ede3-cbc
+	PrivateKeyPassphrase pulumi.StringPtrOutput `pulumi:"privateKeyPassphrase"`
+	PrivateKeyPath       pulumi.StringPtrOutput `pulumi:"privateKeyPath"`
+	Region               pulumi.StringOutput    `pulumi:"region"`
+	Role                 pulumi.StringPtrOutput `pulumi:"role"`
+	Username             pulumi.StringOutput    `pulumi:"username"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -68,10 +71,13 @@ type providerArgs struct {
 	OauthRefreshToken *string `pulumi:"oauthRefreshToken"`
 	Password          *string `pulumi:"password"`
 	PrivateKey        *string `pulumi:"privateKey"`
-	PrivateKeyPath    *string `pulumi:"privateKeyPath"`
-	Region            string  `pulumi:"region"`
-	Role              *string `pulumi:"role"`
-	Username          string  `pulumi:"username"`
+	// Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
+	// des-ede3-cbc
+	PrivateKeyPassphrase *string `pulumi:"privateKeyPassphrase"`
+	PrivateKeyPath       *string `pulumi:"privateKeyPath"`
+	Region               string  `pulumi:"region"`
+	Role                 *string `pulumi:"role"`
+	Username             string  `pulumi:"username"`
 }
 
 // The set of arguments for constructing a Provider resource.
@@ -86,10 +92,13 @@ type ProviderArgs struct {
 	OauthRefreshToken pulumi.StringPtrInput
 	Password          pulumi.StringPtrInput
 	PrivateKey        pulumi.StringPtrInput
-	PrivateKeyPath    pulumi.StringPtrInput
-	Region            pulumi.StringInput
-	Role              pulumi.StringPtrInput
-	Username          pulumi.StringInput
+	// Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
+	// des-ede3-cbc
+	PrivateKeyPassphrase pulumi.StringPtrInput
+	PrivateKeyPath       pulumi.StringPtrInput
+	Region               pulumi.StringInput
+	Role                 pulumi.StringPtrInput
+	Username             pulumi.StringInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {

@@ -28,6 +28,12 @@ namespace Pulumi.Snowflake
 
         public static string? PrivateKey { get; set; } = __config.Get("privateKey");
 
+        /// <summary>
+        /// Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
+        /// des-ede3-cbc
+        /// </summary>
+        public static string? PrivateKeyPassphrase { get; set; } = __config.Get("privateKeyPassphrase");
+
         public static string? PrivateKeyPath { get; set; } = __config.Get("privateKeyPath");
 
         public static string? Region { get; set; } = __config.Get("region");

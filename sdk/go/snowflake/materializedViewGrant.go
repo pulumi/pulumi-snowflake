@@ -68,7 +68,7 @@ type MaterializedViewGrant struct {
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current or future materialized views on which to grant privileges.
-	SchemaName pulumi.StringOutput `pulumi:"schemaName"`
+	SchemaName pulumi.StringPtrOutput `pulumi:"schemaName"`
 	// Grants privilege to these shares (only valid if onFuture is false).
 	Shares pulumi.StringArrayOutput `pulumi:"shares"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -84,9 +84,6 @@ func NewMaterializedViewGrant(ctx *pulumi.Context,
 
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
-	}
-	if args.SchemaName == nil {
-		return nil, errors.New("invalid value for required argument 'SchemaName'")
 	}
 	var resource MaterializedViewGrant
 	err := ctx.RegisterResource("snowflake:index/materializedViewGrant:MaterializedViewGrant", name, args, &resource, opts...)
@@ -163,7 +160,7 @@ type materializedViewGrantArgs struct {
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future materialized views on which to grant privileges.
-	SchemaName string `pulumi:"schemaName"`
+	SchemaName *string `pulumi:"schemaName"`
 	// Grants privilege to these shares (only valid if onFuture is false).
 	Shares []string `pulumi:"shares"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -183,7 +180,7 @@ type MaterializedViewGrantArgs struct {
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future materialized views on which to grant privileges.
-	SchemaName pulumi.StringInput
+	SchemaName pulumi.StringPtrInput
 	// Grants privilege to these shares (only valid if onFuture is false).
 	Shares pulumi.StringArrayInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.

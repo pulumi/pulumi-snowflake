@@ -34,8 +34,7 @@ class FunctionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FunctionArgumentArgs']]] arguments: List of the arguments for the function
         :param pulumi.Input[str] comment: Specifies a comment for the function.
         :param pulumi.Input[str] language: The language of the statement
-        :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
-               Don't use the | character.
+        :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
         """
@@ -144,8 +143,7 @@ class FunctionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
-        Don't use the | character.
+        Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         """
         return pulumi.get(self, "name")
 
@@ -197,8 +195,7 @@ class _FunctionState:
         :param pulumi.Input[str] comment: Specifies a comment for the function.
         :param pulumi.Input[str] database: The database in which to create the function. Don't use the | character.
         :param pulumi.Input[str] language: The language of the statement
-        :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
-               Don't use the | character.
+        :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
         :param pulumi.Input[str] return_type: The return type of the function
@@ -278,8 +275,7 @@ class _FunctionState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
-        Don't use the | character.
+        Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         """
         return pulumi.get(self, "name")
 
@@ -372,8 +368,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the function.
         :param pulumi.Input[str] database: The database in which to create the function. Don't use the | character.
         :param pulumi.Input[str] language: The language of the statement
-        :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
-               Don't use the | character.
+        :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
         :param pulumi.Input[str] return_type: The return type of the function
@@ -474,8 +469,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the function.
         :param pulumi.Input[str] database: The database in which to create the function. Don't use the | character.
         :param pulumi.Input[str] language: The language of the statement
-        :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
-               Don't use the | character.
+        :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
         :param pulumi.Input[str] return_type: The return type of the function
@@ -534,8 +528,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
-        Don't use the | character.
+        Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         """
         return pulumi.get(self, "name")
 

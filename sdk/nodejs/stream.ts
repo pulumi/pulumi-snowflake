@@ -15,6 +15,7 @@ import * as utilities from "./utilities";
  *     appendOnly: false,
  *     comment: "A stream.",
  *     database: "db",
+ *     insertOnly: false,
  *     onTable: "table",
  *     owner: "role1",
  *     schema: "schema",
@@ -70,6 +71,10 @@ export class Stream extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
+     * Create an insert only stream type.
+     */
+    public readonly insertOnly!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -106,6 +111,7 @@ export class Stream extends pulumi.CustomResource {
             inputs["appendOnly"] = state ? state.appendOnly : undefined;
             inputs["comment"] = state ? state.comment : undefined;
             inputs["database"] = state ? state.database : undefined;
+            inputs["insertOnly"] = state ? state.insertOnly : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["onTable"] = state ? state.onTable : undefined;
             inputs["owner"] = state ? state.owner : undefined;
@@ -122,6 +128,7 @@ export class Stream extends pulumi.CustomResource {
             inputs["appendOnly"] = args ? args.appendOnly : undefined;
             inputs["comment"] = args ? args.comment : undefined;
             inputs["database"] = args ? args.database : undefined;
+            inputs["insertOnly"] = args ? args.insertOnly : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["onTable"] = args ? args.onTable : undefined;
             inputs["schema"] = args ? args.schema : undefined;
@@ -151,6 +158,10 @@ export interface StreamState {
      * The database in which to create the stream.
      */
     database?: pulumi.Input<string>;
+    /**
+     * Create an insert only stream type.
+     */
+    insertOnly?: pulumi.Input<boolean>;
     /**
      * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
      */
@@ -189,6 +200,10 @@ export interface StreamArgs {
      * The database in which to create the stream.
      */
     database: pulumi.Input<string>;
+    /**
+     * Create an insert only stream type.
+     */
+    insertOnly?: pulumi.Input<boolean>;
     /**
      * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
      */

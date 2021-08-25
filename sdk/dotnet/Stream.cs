@@ -40,6 +40,12 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
+        /// Create an insert only stream type.
+        /// </summary>
+        [Output("insertOnly")]
+        public Output<bool?> InsertOnly { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
         /// </summary>
         [Output("name")]
@@ -134,6 +140,12 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
+        /// Create an insert only stream type.
+        /// </summary>
+        [Input("insertOnly")]
+        public Input<bool>? InsertOnly { get; set; }
+
+        /// <summary>
         /// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
         /// </summary>
         [Input("name")]
@@ -181,6 +193,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
+
+        /// <summary>
+        /// Create an insert only stream type.
+        /// </summary>
+        [Input("insertOnly")]
+        public Input<bool>? InsertOnly { get; set; }
 
         /// <summary>
         /// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.

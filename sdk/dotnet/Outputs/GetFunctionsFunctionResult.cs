@@ -15,9 +15,15 @@ namespace Pulumi.Snowflake.Outputs
     {
         public readonly ImmutableArray<string> ArgumentTypes;
         public readonly string Comment;
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         public readonly string Database;
         public readonly string Name;
         public readonly string ReturnType;
+        /// <summary>
+        /// The schema from which to return the functions from.
+        /// </summary>
         public readonly string Schema;
 
         [OutputConstructor]

@@ -26,6 +26,7 @@ class ExternalTableArgs:
                  copy_grants: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 pattern: Optional[pulumi.Input[str]] = None,
                  refresh_on_create: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ExternalTable resource.
@@ -40,6 +41,7 @@ class ExternalTableArgs:
         :param pulumi.Input[bool] copy_grants: Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
         :param pulumi.Input[str] name: Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_bies: Specifies any partition columns to evaluate for the external table.
+        :param pulumi.Input[str] pattern: Specifies the file names and/or paths on the external stage to match.
         :param pulumi.Input[bool] refresh_on_create: Specifies weather to refresh when an external table is created.
         """
         pulumi.set(__self__, "columns", columns)
@@ -59,6 +61,8 @@ class ExternalTableArgs:
             pulumi.set(__self__, "name", name)
         if partition_bies is not None:
             pulumi.set(__self__, "partition_bies", partition_bies)
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
         if refresh_on_create is not None:
             pulumi.set(__self__, "refresh_on_create", refresh_on_create)
 
@@ -195,6 +199,18 @@ class ExternalTableArgs:
         pulumi.set(self, "partition_bies", value)
 
     @property
+    @pulumi.getter
+    def pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the file names and/or paths on the external stage to match.
+        """
+        return pulumi.get(self, "pattern")
+
+    @pattern.setter
+    def pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pattern", value)
+
+    @property
     @pulumi.getter(name="refreshOnCreate")
     def refresh_on_create(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -221,6 +237,7 @@ class _ExternalTableState:
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  partition_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 pattern: Optional[pulumi.Input[str]] = None,
                  refresh_on_create: Optional[pulumi.Input[bool]] = None,
                  schema: Optional[pulumi.Input[str]] = None):
         """
@@ -236,6 +253,7 @@ class _ExternalTableState:
         :param pulumi.Input[str] name: Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         :param pulumi.Input[str] owner: Name of the role that owns the external table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_bies: Specifies any partition columns to evaluate for the external table.
+        :param pulumi.Input[str] pattern: Specifies the file names and/or paths on the external stage to match.
         :param pulumi.Input[bool] refresh_on_create: Specifies weather to refresh when an external table is created.
         :param pulumi.Input[str] schema: The schema in which to create the external table.
         """
@@ -261,6 +279,8 @@ class _ExternalTableState:
             pulumi.set(__self__, "owner", owner)
         if partition_bies is not None:
             pulumi.set(__self__, "partition_bies", partition_bies)
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
         if refresh_on_create is not None:
             pulumi.set(__self__, "refresh_on_create", refresh_on_create)
         if schema is not None:
@@ -399,6 +419,18 @@ class _ExternalTableState:
         pulumi.set(self, "partition_bies", value)
 
     @property
+    @pulumi.getter
+    def pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the file names and/or paths on the external stage to match.
+        """
+        return pulumi.get(self, "pattern")
+
+    @pattern.setter
+    def pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pattern", value)
+
+    @property
     @pulumi.getter(name="refreshOnCreate")
     def refresh_on_create(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -438,6 +470,7 @@ class ExternalTable(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 pattern: Optional[pulumi.Input[str]] = None,
                  refresh_on_create: Optional[pulumi.Input[bool]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -484,6 +517,7 @@ class ExternalTable(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies a location for the external table.
         :param pulumi.Input[str] name: Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_bies: Specifies any partition columns to evaluate for the external table.
+        :param pulumi.Input[str] pattern: Specifies the file names and/or paths on the external stage to match.
         :param pulumi.Input[bool] refresh_on_create: Specifies weather to refresh when an external table is created.
         :param pulumi.Input[str] schema: The schema in which to create the external table.
         """
@@ -549,6 +583,7 @@ class ExternalTable(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 pattern: Optional[pulumi.Input[str]] = None,
                  refresh_on_create: Optional[pulumi.Input[bool]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -581,6 +616,7 @@ class ExternalTable(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["partition_bies"] = partition_bies
+            __props__.__dict__["pattern"] = pattern
             __props__.__dict__["refresh_on_create"] = refresh_on_create
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
@@ -607,6 +643,7 @@ class ExternalTable(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
             partition_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            pattern: Optional[pulumi.Input[str]] = None,
             refresh_on_create: Optional[pulumi.Input[bool]] = None,
             schema: Optional[pulumi.Input[str]] = None) -> 'ExternalTable':
         """
@@ -627,6 +664,7 @@ class ExternalTable(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         :param pulumi.Input[str] owner: Name of the role that owns the external table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_bies: Specifies any partition columns to evaluate for the external table.
+        :param pulumi.Input[str] pattern: Specifies the file names and/or paths on the external stage to match.
         :param pulumi.Input[bool] refresh_on_create: Specifies weather to refresh when an external table is created.
         :param pulumi.Input[str] schema: The schema in which to create the external table.
         """
@@ -645,6 +683,7 @@ class ExternalTable(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["owner"] = owner
         __props__.__dict__["partition_bies"] = partition_bies
+        __props__.__dict__["pattern"] = pattern
         __props__.__dict__["refresh_on_create"] = refresh_on_create
         __props__.__dict__["schema"] = schema
         return ExternalTable(resource_name, opts=opts, __props__=__props__)
@@ -736,6 +775,14 @@ class ExternalTable(pulumi.CustomResource):
         Specifies any partition columns to evaluate for the external table.
         """
         return pulumi.get(self, "partition_bies")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the file names and/or paths on the external stage to match.
+        """
+        return pulumi.get(self, "pattern")
 
     @property
     @pulumi.getter(name="refreshOnCreate")

@@ -42,7 +42,13 @@ export interface ExternalTableColumn {
 }
 
 export interface FunctionArgument {
+    /**
+     * The argument name
+     */
     name: pulumi.Input<string>;
+    /**
+     * The argument type
+     */
     type: pulumi.Input<string>;
 }
 

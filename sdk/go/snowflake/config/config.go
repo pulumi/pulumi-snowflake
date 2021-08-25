@@ -38,6 +38,12 @@ func GetPassword(ctx *pulumi.Context) string {
 func GetPrivateKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:privateKey")
 }
+
+// Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
+// des-ede3-cbc
+func GetPrivateKeyPassphrase(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:privateKeyPassphrase")
+}
 func GetPrivateKeyPath(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:privateKeyPath")
 }

@@ -122,6 +122,12 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> PartitionBies { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the file names and/or paths on the external stage to match.
+        /// </summary>
+        [Output("pattern")]
+        public Output<string?> Pattern { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies weather to refresh when an external table is created.
         /// </summary>
         [Output("refreshOnCreate")]
@@ -252,6 +258,12 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
+        /// Specifies the file names and/or paths on the external stage to match.
+        /// </summary>
+        [Input("pattern")]
+        public Input<string>? Pattern { get; set; }
+
+        /// <summary>
         /// Specifies weather to refresh when an external table is created.
         /// </summary>
         [Input("refreshOnCreate")]
@@ -347,6 +359,12 @@ namespace Pulumi.Snowflake
             get => _partitionBies ?? (_partitionBies = new InputList<string>());
             set => _partitionBies = value;
         }
+
+        /// <summary>
+        /// Specifies the file names and/or paths on the external stage to match.
+        /// </summary>
+        [Input("pattern")]
+        public Input<string>? Pattern { get; set; }
 
         /// <summary>
         /// Specifies weather to refresh when an external table is created.

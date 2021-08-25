@@ -44,6 +44,10 @@
             "privateKey": {
                 "type": "string"
             },
+            "privateKeyPassphrase": {
+                "type": "string",
+                "description": "Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and\ndes-ede3-cbc\n"
+            },
             "privateKeyPath": {
                 "type": "string"
             },
@@ -159,6 +163,7 @@
             "properties": {
                 "name": {
                     "type": "string",
+                    "description": "The argument name\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -167,6 +172,7 @@
                 },
                 "type": {
                     "type": "string",
+                    "description": "The argument type\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -564,6 +570,7 @@
                 },
                 "database": {
                     "type": "string",
+                    "description": "The database from which to return the schemas from.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -588,6 +595,7 @@
                 },
                 "schema": {
                     "type": "string",
+                    "description": "The schema from which to return the functions from.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -801,6 +809,7 @@
                 },
                 "database": {
                     "type": "string",
+                    "description": "The database from which to return the schemas from.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -825,6 +834,7 @@
                 },
                 "schema": {
                     "type": "string",
+                    "description": "The schema from which to return the procedures from.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1460,6 +1470,10 @@
             "privateKey": {
                 "type": "string"
             },
+            "privateKeyPassphrase": {
+                "type": "string",
+                "description": "Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and\ndes-ede3-cbc\n"
+            },
             "privateKeyPath": {
                 "type": "string"
             },
@@ -1508,6 +1522,10 @@
             },
             "privateKey": {
                 "type": "string"
+            },
+            "privateKeyPassphrase": {
+                "type": "string",
+                "description": "Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and\ndes-ede3-cbc\n"
             },
             "privateKeyPath": {
                 "type": "string"
@@ -2237,6 +2255,10 @@
                     },
                     "description": "Specifies any partition columns to evaluate for the external table.\n"
                 },
+                "pattern": {
+                    "type": "string",
+                    "description": "Specifies the file names and/or paths on the external stage to match.\n"
+                },
                 "refreshOnCreate": {
                     "type": "boolean",
                     "description": "Specifies weather to refresh when an external table is created.\n"
@@ -2301,6 +2323,10 @@
                         "type": "string"
                     },
                     "description": "Specifies any partition columns to evaluate for the external table.\n"
+                },
+                "pattern": {
+                    "type": "string",
+                    "description": "Specifies the file names and/or paths on the external stage to match.\n"
                 },
                 "refreshOnCreate": {
                     "type": "boolean",
@@ -2370,6 +2396,10 @@
                             "type": "string"
                         },
                         "description": "Specifies any partition columns to evaluate for the external table.\n"
+                    },
+                    "pattern": {
+                        "type": "string",
+                        "description": "Specifies the file names and/or paths on the external stage to match.\n"
                     },
                     "refreshOnCreate": {
                         "type": "boolean",
@@ -3120,7 +3150,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.\nDon't use the | character.\n"
+                    "description": "Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.\n"
                 },
                 "nullInputBehavior": {
                     "type": "string",
@@ -3172,7 +3202,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.\nDon't use the | character.\n"
+                    "description": "Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.\n"
                 },
                 "nullInputBehavior": {
                     "type": "string",
@@ -3225,7 +3255,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.\nDon't use the | character.\n"
+                        "description": "Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.\n"
                     },
                     "nullInputBehavior": {
                         "type": "string",
@@ -4002,8 +4032,7 @@
                 }
             },
             "required": [
-                "databaseName",
-                "schemaName"
+                "databaseName"
             ],
             "inputProperties": {
                 "databaseName": {
@@ -4046,8 +4075,7 @@
                 }
             },
             "requiredInputs": [
-                "databaseName",
-                "schemaName"
+                "databaseName"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering MaterializedViewGrant resources.\n",
@@ -6579,7 +6607,7 @@
             }
         },
         "snowflake:index/stream:Stream": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst stream = new snowflake.Stream(\"stream\", {\n    appendOnly: false,\n    comment: \"A stream.\",\n    database: \"db\",\n    onTable: \"table\",\n    owner: \"role1\",\n    schema: \"schema\",\n});\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | on table name\n\n```sh\n $ pulumi import snowflake:index/stream:Stream example 'dbName|schemaName|tableName'\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst stream = new snowflake.Stream(\"stream\", {\n    appendOnly: false,\n    comment: \"A stream.\",\n    database: \"db\",\n    insertOnly: false,\n    onTable: \"table\",\n    owner: \"role1\",\n    schema: \"schema\",\n});\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | on table name\n\n```sh\n $ pulumi import snowflake:index/stream:Stream example 'dbName|schemaName|tableName'\n```\n\n ",
             "properties": {
                 "appendOnly": {
                     "type": "boolean",
@@ -6592,6 +6620,10 @@
                 "database": {
                     "type": "string",
                     "description": "The database in which to create the stream.\n"
+                },
+                "insertOnly": {
+                    "type": "boolean",
+                    "description": "Create an insert only stream type.\n"
                 },
                 "name": {
                     "type": "string",
@@ -6633,6 +6665,10 @@
                     "type": "string",
                     "description": "The database in which to create the stream.\n"
                 },
+                "insertOnly": {
+                    "type": "boolean",
+                    "description": "Create an insert only stream type.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.\n"
@@ -6668,6 +6704,10 @@
                     "database": {
                         "type": "string",
                         "description": "The database in which to create the stream.\n"
+                    },
+                    "insertOnly": {
+                        "type": "boolean",
+                        "description": "Create an insert only stream type.\n"
                     },
                     "name": {
                         "type": "string",
@@ -8341,14 +8381,17 @@
             }
         },
         "snowflake:index/getFunctions:getFunctions": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst current = pulumi.output(snowflake.getFunctions({\n    database: \"MYDB\",\n    schema: \"MYSCHEMA\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ncurrent = snowflake.get_functions(database=\"MYDB\",\n    schema=\"MYSCHEMA\")\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var current = Output.Create(Snowflake.GetFunctions.InvokeAsync(new Snowflake.GetFunctionsArgs\n        {\n            Database = \"MYDB\",\n            Schema = \"MYSCHEMA\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.GetFunctions(ctx, \u0026GetFunctionsArgs{\n\t\t\tDatabase: \"MYDB\",\n\t\t\tSchema:   \"MYSCHEMA\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getFunctions.\n",
                 "properties": {
                     "database": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The database from which to return the schemas from.\n"
                     },
                     "schema": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The schema from which to return the functions from.\n"
                     }
                 },
                 "type": "object",
@@ -8361,20 +8404,23 @@
                 "description": "A collection of values returned by getFunctions.\n",
                 "properties": {
                     "database": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The database from which to return the schemas from.\n"
                     },
                     "functions": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/snowflake:index/getFunctionsFunction:getFunctionsFunction"
-                        }
+                        },
+                        "description": "The functions in the schema\n"
                     },
                     "id": {
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
                     },
                     "schema": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The schema from which to return the functions from.\n"
                     }
                 },
                 "type": "object",
@@ -8543,14 +8589,17 @@
             }
         },
         "snowflake:index/getProcedures:getProcedures": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst current = pulumi.output(snowflake.getProcedures({\n    database: \"MYDB\",\n    schema: \"MYSCHEMA\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ncurrent = snowflake.get_procedures(database=\"MYDB\",\n    schema=\"MYSCHEMA\")\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var current = Output.Create(Snowflake.GetProcedures.InvokeAsync(new Snowflake.GetProceduresArgs\n        {\n            Database = \"MYDB\",\n            Schema = \"MYSCHEMA\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.GetProcedures(ctx, \u0026GetProceduresArgs{\n\t\t\tDatabase: \"MYDB\",\n\t\t\tSchema:   \"MYSCHEMA\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getProcedures.\n",
                 "properties": {
                     "database": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The database from which to return the schemas from.\n"
                     },
                     "schema": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The schema from which to return the procedures from.\n"
                     }
                 },
                 "type": "object",
@@ -8563,7 +8612,8 @@
                 "description": "A collection of values returned by getProcedures.\n",
                 "properties": {
                     "database": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The database from which to return the schemas from.\n"
                     },
                     "id": {
                         "type": "string",
@@ -8573,10 +8623,12 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/types/snowflake:index/getProceduresProcedure:getProceduresProcedure"
-                        }
+                        },
+                        "description": "The procedures in the schema\n"
                     },
                     "schema": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The schema from which to return the procedures from.\n"
                     }
                 },
                 "type": "object",

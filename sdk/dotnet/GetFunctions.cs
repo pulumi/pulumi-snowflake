@@ -11,6 +11,31 @@ namespace Pulumi.Snowflake
 {
     public static class GetFunctions
     {
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var current = Output.Create(Snowflake.GetFunctions.InvokeAsync(new Snowflake.GetFunctionsArgs
+        ///         {
+        ///             Database = "MYDB",
+        ///             Schema = "MYSCHEMA",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetFunctionsResult> InvokeAsync(GetFunctionsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionsResult>("snowflake:index/getFunctions:getFunctions", args ?? new GetFunctionsArgs(), options.WithVersion());
     }
@@ -18,9 +43,15 @@ namespace Pulumi.Snowflake
 
     public sealed class GetFunctionsArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database", required: true)]
         public string Database { get; set; } = null!;
 
+        /// <summary>
+        /// The schema from which to return the functions from.
+        /// </summary>
         [Input("schema", required: true)]
         public string Schema { get; set; } = null!;
 
@@ -33,12 +64,21 @@ namespace Pulumi.Snowflake
     [OutputType]
     public sealed class GetFunctionsResult
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         public readonly string Database;
+        /// <summary>
+        /// The functions in the schema
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionsFunctionResult> Functions;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The schema from which to return the functions from.
+        /// </summary>
         public readonly string Schema;
 
         [OutputConstructor]

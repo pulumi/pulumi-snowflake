@@ -152,12 +152,19 @@ class FunctionArgumentArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The argument name
+        :param pulumi.Input[str] type: The argument type
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The argument name
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -167,6 +174,9 @@ class FunctionArgumentArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The argument type
+        """
         return pulumi.get(self, "type")
 
     @type.setter

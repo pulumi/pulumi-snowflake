@@ -19,6 +19,7 @@ __all__ = [
     'oauth_refresh_token',
     'password',
     'private_key',
+    'private_key_passphrase',
     'private_key_path',
     'region',
     'role',
@@ -46,6 +47,12 @@ oauth_refresh_token = __config__.get('oauthRefreshToken')
 password = __config__.get('password')
 
 private_key = __config__.get('privateKey')
+
+private_key_passphrase = __config__.get('privateKeyPassphrase')
+"""
+Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
+des-ede3-cbc
+"""
 
 private_key_path = __config__.get('privateKeyPath')
 

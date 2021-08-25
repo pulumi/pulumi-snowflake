@@ -42,7 +42,13 @@ export interface ExternalTableColumn {
 }
 
 export interface FunctionArgument {
+    /**
+     * The argument name
+     */
     name: string;
+    /**
+     * The argument type
+     */
     type: string;
 }
 
@@ -101,9 +107,15 @@ export interface GetFileFormatsFileFormat {
 export interface GetFunctionsFunction {
     argumentTypes: string[];
     comment: string;
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
     name: string;
     returnType: string;
+    /**
+     * The schema from which to return the functions from.
+     */
     schema: string;
 }
 
@@ -151,9 +163,15 @@ export interface GetPipesPipe {
 export interface GetProceduresProcedure {
     argumentTypes: string[];
     comment: string;
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
     name: string;
     returnType: string;
+    /**
+     * The schema from which to return the procedures from.
+     */
     schema: string;
 }
 
