@@ -18,8 +18,10 @@ class TableArgs:
                  columns: pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]],
                  database: pulumi.Input[str],
                  schema: pulumi.Input[str],
+                 change_tracking: Optional[pulumi.Input[bool]] = None,
                  cluster_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
+                 data_retention_days: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_key: Optional[pulumi.Input['TablePrimaryKeyArgs']] = None):
         """
@@ -27,18 +29,24 @@ class TableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[str] database: The database in which to create the table.
         :param pulumi.Input[str] schema: The schema in which to create the table.
+        :param pulumi.Input[bool] change_tracking: Specifies whether to enable change tracking on the table. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[str] comment: Specifies a comment for the table.
+        :param pulumi.Input[int] data_retention_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
         :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input['TablePrimaryKeyArgs'] primary_key: Definitions of primary key constraint to create on table
         """
         pulumi.set(__self__, "columns", columns)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "schema", schema)
+        if change_tracking is not None:
+            pulumi.set(__self__, "change_tracking", change_tracking)
         if cluster_bies is not None:
             pulumi.set(__self__, "cluster_bies", cluster_bies)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if data_retention_days is not None:
+            pulumi.set(__self__, "data_retention_days", data_retention_days)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if primary_key is not None:
@@ -81,6 +89,18 @@ class TableArgs:
         pulumi.set(self, "schema", value)
 
     @property
+    @pulumi.getter(name="changeTracking")
+    def change_tracking(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to enable change tracking on the table. Default false.
+        """
+        return pulumi.get(self, "change_tracking")
+
+    @change_tracking.setter
+    def change_tracking(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "change_tracking", value)
+
+    @property
     @pulumi.getter(name="clusterBies")
     def cluster_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -103,6 +123,18 @@ class TableArgs:
     @comment.setter
     def comment(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="dataRetentionDays")
+    def data_retention_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        """
+        return pulumi.get(self, "data_retention_days")
+
+    @data_retention_days.setter
+    def data_retention_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "data_retention_days", value)
 
     @property
     @pulumi.getter
@@ -132,9 +164,11 @@ class TableArgs:
 @pulumi.input_type
 class _TableState:
     def __init__(__self__, *,
+                 change_tracking: Optional[pulumi.Input[bool]] = None,
                  cluster_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
+                 data_retention_days: Optional[pulumi.Input[int]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
@@ -142,21 +176,27 @@ class _TableState:
                  schema: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Table resources.
+        :param pulumi.Input[bool] change_tracking: Specifies whether to enable change tracking on the table. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[str] comment: Specifies a comment for the table.
+        :param pulumi.Input[int] data_retention_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
         :param pulumi.Input[str] database: The database in which to create the table.
         :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input[str] owner: Name of the role that owns the table.
         :param pulumi.Input['TablePrimaryKeyArgs'] primary_key: Definitions of primary key constraint to create on table
         :param pulumi.Input[str] schema: The schema in which to create the table.
         """
+        if change_tracking is not None:
+            pulumi.set(__self__, "change_tracking", change_tracking)
         if cluster_bies is not None:
             pulumi.set(__self__, "cluster_bies", cluster_bies)
         if columns is not None:
             pulumi.set(__self__, "columns", columns)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if data_retention_days is not None:
+            pulumi.set(__self__, "data_retention_days", data_retention_days)
         if database is not None:
             pulumi.set(__self__, "database", database)
         if name is not None:
@@ -167,6 +207,18 @@ class _TableState:
             pulumi.set(__self__, "primary_key", primary_key)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter(name="changeTracking")
+    def change_tracking(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to enable change tracking on the table. Default false.
+        """
+        return pulumi.get(self, "change_tracking")
+
+    @change_tracking.setter
+    def change_tracking(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "change_tracking", value)
 
     @property
     @pulumi.getter(name="clusterBies")
@@ -203,6 +255,18 @@ class _TableState:
     @comment.setter
     def comment(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="dataRetentionDays")
+    def data_retention_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        """
+        return pulumi.get(self, "data_retention_days")
+
+    @data_retention_days.setter
+    def data_retention_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "data_retention_days", value)
 
     @property
     @pulumi.getter
@@ -270,9 +334,11 @@ class Table(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 change_tracking: Optional[pulumi.Input[bool]] = None,
                  cluster_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
+                 data_retention_days: Optional[pulumi.Input[int]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_key: Optional[pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']]] = None,
@@ -285,31 +351,47 @@ class Table(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
+        schema = snowflake.Schema("schema",
+            database="database",
+            data_retention_days=1)
+        sequence = snowflake.Sequence("sequence",
+            database=schema.database,
+            schema=schema.name)
         table = snowflake.Table("table",
+            database=schema.database,
+            schema=schema.name,
+            comment="A table.",
             cluster_bies=["to_date(DATE)"],
+            data_retention_days=schema.data_retention_days,
+            change_tracking=False,
             columns=[
                 snowflake.TableColumnArgs(
                     name="id",
-                    nullable=True,
                     type="int",
+                    nullable=True,
+                    default=snowflake.TableColumnDefaultArgs(
+                        sequence=sequence.fully_qualified_name,
+                    ),
                 ),
                 snowflake.TableColumnArgs(
                     name="data",
-                    nullable=False,
                     type="text",
+                    nullable=False,
                 ),
                 snowflake.TableColumnArgs(
                     name="DATE",
                     type="TIMESTAMP_NTZ(9)",
                 ),
+                snowflake.TableColumnArgs(
+                    name="extra",
+                    type="VARIANT",
+                    comment="extra data",
+                ),
             ],
-            comment="A table.",
-            database="database",
             primary_key=snowflake.TablePrimaryKeyArgs(
-                keys=["data"],
                 name="my_key",
-            ),
-            schema="schmea")
+                keys=["data"],
+            ))
         ```
 
         ## Import
@@ -322,9 +404,11 @@ class Table(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] change_tracking: Specifies whether to enable change tracking on the table. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[str] comment: Specifies a comment for the table.
+        :param pulumi.Input[int] data_retention_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
         :param pulumi.Input[str] database: The database in which to create the table.
         :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']] primary_key: Definitions of primary key constraint to create on table
@@ -343,31 +427,47 @@ class Table(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
+        schema = snowflake.Schema("schema",
+            database="database",
+            data_retention_days=1)
+        sequence = snowflake.Sequence("sequence",
+            database=schema.database,
+            schema=schema.name)
         table = snowflake.Table("table",
+            database=schema.database,
+            schema=schema.name,
+            comment="A table.",
             cluster_bies=["to_date(DATE)"],
+            data_retention_days=schema.data_retention_days,
+            change_tracking=False,
             columns=[
                 snowflake.TableColumnArgs(
                     name="id",
-                    nullable=True,
                     type="int",
+                    nullable=True,
+                    default=snowflake.TableColumnDefaultArgs(
+                        sequence=sequence.fully_qualified_name,
+                    ),
                 ),
                 snowflake.TableColumnArgs(
                     name="data",
-                    nullable=False,
                     type="text",
+                    nullable=False,
                 ),
                 snowflake.TableColumnArgs(
                     name="DATE",
                     type="TIMESTAMP_NTZ(9)",
                 ),
+                snowflake.TableColumnArgs(
+                    name="extra",
+                    type="VARIANT",
+                    comment="extra data",
+                ),
             ],
-            comment="A table.",
-            database="database",
             primary_key=snowflake.TablePrimaryKeyArgs(
-                keys=["data"],
                 name="my_key",
-            ),
-            schema="schmea")
+                keys=["data"],
+            ))
         ```
 
         ## Import
@@ -393,9 +493,11 @@ class Table(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 change_tracking: Optional[pulumi.Input[bool]] = None,
                  cluster_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
+                 data_retention_days: Optional[pulumi.Input[int]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_key: Optional[pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']]] = None,
@@ -412,11 +514,13 @@ class Table(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TableArgs.__new__(TableArgs)
 
+            __props__.__dict__["change_tracking"] = change_tracking
             __props__.__dict__["cluster_bies"] = cluster_bies
             if columns is None and not opts.urn:
                 raise TypeError("Missing required property 'columns'")
             __props__.__dict__["columns"] = columns
             __props__.__dict__["comment"] = comment
+            __props__.__dict__["data_retention_days"] = data_retention_days
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
@@ -436,9 +540,11 @@ class Table(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            change_tracking: Optional[pulumi.Input[bool]] = None,
             cluster_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
             comment: Optional[pulumi.Input[str]] = None,
+            data_retention_days: Optional[pulumi.Input[int]] = None,
             database: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
@@ -451,9 +557,11 @@ class Table(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] change_tracking: Specifies whether to enable change tracking on the table. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[str] comment: Specifies a comment for the table.
+        :param pulumi.Input[int] data_retention_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
         :param pulumi.Input[str] database: The database in which to create the table.
         :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input[str] owner: Name of the role that owns the table.
@@ -464,15 +572,25 @@ class Table(pulumi.CustomResource):
 
         __props__ = _TableState.__new__(_TableState)
 
+        __props__.__dict__["change_tracking"] = change_tracking
         __props__.__dict__["cluster_bies"] = cluster_bies
         __props__.__dict__["columns"] = columns
         __props__.__dict__["comment"] = comment
+        __props__.__dict__["data_retention_days"] = data_retention_days
         __props__.__dict__["database"] = database
         __props__.__dict__["name"] = name
         __props__.__dict__["owner"] = owner
         __props__.__dict__["primary_key"] = primary_key
         __props__.__dict__["schema"] = schema
         return Table(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="changeTracking")
+    def change_tracking(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether to enable change tracking on the table. Default false.
+        """
+        return pulumi.get(self, "change_tracking")
 
     @property
     @pulumi.getter(name="clusterBies")
@@ -497,6 +615,14 @@ class Table(pulumi.CustomResource):
         Specifies a comment for the table.
         """
         return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="dataRetentionDays")
+    def data_retention_days(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        """
+        return pulumi.get(self, "data_retention_days")
 
     @property
     @pulumi.getter

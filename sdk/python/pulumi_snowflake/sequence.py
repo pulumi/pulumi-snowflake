@@ -101,6 +101,7 @@ class _SequenceState:
     def __init__(__self__, *,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  increment: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  next_value: Optional[pulumi.Input[int]] = None,
@@ -109,6 +110,7 @@ class _SequenceState:
         Input properties used for looking up and filtering Sequence resources.
         :param pulumi.Input[str] comment: Specifies a comment for the sequence.
         :param pulumi.Input[str] database: The database in which to create the sequence. Don't use the | character.
+        :param pulumi.Input[str] fully_qualified_name: The fully qualified name of the sequence.
         :param pulumi.Input[int] increment: The amount the sequence will increase by each time it is used
         :param pulumi.Input[str] name: Specifies the name for the sequence.
         :param pulumi.Input[int] next_value: The next value the sequence will provide.
@@ -118,6 +120,8 @@ class _SequenceState:
             pulumi.set(__self__, "comment", comment)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if increment is not None:
             pulumi.set(__self__, "increment", increment)
         if name is not None:
@@ -150,6 +154,18 @@ class _SequenceState:
     @database.setter
     def database(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified name of the sequence.
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
 
     @property
     @pulumi.getter
@@ -294,6 +310,7 @@ class Sequence(pulumi.CustomResource):
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
+            __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["next_value"] = None
         super(Sequence, __self__).__init__(
             'snowflake:index/sequence:Sequence',
@@ -307,6 +324,7 @@ class Sequence(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             increment: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             next_value: Optional[pulumi.Input[int]] = None,
@@ -320,6 +338,7 @@ class Sequence(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the sequence.
         :param pulumi.Input[str] database: The database in which to create the sequence. Don't use the | character.
+        :param pulumi.Input[str] fully_qualified_name: The fully qualified name of the sequence.
         :param pulumi.Input[int] increment: The amount the sequence will increase by each time it is used
         :param pulumi.Input[str] name: Specifies the name for the sequence.
         :param pulumi.Input[int] next_value: The next value the sequence will provide.
@@ -331,6 +350,7 @@ class Sequence(pulumi.CustomResource):
 
         __props__.__dict__["comment"] = comment
         __props__.__dict__["database"] = database
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["increment"] = increment
         __props__.__dict__["name"] = name
         __props__.__dict__["next_value"] = next_value
@@ -352,6 +372,14 @@ class Sequence(pulumi.CustomResource):
         The database in which to create the sequence. Don't use the | character.
         """
         return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        The fully qualified name of the sequence.
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter

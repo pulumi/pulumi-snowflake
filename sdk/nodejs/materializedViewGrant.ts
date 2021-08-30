@@ -88,7 +88,7 @@ export class MaterializedViewGrant extends pulumi.CustomResource {
     /**
      * The name of the schema containing the current or future materialized views on which to grant privileges.
      */
-    public readonly schemaName!: pulumi.Output<string>;
+    public readonly schemaName!: pulumi.Output<string | undefined>;
     /**
      * Grants privilege to these shares (only valid if onFuture is false).
      */
@@ -123,9 +123,6 @@ export class MaterializedViewGrant extends pulumi.CustomResource {
             const args = argsOrState as MaterializedViewGrantArgs | undefined;
             if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
-            }
-            if ((!args || args.schemaName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'schemaName'");
             }
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["materializedViewName"] = args ? args.materializedViewName : undefined;
@@ -208,7 +205,7 @@ export interface MaterializedViewGrantArgs {
     /**
      * The name of the schema containing the current or future materialized views on which to grant privileges.
      */
-    schemaName: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
     /**
      * Grants privilege to these shares (only valid if onFuture is false).
      */

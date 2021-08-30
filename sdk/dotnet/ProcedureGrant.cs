@@ -66,7 +66,7 @@ namespace Pulumi.Snowflake
     public partial class ProcedureGrant : Pulumi.CustomResource
     {
         /// <summary>
-        /// List of the arguments for the procedure (must be present if procedure_name is present)
+        /// List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
         /// </summary>
         [Output("arguments")]
         public Output<ImmutableArray<Outputs.ProcedureGrantArgument>> Arguments { get; private set; } = null!;
@@ -175,7 +175,7 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.ProcedureGrantArgumentArgs>? _arguments;
 
         /// <summary>
-        /// List of the arguments for the procedure (must be present if procedure_name is present)
+        /// List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
         /// </summary>
         public InputList<Inputs.ProcedureGrantArgumentArgs> Arguments
         {
@@ -260,7 +260,7 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.ProcedureGrantArgumentGetArgs>? _arguments;
 
         /// <summary>
-        /// List of the arguments for the procedure (must be present if procedure_name is present)
+        /// List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
         /// </summary>
         public InputList<Inputs.ProcedureGrantArgumentGetArgs> Arguments
         {

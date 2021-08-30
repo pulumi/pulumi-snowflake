@@ -16,6 +16,11 @@ export let oauthRedirectUrl: string | undefined = __config.get("oauthRedirectUrl
 export let oauthRefreshToken: string | undefined = __config.get("oauthRefreshToken");
 export let password: string | undefined = __config.get("password");
 export let privateKey: string | undefined = __config.get("privateKey");
+/**
+ * Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
+ * des-ede3-cbc
+ */
+export let privateKeyPassphrase: string | undefined = __config.get("privateKeyPassphrase");
 export let privateKeyPath: string | undefined = __config.get("privateKeyPath");
 export let region: string | undefined = __config.get("region");
 export let role: string | undefined = __config.get("role");

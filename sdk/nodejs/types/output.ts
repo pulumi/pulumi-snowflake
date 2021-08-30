@@ -41,6 +41,17 @@ export interface ExternalTableColumn {
     type: string;
 }
 
+export interface FunctionArgument {
+    /**
+     * The argument name
+     */
+    name: string;
+    /**
+     * The argument type
+     */
+    type: string;
+}
+
 export interface FunctionGrantArgument {
     /**
      * The argument name
@@ -52,31 +63,253 @@ export interface FunctionGrantArgument {
     type: string;
 }
 
-export interface GetMaterializedViewsMaterializedView {
+export interface GetExternalFunctionsExternalFunction {
     comment: string;
+    /**
+     * The database from which to return the schemas from.
+     */
+    database: string;
+    language: string;
+    name: string;
+    /**
+     * The schema from which to return the external functions from.
+     */
+    schema: string;
+}
+
+export interface GetExternalTablesExternalTable {
+    comment: string;
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
     name: string;
+    /**
+     * The schema from which to return the external tables from.
+     */
+    schema: string;
+}
+
+export interface GetFileFormatsFileFormat {
+    comment: string;
+    /**
+     * The database from which to return the schemas from.
+     */
+    database: string;
+    formatType: string;
+    name: string;
+    /**
+     * The schema from which to return the file formats from.
+     */
+    schema: string;
+}
+
+export interface GetFunctionsFunction {
+    argumentTypes: string[];
+    comment: string;
+    /**
+     * The database from which to return the schemas from.
+     */
+    database: string;
+    name: string;
+    returnType: string;
+    /**
+     * The schema from which to return the functions from.
+     */
+    schema: string;
+}
+
+export interface GetMaskingPoliciesMaskingPolicy {
+    comment: string;
+    /**
+     * The database from which to return the schemas from.
+     */
+    database: string;
+    kind: string;
+    name: string;
+    /**
+     * The schema from which to return the maskingPolicies from.
+     */
+    schema: string;
+}
+
+export interface GetMaterializedViewsMaterializedView {
+    comment: string;
+    /**
+     * The database from which to return the schemas from.
+     */
+    database: string;
+    name: string;
+    /**
+     * The schema from which to return the views from.
+     */
+    schema: string;
+}
+
+export interface GetPipesPipe {
+    comment: string;
+    /**
+     * The database from which to return the schemas from.
+     */
+    database: string;
+    integration: string;
+    name: string;
+    /**
+     * The schema from which to return the pipes from.
+     */
+    schema: string;
+}
+
+export interface GetProceduresProcedure {
+    argumentTypes: string[];
+    comment: string;
+    /**
+     * The database from which to return the schemas from.
+     */
+    database: string;
+    name: string;
+    returnType: string;
+    /**
+     * The schema from which to return the procedures from.
+     */
+    schema: string;
+}
+
+export interface GetResourceMonitorsResourceMonitor {
+    comment: string;
+    creditQuota: string;
+    frequency: string;
+    name: string;
+}
+
+export interface GetRowAccessPoliciesRowAccessPolicy {
+    comment: string;
+    /**
+     * The database from which to return the schemas from.
+     */
+    database: string;
+    name: string;
+    /**
+     * The schema from which to return the row access policyfrom.
+     */
     schema: string;
 }
 
 export interface GetSchemasSchema {
     comment: string;
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
     name: string;
+}
+
+export interface GetSequencesSequence {
+    comment: string;
+    /**
+     * The database from which to return the schemas from.
+     */
+    database: string;
+    name: string;
+    /**
+     * The schema from which to return the sequences from.
+     */
+    schema: string;
+}
+
+export interface GetStagesStage {
+    comment: string;
+    /**
+     * The database from which to return the schemas from.
+     */
+    database: string;
+    name: string;
+    /**
+     * The schema from which to return the stages from.
+     */
+    schema: string;
+    storageIntegration: string;
+}
+
+export interface GetStorageIntegrationsStorageIntegration {
+    comment: string;
+    enabled: boolean;
+    name: string;
+    type: string;
+}
+
+export interface GetStreamsStream {
+    comment: string;
+    /**
+     * The database from which to return the streams from.
+     */
+    database: string;
+    name: string;
+    /**
+     * The schema from which to return the streams from.
+     */
+    schema: string;
+    table: string;
 }
 
 export interface GetTablesTable {
     comment: string;
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
     name: string;
+    /**
+     * The schema from which to return the tables from.
+     */
     schema: string;
+}
+
+export interface GetTasksTask {
+    comment: string;
+    /**
+     * The database from which to return the schemas from.
+     */
+    database: string;
+    name: string;
+    /**
+     * The schema from which to return the tasks from.
+     */
+    schema: string;
+    warehouse: string;
 }
 
 export interface GetViewsView {
     comment: string;
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
     name: string;
+    /**
+     * The schema from which to return the views from.
+     */
     schema: string;
+}
+
+export interface GetWarehousesWarehouse {
+    comment: string;
+    name: string;
+    scalingPolicy: string;
+    size: string;
+    state: string;
+    type: string;
+}
+
+export interface ProcedureArgument {
+    /**
+     * The argument name
+     */
+    name: string;
+    /**
+     * The argument type
+     */
+    type: string;
 }
 
 export interface ProcedureGrantArgument {
@@ -92,6 +325,14 @@ export interface ProcedureGrantArgument {
 
 export interface TableColumn {
     /**
+     * Column comment
+     */
+    comment?: string;
+    /**
+     * Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
+     */
+    default?: outputs.TableColumnDefault;
+    /**
      * Column name
      */
     name: string;
@@ -103,6 +344,12 @@ export interface TableColumn {
      * Column type, e.g. VARIANT
      */
     type: string;
+}
+
+export interface TableColumnDefault {
+    constant?: string;
+    expression?: string;
+    sequence?: string;
 }
 
 export interface TablePrimaryKey {

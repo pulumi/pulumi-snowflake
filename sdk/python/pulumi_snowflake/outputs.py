@@ -7,19 +7,38 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from . import outputs
 
 __all__ = [
     'ExternalFunctionArg',
     'ExternalFunctionHeader',
     'ExternalTableColumn',
+    'FunctionArgument',
     'FunctionGrantArgument',
+    'ProcedureArgument',
     'ProcedureGrantArgument',
     'TableColumn',
+    'TableColumnDefault',
     'TablePrimaryKey',
+    'GetExternalFunctionsExternalFunctionResult',
+    'GetExternalTablesExternalTableResult',
+    'GetFileFormatsFileFormatResult',
+    'GetFunctionsFunctionResult',
+    'GetMaskingPoliciesMaskingPolicyResult',
     'GetMaterializedViewsMaterializedViewResult',
+    'GetPipesPipeResult',
+    'GetProceduresProcedureResult',
+    'GetResourceMonitorsResourceMonitorResult',
+    'GetRowAccessPoliciesRowAccessPolicyResult',
     'GetSchemasSchemaResult',
+    'GetSequencesSequenceResult',
+    'GetStagesStageResult',
+    'GetStorageIntegrationsStorageIntegrationResult',
+    'GetStreamsStreamResult',
     'GetTablesTableResult',
+    'GetTasksTaskResult',
     'GetViewsViewResult',
+    'GetWarehousesWarehouseResult',
 ]
 
 @pulumi.output_type
@@ -138,7 +157,65 @@ class ExternalTableColumn(dict):
 
 
 @pulumi.output_type
+class FunctionArgument(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        """
+        :param str name: The argument name
+        :param str type: The argument type
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The argument name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The argument type
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class FunctionGrantArgument(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        """
+        :param str name: The argument name
+        :param str type: The argument type
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The argument name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The argument type
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ProcedureArgument(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
@@ -200,14 +277,22 @@ class TableColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
+                 comment: Optional[str] = None,
+                 default: Optional['outputs.TableColumnDefault'] = None,
                  nullable: Optional[bool] = None):
         """
         :param str name: Column name
         :param str type: Column type, e.g. VARIANT
+        :param str comment: Column comment
+        :param 'TableColumnDefaultArgs' default: Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
         :param bool nullable: Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
         if nullable is not None:
             pulumi.set(__self__, "nullable", nullable)
 
@@ -229,11 +314,56 @@ class TableColumn(dict):
 
     @property
     @pulumi.getter
+    def comment(self) -> Optional[str]:
+        """
+        Column comment
+        """
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional['outputs.TableColumnDefault']:
+        """
+        Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
+        """
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
     def nullable(self) -> Optional[bool]:
         """
         Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
         """
         return pulumi.get(self, "nullable")
+
+
+@pulumi.output_type
+class TableColumnDefault(dict):
+    def __init__(__self__, *,
+                 constant: Optional[str] = None,
+                 expression: Optional[str] = None,
+                 sequence: Optional[str] = None):
+        if constant is not None:
+            pulumi.set(__self__, "constant", constant)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if sequence is not None:
+            pulumi.set(__self__, "sequence", sequence)
+
+    @property
+    @pulumi.getter
+    def constant(self) -> Optional[str]:
+        return pulumi.get(self, "constant")
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[str]:
+        return pulumi.get(self, "expression")
+
+    @property
+    @pulumi.getter
+    def sequence(self) -> Optional[str]:
+        return pulumi.get(self, "sequence")
 
 
 @pulumi.output_type
@@ -267,12 +397,66 @@ class TablePrimaryKey(dict):
 
 
 @pulumi.output_type
-class GetMaterializedViewsMaterializedViewResult(dict):
+class GetExternalFunctionsExternalFunctionResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 database: str,
+                 language: str,
+                 name: str,
+                 schema: str):
+        """
+        :param str database: The database from which to return the schemas from.
+        :param str schema: The schema from which to return the external functions from.
+        """
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "language", language)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def database(self) -> str:
+        """
+        The database from which to return the schemas from.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def language(self) -> str:
+        return pulumi.get(self, "language")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> str:
+        """
+        The schema from which to return the external functions from.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetExternalTablesExternalTableResult(dict):
     def __init__(__self__, *,
                  comment: str,
                  database: str,
                  name: str,
                  schema: str):
+        """
+        :param str database: The database from which to return the schemas from.
+        :param str schema: The schema from which to return the external tables from.
+        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "name", name)
@@ -286,6 +470,9 @@ class GetMaterializedViewsMaterializedViewResult(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
+        """
+        The database from which to return the schemas from.
+        """
         return pulumi.get(self, "database")
 
     @property
@@ -296,6 +483,392 @@ class GetMaterializedViewsMaterializedViewResult(dict):
     @property
     @pulumi.getter
     def schema(self) -> str:
+        """
+        The schema from which to return the external tables from.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetFileFormatsFileFormatResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 database: str,
+                 format_type: str,
+                 name: str,
+                 schema: str):
+        """
+        :param str database: The database from which to return the schemas from.
+        :param str schema: The schema from which to return the file formats from.
+        """
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "format_type", format_type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def database(self) -> str:
+        """
+        The database from which to return the schemas from.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="formatType")
+    def format_type(self) -> str:
+        return pulumi.get(self, "format_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> str:
+        """
+        The schema from which to return the file formats from.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetFunctionsFunctionResult(dict):
+    def __init__(__self__, *,
+                 argument_types: Sequence[str],
+                 comment: str,
+                 database: str,
+                 name: str,
+                 return_type: str,
+                 schema: str):
+        """
+        :param str database: The database from which to return the schemas from.
+        :param str schema: The schema from which to return the functions from.
+        """
+        pulumi.set(__self__, "argument_types", argument_types)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "return_type", return_type)
+        pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter(name="argumentTypes")
+    def argument_types(self) -> Sequence[str]:
+        return pulumi.get(self, "argument_types")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def database(self) -> str:
+        """
+        The database from which to return the schemas from.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="returnType")
+    def return_type(self) -> str:
+        return pulumi.get(self, "return_type")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> str:
+        """
+        The schema from which to return the functions from.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetMaskingPoliciesMaskingPolicyResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 database: str,
+                 kind: str,
+                 name: str,
+                 schema: str):
+        """
+        :param str database: The database from which to return the schemas from.
+        :param str schema: The schema from which to return the maskingPolicies from.
+        """
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def database(self) -> str:
+        """
+        The database from which to return the schemas from.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> str:
+        """
+        The schema from which to return the maskingPolicies from.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetMaterializedViewsMaterializedViewResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 database: str,
+                 name: str,
+                 schema: str):
+        """
+        :param str database: The database from which to return the schemas from.
+        :param str schema: The schema from which to return the views from.
+        """
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def database(self) -> str:
+        """
+        The database from which to return the schemas from.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> str:
+        """
+        The schema from which to return the views from.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetPipesPipeResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 database: str,
+                 integration: str,
+                 name: str,
+                 schema: str):
+        """
+        :param str database: The database from which to return the schemas from.
+        :param str schema: The schema from which to return the pipes from.
+        """
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "integration", integration)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def database(self) -> str:
+        """
+        The database from which to return the schemas from.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def integration(self) -> str:
+        return pulumi.get(self, "integration")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> str:
+        """
+        The schema from which to return the pipes from.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetProceduresProcedureResult(dict):
+    def __init__(__self__, *,
+                 argument_types: Sequence[str],
+                 comment: str,
+                 database: str,
+                 name: str,
+                 return_type: str,
+                 schema: str):
+        """
+        :param str database: The database from which to return the schemas from.
+        :param str schema: The schema from which to return the procedures from.
+        """
+        pulumi.set(__self__, "argument_types", argument_types)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "return_type", return_type)
+        pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter(name="argumentTypes")
+    def argument_types(self) -> Sequence[str]:
+        return pulumi.get(self, "argument_types")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def database(self) -> str:
+        """
+        The database from which to return the schemas from.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="returnType")
+    def return_type(self) -> str:
+        return pulumi.get(self, "return_type")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> str:
+        """
+        The schema from which to return the procedures from.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetResourceMonitorsResourceMonitorResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 credit_quota: str,
+                 frequency: str,
+                 name: str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "credit_quota", credit_quota)
+        pulumi.set(__self__, "frequency", frequency)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="creditQuota")
+    def credit_quota(self) -> str:
+        return pulumi.get(self, "credit_quota")
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> str:
+        return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetRowAccessPoliciesRowAccessPolicyResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 database: str,
+                 name: str,
+                 schema: str):
+        """
+        :param str database: The database from which to return the schemas from.
+        :param str schema: The schema from which to return the row access policyfrom.
+        """
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def database(self) -> str:
+        """
+        The database from which to return the schemas from.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> str:
+        """
+        The schema from which to return the row access policyfrom.
+        """
         return pulumi.get(self, "schema")
 
 
@@ -305,6 +878,9 @@ class GetSchemasSchemaResult(dict):
                  comment: str,
                  database: str,
                  name: str):
+        """
+        :param str database: The database from which to return the schemas from.
+        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "name", name)
@@ -317,12 +893,191 @@ class GetSchemasSchemaResult(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
+        """
+        The database from which to return the schemas from.
+        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetSequencesSequenceResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 database: str,
+                 name: str,
+                 schema: str):
+        """
+        :param str database: The database from which to return the schemas from.
+        :param str schema: The schema from which to return the sequences from.
+        """
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def database(self) -> str:
+        """
+        The database from which to return the schemas from.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> str:
+        """
+        The schema from which to return the sequences from.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetStagesStageResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 database: str,
+                 name: str,
+                 schema: str,
+                 storage_integration: str):
+        """
+        :param str database: The database from which to return the schemas from.
+        :param str schema: The schema from which to return the stages from.
+        """
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schema", schema)
+        pulumi.set(__self__, "storage_integration", storage_integration)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def database(self) -> str:
+        """
+        The database from which to return the schemas from.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> str:
+        """
+        The schema from which to return the stages from.
+        """
+        return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter(name="storageIntegration")
+    def storage_integration(self) -> str:
+        return pulumi.get(self, "storage_integration")
+
+
+@pulumi.output_type
+class GetStorageIntegrationsStorageIntegrationResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 enabled: bool,
+                 name: str,
+                 type: str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetStreamsStreamResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 database: str,
+                 name: str,
+                 schema: str,
+                 table: str):
+        """
+        :param str database: The database from which to return the streams from.
+        :param str schema: The schema from which to return the streams from.
+        """
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schema", schema)
+        pulumi.set(__self__, "table", table)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def database(self) -> str:
+        """
+        The database from which to return the streams from.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> str:
+        """
+        The schema from which to return the streams from.
+        """
+        return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter
+    def table(self) -> str:
+        return pulumi.get(self, "table")
 
 
 @pulumi.output_type
@@ -332,6 +1087,10 @@ class GetTablesTableResult(dict):
                  database: str,
                  name: str,
                  schema: str):
+        """
+        :param str database: The database from which to return the schemas from.
+        :param str schema: The schema from which to return the tables from.
+        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "name", name)
@@ -345,6 +1104,9 @@ class GetTablesTableResult(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
+        """
+        The database from which to return the schemas from.
+        """
         return pulumi.get(self, "database")
 
     @property
@@ -355,7 +1117,60 @@ class GetTablesTableResult(dict):
     @property
     @pulumi.getter
     def schema(self) -> str:
+        """
+        The schema from which to return the tables from.
+        """
         return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetTasksTaskResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 database: str,
+                 name: str,
+                 schema: str,
+                 warehouse: str):
+        """
+        :param str database: The database from which to return the schemas from.
+        :param str schema: The schema from which to return the tasks from.
+        """
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schema", schema)
+        pulumi.set(__self__, "warehouse", warehouse)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def database(self) -> str:
+        """
+        The database from which to return the schemas from.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> str:
+        """
+        The schema from which to return the tasks from.
+        """
+        return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter
+    def warehouse(self) -> str:
+        return pulumi.get(self, "warehouse")
 
 
 @pulumi.output_type
@@ -365,6 +1180,10 @@ class GetViewsViewResult(dict):
                  database: str,
                  name: str,
                  schema: str):
+        """
+        :param str database: The database from which to return the schemas from.
+        :param str schema: The schema from which to return the views from.
+        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "name", name)
@@ -378,6 +1197,9 @@ class GetViewsViewResult(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
+        """
+        The database from which to return the schemas from.
+        """
         return pulumi.get(self, "database")
 
     @property
@@ -388,6 +1210,56 @@ class GetViewsViewResult(dict):
     @property
     @pulumi.getter
     def schema(self) -> str:
+        """
+        The schema from which to return the views from.
+        """
         return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetWarehousesWarehouseResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 name: str,
+                 scaling_policy: str,
+                 size: str,
+                 state: str,
+                 type: str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "scaling_policy", scaling_policy)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="scalingPolicy")
+    def scaling_policy(self) -> str:
+        return pulumi.get(self, "scaling_policy")
+
+    @property
+    @pulumi.getter
+    def size(self) -> str:
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
 
 

@@ -5,6 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const current = pulumi.output(snowflake.getViews({
+ *     database: "MYDB",
+ *     schema: "MYSCHEMA",
+ * }));
+ * ```
+ */
 export function getViews(args: GetViewsArgs, opts?: pulumi.InvokeOptions): Promise<GetViewsResult> {
     if (!opts) {
         opts = {}
@@ -23,7 +36,13 @@ export function getViews(args: GetViewsArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getViews.
  */
 export interface GetViewsArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
+    /**
+     * The schema from which to return the views from.
+     */
     schema: string;
 }
 
@@ -31,11 +50,20 @@ export interface GetViewsArgs {
  * A collection of values returned by getViews.
  */
 export interface GetViewsResult {
+    /**
+     * The database from which to return the schemas from.
+     */
     readonly database: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The schema from which to return the views from.
+     */
     readonly schema: string;
+    /**
+     * The views in the schema
+     */
     readonly views: outputs.GetViewsView[];
 }

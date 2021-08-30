@@ -11,6 +11,31 @@ namespace Pulumi.Snowflake
 {
     public static class GetTables
     {
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var current = Output.Create(Snowflake.GetTables.InvokeAsync(new Snowflake.GetTablesArgs
+        ///         {
+        ///             Database = "MYDB",
+        ///             Schema = "MYSCHEMA",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetTablesResult> InvokeAsync(GetTablesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTablesResult>("snowflake:index/getTables:getTables", args ?? new GetTablesArgs(), options.WithVersion());
     }
@@ -18,9 +43,15 @@ namespace Pulumi.Snowflake
 
     public sealed class GetTablesArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database", required: true)]
         public string Database { get; set; } = null!;
 
+        /// <summary>
+        /// The schema from which to return the tables from.
+        /// </summary>
         [Input("schema", required: true)]
         public string Schema { get; set; } = null!;
 
@@ -33,12 +64,21 @@ namespace Pulumi.Snowflake
     [OutputType]
     public sealed class GetTablesResult
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         public readonly string Database;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The schema from which to return the tables from.
+        /// </summary>
         public readonly string Schema;
+        /// <summary>
+        /// The tables in the schema
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetTablesTableResult> Tables;
 
         [OutputConstructor]

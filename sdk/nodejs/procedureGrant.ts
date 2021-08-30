@@ -78,7 +78,7 @@ export class ProcedureGrant extends pulumi.CustomResource {
     }
 
     /**
-     * List of the arguments for the procedure (must be present if procedureName is present)
+     * List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
      */
     public readonly arguments!: pulumi.Output<outputs.ProcedureGrantArgument[] | undefined>;
     /**
@@ -172,7 +172,7 @@ export class ProcedureGrant extends pulumi.CustomResource {
  */
 export interface ProcedureGrantState {
     /**
-     * List of the arguments for the procedure (must be present if procedureName is present)
+     * List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
      */
     arguments?: pulumi.Input<pulumi.Input<inputs.ProcedureGrantArgument>[]>;
     /**
@@ -218,7 +218,7 @@ export interface ProcedureGrantState {
  */
 export interface ProcedureGrantArgs {
     /**
-     * List of the arguments for the procedure (must be present if procedureName is present)
+     * List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
      */
     arguments?: pulumi.Input<pulumi.Input<inputs.ProcedureGrantArgument>[]>;
     /**

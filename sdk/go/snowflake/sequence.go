@@ -51,6 +51,8 @@ type Sequence struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The database in which to create the sequence. Don't use the | character.
 	Database pulumi.StringOutput `pulumi:"database"`
+	// The fully qualified name of the sequence.
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// The amount the sequence will increase by each time it is used
 	Increment pulumi.IntPtrOutput `pulumi:"increment"`
 	// Specifies the name for the sequence.
@@ -100,6 +102,8 @@ type sequenceState struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the sequence. Don't use the | character.
 	Database *string `pulumi:"database"`
+	// The fully qualified name of the sequence.
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// The amount the sequence will increase by each time it is used
 	Increment *int `pulumi:"increment"`
 	// Specifies the name for the sequence.
@@ -115,6 +119,8 @@ type SequenceState struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the sequence. Don't use the | character.
 	Database pulumi.StringPtrInput
+	// The fully qualified name of the sequence.
+	FullyQualifiedName pulumi.StringPtrInput
 	// The amount the sequence will increase by each time it is used
 	Increment pulumi.IntPtrInput
 	// Specifies the name for the sequence.

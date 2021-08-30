@@ -38,6 +38,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FileFormat{}
 	case "snowflake:index/fileFormatGrant:FileFormatGrant":
 		r = &FileFormatGrant{}
+	case "snowflake:index/function:Function":
+		r = &Function{}
 	case "snowflake:index/functionGrant:FunctionGrant":
 		r = &FunctionGrant{}
 	case "snowflake:index/integrationGrant:IntegrationGrant":
@@ -62,6 +64,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Pipe{}
 	case "snowflake:index/pipeGrant:PipeGrant":
 		r = &PipeGrant{}
+	case "snowflake:index/procedure:Procedure":
+		r = &Procedure{}
 	case "snowflake:index/procedureGrant:ProcedureGrant":
 		r = &ProcedureGrant{}
 	case "snowflake:index/resourceMonitor:ResourceMonitor":
@@ -72,6 +76,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Role{}
 	case "snowflake:index/roleGrants:RoleGrants":
 		r = &RoleGrants{}
+	case "snowflake:index/rowAccessPolicy:RowAccessPolicy":
+		r = &RowAccessPolicy{}
+	case "snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant":
+		r = &RowAccessPolicyGrant{}
 	case "snowflake:index/schema:Schema":
 		r = &Schema{}
 	case "snowflake:index/schemaGrant:SchemaGrant":
@@ -192,6 +200,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/function",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/functionGrant",
 		&module{version},
 	)
@@ -252,6 +265,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/procedure",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/procedureGrant",
 		&module{version},
 	)
@@ -273,6 +291,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/roleGrants",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/rowAccessPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/rowAccessPolicyGrant",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

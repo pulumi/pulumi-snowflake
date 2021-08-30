@@ -78,6 +78,8 @@ type ExternalTable struct {
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// Specifies any partition columns to evaluate for the external table.
 	PartitionBies pulumi.StringArrayOutput `pulumi:"partitionBies"`
+	// Specifies the file names and/or paths on the external stage to match.
+	Pattern pulumi.StringPtrOutput `pulumi:"pattern"`
 	// Specifies weather to refresh when an external table is created.
 	RefreshOnCreate pulumi.BoolPtrOutput `pulumi:"refreshOnCreate"`
 	// The schema in which to create the external table.
@@ -150,6 +152,8 @@ type externalTableState struct {
 	Owner *string `pulumi:"owner"`
 	// Specifies any partition columns to evaluate for the external table.
 	PartitionBies []string `pulumi:"partitionBies"`
+	// Specifies the file names and/or paths on the external stage to match.
+	Pattern *string `pulumi:"pattern"`
 	// Specifies weather to refresh when an external table is created.
 	RefreshOnCreate *bool `pulumi:"refreshOnCreate"`
 	// The schema in which to create the external table.
@@ -179,6 +183,8 @@ type ExternalTableState struct {
 	Owner pulumi.StringPtrInput
 	// Specifies any partition columns to evaluate for the external table.
 	PartitionBies pulumi.StringArrayInput
+	// Specifies the file names and/or paths on the external stage to match.
+	Pattern pulumi.StringPtrInput
 	// Specifies weather to refresh when an external table is created.
 	RefreshOnCreate pulumi.BoolPtrInput
 	// The schema in which to create the external table.
@@ -210,6 +216,8 @@ type externalTableArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies any partition columns to evaluate for the external table.
 	PartitionBies []string `pulumi:"partitionBies"`
+	// Specifies the file names and/or paths on the external stage to match.
+	Pattern *string `pulumi:"pattern"`
 	// Specifies weather to refresh when an external table is created.
 	RefreshOnCreate *bool `pulumi:"refreshOnCreate"`
 	// The schema in which to create the external table.
@@ -238,6 +246,8 @@ type ExternalTableArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies any partition columns to evaluate for the external table.
 	PartitionBies pulumi.StringArrayInput
+	// Specifies the file names and/or paths on the external stage to match.
+	Pattern pulumi.StringPtrInput
 	// Specifies weather to refresh when an external table is created.
 	RefreshOnCreate pulumi.BoolPtrInput
 	// The schema in which to create the external table.

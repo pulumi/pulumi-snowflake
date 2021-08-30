@@ -13,6 +13,18 @@ namespace Pulumi.Snowflake.Inputs
     public sealed class TableColumnGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Column comment
+        /// </summary>
+        [Input("comment")]
+        public Input<string>? Comment { get; set; }
+
+        /// <summary>
+        /// Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
+        /// </summary>
+        [Input("default")]
+        public Input<Inputs.TableColumnDefaultGetArgs>? Default { get; set; }
+
+        /// <summary>
         /// Column name
         /// </summary>
         [Input("name", required: true)]

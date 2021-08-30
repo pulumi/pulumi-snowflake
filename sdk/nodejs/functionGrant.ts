@@ -78,7 +78,7 @@ export class FunctionGrant extends pulumi.CustomResource {
     }
 
     /**
-     * List of the arguments for the function (must be present if functionName is present)
+     * List of the arguments for the function (must be present if function has arguments and functionName is present)
      */
     public readonly arguments!: pulumi.Output<outputs.FunctionGrantArgument[] | undefined>;
     /**
@@ -172,7 +172,7 @@ export class FunctionGrant extends pulumi.CustomResource {
  */
 export interface FunctionGrantState {
     /**
-     * List of the arguments for the function (must be present if functionName is present)
+     * List of the arguments for the function (must be present if function has arguments and functionName is present)
      */
     arguments?: pulumi.Input<pulumi.Input<inputs.FunctionGrantArgument>[]>;
     /**
@@ -218,7 +218,7 @@ export interface FunctionGrantState {
  */
 export interface FunctionGrantArgs {
     /**
-     * List of the arguments for the function (must be present if functionName is present)
+     * List of the arguments for the function (must be present if function has arguments and functionName is present)
      */
     arguments?: pulumi.Input<pulumi.Input<inputs.FunctionGrantArgument>[]>;
     /**

@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const grant = new snowflake.PipeGrant("grant", {
+ *     databaseName: "db",
+ *     onFuture: false,
+ *     privilege: "operate",
+ *     roles: [
+ *         "role1",
+ *         "role2",
+ *     ],
+ *     schemaName: "schema",
+ *     sequenceName: "sequence",
+ *     withGrantOption: false,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * # format is database name | schema name | pipe name | privilege | true/false for with_grant_option
+ *
+ * ```sh
+ *  $ pulumi import snowflake:index/pipeGrant:PipeGrant example 'dbName|schemaName|pipeName|OPERATE|false'
+ * ```
+ */
 export class PipeGrant extends pulumi.CustomResource {
     /**
      * Get an existing PipeGrant resource's state with the given name, ID, and optional extra
@@ -37,13 +66,11 @@ export class PipeGrant extends pulumi.CustomResource {
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
-     * When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-     * this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-     * field must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
      */
     public readonly onFuture!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
+     * The name of the pipe on which to grant privileges immediately (only valid if onFuture is false).
      */
     public readonly pipeName!: pulumi.Output<string | undefined>;
     /**
@@ -115,13 +142,11 @@ export interface PipeGrantState {
      */
     databaseName?: pulumi.Input<string>;
     /**
-     * When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-     * this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-     * field must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
-     * The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
+     * The name of the pipe on which to grant privileges immediately (only valid if onFuture is false).
      */
     pipeName?: pulumi.Input<string>;
     /**
@@ -151,13 +176,11 @@ export interface PipeGrantArgs {
      */
     databaseName: pulumi.Input<string>;
     /**
-     * When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-     * this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-     * field must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
-     * The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
+     * The name of the pipe on which to grant privileges immediately (only valid if onFuture is false).
      */
     pipeName?: pulumi.Input<string>;
     /**

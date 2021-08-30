@@ -7,6 +7,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.GetSchemas(ctx, &GetSchemasArgs{
+// 			Database: "MYDB",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetSchemas(ctx *pulumi.Context, args *GetSchemasArgs, opts ...pulumi.InvokeOption) (*GetSchemasResult, error) {
 	var rv GetSchemasResult
 	err := ctx.Invoke("snowflake:index/getSchemas:getSchemas", args, &rv, opts...)
@@ -18,13 +40,16 @@ func GetSchemas(ctx *pulumi.Context, args *GetSchemasArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getSchemas.
 type GetSchemasArgs struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 }
 
 // A collection of values returned by getSchemas.
 type GetSchemasResult struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
-	Id      string             `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The schemas in the database
 	Schemas []GetSchemasSchema `pulumi:"schemas"`
 }

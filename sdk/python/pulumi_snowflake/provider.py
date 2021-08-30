@@ -25,10 +25,13 @@ class ProviderArgs:
                  oauth_refresh_token: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
+                 private_key_passphrase: Optional[pulumi.Input[str]] = None,
                  private_key_path: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
+        :param pulumi.Input[str] private_key_passphrase: Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
+               des-ede3-cbc
         """
         pulumi.set(__self__, "account", account)
         pulumi.set(__self__, "region", region)
@@ -51,6 +54,8 @@ class ProviderArgs:
             pulumi.set(__self__, "password", password)
         if private_key is not None:
             pulumi.set(__self__, "private_key", private_key)
+        if private_key_passphrase is not None:
+            pulumi.set(__self__, "private_key_passphrase", private_key_passphrase)
         if private_key_path is not None:
             pulumi.set(__self__, "private_key_path", private_key_path)
         if role is not None:
@@ -165,6 +170,19 @@ class ProviderArgs:
         pulumi.set(self, "private_key", value)
 
     @property
+    @pulumi.getter(name="privateKeyPassphrase")
+    def private_key_passphrase(self) -> Optional[pulumi.Input[str]]:
+        """
+        Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
+        des-ede3-cbc
+        """
+        return pulumi.get(self, "private_key_passphrase")
+
+    @private_key_passphrase.setter
+    def private_key_passphrase(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_key_passphrase", value)
+
+    @property
     @pulumi.getter(name="privateKeyPath")
     def private_key_path(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "private_key_path")
@@ -198,6 +216,7 @@ class Provider(pulumi.ProviderResource):
                  oauth_refresh_token: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
+                 private_key_passphrase: Optional[pulumi.Input[str]] = None,
                  private_key_path: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
@@ -211,6 +230,8 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] private_key_passphrase: Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
+               des-ede3-cbc
         """
         ...
     @overload
@@ -249,6 +270,7 @@ class Provider(pulumi.ProviderResource):
                  oauth_refresh_token: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
+                 private_key_passphrase: Optional[pulumi.Input[str]] = None,
                  private_key_path: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
@@ -277,6 +299,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["oauth_refresh_token"] = oauth_refresh_token
             __props__.__dict__["password"] = password
             __props__.__dict__["private_key"] = private_key
+            __props__.__dict__["private_key_passphrase"] = private_key_passphrase
             __props__.__dict__["private_key_path"] = private_key_path
             if region is None and not opts.urn:
                 raise TypeError("Missing required property 'region'")
@@ -335,6 +358,15 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "private_key")
+
+    @property
+    @pulumi.getter(name="privateKeyPassphrase")
+    def private_key_passphrase(self) -> pulumi.Output[Optional[str]]:
+        """
+        Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
+        des-ede3-cbc
+        """
+        return pulumi.get(self, "private_key_passphrase")
 
     @property
     @pulumi.getter(name="privateKeyPath")

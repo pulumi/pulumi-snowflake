@@ -24,9 +24,7 @@ class TaskGrantArgs:
         The set of arguments for constructing a TaskGrant resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future tasks on which to grant privileges.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future tasks on which to grant privileges.
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
-               this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
-               field must be unset in order to use on_future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future task.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] task_name: The name of the task on which to grant privileges immediately (only valid if on_future is false).
@@ -73,9 +71,7 @@ class TaskGrantArgs:
     @pulumi.getter(name="onFuture")
     def on_future(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
-        this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
-        field must be unset in order to use on_future.
+        When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
         """
         return pulumi.get(self, "on_future")
 
@@ -145,9 +141,7 @@ class _TaskGrantState:
         """
         Input properties used for looking up and filtering TaskGrant resources.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future tasks on which to grant privileges.
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
-               this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
-               field must be unset in order to use on_future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future task.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future tasks on which to grant privileges.
@@ -185,9 +179,7 @@ class _TaskGrantState:
     @pulumi.getter(name="onFuture")
     def on_future(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
-        this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
-        field must be unset in order to use on_future.
+        When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
         """
         return pulumi.get(self, "on_future")
 
@@ -270,13 +262,18 @@ class TaskGrant(pulumi.CustomResource):
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a TaskGrant resource with the given unique name, props, and options.
+        ## Import
+
+        # format is database name | schema name | task name | privilege | true/false for with_grant_option
+
+        ```sh
+         $ pulumi import snowflake:index/taskGrant:TaskGrant example 'dbName|schemaName|taskName|OPERATE|false'
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future tasks on which to grant privileges.
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
-               this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
-               field must be unset in order to use on_future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future task.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future tasks on which to grant privileges.
@@ -290,7 +287,14 @@ class TaskGrant(pulumi.CustomResource):
                  args: TaskGrantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a TaskGrant resource with the given unique name, props, and options.
+        ## Import
+
+        # format is database name | schema name | task name | privilege | true/false for with_grant_option
+
+        ```sh
+         $ pulumi import snowflake:index/taskGrant:TaskGrant example 'dbName|schemaName|taskName|OPERATE|false'
+        ```
+
         :param str resource_name: The name of the resource.
         :param TaskGrantArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -361,9 +365,7 @@ class TaskGrant(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future tasks on which to grant privileges.
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
-               this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
-               field must be unset in order to use on_future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future task.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future tasks on which to grant privileges.
@@ -395,9 +397,7 @@ class TaskGrant(pulumi.CustomResource):
     @pulumi.getter(name="onFuture")
     def on_future(self) -> pulumi.Output[Optional[bool]]:
         """
-        When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
-        this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
-        field must be unset in order to use on_future.
+        When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
         """
         return pulumi.get(self, "on_future")
 

@@ -56,6 +56,10 @@ export class Sequence extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
+     * The fully qualified name of the sequence.
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * The amount the sequence will increase by each time it is used
      */
     public readonly increment!: pulumi.Output<number | undefined>;
@@ -87,6 +91,7 @@ export class Sequence extends pulumi.CustomResource {
             const state = argsOrState as SequenceState | undefined;
             inputs["comment"] = state ? state.comment : undefined;
             inputs["database"] = state ? state.database : undefined;
+            inputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             inputs["increment"] = state ? state.increment : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["nextValue"] = state ? state.nextValue : undefined;
@@ -104,6 +109,7 @@ export class Sequence extends pulumi.CustomResource {
             inputs["increment"] = args ? args.increment : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["schema"] = args ? args.schema : undefined;
+            inputs["fullyQualifiedName"] = undefined /*out*/;
             inputs["nextValue"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -125,6 +131,10 @@ export interface SequenceState {
      * The database in which to create the sequence. Don't use the | character.
      */
     database?: pulumi.Input<string>;
+    /**
+     * The fully qualified name of the sequence.
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * The amount the sequence will increase by each time it is used
      */

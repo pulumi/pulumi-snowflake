@@ -20,43 +20,65 @@ namespace Pulumi.Snowflake
     /// {
     ///     public MyStack()
     ///     {
+    ///         var schema = new Snowflake.Schema("schema", new Snowflake.SchemaArgs
+    ///         {
+    ///             Database = "database",
+    ///             DataRetentionDays = 1,
+    ///         });
+    ///         var sequence = new Snowflake.Sequence("sequence", new Snowflake.SequenceArgs
+    ///         {
+    ///             Database = schema.Database,
+    ///             Schema = schema.Name,
+    ///         });
     ///         var table = new Snowflake.Table("table", new Snowflake.TableArgs
     ///         {
+    ///             Database = schema.Database,
+    ///             Schema = schema.Name,
+    ///             Comment = "A table.",
     ///             ClusterBies = 
     ///             {
     ///                 "to_date(DATE)",
     ///             },
+    ///             DataRetentionDays = schema.DataRetentionDays,
+    ///             ChangeTracking = false,
     ///             Columns = 
     ///             {
     ///                 new Snowflake.Inputs.TableColumnArgs
     ///                 {
     ///                     Name = "id",
-    ///                     Nullable = true,
     ///                     Type = "int",
+    ///                     Nullable = true,
+    ///                     Default = new Snowflake.Inputs.TableColumnDefaultArgs
+    ///                     {
+    ///                         Sequence = sequence.FullyQualifiedName,
+    ///                     },
     ///                 },
     ///                 new Snowflake.Inputs.TableColumnArgs
     ///                 {
     ///                     Name = "data",
-    ///                     Nullable = false,
     ///                     Type = "text",
+    ///                     Nullable = false,
     ///                 },
     ///                 new Snowflake.Inputs.TableColumnArgs
     ///                 {
     ///                     Name = "DATE",
     ///                     Type = "TIMESTAMP_NTZ(9)",
     ///                 },
+    ///                 new Snowflake.Inputs.TableColumnArgs
+    ///                 {
+    ///                     Name = "extra",
+    ///                     Type = "VARIANT",
+    ///                     Comment = "extra data",
+    ///                 },
     ///             },
-    ///             Comment = "A table.",
-    ///             Database = "database",
     ///             PrimaryKey = new Snowflake.Inputs.TablePrimaryKeyArgs
     ///             {
+    ///                 Name = "my_key",
     ///                 Keys = 
     ///                 {
     ///                     "data",
     ///                 },
-    ///                 Name = "my_key",
     ///             },
-    ///             Schema = "schmea",
     ///         });
     ///     }
     /// 
@@ -75,6 +97,12 @@ namespace Pulumi.Snowflake
     public partial class Table : Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies whether to enable change tracking on the table. Default false.
+        /// </summary>
+        [Output("changeTracking")]
+        public Output<bool?> ChangeTracking { get; private set; } = null!;
+
+        /// <summary>
         /// A list of one or more table columns/expressions to be used as clustering key(s) for the table
         /// </summary>
         [Output("clusterBies")]
@@ -91,6 +119,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        /// </summary>
+        [Output("dataRetentionDays")]
+        public Output<int?> DataRetentionDays { get; private set; } = null!;
 
         /// <summary>
         /// The database in which to create the table.
@@ -168,6 +202,12 @@ namespace Pulumi.Snowflake
 
     public sealed class TableArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether to enable change tracking on the table. Default false.
+        /// </summary>
+        [Input("changeTracking")]
+        public Input<bool>? ChangeTracking { get; set; }
+
         [Input("clusterBies")]
         private InputList<string>? _clusterBies;
 
@@ -197,6 +237,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
+
+        /// <summary>
+        /// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        /// </summary>
+        [Input("dataRetentionDays")]
+        public Input<int>? DataRetentionDays { get; set; }
 
         /// <summary>
         /// The database in which to create the table.
@@ -229,6 +275,12 @@ namespace Pulumi.Snowflake
 
     public sealed class TableState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether to enable change tracking on the table. Default false.
+        /// </summary>
+        [Input("changeTracking")]
+        public Input<bool>? ChangeTracking { get; set; }
+
         [Input("clusterBies")]
         private InputList<string>? _clusterBies;
 
@@ -258,6 +310,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
+
+        /// <summary>
+        /// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        /// </summary>
+        [Input("dataRetentionDays")]
+        public Input<int>? DataRetentionDays { get; set; }
 
         /// <summary>
         /// The database in which to create the table.

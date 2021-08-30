@@ -12,31 +12,49 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
+ * const schema = new snowflake.Schema("schema", {
+ *     database: "database",
+ *     dataRetentionDays: 1,
+ * });
+ * const sequence = new snowflake.Sequence("sequence", {
+ *     database: schema.database,
+ *     schema: schema.name,
+ * });
  * const table = new snowflake.Table("table", {
+ *     database: schema.database,
+ *     schema: schema.name,
+ *     comment: "A table.",
  *     clusterBies: ["to_date(DATE)"],
+ *     dataRetentionDays: schema.dataRetentionDays,
+ *     changeTracking: false,
  *     columns: [
  *         {
  *             name: "id",
- *             nullable: true,
  *             type: "int",
+ *             nullable: true,
+ *             "default": {
+ *                 sequence: sequence.fullyQualifiedName,
+ *             },
  *         },
  *         {
  *             name: "data",
- *             nullable: false,
  *             type: "text",
+ *             nullable: false,
  *         },
  *         {
  *             name: "DATE",
  *             type: "TIMESTAMP_NTZ(9)",
  *         },
+ *         {
+ *             name: "extra",
+ *             type: "VARIANT",
+ *             comment: "extra data",
+ *         },
  *     ],
- *     comment: "A table.",
- *     database: "database",
  *     primaryKey: {
- *         keys: ["data"],
  *         name: "my_key",
+ *         keys: ["data"],
  *     },
- *     schema: "schmea",
  * });
  * ```
  *
@@ -77,6 +95,10 @@ export class Table extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies whether to enable change tracking on the table. Default false.
+     */
+    public readonly changeTracking!: pulumi.Output<boolean | undefined>;
+    /**
      * A list of one or more table columns/expressions to be used as clustering key(s) for the table
      */
     public readonly clusterBies!: pulumi.Output<string[] | undefined>;
@@ -88,6 +110,10 @@ export class Table extends pulumi.CustomResource {
      * Specifies a comment for the table.
      */
     public readonly comment!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+     */
+    public readonly dataRetentionDays!: pulumi.Output<number | undefined>;
     /**
      * The database in which to create the table.
      */
@@ -122,9 +148,11 @@ export class Table extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableState | undefined;
+            inputs["changeTracking"] = state ? state.changeTracking : undefined;
             inputs["clusterBies"] = state ? state.clusterBies : undefined;
             inputs["columns"] = state ? state.columns : undefined;
             inputs["comment"] = state ? state.comment : undefined;
+            inputs["dataRetentionDays"] = state ? state.dataRetentionDays : undefined;
             inputs["database"] = state ? state.database : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["owner"] = state ? state.owner : undefined;
@@ -141,9 +169,11 @@ export class Table extends pulumi.CustomResource {
             if ((!args || args.schema === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
+            inputs["changeTracking"] = args ? args.changeTracking : undefined;
             inputs["clusterBies"] = args ? args.clusterBies : undefined;
             inputs["columns"] = args ? args.columns : undefined;
             inputs["comment"] = args ? args.comment : undefined;
+            inputs["dataRetentionDays"] = args ? args.dataRetentionDays : undefined;
             inputs["database"] = args ? args.database : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["primaryKey"] = args ? args.primaryKey : undefined;
@@ -162,6 +192,10 @@ export class Table extends pulumi.CustomResource {
  */
 export interface TableState {
     /**
+     * Specifies whether to enable change tracking on the table. Default false.
+     */
+    changeTracking?: pulumi.Input<boolean>;
+    /**
      * A list of one or more table columns/expressions to be used as clustering key(s) for the table
      */
     clusterBies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -173,6 +207,10 @@ export interface TableState {
      * Specifies a comment for the table.
      */
     comment?: pulumi.Input<string>;
+    /**
+     * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+     */
+    dataRetentionDays?: pulumi.Input<number>;
     /**
      * The database in which to create the table.
      */
@@ -200,6 +238,10 @@ export interface TableState {
  */
 export interface TableArgs {
     /**
+     * Specifies whether to enable change tracking on the table. Default false.
+     */
+    changeTracking?: pulumi.Input<boolean>;
+    /**
      * A list of one or more table columns/expressions to be used as clustering key(s) for the table
      */
     clusterBies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -211,6 +253,10 @@ export interface TableArgs {
      * Specifies a comment for the table.
      */
     comment?: pulumi.Input<string>;
+    /**
+     * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+     */
+    dataRetentionDays?: pulumi.Input<number>;
     /**
      * The database in which to create the table.
      */

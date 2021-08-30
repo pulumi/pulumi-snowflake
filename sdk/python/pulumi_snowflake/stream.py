@@ -17,6 +17,7 @@ class StreamArgs:
                  schema: pulumi.Input[str],
                  append_only: Optional[pulumi.Input[bool]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
+                 insert_only: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  on_table: Optional[pulumi.Input[str]] = None,
                  show_initial_rows: Optional[pulumi.Input[bool]] = None):
@@ -26,6 +27,7 @@ class StreamArgs:
         :param pulumi.Input[str] schema: The schema in which to create the stream.
         :param pulumi.Input[bool] append_only: Type of the stream that will be created.
         :param pulumi.Input[str] comment: Specifies a comment for the stream.
+        :param pulumi.Input[bool] insert_only: Create an insert only stream type.
         :param pulumi.Input[str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
         :param pulumi.Input[str] on_table: Name of the table the stream will monitor.
         :param pulumi.Input[bool] show_initial_rows: Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed.
@@ -36,6 +38,8 @@ class StreamArgs:
             pulumi.set(__self__, "append_only", append_only)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if insert_only is not None:
+            pulumi.set(__self__, "insert_only", insert_only)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if on_table is not None:
@@ -92,6 +96,18 @@ class StreamArgs:
         pulumi.set(self, "comment", value)
 
     @property
+    @pulumi.getter(name="insertOnly")
+    def insert_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Create an insert only stream type.
+        """
+        return pulumi.get(self, "insert_only")
+
+    @insert_only.setter
+    def insert_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "insert_only", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -134,6 +150,7 @@ class _StreamState:
                  append_only: Optional[pulumi.Input[bool]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 insert_only: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  on_table: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
@@ -144,6 +161,7 @@ class _StreamState:
         :param pulumi.Input[bool] append_only: Type of the stream that will be created.
         :param pulumi.Input[str] comment: Specifies a comment for the stream.
         :param pulumi.Input[str] database: The database in which to create the stream.
+        :param pulumi.Input[bool] insert_only: Create an insert only stream type.
         :param pulumi.Input[str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
         :param pulumi.Input[str] on_table: Name of the table the stream will monitor.
         :param pulumi.Input[str] owner: Name of the role that owns the stream.
@@ -156,6 +174,8 @@ class _StreamState:
             pulumi.set(__self__, "comment", comment)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if insert_only is not None:
+            pulumi.set(__self__, "insert_only", insert_only)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if on_table is not None:
@@ -202,6 +222,18 @@ class _StreamState:
     @database.setter
     def database(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter(name="insertOnly")
+    def insert_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Create an insert only stream type.
+        """
+        return pulumi.get(self, "insert_only")
+
+    @insert_only.setter
+    def insert_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "insert_only", value)
 
     @property
     @pulumi.getter
@@ -272,6 +304,7 @@ class Stream(pulumi.CustomResource):
                  append_only: Optional[pulumi.Input[bool]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 insert_only: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  on_table: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
@@ -291,6 +324,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[bool] append_only: Type of the stream that will be created.
         :param pulumi.Input[str] comment: Specifies a comment for the stream.
         :param pulumi.Input[str] database: The database in which to create the stream.
+        :param pulumi.Input[bool] insert_only: Create an insert only stream type.
         :param pulumi.Input[str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
         :param pulumi.Input[str] on_table: Name of the table the stream will monitor.
         :param pulumi.Input[str] schema: The schema in which to create the stream.
@@ -329,6 +363,7 @@ class Stream(pulumi.CustomResource):
                  append_only: Optional[pulumi.Input[bool]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 insert_only: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  on_table: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
@@ -350,6 +385,7 @@ class Stream(pulumi.CustomResource):
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
+            __props__.__dict__["insert_only"] = insert_only
             __props__.__dict__["name"] = name
             __props__.__dict__["on_table"] = on_table
             if schema is None and not opts.urn:
@@ -370,6 +406,7 @@ class Stream(pulumi.CustomResource):
             append_only: Optional[pulumi.Input[bool]] = None,
             comment: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
+            insert_only: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             on_table: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
@@ -385,6 +422,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[bool] append_only: Type of the stream that will be created.
         :param pulumi.Input[str] comment: Specifies a comment for the stream.
         :param pulumi.Input[str] database: The database in which to create the stream.
+        :param pulumi.Input[bool] insert_only: Create an insert only stream type.
         :param pulumi.Input[str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
         :param pulumi.Input[str] on_table: Name of the table the stream will monitor.
         :param pulumi.Input[str] owner: Name of the role that owns the stream.
@@ -398,6 +436,7 @@ class Stream(pulumi.CustomResource):
         __props__.__dict__["append_only"] = append_only
         __props__.__dict__["comment"] = comment
         __props__.__dict__["database"] = database
+        __props__.__dict__["insert_only"] = insert_only
         __props__.__dict__["name"] = name
         __props__.__dict__["on_table"] = on_table
         __props__.__dict__["owner"] = owner
@@ -428,6 +467,14 @@ class Stream(pulumi.CustomResource):
         The database in which to create the stream.
         """
         return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="insertOnly")
+    def insert_only(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Create an insert only stream type.
+        """
+        return pulumi.get(self, "insert_only")
 
     @property
     @pulumi.getter

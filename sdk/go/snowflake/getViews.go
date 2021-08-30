@@ -7,6 +7,29 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.GetViews(ctx, &GetViewsArgs{
+// 			Database: "MYDB",
+// 			Schema:   "MYSCHEMA",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetViews(ctx *pulumi.Context, args *GetViewsArgs, opts ...pulumi.InvokeOption) (*GetViewsResult, error) {
 	var rv GetViewsResult
 	err := ctx.Invoke("snowflake:index/getViews:getViews", args, &rv, opts...)
@@ -18,15 +41,20 @@ func GetViews(ctx *pulumi.Context, args *GetViewsArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getViews.
 type GetViewsArgs struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the views from.
+	Schema string `pulumi:"schema"`
 }
 
 // A collection of values returned by getViews.
 type GetViewsResult struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string         `pulumi:"id"`
-	Schema string         `pulumi:"schema"`
-	Views  []GetViewsView `pulumi:"views"`
+	Id string `pulumi:"id"`
+	// The schema from which to return the views from.
+	Schema string `pulumi:"schema"`
+	// The views in the schema
+	Views []GetViewsView `pulumi:"views"`
 }

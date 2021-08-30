@@ -54,8 +54,9 @@ type Warehouse struct {
 	// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
 	MaxConcurrencyLevel pulumi.IntPtrOutput `pulumi:"maxConcurrencyLevel"`
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
-	MinClusterCount pulumi.IntOutput    `pulumi:"minClusterCount"`
-	Name            pulumi.StringOutput `pulumi:"name"`
+	MinClusterCount pulumi.IntOutput `pulumi:"minClusterCount"`
+	// Identifier for the virtual warehouse; must be unique for your account.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
 	ResourceMonitor pulumi.StringOutput `pulumi:"resourceMonitor"`
 	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
@@ -66,7 +67,8 @@ type Warehouse struct {
 	StatementTimeoutInSeconds pulumi.IntPtrOutput `pulumi:"statementTimeoutInSeconds"`
 	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
 	WaitForProvisioning pulumi.BoolPtrOutput `pulumi:"waitForProvisioning"`
-	WarehouseSize       pulumi.StringOutput  `pulumi:"warehouseSize"`
+	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+	WarehouseSize pulumi.StringOutput `pulumi:"warehouseSize"`
 }
 
 // NewWarehouse registers a new resource with the given unique name, arguments, and options.
@@ -110,8 +112,9 @@ type warehouseState struct {
 	// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
 	MaxConcurrencyLevel *int `pulumi:"maxConcurrencyLevel"`
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
-	MinClusterCount *int    `pulumi:"minClusterCount"`
-	Name            *string `pulumi:"name"`
+	MinClusterCount *int `pulumi:"minClusterCount"`
+	// Identifier for the virtual warehouse; must be unique for your account.
+	Name *string `pulumi:"name"`
 	// Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
 	ResourceMonitor *string `pulumi:"resourceMonitor"`
 	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
@@ -121,8 +124,9 @@ type warehouseState struct {
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
 	StatementTimeoutInSeconds *int `pulumi:"statementTimeoutInSeconds"`
 	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
-	WaitForProvisioning *bool   `pulumi:"waitForProvisioning"`
-	WarehouseSize       *string `pulumi:"warehouseSize"`
+	WaitForProvisioning *bool `pulumi:"waitForProvisioning"`
+	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+	WarehouseSize *string `pulumi:"warehouseSize"`
 }
 
 type WarehouseState struct {
@@ -139,7 +143,8 @@ type WarehouseState struct {
 	MaxConcurrencyLevel pulumi.IntPtrInput
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount pulumi.IntPtrInput
-	Name            pulumi.StringPtrInput
+	// Identifier for the virtual warehouse; must be unique for your account.
+	Name pulumi.StringPtrInput
 	// Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
 	ResourceMonitor pulumi.StringPtrInput
 	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
@@ -150,7 +155,8 @@ type WarehouseState struct {
 	StatementTimeoutInSeconds pulumi.IntPtrInput
 	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
 	WaitForProvisioning pulumi.BoolPtrInput
-	WarehouseSize       pulumi.StringPtrInput
+	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+	WarehouseSize pulumi.StringPtrInput
 }
 
 func (WarehouseState) ElementType() reflect.Type {
@@ -170,8 +176,9 @@ type warehouseArgs struct {
 	// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
 	MaxConcurrencyLevel *int `pulumi:"maxConcurrencyLevel"`
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
-	MinClusterCount *int    `pulumi:"minClusterCount"`
-	Name            *string `pulumi:"name"`
+	MinClusterCount *int `pulumi:"minClusterCount"`
+	// Identifier for the virtual warehouse; must be unique for your account.
+	Name *string `pulumi:"name"`
 	// Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
 	ResourceMonitor *string `pulumi:"resourceMonitor"`
 	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
@@ -181,8 +188,9 @@ type warehouseArgs struct {
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
 	StatementTimeoutInSeconds *int `pulumi:"statementTimeoutInSeconds"`
 	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
-	WaitForProvisioning *bool   `pulumi:"waitForProvisioning"`
-	WarehouseSize       *string `pulumi:"warehouseSize"`
+	WaitForProvisioning *bool `pulumi:"waitForProvisioning"`
+	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+	WarehouseSize *string `pulumi:"warehouseSize"`
 }
 
 // The set of arguments for constructing a Warehouse resource.
@@ -200,7 +208,8 @@ type WarehouseArgs struct {
 	MaxConcurrencyLevel pulumi.IntPtrInput
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount pulumi.IntPtrInput
-	Name            pulumi.StringPtrInput
+	// Identifier for the virtual warehouse; must be unique for your account.
+	Name pulumi.StringPtrInput
 	// Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
 	ResourceMonitor pulumi.StringPtrInput
 	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
@@ -211,7 +220,8 @@ type WarehouseArgs struct {
 	StatementTimeoutInSeconds pulumi.IntPtrInput
 	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
 	WaitForProvisioning pulumi.BoolPtrInput
-	WarehouseSize       pulumi.StringPtrInput
+	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+	WarehouseSize pulumi.StringPtrInput
 }
 
 func (WarehouseArgs) ElementType() reflect.Type {

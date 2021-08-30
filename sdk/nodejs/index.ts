@@ -14,16 +14,32 @@ export * from "./externalTable";
 export * from "./externalTableGrant";
 export * from "./fileFormat";
 export * from "./fileFormatGrant";
+export * from "./function";
 export * from "./functionGrant";
 export * from "./getCurrentAccount";
+export * from "./getExternalFunctions";
+export * from "./getExternalTables";
+export * from "./getFileFormats";
+export * from "./getFunctions";
+export * from "./getMaskingPolicies";
 export * from "./getMaterializedViews";
+export * from "./getPipes";
+export * from "./getProcedures";
+export * from "./getResourceMonitors";
+export * from "./getRowAccessPolicies";
 export * from "./getSchemas";
+export * from "./getSequences";
+export * from "./getStages";
+export * from "./getStorageIntegrations";
+export * from "./getStreams";
 export * from "./getSystemGenerateScimAccessToken";
 export * from "./getSystemGetAwsSnsIamPolicy";
 export * from "./getSystemGetPrivateLinkConfig";
 export * from "./getSystemGetSnowflakePlatformInfo";
 export * from "./getTables";
+export * from "./getTasks";
 export * from "./getViews";
+export * from "./getWarehouses";
 export * from "./integrationGrant";
 export * from "./managedAccount";
 export * from "./maskingPolicy";
@@ -35,12 +51,15 @@ export * from "./networkPolicyAttachment";
 export * from "./notificationIntegration";
 export * from "./pipe";
 export * from "./pipeGrant";
+export * from "./procedure";
 export * from "./procedureGrant";
 export * from "./provider";
 export * from "./resourceMonitor";
 export * from "./resourceMonitorGrant";
 export * from "./role";
 export * from "./roleGrants";
+export * from "./rowAccessPolicy";
+export * from "./rowAccessPolicyGrant";
 export * from "./schema";
 export * from "./schemaGrant";
 export * from "./scimIntegration";
@@ -82,6 +101,7 @@ import { ExternalTable } from "./externalTable";
 import { ExternalTableGrant } from "./externalTableGrant";
 import { FileFormat } from "./fileFormat";
 import { FileFormatGrant } from "./fileFormatGrant";
+import { Function } from "./function";
 import { FunctionGrant } from "./functionGrant";
 import { IntegrationGrant } from "./integrationGrant";
 import { ManagedAccount } from "./managedAccount";
@@ -94,11 +114,14 @@ import { NetworkPolicyAttachment } from "./networkPolicyAttachment";
 import { NotificationIntegration } from "./notificationIntegration";
 import { Pipe } from "./pipe";
 import { PipeGrant } from "./pipeGrant";
+import { Procedure } from "./procedure";
 import { ProcedureGrant } from "./procedureGrant";
 import { ResourceMonitor } from "./resourceMonitor";
 import { ResourceMonitorGrant } from "./resourceMonitorGrant";
 import { Role } from "./role";
 import { RoleGrants } from "./roleGrants";
+import { RowAccessPolicy } from "./rowAccessPolicy";
+import { RowAccessPolicyGrant } from "./rowAccessPolicyGrant";
 import { Schema } from "./schema";
 import { SchemaGrant } from "./schemaGrant";
 import { ScimIntegration } from "./scimIntegration";
@@ -143,6 +166,8 @@ const _module = {
                 return new FileFormat(name, <any>undefined, { urn })
             case "snowflake:index/fileFormatGrant:FileFormatGrant":
                 return new FileFormatGrant(name, <any>undefined, { urn })
+            case "snowflake:index/function:Function":
+                return new Function(name, <any>undefined, { urn })
             case "snowflake:index/functionGrant:FunctionGrant":
                 return new FunctionGrant(name, <any>undefined, { urn })
             case "snowflake:index/integrationGrant:IntegrationGrant":
@@ -167,6 +192,8 @@ const _module = {
                 return new Pipe(name, <any>undefined, { urn })
             case "snowflake:index/pipeGrant:PipeGrant":
                 return new PipeGrant(name, <any>undefined, { urn })
+            case "snowflake:index/procedure:Procedure":
+                return new Procedure(name, <any>undefined, { urn })
             case "snowflake:index/procedureGrant:ProcedureGrant":
                 return new ProcedureGrant(name, <any>undefined, { urn })
             case "snowflake:index/resourceMonitor:ResourceMonitor":
@@ -177,6 +204,10 @@ const _module = {
                 return new Role(name, <any>undefined, { urn })
             case "snowflake:index/roleGrants:RoleGrants":
                 return new RoleGrants(name, <any>undefined, { urn })
+            case "snowflake:index/rowAccessPolicy:RowAccessPolicy":
+                return new RowAccessPolicy(name, <any>undefined, { urn })
+            case "snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant":
+                return new RowAccessPolicyGrant(name, <any>undefined, { urn })
             case "snowflake:index/schema:Schema":
                 return new Schema(name, <any>undefined, { urn })
             case "snowflake:index/schemaGrant:SchemaGrant":
@@ -233,6 +264,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/externalTable", _modul
 pulumi.runtime.registerResourceModule("snowflake", "index/externalTableGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/fileFormat", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/fileFormatGrant", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/function", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/functionGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/integrationGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/managedAccount", _module)
@@ -245,11 +277,14 @@ pulumi.runtime.registerResourceModule("snowflake", "index/networkPolicyAttachmen
 pulumi.runtime.registerResourceModule("snowflake", "index/notificationIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/pipe", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/pipeGrant", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/procedure", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/procedureGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/resourceMonitor", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/resourceMonitorGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/role", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/roleGrants", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/rowAccessPolicy", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/rowAccessPolicyGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/schema", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/schemaGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/scimIntegration", _module)

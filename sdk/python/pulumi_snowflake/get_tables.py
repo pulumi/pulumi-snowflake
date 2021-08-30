@@ -37,6 +37,9 @@ class GetTablesResult:
     @property
     @pulumi.getter
     def database(self) -> str:
+        """
+        The database from which to return the schemas from.
+        """
         return pulumi.get(self, "database")
 
     @property
@@ -50,11 +53,17 @@ class GetTablesResult:
     @property
     @pulumi.getter
     def schema(self) -> str:
+        """
+        The schema from which to return the tables from.
+        """
         return pulumi.get(self, "schema")
 
     @property
     @pulumi.getter
     def tables(self) -> Sequence['outputs.GetTablesTableResult']:
+        """
+        The tables in the schema
+        """
         return pulumi.get(self, "tables")
 
 
@@ -74,7 +83,19 @@ def get_tables(database: Optional[str] = None,
                schema: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTablesResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_tables(database="MYDB",
+        schema="MYSCHEMA")
+    ```
+
+
+    :param str database: The database from which to return the schemas from.
+    :param str schema: The schema from which to return the tables from.
     """
     __args__ = dict()
     __args__['database'] = database

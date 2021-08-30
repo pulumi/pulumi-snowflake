@@ -11,16 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// # format is database name | schema name | pipe name | privilege | true/false for with_grant_option
+//
+// ```sh
+//  $ pulumi import snowflake:index/pipeGrant:PipeGrant example 'dbName|schemaName|pipeName|OPERATE|false'
+// ```
 type PipeGrant struct {
 	pulumi.CustomResourceState
 
 	// The name of the database containing the current or future pipes on which to grant privileges.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-	// this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-	// field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
-	// The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the pipe on which to grant privileges immediately (only valid if onFuture is false).
 	PipeName pulumi.StringPtrOutput `pulumi:"pipeName"`
 	// The privilege to grant on the current or future pipe.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
@@ -69,11 +74,9 @@ func GetPipeGrant(ctx *pulumi.Context,
 type pipeGrantState struct {
 	// The name of the database containing the current or future pipes on which to grant privileges.
 	DatabaseName *string `pulumi:"databaseName"`
-	// When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-	// this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-	// field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
 	OnFuture *bool `pulumi:"onFuture"`
-	// The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the pipe on which to grant privileges immediately (only valid if onFuture is false).
 	PipeName *string `pulumi:"pipeName"`
 	// The privilege to grant on the current or future pipe.
 	Privilege *string `pulumi:"privilege"`
@@ -88,11 +91,9 @@ type pipeGrantState struct {
 type PipeGrantState struct {
 	// The name of the database containing the current or future pipes on which to grant privileges.
 	DatabaseName pulumi.StringPtrInput
-	// When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-	// this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-	// field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrInput
-	// The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the pipe on which to grant privileges immediately (only valid if onFuture is false).
 	PipeName pulumi.StringPtrInput
 	// The privilege to grant on the current or future pipe.
 	Privilege pulumi.StringPtrInput
@@ -111,11 +112,9 @@ func (PipeGrantState) ElementType() reflect.Type {
 type pipeGrantArgs struct {
 	// The name of the database containing the current or future pipes on which to grant privileges.
 	DatabaseName string `pulumi:"databaseName"`
-	// When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-	// this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-	// field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
 	OnFuture *bool `pulumi:"onFuture"`
-	// The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the pipe on which to grant privileges immediately (only valid if onFuture is false).
 	PipeName *string `pulumi:"pipeName"`
 	// The privilege to grant on the current or future pipe.
 	Privilege *string `pulumi:"privilege"`
@@ -131,11 +130,9 @@ type pipeGrantArgs struct {
 type PipeGrantArgs struct {
 	// The name of the database containing the current or future pipes on which to grant privileges.
 	DatabaseName pulumi.StringInput
-	// When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-	// this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-	// field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrInput
-	// The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the pipe on which to grant privileges immediately (only valid if onFuture is false).
 	PipeName pulumi.StringPtrInput
 	// The privilege to grant on the current or future pipe.
 	Privilege pulumi.StringPtrInput

@@ -78,6 +78,9 @@ namespace Pulumi.Snowflake
         [Output("minClusterCount")]
         public Output<int> MinClusterCount { get; private set; } = null!;
 
+        /// <summary>
+        /// Identifier for the virtual warehouse; must be unique for your account.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -111,6 +114,9 @@ namespace Pulumi.Snowflake
         [Output("waitForProvisioning")]
         public Output<bool?> WaitForProvisioning { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+        /// </summary>
         [Output("warehouseSize")]
         public Output<string> WarehouseSize { get; private set; } = null!;
 
@@ -199,6 +205,9 @@ namespace Pulumi.Snowflake
         [Input("minClusterCount")]
         public Input<int>? MinClusterCount { get; set; }
 
+        /// <summary>
+        /// Identifier for the virtual warehouse; must be unique for your account.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -232,6 +241,9 @@ namespace Pulumi.Snowflake
         [Input("waitForProvisioning")]
         public Input<bool>? WaitForProvisioning { get; set; }
 
+        /// <summary>
+        /// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+        /// </summary>
         [Input("warehouseSize")]
         public Input<string>? WarehouseSize { get; set; }
 
@@ -281,6 +293,9 @@ namespace Pulumi.Snowflake
         [Input("minClusterCount")]
         public Input<int>? MinClusterCount { get; set; }
 
+        /// <summary>
+        /// Identifier for the virtual warehouse; must be unique for your account.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -314,6 +329,9 @@ namespace Pulumi.Snowflake
         [Input("waitForProvisioning")]
         public Input<bool>? WaitForProvisioning { get; set; }
 
+        /// <summary>
+        /// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+        /// </summary>
         [Input("warehouseSize")]
         public Input<string>? WarehouseSize { get; set; }
 
