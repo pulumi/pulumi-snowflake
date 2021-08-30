@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v0.25.18 of the Snowflake Terraform PRovider
+_(none)_
 
 ---
+
+## 0.1.3 (2021-08-30)
+* Upgrade to v0.25.18 of the Snowflake Terraform PRovider
 
 ## 0.1.2 (2021-08-03)
 * Upgrade to v0.25.13 of the Snowflake Terraform PRovider
