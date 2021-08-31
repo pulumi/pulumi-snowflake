@@ -210,7 +210,7 @@ type TaskGrantArrayInput interface {
 type TaskGrantArray []TaskGrantInput
 
 func (TaskGrantArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TaskGrant)(nil))
+	return reflect.TypeOf((*[]*TaskGrant)(nil)).Elem()
 }
 
 func (i TaskGrantArray) ToTaskGrantArrayOutput() TaskGrantArrayOutput {
@@ -235,7 +235,7 @@ type TaskGrantMapInput interface {
 type TaskGrantMap map[string]TaskGrantInput
 
 func (TaskGrantMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TaskGrant)(nil))
+	return reflect.TypeOf((*map[string]*TaskGrant)(nil)).Elem()
 }
 
 func (i TaskGrantMap) ToTaskGrantMapOutput() TaskGrantMapOutput {
@@ -246,9 +246,7 @@ func (i TaskGrantMap) ToTaskGrantMapOutputWithContext(ctx context.Context) TaskG
 	return pulumi.ToOutputWithContext(ctx, i).(TaskGrantMapOutput)
 }
 
-type TaskGrantOutput struct {
-	*pulumi.OutputState
-}
+type TaskGrantOutput struct{ *pulumi.OutputState }
 
 func (TaskGrantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TaskGrant)(nil))
@@ -267,14 +265,12 @@ func (o TaskGrantOutput) ToTaskGrantPtrOutput() TaskGrantPtrOutput {
 }
 
 func (o TaskGrantOutput) ToTaskGrantPtrOutputWithContext(ctx context.Context) TaskGrantPtrOutput {
-	return o.ApplyT(func(v TaskGrant) *TaskGrant {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskGrant) *TaskGrant {
 		return &v
 	}).(TaskGrantPtrOutput)
 }
 
-type TaskGrantPtrOutput struct {
-	*pulumi.OutputState
-}
+type TaskGrantPtrOutput struct{ *pulumi.OutputState }
 
 func (TaskGrantPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TaskGrant)(nil))
@@ -286,6 +282,16 @@ func (o TaskGrantPtrOutput) ToTaskGrantPtrOutput() TaskGrantPtrOutput {
 
 func (o TaskGrantPtrOutput) ToTaskGrantPtrOutputWithContext(ctx context.Context) TaskGrantPtrOutput {
 	return o
+}
+
+func (o TaskGrantPtrOutput) Elem() TaskGrantOutput {
+	return o.ApplyT(func(v *TaskGrant) TaskGrant {
+		if v != nil {
+			return *v
+		}
+		var ret TaskGrant
+		return ret
+	}).(TaskGrantOutput)
 }
 
 type TaskGrantArrayOutput struct{ *pulumi.OutputState }

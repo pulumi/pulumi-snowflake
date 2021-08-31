@@ -4,6 +4,9 @@
 package snowflake
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,64 @@ type GetStreamsResult struct {
 	Schema string `pulumi:"schema"`
 	// The streams in the schema
 	Streams []GetStreamsStream `pulumi:"streams"`
+}
+
+func GetStreamsOutput(ctx *pulumi.Context, args GetStreamsOutputArgs, opts ...pulumi.InvokeOption) GetStreamsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetStreamsResult, error) {
+			args := v.(GetStreamsArgs)
+			r, err := GetStreams(ctx, &args, opts...)
+			return *r, err
+		}).(GetStreamsResultOutput)
+}
+
+// A collection of arguments for invoking getStreams.
+type GetStreamsOutputArgs struct {
+	// The database from which to return the streams from.
+	Database pulumi.StringInput `pulumi:"database"`
+	// The schema from which to return the streams from.
+	Schema pulumi.StringInput `pulumi:"schema"`
+}
+
+func (GetStreamsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStreamsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getStreams.
+type GetStreamsResultOutput struct{ *pulumi.OutputState }
+
+func (GetStreamsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStreamsResult)(nil)).Elem()
+}
+
+func (o GetStreamsResultOutput) ToGetStreamsResultOutput() GetStreamsResultOutput {
+	return o
+}
+
+func (o GetStreamsResultOutput) ToGetStreamsResultOutputWithContext(ctx context.Context) GetStreamsResultOutput {
+	return o
+}
+
+// The database from which to return the streams from.
+func (o GetStreamsResultOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStreamsResult) string { return v.Database }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetStreamsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStreamsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The schema from which to return the streams from.
+func (o GetStreamsResultOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStreamsResult) string { return v.Schema }).(pulumi.StringOutput)
+}
+
+// The streams in the schema
+func (o GetStreamsResultOutput) Streams() GetStreamsStreamArrayOutput {
+	return o.ApplyT(func(v GetStreamsResult) []GetStreamsStream { return v.Streams }).(GetStreamsStreamArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetStreamsResultOutput{})
 }

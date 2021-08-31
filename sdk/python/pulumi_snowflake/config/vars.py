@@ -8,57 +8,73 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = [
-    'account',
-    'browser_auth',
-    'oauth_access_token',
-    'oauth_client_id',
-    'oauth_client_secret',
-    'oauth_endpoint',
-    'oauth_redirect_url',
-    'oauth_refresh_token',
-    'password',
-    'private_key',
-    'private_key_passphrase',
-    'private_key_path',
-    'region',
-    'role',
-    'username',
-]
+import types
 
 __config__ = pulumi.Config('snowflake')
 
-account = __config__.get('account')
 
-browser_auth = __config__.get('browserAuth')
+class _ExportableConfig(types.ModuleType):
+    @property
+    def account(self) -> Optional[str]:
+        return __config__.get('account')
 
-oauth_access_token = __config__.get('oauthAccessToken')
+    @property
+    def browser_auth(self) -> Optional[bool]:
+        return __config__.get_bool('browserAuth')
 
-oauth_client_id = __config__.get('oauthClientId')
+    @property
+    def oauth_access_token(self) -> Optional[str]:
+        return __config__.get('oauthAccessToken')
 
-oauth_client_secret = __config__.get('oauthClientSecret')
+    @property
+    def oauth_client_id(self) -> Optional[str]:
+        return __config__.get('oauthClientId')
 
-oauth_endpoint = __config__.get('oauthEndpoint')
+    @property
+    def oauth_client_secret(self) -> Optional[str]:
+        return __config__.get('oauthClientSecret')
 
-oauth_redirect_url = __config__.get('oauthRedirectUrl')
+    @property
+    def oauth_endpoint(self) -> Optional[str]:
+        return __config__.get('oauthEndpoint')
 
-oauth_refresh_token = __config__.get('oauthRefreshToken')
+    @property
+    def oauth_redirect_url(self) -> Optional[str]:
+        return __config__.get('oauthRedirectUrl')
 
-password = __config__.get('password')
+    @property
+    def oauth_refresh_token(self) -> Optional[str]:
+        return __config__.get('oauthRefreshToken')
 
-private_key = __config__.get('privateKey')
+    @property
+    def password(self) -> Optional[str]:
+        return __config__.get('password')
 
-private_key_passphrase = __config__.get('privateKeyPassphrase')
-"""
-Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
-des-ede3-cbc
-"""
+    @property
+    def private_key(self) -> Optional[str]:
+        return __config__.get('privateKey')
 
-private_key_path = __config__.get('privateKeyPath')
+    @property
+    def private_key_passphrase(self) -> Optional[str]:
+        """
+        Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
+        des-ede3-cbc
+        """
+        return __config__.get('privateKeyPassphrase')
 
-region = __config__.get('region')
+    @property
+    def private_key_path(self) -> Optional[str]:
+        return __config__.get('privateKeyPath')
 
-role = __config__.get('role')
+    @property
+    def region(self) -> Optional[str]:
+        return __config__.get('region')
 
-username = __config__.get('username')
+    @property
+    def role(self) -> Optional[str]:
+        return __config__.get('role')
+
+    @property
+    def username(self) -> Optional[str]:
+        return __config__.get('username')
 

@@ -301,7 +301,7 @@ type ProcedureArrayInput interface {
 type ProcedureArray []ProcedureInput
 
 func (ProcedureArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Procedure)(nil))
+	return reflect.TypeOf((*[]*Procedure)(nil)).Elem()
 }
 
 func (i ProcedureArray) ToProcedureArrayOutput() ProcedureArrayOutput {
@@ -326,7 +326,7 @@ type ProcedureMapInput interface {
 type ProcedureMap map[string]ProcedureInput
 
 func (ProcedureMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Procedure)(nil))
+	return reflect.TypeOf((*map[string]*Procedure)(nil)).Elem()
 }
 
 func (i ProcedureMap) ToProcedureMapOutput() ProcedureMapOutput {
@@ -337,9 +337,7 @@ func (i ProcedureMap) ToProcedureMapOutputWithContext(ctx context.Context) Proce
 	return pulumi.ToOutputWithContext(ctx, i).(ProcedureMapOutput)
 }
 
-type ProcedureOutput struct {
-	*pulumi.OutputState
-}
+type ProcedureOutput struct{ *pulumi.OutputState }
 
 func (ProcedureOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Procedure)(nil))
@@ -358,14 +356,12 @@ func (o ProcedureOutput) ToProcedurePtrOutput() ProcedurePtrOutput {
 }
 
 func (o ProcedureOutput) ToProcedurePtrOutputWithContext(ctx context.Context) ProcedurePtrOutput {
-	return o.ApplyT(func(v Procedure) *Procedure {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Procedure) *Procedure {
 		return &v
 	}).(ProcedurePtrOutput)
 }
 
-type ProcedurePtrOutput struct {
-	*pulumi.OutputState
-}
+type ProcedurePtrOutput struct{ *pulumi.OutputState }
 
 func (ProcedurePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Procedure)(nil))
@@ -377,6 +373,16 @@ func (o ProcedurePtrOutput) ToProcedurePtrOutput() ProcedurePtrOutput {
 
 func (o ProcedurePtrOutput) ToProcedurePtrOutputWithContext(ctx context.Context) ProcedurePtrOutput {
 	return o
+}
+
+func (o ProcedurePtrOutput) Elem() ProcedureOutput {
+	return o.ApplyT(func(v *Procedure) Procedure {
+		if v != nil {
+			return *v
+		}
+		var ret Procedure
+		return ret
+	}).(ProcedureOutput)
 }
 
 type ProcedureArrayOutput struct{ *pulumi.OutputState }

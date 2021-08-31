@@ -290,7 +290,7 @@ type WarehouseArrayInput interface {
 type WarehouseArray []WarehouseInput
 
 func (WarehouseArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Warehouse)(nil))
+	return reflect.TypeOf((*[]*Warehouse)(nil)).Elem()
 }
 
 func (i WarehouseArray) ToWarehouseArrayOutput() WarehouseArrayOutput {
@@ -315,7 +315,7 @@ type WarehouseMapInput interface {
 type WarehouseMap map[string]WarehouseInput
 
 func (WarehouseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Warehouse)(nil))
+	return reflect.TypeOf((*map[string]*Warehouse)(nil)).Elem()
 }
 
 func (i WarehouseMap) ToWarehouseMapOutput() WarehouseMapOutput {
@@ -326,9 +326,7 @@ func (i WarehouseMap) ToWarehouseMapOutputWithContext(ctx context.Context) Wareh
 	return pulumi.ToOutputWithContext(ctx, i).(WarehouseMapOutput)
 }
 
-type WarehouseOutput struct {
-	*pulumi.OutputState
-}
+type WarehouseOutput struct{ *pulumi.OutputState }
 
 func (WarehouseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Warehouse)(nil))
@@ -347,14 +345,12 @@ func (o WarehouseOutput) ToWarehousePtrOutput() WarehousePtrOutput {
 }
 
 func (o WarehouseOutput) ToWarehousePtrOutputWithContext(ctx context.Context) WarehousePtrOutput {
-	return o.ApplyT(func(v Warehouse) *Warehouse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Warehouse) *Warehouse {
 		return &v
 	}).(WarehousePtrOutput)
 }
 
-type WarehousePtrOutput struct {
-	*pulumi.OutputState
-}
+type WarehousePtrOutput struct{ *pulumi.OutputState }
 
 func (WarehousePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Warehouse)(nil))
@@ -366,6 +362,16 @@ func (o WarehousePtrOutput) ToWarehousePtrOutput() WarehousePtrOutput {
 
 func (o WarehousePtrOutput) ToWarehousePtrOutputWithContext(ctx context.Context) WarehousePtrOutput {
 	return o
+}
+
+func (o WarehousePtrOutput) Elem() WarehouseOutput {
+	return o.ApplyT(func(v *Warehouse) Warehouse {
+		if v != nil {
+			return *v
+		}
+		var ret Warehouse
+		return ret
+	}).(WarehouseOutput)
 }
 
 type WarehouseArrayOutput struct{ *pulumi.OutputState }

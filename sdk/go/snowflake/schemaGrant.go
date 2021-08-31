@@ -247,7 +247,7 @@ type SchemaGrantArrayInput interface {
 type SchemaGrantArray []SchemaGrantInput
 
 func (SchemaGrantArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SchemaGrant)(nil))
+	return reflect.TypeOf((*[]*SchemaGrant)(nil)).Elem()
 }
 
 func (i SchemaGrantArray) ToSchemaGrantArrayOutput() SchemaGrantArrayOutput {
@@ -272,7 +272,7 @@ type SchemaGrantMapInput interface {
 type SchemaGrantMap map[string]SchemaGrantInput
 
 func (SchemaGrantMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SchemaGrant)(nil))
+	return reflect.TypeOf((*map[string]*SchemaGrant)(nil)).Elem()
 }
 
 func (i SchemaGrantMap) ToSchemaGrantMapOutput() SchemaGrantMapOutput {
@@ -283,9 +283,7 @@ func (i SchemaGrantMap) ToSchemaGrantMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaGrantMapOutput)
 }
 
-type SchemaGrantOutput struct {
-	*pulumi.OutputState
-}
+type SchemaGrantOutput struct{ *pulumi.OutputState }
 
 func (SchemaGrantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SchemaGrant)(nil))
@@ -304,14 +302,12 @@ func (o SchemaGrantOutput) ToSchemaGrantPtrOutput() SchemaGrantPtrOutput {
 }
 
 func (o SchemaGrantOutput) ToSchemaGrantPtrOutputWithContext(ctx context.Context) SchemaGrantPtrOutput {
-	return o.ApplyT(func(v SchemaGrant) *SchemaGrant {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchemaGrant) *SchemaGrant {
 		return &v
 	}).(SchemaGrantPtrOutput)
 }
 
-type SchemaGrantPtrOutput struct {
-	*pulumi.OutputState
-}
+type SchemaGrantPtrOutput struct{ *pulumi.OutputState }
 
 func (SchemaGrantPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SchemaGrant)(nil))
@@ -323,6 +319,16 @@ func (o SchemaGrantPtrOutput) ToSchemaGrantPtrOutput() SchemaGrantPtrOutput {
 
 func (o SchemaGrantPtrOutput) ToSchemaGrantPtrOutputWithContext(ctx context.Context) SchemaGrantPtrOutput {
 	return o
+}
+
+func (o SchemaGrantPtrOutput) Elem() SchemaGrantOutput {
+	return o.ApplyT(func(v *SchemaGrant) SchemaGrant {
+		if v != nil {
+			return *v
+		}
+		var ret SchemaGrant
+		return ret
+	}).(SchemaGrantOutput)
 }
 
 type SchemaGrantArrayOutput struct{ *pulumi.OutputState }

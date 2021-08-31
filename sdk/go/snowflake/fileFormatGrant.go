@@ -242,7 +242,7 @@ type FileFormatGrantArrayInput interface {
 type FileFormatGrantArray []FileFormatGrantInput
 
 func (FileFormatGrantArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FileFormatGrant)(nil))
+	return reflect.TypeOf((*[]*FileFormatGrant)(nil)).Elem()
 }
 
 func (i FileFormatGrantArray) ToFileFormatGrantArrayOutput() FileFormatGrantArrayOutput {
@@ -267,7 +267,7 @@ type FileFormatGrantMapInput interface {
 type FileFormatGrantMap map[string]FileFormatGrantInput
 
 func (FileFormatGrantMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FileFormatGrant)(nil))
+	return reflect.TypeOf((*map[string]*FileFormatGrant)(nil)).Elem()
 }
 
 func (i FileFormatGrantMap) ToFileFormatGrantMapOutput() FileFormatGrantMapOutput {
@@ -278,9 +278,7 @@ func (i FileFormatGrantMap) ToFileFormatGrantMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(FileFormatGrantMapOutput)
 }
 
-type FileFormatGrantOutput struct {
-	*pulumi.OutputState
-}
+type FileFormatGrantOutput struct{ *pulumi.OutputState }
 
 func (FileFormatGrantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FileFormatGrant)(nil))
@@ -299,14 +297,12 @@ func (o FileFormatGrantOutput) ToFileFormatGrantPtrOutput() FileFormatGrantPtrOu
 }
 
 func (o FileFormatGrantOutput) ToFileFormatGrantPtrOutputWithContext(ctx context.Context) FileFormatGrantPtrOutput {
-	return o.ApplyT(func(v FileFormatGrant) *FileFormatGrant {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileFormatGrant) *FileFormatGrant {
 		return &v
 	}).(FileFormatGrantPtrOutput)
 }
 
-type FileFormatGrantPtrOutput struct {
-	*pulumi.OutputState
-}
+type FileFormatGrantPtrOutput struct{ *pulumi.OutputState }
 
 func (FileFormatGrantPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FileFormatGrant)(nil))
@@ -318,6 +314,16 @@ func (o FileFormatGrantPtrOutput) ToFileFormatGrantPtrOutput() FileFormatGrantPt
 
 func (o FileFormatGrantPtrOutput) ToFileFormatGrantPtrOutputWithContext(ctx context.Context) FileFormatGrantPtrOutput {
 	return o
+}
+
+func (o FileFormatGrantPtrOutput) Elem() FileFormatGrantOutput {
+	return o.ApplyT(func(v *FileFormatGrant) FileFormatGrant {
+		if v != nil {
+			return *v
+		}
+		var ret FileFormatGrant
+		return ret
+	}).(FileFormatGrantOutput)
 }
 
 type FileFormatGrantArrayOutput struct{ *pulumi.OutputState }

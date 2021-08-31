@@ -4,6 +4,9 @@
 package snowflake
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,64 @@ type GetMaskingPoliciesResult struct {
 	MaskingPolicies []GetMaskingPoliciesMaskingPolicy `pulumi:"maskingPolicies"`
 	// The schema from which to return the maskingPolicies from.
 	Schema string `pulumi:"schema"`
+}
+
+func GetMaskingPoliciesOutput(ctx *pulumi.Context, args GetMaskingPoliciesOutputArgs, opts ...pulumi.InvokeOption) GetMaskingPoliciesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetMaskingPoliciesResult, error) {
+			args := v.(GetMaskingPoliciesArgs)
+			r, err := GetMaskingPolicies(ctx, &args, opts...)
+			return *r, err
+		}).(GetMaskingPoliciesResultOutput)
+}
+
+// A collection of arguments for invoking getMaskingPolicies.
+type GetMaskingPoliciesOutputArgs struct {
+	// The database from which to return the schemas from.
+	Database pulumi.StringInput `pulumi:"database"`
+	// The schema from which to return the maskingPolicies from.
+	Schema pulumi.StringInput `pulumi:"schema"`
+}
+
+func (GetMaskingPoliciesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMaskingPoliciesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getMaskingPolicies.
+type GetMaskingPoliciesResultOutput struct{ *pulumi.OutputState }
+
+func (GetMaskingPoliciesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMaskingPoliciesResult)(nil)).Elem()
+}
+
+func (o GetMaskingPoliciesResultOutput) ToGetMaskingPoliciesResultOutput() GetMaskingPoliciesResultOutput {
+	return o
+}
+
+func (o GetMaskingPoliciesResultOutput) ToGetMaskingPoliciesResultOutputWithContext(ctx context.Context) GetMaskingPoliciesResultOutput {
+	return o
+}
+
+// The database from which to return the schemas from.
+func (o GetMaskingPoliciesResultOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMaskingPoliciesResult) string { return v.Database }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetMaskingPoliciesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMaskingPoliciesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The maskingPolicies in the schema
+func (o GetMaskingPoliciesResultOutput) MaskingPolicies() GetMaskingPoliciesMaskingPolicyArrayOutput {
+	return o.ApplyT(func(v GetMaskingPoliciesResult) []GetMaskingPoliciesMaskingPolicy { return v.MaskingPolicies }).(GetMaskingPoliciesMaskingPolicyArrayOutput)
+}
+
+// The schema from which to return the maskingPolicies from.
+func (o GetMaskingPoliciesResultOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMaskingPoliciesResult) string { return v.Schema }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetMaskingPoliciesResultOutput{})
 }

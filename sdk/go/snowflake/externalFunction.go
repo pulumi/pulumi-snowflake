@@ -346,7 +346,7 @@ type ExternalFunctionArrayInput interface {
 type ExternalFunctionArray []ExternalFunctionInput
 
 func (ExternalFunctionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ExternalFunction)(nil))
+	return reflect.TypeOf((*[]*ExternalFunction)(nil)).Elem()
 }
 
 func (i ExternalFunctionArray) ToExternalFunctionArrayOutput() ExternalFunctionArrayOutput {
@@ -371,7 +371,7 @@ type ExternalFunctionMapInput interface {
 type ExternalFunctionMap map[string]ExternalFunctionInput
 
 func (ExternalFunctionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ExternalFunction)(nil))
+	return reflect.TypeOf((*map[string]*ExternalFunction)(nil)).Elem()
 }
 
 func (i ExternalFunctionMap) ToExternalFunctionMapOutput() ExternalFunctionMapOutput {
@@ -382,9 +382,7 @@ func (i ExternalFunctionMap) ToExternalFunctionMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalFunctionMapOutput)
 }
 
-type ExternalFunctionOutput struct {
-	*pulumi.OutputState
-}
+type ExternalFunctionOutput struct{ *pulumi.OutputState }
 
 func (ExternalFunctionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExternalFunction)(nil))
@@ -403,14 +401,12 @@ func (o ExternalFunctionOutput) ToExternalFunctionPtrOutput() ExternalFunctionPt
 }
 
 func (o ExternalFunctionOutput) ToExternalFunctionPtrOutputWithContext(ctx context.Context) ExternalFunctionPtrOutput {
-	return o.ApplyT(func(v ExternalFunction) *ExternalFunction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExternalFunction) *ExternalFunction {
 		return &v
 	}).(ExternalFunctionPtrOutput)
 }
 
-type ExternalFunctionPtrOutput struct {
-	*pulumi.OutputState
-}
+type ExternalFunctionPtrOutput struct{ *pulumi.OutputState }
 
 func (ExternalFunctionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ExternalFunction)(nil))
@@ -422,6 +418,16 @@ func (o ExternalFunctionPtrOutput) ToExternalFunctionPtrOutput() ExternalFunctio
 
 func (o ExternalFunctionPtrOutput) ToExternalFunctionPtrOutputWithContext(ctx context.Context) ExternalFunctionPtrOutput {
 	return o
+}
+
+func (o ExternalFunctionPtrOutput) Elem() ExternalFunctionOutput {
+	return o.ApplyT(func(v *ExternalFunction) ExternalFunction {
+		if v != nil {
+			return *v
+		}
+		var ret ExternalFunction
+		return ret
+	}).(ExternalFunctionOutput)
 }
 
 type ExternalFunctionArrayOutput struct{ *pulumi.OutputState }

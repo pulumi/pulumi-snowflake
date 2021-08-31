@@ -235,7 +235,7 @@ type RowAccessPolicyArrayInput interface {
 type RowAccessPolicyArray []RowAccessPolicyInput
 
 func (RowAccessPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RowAccessPolicy)(nil))
+	return reflect.TypeOf((*[]*RowAccessPolicy)(nil)).Elem()
 }
 
 func (i RowAccessPolicyArray) ToRowAccessPolicyArrayOutput() RowAccessPolicyArrayOutput {
@@ -260,7 +260,7 @@ type RowAccessPolicyMapInput interface {
 type RowAccessPolicyMap map[string]RowAccessPolicyInput
 
 func (RowAccessPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RowAccessPolicy)(nil))
+	return reflect.TypeOf((*map[string]*RowAccessPolicy)(nil)).Elem()
 }
 
 func (i RowAccessPolicyMap) ToRowAccessPolicyMapOutput() RowAccessPolicyMapOutput {
@@ -271,9 +271,7 @@ func (i RowAccessPolicyMap) ToRowAccessPolicyMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(RowAccessPolicyMapOutput)
 }
 
-type RowAccessPolicyOutput struct {
-	*pulumi.OutputState
-}
+type RowAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (RowAccessPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RowAccessPolicy)(nil))
@@ -292,14 +290,12 @@ func (o RowAccessPolicyOutput) ToRowAccessPolicyPtrOutput() RowAccessPolicyPtrOu
 }
 
 func (o RowAccessPolicyOutput) ToRowAccessPolicyPtrOutputWithContext(ctx context.Context) RowAccessPolicyPtrOutput {
-	return o.ApplyT(func(v RowAccessPolicy) *RowAccessPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RowAccessPolicy) *RowAccessPolicy {
 		return &v
 	}).(RowAccessPolicyPtrOutput)
 }
 
-type RowAccessPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type RowAccessPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (RowAccessPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RowAccessPolicy)(nil))
@@ -311,6 +307,16 @@ func (o RowAccessPolicyPtrOutput) ToRowAccessPolicyPtrOutput() RowAccessPolicyPt
 
 func (o RowAccessPolicyPtrOutput) ToRowAccessPolicyPtrOutputWithContext(ctx context.Context) RowAccessPolicyPtrOutput {
 	return o
+}
+
+func (o RowAccessPolicyPtrOutput) Elem() RowAccessPolicyOutput {
+	return o.ApplyT(func(v *RowAccessPolicy) RowAccessPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RowAccessPolicy
+		return ret
+	}).(RowAccessPolicyOutput)
 }
 
 type RowAccessPolicyArrayOutput struct{ *pulumi.OutputState }

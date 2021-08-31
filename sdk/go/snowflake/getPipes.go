@@ -4,6 +4,9 @@
 package snowflake
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,64 @@ type GetPipesResult struct {
 	Pipes []GetPipesPipe `pulumi:"pipes"`
 	// The schema from which to return the pipes from.
 	Schema string `pulumi:"schema"`
+}
+
+func GetPipesOutput(ctx *pulumi.Context, args GetPipesOutputArgs, opts ...pulumi.InvokeOption) GetPipesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetPipesResult, error) {
+			args := v.(GetPipesArgs)
+			r, err := GetPipes(ctx, &args, opts...)
+			return *r, err
+		}).(GetPipesResultOutput)
+}
+
+// A collection of arguments for invoking getPipes.
+type GetPipesOutputArgs struct {
+	// The database from which to return the schemas from.
+	Database pulumi.StringInput `pulumi:"database"`
+	// The schema from which to return the pipes from.
+	Schema pulumi.StringInput `pulumi:"schema"`
+}
+
+func (GetPipesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPipesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getPipes.
+type GetPipesResultOutput struct{ *pulumi.OutputState }
+
+func (GetPipesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPipesResult)(nil)).Elem()
+}
+
+func (o GetPipesResultOutput) ToGetPipesResultOutput() GetPipesResultOutput {
+	return o
+}
+
+func (o GetPipesResultOutput) ToGetPipesResultOutputWithContext(ctx context.Context) GetPipesResultOutput {
+	return o
+}
+
+// The database from which to return the schemas from.
+func (o GetPipesResultOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPipesResult) string { return v.Database }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetPipesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPipesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The pipes in the schema
+func (o GetPipesResultOutput) Pipes() GetPipesPipeArrayOutput {
+	return o.ApplyT(func(v GetPipesResult) []GetPipesPipe { return v.Pipes }).(GetPipesPipeArrayOutput)
+}
+
+// The schema from which to return the pipes from.
+func (o GetPipesResultOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPipesResult) string { return v.Schema }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetPipesResultOutput{})
 }

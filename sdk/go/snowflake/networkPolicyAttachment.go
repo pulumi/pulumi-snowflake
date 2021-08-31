@@ -218,7 +218,7 @@ type NetworkPolicyAttachmentArrayInput interface {
 type NetworkPolicyAttachmentArray []NetworkPolicyAttachmentInput
 
 func (NetworkPolicyAttachmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NetworkPolicyAttachment)(nil))
+	return reflect.TypeOf((*[]*NetworkPolicyAttachment)(nil)).Elem()
 }
 
 func (i NetworkPolicyAttachmentArray) ToNetworkPolicyAttachmentArrayOutput() NetworkPolicyAttachmentArrayOutput {
@@ -243,7 +243,7 @@ type NetworkPolicyAttachmentMapInput interface {
 type NetworkPolicyAttachmentMap map[string]NetworkPolicyAttachmentInput
 
 func (NetworkPolicyAttachmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NetworkPolicyAttachment)(nil))
+	return reflect.TypeOf((*map[string]*NetworkPolicyAttachment)(nil)).Elem()
 }
 
 func (i NetworkPolicyAttachmentMap) ToNetworkPolicyAttachmentMapOutput() NetworkPolicyAttachmentMapOutput {
@@ -254,9 +254,7 @@ func (i NetworkPolicyAttachmentMap) ToNetworkPolicyAttachmentMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPolicyAttachmentMapOutput)
 }
 
-type NetworkPolicyAttachmentOutput struct {
-	*pulumi.OutputState
-}
+type NetworkPolicyAttachmentOutput struct{ *pulumi.OutputState }
 
 func (NetworkPolicyAttachmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkPolicyAttachment)(nil))
@@ -275,14 +273,12 @@ func (o NetworkPolicyAttachmentOutput) ToNetworkPolicyAttachmentPtrOutput() Netw
 }
 
 func (o NetworkPolicyAttachmentOutput) ToNetworkPolicyAttachmentPtrOutputWithContext(ctx context.Context) NetworkPolicyAttachmentPtrOutput {
-	return o.ApplyT(func(v NetworkPolicyAttachment) *NetworkPolicyAttachment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkPolicyAttachment) *NetworkPolicyAttachment {
 		return &v
 	}).(NetworkPolicyAttachmentPtrOutput)
 }
 
-type NetworkPolicyAttachmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type NetworkPolicyAttachmentPtrOutput struct{ *pulumi.OutputState }
 
 func (NetworkPolicyAttachmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NetworkPolicyAttachment)(nil))
@@ -294,6 +290,16 @@ func (o NetworkPolicyAttachmentPtrOutput) ToNetworkPolicyAttachmentPtrOutput() N
 
 func (o NetworkPolicyAttachmentPtrOutput) ToNetworkPolicyAttachmentPtrOutputWithContext(ctx context.Context) NetworkPolicyAttachmentPtrOutput {
 	return o
+}
+
+func (o NetworkPolicyAttachmentPtrOutput) Elem() NetworkPolicyAttachmentOutput {
+	return o.ApplyT(func(v *NetworkPolicyAttachment) NetworkPolicyAttachment {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkPolicyAttachment
+		return ret
+	}).(NetworkPolicyAttachmentOutput)
 }
 
 type NetworkPolicyAttachmentArrayOutput struct{ *pulumi.OutputState }

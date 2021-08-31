@@ -217,7 +217,7 @@ type RoleGrantsArrayInput interface {
 type RoleGrantsArray []RoleGrantsInput
 
 func (RoleGrantsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RoleGrants)(nil))
+	return reflect.TypeOf((*[]*RoleGrants)(nil)).Elem()
 }
 
 func (i RoleGrantsArray) ToRoleGrantsArrayOutput() RoleGrantsArrayOutput {
@@ -242,7 +242,7 @@ type RoleGrantsMapInput interface {
 type RoleGrantsMap map[string]RoleGrantsInput
 
 func (RoleGrantsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RoleGrants)(nil))
+	return reflect.TypeOf((*map[string]*RoleGrants)(nil)).Elem()
 }
 
 func (i RoleGrantsMap) ToRoleGrantsMapOutput() RoleGrantsMapOutput {
@@ -253,9 +253,7 @@ func (i RoleGrantsMap) ToRoleGrantsMapOutputWithContext(ctx context.Context) Rol
 	return pulumi.ToOutputWithContext(ctx, i).(RoleGrantsMapOutput)
 }
 
-type RoleGrantsOutput struct {
-	*pulumi.OutputState
-}
+type RoleGrantsOutput struct{ *pulumi.OutputState }
 
 func (RoleGrantsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RoleGrants)(nil))
@@ -274,14 +272,12 @@ func (o RoleGrantsOutput) ToRoleGrantsPtrOutput() RoleGrantsPtrOutput {
 }
 
 func (o RoleGrantsOutput) ToRoleGrantsPtrOutputWithContext(ctx context.Context) RoleGrantsPtrOutput {
-	return o.ApplyT(func(v RoleGrants) *RoleGrants {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleGrants) *RoleGrants {
 		return &v
 	}).(RoleGrantsPtrOutput)
 }
 
-type RoleGrantsPtrOutput struct {
-	*pulumi.OutputState
-}
+type RoleGrantsPtrOutput struct{ *pulumi.OutputState }
 
 func (RoleGrantsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RoleGrants)(nil))
@@ -293,6 +289,16 @@ func (o RoleGrantsPtrOutput) ToRoleGrantsPtrOutput() RoleGrantsPtrOutput {
 
 func (o RoleGrantsPtrOutput) ToRoleGrantsPtrOutputWithContext(ctx context.Context) RoleGrantsPtrOutput {
 	return o
+}
+
+func (o RoleGrantsPtrOutput) Elem() RoleGrantsOutput {
+	return o.ApplyT(func(v *RoleGrants) RoleGrants {
+		if v != nil {
+			return *v
+		}
+		var ret RoleGrants
+		return ret
+	}).(RoleGrantsOutput)
 }
 
 type RoleGrantsArrayOutput struct{ *pulumi.OutputState }

@@ -196,7 +196,7 @@ type MaskingPolicyGrantArrayInput interface {
 type MaskingPolicyGrantArray []MaskingPolicyGrantInput
 
 func (MaskingPolicyGrantArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MaskingPolicyGrant)(nil))
+	return reflect.TypeOf((*[]*MaskingPolicyGrant)(nil)).Elem()
 }
 
 func (i MaskingPolicyGrantArray) ToMaskingPolicyGrantArrayOutput() MaskingPolicyGrantArrayOutput {
@@ -221,7 +221,7 @@ type MaskingPolicyGrantMapInput interface {
 type MaskingPolicyGrantMap map[string]MaskingPolicyGrantInput
 
 func (MaskingPolicyGrantMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MaskingPolicyGrant)(nil))
+	return reflect.TypeOf((*map[string]*MaskingPolicyGrant)(nil)).Elem()
 }
 
 func (i MaskingPolicyGrantMap) ToMaskingPolicyGrantMapOutput() MaskingPolicyGrantMapOutput {
@@ -232,9 +232,7 @@ func (i MaskingPolicyGrantMap) ToMaskingPolicyGrantMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(MaskingPolicyGrantMapOutput)
 }
 
-type MaskingPolicyGrantOutput struct {
-	*pulumi.OutputState
-}
+type MaskingPolicyGrantOutput struct{ *pulumi.OutputState }
 
 func (MaskingPolicyGrantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MaskingPolicyGrant)(nil))
@@ -253,14 +251,12 @@ func (o MaskingPolicyGrantOutput) ToMaskingPolicyGrantPtrOutput() MaskingPolicyG
 }
 
 func (o MaskingPolicyGrantOutput) ToMaskingPolicyGrantPtrOutputWithContext(ctx context.Context) MaskingPolicyGrantPtrOutput {
-	return o.ApplyT(func(v MaskingPolicyGrant) *MaskingPolicyGrant {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaskingPolicyGrant) *MaskingPolicyGrant {
 		return &v
 	}).(MaskingPolicyGrantPtrOutput)
 }
 
-type MaskingPolicyGrantPtrOutput struct {
-	*pulumi.OutputState
-}
+type MaskingPolicyGrantPtrOutput struct{ *pulumi.OutputState }
 
 func (MaskingPolicyGrantPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MaskingPolicyGrant)(nil))
@@ -272,6 +268,16 @@ func (o MaskingPolicyGrantPtrOutput) ToMaskingPolicyGrantPtrOutput() MaskingPoli
 
 func (o MaskingPolicyGrantPtrOutput) ToMaskingPolicyGrantPtrOutputWithContext(ctx context.Context) MaskingPolicyGrantPtrOutput {
 	return o
+}
+
+func (o MaskingPolicyGrantPtrOutput) Elem() MaskingPolicyGrantOutput {
+	return o.ApplyT(func(v *MaskingPolicyGrant) MaskingPolicyGrant {
+		if v != nil {
+			return *v
+		}
+		var ret MaskingPolicyGrant
+		return ret
+	}).(MaskingPolicyGrantOutput)
 }
 
 type MaskingPolicyGrantArrayOutput struct{ *pulumi.OutputState }

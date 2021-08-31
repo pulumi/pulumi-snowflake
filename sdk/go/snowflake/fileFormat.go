@@ -528,7 +528,7 @@ type FileFormatArrayInput interface {
 type FileFormatArray []FileFormatInput
 
 func (FileFormatArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FileFormat)(nil))
+	return reflect.TypeOf((*[]*FileFormat)(nil)).Elem()
 }
 
 func (i FileFormatArray) ToFileFormatArrayOutput() FileFormatArrayOutput {
@@ -553,7 +553,7 @@ type FileFormatMapInput interface {
 type FileFormatMap map[string]FileFormatInput
 
 func (FileFormatMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FileFormat)(nil))
+	return reflect.TypeOf((*map[string]*FileFormat)(nil)).Elem()
 }
 
 func (i FileFormatMap) ToFileFormatMapOutput() FileFormatMapOutput {
@@ -564,9 +564,7 @@ func (i FileFormatMap) ToFileFormatMapOutputWithContext(ctx context.Context) Fil
 	return pulumi.ToOutputWithContext(ctx, i).(FileFormatMapOutput)
 }
 
-type FileFormatOutput struct {
-	*pulumi.OutputState
-}
+type FileFormatOutput struct{ *pulumi.OutputState }
 
 func (FileFormatOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FileFormat)(nil))
@@ -585,14 +583,12 @@ func (o FileFormatOutput) ToFileFormatPtrOutput() FileFormatPtrOutput {
 }
 
 func (o FileFormatOutput) ToFileFormatPtrOutputWithContext(ctx context.Context) FileFormatPtrOutput {
-	return o.ApplyT(func(v FileFormat) *FileFormat {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileFormat) *FileFormat {
 		return &v
 	}).(FileFormatPtrOutput)
 }
 
-type FileFormatPtrOutput struct {
-	*pulumi.OutputState
-}
+type FileFormatPtrOutput struct{ *pulumi.OutputState }
 
 func (FileFormatPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FileFormat)(nil))
@@ -604,6 +600,16 @@ func (o FileFormatPtrOutput) ToFileFormatPtrOutput() FileFormatPtrOutput {
 
 func (o FileFormatPtrOutput) ToFileFormatPtrOutputWithContext(ctx context.Context) FileFormatPtrOutput {
 	return o
+}
+
+func (o FileFormatPtrOutput) Elem() FileFormatOutput {
+	return o.ApplyT(func(v *FileFormat) FileFormat {
+		if v != nil {
+			return *v
+		}
+		var ret FileFormat
+		return ret
+	}).(FileFormatOutput)
 }
 
 type FileFormatArrayOutput struct{ *pulumi.OutputState }

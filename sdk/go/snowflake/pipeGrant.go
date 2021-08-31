@@ -210,7 +210,7 @@ type PipeGrantArrayInput interface {
 type PipeGrantArray []PipeGrantInput
 
 func (PipeGrantArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PipeGrant)(nil))
+	return reflect.TypeOf((*[]*PipeGrant)(nil)).Elem()
 }
 
 func (i PipeGrantArray) ToPipeGrantArrayOutput() PipeGrantArrayOutput {
@@ -235,7 +235,7 @@ type PipeGrantMapInput interface {
 type PipeGrantMap map[string]PipeGrantInput
 
 func (PipeGrantMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PipeGrant)(nil))
+	return reflect.TypeOf((*map[string]*PipeGrant)(nil)).Elem()
 }
 
 func (i PipeGrantMap) ToPipeGrantMapOutput() PipeGrantMapOutput {
@@ -246,9 +246,7 @@ func (i PipeGrantMap) ToPipeGrantMapOutputWithContext(ctx context.Context) PipeG
 	return pulumi.ToOutputWithContext(ctx, i).(PipeGrantMapOutput)
 }
 
-type PipeGrantOutput struct {
-	*pulumi.OutputState
-}
+type PipeGrantOutput struct{ *pulumi.OutputState }
 
 func (PipeGrantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PipeGrant)(nil))
@@ -267,14 +265,12 @@ func (o PipeGrantOutput) ToPipeGrantPtrOutput() PipeGrantPtrOutput {
 }
 
 func (o PipeGrantOutput) ToPipeGrantPtrOutputWithContext(ctx context.Context) PipeGrantPtrOutput {
-	return o.ApplyT(func(v PipeGrant) *PipeGrant {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeGrant) *PipeGrant {
 		return &v
 	}).(PipeGrantPtrOutput)
 }
 
-type PipeGrantPtrOutput struct {
-	*pulumi.OutputState
-}
+type PipeGrantPtrOutput struct{ *pulumi.OutputState }
 
 func (PipeGrantPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PipeGrant)(nil))
@@ -286,6 +282,16 @@ func (o PipeGrantPtrOutput) ToPipeGrantPtrOutput() PipeGrantPtrOutput {
 
 func (o PipeGrantPtrOutput) ToPipeGrantPtrOutputWithContext(ctx context.Context) PipeGrantPtrOutput {
 	return o
+}
+
+func (o PipeGrantPtrOutput) Elem() PipeGrantOutput {
+	return o.ApplyT(func(v *PipeGrant) PipeGrant {
+		if v != nil {
+			return *v
+		}
+		var ret PipeGrant
+		return ret
+	}).(PipeGrantOutput)
 }
 
 type PipeGrantArrayOutput struct{ *pulumi.OutputState }

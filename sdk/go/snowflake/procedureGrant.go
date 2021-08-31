@@ -287,7 +287,7 @@ type ProcedureGrantArrayInput interface {
 type ProcedureGrantArray []ProcedureGrantInput
 
 func (ProcedureGrantArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ProcedureGrant)(nil))
+	return reflect.TypeOf((*[]*ProcedureGrant)(nil)).Elem()
 }
 
 func (i ProcedureGrantArray) ToProcedureGrantArrayOutput() ProcedureGrantArrayOutput {
@@ -312,7 +312,7 @@ type ProcedureGrantMapInput interface {
 type ProcedureGrantMap map[string]ProcedureGrantInput
 
 func (ProcedureGrantMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ProcedureGrant)(nil))
+	return reflect.TypeOf((*map[string]*ProcedureGrant)(nil)).Elem()
 }
 
 func (i ProcedureGrantMap) ToProcedureGrantMapOutput() ProcedureGrantMapOutput {
@@ -323,9 +323,7 @@ func (i ProcedureGrantMap) ToProcedureGrantMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ProcedureGrantMapOutput)
 }
 
-type ProcedureGrantOutput struct {
-	*pulumi.OutputState
-}
+type ProcedureGrantOutput struct{ *pulumi.OutputState }
 
 func (ProcedureGrantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProcedureGrant)(nil))
@@ -344,14 +342,12 @@ func (o ProcedureGrantOutput) ToProcedureGrantPtrOutput() ProcedureGrantPtrOutpu
 }
 
 func (o ProcedureGrantOutput) ToProcedureGrantPtrOutputWithContext(ctx context.Context) ProcedureGrantPtrOutput {
-	return o.ApplyT(func(v ProcedureGrant) *ProcedureGrant {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcedureGrant) *ProcedureGrant {
 		return &v
 	}).(ProcedureGrantPtrOutput)
 }
 
-type ProcedureGrantPtrOutput struct {
-	*pulumi.OutputState
-}
+type ProcedureGrantPtrOutput struct{ *pulumi.OutputState }
 
 func (ProcedureGrantPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ProcedureGrant)(nil))
@@ -363,6 +359,16 @@ func (o ProcedureGrantPtrOutput) ToProcedureGrantPtrOutput() ProcedureGrantPtrOu
 
 func (o ProcedureGrantPtrOutput) ToProcedureGrantPtrOutputWithContext(ctx context.Context) ProcedureGrantPtrOutput {
 	return o
+}
+
+func (o ProcedureGrantPtrOutput) Elem() ProcedureGrantOutput {
+	return o.ApplyT(func(v *ProcedureGrant) ProcedureGrant {
+		if v != nil {
+			return *v
+		}
+		var ret ProcedureGrant
+		return ret
+	}).(ProcedureGrantOutput)
 }
 
 type ProcedureGrantArrayOutput struct{ *pulumi.OutputState }

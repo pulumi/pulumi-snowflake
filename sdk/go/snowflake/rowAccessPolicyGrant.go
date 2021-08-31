@@ -234,7 +234,7 @@ type RowAccessPolicyGrantArrayInput interface {
 type RowAccessPolicyGrantArray []RowAccessPolicyGrantInput
 
 func (RowAccessPolicyGrantArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RowAccessPolicyGrant)(nil))
+	return reflect.TypeOf((*[]*RowAccessPolicyGrant)(nil)).Elem()
 }
 
 func (i RowAccessPolicyGrantArray) ToRowAccessPolicyGrantArrayOutput() RowAccessPolicyGrantArrayOutput {
@@ -259,7 +259,7 @@ type RowAccessPolicyGrantMapInput interface {
 type RowAccessPolicyGrantMap map[string]RowAccessPolicyGrantInput
 
 func (RowAccessPolicyGrantMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RowAccessPolicyGrant)(nil))
+	return reflect.TypeOf((*map[string]*RowAccessPolicyGrant)(nil)).Elem()
 }
 
 func (i RowAccessPolicyGrantMap) ToRowAccessPolicyGrantMapOutput() RowAccessPolicyGrantMapOutput {
@@ -270,9 +270,7 @@ func (i RowAccessPolicyGrantMap) ToRowAccessPolicyGrantMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RowAccessPolicyGrantMapOutput)
 }
 
-type RowAccessPolicyGrantOutput struct {
-	*pulumi.OutputState
-}
+type RowAccessPolicyGrantOutput struct{ *pulumi.OutputState }
 
 func (RowAccessPolicyGrantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RowAccessPolicyGrant)(nil))
@@ -291,14 +289,12 @@ func (o RowAccessPolicyGrantOutput) ToRowAccessPolicyGrantPtrOutput() RowAccessP
 }
 
 func (o RowAccessPolicyGrantOutput) ToRowAccessPolicyGrantPtrOutputWithContext(ctx context.Context) RowAccessPolicyGrantPtrOutput {
-	return o.ApplyT(func(v RowAccessPolicyGrant) *RowAccessPolicyGrant {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RowAccessPolicyGrant) *RowAccessPolicyGrant {
 		return &v
 	}).(RowAccessPolicyGrantPtrOutput)
 }
 
-type RowAccessPolicyGrantPtrOutput struct {
-	*pulumi.OutputState
-}
+type RowAccessPolicyGrantPtrOutput struct{ *pulumi.OutputState }
 
 func (RowAccessPolicyGrantPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RowAccessPolicyGrant)(nil))
@@ -310,6 +306,16 @@ func (o RowAccessPolicyGrantPtrOutput) ToRowAccessPolicyGrantPtrOutput() RowAcce
 
 func (o RowAccessPolicyGrantPtrOutput) ToRowAccessPolicyGrantPtrOutputWithContext(ctx context.Context) RowAccessPolicyGrantPtrOutput {
 	return o
+}
+
+func (o RowAccessPolicyGrantPtrOutput) Elem() RowAccessPolicyGrantOutput {
+	return o.ApplyT(func(v *RowAccessPolicyGrant) RowAccessPolicyGrant {
+		if v != nil {
+			return *v
+		}
+		var ret RowAccessPolicyGrant
+		return ret
+	}).(RowAccessPolicyGrantOutput)
 }
 
 type RowAccessPolicyGrantArrayOutput struct{ *pulumi.OutputState }

@@ -270,7 +270,7 @@ type ApiIntegrationArrayInput interface {
 type ApiIntegrationArray []ApiIntegrationInput
 
 func (ApiIntegrationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ApiIntegration)(nil))
+	return reflect.TypeOf((*[]*ApiIntegration)(nil)).Elem()
 }
 
 func (i ApiIntegrationArray) ToApiIntegrationArrayOutput() ApiIntegrationArrayOutput {
@@ -295,7 +295,7 @@ type ApiIntegrationMapInput interface {
 type ApiIntegrationMap map[string]ApiIntegrationInput
 
 func (ApiIntegrationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ApiIntegration)(nil))
+	return reflect.TypeOf((*map[string]*ApiIntegration)(nil)).Elem()
 }
 
 func (i ApiIntegrationMap) ToApiIntegrationMapOutput() ApiIntegrationMapOutput {
@@ -306,9 +306,7 @@ func (i ApiIntegrationMap) ToApiIntegrationMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ApiIntegrationMapOutput)
 }
 
-type ApiIntegrationOutput struct {
-	*pulumi.OutputState
-}
+type ApiIntegrationOutput struct{ *pulumi.OutputState }
 
 func (ApiIntegrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiIntegration)(nil))
@@ -327,14 +325,12 @@ func (o ApiIntegrationOutput) ToApiIntegrationPtrOutput() ApiIntegrationPtrOutpu
 }
 
 func (o ApiIntegrationOutput) ToApiIntegrationPtrOutputWithContext(ctx context.Context) ApiIntegrationPtrOutput {
-	return o.ApplyT(func(v ApiIntegration) *ApiIntegration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiIntegration) *ApiIntegration {
 		return &v
 	}).(ApiIntegrationPtrOutput)
 }
 
-type ApiIntegrationPtrOutput struct {
-	*pulumi.OutputState
-}
+type ApiIntegrationPtrOutput struct{ *pulumi.OutputState }
 
 func (ApiIntegrationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApiIntegration)(nil))
@@ -346,6 +342,16 @@ func (o ApiIntegrationPtrOutput) ToApiIntegrationPtrOutput() ApiIntegrationPtrOu
 
 func (o ApiIntegrationPtrOutput) ToApiIntegrationPtrOutputWithContext(ctx context.Context) ApiIntegrationPtrOutput {
 	return o
+}
+
+func (o ApiIntegrationPtrOutput) Elem() ApiIntegrationOutput {
+	return o.ApplyT(func(v *ApiIntegration) ApiIntegration {
+		if v != nil {
+			return *v
+		}
+		var ret ApiIntegration
+		return ret
+	}).(ApiIntegrationOutput)
 }
 
 type ApiIntegrationArrayOutput struct{ *pulumi.OutputState }

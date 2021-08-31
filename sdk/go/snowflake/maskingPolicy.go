@@ -246,7 +246,7 @@ type MaskingPolicyArrayInput interface {
 type MaskingPolicyArray []MaskingPolicyInput
 
 func (MaskingPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MaskingPolicy)(nil))
+	return reflect.TypeOf((*[]*MaskingPolicy)(nil)).Elem()
 }
 
 func (i MaskingPolicyArray) ToMaskingPolicyArrayOutput() MaskingPolicyArrayOutput {
@@ -271,7 +271,7 @@ type MaskingPolicyMapInput interface {
 type MaskingPolicyMap map[string]MaskingPolicyInput
 
 func (MaskingPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MaskingPolicy)(nil))
+	return reflect.TypeOf((*map[string]*MaskingPolicy)(nil)).Elem()
 }
 
 func (i MaskingPolicyMap) ToMaskingPolicyMapOutput() MaskingPolicyMapOutput {
@@ -282,9 +282,7 @@ func (i MaskingPolicyMap) ToMaskingPolicyMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(MaskingPolicyMapOutput)
 }
 
-type MaskingPolicyOutput struct {
-	*pulumi.OutputState
-}
+type MaskingPolicyOutput struct{ *pulumi.OutputState }
 
 func (MaskingPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MaskingPolicy)(nil))
@@ -303,14 +301,12 @@ func (o MaskingPolicyOutput) ToMaskingPolicyPtrOutput() MaskingPolicyPtrOutput {
 }
 
 func (o MaskingPolicyOutput) ToMaskingPolicyPtrOutputWithContext(ctx context.Context) MaskingPolicyPtrOutput {
-	return o.ApplyT(func(v MaskingPolicy) *MaskingPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaskingPolicy) *MaskingPolicy {
 		return &v
 	}).(MaskingPolicyPtrOutput)
 }
 
-type MaskingPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type MaskingPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (MaskingPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MaskingPolicy)(nil))
@@ -322,6 +318,16 @@ func (o MaskingPolicyPtrOutput) ToMaskingPolicyPtrOutput() MaskingPolicyPtrOutpu
 
 func (o MaskingPolicyPtrOutput) ToMaskingPolicyPtrOutputWithContext(ctx context.Context) MaskingPolicyPtrOutput {
 	return o
+}
+
+func (o MaskingPolicyPtrOutput) Elem() MaskingPolicyOutput {
+	return o.ApplyT(func(v *MaskingPolicy) MaskingPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret MaskingPolicy
+		return ret
+	}).(MaskingPolicyOutput)
 }
 
 type MaskingPolicyArrayOutput struct{ *pulumi.OutputState }

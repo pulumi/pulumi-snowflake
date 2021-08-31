@@ -241,7 +241,7 @@ type ViewArrayInput interface {
 type ViewArray []ViewInput
 
 func (ViewArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*View)(nil))
+	return reflect.TypeOf((*[]*View)(nil)).Elem()
 }
 
 func (i ViewArray) ToViewArrayOutput() ViewArrayOutput {
@@ -266,7 +266,7 @@ type ViewMapInput interface {
 type ViewMap map[string]ViewInput
 
 func (ViewMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*View)(nil))
+	return reflect.TypeOf((*map[string]*View)(nil)).Elem()
 }
 
 func (i ViewMap) ToViewMapOutput() ViewMapOutput {
@@ -277,9 +277,7 @@ func (i ViewMap) ToViewMapOutputWithContext(ctx context.Context) ViewMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ViewMapOutput)
 }
 
-type ViewOutput struct {
-	*pulumi.OutputState
-}
+type ViewOutput struct{ *pulumi.OutputState }
 
 func (ViewOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*View)(nil))
@@ -298,14 +296,12 @@ func (o ViewOutput) ToViewPtrOutput() ViewPtrOutput {
 }
 
 func (o ViewOutput) ToViewPtrOutputWithContext(ctx context.Context) ViewPtrOutput {
-	return o.ApplyT(func(v View) *View {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v View) *View {
 		return &v
 	}).(ViewPtrOutput)
 }
 
-type ViewPtrOutput struct {
-	*pulumi.OutputState
-}
+type ViewPtrOutput struct{ *pulumi.OutputState }
 
 func (ViewPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**View)(nil))
@@ -317,6 +313,16 @@ func (o ViewPtrOutput) ToViewPtrOutput() ViewPtrOutput {
 
 func (o ViewPtrOutput) ToViewPtrOutputWithContext(ctx context.Context) ViewPtrOutput {
 	return o
+}
+
+func (o ViewPtrOutput) Elem() ViewOutput {
+	return o.ApplyT(func(v *View) View {
+		if v != nil {
+			return *v
+		}
+		var ret View
+		return ret
+	}).(ViewOutput)
 }
 
 type ViewArrayOutput struct{ *pulumi.OutputState }

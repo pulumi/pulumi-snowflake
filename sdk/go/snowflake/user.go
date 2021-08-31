@@ -312,7 +312,7 @@ type UserArrayInput interface {
 type UserArray []UserInput
 
 func (UserArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*User)(nil))
+	return reflect.TypeOf((*[]*User)(nil)).Elem()
 }
 
 func (i UserArray) ToUserArrayOutput() UserArrayOutput {
@@ -337,7 +337,7 @@ type UserMapInput interface {
 type UserMap map[string]UserInput
 
 func (UserMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*User)(nil))
+	return reflect.TypeOf((*map[string]*User)(nil)).Elem()
 }
 
 func (i UserMap) ToUserMapOutput() UserMapOutput {
@@ -348,9 +348,7 @@ func (i UserMap) ToUserMapOutputWithContext(ctx context.Context) UserMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserMapOutput)
 }
 
-type UserOutput struct {
-	*pulumi.OutputState
-}
+type UserOutput struct{ *pulumi.OutputState }
 
 func (UserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*User)(nil))
@@ -369,14 +367,12 @@ func (o UserOutput) ToUserPtrOutput() UserPtrOutput {
 }
 
 func (o UserOutput) ToUserPtrOutputWithContext(ctx context.Context) UserPtrOutput {
-	return o.ApplyT(func(v User) *User {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v User) *User {
 		return &v
 	}).(UserPtrOutput)
 }
 
-type UserPtrOutput struct {
-	*pulumi.OutputState
-}
+type UserPtrOutput struct{ *pulumi.OutputState }
 
 func (UserPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**User)(nil))
@@ -388,6 +384,16 @@ func (o UserPtrOutput) ToUserPtrOutput() UserPtrOutput {
 
 func (o UserPtrOutput) ToUserPtrOutputWithContext(ctx context.Context) UserPtrOutput {
 	return o
+}
+
+func (o UserPtrOutput) Elem() UserOutput {
+	return o.ApplyT(func(v *User) User {
+		if v != nil {
+			return *v
+		}
+		var ret User
+		return ret
+	}).(UserOutput)
 }
 
 type UserArrayOutput struct{ *pulumi.OutputState }

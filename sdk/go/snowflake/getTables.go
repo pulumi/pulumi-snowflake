@@ -4,6 +4,9 @@
 package snowflake
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,64 @@ type GetTablesResult struct {
 	Schema string `pulumi:"schema"`
 	// The tables in the schema
 	Tables []GetTablesTable `pulumi:"tables"`
+}
+
+func GetTablesOutput(ctx *pulumi.Context, args GetTablesOutputArgs, opts ...pulumi.InvokeOption) GetTablesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetTablesResult, error) {
+			args := v.(GetTablesArgs)
+			r, err := GetTables(ctx, &args, opts...)
+			return *r, err
+		}).(GetTablesResultOutput)
+}
+
+// A collection of arguments for invoking getTables.
+type GetTablesOutputArgs struct {
+	// The database from which to return the schemas from.
+	Database pulumi.StringInput `pulumi:"database"`
+	// The schema from which to return the tables from.
+	Schema pulumi.StringInput `pulumi:"schema"`
+}
+
+func (GetTablesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTablesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getTables.
+type GetTablesResultOutput struct{ *pulumi.OutputState }
+
+func (GetTablesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTablesResult)(nil)).Elem()
+}
+
+func (o GetTablesResultOutput) ToGetTablesResultOutput() GetTablesResultOutput {
+	return o
+}
+
+func (o GetTablesResultOutput) ToGetTablesResultOutputWithContext(ctx context.Context) GetTablesResultOutput {
+	return o
+}
+
+// The database from which to return the schemas from.
+func (o GetTablesResultOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTablesResult) string { return v.Database }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetTablesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTablesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The schema from which to return the tables from.
+func (o GetTablesResultOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTablesResult) string { return v.Schema }).(pulumi.StringOutput)
+}
+
+// The tables in the schema
+func (o GetTablesResultOutput) Tables() GetTablesTableArrayOutput {
+	return o.ApplyT(func(v GetTablesResult) []GetTablesTable { return v.Tables }).(GetTablesTableArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetTablesResultOutput{})
 }

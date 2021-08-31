@@ -255,7 +255,7 @@ type MaterializedViewArrayInput interface {
 type MaterializedViewArray []MaterializedViewInput
 
 func (MaterializedViewArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MaterializedView)(nil))
+	return reflect.TypeOf((*[]*MaterializedView)(nil)).Elem()
 }
 
 func (i MaterializedViewArray) ToMaterializedViewArrayOutput() MaterializedViewArrayOutput {
@@ -280,7 +280,7 @@ type MaterializedViewMapInput interface {
 type MaterializedViewMap map[string]MaterializedViewInput
 
 func (MaterializedViewMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MaterializedView)(nil))
+	return reflect.TypeOf((*map[string]*MaterializedView)(nil)).Elem()
 }
 
 func (i MaterializedViewMap) ToMaterializedViewMapOutput() MaterializedViewMapOutput {
@@ -291,9 +291,7 @@ func (i MaterializedViewMap) ToMaterializedViewMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(MaterializedViewMapOutput)
 }
 
-type MaterializedViewOutput struct {
-	*pulumi.OutputState
-}
+type MaterializedViewOutput struct{ *pulumi.OutputState }
 
 func (MaterializedViewOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MaterializedView)(nil))
@@ -312,14 +310,12 @@ func (o MaterializedViewOutput) ToMaterializedViewPtrOutput() MaterializedViewPt
 }
 
 func (o MaterializedViewOutput) ToMaterializedViewPtrOutputWithContext(ctx context.Context) MaterializedViewPtrOutput {
-	return o.ApplyT(func(v MaterializedView) *MaterializedView {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaterializedView) *MaterializedView {
 		return &v
 	}).(MaterializedViewPtrOutput)
 }
 
-type MaterializedViewPtrOutput struct {
-	*pulumi.OutputState
-}
+type MaterializedViewPtrOutput struct{ *pulumi.OutputState }
 
 func (MaterializedViewPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MaterializedView)(nil))
@@ -331,6 +327,16 @@ func (o MaterializedViewPtrOutput) ToMaterializedViewPtrOutput() MaterializedVie
 
 func (o MaterializedViewPtrOutput) ToMaterializedViewPtrOutputWithContext(ctx context.Context) MaterializedViewPtrOutput {
 	return o
+}
+
+func (o MaterializedViewPtrOutput) Elem() MaterializedViewOutput {
+	return o.ApplyT(func(v *MaterializedView) MaterializedView {
+		if v != nil {
+			return *v
+		}
+		var ret MaterializedView
+		return ret
+	}).(MaterializedViewOutput)
 }
 
 type MaterializedViewArrayOutput struct{ *pulumi.OutputState }

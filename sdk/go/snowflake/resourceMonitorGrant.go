@@ -175,7 +175,7 @@ type ResourceMonitorGrantArrayInput interface {
 type ResourceMonitorGrantArray []ResourceMonitorGrantInput
 
 func (ResourceMonitorGrantArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ResourceMonitorGrant)(nil))
+	return reflect.TypeOf((*[]*ResourceMonitorGrant)(nil)).Elem()
 }
 
 func (i ResourceMonitorGrantArray) ToResourceMonitorGrantArrayOutput() ResourceMonitorGrantArrayOutput {
@@ -200,7 +200,7 @@ type ResourceMonitorGrantMapInput interface {
 type ResourceMonitorGrantMap map[string]ResourceMonitorGrantInput
 
 func (ResourceMonitorGrantMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ResourceMonitorGrant)(nil))
+	return reflect.TypeOf((*map[string]*ResourceMonitorGrant)(nil)).Elem()
 }
 
 func (i ResourceMonitorGrantMap) ToResourceMonitorGrantMapOutput() ResourceMonitorGrantMapOutput {
@@ -211,9 +211,7 @@ func (i ResourceMonitorGrantMap) ToResourceMonitorGrantMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceMonitorGrantMapOutput)
 }
 
-type ResourceMonitorGrantOutput struct {
-	*pulumi.OutputState
-}
+type ResourceMonitorGrantOutput struct{ *pulumi.OutputState }
 
 func (ResourceMonitorGrantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourceMonitorGrant)(nil))
@@ -232,14 +230,12 @@ func (o ResourceMonitorGrantOutput) ToResourceMonitorGrantPtrOutput() ResourceMo
 }
 
 func (o ResourceMonitorGrantOutput) ToResourceMonitorGrantPtrOutputWithContext(ctx context.Context) ResourceMonitorGrantPtrOutput {
-	return o.ApplyT(func(v ResourceMonitorGrant) *ResourceMonitorGrant {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceMonitorGrant) *ResourceMonitorGrant {
 		return &v
 	}).(ResourceMonitorGrantPtrOutput)
 }
 
-type ResourceMonitorGrantPtrOutput struct {
-	*pulumi.OutputState
-}
+type ResourceMonitorGrantPtrOutput struct{ *pulumi.OutputState }
 
 func (ResourceMonitorGrantPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ResourceMonitorGrant)(nil))
@@ -251,6 +247,16 @@ func (o ResourceMonitorGrantPtrOutput) ToResourceMonitorGrantPtrOutput() Resourc
 
 func (o ResourceMonitorGrantPtrOutput) ToResourceMonitorGrantPtrOutputWithContext(ctx context.Context) ResourceMonitorGrantPtrOutput {
 	return o
+}
+
+func (o ResourceMonitorGrantPtrOutput) Elem() ResourceMonitorGrantOutput {
+	return o.ApplyT(func(v *ResourceMonitorGrant) ResourceMonitorGrant {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceMonitorGrant
+		return ret
+	}).(ResourceMonitorGrantOutput)
 }
 
 type ResourceMonitorGrantArrayOutput struct{ *pulumi.OutputState }

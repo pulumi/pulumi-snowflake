@@ -4,24 +4,130 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-let __config = new pulumi.Config("snowflake");
+declare var exports: any;
+const __config = new pulumi.Config("snowflake");
 
-export let account: string | undefined = __config.get("account");
-export let browserAuth: boolean | undefined = __config.getObject<boolean>("browserAuth");
-export let oauthAccessToken: string | undefined = __config.get("oauthAccessToken");
-export let oauthClientId: string | undefined = __config.get("oauthClientId");
-export let oauthClientSecret: string | undefined = __config.get("oauthClientSecret");
-export let oauthEndpoint: string | undefined = __config.get("oauthEndpoint");
-export let oauthRedirectUrl: string | undefined = __config.get("oauthRedirectUrl");
-export let oauthRefreshToken: string | undefined = __config.get("oauthRefreshToken");
-export let password: string | undefined = __config.get("password");
-export let privateKey: string | undefined = __config.get("privateKey");
+export declare const account: string | undefined;
+Object.defineProperty(exports, "account", {
+    get() {
+        return __config.get("account");
+    },
+    enumerable: true,
+});
+
+export declare const browserAuth: boolean | undefined;
+Object.defineProperty(exports, "browserAuth", {
+    get() {
+        return __config.getObject<boolean>("browserAuth");
+    },
+    enumerable: true,
+});
+
+export declare const oauthAccessToken: string | undefined;
+Object.defineProperty(exports, "oauthAccessToken", {
+    get() {
+        return __config.get("oauthAccessToken");
+    },
+    enumerable: true,
+});
+
+export declare const oauthClientId: string | undefined;
+Object.defineProperty(exports, "oauthClientId", {
+    get() {
+        return __config.get("oauthClientId");
+    },
+    enumerable: true,
+});
+
+export declare const oauthClientSecret: string | undefined;
+Object.defineProperty(exports, "oauthClientSecret", {
+    get() {
+        return __config.get("oauthClientSecret");
+    },
+    enumerable: true,
+});
+
+export declare const oauthEndpoint: string | undefined;
+Object.defineProperty(exports, "oauthEndpoint", {
+    get() {
+        return __config.get("oauthEndpoint");
+    },
+    enumerable: true,
+});
+
+export declare const oauthRedirectUrl: string | undefined;
+Object.defineProperty(exports, "oauthRedirectUrl", {
+    get() {
+        return __config.get("oauthRedirectUrl");
+    },
+    enumerable: true,
+});
+
+export declare const oauthRefreshToken: string | undefined;
+Object.defineProperty(exports, "oauthRefreshToken", {
+    get() {
+        return __config.get("oauthRefreshToken");
+    },
+    enumerable: true,
+});
+
+export declare const password: string | undefined;
+Object.defineProperty(exports, "password", {
+    get() {
+        return __config.get("password");
+    },
+    enumerable: true,
+});
+
+export declare const privateKey: string | undefined;
+Object.defineProperty(exports, "privateKey", {
+    get() {
+        return __config.get("privateKey");
+    },
+    enumerable: true,
+});
+
 /**
  * Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
  * des-ede3-cbc
  */
-export let privateKeyPassphrase: string | undefined = __config.get("privateKeyPassphrase");
-export let privateKeyPath: string | undefined = __config.get("privateKeyPath");
-export let region: string | undefined = __config.get("region");
-export let role: string | undefined = __config.get("role");
-export let username: string | undefined = __config.get("username");
+export declare const privateKeyPassphrase: string | undefined;
+Object.defineProperty(exports, "privateKeyPassphrase", {
+    get() {
+        return __config.get("privateKeyPassphrase");
+    },
+    enumerable: true,
+});
+
+export declare const privateKeyPath: string | undefined;
+Object.defineProperty(exports, "privateKeyPath", {
+    get() {
+        return __config.get("privateKeyPath");
+    },
+    enumerable: true,
+});
+
+export declare const region: string | undefined;
+Object.defineProperty(exports, "region", {
+    get() {
+        return __config.get("region");
+    },
+    enumerable: true,
+});
+
+export declare const role: string | undefined;
+Object.defineProperty(exports, "role", {
+    get() {
+        return __config.get("role");
+    },
+    enumerable: true,
+});
+
+export declare const username: string | undefined;
+Object.defineProperty(exports, "username", {
+    get() {
+        return __config.get("username");
+    },
+    enumerable: true,
+});
+
