@@ -206,7 +206,7 @@ type IntegrationGrantArrayInput interface {
 type IntegrationGrantArray []IntegrationGrantInput
 
 func (IntegrationGrantArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IntegrationGrant)(nil))
+	return reflect.TypeOf((*[]*IntegrationGrant)(nil)).Elem()
 }
 
 func (i IntegrationGrantArray) ToIntegrationGrantArrayOutput() IntegrationGrantArrayOutput {
@@ -231,7 +231,7 @@ type IntegrationGrantMapInput interface {
 type IntegrationGrantMap map[string]IntegrationGrantInput
 
 func (IntegrationGrantMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IntegrationGrant)(nil))
+	return reflect.TypeOf((*map[string]*IntegrationGrant)(nil)).Elem()
 }
 
 func (i IntegrationGrantMap) ToIntegrationGrantMapOutput() IntegrationGrantMapOutput {
@@ -242,9 +242,7 @@ func (i IntegrationGrantMap) ToIntegrationGrantMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationGrantMapOutput)
 }
 
-type IntegrationGrantOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationGrantOutput struct{ *pulumi.OutputState }
 
 func (IntegrationGrantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationGrant)(nil))
@@ -263,14 +261,12 @@ func (o IntegrationGrantOutput) ToIntegrationGrantPtrOutput() IntegrationGrantPt
 }
 
 func (o IntegrationGrantOutput) ToIntegrationGrantPtrOutputWithContext(ctx context.Context) IntegrationGrantPtrOutput {
-	return o.ApplyT(func(v IntegrationGrant) *IntegrationGrant {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationGrant) *IntegrationGrant {
 		return &v
 	}).(IntegrationGrantPtrOutput)
 }
 
-type IntegrationGrantPtrOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationGrantPtrOutput struct{ *pulumi.OutputState }
 
 func (IntegrationGrantPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IntegrationGrant)(nil))
@@ -282,6 +278,16 @@ func (o IntegrationGrantPtrOutput) ToIntegrationGrantPtrOutput() IntegrationGran
 
 func (o IntegrationGrantPtrOutput) ToIntegrationGrantPtrOutputWithContext(ctx context.Context) IntegrationGrantPtrOutput {
 	return o
+}
+
+func (o IntegrationGrantPtrOutput) Elem() IntegrationGrantOutput {
+	return o.ApplyT(func(v *IntegrationGrant) IntegrationGrant {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationGrant
+		return ret
+	}).(IntegrationGrantOutput)
 }
 
 type IntegrationGrantArrayOutput struct{ *pulumi.OutputState }

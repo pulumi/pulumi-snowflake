@@ -4,6 +4,9 @@
 package snowflake
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,64 @@ type GetFileFormatsResult struct {
 	Id string `pulumi:"id"`
 	// The schema from which to return the file formats from.
 	Schema string `pulumi:"schema"`
+}
+
+func GetFileFormatsOutput(ctx *pulumi.Context, args GetFileFormatsOutputArgs, opts ...pulumi.InvokeOption) GetFileFormatsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetFileFormatsResult, error) {
+			args := v.(GetFileFormatsArgs)
+			r, err := GetFileFormats(ctx, &args, opts...)
+			return *r, err
+		}).(GetFileFormatsResultOutput)
+}
+
+// A collection of arguments for invoking getFileFormats.
+type GetFileFormatsOutputArgs struct {
+	// The database from which to return the schemas from.
+	Database pulumi.StringInput `pulumi:"database"`
+	// The schema from which to return the file formats from.
+	Schema pulumi.StringInput `pulumi:"schema"`
+}
+
+func (GetFileFormatsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFileFormatsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getFileFormats.
+type GetFileFormatsResultOutput struct{ *pulumi.OutputState }
+
+func (GetFileFormatsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFileFormatsResult)(nil)).Elem()
+}
+
+func (o GetFileFormatsResultOutput) ToGetFileFormatsResultOutput() GetFileFormatsResultOutput {
+	return o
+}
+
+func (o GetFileFormatsResultOutput) ToGetFileFormatsResultOutputWithContext(ctx context.Context) GetFileFormatsResultOutput {
+	return o
+}
+
+// The database from which to return the schemas from.
+func (o GetFileFormatsResultOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFileFormatsResult) string { return v.Database }).(pulumi.StringOutput)
+}
+
+// The file formats in the schema
+func (o GetFileFormatsResultOutput) FileFormats() GetFileFormatsFileFormatArrayOutput {
+	return o.ApplyT(func(v GetFileFormatsResult) []GetFileFormatsFileFormat { return v.FileFormats }).(GetFileFormatsFileFormatArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetFileFormatsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFileFormatsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The schema from which to return the file formats from.
+func (o GetFileFormatsResultOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFileFormatsResult) string { return v.Schema }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetFileFormatsResultOutput{})
 }

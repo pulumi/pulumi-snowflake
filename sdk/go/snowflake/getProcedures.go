@@ -4,6 +4,9 @@
 package snowflake
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,64 @@ type GetProceduresResult struct {
 	Procedures []GetProceduresProcedure `pulumi:"procedures"`
 	// The schema from which to return the procedures from.
 	Schema string `pulumi:"schema"`
+}
+
+func GetProceduresOutput(ctx *pulumi.Context, args GetProceduresOutputArgs, opts ...pulumi.InvokeOption) GetProceduresResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetProceduresResult, error) {
+			args := v.(GetProceduresArgs)
+			r, err := GetProcedures(ctx, &args, opts...)
+			return *r, err
+		}).(GetProceduresResultOutput)
+}
+
+// A collection of arguments for invoking getProcedures.
+type GetProceduresOutputArgs struct {
+	// The database from which to return the schemas from.
+	Database pulumi.StringInput `pulumi:"database"`
+	// The schema from which to return the procedures from.
+	Schema pulumi.StringInput `pulumi:"schema"`
+}
+
+func (GetProceduresOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProceduresArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getProcedures.
+type GetProceduresResultOutput struct{ *pulumi.OutputState }
+
+func (GetProceduresResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProceduresResult)(nil)).Elem()
+}
+
+func (o GetProceduresResultOutput) ToGetProceduresResultOutput() GetProceduresResultOutput {
+	return o
+}
+
+func (o GetProceduresResultOutput) ToGetProceduresResultOutputWithContext(ctx context.Context) GetProceduresResultOutput {
+	return o
+}
+
+// The database from which to return the schemas from.
+func (o GetProceduresResultOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProceduresResult) string { return v.Database }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetProceduresResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProceduresResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The procedures in the schema
+func (o GetProceduresResultOutput) Procedures() GetProceduresProcedureArrayOutput {
+	return o.ApplyT(func(v GetProceduresResult) []GetProceduresProcedure { return v.Procedures }).(GetProceduresProcedureArrayOutput)
+}
+
+// The schema from which to return the procedures from.
+func (o GetProceduresResultOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProceduresResult) string { return v.Schema }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetProceduresResultOutput{})
 }

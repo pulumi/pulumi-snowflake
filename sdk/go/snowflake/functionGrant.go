@@ -287,7 +287,7 @@ type FunctionGrantArrayInput interface {
 type FunctionGrantArray []FunctionGrantInput
 
 func (FunctionGrantArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FunctionGrant)(nil))
+	return reflect.TypeOf((*[]*FunctionGrant)(nil)).Elem()
 }
 
 func (i FunctionGrantArray) ToFunctionGrantArrayOutput() FunctionGrantArrayOutput {
@@ -312,7 +312,7 @@ type FunctionGrantMapInput interface {
 type FunctionGrantMap map[string]FunctionGrantInput
 
 func (FunctionGrantMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FunctionGrant)(nil))
+	return reflect.TypeOf((*map[string]*FunctionGrant)(nil)).Elem()
 }
 
 func (i FunctionGrantMap) ToFunctionGrantMapOutput() FunctionGrantMapOutput {
@@ -323,9 +323,7 @@ func (i FunctionGrantMap) ToFunctionGrantMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionGrantMapOutput)
 }
 
-type FunctionGrantOutput struct {
-	*pulumi.OutputState
-}
+type FunctionGrantOutput struct{ *pulumi.OutputState }
 
 func (FunctionGrantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FunctionGrant)(nil))
@@ -344,14 +342,12 @@ func (o FunctionGrantOutput) ToFunctionGrantPtrOutput() FunctionGrantPtrOutput {
 }
 
 func (o FunctionGrantOutput) ToFunctionGrantPtrOutputWithContext(ctx context.Context) FunctionGrantPtrOutput {
-	return o.ApplyT(func(v FunctionGrant) *FunctionGrant {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionGrant) *FunctionGrant {
 		return &v
 	}).(FunctionGrantPtrOutput)
 }
 
-type FunctionGrantPtrOutput struct {
-	*pulumi.OutputState
-}
+type FunctionGrantPtrOutput struct{ *pulumi.OutputState }
 
 func (FunctionGrantPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FunctionGrant)(nil))
@@ -363,6 +359,16 @@ func (o FunctionGrantPtrOutput) ToFunctionGrantPtrOutput() FunctionGrantPtrOutpu
 
 func (o FunctionGrantPtrOutput) ToFunctionGrantPtrOutputWithContext(ctx context.Context) FunctionGrantPtrOutput {
 	return o
+}
+
+func (o FunctionGrantPtrOutput) Elem() FunctionGrantOutput {
+	return o.ApplyT(func(v *FunctionGrant) FunctionGrant {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionGrant
+		return ret
+	}).(FunctionGrantOutput)
 }
 
 type FunctionGrantArrayOutput struct{ *pulumi.OutputState }

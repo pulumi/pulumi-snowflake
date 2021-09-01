@@ -5168,7 +5168,7 @@
             }
         },
         "snowflake:index/resourceMonitorGrant:ResourceMonitorGrant": {
-            "description": "\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/resourceMonitorGrant:ResourceMonitorGrant example name\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.MonitorGrant(\"grant\", {\n    monitorName: \"monitor\",\n    privilege: \"MODIFY\",\n    roles: [\"role1\"],\n    withGrantOption: false,\n});\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/resourceMonitorGrant:ResourceMonitorGrant example name\n```\n\n ",
             "properties": {
                 "monitorName": {
                     "type": "string",

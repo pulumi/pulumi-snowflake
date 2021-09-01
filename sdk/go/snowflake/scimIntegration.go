@@ -209,7 +209,7 @@ type ScimIntegrationArrayInput interface {
 type ScimIntegrationArray []ScimIntegrationInput
 
 func (ScimIntegrationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ScimIntegration)(nil))
+	return reflect.TypeOf((*[]*ScimIntegration)(nil)).Elem()
 }
 
 func (i ScimIntegrationArray) ToScimIntegrationArrayOutput() ScimIntegrationArrayOutput {
@@ -234,7 +234,7 @@ type ScimIntegrationMapInput interface {
 type ScimIntegrationMap map[string]ScimIntegrationInput
 
 func (ScimIntegrationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ScimIntegration)(nil))
+	return reflect.TypeOf((*map[string]*ScimIntegration)(nil)).Elem()
 }
 
 func (i ScimIntegrationMap) ToScimIntegrationMapOutput() ScimIntegrationMapOutput {
@@ -245,9 +245,7 @@ func (i ScimIntegrationMap) ToScimIntegrationMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ScimIntegrationMapOutput)
 }
 
-type ScimIntegrationOutput struct {
-	*pulumi.OutputState
-}
+type ScimIntegrationOutput struct{ *pulumi.OutputState }
 
 func (ScimIntegrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScimIntegration)(nil))
@@ -266,14 +264,12 @@ func (o ScimIntegrationOutput) ToScimIntegrationPtrOutput() ScimIntegrationPtrOu
 }
 
 func (o ScimIntegrationOutput) ToScimIntegrationPtrOutputWithContext(ctx context.Context) ScimIntegrationPtrOutput {
-	return o.ApplyT(func(v ScimIntegration) *ScimIntegration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScimIntegration) *ScimIntegration {
 		return &v
 	}).(ScimIntegrationPtrOutput)
 }
 
-type ScimIntegrationPtrOutput struct {
-	*pulumi.OutputState
-}
+type ScimIntegrationPtrOutput struct{ *pulumi.OutputState }
 
 func (ScimIntegrationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScimIntegration)(nil))
@@ -285,6 +281,16 @@ func (o ScimIntegrationPtrOutput) ToScimIntegrationPtrOutput() ScimIntegrationPt
 
 func (o ScimIntegrationPtrOutput) ToScimIntegrationPtrOutputWithContext(ctx context.Context) ScimIntegrationPtrOutput {
 	return o
+}
+
+func (o ScimIntegrationPtrOutput) Elem() ScimIntegrationOutput {
+	return o.ApplyT(func(v *ScimIntegration) ScimIntegration {
+		if v != nil {
+			return *v
+		}
+		var ret ScimIntegration
+		return ret
+	}).(ScimIntegrationOutput)
 }
 
 type ScimIntegrationArrayOutput struct{ *pulumi.OutputState }

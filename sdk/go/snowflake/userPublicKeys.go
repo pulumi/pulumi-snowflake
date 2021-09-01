@@ -156,7 +156,7 @@ type UserPublicKeysArrayInput interface {
 type UserPublicKeysArray []UserPublicKeysInput
 
 func (UserPublicKeysArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UserPublicKeys)(nil))
+	return reflect.TypeOf((*[]*UserPublicKeys)(nil)).Elem()
 }
 
 func (i UserPublicKeysArray) ToUserPublicKeysArrayOutput() UserPublicKeysArrayOutput {
@@ -181,7 +181,7 @@ type UserPublicKeysMapInput interface {
 type UserPublicKeysMap map[string]UserPublicKeysInput
 
 func (UserPublicKeysMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UserPublicKeys)(nil))
+	return reflect.TypeOf((*map[string]*UserPublicKeys)(nil)).Elem()
 }
 
 func (i UserPublicKeysMap) ToUserPublicKeysMapOutput() UserPublicKeysMapOutput {
@@ -192,9 +192,7 @@ func (i UserPublicKeysMap) ToUserPublicKeysMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(UserPublicKeysMapOutput)
 }
 
-type UserPublicKeysOutput struct {
-	*pulumi.OutputState
-}
+type UserPublicKeysOutput struct{ *pulumi.OutputState }
 
 func (UserPublicKeysOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserPublicKeys)(nil))
@@ -213,14 +211,12 @@ func (o UserPublicKeysOutput) ToUserPublicKeysPtrOutput() UserPublicKeysPtrOutpu
 }
 
 func (o UserPublicKeysOutput) ToUserPublicKeysPtrOutputWithContext(ctx context.Context) UserPublicKeysPtrOutput {
-	return o.ApplyT(func(v UserPublicKeys) *UserPublicKeys {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPublicKeys) *UserPublicKeys {
 		return &v
 	}).(UserPublicKeysPtrOutput)
 }
 
-type UserPublicKeysPtrOutput struct {
-	*pulumi.OutputState
-}
+type UserPublicKeysPtrOutput struct{ *pulumi.OutputState }
 
 func (UserPublicKeysPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**UserPublicKeys)(nil))
@@ -232,6 +228,16 @@ func (o UserPublicKeysPtrOutput) ToUserPublicKeysPtrOutput() UserPublicKeysPtrOu
 
 func (o UserPublicKeysPtrOutput) ToUserPublicKeysPtrOutputWithContext(ctx context.Context) UserPublicKeysPtrOutput {
 	return o
+}
+
+func (o UserPublicKeysPtrOutput) Elem() UserPublicKeysOutput {
+	return o.ApplyT(func(v *UserPublicKeys) UserPublicKeys {
+		if v != nil {
+			return *v
+		}
+		var ret UserPublicKeys
+		return ret
+	}).(UserPublicKeysOutput)
 }
 
 type UserPublicKeysArrayOutput struct{ *pulumi.OutputState }

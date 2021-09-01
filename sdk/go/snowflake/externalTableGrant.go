@@ -256,7 +256,7 @@ type ExternalTableGrantArrayInput interface {
 type ExternalTableGrantArray []ExternalTableGrantInput
 
 func (ExternalTableGrantArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ExternalTableGrant)(nil))
+	return reflect.TypeOf((*[]*ExternalTableGrant)(nil)).Elem()
 }
 
 func (i ExternalTableGrantArray) ToExternalTableGrantArrayOutput() ExternalTableGrantArrayOutput {
@@ -281,7 +281,7 @@ type ExternalTableGrantMapInput interface {
 type ExternalTableGrantMap map[string]ExternalTableGrantInput
 
 func (ExternalTableGrantMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ExternalTableGrant)(nil))
+	return reflect.TypeOf((*map[string]*ExternalTableGrant)(nil)).Elem()
 }
 
 func (i ExternalTableGrantMap) ToExternalTableGrantMapOutput() ExternalTableGrantMapOutput {
@@ -292,9 +292,7 @@ func (i ExternalTableGrantMap) ToExternalTableGrantMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalTableGrantMapOutput)
 }
 
-type ExternalTableGrantOutput struct {
-	*pulumi.OutputState
-}
+type ExternalTableGrantOutput struct{ *pulumi.OutputState }
 
 func (ExternalTableGrantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExternalTableGrant)(nil))
@@ -313,14 +311,12 @@ func (o ExternalTableGrantOutput) ToExternalTableGrantPtrOutput() ExternalTableG
 }
 
 func (o ExternalTableGrantOutput) ToExternalTableGrantPtrOutputWithContext(ctx context.Context) ExternalTableGrantPtrOutput {
-	return o.ApplyT(func(v ExternalTableGrant) *ExternalTableGrant {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExternalTableGrant) *ExternalTableGrant {
 		return &v
 	}).(ExternalTableGrantPtrOutput)
 }
 
-type ExternalTableGrantPtrOutput struct {
-	*pulumi.OutputState
-}
+type ExternalTableGrantPtrOutput struct{ *pulumi.OutputState }
 
 func (ExternalTableGrantPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ExternalTableGrant)(nil))
@@ -332,6 +328,16 @@ func (o ExternalTableGrantPtrOutput) ToExternalTableGrantPtrOutput() ExternalTab
 
 func (o ExternalTableGrantPtrOutput) ToExternalTableGrantPtrOutputWithContext(ctx context.Context) ExternalTableGrantPtrOutput {
 	return o
+}
+
+func (o ExternalTableGrantPtrOutput) Elem() ExternalTableGrantOutput {
+	return o.ApplyT(func(v *ExternalTableGrant) ExternalTableGrant {
+		if v != nil {
+			return *v
+		}
+		var ret ExternalTableGrant
+		return ret
+	}).(ExternalTableGrantOutput)
 }
 
 type ExternalTableGrantArrayOutput struct{ *pulumi.OutputState }

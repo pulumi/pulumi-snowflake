@@ -242,7 +242,7 @@ type SequenceGrantArrayInput interface {
 type SequenceGrantArray []SequenceGrantInput
 
 func (SequenceGrantArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SequenceGrant)(nil))
+	return reflect.TypeOf((*[]*SequenceGrant)(nil)).Elem()
 }
 
 func (i SequenceGrantArray) ToSequenceGrantArrayOutput() SequenceGrantArrayOutput {
@@ -267,7 +267,7 @@ type SequenceGrantMapInput interface {
 type SequenceGrantMap map[string]SequenceGrantInput
 
 func (SequenceGrantMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SequenceGrant)(nil))
+	return reflect.TypeOf((*map[string]*SequenceGrant)(nil)).Elem()
 }
 
 func (i SequenceGrantMap) ToSequenceGrantMapOutput() SequenceGrantMapOutput {
@@ -278,9 +278,7 @@ func (i SequenceGrantMap) ToSequenceGrantMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SequenceGrantMapOutput)
 }
 
-type SequenceGrantOutput struct {
-	*pulumi.OutputState
-}
+type SequenceGrantOutput struct{ *pulumi.OutputState }
 
 func (SequenceGrantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SequenceGrant)(nil))
@@ -299,14 +297,12 @@ func (o SequenceGrantOutput) ToSequenceGrantPtrOutput() SequenceGrantPtrOutput {
 }
 
 func (o SequenceGrantOutput) ToSequenceGrantPtrOutputWithContext(ctx context.Context) SequenceGrantPtrOutput {
-	return o.ApplyT(func(v SequenceGrant) *SequenceGrant {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SequenceGrant) *SequenceGrant {
 		return &v
 	}).(SequenceGrantPtrOutput)
 }
 
-type SequenceGrantPtrOutput struct {
-	*pulumi.OutputState
-}
+type SequenceGrantPtrOutput struct{ *pulumi.OutputState }
 
 func (SequenceGrantPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SequenceGrant)(nil))
@@ -318,6 +314,16 @@ func (o SequenceGrantPtrOutput) ToSequenceGrantPtrOutput() SequenceGrantPtrOutpu
 
 func (o SequenceGrantPtrOutput) ToSequenceGrantPtrOutputWithContext(ctx context.Context) SequenceGrantPtrOutput {
 	return o
+}
+
+func (o SequenceGrantPtrOutput) Elem() SequenceGrantOutput {
+	return o.ApplyT(func(v *SequenceGrant) SequenceGrant {
+		if v != nil {
+			return *v
+		}
+		var ret SequenceGrant
+		return ret
+	}).(SequenceGrantOutput)
 }
 
 type SequenceGrantArrayOutput struct{ *pulumi.OutputState }

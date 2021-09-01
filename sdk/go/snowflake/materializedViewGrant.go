@@ -253,7 +253,7 @@ type MaterializedViewGrantArrayInput interface {
 type MaterializedViewGrantArray []MaterializedViewGrantInput
 
 func (MaterializedViewGrantArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MaterializedViewGrant)(nil))
+	return reflect.TypeOf((*[]*MaterializedViewGrant)(nil)).Elem()
 }
 
 func (i MaterializedViewGrantArray) ToMaterializedViewGrantArrayOutput() MaterializedViewGrantArrayOutput {
@@ -278,7 +278,7 @@ type MaterializedViewGrantMapInput interface {
 type MaterializedViewGrantMap map[string]MaterializedViewGrantInput
 
 func (MaterializedViewGrantMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MaterializedViewGrant)(nil))
+	return reflect.TypeOf((*map[string]*MaterializedViewGrant)(nil)).Elem()
 }
 
 func (i MaterializedViewGrantMap) ToMaterializedViewGrantMapOutput() MaterializedViewGrantMapOutput {
@@ -289,9 +289,7 @@ func (i MaterializedViewGrantMap) ToMaterializedViewGrantMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(MaterializedViewGrantMapOutput)
 }
 
-type MaterializedViewGrantOutput struct {
-	*pulumi.OutputState
-}
+type MaterializedViewGrantOutput struct{ *pulumi.OutputState }
 
 func (MaterializedViewGrantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MaterializedViewGrant)(nil))
@@ -310,14 +308,12 @@ func (o MaterializedViewGrantOutput) ToMaterializedViewGrantPtrOutput() Material
 }
 
 func (o MaterializedViewGrantOutput) ToMaterializedViewGrantPtrOutputWithContext(ctx context.Context) MaterializedViewGrantPtrOutput {
-	return o.ApplyT(func(v MaterializedViewGrant) *MaterializedViewGrant {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaterializedViewGrant) *MaterializedViewGrant {
 		return &v
 	}).(MaterializedViewGrantPtrOutput)
 }
 
-type MaterializedViewGrantPtrOutput struct {
-	*pulumi.OutputState
-}
+type MaterializedViewGrantPtrOutput struct{ *pulumi.OutputState }
 
 func (MaterializedViewGrantPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MaterializedViewGrant)(nil))
@@ -329,6 +325,16 @@ func (o MaterializedViewGrantPtrOutput) ToMaterializedViewGrantPtrOutput() Mater
 
 func (o MaterializedViewGrantPtrOutput) ToMaterializedViewGrantPtrOutputWithContext(ctx context.Context) MaterializedViewGrantPtrOutput {
 	return o
+}
+
+func (o MaterializedViewGrantPtrOutput) Elem() MaterializedViewGrantOutput {
+	return o.ApplyT(func(v *MaterializedViewGrant) MaterializedViewGrant {
+		if v != nil {
+			return *v
+		}
+		var ret MaterializedViewGrant
+		return ret
+	}).(MaterializedViewGrantOutput)
 }
 
 type MaterializedViewGrantArrayOutput struct{ *pulumi.OutputState }

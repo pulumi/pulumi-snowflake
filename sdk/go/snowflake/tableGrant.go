@@ -251,7 +251,7 @@ type TableGrantArrayInput interface {
 type TableGrantArray []TableGrantInput
 
 func (TableGrantArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TableGrant)(nil))
+	return reflect.TypeOf((*[]*TableGrant)(nil)).Elem()
 }
 
 func (i TableGrantArray) ToTableGrantArrayOutput() TableGrantArrayOutput {
@@ -276,7 +276,7 @@ type TableGrantMapInput interface {
 type TableGrantMap map[string]TableGrantInput
 
 func (TableGrantMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TableGrant)(nil))
+	return reflect.TypeOf((*map[string]*TableGrant)(nil)).Elem()
 }
 
 func (i TableGrantMap) ToTableGrantMapOutput() TableGrantMapOutput {
@@ -287,9 +287,7 @@ func (i TableGrantMap) ToTableGrantMapOutputWithContext(ctx context.Context) Tab
 	return pulumi.ToOutputWithContext(ctx, i).(TableGrantMapOutput)
 }
 
-type TableGrantOutput struct {
-	*pulumi.OutputState
-}
+type TableGrantOutput struct{ *pulumi.OutputState }
 
 func (TableGrantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TableGrant)(nil))
@@ -308,14 +306,12 @@ func (o TableGrantOutput) ToTableGrantPtrOutput() TableGrantPtrOutput {
 }
 
 func (o TableGrantOutput) ToTableGrantPtrOutputWithContext(ctx context.Context) TableGrantPtrOutput {
-	return o.ApplyT(func(v TableGrant) *TableGrant {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableGrant) *TableGrant {
 		return &v
 	}).(TableGrantPtrOutput)
 }
 
-type TableGrantPtrOutput struct {
-	*pulumi.OutputState
-}
+type TableGrantPtrOutput struct{ *pulumi.OutputState }
 
 func (TableGrantPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TableGrant)(nil))
@@ -327,6 +323,16 @@ func (o TableGrantPtrOutput) ToTableGrantPtrOutput() TableGrantPtrOutput {
 
 func (o TableGrantPtrOutput) ToTableGrantPtrOutputWithContext(ctx context.Context) TableGrantPtrOutput {
 	return o
+}
+
+func (o TableGrantPtrOutput) Elem() TableGrantOutput {
+	return o.ApplyT(func(v *TableGrant) TableGrant {
+		if v != nil {
+			return *v
+		}
+		var ret TableGrant
+		return ret
+	}).(TableGrantOutput)
 }
 
 type TableGrantArrayOutput struct{ *pulumi.OutputState }

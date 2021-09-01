@@ -253,7 +253,7 @@ type ViewGrantArrayInput interface {
 type ViewGrantArray []ViewGrantInput
 
 func (ViewGrantArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ViewGrant)(nil))
+	return reflect.TypeOf((*[]*ViewGrant)(nil)).Elem()
 }
 
 func (i ViewGrantArray) ToViewGrantArrayOutput() ViewGrantArrayOutput {
@@ -278,7 +278,7 @@ type ViewGrantMapInput interface {
 type ViewGrantMap map[string]ViewGrantInput
 
 func (ViewGrantMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ViewGrant)(nil))
+	return reflect.TypeOf((*map[string]*ViewGrant)(nil)).Elem()
 }
 
 func (i ViewGrantMap) ToViewGrantMapOutput() ViewGrantMapOutput {
@@ -289,9 +289,7 @@ func (i ViewGrantMap) ToViewGrantMapOutputWithContext(ctx context.Context) ViewG
 	return pulumi.ToOutputWithContext(ctx, i).(ViewGrantMapOutput)
 }
 
-type ViewGrantOutput struct {
-	*pulumi.OutputState
-}
+type ViewGrantOutput struct{ *pulumi.OutputState }
 
 func (ViewGrantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ViewGrant)(nil))
@@ -310,14 +308,12 @@ func (o ViewGrantOutput) ToViewGrantPtrOutput() ViewGrantPtrOutput {
 }
 
 func (o ViewGrantOutput) ToViewGrantPtrOutputWithContext(ctx context.Context) ViewGrantPtrOutput {
-	return o.ApplyT(func(v ViewGrant) *ViewGrant {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ViewGrant) *ViewGrant {
 		return &v
 	}).(ViewGrantPtrOutput)
 }
 
-type ViewGrantPtrOutput struct {
-	*pulumi.OutputState
-}
+type ViewGrantPtrOutput struct{ *pulumi.OutputState }
 
 func (ViewGrantPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ViewGrant)(nil))
@@ -329,6 +325,16 @@ func (o ViewGrantPtrOutput) ToViewGrantPtrOutput() ViewGrantPtrOutput {
 
 func (o ViewGrantPtrOutput) ToViewGrantPtrOutputWithContext(ctx context.Context) ViewGrantPtrOutput {
 	return o
+}
+
+func (o ViewGrantPtrOutput) Elem() ViewGrantOutput {
+	return o.ApplyT(func(v *ViewGrant) ViewGrant {
+		if v != nil {
+			return *v
+		}
+		var ret ViewGrant
+		return ret
+	}).(ViewGrantOutput)
 }
 
 type ViewGrantArrayOutput struct{ *pulumi.OutputState }

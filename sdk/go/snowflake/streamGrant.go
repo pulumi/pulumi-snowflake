@@ -242,7 +242,7 @@ type StreamGrantArrayInput interface {
 type StreamGrantArray []StreamGrantInput
 
 func (StreamGrantArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StreamGrant)(nil))
+	return reflect.TypeOf((*[]*StreamGrant)(nil)).Elem()
 }
 
 func (i StreamGrantArray) ToStreamGrantArrayOutput() StreamGrantArrayOutput {
@@ -267,7 +267,7 @@ type StreamGrantMapInput interface {
 type StreamGrantMap map[string]StreamGrantInput
 
 func (StreamGrantMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StreamGrant)(nil))
+	return reflect.TypeOf((*map[string]*StreamGrant)(nil)).Elem()
 }
 
 func (i StreamGrantMap) ToStreamGrantMapOutput() StreamGrantMapOutput {
@@ -278,9 +278,7 @@ func (i StreamGrantMap) ToStreamGrantMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(StreamGrantMapOutput)
 }
 
-type StreamGrantOutput struct {
-	*pulumi.OutputState
-}
+type StreamGrantOutput struct{ *pulumi.OutputState }
 
 func (StreamGrantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StreamGrant)(nil))
@@ -299,14 +297,12 @@ func (o StreamGrantOutput) ToStreamGrantPtrOutput() StreamGrantPtrOutput {
 }
 
 func (o StreamGrantOutput) ToStreamGrantPtrOutputWithContext(ctx context.Context) StreamGrantPtrOutput {
-	return o.ApplyT(func(v StreamGrant) *StreamGrant {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamGrant) *StreamGrant {
 		return &v
 	}).(StreamGrantPtrOutput)
 }
 
-type StreamGrantPtrOutput struct {
-	*pulumi.OutputState
-}
+type StreamGrantPtrOutput struct{ *pulumi.OutputState }
 
 func (StreamGrantPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StreamGrant)(nil))
@@ -318,6 +314,16 @@ func (o StreamGrantPtrOutput) ToStreamGrantPtrOutput() StreamGrantPtrOutput {
 
 func (o StreamGrantPtrOutput) ToStreamGrantPtrOutputWithContext(ctx context.Context) StreamGrantPtrOutput {
 	return o
+}
+
+func (o StreamGrantPtrOutput) Elem() StreamGrantOutput {
+	return o.ApplyT(func(v *StreamGrant) StreamGrant {
+		if v != nil {
+			return *v
+		}
+		var ret StreamGrant
+		return ret
+	}).(StreamGrantOutput)
 }
 
 type StreamGrantArrayOutput struct{ *pulumi.OutputState }

@@ -4,6 +4,9 @@
 package snowflake
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -52,4 +55,57 @@ type GetSchemasResult struct {
 	Id string `pulumi:"id"`
 	// The schemas in the database
 	Schemas []GetSchemasSchema `pulumi:"schemas"`
+}
+
+func GetSchemasOutput(ctx *pulumi.Context, args GetSchemasOutputArgs, opts ...pulumi.InvokeOption) GetSchemasResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetSchemasResult, error) {
+			args := v.(GetSchemasArgs)
+			r, err := GetSchemas(ctx, &args, opts...)
+			return *r, err
+		}).(GetSchemasResultOutput)
+}
+
+// A collection of arguments for invoking getSchemas.
+type GetSchemasOutputArgs struct {
+	// The database from which to return the schemas from.
+	Database pulumi.StringInput `pulumi:"database"`
+}
+
+func (GetSchemasOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemasArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSchemas.
+type GetSchemasResultOutput struct{ *pulumi.OutputState }
+
+func (GetSchemasResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemasResult)(nil)).Elem()
+}
+
+func (o GetSchemasResultOutput) ToGetSchemasResultOutput() GetSchemasResultOutput {
+	return o
+}
+
+func (o GetSchemasResultOutput) ToGetSchemasResultOutputWithContext(ctx context.Context) GetSchemasResultOutput {
+	return o
+}
+
+// The database from which to return the schemas from.
+func (o GetSchemasResultOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemasResult) string { return v.Database }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetSchemasResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemasResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The schemas in the database
+func (o GetSchemasResultOutput) Schemas() GetSchemasSchemaArrayOutput {
+	return o.ApplyT(func(v GetSchemasResult) []GetSchemasSchema { return v.Schemas }).(GetSchemasSchemaArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSchemasResultOutput{})
 }

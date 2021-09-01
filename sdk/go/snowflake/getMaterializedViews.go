@@ -4,6 +4,9 @@
 package snowflake
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,64 @@ type GetMaterializedViewsResult struct {
 	MaterializedViews []GetMaterializedViewsMaterializedView `pulumi:"materializedViews"`
 	// The schema from which to return the views from.
 	Schema string `pulumi:"schema"`
+}
+
+func GetMaterializedViewsOutput(ctx *pulumi.Context, args GetMaterializedViewsOutputArgs, opts ...pulumi.InvokeOption) GetMaterializedViewsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetMaterializedViewsResult, error) {
+			args := v.(GetMaterializedViewsArgs)
+			r, err := GetMaterializedViews(ctx, &args, opts...)
+			return *r, err
+		}).(GetMaterializedViewsResultOutput)
+}
+
+// A collection of arguments for invoking getMaterializedViews.
+type GetMaterializedViewsOutputArgs struct {
+	// The database from which to return the schemas from.
+	Database pulumi.StringInput `pulumi:"database"`
+	// The schema from which to return the views from.
+	Schema pulumi.StringInput `pulumi:"schema"`
+}
+
+func (GetMaterializedViewsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMaterializedViewsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getMaterializedViews.
+type GetMaterializedViewsResultOutput struct{ *pulumi.OutputState }
+
+func (GetMaterializedViewsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMaterializedViewsResult)(nil)).Elem()
+}
+
+func (o GetMaterializedViewsResultOutput) ToGetMaterializedViewsResultOutput() GetMaterializedViewsResultOutput {
+	return o
+}
+
+func (o GetMaterializedViewsResultOutput) ToGetMaterializedViewsResultOutputWithContext(ctx context.Context) GetMaterializedViewsResultOutput {
+	return o
+}
+
+// The database from which to return the schemas from.
+func (o GetMaterializedViewsResultOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMaterializedViewsResult) string { return v.Database }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetMaterializedViewsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMaterializedViewsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The views in the schema
+func (o GetMaterializedViewsResultOutput) MaterializedViews() GetMaterializedViewsMaterializedViewArrayOutput {
+	return o.ApplyT(func(v GetMaterializedViewsResult) []GetMaterializedViewsMaterializedView { return v.MaterializedViews }).(GetMaterializedViewsMaterializedViewArrayOutput)
+}
+
+// The schema from which to return the views from.
+func (o GetMaterializedViewsResultOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMaterializedViewsResult) string { return v.Schema }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetMaterializedViewsResultOutput{})
 }

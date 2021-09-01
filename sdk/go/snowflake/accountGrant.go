@@ -191,7 +191,7 @@ type AccountGrantArrayInput interface {
 type AccountGrantArray []AccountGrantInput
 
 func (AccountGrantArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AccountGrant)(nil))
+	return reflect.TypeOf((*[]*AccountGrant)(nil)).Elem()
 }
 
 func (i AccountGrantArray) ToAccountGrantArrayOutput() AccountGrantArrayOutput {
@@ -216,7 +216,7 @@ type AccountGrantMapInput interface {
 type AccountGrantMap map[string]AccountGrantInput
 
 func (AccountGrantMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AccountGrant)(nil))
+	return reflect.TypeOf((*map[string]*AccountGrant)(nil)).Elem()
 }
 
 func (i AccountGrantMap) ToAccountGrantMapOutput() AccountGrantMapOutput {
@@ -227,9 +227,7 @@ func (i AccountGrantMap) ToAccountGrantMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AccountGrantMapOutput)
 }
 
-type AccountGrantOutput struct {
-	*pulumi.OutputState
-}
+type AccountGrantOutput struct{ *pulumi.OutputState }
 
 func (AccountGrantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountGrant)(nil))
@@ -248,14 +246,12 @@ func (o AccountGrantOutput) ToAccountGrantPtrOutput() AccountGrantPtrOutput {
 }
 
 func (o AccountGrantOutput) ToAccountGrantPtrOutputWithContext(ctx context.Context) AccountGrantPtrOutput {
-	return o.ApplyT(func(v AccountGrant) *AccountGrant {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountGrant) *AccountGrant {
 		return &v
 	}).(AccountGrantPtrOutput)
 }
 
-type AccountGrantPtrOutput struct {
-	*pulumi.OutputState
-}
+type AccountGrantPtrOutput struct{ *pulumi.OutputState }
 
 func (AccountGrantPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AccountGrant)(nil))
@@ -267,6 +263,16 @@ func (o AccountGrantPtrOutput) ToAccountGrantPtrOutput() AccountGrantPtrOutput {
 
 func (o AccountGrantPtrOutput) ToAccountGrantPtrOutputWithContext(ctx context.Context) AccountGrantPtrOutput {
 	return o
+}
+
+func (o AccountGrantPtrOutput) Elem() AccountGrantOutput {
+	return o.ApplyT(func(v *AccountGrant) AccountGrant {
+		if v != nil {
+			return *v
+		}
+		var ret AccountGrant
+		return ret
+	}).(AccountGrantOutput)
 }
 
 type AccountGrantArrayOutput struct{ *pulumi.OutputState }

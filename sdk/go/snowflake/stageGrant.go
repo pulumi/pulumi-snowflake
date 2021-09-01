@@ -256,7 +256,7 @@ type StageGrantArrayInput interface {
 type StageGrantArray []StageGrantInput
 
 func (StageGrantArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StageGrant)(nil))
+	return reflect.TypeOf((*[]*StageGrant)(nil)).Elem()
 }
 
 func (i StageGrantArray) ToStageGrantArrayOutput() StageGrantArrayOutput {
@@ -281,7 +281,7 @@ type StageGrantMapInput interface {
 type StageGrantMap map[string]StageGrantInput
 
 func (StageGrantMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StageGrant)(nil))
+	return reflect.TypeOf((*map[string]*StageGrant)(nil)).Elem()
 }
 
 func (i StageGrantMap) ToStageGrantMapOutput() StageGrantMapOutput {
@@ -292,9 +292,7 @@ func (i StageGrantMap) ToStageGrantMapOutputWithContext(ctx context.Context) Sta
 	return pulumi.ToOutputWithContext(ctx, i).(StageGrantMapOutput)
 }
 
-type StageGrantOutput struct {
-	*pulumi.OutputState
-}
+type StageGrantOutput struct{ *pulumi.OutputState }
 
 func (StageGrantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StageGrant)(nil))
@@ -313,14 +311,12 @@ func (o StageGrantOutput) ToStageGrantPtrOutput() StageGrantPtrOutput {
 }
 
 func (o StageGrantOutput) ToStageGrantPtrOutputWithContext(ctx context.Context) StageGrantPtrOutput {
-	return o.ApplyT(func(v StageGrant) *StageGrant {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageGrant) *StageGrant {
 		return &v
 	}).(StageGrantPtrOutput)
 }
 
-type StageGrantPtrOutput struct {
-	*pulumi.OutputState
-}
+type StageGrantPtrOutput struct{ *pulumi.OutputState }
 
 func (StageGrantPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StageGrant)(nil))
@@ -332,6 +328,16 @@ func (o StageGrantPtrOutput) ToStageGrantPtrOutput() StageGrantPtrOutput {
 
 func (o StageGrantPtrOutput) ToStageGrantPtrOutputWithContext(ctx context.Context) StageGrantPtrOutput {
 	return o
+}
+
+func (o StageGrantPtrOutput) Elem() StageGrantOutput {
+	return o.ApplyT(func(v *StageGrant) StageGrant {
+		if v != nil {
+			return *v
+		}
+		var ret StageGrant
+		return ret
+	}).(StageGrantOutput)
 }
 
 type StageGrantArrayOutput struct{ *pulumi.OutputState }

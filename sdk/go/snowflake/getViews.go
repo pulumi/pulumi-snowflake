@@ -4,6 +4,9 @@
 package snowflake
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,64 @@ type GetViewsResult struct {
 	Schema string `pulumi:"schema"`
 	// The views in the schema
 	Views []GetViewsView `pulumi:"views"`
+}
+
+func GetViewsOutput(ctx *pulumi.Context, args GetViewsOutputArgs, opts ...pulumi.InvokeOption) GetViewsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetViewsResult, error) {
+			args := v.(GetViewsArgs)
+			r, err := GetViews(ctx, &args, opts...)
+			return *r, err
+		}).(GetViewsResultOutput)
+}
+
+// A collection of arguments for invoking getViews.
+type GetViewsOutputArgs struct {
+	// The database from which to return the schemas from.
+	Database pulumi.StringInput `pulumi:"database"`
+	// The schema from which to return the views from.
+	Schema pulumi.StringInput `pulumi:"schema"`
+}
+
+func (GetViewsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetViewsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getViews.
+type GetViewsResultOutput struct{ *pulumi.OutputState }
+
+func (GetViewsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetViewsResult)(nil)).Elem()
+}
+
+func (o GetViewsResultOutput) ToGetViewsResultOutput() GetViewsResultOutput {
+	return o
+}
+
+func (o GetViewsResultOutput) ToGetViewsResultOutputWithContext(ctx context.Context) GetViewsResultOutput {
+	return o
+}
+
+// The database from which to return the schemas from.
+func (o GetViewsResultOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v GetViewsResult) string { return v.Database }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetViewsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetViewsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The schema from which to return the views from.
+func (o GetViewsResultOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v GetViewsResult) string { return v.Schema }).(pulumi.StringOutput)
+}
+
+// The views in the schema
+func (o GetViewsResultOutput) Views() GetViewsViewArrayOutput {
+	return o.ApplyT(func(v GetViewsResult) []GetViewsView { return v.Views }).(GetViewsViewArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetViewsResultOutput{})
 }

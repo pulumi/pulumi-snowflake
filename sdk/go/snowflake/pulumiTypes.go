@@ -989,10 +989,11 @@ func (o TableColumnDefaultOutput) ToTableColumnDefaultPtrOutput() TableColumnDef
 }
 
 func (o TableColumnDefaultOutput) ToTableColumnDefaultPtrOutputWithContext(ctx context.Context) TableColumnDefaultPtrOutput {
-	return o.ApplyT(func(v TableColumnDefault) *TableColumnDefault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableColumnDefault) *TableColumnDefault {
 		return &v
 	}).(TableColumnDefaultPtrOutput)
 }
+
 func (o TableColumnDefaultOutput) Constant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableColumnDefault) *string { return v.Constant }).(pulumi.StringPtrOutput)
 }
@@ -1020,7 +1021,13 @@ func (o TableColumnDefaultPtrOutput) ToTableColumnDefaultPtrOutputWithContext(ct
 }
 
 func (o TableColumnDefaultPtrOutput) Elem() TableColumnDefaultOutput {
-	return o.ApplyT(func(v *TableColumnDefault) TableColumnDefault { return *v }).(TableColumnDefaultOutput)
+	return o.ApplyT(func(v *TableColumnDefault) TableColumnDefault {
+		if v != nil {
+			return *v
+		}
+		var ret TableColumnDefault
+		return ret
+	}).(TableColumnDefaultOutput)
 }
 
 func (o TableColumnDefaultPtrOutput) Constant() pulumi.StringPtrOutput {
@@ -1147,7 +1154,7 @@ func (o TablePrimaryKeyOutput) ToTablePrimaryKeyPtrOutput() TablePrimaryKeyPtrOu
 }
 
 func (o TablePrimaryKeyOutput) ToTablePrimaryKeyPtrOutputWithContext(ctx context.Context) TablePrimaryKeyPtrOutput {
-	return o.ApplyT(func(v TablePrimaryKey) *TablePrimaryKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TablePrimaryKey) *TablePrimaryKey {
 		return &v
 	}).(TablePrimaryKeyPtrOutput)
 }
@@ -1177,7 +1184,13 @@ func (o TablePrimaryKeyPtrOutput) ToTablePrimaryKeyPtrOutputWithContext(ctx cont
 }
 
 func (o TablePrimaryKeyPtrOutput) Elem() TablePrimaryKeyOutput {
-	return o.ApplyT(func(v *TablePrimaryKey) TablePrimaryKey { return *v }).(TablePrimaryKeyOutput)
+	return o.ApplyT(func(v *TablePrimaryKey) TablePrimaryKey {
+		if v != nil {
+			return *v
+		}
+		var ret TablePrimaryKey
+		return ret
+	}).(TablePrimaryKeyOutput)
 }
 
 // Columns to use in primary key

@@ -245,7 +245,7 @@ type PipeArrayInput interface {
 type PipeArray []PipeInput
 
 func (PipeArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Pipe)(nil))
+	return reflect.TypeOf((*[]*Pipe)(nil)).Elem()
 }
 
 func (i PipeArray) ToPipeArrayOutput() PipeArrayOutput {
@@ -270,7 +270,7 @@ type PipeMapInput interface {
 type PipeMap map[string]PipeInput
 
 func (PipeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Pipe)(nil))
+	return reflect.TypeOf((*map[string]*Pipe)(nil)).Elem()
 }
 
 func (i PipeMap) ToPipeMapOutput() PipeMapOutput {
@@ -281,9 +281,7 @@ func (i PipeMap) ToPipeMapOutputWithContext(ctx context.Context) PipeMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PipeMapOutput)
 }
 
-type PipeOutput struct {
-	*pulumi.OutputState
-}
+type PipeOutput struct{ *pulumi.OutputState }
 
 func (PipeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Pipe)(nil))
@@ -302,14 +300,12 @@ func (o PipeOutput) ToPipePtrOutput() PipePtrOutput {
 }
 
 func (o PipeOutput) ToPipePtrOutputWithContext(ctx context.Context) PipePtrOutput {
-	return o.ApplyT(func(v Pipe) *Pipe {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Pipe) *Pipe {
 		return &v
 	}).(PipePtrOutput)
 }
 
-type PipePtrOutput struct {
-	*pulumi.OutputState
-}
+type PipePtrOutput struct{ *pulumi.OutputState }
 
 func (PipePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Pipe)(nil))
@@ -321,6 +317,16 @@ func (o PipePtrOutput) ToPipePtrOutput() PipePtrOutput {
 
 func (o PipePtrOutput) ToPipePtrOutputWithContext(ctx context.Context) PipePtrOutput {
 	return o
+}
+
+func (o PipePtrOutput) Elem() PipeOutput {
+	return o.ApplyT(func(v *Pipe) Pipe {
+		if v != nil {
+			return *v
+		}
+		var ret Pipe
+		return ret
+	}).(PipeOutput)
 }
 
 type PipeArrayOutput struct{ *pulumi.OutputState }

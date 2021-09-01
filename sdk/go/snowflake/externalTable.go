@@ -320,7 +320,7 @@ type ExternalTableArrayInput interface {
 type ExternalTableArray []ExternalTableInput
 
 func (ExternalTableArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ExternalTable)(nil))
+	return reflect.TypeOf((*[]*ExternalTable)(nil)).Elem()
 }
 
 func (i ExternalTableArray) ToExternalTableArrayOutput() ExternalTableArrayOutput {
@@ -345,7 +345,7 @@ type ExternalTableMapInput interface {
 type ExternalTableMap map[string]ExternalTableInput
 
 func (ExternalTableMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ExternalTable)(nil))
+	return reflect.TypeOf((*map[string]*ExternalTable)(nil)).Elem()
 }
 
 func (i ExternalTableMap) ToExternalTableMapOutput() ExternalTableMapOutput {
@@ -356,9 +356,7 @@ func (i ExternalTableMap) ToExternalTableMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalTableMapOutput)
 }
 
-type ExternalTableOutput struct {
-	*pulumi.OutputState
-}
+type ExternalTableOutput struct{ *pulumi.OutputState }
 
 func (ExternalTableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExternalTable)(nil))
@@ -377,14 +375,12 @@ func (o ExternalTableOutput) ToExternalTablePtrOutput() ExternalTablePtrOutput {
 }
 
 func (o ExternalTableOutput) ToExternalTablePtrOutputWithContext(ctx context.Context) ExternalTablePtrOutput {
-	return o.ApplyT(func(v ExternalTable) *ExternalTable {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExternalTable) *ExternalTable {
 		return &v
 	}).(ExternalTablePtrOutput)
 }
 
-type ExternalTablePtrOutput struct {
-	*pulumi.OutputState
-}
+type ExternalTablePtrOutput struct{ *pulumi.OutputState }
 
 func (ExternalTablePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ExternalTable)(nil))
@@ -396,6 +392,16 @@ func (o ExternalTablePtrOutput) ToExternalTablePtrOutput() ExternalTablePtrOutpu
 
 func (o ExternalTablePtrOutput) ToExternalTablePtrOutputWithContext(ctx context.Context) ExternalTablePtrOutput {
 	return o
+}
+
+func (o ExternalTablePtrOutput) Elem() ExternalTableOutput {
+	return o.ApplyT(func(v *ExternalTable) ExternalTable {
+		if v != nil {
+			return *v
+		}
+		var ret ExternalTable
+		return ret
+	}).(ExternalTableOutput)
 }
 
 type ExternalTableArrayOutput struct{ *pulumi.OutputState }

@@ -4,6 +4,9 @@
 package snowflake
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,64 @@ type GetExternalTablesResult struct {
 	Id string `pulumi:"id"`
 	// The schema from which to return the external tables from.
 	Schema string `pulumi:"schema"`
+}
+
+func GetExternalTablesOutput(ctx *pulumi.Context, args GetExternalTablesOutputArgs, opts ...pulumi.InvokeOption) GetExternalTablesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetExternalTablesResult, error) {
+			args := v.(GetExternalTablesArgs)
+			r, err := GetExternalTables(ctx, &args, opts...)
+			return *r, err
+		}).(GetExternalTablesResultOutput)
+}
+
+// A collection of arguments for invoking getExternalTables.
+type GetExternalTablesOutputArgs struct {
+	// The database from which to return the schemas from.
+	Database pulumi.StringInput `pulumi:"database"`
+	// The schema from which to return the external tables from.
+	Schema pulumi.StringInput `pulumi:"schema"`
+}
+
+func (GetExternalTablesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalTablesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getExternalTables.
+type GetExternalTablesResultOutput struct{ *pulumi.OutputState }
+
+func (GetExternalTablesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalTablesResult)(nil)).Elem()
+}
+
+func (o GetExternalTablesResultOutput) ToGetExternalTablesResultOutput() GetExternalTablesResultOutput {
+	return o
+}
+
+func (o GetExternalTablesResultOutput) ToGetExternalTablesResultOutputWithContext(ctx context.Context) GetExternalTablesResultOutput {
+	return o
+}
+
+// The database from which to return the schemas from.
+func (o GetExternalTablesResultOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalTablesResult) string { return v.Database }).(pulumi.StringOutput)
+}
+
+// The external tables in the schema
+func (o GetExternalTablesResultOutput) ExternalTables() GetExternalTablesExternalTableArrayOutput {
+	return o.ApplyT(func(v GetExternalTablesResult) []GetExternalTablesExternalTable { return v.ExternalTables }).(GetExternalTablesExternalTableArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetExternalTablesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalTablesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The schema from which to return the external tables from.
+func (o GetExternalTablesResultOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalTablesResult) string { return v.Schema }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetExternalTablesResultOutput{})
 }
