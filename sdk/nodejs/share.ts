@@ -11,20 +11,8 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const share = new snowflake.Share("share", {
- *     databaseName: "db",
- *     privilege: "USAGE",
- *     roles: [
- *         "role1",
- *         "role2",
- *     ],
- *     schemaName: "schema",
- *     shares: [
- *         "share1",
- *         "share2",
- *     ],
- *     stageName: "stage",
- *     withGrantOption: false,
+ * const test = new snowflake.Share("test", {
+ *     comment: "cool comment",
  * });
  * ```
  *

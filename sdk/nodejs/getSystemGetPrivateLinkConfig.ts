@@ -44,5 +44,5 @@ export interface GetSystemGetPrivateLinkConfigResult {
     /**
      * The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
      */
-    readonly oscpUrl: string;
+    readonly ocspUrl: string;
 }
