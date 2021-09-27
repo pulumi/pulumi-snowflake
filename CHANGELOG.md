@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v0.25.19 of the Snowflake Terraform PRovider
+_(none)_
 
 ---
+
+## 0.2.1 (2021-09-27)
+* Upgrade to v0.25.19 of the Snowflake Terraform PRovider
 
 ## 0.2.0 (2021-09-01)
 * Upgrade to pulumi-terraform-bridge v3.6.0
