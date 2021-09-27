@@ -29,5 +29,5 @@ type GetSystemGetPrivateLinkConfigResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
-	OscpUrl string `pulumi:"oscpUrl"`
+	OcspUrl string `pulumi:"ocspUrl"`
 }

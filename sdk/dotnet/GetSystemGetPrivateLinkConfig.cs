@@ -42,7 +42,7 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
         /// </summary>
-        public readonly string OscpUrl;
+        public readonly string OcspUrl;
 
         [OutputConstructor]
         private GetSystemGetPrivateLinkConfigResult(
@@ -56,14 +56,14 @@ namespace Pulumi.Snowflake
 
             string id,
 
-            string oscpUrl)
+            string ocspUrl)
         {
             AccountName = accountName;
             AccountUrl = accountUrl;
             AwsVpceId = awsVpceId;
             AzurePlsId = azurePlsId;
             Id = id;
-            OscpUrl = oscpUrl;
+            OcspUrl = ocspUrl;
         }
     }
 }

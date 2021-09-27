@@ -19,7 +19,7 @@ class GetSystemGetPrivateLinkConfigResult:
     """
     A collection of values returned by getSystemGetPrivateLinkConfig.
     """
-    def __init__(__self__, account_name=None, account_url=None, aws_vpce_id=None, azure_pls_id=None, id=None, oscp_url=None):
+    def __init__(__self__, account_name=None, account_url=None, aws_vpce_id=None, azure_pls_id=None, id=None, ocsp_url=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
@@ -35,9 +35,9 @@ class GetSystemGetPrivateLinkConfigResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if oscp_url and not isinstance(oscp_url, str):
-            raise TypeError("Expected argument 'oscp_url' to be a str")
-        pulumi.set(__self__, "oscp_url", oscp_url)
+        if ocsp_url and not isinstance(ocsp_url, str):
+            raise TypeError("Expected argument 'ocsp_url' to be a str")
+        pulumi.set(__self__, "ocsp_url", ocsp_url)
 
     @property
     @pulumi.getter(name="accountName")
@@ -80,12 +80,12 @@ class GetSystemGetPrivateLinkConfigResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="oscpUrl")
-    def oscp_url(self) -> str:
+    @pulumi.getter(name="ocspUrl")
+    def ocsp_url(self) -> str:
         """
         The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
         """
-        return pulumi.get(self, "oscp_url")
+        return pulumi.get(self, "ocsp_url")
 
 
 class AwaitableGetSystemGetPrivateLinkConfigResult(GetSystemGetPrivateLinkConfigResult):
@@ -99,7 +99,7 @@ class AwaitableGetSystemGetPrivateLinkConfigResult(GetSystemGetPrivateLinkConfig
             aws_vpce_id=self.aws_vpce_id,
             azure_pls_id=self.azure_pls_id,
             id=self.id,
-            oscp_url=self.oscp_url)
+            ocsp_url=self.ocsp_url)
 
 
 def get_system_get_private_link_config(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemGetPrivateLinkConfigResult:
@@ -119,4 +119,4 @@ def get_system_get_private_link_config(opts: Optional[pulumi.InvokeOptions] = No
         aws_vpce_id=__ret__.aws_vpce_id,
         azure_pls_id=__ret__.azure_pls_id,
         id=__ret__.id,
-        oscp_url=__ret__.oscp_url)
+        ocsp_url=__ret__.ocsp_url)

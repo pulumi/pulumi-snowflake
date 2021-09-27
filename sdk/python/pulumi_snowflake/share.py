@@ -132,6 +132,15 @@ class Share(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        test = snowflake.Share("test", comment="cool comment")
+        ```
+
         ## Import
 
         ```sh
@@ -151,6 +160,15 @@ class Share(pulumi.CustomResource):
                  args: Optional[ShareArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        test = snowflake.Share("test", comment="cool comment")
+        ```
+
         ## Import
 
         ```sh
