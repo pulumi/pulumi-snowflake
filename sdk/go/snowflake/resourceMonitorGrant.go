@@ -300,6 +300,10 @@ func (o ResourceMonitorGrantMapOutput) MapIndex(k pulumi.StringInput) ResourceMo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceMonitorGrantInput)(nil)).Elem(), &ResourceMonitorGrant{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceMonitorGrantPtrInput)(nil)).Elem(), &ResourceMonitorGrant{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceMonitorGrantArrayInput)(nil)).Elem(), ResourceMonitorGrantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceMonitorGrantMapInput)(nil)).Elem(), ResourceMonitorGrantMap{})
 	pulumi.RegisterOutputType(ResourceMonitorGrantOutput{})
 	pulumi.RegisterOutputType(ResourceMonitorGrantPtrOutput{})
 	pulumi.RegisterOutputType(ResourceMonitorGrantArrayOutput{})

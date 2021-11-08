@@ -13,6 +13,7 @@ __all__ = [
     'GetMaterializedViewsResult',
     'AwaitableGetMaterializedViewsResult',
     'get_materialized_views',
+    'get_materialized_views_output',
 ]
 
 @pulumi.output_type
@@ -111,3 +112,25 @@ def get_materialized_views(database: Optional[str] = None,
         id=__ret__.id,
         materialized_views=__ret__.materialized_views,
         schema=__ret__.schema)
+
+
+@_utilities.lift_output_func(get_materialized_views)
+def get_materialized_views_output(database: Optional[pulumi.Input[str]] = None,
+                                  schema: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMaterializedViewsResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_materialized_views(database="MYDB",
+        schema="MYSCHEMA")
+    ```
+
+
+    :param str database: The database from which to return the schemas from.
+    :param str schema: The schema from which to return the views from.
+    """
+    ...

@@ -67,3 +67,21 @@ export interface GetMaterializedViewsResult {
      */
     readonly schema: string;
 }
+
+export function getMaterializedViewsOutput(args: GetMaterializedViewsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaterializedViewsResult> {
+    return pulumi.output(args).apply(a => getMaterializedViews(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getMaterializedViews.
+ */
+export interface GetMaterializedViewsOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
+    database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the views from.
+     */
+    schema: pulumi.Input<string>;
+}

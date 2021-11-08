@@ -67,3 +67,21 @@ export interface GetExternalFunctionsResult {
      */
     readonly schema: string;
 }
+
+export function getExternalFunctionsOutput(args: GetExternalFunctionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExternalFunctionsResult> {
+    return pulumi.output(args).apply(a => getExternalFunctions(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getExternalFunctions.
+ */
+export interface GetExternalFunctionsOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
+    database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the external functions from.
+     */
+    schema: pulumi.Input<string>;
+}

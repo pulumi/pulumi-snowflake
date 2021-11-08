@@ -653,6 +653,10 @@ func (o FileFormatMapOutput) MapIndex(k pulumi.StringInput) FileFormatOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FileFormatInput)(nil)).Elem(), &FileFormat{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileFormatPtrInput)(nil)).Elem(), &FileFormat{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileFormatArrayInput)(nil)).Elem(), FileFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileFormatMapInput)(nil)).Elem(), FileFormatMap{})
 	pulumi.RegisterOutputType(FileFormatOutput{})
 	pulumi.RegisterOutputType(FileFormatPtrOutput{})
 	pulumi.RegisterOutputType(FileFormatArrayOutput{})

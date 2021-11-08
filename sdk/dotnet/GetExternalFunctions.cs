@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Snowflake
 {
@@ -38,6 +39,34 @@ namespace Pulumi.Snowflake
         /// </summary>
         public static Task<GetExternalFunctionsResult> InvokeAsync(GetExternalFunctionsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExternalFunctionsResult>("snowflake:index/getExternalFunctions:getExternalFunctions", args ?? new GetExternalFunctionsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var current = Output.Create(Snowflake.GetExternalFunctions.InvokeAsync(new Snowflake.GetExternalFunctionsArgs
+        ///         {
+        ///             Database = "MYDB",
+        ///             Schema = "MYSCHEMA",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetExternalFunctionsResult> Invoke(GetExternalFunctionsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetExternalFunctionsResult>("snowflake:index/getExternalFunctions:getExternalFunctions", args ?? new GetExternalFunctionsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -56,6 +85,25 @@ namespace Pulumi.Snowflake
         public string Schema { get; set; } = null!;
 
         public GetExternalFunctionsArgs()
+        {
+        }
+    }
+
+    public sealed class GetExternalFunctionsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
+        [Input("database", required: true)]
+        public Input<string> Database { get; set; } = null!;
+
+        /// <summary>
+        /// The schema from which to return the external functions from.
+        /// </summary>
+        [Input("schema", required: true)]
+        public Input<string> Schema { get; set; } = null!;
+
+        public GetExternalFunctionsInvokeArgs()
         {
         }
     }

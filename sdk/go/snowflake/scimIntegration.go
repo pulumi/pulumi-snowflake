@@ -334,6 +334,10 @@ func (o ScimIntegrationMapOutput) MapIndex(k pulumi.StringInput) ScimIntegration
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ScimIntegrationInput)(nil)).Elem(), &ScimIntegration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScimIntegrationPtrInput)(nil)).Elem(), &ScimIntegration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScimIntegrationArrayInput)(nil)).Elem(), ScimIntegrationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScimIntegrationMapInput)(nil)).Elem(), ScimIntegrationMap{})
 	pulumi.RegisterOutputType(ScimIntegrationOutput{})
 	pulumi.RegisterOutputType(ScimIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(ScimIntegrationArrayOutput{})

@@ -330,6 +330,10 @@ func (o WarehouseGrantMapOutput) MapIndex(k pulumi.StringInput) WarehouseGrantOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WarehouseGrantInput)(nil)).Elem(), &WarehouseGrant{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WarehouseGrantPtrInput)(nil)).Elem(), &WarehouseGrant{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WarehouseGrantArrayInput)(nil)).Elem(), WarehouseGrantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WarehouseGrantMapInput)(nil)).Elem(), WarehouseGrantMap{})
 	pulumi.RegisterOutputType(WarehouseGrantOutput{})
 	pulumi.RegisterOutputType(WarehouseGrantPtrOutput{})
 	pulumi.RegisterOutputType(WarehouseGrantArrayOutput{})

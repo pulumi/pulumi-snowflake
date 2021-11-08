@@ -367,6 +367,10 @@ func (o StreamGrantMapOutput) MapIndex(k pulumi.StringInput) StreamGrantOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamGrantInput)(nil)).Elem(), &StreamGrant{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamGrantPtrInput)(nil)).Elem(), &StreamGrant{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamGrantArrayInput)(nil)).Elem(), StreamGrantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamGrantMapInput)(nil)).Elem(), StreamGrantMap{})
 	pulumi.RegisterOutputType(StreamGrantOutput{})
 	pulumi.RegisterOutputType(StreamGrantPtrOutput{})
 	pulumi.RegisterOutputType(StreamGrantArrayOutput{})

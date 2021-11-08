@@ -67,3 +67,21 @@ export interface GetRowAccessPoliciesResult {
      */
     readonly schema: string;
 }
+
+export function getRowAccessPoliciesOutput(args: GetRowAccessPoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRowAccessPoliciesResult> {
+    return pulumi.output(args).apply(a => getRowAccessPolicies(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRowAccessPolicies.
+ */
+export interface GetRowAccessPoliciesOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
+    database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the row access policyfrom.
+     */
+    schema: pulumi.Input<string>;
+}

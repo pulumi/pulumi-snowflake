@@ -12,6 +12,7 @@ __all__ = [
     'GetSystemGetAwsSnsIamPolicyResult',
     'AwaitableGetSystemGetAwsSnsIamPolicyResult',
     'get_system_get_aws_sns_iam_policy',
+    'get_system_get_aws_sns_iam_policy_output',
 ]
 
 @pulumi.output_type
@@ -85,3 +86,14 @@ def get_system_get_aws_sns_iam_policy(aws_sns_topic_arn: Optional[str] = None,
         aws_sns_topic_arn=__ret__.aws_sns_topic_arn,
         aws_sns_topic_policy_json=__ret__.aws_sns_topic_policy_json,
         id=__ret__.id)
+
+
+@_utilities.lift_output_func(get_system_get_aws_sns_iam_policy)
+def get_system_get_aws_sns_iam_policy_output(aws_sns_topic_arn: Optional[pulumi.Input[str]] = None,
+                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemGetAwsSnsIamPolicyResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param str aws_sns_topic_arn: Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
+    """
+    ...

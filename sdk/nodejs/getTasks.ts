@@ -67,3 +67,21 @@ export interface GetTasksResult {
      */
     readonly tasks: outputs.GetTasksTask[];
 }
+
+export function getTasksOutput(args: GetTasksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTasksResult> {
+    return pulumi.output(args).apply(a => getTasks(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getTasks.
+ */
+export interface GetTasksOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
+    database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the tasks from.
+     */
+    schema: pulumi.Input<string>;
+}

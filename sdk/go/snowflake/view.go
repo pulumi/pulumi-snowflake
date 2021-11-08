@@ -366,6 +366,10 @@ func (o ViewMapOutput) MapIndex(k pulumi.StringInput) ViewOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewInput)(nil)).Elem(), &View{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewPtrInput)(nil)).Elem(), &View{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewArrayInput)(nil)).Elem(), ViewArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewMapInput)(nil)).Elem(), ViewMap{})
 	pulumi.RegisterOutputType(ViewOutput{})
 	pulumi.RegisterOutputType(ViewPtrOutput{})
 	pulumi.RegisterOutputType(ViewArrayOutput{})

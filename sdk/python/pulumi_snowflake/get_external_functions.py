@@ -13,6 +13,7 @@ __all__ = [
     'GetExternalFunctionsResult',
     'AwaitableGetExternalFunctionsResult',
     'get_external_functions',
+    'get_external_functions_output',
 ]
 
 @pulumi.output_type
@@ -111,3 +112,25 @@ def get_external_functions(database: Optional[str] = None,
         external_functions=__ret__.external_functions,
         id=__ret__.id,
         schema=__ret__.schema)
+
+
+@_utilities.lift_output_func(get_external_functions)
+def get_external_functions_output(database: Optional[pulumi.Input[str]] = None,
+                                  schema: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExternalFunctionsResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_external_functions(database="MYDB",
+        schema="MYSCHEMA")
+    ```
+
+
+    :param str database: The database from which to return the schemas from.
+    :param str schema: The schema from which to return the external functions from.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetPipesResult',
     'AwaitableGetPipesResult',
     'get_pipes',
+    'get_pipes_output',
 ]
 
 @pulumi.output_type
@@ -111,3 +112,25 @@ def get_pipes(database: Optional[str] = None,
         id=__ret__.id,
         pipes=__ret__.pipes,
         schema=__ret__.schema)
+
+
+@_utilities.lift_output_func(get_pipes)
+def get_pipes_output(database: Optional[pulumi.Input[str]] = None,
+                     schema: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipesResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_pipes(database="MYDB",
+        schema="MYSCHEMA")
+    ```
+
+
+    :param str database: The database from which to return the schemas from.
+    :param str schema: The schema from which to return the pipes from.
+    """
+    ...

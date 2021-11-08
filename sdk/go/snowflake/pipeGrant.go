@@ -335,6 +335,10 @@ func (o PipeGrantMapOutput) MapIndex(k pulumi.StringInput) PipeGrantOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeGrantInput)(nil)).Elem(), &PipeGrant{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeGrantPtrInput)(nil)).Elem(), &PipeGrant{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeGrantArrayInput)(nil)).Elem(), PipeGrantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeGrantMapInput)(nil)).Elem(), PipeGrantMap{})
 	pulumi.RegisterOutputType(PipeGrantOutput{})
 	pulumi.RegisterOutputType(PipeGrantPtrOutput{})
 	pulumi.RegisterOutputType(PipeGrantArrayOutput{})

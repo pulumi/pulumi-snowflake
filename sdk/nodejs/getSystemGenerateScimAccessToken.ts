@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -56,4 +55,18 @@ export interface GetSystemGenerateScimAccessTokenResult {
      * SCIM Integration Name
      */
     readonly integrationName: string;
+}
+
+export function getSystemGenerateScimAccessTokenOutput(args: GetSystemGenerateScimAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemGenerateScimAccessTokenResult> {
+    return pulumi.output(args).apply(a => getSystemGenerateScimAccessToken(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSystemGenerateScimAccessToken.
+ */
+export interface GetSystemGenerateScimAccessTokenOutputArgs {
+    /**
+     * SCIM Integration Name
+     */
+    integrationName: pulumi.Input<string>;
 }

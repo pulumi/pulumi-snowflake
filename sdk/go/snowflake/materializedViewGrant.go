@@ -378,6 +378,10 @@ func (o MaterializedViewGrantMapOutput) MapIndex(k pulumi.StringInput) Materiali
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewGrantInput)(nil)).Elem(), &MaterializedViewGrant{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewGrantPtrInput)(nil)).Elem(), &MaterializedViewGrant{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewGrantArrayInput)(nil)).Elem(), MaterializedViewGrantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewGrantMapInput)(nil)).Elem(), MaterializedViewGrantMap{})
 	pulumi.RegisterOutputType(MaterializedViewGrantOutput{})
 	pulumi.RegisterOutputType(MaterializedViewGrantPtrOutput{})
 	pulumi.RegisterOutputType(MaterializedViewGrantArrayOutput{})

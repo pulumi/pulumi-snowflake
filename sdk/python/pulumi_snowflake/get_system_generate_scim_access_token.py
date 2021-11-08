@@ -12,6 +12,7 @@ __all__ = [
     'GetSystemGenerateScimAccessTokenResult',
     'AwaitableGetSystemGenerateScimAccessTokenResult',
     'get_system_generate_scim_access_token',
+    'get_system_generate_scim_access_token_output',
 ]
 
 @pulumi.output_type
@@ -93,3 +94,22 @@ def get_system_generate_scim_access_token(integration_name: Optional[str] = None
         access_token=__ret__.access_token,
         id=__ret__.id,
         integration_name=__ret__.integration_name)
+
+
+@_utilities.lift_output_func(get_system_generate_scim_access_token)
+def get_system_generate_scim_access_token_output(integration_name: Optional[pulumi.Input[str]] = None,
+                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemGenerateScimAccessTokenResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    scim = snowflake.get_system_generate_scim_access_token(integration_name="AAD_PROVISIONING")
+    ```
+
+
+    :param str integration_name: SCIM Integration Name
+    """
+    ...

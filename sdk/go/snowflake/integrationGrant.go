@@ -331,6 +331,10 @@ func (o IntegrationGrantMapOutput) MapIndex(k pulumi.StringInput) IntegrationGra
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationGrantInput)(nil)).Elem(), &IntegrationGrant{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationGrantPtrInput)(nil)).Elem(), &IntegrationGrant{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationGrantArrayInput)(nil)).Elem(), IntegrationGrantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationGrantMapInput)(nil)).Elem(), IntegrationGrantMap{})
 	pulumi.RegisterOutputType(IntegrationGrantOutput{})
 	pulumi.RegisterOutputType(IntegrationGrantPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationGrantArrayOutput{})

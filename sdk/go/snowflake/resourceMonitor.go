@@ -371,6 +371,10 @@ func (o ResourceMonitorMapOutput) MapIndex(k pulumi.StringInput) ResourceMonitor
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceMonitorInput)(nil)).Elem(), &ResourceMonitor{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceMonitorPtrInput)(nil)).Elem(), &ResourceMonitor{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceMonitorArrayInput)(nil)).Elem(), ResourceMonitorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceMonitorMapInput)(nil)).Elem(), ResourceMonitorMap{})
 	pulumi.RegisterOutputType(ResourceMonitorOutput{})
 	pulumi.RegisterOutputType(ResourceMonitorPtrOutput{})
 	pulumi.RegisterOutputType(ResourceMonitorArrayOutput{})

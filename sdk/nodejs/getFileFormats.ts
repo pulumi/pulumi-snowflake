@@ -67,3 +67,21 @@ export interface GetFileFormatsResult {
      */
     readonly schema: string;
 }
+
+export function getFileFormatsOutput(args: GetFileFormatsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileFormatsResult> {
+    return pulumi.output(args).apply(a => getFileFormats(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getFileFormats.
+ */
+export interface GetFileFormatsOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
+    database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the file formats from.
+     */
+    schema: pulumi.Input<string>;
+}

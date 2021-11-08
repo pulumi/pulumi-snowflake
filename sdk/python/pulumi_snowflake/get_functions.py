@@ -13,6 +13,7 @@ __all__ = [
     'GetFunctionsResult',
     'AwaitableGetFunctionsResult',
     'get_functions',
+    'get_functions_output',
 ]
 
 @pulumi.output_type
@@ -111,3 +112,25 @@ def get_functions(database: Optional[str] = None,
         functions=__ret__.functions,
         id=__ret__.id,
         schema=__ret__.schema)
+
+
+@_utilities.lift_output_func(get_functions)
+def get_functions_output(database: Optional[pulumi.Input[str]] = None,
+                         schema: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionsResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_functions(database="MYDB",
+        schema="MYSCHEMA")
+    ```
+
+
+    :param str database: The database from which to return the schemas from.
+    :param str schema: The schema from which to return the functions from.
+    """
+    ...

@@ -353,6 +353,10 @@ func (o SequenceMapOutput) MapIndex(k pulumi.StringInput) SequenceOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SequenceInput)(nil)).Elem(), &Sequence{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SequencePtrInput)(nil)).Elem(), &Sequence{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SequenceArrayInput)(nil)).Elem(), SequenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SequenceMapInput)(nil)).Elem(), SequenceMap{})
 	pulumi.RegisterOutputType(SequenceOutput{})
 	pulumi.RegisterOutputType(SequencePtrOutput{})
 	pulumi.RegisterOutputType(SequenceArrayOutput{})

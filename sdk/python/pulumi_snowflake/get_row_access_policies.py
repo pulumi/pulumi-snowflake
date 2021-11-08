@@ -13,6 +13,7 @@ __all__ = [
     'GetRowAccessPoliciesResult',
     'AwaitableGetRowAccessPoliciesResult',
     'get_row_access_policies',
+    'get_row_access_policies_output',
 ]
 
 @pulumi.output_type
@@ -111,3 +112,25 @@ def get_row_access_policies(database: Optional[str] = None,
         id=__ret__.id,
         row_access_policies=__ret__.row_access_policies,
         schema=__ret__.schema)
+
+
+@_utilities.lift_output_func(get_row_access_policies)
+def get_row_access_policies_output(database: Optional[pulumi.Input[str]] = None,
+                                   schema: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRowAccessPoliciesResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_row_access_policies(database="MYDB",
+        schema="MYSCHEMA")
+    ```
+
+
+    :param str database: The database from which to return the schemas from.
+    :param str schema: The schema from which to return the row access policyfrom.
+    """
+    ...

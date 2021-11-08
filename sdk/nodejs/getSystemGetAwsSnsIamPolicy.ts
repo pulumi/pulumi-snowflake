@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 export function getSystemGetAwsSnsIamPolicy(args: GetSystemGetAwsSnsIamPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemGetAwsSnsIamPolicyResult> {
@@ -44,4 +43,18 @@ export interface GetSystemGetAwsSnsIamPolicyResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+}
+
+export function getSystemGetAwsSnsIamPolicyOutput(args: GetSystemGetAwsSnsIamPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemGetAwsSnsIamPolicyResult> {
+    return pulumi.output(args).apply(a => getSystemGetAwsSnsIamPolicy(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSystemGetAwsSnsIamPolicy.
+ */
+export interface GetSystemGetAwsSnsIamPolicyOutputArgs {
+    /**
+     * Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
+     */
+    awsSnsTopicArn: pulumi.Input<string>;
 }

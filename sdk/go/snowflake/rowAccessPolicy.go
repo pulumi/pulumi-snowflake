@@ -360,6 +360,10 @@ func (o RowAccessPolicyMapOutput) MapIndex(k pulumi.StringInput) RowAccessPolicy
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RowAccessPolicyInput)(nil)).Elem(), &RowAccessPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RowAccessPolicyPtrInput)(nil)).Elem(), &RowAccessPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RowAccessPolicyArrayInput)(nil)).Elem(), RowAccessPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RowAccessPolicyMapInput)(nil)).Elem(), RowAccessPolicyMap{})
 	pulumi.RegisterOutputType(RowAccessPolicyOutput{})
 	pulumi.RegisterOutputType(RowAccessPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RowAccessPolicyArrayOutput{})

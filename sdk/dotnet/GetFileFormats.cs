@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Snowflake
 {
@@ -38,6 +39,34 @@ namespace Pulumi.Snowflake
         /// </summary>
         public static Task<GetFileFormatsResult> InvokeAsync(GetFileFormatsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFileFormatsResult>("snowflake:index/getFileFormats:getFileFormats", args ?? new GetFileFormatsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var current = Output.Create(Snowflake.GetFileFormats.InvokeAsync(new Snowflake.GetFileFormatsArgs
+        ///         {
+        ///             Database = "MYDB",
+        ///             Schema = "MYSCHEMA",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetFileFormatsResult> Invoke(GetFileFormatsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFileFormatsResult>("snowflake:index/getFileFormats:getFileFormats", args ?? new GetFileFormatsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -56,6 +85,25 @@ namespace Pulumi.Snowflake
         public string Schema { get; set; } = null!;
 
         public GetFileFormatsArgs()
+        {
+        }
+    }
+
+    public sealed class GetFileFormatsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
+        [Input("database", required: true)]
+        public Input<string> Database { get; set; } = null!;
+
+        /// <summary>
+        /// The schema from which to return the file formats from.
+        /// </summary>
+        [Input("schema", required: true)]
+        public Input<string> Schema { get; set; } = null!;
+
+        public GetFileFormatsInvokeArgs()
         {
         }
     }

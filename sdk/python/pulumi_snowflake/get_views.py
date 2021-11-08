@@ -13,6 +13,7 @@ __all__ = [
     'GetViewsResult',
     'AwaitableGetViewsResult',
     'get_views',
+    'get_views_output',
 ]
 
 @pulumi.output_type
@@ -111,3 +112,25 @@ def get_views(database: Optional[str] = None,
         id=__ret__.id,
         schema=__ret__.schema,
         views=__ret__.views)
+
+
+@_utilities.lift_output_func(get_views)
+def get_views_output(database: Optional[pulumi.Input[str]] = None,
+                     schema: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewsResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_views(database="MYDB",
+        schema="MYSCHEMA")
+    ```
+
+
+    :param str database: The database from which to return the schemas from.
+    :param str schema: The schema from which to return the views from.
+    """
+    ...

@@ -445,6 +445,10 @@ func (o ExternalTableMapOutput) MapIndex(k pulumi.StringInput) ExternalTableOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalTableInput)(nil)).Elem(), &ExternalTable{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalTablePtrInput)(nil)).Elem(), &ExternalTable{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalTableArrayInput)(nil)).Elem(), ExternalTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalTableMapInput)(nil)).Elem(), ExternalTableMap{})
 	pulumi.RegisterOutputType(ExternalTableOutput{})
 	pulumi.RegisterOutputType(ExternalTablePtrOutput{})
 	pulumi.RegisterOutputType(ExternalTableArrayOutput{})

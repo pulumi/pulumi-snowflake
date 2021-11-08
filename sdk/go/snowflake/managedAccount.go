@@ -343,6 +343,10 @@ func (o ManagedAccountMapOutput) MapIndex(k pulumi.StringInput) ManagedAccountOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedAccountInput)(nil)).Elem(), &ManagedAccount{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedAccountPtrInput)(nil)).Elem(), &ManagedAccount{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedAccountArrayInput)(nil)).Elem(), ManagedAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedAccountMapInput)(nil)).Elem(), ManagedAccountMap{})
 	pulumi.RegisterOutputType(ManagedAccountOutput{})
 	pulumi.RegisterOutputType(ManagedAccountPtrOutput{})
 	pulumi.RegisterOutputType(ManagedAccountArrayOutput{})
