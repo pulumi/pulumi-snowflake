@@ -67,3 +67,21 @@ export interface GetStreamsResult {
      */
     readonly streams: outputs.GetStreamsStream[];
 }
+
+export function getStreamsOutput(args: GetStreamsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamsResult> {
+    return pulumi.output(args).apply(a => getStreams(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getStreams.
+ */
+export interface GetStreamsOutputArgs {
+    /**
+     * The database from which to return the streams from.
+     */
+    database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the streams from.
+     */
+    schema: pulumi.Input<string>;
+}

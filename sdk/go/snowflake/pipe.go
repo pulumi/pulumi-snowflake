@@ -370,6 +370,10 @@ func (o PipeMapOutput) MapIndex(k pulumi.StringInput) PipeOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeInput)(nil)).Elem(), &Pipe{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipePtrInput)(nil)).Elem(), &Pipe{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeArrayInput)(nil)).Elem(), PipeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeMapInput)(nil)).Elem(), PipeMap{})
 	pulumi.RegisterOutputType(PipeOutput{})
 	pulumi.RegisterOutputType(PipePtrOutput{})
 	pulumi.RegisterOutputType(PipeArrayOutput{})

@@ -67,3 +67,21 @@ export interface GetStagesResult {
      */
     readonly stages: outputs.GetStagesStage[];
 }
+
+export function getStagesOutput(args: GetStagesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStagesResult> {
+    return pulumi.output(args).apply(a => getStages(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getStages.
+ */
+export interface GetStagesOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
+    database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the stages from.
+     */
+    schema: pulumi.Input<string>;
+}

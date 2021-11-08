@@ -57,3 +57,17 @@ export interface GetSchemasResult {
      */
     readonly schemas: outputs.GetSchemasSchema[];
 }
+
+export function getSchemasOutput(args: GetSchemasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemasResult> {
+    return pulumi.output(args).apply(a => getSchemas(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSchemas.
+ */
+export interface GetSchemasOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
+    database: pulumi.Input<string>;
+}

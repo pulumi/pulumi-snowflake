@@ -13,6 +13,7 @@ __all__ = [
     'GetFileFormatsResult',
     'AwaitableGetFileFormatsResult',
     'get_file_formats',
+    'get_file_formats_output',
 ]
 
 @pulumi.output_type
@@ -111,3 +112,25 @@ def get_file_formats(database: Optional[str] = None,
         file_formats=__ret__.file_formats,
         id=__ret__.id,
         schema=__ret__.schema)
+
+
+@_utilities.lift_output_func(get_file_formats)
+def get_file_formats_output(database: Optional[pulumi.Input[str]] = None,
+                            schema: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileFormatsResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_file_formats(database="MYDB",
+        schema="MYSCHEMA")
+    ```
+
+
+    :param str database: The database from which to return the schemas from.
+    :param str schema: The schema from which to return the file formats from.
+    """
+    ...

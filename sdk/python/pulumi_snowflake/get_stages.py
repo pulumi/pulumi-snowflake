@@ -13,6 +13,7 @@ __all__ = [
     'GetStagesResult',
     'AwaitableGetStagesResult',
     'get_stages',
+    'get_stages_output',
 ]
 
 @pulumi.output_type
@@ -111,3 +112,25 @@ def get_stages(database: Optional[str] = None,
         id=__ret__.id,
         schema=__ret__.schema,
         stages=__ret__.stages)
+
+
+@_utilities.lift_output_func(get_stages)
+def get_stages_output(database: Optional[pulumi.Input[str]] = None,
+                      schema: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStagesResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_stages(database="MYDB",
+        schema="MYSCHEMA")
+    ```
+
+
+    :param str database: The database from which to return the schemas from.
+    :param str schema: The schema from which to return the stages from.
+    """
+    ...

@@ -335,6 +335,10 @@ func (o TaskGrantMapOutput) MapIndex(k pulumi.StringInput) TaskGrantOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskGrantInput)(nil)).Elem(), &TaskGrant{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskGrantPtrInput)(nil)).Elem(), &TaskGrant{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskGrantArrayInput)(nil)).Elem(), TaskGrantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskGrantMapInput)(nil)).Elem(), TaskGrantMap{})
 	pulumi.RegisterOutputType(TaskGrantOutput{})
 	pulumi.RegisterOutputType(TaskGrantPtrOutput{})
 	pulumi.RegisterOutputType(TaskGrantArrayOutput{})

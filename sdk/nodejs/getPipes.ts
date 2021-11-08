@@ -67,3 +67,21 @@ export interface GetPipesResult {
      */
     readonly schema: string;
 }
+
+export function getPipesOutput(args: GetPipesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipesResult> {
+    return pulumi.output(args).apply(a => getPipes(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getPipes.
+ */
+export interface GetPipesOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
+    database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the pipes from.
+     */
+    schema: pulumi.Input<string>;
+}

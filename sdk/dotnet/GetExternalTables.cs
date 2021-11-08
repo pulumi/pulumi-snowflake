@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Snowflake
 {
@@ -38,6 +39,34 @@ namespace Pulumi.Snowflake
         /// </summary>
         public static Task<GetExternalTablesResult> InvokeAsync(GetExternalTablesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExternalTablesResult>("snowflake:index/getExternalTables:getExternalTables", args ?? new GetExternalTablesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var current = Output.Create(Snowflake.GetExternalTables.InvokeAsync(new Snowflake.GetExternalTablesArgs
+        ///         {
+        ///             Database = "MYDB",
+        ///             Schema = "MYSCHEMA",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetExternalTablesResult> Invoke(GetExternalTablesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetExternalTablesResult>("snowflake:index/getExternalTables:getExternalTables", args ?? new GetExternalTablesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -56,6 +85,25 @@ namespace Pulumi.Snowflake
         public string Schema { get; set; } = null!;
 
         public GetExternalTablesArgs()
+        {
+        }
+    }
+
+    public sealed class GetExternalTablesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
+        [Input("database", required: true)]
+        public Input<string> Database { get; set; } = null!;
+
+        /// <summary>
+        /// The schema from which to return the external tables from.
+        /// </summary>
+        [Input("schema", required: true)]
+        public Input<string> Schema { get; set; } = null!;
+
+        public GetExternalTablesInvokeArgs()
         {
         }
     }

@@ -380,6 +380,10 @@ func (o MaterializedViewMapOutput) MapIndex(k pulumi.StringInput) MaterializedVi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewInput)(nil)).Elem(), &MaterializedView{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewPtrInput)(nil)).Elem(), &MaterializedView{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewArrayInput)(nil)).Elem(), MaterializedViewArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewMapInput)(nil)).Elem(), MaterializedViewMap{})
 	pulumi.RegisterOutputType(MaterializedViewOutput{})
 	pulumi.RegisterOutputType(MaterializedViewPtrOutput{})
 	pulumi.RegisterOutputType(MaterializedViewArrayOutput{})

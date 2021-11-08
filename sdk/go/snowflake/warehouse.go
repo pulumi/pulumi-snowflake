@@ -415,6 +415,10 @@ func (o WarehouseMapOutput) MapIndex(k pulumi.StringInput) WarehouseOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WarehouseInput)(nil)).Elem(), &Warehouse{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WarehousePtrInput)(nil)).Elem(), &Warehouse{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WarehouseArrayInput)(nil)).Elem(), WarehouseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WarehouseMapInput)(nil)).Elem(), WarehouseMap{})
 	pulumi.RegisterOutputType(WarehouseOutput{})
 	pulumi.RegisterOutputType(WarehousePtrOutput{})
 	pulumi.RegisterOutputType(WarehouseArrayOutput{})

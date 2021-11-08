@@ -13,6 +13,7 @@ __all__ = [
     'GetSequencesResult',
     'AwaitableGetSequencesResult',
     'get_sequences',
+    'get_sequences_output',
 ]
 
 @pulumi.output_type
@@ -111,3 +112,25 @@ def get_sequences(database: Optional[str] = None,
         id=__ret__.id,
         schema=__ret__.schema,
         sequences=__ret__.sequences)
+
+
+@_utilities.lift_output_func(get_sequences)
+def get_sequences_output(database: Optional[pulumi.Input[str]] = None,
+                         schema: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSequencesResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_sequences(database="MYDB",
+        schema="MYSCHEMA")
+    ```
+
+
+    :param str database: The database from which to return the schemas from.
+    :param str schema: The schema from which to return the sequences from.
+    """
+    ...

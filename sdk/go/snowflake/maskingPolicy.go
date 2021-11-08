@@ -371,6 +371,10 @@ func (o MaskingPolicyMapOutput) MapIndex(k pulumi.StringInput) MaskingPolicyOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MaskingPolicyInput)(nil)).Elem(), &MaskingPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaskingPolicyPtrInput)(nil)).Elem(), &MaskingPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaskingPolicyArrayInput)(nil)).Elem(), MaskingPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaskingPolicyMapInput)(nil)).Elem(), MaskingPolicyMap{})
 	pulumi.RegisterOutputType(MaskingPolicyOutput{})
 	pulumi.RegisterOutputType(MaskingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(MaskingPolicyArrayOutput{})

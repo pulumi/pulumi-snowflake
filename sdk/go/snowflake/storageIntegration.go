@@ -354,6 +354,10 @@ func (o StorageIntegrationMapOutput) MapIndex(k pulumi.StringInput) StorageInteg
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationInput)(nil)).Elem(), &StorageIntegration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationPtrInput)(nil)).Elem(), &StorageIntegration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationArrayInput)(nil)).Elem(), StorageIntegrationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationMapInput)(nil)).Elem(), StorageIntegrationMap{})
 	pulumi.RegisterOutputType(StorageIntegrationOutput{})
 	pulumi.RegisterOutputType(StorageIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(StorageIntegrationArrayOutput{})

@@ -67,3 +67,21 @@ export interface GetMaskingPoliciesResult {
      */
     readonly schema: string;
 }
+
+export function getMaskingPoliciesOutput(args: GetMaskingPoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaskingPoliciesResult> {
+    return pulumi.output(args).apply(a => getMaskingPolicies(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getMaskingPolicies.
+ */
+export interface GetMaskingPoliciesOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
+    database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the maskingPolicies from.
+     */
+    schema: pulumi.Input<string>;
+}

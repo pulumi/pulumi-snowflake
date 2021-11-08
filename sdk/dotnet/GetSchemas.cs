@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Snowflake
 {
@@ -37,6 +38,33 @@ namespace Pulumi.Snowflake
         /// </summary>
         public static Task<GetSchemasResult> InvokeAsync(GetSchemasArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSchemasResult>("snowflake:index/getSchemas:getSchemas", args ?? new GetSchemasArgs(), options.WithVersion());
+
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var current = Output.Create(Snowflake.GetSchemas.InvokeAsync(new Snowflake.GetSchemasArgs
+        ///         {
+        ///             Database = "MYDB",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetSchemasResult> Invoke(GetSchemasInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSchemasResult>("snowflake:index/getSchemas:getSchemas", args ?? new GetSchemasInvokeArgs(), options.WithVersion());
     }
 
 
@@ -49,6 +77,19 @@ namespace Pulumi.Snowflake
         public string Database { get; set; } = null!;
 
         public GetSchemasArgs()
+        {
+        }
+    }
+
+    public sealed class GetSchemasInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
+        [Input("database", required: true)]
+        public Input<string> Database { get; set; } = null!;
+
+        public GetSchemasInvokeArgs()
         {
         }
     }

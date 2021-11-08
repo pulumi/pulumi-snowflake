@@ -367,6 +367,10 @@ func (o FileFormatGrantMapOutput) MapIndex(k pulumi.StringInput) FileFormatGrant
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FileFormatGrantInput)(nil)).Elem(), &FileFormatGrant{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileFormatGrantPtrInput)(nil)).Elem(), &FileFormatGrant{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileFormatGrantArrayInput)(nil)).Elem(), FileFormatGrantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileFormatGrantMapInput)(nil)).Elem(), FileFormatGrantMap{})
 	pulumi.RegisterOutputType(FileFormatGrantOutput{})
 	pulumi.RegisterOutputType(FileFormatGrantPtrOutput{})
 	pulumi.RegisterOutputType(FileFormatGrantArrayOutput{})

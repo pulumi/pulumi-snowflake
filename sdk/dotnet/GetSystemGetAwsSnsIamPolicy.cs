@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Snowflake
 {
@@ -13,6 +14,9 @@ namespace Pulumi.Snowflake
     {
         public static Task<GetSystemGetAwsSnsIamPolicyResult> InvokeAsync(GetSystemGetAwsSnsIamPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSystemGetAwsSnsIamPolicyResult>("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", args ?? new GetSystemGetAwsSnsIamPolicyArgs(), options.WithVersion());
+
+        public static Output<GetSystemGetAwsSnsIamPolicyResult> Invoke(GetSystemGetAwsSnsIamPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSystemGetAwsSnsIamPolicyResult>("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", args ?? new GetSystemGetAwsSnsIamPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -25,6 +29,19 @@ namespace Pulumi.Snowflake
         public string AwsSnsTopicArn { get; set; } = null!;
 
         public GetSystemGetAwsSnsIamPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetSystemGetAwsSnsIamPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
+        /// </summary>
+        [Input("awsSnsTopicArn", required: true)]
+        public Input<string> AwsSnsTopicArn { get; set; } = null!;
+
+        public GetSystemGetAwsSnsIamPolicyInvokeArgs()
         {
         }
     }

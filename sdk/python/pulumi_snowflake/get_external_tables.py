@@ -13,6 +13,7 @@ __all__ = [
     'GetExternalTablesResult',
     'AwaitableGetExternalTablesResult',
     'get_external_tables',
+    'get_external_tables_output',
 ]
 
 @pulumi.output_type
@@ -111,3 +112,25 @@ def get_external_tables(database: Optional[str] = None,
         external_tables=__ret__.external_tables,
         id=__ret__.id,
         schema=__ret__.schema)
+
+
+@_utilities.lift_output_func(get_external_tables)
+def get_external_tables_output(database: Optional[pulumi.Input[str]] = None,
+                               schema: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExternalTablesResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_external_tables(database="MYDB",
+        schema="MYSCHEMA")
+    ```
+
+
+    :param str database: The database from which to return the schemas from.
+    :param str schema: The schema from which to return the external tables from.
+    """
+    ...

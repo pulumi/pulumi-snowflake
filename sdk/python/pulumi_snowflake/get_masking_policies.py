@@ -13,6 +13,7 @@ __all__ = [
     'GetMaskingPoliciesResult',
     'AwaitableGetMaskingPoliciesResult',
     'get_masking_policies',
+    'get_masking_policies_output',
 ]
 
 @pulumi.output_type
@@ -111,3 +112,25 @@ def get_masking_policies(database: Optional[str] = None,
         id=__ret__.id,
         masking_policies=__ret__.masking_policies,
         schema=__ret__.schema)
+
+
+@_utilities.lift_output_func(get_masking_policies)
+def get_masking_policies_output(database: Optional[pulumi.Input[str]] = None,
+                                schema: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMaskingPoliciesResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_masking_policies(database="MYDB",
+        schema="MYSCHEMA")
+    ```
+
+
+    :param str database: The database from which to return the schemas from.
+    :param str schema: The schema from which to return the maskingPolicies from.
+    """
+    ...

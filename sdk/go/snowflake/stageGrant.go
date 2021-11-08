@@ -381,6 +381,10 @@ func (o StageGrantMapOutput) MapIndex(k pulumi.StringInput) StageGrantOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StageGrantInput)(nil)).Elem(), &StageGrant{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageGrantPtrInput)(nil)).Elem(), &StageGrant{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageGrantArrayInput)(nil)).Elem(), StageGrantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageGrantMapInput)(nil)).Elem(), StageGrantMap{})
 	pulumi.RegisterOutputType(StageGrantOutput{})
 	pulumi.RegisterOutputType(StageGrantPtrOutput{})
 	pulumi.RegisterOutputType(StageGrantArrayOutput{})

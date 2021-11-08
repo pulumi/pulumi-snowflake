@@ -13,6 +13,7 @@ __all__ = [
     'GetStreamsResult',
     'AwaitableGetStreamsResult',
     'get_streams',
+    'get_streams_output',
 ]
 
 @pulumi.output_type
@@ -111,3 +112,25 @@ def get_streams(database: Optional[str] = None,
         id=__ret__.id,
         schema=__ret__.schema,
         streams=__ret__.streams)
+
+
+@_utilities.lift_output_func(get_streams)
+def get_streams_output(database: Optional[pulumi.Input[str]] = None,
+                       schema: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamsResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_streams(database="MYDB",
+        schema="MYSCHEMA")
+    ```
+
+
+    :param str database: The database from which to return the streams from.
+    :param str schema: The schema from which to return the streams from.
+    """
+    ...

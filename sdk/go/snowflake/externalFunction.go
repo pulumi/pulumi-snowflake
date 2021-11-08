@@ -471,6 +471,10 @@ func (o ExternalFunctionMapOutput) MapIndex(k pulumi.StringInput) ExternalFuncti
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalFunctionInput)(nil)).Elem(), &ExternalFunction{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalFunctionPtrInput)(nil)).Elem(), &ExternalFunction{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalFunctionArrayInput)(nil)).Elem(), ExternalFunctionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalFunctionMapInput)(nil)).Elem(), ExternalFunctionMap{})
 	pulumi.RegisterOutputType(ExternalFunctionOutput{})
 	pulumi.RegisterOutputType(ExternalFunctionPtrOutput{})
 	pulumi.RegisterOutputType(ExternalFunctionArrayOutput{})

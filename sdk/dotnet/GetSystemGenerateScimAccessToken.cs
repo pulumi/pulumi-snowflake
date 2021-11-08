@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Snowflake
 {
@@ -37,6 +38,33 @@ namespace Pulumi.Snowflake
         /// </summary>
         public static Task<GetSystemGenerateScimAccessTokenResult> InvokeAsync(GetSystemGenerateScimAccessTokenArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSystemGenerateScimAccessTokenResult>("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", args ?? new GetSystemGenerateScimAccessTokenArgs(), options.WithVersion());
+
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var scim = Output.Create(Snowflake.GetSystemGenerateScimAccessToken.InvokeAsync(new Snowflake.GetSystemGenerateScimAccessTokenArgs
+        ///         {
+        ///             IntegrationName = "AAD_PROVISIONING",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetSystemGenerateScimAccessTokenResult> Invoke(GetSystemGenerateScimAccessTokenInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSystemGenerateScimAccessTokenResult>("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", args ?? new GetSystemGenerateScimAccessTokenInvokeArgs(), options.WithVersion());
     }
 
 
@@ -49,6 +77,19 @@ namespace Pulumi.Snowflake
         public string IntegrationName { get; set; } = null!;
 
         public GetSystemGenerateScimAccessTokenArgs()
+        {
+        }
+    }
+
+    public sealed class GetSystemGenerateScimAccessTokenInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// SCIM Integration Name
+        /// </summary>
+        [Input("integrationName", required: true)]
+        public Input<string> IntegrationName { get; set; } = null!;
+
+        public GetSystemGenerateScimAccessTokenInvokeArgs()
         {
         }
     }

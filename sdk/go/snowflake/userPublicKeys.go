@@ -281,6 +281,10 @@ func (o UserPublicKeysMapOutput) MapIndex(k pulumi.StringInput) UserPublicKeysOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPublicKeysInput)(nil)).Elem(), &UserPublicKeys{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPublicKeysPtrInput)(nil)).Elem(), &UserPublicKeys{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPublicKeysArrayInput)(nil)).Elem(), UserPublicKeysArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPublicKeysMapInput)(nil)).Elem(), UserPublicKeysMap{})
 	pulumi.RegisterOutputType(UserPublicKeysOutput{})
 	pulumi.RegisterOutputType(UserPublicKeysPtrOutput{})
 	pulumi.RegisterOutputType(UserPublicKeysArrayOutput{})

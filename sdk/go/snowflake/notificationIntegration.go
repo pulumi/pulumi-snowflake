@@ -400,6 +400,10 @@ func (o NotificationIntegrationMapOutput) MapIndex(k pulumi.StringInput) Notific
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationIntegrationInput)(nil)).Elem(), &NotificationIntegration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationIntegrationPtrInput)(nil)).Elem(), &NotificationIntegration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationIntegrationArrayInput)(nil)).Elem(), NotificationIntegrationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationIntegrationMapInput)(nil)).Elem(), NotificationIntegrationMap{})
 	pulumi.RegisterOutputType(NotificationIntegrationOutput{})
 	pulumi.RegisterOutputType(NotificationIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(NotificationIntegrationArrayOutput{})

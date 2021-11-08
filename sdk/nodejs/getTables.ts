@@ -67,3 +67,21 @@ export interface GetTablesResult {
      */
     readonly tables: outputs.GetTablesTable[];
 }
+
+export function getTablesOutput(args: GetTablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTablesResult> {
+    return pulumi.output(args).apply(a => getTables(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getTables.
+ */
+export interface GetTablesOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
+    database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the tables from.
+     */
+    schema: pulumi.Input<string>;
+}

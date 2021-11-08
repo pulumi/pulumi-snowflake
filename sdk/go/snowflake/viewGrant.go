@@ -378,6 +378,10 @@ func (o ViewGrantMapOutput) MapIndex(k pulumi.StringInput) ViewGrantOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewGrantInput)(nil)).Elem(), &ViewGrant{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewGrantPtrInput)(nil)).Elem(), &ViewGrant{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewGrantArrayInput)(nil)).Elem(), ViewGrantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewGrantMapInput)(nil)).Elem(), ViewGrantMap{})
 	pulumi.RegisterOutputType(ViewGrantOutput{})
 	pulumi.RegisterOutputType(ViewGrantPtrOutput{})
 	pulumi.RegisterOutputType(ViewGrantArrayOutput{})

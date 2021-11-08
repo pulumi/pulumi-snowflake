@@ -67,3 +67,21 @@ export interface GetSequencesResult {
      */
     readonly sequences: outputs.GetSequencesSequence[];
 }
+
+export function getSequencesOutput(args: GetSequencesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSequencesResult> {
+    return pulumi.output(args).apply(a => getSequences(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSequences.
+ */
+export interface GetSequencesOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
+    database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the sequences from.
+     */
+    schema: pulumi.Input<string>;
+}

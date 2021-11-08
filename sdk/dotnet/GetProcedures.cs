@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Snowflake
 {
@@ -38,6 +39,34 @@ namespace Pulumi.Snowflake
         /// </summary>
         public static Task<GetProceduresResult> InvokeAsync(GetProceduresArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProceduresResult>("snowflake:index/getProcedures:getProcedures", args ?? new GetProceduresArgs(), options.WithVersion());
+
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var current = Output.Create(Snowflake.GetProcedures.InvokeAsync(new Snowflake.GetProceduresArgs
+        ///         {
+        ///             Database = "MYDB",
+        ///             Schema = "MYSCHEMA",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetProceduresResult> Invoke(GetProceduresInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetProceduresResult>("snowflake:index/getProcedures:getProcedures", args ?? new GetProceduresInvokeArgs(), options.WithVersion());
     }
 
 
@@ -56,6 +85,25 @@ namespace Pulumi.Snowflake
         public string Schema { get; set; } = null!;
 
         public GetProceduresArgs()
+        {
+        }
+    }
+
+    public sealed class GetProceduresInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
+        [Input("database", required: true)]
+        public Input<string> Database { get; set; } = null!;
+
+        /// <summary>
+        /// The schema from which to return the procedures from.
+        /// </summary>
+        [Input("schema", required: true)]
+        public Input<string> Schema { get; set; } = null!;
+
+        public GetProceduresInvokeArgs()
         {
         }
     }

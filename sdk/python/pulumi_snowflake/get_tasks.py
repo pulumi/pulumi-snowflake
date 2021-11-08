@@ -13,6 +13,7 @@ __all__ = [
     'GetTasksResult',
     'AwaitableGetTasksResult',
     'get_tasks',
+    'get_tasks_output',
 ]
 
 @pulumi.output_type
@@ -111,3 +112,25 @@ def get_tasks(database: Optional[str] = None,
         id=__ret__.id,
         schema=__ret__.schema,
         tasks=__ret__.tasks)
+
+
+@_utilities.lift_output_func(get_tasks)
+def get_tasks_output(database: Optional[pulumi.Input[str]] = None,
+                     schema: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTasksResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_tasks(database="MYDB",
+        schema="MYSCHEMA")
+    ```
+
+
+    :param str database: The database from which to return the schemas from.
+    :param str schema: The schema from which to return the tasks from.
+    """
+    ...

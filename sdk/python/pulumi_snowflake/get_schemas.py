@@ -13,6 +13,7 @@ __all__ = [
     'GetSchemasResult',
     'AwaitableGetSchemasResult',
     'get_schemas',
+    'get_schemas_output',
 ]
 
 @pulumi.output_type
@@ -94,3 +95,22 @@ def get_schemas(database: Optional[str] = None,
         database=__ret__.database,
         id=__ret__.id,
         schemas=__ret__.schemas)
+
+
+@_utilities.lift_output_func(get_schemas)
+def get_schemas_output(database: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemasResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_schemas(database="MYDB")
+    ```
+
+
+    :param str database: The database from which to return the schemas from.
+    """
+    ...

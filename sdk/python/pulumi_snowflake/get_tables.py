@@ -13,6 +13,7 @@ __all__ = [
     'GetTablesResult',
     'AwaitableGetTablesResult',
     'get_tables',
+    'get_tables_output',
 ]
 
 @pulumi.output_type
@@ -111,3 +112,25 @@ def get_tables(database: Optional[str] = None,
         id=__ret__.id,
         schema=__ret__.schema,
         tables=__ret__.tables)
+
+
+@_utilities.lift_output_func(get_tables)
+def get_tables_output(database: Optional[pulumi.Input[str]] = None,
+                      schema: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTablesResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_tables(database="MYDB",
+        schema="MYSCHEMA")
+    ```
+
+
+    :param str database: The database from which to return the schemas from.
+    :param str schema: The schema from which to return the tables from.
+    """
+    ...
