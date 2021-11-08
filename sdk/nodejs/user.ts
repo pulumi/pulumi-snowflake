@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -120,6 +121,10 @@ export class User extends pulumi.CustomResource {
      * Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      */
     public readonly rsaPublicKey2!: pulumi.Output<string | undefined>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.UserTag[] | undefined>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -150,6 +155,7 @@ export class User extends pulumi.CustomResource {
             inputs["password"] = state ? state.password : undefined;
             inputs["rsaPublicKey"] = state ? state.rsaPublicKey : undefined;
             inputs["rsaPublicKey2"] = state ? state.rsaPublicKey2 : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
             inputs["comment"] = args ? args.comment : undefined;
@@ -167,6 +173,7 @@ export class User extends pulumi.CustomResource {
             inputs["password"] = args ? args.password : undefined;
             inputs["rsaPublicKey"] = args ? args.rsaPublicKey : undefined;
             inputs["rsaPublicKey2"] = args ? args.rsaPublicKey2 : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["hasRsaPublicKey"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -238,6 +245,10 @@ export interface UserState {
      * Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      */
     rsaPublicKey2?: pulumi.Input<string>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.UserTag>[]>;
 }
 
 /**
@@ -298,4 +309,8 @@ export interface UserArgs {
      * Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      */
     rsaPublicKey2?: pulumi.Input<string>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.UserTag>[]>;
 }

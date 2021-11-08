@@ -83,6 +83,8 @@ type User struct {
 	RsaPublicKey pulumi.StringPtrOutput `pulumi:"rsaPublicKey"`
 	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 pulumi.StringPtrOutput `pulumi:"rsaPublicKey2"`
+	// Definitions of a tag to associate with the resource.
+	Tags UserTagArrayOutput `pulumi:"tags"`
 }
 
 // NewUser registers a new resource with the given unique name, arguments, and options.
@@ -144,6 +146,8 @@ type userState struct {
 	RsaPublicKey *string `pulumi:"rsaPublicKey"`
 	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 *string `pulumi:"rsaPublicKey2"`
+	// Definitions of a tag to associate with the resource.
+	Tags []UserTag `pulumi:"tags"`
 }
 
 type UserState struct {
@@ -177,6 +181,8 @@ type UserState struct {
 	RsaPublicKey pulumi.StringPtrInput
 	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 pulumi.StringPtrInput
+	// Definitions of a tag to associate with the resource.
+	Tags UserTagArrayInput
 }
 
 func (UserState) ElementType() reflect.Type {
@@ -212,6 +218,8 @@ type userArgs struct {
 	RsaPublicKey *string `pulumi:"rsaPublicKey"`
 	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 *string `pulumi:"rsaPublicKey2"`
+	// Definitions of a tag to associate with the resource.
+	Tags []UserTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a User resource.
@@ -244,6 +252,8 @@ type UserArgs struct {
 	RsaPublicKey pulumi.StringPtrInput
 	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 pulumi.StringPtrInput
+	// Definitions of a tag to associate with the resource.
+	Tags UserTagArrayInput
 }
 
 func (UserArgs) ElementType() reflect.Type {

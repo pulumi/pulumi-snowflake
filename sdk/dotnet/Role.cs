@@ -44,6 +44,12 @@ namespace Pulumi.Snowflake
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.RoleTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Role resource with the given unique name, arguments, and options.
@@ -96,6 +102,18 @@ namespace Pulumi.Snowflake
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("tags")]
+        private InputList<Inputs.RoleTagArgs>? _tags;
+
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        public InputList<Inputs.RoleTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.RoleTagArgs>());
+            set => _tags = value;
+        }
+
         public RoleArgs()
         {
         }
@@ -108,6 +126,18 @@ namespace Pulumi.Snowflake
 
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.RoleTagGetArgs>? _tags;
+
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        public InputList<Inputs.RoleTagGetArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.RoleTagGetArgs>());
+            set => _tags = value;
+        }
 
         public RoleState()
         {

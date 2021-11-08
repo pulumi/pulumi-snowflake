@@ -90,6 +90,12 @@ namespace Pulumi.Snowflake
         public Output<string> Statement { get; private set; } = null!;
 
         /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.MaterializedViewTag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The warehouse name.
         /// </summary>
         [Output("warehouse")]
@@ -183,6 +189,18 @@ namespace Pulumi.Snowflake
         [Input("statement", required: true)]
         public Input<string> Statement { get; set; } = null!;
 
+        [Input("tags")]
+        private InputList<Inputs.MaterializedViewTagArgs>? _tags;
+
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        public InputList<Inputs.MaterializedViewTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.MaterializedViewTagArgs>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The warehouse name.
         /// </summary>
@@ -237,6 +255,18 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("statement")]
         public Input<string>? Statement { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.MaterializedViewTagGetArgs>? _tags;
+
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        public InputList<Inputs.MaterializedViewTagGetArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.MaterializedViewTagGetArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The warehouse name.

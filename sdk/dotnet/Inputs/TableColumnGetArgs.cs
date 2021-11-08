@@ -25,6 +25,12 @@ namespace Pulumi.Snowflake.Inputs
         public Input<Inputs.TableColumnDefaultGetArgs>? Default { get; set; }
 
         /// <summary>
+        /// Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.TableColumnIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Column name
         /// </summary>
         [Input("name", required: true)]

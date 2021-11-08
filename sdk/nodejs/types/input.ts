@@ -4,6 +4,25 @@
 import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
+export interface DatabaseTag {
+    /**
+     * Name of the database that the tag was created in.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Tag name, e.g. department.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the schema that the tag was created in.
+     */
+    schema?: pulumi.Input<string>;
+    /**
+     * Tag value, e.g. marketing_info.
+     */
+    value: pulumi.Input<string>;
+}
+
 export interface ExternalFunctionArg {
     /**
      * Argument name
@@ -41,6 +60,25 @@ export interface ExternalTableColumn {
     type: pulumi.Input<string>;
 }
 
+export interface ExternalTableTag {
+    /**
+     * Name of the database that the tag was created in.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Tag name, e.g. department.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the schema that the tag was created in.
+     */
+    schema?: pulumi.Input<string>;
+    /**
+     * Tag value, e.g. marketing_info.
+     */
+    value: pulumi.Input<string>;
+}
+
 export interface FunctionArgument {
     /**
      * The argument name
@@ -61,6 +99,25 @@ export interface FunctionGrantArgument {
      * The argument type
      */
     type: pulumi.Input<string>;
+}
+
+export interface MaterializedViewTag {
+    /**
+     * Name of the database that the tag was created in.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Tag name, e.g. department.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the schema that the tag was created in.
+     */
+    schema?: pulumi.Input<string>;
+    /**
+     * Tag value, e.g. marketing_info.
+     */
+    value: pulumi.Input<string>;
 }
 
 export interface ProcedureArgument {
@@ -85,6 +142,63 @@ export interface ProcedureGrantArgument {
     type: pulumi.Input<string>;
 }
 
+export interface RoleTag {
+    /**
+     * Name of the database that the tag was created in.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Tag name, e.g. department.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the schema that the tag was created in.
+     */
+    schema?: pulumi.Input<string>;
+    /**
+     * Tag value, e.g. marketing_info.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface SchemaTag {
+    /**
+     * Name of the database that the tag was created in.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Tag name, e.g. department.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the schema that the tag was created in.
+     */
+    schema?: pulumi.Input<string>;
+    /**
+     * Tag value, e.g. marketing_info.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface StageTag {
+    /**
+     * Name of the database that the tag was created in.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Tag name, e.g. department.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the schema that the tag was created in.
+     */
+    schema?: pulumi.Input<string>;
+    /**
+     * Tag value, e.g. marketing_info.
+     */
+    value: pulumi.Input<string>;
+}
+
 export interface TableColumn {
     /**
      * Column comment
@@ -94,6 +208,10 @@ export interface TableColumn {
      * Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
      */
     default?: pulumi.Input<inputs.TableColumnDefault>;
+    /**
+     * Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
+     */
+    identity?: pulumi.Input<inputs.TableColumnIdentity>;
     /**
      * Column name
      */
@@ -114,6 +232,11 @@ export interface TableColumnDefault {
     sequence?: pulumi.Input<string>;
 }
 
+export interface TableColumnIdentity {
+    startNum?: pulumi.Input<number>;
+    stepNum?: pulumi.Input<number>;
+}
+
 export interface TablePrimaryKey {
     /**
      * Columns to use in primary key
@@ -123,4 +246,80 @@ export interface TablePrimaryKey {
      * Name of constraint
      */
     name?: pulumi.Input<string>;
+}
+
+export interface TableTag {
+    /**
+     * Name of the database that the tag was created in.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Tag name, e.g. department.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the schema that the tag was created in.
+     */
+    schema?: pulumi.Input<string>;
+    /**
+     * Tag value, e.g. marketing_info.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface UserTag {
+    /**
+     * Name of the database that the tag was created in.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Tag name, e.g. department.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the schema that the tag was created in.
+     */
+    schema?: pulumi.Input<string>;
+    /**
+     * Tag value, e.g. marketing_info.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ViewTag {
+    /**
+     * Name of the database that the tag was created in.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Tag name, e.g. department.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the schema that the tag was created in.
+     */
+    schema?: pulumi.Input<string>;
+    /**
+     * Tag value, e.g. marketing_info.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface WarehouseTag {
+    /**
+     * Name of the database that the tag was created in.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Tag name, e.g. department.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the schema that the tag was created in.
+     */
+    schema?: pulumi.Input<string>;
+    /**
+     * Tag value, e.g. marketing_info.
+     */
+    value: pulumi.Input<string>;
 }

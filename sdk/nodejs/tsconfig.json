@@ -84,6 +84,7 @@
         "streamGrant.ts",
         "table.ts",
         "tableGrant.ts",
+        "tag.ts",
         "task.ts",
         "taskGrant.ts",
         "types/index.ts",

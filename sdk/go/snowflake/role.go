@@ -43,6 +43,8 @@ type Role struct {
 
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	Name    pulumi.StringOutput    `pulumi:"name"`
+	// Definitions of a tag to associate with the resource.
+	Tags RoleTagArrayOutput `pulumi:"tags"`
 }
 
 // NewRole registers a new resource with the given unique name, arguments, and options.
@@ -76,11 +78,15 @@ func GetRole(ctx *pulumi.Context,
 type roleState struct {
 	Comment *string `pulumi:"comment"`
 	Name    *string `pulumi:"name"`
+	// Definitions of a tag to associate with the resource.
+	Tags []RoleTag `pulumi:"tags"`
 }
 
 type RoleState struct {
 	Comment pulumi.StringPtrInput
 	Name    pulumi.StringPtrInput
+	// Definitions of a tag to associate with the resource.
+	Tags RoleTagArrayInput
 }
 
 func (RoleState) ElementType() reflect.Type {
@@ -90,12 +96,16 @@ func (RoleState) ElementType() reflect.Type {
 type roleArgs struct {
 	Comment *string `pulumi:"comment"`
 	Name    *string `pulumi:"name"`
+	// Definitions of a tag to associate with the resource.
+	Tags []RoleTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Role resource.
 type RoleArgs struct {
 	Comment pulumi.StringPtrInput
 	Name    pulumi.StringPtrInput
+	// Definitions of a tag to associate with the resource.
+	Tags RoleTagArrayInput
 }
 
 func (RoleArgs) ElementType() reflect.Type {

@@ -10,6 +10,130 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type DatabaseTag struct {
+	// Name of the database that the tag was created in.
+	Database *string `pulumi:"database"`
+	// Tag name, e.g. department.
+	Name string `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema *string `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value string `pulumi:"value"`
+}
+
+// DatabaseTagInput is an input type that accepts DatabaseTagArgs and DatabaseTagOutput values.
+// You can construct a concrete instance of `DatabaseTagInput` via:
+//
+//          DatabaseTagArgs{...}
+type DatabaseTagInput interface {
+	pulumi.Input
+
+	ToDatabaseTagOutput() DatabaseTagOutput
+	ToDatabaseTagOutputWithContext(context.Context) DatabaseTagOutput
+}
+
+type DatabaseTagArgs struct {
+	// Name of the database that the tag was created in.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// Tag name, e.g. department.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DatabaseTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseTag)(nil)).Elem()
+}
+
+func (i DatabaseTagArgs) ToDatabaseTagOutput() DatabaseTagOutput {
+	return i.ToDatabaseTagOutputWithContext(context.Background())
+}
+
+func (i DatabaseTagArgs) ToDatabaseTagOutputWithContext(ctx context.Context) DatabaseTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTagOutput)
+}
+
+// DatabaseTagArrayInput is an input type that accepts DatabaseTagArray and DatabaseTagArrayOutput values.
+// You can construct a concrete instance of `DatabaseTagArrayInput` via:
+//
+//          DatabaseTagArray{ DatabaseTagArgs{...} }
+type DatabaseTagArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseTagArrayOutput() DatabaseTagArrayOutput
+	ToDatabaseTagArrayOutputWithContext(context.Context) DatabaseTagArrayOutput
+}
+
+type DatabaseTagArray []DatabaseTagInput
+
+func (DatabaseTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseTag)(nil)).Elem()
+}
+
+func (i DatabaseTagArray) ToDatabaseTagArrayOutput() DatabaseTagArrayOutput {
+	return i.ToDatabaseTagArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseTagArray) ToDatabaseTagArrayOutputWithContext(ctx context.Context) DatabaseTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTagArrayOutput)
+}
+
+type DatabaseTagOutput struct{ *pulumi.OutputState }
+
+func (DatabaseTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseTag)(nil)).Elem()
+}
+
+func (o DatabaseTagOutput) ToDatabaseTagOutput() DatabaseTagOutput {
+	return o
+}
+
+func (o DatabaseTagOutput) ToDatabaseTagOutputWithContext(ctx context.Context) DatabaseTagOutput {
+	return o
+}
+
+// Name of the database that the tag was created in.
+func (o DatabaseTagOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseTag) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// Tag name, e.g. department.
+func (o DatabaseTagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseTag) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of the schema that the tag was created in.
+func (o DatabaseTagOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
+}
+
+// Tag value, e.g. marketing_info.
+func (o DatabaseTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DatabaseTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseTag)(nil)).Elem()
+}
+
+func (o DatabaseTagArrayOutput) ToDatabaseTagArrayOutput() DatabaseTagArrayOutput {
+	return o
+}
+
+func (o DatabaseTagArrayOutput) ToDatabaseTagArrayOutputWithContext(ctx context.Context) DatabaseTagArrayOutput {
+	return o
+}
+
+func (o DatabaseTagArrayOutput) Index(i pulumi.IntInput) DatabaseTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseTag {
+		return vs[0].([]DatabaseTag)[vs[1].(int)]
+	}).(DatabaseTagOutput)
+}
+
 type ExternalFunctionArg struct {
 	// Argument name
 	Name string `pulumi:"name"`
@@ -337,6 +461,130 @@ func (o ExternalTableColumnArrayOutput) Index(i pulumi.IntInput) ExternalTableCo
 	}).(ExternalTableColumnOutput)
 }
 
+type ExternalTableTag struct {
+	// Name of the database that the tag was created in.
+	Database *string `pulumi:"database"`
+	// Tag name, e.g. department.
+	Name string `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema *string `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value string `pulumi:"value"`
+}
+
+// ExternalTableTagInput is an input type that accepts ExternalTableTagArgs and ExternalTableTagOutput values.
+// You can construct a concrete instance of `ExternalTableTagInput` via:
+//
+//          ExternalTableTagArgs{...}
+type ExternalTableTagInput interface {
+	pulumi.Input
+
+	ToExternalTableTagOutput() ExternalTableTagOutput
+	ToExternalTableTagOutputWithContext(context.Context) ExternalTableTagOutput
+}
+
+type ExternalTableTagArgs struct {
+	// Name of the database that the tag was created in.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// Tag name, e.g. department.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ExternalTableTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalTableTag)(nil)).Elem()
+}
+
+func (i ExternalTableTagArgs) ToExternalTableTagOutput() ExternalTableTagOutput {
+	return i.ToExternalTableTagOutputWithContext(context.Background())
+}
+
+func (i ExternalTableTagArgs) ToExternalTableTagOutputWithContext(ctx context.Context) ExternalTableTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalTableTagOutput)
+}
+
+// ExternalTableTagArrayInput is an input type that accepts ExternalTableTagArray and ExternalTableTagArrayOutput values.
+// You can construct a concrete instance of `ExternalTableTagArrayInput` via:
+//
+//          ExternalTableTagArray{ ExternalTableTagArgs{...} }
+type ExternalTableTagArrayInput interface {
+	pulumi.Input
+
+	ToExternalTableTagArrayOutput() ExternalTableTagArrayOutput
+	ToExternalTableTagArrayOutputWithContext(context.Context) ExternalTableTagArrayOutput
+}
+
+type ExternalTableTagArray []ExternalTableTagInput
+
+func (ExternalTableTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExternalTableTag)(nil)).Elem()
+}
+
+func (i ExternalTableTagArray) ToExternalTableTagArrayOutput() ExternalTableTagArrayOutput {
+	return i.ToExternalTableTagArrayOutputWithContext(context.Background())
+}
+
+func (i ExternalTableTagArray) ToExternalTableTagArrayOutputWithContext(ctx context.Context) ExternalTableTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalTableTagArrayOutput)
+}
+
+type ExternalTableTagOutput struct{ *pulumi.OutputState }
+
+func (ExternalTableTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalTableTag)(nil)).Elem()
+}
+
+func (o ExternalTableTagOutput) ToExternalTableTagOutput() ExternalTableTagOutput {
+	return o
+}
+
+func (o ExternalTableTagOutput) ToExternalTableTagOutputWithContext(ctx context.Context) ExternalTableTagOutput {
+	return o
+}
+
+// Name of the database that the tag was created in.
+func (o ExternalTableTagOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalTableTag) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// Tag name, e.g. department.
+func (o ExternalTableTagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ExternalTableTag) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of the schema that the tag was created in.
+func (o ExternalTableTagOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalTableTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
+}
+
+// Tag value, e.g. marketing_info.
+func (o ExternalTableTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ExternalTableTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ExternalTableTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ExternalTableTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExternalTableTag)(nil)).Elem()
+}
+
+func (o ExternalTableTagArrayOutput) ToExternalTableTagArrayOutput() ExternalTableTagArrayOutput {
+	return o
+}
+
+func (o ExternalTableTagArrayOutput) ToExternalTableTagArrayOutputWithContext(ctx context.Context) ExternalTableTagArrayOutput {
+	return o
+}
+
+func (o ExternalTableTagArrayOutput) Index(i pulumi.IntInput) ExternalTableTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExternalTableTag {
+		return vs[0].([]ExternalTableTag)[vs[1].(int)]
+	}).(ExternalTableTagOutput)
+}
+
 type FunctionArgument struct {
 	// The argument name
 	Name string `pulumi:"name"`
@@ -547,6 +795,130 @@ func (o FunctionGrantArgumentArrayOutput) Index(i pulumi.IntInput) FunctionGrant
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionGrantArgument {
 		return vs[0].([]FunctionGrantArgument)[vs[1].(int)]
 	}).(FunctionGrantArgumentOutput)
+}
+
+type MaterializedViewTag struct {
+	// Name of the database that the tag was created in.
+	Database *string `pulumi:"database"`
+	// Tag name, e.g. department.
+	Name string `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema *string `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value string `pulumi:"value"`
+}
+
+// MaterializedViewTagInput is an input type that accepts MaterializedViewTagArgs and MaterializedViewTagOutput values.
+// You can construct a concrete instance of `MaterializedViewTagInput` via:
+//
+//          MaterializedViewTagArgs{...}
+type MaterializedViewTagInput interface {
+	pulumi.Input
+
+	ToMaterializedViewTagOutput() MaterializedViewTagOutput
+	ToMaterializedViewTagOutputWithContext(context.Context) MaterializedViewTagOutput
+}
+
+type MaterializedViewTagArgs struct {
+	// Name of the database that the tag was created in.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// Tag name, e.g. department.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (MaterializedViewTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaterializedViewTag)(nil)).Elem()
+}
+
+func (i MaterializedViewTagArgs) ToMaterializedViewTagOutput() MaterializedViewTagOutput {
+	return i.ToMaterializedViewTagOutputWithContext(context.Background())
+}
+
+func (i MaterializedViewTagArgs) ToMaterializedViewTagOutputWithContext(ctx context.Context) MaterializedViewTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaterializedViewTagOutput)
+}
+
+// MaterializedViewTagArrayInput is an input type that accepts MaterializedViewTagArray and MaterializedViewTagArrayOutput values.
+// You can construct a concrete instance of `MaterializedViewTagArrayInput` via:
+//
+//          MaterializedViewTagArray{ MaterializedViewTagArgs{...} }
+type MaterializedViewTagArrayInput interface {
+	pulumi.Input
+
+	ToMaterializedViewTagArrayOutput() MaterializedViewTagArrayOutput
+	ToMaterializedViewTagArrayOutputWithContext(context.Context) MaterializedViewTagArrayOutput
+}
+
+type MaterializedViewTagArray []MaterializedViewTagInput
+
+func (MaterializedViewTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MaterializedViewTag)(nil)).Elem()
+}
+
+func (i MaterializedViewTagArray) ToMaterializedViewTagArrayOutput() MaterializedViewTagArrayOutput {
+	return i.ToMaterializedViewTagArrayOutputWithContext(context.Background())
+}
+
+func (i MaterializedViewTagArray) ToMaterializedViewTagArrayOutputWithContext(ctx context.Context) MaterializedViewTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaterializedViewTagArrayOutput)
+}
+
+type MaterializedViewTagOutput struct{ *pulumi.OutputState }
+
+func (MaterializedViewTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaterializedViewTag)(nil)).Elem()
+}
+
+func (o MaterializedViewTagOutput) ToMaterializedViewTagOutput() MaterializedViewTagOutput {
+	return o
+}
+
+func (o MaterializedViewTagOutput) ToMaterializedViewTagOutputWithContext(ctx context.Context) MaterializedViewTagOutput {
+	return o
+}
+
+// Name of the database that the tag was created in.
+func (o MaterializedViewTagOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaterializedViewTag) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// Tag name, e.g. department.
+func (o MaterializedViewTagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MaterializedViewTag) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of the schema that the tag was created in.
+func (o MaterializedViewTagOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaterializedViewTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
+}
+
+// Tag value, e.g. marketing_info.
+func (o MaterializedViewTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v MaterializedViewTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type MaterializedViewTagArrayOutput struct{ *pulumi.OutputState }
+
+func (MaterializedViewTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MaterializedViewTag)(nil)).Elem()
+}
+
+func (o MaterializedViewTagArrayOutput) ToMaterializedViewTagArrayOutput() MaterializedViewTagArrayOutput {
+	return o
+}
+
+func (o MaterializedViewTagArrayOutput) ToMaterializedViewTagArrayOutputWithContext(ctx context.Context) MaterializedViewTagArrayOutput {
+	return o
+}
+
+func (o MaterializedViewTagArrayOutput) Index(i pulumi.IntInput) MaterializedViewTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MaterializedViewTag {
+		return vs[0].([]MaterializedViewTag)[vs[1].(int)]
+	}).(MaterializedViewTagOutput)
 }
 
 type ProcedureArgument struct {
@@ -761,11 +1133,385 @@ func (o ProcedureGrantArgumentArrayOutput) Index(i pulumi.IntInput) ProcedureGra
 	}).(ProcedureGrantArgumentOutput)
 }
 
+type RoleTag struct {
+	// Name of the database that the tag was created in.
+	Database *string `pulumi:"database"`
+	// Tag name, e.g. department.
+	Name string `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema *string `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value string `pulumi:"value"`
+}
+
+// RoleTagInput is an input type that accepts RoleTagArgs and RoleTagOutput values.
+// You can construct a concrete instance of `RoleTagInput` via:
+//
+//          RoleTagArgs{...}
+type RoleTagInput interface {
+	pulumi.Input
+
+	ToRoleTagOutput() RoleTagOutput
+	ToRoleTagOutputWithContext(context.Context) RoleTagOutput
+}
+
+type RoleTagArgs struct {
+	// Name of the database that the tag was created in.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// Tag name, e.g. department.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RoleTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleTag)(nil)).Elem()
+}
+
+func (i RoleTagArgs) ToRoleTagOutput() RoleTagOutput {
+	return i.ToRoleTagOutputWithContext(context.Background())
+}
+
+func (i RoleTagArgs) ToRoleTagOutputWithContext(ctx context.Context) RoleTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleTagOutput)
+}
+
+// RoleTagArrayInput is an input type that accepts RoleTagArray and RoleTagArrayOutput values.
+// You can construct a concrete instance of `RoleTagArrayInput` via:
+//
+//          RoleTagArray{ RoleTagArgs{...} }
+type RoleTagArrayInput interface {
+	pulumi.Input
+
+	ToRoleTagArrayOutput() RoleTagArrayOutput
+	ToRoleTagArrayOutputWithContext(context.Context) RoleTagArrayOutput
+}
+
+type RoleTagArray []RoleTagInput
+
+func (RoleTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoleTag)(nil)).Elem()
+}
+
+func (i RoleTagArray) ToRoleTagArrayOutput() RoleTagArrayOutput {
+	return i.ToRoleTagArrayOutputWithContext(context.Background())
+}
+
+func (i RoleTagArray) ToRoleTagArrayOutputWithContext(ctx context.Context) RoleTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleTagArrayOutput)
+}
+
+type RoleTagOutput struct{ *pulumi.OutputState }
+
+func (RoleTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleTag)(nil)).Elem()
+}
+
+func (o RoleTagOutput) ToRoleTagOutput() RoleTagOutput {
+	return o
+}
+
+func (o RoleTagOutput) ToRoleTagOutputWithContext(ctx context.Context) RoleTagOutput {
+	return o
+}
+
+// Name of the database that the tag was created in.
+func (o RoleTagOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleTag) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// Tag name, e.g. department.
+func (o RoleTagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleTag) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of the schema that the tag was created in.
+func (o RoleTagOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
+}
+
+// Tag value, e.g. marketing_info.
+func (o RoleTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RoleTagArrayOutput struct{ *pulumi.OutputState }
+
+func (RoleTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoleTag)(nil)).Elem()
+}
+
+func (o RoleTagArrayOutput) ToRoleTagArrayOutput() RoleTagArrayOutput {
+	return o
+}
+
+func (o RoleTagArrayOutput) ToRoleTagArrayOutputWithContext(ctx context.Context) RoleTagArrayOutput {
+	return o
+}
+
+func (o RoleTagArrayOutput) Index(i pulumi.IntInput) RoleTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoleTag {
+		return vs[0].([]RoleTag)[vs[1].(int)]
+	}).(RoleTagOutput)
+}
+
+type SchemaTag struct {
+	// Name of the database that the tag was created in.
+	Database *string `pulumi:"database"`
+	// Tag name, e.g. department.
+	Name string `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema *string `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value string `pulumi:"value"`
+}
+
+// SchemaTagInput is an input type that accepts SchemaTagArgs and SchemaTagOutput values.
+// You can construct a concrete instance of `SchemaTagInput` via:
+//
+//          SchemaTagArgs{...}
+type SchemaTagInput interface {
+	pulumi.Input
+
+	ToSchemaTagOutput() SchemaTagOutput
+	ToSchemaTagOutputWithContext(context.Context) SchemaTagOutput
+}
+
+type SchemaTagArgs struct {
+	// Name of the database that the tag was created in.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// Tag name, e.g. department.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SchemaTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaTag)(nil)).Elem()
+}
+
+func (i SchemaTagArgs) ToSchemaTagOutput() SchemaTagOutput {
+	return i.ToSchemaTagOutputWithContext(context.Background())
+}
+
+func (i SchemaTagArgs) ToSchemaTagOutputWithContext(ctx context.Context) SchemaTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaTagOutput)
+}
+
+// SchemaTagArrayInput is an input type that accepts SchemaTagArray and SchemaTagArrayOutput values.
+// You can construct a concrete instance of `SchemaTagArrayInput` via:
+//
+//          SchemaTagArray{ SchemaTagArgs{...} }
+type SchemaTagArrayInput interface {
+	pulumi.Input
+
+	ToSchemaTagArrayOutput() SchemaTagArrayOutput
+	ToSchemaTagArrayOutputWithContext(context.Context) SchemaTagArrayOutput
+}
+
+type SchemaTagArray []SchemaTagInput
+
+func (SchemaTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SchemaTag)(nil)).Elem()
+}
+
+func (i SchemaTagArray) ToSchemaTagArrayOutput() SchemaTagArrayOutput {
+	return i.ToSchemaTagArrayOutputWithContext(context.Background())
+}
+
+func (i SchemaTagArray) ToSchemaTagArrayOutputWithContext(ctx context.Context) SchemaTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaTagArrayOutput)
+}
+
+type SchemaTagOutput struct{ *pulumi.OutputState }
+
+func (SchemaTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaTag)(nil)).Elem()
+}
+
+func (o SchemaTagOutput) ToSchemaTagOutput() SchemaTagOutput {
+	return o
+}
+
+func (o SchemaTagOutput) ToSchemaTagOutputWithContext(ctx context.Context) SchemaTagOutput {
+	return o
+}
+
+// Name of the database that the tag was created in.
+func (o SchemaTagOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaTag) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// Tag name, e.g. department.
+func (o SchemaTagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaTag) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of the schema that the tag was created in.
+func (o SchemaTagOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
+}
+
+// Tag value, e.g. marketing_info.
+func (o SchemaTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SchemaTagArrayOutput struct{ *pulumi.OutputState }
+
+func (SchemaTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SchemaTag)(nil)).Elem()
+}
+
+func (o SchemaTagArrayOutput) ToSchemaTagArrayOutput() SchemaTagArrayOutput {
+	return o
+}
+
+func (o SchemaTagArrayOutput) ToSchemaTagArrayOutputWithContext(ctx context.Context) SchemaTagArrayOutput {
+	return o
+}
+
+func (o SchemaTagArrayOutput) Index(i pulumi.IntInput) SchemaTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaTag {
+		return vs[0].([]SchemaTag)[vs[1].(int)]
+	}).(SchemaTagOutput)
+}
+
+type StageTag struct {
+	// Name of the database that the tag was created in.
+	Database *string `pulumi:"database"`
+	// Tag name, e.g. department.
+	Name string `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema *string `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value string `pulumi:"value"`
+}
+
+// StageTagInput is an input type that accepts StageTagArgs and StageTagOutput values.
+// You can construct a concrete instance of `StageTagInput` via:
+//
+//          StageTagArgs{...}
+type StageTagInput interface {
+	pulumi.Input
+
+	ToStageTagOutput() StageTagOutput
+	ToStageTagOutputWithContext(context.Context) StageTagOutput
+}
+
+type StageTagArgs struct {
+	// Name of the database that the tag was created in.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// Tag name, e.g. department.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (StageTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageTag)(nil)).Elem()
+}
+
+func (i StageTagArgs) ToStageTagOutput() StageTagOutput {
+	return i.ToStageTagOutputWithContext(context.Background())
+}
+
+func (i StageTagArgs) ToStageTagOutputWithContext(ctx context.Context) StageTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageTagOutput)
+}
+
+// StageTagArrayInput is an input type that accepts StageTagArray and StageTagArrayOutput values.
+// You can construct a concrete instance of `StageTagArrayInput` via:
+//
+//          StageTagArray{ StageTagArgs{...} }
+type StageTagArrayInput interface {
+	pulumi.Input
+
+	ToStageTagArrayOutput() StageTagArrayOutput
+	ToStageTagArrayOutputWithContext(context.Context) StageTagArrayOutput
+}
+
+type StageTagArray []StageTagInput
+
+func (StageTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StageTag)(nil)).Elem()
+}
+
+func (i StageTagArray) ToStageTagArrayOutput() StageTagArrayOutput {
+	return i.ToStageTagArrayOutputWithContext(context.Background())
+}
+
+func (i StageTagArray) ToStageTagArrayOutputWithContext(ctx context.Context) StageTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageTagArrayOutput)
+}
+
+type StageTagOutput struct{ *pulumi.OutputState }
+
+func (StageTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageTag)(nil)).Elem()
+}
+
+func (o StageTagOutput) ToStageTagOutput() StageTagOutput {
+	return o
+}
+
+func (o StageTagOutput) ToStageTagOutputWithContext(ctx context.Context) StageTagOutput {
+	return o
+}
+
+// Name of the database that the tag was created in.
+func (o StageTagOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageTag) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// Tag name, e.g. department.
+func (o StageTagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v StageTag) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of the schema that the tag was created in.
+func (o StageTagOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
+}
+
+// Tag value, e.g. marketing_info.
+func (o StageTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v StageTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type StageTagArrayOutput struct{ *pulumi.OutputState }
+
+func (StageTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StageTag)(nil)).Elem()
+}
+
+func (o StageTagArrayOutput) ToStageTagArrayOutput() StageTagArrayOutput {
+	return o
+}
+
+func (o StageTagArrayOutput) ToStageTagArrayOutputWithContext(ctx context.Context) StageTagArrayOutput {
+	return o
+}
+
+func (o StageTagArrayOutput) Index(i pulumi.IntInput) StageTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageTag {
+		return vs[0].([]StageTag)[vs[1].(int)]
+	}).(StageTagOutput)
+}
+
 type TableColumn struct {
 	// Column comment
 	Comment *string `pulumi:"comment"`
 	// Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
 	Default *TableColumnDefault `pulumi:"default"`
+	// Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
+	Identity *TableColumnIdentity `pulumi:"identity"`
 	// Column name
 	Name string `pulumi:"name"`
 	// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
@@ -790,6 +1536,8 @@ type TableColumnArgs struct {
 	Comment pulumi.StringPtrInput `pulumi:"comment"`
 	// Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
 	Default TableColumnDefaultPtrInput `pulumi:"default"`
+	// Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
+	Identity TableColumnIdentityPtrInput `pulumi:"identity"`
 	// Column name
 	Name pulumi.StringInput `pulumi:"name"`
 	// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
@@ -857,6 +1605,11 @@ func (o TableColumnOutput) Comment() pulumi.StringPtrOutput {
 // Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
 func (o TableColumnOutput) Default() TableColumnDefaultPtrOutput {
 	return o.ApplyT(func(v TableColumn) *TableColumnDefault { return v.Default }).(TableColumnDefaultPtrOutput)
+}
+
+// Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
+func (o TableColumnOutput) Identity() TableColumnIdentityPtrOutput {
+	return o.ApplyT(func(v TableColumn) *TableColumnIdentity { return v.Identity }).(TableColumnIdentityPtrOutput)
 }
 
 // Column name
@@ -1057,6 +1810,154 @@ func (o TableColumnDefaultPtrOutput) Sequence() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TableColumnIdentity struct {
+	StartNum *int `pulumi:"startNum"`
+	StepNum  *int `pulumi:"stepNum"`
+}
+
+// TableColumnIdentityInput is an input type that accepts TableColumnIdentityArgs and TableColumnIdentityOutput values.
+// You can construct a concrete instance of `TableColumnIdentityInput` via:
+//
+//          TableColumnIdentityArgs{...}
+type TableColumnIdentityInput interface {
+	pulumi.Input
+
+	ToTableColumnIdentityOutput() TableColumnIdentityOutput
+	ToTableColumnIdentityOutputWithContext(context.Context) TableColumnIdentityOutput
+}
+
+type TableColumnIdentityArgs struct {
+	StartNum pulumi.IntPtrInput `pulumi:"startNum"`
+	StepNum  pulumi.IntPtrInput `pulumi:"stepNum"`
+}
+
+func (TableColumnIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableColumnIdentity)(nil)).Elem()
+}
+
+func (i TableColumnIdentityArgs) ToTableColumnIdentityOutput() TableColumnIdentityOutput {
+	return i.ToTableColumnIdentityOutputWithContext(context.Background())
+}
+
+func (i TableColumnIdentityArgs) ToTableColumnIdentityOutputWithContext(ctx context.Context) TableColumnIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableColumnIdentityOutput)
+}
+
+func (i TableColumnIdentityArgs) ToTableColumnIdentityPtrOutput() TableColumnIdentityPtrOutput {
+	return i.ToTableColumnIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i TableColumnIdentityArgs) ToTableColumnIdentityPtrOutputWithContext(ctx context.Context) TableColumnIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableColumnIdentityOutput).ToTableColumnIdentityPtrOutputWithContext(ctx)
+}
+
+// TableColumnIdentityPtrInput is an input type that accepts TableColumnIdentityArgs, TableColumnIdentityPtr and TableColumnIdentityPtrOutput values.
+// You can construct a concrete instance of `TableColumnIdentityPtrInput` via:
+//
+//          TableColumnIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type TableColumnIdentityPtrInput interface {
+	pulumi.Input
+
+	ToTableColumnIdentityPtrOutput() TableColumnIdentityPtrOutput
+	ToTableColumnIdentityPtrOutputWithContext(context.Context) TableColumnIdentityPtrOutput
+}
+
+type tableColumnIdentityPtrType TableColumnIdentityArgs
+
+func TableColumnIdentityPtr(v *TableColumnIdentityArgs) TableColumnIdentityPtrInput {
+	return (*tableColumnIdentityPtrType)(v)
+}
+
+func (*tableColumnIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableColumnIdentity)(nil)).Elem()
+}
+
+func (i *tableColumnIdentityPtrType) ToTableColumnIdentityPtrOutput() TableColumnIdentityPtrOutput {
+	return i.ToTableColumnIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *tableColumnIdentityPtrType) ToTableColumnIdentityPtrOutputWithContext(ctx context.Context) TableColumnIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableColumnIdentityPtrOutput)
+}
+
+type TableColumnIdentityOutput struct{ *pulumi.OutputState }
+
+func (TableColumnIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableColumnIdentity)(nil)).Elem()
+}
+
+func (o TableColumnIdentityOutput) ToTableColumnIdentityOutput() TableColumnIdentityOutput {
+	return o
+}
+
+func (o TableColumnIdentityOutput) ToTableColumnIdentityOutputWithContext(ctx context.Context) TableColumnIdentityOutput {
+	return o
+}
+
+func (o TableColumnIdentityOutput) ToTableColumnIdentityPtrOutput() TableColumnIdentityPtrOutput {
+	return o.ToTableColumnIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o TableColumnIdentityOutput) ToTableColumnIdentityPtrOutputWithContext(ctx context.Context) TableColumnIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableColumnIdentity) *TableColumnIdentity {
+		return &v
+	}).(TableColumnIdentityPtrOutput)
+}
+
+func (o TableColumnIdentityOutput) StartNum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableColumnIdentity) *int { return v.StartNum }).(pulumi.IntPtrOutput)
+}
+
+func (o TableColumnIdentityOutput) StepNum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableColumnIdentity) *int { return v.StepNum }).(pulumi.IntPtrOutput)
+}
+
+type TableColumnIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (TableColumnIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableColumnIdentity)(nil)).Elem()
+}
+
+func (o TableColumnIdentityPtrOutput) ToTableColumnIdentityPtrOutput() TableColumnIdentityPtrOutput {
+	return o
+}
+
+func (o TableColumnIdentityPtrOutput) ToTableColumnIdentityPtrOutputWithContext(ctx context.Context) TableColumnIdentityPtrOutput {
+	return o
+}
+
+func (o TableColumnIdentityPtrOutput) Elem() TableColumnIdentityOutput {
+	return o.ApplyT(func(v *TableColumnIdentity) TableColumnIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret TableColumnIdentity
+		return ret
+	}).(TableColumnIdentityOutput)
+}
+
+func (o TableColumnIdentityPtrOutput) StartNum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableColumnIdentity) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartNum
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o TableColumnIdentityPtrOutput) StepNum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableColumnIdentity) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StepNum
+	}).(pulumi.IntPtrOutput)
+}
+
 type TablePrimaryKey struct {
 	// Columns to use in primary key
 	Keys []string `pulumi:"keys"`
@@ -1211,6 +2112,502 @@ func (o TablePrimaryKeyPtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+type TableTag struct {
+	// Name of the database that the tag was created in.
+	Database *string `pulumi:"database"`
+	// Tag name, e.g. department.
+	Name string `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema *string `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value string `pulumi:"value"`
+}
+
+// TableTagInput is an input type that accepts TableTagArgs and TableTagOutput values.
+// You can construct a concrete instance of `TableTagInput` via:
+//
+//          TableTagArgs{...}
+type TableTagInput interface {
+	pulumi.Input
+
+	ToTableTagOutput() TableTagOutput
+	ToTableTagOutputWithContext(context.Context) TableTagOutput
+}
+
+type TableTagArgs struct {
+	// Name of the database that the tag was created in.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// Tag name, e.g. department.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TableTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableTag)(nil)).Elem()
+}
+
+func (i TableTagArgs) ToTableTagOutput() TableTagOutput {
+	return i.ToTableTagOutputWithContext(context.Background())
+}
+
+func (i TableTagArgs) ToTableTagOutputWithContext(ctx context.Context) TableTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableTagOutput)
+}
+
+// TableTagArrayInput is an input type that accepts TableTagArray and TableTagArrayOutput values.
+// You can construct a concrete instance of `TableTagArrayInput` via:
+//
+//          TableTagArray{ TableTagArgs{...} }
+type TableTagArrayInput interface {
+	pulumi.Input
+
+	ToTableTagArrayOutput() TableTagArrayOutput
+	ToTableTagArrayOutputWithContext(context.Context) TableTagArrayOutput
+}
+
+type TableTagArray []TableTagInput
+
+func (TableTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableTag)(nil)).Elem()
+}
+
+func (i TableTagArray) ToTableTagArrayOutput() TableTagArrayOutput {
+	return i.ToTableTagArrayOutputWithContext(context.Background())
+}
+
+func (i TableTagArray) ToTableTagArrayOutputWithContext(ctx context.Context) TableTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableTagArrayOutput)
+}
+
+type TableTagOutput struct{ *pulumi.OutputState }
+
+func (TableTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableTag)(nil)).Elem()
+}
+
+func (o TableTagOutput) ToTableTagOutput() TableTagOutput {
+	return o
+}
+
+func (o TableTagOutput) ToTableTagOutputWithContext(ctx context.Context) TableTagOutput {
+	return o
+}
+
+// Name of the database that the tag was created in.
+func (o TableTagOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableTag) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// Tag name, e.g. department.
+func (o TableTagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TableTag) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of the schema that the tag was created in.
+func (o TableTagOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
+}
+
+// Tag value, e.g. marketing_info.
+func (o TableTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TableTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TableTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TableTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableTag)(nil)).Elem()
+}
+
+func (o TableTagArrayOutput) ToTableTagArrayOutput() TableTagArrayOutput {
+	return o
+}
+
+func (o TableTagArrayOutput) ToTableTagArrayOutputWithContext(ctx context.Context) TableTagArrayOutput {
+	return o
+}
+
+func (o TableTagArrayOutput) Index(i pulumi.IntInput) TableTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableTag {
+		return vs[0].([]TableTag)[vs[1].(int)]
+	}).(TableTagOutput)
+}
+
+type UserTag struct {
+	// Name of the database that the tag was created in.
+	Database *string `pulumi:"database"`
+	// Tag name, e.g. department.
+	Name string `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema *string `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value string `pulumi:"value"`
+}
+
+// UserTagInput is an input type that accepts UserTagArgs and UserTagOutput values.
+// You can construct a concrete instance of `UserTagInput` via:
+//
+//          UserTagArgs{...}
+type UserTagInput interface {
+	pulumi.Input
+
+	ToUserTagOutput() UserTagOutput
+	ToUserTagOutputWithContext(context.Context) UserTagOutput
+}
+
+type UserTagArgs struct {
+	// Name of the database that the tag was created in.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// Tag name, e.g. department.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (UserTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserTag)(nil)).Elem()
+}
+
+func (i UserTagArgs) ToUserTagOutput() UserTagOutput {
+	return i.ToUserTagOutputWithContext(context.Background())
+}
+
+func (i UserTagArgs) ToUserTagOutputWithContext(ctx context.Context) UserTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserTagOutput)
+}
+
+// UserTagArrayInput is an input type that accepts UserTagArray and UserTagArrayOutput values.
+// You can construct a concrete instance of `UserTagArrayInput` via:
+//
+//          UserTagArray{ UserTagArgs{...} }
+type UserTagArrayInput interface {
+	pulumi.Input
+
+	ToUserTagArrayOutput() UserTagArrayOutput
+	ToUserTagArrayOutputWithContext(context.Context) UserTagArrayOutput
+}
+
+type UserTagArray []UserTagInput
+
+func (UserTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserTag)(nil)).Elem()
+}
+
+func (i UserTagArray) ToUserTagArrayOutput() UserTagArrayOutput {
+	return i.ToUserTagArrayOutputWithContext(context.Background())
+}
+
+func (i UserTagArray) ToUserTagArrayOutputWithContext(ctx context.Context) UserTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserTagArrayOutput)
+}
+
+type UserTagOutput struct{ *pulumi.OutputState }
+
+func (UserTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserTag)(nil)).Elem()
+}
+
+func (o UserTagOutput) ToUserTagOutput() UserTagOutput {
+	return o
+}
+
+func (o UserTagOutput) ToUserTagOutputWithContext(ctx context.Context) UserTagOutput {
+	return o
+}
+
+// Name of the database that the tag was created in.
+func (o UserTagOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserTag) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// Tag name, e.g. department.
+func (o UserTagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v UserTag) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of the schema that the tag was created in.
+func (o UserTagOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
+}
+
+// Tag value, e.g. marketing_info.
+func (o UserTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v UserTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type UserTagArrayOutput struct{ *pulumi.OutputState }
+
+func (UserTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserTag)(nil)).Elem()
+}
+
+func (o UserTagArrayOutput) ToUserTagArrayOutput() UserTagArrayOutput {
+	return o
+}
+
+func (o UserTagArrayOutput) ToUserTagArrayOutputWithContext(ctx context.Context) UserTagArrayOutput {
+	return o
+}
+
+func (o UserTagArrayOutput) Index(i pulumi.IntInput) UserTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserTag {
+		return vs[0].([]UserTag)[vs[1].(int)]
+	}).(UserTagOutput)
+}
+
+type ViewTag struct {
+	// Name of the database that the tag was created in.
+	Database *string `pulumi:"database"`
+	// Tag name, e.g. department.
+	Name string `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema *string `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value string `pulumi:"value"`
+}
+
+// ViewTagInput is an input type that accepts ViewTagArgs and ViewTagOutput values.
+// You can construct a concrete instance of `ViewTagInput` via:
+//
+//          ViewTagArgs{...}
+type ViewTagInput interface {
+	pulumi.Input
+
+	ToViewTagOutput() ViewTagOutput
+	ToViewTagOutputWithContext(context.Context) ViewTagOutput
+}
+
+type ViewTagArgs struct {
+	// Name of the database that the tag was created in.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// Tag name, e.g. department.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ViewTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewTag)(nil)).Elem()
+}
+
+func (i ViewTagArgs) ToViewTagOutput() ViewTagOutput {
+	return i.ToViewTagOutputWithContext(context.Background())
+}
+
+func (i ViewTagArgs) ToViewTagOutputWithContext(ctx context.Context) ViewTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewTagOutput)
+}
+
+// ViewTagArrayInput is an input type that accepts ViewTagArray and ViewTagArrayOutput values.
+// You can construct a concrete instance of `ViewTagArrayInput` via:
+//
+//          ViewTagArray{ ViewTagArgs{...} }
+type ViewTagArrayInput interface {
+	pulumi.Input
+
+	ToViewTagArrayOutput() ViewTagArrayOutput
+	ToViewTagArrayOutputWithContext(context.Context) ViewTagArrayOutput
+}
+
+type ViewTagArray []ViewTagInput
+
+func (ViewTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ViewTag)(nil)).Elem()
+}
+
+func (i ViewTagArray) ToViewTagArrayOutput() ViewTagArrayOutput {
+	return i.ToViewTagArrayOutputWithContext(context.Background())
+}
+
+func (i ViewTagArray) ToViewTagArrayOutputWithContext(ctx context.Context) ViewTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewTagArrayOutput)
+}
+
+type ViewTagOutput struct{ *pulumi.OutputState }
+
+func (ViewTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewTag)(nil)).Elem()
+}
+
+func (o ViewTagOutput) ToViewTagOutput() ViewTagOutput {
+	return o
+}
+
+func (o ViewTagOutput) ToViewTagOutputWithContext(ctx context.Context) ViewTagOutput {
+	return o
+}
+
+// Name of the database that the tag was created in.
+func (o ViewTagOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ViewTag) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// Tag name, e.g. department.
+func (o ViewTagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ViewTag) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of the schema that the tag was created in.
+func (o ViewTagOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ViewTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
+}
+
+// Tag value, e.g. marketing_info.
+func (o ViewTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ViewTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ViewTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ViewTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ViewTag)(nil)).Elem()
+}
+
+func (o ViewTagArrayOutput) ToViewTagArrayOutput() ViewTagArrayOutput {
+	return o
+}
+
+func (o ViewTagArrayOutput) ToViewTagArrayOutputWithContext(ctx context.Context) ViewTagArrayOutput {
+	return o
+}
+
+func (o ViewTagArrayOutput) Index(i pulumi.IntInput) ViewTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ViewTag {
+		return vs[0].([]ViewTag)[vs[1].(int)]
+	}).(ViewTagOutput)
+}
+
+type WarehouseTag struct {
+	// Name of the database that the tag was created in.
+	Database *string `pulumi:"database"`
+	// Tag name, e.g. department.
+	Name string `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema *string `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value string `pulumi:"value"`
+}
+
+// WarehouseTagInput is an input type that accepts WarehouseTagArgs and WarehouseTagOutput values.
+// You can construct a concrete instance of `WarehouseTagInput` via:
+//
+//          WarehouseTagArgs{...}
+type WarehouseTagInput interface {
+	pulumi.Input
+
+	ToWarehouseTagOutput() WarehouseTagOutput
+	ToWarehouseTagOutputWithContext(context.Context) WarehouseTagOutput
+}
+
+type WarehouseTagArgs struct {
+	// Name of the database that the tag was created in.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// Tag name, e.g. department.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (WarehouseTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WarehouseTag)(nil)).Elem()
+}
+
+func (i WarehouseTagArgs) ToWarehouseTagOutput() WarehouseTagOutput {
+	return i.ToWarehouseTagOutputWithContext(context.Background())
+}
+
+func (i WarehouseTagArgs) ToWarehouseTagOutputWithContext(ctx context.Context) WarehouseTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WarehouseTagOutput)
+}
+
+// WarehouseTagArrayInput is an input type that accepts WarehouseTagArray and WarehouseTagArrayOutput values.
+// You can construct a concrete instance of `WarehouseTagArrayInput` via:
+//
+//          WarehouseTagArray{ WarehouseTagArgs{...} }
+type WarehouseTagArrayInput interface {
+	pulumi.Input
+
+	ToWarehouseTagArrayOutput() WarehouseTagArrayOutput
+	ToWarehouseTagArrayOutputWithContext(context.Context) WarehouseTagArrayOutput
+}
+
+type WarehouseTagArray []WarehouseTagInput
+
+func (WarehouseTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WarehouseTag)(nil)).Elem()
+}
+
+func (i WarehouseTagArray) ToWarehouseTagArrayOutput() WarehouseTagArrayOutput {
+	return i.ToWarehouseTagArrayOutputWithContext(context.Background())
+}
+
+func (i WarehouseTagArray) ToWarehouseTagArrayOutputWithContext(ctx context.Context) WarehouseTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WarehouseTagArrayOutput)
+}
+
+type WarehouseTagOutput struct{ *pulumi.OutputState }
+
+func (WarehouseTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WarehouseTag)(nil)).Elem()
+}
+
+func (o WarehouseTagOutput) ToWarehouseTagOutput() WarehouseTagOutput {
+	return o
+}
+
+func (o WarehouseTagOutput) ToWarehouseTagOutputWithContext(ctx context.Context) WarehouseTagOutput {
+	return o
+}
+
+// Name of the database that the tag was created in.
+func (o WarehouseTagOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WarehouseTag) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// Tag name, e.g. department.
+func (o WarehouseTagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WarehouseTag) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of the schema that the tag was created in.
+func (o WarehouseTagOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WarehouseTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
+}
+
+// Tag value, e.g. marketing_info.
+func (o WarehouseTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v WarehouseTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type WarehouseTagArrayOutput struct{ *pulumi.OutputState }
+
+func (WarehouseTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WarehouseTag)(nil)).Elem()
+}
+
+func (o WarehouseTagArrayOutput) ToWarehouseTagArrayOutput() WarehouseTagArrayOutput {
+	return o
+}
+
+func (o WarehouseTagArrayOutput) ToWarehouseTagArrayOutputWithContext(ctx context.Context) WarehouseTagArrayOutput {
+	return o
+}
+
+func (o WarehouseTagArrayOutput) Index(i pulumi.IntInput) WarehouseTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WarehouseTag {
+		return vs[0].([]WarehouseTag)[vs[1].(int)]
+	}).(WarehouseTagOutput)
 }
 
 type GetExternalFunctionsExternalFunction struct {
@@ -3507,26 +4904,48 @@ func (o GetWarehousesWarehouseArrayOutput) Index(i pulumi.IntInput) GetWarehouse
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseTagInput)(nil)).Elem(), DatabaseTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseTagArrayInput)(nil)).Elem(), DatabaseTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalFunctionArgInput)(nil)).Elem(), ExternalFunctionArgArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalFunctionArgArrayInput)(nil)).Elem(), ExternalFunctionArgArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalFunctionHeaderInput)(nil)).Elem(), ExternalFunctionHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalFunctionHeaderArrayInput)(nil)).Elem(), ExternalFunctionHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalTableColumnInput)(nil)).Elem(), ExternalTableColumnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalTableColumnArrayInput)(nil)).Elem(), ExternalTableColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalTableTagInput)(nil)).Elem(), ExternalTableTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalTableTagArrayInput)(nil)).Elem(), ExternalTableTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArgumentInput)(nil)).Elem(), FunctionArgumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArgumentArrayInput)(nil)).Elem(), FunctionArgumentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionGrantArgumentInput)(nil)).Elem(), FunctionGrantArgumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionGrantArgumentArrayInput)(nil)).Elem(), FunctionGrantArgumentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewTagInput)(nil)).Elem(), MaterializedViewTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewTagArrayInput)(nil)).Elem(), MaterializedViewTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureArgumentInput)(nil)).Elem(), ProcedureArgumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureArgumentArrayInput)(nil)).Elem(), ProcedureArgumentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureGrantArgumentInput)(nil)).Elem(), ProcedureGrantArgumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureGrantArgumentArrayInput)(nil)).Elem(), ProcedureGrantArgumentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleTagInput)(nil)).Elem(), RoleTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleTagArrayInput)(nil)).Elem(), RoleTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaTagInput)(nil)).Elem(), SchemaTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaTagArrayInput)(nil)).Elem(), SchemaTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageTagInput)(nil)).Elem(), StageTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageTagArrayInput)(nil)).Elem(), StageTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableColumnInput)(nil)).Elem(), TableColumnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableColumnArrayInput)(nil)).Elem(), TableColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableColumnDefaultInput)(nil)).Elem(), TableColumnDefaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableColumnDefaultPtrInput)(nil)).Elem(), TableColumnDefaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableColumnIdentityInput)(nil)).Elem(), TableColumnIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableColumnIdentityPtrInput)(nil)).Elem(), TableColumnIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePrimaryKeyInput)(nil)).Elem(), TablePrimaryKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePrimaryKeyPtrInput)(nil)).Elem(), TablePrimaryKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableTagInput)(nil)).Elem(), TableTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableTagArrayInput)(nil)).Elem(), TableTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserTagInput)(nil)).Elem(), UserTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserTagArrayInput)(nil)).Elem(), UserTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewTagInput)(nil)).Elem(), ViewTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewTagArrayInput)(nil)).Elem(), ViewTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WarehouseTagInput)(nil)).Elem(), WarehouseTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WarehouseTagArrayInput)(nil)).Elem(), WarehouseTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalFunctionsExternalFunctionInput)(nil)).Elem(), GetExternalFunctionsExternalFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalFunctionsExternalFunctionArrayInput)(nil)).Elem(), GetExternalFunctionsExternalFunctionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalTablesExternalTableInput)(nil)).Elem(), GetExternalTablesExternalTableArgs{})
@@ -3565,26 +4984,48 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetViewsViewArrayInput)(nil)).Elem(), GetViewsViewArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWarehousesWarehouseInput)(nil)).Elem(), GetWarehousesWarehouseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWarehousesWarehouseArrayInput)(nil)).Elem(), GetWarehousesWarehouseArray{})
+	pulumi.RegisterOutputType(DatabaseTagOutput{})
+	pulumi.RegisterOutputType(DatabaseTagArrayOutput{})
 	pulumi.RegisterOutputType(ExternalFunctionArgOutput{})
 	pulumi.RegisterOutputType(ExternalFunctionArgArrayOutput{})
 	pulumi.RegisterOutputType(ExternalFunctionHeaderOutput{})
 	pulumi.RegisterOutputType(ExternalFunctionHeaderArrayOutput{})
 	pulumi.RegisterOutputType(ExternalTableColumnOutput{})
 	pulumi.RegisterOutputType(ExternalTableColumnArrayOutput{})
+	pulumi.RegisterOutputType(ExternalTableTagOutput{})
+	pulumi.RegisterOutputType(ExternalTableTagArrayOutput{})
 	pulumi.RegisterOutputType(FunctionArgumentOutput{})
 	pulumi.RegisterOutputType(FunctionArgumentArrayOutput{})
 	pulumi.RegisterOutputType(FunctionGrantArgumentOutput{})
 	pulumi.RegisterOutputType(FunctionGrantArgumentArrayOutput{})
+	pulumi.RegisterOutputType(MaterializedViewTagOutput{})
+	pulumi.RegisterOutputType(MaterializedViewTagArrayOutput{})
 	pulumi.RegisterOutputType(ProcedureArgumentOutput{})
 	pulumi.RegisterOutputType(ProcedureArgumentArrayOutput{})
 	pulumi.RegisterOutputType(ProcedureGrantArgumentOutput{})
 	pulumi.RegisterOutputType(ProcedureGrantArgumentArrayOutput{})
+	pulumi.RegisterOutputType(RoleTagOutput{})
+	pulumi.RegisterOutputType(RoleTagArrayOutput{})
+	pulumi.RegisterOutputType(SchemaTagOutput{})
+	pulumi.RegisterOutputType(SchemaTagArrayOutput{})
+	pulumi.RegisterOutputType(StageTagOutput{})
+	pulumi.RegisterOutputType(StageTagArrayOutput{})
 	pulumi.RegisterOutputType(TableColumnOutput{})
 	pulumi.RegisterOutputType(TableColumnArrayOutput{})
 	pulumi.RegisterOutputType(TableColumnDefaultOutput{})
 	pulumi.RegisterOutputType(TableColumnDefaultPtrOutput{})
+	pulumi.RegisterOutputType(TableColumnIdentityOutput{})
+	pulumi.RegisterOutputType(TableColumnIdentityPtrOutput{})
 	pulumi.RegisterOutputType(TablePrimaryKeyOutput{})
 	pulumi.RegisterOutputType(TablePrimaryKeyPtrOutput{})
+	pulumi.RegisterOutputType(TableTagOutput{})
+	pulumi.RegisterOutputType(TableTagArrayOutput{})
+	pulumi.RegisterOutputType(UserTagOutput{})
+	pulumi.RegisterOutputType(UserTagArrayOutput{})
+	pulumi.RegisterOutputType(ViewTagOutput{})
+	pulumi.RegisterOutputType(ViewTagArrayOutput{})
+	pulumi.RegisterOutputType(WarehouseTagOutput{})
+	pulumi.RegisterOutputType(WarehouseTagArrayOutput{})
 	pulumi.RegisterOutputType(GetExternalFunctionsExternalFunctionOutput{})
 	pulumi.RegisterOutputType(GetExternalFunctionsExternalFunctionArrayOutput{})
 	pulumi.RegisterOutputType(GetExternalTablesExternalTableOutput{})

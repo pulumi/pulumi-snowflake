@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -52,6 +53,10 @@ export class Role extends pulumi.CustomResource {
 
     public readonly comment!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.RoleTag[] | undefined>;
 
     /**
      * Create a Role resource with the given unique name, arguments, and options.
@@ -68,10 +73,12 @@ export class Role extends pulumi.CustomResource {
             const state = argsOrState as RoleState | undefined;
             inputs["comment"] = state ? state.comment : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as RoleArgs | undefined;
             inputs["comment"] = args ? args.comment : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -86,6 +93,10 @@ export class Role extends pulumi.CustomResource {
 export interface RoleState {
     comment?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.RoleTag>[]>;
 }
 
 /**
@@ -94,4 +105,8 @@ export interface RoleState {
 export interface RoleArgs {
     comment?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.RoleTag>[]>;
 }

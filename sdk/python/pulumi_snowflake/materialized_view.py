@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['MaterializedViewArgs', 'MaterializedView']
 
@@ -20,7 +22,8 @@ class MaterializedViewArgs:
                  comment: Optional[pulumi.Input[str]] = None,
                  is_secure: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 or_replace: Optional[pulumi.Input[bool]] = None):
+                 or_replace: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]]] = None):
         """
         The set of arguments for constructing a MaterializedView resource.
         :param pulumi.Input[str] database: The database in which to create the view. Don't use the | character.
@@ -31,6 +34,7 @@ class MaterializedViewArgs:
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure.
         :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created.
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
+        :param pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "schema", schema)
@@ -44,6 +48,8 @@ class MaterializedViewArgs:
             pulumi.set(__self__, "name", name)
         if or_replace is not None:
             pulumi.set(__self__, "or_replace", or_replace)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -141,6 +147,18 @@ class MaterializedViewArgs:
     def or_replace(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "or_replace", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]]]:
+        """
+        Definitions of a tag to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _MaterializedViewState:
@@ -152,6 +170,7 @@ class _MaterializedViewState:
                  or_replace: Optional[pulumi.Input[bool]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  statement: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]]] = None,
                  warehouse: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering MaterializedView resources.
@@ -162,6 +181,7 @@ class _MaterializedViewState:
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
         :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
+        :param pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[str] warehouse: The warehouse name.
         """
         if comment is not None:
@@ -178,6 +198,8 @@ class _MaterializedViewState:
             pulumi.set(__self__, "schema", schema)
         if statement is not None:
             pulumi.set(__self__, "statement", statement)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if warehouse is not None:
             pulumi.set(__self__, "warehouse", warehouse)
 
@@ -267,6 +289,18 @@ class _MaterializedViewState:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]]]:
+        """
+        Definitions of a tag to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
     def warehouse(self) -> Optional[pulumi.Input[str]]:
         """
         The warehouse name.
@@ -290,6 +324,7 @@ class MaterializedView(pulumi.CustomResource):
                  or_replace: Optional[pulumi.Input[bool]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  statement: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaterializedViewTagArgs']]]]] = None,
                  warehouse: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -326,6 +361,7 @@ class MaterializedView(pulumi.CustomResource):
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
         :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaterializedViewTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[str] warehouse: The warehouse name.
         """
         ...
@@ -381,6 +417,7 @@ class MaterializedView(pulumi.CustomResource):
                  or_replace: Optional[pulumi.Input[bool]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  statement: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaterializedViewTagArgs']]]]] = None,
                  warehouse: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -407,6 +444,7 @@ class MaterializedView(pulumi.CustomResource):
             if statement is None and not opts.urn:
                 raise TypeError("Missing required property 'statement'")
             __props__.__dict__["statement"] = statement
+            __props__.__dict__["tags"] = tags
             if warehouse is None and not opts.urn:
                 raise TypeError("Missing required property 'warehouse'")
             __props__.__dict__["warehouse"] = warehouse
@@ -427,6 +465,7 @@ class MaterializedView(pulumi.CustomResource):
             or_replace: Optional[pulumi.Input[bool]] = None,
             schema: Optional[pulumi.Input[str]] = None,
             statement: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaterializedViewTagArgs']]]]] = None,
             warehouse: Optional[pulumi.Input[str]] = None) -> 'MaterializedView':
         """
         Get an existing MaterializedView resource's state with the given name, id, and optional extra
@@ -442,6 +481,7 @@ class MaterializedView(pulumi.CustomResource):
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
         :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaterializedViewTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[str] warehouse: The warehouse name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -455,6 +495,7 @@ class MaterializedView(pulumi.CustomResource):
         __props__.__dict__["or_replace"] = or_replace
         __props__.__dict__["schema"] = schema
         __props__.__dict__["statement"] = statement
+        __props__.__dict__["tags"] = tags
         __props__.__dict__["warehouse"] = warehouse
         return MaterializedView(resource_name, opts=opts, __props__=__props__)
 
@@ -513,6 +554,14 @@ class MaterializedView(pulumi.CustomResource):
         Specifies the query used to create the view.
         """
         return pulumi.get(self, "statement")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.MaterializedViewTag']]]:
+        """
+        Definitions of a tag to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

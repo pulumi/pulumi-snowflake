@@ -55,6 +55,17 @@ namespace Pulumi.Snowflake
     ///                 },
     ///                 new Snowflake.Inputs.TableColumnArgs
     ///                 {
+    ///                     Name = "identity",
+    ///                     Type = "NUMBER(38,0)",
+    ///                     Nullable = true,
+    ///                     Identity = new Snowflake.Inputs.TableColumnIdentityArgs
+    ///                     {
+    ///                         StartNum = 1,
+    ///                         StepNum = 3,
+    ///                     },
+    ///                 },
+    ///                 new Snowflake.Inputs.TableColumnArgs
+    ///                 {
     ///                     Name = "data",
     ///                     Type = "text",
     ///                     Nullable = false,
@@ -155,6 +166,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
+
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.TableTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -268,6 +285,18 @@ namespace Pulumi.Snowflake
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
+        [Input("tags")]
+        private InputList<Inputs.TableTagArgs>? _tags;
+
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        public InputList<Inputs.TableTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.TableTagArgs>());
+            set => _tags = value;
+        }
+
         public TableArgs()
         {
         }
@@ -346,6 +375,18 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.TableTagGetArgs>? _tags;
+
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        public InputList<Inputs.TableTagGetArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.TableTagGetArgs>());
+            set => _tags = value;
+        }
 
         public TableState()
         {

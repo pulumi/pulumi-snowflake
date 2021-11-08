@@ -120,6 +120,7 @@ func Provider() tfbridge.ProviderInfo {
 			"snowflake_stream_grant":              {Tok: makeResource(mainMod, "StreamGrant")},
 			"snowflake_table":                     {Tok: makeResource(mainMod, "Table")},
 			"snowflake_table_grant":               {Tok: makeResource(mainMod, "TableGrant")},
+			"snowflake_tag":                       {Tok: makeResource(mainMod, "Tag")},
 			"snowflake_task":                      {Tok: makeResource(mainMod, "Task")},
 			"snowflake_task_grant":                {Tok: makeResource(mainMod, "TaskGrant")},
 			"snowflake_user":                      {Tok: makeResource(mainMod, "User")},

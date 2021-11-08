@@ -56,6 +56,15 @@ import (
 // 					},
 // 				},
 // 				&TableColumnArgs{
+// 					Name:     pulumi.String("identity"),
+// 					Type:     pulumi.String("NUMBER(38,0)"),
+// 					Nullable: pulumi.Bool(true),
+// 					Identity: &TableColumnIdentityArgs{
+// 						StartNum: pulumi.Int(1),
+// 						StepNum:  pulumi.Int(3),
+// 					},
+// 				},
+// 				&TableColumnArgs{
 // 					Name:     pulumi.String("data"),
 // 					Type:     pulumi.String("text"),
 // 					Nullable: pulumi.Bool(false),
@@ -115,6 +124,8 @@ type Table struct {
 	PrimaryKey TablePrimaryKeyPtrOutput `pulumi:"primaryKey"`
 	// The schema in which to create the table.
 	Schema pulumi.StringOutput `pulumi:"schema"`
+	// Definitions of a tag to associate with the resource.
+	Tags TableTagArrayOutput `pulumi:"tags"`
 }
 
 // NewTable registers a new resource with the given unique name, arguments, and options.
@@ -175,6 +186,8 @@ type tableState struct {
 	PrimaryKey *TablePrimaryKey `pulumi:"primaryKey"`
 	// The schema in which to create the table.
 	Schema *string `pulumi:"schema"`
+	// Definitions of a tag to associate with the resource.
+	Tags []TableTag `pulumi:"tags"`
 }
 
 type TableState struct {
@@ -198,6 +211,8 @@ type TableState struct {
 	PrimaryKey TablePrimaryKeyPtrInput
 	// The schema in which to create the table.
 	Schema pulumi.StringPtrInput
+	// Definitions of a tag to associate with the resource.
+	Tags TableTagArrayInput
 }
 
 func (TableState) ElementType() reflect.Type {
@@ -223,6 +238,8 @@ type tableArgs struct {
 	PrimaryKey *TablePrimaryKey `pulumi:"primaryKey"`
 	// The schema in which to create the table.
 	Schema string `pulumi:"schema"`
+	// Definitions of a tag to associate with the resource.
+	Tags []TableTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Table resource.
@@ -245,6 +262,8 @@ type TableArgs struct {
 	PrimaryKey TablePrimaryKeyPtrInput
 	// The schema in which to create the table.
 	Schema pulumi.StringInput
+	// Definitions of a tag to associate with the resource.
+	Tags TableTagArrayInput
 }
 
 func (TableArgs) ElementType() reflect.Type {

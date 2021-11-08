@@ -22,6 +22,10 @@ namespace Pulumi.Snowflake.Outputs
         /// </summary>
         public readonly Outputs.TableColumnDefault? Default;
         /// <summary>
+        /// Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
+        /// </summary>
+        public readonly Outputs.TableColumnIdentity? Identity;
+        /// <summary>
         /// Column name
         /// </summary>
         public readonly string Name;
@@ -40,6 +44,8 @@ namespace Pulumi.Snowflake.Outputs
 
             Outputs.TableColumnDefault? @default,
 
+            Outputs.TableColumnIdentity? identity,
+
             string name,
 
             bool? nullable,
@@ -48,6 +54,7 @@ namespace Pulumi.Snowflake.Outputs
         {
             Comment = comment;
             Default = @default;
+            Identity = identity;
             Name = name;
             Nullable = nullable;
             Type = type;

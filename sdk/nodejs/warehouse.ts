@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -97,6 +98,10 @@ export class Warehouse extends pulumi.CustomResource {
      */
     public readonly statementTimeoutInSeconds!: pulumi.Output<number | undefined>;
     /**
+     * Definitions of a tag to associate with the resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.WarehouseTag[] | undefined>;
+    /**
      * Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
      */
     public readonly waitForProvisioning!: pulumi.Output<boolean | undefined>;
@@ -130,6 +135,7 @@ export class Warehouse extends pulumi.CustomResource {
             inputs["scalingPolicy"] = state ? state.scalingPolicy : undefined;
             inputs["statementQueuedTimeoutInSeconds"] = state ? state.statementQueuedTimeoutInSeconds : undefined;
             inputs["statementTimeoutInSeconds"] = state ? state.statementTimeoutInSeconds : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["waitForProvisioning"] = state ? state.waitForProvisioning : undefined;
             inputs["warehouseSize"] = state ? state.warehouseSize : undefined;
         } else {
@@ -146,6 +152,7 @@ export class Warehouse extends pulumi.CustomResource {
             inputs["scalingPolicy"] = args ? args.scalingPolicy : undefined;
             inputs["statementQueuedTimeoutInSeconds"] = args ? args.statementQueuedTimeoutInSeconds : undefined;
             inputs["statementTimeoutInSeconds"] = args ? args.statementTimeoutInSeconds : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["waitForProvisioning"] = args ? args.waitForProvisioning : undefined;
             inputs["warehouseSize"] = args ? args.warehouseSize : undefined;
         }
@@ -206,6 +213,10 @@ export interface WarehouseState {
      */
     statementTimeoutInSeconds?: pulumi.Input<number>;
     /**
+     * Definitions of a tag to associate with the resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.WarehouseTag>[]>;
+    /**
      * Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
      */
     waitForProvisioning?: pulumi.Input<boolean>;
@@ -264,6 +275,10 @@ export interface WarehouseArgs {
      * Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
      */
     statementTimeoutInSeconds?: pulumi.Input<number>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.WarehouseTag>[]>;
     /**
      * Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
      */

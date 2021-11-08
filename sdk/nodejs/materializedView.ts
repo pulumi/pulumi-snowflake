@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -87,6 +88,10 @@ export class MaterializedView extends pulumi.CustomResource {
      */
     public readonly statement!: pulumi.Output<string>;
     /**
+     * Definitions of a tag to associate with the resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.MaterializedViewTag[] | undefined>;
+    /**
      * The warehouse name.
      */
     public readonly warehouse!: pulumi.Output<string>;
@@ -111,6 +116,7 @@ export class MaterializedView extends pulumi.CustomResource {
             inputs["orReplace"] = state ? state.orReplace : undefined;
             inputs["schema"] = state ? state.schema : undefined;
             inputs["statement"] = state ? state.statement : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["warehouse"] = state ? state.warehouse : undefined;
         } else {
             const args = argsOrState as MaterializedViewArgs | undefined;
@@ -133,6 +139,7 @@ export class MaterializedView extends pulumi.CustomResource {
             inputs["orReplace"] = args ? args.orReplace : undefined;
             inputs["schema"] = args ? args.schema : undefined;
             inputs["statement"] = args ? args.statement : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["warehouse"] = args ? args.warehouse : undefined;
         }
         if (!opts.version) {
@@ -175,6 +182,10 @@ export interface MaterializedViewState {
      */
     statement?: pulumi.Input<string>;
     /**
+     * Definitions of a tag to associate with the resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.MaterializedViewTag>[]>;
+    /**
      * The warehouse name.
      */
     warehouse?: pulumi.Input<string>;
@@ -212,6 +223,10 @@ export interface MaterializedViewArgs {
      * Specifies the query used to create the view.
      */
     statement: pulumi.Input<string>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.MaterializedViewTag>[]>;
     /**
      * The warehouse name.
      */

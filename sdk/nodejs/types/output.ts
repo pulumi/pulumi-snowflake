@@ -4,6 +4,25 @@
 import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
+export interface DatabaseTag {
+    /**
+     * Name of the database that the tag was created in.
+     */
+    database?: string;
+    /**
+     * Tag name, e.g. department.
+     */
+    name: string;
+    /**
+     * Name of the schema that the tag was created in.
+     */
+    schema?: string;
+    /**
+     * Tag value, e.g. marketing_info.
+     */
+    value: string;
+}
+
 export interface ExternalFunctionArg {
     /**
      * Argument name
@@ -39,6 +58,25 @@ export interface ExternalTableColumn {
      * Column type, e.g. VARIANT
      */
     type: string;
+}
+
+export interface ExternalTableTag {
+    /**
+     * Name of the database that the tag was created in.
+     */
+    database?: string;
+    /**
+     * Tag name, e.g. department.
+     */
+    name: string;
+    /**
+     * Name of the schema that the tag was created in.
+     */
+    schema?: string;
+    /**
+     * Tag value, e.g. marketing_info.
+     */
+    value: string;
 }
 
 export interface FunctionArgument {
@@ -301,6 +339,25 @@ export interface GetWarehousesWarehouse {
     type: string;
 }
 
+export interface MaterializedViewTag {
+    /**
+     * Name of the database that the tag was created in.
+     */
+    database?: string;
+    /**
+     * Tag name, e.g. department.
+     */
+    name: string;
+    /**
+     * Name of the schema that the tag was created in.
+     */
+    schema?: string;
+    /**
+     * Tag value, e.g. marketing_info.
+     */
+    value: string;
+}
+
 export interface ProcedureArgument {
     /**
      * The argument name
@@ -323,6 +380,63 @@ export interface ProcedureGrantArgument {
     type: string;
 }
 
+export interface RoleTag {
+    /**
+     * Name of the database that the tag was created in.
+     */
+    database?: string;
+    /**
+     * Tag name, e.g. department.
+     */
+    name: string;
+    /**
+     * Name of the schema that the tag was created in.
+     */
+    schema?: string;
+    /**
+     * Tag value, e.g. marketing_info.
+     */
+    value: string;
+}
+
+export interface SchemaTag {
+    /**
+     * Name of the database that the tag was created in.
+     */
+    database?: string;
+    /**
+     * Tag name, e.g. department.
+     */
+    name: string;
+    /**
+     * Name of the schema that the tag was created in.
+     */
+    schema?: string;
+    /**
+     * Tag value, e.g. marketing_info.
+     */
+    value: string;
+}
+
+export interface StageTag {
+    /**
+     * Name of the database that the tag was created in.
+     */
+    database?: string;
+    /**
+     * Tag name, e.g. department.
+     */
+    name: string;
+    /**
+     * Name of the schema that the tag was created in.
+     */
+    schema?: string;
+    /**
+     * Tag value, e.g. marketing_info.
+     */
+    value: string;
+}
+
 export interface TableColumn {
     /**
      * Column comment
@@ -332,6 +446,10 @@ export interface TableColumn {
      * Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
      */
     default?: outputs.TableColumnDefault;
+    /**
+     * Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
+     */
+    identity?: outputs.TableColumnIdentity;
     /**
      * Column name
      */
@@ -352,6 +470,11 @@ export interface TableColumnDefault {
     sequence?: string;
 }
 
+export interface TableColumnIdentity {
+    startNum?: number;
+    stepNum?: number;
+}
+
 export interface TablePrimaryKey {
     /**
      * Columns to use in primary key
@@ -361,4 +484,80 @@ export interface TablePrimaryKey {
      * Name of constraint
      */
     name?: string;
+}
+
+export interface TableTag {
+    /**
+     * Name of the database that the tag was created in.
+     */
+    database?: string;
+    /**
+     * Tag name, e.g. department.
+     */
+    name: string;
+    /**
+     * Name of the schema that the tag was created in.
+     */
+    schema?: string;
+    /**
+     * Tag value, e.g. marketing_info.
+     */
+    value: string;
+}
+
+export interface UserTag {
+    /**
+     * Name of the database that the tag was created in.
+     */
+    database?: string;
+    /**
+     * Tag name, e.g. department.
+     */
+    name: string;
+    /**
+     * Name of the schema that the tag was created in.
+     */
+    schema?: string;
+    /**
+     * Tag value, e.g. marketing_info.
+     */
+    value: string;
+}
+
+export interface ViewTag {
+    /**
+     * Name of the database that the tag was created in.
+     */
+    database?: string;
+    /**
+     * Tag name, e.g. department.
+     */
+    name: string;
+    /**
+     * Name of the schema that the tag was created in.
+     */
+    schema?: string;
+    /**
+     * Tag value, e.g. marketing_info.
+     */
+    value: string;
+}
+
+export interface WarehouseTag {
+    /**
+     * Name of the database that the tag was created in.
+     */
+    database?: string;
+    /**
+     * Tag name, e.g. department.
+     */
+    name: string;
+    /**
+     * Name of the schema that the tag was created in.
+     */
+    schema?: string;
+    /**
+     * Tag value, e.g. marketing_info.
+     */
+    value: string;
 }

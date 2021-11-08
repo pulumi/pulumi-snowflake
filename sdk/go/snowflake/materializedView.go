@@ -64,6 +64,8 @@ type MaterializedView struct {
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Specifies the query used to create the view.
 	Statement pulumi.StringOutput `pulumi:"statement"`
+	// Definitions of a tag to associate with the resource.
+	Tags MaterializedViewTagArrayOutput `pulumi:"tags"`
 	// The warehouse name.
 	Warehouse pulumi.StringOutput `pulumi:"warehouse"`
 }
@@ -123,6 +125,8 @@ type materializedViewState struct {
 	Schema *string `pulumi:"schema"`
 	// Specifies the query used to create the view.
 	Statement *string `pulumi:"statement"`
+	// Definitions of a tag to associate with the resource.
+	Tags []MaterializedViewTag `pulumi:"tags"`
 	// The warehouse name.
 	Warehouse *string `pulumi:"warehouse"`
 }
@@ -142,6 +146,8 @@ type MaterializedViewState struct {
 	Schema pulumi.StringPtrInput
 	// Specifies the query used to create the view.
 	Statement pulumi.StringPtrInput
+	// Definitions of a tag to associate with the resource.
+	Tags MaterializedViewTagArrayInput
 	// The warehouse name.
 	Warehouse pulumi.StringPtrInput
 }
@@ -165,6 +171,8 @@ type materializedViewArgs struct {
 	Schema string `pulumi:"schema"`
 	// Specifies the query used to create the view.
 	Statement string `pulumi:"statement"`
+	// Definitions of a tag to associate with the resource.
+	Tags []MaterializedViewTag `pulumi:"tags"`
 	// The warehouse name.
 	Warehouse string `pulumi:"warehouse"`
 }
@@ -185,6 +193,8 @@ type MaterializedViewArgs struct {
 	Schema pulumi.StringInput
 	// Specifies the query used to create the view.
 	Statement pulumi.StringInput
+	// Definitions of a tag to associate with the resource.
+	Tags MaterializedViewTagArrayInput
 	// The warehouse name.
 	Warehouse pulumi.StringInput
 }

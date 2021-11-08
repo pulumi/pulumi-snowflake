@@ -10,16 +10,27 @@ from . import _utilities
 from . import outputs
 
 __all__ = [
+    'DatabaseTag',
     'ExternalFunctionArg',
     'ExternalFunctionHeader',
     'ExternalTableColumn',
+    'ExternalTableTag',
     'FunctionArgument',
     'FunctionGrantArgument',
+    'MaterializedViewTag',
     'ProcedureArgument',
     'ProcedureGrantArgument',
+    'RoleTag',
+    'SchemaTag',
+    'StageTag',
     'TableColumn',
     'TableColumnDefault',
+    'TableColumnIdentity',
     'TablePrimaryKey',
+    'TableTag',
+    'UserTag',
+    'ViewTag',
+    'WarehouseTag',
     'GetExternalFunctionsExternalFunctionResult',
     'GetExternalTablesExternalTableResult',
     'GetFileFormatsFileFormatResult',
@@ -40,6 +51,59 @@ __all__ = [
     'GetViewsViewResult',
     'GetWarehousesWarehouseResult',
 ]
+
+@pulumi.output_type
+class DatabaseTag(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param str name: Tag name, e.g. department.
+        :param str value: Tag value, e.g. marketing_info.
+        :param str database: Name of the database that the tag was created in.
+        :param str schema: Name of the schema that the tag was created in.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Tag name, e.g. department.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Tag value, e.g. marketing_info.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Name of the database that the tag was created in.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Name of the schema that the tag was created in.
+        """
+        return pulumi.get(self, "schema")
+
 
 @pulumi.output_type
 class ExternalFunctionArg(dict):
@@ -157,6 +221,59 @@ class ExternalTableColumn(dict):
 
 
 @pulumi.output_type
+class ExternalTableTag(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param str name: Tag name, e.g. department.
+        :param str value: Tag value, e.g. marketing_info.
+        :param str database: Name of the database that the tag was created in.
+        :param str schema: Name of the schema that the tag was created in.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Tag name, e.g. department.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Tag value, e.g. marketing_info.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Name of the database that the tag was created in.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Name of the schema that the tag was created in.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
 class FunctionArgument(dict):
     def __init__(__self__, *,
                  name: str,
@@ -212,6 +329,59 @@ class FunctionGrantArgument(dict):
         The argument type
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class MaterializedViewTag(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param str name: Tag name, e.g. department.
+        :param str value: Tag value, e.g. marketing_info.
+        :param str database: Name of the database that the tag was created in.
+        :param str schema: Name of the schema that the tag was created in.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Tag name, e.g. department.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Tag value, e.g. marketing_info.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Name of the database that the tag was created in.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Name of the schema that the tag was created in.
+        """
+        return pulumi.get(self, "schema")
 
 
 @pulumi.output_type
@@ -273,18 +443,179 @@ class ProcedureGrantArgument(dict):
 
 
 @pulumi.output_type
+class RoleTag(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param str name: Tag name, e.g. department.
+        :param str value: Tag value, e.g. marketing_info.
+        :param str database: Name of the database that the tag was created in.
+        :param str schema: Name of the schema that the tag was created in.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Tag name, e.g. department.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Tag value, e.g. marketing_info.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Name of the database that the tag was created in.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Name of the schema that the tag was created in.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class SchemaTag(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param str name: Tag name, e.g. department.
+        :param str value: Tag value, e.g. marketing_info.
+        :param str database: Name of the database that the tag was created in.
+        :param str schema: Name of the schema that the tag was created in.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Tag name, e.g. department.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Tag value, e.g. marketing_info.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Name of the database that the tag was created in.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Name of the schema that the tag was created in.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class StageTag(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param str name: Tag name, e.g. department.
+        :param str value: Tag value, e.g. marketing_info.
+        :param str database: Name of the database that the tag was created in.
+        :param str schema: Name of the schema that the tag was created in.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Tag name, e.g. department.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Tag value, e.g. marketing_info.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Name of the database that the tag was created in.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Name of the schema that the tag was created in.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
 class TableColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
                  comment: Optional[str] = None,
                  default: Optional['outputs.TableColumnDefault'] = None,
+                 identity: Optional['outputs.TableColumnIdentity'] = None,
                  nullable: Optional[bool] = None):
         """
         :param str name: Column name
         :param str type: Column type, e.g. VARIANT
         :param str comment: Column comment
         :param 'TableColumnDefaultArgs' default: Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
+        :param 'TableColumnIdentityArgs' identity: Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
         :param bool nullable: Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
         """
         pulumi.set(__self__, "name", name)
@@ -293,6 +624,8 @@ class TableColumn(dict):
             pulumi.set(__self__, "comment", comment)
         if default is not None:
             pulumi.set(__self__, "default", default)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if nullable is not None:
             pulumi.set(__self__, "nullable", nullable)
 
@@ -327,6 +660,14 @@ class TableColumn(dict):
         Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
         """
         return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.TableColumnIdentity']:
+        """
+        Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -367,6 +708,46 @@ class TableColumnDefault(dict):
 
 
 @pulumi.output_type
+class TableColumnIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startNum":
+            suggest = "start_num"
+        elif key == "stepNum":
+            suggest = "step_num"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableColumnIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableColumnIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableColumnIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 start_num: Optional[int] = None,
+                 step_num: Optional[int] = None):
+        if start_num is not None:
+            pulumi.set(__self__, "start_num", start_num)
+        if step_num is not None:
+            pulumi.set(__self__, "step_num", step_num)
+
+    @property
+    @pulumi.getter(name="startNum")
+    def start_num(self) -> Optional[int]:
+        return pulumi.get(self, "start_num")
+
+    @property
+    @pulumi.getter(name="stepNum")
+    def step_num(self) -> Optional[int]:
+        return pulumi.get(self, "step_num")
+
+
+@pulumi.output_type
 class TablePrimaryKey(dict):
     def __init__(__self__, *,
                  keys: Sequence[str],
@@ -394,6 +775,218 @@ class TablePrimaryKey(dict):
         Name of constraint
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class TableTag(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param str name: Tag name, e.g. department.
+        :param str value: Tag value, e.g. marketing_info.
+        :param str database: Name of the database that the tag was created in.
+        :param str schema: Name of the schema that the tag was created in.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Tag name, e.g. department.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Tag value, e.g. marketing_info.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Name of the database that the tag was created in.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Name of the schema that the tag was created in.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class UserTag(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param str name: Tag name, e.g. department.
+        :param str value: Tag value, e.g. marketing_info.
+        :param str database: Name of the database that the tag was created in.
+        :param str schema: Name of the schema that the tag was created in.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Tag name, e.g. department.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Tag value, e.g. marketing_info.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Name of the database that the tag was created in.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Name of the schema that the tag was created in.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class ViewTag(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param str name: Tag name, e.g. department.
+        :param str value: Tag value, e.g. marketing_info.
+        :param str database: Name of the database that the tag was created in.
+        :param str schema: Name of the schema that the tag was created in.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Tag name, e.g. department.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Tag value, e.g. marketing_info.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Name of the database that the tag was created in.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Name of the schema that the tag was created in.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class WarehouseTag(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param str name: Tag name, e.g. department.
+        :param str value: Tag value, e.g. marketing_info.
+        :param str database: Name of the database that the tag was created in.
+        :param str schema: Name of the schema that the tag was created in.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Tag name, e.g. department.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Tag value, e.g. marketing_info.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Name of the database that the tag was created in.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Name of the schema that the tag was created in.
+        """
+        return pulumi.get(self, "schema")
 
 
 @pulumi.output_type

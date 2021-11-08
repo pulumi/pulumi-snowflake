@@ -139,6 +139,12 @@ namespace Pulumi.Snowflake
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
 
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.ExternalTableTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ExternalTable resource with the given unique name, arguments, and options.
@@ -275,6 +281,18 @@ namespace Pulumi.Snowflake
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
+        [Input("tags")]
+        private InputList<Inputs.ExternalTableTagArgs>? _tags;
+
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        public InputList<Inputs.ExternalTableTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.ExternalTableTagArgs>());
+            set => _tags = value;
+        }
+
         public ExternalTableArgs()
         {
         }
@@ -377,6 +395,18 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.ExternalTableTagGetArgs>? _tags;
+
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        public InputList<Inputs.ExternalTableTagGetArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.ExternalTableTagGetArgs>());
+            set => _tags = value;
+        }
 
         public ExternalTableState()
         {

@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['DatabaseArgs', 'Database']
 
@@ -17,11 +19,13 @@ class DatabaseArgs:
                  data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
                  from_database: Optional[pulumi.Input[str]] = None,
                  from_share: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]]] = None):
         """
         The set of arguments for constructing a Database resource.
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
         :param pulumi.Input[Mapping[str, Any]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -33,6 +37,8 @@ class DatabaseArgs:
             pulumi.set(__self__, "from_share", from_share)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -84,6 +90,18 @@ class DatabaseArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]]]:
+        """
+        Definitions of a tag to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
@@ -93,11 +111,13 @@ class _DatabaseState:
                  data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
                  from_database: Optional[pulumi.Input[str]] = None,
                  from_share: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering Database resources.
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
         :param pulumi.Input[Mapping[str, Any]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -109,6 +129,8 @@ class _DatabaseState:
             pulumi.set(__self__, "from_share", from_share)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -160,6 +182,18 @@ class _DatabaseState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]]]:
+        """
+        Definitions of a tag to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Database(pulumi.CustomResource):
@@ -172,6 +206,7 @@ class Database(pulumi.CustomResource):
                  from_database: Optional[pulumi.Input[str]] = None,
                  from_share: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseTagArgs']]]]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -196,6 +231,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
         :param pulumi.Input[Mapping[str, Any]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         ...
     @overload
@@ -242,6 +278,7 @@ class Database(pulumi.CustomResource):
                  from_database: Optional[pulumi.Input[str]] = None,
                  from_share: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -259,6 +296,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["from_database"] = from_database
             __props__.__dict__["from_share"] = from_share
             __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
         super(Database, __self__).__init__(
             'snowflake:index/database:Database',
             resource_name,
@@ -273,7 +311,8 @@ class Database(pulumi.CustomResource):
             data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
             from_database: Optional[pulumi.Input[str]] = None,
             from_share: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-            name: Optional[pulumi.Input[str]] = None) -> 'Database':
+            name: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseTagArgs']]]]] = None) -> 'Database':
         """
         Get an existing Database resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -283,6 +322,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
         :param pulumi.Input[Mapping[str, Any]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -293,6 +333,7 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["from_database"] = from_database
         __props__.__dict__["from_share"] = from_share
         __props__.__dict__["name"] = name
+        __props__.__dict__["tags"] = tags
         return Database(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -325,4 +366,12 @@ class Database(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DatabaseTag']]]:
+        """
+        Definitions of a tag to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
 

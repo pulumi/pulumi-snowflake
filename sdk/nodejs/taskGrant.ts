@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  *         "role2",
  *     ],
  *     schemaName: "schema",
- *     sequenceName: "sequence",
+ *     taskName: "task",
  *     withGrantOption: false,
  * });
  * ```

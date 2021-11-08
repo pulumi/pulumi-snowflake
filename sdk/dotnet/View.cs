@@ -88,6 +88,12 @@ namespace Pulumi.Snowflake
         [Output("statement")]
         public Output<string> Statement { get; private set; } = null!;
 
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.ViewTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a View resource with the given unique name, arguments, and options.
@@ -176,6 +182,18 @@ namespace Pulumi.Snowflake
         [Input("statement", required: true)]
         public Input<string> Statement { get; set; } = null!;
 
+        [Input("tags")]
+        private InputList<Inputs.ViewTagArgs>? _tags;
+
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        public InputList<Inputs.ViewTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.ViewTagArgs>());
+            set => _tags = value;
+        }
+
         public ViewArgs()
         {
         }
@@ -224,6 +242,18 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("statement")]
         public Input<string>? Statement { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.ViewTagGetArgs>? _tags;
+
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        public InputList<Inputs.ViewTagGetArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.ViewTagGetArgs>());
+            set => _tags = value;
+        }
 
         public ViewState()
         {

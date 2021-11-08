@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['SchemaArgs', 'Schema']
 
@@ -18,7 +20,8 @@ class SchemaArgs:
                  data_retention_days: Optional[pulumi.Input[int]] = None,
                  is_managed: Optional[pulumi.Input[bool]] = None,
                  is_transient: Optional[pulumi.Input[bool]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]]] = None):
         """
         The set of arguments for constructing a Schema resource.
         :param pulumi.Input[str] database: The database in which to create the schema.
@@ -27,6 +30,7 @@ class SchemaArgs:
         :param pulumi.Input[bool] is_managed: Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
         :param pulumi.Input[bool] is_transient: Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
         :param pulumi.Input[str] name: Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+        :param pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         pulumi.set(__self__, "database", database)
         if comment is not None:
@@ -39,6 +43,8 @@ class SchemaArgs:
             pulumi.set(__self__, "is_transient", is_transient)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -112,6 +118,18 @@ class SchemaArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]]]:
+        """
+        Definitions of a tag to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _SchemaState:
@@ -121,7 +139,8 @@ class _SchemaState:
                  database: Optional[pulumi.Input[str]] = None,
                  is_managed: Optional[pulumi.Input[bool]] = None,
                  is_transient: Optional[pulumi.Input[bool]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering Schema resources.
         :param pulumi.Input[str] comment: Specifies a comment for the schema.
@@ -130,6 +149,7 @@ class _SchemaState:
         :param pulumi.Input[bool] is_managed: Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
         :param pulumi.Input[bool] is_transient: Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
         :param pulumi.Input[str] name: Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+        :param pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -143,6 +163,8 @@ class _SchemaState:
             pulumi.set(__self__, "is_transient", is_transient)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -216,6 +238,18 @@ class _SchemaState:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]]]:
+        """
+        Definitions of a tag to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class Schema(pulumi.CustomResource):
     @overload
@@ -228,6 +262,7 @@ class Schema(pulumi.CustomResource):
                  is_managed: Optional[pulumi.Input[bool]] = None,
                  is_transient: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaTagArgs']]]]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -260,6 +295,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[bool] is_managed: Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
         :param pulumi.Input[bool] is_transient: Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
         :param pulumi.Input[str] name: Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         ...
     @overload
@@ -311,6 +347,7 @@ class Schema(pulumi.CustomResource):
                  is_managed: Optional[pulumi.Input[bool]] = None,
                  is_transient: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -331,6 +368,7 @@ class Schema(pulumi.CustomResource):
             __props__.__dict__["is_managed"] = is_managed
             __props__.__dict__["is_transient"] = is_transient
             __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
         super(Schema, __self__).__init__(
             'snowflake:index/schema:Schema',
             resource_name,
@@ -346,7 +384,8 @@ class Schema(pulumi.CustomResource):
             database: Optional[pulumi.Input[str]] = None,
             is_managed: Optional[pulumi.Input[bool]] = None,
             is_transient: Optional[pulumi.Input[bool]] = None,
-            name: Optional[pulumi.Input[str]] = None) -> 'Schema':
+            name: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaTagArgs']]]]] = None) -> 'Schema':
         """
         Get an existing Schema resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -360,6 +399,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[bool] is_managed: Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
         :param pulumi.Input[bool] is_transient: Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
         :param pulumi.Input[str] name: Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -371,6 +411,7 @@ class Schema(pulumi.CustomResource):
         __props__.__dict__["is_managed"] = is_managed
         __props__.__dict__["is_transient"] = is_transient
         __props__.__dict__["name"] = name
+        __props__.__dict__["tags"] = tags
         return Schema(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -420,4 +461,12 @@ class Schema(pulumi.CustomResource):
         Specifies the identifier for the schema; must be unique for the database in which the schema is created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SchemaTag']]]:
+        """
+        Definitions of a tag to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
 

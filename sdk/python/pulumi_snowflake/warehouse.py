@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['WarehouseArgs', 'Warehouse']
 
@@ -25,6 +27,7 @@ class WarehouseArgs:
                  scaling_policy: Optional[pulumi.Input[str]] = None,
                  statement_queued_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  statement_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseTagArgs']]]] = None,
                  wait_for_provisioning: Optional[pulumi.Input[bool]] = None,
                  warehouse_size: Optional[pulumi.Input[str]] = None):
         """
@@ -40,6 +43,7 @@ class WarehouseArgs:
         :param pulumi.Input[str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
         :param pulumi.Input[int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
         :param pulumi.Input[int] statement_timeout_in_seconds: Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
+        :param pulumi.Input[Sequence[pulumi.Input['WarehouseTagArgs']]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[bool] wait_for_provisioning: Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         :param pulumi.Input[str] warehouse_size: Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
         """
@@ -67,6 +71,8 @@ class WarehouseArgs:
             pulumi.set(__self__, "statement_queued_timeout_in_seconds", statement_queued_timeout_in_seconds)
         if statement_timeout_in_seconds is not None:
             pulumi.set(__self__, "statement_timeout_in_seconds", statement_timeout_in_seconds)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if wait_for_provisioning is not None:
             pulumi.set(__self__, "wait_for_provisioning", wait_for_provisioning)
         if warehouse_size is not None:
@@ -212,6 +218,18 @@ class WarehouseArgs:
     @statement_timeout_in_seconds.setter
     def statement_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "statement_timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseTagArgs']]]]:
+        """
+        Definitions of a tag to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseTagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="waitForProvisioning")
@@ -253,6 +271,7 @@ class _WarehouseState:
                  scaling_policy: Optional[pulumi.Input[str]] = None,
                  statement_queued_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  statement_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseTagArgs']]]] = None,
                  wait_for_provisioning: Optional[pulumi.Input[bool]] = None,
                  warehouse_size: Optional[pulumi.Input[str]] = None):
         """
@@ -268,6 +287,7 @@ class _WarehouseState:
         :param pulumi.Input[str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
         :param pulumi.Input[int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
         :param pulumi.Input[int] statement_timeout_in_seconds: Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
+        :param pulumi.Input[Sequence[pulumi.Input['WarehouseTagArgs']]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[bool] wait_for_provisioning: Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         :param pulumi.Input[str] warehouse_size: Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
         """
@@ -295,6 +315,8 @@ class _WarehouseState:
             pulumi.set(__self__, "statement_queued_timeout_in_seconds", statement_queued_timeout_in_seconds)
         if statement_timeout_in_seconds is not None:
             pulumi.set(__self__, "statement_timeout_in_seconds", statement_timeout_in_seconds)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if wait_for_provisioning is not None:
             pulumi.set(__self__, "wait_for_provisioning", wait_for_provisioning)
         if warehouse_size is not None:
@@ -440,6 +462,18 @@ class _WarehouseState:
     @statement_timeout_in_seconds.setter
     def statement_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "statement_timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseTagArgs']]]]:
+        """
+        Definitions of a tag to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseTagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="waitForProvisioning")
@@ -483,6 +517,7 @@ class Warehouse(pulumi.CustomResource):
                  scaling_policy: Optional[pulumi.Input[str]] = None,
                  statement_queued_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  statement_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WarehouseTagArgs']]]]] = None,
                  wait_for_provisioning: Optional[pulumi.Input[bool]] = None,
                  warehouse_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -517,6 +552,7 @@ class Warehouse(pulumi.CustomResource):
         :param pulumi.Input[str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
         :param pulumi.Input[int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
         :param pulumi.Input[int] statement_timeout_in_seconds: Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WarehouseTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[bool] wait_for_provisioning: Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         :param pulumi.Input[str] warehouse_size: Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
         """
@@ -571,6 +607,7 @@ class Warehouse(pulumi.CustomResource):
                  scaling_policy: Optional[pulumi.Input[str]] = None,
                  statement_queued_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  statement_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WarehouseTagArgs']]]]] = None,
                  wait_for_provisioning: Optional[pulumi.Input[bool]] = None,
                  warehouse_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -597,6 +634,7 @@ class Warehouse(pulumi.CustomResource):
             __props__.__dict__["scaling_policy"] = scaling_policy
             __props__.__dict__["statement_queued_timeout_in_seconds"] = statement_queued_timeout_in_seconds
             __props__.__dict__["statement_timeout_in_seconds"] = statement_timeout_in_seconds
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["wait_for_provisioning"] = wait_for_provisioning
             __props__.__dict__["warehouse_size"] = warehouse_size
         super(Warehouse, __self__).__init__(
@@ -621,6 +659,7 @@ class Warehouse(pulumi.CustomResource):
             scaling_policy: Optional[pulumi.Input[str]] = None,
             statement_queued_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
             statement_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WarehouseTagArgs']]]]] = None,
             wait_for_provisioning: Optional[pulumi.Input[bool]] = None,
             warehouse_size: Optional[pulumi.Input[str]] = None) -> 'Warehouse':
         """
@@ -641,6 +680,7 @@ class Warehouse(pulumi.CustomResource):
         :param pulumi.Input[str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
         :param pulumi.Input[int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
         :param pulumi.Input[int] statement_timeout_in_seconds: Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WarehouseTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[bool] wait_for_provisioning: Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         :param pulumi.Input[str] warehouse_size: Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
         """
@@ -660,6 +700,7 @@ class Warehouse(pulumi.CustomResource):
         __props__.__dict__["scaling_policy"] = scaling_policy
         __props__.__dict__["statement_queued_timeout_in_seconds"] = statement_queued_timeout_in_seconds
         __props__.__dict__["statement_timeout_in_seconds"] = statement_timeout_in_seconds
+        __props__.__dict__["tags"] = tags
         __props__.__dict__["wait_for_provisioning"] = wait_for_provisioning
         __props__.__dict__["warehouse_size"] = warehouse_size
         return Warehouse(resource_name, opts=opts, __props__=__props__)
@@ -756,6 +797,14 @@ class Warehouse(pulumi.CustomResource):
         Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
         """
         return pulumi.get(self, "statement_timeout_in_seconds")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.WarehouseTag']]]:
+        """
+        Definitions of a tag to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="waitForProvisioning")
