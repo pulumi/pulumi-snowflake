@@ -121,6 +121,10 @@ export class ExternalTable extends pulumi.CustomResource {
      * The schema in which to create the external table.
      */
     public readonly schema!: pulumi.Output<string>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.ExternalTableTag[] | undefined>;
 
     /**
      * Create a ExternalTable resource with the given unique name, arguments, and options.
@@ -149,6 +153,7 @@ export class ExternalTable extends pulumi.CustomResource {
             inputs["pattern"] = state ? state.pattern : undefined;
             inputs["refreshOnCreate"] = state ? state.refreshOnCreate : undefined;
             inputs["schema"] = state ? state.schema : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ExternalTableArgs | undefined;
             if ((!args || args.columns === undefined) && !opts.urn) {
@@ -179,6 +184,7 @@ export class ExternalTable extends pulumi.CustomResource {
             inputs["pattern"] = args ? args.pattern : undefined;
             inputs["refreshOnCreate"] = args ? args.refreshOnCreate : undefined;
             inputs["schema"] = args ? args.schema : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["owner"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -248,6 +254,10 @@ export interface ExternalTableState {
      * The schema in which to create the external table.
      */
     schema?: pulumi.Input<string>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.ExternalTableTag>[]>;
 }
 
 /**
@@ -306,4 +316,8 @@ export interface ExternalTableArgs {
      * The schema in which to create the external table.
      */
     schema: pulumi.Input<string>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.ExternalTableTag>[]>;
 }

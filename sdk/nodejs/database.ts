@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -65,6 +66,10 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly fromShare!: pulumi.Output<{[key: string]: any} | undefined>;
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.DatabaseTag[] | undefined>;
 
     /**
      * Create a Database resource with the given unique name, arguments, and options.
@@ -84,6 +89,7 @@ export class Database extends pulumi.CustomResource {
             inputs["fromDatabase"] = state ? state.fromDatabase : undefined;
             inputs["fromShare"] = state ? state.fromShare : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DatabaseArgs | undefined;
             inputs["comment"] = args ? args.comment : undefined;
@@ -91,6 +97,7 @@ export class Database extends pulumi.CustomResource {
             inputs["fromDatabase"] = args ? args.fromDatabase : undefined;
             inputs["fromShare"] = args ? args.fromShare : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -114,6 +121,10 @@ export interface DatabaseState {
      */
     fromShare?: pulumi.Input<{[key: string]: any}>;
     name?: pulumi.Input<string>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.DatabaseTag>[]>;
 }
 
 /**
@@ -131,4 +142,8 @@ export interface DatabaseArgs {
      */
     fromShare?: pulumi.Input<{[key: string]: any}>;
     name?: pulumi.Input<string>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.DatabaseTag>[]>;
 }

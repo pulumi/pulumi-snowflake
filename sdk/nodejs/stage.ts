@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -101,6 +102,10 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly storageIntegration!: pulumi.Output<string | undefined>;
     /**
+     * Definitions of a tag to associate with the resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.StageTag[] | undefined>;
+    /**
      * Specifies the URL for the stage.
      */
     public readonly url!: pulumi.Output<string | undefined>;
@@ -129,6 +134,7 @@ export class Stage extends pulumi.CustomResource {
             inputs["schema"] = state ? state.schema : undefined;
             inputs["snowflakeIamUser"] = state ? state.snowflakeIamUser : undefined;
             inputs["storageIntegration"] = state ? state.storageIntegration : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as StageArgs | undefined;
@@ -149,6 +155,7 @@ export class Stage extends pulumi.CustomResource {
             inputs["schema"] = args ? args.schema : undefined;
             inputs["snowflakeIamUser"] = args ? args.snowflakeIamUser : undefined;
             inputs["storageIntegration"] = args ? args.storageIntegration : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["url"] = args ? args.url : undefined;
         }
         if (!opts.version) {
@@ -201,6 +208,10 @@ export interface StageState {
      */
     storageIntegration?: pulumi.Input<string>;
     /**
+     * Definitions of a tag to associate with the resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.StageTag>[]>;
+    /**
      * Specifies the URL for the stage.
      */
     url?: pulumi.Input<string>;
@@ -248,6 +259,10 @@ export interface StageArgs {
      * Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
      */
     storageIntegration?: pulumi.Input<string>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.StageTag>[]>;
     /**
      * Specifies the URL for the stage.
      */

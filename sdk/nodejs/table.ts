@@ -37,6 +37,15 @@ import * as utilities from "./utilities";
  *             },
  *         },
  *         {
+ *             name: "identity",
+ *             type: "NUMBER(38,0)",
+ *             nullable: true,
+ *             identity: {
+ *                 startNum: 1,
+ *                 stepNum: 3,
+ *             },
+ *         },
+ *         {
  *             name: "data",
  *             type: "text",
  *             nullable: false,
@@ -134,6 +143,10 @@ export class Table extends pulumi.CustomResource {
      * The schema in which to create the table.
      */
     public readonly schema!: pulumi.Output<string>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.TableTag[] | undefined>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.
@@ -158,6 +171,7 @@ export class Table extends pulumi.CustomResource {
             inputs["owner"] = state ? state.owner : undefined;
             inputs["primaryKey"] = state ? state.primaryKey : undefined;
             inputs["schema"] = state ? state.schema : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as TableArgs | undefined;
             if ((!args || args.columns === undefined) && !opts.urn) {
@@ -178,6 +192,7 @@ export class Table extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["primaryKey"] = args ? args.primaryKey : undefined;
             inputs["schema"] = args ? args.schema : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["owner"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -231,6 +246,10 @@ export interface TableState {
      * The schema in which to create the table.
      */
     schema?: pulumi.Input<string>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TableTag>[]>;
 }
 
 /**
@@ -273,4 +292,8 @@ export interface TableArgs {
      * The schema in which to create the table.
      */
     schema: pulumi.Input<string>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TableTag>[]>;
 }

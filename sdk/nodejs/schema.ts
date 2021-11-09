@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -80,6 +81,10 @@ export class Schema extends pulumi.CustomResource {
      * Specifies the identifier for the schema; must be unique for the database in which the schema is created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.SchemaTag[] | undefined>;
 
     /**
      * Create a Schema resource with the given unique name, arguments, and options.
@@ -100,6 +105,7 @@ export class Schema extends pulumi.CustomResource {
             inputs["isManaged"] = state ? state.isManaged : undefined;
             inputs["isTransient"] = state ? state.isTransient : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SchemaArgs | undefined;
             if ((!args || args.database === undefined) && !opts.urn) {
@@ -111,6 +117,7 @@ export class Schema extends pulumi.CustomResource {
             inputs["isManaged"] = args ? args.isManaged : undefined;
             inputs["isTransient"] = args ? args.isTransient : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -147,6 +154,10 @@ export interface SchemaState {
      * Specifies the identifier for the schema; must be unique for the database in which the schema is created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.SchemaTag>[]>;
 }
 
 /**
@@ -177,4 +188,8 @@ export interface SchemaArgs {
      * Specifies the identifier for the schema; must be unique for the database in which the schema is created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.SchemaTag>[]>;
 }

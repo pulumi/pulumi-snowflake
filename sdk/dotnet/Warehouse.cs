@@ -109,6 +109,12 @@ namespace Pulumi.Snowflake
         public Output<int?> StatementTimeoutInSeconds { get; private set; } = null!;
 
         /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.WarehouseTag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         /// </summary>
         [Output("waitForProvisioning")]
@@ -235,6 +241,18 @@ namespace Pulumi.Snowflake
         [Input("statementTimeoutInSeconds")]
         public Input<int>? StatementTimeoutInSeconds { get; set; }
 
+        [Input("tags")]
+        private InputList<Inputs.WarehouseTagArgs>? _tags;
+
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        public InputList<Inputs.WarehouseTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.WarehouseTagArgs>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         /// </summary>
@@ -322,6 +340,18 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("statementTimeoutInSeconds")]
         public Input<int>? StatementTimeoutInSeconds { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.WarehouseTagGetArgs>? _tags;
+
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        public InputList<Inputs.WarehouseTagGetArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.WarehouseTagGetArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.

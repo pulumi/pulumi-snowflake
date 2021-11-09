@@ -60,6 +60,8 @@ type Schema struct {
 	IsTransient pulumi.BoolPtrOutput `pulumi:"isTransient"`
 	// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Definitions of a tag to associate with the resource.
+	Tags SchemaTagArrayOutput `pulumi:"tags"`
 }
 
 // NewSchema registers a new resource with the given unique name, arguments, and options.
@@ -106,6 +108,8 @@ type schemaState struct {
 	IsTransient *bool `pulumi:"isTransient"`
 	// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
 	Name *string `pulumi:"name"`
+	// Definitions of a tag to associate with the resource.
+	Tags []SchemaTag `pulumi:"tags"`
 }
 
 type SchemaState struct {
@@ -121,6 +125,8 @@ type SchemaState struct {
 	IsTransient pulumi.BoolPtrInput
 	// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
 	Name pulumi.StringPtrInput
+	// Definitions of a tag to associate with the resource.
+	Tags SchemaTagArrayInput
 }
 
 func (SchemaState) ElementType() reflect.Type {
@@ -140,6 +146,8 @@ type schemaArgs struct {
 	IsTransient *bool `pulumi:"isTransient"`
 	// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
 	Name *string `pulumi:"name"`
+	// Definitions of a tag to associate with the resource.
+	Tags []SchemaTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Schema resource.
@@ -156,6 +164,8 @@ type SchemaArgs struct {
 	IsTransient pulumi.BoolPtrInput
 	// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
 	Name pulumi.StringPtrInput
+	// Definitions of a tag to associate with the resource.
+	Tags SchemaTagArrayInput
 }
 
 func (SchemaArgs) ElementType() reflect.Type {

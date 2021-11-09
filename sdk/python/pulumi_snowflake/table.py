@@ -23,7 +23,8 @@ class TableArgs:
                  comment: Optional[pulumi.Input[str]] = None,
                  data_retention_days: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 primary_key: Optional[pulumi.Input['TablePrimaryKeyArgs']] = None):
+                 primary_key: Optional[pulumi.Input['TablePrimaryKeyArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None):
         """
         The set of arguments for constructing a Table resource.
         :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] columns: Definitions of a column to create in the table. Minimum one required.
@@ -35,6 +36,7 @@ class TableArgs:
         :param pulumi.Input[int] data_retention_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
         :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input['TablePrimaryKeyArgs'] primary_key: Definitions of primary key constraint to create on table
+        :param pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         pulumi.set(__self__, "columns", columns)
         pulumi.set(__self__, "database", database)
@@ -51,6 +53,8 @@ class TableArgs:
             pulumi.set(__self__, "name", name)
         if primary_key is not None:
             pulumi.set(__self__, "primary_key", primary_key)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -160,6 +164,18 @@ class TableArgs:
     def primary_key(self, value: Optional[pulumi.Input['TablePrimaryKeyArgs']]):
         pulumi.set(self, "primary_key", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]]:
+        """
+        Definitions of a tag to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _TableState:
@@ -173,7 +189,8 @@ class _TableState:
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  primary_key: Optional[pulumi.Input['TablePrimaryKeyArgs']] = None,
-                 schema: Optional[pulumi.Input[str]] = None):
+                 schema: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering Table resources.
         :param pulumi.Input[bool] change_tracking: Specifies whether to enable change tracking on the table. Default false.
@@ -186,6 +203,7 @@ class _TableState:
         :param pulumi.Input[str] owner: Name of the role that owns the table.
         :param pulumi.Input['TablePrimaryKeyArgs'] primary_key: Definitions of primary key constraint to create on table
         :param pulumi.Input[str] schema: The schema in which to create the table.
+        :param pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         if change_tracking is not None:
             pulumi.set(__self__, "change_tracking", change_tracking)
@@ -207,6 +225,8 @@ class _TableState:
             pulumi.set(__self__, "primary_key", primary_key)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="changeTracking")
@@ -328,6 +348,18 @@ class _TableState:
     def schema(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schema", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]]:
+        """
+        Definitions of a tag to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class Table(pulumi.CustomResource):
     @overload
@@ -343,6 +375,7 @@ class Table(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  primary_key: Optional[pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -371,6 +404,15 @@ class Table(pulumi.CustomResource):
                     nullable=True,
                     default=snowflake.TableColumnDefaultArgs(
                         sequence=sequence.fully_qualified_name,
+                    ),
+                ),
+                snowflake.TableColumnArgs(
+                    name="identity",
+                    type="NUMBER(38,0)",
+                    nullable=True,
+                    identity=snowflake.TableColumnIdentityArgs(
+                        start_num=1,
+                        step_num=3,
                     ),
                 ),
                 snowflake.TableColumnArgs(
@@ -413,6 +455,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']] primary_key: Definitions of primary key constraint to create on table
         :param pulumi.Input[str] schema: The schema in which to create the table.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         ...
     @overload
@@ -447,6 +490,15 @@ class Table(pulumi.CustomResource):
                     nullable=True,
                     default=snowflake.TableColumnDefaultArgs(
                         sequence=sequence.fully_qualified_name,
+                    ),
+                ),
+                snowflake.TableColumnArgs(
+                    name="identity",
+                    type="NUMBER(38,0)",
+                    nullable=True,
+                    identity=snowflake.TableColumnIdentityArgs(
+                        start_num=1,
+                        step_num=3,
                     ),
                 ),
                 snowflake.TableColumnArgs(
@@ -502,6 +554,7 @@ class Table(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  primary_key: Optional[pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -529,6 +582,7 @@ class Table(pulumi.CustomResource):
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["owner"] = None
         super(Table, __self__).__init__(
             'snowflake:index/table:Table',
@@ -549,7 +603,8 @@ class Table(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
             primary_key: Optional[pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']]] = None,
-            schema: Optional[pulumi.Input[str]] = None) -> 'Table':
+            schema: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]]] = None) -> 'Table':
         """
         Get an existing Table resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -567,6 +622,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] owner: Name of the role that owns the table.
         :param pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']] primary_key: Definitions of primary key constraint to create on table
         :param pulumi.Input[str] schema: The schema in which to create the table.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -582,6 +638,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["owner"] = owner
         __props__.__dict__["primary_key"] = primary_key
         __props__.__dict__["schema"] = schema
+        __props__.__dict__["tags"] = tags
         return Table(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -663,4 +720,12 @@ class Table(pulumi.CustomResource):
         The schema in which to create the table.
         """
         return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TableTag']]]:
+        """
+        Definitions of a tag to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
 

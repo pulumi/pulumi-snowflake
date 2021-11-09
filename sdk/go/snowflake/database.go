@@ -55,6 +55,8 @@ type Database struct {
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare pulumi.MapOutput    `pulumi:"fromShare"`
 	Name      pulumi.StringOutput `pulumi:"name"`
+	// Definitions of a tag to associate with the resource.
+	Tags DatabaseTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDatabase registers a new resource with the given unique name, arguments, and options.
@@ -93,6 +95,8 @@ type databaseState struct {
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare map[string]interface{} `pulumi:"fromShare"`
 	Name      *string                `pulumi:"name"`
+	// Definitions of a tag to associate with the resource.
+	Tags []DatabaseTag `pulumi:"tags"`
 }
 
 type DatabaseState struct {
@@ -103,6 +107,8 @@ type DatabaseState struct {
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare pulumi.MapInput
 	Name      pulumi.StringPtrInput
+	// Definitions of a tag to associate with the resource.
+	Tags DatabaseTagArrayInput
 }
 
 func (DatabaseState) ElementType() reflect.Type {
@@ -117,6 +123,8 @@ type databaseArgs struct {
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare map[string]interface{} `pulumi:"fromShare"`
 	Name      *string                `pulumi:"name"`
+	// Definitions of a tag to associate with the resource.
+	Tags []DatabaseTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Database resource.
@@ -128,6 +136,8 @@ type DatabaseArgs struct {
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare pulumi.MapInput
 	Name      pulumi.StringPtrInput
+	// Definitions of a tag to associate with the resource.
+	Tags DatabaseTagArrayInput
 }
 
 func (DatabaseArgs) ElementType() reflect.Type {

@@ -262,6 +262,25 @@ class TaskGrant(pulumi.CustomResource):
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        grant = snowflake.TaskGrant("grant",
+            database_name="db",
+            on_future=False,
+            privilege="operate",
+            roles=[
+                "role1",
+                "role2",
+            ],
+            schema_name="schema",
+            task_name="task",
+            with_grant_option=False)
+        ```
+
         ## Import
 
         # format is database name | schema name | task name | privilege | true/false for with_grant_option
@@ -287,6 +306,25 @@ class TaskGrant(pulumi.CustomResource):
                  args: TaskGrantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        grant = snowflake.TaskGrant("grant",
+            database_name="db",
+            on_future=False,
+            privilege="operate",
+            roles=[
+                "role1",
+                "role2",
+            ],
+            schema_name="schema",
+            task_name="task",
+            with_grant_option=False)
+        ```
+
         ## Import
 
         # format is database name | schema name | task name | privilege | true/false for with_grant_option

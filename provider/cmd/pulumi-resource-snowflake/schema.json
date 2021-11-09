@@ -68,6 +68,51 @@
         ]
     },
     "types": {
+        "snowflake:index/DatabaseTag:DatabaseTag": {
+            "properties": {
+                "database": {
+                    "type": "string",
+                    "description": "Name of the database that the tag was created in.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Tag name, e.g. department.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "Name of the schema that the tag was created in.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Tag value, e.g. marketing_info.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ]
+        },
         "snowflake:index/ExternalFunctionArg:ExternalFunctionArg": {
             "properties": {
                 "name": {
@@ -159,6 +204,51 @@
                 "type"
             ]
         },
+        "snowflake:index/ExternalTableTag:ExternalTableTag": {
+            "properties": {
+                "database": {
+                    "type": "string",
+                    "description": "Name of the database that the tag was created in.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Tag name, e.g. department.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "Name of the schema that the tag was created in.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Tag value, e.g. marketing_info.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ]
+        },
         "snowflake:index/FunctionArgument:FunctionArgument": {
             "properties": {
                 "name": {
@@ -211,6 +301,51 @@
             "required": [
                 "name",
                 "type"
+            ]
+        },
+        "snowflake:index/MaterializedViewTag:MaterializedViewTag": {
+            "properties": {
+                "database": {
+                    "type": "string",
+                    "description": "Name of the database that the tag was created in.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Tag name, e.g. department.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "Name of the schema that the tag was created in.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Tag value, e.g. marketing_info.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
             ]
         },
         "snowflake:index/ProcedureArgument:ProcedureArgument": {
@@ -267,6 +402,141 @@
                 "type"
             ]
         },
+        "snowflake:index/RoleTag:RoleTag": {
+            "properties": {
+                "database": {
+                    "type": "string",
+                    "description": "Name of the database that the tag was created in.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Tag name, e.g. department.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "Name of the schema that the tag was created in.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Tag value, e.g. marketing_info.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ]
+        },
+        "snowflake:index/SchemaTag:SchemaTag": {
+            "properties": {
+                "database": {
+                    "type": "string",
+                    "description": "Name of the database that the tag was created in.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Tag name, e.g. department.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "Name of the schema that the tag was created in.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Tag value, e.g. marketing_info.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ]
+        },
+        "snowflake:index/StageTag:StageTag": {
+            "properties": {
+                "database": {
+                    "type": "string",
+                    "description": "Name of the database that the tag was created in.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Tag name, e.g. department.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "Name of the schema that the tag was created in.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Tag value, e.g. marketing_info.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ]
+        },
         "snowflake:index/TableColumn:TableColumn": {
             "properties": {
                 "comment": {
@@ -281,6 +551,15 @@
                 "default": {
                     "$ref": "#/types/snowflake:index/TableColumnDefault:TableColumnDefault",
                     "description": "Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "identity": {
+                    "$ref": "#/types/snowflake:index/TableColumnIdentity:TableColumnIdentity",
+                    "description": "Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -350,6 +629,27 @@
             },
             "type": "object"
         },
+        "snowflake:index/TableColumnIdentity:TableColumnIdentity": {
+            "properties": {
+                "startNum": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "stepNum": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
         "snowflake:index/TablePrimaryKey:TablePrimaryKey": {
             "properties": {
                 "keys": {
@@ -377,6 +677,186 @@
             "type": "object",
             "required": [
                 "keys"
+            ]
+        },
+        "snowflake:index/TableTag:TableTag": {
+            "properties": {
+                "database": {
+                    "type": "string",
+                    "description": "Name of the database that the tag was created in.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Tag name, e.g. department.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "Name of the schema that the tag was created in.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Tag value, e.g. marketing_info.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ]
+        },
+        "snowflake:index/UserTag:UserTag": {
+            "properties": {
+                "database": {
+                    "type": "string",
+                    "description": "Name of the database that the tag was created in.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Tag name, e.g. department.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "Name of the schema that the tag was created in.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Tag value, e.g. marketing_info.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ]
+        },
+        "snowflake:index/ViewTag:ViewTag": {
+            "properties": {
+                "database": {
+                    "type": "string",
+                    "description": "Name of the database that the tag was created in.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Tag name, e.g. department.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "Name of the schema that the tag was created in.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Tag value, e.g. marketing_info.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ]
+        },
+        "snowflake:index/WarehouseTag:WarehouseTag": {
+            "properties": {
+                "database": {
+                    "type": "string",
+                    "description": "Name of the database that the tag was created in.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Tag name, e.g. department.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "Name of the schema that the tag was created in.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Tag value, e.g. marketing_info.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
             ]
         },
         "snowflake:index/getExternalFunctionsExternalFunction:getExternalFunctionsExternalFunction": {
@@ -1804,6 +2284,13 @@
                 },
                 "name": {
                     "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/DatabaseTag:DatabaseTag"
+                    },
+                    "description": "Definitions of a tag to associate with the resource.\n"
                 }
             },
             "required": [
@@ -1830,6 +2317,13 @@
                 },
                 "name": {
                     "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/DatabaseTag:DatabaseTag"
+                    },
+                    "description": "Definitions of a tag to associate with the resource.\n"
                 }
             },
             "stateInputs": {
@@ -1854,6 +2348,13 @@
                     },
                     "name": {
                         "type": "string"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/DatabaseTag:DatabaseTag"
+                        },
+                        "description": "Definitions of a tag to associate with the resource.\n"
                     }
                 },
                 "type": "object"
@@ -2266,6 +2767,13 @@
                 "schema": {
                     "type": "string",
                     "description": "The schema in which to create the external table.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/ExternalTableTag:ExternalTableTag"
+                    },
+                    "description": "Definitions of a tag to associate with the resource.\n"
                 }
             },
             "required": [
@@ -2335,6 +2843,13 @@
                 "schema": {
                     "type": "string",
                     "description": "The schema in which to create the external table.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/ExternalTableTag:ExternalTableTag"
+                    },
+                    "description": "Definitions of a tag to associate with the resource.\n"
                 }
             },
             "requiredInputs": [
@@ -2408,6 +2923,13 @@
                     "schema": {
                         "type": "string",
                         "description": "The schema in which to create the external table.\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/ExternalTableTag:ExternalTableTag"
+                        },
+                        "description": "Definitions of a tag to associate with the resource.\n"
                     }
                 },
                 "type": "object"
@@ -3898,6 +4420,13 @@
                     "type": "string",
                     "description": "Specifies the query used to create the view.\n"
                 },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/MaterializedViewTag:MaterializedViewTag"
+                    },
+                    "description": "Definitions of a tag to associate with the resource.\n"
+                },
                 "warehouse": {
                     "type": "string",
                     "description": "The warehouse name.\n"
@@ -3938,6 +4467,13 @@
                 "statement": {
                     "type": "string",
                     "description": "Specifies the query used to create the view.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/MaterializedViewTag:MaterializedViewTag"
+                    },
+                    "description": "Definitions of a tag to associate with the resource.\n"
                 },
                 "warehouse": {
                     "type": "string",
@@ -3980,6 +4516,13 @@
                     "statement": {
                         "type": "string",
                         "description": "Specifies the query used to create the view.\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/MaterializedViewTag:MaterializedViewTag"
+                        },
+                        "description": "Definitions of a tag to associate with the resource.\n"
                     },
                     "warehouse": {
                         "type": "string",
@@ -5251,6 +5794,13 @@
                 },
                 "name": {
                     "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/RoleTag:RoleTag"
+                    },
+                    "description": "Definitions of a tag to associate with the resource.\n"
                 }
             },
             "required": [
@@ -5262,6 +5812,13 @@
                 },
                 "name": {
                     "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/RoleTag:RoleTag"
+                    },
+                    "description": "Definitions of a tag to associate with the resource.\n"
                 }
             },
             "stateInputs": {
@@ -5272,6 +5829,13 @@
                     },
                     "name": {
                         "type": "string"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/RoleTag:RoleTag"
+                        },
+                        "description": "Definitions of a tag to associate with the resource.\n"
                     }
                 },
                 "type": "object"
@@ -5587,6 +6151,13 @@
                 "name": {
                     "type": "string",
                     "description": "Specifies the identifier for the schema; must be unique for the database in which the schema is created.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/SchemaTag:SchemaTag"
+                    },
+                    "description": "Definitions of a tag to associate with the resource.\n"
                 }
             },
             "required": [
@@ -5617,6 +6188,13 @@
                 "name": {
                     "type": "string",
                     "description": "Specifies the identifier for the schema; must be unique for the database in which the schema is created.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/SchemaTag:SchemaTag"
+                    },
+                    "description": "Definitions of a tag to associate with the resource.\n"
                 }
             },
             "requiredInputs": [
@@ -5648,6 +6226,13 @@
                     "name": {
                         "type": "string",
                         "description": "Specifies the identifier for the schema; must be unique for the database in which the schema is created.\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/SchemaTag:SchemaTag"
+                        },
+                        "description": "Definitions of a tag to associate with the resource.\n"
                     }
                 },
                 "type": "object"
@@ -6173,6 +6758,13 @@
                     "type": "string",
                     "description": "Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.\n"
                 },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/StageTag:StageTag"
+                    },
+                    "description": "Definitions of a tag to associate with the resource.\n"
+                },
                 "url": {
                     "type": "string",
                     "description": "Specifies the URL for the stage.\n"
@@ -6228,6 +6820,13 @@
                     "type": "string",
                     "description": "Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.\n"
                 },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/StageTag:StageTag"
+                    },
+                    "description": "Definitions of a tag to associate with the resource.\n"
+                },
                 "url": {
                     "type": "string",
                     "description": "Specifies the URL for the stage.\n"
@@ -6281,6 +6880,13 @@
                     "storageIntegration": {
                         "type": "string",
                         "description": "Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/StageTag:StageTag"
+                        },
+                        "description": "Definitions of a tag to associate with the resource.\n"
                     },
                     "url": {
                         "type": "string",
@@ -6607,7 +7213,7 @@
             }
         },
         "snowflake:index/stream:Stream": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst stream = new snowflake.Stream(\"stream\", {\n    appendOnly: false,\n    comment: \"A stream.\",\n    database: \"db\",\n    insertOnly: false,\n    onTable: \"table\",\n    owner: \"role1\",\n    schema: \"schema\",\n});\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | on table name\n\n```sh\n $ pulumi import snowflake:index/stream:Stream example 'dbName|schemaName|tableName'\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst stream = new snowflake.Stream(\"stream\", {\n    appendOnly: false,\n    comment: \"A stream.\",\n    database: \"db\",\n    insertOnly: false,\n    onTable: \"table\",\n    owner: \"role1\",\n    schema: \"schema\",\n});\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | stream name\n\n```sh\n $ pulumi import snowflake:index/stream:Stream example 'dbName|schemaName|streamName'\n```\n\n ",
             "properties": {
                 "appendOnly": {
                     "type": "boolean",
@@ -6848,7 +7454,7 @@
             }
         },
         "snowflake:index/table:Table": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst schema = new snowflake.Schema(\"schema\", {\n    database: \"database\",\n    dataRetentionDays: 1,\n});\nconst sequence = new snowflake.Sequence(\"sequence\", {\n    database: schema.database,\n    schema: schema.name,\n});\nconst table = new snowflake.Table(\"table\", {\n    database: schema.database,\n    schema: schema.name,\n    comment: \"A table.\",\n    clusterBies: [\"to_date(DATE)\"],\n    dataRetentionDays: schema.dataRetentionDays,\n    changeTracking: false,\n    columns: [\n        {\n            name: \"id\",\n            type: \"int\",\n            nullable: true,\n            \"default\": {\n                sequence: sequence.fullyQualifiedName,\n            },\n        },\n        {\n            name: \"data\",\n            type: \"text\",\n            nullable: false,\n        },\n        {\n            name: \"DATE\",\n            type: \"TIMESTAMP_NTZ(9)\",\n        },\n        {\n            name: \"extra\",\n            type: \"VARIANT\",\n            comment: \"extra data\",\n        },\n    ],\n    primaryKey: {\n        name: \"my_key\",\n        keys: [\"data\"],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nschema = snowflake.Schema(\"schema\",\n    database=\"database\",\n    data_retention_days=1)\nsequence = snowflake.Sequence(\"sequence\",\n    database=schema.database,\n    schema=schema.name)\ntable = snowflake.Table(\"table\",\n    database=schema.database,\n    schema=schema.name,\n    comment=\"A table.\",\n    cluster_bies=[\"to_date(DATE)\"],\n    data_retention_days=schema.data_retention_days,\n    change_tracking=False,\n    columns=[\n        snowflake.TableColumnArgs(\n            name=\"id\",\n            type=\"int\",\n            nullable=True,\n            default=snowflake.TableColumnDefaultArgs(\n                sequence=sequence.fully_qualified_name,\n            ),\n        ),\n        snowflake.TableColumnArgs(\n            name=\"data\",\n            type=\"text\",\n            nullable=False,\n        ),\n        snowflake.TableColumnArgs(\n            name=\"DATE\",\n            type=\"TIMESTAMP_NTZ(9)\",\n        ),\n        snowflake.TableColumnArgs(\n            name=\"extra\",\n            type=\"VARIANT\",\n            comment=\"extra data\",\n        ),\n    ],\n    primary_key=snowflake.TablePrimaryKeyArgs(\n        name=\"my_key\",\n        keys=[\"data\"],\n    ))\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var schema = new Snowflake.Schema(\"schema\", new Snowflake.SchemaArgs\n        {\n            Database = \"database\",\n            DataRetentionDays = 1,\n        });\n        var sequence = new Snowflake.Sequence(\"sequence\", new Snowflake.SequenceArgs\n        {\n            Database = schema.Database,\n            Schema = schema.Name,\n        });\n        var table = new Snowflake.Table(\"table\", new Snowflake.TableArgs\n        {\n            Database = schema.Database,\n            Schema = schema.Name,\n            Comment = \"A table.\",\n            ClusterBies = \n            {\n                \"to_date(DATE)\",\n            },\n            DataRetentionDays = schema.DataRetentionDays,\n            ChangeTracking = false,\n            Columns = \n            {\n                new Snowflake.Inputs.TableColumnArgs\n                {\n                    Name = \"id\",\n                    Type = \"int\",\n                    Nullable = true,\n                    Default = new Snowflake.Inputs.TableColumnDefaultArgs\n                    {\n                        Sequence = sequence.FullyQualifiedName,\n                    },\n                },\n                new Snowflake.Inputs.TableColumnArgs\n                {\n                    Name = \"data\",\n                    Type = \"text\",\n                    Nullable = false,\n                },\n                new Snowflake.Inputs.TableColumnArgs\n                {\n                    Name = \"DATE\",\n                    Type = \"TIMESTAMP_NTZ(9)\",\n                },\n                new Snowflake.Inputs.TableColumnArgs\n                {\n                    Name = \"extra\",\n                    Type = \"VARIANT\",\n                    Comment = \"extra data\",\n                },\n            },\n            PrimaryKey = new Snowflake.Inputs.TablePrimaryKeyArgs\n            {\n                Name = \"my_key\",\n                Keys = \n                {\n                    \"data\",\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tschema, err := snowflake.NewSchema(ctx, \"schema\", \u0026snowflake.SchemaArgs{\n\t\t\tDatabase:          pulumi.String(\"database\"),\n\t\t\tDataRetentionDays: pulumi.Int(1),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tsequence, err := snowflake.NewSequence(ctx, \"sequence\", \u0026snowflake.SequenceArgs{\n\t\t\tDatabase: schema.Database,\n\t\t\tSchema:   schema.Name,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewTable(ctx, \"table\", \u0026snowflake.TableArgs{\n\t\t\tDatabase: schema.Database,\n\t\t\tSchema:   schema.Name,\n\t\t\tComment:  pulumi.String(\"A table.\"),\n\t\t\tClusterBies: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"to_date(DATE)\"),\n\t\t\t},\n\t\t\tDataRetentionDays: schema.DataRetentionDays,\n\t\t\tChangeTracking:    pulumi.Bool(false),\n\t\t\tColumns: TableColumnArray{\n\t\t\t\t\u0026TableColumnArgs{\n\t\t\t\t\tName:     pulumi.String(\"id\"),\n\t\t\t\t\tType:     pulumi.String(\"int\"),\n\t\t\t\t\tNullable: pulumi.Bool(true),\n\t\t\t\t\tDefault: \u0026TableColumnDefaultArgs{\n\t\t\t\t\t\tSequence: sequence.FullyQualifiedName,\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026TableColumnArgs{\n\t\t\t\t\tName:     pulumi.String(\"data\"),\n\t\t\t\t\tType:     pulumi.String(\"text\"),\n\t\t\t\t\tNullable: pulumi.Bool(false),\n\t\t\t\t},\n\t\t\t\t\u0026TableColumnArgs{\n\t\t\t\t\tName: pulumi.String(\"DATE\"),\n\t\t\t\t\tType: pulumi.String(\"TIMESTAMP_NTZ(9)\"),\n\t\t\t\t},\n\t\t\t\t\u0026TableColumnArgs{\n\t\t\t\t\tName:    pulumi.String(\"extra\"),\n\t\t\t\t\tType:    pulumi.String(\"VARIANT\"),\n\t\t\t\t\tComment: pulumi.String(\"extra data\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tPrimaryKey: \u0026TablePrimaryKeyArgs{\n\t\t\t\tName: pulumi.String(\"my_key\"),\n\t\t\t\tKeys: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"data\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | table name\n\n```sh\n $ pulumi import snowflake:index/table:Table example 'databaseName|schemaName|tableName'\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst schema = new snowflake.Schema(\"schema\", {\n    database: \"database\",\n    dataRetentionDays: 1,\n});\nconst sequence = new snowflake.Sequence(\"sequence\", {\n    database: schema.database,\n    schema: schema.name,\n});\nconst table = new snowflake.Table(\"table\", {\n    database: schema.database,\n    schema: schema.name,\n    comment: \"A table.\",\n    clusterBies: [\"to_date(DATE)\"],\n    dataRetentionDays: schema.dataRetentionDays,\n    changeTracking: false,\n    columns: [\n        {\n            name: \"id\",\n            type: \"int\",\n            nullable: true,\n            \"default\": {\n                sequence: sequence.fullyQualifiedName,\n            },\n        },\n        {\n            name: \"identity\",\n            type: \"NUMBER(38,0)\",\n            nullable: true,\n            identity: {\n                startNum: 1,\n                stepNum: 3,\n            },\n        },\n        {\n            name: \"data\",\n            type: \"text\",\n            nullable: false,\n        },\n        {\n            name: \"DATE\",\n            type: \"TIMESTAMP_NTZ(9)\",\n        },\n        {\n            name: \"extra\",\n            type: \"VARIANT\",\n            comment: \"extra data\",\n        },\n    ],\n    primaryKey: {\n        name: \"my_key\",\n        keys: [\"data\"],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nschema = snowflake.Schema(\"schema\",\n    database=\"database\",\n    data_retention_days=1)\nsequence = snowflake.Sequence(\"sequence\",\n    database=schema.database,\n    schema=schema.name)\ntable = snowflake.Table(\"table\",\n    database=schema.database,\n    schema=schema.name,\n    comment=\"A table.\",\n    cluster_bies=[\"to_date(DATE)\"],\n    data_retention_days=schema.data_retention_days,\n    change_tracking=False,\n    columns=[\n        snowflake.TableColumnArgs(\n            name=\"id\",\n            type=\"int\",\n            nullable=True,\n            default=snowflake.TableColumnDefaultArgs(\n                sequence=sequence.fully_qualified_name,\n            ),\n        ),\n        snowflake.TableColumnArgs(\n            name=\"identity\",\n            type=\"NUMBER(38,0)\",\n            nullable=True,\n            identity=snowflake.TableColumnIdentityArgs(\n                start_num=1,\n                step_num=3,\n            ),\n        ),\n        snowflake.TableColumnArgs(\n            name=\"data\",\n            type=\"text\",\n            nullable=False,\n        ),\n        snowflake.TableColumnArgs(\n            name=\"DATE\",\n            type=\"TIMESTAMP_NTZ(9)\",\n        ),\n        snowflake.TableColumnArgs(\n            name=\"extra\",\n            type=\"VARIANT\",\n            comment=\"extra data\",\n        ),\n    ],\n    primary_key=snowflake.TablePrimaryKeyArgs(\n        name=\"my_key\",\n        keys=[\"data\"],\n    ))\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var schema = new Snowflake.Schema(\"schema\", new Snowflake.SchemaArgs\n        {\n            Database = \"database\",\n            DataRetentionDays = 1,\n        });\n        var sequence = new Snowflake.Sequence(\"sequence\", new Snowflake.SequenceArgs\n        {\n            Database = schema.Database,\n            Schema = schema.Name,\n        });\n        var table = new Snowflake.Table(\"table\", new Snowflake.TableArgs\n        {\n            Database = schema.Database,\n            Schema = schema.Name,\n            Comment = \"A table.\",\n            ClusterBies = \n            {\n                \"to_date(DATE)\",\n            },\n            DataRetentionDays = schema.DataRetentionDays,\n            ChangeTracking = false,\n            Columns = \n            {\n                new Snowflake.Inputs.TableColumnArgs\n                {\n                    Name = \"id\",\n                    Type = \"int\",\n                    Nullable = true,\n                    Default = new Snowflake.Inputs.TableColumnDefaultArgs\n                    {\n                        Sequence = sequence.FullyQualifiedName,\n                    },\n                },\n                new Snowflake.Inputs.TableColumnArgs\n                {\n                    Name = \"identity\",\n                    Type = \"NUMBER(38,0)\",\n                    Nullable = true,\n                    Identity = new Snowflake.Inputs.TableColumnIdentityArgs\n                    {\n                        StartNum = 1,\n                        StepNum = 3,\n                    },\n                },\n                new Snowflake.Inputs.TableColumnArgs\n                {\n                    Name = \"data\",\n                    Type = \"text\",\n                    Nullable = false,\n                },\n                new Snowflake.Inputs.TableColumnArgs\n                {\n                    Name = \"DATE\",\n                    Type = \"TIMESTAMP_NTZ(9)\",\n                },\n                new Snowflake.Inputs.TableColumnArgs\n                {\n                    Name = \"extra\",\n                    Type = \"VARIANT\",\n                    Comment = \"extra data\",\n                },\n            },\n            PrimaryKey = new Snowflake.Inputs.TablePrimaryKeyArgs\n            {\n                Name = \"my_key\",\n                Keys = \n                {\n                    \"data\",\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tschema, err := snowflake.NewSchema(ctx, \"schema\", \u0026snowflake.SchemaArgs{\n\t\t\tDatabase:          pulumi.String(\"database\"),\n\t\t\tDataRetentionDays: pulumi.Int(1),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tsequence, err := snowflake.NewSequence(ctx, \"sequence\", \u0026snowflake.SequenceArgs{\n\t\t\tDatabase: schema.Database,\n\t\t\tSchema:   schema.Name,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewTable(ctx, \"table\", \u0026snowflake.TableArgs{\n\t\t\tDatabase: schema.Database,\n\t\t\tSchema:   schema.Name,\n\t\t\tComment:  pulumi.String(\"A table.\"),\n\t\t\tClusterBies: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"to_date(DATE)\"),\n\t\t\t},\n\t\t\tDataRetentionDays: schema.DataRetentionDays,\n\t\t\tChangeTracking:    pulumi.Bool(false),\n\t\t\tColumns: TableColumnArray{\n\t\t\t\t\u0026TableColumnArgs{\n\t\t\t\t\tName:     pulumi.String(\"id\"),\n\t\t\t\t\tType:     pulumi.String(\"int\"),\n\t\t\t\t\tNullable: pulumi.Bool(true),\n\t\t\t\t\tDefault: \u0026TableColumnDefaultArgs{\n\t\t\t\t\t\tSequence: sequence.FullyQualifiedName,\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026TableColumnArgs{\n\t\t\t\t\tName:     pulumi.String(\"identity\"),\n\t\t\t\t\tType:     pulumi.String(\"NUMBER(38,0)\"),\n\t\t\t\t\tNullable: pulumi.Bool(true),\n\t\t\t\t\tIdentity: \u0026TableColumnIdentityArgs{\n\t\t\t\t\t\tStartNum: pulumi.Int(1),\n\t\t\t\t\t\tStepNum:  pulumi.Int(3),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026TableColumnArgs{\n\t\t\t\t\tName:     pulumi.String(\"data\"),\n\t\t\t\t\tType:     pulumi.String(\"text\"),\n\t\t\t\t\tNullable: pulumi.Bool(false),\n\t\t\t\t},\n\t\t\t\t\u0026TableColumnArgs{\n\t\t\t\t\tName: pulumi.String(\"DATE\"),\n\t\t\t\t\tType: pulumi.String(\"TIMESTAMP_NTZ(9)\"),\n\t\t\t\t},\n\t\t\t\t\u0026TableColumnArgs{\n\t\t\t\t\tName:    pulumi.String(\"extra\"),\n\t\t\t\t\tType:    pulumi.String(\"VARIANT\"),\n\t\t\t\t\tComment: pulumi.String(\"extra data\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tPrimaryKey: \u0026TablePrimaryKeyArgs{\n\t\t\t\tName: pulumi.String(\"my_key\"),\n\t\t\t\tKeys: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"data\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | table name\n\n```sh\n $ pulumi import snowflake:index/table:Table example 'databaseName|schemaName|tableName'\n```\n\n ",
             "properties": {
                 "changeTracking": {
                     "type": "boolean",
@@ -6895,6 +7501,13 @@
                 "schema": {
                     "type": "string",
                     "description": "The schema in which to create the table.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/TableTag:TableTag"
+                    },
+                    "description": "Definitions of a tag to associate with the resource.\n"
                 }
             },
             "required": [
@@ -6946,6 +7559,13 @@
                 "schema": {
                     "type": "string",
                     "description": "The schema in which to create the table.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/TableTag:TableTag"
+                    },
+                    "description": "Definitions of a tag to associate with the resource.\n"
                 }
             },
             "requiredInputs": [
@@ -7001,6 +7621,13 @@
                     "schema": {
                         "type": "string",
                         "description": "The schema in which to create the table.\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/TableTag:TableTag"
+                        },
+                        "description": "Definitions of a tag to associate with the resource.\n"
                     }
                 },
                 "type": "object"
@@ -7139,12 +7766,81 @@
                 "type": "object"
             }
         },
+        "snowflake:index/tag:Tag": {
+            "properties": {
+                "comment": {
+                    "type": "string",
+                    "description": "Specifies a comment for the tag.\n"
+                },
+                "database": {
+                    "type": "string",
+                    "description": "The database in which to create the tag.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the identifier for the tag; must be unique for the database in which the tag is created.\n"
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "The schema in which to create the tag.\n"
+                }
+            },
+            "required": [
+                "database",
+                "name",
+                "schema"
+            ],
+            "inputProperties": {
+                "comment": {
+                    "type": "string",
+                    "description": "Specifies a comment for the tag.\n"
+                },
+                "database": {
+                    "type": "string",
+                    "description": "The database in which to create the tag.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the identifier for the tag; must be unique for the database in which the tag is created.\n"
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "The schema in which to create the tag.\n"
+                }
+            },
+            "requiredInputs": [
+                "database",
+                "schema"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Tag resources.\n",
+                "properties": {
+                    "comment": {
+                        "type": "string",
+                        "description": "Specifies a comment for the tag.\n"
+                    },
+                    "database": {
+                        "type": "string",
+                        "description": "The database in which to create the tag.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Specifies the identifier for the tag; must be unique for the database in which the tag is created.\n"
+                    },
+                    "schema": {
+                        "type": "string",
+                        "description": "The schema in which to create the tag.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "snowflake:index/task:Task": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst task = new snowflake.Task(\"task\", {\n    comment: \"my task\",\n    database: \"db\",\n    schema: \"schema\",\n    warehouse: \"warehouse\",\n    schedule: \"10\",\n    sqlStatement: \"select * from foo;\",\n    sessionParameters: {\n        foo: \"bar\",\n    },\n    userTaskTimeoutMs: 10000,\n    after: \"preceding_task\",\n    when: \"foo AND bar\",\n    enabled: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ntask = snowflake.Task(\"task\",\n    comment=\"my task\",\n    database=\"db\",\n    schema=\"schema\",\n    warehouse=\"warehouse\",\n    schedule=\"10\",\n    sql_statement=\"select * from foo;\",\n    session_parameters={\n        \"foo\": \"bar\",\n    },\n    user_task_timeout_ms=10000,\n    after=\"preceding_task\",\n    when=\"foo AND bar\",\n    enabled=True)\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var task = new Snowflake.Task(\"task\", new Snowflake.TaskArgs\n        {\n            Comment = \"my task\",\n            Database = \"db\",\n            Schema = \"schema\",\n            Warehouse = \"warehouse\",\n            Schedule = \"10\",\n            SqlStatement = \"select * from foo;\",\n            SessionParameters = \n            {\n                { \"foo\", \"bar\" },\n            },\n            UserTaskTimeoutMs = 10000,\n            After = \"preceding_task\",\n            When = \"foo AND bar\",\n            Enabled = true,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewTask(ctx, \"task\", \u0026snowflake.TaskArgs{\n\t\t\tComment:      pulumi.String(\"my task\"),\n\t\t\tDatabase:     pulumi.String(\"db\"),\n\t\t\tSchema:       pulumi.String(\"schema\"),\n\t\t\tWarehouse:    pulumi.String(\"warehouse\"),\n\t\t\tSchedule:     pulumi.String(\"10\"),\n\t\t\tSqlStatement: pulumi.String(\"select * from foo;\"),\n\t\t\tSessionParameters: pulumi.StringMap{\n\t\t\t\t\"foo\": pulumi.String(\"bar\"),\n\t\t\t},\n\t\t\tUserTaskTimeoutMs: pulumi.Int(10000),\n\t\t\tAfter:             pulumi.String(\"preceding_task\"),\n\t\t\tWhen:              pulumi.String(\"foo AND bar\"),\n\t\t\tEnabled:           pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | task name\n\n```sh\n $ pulumi import snowflake:index/task:Task example 'dbName|schemaName|taskName'\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst task = new snowflake.Task(\"task\", {\n    comment: \"my task\",\n    database: \"db\",\n    schema: \"schema\",\n    warehouse: \"warehouse\",\n    schedule: \"10\",\n    sqlStatement: \"select * from foo;\",\n    sessionParameters: {\n        foo: \"bar\",\n    },\n    userTaskTimeoutMs: 10000,\n    after: \"preceding_task\",\n    when: \"foo AND bar\",\n    enabled: true,\n});\nconst serverlessTask = new snowflake.Task(\"serverlessTask\", {\n    comment: \"my serverless task\",\n    database: \"db\",\n    schema: \"schema\",\n    schedule: \"10\",\n    sqlStatement: \"select * from foo;\",\n    sessionParameters: {\n        foo: \"bar\",\n    },\n    userTaskTimeoutMs: 10000,\n    userTaskManagedInitialWarehouseSize: \"XSMALL\",\n    after: \"preceding_task\",\n    when: \"foo AND bar\",\n    enabled: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ntask = snowflake.Task(\"task\",\n    comment=\"my task\",\n    database=\"db\",\n    schema=\"schema\",\n    warehouse=\"warehouse\",\n    schedule=\"10\",\n    sql_statement=\"select * from foo;\",\n    session_parameters={\n        \"foo\": \"bar\",\n    },\n    user_task_timeout_ms=10000,\n    after=\"preceding_task\",\n    when=\"foo AND bar\",\n    enabled=True)\nserverless_task = snowflake.Task(\"serverlessTask\",\n    comment=\"my serverless task\",\n    database=\"db\",\n    schema=\"schema\",\n    schedule=\"10\",\n    sql_statement=\"select * from foo;\",\n    session_parameters={\n        \"foo\": \"bar\",\n    },\n    user_task_timeout_ms=10000,\n    user_task_managed_initial_warehouse_size=\"XSMALL\",\n    after=\"preceding_task\",\n    when=\"foo AND bar\",\n    enabled=True)\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var task = new Snowflake.Task(\"task\", new Snowflake.TaskArgs\n        {\n            Comment = \"my task\",\n            Database = \"db\",\n            Schema = \"schema\",\n            Warehouse = \"warehouse\",\n            Schedule = \"10\",\n            SqlStatement = \"select * from foo;\",\n            SessionParameters = \n            {\n                { \"foo\", \"bar\" },\n            },\n            UserTaskTimeoutMs = 10000,\n            After = \"preceding_task\",\n            When = \"foo AND bar\",\n            Enabled = true,\n        });\n        var serverlessTask = new Snowflake.Task(\"serverlessTask\", new Snowflake.TaskArgs\n        {\n            Comment = \"my serverless task\",\n            Database = \"db\",\n            Schema = \"schema\",\n            Schedule = \"10\",\n            SqlStatement = \"select * from foo;\",\n            SessionParameters = \n            {\n                { \"foo\", \"bar\" },\n            },\n            UserTaskTimeoutMs = 10000,\n            UserTaskManagedInitialWarehouseSize = \"XSMALL\",\n            After = \"preceding_task\",\n            When = \"foo AND bar\",\n            Enabled = true,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewTask(ctx, \"task\", \u0026snowflake.TaskArgs{\n\t\t\tComment:      pulumi.String(\"my task\"),\n\t\t\tDatabase:     pulumi.String(\"db\"),\n\t\t\tSchema:       pulumi.String(\"schema\"),\n\t\t\tWarehouse:    pulumi.String(\"warehouse\"),\n\t\t\tSchedule:     pulumi.String(\"10\"),\n\t\t\tSqlStatement: pulumi.String(\"select * from foo;\"),\n\t\t\tSessionParameters: pulumi.StringMap{\n\t\t\t\t\"foo\": pulumi.String(\"bar\"),\n\t\t\t},\n\t\t\tUserTaskTimeoutMs: pulumi.Int(10000),\n\t\t\tAfter:             pulumi.String(\"preceding_task\"),\n\t\t\tWhen:              pulumi.String(\"foo AND bar\"),\n\t\t\tEnabled:           pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewTask(ctx, \"serverlessTask\", \u0026snowflake.TaskArgs{\n\t\t\tComment:      pulumi.String(\"my serverless task\"),\n\t\t\tDatabase:     pulumi.String(\"db\"),\n\t\t\tSchema:       pulumi.String(\"schema\"),\n\t\t\tSchedule:     pulumi.String(\"10\"),\n\t\t\tSqlStatement: pulumi.String(\"select * from foo;\"),\n\t\t\tSessionParameters: pulumi.StringMap{\n\t\t\t\t\"foo\": pulumi.String(\"bar\"),\n\t\t\t},\n\t\t\tUserTaskTimeoutMs:                   pulumi.Int(10000),\n\t\t\tUserTaskManagedInitialWarehouseSize: pulumi.String(\"XSMALL\"),\n\t\t\tAfter:                               pulumi.String(\"preceding_task\"),\n\t\t\tWhen:                                pulumi.String(\"foo AND bar\"),\n\t\t\tEnabled:                             pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | task name\n\n```sh\n $ pulumi import snowflake:index/task:Task example 'dbName|schemaName|taskName'\n```\n\n ",
             "properties": {
                 "after": {
                     "type": "string",
-                    "description": "Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag).\n"
+                    "description": "Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)\n"
                 },
                 "comment": {
                     "type": "string",
@@ -7164,7 +7860,7 @@
                 },
                 "schedule": {
                     "type": "string",
-                    "description": "The schedule for periodically running the task. This can be a cron or interval in minutes.\n"
+                    "description": "The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflict with after)\n"
                 },
                 "schema": {
                     "type": "string",
@@ -7181,13 +7877,17 @@
                     "type": "string",
                     "description": "Any single SQL statement, or a call to a stored procedure, executed when the task runs.\n"
                 },
+                "userTaskManagedInitialWarehouseSize": {
+                    "type": "string",
+                    "description": "Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)\n"
+                },
                 "userTaskTimeoutMs": {
                     "type": "integer",
                     "description": "Specifies the time limit on a single run of the task before it times out (in milliseconds).\n"
                 },
                 "warehouse": {
                     "type": "string",
-                    "description": "The warehouse the task will use.\n"
+                    "description": "The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)\n"
                 },
                 "when": {
                     "type": "string",
@@ -7198,13 +7898,12 @@
                 "database",
                 "name",
                 "schema",
-                "sqlStatement",
-                "warehouse"
+                "sqlStatement"
             ],
             "inputProperties": {
                 "after": {
                     "type": "string",
-                    "description": "Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag).\n"
+                    "description": "Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)\n"
                 },
                 "comment": {
                     "type": "string",
@@ -7224,7 +7923,7 @@
                 },
                 "schedule": {
                     "type": "string",
-                    "description": "The schedule for periodically running the task. This can be a cron or interval in minutes.\n"
+                    "description": "The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflict with after)\n"
                 },
                 "schema": {
                     "type": "string",
@@ -7241,13 +7940,17 @@
                     "type": "string",
                     "description": "Any single SQL statement, or a call to a stored procedure, executed when the task runs.\n"
                 },
+                "userTaskManagedInitialWarehouseSize": {
+                    "type": "string",
+                    "description": "Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)\n"
+                },
                 "userTaskTimeoutMs": {
                     "type": "integer",
                     "description": "Specifies the time limit on a single run of the task before it times out (in milliseconds).\n"
                 },
                 "warehouse": {
                     "type": "string",
-                    "description": "The warehouse the task will use.\n"
+                    "description": "The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)\n"
                 },
                 "when": {
                     "type": "string",
@@ -7257,15 +7960,14 @@
             "requiredInputs": [
                 "database",
                 "schema",
-                "sqlStatement",
-                "warehouse"
+                "sqlStatement"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering Task resources.\n",
                 "properties": {
                     "after": {
                         "type": "string",
-                        "description": "Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag).\n"
+                        "description": "Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)\n"
                     },
                     "comment": {
                         "type": "string",
@@ -7285,7 +7987,7 @@
                     },
                     "schedule": {
                         "type": "string",
-                        "description": "The schedule for periodically running the task. This can be a cron or interval in minutes.\n"
+                        "description": "The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflict with after)\n"
                     },
                     "schema": {
                         "type": "string",
@@ -7302,13 +8004,17 @@
                         "type": "string",
                         "description": "Any single SQL statement, or a call to a stored procedure, executed when the task runs.\n"
                     },
+                    "userTaskManagedInitialWarehouseSize": {
+                        "type": "string",
+                        "description": "Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)\n"
+                    },
                     "userTaskTimeoutMs": {
                         "type": "integer",
                         "description": "Specifies the time limit on a single run of the task before it times out (in milliseconds).\n"
                     },
                     "warehouse": {
                         "type": "string",
-                        "description": "The warehouse the task will use.\n"
+                        "description": "The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)\n"
                     },
                     "when": {
                         "type": "string",
@@ -7319,7 +8025,7 @@
             }
         },
         "snowflake:index/taskGrant:TaskGrant": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.TaskGrant(\"grant\", {\n    databaseName: \"db\",\n    onFuture: false,\n    privilege: \"operate\",\n    roles: [\n        \"role1\",\n        \"role2\",\n    ],\n    schemaName: \"schema\",\n    sequenceName: \"sequence\",\n    withGrantOption: false,\n});\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | task name | privilege | true/false for with_grant_option\n\n```sh\n $ pulumi import snowflake:index/taskGrant:TaskGrant example 'dbName|schemaName|taskName|OPERATE|false'\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.TaskGrant(\"grant\", {\n    databaseName: \"db\",\n    onFuture: false,\n    privilege: \"operate\",\n    roles: [\n        \"role1\",\n        \"role2\",\n    ],\n    schemaName: \"schema\",\n    taskName: \"task\",\n    withGrantOption: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ngrant = snowflake.TaskGrant(\"grant\",\n    database_name=\"db\",\n    on_future=False,\n    privilege=\"operate\",\n    roles=[\n        \"role1\",\n        \"role2\",\n    ],\n    schema_name=\"schema\",\n    task_name=\"task\",\n    with_grant_option=False)\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var grant = new Snowflake.TaskGrant(\"grant\", new Snowflake.TaskGrantArgs\n        {\n            DatabaseName = \"db\",\n            OnFuture = false,\n            Privilege = \"operate\",\n            Roles = \n            {\n                \"role1\",\n                \"role2\",\n            },\n            SchemaName = \"schema\",\n            TaskName = \"task\",\n            WithGrantOption = false,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewTaskGrant(ctx, \"grant\", \u0026snowflake.TaskGrantArgs{\n\t\t\tDatabaseName: pulumi.String(\"db\"),\n\t\t\tOnFuture:     pulumi.Bool(false),\n\t\t\tPrivilege:    pulumi.String(\"operate\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"role1\"),\n\t\t\t\tpulumi.String(\"role2\"),\n\t\t\t},\n\t\t\tSchemaName:      pulumi.String(\"schema\"),\n\t\t\tTaskName:        pulumi.String(\"task\"),\n\t\t\tWithGrantOption: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | task name | privilege | true/false for with_grant_option\n\n```sh\n $ pulumi import snowflake:index/taskGrant:TaskGrant example 'dbName|schemaName|taskName|OPERATE|false'\n```\n\n ",
             "properties": {
                 "databaseName": {
                     "type": "string",
@@ -7496,6 +8202,13 @@
                 "rsaPublicKey2": {
                     "type": "string",
                     "description": "Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/UserTag:UserTag"
+                    },
+                    "description": "Definitions of a tag to associate with the resource.\n"
                 }
             },
             "required": [
@@ -7564,6 +8277,13 @@
                 "rsaPublicKey2": {
                     "type": "string",
                     "description": "Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/UserTag:UserTag"
+                    },
+                    "description": "Definitions of a tag to associate with the resource.\n"
                 }
             },
             "stateInputs": {
@@ -7630,6 +8350,13 @@
                     "rsaPublicKey2": {
                         "type": "string",
                         "description": "Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/UserTag:UserTag"
+                        },
+                        "description": "Definitions of a tag to associate with the resource.\n"
                     }
                 },
                 "type": "object"
@@ -7716,6 +8443,13 @@
                 "statement": {
                     "type": "string",
                     "description": "Specifies the query used to create the view.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/ViewTag:ViewTag"
+                    },
+                    "description": "Definitions of a tag to associate with the resource.\n"
                 }
             },
             "required": [
@@ -7752,6 +8486,13 @@
                 "statement": {
                     "type": "string",
                     "description": "Specifies the query used to create the view.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/ViewTag:ViewTag"
+                    },
+                    "description": "Definitions of a tag to associate with the resource.\n"
                 }
             },
             "requiredInputs": [
@@ -7789,6 +8530,13 @@
                     "statement": {
                         "type": "string",
                         "description": "Specifies the query used to create the view.\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/ViewTag:ViewTag"
+                        },
+                        "description": "Definitions of a tag to associate with the resource.\n"
                     }
                 },
                 "type": "object"
@@ -7977,6 +8725,13 @@
                     "type": "integer",
                     "description": "Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system\n"
                 },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/WarehouseTag:WarehouseTag"
+                    },
+                    "description": "Definitions of a tag to associate with the resource.\n"
+                },
                 "waitForProvisioning": {
                     "type": "boolean",
                     "description": "Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.\n"
@@ -8044,6 +8799,13 @@
                     "type": "integer",
                     "description": "Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system\n"
                 },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/WarehouseTag:WarehouseTag"
+                    },
+                    "description": "Definitions of a tag to associate with the resource.\n"
+                },
                 "waitForProvisioning": {
                     "type": "boolean",
                     "description": "Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.\n"
@@ -8102,6 +8864,13 @@
                     "statementTimeoutInSeconds": {
                         "type": "integer",
                         "description": "Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/WarehouseTag:WarehouseTag"
+                        },
+                        "description": "Definitions of a tag to associate with the resource.\n"
                     },
                     "waitForProvisioning": {
                         "type": "boolean",

@@ -115,6 +115,12 @@ namespace Pulumi.Snowflake
         public Output<string?> StorageIntegration { get; private set; } = null!;
 
         /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.StageTag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the URL for the stage.
         /// </summary>
         [Output("url")]
@@ -226,6 +232,18 @@ namespace Pulumi.Snowflake
         [Input("storageIntegration")]
         public Input<string>? StorageIntegration { get; set; }
 
+        [Input("tags")]
+        private InputList<Inputs.StageTagArgs>? _tags;
+
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        public InputList<Inputs.StageTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.StageTagArgs>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// Specifies the URL for the stage.
         /// </summary>
@@ -298,6 +316,18 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("storageIntegration")]
         public Input<string>? StorageIntegration { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.StageTagGetArgs>? _tags;
+
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        public InputList<Inputs.StageTagGetArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.StageTagGetArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// Specifies the URL for the stage.

@@ -140,6 +140,12 @@ namespace Pulumi.Snowflake
         [Output("rsaPublicKey2")]
         public Output<string?> RsaPublicKey2 { get; private set; } = null!;
 
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.UserTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a User resource with the given unique name, arguments, and options.
@@ -270,6 +276,18 @@ namespace Pulumi.Snowflake
         [Input("rsaPublicKey2")]
         public Input<string>? RsaPublicKey2 { get; set; }
 
+        [Input("tags")]
+        private InputList<Inputs.UserTagArgs>? _tags;
+
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        public InputList<Inputs.UserTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.UserTagArgs>());
+            set => _tags = value;
+        }
+
         public UserArgs()
         {
         }
@@ -366,6 +384,18 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("rsaPublicKey2")]
         public Input<string>? RsaPublicKey2 { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.UserTagGetArgs>? _tags;
+
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        public InputList<Inputs.UserTagGetArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.UserTagGetArgs>());
+            set => _tags = value;
+        }
 
         public UserState()
         {

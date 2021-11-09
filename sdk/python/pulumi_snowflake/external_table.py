@@ -27,7 +27,8 @@ class ExternalTableArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  partition_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
-                 refresh_on_create: Optional[pulumi.Input[bool]] = None):
+                 refresh_on_create: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]] = None):
         """
         The set of arguments for constructing a ExternalTable resource.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalTableColumnArgs']]] columns: Definitions of a column to create in the external table. Minimum one required.
@@ -43,6 +44,7 @@ class ExternalTableArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_bies: Specifies any partition columns to evaluate for the external table.
         :param pulumi.Input[str] pattern: Specifies the file names and/or paths on the external stage to match.
         :param pulumi.Input[bool] refresh_on_create: Specifies weather to refresh when an external table is created.
+        :param pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         pulumi.set(__self__, "columns", columns)
         pulumi.set(__self__, "database", database)
@@ -65,6 +67,8 @@ class ExternalTableArgs:
             pulumi.set(__self__, "pattern", pattern)
         if refresh_on_create is not None:
             pulumi.set(__self__, "refresh_on_create", refresh_on_create)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -222,6 +226,18 @@ class ExternalTableArgs:
     def refresh_on_create(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "refresh_on_create", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]]:
+        """
+        Definitions of a tag to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _ExternalTableState:
@@ -239,7 +255,8 @@ class _ExternalTableState:
                  partition_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
                  refresh_on_create: Optional[pulumi.Input[bool]] = None,
-                 schema: Optional[pulumi.Input[str]] = None):
+                 schema: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering ExternalTable resources.
         :param pulumi.Input[bool] auto_refresh: Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
@@ -256,6 +273,7 @@ class _ExternalTableState:
         :param pulumi.Input[str] pattern: Specifies the file names and/or paths on the external stage to match.
         :param pulumi.Input[bool] refresh_on_create: Specifies weather to refresh when an external table is created.
         :param pulumi.Input[str] schema: The schema in which to create the external table.
+        :param pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         if auto_refresh is not None:
             pulumi.set(__self__, "auto_refresh", auto_refresh)
@@ -285,6 +303,8 @@ class _ExternalTableState:
             pulumi.set(__self__, "refresh_on_create", refresh_on_create)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="autoRefresh")
@@ -454,6 +474,18 @@ class _ExternalTableState:
     def schema(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schema", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]]:
+        """
+        Definitions of a tag to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class ExternalTable(pulumi.CustomResource):
     @overload
@@ -473,6 +505,7 @@ class ExternalTable(pulumi.CustomResource):
                  pattern: Optional[pulumi.Input[str]] = None,
                  refresh_on_create: Optional[pulumi.Input[bool]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalTableTagArgs']]]]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -520,6 +553,7 @@ class ExternalTable(pulumi.CustomResource):
         :param pulumi.Input[str] pattern: Specifies the file names and/or paths on the external stage to match.
         :param pulumi.Input[bool] refresh_on_create: Specifies weather to refresh when an external table is created.
         :param pulumi.Input[str] schema: The schema in which to create the external table.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalTableTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         ...
     @overload
@@ -586,6 +620,7 @@ class ExternalTable(pulumi.CustomResource):
                  pattern: Optional[pulumi.Input[str]] = None,
                  refresh_on_create: Optional[pulumi.Input[bool]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalTableTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -621,6 +656,7 @@ class ExternalTable(pulumi.CustomResource):
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["owner"] = None
         super(ExternalTable, __self__).__init__(
             'snowflake:index/externalTable:ExternalTable',
@@ -645,7 +681,8 @@ class ExternalTable(pulumi.CustomResource):
             partition_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             pattern: Optional[pulumi.Input[str]] = None,
             refresh_on_create: Optional[pulumi.Input[bool]] = None,
-            schema: Optional[pulumi.Input[str]] = None) -> 'ExternalTable':
+            schema: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalTableTagArgs']]]]] = None) -> 'ExternalTable':
         """
         Get an existing ExternalTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -667,6 +704,7 @@ class ExternalTable(pulumi.CustomResource):
         :param pulumi.Input[str] pattern: Specifies the file names and/or paths on the external stage to match.
         :param pulumi.Input[bool] refresh_on_create: Specifies weather to refresh when an external table is created.
         :param pulumi.Input[str] schema: The schema in which to create the external table.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalTableTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -686,6 +724,7 @@ class ExternalTable(pulumi.CustomResource):
         __props__.__dict__["pattern"] = pattern
         __props__.__dict__["refresh_on_create"] = refresh_on_create
         __props__.__dict__["schema"] = schema
+        __props__.__dict__["tags"] = tags
         return ExternalTable(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -799,4 +838,12 @@ class ExternalTable(pulumi.CustomResource):
         The schema in which to create the external table.
         """
         return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ExternalTableTag']]]:
+        """
+        Definitions of a tag to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
 

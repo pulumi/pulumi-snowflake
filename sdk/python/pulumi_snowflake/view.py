@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ViewArgs', 'View']
 
@@ -19,7 +21,8 @@ class ViewArgs:
                  comment: Optional[pulumi.Input[str]] = None,
                  is_secure: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 or_replace: Optional[pulumi.Input[bool]] = None):
+                 or_replace: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]]] = None):
         """
         The set of arguments for constructing a View resource.
         :param pulumi.Input[str] database: The database in which to create the view. Don't use the | character.
@@ -29,6 +32,7 @@ class ViewArgs:
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure.
         :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
+        :param pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "schema", schema)
@@ -41,6 +45,8 @@ class ViewArgs:
             pulumi.set(__self__, "name", name)
         if or_replace is not None:
             pulumi.set(__self__, "or_replace", or_replace)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -126,6 +132,18 @@ class ViewArgs:
     def or_replace(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "or_replace", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]]]:
+        """
+        Definitions of a tag to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _ViewState:
@@ -136,7 +154,8 @@ class _ViewState:
                  name: Optional[pulumi.Input[str]] = None,
                  or_replace: Optional[pulumi.Input[bool]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
-                 statement: Optional[pulumi.Input[str]] = None):
+                 statement: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering View resources.
         :param pulumi.Input[str] comment: Specifies a comment for the view.
@@ -146,6 +165,7 @@ class _ViewState:
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
         :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
+        :param pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -161,6 +181,8 @@ class _ViewState:
             pulumi.set(__self__, "schema", schema)
         if statement is not None:
             pulumi.set(__self__, "statement", statement)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -246,6 +268,18 @@ class _ViewState:
     def statement(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "statement", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]]]:
+        """
+        Definitions of a tag to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class View(pulumi.CustomResource):
     @overload
@@ -259,6 +293,7 @@ class View(pulumi.CustomResource):
                  or_replace: Optional[pulumi.Input[bool]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  statement: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewTagArgs']]]]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -293,6 +328,7 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
         :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         ...
     @overload
@@ -346,6 +382,7 @@ class View(pulumi.CustomResource):
                  or_replace: Optional[pulumi.Input[bool]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  statement: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -371,6 +408,7 @@ class View(pulumi.CustomResource):
             if statement is None and not opts.urn:
                 raise TypeError("Missing required property 'statement'")
             __props__.__dict__["statement"] = statement
+            __props__.__dict__["tags"] = tags
         super(View, __self__).__init__(
             'snowflake:index/view:View',
             resource_name,
@@ -387,7 +425,8 @@ class View(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             or_replace: Optional[pulumi.Input[bool]] = None,
             schema: Optional[pulumi.Input[str]] = None,
-            statement: Optional[pulumi.Input[str]] = None) -> 'View':
+            statement: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewTagArgs']]]]] = None) -> 'View':
         """
         Get an existing View resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -402,6 +441,7 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
         :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -414,6 +454,7 @@ class View(pulumi.CustomResource):
         __props__.__dict__["or_replace"] = or_replace
         __props__.__dict__["schema"] = schema
         __props__.__dict__["statement"] = statement
+        __props__.__dict__["tags"] = tags
         return View(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -471,4 +512,12 @@ class View(pulumi.CustomResource):
         Specifies the query used to create the view.
         """
         return pulumi.get(self, "statement")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ViewTag']]]:
+        """
+        Definitions of a tag to associate with the resource.
+        """
+        return pulumi.get(self, "tags")
 

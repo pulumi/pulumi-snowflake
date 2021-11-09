@@ -63,6 +63,8 @@ type View struct {
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Specifies the query used to create the view.
 	Statement pulumi.StringOutput `pulumi:"statement"`
+	// Definitions of a tag to associate with the resource.
+	Tags ViewTagArrayOutput `pulumi:"tags"`
 }
 
 // NewView registers a new resource with the given unique name, arguments, and options.
@@ -117,6 +119,8 @@ type viewState struct {
 	Schema *string `pulumi:"schema"`
 	// Specifies the query used to create the view.
 	Statement *string `pulumi:"statement"`
+	// Definitions of a tag to associate with the resource.
+	Tags []ViewTag `pulumi:"tags"`
 }
 
 type ViewState struct {
@@ -134,6 +138,8 @@ type ViewState struct {
 	Schema pulumi.StringPtrInput
 	// Specifies the query used to create the view.
 	Statement pulumi.StringPtrInput
+	// Definitions of a tag to associate with the resource.
+	Tags ViewTagArrayInput
 }
 
 func (ViewState) ElementType() reflect.Type {
@@ -155,6 +161,8 @@ type viewArgs struct {
 	Schema string `pulumi:"schema"`
 	// Specifies the query used to create the view.
 	Statement string `pulumi:"statement"`
+	// Definitions of a tag to associate with the resource.
+	Tags []ViewTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a View resource.
@@ -173,6 +181,8 @@ type ViewArgs struct {
 	Schema pulumi.StringInput
 	// Specifies the query used to create the view.
 	Statement pulumi.StringInput
+	// Definitions of a tag to associate with the resource.
+	Tags ViewTagArrayInput
 }
 
 func (ViewArgs) ElementType() reflect.Type {

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -85,6 +86,10 @@ export class View extends pulumi.CustomResource {
      * Specifies the query used to create the view.
      */
     public readonly statement!: pulumi.Output<string>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.ViewTag[] | undefined>;
 
     /**
      * Create a View resource with the given unique name, arguments, and options.
@@ -106,6 +111,7 @@ export class View extends pulumi.CustomResource {
             inputs["orReplace"] = state ? state.orReplace : undefined;
             inputs["schema"] = state ? state.schema : undefined;
             inputs["statement"] = state ? state.statement : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ViewArgs | undefined;
             if ((!args || args.database === undefined) && !opts.urn) {
@@ -124,6 +130,7 @@ export class View extends pulumi.CustomResource {
             inputs["orReplace"] = args ? args.orReplace : undefined;
             inputs["schema"] = args ? args.schema : undefined;
             inputs["statement"] = args ? args.statement : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -164,6 +171,10 @@ export interface ViewState {
      * Specifies the query used to create the view.
      */
     statement?: pulumi.Input<string>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.ViewTag>[]>;
 }
 
 /**
@@ -198,4 +209,8 @@ export interface ViewArgs {
      * Specifies the query used to create the view.
      */
     statement: pulumi.Input<string>;
+    /**
+     * Definitions of a tag to associate with the resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.ViewTag>[]>;
 }

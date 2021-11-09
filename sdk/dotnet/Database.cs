@@ -64,6 +64,12 @@ namespace Pulumi.Snowflake
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.DatabaseTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Database resource with the given unique name, arguments, and options.
@@ -137,6 +143,18 @@ namespace Pulumi.Snowflake
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("tags")]
+        private InputList<Inputs.DatabaseTagArgs>? _tags;
+
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        public InputList<Inputs.DatabaseTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.DatabaseTagArgs>());
+            set => _tags = value;
+        }
+
         public DatabaseArgs()
         {
         }
@@ -170,6 +188,18 @@ namespace Pulumi.Snowflake
 
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.DatabaseTagGetArgs>? _tags;
+
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        public InputList<Inputs.DatabaseTagGetArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.DatabaseTagGetArgs>());
+            set => _tags = value;
+        }
 
         public DatabaseState()
         {

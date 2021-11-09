@@ -84,6 +84,8 @@ type ExternalTable struct {
 	RefreshOnCreate pulumi.BoolPtrOutput `pulumi:"refreshOnCreate"`
 	// The schema in which to create the external table.
 	Schema pulumi.StringOutput `pulumi:"schema"`
+	// Definitions of a tag to associate with the resource.
+	Tags ExternalTableTagArrayOutput `pulumi:"tags"`
 }
 
 // NewExternalTable registers a new resource with the given unique name, arguments, and options.
@@ -158,6 +160,8 @@ type externalTableState struct {
 	RefreshOnCreate *bool `pulumi:"refreshOnCreate"`
 	// The schema in which to create the external table.
 	Schema *string `pulumi:"schema"`
+	// Definitions of a tag to associate with the resource.
+	Tags []ExternalTableTag `pulumi:"tags"`
 }
 
 type ExternalTableState struct {
@@ -189,6 +193,8 @@ type ExternalTableState struct {
 	RefreshOnCreate pulumi.BoolPtrInput
 	// The schema in which to create the external table.
 	Schema pulumi.StringPtrInput
+	// Definitions of a tag to associate with the resource.
+	Tags ExternalTableTagArrayInput
 }
 
 func (ExternalTableState) ElementType() reflect.Type {
@@ -222,6 +228,8 @@ type externalTableArgs struct {
 	RefreshOnCreate *bool `pulumi:"refreshOnCreate"`
 	// The schema in which to create the external table.
 	Schema string `pulumi:"schema"`
+	// Definitions of a tag to associate with the resource.
+	Tags []ExternalTableTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ExternalTable resource.
@@ -252,6 +260,8 @@ type ExternalTableArgs struct {
 	RefreshOnCreate pulumi.BoolPtrInput
 	// The schema in which to create the external table.
 	Schema pulumi.StringInput
+	// Definitions of a tag to associate with the resource.
+	Tags ExternalTableTagArrayInput
 }
 
 func (ExternalTableArgs) ElementType() reflect.Type {

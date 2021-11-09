@@ -73,6 +73,7 @@ export * from "./stream";
 export * from "./streamGrant";
 export * from "./table";
 export * from "./tableGrant";
+export * from "./tag";
 export * from "./task";
 export * from "./taskGrant";
 export * from "./user";
@@ -135,6 +136,7 @@ import { Stream } from "./stream";
 import { StreamGrant } from "./streamGrant";
 import { Table } from "./table";
 import { TableGrant } from "./tableGrant";
+import { Tag } from "./tag";
 import { Task } from "./task";
 import { TaskGrant } from "./taskGrant";
 import { User } from "./user";
@@ -234,6 +236,8 @@ const _module = {
                 return new Table(name, <any>undefined, { urn })
             case "snowflake:index/tableGrant:TableGrant":
                 return new TableGrant(name, <any>undefined, { urn })
+            case "snowflake:index/tag:Tag":
+                return new Tag(name, <any>undefined, { urn })
             case "snowflake:index/task:Task":
                 return new Task(name, <any>undefined, { urn })
             case "snowflake:index/taskGrant:TaskGrant":
@@ -298,6 +302,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/stream", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/streamGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/table", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tableGrant", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/tag", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/task", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/taskGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/user", _module)

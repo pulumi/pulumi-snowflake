@@ -80,6 +80,12 @@ namespace Pulumi.Snowflake
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.SchemaTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Schema resource with the given unique name, arguments, and options.
@@ -162,6 +168,18 @@ namespace Pulumi.Snowflake
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("tags")]
+        private InputList<Inputs.SchemaTagArgs>? _tags;
+
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        public InputList<Inputs.SchemaTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.SchemaTagArgs>());
+            set => _tags = value;
+        }
+
         public SchemaArgs()
         {
         }
@@ -204,6 +222,18 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.SchemaTagGetArgs>? _tags;
+
+        /// <summary>
+        /// Definitions of a tag to associate with the resource.
+        /// </summary>
+        public InputList<Inputs.SchemaTagGetArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.SchemaTagGetArgs>());
+            set => _tags = value;
+        }
 
         public SchemaState()
         {
