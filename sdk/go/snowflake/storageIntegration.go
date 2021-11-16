@@ -34,8 +34,10 @@ type StorageIntegration struct {
 	// The external ID that Snowflake will use when assuming the AWS role.
 	StorageAwsExternalId pulumi.StringOutput `pulumi:"storageAwsExternalId"`
 	// The Snowflake user that will attempt to assume the AWS role.
-	StorageAwsIamUserArn pulumi.StringOutput    `pulumi:"storageAwsIamUserArn"`
-	StorageAwsRoleArn    pulumi.StringPtrOutput `pulumi:"storageAwsRoleArn"`
+	StorageAwsIamUserArn pulumi.StringOutput `pulumi:"storageAwsIamUserArn"`
+	// "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
+	StorageAwsObjectAcl pulumi.StringPtrOutput `pulumi:"storageAwsObjectAcl"`
+	StorageAwsRoleArn   pulumi.StringPtrOutput `pulumi:"storageAwsRoleArn"`
 	// Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
 	StorageBlockedLocations pulumi.StringArrayOutput `pulumi:"storageBlockedLocations"`
 	// This is the name of the Snowflake Google Service Account created for your account.
@@ -95,7 +97,9 @@ type storageIntegrationState struct {
 	StorageAwsExternalId *string `pulumi:"storageAwsExternalId"`
 	// The Snowflake user that will attempt to assume the AWS role.
 	StorageAwsIamUserArn *string `pulumi:"storageAwsIamUserArn"`
-	StorageAwsRoleArn    *string `pulumi:"storageAwsRoleArn"`
+	// "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
+	StorageAwsObjectAcl *string `pulumi:"storageAwsObjectAcl"`
+	StorageAwsRoleArn   *string `pulumi:"storageAwsRoleArn"`
 	// Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
 	StorageBlockedLocations []string `pulumi:"storageBlockedLocations"`
 	// This is the name of the Snowflake Google Service Account created for your account.
@@ -121,7 +125,9 @@ type StorageIntegrationState struct {
 	StorageAwsExternalId pulumi.StringPtrInput
 	// The Snowflake user that will attempt to assume the AWS role.
 	StorageAwsIamUserArn pulumi.StringPtrInput
-	StorageAwsRoleArn    pulumi.StringPtrInput
+	// "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
+	StorageAwsObjectAcl pulumi.StringPtrInput
+	StorageAwsRoleArn   pulumi.StringPtrInput
 	// Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
 	StorageBlockedLocations pulumi.StringArrayInput
 	// This is the name of the Snowflake Google Service Account created for your account.
@@ -141,7 +147,9 @@ type storageIntegrationArgs struct {
 	Name          *string `pulumi:"name"`
 	// Explicitly limits external stages that use the integration to reference one or more storage locations.
 	StorageAllowedLocations []string `pulumi:"storageAllowedLocations"`
-	StorageAwsRoleArn       *string  `pulumi:"storageAwsRoleArn"`
+	// "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
+	StorageAwsObjectAcl *string `pulumi:"storageAwsObjectAcl"`
+	StorageAwsRoleArn   *string `pulumi:"storageAwsRoleArn"`
 	// Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
 	StorageBlockedLocations []string `pulumi:"storageBlockedLocations"`
 	StorageProvider         string   `pulumi:"storageProvider"`
@@ -156,7 +164,9 @@ type StorageIntegrationArgs struct {
 	Name          pulumi.StringPtrInput
 	// Explicitly limits external stages that use the integration to reference one or more storage locations.
 	StorageAllowedLocations pulumi.StringArrayInput
-	StorageAwsRoleArn       pulumi.StringPtrInput
+	// "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
+	StorageAwsObjectAcl pulumi.StringPtrInput
+	StorageAwsRoleArn   pulumi.StringPtrInput
 	// Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
 	StorageBlockedLocations pulumi.StringArrayInput
 	StorageProvider         pulumi.StringInput

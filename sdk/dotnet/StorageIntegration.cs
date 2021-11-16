@@ -67,6 +67,12 @@ namespace Pulumi.Snowflake
         [Output("storageAwsIamUserArn")]
         public Output<string> StorageAwsIamUserArn { get; private set; } = null!;
 
+        /// <summary>
+        /// "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
+        /// </summary>
+        [Output("storageAwsObjectAcl")]
+        public Output<string?> StorageAwsObjectAcl { get; private set; } = null!;
+
         [Output("storageAwsRoleArn")]
         public Output<string?> StorageAwsRoleArn { get; private set; } = null!;
 
@@ -158,6 +164,12 @@ namespace Pulumi.Snowflake
             set => _storageAllowedLocations = value;
         }
 
+        /// <summary>
+        /// "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
+        /// </summary>
+        [Input("storageAwsObjectAcl")]
+        public Input<string>? StorageAwsObjectAcl { get; set; }
+
         [Input("storageAwsRoleArn")]
         public Input<string>? StorageAwsRoleArn { get; set; }
 
@@ -239,6 +251,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("storageAwsIamUserArn")]
         public Input<string>? StorageAwsIamUserArn { get; set; }
+
+        /// <summary>
+        /// "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
+        /// </summary>
+        [Input("storageAwsObjectAcl")]
+        public Input<string>? StorageAwsObjectAcl { get; set; }
 
         [Input("storageAwsRoleArn")]
         public Input<string>? StorageAwsRoleArn { get; set; }

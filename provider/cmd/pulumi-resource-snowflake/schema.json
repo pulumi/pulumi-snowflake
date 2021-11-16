@@ -7073,6 +7073,10 @@
                     "type": "string",
                     "description": "The Snowflake user that will attempt to assume the AWS role.\n"
                 },
+                "storageAwsObjectAcl": {
+                    "type": "string",
+                    "description": "\"bucket-owner-full-control\" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.\n"
+                },
                 "storageAwsRoleArn": {
                     "type": "string"
                 },
@@ -7124,6 +7128,10 @@
                         "type": "string"
                     },
                     "description": "Explicitly limits external stages that use the integration to reference one or more storage locations.\n"
+                },
+                "storageAwsObjectAcl": {
+                    "type": "string",
+                    "description": "\"bucket-owner-full-control\" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.\n"
                 },
                 "storageAwsRoleArn": {
                     "type": "string"
@@ -7187,6 +7195,10 @@
                     "storageAwsIamUserArn": {
                         "type": "string",
                         "description": "The Snowflake user that will attempt to assume the AWS role.\n"
+                    },
+                    "storageAwsObjectAcl": {
+                        "type": "string",
+                        "description": "\"bucket-owner-full-control\" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.\n"
                     },
                     "storageAwsRoleArn": {
                         "type": "string"

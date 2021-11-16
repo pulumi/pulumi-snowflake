@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v0.25.26 of the Snowflake Terraform Provider
 
 ---
 
