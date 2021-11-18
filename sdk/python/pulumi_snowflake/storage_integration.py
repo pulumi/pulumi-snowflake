@@ -19,12 +19,14 @@ class StorageIntegrationArgs:
                  comment: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 storage_aws_object_acl: Optional[pulumi.Input[str]] = None,
                  storage_aws_role_arn: Optional[pulumi.Input[str]] = None,
                  storage_blocked_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a StorageIntegration resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
+        :param pulumi.Input[str] storage_aws_object_acl: "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_blocked_locations: Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
         """
         pulumi.set(__self__, "storage_allowed_locations", storage_allowed_locations)
@@ -37,6 +39,8 @@ class StorageIntegrationArgs:
             pulumi.set(__self__, "enabled", enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if storage_aws_object_acl is not None:
+            pulumi.set(__self__, "storage_aws_object_acl", storage_aws_object_acl)
         if storage_aws_role_arn is not None:
             pulumi.set(__self__, "storage_aws_role_arn", storage_aws_role_arn)
         if storage_blocked_locations is not None:
@@ -102,6 +106,18 @@ class StorageIntegrationArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="storageAwsObjectAcl")
+    def storage_aws_object_acl(self) -> Optional[pulumi.Input[str]]:
+        """
+        "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
+        """
+        return pulumi.get(self, "storage_aws_object_acl")
+
+    @storage_aws_object_acl.setter
+    def storage_aws_object_acl(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_aws_object_acl", value)
+
+    @property
     @pulumi.getter(name="storageAwsRoleArn")
     def storage_aws_role_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "storage_aws_role_arn")
@@ -145,6 +161,7 @@ class _StorageIntegrationState:
                  storage_allowed_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_aws_external_id: Optional[pulumi.Input[str]] = None,
                  storage_aws_iam_user_arn: Optional[pulumi.Input[str]] = None,
+                 storage_aws_object_acl: Optional[pulumi.Input[str]] = None,
                  storage_aws_role_arn: Optional[pulumi.Input[str]] = None,
                  storage_blocked_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_gcp_service_account: Optional[pulumi.Input[str]] = None,
@@ -158,6 +175,7 @@ class _StorageIntegrationState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
         :param pulumi.Input[str] storage_aws_external_id: The external ID that Snowflake will use when assuming the AWS role.
         :param pulumi.Input[str] storage_aws_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
+        :param pulumi.Input[str] storage_aws_object_acl: "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_blocked_locations: Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
         :param pulumi.Input[str] storage_gcp_service_account: This is the name of the Snowflake Google Service Account created for your account.
         """
@@ -181,6 +199,8 @@ class _StorageIntegrationState:
             pulumi.set(__self__, "storage_aws_external_id", storage_aws_external_id)
         if storage_aws_iam_user_arn is not None:
             pulumi.set(__self__, "storage_aws_iam_user_arn", storage_aws_iam_user_arn)
+        if storage_aws_object_acl is not None:
+            pulumi.set(__self__, "storage_aws_object_acl", storage_aws_object_acl)
         if storage_aws_role_arn is not None:
             pulumi.set(__self__, "storage_aws_role_arn", storage_aws_role_arn)
         if storage_blocked_locations is not None:
@@ -301,6 +321,18 @@ class _StorageIntegrationState:
         pulumi.set(self, "storage_aws_iam_user_arn", value)
 
     @property
+    @pulumi.getter(name="storageAwsObjectAcl")
+    def storage_aws_object_acl(self) -> Optional[pulumi.Input[str]]:
+        """
+        "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
+        """
+        return pulumi.get(self, "storage_aws_object_acl")
+
+    @storage_aws_object_acl.setter
+    def storage_aws_object_acl(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_aws_object_acl", value)
+
+    @property
     @pulumi.getter(name="storageAwsRoleArn")
     def storage_aws_role_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "storage_aws_role_arn")
@@ -362,6 +394,7 @@ class StorageIntegration(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage_allowed_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 storage_aws_object_acl: Optional[pulumi.Input[str]] = None,
                  storage_aws_role_arn: Optional[pulumi.Input[str]] = None,
                  storage_blocked_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_provider: Optional[pulumi.Input[str]] = None,
@@ -377,6 +410,7 @@ class StorageIntegration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
+        :param pulumi.Input[str] storage_aws_object_acl: "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_blocked_locations: Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
         """
         ...
@@ -412,6 +446,7 @@ class StorageIntegration(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage_allowed_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 storage_aws_object_acl: Optional[pulumi.Input[str]] = None,
                  storage_aws_role_arn: Optional[pulumi.Input[str]] = None,
                  storage_blocked_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_provider: Optional[pulumi.Input[str]] = None,
@@ -435,6 +470,7 @@ class StorageIntegration(pulumi.CustomResource):
             if storage_allowed_locations is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_allowed_locations'")
             __props__.__dict__["storage_allowed_locations"] = storage_allowed_locations
+            __props__.__dict__["storage_aws_object_acl"] = storage_aws_object_acl
             __props__.__dict__["storage_aws_role_arn"] = storage_aws_role_arn
             __props__.__dict__["storage_blocked_locations"] = storage_blocked_locations
             if storage_provider is None and not opts.urn:
@@ -467,6 +503,7 @@ class StorageIntegration(pulumi.CustomResource):
             storage_allowed_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             storage_aws_external_id: Optional[pulumi.Input[str]] = None,
             storage_aws_iam_user_arn: Optional[pulumi.Input[str]] = None,
+            storage_aws_object_acl: Optional[pulumi.Input[str]] = None,
             storage_aws_role_arn: Optional[pulumi.Input[str]] = None,
             storage_blocked_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             storage_gcp_service_account: Optional[pulumi.Input[str]] = None,
@@ -485,6 +522,7 @@ class StorageIntegration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
         :param pulumi.Input[str] storage_aws_external_id: The external ID that Snowflake will use when assuming the AWS role.
         :param pulumi.Input[str] storage_aws_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
+        :param pulumi.Input[str] storage_aws_object_acl: "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_blocked_locations: Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
         :param pulumi.Input[str] storage_gcp_service_account: This is the name of the Snowflake Google Service Account created for your account.
         """
@@ -502,6 +540,7 @@ class StorageIntegration(pulumi.CustomResource):
         __props__.__dict__["storage_allowed_locations"] = storage_allowed_locations
         __props__.__dict__["storage_aws_external_id"] = storage_aws_external_id
         __props__.__dict__["storage_aws_iam_user_arn"] = storage_aws_iam_user_arn
+        __props__.__dict__["storage_aws_object_acl"] = storage_aws_object_acl
         __props__.__dict__["storage_aws_role_arn"] = storage_aws_role_arn
         __props__.__dict__["storage_blocked_locations"] = storage_blocked_locations
         __props__.__dict__["storage_gcp_service_account"] = storage_gcp_service_account
@@ -576,6 +615,14 @@ class StorageIntegration(pulumi.CustomResource):
         The Snowflake user that will attempt to assume the AWS role.
         """
         return pulumi.get(self, "storage_aws_iam_user_arn")
+
+    @property
+    @pulumi.getter(name="storageAwsObjectAcl")
+    def storage_aws_object_acl(self) -> pulumi.Output[Optional[str]]:
+        """
+        "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
+        """
+        return pulumi.get(self, "storage_aws_object_acl")
 
     @property
     @pulumi.getter(name="storageAwsRoleArn")

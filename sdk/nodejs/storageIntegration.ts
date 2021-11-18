@@ -84,6 +84,10 @@ export class StorageIntegration extends pulumi.CustomResource {
      * The Snowflake user that will attempt to assume the AWS role.
      */
     public /*out*/ readonly storageAwsIamUserArn!: pulumi.Output<string>;
+    /**
+     * "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
+     */
+    public readonly storageAwsObjectAcl!: pulumi.Output<string | undefined>;
     public readonly storageAwsRoleArn!: pulumi.Output<string | undefined>;
     /**
      * Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
@@ -119,6 +123,7 @@ export class StorageIntegration extends pulumi.CustomResource {
             inputs["storageAllowedLocations"] = state ? state.storageAllowedLocations : undefined;
             inputs["storageAwsExternalId"] = state ? state.storageAwsExternalId : undefined;
             inputs["storageAwsIamUserArn"] = state ? state.storageAwsIamUserArn : undefined;
+            inputs["storageAwsObjectAcl"] = state ? state.storageAwsObjectAcl : undefined;
             inputs["storageAwsRoleArn"] = state ? state.storageAwsRoleArn : undefined;
             inputs["storageBlockedLocations"] = state ? state.storageBlockedLocations : undefined;
             inputs["storageGcpServiceAccount"] = state ? state.storageGcpServiceAccount : undefined;
@@ -137,6 +142,7 @@ export class StorageIntegration extends pulumi.CustomResource {
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["storageAllowedLocations"] = args ? args.storageAllowedLocations : undefined;
+            inputs["storageAwsObjectAcl"] = args ? args.storageAwsObjectAcl : undefined;
             inputs["storageAwsRoleArn"] = args ? args.storageAwsRoleArn : undefined;
             inputs["storageBlockedLocations"] = args ? args.storageBlockedLocations : undefined;
             inputs["storageProvider"] = args ? args.storageProvider : undefined;
@@ -187,6 +193,10 @@ export interface StorageIntegrationState {
      * The Snowflake user that will attempt to assume the AWS role.
      */
     storageAwsIamUserArn?: pulumi.Input<string>;
+    /**
+     * "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
+     */
+    storageAwsObjectAcl?: pulumi.Input<string>;
     storageAwsRoleArn?: pulumi.Input<string>;
     /**
      * Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
@@ -212,6 +222,10 @@ export interface StorageIntegrationArgs {
      * Explicitly limits external stages that use the integration to reference one or more storage locations.
      */
     storageAllowedLocations: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
+     */
+    storageAwsObjectAcl?: pulumi.Input<string>;
     storageAwsRoleArn?: pulumi.Input<string>;
     /**
      * Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
