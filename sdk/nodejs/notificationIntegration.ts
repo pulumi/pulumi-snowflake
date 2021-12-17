@@ -12,6 +12,8 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const integration = new snowflake.NotificationIntegration("integration", {
+ *     awsSnsRoleArn: "...",
+ *     awsSnsTopicArn: "...",
  *     awsSqsArn: "...",
  *     awsSqsRoleArn: "...",
  *     azureStorageQueuePrimaryUri: "...",
@@ -19,7 +21,7 @@ import * as utilities from "./utilities";
  *     comment: "A notification integration.",
  *     direction: "OUTBOUND",
  *     enabled: true,
- *     notificationProvider: "AWS_SQS",
+ *     notificationProvider: "AWS_SNS",
  *     type: "QUEUE",
  * });
  * ```
@@ -58,6 +60,22 @@ export class NotificationIntegration extends pulumi.CustomResource {
         return obj['__pulumiType'] === NotificationIntegration.__pulumiType;
     }
 
+    /**
+     * The external ID that Snowflake will use when assuming the AWS role
+     */
+    public /*out*/ readonly awsSnsExternalId!: pulumi.Output<string>;
+    /**
+     * The Snowflake user that will attempt to assume the AWS role.
+     */
+    public /*out*/ readonly awsSnsIamUserArn!: pulumi.Output<string>;
+    /**
+     * AWS IAM role ARN for notification integration to assume
+     */
+    public readonly awsSnsRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * AWS SNS Topic ARN for notification integration to connect to
+     */
+    public readonly awsSnsTopicArn!: pulumi.Output<string | undefined>;
     /**
      * AWS SQS queue ARN for notification integration to connect to
      */
@@ -98,7 +116,7 @@ export class NotificationIntegration extends pulumi.CustomResource {
     public readonly gcpPubsubSubscriptionName!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
     /**
-     * The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
+     * The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
      */
     public readonly notificationProvider!: pulumi.Output<string | undefined>;
     /**
@@ -119,6 +137,10 @@ export class NotificationIntegration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotificationIntegrationState | undefined;
+            inputs["awsSnsExternalId"] = state ? state.awsSnsExternalId : undefined;
+            inputs["awsSnsIamUserArn"] = state ? state.awsSnsIamUserArn : undefined;
+            inputs["awsSnsRoleArn"] = state ? state.awsSnsRoleArn : undefined;
+            inputs["awsSnsTopicArn"] = state ? state.awsSnsTopicArn : undefined;
             inputs["awsSqsArn"] = state ? state.awsSqsArn : undefined;
             inputs["awsSqsExternalId"] = state ? state.awsSqsExternalId : undefined;
             inputs["awsSqsIamUserArn"] = state ? state.awsSqsIamUserArn : undefined;
@@ -135,6 +157,8 @@ export class NotificationIntegration extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as NotificationIntegrationArgs | undefined;
+            inputs["awsSnsRoleArn"] = args ? args.awsSnsRoleArn : undefined;
+            inputs["awsSnsTopicArn"] = args ? args.awsSnsTopicArn : undefined;
             inputs["awsSqsArn"] = args ? args.awsSqsArn : undefined;
             inputs["awsSqsRoleArn"] = args ? args.awsSqsRoleArn : undefined;
             inputs["azureStorageQueuePrimaryUri"] = args ? args.azureStorageQueuePrimaryUri : undefined;
@@ -146,6 +170,8 @@ export class NotificationIntegration extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["notificationProvider"] = args ? args.notificationProvider : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["awsSnsExternalId"] = undefined /*out*/;
+            inputs["awsSnsIamUserArn"] = undefined /*out*/;
             inputs["awsSqsExternalId"] = undefined /*out*/;
             inputs["awsSqsIamUserArn"] = undefined /*out*/;
             inputs["createdOn"] = undefined /*out*/;
@@ -161,6 +187,22 @@ export class NotificationIntegration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NotificationIntegration resources.
  */
 export interface NotificationIntegrationState {
+    /**
+     * The external ID that Snowflake will use when assuming the AWS role
+     */
+    awsSnsExternalId?: pulumi.Input<string>;
+    /**
+     * The Snowflake user that will attempt to assume the AWS role.
+     */
+    awsSnsIamUserArn?: pulumi.Input<string>;
+    /**
+     * AWS IAM role ARN for notification integration to assume
+     */
+    awsSnsRoleArn?: pulumi.Input<string>;
+    /**
+     * AWS SNS Topic ARN for notification integration to connect to
+     */
+    awsSnsTopicArn?: pulumi.Input<string>;
     /**
      * AWS SQS queue ARN for notification integration to connect to
      */
@@ -201,7 +243,7 @@ export interface NotificationIntegrationState {
     gcpPubsubSubscriptionName?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     /**
-     * The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
+     * The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
      */
     notificationProvider?: pulumi.Input<string>;
     /**
@@ -214,6 +256,14 @@ export interface NotificationIntegrationState {
  * The set of arguments for constructing a NotificationIntegration resource.
  */
 export interface NotificationIntegrationArgs {
+    /**
+     * AWS IAM role ARN for notification integration to assume
+     */
+    awsSnsRoleArn?: pulumi.Input<string>;
+    /**
+     * AWS SNS Topic ARN for notification integration to connect to
+     */
+    awsSnsTopicArn?: pulumi.Input<string>;
     /**
      * AWS SQS queue ARN for notification integration to connect to
      */
@@ -242,7 +292,7 @@ export interface NotificationIntegrationArgs {
     gcpPubsubSubscriptionName?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     /**
-     * The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
+     * The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
      */
     notificationProvider?: pulumi.Input<string>;
     /**

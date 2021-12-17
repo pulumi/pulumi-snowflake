@@ -84,6 +84,12 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<int>> NotifyTriggers { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether the resource monitor should be applied globally to your Snowflake account.
+        /// </summary>
+        [Output("setForAccount")]
+        public Output<bool?> SetForAccount { get; private set; } = null!;
+
+        /// <summary>
         /// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
         /// </summary>
         [Output("startTimestamp")]
@@ -184,6 +190,12 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
+        /// Specifies whether the resource monitor should be applied globally to your Snowflake account.
+        /// </summary>
+        [Input("setForAccount")]
+        public Input<bool>? SetForAccount { get; set; }
+
+        /// <summary>
         /// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
         /// </summary>
         [Input("startTimestamp")]
@@ -255,6 +267,12 @@ namespace Pulumi.Snowflake
             get => _notifyTriggers ?? (_notifyTriggers = new InputList<int>());
             set => _notifyTriggers = value;
         }
+
+        /// <summary>
+        /// Specifies whether the resource monitor should be applied globally to your Snowflake account.
+        /// </summary>
+        [Input("setForAccount")]
+        public Input<bool>? SetForAccount { get; set; }
 
         /// <summary>
         /// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.

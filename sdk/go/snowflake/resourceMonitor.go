@@ -63,6 +63,8 @@ type ResourceMonitor struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of percentage thresholds at which to send an alert to subscribed users.
 	NotifyTriggers pulumi.IntArrayOutput `pulumi:"notifyTriggers"`
+	// Specifies whether the resource monitor should be applied globally to your Snowflake account.
+	SetForAccount pulumi.BoolPtrOutput `pulumi:"setForAccount"`
 	// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
 	StartTimestamp pulumi.StringOutput `pulumi:"startTimestamp"`
 	// A list of percentage thresholds at which to immediately suspend all warehouses.
@@ -110,6 +112,8 @@ type resourceMonitorState struct {
 	Name *string `pulumi:"name"`
 	// A list of percentage thresholds at which to send an alert to subscribed users.
 	NotifyTriggers []int `pulumi:"notifyTriggers"`
+	// Specifies whether the resource monitor should be applied globally to your Snowflake account.
+	SetForAccount *bool `pulumi:"setForAccount"`
 	// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
 	StartTimestamp *string `pulumi:"startTimestamp"`
 	// A list of percentage thresholds at which to immediately suspend all warehouses.
@@ -129,6 +133,8 @@ type ResourceMonitorState struct {
 	Name pulumi.StringPtrInput
 	// A list of percentage thresholds at which to send an alert to subscribed users.
 	NotifyTriggers pulumi.IntArrayInput
+	// Specifies whether the resource monitor should be applied globally to your Snowflake account.
+	SetForAccount pulumi.BoolPtrInput
 	// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
 	StartTimestamp pulumi.StringPtrInput
 	// A list of percentage thresholds at which to immediately suspend all warehouses.
@@ -152,6 +158,8 @@ type resourceMonitorArgs struct {
 	Name *string `pulumi:"name"`
 	// A list of percentage thresholds at which to send an alert to subscribed users.
 	NotifyTriggers []int `pulumi:"notifyTriggers"`
+	// Specifies whether the resource monitor should be applied globally to your Snowflake account.
+	SetForAccount *bool `pulumi:"setForAccount"`
 	// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
 	StartTimestamp *string `pulumi:"startTimestamp"`
 	// A list of percentage thresholds at which to immediately suspend all warehouses.
@@ -172,6 +180,8 @@ type ResourceMonitorArgs struct {
 	Name pulumi.StringPtrInput
 	// A list of percentage thresholds at which to send an alert to subscribed users.
 	NotifyTriggers pulumi.IntArrayInput
+	// Specifies whether the resource monitor should be applied globally to your Snowflake account.
+	SetForAccount pulumi.BoolPtrInput
 	// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
 	StartTimestamp pulumi.StringPtrInput
 	// A list of percentage thresholds at which to immediately suspend all warehouses.

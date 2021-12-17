@@ -23,6 +23,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := snowflake.NewNotificationIntegration(ctx, "integration", &snowflake.NotificationIntegrationArgs{
+// 			AwsSnsRoleArn:               pulumi.String("..."),
+// 			AwsSnsTopicArn:              pulumi.String("..."),
 // 			AwsSqsArn:                   pulumi.String("..."),
 // 			AwsSqsRoleArn:               pulumi.String("..."),
 // 			AzureStorageQueuePrimaryUri: pulumi.String("..."),
@@ -30,7 +32,7 @@ import (
 // 			Comment:                     pulumi.String("A notification integration."),
 // 			Direction:                   pulumi.String("OUTBOUND"),
 // 			Enabled:                     pulumi.Bool(true),
-// 			NotificationProvider:        pulumi.String("AWS_SQS"),
+// 			NotificationProvider:        pulumi.String("AWS_SNS"),
 // 			Type:                        pulumi.String("QUEUE"),
 // 		})
 // 		if err != nil {
@@ -49,6 +51,14 @@ import (
 type NotificationIntegration struct {
 	pulumi.CustomResourceState
 
+	// The external ID that Snowflake will use when assuming the AWS role
+	AwsSnsExternalId pulumi.StringOutput `pulumi:"awsSnsExternalId"`
+	// The Snowflake user that will attempt to assume the AWS role.
+	AwsSnsIamUserArn pulumi.StringOutput `pulumi:"awsSnsIamUserArn"`
+	// AWS IAM role ARN for notification integration to assume
+	AwsSnsRoleArn pulumi.StringPtrOutput `pulumi:"awsSnsRoleArn"`
+	// AWS SNS Topic ARN for notification integration to connect to
+	AwsSnsTopicArn pulumi.StringPtrOutput `pulumi:"awsSnsTopicArn"`
 	// AWS SQS queue ARN for notification integration to connect to
 	AwsSqsArn pulumi.StringPtrOutput `pulumi:"awsSqsArn"`
 	// The external ID that Snowflake will use when assuming the AWS role
@@ -70,7 +80,7 @@ type NotificationIntegration struct {
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName pulumi.StringPtrOutput `pulumi:"gcpPubsubSubscriptionName"`
 	Name                      pulumi.StringOutput    `pulumi:"name"`
-	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
+	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
 	NotificationProvider pulumi.StringPtrOutput `pulumi:"notificationProvider"`
 	// A type of integration
 	Type pulumi.StringPtrOutput `pulumi:"type"`
@@ -105,6 +115,14 @@ func GetNotificationIntegration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotificationIntegration resources.
 type notificationIntegrationState struct {
+	// The external ID that Snowflake will use when assuming the AWS role
+	AwsSnsExternalId *string `pulumi:"awsSnsExternalId"`
+	// The Snowflake user that will attempt to assume the AWS role.
+	AwsSnsIamUserArn *string `pulumi:"awsSnsIamUserArn"`
+	// AWS IAM role ARN for notification integration to assume
+	AwsSnsRoleArn *string `pulumi:"awsSnsRoleArn"`
+	// AWS SNS Topic ARN for notification integration to connect to
+	AwsSnsTopicArn *string `pulumi:"awsSnsTopicArn"`
 	// AWS SQS queue ARN for notification integration to connect to
 	AwsSqsArn *string `pulumi:"awsSqsArn"`
 	// The external ID that Snowflake will use when assuming the AWS role
@@ -126,13 +144,21 @@ type notificationIntegrationState struct {
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName *string `pulumi:"gcpPubsubSubscriptionName"`
 	Name                      *string `pulumi:"name"`
-	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
+	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
 	NotificationProvider *string `pulumi:"notificationProvider"`
 	// A type of integration
 	Type *string `pulumi:"type"`
 }
 
 type NotificationIntegrationState struct {
+	// The external ID that Snowflake will use when assuming the AWS role
+	AwsSnsExternalId pulumi.StringPtrInput
+	// The Snowflake user that will attempt to assume the AWS role.
+	AwsSnsIamUserArn pulumi.StringPtrInput
+	// AWS IAM role ARN for notification integration to assume
+	AwsSnsRoleArn pulumi.StringPtrInput
+	// AWS SNS Topic ARN for notification integration to connect to
+	AwsSnsTopicArn pulumi.StringPtrInput
 	// AWS SQS queue ARN for notification integration to connect to
 	AwsSqsArn pulumi.StringPtrInput
 	// The external ID that Snowflake will use when assuming the AWS role
@@ -154,7 +180,7 @@ type NotificationIntegrationState struct {
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName pulumi.StringPtrInput
 	Name                      pulumi.StringPtrInput
-	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
+	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
 	NotificationProvider pulumi.StringPtrInput
 	// A type of integration
 	Type pulumi.StringPtrInput
@@ -165,6 +191,10 @@ func (NotificationIntegrationState) ElementType() reflect.Type {
 }
 
 type notificationIntegrationArgs struct {
+	// AWS IAM role ARN for notification integration to assume
+	AwsSnsRoleArn *string `pulumi:"awsSnsRoleArn"`
+	// AWS SNS Topic ARN for notification integration to connect to
+	AwsSnsTopicArn *string `pulumi:"awsSnsTopicArn"`
 	// AWS SQS queue ARN for notification integration to connect to
 	AwsSqsArn *string `pulumi:"awsSqsArn"`
 	// AWS IAM role ARN for notification integration to assume
@@ -180,7 +210,7 @@ type notificationIntegrationArgs struct {
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName *string `pulumi:"gcpPubsubSubscriptionName"`
 	Name                      *string `pulumi:"name"`
-	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
+	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
 	NotificationProvider *string `pulumi:"notificationProvider"`
 	// A type of integration
 	Type *string `pulumi:"type"`
@@ -188,6 +218,10 @@ type notificationIntegrationArgs struct {
 
 // The set of arguments for constructing a NotificationIntegration resource.
 type NotificationIntegrationArgs struct {
+	// AWS IAM role ARN for notification integration to assume
+	AwsSnsRoleArn pulumi.StringPtrInput
+	// AWS SNS Topic ARN for notification integration to connect to
+	AwsSnsTopicArn pulumi.StringPtrInput
 	// AWS SQS queue ARN for notification integration to connect to
 	AwsSqsArn pulumi.StringPtrInput
 	// AWS IAM role ARN for notification integration to assume
@@ -203,7 +237,7 @@ type NotificationIntegrationArgs struct {
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName pulumi.StringPtrInput
 	Name                      pulumi.StringPtrInput
-	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
+	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
 	NotificationProvider pulumi.StringPtrInput
 	// A type of integration
 	Type pulumi.StringPtrInput

@@ -77,6 +77,10 @@ export class ResourceMonitor extends pulumi.CustomResource {
      */
     public readonly notifyTriggers!: pulumi.Output<number[] | undefined>;
     /**
+     * Specifies whether the resource monitor should be applied globally to your Snowflake account.
+     */
+    public readonly setForAccount!: pulumi.Output<boolean | undefined>;
+    /**
      * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
      */
     public readonly startTimestamp!: pulumi.Output<string>;
@@ -107,6 +111,7 @@ export class ResourceMonitor extends pulumi.CustomResource {
             inputs["frequency"] = state ? state.frequency : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["notifyTriggers"] = state ? state.notifyTriggers : undefined;
+            inputs["setForAccount"] = state ? state.setForAccount : undefined;
             inputs["startTimestamp"] = state ? state.startTimestamp : undefined;
             inputs["suspendImmediateTriggers"] = state ? state.suspendImmediateTriggers : undefined;
             inputs["suspendTriggers"] = state ? state.suspendTriggers : undefined;
@@ -117,6 +122,7 @@ export class ResourceMonitor extends pulumi.CustomResource {
             inputs["frequency"] = args ? args.frequency : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["notifyTriggers"] = args ? args.notifyTriggers : undefined;
+            inputs["setForAccount"] = args ? args.setForAccount : undefined;
             inputs["startTimestamp"] = args ? args.startTimestamp : undefined;
             inputs["suspendImmediateTriggers"] = args ? args.suspendImmediateTriggers : undefined;
             inputs["suspendTriggers"] = args ? args.suspendTriggers : undefined;
@@ -152,6 +158,10 @@ export interface ResourceMonitorState {
      * A list of percentage thresholds at which to send an alert to subscribed users.
      */
     notifyTriggers?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Specifies whether the resource monitor should be applied globally to your Snowflake account.
+     */
+    setForAccount?: pulumi.Input<boolean>;
     /**
      * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
      */
@@ -190,6 +200,10 @@ export interface ResourceMonitorArgs {
      * A list of percentage thresholds at which to send an alert to subscribed users.
      */
     notifyTriggers?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Specifies whether the resource monitor should be applied globally to your Snowflake account.
+     */
+    setForAccount?: pulumi.Input<boolean>;
     /**
      * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
      */
