@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v0.25.30 of the Snowflake Terraform Provider
+_(none)_
 
 ---
+
+## 0.3.3 (2021-12-20)
+* Upgrade to v0.25.30 of the Snowflake Terraform Provider
 
 ## 0.3.2 (2021-11-30)
 * Upgrade to v0.25.27 of the Snowflake Terraform Provider
