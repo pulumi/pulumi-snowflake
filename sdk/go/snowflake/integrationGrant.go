@@ -42,10 +42,10 @@ import (
 //
 // ## Import
 //
-// # format is integration name | privilege | true/false for with_grant_option
+// # format is integration name ||| privilege | true/false for with_grant_option
 //
 // ```sh
-//  $ pulumi import snowflake:index/integrationGrant:IntegrationGrant example 'intName|USAGE|true'
+//  $ pulumi import snowflake:index/integrationGrant:IntegrationGrant example 'intName|||USAGE|true'
 // ```
 type IntegrationGrant struct {
 	pulumi.CustomResourceState

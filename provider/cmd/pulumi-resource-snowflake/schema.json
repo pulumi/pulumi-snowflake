@@ -3972,7 +3972,7 @@
             }
         },
         "snowflake:index/integrationGrant:IntegrationGrant": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.IntegrationGrant(\"grant\", {\n    integrationName: \"integration\",\n    privilege: \"USAGE\",\n    roles: [\n        \"role1\",\n        \"role2\",\n    ],\n    withGrantOption: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ngrant = snowflake.IntegrationGrant(\"grant\",\n    integration_name=\"integration\",\n    privilege=\"USAGE\",\n    roles=[\n        \"role1\",\n        \"role2\",\n    ],\n    with_grant_option=False)\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var grant = new Snowflake.IntegrationGrant(\"grant\", new Snowflake.IntegrationGrantArgs\n        {\n            IntegrationName = \"integration\",\n            Privilege = \"USAGE\",\n            Roles = \n            {\n                \"role1\",\n                \"role2\",\n            },\n            WithGrantOption = false,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewIntegrationGrant(ctx, \"grant\", \u0026snowflake.IntegrationGrantArgs{\n\t\t\tIntegrationName: pulumi.String(\"integration\"),\n\t\t\tPrivilege:       pulumi.String(\"USAGE\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"role1\"),\n\t\t\t\tpulumi.String(\"role2\"),\n\t\t\t},\n\t\t\tWithGrantOption: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is integration name | privilege | true/false for with_grant_option\n\n```sh\n $ pulumi import snowflake:index/integrationGrant:IntegrationGrant example 'intName|USAGE|true'\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.IntegrationGrant(\"grant\", {\n    integrationName: \"integration\",\n    privilege: \"USAGE\",\n    roles: [\n        \"role1\",\n        \"role2\",\n    ],\n    withGrantOption: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ngrant = snowflake.IntegrationGrant(\"grant\",\n    integration_name=\"integration\",\n    privilege=\"USAGE\",\n    roles=[\n        \"role1\",\n        \"role2\",\n    ],\n    with_grant_option=False)\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var grant = new Snowflake.IntegrationGrant(\"grant\", new Snowflake.IntegrationGrantArgs\n        {\n            IntegrationName = \"integration\",\n            Privilege = \"USAGE\",\n            Roles = \n            {\n                \"role1\",\n                \"role2\",\n            },\n            WithGrantOption = false,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewIntegrationGrant(ctx, \"grant\", \u0026snowflake.IntegrationGrantArgs{\n\t\t\tIntegrationName: pulumi.String(\"integration\"),\n\t\t\tPrivilege:       pulumi.String(\"USAGE\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"role1\"),\n\t\t\t\tpulumi.String(\"role2\"),\n\t\t\t},\n\t\t\tWithGrantOption: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is integration name ||| privilege | true/false for with_grant_option\n\n```sh\n $ pulumi import snowflake:index/integrationGrant:IntegrationGrant example 'intName|||USAGE|true'\n```\n\n ",
             "properties": {
                 "integrationName": {
                     "type": "string",
@@ -4816,8 +4816,24 @@
             }
         },
         "snowflake:index/notificationIntegration:NotificationIntegration": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst integration = new snowflake.NotificationIntegration(\"integration\", {\n    awsSqsArn: \"...\",\n    awsSqsRoleArn: \"...\",\n    azureStorageQueuePrimaryUri: \"...\",\n    azureTenantId: \"...\",\n    comment: \"A notification integration.\",\n    direction: \"OUTBOUND\",\n    enabled: true,\n    notificationProvider: \"AWS_SQS\",\n    type: \"QUEUE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nintegration = snowflake.NotificationIntegration(\"integration\",\n    aws_sqs_arn=\"...\",\n    aws_sqs_role_arn=\"...\",\n    azure_storage_queue_primary_uri=\"...\",\n    azure_tenant_id=\"...\",\n    comment=\"A notification integration.\",\n    direction=\"OUTBOUND\",\n    enabled=True,\n    notification_provider=\"AWS_SQS\",\n    type=\"QUEUE\")\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var integration = new Snowflake.NotificationIntegration(\"integration\", new Snowflake.NotificationIntegrationArgs\n        {\n            AwsSqsArn = \"...\",\n            AwsSqsRoleArn = \"...\",\n            AzureStorageQueuePrimaryUri = \"...\",\n            AzureTenantId = \"...\",\n            Comment = \"A notification integration.\",\n            Direction = \"OUTBOUND\",\n            Enabled = true,\n            NotificationProvider = \"AWS_SQS\",\n            Type = \"QUEUE\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewNotificationIntegration(ctx, \"integration\", \u0026snowflake.NotificationIntegrationArgs{\n\t\t\tAwsSqsArn:                   pulumi.String(\"...\"),\n\t\t\tAwsSqsRoleArn:               pulumi.String(\"...\"),\n\t\t\tAzureStorageQueuePrimaryUri: pulumi.String(\"...\"),\n\t\t\tAzureTenantId:               pulumi.String(\"...\"),\n\t\t\tComment:                     pulumi.String(\"A notification integration.\"),\n\t\t\tDirection:                   pulumi.String(\"OUTBOUND\"),\n\t\t\tEnabled:                     pulumi.Bool(true),\n\t\t\tNotificationProvider:        pulumi.String(\"AWS_SQS\"),\n\t\t\tType:                        pulumi.String(\"QUEUE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst integration = new snowflake.NotificationIntegration(\"integration\", {\n    awsSnsRoleArn: \"...\",\n    awsSnsTopicArn: \"...\",\n    awsSqsArn: \"...\",\n    awsSqsRoleArn: \"...\",\n    azureStorageQueuePrimaryUri: \"...\",\n    azureTenantId: \"...\",\n    comment: \"A notification integration.\",\n    direction: \"OUTBOUND\",\n    enabled: true,\n    notificationProvider: \"AWS_SNS\",\n    type: \"QUEUE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nintegration = snowflake.NotificationIntegration(\"integration\",\n    aws_sns_role_arn=\"...\",\n    aws_sns_topic_arn=\"...\",\n    aws_sqs_arn=\"...\",\n    aws_sqs_role_arn=\"...\",\n    azure_storage_queue_primary_uri=\"...\",\n    azure_tenant_id=\"...\",\n    comment=\"A notification integration.\",\n    direction=\"OUTBOUND\",\n    enabled=True,\n    notification_provider=\"AWS_SNS\",\n    type=\"QUEUE\")\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var integration = new Snowflake.NotificationIntegration(\"integration\", new Snowflake.NotificationIntegrationArgs\n        {\n            AwsSnsRoleArn = \"...\",\n            AwsSnsTopicArn = \"...\",\n            AwsSqsArn = \"...\",\n            AwsSqsRoleArn = \"...\",\n            AzureStorageQueuePrimaryUri = \"...\",\n            AzureTenantId = \"...\",\n            Comment = \"A notification integration.\",\n            Direction = \"OUTBOUND\",\n            Enabled = true,\n            NotificationProvider = \"AWS_SNS\",\n            Type = \"QUEUE\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewNotificationIntegration(ctx, \"integration\", \u0026snowflake.NotificationIntegrationArgs{\n\t\t\tAwsSnsRoleArn:               pulumi.String(\"...\"),\n\t\t\tAwsSnsTopicArn:              pulumi.String(\"...\"),\n\t\t\tAwsSqsArn:                   pulumi.String(\"...\"),\n\t\t\tAwsSqsRoleArn:               pulumi.String(\"...\"),\n\t\t\tAzureStorageQueuePrimaryUri: pulumi.String(\"...\"),\n\t\t\tAzureTenantId:               pulumi.String(\"...\"),\n\t\t\tComment:                     pulumi.String(\"A notification integration.\"),\n\t\t\tDirection:                   pulumi.String(\"OUTBOUND\"),\n\t\t\tEnabled:                     pulumi.Bool(true),\n\t\t\tNotificationProvider:        pulumi.String(\"AWS_SNS\"),\n\t\t\tType:                        pulumi.String(\"QUEUE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name\n```\n\n ",
             "properties": {
+                "awsSnsExternalId": {
+                    "type": "string",
+                    "description": "The external ID that Snowflake will use when assuming the AWS role\n"
+                },
+                "awsSnsIamUserArn": {
+                    "type": "string",
+                    "description": "The Snowflake user that will attempt to assume the AWS role.\n"
+                },
+                "awsSnsRoleArn": {
+                    "type": "string",
+                    "description": "AWS IAM role ARN for notification integration to assume\n"
+                },
+                "awsSnsTopicArn": {
+                    "type": "string",
+                    "description": "AWS SNS Topic ARN for notification integration to connect to\n"
+                },
                 "awsSqsArn": {
                     "type": "string",
                     "description": "AWS SQS queue ARN for notification integration to connect to\n"
@@ -4865,7 +4881,7 @@
                 },
                 "notificationProvider": {
                     "type": "string",
-                    "description": "The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)\n"
+                    "description": "The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)\n"
                 },
                 "type": {
                     "type": "string",
@@ -4873,12 +4889,22 @@
                 }
             },
             "required": [
+                "awsSnsExternalId",
+                "awsSnsIamUserArn",
                 "awsSqsExternalId",
                 "awsSqsIamUserArn",
                 "createdOn",
                 "name"
             ],
             "inputProperties": {
+                "awsSnsRoleArn": {
+                    "type": "string",
+                    "description": "AWS IAM role ARN for notification integration to assume\n"
+                },
+                "awsSnsTopicArn": {
+                    "type": "string",
+                    "description": "AWS SNS Topic ARN for notification integration to connect to\n"
+                },
                 "awsSqsArn": {
                     "type": "string",
                     "description": "AWS SQS queue ARN for notification integration to connect to\n"
@@ -4914,7 +4940,7 @@
                 },
                 "notificationProvider": {
                     "type": "string",
-                    "description": "The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)\n"
+                    "description": "The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)\n"
                 },
                 "type": {
                     "type": "string",
@@ -4924,6 +4950,22 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering NotificationIntegration resources.\n",
                 "properties": {
+                    "awsSnsExternalId": {
+                        "type": "string",
+                        "description": "The external ID that Snowflake will use when assuming the AWS role\n"
+                    },
+                    "awsSnsIamUserArn": {
+                        "type": "string",
+                        "description": "The Snowflake user that will attempt to assume the AWS role.\n"
+                    },
+                    "awsSnsRoleArn": {
+                        "type": "string",
+                        "description": "AWS IAM role ARN for notification integration to assume\n"
+                    },
+                    "awsSnsTopicArn": {
+                        "type": "string",
+                        "description": "AWS SNS Topic ARN for notification integration to connect to\n"
+                    },
                     "awsSqsArn": {
                         "type": "string",
                         "description": "AWS SQS queue ARN for notification integration to connect to\n"
@@ -4971,7 +5013,7 @@
                     },
                     "notificationProvider": {
                         "type": "string",
-                        "description": "The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)\n"
+                        "description": "The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)\n"
                     },
                     "type": {
                         "type": "string",
@@ -5594,6 +5636,10 @@
                     },
                     "description": "A list of percentage thresholds at which to send an alert to subscribed users.\n"
                 },
+                "setForAccount": {
+                    "type": "boolean",
+                    "description": "Specifies whether the resource monitor should be applied globally to your Snowflake account.\n"
+                },
                 "startTimestamp": {
                     "type": "string",
                     "description": "The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.\n"
@@ -5643,6 +5689,10 @@
                     },
                     "description": "A list of percentage thresholds at which to send an alert to subscribed users.\n"
                 },
+                "setForAccount": {
+                    "type": "boolean",
+                    "description": "Specifies whether the resource monitor should be applied globally to your Snowflake account.\n"
+                },
                 "startTimestamp": {
                     "type": "string",
                     "description": "The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.\n"
@@ -5687,6 +5737,10 @@
                             "type": "integer"
                         },
                         "description": "A list of percentage thresholds at which to send an alert to subscribed users.\n"
+                    },
+                    "setForAccount": {
+                        "type": "boolean",
+                        "description": "Specifies whether the resource monitor should be applied globally to your Snowflake account.\n"
                     },
                     "startTimestamp": {
                         "type": "string",

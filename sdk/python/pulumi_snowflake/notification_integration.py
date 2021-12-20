@@ -13,6 +13,8 @@ __all__ = ['NotificationIntegrationArgs', 'NotificationIntegration']
 @pulumi.input_type
 class NotificationIntegrationArgs:
     def __init__(__self__, *,
+                 aws_sns_role_arn: Optional[pulumi.Input[str]] = None,
+                 aws_sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  aws_sqs_arn: Optional[pulumi.Input[str]] = None,
                  aws_sqs_role_arn: Optional[pulumi.Input[str]] = None,
                  azure_storage_queue_primary_uri: Optional[pulumi.Input[str]] = None,
@@ -26,15 +28,21 @@ class NotificationIntegrationArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NotificationIntegration resource.
+        :param pulumi.Input[str] aws_sns_role_arn: AWS IAM role ARN for notification integration to assume
+        :param pulumi.Input[str] aws_sns_topic_arn: AWS SNS Topic ARN for notification integration to connect to
         :param pulumi.Input[str] aws_sqs_arn: AWS SQS queue ARN for notification integration to connect to
         :param pulumi.Input[str] aws_sqs_role_arn: AWS IAM role ARN for notification integration to assume
         :param pulumi.Input[str] azure_storage_queue_primary_uri: The queue ID for the Azure Queue Storage queue created for Event Grid notifications
         :param pulumi.Input[str] azure_tenant_id: The ID of the Azure Active Directory tenant used for identity management
         :param pulumi.Input[str] direction: Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         :param pulumi.Input[str] gcp_pubsub_subscription_name: The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
-        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
+        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
         :param pulumi.Input[str] type: A type of integration
         """
+        if aws_sns_role_arn is not None:
+            pulumi.set(__self__, "aws_sns_role_arn", aws_sns_role_arn)
+        if aws_sns_topic_arn is not None:
+            pulumi.set(__self__, "aws_sns_topic_arn", aws_sns_topic_arn)
         if aws_sqs_arn is not None:
             pulumi.set(__self__, "aws_sqs_arn", aws_sqs_arn)
         if aws_sqs_role_arn is not None:
@@ -57,6 +65,30 @@ class NotificationIntegrationArgs:
             pulumi.set(__self__, "notification_provider", notification_provider)
         if type is not None:
             pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="awsSnsRoleArn")
+    def aws_sns_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS IAM role ARN for notification integration to assume
+        """
+        return pulumi.get(self, "aws_sns_role_arn")
+
+    @aws_sns_role_arn.setter
+    def aws_sns_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aws_sns_role_arn", value)
+
+    @property
+    @pulumi.getter(name="awsSnsTopicArn")
+    def aws_sns_topic_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS SNS Topic ARN for notification integration to connect to
+        """
+        return pulumi.get(self, "aws_sns_topic_arn")
+
+    @aws_sns_topic_arn.setter
+    def aws_sns_topic_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aws_sns_topic_arn", value)
 
     @property
     @pulumi.getter(name="awsSqsArn")
@@ -161,7 +193,7 @@ class NotificationIntegrationArgs:
     @pulumi.getter(name="notificationProvider")
     def notification_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
+        The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
         """
         return pulumi.get(self, "notification_provider")
 
@@ -185,6 +217,10 @@ class NotificationIntegrationArgs:
 @pulumi.input_type
 class _NotificationIntegrationState:
     def __init__(__self__, *,
+                 aws_sns_external_id: Optional[pulumi.Input[str]] = None,
+                 aws_sns_iam_user_arn: Optional[pulumi.Input[str]] = None,
+                 aws_sns_role_arn: Optional[pulumi.Input[str]] = None,
+                 aws_sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  aws_sqs_arn: Optional[pulumi.Input[str]] = None,
                  aws_sqs_external_id: Optional[pulumi.Input[str]] = None,
                  aws_sqs_iam_user_arn: Optional[pulumi.Input[str]] = None,
@@ -201,6 +237,10 @@ class _NotificationIntegrationState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering NotificationIntegration resources.
+        :param pulumi.Input[str] aws_sns_external_id: The external ID that Snowflake will use when assuming the AWS role
+        :param pulumi.Input[str] aws_sns_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
+        :param pulumi.Input[str] aws_sns_role_arn: AWS IAM role ARN for notification integration to assume
+        :param pulumi.Input[str] aws_sns_topic_arn: AWS SNS Topic ARN for notification integration to connect to
         :param pulumi.Input[str] aws_sqs_arn: AWS SQS queue ARN for notification integration to connect to
         :param pulumi.Input[str] aws_sqs_external_id: The external ID that Snowflake will use when assuming the AWS role
         :param pulumi.Input[str] aws_sqs_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
@@ -210,9 +250,17 @@ class _NotificationIntegrationState:
         :param pulumi.Input[str] created_on: Date and time when the notification integration was created.
         :param pulumi.Input[str] direction: Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         :param pulumi.Input[str] gcp_pubsub_subscription_name: The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
-        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
+        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
         :param pulumi.Input[str] type: A type of integration
         """
+        if aws_sns_external_id is not None:
+            pulumi.set(__self__, "aws_sns_external_id", aws_sns_external_id)
+        if aws_sns_iam_user_arn is not None:
+            pulumi.set(__self__, "aws_sns_iam_user_arn", aws_sns_iam_user_arn)
+        if aws_sns_role_arn is not None:
+            pulumi.set(__self__, "aws_sns_role_arn", aws_sns_role_arn)
+        if aws_sns_topic_arn is not None:
+            pulumi.set(__self__, "aws_sns_topic_arn", aws_sns_topic_arn)
         if aws_sqs_arn is not None:
             pulumi.set(__self__, "aws_sqs_arn", aws_sqs_arn)
         if aws_sqs_external_id is not None:
@@ -241,6 +289,54 @@ class _NotificationIntegrationState:
             pulumi.set(__self__, "notification_provider", notification_provider)
         if type is not None:
             pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="awsSnsExternalId")
+    def aws_sns_external_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The external ID that Snowflake will use when assuming the AWS role
+        """
+        return pulumi.get(self, "aws_sns_external_id")
+
+    @aws_sns_external_id.setter
+    def aws_sns_external_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aws_sns_external_id", value)
+
+    @property
+    @pulumi.getter(name="awsSnsIamUserArn")
+    def aws_sns_iam_user_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Snowflake user that will attempt to assume the AWS role.
+        """
+        return pulumi.get(self, "aws_sns_iam_user_arn")
+
+    @aws_sns_iam_user_arn.setter
+    def aws_sns_iam_user_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aws_sns_iam_user_arn", value)
+
+    @property
+    @pulumi.getter(name="awsSnsRoleArn")
+    def aws_sns_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS IAM role ARN for notification integration to assume
+        """
+        return pulumi.get(self, "aws_sns_role_arn")
+
+    @aws_sns_role_arn.setter
+    def aws_sns_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aws_sns_role_arn", value)
+
+    @property
+    @pulumi.getter(name="awsSnsTopicArn")
+    def aws_sns_topic_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS SNS Topic ARN for notification integration to connect to
+        """
+        return pulumi.get(self, "aws_sns_topic_arn")
+
+    @aws_sns_topic_arn.setter
+    def aws_sns_topic_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aws_sns_topic_arn", value)
 
     @property
     @pulumi.getter(name="awsSqsArn")
@@ -381,7 +477,7 @@ class _NotificationIntegrationState:
     @pulumi.getter(name="notificationProvider")
     def notification_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
+        The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
         """
         return pulumi.get(self, "notification_provider")
 
@@ -407,6 +503,8 @@ class NotificationIntegration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 aws_sns_role_arn: Optional[pulumi.Input[str]] = None,
+                 aws_sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  aws_sqs_arn: Optional[pulumi.Input[str]] = None,
                  aws_sqs_role_arn: Optional[pulumi.Input[str]] = None,
                  azure_storage_queue_primary_uri: Optional[pulumi.Input[str]] = None,
@@ -427,6 +525,8 @@ class NotificationIntegration(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         integration = snowflake.NotificationIntegration("integration",
+            aws_sns_role_arn="...",
+            aws_sns_topic_arn="...",
             aws_sqs_arn="...",
             aws_sqs_role_arn="...",
             azure_storage_queue_primary_uri="...",
@@ -434,7 +534,7 @@ class NotificationIntegration(pulumi.CustomResource):
             comment="A notification integration.",
             direction="OUTBOUND",
             enabled=True,
-            notification_provider="AWS_SQS",
+            notification_provider="AWS_SNS",
             type="QUEUE")
         ```
 
@@ -446,13 +546,15 @@ class NotificationIntegration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] aws_sns_role_arn: AWS IAM role ARN for notification integration to assume
+        :param pulumi.Input[str] aws_sns_topic_arn: AWS SNS Topic ARN for notification integration to connect to
         :param pulumi.Input[str] aws_sqs_arn: AWS SQS queue ARN for notification integration to connect to
         :param pulumi.Input[str] aws_sqs_role_arn: AWS IAM role ARN for notification integration to assume
         :param pulumi.Input[str] azure_storage_queue_primary_uri: The queue ID for the Azure Queue Storage queue created for Event Grid notifications
         :param pulumi.Input[str] azure_tenant_id: The ID of the Azure Active Directory tenant used for identity management
         :param pulumi.Input[str] direction: Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         :param pulumi.Input[str] gcp_pubsub_subscription_name: The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
-        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
+        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
         :param pulumi.Input[str] type: A type of integration
         """
         ...
@@ -469,6 +571,8 @@ class NotificationIntegration(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         integration = snowflake.NotificationIntegration("integration",
+            aws_sns_role_arn="...",
+            aws_sns_topic_arn="...",
             aws_sqs_arn="...",
             aws_sqs_role_arn="...",
             azure_storage_queue_primary_uri="...",
@@ -476,7 +580,7 @@ class NotificationIntegration(pulumi.CustomResource):
             comment="A notification integration.",
             direction="OUTBOUND",
             enabled=True,
-            notification_provider="AWS_SQS",
+            notification_provider="AWS_SNS",
             type="QUEUE")
         ```
 
@@ -501,6 +605,8 @@ class NotificationIntegration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 aws_sns_role_arn: Optional[pulumi.Input[str]] = None,
+                 aws_sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  aws_sqs_arn: Optional[pulumi.Input[str]] = None,
                  aws_sqs_role_arn: Optional[pulumi.Input[str]] = None,
                  azure_storage_queue_primary_uri: Optional[pulumi.Input[str]] = None,
@@ -524,6 +630,8 @@ class NotificationIntegration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NotificationIntegrationArgs.__new__(NotificationIntegrationArgs)
 
+            __props__.__dict__["aws_sns_role_arn"] = aws_sns_role_arn
+            __props__.__dict__["aws_sns_topic_arn"] = aws_sns_topic_arn
             __props__.__dict__["aws_sqs_arn"] = aws_sqs_arn
             __props__.__dict__["aws_sqs_role_arn"] = aws_sqs_role_arn
             __props__.__dict__["azure_storage_queue_primary_uri"] = azure_storage_queue_primary_uri
@@ -535,6 +643,8 @@ class NotificationIntegration(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_provider"] = notification_provider
             __props__.__dict__["type"] = type
+            __props__.__dict__["aws_sns_external_id"] = None
+            __props__.__dict__["aws_sns_iam_user_arn"] = None
             __props__.__dict__["aws_sqs_external_id"] = None
             __props__.__dict__["aws_sqs_iam_user_arn"] = None
             __props__.__dict__["created_on"] = None
@@ -548,6 +658,10 @@ class NotificationIntegration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            aws_sns_external_id: Optional[pulumi.Input[str]] = None,
+            aws_sns_iam_user_arn: Optional[pulumi.Input[str]] = None,
+            aws_sns_role_arn: Optional[pulumi.Input[str]] = None,
+            aws_sns_topic_arn: Optional[pulumi.Input[str]] = None,
             aws_sqs_arn: Optional[pulumi.Input[str]] = None,
             aws_sqs_external_id: Optional[pulumi.Input[str]] = None,
             aws_sqs_iam_user_arn: Optional[pulumi.Input[str]] = None,
@@ -569,6 +683,10 @@ class NotificationIntegration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] aws_sns_external_id: The external ID that Snowflake will use when assuming the AWS role
+        :param pulumi.Input[str] aws_sns_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
+        :param pulumi.Input[str] aws_sns_role_arn: AWS IAM role ARN for notification integration to assume
+        :param pulumi.Input[str] aws_sns_topic_arn: AWS SNS Topic ARN for notification integration to connect to
         :param pulumi.Input[str] aws_sqs_arn: AWS SQS queue ARN for notification integration to connect to
         :param pulumi.Input[str] aws_sqs_external_id: The external ID that Snowflake will use when assuming the AWS role
         :param pulumi.Input[str] aws_sqs_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
@@ -578,13 +696,17 @@ class NotificationIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] created_on: Date and time when the notification integration was created.
         :param pulumi.Input[str] direction: Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         :param pulumi.Input[str] gcp_pubsub_subscription_name: The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
-        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
+        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
         :param pulumi.Input[str] type: A type of integration
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _NotificationIntegrationState.__new__(_NotificationIntegrationState)
 
+        __props__.__dict__["aws_sns_external_id"] = aws_sns_external_id
+        __props__.__dict__["aws_sns_iam_user_arn"] = aws_sns_iam_user_arn
+        __props__.__dict__["aws_sns_role_arn"] = aws_sns_role_arn
+        __props__.__dict__["aws_sns_topic_arn"] = aws_sns_topic_arn
         __props__.__dict__["aws_sqs_arn"] = aws_sqs_arn
         __props__.__dict__["aws_sqs_external_id"] = aws_sqs_external_id
         __props__.__dict__["aws_sqs_iam_user_arn"] = aws_sqs_iam_user_arn
@@ -600,6 +722,38 @@ class NotificationIntegration(pulumi.CustomResource):
         __props__.__dict__["notification_provider"] = notification_provider
         __props__.__dict__["type"] = type
         return NotificationIntegration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsSnsExternalId")
+    def aws_sns_external_id(self) -> pulumi.Output[str]:
+        """
+        The external ID that Snowflake will use when assuming the AWS role
+        """
+        return pulumi.get(self, "aws_sns_external_id")
+
+    @property
+    @pulumi.getter(name="awsSnsIamUserArn")
+    def aws_sns_iam_user_arn(self) -> pulumi.Output[str]:
+        """
+        The Snowflake user that will attempt to assume the AWS role.
+        """
+        return pulumi.get(self, "aws_sns_iam_user_arn")
+
+    @property
+    @pulumi.getter(name="awsSnsRoleArn")
+    def aws_sns_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        AWS IAM role ARN for notification integration to assume
+        """
+        return pulumi.get(self, "aws_sns_role_arn")
+
+    @property
+    @pulumi.getter(name="awsSnsTopicArn")
+    def aws_sns_topic_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        AWS SNS Topic ARN for notification integration to connect to
+        """
+        return pulumi.get(self, "aws_sns_topic_arn")
 
     @property
     @pulumi.getter(name="awsSqsArn")
@@ -692,7 +846,7 @@ class NotificationIntegration(pulumi.CustomResource):
     @pulumi.getter(name="notificationProvider")
     def notification_provider(self) -> pulumi.Output[Optional[str]]:
         """
-        The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS_SQS)
+        The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
         """
         return pulumi.get(self, "notification_provider")
 
