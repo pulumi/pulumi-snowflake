@@ -4859,7 +4859,8 @@
                     "description": "The ID of the Azure Active Directory tenant used for identity management\n"
                 },
                 "comment": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A comment for the integration\n"
                 },
                 "createdOn": {
                     "type": "string",
@@ -4922,7 +4923,8 @@
                     "description": "The ID of the Azure Active Directory tenant used for identity management\n"
                 },
                 "comment": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A comment for the integration\n"
                 },
                 "direction": {
                     "type": "string",
@@ -4991,7 +4993,8 @@
                         "description": "The ID of the Azure Active Directory tenant used for identity management\n"
                     },
                     "comment": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "A comment for the integration\n"
                     },
                     "createdOn": {
                         "type": "string",

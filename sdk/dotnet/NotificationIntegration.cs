@@ -108,6 +108,9 @@ namespace Pulumi.Snowflake
         [Output("azureTenantId")]
         public Output<string?> AzureTenantId { get; private set; } = null!;
 
+        /// <summary>
+        /// A comment for the integration
+        /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
@@ -229,6 +232,9 @@ namespace Pulumi.Snowflake
         [Input("azureTenantId")]
         public Input<string>? AzureTenantId { get; set; }
 
+        /// <summary>
+        /// A comment for the integration
+        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
@@ -329,6 +335,9 @@ namespace Pulumi.Snowflake
         [Input("azureTenantId")]
         public Input<string>? AzureTenantId { get; set; }
 
+        /// <summary>
+        /// A comment for the integration
+        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 

@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade terraform-provider-snowflake to v0.25.31
 
 ---
 

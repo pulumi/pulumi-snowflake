@@ -71,7 +71,8 @@ type NotificationIntegration struct {
 	AzureStorageQueuePrimaryUri pulumi.StringPtrOutput `pulumi:"azureStorageQueuePrimaryUri"`
 	// The ID of the Azure Active Directory tenant used for identity management
 	AzureTenantId pulumi.StringPtrOutput `pulumi:"azureTenantId"`
-	Comment       pulumi.StringPtrOutput `pulumi:"comment"`
+	// A comment for the integration
+	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Date and time when the notification integration was created.
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
 	// Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
@@ -135,7 +136,8 @@ type notificationIntegrationState struct {
 	AzureStorageQueuePrimaryUri *string `pulumi:"azureStorageQueuePrimaryUri"`
 	// The ID of the Azure Active Directory tenant used for identity management
 	AzureTenantId *string `pulumi:"azureTenantId"`
-	Comment       *string `pulumi:"comment"`
+	// A comment for the integration
+	Comment *string `pulumi:"comment"`
 	// Date and time when the notification integration was created.
 	CreatedOn *string `pulumi:"createdOn"`
 	// Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
@@ -171,7 +173,8 @@ type NotificationIntegrationState struct {
 	AzureStorageQueuePrimaryUri pulumi.StringPtrInput
 	// The ID of the Azure Active Directory tenant used for identity management
 	AzureTenantId pulumi.StringPtrInput
-	Comment       pulumi.StringPtrInput
+	// A comment for the integration
+	Comment pulumi.StringPtrInput
 	// Date and time when the notification integration was created.
 	CreatedOn pulumi.StringPtrInput
 	// Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
@@ -203,7 +206,8 @@ type notificationIntegrationArgs struct {
 	AzureStorageQueuePrimaryUri *string `pulumi:"azureStorageQueuePrimaryUri"`
 	// The ID of the Azure Active Directory tenant used for identity management
 	AzureTenantId *string `pulumi:"azureTenantId"`
-	Comment       *string `pulumi:"comment"`
+	// A comment for the integration
+	Comment *string `pulumi:"comment"`
 	// Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
 	Direction *string `pulumi:"direction"`
 	Enabled   *bool   `pulumi:"enabled"`
@@ -230,7 +234,8 @@ type NotificationIntegrationArgs struct {
 	AzureStorageQueuePrimaryUri pulumi.StringPtrInput
 	// The ID of the Azure Active Directory tenant used for identity management
 	AzureTenantId pulumi.StringPtrInput
-	Comment       pulumi.StringPtrInput
+	// A comment for the integration
+	Comment pulumi.StringPtrInput
 	// Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
 	Direction pulumi.StringPtrInput
 	Enabled   pulumi.BoolPtrInput
