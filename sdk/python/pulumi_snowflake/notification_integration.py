@@ -34,6 +34,7 @@ class NotificationIntegrationArgs:
         :param pulumi.Input[str] aws_sqs_role_arn: AWS IAM role ARN for notification integration to assume
         :param pulumi.Input[str] azure_storage_queue_primary_uri: The queue ID for the Azure Queue Storage queue created for Event Grid notifications
         :param pulumi.Input[str] azure_tenant_id: The ID of the Azure Active Directory tenant used for identity management
+        :param pulumi.Input[str] comment: A comment for the integration
         :param pulumi.Input[str] direction: Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         :param pulumi.Input[str] gcp_pubsub_subscription_name: The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
         :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
@@ -141,6 +142,9 @@ class NotificationIntegrationArgs:
     @property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[str]]:
+        """
+        A comment for the integration
+        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -247,6 +251,7 @@ class _NotificationIntegrationState:
         :param pulumi.Input[str] aws_sqs_role_arn: AWS IAM role ARN for notification integration to assume
         :param pulumi.Input[str] azure_storage_queue_primary_uri: The queue ID for the Azure Queue Storage queue created for Event Grid notifications
         :param pulumi.Input[str] azure_tenant_id: The ID of the Azure Active Directory tenant used for identity management
+        :param pulumi.Input[str] comment: A comment for the integration
         :param pulumi.Input[str] created_on: Date and time when the notification integration was created.
         :param pulumi.Input[str] direction: Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         :param pulumi.Input[str] gcp_pubsub_subscription_name: The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
@@ -413,6 +418,9 @@ class _NotificationIntegrationState:
     @property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[str]]:
+        """
+        A comment for the integration
+        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -552,6 +560,7 @@ class NotificationIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] aws_sqs_role_arn: AWS IAM role ARN for notification integration to assume
         :param pulumi.Input[str] azure_storage_queue_primary_uri: The queue ID for the Azure Queue Storage queue created for Event Grid notifications
         :param pulumi.Input[str] azure_tenant_id: The ID of the Azure Active Directory tenant used for identity management
+        :param pulumi.Input[str] comment: A comment for the integration
         :param pulumi.Input[str] direction: Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         :param pulumi.Input[str] gcp_pubsub_subscription_name: The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
         :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
@@ -693,6 +702,7 @@ class NotificationIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] aws_sqs_role_arn: AWS IAM role ARN for notification integration to assume
         :param pulumi.Input[str] azure_storage_queue_primary_uri: The queue ID for the Azure Queue Storage queue created for Event Grid notifications
         :param pulumi.Input[str] azure_tenant_id: The ID of the Azure Active Directory tenant used for identity management
+        :param pulumi.Input[str] comment: A comment for the integration
         :param pulumi.Input[str] created_on: Date and time when the notification integration was created.
         :param pulumi.Input[str] direction: Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         :param pulumi.Input[str] gcp_pubsub_subscription_name: The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
@@ -806,6 +816,9 @@ class NotificationIntegration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[str]]:
+        """
+        A comment for the integration
+        """
         return pulumi.get(self, "comment")
 
     @property

@@ -100,6 +100,9 @@ export class NotificationIntegration extends pulumi.CustomResource {
      * The ID of the Azure Active Directory tenant used for identity management
      */
     public readonly azureTenantId!: pulumi.Output<string | undefined>;
+    /**
+     * A comment for the integration
+     */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
      * Date and time when the notification integration was created.
@@ -227,6 +230,9 @@ export interface NotificationIntegrationState {
      * The ID of the Azure Active Directory tenant used for identity management
      */
     azureTenantId?: pulumi.Input<string>;
+    /**
+     * A comment for the integration
+     */
     comment?: pulumi.Input<string>;
     /**
      * Date and time when the notification integration was created.
@@ -280,6 +286,9 @@ export interface NotificationIntegrationArgs {
      * The ID of the Azure Active Directory tenant used for identity management
      */
     azureTenantId?: pulumi.Input<string>;
+    /**
+     * A comment for the integration
+     */
     comment?: pulumi.Input<string>;
     /**
      * Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
