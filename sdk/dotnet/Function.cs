@@ -31,6 +31,18 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
+        /// the handler method for Java function.
+        /// </summary>
+        [Output("handler")]
+        public Output<string?> Handler { get; private set; } = null!;
+
+        /// <summary>
+        /// jar files to import for Java function.
+        /// </summary>
+        [Output("imports")]
+        public Output<ImmutableArray<string>> Imports { get; private set; } = null!;
+
+        /// <summary>
         /// The language of the statement
         /// </summary>
         [Output("language")]
@@ -71,6 +83,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("statement")]
         public Output<string> Statement { get; private set; } = null!;
+
+        /// <summary>
+        /// the target path for compiled jar file for Java function.
+        /// </summary>
+        [Output("targetPath")]
+        public Output<string?> TargetPath { get; private set; } = null!;
 
 
         /// <summary>
@@ -143,6 +161,24 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
+        /// the handler method for Java function.
+        /// </summary>
+        [Input("handler")]
+        public Input<string>? Handler { get; set; }
+
+        [Input("imports")]
+        private InputList<string>? _imports;
+
+        /// <summary>
+        /// jar files to import for Java function.
+        /// </summary>
+        public InputList<string> Imports
+        {
+            get => _imports ?? (_imports = new InputList<string>());
+            set => _imports = value;
+        }
+
+        /// <summary>
         /// The language of the statement
         /// </summary>
         [Input("language")]
@@ -184,6 +220,12 @@ namespace Pulumi.Snowflake
         [Input("statement", required: true)]
         public Input<string> Statement { get; set; } = null!;
 
+        /// <summary>
+        /// the target path for compiled jar file for Java function.
+        /// </summary>
+        [Input("targetPath")]
+        public Input<string>? TargetPath { get; set; }
+
         public FunctionArgs()
         {
         }
@@ -214,6 +256,24 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
+
+        /// <summary>
+        /// the handler method for Java function.
+        /// </summary>
+        [Input("handler")]
+        public Input<string>? Handler { get; set; }
+
+        [Input("imports")]
+        private InputList<string>? _imports;
+
+        /// <summary>
+        /// jar files to import for Java function.
+        /// </summary>
+        public InputList<string> Imports
+        {
+            get => _imports ?? (_imports = new InputList<string>());
+            set => _imports = value;
+        }
 
         /// <summary>
         /// The language of the statement
@@ -256,6 +316,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("statement")]
         public Input<string>? Statement { get; set; }
+
+        /// <summary>
+        /// the target path for compiled jar file for Java function.
+        /// </summary>
+        [Input("targetPath")]
+        public Input<string>? TargetPath { get; set; }
 
         public FunctionState()
         {

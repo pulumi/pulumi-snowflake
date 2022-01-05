@@ -3666,6 +3666,17 @@
                     "type": "string",
                     "description": "The database in which to create the function. Don't use the | character.\n"
                 },
+                "handler": {
+                    "type": "string",
+                    "description": "the handler method for Java function.\n"
+                },
+                "imports": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "jar files to import for Java function.\n"
+                },
                 "language": {
                     "type": "string",
                     "description": "The language of the statement\n"
@@ -3693,6 +3704,10 @@
                 "statement": {
                     "type": "string",
                     "description": "Specifies the javascript / java / sql code used to create the function.\n"
+                },
+                "targetPath": {
+                    "type": "string",
+                    "description": "the target path for compiled jar file for Java function.\n"
                 }
             },
             "required": [
@@ -3718,6 +3733,17 @@
                     "type": "string",
                     "description": "The database in which to create the function. Don't use the | character.\n"
                 },
+                "handler": {
+                    "type": "string",
+                    "description": "the handler method for Java function.\n"
+                },
+                "imports": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "jar files to import for Java function.\n"
+                },
                 "language": {
                     "type": "string",
                     "description": "The language of the statement\n"
@@ -3745,6 +3771,10 @@
                 "statement": {
                     "type": "string",
                     "description": "Specifies the javascript / java / sql code used to create the function.\n"
+                },
+                "targetPath": {
+                    "type": "string",
+                    "description": "the target path for compiled jar file for Java function.\n"
                 }
             },
             "requiredInputs": [
@@ -3770,6 +3800,17 @@
                     "database": {
                         "type": "string",
                         "description": "The database in which to create the function. Don't use the | character.\n"
+                    },
+                    "handler": {
+                        "type": "string",
+                        "description": "the handler method for Java function.\n"
+                    },
+                    "imports": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "jar files to import for Java function.\n"
                     },
                     "language": {
                         "type": "string",
@@ -3798,6 +3839,10 @@
                     "statement": {
                         "type": "string",
                         "description": "Specifies the javascript / java / sql code used to create the function.\n"
+                    },
+                    "targetPath": {
+                        "type": "string",
+                        "description": "the target path for compiled jar file for Java function.\n"
                     }
                 },
                 "type": "object"

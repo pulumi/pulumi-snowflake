@@ -20,6 +20,10 @@ type Function struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The database in which to create the function. Don't use the | character.
 	Database pulumi.StringOutput `pulumi:"database"`
+	// the handler method for Java function.
+	Handler pulumi.StringPtrOutput `pulumi:"handler"`
+	// jar files to import for Java function.
+	Imports pulumi.StringArrayOutput `pulumi:"imports"`
 	// The language of the statement
 	Language pulumi.StringPtrOutput `pulumi:"language"`
 	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
@@ -34,6 +38,8 @@ type Function struct {
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Specifies the javascript / java / sql code used to create the function.
 	Statement pulumi.StringOutput `pulumi:"statement"`
+	// the target path for compiled jar file for Java function.
+	TargetPath pulumi.StringPtrOutput `pulumi:"targetPath"`
 }
 
 // NewFunction registers a new resource with the given unique name, arguments, and options.
@@ -83,6 +89,10 @@ type functionState struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the function. Don't use the | character.
 	Database *string `pulumi:"database"`
+	// the handler method for Java function.
+	Handler *string `pulumi:"handler"`
+	// jar files to import for Java function.
+	Imports []string `pulumi:"imports"`
 	// The language of the statement
 	Language *string `pulumi:"language"`
 	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
@@ -97,6 +107,8 @@ type functionState struct {
 	Schema *string `pulumi:"schema"`
 	// Specifies the javascript / java / sql code used to create the function.
 	Statement *string `pulumi:"statement"`
+	// the target path for compiled jar file for Java function.
+	TargetPath *string `pulumi:"targetPath"`
 }
 
 type FunctionState struct {
@@ -106,6 +118,10 @@ type FunctionState struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the function. Don't use the | character.
 	Database pulumi.StringPtrInput
+	// the handler method for Java function.
+	Handler pulumi.StringPtrInput
+	// jar files to import for Java function.
+	Imports pulumi.StringArrayInput
 	// The language of the statement
 	Language pulumi.StringPtrInput
 	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
@@ -120,6 +136,8 @@ type FunctionState struct {
 	Schema pulumi.StringPtrInput
 	// Specifies the javascript / java / sql code used to create the function.
 	Statement pulumi.StringPtrInput
+	// the target path for compiled jar file for Java function.
+	TargetPath pulumi.StringPtrInput
 }
 
 func (FunctionState) ElementType() reflect.Type {
@@ -133,6 +151,10 @@ type functionArgs struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the function. Don't use the | character.
 	Database string `pulumi:"database"`
+	// the handler method for Java function.
+	Handler *string `pulumi:"handler"`
+	// jar files to import for Java function.
+	Imports []string `pulumi:"imports"`
 	// The language of the statement
 	Language *string `pulumi:"language"`
 	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
@@ -147,6 +169,8 @@ type functionArgs struct {
 	Schema string `pulumi:"schema"`
 	// Specifies the javascript / java / sql code used to create the function.
 	Statement string `pulumi:"statement"`
+	// the target path for compiled jar file for Java function.
+	TargetPath *string `pulumi:"targetPath"`
 }
 
 // The set of arguments for constructing a Function resource.
@@ -157,6 +181,10 @@ type FunctionArgs struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the function. Don't use the | character.
 	Database pulumi.StringInput
+	// the handler method for Java function.
+	Handler pulumi.StringPtrInput
+	// jar files to import for Java function.
+	Imports pulumi.StringArrayInput
 	// The language of the statement
 	Language pulumi.StringPtrInput
 	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
@@ -171,6 +199,8 @@ type FunctionArgs struct {
 	Schema pulumi.StringInput
 	// Specifies the javascript / java / sql code used to create the function.
 	Statement pulumi.StringInput
+	// the target path for compiled jar file for Java function.
+	TargetPath pulumi.StringPtrInput
 }
 
 func (FunctionArgs) ElementType() reflect.Type {

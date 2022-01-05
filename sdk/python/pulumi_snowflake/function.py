@@ -21,10 +21,13 @@ class FunctionArgs:
                  statement: pulumi.Input[str],
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArgumentArgs']]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
+                 handler: Optional[pulumi.Input[str]] = None,
+                 imports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  language: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_input_behavior: Optional[pulumi.Input[str]] = None,
-                 return_behavior: Optional[pulumi.Input[str]] = None):
+                 return_behavior: Optional[pulumi.Input[str]] = None,
+                 target_path: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Function resource.
         :param pulumi.Input[str] database: The database in which to create the function. Don't use the | character.
@@ -33,10 +36,13 @@ class FunctionArgs:
         :param pulumi.Input[str] statement: Specifies the javascript / java / sql code used to create the function.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionArgumentArgs']]] arguments: List of the arguments for the function
         :param pulumi.Input[str] comment: Specifies a comment for the function.
+        :param pulumi.Input[str] handler: the handler method for Java function.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: jar files to import for Java function.
         :param pulumi.Input[str] language: The language of the statement
         :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
+        :param pulumi.Input[str] target_path: the target path for compiled jar file for Java function.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "return_type", return_type)
@@ -46,6 +52,10 @@ class FunctionArgs:
             pulumi.set(__self__, "arguments", arguments)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if handler is not None:
+            pulumi.set(__self__, "handler", handler)
+        if imports is not None:
+            pulumi.set(__self__, "imports", imports)
         if language is not None:
             pulumi.set(__self__, "language", language)
         if name is not None:
@@ -54,6 +64,8 @@ class FunctionArgs:
             pulumi.set(__self__, "null_input_behavior", null_input_behavior)
         if return_behavior is not None:
             pulumi.set(__self__, "return_behavior", return_behavior)
+        if target_path is not None:
+            pulumi.set(__self__, "target_path", target_path)
 
     @property
     @pulumi.getter
@@ -129,6 +141,30 @@ class FunctionArgs:
 
     @property
     @pulumi.getter
+    def handler(self) -> Optional[pulumi.Input[str]]:
+        """
+        the handler method for Java function.
+        """
+        return pulumi.get(self, "handler")
+
+    @handler.setter
+    def handler(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "handler", value)
+
+    @property
+    @pulumi.getter
+    def imports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        jar files to import for Java function.
+        """
+        return pulumi.get(self, "imports")
+
+    @imports.setter
+    def imports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "imports", value)
+
+    @property
+    @pulumi.getter
     def language(self) -> Optional[pulumi.Input[str]]:
         """
         The language of the statement
@@ -175,6 +211,18 @@ class FunctionArgs:
     def return_behavior(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "return_behavior", value)
 
+    @property
+    @pulumi.getter(name="targetPath")
+    def target_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        the target path for compiled jar file for Java function.
+        """
+        return pulumi.get(self, "target_path")
+
+    @target_path.setter
+    def target_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_path", value)
+
 
 @pulumi.input_type
 class _FunctionState:
@@ -182,18 +230,23 @@ class _FunctionState:
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArgumentArgs']]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 handler: Optional[pulumi.Input[str]] = None,
+                 imports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  language: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_input_behavior: Optional[pulumi.Input[str]] = None,
                  return_behavior: Optional[pulumi.Input[str]] = None,
                  return_type: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
-                 statement: Optional[pulumi.Input[str]] = None):
+                 statement: Optional[pulumi.Input[str]] = None,
+                 target_path: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Function resources.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionArgumentArgs']]] arguments: List of the arguments for the function
         :param pulumi.Input[str] comment: Specifies a comment for the function.
         :param pulumi.Input[str] database: The database in which to create the function. Don't use the | character.
+        :param pulumi.Input[str] handler: the handler method for Java function.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: jar files to import for Java function.
         :param pulumi.Input[str] language: The language of the statement
         :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
@@ -201,6 +254,7 @@ class _FunctionState:
         :param pulumi.Input[str] return_type: The return type of the function
         :param pulumi.Input[str] schema: The schema in which to create the function. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the javascript / java / sql code used to create the function.
+        :param pulumi.Input[str] target_path: the target path for compiled jar file for Java function.
         """
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
@@ -208,6 +262,10 @@ class _FunctionState:
             pulumi.set(__self__, "comment", comment)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if handler is not None:
+            pulumi.set(__self__, "handler", handler)
+        if imports is not None:
+            pulumi.set(__self__, "imports", imports)
         if language is not None:
             pulumi.set(__self__, "language", language)
         if name is not None:
@@ -222,6 +280,8 @@ class _FunctionState:
             pulumi.set(__self__, "schema", schema)
         if statement is not None:
             pulumi.set(__self__, "statement", statement)
+        if target_path is not None:
+            pulumi.set(__self__, "target_path", target_path)
 
     @property
     @pulumi.getter
@@ -258,6 +318,30 @@ class _FunctionState:
     @database.setter
     def database(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def handler(self) -> Optional[pulumi.Input[str]]:
+        """
+        the handler method for Java function.
+        """
+        return pulumi.get(self, "handler")
+
+    @handler.setter
+    def handler(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "handler", value)
+
+    @property
+    @pulumi.getter
+    def imports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        jar files to import for Java function.
+        """
+        return pulumi.get(self, "imports")
+
+    @imports.setter
+    def imports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "imports", value)
 
     @property
     @pulumi.getter
@@ -343,6 +427,18 @@ class _FunctionState:
     def statement(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "statement", value)
 
+    @property
+    @pulumi.getter(name="targetPath")
+    def target_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        the target path for compiled jar file for Java function.
+        """
+        return pulumi.get(self, "target_path")
+
+    @target_path.setter
+    def target_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_path", value)
+
 
 class Function(pulumi.CustomResource):
     @overload
@@ -352,6 +448,8 @@ class Function(pulumi.CustomResource):
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionArgumentArgs']]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 handler: Optional[pulumi.Input[str]] = None,
+                 imports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  language: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_input_behavior: Optional[pulumi.Input[str]] = None,
@@ -359,6 +457,7 @@ class Function(pulumi.CustomResource):
                  return_type: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  statement: Optional[pulumi.Input[str]] = None,
+                 target_path: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Create a Function resource with the given unique name, props, and options.
@@ -367,6 +466,8 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionArgumentArgs']]]] arguments: List of the arguments for the function
         :param pulumi.Input[str] comment: Specifies a comment for the function.
         :param pulumi.Input[str] database: The database in which to create the function. Don't use the | character.
+        :param pulumi.Input[str] handler: the handler method for Java function.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: jar files to import for Java function.
         :param pulumi.Input[str] language: The language of the statement
         :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
@@ -374,6 +475,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] return_type: The return type of the function
         :param pulumi.Input[str] schema: The schema in which to create the function. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the javascript / java / sql code used to create the function.
+        :param pulumi.Input[str] target_path: the target path for compiled jar file for Java function.
         """
         ...
     @overload
@@ -401,6 +503,8 @@ class Function(pulumi.CustomResource):
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionArgumentArgs']]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 handler: Optional[pulumi.Input[str]] = None,
+                 imports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  language: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_input_behavior: Optional[pulumi.Input[str]] = None,
@@ -408,6 +512,7 @@ class Function(pulumi.CustomResource):
                  return_type: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  statement: Optional[pulumi.Input[str]] = None,
+                 target_path: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -425,6 +530,8 @@ class Function(pulumi.CustomResource):
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
+            __props__.__dict__["handler"] = handler
+            __props__.__dict__["imports"] = imports
             __props__.__dict__["language"] = language
             __props__.__dict__["name"] = name
             __props__.__dict__["null_input_behavior"] = null_input_behavior
@@ -438,6 +545,7 @@ class Function(pulumi.CustomResource):
             if statement is None and not opts.urn:
                 raise TypeError("Missing required property 'statement'")
             __props__.__dict__["statement"] = statement
+            __props__.__dict__["target_path"] = target_path
         super(Function, __self__).__init__(
             'snowflake:index/function:Function',
             resource_name,
@@ -451,13 +559,16 @@ class Function(pulumi.CustomResource):
             arguments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionArgumentArgs']]]]] = None,
             comment: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
+            handler: Optional[pulumi.Input[str]] = None,
+            imports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             language: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             null_input_behavior: Optional[pulumi.Input[str]] = None,
             return_behavior: Optional[pulumi.Input[str]] = None,
             return_type: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None,
-            statement: Optional[pulumi.Input[str]] = None) -> 'Function':
+            statement: Optional[pulumi.Input[str]] = None,
+            target_path: Optional[pulumi.Input[str]] = None) -> 'Function':
         """
         Get an existing Function resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -468,6 +579,8 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionArgumentArgs']]]] arguments: List of the arguments for the function
         :param pulumi.Input[str] comment: Specifies a comment for the function.
         :param pulumi.Input[str] database: The database in which to create the function. Don't use the | character.
+        :param pulumi.Input[str] handler: the handler method for Java function.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: jar files to import for Java function.
         :param pulumi.Input[str] language: The language of the statement
         :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
@@ -475,6 +588,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] return_type: The return type of the function
         :param pulumi.Input[str] schema: The schema in which to create the function. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the javascript / java / sql code used to create the function.
+        :param pulumi.Input[str] target_path: the target path for compiled jar file for Java function.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -483,6 +597,8 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["arguments"] = arguments
         __props__.__dict__["comment"] = comment
         __props__.__dict__["database"] = database
+        __props__.__dict__["handler"] = handler
+        __props__.__dict__["imports"] = imports
         __props__.__dict__["language"] = language
         __props__.__dict__["name"] = name
         __props__.__dict__["null_input_behavior"] = null_input_behavior
@@ -490,6 +606,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["return_type"] = return_type
         __props__.__dict__["schema"] = schema
         __props__.__dict__["statement"] = statement
+        __props__.__dict__["target_path"] = target_path
         return Function(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -515,6 +632,22 @@ class Function(pulumi.CustomResource):
         The database in which to create the function. Don't use the | character.
         """
         return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def handler(self) -> pulumi.Output[Optional[str]]:
+        """
+        the handler method for Java function.
+        """
+        return pulumi.get(self, "handler")
+
+    @property
+    @pulumi.getter
+    def imports(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        jar files to import for Java function.
+        """
+        return pulumi.get(self, "imports")
 
     @property
     @pulumi.getter
@@ -571,4 +704,12 @@ class Function(pulumi.CustomResource):
         Specifies the javascript / java / sql code used to create the function.
         """
         return pulumi.get(self, "statement")
+
+    @property
+    @pulumi.getter(name="targetPath")
+    def target_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        the target path for compiled jar file for Java function.
+        """
+        return pulumi.get(self, "target_path")
 
