@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade terraform-provider-snowflake to v0.25.32
+_(none)_
 
 ---
+
+## 0.3.5 (2022-01-05)
+* Upgrade terraform-provider-snowflake to v0.25.32
 
 ## 0.3.4 (2021-12-30)
 * Upgrade terraform-provider-snowflake to v0.25.31
