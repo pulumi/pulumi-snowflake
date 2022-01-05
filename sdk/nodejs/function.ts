@@ -46,6 +46,14 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
+     * the handler method for Java function.
+     */
+    public readonly handler!: pulumi.Output<string | undefined>;
+    /**
+     * jar files to import for Java function.
+     */
+    public readonly imports!: pulumi.Output<string[] | undefined>;
+    /**
      * The language of the statement
      */
     public readonly language!: pulumi.Output<string | undefined>;
@@ -73,6 +81,10 @@ export class Function extends pulumi.CustomResource {
      * Specifies the javascript / java / sql code used to create the function.
      */
     public readonly statement!: pulumi.Output<string>;
+    /**
+     * the target path for compiled jar file for Java function.
+     */
+    public readonly targetPath!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Function resource with the given unique name, arguments, and options.
@@ -90,6 +102,8 @@ export class Function extends pulumi.CustomResource {
             inputs["arguments"] = state ? state.arguments : undefined;
             inputs["comment"] = state ? state.comment : undefined;
             inputs["database"] = state ? state.database : undefined;
+            inputs["handler"] = state ? state.handler : undefined;
+            inputs["imports"] = state ? state.imports : undefined;
             inputs["language"] = state ? state.language : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["nullInputBehavior"] = state ? state.nullInputBehavior : undefined;
@@ -97,6 +111,7 @@ export class Function extends pulumi.CustomResource {
             inputs["returnType"] = state ? state.returnType : undefined;
             inputs["schema"] = state ? state.schema : undefined;
             inputs["statement"] = state ? state.statement : undefined;
+            inputs["targetPath"] = state ? state.targetPath : undefined;
         } else {
             const args = argsOrState as FunctionArgs | undefined;
             if ((!args || args.database === undefined) && !opts.urn) {
@@ -114,6 +129,8 @@ export class Function extends pulumi.CustomResource {
             inputs["arguments"] = args ? args.arguments : undefined;
             inputs["comment"] = args ? args.comment : undefined;
             inputs["database"] = args ? args.database : undefined;
+            inputs["handler"] = args ? args.handler : undefined;
+            inputs["imports"] = args ? args.imports : undefined;
             inputs["language"] = args ? args.language : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["nullInputBehavior"] = args ? args.nullInputBehavior : undefined;
@@ -121,6 +138,7 @@ export class Function extends pulumi.CustomResource {
             inputs["returnType"] = args ? args.returnType : undefined;
             inputs["schema"] = args ? args.schema : undefined;
             inputs["statement"] = args ? args.statement : undefined;
+            inputs["targetPath"] = args ? args.targetPath : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -145,6 +163,14 @@ export interface FunctionState {
      * The database in which to create the function. Don't use the | character.
      */
     database?: pulumi.Input<string>;
+    /**
+     * the handler method for Java function.
+     */
+    handler?: pulumi.Input<string>;
+    /**
+     * jar files to import for Java function.
+     */
+    imports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The language of the statement
      */
@@ -173,6 +199,10 @@ export interface FunctionState {
      * Specifies the javascript / java / sql code used to create the function.
      */
     statement?: pulumi.Input<string>;
+    /**
+     * the target path for compiled jar file for Java function.
+     */
+    targetPath?: pulumi.Input<string>;
 }
 
 /**
@@ -191,6 +221,14 @@ export interface FunctionArgs {
      * The database in which to create the function. Don't use the | character.
      */
     database: pulumi.Input<string>;
+    /**
+     * the handler method for Java function.
+     */
+    handler?: pulumi.Input<string>;
+    /**
+     * jar files to import for Java function.
+     */
+    imports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The language of the statement
      */
@@ -219,4 +257,8 @@ export interface FunctionArgs {
      * Specifies the javascript / java / sql code used to create the function.
      */
     statement: pulumi.Input<string>;
+    /**
+     * the target path for compiled jar file for Java function.
+     */
+    targetPath?: pulumi.Input<string>;
 }
