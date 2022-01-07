@@ -28,7 +28,8 @@ builds:
   - -X github.com/pulumi/pulumi-snowflake/provider/pkg/version.Version={{.Tag}}
   main: ./cmd/pulumi-resource-snowflake/
 changelog:
-  skip: true
+  use: git
+  sort: asc
 release:
   disable: false
 snapshot:
