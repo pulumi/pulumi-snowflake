@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  *     database: "db",
  *     schema: "schema",
  *     warehouse: "warehouse",
- *     schedule: "10",
+ *     schedule: "10 MINUTE",
  *     sqlStatement: "select * from foo;",
  *     sessionParameters: {
  *         foo: "bar",
@@ -30,7 +30,7 @@ import * as utilities from "./utilities";
  *     comment: "my serverless task",
  *     database: "db",
  *     schema: "schema",
- *     schedule: "10",
+ *     schedule: "10 MINUTE",
  *     sqlStatement: "select * from foo;",
  *     sessionParameters: {
  *         foo: "bar",

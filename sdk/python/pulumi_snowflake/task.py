@@ -470,7 +470,7 @@ class Task(pulumi.CustomResource):
             database="db",
             schema="schema",
             warehouse="warehouse",
-            schedule="10",
+            schedule="10 MINUTE",
             sql_statement="select * from foo;",
             session_parameters={
                 "foo": "bar",
@@ -483,7 +483,7 @@ class Task(pulumi.CustomResource):
             comment="my serverless task",
             database="db",
             schema="schema",
-            schedule="10",
+            schedule="10 MINUTE",
             sql_statement="select * from foo;",
             session_parameters={
                 "foo": "bar",
@@ -537,7 +537,7 @@ class Task(pulumi.CustomResource):
             database="db",
             schema="schema",
             warehouse="warehouse",
-            schedule="10",
+            schedule="10 MINUTE",
             sql_statement="select * from foo;",
             session_parameters={
                 "foo": "bar",
@@ -550,7 +550,7 @@ class Task(pulumi.CustomResource):
             comment="my serverless task",
             database="db",
             schema="schema",
-            schedule="10",
+            schedule="10 MINUTE",
             sql_statement="select * from foo;",
             session_parameters={
                 "foo": "bar",

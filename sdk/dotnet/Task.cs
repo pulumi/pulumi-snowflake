@@ -26,7 +26,7 @@ namespace Pulumi.Snowflake
     ///             Database = "db",
     ///             Schema = "schema",
     ///             Warehouse = "warehouse",
-    ///             Schedule = "10",
+    ///             Schedule = "10 MINUTE",
     ///             SqlStatement = "select * from foo;",
     ///             SessionParameters = 
     ///             {
@@ -42,7 +42,7 @@ namespace Pulumi.Snowflake
     ///             Comment = "my serverless task",
     ///             Database = "db",
     ///             Schema = "schema",
-    ///             Schedule = "10",
+    ///             Schedule = "10 MINUTE",
     ///             SqlStatement = "select * from foo;",
     ///             SessionParameters = 
     ///             {

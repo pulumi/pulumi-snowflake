@@ -28,7 +28,7 @@ import (
 // 			Database:     pulumi.String("db"),
 // 			Schema:       pulumi.String("schema"),
 // 			Warehouse:    pulumi.String("warehouse"),
-// 			Schedule:     pulumi.String("10"),
+// 			Schedule:     pulumi.String("10 MINUTE"),
 // 			SqlStatement: pulumi.String("select * from foo;"),
 // 			SessionParameters: pulumi.StringMap{
 // 				"foo": pulumi.String("bar"),
@@ -45,7 +45,7 @@ import (
 // 			Comment:      pulumi.String("my serverless task"),
 // 			Database:     pulumi.String("db"),
 // 			Schema:       pulumi.String("schema"),
-// 			Schedule:     pulumi.String("10"),
+// 			Schedule:     pulumi.String("10 MINUTE"),
 // 			SqlStatement: pulumi.String("select * from foo;"),
 // 			SessionParameters: pulumi.StringMap{
 // 				"foo": pulumi.String("bar"),
