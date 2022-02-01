@@ -17,7 +17,7 @@ env:
   SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
   SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
   TRAVIS_OS_NAME: linux
-  UPSTREAM_PROVIDER_ORG: pulumi
+  UPSTREAM_PROVIDER_ORG: chanzuckerberg
   UPSTREAM_PROVIDER_REPO: terraform-provider-snowflake
 jobs:
   update_upstream_provider:
