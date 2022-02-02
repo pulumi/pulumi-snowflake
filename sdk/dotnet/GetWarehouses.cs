@@ -33,7 +33,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetWarehousesResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWarehousesResult>("snowflake:index/getWarehouses:getWarehouses", InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWarehousesResult>("snowflake:index/getWarehouses:getWarehouses", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

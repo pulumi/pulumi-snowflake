@@ -66,16 +66,16 @@ export class MaskingPolicyGrant extends pulumi.CustomResource {
      */
     constructor(name: string, args: MaskingPolicyGrantArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MaskingPolicyGrantArgs | MaskingPolicyGrantState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MaskingPolicyGrantState | undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["maskingPolicyName"] = state ? state.maskingPolicyName : undefined;
-            inputs["privilege"] = state ? state.privilege : undefined;
-            inputs["roles"] = state ? state.roles : undefined;
-            inputs["schemaName"] = state ? state.schemaName : undefined;
-            inputs["withGrantOption"] = state ? state.withGrantOption : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["maskingPolicyName"] = state ? state.maskingPolicyName : undefined;
+            resourceInputs["privilege"] = state ? state.privilege : undefined;
+            resourceInputs["roles"] = state ? state.roles : undefined;
+            resourceInputs["schemaName"] = state ? state.schemaName : undefined;
+            resourceInputs["withGrantOption"] = state ? state.withGrantOption : undefined;
         } else {
             const args = argsOrState as MaskingPolicyGrantArgs | undefined;
             if ((!args || args.databaseName === undefined) && !opts.urn) {
@@ -87,17 +87,15 @@ export class MaskingPolicyGrant extends pulumi.CustomResource {
             if ((!args || args.schemaName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schemaName'");
             }
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["maskingPolicyName"] = args ? args.maskingPolicyName : undefined;
-            inputs["privilege"] = args ? args.privilege : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
-            inputs["schemaName"] = args ? args.schemaName : undefined;
-            inputs["withGrantOption"] = args ? args.withGrantOption : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["maskingPolicyName"] = args ? args.maskingPolicyName : undefined;
+            resourceInputs["privilege"] = args ? args.privilege : undefined;
+            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
+            resourceInputs["withGrantOption"] = args ? args.withGrantOption : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MaskingPolicyGrant.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MaskingPolicyGrant.__pulumiType, name, resourceInputs, opts);
     }
 }
 

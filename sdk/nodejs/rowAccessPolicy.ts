@@ -92,16 +92,16 @@ export class RowAccessPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: RowAccessPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RowAccessPolicyArgs | RowAccessPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RowAccessPolicyState | undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["database"] = state ? state.database : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["rowAccessExpression"] = state ? state.rowAccessExpression : undefined;
-            inputs["schema"] = state ? state.schema : undefined;
-            inputs["signature"] = state ? state.signature : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["rowAccessExpression"] = state ? state.rowAccessExpression : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["signature"] = state ? state.signature : undefined;
         } else {
             const args = argsOrState as RowAccessPolicyArgs | undefined;
             if ((!args || args.database === undefined) && !opts.urn) {
@@ -116,17 +116,15 @@ export class RowAccessPolicy extends pulumi.CustomResource {
             if ((!args || args.signature === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'signature'");
             }
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["database"] = args ? args.database : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["rowAccessExpression"] = args ? args.rowAccessExpression : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
-            inputs["signature"] = args ? args.signature : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["rowAccessExpression"] = args ? args.rowAccessExpression : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["signature"] = args ? args.signature : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RowAccessPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RowAccessPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

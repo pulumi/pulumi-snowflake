@@ -55,6 +55,7 @@ setup(name='pulumi_snowflake',
       package_data={
           'pulumi_snowflake': [
               'py.typed',
+              'pulumi-plugin.json',
           ]
       },
       install_requires=[

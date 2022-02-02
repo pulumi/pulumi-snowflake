@@ -79,23 +79,21 @@ export class AccountGrant extends pulumi.CustomResource {
      */
     constructor(name: string, args?: AccountGrantArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccountGrantArgs | AccountGrantState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountGrantState | undefined;
-            inputs["privilege"] = state ? state.privilege : undefined;
-            inputs["roles"] = state ? state.roles : undefined;
-            inputs["withGrantOption"] = state ? state.withGrantOption : undefined;
+            resourceInputs["privilege"] = state ? state.privilege : undefined;
+            resourceInputs["roles"] = state ? state.roles : undefined;
+            resourceInputs["withGrantOption"] = state ? state.withGrantOption : undefined;
         } else {
             const args = argsOrState as AccountGrantArgs | undefined;
-            inputs["privilege"] = args ? args.privilege : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
-            inputs["withGrantOption"] = args ? args.withGrantOption : undefined;
+            resourceInputs["privilege"] = args ? args.privilege : undefined;
+            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["withGrantOption"] = args ? args.withGrantOption : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AccountGrant.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AccountGrant.__pulumiType, name, resourceInputs, opts);
     }
 }
 

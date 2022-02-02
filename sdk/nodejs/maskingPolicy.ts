@@ -94,17 +94,17 @@ export class MaskingPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: MaskingPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MaskingPolicyArgs | MaskingPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MaskingPolicyState | undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["database"] = state ? state.database : undefined;
-            inputs["maskingExpression"] = state ? state.maskingExpression : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["returnDataType"] = state ? state.returnDataType : undefined;
-            inputs["schema"] = state ? state.schema : undefined;
-            inputs["valueDataType"] = state ? state.valueDataType : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["maskingExpression"] = state ? state.maskingExpression : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["returnDataType"] = state ? state.returnDataType : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["valueDataType"] = state ? state.valueDataType : undefined;
         } else {
             const args = argsOrState as MaskingPolicyArgs | undefined;
             if ((!args || args.database === undefined) && !opts.urn) {
@@ -122,18 +122,16 @@ export class MaskingPolicy extends pulumi.CustomResource {
             if ((!args || args.valueDataType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'valueDataType'");
             }
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["database"] = args ? args.database : undefined;
-            inputs["maskingExpression"] = args ? args.maskingExpression : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["returnDataType"] = args ? args.returnDataType : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
-            inputs["valueDataType"] = args ? args.valueDataType : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["maskingExpression"] = args ? args.maskingExpression : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["returnDataType"] = args ? args.returnDataType : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["valueDataType"] = args ? args.valueDataType : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MaskingPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MaskingPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

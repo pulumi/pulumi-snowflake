@@ -81,28 +81,26 @@ export class WarehouseGrant extends pulumi.CustomResource {
      */
     constructor(name: string, args: WarehouseGrantArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WarehouseGrantArgs | WarehouseGrantState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WarehouseGrantState | undefined;
-            inputs["privilege"] = state ? state.privilege : undefined;
-            inputs["roles"] = state ? state.roles : undefined;
-            inputs["warehouseName"] = state ? state.warehouseName : undefined;
-            inputs["withGrantOption"] = state ? state.withGrantOption : undefined;
+            resourceInputs["privilege"] = state ? state.privilege : undefined;
+            resourceInputs["roles"] = state ? state.roles : undefined;
+            resourceInputs["warehouseName"] = state ? state.warehouseName : undefined;
+            resourceInputs["withGrantOption"] = state ? state.withGrantOption : undefined;
         } else {
             const args = argsOrState as WarehouseGrantArgs | undefined;
             if ((!args || args.warehouseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'warehouseName'");
             }
-            inputs["privilege"] = args ? args.privilege : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
-            inputs["warehouseName"] = args ? args.warehouseName : undefined;
-            inputs["withGrantOption"] = args ? args.withGrantOption : undefined;
+            resourceInputs["privilege"] = args ? args.privilege : undefined;
+            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["warehouseName"] = args ? args.warehouseName : undefined;
+            resourceInputs["withGrantOption"] = args ? args.withGrantOption : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(WarehouseGrant.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(WarehouseGrant.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -142,26 +142,26 @@ export class ExternalFunction extends pulumi.CustomResource {
      */
     constructor(name: string, args: ExternalFunctionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ExternalFunctionArgs | ExternalFunctionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExternalFunctionState | undefined;
-            inputs["apiIntegration"] = state ? state.apiIntegration : undefined;
-            inputs["args"] = state ? state.args : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["compression"] = state ? state.compression : undefined;
-            inputs["contextHeaders"] = state ? state.contextHeaders : undefined;
-            inputs["createdOn"] = state ? state.createdOn : undefined;
-            inputs["database"] = state ? state.database : undefined;
-            inputs["headers"] = state ? state.headers : undefined;
-            inputs["maxBatchRows"] = state ? state.maxBatchRows : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["nullInputBehavior"] = state ? state.nullInputBehavior : undefined;
-            inputs["returnBehavior"] = state ? state.returnBehavior : undefined;
-            inputs["returnNullAllowed"] = state ? state.returnNullAllowed : undefined;
-            inputs["returnType"] = state ? state.returnType : undefined;
-            inputs["schema"] = state ? state.schema : undefined;
-            inputs["urlOfProxyAndResource"] = state ? state.urlOfProxyAndResource : undefined;
+            resourceInputs["apiIntegration"] = state ? state.apiIntegration : undefined;
+            resourceInputs["args"] = state ? state.args : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["compression"] = state ? state.compression : undefined;
+            resourceInputs["contextHeaders"] = state ? state.contextHeaders : undefined;
+            resourceInputs["createdOn"] = state ? state.createdOn : undefined;
+            resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["headers"] = state ? state.headers : undefined;
+            resourceInputs["maxBatchRows"] = state ? state.maxBatchRows : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nullInputBehavior"] = state ? state.nullInputBehavior : undefined;
+            resourceInputs["returnBehavior"] = state ? state.returnBehavior : undefined;
+            resourceInputs["returnNullAllowed"] = state ? state.returnNullAllowed : undefined;
+            resourceInputs["returnType"] = state ? state.returnType : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["urlOfProxyAndResource"] = state ? state.urlOfProxyAndResource : undefined;
         } else {
             const args = argsOrState as ExternalFunctionArgs | undefined;
             if ((!args || args.apiIntegration === undefined) && !opts.urn) {
@@ -182,27 +182,25 @@ export class ExternalFunction extends pulumi.CustomResource {
             if ((!args || args.urlOfProxyAndResource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'urlOfProxyAndResource'");
             }
-            inputs["apiIntegration"] = args ? args.apiIntegration : undefined;
-            inputs["args"] = args ? args.args : undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["compression"] = args ? args.compression : undefined;
-            inputs["contextHeaders"] = args ? args.contextHeaders : undefined;
-            inputs["database"] = args ? args.database : undefined;
-            inputs["headers"] = args ? args.headers : undefined;
-            inputs["maxBatchRows"] = args ? args.maxBatchRows : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["nullInputBehavior"] = args ? args.nullInputBehavior : undefined;
-            inputs["returnBehavior"] = args ? args.returnBehavior : undefined;
-            inputs["returnNullAllowed"] = args ? args.returnNullAllowed : undefined;
-            inputs["returnType"] = args ? args.returnType : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
-            inputs["urlOfProxyAndResource"] = args ? args.urlOfProxyAndResource : undefined;
-            inputs["createdOn"] = undefined /*out*/;
+            resourceInputs["apiIntegration"] = args ? args.apiIntegration : undefined;
+            resourceInputs["args"] = args ? args.args : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["compression"] = args ? args.compression : undefined;
+            resourceInputs["contextHeaders"] = args ? args.contextHeaders : undefined;
+            resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["headers"] = args ? args.headers : undefined;
+            resourceInputs["maxBatchRows"] = args ? args.maxBatchRows : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nullInputBehavior"] = args ? args.nullInputBehavior : undefined;
+            resourceInputs["returnBehavior"] = args ? args.returnBehavior : undefined;
+            resourceInputs["returnNullAllowed"] = args ? args.returnNullAllowed : undefined;
+            resourceInputs["returnType"] = args ? args.returnType : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["urlOfProxyAndResource"] = args ? args.urlOfProxyAndResource : undefined;
+            resourceInputs["createdOn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ExternalFunction.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ExternalFunction.__pulumiType, name, resourceInputs, opts);
     }
 }
 

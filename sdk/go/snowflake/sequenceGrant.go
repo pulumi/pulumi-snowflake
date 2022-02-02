@@ -188,7 +188,7 @@ type SequenceGrantInput interface {
 }
 
 func (*SequenceGrant) ElementType() reflect.Type {
-	return reflect.TypeOf((*SequenceGrant)(nil))
+	return reflect.TypeOf((**SequenceGrant)(nil)).Elem()
 }
 
 func (i *SequenceGrant) ToSequenceGrantOutput() SequenceGrantOutput {
@@ -197,35 +197,6 @@ func (i *SequenceGrant) ToSequenceGrantOutput() SequenceGrantOutput {
 
 func (i *SequenceGrant) ToSequenceGrantOutputWithContext(ctx context.Context) SequenceGrantOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SequenceGrantOutput)
-}
-
-func (i *SequenceGrant) ToSequenceGrantPtrOutput() SequenceGrantPtrOutput {
-	return i.ToSequenceGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *SequenceGrant) ToSequenceGrantPtrOutputWithContext(ctx context.Context) SequenceGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SequenceGrantPtrOutput)
-}
-
-type SequenceGrantPtrInput interface {
-	pulumi.Input
-
-	ToSequenceGrantPtrOutput() SequenceGrantPtrOutput
-	ToSequenceGrantPtrOutputWithContext(ctx context.Context) SequenceGrantPtrOutput
-}
-
-type sequenceGrantPtrType SequenceGrantArgs
-
-func (*sequenceGrantPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SequenceGrant)(nil))
-}
-
-func (i *sequenceGrantPtrType) ToSequenceGrantPtrOutput() SequenceGrantPtrOutput {
-	return i.ToSequenceGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *sequenceGrantPtrType) ToSequenceGrantPtrOutputWithContext(ctx context.Context) SequenceGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SequenceGrantPtrOutput)
 }
 
 // SequenceGrantArrayInput is an input type that accepts SequenceGrantArray and SequenceGrantArrayOutput values.
@@ -281,7 +252,7 @@ func (i SequenceGrantMap) ToSequenceGrantMapOutputWithContext(ctx context.Contex
 type SequenceGrantOutput struct{ *pulumi.OutputState }
 
 func (SequenceGrantOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SequenceGrant)(nil))
+	return reflect.TypeOf((**SequenceGrant)(nil)).Elem()
 }
 
 func (o SequenceGrantOutput) ToSequenceGrantOutput() SequenceGrantOutput {
@@ -292,44 +263,10 @@ func (o SequenceGrantOutput) ToSequenceGrantOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o SequenceGrantOutput) ToSequenceGrantPtrOutput() SequenceGrantPtrOutput {
-	return o.ToSequenceGrantPtrOutputWithContext(context.Background())
-}
-
-func (o SequenceGrantOutput) ToSequenceGrantPtrOutputWithContext(ctx context.Context) SequenceGrantPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SequenceGrant) *SequenceGrant {
-		return &v
-	}).(SequenceGrantPtrOutput)
-}
-
-type SequenceGrantPtrOutput struct{ *pulumi.OutputState }
-
-func (SequenceGrantPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SequenceGrant)(nil))
-}
-
-func (o SequenceGrantPtrOutput) ToSequenceGrantPtrOutput() SequenceGrantPtrOutput {
-	return o
-}
-
-func (o SequenceGrantPtrOutput) ToSequenceGrantPtrOutputWithContext(ctx context.Context) SequenceGrantPtrOutput {
-	return o
-}
-
-func (o SequenceGrantPtrOutput) Elem() SequenceGrantOutput {
-	return o.ApplyT(func(v *SequenceGrant) SequenceGrant {
-		if v != nil {
-			return *v
-		}
-		var ret SequenceGrant
-		return ret
-	}).(SequenceGrantOutput)
-}
-
 type SequenceGrantArrayOutput struct{ *pulumi.OutputState }
 
 func (SequenceGrantArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SequenceGrant)(nil))
+	return reflect.TypeOf((*[]*SequenceGrant)(nil)).Elem()
 }
 
 func (o SequenceGrantArrayOutput) ToSequenceGrantArrayOutput() SequenceGrantArrayOutput {
@@ -341,15 +278,15 @@ func (o SequenceGrantArrayOutput) ToSequenceGrantArrayOutputWithContext(ctx cont
 }
 
 func (o SequenceGrantArrayOutput) Index(i pulumi.IntInput) SequenceGrantOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SequenceGrant {
-		return vs[0].([]SequenceGrant)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SequenceGrant {
+		return vs[0].([]*SequenceGrant)[vs[1].(int)]
 	}).(SequenceGrantOutput)
 }
 
 type SequenceGrantMapOutput struct{ *pulumi.OutputState }
 
 func (SequenceGrantMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SequenceGrant)(nil))
+	return reflect.TypeOf((*map[string]*SequenceGrant)(nil)).Elem()
 }
 
 func (o SequenceGrantMapOutput) ToSequenceGrantMapOutput() SequenceGrantMapOutput {
@@ -361,18 +298,16 @@ func (o SequenceGrantMapOutput) ToSequenceGrantMapOutputWithContext(ctx context.
 }
 
 func (o SequenceGrantMapOutput) MapIndex(k pulumi.StringInput) SequenceGrantOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SequenceGrant {
-		return vs[0].(map[string]SequenceGrant)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SequenceGrant {
+		return vs[0].(map[string]*SequenceGrant)[vs[1].(string)]
 	}).(SequenceGrantOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SequenceGrantInput)(nil)).Elem(), &SequenceGrant{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SequenceGrantPtrInput)(nil)).Elem(), &SequenceGrant{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SequenceGrantArrayInput)(nil)).Elem(), SequenceGrantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SequenceGrantMapInput)(nil)).Elem(), SequenceGrantMap{})
 	pulumi.RegisterOutputType(SequenceGrantOutput{})
-	pulumi.RegisterOutputType(SequenceGrantPtrOutput{})
 	pulumi.RegisterOutputType(SequenceGrantArrayOutput{})
 	pulumi.RegisterOutputType(SequenceGrantMapOutput{})
 }

@@ -246,7 +246,7 @@ type WarehouseInput interface {
 }
 
 func (*Warehouse) ElementType() reflect.Type {
-	return reflect.TypeOf((*Warehouse)(nil))
+	return reflect.TypeOf((**Warehouse)(nil)).Elem()
 }
 
 func (i *Warehouse) ToWarehouseOutput() WarehouseOutput {
@@ -255,35 +255,6 @@ func (i *Warehouse) ToWarehouseOutput() WarehouseOutput {
 
 func (i *Warehouse) ToWarehouseOutputWithContext(ctx context.Context) WarehouseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WarehouseOutput)
-}
-
-func (i *Warehouse) ToWarehousePtrOutput() WarehousePtrOutput {
-	return i.ToWarehousePtrOutputWithContext(context.Background())
-}
-
-func (i *Warehouse) ToWarehousePtrOutputWithContext(ctx context.Context) WarehousePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WarehousePtrOutput)
-}
-
-type WarehousePtrInput interface {
-	pulumi.Input
-
-	ToWarehousePtrOutput() WarehousePtrOutput
-	ToWarehousePtrOutputWithContext(ctx context.Context) WarehousePtrOutput
-}
-
-type warehousePtrType WarehouseArgs
-
-func (*warehousePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Warehouse)(nil))
-}
-
-func (i *warehousePtrType) ToWarehousePtrOutput() WarehousePtrOutput {
-	return i.ToWarehousePtrOutputWithContext(context.Background())
-}
-
-func (i *warehousePtrType) ToWarehousePtrOutputWithContext(ctx context.Context) WarehousePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WarehousePtrOutput)
 }
 
 // WarehouseArrayInput is an input type that accepts WarehouseArray and WarehouseArrayOutput values.
@@ -339,7 +310,7 @@ func (i WarehouseMap) ToWarehouseMapOutputWithContext(ctx context.Context) Wareh
 type WarehouseOutput struct{ *pulumi.OutputState }
 
 func (WarehouseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Warehouse)(nil))
+	return reflect.TypeOf((**Warehouse)(nil)).Elem()
 }
 
 func (o WarehouseOutput) ToWarehouseOutput() WarehouseOutput {
@@ -350,44 +321,10 @@ func (o WarehouseOutput) ToWarehouseOutputWithContext(ctx context.Context) Wareh
 	return o
 }
 
-func (o WarehouseOutput) ToWarehousePtrOutput() WarehousePtrOutput {
-	return o.ToWarehousePtrOutputWithContext(context.Background())
-}
-
-func (o WarehouseOutput) ToWarehousePtrOutputWithContext(ctx context.Context) WarehousePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Warehouse) *Warehouse {
-		return &v
-	}).(WarehousePtrOutput)
-}
-
-type WarehousePtrOutput struct{ *pulumi.OutputState }
-
-func (WarehousePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Warehouse)(nil))
-}
-
-func (o WarehousePtrOutput) ToWarehousePtrOutput() WarehousePtrOutput {
-	return o
-}
-
-func (o WarehousePtrOutput) ToWarehousePtrOutputWithContext(ctx context.Context) WarehousePtrOutput {
-	return o
-}
-
-func (o WarehousePtrOutput) Elem() WarehouseOutput {
-	return o.ApplyT(func(v *Warehouse) Warehouse {
-		if v != nil {
-			return *v
-		}
-		var ret Warehouse
-		return ret
-	}).(WarehouseOutput)
-}
-
 type WarehouseArrayOutput struct{ *pulumi.OutputState }
 
 func (WarehouseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Warehouse)(nil))
+	return reflect.TypeOf((*[]*Warehouse)(nil)).Elem()
 }
 
 func (o WarehouseArrayOutput) ToWarehouseArrayOutput() WarehouseArrayOutput {
@@ -399,15 +336,15 @@ func (o WarehouseArrayOutput) ToWarehouseArrayOutputWithContext(ctx context.Cont
 }
 
 func (o WarehouseArrayOutput) Index(i pulumi.IntInput) WarehouseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Warehouse {
-		return vs[0].([]Warehouse)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Warehouse {
+		return vs[0].([]*Warehouse)[vs[1].(int)]
 	}).(WarehouseOutput)
 }
 
 type WarehouseMapOutput struct{ *pulumi.OutputState }
 
 func (WarehouseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Warehouse)(nil))
+	return reflect.TypeOf((*map[string]*Warehouse)(nil)).Elem()
 }
 
 func (o WarehouseMapOutput) ToWarehouseMapOutput() WarehouseMapOutput {
@@ -419,18 +356,16 @@ func (o WarehouseMapOutput) ToWarehouseMapOutputWithContext(ctx context.Context)
 }
 
 func (o WarehouseMapOutput) MapIndex(k pulumi.StringInput) WarehouseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Warehouse {
-		return vs[0].(map[string]Warehouse)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Warehouse {
+		return vs[0].(map[string]*Warehouse)[vs[1].(string)]
 	}).(WarehouseOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WarehouseInput)(nil)).Elem(), &Warehouse{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WarehousePtrInput)(nil)).Elem(), &Warehouse{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WarehouseArrayInput)(nil)).Elem(), WarehouseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WarehouseMapInput)(nil)).Elem(), WarehouseMap{})
 	pulumi.RegisterOutputType(WarehouseOutput{})
-	pulumi.RegisterOutputType(WarehousePtrOutput{})
 	pulumi.RegisterOutputType(WarehouseArrayOutput{})
 	pulumi.RegisterOutputType(WarehouseMapOutput{})
 }

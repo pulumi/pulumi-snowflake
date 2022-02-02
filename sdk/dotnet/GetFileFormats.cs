@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Snowflake
 {
@@ -38,7 +37,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetFileFormatsResult> InvokeAsync(GetFileFormatsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFileFormatsResult>("snowflake:index/getFileFormats:getFileFormats", args ?? new GetFileFormatsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFileFormatsResult>("snowflake:index/getFileFormats:getFileFormats", args ?? new GetFileFormatsArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -66,7 +65,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetFileFormatsResult> Invoke(GetFileFormatsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFileFormatsResult>("snowflake:index/getFileFormats:getFileFormats", args ?? new GetFileFormatsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetFileFormatsResult>("snowflake:index/getFileFormats:getFileFormats", args ?? new GetFileFormatsInvokeArgs(), options.WithDefaults());
     }
 
 

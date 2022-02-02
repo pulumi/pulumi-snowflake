@@ -104,19 +104,19 @@ export class Stream extends pulumi.CustomResource {
      */
     constructor(name: string, args: StreamArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StreamArgs | StreamState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StreamState | undefined;
-            inputs["appendOnly"] = state ? state.appendOnly : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["database"] = state ? state.database : undefined;
-            inputs["insertOnly"] = state ? state.insertOnly : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["onTable"] = state ? state.onTable : undefined;
-            inputs["owner"] = state ? state.owner : undefined;
-            inputs["schema"] = state ? state.schema : undefined;
-            inputs["showInitialRows"] = state ? state.showInitialRows : undefined;
+            resourceInputs["appendOnly"] = state ? state.appendOnly : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["insertOnly"] = state ? state.insertOnly : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["onTable"] = state ? state.onTable : undefined;
+            resourceInputs["owner"] = state ? state.owner : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["showInitialRows"] = state ? state.showInitialRows : undefined;
         } else {
             const args = argsOrState as StreamArgs | undefined;
             if ((!args || args.database === undefined) && !opts.urn) {
@@ -125,20 +125,18 @@ export class Stream extends pulumi.CustomResource {
             if ((!args || args.schema === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            inputs["appendOnly"] = args ? args.appendOnly : undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["database"] = args ? args.database : undefined;
-            inputs["insertOnly"] = args ? args.insertOnly : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["onTable"] = args ? args.onTable : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
-            inputs["showInitialRows"] = args ? args.showInitialRows : undefined;
-            inputs["owner"] = undefined /*out*/;
+            resourceInputs["appendOnly"] = args ? args.appendOnly : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["insertOnly"] = args ? args.insertOnly : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["onTable"] = args ? args.onTable : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["showInitialRows"] = args ? args.showInitialRows : undefined;
+            resourceInputs["owner"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Stream.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Stream.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -136,53 +136,51 @@ export class NotificationIntegration extends pulumi.CustomResource {
      */
     constructor(name: string, args?: NotificationIntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NotificationIntegrationArgs | NotificationIntegrationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotificationIntegrationState | undefined;
-            inputs["awsSnsExternalId"] = state ? state.awsSnsExternalId : undefined;
-            inputs["awsSnsIamUserArn"] = state ? state.awsSnsIamUserArn : undefined;
-            inputs["awsSnsRoleArn"] = state ? state.awsSnsRoleArn : undefined;
-            inputs["awsSnsTopicArn"] = state ? state.awsSnsTopicArn : undefined;
-            inputs["awsSqsArn"] = state ? state.awsSqsArn : undefined;
-            inputs["awsSqsExternalId"] = state ? state.awsSqsExternalId : undefined;
-            inputs["awsSqsIamUserArn"] = state ? state.awsSqsIamUserArn : undefined;
-            inputs["awsSqsRoleArn"] = state ? state.awsSqsRoleArn : undefined;
-            inputs["azureStorageQueuePrimaryUri"] = state ? state.azureStorageQueuePrimaryUri : undefined;
-            inputs["azureTenantId"] = state ? state.azureTenantId : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["createdOn"] = state ? state.createdOn : undefined;
-            inputs["direction"] = state ? state.direction : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["gcpPubsubSubscriptionName"] = state ? state.gcpPubsubSubscriptionName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notificationProvider"] = state ? state.notificationProvider : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["awsSnsExternalId"] = state ? state.awsSnsExternalId : undefined;
+            resourceInputs["awsSnsIamUserArn"] = state ? state.awsSnsIamUserArn : undefined;
+            resourceInputs["awsSnsRoleArn"] = state ? state.awsSnsRoleArn : undefined;
+            resourceInputs["awsSnsTopicArn"] = state ? state.awsSnsTopicArn : undefined;
+            resourceInputs["awsSqsArn"] = state ? state.awsSqsArn : undefined;
+            resourceInputs["awsSqsExternalId"] = state ? state.awsSqsExternalId : undefined;
+            resourceInputs["awsSqsIamUserArn"] = state ? state.awsSqsIamUserArn : undefined;
+            resourceInputs["awsSqsRoleArn"] = state ? state.awsSqsRoleArn : undefined;
+            resourceInputs["azureStorageQueuePrimaryUri"] = state ? state.azureStorageQueuePrimaryUri : undefined;
+            resourceInputs["azureTenantId"] = state ? state.azureTenantId : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["createdOn"] = state ? state.createdOn : undefined;
+            resourceInputs["direction"] = state ? state.direction : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["gcpPubsubSubscriptionName"] = state ? state.gcpPubsubSubscriptionName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notificationProvider"] = state ? state.notificationProvider : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as NotificationIntegrationArgs | undefined;
-            inputs["awsSnsRoleArn"] = args ? args.awsSnsRoleArn : undefined;
-            inputs["awsSnsTopicArn"] = args ? args.awsSnsTopicArn : undefined;
-            inputs["awsSqsArn"] = args ? args.awsSqsArn : undefined;
-            inputs["awsSqsRoleArn"] = args ? args.awsSqsRoleArn : undefined;
-            inputs["azureStorageQueuePrimaryUri"] = args ? args.azureStorageQueuePrimaryUri : undefined;
-            inputs["azureTenantId"] = args ? args.azureTenantId : undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["direction"] = args ? args.direction : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["gcpPubsubSubscriptionName"] = args ? args.gcpPubsubSubscriptionName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notificationProvider"] = args ? args.notificationProvider : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["awsSnsExternalId"] = undefined /*out*/;
-            inputs["awsSnsIamUserArn"] = undefined /*out*/;
-            inputs["awsSqsExternalId"] = undefined /*out*/;
-            inputs["awsSqsIamUserArn"] = undefined /*out*/;
-            inputs["createdOn"] = undefined /*out*/;
+            resourceInputs["awsSnsRoleArn"] = args ? args.awsSnsRoleArn : undefined;
+            resourceInputs["awsSnsTopicArn"] = args ? args.awsSnsTopicArn : undefined;
+            resourceInputs["awsSqsArn"] = args ? args.awsSqsArn : undefined;
+            resourceInputs["awsSqsRoleArn"] = args ? args.awsSqsRoleArn : undefined;
+            resourceInputs["azureStorageQueuePrimaryUri"] = args ? args.azureStorageQueuePrimaryUri : undefined;
+            resourceInputs["azureTenantId"] = args ? args.azureTenantId : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["direction"] = args ? args.direction : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["gcpPubsubSubscriptionName"] = args ? args.gcpPubsubSubscriptionName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notificationProvider"] = args ? args.notificationProvider : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["awsSnsExternalId"] = undefined /*out*/;
+            resourceInputs["awsSnsIamUserArn"] = undefined /*out*/;
+            resourceInputs["awsSqsExternalId"] = undefined /*out*/;
+            resourceInputs["awsSqsIamUserArn"] = undefined /*out*/;
+            resourceInputs["createdOn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NotificationIntegration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NotificationIntegration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

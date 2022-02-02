@@ -135,51 +135,49 @@ export class User extends pulumi.CustomResource {
      */
     constructor(name: string, args?: UserArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["defaultNamespace"] = state ? state.defaultNamespace : undefined;
-            inputs["defaultRole"] = state ? state.defaultRole : undefined;
-            inputs["defaultWarehouse"] = state ? state.defaultWarehouse : undefined;
-            inputs["disabled"] = state ? state.disabled : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["email"] = state ? state.email : undefined;
-            inputs["firstName"] = state ? state.firstName : undefined;
-            inputs["hasRsaPublicKey"] = state ? state.hasRsaPublicKey : undefined;
-            inputs["lastName"] = state ? state.lastName : undefined;
-            inputs["loginName"] = state ? state.loginName : undefined;
-            inputs["mustChangePassword"] = state ? state.mustChangePassword : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["rsaPublicKey"] = state ? state.rsaPublicKey : undefined;
-            inputs["rsaPublicKey2"] = state ? state.rsaPublicKey2 : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["defaultNamespace"] = state ? state.defaultNamespace : undefined;
+            resourceInputs["defaultRole"] = state ? state.defaultRole : undefined;
+            resourceInputs["defaultWarehouse"] = state ? state.defaultWarehouse : undefined;
+            resourceInputs["disabled"] = state ? state.disabled : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["firstName"] = state ? state.firstName : undefined;
+            resourceInputs["hasRsaPublicKey"] = state ? state.hasRsaPublicKey : undefined;
+            resourceInputs["lastName"] = state ? state.lastName : undefined;
+            resourceInputs["loginName"] = state ? state.loginName : undefined;
+            resourceInputs["mustChangePassword"] = state ? state.mustChangePassword : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["rsaPublicKey"] = state ? state.rsaPublicKey : undefined;
+            resourceInputs["rsaPublicKey2"] = state ? state.rsaPublicKey2 : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["defaultNamespace"] = args ? args.defaultNamespace : undefined;
-            inputs["defaultRole"] = args ? args.defaultRole : undefined;
-            inputs["defaultWarehouse"] = args ? args.defaultWarehouse : undefined;
-            inputs["disabled"] = args ? args.disabled : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["email"] = args ? args.email : undefined;
-            inputs["firstName"] = args ? args.firstName : undefined;
-            inputs["lastName"] = args ? args.lastName : undefined;
-            inputs["loginName"] = args ? args.loginName : undefined;
-            inputs["mustChangePassword"] = args ? args.mustChangePassword : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["rsaPublicKey"] = args ? args.rsaPublicKey : undefined;
-            inputs["rsaPublicKey2"] = args ? args.rsaPublicKey2 : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["hasRsaPublicKey"] = undefined /*out*/;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["defaultNamespace"] = args ? args.defaultNamespace : undefined;
+            resourceInputs["defaultRole"] = args ? args.defaultRole : undefined;
+            resourceInputs["defaultWarehouse"] = args ? args.defaultWarehouse : undefined;
+            resourceInputs["disabled"] = args ? args.disabled : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["firstName"] = args ? args.firstName : undefined;
+            resourceInputs["lastName"] = args ? args.lastName : undefined;
+            resourceInputs["loginName"] = args ? args.loginName : undefined;
+            resourceInputs["mustChangePassword"] = args ? args.mustChangePassword : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["rsaPublicKey"] = args ? args.rsaPublicKey : undefined;
+            resourceInputs["rsaPublicKey2"] = args ? args.rsaPublicKey2 : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["hasRsaPublicKey"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(User.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -107,36 +107,34 @@ export class MaterializedViewGrant extends pulumi.CustomResource {
      */
     constructor(name: string, args: MaterializedViewGrantArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MaterializedViewGrantArgs | MaterializedViewGrantState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MaterializedViewGrantState | undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["materializedViewName"] = state ? state.materializedViewName : undefined;
-            inputs["onFuture"] = state ? state.onFuture : undefined;
-            inputs["privilege"] = state ? state.privilege : undefined;
-            inputs["roles"] = state ? state.roles : undefined;
-            inputs["schemaName"] = state ? state.schemaName : undefined;
-            inputs["shares"] = state ? state.shares : undefined;
-            inputs["withGrantOption"] = state ? state.withGrantOption : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["materializedViewName"] = state ? state.materializedViewName : undefined;
+            resourceInputs["onFuture"] = state ? state.onFuture : undefined;
+            resourceInputs["privilege"] = state ? state.privilege : undefined;
+            resourceInputs["roles"] = state ? state.roles : undefined;
+            resourceInputs["schemaName"] = state ? state.schemaName : undefined;
+            resourceInputs["shares"] = state ? state.shares : undefined;
+            resourceInputs["withGrantOption"] = state ? state.withGrantOption : undefined;
         } else {
             const args = argsOrState as MaterializedViewGrantArgs | undefined;
             if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["materializedViewName"] = args ? args.materializedViewName : undefined;
-            inputs["onFuture"] = args ? args.onFuture : undefined;
-            inputs["privilege"] = args ? args.privilege : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
-            inputs["schemaName"] = args ? args.schemaName : undefined;
-            inputs["shares"] = args ? args.shares : undefined;
-            inputs["withGrantOption"] = args ? args.withGrantOption : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["materializedViewName"] = args ? args.materializedViewName : undefined;
+            resourceInputs["onFuture"] = args ? args.onFuture : undefined;
+            resourceInputs["privilege"] = args ? args.privilege : undefined;
+            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
+            resourceInputs["shares"] = args ? args.shares : undefined;
+            resourceInputs["withGrantOption"] = args ? args.withGrantOption : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MaterializedViewGrant.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MaterializedViewGrant.__pulumiType, name, resourceInputs, opts);
     }
 }
 

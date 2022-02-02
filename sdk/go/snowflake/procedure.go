@@ -247,7 +247,7 @@ type ProcedureInput interface {
 }
 
 func (*Procedure) ElementType() reflect.Type {
-	return reflect.TypeOf((*Procedure)(nil))
+	return reflect.TypeOf((**Procedure)(nil)).Elem()
 }
 
 func (i *Procedure) ToProcedureOutput() ProcedureOutput {
@@ -256,35 +256,6 @@ func (i *Procedure) ToProcedureOutput() ProcedureOutput {
 
 func (i *Procedure) ToProcedureOutputWithContext(ctx context.Context) ProcedureOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProcedureOutput)
-}
-
-func (i *Procedure) ToProcedurePtrOutput() ProcedurePtrOutput {
-	return i.ToProcedurePtrOutputWithContext(context.Background())
-}
-
-func (i *Procedure) ToProcedurePtrOutputWithContext(ctx context.Context) ProcedurePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedurePtrOutput)
-}
-
-type ProcedurePtrInput interface {
-	pulumi.Input
-
-	ToProcedurePtrOutput() ProcedurePtrOutput
-	ToProcedurePtrOutputWithContext(ctx context.Context) ProcedurePtrOutput
-}
-
-type procedurePtrType ProcedureArgs
-
-func (*procedurePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Procedure)(nil))
-}
-
-func (i *procedurePtrType) ToProcedurePtrOutput() ProcedurePtrOutput {
-	return i.ToProcedurePtrOutputWithContext(context.Background())
-}
-
-func (i *procedurePtrType) ToProcedurePtrOutputWithContext(ctx context.Context) ProcedurePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedurePtrOutput)
 }
 
 // ProcedureArrayInput is an input type that accepts ProcedureArray and ProcedureArrayOutput values.
@@ -340,7 +311,7 @@ func (i ProcedureMap) ToProcedureMapOutputWithContext(ctx context.Context) Proce
 type ProcedureOutput struct{ *pulumi.OutputState }
 
 func (ProcedureOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Procedure)(nil))
+	return reflect.TypeOf((**Procedure)(nil)).Elem()
 }
 
 func (o ProcedureOutput) ToProcedureOutput() ProcedureOutput {
@@ -351,44 +322,10 @@ func (o ProcedureOutput) ToProcedureOutputWithContext(ctx context.Context) Proce
 	return o
 }
 
-func (o ProcedureOutput) ToProcedurePtrOutput() ProcedurePtrOutput {
-	return o.ToProcedurePtrOutputWithContext(context.Background())
-}
-
-func (o ProcedureOutput) ToProcedurePtrOutputWithContext(ctx context.Context) ProcedurePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Procedure) *Procedure {
-		return &v
-	}).(ProcedurePtrOutput)
-}
-
-type ProcedurePtrOutput struct{ *pulumi.OutputState }
-
-func (ProcedurePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Procedure)(nil))
-}
-
-func (o ProcedurePtrOutput) ToProcedurePtrOutput() ProcedurePtrOutput {
-	return o
-}
-
-func (o ProcedurePtrOutput) ToProcedurePtrOutputWithContext(ctx context.Context) ProcedurePtrOutput {
-	return o
-}
-
-func (o ProcedurePtrOutput) Elem() ProcedureOutput {
-	return o.ApplyT(func(v *Procedure) Procedure {
-		if v != nil {
-			return *v
-		}
-		var ret Procedure
-		return ret
-	}).(ProcedureOutput)
-}
-
 type ProcedureArrayOutput struct{ *pulumi.OutputState }
 
 func (ProcedureArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Procedure)(nil))
+	return reflect.TypeOf((*[]*Procedure)(nil)).Elem()
 }
 
 func (o ProcedureArrayOutput) ToProcedureArrayOutput() ProcedureArrayOutput {
@@ -400,15 +337,15 @@ func (o ProcedureArrayOutput) ToProcedureArrayOutputWithContext(ctx context.Cont
 }
 
 func (o ProcedureArrayOutput) Index(i pulumi.IntInput) ProcedureOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Procedure {
-		return vs[0].([]Procedure)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Procedure {
+		return vs[0].([]*Procedure)[vs[1].(int)]
 	}).(ProcedureOutput)
 }
 
 type ProcedureMapOutput struct{ *pulumi.OutputState }
 
 func (ProcedureMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Procedure)(nil))
+	return reflect.TypeOf((*map[string]*Procedure)(nil)).Elem()
 }
 
 func (o ProcedureMapOutput) ToProcedureMapOutput() ProcedureMapOutput {
@@ -420,18 +357,16 @@ func (o ProcedureMapOutput) ToProcedureMapOutputWithContext(ctx context.Context)
 }
 
 func (o ProcedureMapOutput) MapIndex(k pulumi.StringInput) ProcedureOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Procedure {
-		return vs[0].(map[string]Procedure)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Procedure {
+		return vs[0].(map[string]*Procedure)[vs[1].(string)]
 	}).(ProcedureOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureInput)(nil)).Elem(), &Procedure{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedurePtrInput)(nil)).Elem(), &Procedure{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureArrayInput)(nil)).Elem(), ProcedureArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureMapInput)(nil)).Elem(), ProcedureMap{})
 	pulumi.RegisterOutputType(ProcedureOutput{})
-	pulumi.RegisterOutputType(ProcedurePtrOutput{})
 	pulumi.RegisterOutputType(ProcedureArrayOutput{})
 	pulumi.RegisterOutputType(ProcedureMapOutput{})
 }

@@ -233,7 +233,7 @@ type ProcedureGrantInput interface {
 }
 
 func (*ProcedureGrant) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureGrant)(nil))
+	return reflect.TypeOf((**ProcedureGrant)(nil)).Elem()
 }
 
 func (i *ProcedureGrant) ToProcedureGrantOutput() ProcedureGrantOutput {
@@ -242,35 +242,6 @@ func (i *ProcedureGrant) ToProcedureGrantOutput() ProcedureGrantOutput {
 
 func (i *ProcedureGrant) ToProcedureGrantOutputWithContext(ctx context.Context) ProcedureGrantOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProcedureGrantOutput)
-}
-
-func (i *ProcedureGrant) ToProcedureGrantPtrOutput() ProcedureGrantPtrOutput {
-	return i.ToProcedureGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *ProcedureGrant) ToProcedureGrantPtrOutputWithContext(ctx context.Context) ProcedureGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureGrantPtrOutput)
-}
-
-type ProcedureGrantPtrInput interface {
-	pulumi.Input
-
-	ToProcedureGrantPtrOutput() ProcedureGrantPtrOutput
-	ToProcedureGrantPtrOutputWithContext(ctx context.Context) ProcedureGrantPtrOutput
-}
-
-type procedureGrantPtrType ProcedureGrantArgs
-
-func (*procedureGrantPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProcedureGrant)(nil))
-}
-
-func (i *procedureGrantPtrType) ToProcedureGrantPtrOutput() ProcedureGrantPtrOutput {
-	return i.ToProcedureGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *procedureGrantPtrType) ToProcedureGrantPtrOutputWithContext(ctx context.Context) ProcedureGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureGrantPtrOutput)
 }
 
 // ProcedureGrantArrayInput is an input type that accepts ProcedureGrantArray and ProcedureGrantArrayOutput values.
@@ -326,7 +297,7 @@ func (i ProcedureGrantMap) ToProcedureGrantMapOutputWithContext(ctx context.Cont
 type ProcedureGrantOutput struct{ *pulumi.OutputState }
 
 func (ProcedureGrantOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureGrant)(nil))
+	return reflect.TypeOf((**ProcedureGrant)(nil)).Elem()
 }
 
 func (o ProcedureGrantOutput) ToProcedureGrantOutput() ProcedureGrantOutput {
@@ -337,44 +308,10 @@ func (o ProcedureGrantOutput) ToProcedureGrantOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ProcedureGrantOutput) ToProcedureGrantPtrOutput() ProcedureGrantPtrOutput {
-	return o.ToProcedureGrantPtrOutputWithContext(context.Background())
-}
-
-func (o ProcedureGrantOutput) ToProcedureGrantPtrOutputWithContext(ctx context.Context) ProcedureGrantPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcedureGrant) *ProcedureGrant {
-		return &v
-	}).(ProcedureGrantPtrOutput)
-}
-
-type ProcedureGrantPtrOutput struct{ *pulumi.OutputState }
-
-func (ProcedureGrantPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProcedureGrant)(nil))
-}
-
-func (o ProcedureGrantPtrOutput) ToProcedureGrantPtrOutput() ProcedureGrantPtrOutput {
-	return o
-}
-
-func (o ProcedureGrantPtrOutput) ToProcedureGrantPtrOutputWithContext(ctx context.Context) ProcedureGrantPtrOutput {
-	return o
-}
-
-func (o ProcedureGrantPtrOutput) Elem() ProcedureGrantOutput {
-	return o.ApplyT(func(v *ProcedureGrant) ProcedureGrant {
-		if v != nil {
-			return *v
-		}
-		var ret ProcedureGrant
-		return ret
-	}).(ProcedureGrantOutput)
-}
-
 type ProcedureGrantArrayOutput struct{ *pulumi.OutputState }
 
 func (ProcedureGrantArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureGrant)(nil))
+	return reflect.TypeOf((*[]*ProcedureGrant)(nil)).Elem()
 }
 
 func (o ProcedureGrantArrayOutput) ToProcedureGrantArrayOutput() ProcedureGrantArrayOutput {
@@ -386,15 +323,15 @@ func (o ProcedureGrantArrayOutput) ToProcedureGrantArrayOutputWithContext(ctx co
 }
 
 func (o ProcedureGrantArrayOutput) Index(i pulumi.IntInput) ProcedureGrantOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureGrant {
-		return vs[0].([]ProcedureGrant)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProcedureGrant {
+		return vs[0].([]*ProcedureGrant)[vs[1].(int)]
 	}).(ProcedureGrantOutput)
 }
 
 type ProcedureGrantMapOutput struct{ *pulumi.OutputState }
 
 func (ProcedureGrantMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ProcedureGrant)(nil))
+	return reflect.TypeOf((*map[string]*ProcedureGrant)(nil)).Elem()
 }
 
 func (o ProcedureGrantMapOutput) ToProcedureGrantMapOutput() ProcedureGrantMapOutput {
@@ -406,18 +343,16 @@ func (o ProcedureGrantMapOutput) ToProcedureGrantMapOutputWithContext(ctx contex
 }
 
 func (o ProcedureGrantMapOutput) MapIndex(k pulumi.StringInput) ProcedureGrantOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProcedureGrant {
-		return vs[0].(map[string]ProcedureGrant)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ProcedureGrant {
+		return vs[0].(map[string]*ProcedureGrant)[vs[1].(string)]
 	}).(ProcedureGrantOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureGrantInput)(nil)).Elem(), &ProcedureGrant{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureGrantPtrInput)(nil)).Elem(), &ProcedureGrant{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureGrantArrayInput)(nil)).Elem(), ProcedureGrantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureGrantMapInput)(nil)).Elem(), ProcedureGrantMap{})
 	pulumi.RegisterOutputType(ProcedureGrantOutput{})
-	pulumi.RegisterOutputType(ProcedureGrantPtrOutput{})
 	pulumi.RegisterOutputType(ProcedureGrantArrayOutput{})
 	pulumi.RegisterOutputType(ProcedureGrantMapOutput{})
 }

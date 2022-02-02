@@ -163,7 +163,7 @@ type RoleGrantsInput interface {
 }
 
 func (*RoleGrants) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleGrants)(nil))
+	return reflect.TypeOf((**RoleGrants)(nil)).Elem()
 }
 
 func (i *RoleGrants) ToRoleGrantsOutput() RoleGrantsOutput {
@@ -172,35 +172,6 @@ func (i *RoleGrants) ToRoleGrantsOutput() RoleGrantsOutput {
 
 func (i *RoleGrants) ToRoleGrantsOutputWithContext(ctx context.Context) RoleGrantsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoleGrantsOutput)
-}
-
-func (i *RoleGrants) ToRoleGrantsPtrOutput() RoleGrantsPtrOutput {
-	return i.ToRoleGrantsPtrOutputWithContext(context.Background())
-}
-
-func (i *RoleGrants) ToRoleGrantsPtrOutputWithContext(ctx context.Context) RoleGrantsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleGrantsPtrOutput)
-}
-
-type RoleGrantsPtrInput interface {
-	pulumi.Input
-
-	ToRoleGrantsPtrOutput() RoleGrantsPtrOutput
-	ToRoleGrantsPtrOutputWithContext(ctx context.Context) RoleGrantsPtrOutput
-}
-
-type roleGrantsPtrType RoleGrantsArgs
-
-func (*roleGrantsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RoleGrants)(nil))
-}
-
-func (i *roleGrantsPtrType) ToRoleGrantsPtrOutput() RoleGrantsPtrOutput {
-	return i.ToRoleGrantsPtrOutputWithContext(context.Background())
-}
-
-func (i *roleGrantsPtrType) ToRoleGrantsPtrOutputWithContext(ctx context.Context) RoleGrantsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleGrantsPtrOutput)
 }
 
 // RoleGrantsArrayInput is an input type that accepts RoleGrantsArray and RoleGrantsArrayOutput values.
@@ -256,7 +227,7 @@ func (i RoleGrantsMap) ToRoleGrantsMapOutputWithContext(ctx context.Context) Rol
 type RoleGrantsOutput struct{ *pulumi.OutputState }
 
 func (RoleGrantsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleGrants)(nil))
+	return reflect.TypeOf((**RoleGrants)(nil)).Elem()
 }
 
 func (o RoleGrantsOutput) ToRoleGrantsOutput() RoleGrantsOutput {
@@ -267,44 +238,10 @@ func (o RoleGrantsOutput) ToRoleGrantsOutputWithContext(ctx context.Context) Rol
 	return o
 }
 
-func (o RoleGrantsOutput) ToRoleGrantsPtrOutput() RoleGrantsPtrOutput {
-	return o.ToRoleGrantsPtrOutputWithContext(context.Background())
-}
-
-func (o RoleGrantsOutput) ToRoleGrantsPtrOutputWithContext(ctx context.Context) RoleGrantsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleGrants) *RoleGrants {
-		return &v
-	}).(RoleGrantsPtrOutput)
-}
-
-type RoleGrantsPtrOutput struct{ *pulumi.OutputState }
-
-func (RoleGrantsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RoleGrants)(nil))
-}
-
-func (o RoleGrantsPtrOutput) ToRoleGrantsPtrOutput() RoleGrantsPtrOutput {
-	return o
-}
-
-func (o RoleGrantsPtrOutput) ToRoleGrantsPtrOutputWithContext(ctx context.Context) RoleGrantsPtrOutput {
-	return o
-}
-
-func (o RoleGrantsPtrOutput) Elem() RoleGrantsOutput {
-	return o.ApplyT(func(v *RoleGrants) RoleGrants {
-		if v != nil {
-			return *v
-		}
-		var ret RoleGrants
-		return ret
-	}).(RoleGrantsOutput)
-}
-
 type RoleGrantsArrayOutput struct{ *pulumi.OutputState }
 
 func (RoleGrantsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RoleGrants)(nil))
+	return reflect.TypeOf((*[]*RoleGrants)(nil)).Elem()
 }
 
 func (o RoleGrantsArrayOutput) ToRoleGrantsArrayOutput() RoleGrantsArrayOutput {
@@ -316,15 +253,15 @@ func (o RoleGrantsArrayOutput) ToRoleGrantsArrayOutputWithContext(ctx context.Co
 }
 
 func (o RoleGrantsArrayOutput) Index(i pulumi.IntInput) RoleGrantsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoleGrants {
-		return vs[0].([]RoleGrants)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RoleGrants {
+		return vs[0].([]*RoleGrants)[vs[1].(int)]
 	}).(RoleGrantsOutput)
 }
 
 type RoleGrantsMapOutput struct{ *pulumi.OutputState }
 
 func (RoleGrantsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RoleGrants)(nil))
+	return reflect.TypeOf((*map[string]*RoleGrants)(nil)).Elem()
 }
 
 func (o RoleGrantsMapOutput) ToRoleGrantsMapOutput() RoleGrantsMapOutput {
@@ -336,18 +273,16 @@ func (o RoleGrantsMapOutput) ToRoleGrantsMapOutputWithContext(ctx context.Contex
 }
 
 func (o RoleGrantsMapOutput) MapIndex(k pulumi.StringInput) RoleGrantsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RoleGrants {
-		return vs[0].(map[string]RoleGrants)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RoleGrants {
+		return vs[0].(map[string]*RoleGrants)[vs[1].(string)]
 	}).(RoleGrantsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleGrantsInput)(nil)).Elem(), &RoleGrants{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RoleGrantsPtrInput)(nil)).Elem(), &RoleGrants{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleGrantsArrayInput)(nil)).Elem(), RoleGrantsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleGrantsMapInput)(nil)).Elem(), RoleGrantsMap{})
 	pulumi.RegisterOutputType(RoleGrantsOutput{})
-	pulumi.RegisterOutputType(RoleGrantsPtrOutput{})
 	pulumi.RegisterOutputType(RoleGrantsArrayOutput{})
 	pulumi.RegisterOutputType(RoleGrantsMapOutput{})
 }

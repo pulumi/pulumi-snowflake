@@ -52,7 +52,7 @@ export class Provider extends pulumi.ProviderResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
             if ((!args || args.account === undefined) && !opts.urn) {
@@ -64,26 +64,24 @@ export class Provider extends pulumi.ProviderResource {
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            inputs["account"] = args ? args.account : undefined;
-            inputs["browserAuth"] = pulumi.output(args ? args.browserAuth : undefined).apply(JSON.stringify);
-            inputs["oauthAccessToken"] = args ? args.oauthAccessToken : undefined;
-            inputs["oauthClientId"] = args ? args.oauthClientId : undefined;
-            inputs["oauthClientSecret"] = args ? args.oauthClientSecret : undefined;
-            inputs["oauthEndpoint"] = args ? args.oauthEndpoint : undefined;
-            inputs["oauthRedirectUrl"] = args ? args.oauthRedirectUrl : undefined;
-            inputs["oauthRefreshToken"] = args ? args.oauthRefreshToken : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["privateKey"] = args ? args.privateKey : undefined;
-            inputs["privateKeyPassphrase"] = args ? args.privateKeyPassphrase : undefined;
-            inputs["privateKeyPath"] = args ? args.privateKeyPath : undefined;
-            inputs["region"] = args ? args.region : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["username"] = args ? args.username : undefined;
+            resourceInputs["account"] = args ? args.account : undefined;
+            resourceInputs["browserAuth"] = pulumi.output(args ? args.browserAuth : undefined).apply(JSON.stringify);
+            resourceInputs["oauthAccessToken"] = args ? args.oauthAccessToken : undefined;
+            resourceInputs["oauthClientId"] = args ? args.oauthClientId : undefined;
+            resourceInputs["oauthClientSecret"] = args ? args.oauthClientSecret : undefined;
+            resourceInputs["oauthEndpoint"] = args ? args.oauthEndpoint : undefined;
+            resourceInputs["oauthRedirectUrl"] = args ? args.oauthRedirectUrl : undefined;
+            resourceInputs["oauthRefreshToken"] = args ? args.oauthRefreshToken : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
+            resourceInputs["privateKeyPassphrase"] = args ? args.privateKeyPassphrase : undefined;
+            resourceInputs["privateKeyPath"] = args ? args.privateKeyPath : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Provider.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }
 

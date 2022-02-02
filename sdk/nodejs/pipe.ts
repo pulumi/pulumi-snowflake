@@ -113,21 +113,21 @@ export class Pipe extends pulumi.CustomResource {
      */
     constructor(name: string, args: PipeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PipeArgs | PipeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PipeState | undefined;
-            inputs["autoIngest"] = state ? state.autoIngest : undefined;
-            inputs["awsSnsTopicArn"] = state ? state.awsSnsTopicArn : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["copyStatement"] = state ? state.copyStatement : undefined;
-            inputs["database"] = state ? state.database : undefined;
-            inputs["errorIntegration"] = state ? state.errorIntegration : undefined;
-            inputs["integration"] = state ? state.integration : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notificationChannel"] = state ? state.notificationChannel : undefined;
-            inputs["owner"] = state ? state.owner : undefined;
-            inputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["autoIngest"] = state ? state.autoIngest : undefined;
+            resourceInputs["awsSnsTopicArn"] = state ? state.awsSnsTopicArn : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["copyStatement"] = state ? state.copyStatement : undefined;
+            resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["errorIntegration"] = state ? state.errorIntegration : undefined;
+            resourceInputs["integration"] = state ? state.integration : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notificationChannel"] = state ? state.notificationChannel : undefined;
+            resourceInputs["owner"] = state ? state.owner : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
         } else {
             const args = argsOrState as PipeArgs | undefined;
             if ((!args || args.copyStatement === undefined) && !opts.urn) {
@@ -139,22 +139,20 @@ export class Pipe extends pulumi.CustomResource {
             if ((!args || args.schema === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            inputs["autoIngest"] = args ? args.autoIngest : undefined;
-            inputs["awsSnsTopicArn"] = args ? args.awsSnsTopicArn : undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["copyStatement"] = args ? args.copyStatement : undefined;
-            inputs["database"] = args ? args.database : undefined;
-            inputs["errorIntegration"] = args ? args.errorIntegration : undefined;
-            inputs["integration"] = args ? args.integration : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
-            inputs["notificationChannel"] = undefined /*out*/;
-            inputs["owner"] = undefined /*out*/;
+            resourceInputs["autoIngest"] = args ? args.autoIngest : undefined;
+            resourceInputs["awsSnsTopicArn"] = args ? args.awsSnsTopicArn : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["copyStatement"] = args ? args.copyStatement : undefined;
+            resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["errorIntegration"] = args ? args.errorIntegration : undefined;
+            resourceInputs["integration"] = args ? args.integration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["notificationChannel"] = undefined /*out*/;
+            resourceInputs["owner"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Pipe.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Pipe.__pulumiType, name, resourceInputs, opts);
     }
 }
 

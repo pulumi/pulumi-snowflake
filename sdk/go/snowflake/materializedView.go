@@ -211,7 +211,7 @@ type MaterializedViewInput interface {
 }
 
 func (*MaterializedView) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaterializedView)(nil))
+	return reflect.TypeOf((**MaterializedView)(nil)).Elem()
 }
 
 func (i *MaterializedView) ToMaterializedViewOutput() MaterializedViewOutput {
@@ -220,35 +220,6 @@ func (i *MaterializedView) ToMaterializedViewOutput() MaterializedViewOutput {
 
 func (i *MaterializedView) ToMaterializedViewOutputWithContext(ctx context.Context) MaterializedViewOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MaterializedViewOutput)
-}
-
-func (i *MaterializedView) ToMaterializedViewPtrOutput() MaterializedViewPtrOutput {
-	return i.ToMaterializedViewPtrOutputWithContext(context.Background())
-}
-
-func (i *MaterializedView) ToMaterializedViewPtrOutputWithContext(ctx context.Context) MaterializedViewPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MaterializedViewPtrOutput)
-}
-
-type MaterializedViewPtrInput interface {
-	pulumi.Input
-
-	ToMaterializedViewPtrOutput() MaterializedViewPtrOutput
-	ToMaterializedViewPtrOutputWithContext(ctx context.Context) MaterializedViewPtrOutput
-}
-
-type materializedViewPtrType MaterializedViewArgs
-
-func (*materializedViewPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MaterializedView)(nil))
-}
-
-func (i *materializedViewPtrType) ToMaterializedViewPtrOutput() MaterializedViewPtrOutput {
-	return i.ToMaterializedViewPtrOutputWithContext(context.Background())
-}
-
-func (i *materializedViewPtrType) ToMaterializedViewPtrOutputWithContext(ctx context.Context) MaterializedViewPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MaterializedViewPtrOutput)
 }
 
 // MaterializedViewArrayInput is an input type that accepts MaterializedViewArray and MaterializedViewArrayOutput values.
@@ -304,7 +275,7 @@ func (i MaterializedViewMap) ToMaterializedViewMapOutputWithContext(ctx context.
 type MaterializedViewOutput struct{ *pulumi.OutputState }
 
 func (MaterializedViewOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaterializedView)(nil))
+	return reflect.TypeOf((**MaterializedView)(nil)).Elem()
 }
 
 func (o MaterializedViewOutput) ToMaterializedViewOutput() MaterializedViewOutput {
@@ -315,44 +286,10 @@ func (o MaterializedViewOutput) ToMaterializedViewOutputWithContext(ctx context.
 	return o
 }
 
-func (o MaterializedViewOutput) ToMaterializedViewPtrOutput() MaterializedViewPtrOutput {
-	return o.ToMaterializedViewPtrOutputWithContext(context.Background())
-}
-
-func (o MaterializedViewOutput) ToMaterializedViewPtrOutputWithContext(ctx context.Context) MaterializedViewPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaterializedView) *MaterializedView {
-		return &v
-	}).(MaterializedViewPtrOutput)
-}
-
-type MaterializedViewPtrOutput struct{ *pulumi.OutputState }
-
-func (MaterializedViewPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MaterializedView)(nil))
-}
-
-func (o MaterializedViewPtrOutput) ToMaterializedViewPtrOutput() MaterializedViewPtrOutput {
-	return o
-}
-
-func (o MaterializedViewPtrOutput) ToMaterializedViewPtrOutputWithContext(ctx context.Context) MaterializedViewPtrOutput {
-	return o
-}
-
-func (o MaterializedViewPtrOutput) Elem() MaterializedViewOutput {
-	return o.ApplyT(func(v *MaterializedView) MaterializedView {
-		if v != nil {
-			return *v
-		}
-		var ret MaterializedView
-		return ret
-	}).(MaterializedViewOutput)
-}
-
 type MaterializedViewArrayOutput struct{ *pulumi.OutputState }
 
 func (MaterializedViewArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MaterializedView)(nil))
+	return reflect.TypeOf((*[]*MaterializedView)(nil)).Elem()
 }
 
 func (o MaterializedViewArrayOutput) ToMaterializedViewArrayOutput() MaterializedViewArrayOutput {
@@ -364,15 +301,15 @@ func (o MaterializedViewArrayOutput) ToMaterializedViewArrayOutputWithContext(ct
 }
 
 func (o MaterializedViewArrayOutput) Index(i pulumi.IntInput) MaterializedViewOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MaterializedView {
-		return vs[0].([]MaterializedView)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MaterializedView {
+		return vs[0].([]*MaterializedView)[vs[1].(int)]
 	}).(MaterializedViewOutput)
 }
 
 type MaterializedViewMapOutput struct{ *pulumi.OutputState }
 
 func (MaterializedViewMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]MaterializedView)(nil))
+	return reflect.TypeOf((*map[string]*MaterializedView)(nil)).Elem()
 }
 
 func (o MaterializedViewMapOutput) ToMaterializedViewMapOutput() MaterializedViewMapOutput {
@@ -384,18 +321,16 @@ func (o MaterializedViewMapOutput) ToMaterializedViewMapOutputWithContext(ctx co
 }
 
 func (o MaterializedViewMapOutput) MapIndex(k pulumi.StringInput) MaterializedViewOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MaterializedView {
-		return vs[0].(map[string]MaterializedView)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *MaterializedView {
+		return vs[0].(map[string]*MaterializedView)[vs[1].(string)]
 	}).(MaterializedViewOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewInput)(nil)).Elem(), &MaterializedView{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewPtrInput)(nil)).Elem(), &MaterializedView{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewArrayInput)(nil)).Elem(), MaterializedViewArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewMapInput)(nil)).Elem(), MaterializedViewMap{})
 	pulumi.RegisterOutputType(MaterializedViewOutput{})
-	pulumi.RegisterOutputType(MaterializedViewPtrOutput{})
 	pulumi.RegisterOutputType(MaterializedViewArrayOutput{})
 	pulumi.RegisterOutputType(MaterializedViewMapOutput{})
 }

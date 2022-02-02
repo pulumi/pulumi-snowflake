@@ -23,9 +23,7 @@ export function getPipes(args: GetPipesArgs, opts?: pulumi.InvokeOptions): Promi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("snowflake:index/getPipes:getPipes", {
         "database": args.database,
         "schema": args.schema,

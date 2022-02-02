@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Snowflake
 {
@@ -38,7 +37,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetMaskingPoliciesResult> InvokeAsync(GetMaskingPoliciesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMaskingPoliciesResult>("snowflake:index/getMaskingPolicies:getMaskingPolicies", args ?? new GetMaskingPoliciesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMaskingPoliciesResult>("snowflake:index/getMaskingPolicies:getMaskingPolicies", args ?? new GetMaskingPoliciesArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -66,7 +65,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetMaskingPoliciesResult> Invoke(GetMaskingPoliciesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMaskingPoliciesResult>("snowflake:index/getMaskingPolicies:getMaskingPolicies", args ?? new GetMaskingPoliciesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMaskingPoliciesResult>("snowflake:index/getMaskingPolicies:getMaskingPolicies", args ?? new GetMaskingPoliciesInvokeArgs(), options.WithDefaults());
     }
 
 

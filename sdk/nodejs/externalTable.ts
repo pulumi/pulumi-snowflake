@@ -135,25 +135,25 @@ export class ExternalTable extends pulumi.CustomResource {
      */
     constructor(name: string, args: ExternalTableArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ExternalTableArgs | ExternalTableState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExternalTableState | undefined;
-            inputs["autoRefresh"] = state ? state.autoRefresh : undefined;
-            inputs["awsSnsTopic"] = state ? state.awsSnsTopic : undefined;
-            inputs["columns"] = state ? state.columns : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["copyGrants"] = state ? state.copyGrants : undefined;
-            inputs["database"] = state ? state.database : undefined;
-            inputs["fileFormat"] = state ? state.fileFormat : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["owner"] = state ? state.owner : undefined;
-            inputs["partitionBies"] = state ? state.partitionBies : undefined;
-            inputs["pattern"] = state ? state.pattern : undefined;
-            inputs["refreshOnCreate"] = state ? state.refreshOnCreate : undefined;
-            inputs["schema"] = state ? state.schema : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["autoRefresh"] = state ? state.autoRefresh : undefined;
+            resourceInputs["awsSnsTopic"] = state ? state.awsSnsTopic : undefined;
+            resourceInputs["columns"] = state ? state.columns : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["copyGrants"] = state ? state.copyGrants : undefined;
+            resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["fileFormat"] = state ? state.fileFormat : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["owner"] = state ? state.owner : undefined;
+            resourceInputs["partitionBies"] = state ? state.partitionBies : undefined;
+            resourceInputs["pattern"] = state ? state.pattern : undefined;
+            resourceInputs["refreshOnCreate"] = state ? state.refreshOnCreate : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ExternalTableArgs | undefined;
             if ((!args || args.columns === undefined) && !opts.urn) {
@@ -171,26 +171,24 @@ export class ExternalTable extends pulumi.CustomResource {
             if ((!args || args.schema === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            inputs["autoRefresh"] = args ? args.autoRefresh : undefined;
-            inputs["awsSnsTopic"] = args ? args.awsSnsTopic : undefined;
-            inputs["columns"] = args ? args.columns : undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["copyGrants"] = args ? args.copyGrants : undefined;
-            inputs["database"] = args ? args.database : undefined;
-            inputs["fileFormat"] = args ? args.fileFormat : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["partitionBies"] = args ? args.partitionBies : undefined;
-            inputs["pattern"] = args ? args.pattern : undefined;
-            inputs["refreshOnCreate"] = args ? args.refreshOnCreate : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["owner"] = undefined /*out*/;
+            resourceInputs["autoRefresh"] = args ? args.autoRefresh : undefined;
+            resourceInputs["awsSnsTopic"] = args ? args.awsSnsTopic : undefined;
+            resourceInputs["columns"] = args ? args.columns : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["copyGrants"] = args ? args.copyGrants : undefined;
+            resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["fileFormat"] = args ? args.fileFormat : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["partitionBies"] = args ? args.partitionBies : undefined;
+            resourceInputs["pattern"] = args ? args.pattern : undefined;
+            resourceInputs["refreshOnCreate"] = args ? args.refreshOnCreate : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["owner"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ExternalTable.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ExternalTable.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -106,20 +106,20 @@ export class ManagedAccount extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedAccountArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedAccountArgs | ManagedAccountState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedAccountState | undefined;
-            inputs["adminName"] = state ? state.adminName : undefined;
-            inputs["adminPassword"] = state ? state.adminPassword : undefined;
-            inputs["cloud"] = state ? state.cloud : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["createdOn"] = state ? state.createdOn : undefined;
-            inputs["locator"] = state ? state.locator : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["region"] = state ? state.region : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["adminName"] = state ? state.adminName : undefined;
+            resourceInputs["adminPassword"] = state ? state.adminPassword : undefined;
+            resourceInputs["cloud"] = state ? state.cloud : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["createdOn"] = state ? state.createdOn : undefined;
+            resourceInputs["locator"] = state ? state.locator : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as ManagedAccountArgs | undefined;
             if ((!args || args.adminName === undefined) && !opts.urn) {
@@ -128,21 +128,19 @@ export class ManagedAccount extends pulumi.CustomResource {
             if ((!args || args.adminPassword === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'adminPassword'");
             }
-            inputs["adminName"] = args ? args.adminName : undefined;
-            inputs["adminPassword"] = args ? args.adminPassword : undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["cloud"] = undefined /*out*/;
-            inputs["createdOn"] = undefined /*out*/;
-            inputs["locator"] = undefined /*out*/;
-            inputs["region"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["adminName"] = args ? args.adminName : undefined;
+            resourceInputs["adminPassword"] = args ? args.adminPassword : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["cloud"] = undefined /*out*/;
+            resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["locator"] = undefined /*out*/;
+            resourceInputs["region"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ManagedAccount.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ManagedAccount.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -164,7 +164,7 @@ type ManagedAccountInput interface {
 }
 
 func (*ManagedAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedAccount)(nil))
+	return reflect.TypeOf((**ManagedAccount)(nil)).Elem()
 }
 
 func (i *ManagedAccount) ToManagedAccountOutput() ManagedAccountOutput {
@@ -173,35 +173,6 @@ func (i *ManagedAccount) ToManagedAccountOutput() ManagedAccountOutput {
 
 func (i *ManagedAccount) ToManagedAccountOutputWithContext(ctx context.Context) ManagedAccountOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedAccountOutput)
-}
-
-func (i *ManagedAccount) ToManagedAccountPtrOutput() ManagedAccountPtrOutput {
-	return i.ToManagedAccountPtrOutputWithContext(context.Background())
-}
-
-func (i *ManagedAccount) ToManagedAccountPtrOutputWithContext(ctx context.Context) ManagedAccountPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedAccountPtrOutput)
-}
-
-type ManagedAccountPtrInput interface {
-	pulumi.Input
-
-	ToManagedAccountPtrOutput() ManagedAccountPtrOutput
-	ToManagedAccountPtrOutputWithContext(ctx context.Context) ManagedAccountPtrOutput
-}
-
-type managedAccountPtrType ManagedAccountArgs
-
-func (*managedAccountPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedAccount)(nil))
-}
-
-func (i *managedAccountPtrType) ToManagedAccountPtrOutput() ManagedAccountPtrOutput {
-	return i.ToManagedAccountPtrOutputWithContext(context.Background())
-}
-
-func (i *managedAccountPtrType) ToManagedAccountPtrOutputWithContext(ctx context.Context) ManagedAccountPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedAccountPtrOutput)
 }
 
 // ManagedAccountArrayInput is an input type that accepts ManagedAccountArray and ManagedAccountArrayOutput values.
@@ -257,7 +228,7 @@ func (i ManagedAccountMap) ToManagedAccountMapOutputWithContext(ctx context.Cont
 type ManagedAccountOutput struct{ *pulumi.OutputState }
 
 func (ManagedAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedAccount)(nil))
+	return reflect.TypeOf((**ManagedAccount)(nil)).Elem()
 }
 
 func (o ManagedAccountOutput) ToManagedAccountOutput() ManagedAccountOutput {
@@ -268,44 +239,10 @@ func (o ManagedAccountOutput) ToManagedAccountOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ManagedAccountOutput) ToManagedAccountPtrOutput() ManagedAccountPtrOutput {
-	return o.ToManagedAccountPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedAccountOutput) ToManagedAccountPtrOutputWithContext(ctx context.Context) ManagedAccountPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedAccount) *ManagedAccount {
-		return &v
-	}).(ManagedAccountPtrOutput)
-}
-
-type ManagedAccountPtrOutput struct{ *pulumi.OutputState }
-
-func (ManagedAccountPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedAccount)(nil))
-}
-
-func (o ManagedAccountPtrOutput) ToManagedAccountPtrOutput() ManagedAccountPtrOutput {
-	return o
-}
-
-func (o ManagedAccountPtrOutput) ToManagedAccountPtrOutputWithContext(ctx context.Context) ManagedAccountPtrOutput {
-	return o
-}
-
-func (o ManagedAccountPtrOutput) Elem() ManagedAccountOutput {
-	return o.ApplyT(func(v *ManagedAccount) ManagedAccount {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedAccount
-		return ret
-	}).(ManagedAccountOutput)
-}
-
 type ManagedAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (ManagedAccountArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagedAccount)(nil))
+	return reflect.TypeOf((*[]*ManagedAccount)(nil)).Elem()
 }
 
 func (o ManagedAccountArrayOutput) ToManagedAccountArrayOutput() ManagedAccountArrayOutput {
@@ -317,15 +254,15 @@ func (o ManagedAccountArrayOutput) ToManagedAccountArrayOutputWithContext(ctx co
 }
 
 func (o ManagedAccountArrayOutput) Index(i pulumi.IntInput) ManagedAccountOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedAccount {
-		return vs[0].([]ManagedAccount)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedAccount {
+		return vs[0].([]*ManagedAccount)[vs[1].(int)]
 	}).(ManagedAccountOutput)
 }
 
 type ManagedAccountMapOutput struct{ *pulumi.OutputState }
 
 func (ManagedAccountMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ManagedAccount)(nil))
+	return reflect.TypeOf((*map[string]*ManagedAccount)(nil)).Elem()
 }
 
 func (o ManagedAccountMapOutput) ToManagedAccountMapOutput() ManagedAccountMapOutput {
@@ -337,18 +274,16 @@ func (o ManagedAccountMapOutput) ToManagedAccountMapOutputWithContext(ctx contex
 }
 
 func (o ManagedAccountMapOutput) MapIndex(k pulumi.StringInput) ManagedAccountOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedAccount {
-		return vs[0].(map[string]ManagedAccount)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ManagedAccount {
+		return vs[0].(map[string]*ManagedAccount)[vs[1].(string)]
 	}).(ManagedAccountOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedAccountInput)(nil)).Elem(), &ManagedAccount{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedAccountPtrInput)(nil)).Elem(), &ManagedAccount{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedAccountArrayInput)(nil)).Elem(), ManagedAccountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedAccountMapInput)(nil)).Elem(), ManagedAccountMap{})
 	pulumi.RegisterOutputType(ManagedAccountOutput{})
-	pulumi.RegisterOutputType(ManagedAccountPtrOutput{})
 	pulumi.RegisterOutputType(ManagedAccountArrayOutput{})
 	pulumi.RegisterOutputType(ManagedAccountMapOutput{})
 }

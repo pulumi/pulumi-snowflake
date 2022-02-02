@@ -109,23 +109,23 @@ export class ApiIntegration extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApiIntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiIntegrationArgs | ApiIntegrationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiIntegrationState | undefined;
-            inputs["apiAllowedPrefixes"] = state ? state.apiAllowedPrefixes : undefined;
-            inputs["apiAwsExternalId"] = state ? state.apiAwsExternalId : undefined;
-            inputs["apiAwsIamUserArn"] = state ? state.apiAwsIamUserArn : undefined;
-            inputs["apiAwsRoleArn"] = state ? state.apiAwsRoleArn : undefined;
-            inputs["apiBlockedPrefixes"] = state ? state.apiBlockedPrefixes : undefined;
-            inputs["apiProvider"] = state ? state.apiProvider : undefined;
-            inputs["azureAdApplicationId"] = state ? state.azureAdApplicationId : undefined;
-            inputs["azureConsentUrl"] = state ? state.azureConsentUrl : undefined;
-            inputs["azureMultiTenantAppName"] = state ? state.azureMultiTenantAppName : undefined;
-            inputs["azureTenantId"] = state ? state.azureTenantId : undefined;
-            inputs["createdOn"] = state ? state.createdOn : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["apiAllowedPrefixes"] = state ? state.apiAllowedPrefixes : undefined;
+            resourceInputs["apiAwsExternalId"] = state ? state.apiAwsExternalId : undefined;
+            resourceInputs["apiAwsIamUserArn"] = state ? state.apiAwsIamUserArn : undefined;
+            resourceInputs["apiAwsRoleArn"] = state ? state.apiAwsRoleArn : undefined;
+            resourceInputs["apiBlockedPrefixes"] = state ? state.apiBlockedPrefixes : undefined;
+            resourceInputs["apiProvider"] = state ? state.apiProvider : undefined;
+            resourceInputs["azureAdApplicationId"] = state ? state.azureAdApplicationId : undefined;
+            resourceInputs["azureConsentUrl"] = state ? state.azureConsentUrl : undefined;
+            resourceInputs["azureMultiTenantAppName"] = state ? state.azureMultiTenantAppName : undefined;
+            resourceInputs["azureTenantId"] = state ? state.azureTenantId : undefined;
+            resourceInputs["createdOn"] = state ? state.createdOn : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ApiIntegrationArgs | undefined;
             if ((!args || args.apiAllowedPrefixes === undefined) && !opts.urn) {
@@ -134,24 +134,22 @@ export class ApiIntegration extends pulumi.CustomResource {
             if ((!args || args.apiProvider === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiProvider'");
             }
-            inputs["apiAllowedPrefixes"] = args ? args.apiAllowedPrefixes : undefined;
-            inputs["apiAwsRoleArn"] = args ? args.apiAwsRoleArn : undefined;
-            inputs["apiBlockedPrefixes"] = args ? args.apiBlockedPrefixes : undefined;
-            inputs["apiProvider"] = args ? args.apiProvider : undefined;
-            inputs["azureAdApplicationId"] = args ? args.azureAdApplicationId : undefined;
-            inputs["azureTenantId"] = args ? args.azureTenantId : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["apiAwsExternalId"] = undefined /*out*/;
-            inputs["apiAwsIamUserArn"] = undefined /*out*/;
-            inputs["azureConsentUrl"] = undefined /*out*/;
-            inputs["azureMultiTenantAppName"] = undefined /*out*/;
-            inputs["createdOn"] = undefined /*out*/;
+            resourceInputs["apiAllowedPrefixes"] = args ? args.apiAllowedPrefixes : undefined;
+            resourceInputs["apiAwsRoleArn"] = args ? args.apiAwsRoleArn : undefined;
+            resourceInputs["apiBlockedPrefixes"] = args ? args.apiBlockedPrefixes : undefined;
+            resourceInputs["apiProvider"] = args ? args.apiProvider : undefined;
+            resourceInputs["azureAdApplicationId"] = args ? args.azureAdApplicationId : undefined;
+            resourceInputs["azureTenantId"] = args ? args.azureTenantId : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["apiAwsExternalId"] = undefined /*out*/;
+            resourceInputs["apiAwsIamUserArn"] = undefined /*out*/;
+            resourceInputs["azureConsentUrl"] = undefined /*out*/;
+            resourceInputs["azureMultiTenantAppName"] = undefined /*out*/;
+            resourceInputs["createdOn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApiIntegration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApiIntegration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

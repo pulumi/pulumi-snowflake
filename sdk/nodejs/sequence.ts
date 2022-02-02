@@ -85,17 +85,17 @@ export class Sequence extends pulumi.CustomResource {
      */
     constructor(name: string, args: SequenceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SequenceArgs | SequenceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SequenceState | undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["database"] = state ? state.database : undefined;
-            inputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            inputs["increment"] = state ? state.increment : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["nextValue"] = state ? state.nextValue : undefined;
-            inputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
+            resourceInputs["increment"] = state ? state.increment : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nextValue"] = state ? state.nextValue : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
         } else {
             const args = argsOrState as SequenceArgs | undefined;
             if ((!args || args.database === undefined) && !opts.urn) {
@@ -104,18 +104,16 @@ export class Sequence extends pulumi.CustomResource {
             if ((!args || args.schema === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["database"] = args ? args.database : undefined;
-            inputs["increment"] = args ? args.increment : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
-            inputs["fullyQualifiedName"] = undefined /*out*/;
-            inputs["nextValue"] = undefined /*out*/;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["increment"] = args ? args.increment : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
+            resourceInputs["nextValue"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Sequence.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Sequence.__pulumiType, name, resourceInputs, opts);
     }
 }
 

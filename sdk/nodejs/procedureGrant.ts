@@ -127,20 +127,20 @@ export class ProcedureGrant extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProcedureGrantArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProcedureGrantArgs | ProcedureGrantState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProcedureGrantState | undefined;
-            inputs["arguments"] = state ? state.arguments : undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["onFuture"] = state ? state.onFuture : undefined;
-            inputs["privilege"] = state ? state.privilege : undefined;
-            inputs["procedureName"] = state ? state.procedureName : undefined;
-            inputs["returnType"] = state ? state.returnType : undefined;
-            inputs["roles"] = state ? state.roles : undefined;
-            inputs["schemaName"] = state ? state.schemaName : undefined;
-            inputs["shares"] = state ? state.shares : undefined;
-            inputs["withGrantOption"] = state ? state.withGrantOption : undefined;
+            resourceInputs["arguments"] = state ? state.arguments : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["onFuture"] = state ? state.onFuture : undefined;
+            resourceInputs["privilege"] = state ? state.privilege : undefined;
+            resourceInputs["procedureName"] = state ? state.procedureName : undefined;
+            resourceInputs["returnType"] = state ? state.returnType : undefined;
+            resourceInputs["roles"] = state ? state.roles : undefined;
+            resourceInputs["schemaName"] = state ? state.schemaName : undefined;
+            resourceInputs["shares"] = state ? state.shares : undefined;
+            resourceInputs["withGrantOption"] = state ? state.withGrantOption : undefined;
         } else {
             const args = argsOrState as ProcedureGrantArgs | undefined;
             if ((!args || args.databaseName === undefined) && !opts.urn) {
@@ -149,21 +149,19 @@ export class ProcedureGrant extends pulumi.CustomResource {
             if ((!args || args.schemaName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schemaName'");
             }
-            inputs["arguments"] = args ? args.arguments : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["onFuture"] = args ? args.onFuture : undefined;
-            inputs["privilege"] = args ? args.privilege : undefined;
-            inputs["procedureName"] = args ? args.procedureName : undefined;
-            inputs["returnType"] = args ? args.returnType : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
-            inputs["schemaName"] = args ? args.schemaName : undefined;
-            inputs["shares"] = args ? args.shares : undefined;
-            inputs["withGrantOption"] = args ? args.withGrantOption : undefined;
+            resourceInputs["arguments"] = args ? args.arguments : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["onFuture"] = args ? args.onFuture : undefined;
+            resourceInputs["privilege"] = args ? args.privilege : undefined;
+            resourceInputs["procedureName"] = args ? args.procedureName : undefined;
+            resourceInputs["returnType"] = args ? args.returnType : undefined;
+            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
+            resourceInputs["shares"] = args ? args.shares : undefined;
+            resourceInputs["withGrantOption"] = args ? args.withGrantOption : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ProcedureGrant.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ProcedureGrant.__pulumiType, name, resourceInputs, opts);
     }
 }
 

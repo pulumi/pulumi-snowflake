@@ -188,7 +188,7 @@ type StreamGrantInput interface {
 }
 
 func (*StreamGrant) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamGrant)(nil))
+	return reflect.TypeOf((**StreamGrant)(nil)).Elem()
 }
 
 func (i *StreamGrant) ToStreamGrantOutput() StreamGrantOutput {
@@ -197,35 +197,6 @@ func (i *StreamGrant) ToStreamGrantOutput() StreamGrantOutput {
 
 func (i *StreamGrant) ToStreamGrantOutputWithContext(ctx context.Context) StreamGrantOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamGrantOutput)
-}
-
-func (i *StreamGrant) ToStreamGrantPtrOutput() StreamGrantPtrOutput {
-	return i.ToStreamGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *StreamGrant) ToStreamGrantPtrOutputWithContext(ctx context.Context) StreamGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamGrantPtrOutput)
-}
-
-type StreamGrantPtrInput interface {
-	pulumi.Input
-
-	ToStreamGrantPtrOutput() StreamGrantPtrOutput
-	ToStreamGrantPtrOutputWithContext(ctx context.Context) StreamGrantPtrOutput
-}
-
-type streamGrantPtrType StreamGrantArgs
-
-func (*streamGrantPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamGrant)(nil))
-}
-
-func (i *streamGrantPtrType) ToStreamGrantPtrOutput() StreamGrantPtrOutput {
-	return i.ToStreamGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *streamGrantPtrType) ToStreamGrantPtrOutputWithContext(ctx context.Context) StreamGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamGrantPtrOutput)
 }
 
 // StreamGrantArrayInput is an input type that accepts StreamGrantArray and StreamGrantArrayOutput values.
@@ -281,7 +252,7 @@ func (i StreamGrantMap) ToStreamGrantMapOutputWithContext(ctx context.Context) S
 type StreamGrantOutput struct{ *pulumi.OutputState }
 
 func (StreamGrantOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamGrant)(nil))
+	return reflect.TypeOf((**StreamGrant)(nil)).Elem()
 }
 
 func (o StreamGrantOutput) ToStreamGrantOutput() StreamGrantOutput {
@@ -292,44 +263,10 @@ func (o StreamGrantOutput) ToStreamGrantOutputWithContext(ctx context.Context) S
 	return o
 }
 
-func (o StreamGrantOutput) ToStreamGrantPtrOutput() StreamGrantPtrOutput {
-	return o.ToStreamGrantPtrOutputWithContext(context.Background())
-}
-
-func (o StreamGrantOutput) ToStreamGrantPtrOutputWithContext(ctx context.Context) StreamGrantPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamGrant) *StreamGrant {
-		return &v
-	}).(StreamGrantPtrOutput)
-}
-
-type StreamGrantPtrOutput struct{ *pulumi.OutputState }
-
-func (StreamGrantPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamGrant)(nil))
-}
-
-func (o StreamGrantPtrOutput) ToStreamGrantPtrOutput() StreamGrantPtrOutput {
-	return o
-}
-
-func (o StreamGrantPtrOutput) ToStreamGrantPtrOutputWithContext(ctx context.Context) StreamGrantPtrOutput {
-	return o
-}
-
-func (o StreamGrantPtrOutput) Elem() StreamGrantOutput {
-	return o.ApplyT(func(v *StreamGrant) StreamGrant {
-		if v != nil {
-			return *v
-		}
-		var ret StreamGrant
-		return ret
-	}).(StreamGrantOutput)
-}
-
 type StreamGrantArrayOutput struct{ *pulumi.OutputState }
 
 func (StreamGrantArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StreamGrant)(nil))
+	return reflect.TypeOf((*[]*StreamGrant)(nil)).Elem()
 }
 
 func (o StreamGrantArrayOutput) ToStreamGrantArrayOutput() StreamGrantArrayOutput {
@@ -341,15 +278,15 @@ func (o StreamGrantArrayOutput) ToStreamGrantArrayOutputWithContext(ctx context.
 }
 
 func (o StreamGrantArrayOutput) Index(i pulumi.IntInput) StreamGrantOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamGrant {
-		return vs[0].([]StreamGrant)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StreamGrant {
+		return vs[0].([]*StreamGrant)[vs[1].(int)]
 	}).(StreamGrantOutput)
 }
 
 type StreamGrantMapOutput struct{ *pulumi.OutputState }
 
 func (StreamGrantMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]StreamGrant)(nil))
+	return reflect.TypeOf((*map[string]*StreamGrant)(nil)).Elem()
 }
 
 func (o StreamGrantMapOutput) ToStreamGrantMapOutput() StreamGrantMapOutput {
@@ -361,18 +298,16 @@ func (o StreamGrantMapOutput) ToStreamGrantMapOutputWithContext(ctx context.Cont
 }
 
 func (o StreamGrantMapOutput) MapIndex(k pulumi.StringInput) StreamGrantOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StreamGrant {
-		return vs[0].(map[string]StreamGrant)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *StreamGrant {
+		return vs[0].(map[string]*StreamGrant)[vs[1].(string)]
 	}).(StreamGrantOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamGrantInput)(nil)).Elem(), &StreamGrant{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StreamGrantPtrInput)(nil)).Elem(), &StreamGrant{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamGrantArrayInput)(nil)).Elem(), StreamGrantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamGrantMapInput)(nil)).Elem(), StreamGrantMap{})
 	pulumi.RegisterOutputType(StreamGrantOutput{})
-	pulumi.RegisterOutputType(StreamGrantPtrOutput{})
 	pulumi.RegisterOutputType(StreamGrantArrayOutput{})
 	pulumi.RegisterOutputType(StreamGrantMapOutput{})
 }

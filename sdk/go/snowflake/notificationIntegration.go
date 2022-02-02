@@ -260,7 +260,7 @@ type NotificationIntegrationInput interface {
 }
 
 func (*NotificationIntegration) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationIntegration)(nil))
+	return reflect.TypeOf((**NotificationIntegration)(nil)).Elem()
 }
 
 func (i *NotificationIntegration) ToNotificationIntegrationOutput() NotificationIntegrationOutput {
@@ -269,35 +269,6 @@ func (i *NotificationIntegration) ToNotificationIntegrationOutput() Notification
 
 func (i *NotificationIntegration) ToNotificationIntegrationOutputWithContext(ctx context.Context) NotificationIntegrationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationIntegrationOutput)
-}
-
-func (i *NotificationIntegration) ToNotificationIntegrationPtrOutput() NotificationIntegrationPtrOutput {
-	return i.ToNotificationIntegrationPtrOutputWithContext(context.Background())
-}
-
-func (i *NotificationIntegration) ToNotificationIntegrationPtrOutputWithContext(ctx context.Context) NotificationIntegrationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationIntegrationPtrOutput)
-}
-
-type NotificationIntegrationPtrInput interface {
-	pulumi.Input
-
-	ToNotificationIntegrationPtrOutput() NotificationIntegrationPtrOutput
-	ToNotificationIntegrationPtrOutputWithContext(ctx context.Context) NotificationIntegrationPtrOutput
-}
-
-type notificationIntegrationPtrType NotificationIntegrationArgs
-
-func (*notificationIntegrationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotificationIntegration)(nil))
-}
-
-func (i *notificationIntegrationPtrType) ToNotificationIntegrationPtrOutput() NotificationIntegrationPtrOutput {
-	return i.ToNotificationIntegrationPtrOutputWithContext(context.Background())
-}
-
-func (i *notificationIntegrationPtrType) ToNotificationIntegrationPtrOutputWithContext(ctx context.Context) NotificationIntegrationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationIntegrationPtrOutput)
 }
 
 // NotificationIntegrationArrayInput is an input type that accepts NotificationIntegrationArray and NotificationIntegrationArrayOutput values.
@@ -353,7 +324,7 @@ func (i NotificationIntegrationMap) ToNotificationIntegrationMapOutputWithContex
 type NotificationIntegrationOutput struct{ *pulumi.OutputState }
 
 func (NotificationIntegrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationIntegration)(nil))
+	return reflect.TypeOf((**NotificationIntegration)(nil)).Elem()
 }
 
 func (o NotificationIntegrationOutput) ToNotificationIntegrationOutput() NotificationIntegrationOutput {
@@ -364,44 +335,10 @@ func (o NotificationIntegrationOutput) ToNotificationIntegrationOutputWithContex
 	return o
 }
 
-func (o NotificationIntegrationOutput) ToNotificationIntegrationPtrOutput() NotificationIntegrationPtrOutput {
-	return o.ToNotificationIntegrationPtrOutputWithContext(context.Background())
-}
-
-func (o NotificationIntegrationOutput) ToNotificationIntegrationPtrOutputWithContext(ctx context.Context) NotificationIntegrationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationIntegration) *NotificationIntegration {
-		return &v
-	}).(NotificationIntegrationPtrOutput)
-}
-
-type NotificationIntegrationPtrOutput struct{ *pulumi.OutputState }
-
-func (NotificationIntegrationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotificationIntegration)(nil))
-}
-
-func (o NotificationIntegrationPtrOutput) ToNotificationIntegrationPtrOutput() NotificationIntegrationPtrOutput {
-	return o
-}
-
-func (o NotificationIntegrationPtrOutput) ToNotificationIntegrationPtrOutputWithContext(ctx context.Context) NotificationIntegrationPtrOutput {
-	return o
-}
-
-func (o NotificationIntegrationPtrOutput) Elem() NotificationIntegrationOutput {
-	return o.ApplyT(func(v *NotificationIntegration) NotificationIntegration {
-		if v != nil {
-			return *v
-		}
-		var ret NotificationIntegration
-		return ret
-	}).(NotificationIntegrationOutput)
-}
-
 type NotificationIntegrationArrayOutput struct{ *pulumi.OutputState }
 
 func (NotificationIntegrationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NotificationIntegration)(nil))
+	return reflect.TypeOf((*[]*NotificationIntegration)(nil)).Elem()
 }
 
 func (o NotificationIntegrationArrayOutput) ToNotificationIntegrationArrayOutput() NotificationIntegrationArrayOutput {
@@ -413,15 +350,15 @@ func (o NotificationIntegrationArrayOutput) ToNotificationIntegrationArrayOutput
 }
 
 func (o NotificationIntegrationArrayOutput) Index(i pulumi.IntInput) NotificationIntegrationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationIntegration {
-		return vs[0].([]NotificationIntegration)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NotificationIntegration {
+		return vs[0].([]*NotificationIntegration)[vs[1].(int)]
 	}).(NotificationIntegrationOutput)
 }
 
 type NotificationIntegrationMapOutput struct{ *pulumi.OutputState }
 
 func (NotificationIntegrationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]NotificationIntegration)(nil))
+	return reflect.TypeOf((*map[string]*NotificationIntegration)(nil)).Elem()
 }
 
 func (o NotificationIntegrationMapOutput) ToNotificationIntegrationMapOutput() NotificationIntegrationMapOutput {
@@ -433,18 +370,16 @@ func (o NotificationIntegrationMapOutput) ToNotificationIntegrationMapOutputWith
 }
 
 func (o NotificationIntegrationMapOutput) MapIndex(k pulumi.StringInput) NotificationIntegrationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NotificationIntegration {
-		return vs[0].(map[string]NotificationIntegration)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *NotificationIntegration {
+		return vs[0].(map[string]*NotificationIntegration)[vs[1].(string)]
 	}).(NotificationIntegrationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationIntegrationInput)(nil)).Elem(), &NotificationIntegration{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NotificationIntegrationPtrInput)(nil)).Elem(), &NotificationIntegration{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationIntegrationArrayInput)(nil)).Elem(), NotificationIntegrationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationIntegrationMapInput)(nil)).Elem(), NotificationIntegrationMap{})
 	pulumi.RegisterOutputType(NotificationIntegrationOutput{})
-	pulumi.RegisterOutputType(NotificationIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(NotificationIntegrationArrayOutput{})
 	pulumi.RegisterOutputType(NotificationIntegrationMapOutput{})
 }

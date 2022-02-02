@@ -82,15 +82,15 @@ export class ScimIntegration extends pulumi.CustomResource {
      */
     constructor(name: string, args: ScimIntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScimIntegrationArgs | ScimIntegrationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScimIntegrationState | undefined;
-            inputs["createdOn"] = state ? state.createdOn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkPolicy"] = state ? state.networkPolicy : undefined;
-            inputs["provisionerRole"] = state ? state.provisionerRole : undefined;
-            inputs["scimClient"] = state ? state.scimClient : undefined;
+            resourceInputs["createdOn"] = state ? state.createdOn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkPolicy"] = state ? state.networkPolicy : undefined;
+            resourceInputs["provisionerRole"] = state ? state.provisionerRole : undefined;
+            resourceInputs["scimClient"] = state ? state.scimClient : undefined;
         } else {
             const args = argsOrState as ScimIntegrationArgs | undefined;
             if ((!args || args.provisionerRole === undefined) && !opts.urn) {
@@ -99,16 +99,14 @@ export class ScimIntegration extends pulumi.CustomResource {
             if ((!args || args.scimClient === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scimClient'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkPolicy"] = args ? args.networkPolicy : undefined;
-            inputs["provisionerRole"] = args ? args.provisionerRole : undefined;
-            inputs["scimClient"] = args ? args.scimClient : undefined;
-            inputs["createdOn"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkPolicy"] = args ? args.networkPolicy : undefined;
+            resourceInputs["provisionerRole"] = args ? args.provisionerRole : undefined;
+            resourceInputs["scimClient"] = args ? args.scimClient : undefined;
+            resourceInputs["createdOn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ScimIntegration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ScimIntegration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

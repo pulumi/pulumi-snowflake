@@ -80,29 +80,27 @@ export class Database extends pulumi.CustomResource {
      */
     constructor(name: string, args?: DatabaseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DatabaseArgs | DatabaseState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatabaseState | undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["dataRetentionTimeInDays"] = state ? state.dataRetentionTimeInDays : undefined;
-            inputs["fromDatabase"] = state ? state.fromDatabase : undefined;
-            inputs["fromShare"] = state ? state.fromShare : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["dataRetentionTimeInDays"] = state ? state.dataRetentionTimeInDays : undefined;
+            resourceInputs["fromDatabase"] = state ? state.fromDatabase : undefined;
+            resourceInputs["fromShare"] = state ? state.fromShare : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DatabaseArgs | undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["dataRetentionTimeInDays"] = args ? args.dataRetentionTimeInDays : undefined;
-            inputs["fromDatabase"] = args ? args.fromDatabase : undefined;
-            inputs["fromShare"] = args ? args.fromShare : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["dataRetentionTimeInDays"] = args ? args.dataRetentionTimeInDays : undefined;
+            resourceInputs["fromDatabase"] = args ? args.fromDatabase : undefined;
+            resourceInputs["fromShare"] = args ? args.fromShare : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Database.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Database.__pulumiType, name, resourceInputs, opts);
     }
 }
 

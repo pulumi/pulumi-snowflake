@@ -105,19 +105,19 @@ export class MaterializedView extends pulumi.CustomResource {
      */
     constructor(name: string, args: MaterializedViewArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MaterializedViewArgs | MaterializedViewState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MaterializedViewState | undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["database"] = state ? state.database : undefined;
-            inputs["isSecure"] = state ? state.isSecure : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["orReplace"] = state ? state.orReplace : undefined;
-            inputs["schema"] = state ? state.schema : undefined;
-            inputs["statement"] = state ? state.statement : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["warehouse"] = state ? state.warehouse : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["isSecure"] = state ? state.isSecure : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["orReplace"] = state ? state.orReplace : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["statement"] = state ? state.statement : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["warehouse"] = state ? state.warehouse : undefined;
         } else {
             const args = argsOrState as MaterializedViewArgs | undefined;
             if ((!args || args.database === undefined) && !opts.urn) {
@@ -132,20 +132,18 @@ export class MaterializedView extends pulumi.CustomResource {
             if ((!args || args.warehouse === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'warehouse'");
             }
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["database"] = args ? args.database : undefined;
-            inputs["isSecure"] = args ? args.isSecure : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["orReplace"] = args ? args.orReplace : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
-            inputs["statement"] = args ? args.statement : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["warehouse"] = args ? args.warehouse : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["isSecure"] = args ? args.isSecure : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["orReplace"] = args ? args.orReplace : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["statement"] = args ? args.statement : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["warehouse"] = args ? args.warehouse : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MaterializedView.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MaterializedView.__pulumiType, name, resourceInputs, opts);
     }
 }
 

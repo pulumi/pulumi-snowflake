@@ -21,9 +21,7 @@ export function getSystemGenerateScimAccessToken(args: GetSystemGenerateScimAcce
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", {
         "integrationName": args.integrationName,
     }, opts);

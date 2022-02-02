@@ -166,7 +166,7 @@ type DatabaseGrantInput interface {
 }
 
 func (*DatabaseGrant) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseGrant)(nil))
+	return reflect.TypeOf((**DatabaseGrant)(nil)).Elem()
 }
 
 func (i *DatabaseGrant) ToDatabaseGrantOutput() DatabaseGrantOutput {
@@ -175,35 +175,6 @@ func (i *DatabaseGrant) ToDatabaseGrantOutput() DatabaseGrantOutput {
 
 func (i *DatabaseGrant) ToDatabaseGrantOutputWithContext(ctx context.Context) DatabaseGrantOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseGrantOutput)
-}
-
-func (i *DatabaseGrant) ToDatabaseGrantPtrOutput() DatabaseGrantPtrOutput {
-	return i.ToDatabaseGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *DatabaseGrant) ToDatabaseGrantPtrOutputWithContext(ctx context.Context) DatabaseGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseGrantPtrOutput)
-}
-
-type DatabaseGrantPtrInput interface {
-	pulumi.Input
-
-	ToDatabaseGrantPtrOutput() DatabaseGrantPtrOutput
-	ToDatabaseGrantPtrOutputWithContext(ctx context.Context) DatabaseGrantPtrOutput
-}
-
-type databaseGrantPtrType DatabaseGrantArgs
-
-func (*databaseGrantPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatabaseGrant)(nil))
-}
-
-func (i *databaseGrantPtrType) ToDatabaseGrantPtrOutput() DatabaseGrantPtrOutput {
-	return i.ToDatabaseGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *databaseGrantPtrType) ToDatabaseGrantPtrOutputWithContext(ctx context.Context) DatabaseGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseGrantPtrOutput)
 }
 
 // DatabaseGrantArrayInput is an input type that accepts DatabaseGrantArray and DatabaseGrantArrayOutput values.
@@ -259,7 +230,7 @@ func (i DatabaseGrantMap) ToDatabaseGrantMapOutputWithContext(ctx context.Contex
 type DatabaseGrantOutput struct{ *pulumi.OutputState }
 
 func (DatabaseGrantOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseGrant)(nil))
+	return reflect.TypeOf((**DatabaseGrant)(nil)).Elem()
 }
 
 func (o DatabaseGrantOutput) ToDatabaseGrantOutput() DatabaseGrantOutput {
@@ -270,44 +241,10 @@ func (o DatabaseGrantOutput) ToDatabaseGrantOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o DatabaseGrantOutput) ToDatabaseGrantPtrOutput() DatabaseGrantPtrOutput {
-	return o.ToDatabaseGrantPtrOutputWithContext(context.Background())
-}
-
-func (o DatabaseGrantOutput) ToDatabaseGrantPtrOutputWithContext(ctx context.Context) DatabaseGrantPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseGrant) *DatabaseGrant {
-		return &v
-	}).(DatabaseGrantPtrOutput)
-}
-
-type DatabaseGrantPtrOutput struct{ *pulumi.OutputState }
-
-func (DatabaseGrantPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatabaseGrant)(nil))
-}
-
-func (o DatabaseGrantPtrOutput) ToDatabaseGrantPtrOutput() DatabaseGrantPtrOutput {
-	return o
-}
-
-func (o DatabaseGrantPtrOutput) ToDatabaseGrantPtrOutputWithContext(ctx context.Context) DatabaseGrantPtrOutput {
-	return o
-}
-
-func (o DatabaseGrantPtrOutput) Elem() DatabaseGrantOutput {
-	return o.ApplyT(func(v *DatabaseGrant) DatabaseGrant {
-		if v != nil {
-			return *v
-		}
-		var ret DatabaseGrant
-		return ret
-	}).(DatabaseGrantOutput)
-}
-
 type DatabaseGrantArrayOutput struct{ *pulumi.OutputState }
 
 func (DatabaseGrantArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatabaseGrant)(nil))
+	return reflect.TypeOf((*[]*DatabaseGrant)(nil)).Elem()
 }
 
 func (o DatabaseGrantArrayOutput) ToDatabaseGrantArrayOutput() DatabaseGrantArrayOutput {
@@ -319,15 +256,15 @@ func (o DatabaseGrantArrayOutput) ToDatabaseGrantArrayOutputWithContext(ctx cont
 }
 
 func (o DatabaseGrantArrayOutput) Index(i pulumi.IntInput) DatabaseGrantOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseGrant {
-		return vs[0].([]DatabaseGrant)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatabaseGrant {
+		return vs[0].([]*DatabaseGrant)[vs[1].(int)]
 	}).(DatabaseGrantOutput)
 }
 
 type DatabaseGrantMapOutput struct{ *pulumi.OutputState }
 
 func (DatabaseGrantMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DatabaseGrant)(nil))
+	return reflect.TypeOf((*map[string]*DatabaseGrant)(nil)).Elem()
 }
 
 func (o DatabaseGrantMapOutput) ToDatabaseGrantMapOutput() DatabaseGrantMapOutput {
@@ -339,18 +276,16 @@ func (o DatabaseGrantMapOutput) ToDatabaseGrantMapOutputWithContext(ctx context.
 }
 
 func (o DatabaseGrantMapOutput) MapIndex(k pulumi.StringInput) DatabaseGrantOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatabaseGrant {
-		return vs[0].(map[string]DatabaseGrant)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DatabaseGrant {
+		return vs[0].(map[string]*DatabaseGrant)[vs[1].(string)]
 	}).(DatabaseGrantOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseGrantInput)(nil)).Elem(), &DatabaseGrant{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseGrantPtrInput)(nil)).Elem(), &DatabaseGrant{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseGrantArrayInput)(nil)).Elem(), DatabaseGrantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseGrantMapInput)(nil)).Elem(), DatabaseGrantMap{})
 	pulumi.RegisterOutputType(DatabaseGrantOutput{})
-	pulumi.RegisterOutputType(DatabaseGrantPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseGrantArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseGrantMapOutput{})
 }

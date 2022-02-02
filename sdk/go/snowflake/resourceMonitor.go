@@ -202,7 +202,7 @@ type ResourceMonitorInput interface {
 }
 
 func (*ResourceMonitor) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceMonitor)(nil))
+	return reflect.TypeOf((**ResourceMonitor)(nil)).Elem()
 }
 
 func (i *ResourceMonitor) ToResourceMonitorOutput() ResourceMonitorOutput {
@@ -211,35 +211,6 @@ func (i *ResourceMonitor) ToResourceMonitorOutput() ResourceMonitorOutput {
 
 func (i *ResourceMonitor) ToResourceMonitorOutputWithContext(ctx context.Context) ResourceMonitorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceMonitorOutput)
-}
-
-func (i *ResourceMonitor) ToResourceMonitorPtrOutput() ResourceMonitorPtrOutput {
-	return i.ToResourceMonitorPtrOutputWithContext(context.Background())
-}
-
-func (i *ResourceMonitor) ToResourceMonitorPtrOutputWithContext(ctx context.Context) ResourceMonitorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceMonitorPtrOutput)
-}
-
-type ResourceMonitorPtrInput interface {
-	pulumi.Input
-
-	ToResourceMonitorPtrOutput() ResourceMonitorPtrOutput
-	ToResourceMonitorPtrOutputWithContext(ctx context.Context) ResourceMonitorPtrOutput
-}
-
-type resourceMonitorPtrType ResourceMonitorArgs
-
-func (*resourceMonitorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceMonitor)(nil))
-}
-
-func (i *resourceMonitorPtrType) ToResourceMonitorPtrOutput() ResourceMonitorPtrOutput {
-	return i.ToResourceMonitorPtrOutputWithContext(context.Background())
-}
-
-func (i *resourceMonitorPtrType) ToResourceMonitorPtrOutputWithContext(ctx context.Context) ResourceMonitorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceMonitorPtrOutput)
 }
 
 // ResourceMonitorArrayInput is an input type that accepts ResourceMonitorArray and ResourceMonitorArrayOutput values.
@@ -295,7 +266,7 @@ func (i ResourceMonitorMap) ToResourceMonitorMapOutputWithContext(ctx context.Co
 type ResourceMonitorOutput struct{ *pulumi.OutputState }
 
 func (ResourceMonitorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceMonitor)(nil))
+	return reflect.TypeOf((**ResourceMonitor)(nil)).Elem()
 }
 
 func (o ResourceMonitorOutput) ToResourceMonitorOutput() ResourceMonitorOutput {
@@ -306,44 +277,10 @@ func (o ResourceMonitorOutput) ToResourceMonitorOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ResourceMonitorOutput) ToResourceMonitorPtrOutput() ResourceMonitorPtrOutput {
-	return o.ToResourceMonitorPtrOutputWithContext(context.Background())
-}
-
-func (o ResourceMonitorOutput) ToResourceMonitorPtrOutputWithContext(ctx context.Context) ResourceMonitorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceMonitor) *ResourceMonitor {
-		return &v
-	}).(ResourceMonitorPtrOutput)
-}
-
-type ResourceMonitorPtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceMonitorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceMonitor)(nil))
-}
-
-func (o ResourceMonitorPtrOutput) ToResourceMonitorPtrOutput() ResourceMonitorPtrOutput {
-	return o
-}
-
-func (o ResourceMonitorPtrOutput) ToResourceMonitorPtrOutputWithContext(ctx context.Context) ResourceMonitorPtrOutput {
-	return o
-}
-
-func (o ResourceMonitorPtrOutput) Elem() ResourceMonitorOutput {
-	return o.ApplyT(func(v *ResourceMonitor) ResourceMonitor {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceMonitor
-		return ret
-	}).(ResourceMonitorOutput)
-}
-
 type ResourceMonitorArrayOutput struct{ *pulumi.OutputState }
 
 func (ResourceMonitorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResourceMonitor)(nil))
+	return reflect.TypeOf((*[]*ResourceMonitor)(nil)).Elem()
 }
 
 func (o ResourceMonitorArrayOutput) ToResourceMonitorArrayOutput() ResourceMonitorArrayOutput {
@@ -355,15 +292,15 @@ func (o ResourceMonitorArrayOutput) ToResourceMonitorArrayOutputWithContext(ctx 
 }
 
 func (o ResourceMonitorArrayOutput) Index(i pulumi.IntInput) ResourceMonitorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceMonitor {
-		return vs[0].([]ResourceMonitor)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceMonitor {
+		return vs[0].([]*ResourceMonitor)[vs[1].(int)]
 	}).(ResourceMonitorOutput)
 }
 
 type ResourceMonitorMapOutput struct{ *pulumi.OutputState }
 
 func (ResourceMonitorMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ResourceMonitor)(nil))
+	return reflect.TypeOf((*map[string]*ResourceMonitor)(nil)).Elem()
 }
 
 func (o ResourceMonitorMapOutput) ToResourceMonitorMapOutput() ResourceMonitorMapOutput {
@@ -375,18 +312,16 @@ func (o ResourceMonitorMapOutput) ToResourceMonitorMapOutputWithContext(ctx cont
 }
 
 func (o ResourceMonitorMapOutput) MapIndex(k pulumi.StringInput) ResourceMonitorOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResourceMonitor {
-		return vs[0].(map[string]ResourceMonitor)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ResourceMonitor {
+		return vs[0].(map[string]*ResourceMonitor)[vs[1].(string)]
 	}).(ResourceMonitorOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceMonitorInput)(nil)).Elem(), &ResourceMonitor{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceMonitorPtrInput)(nil)).Elem(), &ResourceMonitor{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceMonitorArrayInput)(nil)).Elem(), ResourceMonitorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceMonitorMapInput)(nil)).Elem(), ResourceMonitorMap{})
 	pulumi.RegisterOutputType(ResourceMonitorOutput{})
-	pulumi.RegisterOutputType(ResourceMonitorPtrOutput{})
 	pulumi.RegisterOutputType(ResourceMonitorArrayOutput{})
 	pulumi.RegisterOutputType(ResourceMonitorMapOutput{})
 }

@@ -127,20 +127,20 @@ export class Procedure extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProcedureArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProcedureArgs | ProcedureState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProcedureState | undefined;
-            inputs["arguments"] = state ? state.arguments : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["database"] = state ? state.database : undefined;
-            inputs["executeAs"] = state ? state.executeAs : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["nullInputBehavior"] = state ? state.nullInputBehavior : undefined;
-            inputs["returnBehavior"] = state ? state.returnBehavior : undefined;
-            inputs["returnType"] = state ? state.returnType : undefined;
-            inputs["schema"] = state ? state.schema : undefined;
-            inputs["statement"] = state ? state.statement : undefined;
+            resourceInputs["arguments"] = state ? state.arguments : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["executeAs"] = state ? state.executeAs : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nullInputBehavior"] = state ? state.nullInputBehavior : undefined;
+            resourceInputs["returnBehavior"] = state ? state.returnBehavior : undefined;
+            resourceInputs["returnType"] = state ? state.returnType : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["statement"] = state ? state.statement : undefined;
         } else {
             const args = argsOrState as ProcedureArgs | undefined;
             if ((!args || args.database === undefined) && !opts.urn) {
@@ -155,21 +155,19 @@ export class Procedure extends pulumi.CustomResource {
             if ((!args || args.statement === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'statement'");
             }
-            inputs["arguments"] = args ? args.arguments : undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["database"] = args ? args.database : undefined;
-            inputs["executeAs"] = args ? args.executeAs : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["nullInputBehavior"] = args ? args.nullInputBehavior : undefined;
-            inputs["returnBehavior"] = args ? args.returnBehavior : undefined;
-            inputs["returnType"] = args ? args.returnType : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
-            inputs["statement"] = args ? args.statement : undefined;
+            resourceInputs["arguments"] = args ? args.arguments : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["executeAs"] = args ? args.executeAs : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nullInputBehavior"] = args ? args.nullInputBehavior : undefined;
+            resourceInputs["returnBehavior"] = args ? args.returnBehavior : undefined;
+            resourceInputs["returnType"] = args ? args.returnType : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["statement"] = args ? args.statement : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Procedure.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Procedure.__pulumiType, name, resourceInputs, opts);
     }
 }
 

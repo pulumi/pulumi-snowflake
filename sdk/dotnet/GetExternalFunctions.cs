@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Snowflake
 {
@@ -38,7 +37,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetExternalFunctionsResult> InvokeAsync(GetExternalFunctionsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExternalFunctionsResult>("snowflake:index/getExternalFunctions:getExternalFunctions", args ?? new GetExternalFunctionsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExternalFunctionsResult>("snowflake:index/getExternalFunctions:getExternalFunctions", args ?? new GetExternalFunctionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -66,7 +65,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetExternalFunctionsResult> Invoke(GetExternalFunctionsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExternalFunctionsResult>("snowflake:index/getExternalFunctions:getExternalFunctions", args ?? new GetExternalFunctionsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetExternalFunctionsResult>("snowflake:index/getExternalFunctions:getExternalFunctions", args ?? new GetExternalFunctionsInvokeArgs(), options.WithDefaults());
     }
 
 

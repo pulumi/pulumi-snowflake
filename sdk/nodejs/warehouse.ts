@@ -119,47 +119,45 @@ export class Warehouse extends pulumi.CustomResource {
      */
     constructor(name: string, args?: WarehouseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WarehouseArgs | WarehouseState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WarehouseState | undefined;
-            inputs["autoResume"] = state ? state.autoResume : undefined;
-            inputs["autoSuspend"] = state ? state.autoSuspend : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["initiallySuspended"] = state ? state.initiallySuspended : undefined;
-            inputs["maxClusterCount"] = state ? state.maxClusterCount : undefined;
-            inputs["maxConcurrencyLevel"] = state ? state.maxConcurrencyLevel : undefined;
-            inputs["minClusterCount"] = state ? state.minClusterCount : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceMonitor"] = state ? state.resourceMonitor : undefined;
-            inputs["scalingPolicy"] = state ? state.scalingPolicy : undefined;
-            inputs["statementQueuedTimeoutInSeconds"] = state ? state.statementQueuedTimeoutInSeconds : undefined;
-            inputs["statementTimeoutInSeconds"] = state ? state.statementTimeoutInSeconds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["waitForProvisioning"] = state ? state.waitForProvisioning : undefined;
-            inputs["warehouseSize"] = state ? state.warehouseSize : undefined;
+            resourceInputs["autoResume"] = state ? state.autoResume : undefined;
+            resourceInputs["autoSuspend"] = state ? state.autoSuspend : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["initiallySuspended"] = state ? state.initiallySuspended : undefined;
+            resourceInputs["maxClusterCount"] = state ? state.maxClusterCount : undefined;
+            resourceInputs["maxConcurrencyLevel"] = state ? state.maxConcurrencyLevel : undefined;
+            resourceInputs["minClusterCount"] = state ? state.minClusterCount : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceMonitor"] = state ? state.resourceMonitor : undefined;
+            resourceInputs["scalingPolicy"] = state ? state.scalingPolicy : undefined;
+            resourceInputs["statementQueuedTimeoutInSeconds"] = state ? state.statementQueuedTimeoutInSeconds : undefined;
+            resourceInputs["statementTimeoutInSeconds"] = state ? state.statementTimeoutInSeconds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["waitForProvisioning"] = state ? state.waitForProvisioning : undefined;
+            resourceInputs["warehouseSize"] = state ? state.warehouseSize : undefined;
         } else {
             const args = argsOrState as WarehouseArgs | undefined;
-            inputs["autoResume"] = args ? args.autoResume : undefined;
-            inputs["autoSuspend"] = args ? args.autoSuspend : undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["initiallySuspended"] = args ? args.initiallySuspended : undefined;
-            inputs["maxClusterCount"] = args ? args.maxClusterCount : undefined;
-            inputs["maxConcurrencyLevel"] = args ? args.maxConcurrencyLevel : undefined;
-            inputs["minClusterCount"] = args ? args.minClusterCount : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceMonitor"] = args ? args.resourceMonitor : undefined;
-            inputs["scalingPolicy"] = args ? args.scalingPolicy : undefined;
-            inputs["statementQueuedTimeoutInSeconds"] = args ? args.statementQueuedTimeoutInSeconds : undefined;
-            inputs["statementTimeoutInSeconds"] = args ? args.statementTimeoutInSeconds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["waitForProvisioning"] = args ? args.waitForProvisioning : undefined;
-            inputs["warehouseSize"] = args ? args.warehouseSize : undefined;
+            resourceInputs["autoResume"] = args ? args.autoResume : undefined;
+            resourceInputs["autoSuspend"] = args ? args.autoSuspend : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["initiallySuspended"] = args ? args.initiallySuspended : undefined;
+            resourceInputs["maxClusterCount"] = args ? args.maxClusterCount : undefined;
+            resourceInputs["maxConcurrencyLevel"] = args ? args.maxConcurrencyLevel : undefined;
+            resourceInputs["minClusterCount"] = args ? args.minClusterCount : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceMonitor"] = args ? args.resourceMonitor : undefined;
+            resourceInputs["scalingPolicy"] = args ? args.scalingPolicy : undefined;
+            resourceInputs["statementQueuedTimeoutInSeconds"] = args ? args.statementQueuedTimeoutInSeconds : undefined;
+            resourceInputs["statementTimeoutInSeconds"] = args ? args.statementTimeoutInSeconds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["waitForProvisioning"] = args ? args.waitForProvisioning : undefined;
+            resourceInputs["warehouseSize"] = args ? args.warehouseSize : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Warehouse.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Warehouse.__pulumiType, name, resourceInputs, opts);
     }
 }
 

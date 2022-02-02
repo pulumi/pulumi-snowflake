@@ -185,7 +185,7 @@ type StorageIntegrationInput interface {
 }
 
 func (*StorageIntegration) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageIntegration)(nil))
+	return reflect.TypeOf((**StorageIntegration)(nil)).Elem()
 }
 
 func (i *StorageIntegration) ToStorageIntegrationOutput() StorageIntegrationOutput {
@@ -194,35 +194,6 @@ func (i *StorageIntegration) ToStorageIntegrationOutput() StorageIntegrationOutp
 
 func (i *StorageIntegration) ToStorageIntegrationOutputWithContext(ctx context.Context) StorageIntegrationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationOutput)
-}
-
-func (i *StorageIntegration) ToStorageIntegrationPtrOutput() StorageIntegrationPtrOutput {
-	return i.ToStorageIntegrationPtrOutputWithContext(context.Background())
-}
-
-func (i *StorageIntegration) ToStorageIntegrationPtrOutputWithContext(ctx context.Context) StorageIntegrationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationPtrOutput)
-}
-
-type StorageIntegrationPtrInput interface {
-	pulumi.Input
-
-	ToStorageIntegrationPtrOutput() StorageIntegrationPtrOutput
-	ToStorageIntegrationPtrOutputWithContext(ctx context.Context) StorageIntegrationPtrOutput
-}
-
-type storageIntegrationPtrType StorageIntegrationArgs
-
-func (*storageIntegrationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageIntegration)(nil))
-}
-
-func (i *storageIntegrationPtrType) ToStorageIntegrationPtrOutput() StorageIntegrationPtrOutput {
-	return i.ToStorageIntegrationPtrOutputWithContext(context.Background())
-}
-
-func (i *storageIntegrationPtrType) ToStorageIntegrationPtrOutputWithContext(ctx context.Context) StorageIntegrationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationPtrOutput)
 }
 
 // StorageIntegrationArrayInput is an input type that accepts StorageIntegrationArray and StorageIntegrationArrayOutput values.
@@ -278,7 +249,7 @@ func (i StorageIntegrationMap) ToStorageIntegrationMapOutputWithContext(ctx cont
 type StorageIntegrationOutput struct{ *pulumi.OutputState }
 
 func (StorageIntegrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageIntegration)(nil))
+	return reflect.TypeOf((**StorageIntegration)(nil)).Elem()
 }
 
 func (o StorageIntegrationOutput) ToStorageIntegrationOutput() StorageIntegrationOutput {
@@ -289,44 +260,10 @@ func (o StorageIntegrationOutput) ToStorageIntegrationOutputWithContext(ctx cont
 	return o
 }
 
-func (o StorageIntegrationOutput) ToStorageIntegrationPtrOutput() StorageIntegrationPtrOutput {
-	return o.ToStorageIntegrationPtrOutputWithContext(context.Background())
-}
-
-func (o StorageIntegrationOutput) ToStorageIntegrationPtrOutputWithContext(ctx context.Context) StorageIntegrationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageIntegration) *StorageIntegration {
-		return &v
-	}).(StorageIntegrationPtrOutput)
-}
-
-type StorageIntegrationPtrOutput struct{ *pulumi.OutputState }
-
-func (StorageIntegrationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageIntegration)(nil))
-}
-
-func (o StorageIntegrationPtrOutput) ToStorageIntegrationPtrOutput() StorageIntegrationPtrOutput {
-	return o
-}
-
-func (o StorageIntegrationPtrOutput) ToStorageIntegrationPtrOutputWithContext(ctx context.Context) StorageIntegrationPtrOutput {
-	return o
-}
-
-func (o StorageIntegrationPtrOutput) Elem() StorageIntegrationOutput {
-	return o.ApplyT(func(v *StorageIntegration) StorageIntegration {
-		if v != nil {
-			return *v
-		}
-		var ret StorageIntegration
-		return ret
-	}).(StorageIntegrationOutput)
-}
-
 type StorageIntegrationArrayOutput struct{ *pulumi.OutputState }
 
 func (StorageIntegrationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StorageIntegration)(nil))
+	return reflect.TypeOf((*[]*StorageIntegration)(nil)).Elem()
 }
 
 func (o StorageIntegrationArrayOutput) ToStorageIntegrationArrayOutput() StorageIntegrationArrayOutput {
@@ -338,15 +275,15 @@ func (o StorageIntegrationArrayOutput) ToStorageIntegrationArrayOutputWithContex
 }
 
 func (o StorageIntegrationArrayOutput) Index(i pulumi.IntInput) StorageIntegrationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageIntegration {
-		return vs[0].([]StorageIntegration)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StorageIntegration {
+		return vs[0].([]*StorageIntegration)[vs[1].(int)]
 	}).(StorageIntegrationOutput)
 }
 
 type StorageIntegrationMapOutput struct{ *pulumi.OutputState }
 
 func (StorageIntegrationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]StorageIntegration)(nil))
+	return reflect.TypeOf((*map[string]*StorageIntegration)(nil)).Elem()
 }
 
 func (o StorageIntegrationMapOutput) ToStorageIntegrationMapOutput() StorageIntegrationMapOutput {
@@ -358,18 +295,16 @@ func (o StorageIntegrationMapOutput) ToStorageIntegrationMapOutputWithContext(ct
 }
 
 func (o StorageIntegrationMapOutput) MapIndex(k pulumi.StringInput) StorageIntegrationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StorageIntegration {
-		return vs[0].(map[string]StorageIntegration)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *StorageIntegration {
+		return vs[0].(map[string]*StorageIntegration)[vs[1].(string)]
 	}).(StorageIntegrationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationInput)(nil)).Elem(), &StorageIntegration{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationPtrInput)(nil)).Elem(), &StorageIntegration{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationArrayInput)(nil)).Elem(), StorageIntegrationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationMapInput)(nil)).Elem(), StorageIntegrationMap{})
 	pulumi.RegisterOutputType(StorageIntegrationOutput{})
-	pulumi.RegisterOutputType(StorageIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(StorageIntegrationArrayOutput{})
 	pulumi.RegisterOutputType(StorageIntegrationMapOutput{})
 }

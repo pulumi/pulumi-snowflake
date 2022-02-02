@@ -157,21 +157,21 @@ export class Table extends pulumi.CustomResource {
      */
     constructor(name: string, args: TableArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TableArgs | TableState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableState | undefined;
-            inputs["changeTracking"] = state ? state.changeTracking : undefined;
-            inputs["clusterBies"] = state ? state.clusterBies : undefined;
-            inputs["columns"] = state ? state.columns : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["dataRetentionDays"] = state ? state.dataRetentionDays : undefined;
-            inputs["database"] = state ? state.database : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["owner"] = state ? state.owner : undefined;
-            inputs["primaryKey"] = state ? state.primaryKey : undefined;
-            inputs["schema"] = state ? state.schema : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["changeTracking"] = state ? state.changeTracking : undefined;
+            resourceInputs["clusterBies"] = state ? state.clusterBies : undefined;
+            resourceInputs["columns"] = state ? state.columns : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["dataRetentionDays"] = state ? state.dataRetentionDays : undefined;
+            resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["owner"] = state ? state.owner : undefined;
+            resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as TableArgs | undefined;
             if ((!args || args.columns === undefined) && !opts.urn) {
@@ -183,22 +183,20 @@ export class Table extends pulumi.CustomResource {
             if ((!args || args.schema === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            inputs["changeTracking"] = args ? args.changeTracking : undefined;
-            inputs["clusterBies"] = args ? args.clusterBies : undefined;
-            inputs["columns"] = args ? args.columns : undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["dataRetentionDays"] = args ? args.dataRetentionDays : undefined;
-            inputs["database"] = args ? args.database : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["primaryKey"] = args ? args.primaryKey : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["owner"] = undefined /*out*/;
+            resourceInputs["changeTracking"] = args ? args.changeTracking : undefined;
+            resourceInputs["clusterBies"] = args ? args.clusterBies : undefined;
+            resourceInputs["columns"] = args ? args.columns : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["dataRetentionDays"] = args ? args.dataRetentionDays : undefined;
+            resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["primaryKey"] = args ? args.primaryKey : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["owner"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Table.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Table.__pulumiType, name, resourceInputs, opts);
     }
 }
 

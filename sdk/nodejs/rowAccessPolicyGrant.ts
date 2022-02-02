@@ -94,16 +94,16 @@ export class RowAccessPolicyGrant extends pulumi.CustomResource {
      */
     constructor(name: string, args: RowAccessPolicyGrantArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RowAccessPolicyGrantArgs | RowAccessPolicyGrantState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RowAccessPolicyGrantState | undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["privilege"] = state ? state.privilege : undefined;
-            inputs["roles"] = state ? state.roles : undefined;
-            inputs["rowAccessPolicyName"] = state ? state.rowAccessPolicyName : undefined;
-            inputs["schemaName"] = state ? state.schemaName : undefined;
-            inputs["withGrantOption"] = state ? state.withGrantOption : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["privilege"] = state ? state.privilege : undefined;
+            resourceInputs["roles"] = state ? state.roles : undefined;
+            resourceInputs["rowAccessPolicyName"] = state ? state.rowAccessPolicyName : undefined;
+            resourceInputs["schemaName"] = state ? state.schemaName : undefined;
+            resourceInputs["withGrantOption"] = state ? state.withGrantOption : undefined;
         } else {
             const args = argsOrState as RowAccessPolicyGrantArgs | undefined;
             if ((!args || args.databaseName === undefined) && !opts.urn) {
@@ -115,17 +115,15 @@ export class RowAccessPolicyGrant extends pulumi.CustomResource {
             if ((!args || args.schemaName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schemaName'");
             }
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["privilege"] = args ? args.privilege : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
-            inputs["rowAccessPolicyName"] = args ? args.rowAccessPolicyName : undefined;
-            inputs["schemaName"] = args ? args.schemaName : undefined;
-            inputs["withGrantOption"] = args ? args.withGrantOption : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["privilege"] = args ? args.privilege : undefined;
+            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["rowAccessPolicyName"] = args ? args.rowAccessPolicyName : undefined;
+            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
+            resourceInputs["withGrantOption"] = args ? args.withGrantOption : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RowAccessPolicyGrant.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RowAccessPolicyGrant.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -180,7 +180,7 @@ type RowAccessPolicyGrantInput interface {
 }
 
 func (*RowAccessPolicyGrant) ElementType() reflect.Type {
-	return reflect.TypeOf((*RowAccessPolicyGrant)(nil))
+	return reflect.TypeOf((**RowAccessPolicyGrant)(nil)).Elem()
 }
 
 func (i *RowAccessPolicyGrant) ToRowAccessPolicyGrantOutput() RowAccessPolicyGrantOutput {
@@ -189,35 +189,6 @@ func (i *RowAccessPolicyGrant) ToRowAccessPolicyGrantOutput() RowAccessPolicyGra
 
 func (i *RowAccessPolicyGrant) ToRowAccessPolicyGrantOutputWithContext(ctx context.Context) RowAccessPolicyGrantOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RowAccessPolicyGrantOutput)
-}
-
-func (i *RowAccessPolicyGrant) ToRowAccessPolicyGrantPtrOutput() RowAccessPolicyGrantPtrOutput {
-	return i.ToRowAccessPolicyGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *RowAccessPolicyGrant) ToRowAccessPolicyGrantPtrOutputWithContext(ctx context.Context) RowAccessPolicyGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RowAccessPolicyGrantPtrOutput)
-}
-
-type RowAccessPolicyGrantPtrInput interface {
-	pulumi.Input
-
-	ToRowAccessPolicyGrantPtrOutput() RowAccessPolicyGrantPtrOutput
-	ToRowAccessPolicyGrantPtrOutputWithContext(ctx context.Context) RowAccessPolicyGrantPtrOutput
-}
-
-type rowAccessPolicyGrantPtrType RowAccessPolicyGrantArgs
-
-func (*rowAccessPolicyGrantPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RowAccessPolicyGrant)(nil))
-}
-
-func (i *rowAccessPolicyGrantPtrType) ToRowAccessPolicyGrantPtrOutput() RowAccessPolicyGrantPtrOutput {
-	return i.ToRowAccessPolicyGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *rowAccessPolicyGrantPtrType) ToRowAccessPolicyGrantPtrOutputWithContext(ctx context.Context) RowAccessPolicyGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RowAccessPolicyGrantPtrOutput)
 }
 
 // RowAccessPolicyGrantArrayInput is an input type that accepts RowAccessPolicyGrantArray and RowAccessPolicyGrantArrayOutput values.
@@ -273,7 +244,7 @@ func (i RowAccessPolicyGrantMap) ToRowAccessPolicyGrantMapOutputWithContext(ctx 
 type RowAccessPolicyGrantOutput struct{ *pulumi.OutputState }
 
 func (RowAccessPolicyGrantOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RowAccessPolicyGrant)(nil))
+	return reflect.TypeOf((**RowAccessPolicyGrant)(nil)).Elem()
 }
 
 func (o RowAccessPolicyGrantOutput) ToRowAccessPolicyGrantOutput() RowAccessPolicyGrantOutput {
@@ -284,44 +255,10 @@ func (o RowAccessPolicyGrantOutput) ToRowAccessPolicyGrantOutputWithContext(ctx 
 	return o
 }
 
-func (o RowAccessPolicyGrantOutput) ToRowAccessPolicyGrantPtrOutput() RowAccessPolicyGrantPtrOutput {
-	return o.ToRowAccessPolicyGrantPtrOutputWithContext(context.Background())
-}
-
-func (o RowAccessPolicyGrantOutput) ToRowAccessPolicyGrantPtrOutputWithContext(ctx context.Context) RowAccessPolicyGrantPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RowAccessPolicyGrant) *RowAccessPolicyGrant {
-		return &v
-	}).(RowAccessPolicyGrantPtrOutput)
-}
-
-type RowAccessPolicyGrantPtrOutput struct{ *pulumi.OutputState }
-
-func (RowAccessPolicyGrantPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RowAccessPolicyGrant)(nil))
-}
-
-func (o RowAccessPolicyGrantPtrOutput) ToRowAccessPolicyGrantPtrOutput() RowAccessPolicyGrantPtrOutput {
-	return o
-}
-
-func (o RowAccessPolicyGrantPtrOutput) ToRowAccessPolicyGrantPtrOutputWithContext(ctx context.Context) RowAccessPolicyGrantPtrOutput {
-	return o
-}
-
-func (o RowAccessPolicyGrantPtrOutput) Elem() RowAccessPolicyGrantOutput {
-	return o.ApplyT(func(v *RowAccessPolicyGrant) RowAccessPolicyGrant {
-		if v != nil {
-			return *v
-		}
-		var ret RowAccessPolicyGrant
-		return ret
-	}).(RowAccessPolicyGrantOutput)
-}
-
 type RowAccessPolicyGrantArrayOutput struct{ *pulumi.OutputState }
 
 func (RowAccessPolicyGrantArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RowAccessPolicyGrant)(nil))
+	return reflect.TypeOf((*[]*RowAccessPolicyGrant)(nil)).Elem()
 }
 
 func (o RowAccessPolicyGrantArrayOutput) ToRowAccessPolicyGrantArrayOutput() RowAccessPolicyGrantArrayOutput {
@@ -333,15 +270,15 @@ func (o RowAccessPolicyGrantArrayOutput) ToRowAccessPolicyGrantArrayOutputWithCo
 }
 
 func (o RowAccessPolicyGrantArrayOutput) Index(i pulumi.IntInput) RowAccessPolicyGrantOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RowAccessPolicyGrant {
-		return vs[0].([]RowAccessPolicyGrant)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RowAccessPolicyGrant {
+		return vs[0].([]*RowAccessPolicyGrant)[vs[1].(int)]
 	}).(RowAccessPolicyGrantOutput)
 }
 
 type RowAccessPolicyGrantMapOutput struct{ *pulumi.OutputState }
 
 func (RowAccessPolicyGrantMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RowAccessPolicyGrant)(nil))
+	return reflect.TypeOf((*map[string]*RowAccessPolicyGrant)(nil)).Elem()
 }
 
 func (o RowAccessPolicyGrantMapOutput) ToRowAccessPolicyGrantMapOutput() RowAccessPolicyGrantMapOutput {
@@ -353,18 +290,16 @@ func (o RowAccessPolicyGrantMapOutput) ToRowAccessPolicyGrantMapOutputWithContex
 }
 
 func (o RowAccessPolicyGrantMapOutput) MapIndex(k pulumi.StringInput) RowAccessPolicyGrantOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RowAccessPolicyGrant {
-		return vs[0].(map[string]RowAccessPolicyGrant)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RowAccessPolicyGrant {
+		return vs[0].(map[string]*RowAccessPolicyGrant)[vs[1].(string)]
 	}).(RowAccessPolicyGrantOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RowAccessPolicyGrantInput)(nil)).Elem(), &RowAccessPolicyGrant{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RowAccessPolicyGrantPtrInput)(nil)).Elem(), &RowAccessPolicyGrant{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RowAccessPolicyGrantArrayInput)(nil)).Elem(), RowAccessPolicyGrantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RowAccessPolicyGrantMapInput)(nil)).Elem(), RowAccessPolicyGrantMap{})
 	pulumi.RegisterOutputType(RowAccessPolicyGrantOutput{})
-	pulumi.RegisterOutputType(RowAccessPolicyGrantPtrOutput{})
 	pulumi.RegisterOutputType(RowAccessPolicyGrantArrayOutput{})
 	pulumi.RegisterOutputType(RowAccessPolicyGrantMapOutput{})
 }

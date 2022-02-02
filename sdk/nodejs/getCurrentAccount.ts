@@ -24,9 +24,7 @@ export function getCurrentAccount(opts?: pulumi.InvokeOptions): Promise<GetCurre
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("snowflake:index/getCurrentAccount:getCurrentAccount", {
     }, opts);
 }

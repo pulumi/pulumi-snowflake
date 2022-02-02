@@ -276,7 +276,7 @@ type ExternalTableInput interface {
 }
 
 func (*ExternalTable) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExternalTable)(nil))
+	return reflect.TypeOf((**ExternalTable)(nil)).Elem()
 }
 
 func (i *ExternalTable) ToExternalTableOutput() ExternalTableOutput {
@@ -285,35 +285,6 @@ func (i *ExternalTable) ToExternalTableOutput() ExternalTableOutput {
 
 func (i *ExternalTable) ToExternalTableOutputWithContext(ctx context.Context) ExternalTableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalTableOutput)
-}
-
-func (i *ExternalTable) ToExternalTablePtrOutput() ExternalTablePtrOutput {
-	return i.ToExternalTablePtrOutputWithContext(context.Background())
-}
-
-func (i *ExternalTable) ToExternalTablePtrOutputWithContext(ctx context.Context) ExternalTablePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExternalTablePtrOutput)
-}
-
-type ExternalTablePtrInput interface {
-	pulumi.Input
-
-	ToExternalTablePtrOutput() ExternalTablePtrOutput
-	ToExternalTablePtrOutputWithContext(ctx context.Context) ExternalTablePtrOutput
-}
-
-type externalTablePtrType ExternalTableArgs
-
-func (*externalTablePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExternalTable)(nil))
-}
-
-func (i *externalTablePtrType) ToExternalTablePtrOutput() ExternalTablePtrOutput {
-	return i.ToExternalTablePtrOutputWithContext(context.Background())
-}
-
-func (i *externalTablePtrType) ToExternalTablePtrOutputWithContext(ctx context.Context) ExternalTablePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExternalTablePtrOutput)
 }
 
 // ExternalTableArrayInput is an input type that accepts ExternalTableArray and ExternalTableArrayOutput values.
@@ -369,7 +340,7 @@ func (i ExternalTableMap) ToExternalTableMapOutputWithContext(ctx context.Contex
 type ExternalTableOutput struct{ *pulumi.OutputState }
 
 func (ExternalTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExternalTable)(nil))
+	return reflect.TypeOf((**ExternalTable)(nil)).Elem()
 }
 
 func (o ExternalTableOutput) ToExternalTableOutput() ExternalTableOutput {
@@ -380,44 +351,10 @@ func (o ExternalTableOutput) ToExternalTableOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o ExternalTableOutput) ToExternalTablePtrOutput() ExternalTablePtrOutput {
-	return o.ToExternalTablePtrOutputWithContext(context.Background())
-}
-
-func (o ExternalTableOutput) ToExternalTablePtrOutputWithContext(ctx context.Context) ExternalTablePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExternalTable) *ExternalTable {
-		return &v
-	}).(ExternalTablePtrOutput)
-}
-
-type ExternalTablePtrOutput struct{ *pulumi.OutputState }
-
-func (ExternalTablePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExternalTable)(nil))
-}
-
-func (o ExternalTablePtrOutput) ToExternalTablePtrOutput() ExternalTablePtrOutput {
-	return o
-}
-
-func (o ExternalTablePtrOutput) ToExternalTablePtrOutputWithContext(ctx context.Context) ExternalTablePtrOutput {
-	return o
-}
-
-func (o ExternalTablePtrOutput) Elem() ExternalTableOutput {
-	return o.ApplyT(func(v *ExternalTable) ExternalTable {
-		if v != nil {
-			return *v
-		}
-		var ret ExternalTable
-		return ret
-	}).(ExternalTableOutput)
-}
-
 type ExternalTableArrayOutput struct{ *pulumi.OutputState }
 
 func (ExternalTableArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ExternalTable)(nil))
+	return reflect.TypeOf((*[]*ExternalTable)(nil)).Elem()
 }
 
 func (o ExternalTableArrayOutput) ToExternalTableArrayOutput() ExternalTableArrayOutput {
@@ -429,15 +366,15 @@ func (o ExternalTableArrayOutput) ToExternalTableArrayOutputWithContext(ctx cont
 }
 
 func (o ExternalTableArrayOutput) Index(i pulumi.IntInput) ExternalTableOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExternalTable {
-		return vs[0].([]ExternalTable)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExternalTable {
+		return vs[0].([]*ExternalTable)[vs[1].(int)]
 	}).(ExternalTableOutput)
 }
 
 type ExternalTableMapOutput struct{ *pulumi.OutputState }
 
 func (ExternalTableMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ExternalTable)(nil))
+	return reflect.TypeOf((*map[string]*ExternalTable)(nil)).Elem()
 }
 
 func (o ExternalTableMapOutput) ToExternalTableMapOutput() ExternalTableMapOutput {
@@ -449,18 +386,16 @@ func (o ExternalTableMapOutput) ToExternalTableMapOutputWithContext(ctx context.
 }
 
 func (o ExternalTableMapOutput) MapIndex(k pulumi.StringInput) ExternalTableOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ExternalTable {
-		return vs[0].(map[string]ExternalTable)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ExternalTable {
+		return vs[0].(map[string]*ExternalTable)[vs[1].(string)]
 	}).(ExternalTableOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalTableInput)(nil)).Elem(), &ExternalTable{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ExternalTablePtrInput)(nil)).Elem(), &ExternalTable{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalTableArrayInput)(nil)).Elem(), ExternalTableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalTableMapInput)(nil)).Elem(), ExternalTableMap{})
 	pulumi.RegisterOutputType(ExternalTableOutput{})
-	pulumi.RegisterOutputType(ExternalTablePtrOutput{})
 	pulumi.RegisterOutputType(ExternalTableArrayOutput{})
 	pulumi.RegisterOutputType(ExternalTableMapOutput{})
 }

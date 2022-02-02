@@ -191,7 +191,7 @@ type PipeInput interface {
 }
 
 func (*Pipe) ElementType() reflect.Type {
-	return reflect.TypeOf((*Pipe)(nil))
+	return reflect.TypeOf((**Pipe)(nil)).Elem()
 }
 
 func (i *Pipe) ToPipeOutput() PipeOutput {
@@ -200,35 +200,6 @@ func (i *Pipe) ToPipeOutput() PipeOutput {
 
 func (i *Pipe) ToPipeOutputWithContext(ctx context.Context) PipeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PipeOutput)
-}
-
-func (i *Pipe) ToPipePtrOutput() PipePtrOutput {
-	return i.ToPipePtrOutputWithContext(context.Background())
-}
-
-func (i *Pipe) ToPipePtrOutputWithContext(ctx context.Context) PipePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipePtrOutput)
-}
-
-type PipePtrInput interface {
-	pulumi.Input
-
-	ToPipePtrOutput() PipePtrOutput
-	ToPipePtrOutputWithContext(ctx context.Context) PipePtrOutput
-}
-
-type pipePtrType PipeArgs
-
-func (*pipePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Pipe)(nil))
-}
-
-func (i *pipePtrType) ToPipePtrOutput() PipePtrOutput {
-	return i.ToPipePtrOutputWithContext(context.Background())
-}
-
-func (i *pipePtrType) ToPipePtrOutputWithContext(ctx context.Context) PipePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipePtrOutput)
 }
 
 // PipeArrayInput is an input type that accepts PipeArray and PipeArrayOutput values.
@@ -284,7 +255,7 @@ func (i PipeMap) ToPipeMapOutputWithContext(ctx context.Context) PipeMapOutput {
 type PipeOutput struct{ *pulumi.OutputState }
 
 func (PipeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Pipe)(nil))
+	return reflect.TypeOf((**Pipe)(nil)).Elem()
 }
 
 func (o PipeOutput) ToPipeOutput() PipeOutput {
@@ -295,44 +266,10 @@ func (o PipeOutput) ToPipeOutputWithContext(ctx context.Context) PipeOutput {
 	return o
 }
 
-func (o PipeOutput) ToPipePtrOutput() PipePtrOutput {
-	return o.ToPipePtrOutputWithContext(context.Background())
-}
-
-func (o PipeOutput) ToPipePtrOutputWithContext(ctx context.Context) PipePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Pipe) *Pipe {
-		return &v
-	}).(PipePtrOutput)
-}
-
-type PipePtrOutput struct{ *pulumi.OutputState }
-
-func (PipePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Pipe)(nil))
-}
-
-func (o PipePtrOutput) ToPipePtrOutput() PipePtrOutput {
-	return o
-}
-
-func (o PipePtrOutput) ToPipePtrOutputWithContext(ctx context.Context) PipePtrOutput {
-	return o
-}
-
-func (o PipePtrOutput) Elem() PipeOutput {
-	return o.ApplyT(func(v *Pipe) Pipe {
-		if v != nil {
-			return *v
-		}
-		var ret Pipe
-		return ret
-	}).(PipeOutput)
-}
-
 type PipeArrayOutput struct{ *pulumi.OutputState }
 
 func (PipeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Pipe)(nil))
+	return reflect.TypeOf((*[]*Pipe)(nil)).Elem()
 }
 
 func (o PipeArrayOutput) ToPipeArrayOutput() PipeArrayOutput {
@@ -344,15 +281,15 @@ func (o PipeArrayOutput) ToPipeArrayOutputWithContext(ctx context.Context) PipeA
 }
 
 func (o PipeArrayOutput) Index(i pulumi.IntInput) PipeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Pipe {
-		return vs[0].([]Pipe)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Pipe {
+		return vs[0].([]*Pipe)[vs[1].(int)]
 	}).(PipeOutput)
 }
 
 type PipeMapOutput struct{ *pulumi.OutputState }
 
 func (PipeMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Pipe)(nil))
+	return reflect.TypeOf((*map[string]*Pipe)(nil)).Elem()
 }
 
 func (o PipeMapOutput) ToPipeMapOutput() PipeMapOutput {
@@ -364,18 +301,16 @@ func (o PipeMapOutput) ToPipeMapOutputWithContext(ctx context.Context) PipeMapOu
 }
 
 func (o PipeMapOutput) MapIndex(k pulumi.StringInput) PipeOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Pipe {
-		return vs[0].(map[string]Pipe)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Pipe {
+		return vs[0].(map[string]*Pipe)[vs[1].(string)]
 	}).(PipeOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeInput)(nil)).Elem(), &Pipe{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipePtrInput)(nil)).Elem(), &Pipe{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeArrayInput)(nil)).Elem(), PipeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeMapInput)(nil)).Elem(), PipeMap{})
 	pulumi.RegisterOutputType(PipeOutput{})
-	pulumi.RegisterOutputType(PipePtrOutput{})
 	pulumi.RegisterOutputType(PipeArrayOutput{})
 	pulumi.RegisterOutputType(PipeMapOutput{})
 }

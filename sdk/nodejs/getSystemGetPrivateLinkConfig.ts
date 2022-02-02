@@ -9,9 +9,7 @@ export function getSystemGetPrivateLinkConfig(opts?: pulumi.InvokeOptions): Prom
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", {
     }, opts);
 }

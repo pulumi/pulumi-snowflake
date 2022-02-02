@@ -23,9 +23,7 @@ export function getFileFormats(args: GetFileFormatsArgs, opts?: pulumi.InvokeOpt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("snowflake:index/getFileFormats:getFileFormats", {
         "database": args.database,
         "schema": args.schema,

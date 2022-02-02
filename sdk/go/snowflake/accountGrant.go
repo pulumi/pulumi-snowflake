@@ -137,7 +137,7 @@ type AccountGrantInput interface {
 }
 
 func (*AccountGrant) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountGrant)(nil))
+	return reflect.TypeOf((**AccountGrant)(nil)).Elem()
 }
 
 func (i *AccountGrant) ToAccountGrantOutput() AccountGrantOutput {
@@ -146,35 +146,6 @@ func (i *AccountGrant) ToAccountGrantOutput() AccountGrantOutput {
 
 func (i *AccountGrant) ToAccountGrantOutputWithContext(ctx context.Context) AccountGrantOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountGrantOutput)
-}
-
-func (i *AccountGrant) ToAccountGrantPtrOutput() AccountGrantPtrOutput {
-	return i.ToAccountGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *AccountGrant) ToAccountGrantPtrOutputWithContext(ctx context.Context) AccountGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountGrantPtrOutput)
-}
-
-type AccountGrantPtrInput interface {
-	pulumi.Input
-
-	ToAccountGrantPtrOutput() AccountGrantPtrOutput
-	ToAccountGrantPtrOutputWithContext(ctx context.Context) AccountGrantPtrOutput
-}
-
-type accountGrantPtrType AccountGrantArgs
-
-func (*accountGrantPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountGrant)(nil))
-}
-
-func (i *accountGrantPtrType) ToAccountGrantPtrOutput() AccountGrantPtrOutput {
-	return i.ToAccountGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *accountGrantPtrType) ToAccountGrantPtrOutputWithContext(ctx context.Context) AccountGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountGrantPtrOutput)
 }
 
 // AccountGrantArrayInput is an input type that accepts AccountGrantArray and AccountGrantArrayOutput values.
@@ -230,7 +201,7 @@ func (i AccountGrantMap) ToAccountGrantMapOutputWithContext(ctx context.Context)
 type AccountGrantOutput struct{ *pulumi.OutputState }
 
 func (AccountGrantOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountGrant)(nil))
+	return reflect.TypeOf((**AccountGrant)(nil)).Elem()
 }
 
 func (o AccountGrantOutput) ToAccountGrantOutput() AccountGrantOutput {
@@ -241,44 +212,10 @@ func (o AccountGrantOutput) ToAccountGrantOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o AccountGrantOutput) ToAccountGrantPtrOutput() AccountGrantPtrOutput {
-	return o.ToAccountGrantPtrOutputWithContext(context.Background())
-}
-
-func (o AccountGrantOutput) ToAccountGrantPtrOutputWithContext(ctx context.Context) AccountGrantPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountGrant) *AccountGrant {
-		return &v
-	}).(AccountGrantPtrOutput)
-}
-
-type AccountGrantPtrOutput struct{ *pulumi.OutputState }
-
-func (AccountGrantPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountGrant)(nil))
-}
-
-func (o AccountGrantPtrOutput) ToAccountGrantPtrOutput() AccountGrantPtrOutput {
-	return o
-}
-
-func (o AccountGrantPtrOutput) ToAccountGrantPtrOutputWithContext(ctx context.Context) AccountGrantPtrOutput {
-	return o
-}
-
-func (o AccountGrantPtrOutput) Elem() AccountGrantOutput {
-	return o.ApplyT(func(v *AccountGrant) AccountGrant {
-		if v != nil {
-			return *v
-		}
-		var ret AccountGrant
-		return ret
-	}).(AccountGrantOutput)
-}
-
 type AccountGrantArrayOutput struct{ *pulumi.OutputState }
 
 func (AccountGrantArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccountGrant)(nil))
+	return reflect.TypeOf((*[]*AccountGrant)(nil)).Elem()
 }
 
 func (o AccountGrantArrayOutput) ToAccountGrantArrayOutput() AccountGrantArrayOutput {
@@ -290,15 +227,15 @@ func (o AccountGrantArrayOutput) ToAccountGrantArrayOutputWithContext(ctx contex
 }
 
 func (o AccountGrantArrayOutput) Index(i pulumi.IntInput) AccountGrantOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountGrant {
-		return vs[0].([]AccountGrant)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccountGrant {
+		return vs[0].([]*AccountGrant)[vs[1].(int)]
 	}).(AccountGrantOutput)
 }
 
 type AccountGrantMapOutput struct{ *pulumi.OutputState }
 
 func (AccountGrantMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AccountGrant)(nil))
+	return reflect.TypeOf((*map[string]*AccountGrant)(nil)).Elem()
 }
 
 func (o AccountGrantMapOutput) ToAccountGrantMapOutput() AccountGrantMapOutput {
@@ -310,18 +247,16 @@ func (o AccountGrantMapOutput) ToAccountGrantMapOutputWithContext(ctx context.Co
 }
 
 func (o AccountGrantMapOutput) MapIndex(k pulumi.StringInput) AccountGrantOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AccountGrant {
-		return vs[0].(map[string]AccountGrant)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AccountGrant {
+		return vs[0].(map[string]*AccountGrant)[vs[1].(string)]
 	}).(AccountGrantOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountGrantInput)(nil)).Elem(), &AccountGrant{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountGrantPtrInput)(nil)).Elem(), &AccountGrant{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountGrantArrayInput)(nil)).Elem(), AccountGrantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountGrantMapInput)(nil)).Elem(), AccountGrantMap{})
 	pulumi.RegisterOutputType(AccountGrantOutput{})
-	pulumi.RegisterOutputType(AccountGrantPtrOutput{})
 	pulumi.RegisterOutputType(AccountGrantArrayOutput{})
 	pulumi.RegisterOutputType(AccountGrantMapOutput{})
 }

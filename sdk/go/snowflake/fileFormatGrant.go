@@ -188,7 +188,7 @@ type FileFormatGrantInput interface {
 }
 
 func (*FileFormatGrant) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileFormatGrant)(nil))
+	return reflect.TypeOf((**FileFormatGrant)(nil)).Elem()
 }
 
 func (i *FileFormatGrant) ToFileFormatGrantOutput() FileFormatGrantOutput {
@@ -197,35 +197,6 @@ func (i *FileFormatGrant) ToFileFormatGrantOutput() FileFormatGrantOutput {
 
 func (i *FileFormatGrant) ToFileFormatGrantOutputWithContext(ctx context.Context) FileFormatGrantOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FileFormatGrantOutput)
-}
-
-func (i *FileFormatGrant) ToFileFormatGrantPtrOutput() FileFormatGrantPtrOutput {
-	return i.ToFileFormatGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *FileFormatGrant) ToFileFormatGrantPtrOutputWithContext(ctx context.Context) FileFormatGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileFormatGrantPtrOutput)
-}
-
-type FileFormatGrantPtrInput interface {
-	pulumi.Input
-
-	ToFileFormatGrantPtrOutput() FileFormatGrantPtrOutput
-	ToFileFormatGrantPtrOutputWithContext(ctx context.Context) FileFormatGrantPtrOutput
-}
-
-type fileFormatGrantPtrType FileFormatGrantArgs
-
-func (*fileFormatGrantPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FileFormatGrant)(nil))
-}
-
-func (i *fileFormatGrantPtrType) ToFileFormatGrantPtrOutput() FileFormatGrantPtrOutput {
-	return i.ToFileFormatGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *fileFormatGrantPtrType) ToFileFormatGrantPtrOutputWithContext(ctx context.Context) FileFormatGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileFormatGrantPtrOutput)
 }
 
 // FileFormatGrantArrayInput is an input type that accepts FileFormatGrantArray and FileFormatGrantArrayOutput values.
@@ -281,7 +252,7 @@ func (i FileFormatGrantMap) ToFileFormatGrantMapOutputWithContext(ctx context.Co
 type FileFormatGrantOutput struct{ *pulumi.OutputState }
 
 func (FileFormatGrantOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileFormatGrant)(nil))
+	return reflect.TypeOf((**FileFormatGrant)(nil)).Elem()
 }
 
 func (o FileFormatGrantOutput) ToFileFormatGrantOutput() FileFormatGrantOutput {
@@ -292,44 +263,10 @@ func (o FileFormatGrantOutput) ToFileFormatGrantOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o FileFormatGrantOutput) ToFileFormatGrantPtrOutput() FileFormatGrantPtrOutput {
-	return o.ToFileFormatGrantPtrOutputWithContext(context.Background())
-}
-
-func (o FileFormatGrantOutput) ToFileFormatGrantPtrOutputWithContext(ctx context.Context) FileFormatGrantPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileFormatGrant) *FileFormatGrant {
-		return &v
-	}).(FileFormatGrantPtrOutput)
-}
-
-type FileFormatGrantPtrOutput struct{ *pulumi.OutputState }
-
-func (FileFormatGrantPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FileFormatGrant)(nil))
-}
-
-func (o FileFormatGrantPtrOutput) ToFileFormatGrantPtrOutput() FileFormatGrantPtrOutput {
-	return o
-}
-
-func (o FileFormatGrantPtrOutput) ToFileFormatGrantPtrOutputWithContext(ctx context.Context) FileFormatGrantPtrOutput {
-	return o
-}
-
-func (o FileFormatGrantPtrOutput) Elem() FileFormatGrantOutput {
-	return o.ApplyT(func(v *FileFormatGrant) FileFormatGrant {
-		if v != nil {
-			return *v
-		}
-		var ret FileFormatGrant
-		return ret
-	}).(FileFormatGrantOutput)
-}
-
 type FileFormatGrantArrayOutput struct{ *pulumi.OutputState }
 
 func (FileFormatGrantArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FileFormatGrant)(nil))
+	return reflect.TypeOf((*[]*FileFormatGrant)(nil)).Elem()
 }
 
 func (o FileFormatGrantArrayOutput) ToFileFormatGrantArrayOutput() FileFormatGrantArrayOutput {
@@ -341,15 +278,15 @@ func (o FileFormatGrantArrayOutput) ToFileFormatGrantArrayOutputWithContext(ctx 
 }
 
 func (o FileFormatGrantArrayOutput) Index(i pulumi.IntInput) FileFormatGrantOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileFormatGrant {
-		return vs[0].([]FileFormatGrant)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FileFormatGrant {
+		return vs[0].([]*FileFormatGrant)[vs[1].(int)]
 	}).(FileFormatGrantOutput)
 }
 
 type FileFormatGrantMapOutput struct{ *pulumi.OutputState }
 
 func (FileFormatGrantMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FileFormatGrant)(nil))
+	return reflect.TypeOf((*map[string]*FileFormatGrant)(nil)).Elem()
 }
 
 func (o FileFormatGrantMapOutput) ToFileFormatGrantMapOutput() FileFormatGrantMapOutput {
@@ -361,18 +298,16 @@ func (o FileFormatGrantMapOutput) ToFileFormatGrantMapOutputWithContext(ctx cont
 }
 
 func (o FileFormatGrantMapOutput) MapIndex(k pulumi.StringInput) FileFormatGrantOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FileFormatGrant {
-		return vs[0].(map[string]FileFormatGrant)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FileFormatGrant {
+		return vs[0].(map[string]*FileFormatGrant)[vs[1].(string)]
 	}).(FileFormatGrantOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileFormatGrantInput)(nil)).Elem(), &FileFormatGrant{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FileFormatGrantPtrInput)(nil)).Elem(), &FileFormatGrant{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileFormatGrantArrayInput)(nil)).Elem(), FileFormatGrantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileFormatGrantMapInput)(nil)).Elem(), FileFormatGrantMap{})
 	pulumi.RegisterOutputType(FileFormatGrantOutput{})
-	pulumi.RegisterOutputType(FileFormatGrantPtrOutput{})
 	pulumi.RegisterOutputType(FileFormatGrantArrayOutput{})
 	pulumi.RegisterOutputType(FileFormatGrantMapOutput{})
 }

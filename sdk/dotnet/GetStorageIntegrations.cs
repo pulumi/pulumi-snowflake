@@ -33,7 +33,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetStorageIntegrationsResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageIntegrationsResult>("snowflake:index/getStorageIntegrations:getStorageIntegrations", InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageIntegrationsResult>("snowflake:index/getStorageIntegrations:getStorageIntegrations", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
