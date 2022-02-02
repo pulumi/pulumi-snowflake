@@ -102,7 +102,7 @@ type UserPublicKeysInput interface {
 }
 
 func (*UserPublicKeys) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPublicKeys)(nil))
+	return reflect.TypeOf((**UserPublicKeys)(nil)).Elem()
 }
 
 func (i *UserPublicKeys) ToUserPublicKeysOutput() UserPublicKeysOutput {
@@ -111,35 +111,6 @@ func (i *UserPublicKeys) ToUserPublicKeysOutput() UserPublicKeysOutput {
 
 func (i *UserPublicKeys) ToUserPublicKeysOutputWithContext(ctx context.Context) UserPublicKeysOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserPublicKeysOutput)
-}
-
-func (i *UserPublicKeys) ToUserPublicKeysPtrOutput() UserPublicKeysPtrOutput {
-	return i.ToUserPublicKeysPtrOutputWithContext(context.Background())
-}
-
-func (i *UserPublicKeys) ToUserPublicKeysPtrOutputWithContext(ctx context.Context) UserPublicKeysPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPublicKeysPtrOutput)
-}
-
-type UserPublicKeysPtrInput interface {
-	pulumi.Input
-
-	ToUserPublicKeysPtrOutput() UserPublicKeysPtrOutput
-	ToUserPublicKeysPtrOutputWithContext(ctx context.Context) UserPublicKeysPtrOutput
-}
-
-type userPublicKeysPtrType UserPublicKeysArgs
-
-func (*userPublicKeysPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserPublicKeys)(nil))
-}
-
-func (i *userPublicKeysPtrType) ToUserPublicKeysPtrOutput() UserPublicKeysPtrOutput {
-	return i.ToUserPublicKeysPtrOutputWithContext(context.Background())
-}
-
-func (i *userPublicKeysPtrType) ToUserPublicKeysPtrOutputWithContext(ctx context.Context) UserPublicKeysPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPublicKeysPtrOutput)
 }
 
 // UserPublicKeysArrayInput is an input type that accepts UserPublicKeysArray and UserPublicKeysArrayOutput values.
@@ -195,7 +166,7 @@ func (i UserPublicKeysMap) ToUserPublicKeysMapOutputWithContext(ctx context.Cont
 type UserPublicKeysOutput struct{ *pulumi.OutputState }
 
 func (UserPublicKeysOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPublicKeys)(nil))
+	return reflect.TypeOf((**UserPublicKeys)(nil)).Elem()
 }
 
 func (o UserPublicKeysOutput) ToUserPublicKeysOutput() UserPublicKeysOutput {
@@ -206,44 +177,10 @@ func (o UserPublicKeysOutput) ToUserPublicKeysOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o UserPublicKeysOutput) ToUserPublicKeysPtrOutput() UserPublicKeysPtrOutput {
-	return o.ToUserPublicKeysPtrOutputWithContext(context.Background())
-}
-
-func (o UserPublicKeysOutput) ToUserPublicKeysPtrOutputWithContext(ctx context.Context) UserPublicKeysPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPublicKeys) *UserPublicKeys {
-		return &v
-	}).(UserPublicKeysPtrOutput)
-}
-
-type UserPublicKeysPtrOutput struct{ *pulumi.OutputState }
-
-func (UserPublicKeysPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserPublicKeys)(nil))
-}
-
-func (o UserPublicKeysPtrOutput) ToUserPublicKeysPtrOutput() UserPublicKeysPtrOutput {
-	return o
-}
-
-func (o UserPublicKeysPtrOutput) ToUserPublicKeysPtrOutputWithContext(ctx context.Context) UserPublicKeysPtrOutput {
-	return o
-}
-
-func (o UserPublicKeysPtrOutput) Elem() UserPublicKeysOutput {
-	return o.ApplyT(func(v *UserPublicKeys) UserPublicKeys {
-		if v != nil {
-			return *v
-		}
-		var ret UserPublicKeys
-		return ret
-	}).(UserPublicKeysOutput)
-}
-
 type UserPublicKeysArrayOutput struct{ *pulumi.OutputState }
 
 func (UserPublicKeysArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserPublicKeys)(nil))
+	return reflect.TypeOf((*[]*UserPublicKeys)(nil)).Elem()
 }
 
 func (o UserPublicKeysArrayOutput) ToUserPublicKeysArrayOutput() UserPublicKeysArrayOutput {
@@ -255,15 +192,15 @@ func (o UserPublicKeysArrayOutput) ToUserPublicKeysArrayOutputWithContext(ctx co
 }
 
 func (o UserPublicKeysArrayOutput) Index(i pulumi.IntInput) UserPublicKeysOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserPublicKeys {
-		return vs[0].([]UserPublicKeys)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserPublicKeys {
+		return vs[0].([]*UserPublicKeys)[vs[1].(int)]
 	}).(UserPublicKeysOutput)
 }
 
 type UserPublicKeysMapOutput struct{ *pulumi.OutputState }
 
 func (UserPublicKeysMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserPublicKeys)(nil))
+	return reflect.TypeOf((*map[string]*UserPublicKeys)(nil)).Elem()
 }
 
 func (o UserPublicKeysMapOutput) ToUserPublicKeysMapOutput() UserPublicKeysMapOutput {
@@ -275,18 +212,16 @@ func (o UserPublicKeysMapOutput) ToUserPublicKeysMapOutputWithContext(ctx contex
 }
 
 func (o UserPublicKeysMapOutput) MapIndex(k pulumi.StringInput) UserPublicKeysOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserPublicKeys {
-		return vs[0].(map[string]UserPublicKeys)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *UserPublicKeys {
+		return vs[0].(map[string]*UserPublicKeys)[vs[1].(string)]
 	}).(UserPublicKeysOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPublicKeysInput)(nil)).Elem(), &UserPublicKeys{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserPublicKeysPtrInput)(nil)).Elem(), &UserPublicKeys{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPublicKeysArrayInput)(nil)).Elem(), UserPublicKeysArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPublicKeysMapInput)(nil)).Elem(), UserPublicKeysMap{})
 	pulumi.RegisterOutputType(UserPublicKeysOutput{})
-	pulumi.RegisterOutputType(UserPublicKeysPtrOutput{})
 	pulumi.RegisterOutputType(UserPublicKeysArrayOutput{})
 	pulumi.RegisterOutputType(UserPublicKeysMapOutput{})
 }

@@ -54,23 +54,21 @@ export class UserPublicKeys extends pulumi.CustomResource {
      */
     constructor(name: string, args?: UserPublicKeysArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserPublicKeysArgs | UserPublicKeysState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserPublicKeysState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["rsaPublicKey"] = state ? state.rsaPublicKey : undefined;
-            inputs["rsaPublicKey2"] = state ? state.rsaPublicKey2 : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["rsaPublicKey"] = state ? state.rsaPublicKey : undefined;
+            resourceInputs["rsaPublicKey2"] = state ? state.rsaPublicKey2 : undefined;
         } else {
             const args = argsOrState as UserPublicKeysArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["rsaPublicKey"] = args ? args.rsaPublicKey : undefined;
-            inputs["rsaPublicKey2"] = args ? args.rsaPublicKey2 : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["rsaPublicKey"] = args ? args.rsaPublicKey : undefined;
+            resourceInputs["rsaPublicKey2"] = args ? args.rsaPublicKey2 : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserPublicKeys.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserPublicKeys.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -23,9 +23,7 @@ export function getStreams(args: GetStreamsArgs, opts?: pulumi.InvokeOptions): P
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("snowflake:index/getStreams:getStreams", {
         "database": args.database,
         "schema": args.schema,

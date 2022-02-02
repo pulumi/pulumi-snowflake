@@ -197,7 +197,7 @@ type ViewInput interface {
 }
 
 func (*View) ElementType() reflect.Type {
-	return reflect.TypeOf((*View)(nil))
+	return reflect.TypeOf((**View)(nil)).Elem()
 }
 
 func (i *View) ToViewOutput() ViewOutput {
@@ -206,35 +206,6 @@ func (i *View) ToViewOutput() ViewOutput {
 
 func (i *View) ToViewOutputWithContext(ctx context.Context) ViewOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ViewOutput)
-}
-
-func (i *View) ToViewPtrOutput() ViewPtrOutput {
-	return i.ToViewPtrOutputWithContext(context.Background())
-}
-
-func (i *View) ToViewPtrOutputWithContext(ctx context.Context) ViewPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ViewPtrOutput)
-}
-
-type ViewPtrInput interface {
-	pulumi.Input
-
-	ToViewPtrOutput() ViewPtrOutput
-	ToViewPtrOutputWithContext(ctx context.Context) ViewPtrOutput
-}
-
-type viewPtrType ViewArgs
-
-func (*viewPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**View)(nil))
-}
-
-func (i *viewPtrType) ToViewPtrOutput() ViewPtrOutput {
-	return i.ToViewPtrOutputWithContext(context.Background())
-}
-
-func (i *viewPtrType) ToViewPtrOutputWithContext(ctx context.Context) ViewPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ViewPtrOutput)
 }
 
 // ViewArrayInput is an input type that accepts ViewArray and ViewArrayOutput values.
@@ -290,7 +261,7 @@ func (i ViewMap) ToViewMapOutputWithContext(ctx context.Context) ViewMapOutput {
 type ViewOutput struct{ *pulumi.OutputState }
 
 func (ViewOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*View)(nil))
+	return reflect.TypeOf((**View)(nil)).Elem()
 }
 
 func (o ViewOutput) ToViewOutput() ViewOutput {
@@ -301,44 +272,10 @@ func (o ViewOutput) ToViewOutputWithContext(ctx context.Context) ViewOutput {
 	return o
 }
 
-func (o ViewOutput) ToViewPtrOutput() ViewPtrOutput {
-	return o.ToViewPtrOutputWithContext(context.Background())
-}
-
-func (o ViewOutput) ToViewPtrOutputWithContext(ctx context.Context) ViewPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v View) *View {
-		return &v
-	}).(ViewPtrOutput)
-}
-
-type ViewPtrOutput struct{ *pulumi.OutputState }
-
-func (ViewPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**View)(nil))
-}
-
-func (o ViewPtrOutput) ToViewPtrOutput() ViewPtrOutput {
-	return o
-}
-
-func (o ViewPtrOutput) ToViewPtrOutputWithContext(ctx context.Context) ViewPtrOutput {
-	return o
-}
-
-func (o ViewPtrOutput) Elem() ViewOutput {
-	return o.ApplyT(func(v *View) View {
-		if v != nil {
-			return *v
-		}
-		var ret View
-		return ret
-	}).(ViewOutput)
-}
-
 type ViewArrayOutput struct{ *pulumi.OutputState }
 
 func (ViewArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]View)(nil))
+	return reflect.TypeOf((*[]*View)(nil)).Elem()
 }
 
 func (o ViewArrayOutput) ToViewArrayOutput() ViewArrayOutput {
@@ -350,15 +287,15 @@ func (o ViewArrayOutput) ToViewArrayOutputWithContext(ctx context.Context) ViewA
 }
 
 func (o ViewArrayOutput) Index(i pulumi.IntInput) ViewOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) View {
-		return vs[0].([]View)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *View {
+		return vs[0].([]*View)[vs[1].(int)]
 	}).(ViewOutput)
 }
 
 type ViewMapOutput struct{ *pulumi.OutputState }
 
 func (ViewMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]View)(nil))
+	return reflect.TypeOf((*map[string]*View)(nil)).Elem()
 }
 
 func (o ViewMapOutput) ToViewMapOutput() ViewMapOutput {
@@ -370,18 +307,16 @@ func (o ViewMapOutput) ToViewMapOutputWithContext(ctx context.Context) ViewMapOu
 }
 
 func (o ViewMapOutput) MapIndex(k pulumi.StringInput) ViewOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) View {
-		return vs[0].(map[string]View)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *View {
+		return vs[0].(map[string]*View)[vs[1].(string)]
 	}).(ViewOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewInput)(nil)).Elem(), &View{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ViewPtrInput)(nil)).Elem(), &View{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewArrayInput)(nil)).Elem(), ViewArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewMapInput)(nil)).Elem(), ViewMap{})
 	pulumi.RegisterOutputType(ViewOutput{})
-	pulumi.RegisterOutputType(ViewPtrOutput{})
 	pulumi.RegisterOutputType(ViewArrayOutput{})
 	pulumi.RegisterOutputType(ViewMapOutput{})
 }

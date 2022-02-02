@@ -20,9 +20,7 @@ export function getWarehouses(opts?: pulumi.InvokeOptions): Promise<GetWarehouse
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("snowflake:index/getWarehouses:getWarehouses", {
     }, opts);
 }

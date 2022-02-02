@@ -156,7 +156,7 @@ type PipeGrantInput interface {
 }
 
 func (*PipeGrant) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeGrant)(nil))
+	return reflect.TypeOf((**PipeGrant)(nil)).Elem()
 }
 
 func (i *PipeGrant) ToPipeGrantOutput() PipeGrantOutput {
@@ -165,35 +165,6 @@ func (i *PipeGrant) ToPipeGrantOutput() PipeGrantOutput {
 
 func (i *PipeGrant) ToPipeGrantOutputWithContext(ctx context.Context) PipeGrantOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PipeGrantOutput)
-}
-
-func (i *PipeGrant) ToPipeGrantPtrOutput() PipeGrantPtrOutput {
-	return i.ToPipeGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *PipeGrant) ToPipeGrantPtrOutputWithContext(ctx context.Context) PipeGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeGrantPtrOutput)
-}
-
-type PipeGrantPtrInput interface {
-	pulumi.Input
-
-	ToPipeGrantPtrOutput() PipeGrantPtrOutput
-	ToPipeGrantPtrOutputWithContext(ctx context.Context) PipeGrantPtrOutput
-}
-
-type pipeGrantPtrType PipeGrantArgs
-
-func (*pipeGrantPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeGrant)(nil))
-}
-
-func (i *pipeGrantPtrType) ToPipeGrantPtrOutput() PipeGrantPtrOutput {
-	return i.ToPipeGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *pipeGrantPtrType) ToPipeGrantPtrOutputWithContext(ctx context.Context) PipeGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeGrantPtrOutput)
 }
 
 // PipeGrantArrayInput is an input type that accepts PipeGrantArray and PipeGrantArrayOutput values.
@@ -249,7 +220,7 @@ func (i PipeGrantMap) ToPipeGrantMapOutputWithContext(ctx context.Context) PipeG
 type PipeGrantOutput struct{ *pulumi.OutputState }
 
 func (PipeGrantOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeGrant)(nil))
+	return reflect.TypeOf((**PipeGrant)(nil)).Elem()
 }
 
 func (o PipeGrantOutput) ToPipeGrantOutput() PipeGrantOutput {
@@ -260,44 +231,10 @@ func (o PipeGrantOutput) ToPipeGrantOutputWithContext(ctx context.Context) PipeG
 	return o
 }
 
-func (o PipeGrantOutput) ToPipeGrantPtrOutput() PipeGrantPtrOutput {
-	return o.ToPipeGrantPtrOutputWithContext(context.Background())
-}
-
-func (o PipeGrantOutput) ToPipeGrantPtrOutputWithContext(ctx context.Context) PipeGrantPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeGrant) *PipeGrant {
-		return &v
-	}).(PipeGrantPtrOutput)
-}
-
-type PipeGrantPtrOutput struct{ *pulumi.OutputState }
-
-func (PipeGrantPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeGrant)(nil))
-}
-
-func (o PipeGrantPtrOutput) ToPipeGrantPtrOutput() PipeGrantPtrOutput {
-	return o
-}
-
-func (o PipeGrantPtrOutput) ToPipeGrantPtrOutputWithContext(ctx context.Context) PipeGrantPtrOutput {
-	return o
-}
-
-func (o PipeGrantPtrOutput) Elem() PipeGrantOutput {
-	return o.ApplyT(func(v *PipeGrant) PipeGrant {
-		if v != nil {
-			return *v
-		}
-		var ret PipeGrant
-		return ret
-	}).(PipeGrantOutput)
-}
-
 type PipeGrantArrayOutput struct{ *pulumi.OutputState }
 
 func (PipeGrantArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PipeGrant)(nil))
+	return reflect.TypeOf((*[]*PipeGrant)(nil)).Elem()
 }
 
 func (o PipeGrantArrayOutput) ToPipeGrantArrayOutput() PipeGrantArrayOutput {
@@ -309,15 +246,15 @@ func (o PipeGrantArrayOutput) ToPipeGrantArrayOutputWithContext(ctx context.Cont
 }
 
 func (o PipeGrantArrayOutput) Index(i pulumi.IntInput) PipeGrantOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipeGrant {
-		return vs[0].([]PipeGrant)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PipeGrant {
+		return vs[0].([]*PipeGrant)[vs[1].(int)]
 	}).(PipeGrantOutput)
 }
 
 type PipeGrantMapOutput struct{ *pulumi.OutputState }
 
 func (PipeGrantMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PipeGrant)(nil))
+	return reflect.TypeOf((*map[string]*PipeGrant)(nil)).Elem()
 }
 
 func (o PipeGrantMapOutput) ToPipeGrantMapOutput() PipeGrantMapOutput {
@@ -329,18 +266,16 @@ func (o PipeGrantMapOutput) ToPipeGrantMapOutputWithContext(ctx context.Context)
 }
 
 func (o PipeGrantMapOutput) MapIndex(k pulumi.StringInput) PipeGrantOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PipeGrant {
-		return vs[0].(map[string]PipeGrant)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PipeGrant {
+		return vs[0].(map[string]*PipeGrant)[vs[1].(string)]
 	}).(PipeGrantOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeGrantInput)(nil)).Elem(), &PipeGrant{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeGrantPtrInput)(nil)).Elem(), &PipeGrant{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeGrantArrayInput)(nil)).Elem(), PipeGrantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeGrantMapInput)(nil)).Elem(), PipeGrantMap{})
 	pulumi.RegisterOutputType(PipeGrantOutput{})
-	pulumi.RegisterOutputType(PipeGrantPtrOutput{})
 	pulumi.RegisterOutputType(PipeGrantArrayOutput{})
 	pulumi.RegisterOutputType(PipeGrantMapOutput{})
 }

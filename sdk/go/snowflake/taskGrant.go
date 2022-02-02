@@ -188,7 +188,7 @@ type TaskGrantInput interface {
 }
 
 func (*TaskGrant) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskGrant)(nil))
+	return reflect.TypeOf((**TaskGrant)(nil)).Elem()
 }
 
 func (i *TaskGrant) ToTaskGrantOutput() TaskGrantOutput {
@@ -197,35 +197,6 @@ func (i *TaskGrant) ToTaskGrantOutput() TaskGrantOutput {
 
 func (i *TaskGrant) ToTaskGrantOutputWithContext(ctx context.Context) TaskGrantOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TaskGrantOutput)
-}
-
-func (i *TaskGrant) ToTaskGrantPtrOutput() TaskGrantPtrOutput {
-	return i.ToTaskGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *TaskGrant) ToTaskGrantPtrOutputWithContext(ctx context.Context) TaskGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskGrantPtrOutput)
-}
-
-type TaskGrantPtrInput interface {
-	pulumi.Input
-
-	ToTaskGrantPtrOutput() TaskGrantPtrOutput
-	ToTaskGrantPtrOutputWithContext(ctx context.Context) TaskGrantPtrOutput
-}
-
-type taskGrantPtrType TaskGrantArgs
-
-func (*taskGrantPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskGrant)(nil))
-}
-
-func (i *taskGrantPtrType) ToTaskGrantPtrOutput() TaskGrantPtrOutput {
-	return i.ToTaskGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *taskGrantPtrType) ToTaskGrantPtrOutputWithContext(ctx context.Context) TaskGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskGrantPtrOutput)
 }
 
 // TaskGrantArrayInput is an input type that accepts TaskGrantArray and TaskGrantArrayOutput values.
@@ -281,7 +252,7 @@ func (i TaskGrantMap) ToTaskGrantMapOutputWithContext(ctx context.Context) TaskG
 type TaskGrantOutput struct{ *pulumi.OutputState }
 
 func (TaskGrantOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskGrant)(nil))
+	return reflect.TypeOf((**TaskGrant)(nil)).Elem()
 }
 
 func (o TaskGrantOutput) ToTaskGrantOutput() TaskGrantOutput {
@@ -292,44 +263,10 @@ func (o TaskGrantOutput) ToTaskGrantOutputWithContext(ctx context.Context) TaskG
 	return o
 }
 
-func (o TaskGrantOutput) ToTaskGrantPtrOutput() TaskGrantPtrOutput {
-	return o.ToTaskGrantPtrOutputWithContext(context.Background())
-}
-
-func (o TaskGrantOutput) ToTaskGrantPtrOutputWithContext(ctx context.Context) TaskGrantPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskGrant) *TaskGrant {
-		return &v
-	}).(TaskGrantPtrOutput)
-}
-
-type TaskGrantPtrOutput struct{ *pulumi.OutputState }
-
-func (TaskGrantPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskGrant)(nil))
-}
-
-func (o TaskGrantPtrOutput) ToTaskGrantPtrOutput() TaskGrantPtrOutput {
-	return o
-}
-
-func (o TaskGrantPtrOutput) ToTaskGrantPtrOutputWithContext(ctx context.Context) TaskGrantPtrOutput {
-	return o
-}
-
-func (o TaskGrantPtrOutput) Elem() TaskGrantOutput {
-	return o.ApplyT(func(v *TaskGrant) TaskGrant {
-		if v != nil {
-			return *v
-		}
-		var ret TaskGrant
-		return ret
-	}).(TaskGrantOutput)
-}
-
 type TaskGrantArrayOutput struct{ *pulumi.OutputState }
 
 func (TaskGrantArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskGrant)(nil))
+	return reflect.TypeOf((*[]*TaskGrant)(nil)).Elem()
 }
 
 func (o TaskGrantArrayOutput) ToTaskGrantArrayOutput() TaskGrantArrayOutput {
@@ -341,15 +278,15 @@ func (o TaskGrantArrayOutput) ToTaskGrantArrayOutputWithContext(ctx context.Cont
 }
 
 func (o TaskGrantArrayOutput) Index(i pulumi.IntInput) TaskGrantOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskGrant {
-		return vs[0].([]TaskGrant)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TaskGrant {
+		return vs[0].([]*TaskGrant)[vs[1].(int)]
 	}).(TaskGrantOutput)
 }
 
 type TaskGrantMapOutput struct{ *pulumi.OutputState }
 
 func (TaskGrantMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TaskGrant)(nil))
+	return reflect.TypeOf((*map[string]*TaskGrant)(nil)).Elem()
 }
 
 func (o TaskGrantMapOutput) ToTaskGrantMapOutput() TaskGrantMapOutput {
@@ -361,18 +298,16 @@ func (o TaskGrantMapOutput) ToTaskGrantMapOutputWithContext(ctx context.Context)
 }
 
 func (o TaskGrantMapOutput) MapIndex(k pulumi.StringInput) TaskGrantOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TaskGrant {
-		return vs[0].(map[string]TaskGrant)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TaskGrant {
+		return vs[0].(map[string]*TaskGrant)[vs[1].(string)]
 	}).(TaskGrantOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskGrantInput)(nil)).Elem(), &TaskGrant{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskGrantPtrInput)(nil)).Elem(), &TaskGrant{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskGrantArrayInput)(nil)).Elem(), TaskGrantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskGrantMapInput)(nil)).Elem(), TaskGrantMap{})
 	pulumi.RegisterOutputType(TaskGrantOutput{})
-	pulumi.RegisterOutputType(TaskGrantPtrOutput{})
 	pulumi.RegisterOutputType(TaskGrantArrayOutput{})
 	pulumi.RegisterOutputType(TaskGrantMapOutput{})
 }

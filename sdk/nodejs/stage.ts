@@ -119,23 +119,23 @@ export class Stage extends pulumi.CustomResource {
      */
     constructor(name: string, args: StageArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StageArgs | StageState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StageState | undefined;
-            inputs["awsExternalId"] = state ? state.awsExternalId : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["copyOptions"] = state ? state.copyOptions : undefined;
-            inputs["credentials"] = state ? state.credentials : undefined;
-            inputs["database"] = state ? state.database : undefined;
-            inputs["encryption"] = state ? state.encryption : undefined;
-            inputs["fileFormat"] = state ? state.fileFormat : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["schema"] = state ? state.schema : undefined;
-            inputs["snowflakeIamUser"] = state ? state.snowflakeIamUser : undefined;
-            inputs["storageIntegration"] = state ? state.storageIntegration : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["awsExternalId"] = state ? state.awsExternalId : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["copyOptions"] = state ? state.copyOptions : undefined;
+            resourceInputs["credentials"] = state ? state.credentials : undefined;
+            resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["encryption"] = state ? state.encryption : undefined;
+            resourceInputs["fileFormat"] = state ? state.fileFormat : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["snowflakeIamUser"] = state ? state.snowflakeIamUser : undefined;
+            resourceInputs["storageIntegration"] = state ? state.storageIntegration : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as StageArgs | undefined;
             if ((!args || args.database === undefined) && !opts.urn) {
@@ -144,24 +144,22 @@ export class Stage extends pulumi.CustomResource {
             if ((!args || args.schema === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            inputs["awsExternalId"] = args ? args.awsExternalId : undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["copyOptions"] = args ? args.copyOptions : undefined;
-            inputs["credentials"] = args ? args.credentials : undefined;
-            inputs["database"] = args ? args.database : undefined;
-            inputs["encryption"] = args ? args.encryption : undefined;
-            inputs["fileFormat"] = args ? args.fileFormat : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
-            inputs["snowflakeIamUser"] = args ? args.snowflakeIamUser : undefined;
-            inputs["storageIntegration"] = args ? args.storageIntegration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["url"] = args ? args.url : undefined;
+            resourceInputs["awsExternalId"] = args ? args.awsExternalId : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["copyOptions"] = args ? args.copyOptions : undefined;
+            resourceInputs["credentials"] = args ? args.credentials : undefined;
+            resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["fileFormat"] = args ? args.fileFormat : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["snowflakeIamUser"] = args ? args.snowflakeIamUser : undefined;
+            resourceInputs["storageIntegration"] = args ? args.storageIntegration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["url"] = args ? args.url : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Stage.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Stage.__pulumiType, name, resourceInputs, opts);
     }
 }
 

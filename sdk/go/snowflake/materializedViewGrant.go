@@ -199,7 +199,7 @@ type MaterializedViewGrantInput interface {
 }
 
 func (*MaterializedViewGrant) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaterializedViewGrant)(nil))
+	return reflect.TypeOf((**MaterializedViewGrant)(nil)).Elem()
 }
 
 func (i *MaterializedViewGrant) ToMaterializedViewGrantOutput() MaterializedViewGrantOutput {
@@ -208,35 +208,6 @@ func (i *MaterializedViewGrant) ToMaterializedViewGrantOutput() MaterializedView
 
 func (i *MaterializedViewGrant) ToMaterializedViewGrantOutputWithContext(ctx context.Context) MaterializedViewGrantOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MaterializedViewGrantOutput)
-}
-
-func (i *MaterializedViewGrant) ToMaterializedViewGrantPtrOutput() MaterializedViewGrantPtrOutput {
-	return i.ToMaterializedViewGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *MaterializedViewGrant) ToMaterializedViewGrantPtrOutputWithContext(ctx context.Context) MaterializedViewGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MaterializedViewGrantPtrOutput)
-}
-
-type MaterializedViewGrantPtrInput interface {
-	pulumi.Input
-
-	ToMaterializedViewGrantPtrOutput() MaterializedViewGrantPtrOutput
-	ToMaterializedViewGrantPtrOutputWithContext(ctx context.Context) MaterializedViewGrantPtrOutput
-}
-
-type materializedViewGrantPtrType MaterializedViewGrantArgs
-
-func (*materializedViewGrantPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MaterializedViewGrant)(nil))
-}
-
-func (i *materializedViewGrantPtrType) ToMaterializedViewGrantPtrOutput() MaterializedViewGrantPtrOutput {
-	return i.ToMaterializedViewGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *materializedViewGrantPtrType) ToMaterializedViewGrantPtrOutputWithContext(ctx context.Context) MaterializedViewGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MaterializedViewGrantPtrOutput)
 }
 
 // MaterializedViewGrantArrayInput is an input type that accepts MaterializedViewGrantArray and MaterializedViewGrantArrayOutput values.
@@ -292,7 +263,7 @@ func (i MaterializedViewGrantMap) ToMaterializedViewGrantMapOutputWithContext(ct
 type MaterializedViewGrantOutput struct{ *pulumi.OutputState }
 
 func (MaterializedViewGrantOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaterializedViewGrant)(nil))
+	return reflect.TypeOf((**MaterializedViewGrant)(nil)).Elem()
 }
 
 func (o MaterializedViewGrantOutput) ToMaterializedViewGrantOutput() MaterializedViewGrantOutput {
@@ -303,44 +274,10 @@ func (o MaterializedViewGrantOutput) ToMaterializedViewGrantOutputWithContext(ct
 	return o
 }
 
-func (o MaterializedViewGrantOutput) ToMaterializedViewGrantPtrOutput() MaterializedViewGrantPtrOutput {
-	return o.ToMaterializedViewGrantPtrOutputWithContext(context.Background())
-}
-
-func (o MaterializedViewGrantOutput) ToMaterializedViewGrantPtrOutputWithContext(ctx context.Context) MaterializedViewGrantPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaterializedViewGrant) *MaterializedViewGrant {
-		return &v
-	}).(MaterializedViewGrantPtrOutput)
-}
-
-type MaterializedViewGrantPtrOutput struct{ *pulumi.OutputState }
-
-func (MaterializedViewGrantPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MaterializedViewGrant)(nil))
-}
-
-func (o MaterializedViewGrantPtrOutput) ToMaterializedViewGrantPtrOutput() MaterializedViewGrantPtrOutput {
-	return o
-}
-
-func (o MaterializedViewGrantPtrOutput) ToMaterializedViewGrantPtrOutputWithContext(ctx context.Context) MaterializedViewGrantPtrOutput {
-	return o
-}
-
-func (o MaterializedViewGrantPtrOutput) Elem() MaterializedViewGrantOutput {
-	return o.ApplyT(func(v *MaterializedViewGrant) MaterializedViewGrant {
-		if v != nil {
-			return *v
-		}
-		var ret MaterializedViewGrant
-		return ret
-	}).(MaterializedViewGrantOutput)
-}
-
 type MaterializedViewGrantArrayOutput struct{ *pulumi.OutputState }
 
 func (MaterializedViewGrantArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MaterializedViewGrant)(nil))
+	return reflect.TypeOf((*[]*MaterializedViewGrant)(nil)).Elem()
 }
 
 func (o MaterializedViewGrantArrayOutput) ToMaterializedViewGrantArrayOutput() MaterializedViewGrantArrayOutput {
@@ -352,15 +289,15 @@ func (o MaterializedViewGrantArrayOutput) ToMaterializedViewGrantArrayOutputWith
 }
 
 func (o MaterializedViewGrantArrayOutput) Index(i pulumi.IntInput) MaterializedViewGrantOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MaterializedViewGrant {
-		return vs[0].([]MaterializedViewGrant)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MaterializedViewGrant {
+		return vs[0].([]*MaterializedViewGrant)[vs[1].(int)]
 	}).(MaterializedViewGrantOutput)
 }
 
 type MaterializedViewGrantMapOutput struct{ *pulumi.OutputState }
 
 func (MaterializedViewGrantMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]MaterializedViewGrant)(nil))
+	return reflect.TypeOf((*map[string]*MaterializedViewGrant)(nil)).Elem()
 }
 
 func (o MaterializedViewGrantMapOutput) ToMaterializedViewGrantMapOutput() MaterializedViewGrantMapOutput {
@@ -372,18 +309,16 @@ func (o MaterializedViewGrantMapOutput) ToMaterializedViewGrantMapOutputWithCont
 }
 
 func (o MaterializedViewGrantMapOutput) MapIndex(k pulumi.StringInput) MaterializedViewGrantOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MaterializedViewGrant {
-		return vs[0].(map[string]MaterializedViewGrant)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *MaterializedViewGrant {
+		return vs[0].(map[string]*MaterializedViewGrant)[vs[1].(string)]
 	}).(MaterializedViewGrantOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewGrantInput)(nil)).Elem(), &MaterializedViewGrant{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewGrantPtrInput)(nil)).Elem(), &MaterializedViewGrant{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewGrantArrayInput)(nil)).Elem(), MaterializedViewGrantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewGrantMapInput)(nil)).Elem(), MaterializedViewGrantMap{})
 	pulumi.RegisterOutputType(MaterializedViewGrantOutput{})
-	pulumi.RegisterOutputType(MaterializedViewGrantPtrOutput{})
 	pulumi.RegisterOutputType(MaterializedViewGrantArrayOutput{})
 	pulumi.RegisterOutputType(MaterializedViewGrantMapOutput{})
 }

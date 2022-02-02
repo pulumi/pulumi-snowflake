@@ -99,17 +99,17 @@ export class PipeGrant extends pulumi.CustomResource {
      */
     constructor(name: string, args: PipeGrantArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PipeGrantArgs | PipeGrantState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PipeGrantState | undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["onFuture"] = state ? state.onFuture : undefined;
-            inputs["pipeName"] = state ? state.pipeName : undefined;
-            inputs["privilege"] = state ? state.privilege : undefined;
-            inputs["roles"] = state ? state.roles : undefined;
-            inputs["schemaName"] = state ? state.schemaName : undefined;
-            inputs["withGrantOption"] = state ? state.withGrantOption : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["onFuture"] = state ? state.onFuture : undefined;
+            resourceInputs["pipeName"] = state ? state.pipeName : undefined;
+            resourceInputs["privilege"] = state ? state.privilege : undefined;
+            resourceInputs["roles"] = state ? state.roles : undefined;
+            resourceInputs["schemaName"] = state ? state.schemaName : undefined;
+            resourceInputs["withGrantOption"] = state ? state.withGrantOption : undefined;
         } else {
             const args = argsOrState as PipeGrantArgs | undefined;
             if ((!args || args.databaseName === undefined) && !opts.urn) {
@@ -118,18 +118,16 @@ export class PipeGrant extends pulumi.CustomResource {
             if ((!args || args.schemaName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schemaName'");
             }
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["onFuture"] = args ? args.onFuture : undefined;
-            inputs["pipeName"] = args ? args.pipeName : undefined;
-            inputs["privilege"] = args ? args.privilege : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
-            inputs["schemaName"] = args ? args.schemaName : undefined;
-            inputs["withGrantOption"] = args ? args.withGrantOption : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["onFuture"] = args ? args.onFuture : undefined;
+            resourceInputs["pipeName"] = args ? args.pipeName : undefined;
+            resourceInputs["privilege"] = args ? args.privilege : undefined;
+            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
+            resourceInputs["withGrantOption"] = args ? args.withGrantOption : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PipeGrant.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PipeGrant.__pulumiType, name, resourceInputs, opts);
     }
 }
 

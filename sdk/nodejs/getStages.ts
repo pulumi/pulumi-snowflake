@@ -23,9 +23,7 @@ export function getStages(args: GetStagesArgs, opts?: pulumi.InvokeOptions): Pro
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("snowflake:index/getStages:getStages", {
         "database": args.database,
         "schema": args.schema,

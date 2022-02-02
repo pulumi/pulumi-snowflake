@@ -95,34 +95,32 @@ export class Schema extends pulumi.CustomResource {
      */
     constructor(name: string, args: SchemaArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SchemaArgs | SchemaState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SchemaState | undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["dataRetentionDays"] = state ? state.dataRetentionDays : undefined;
-            inputs["database"] = state ? state.database : undefined;
-            inputs["isManaged"] = state ? state.isManaged : undefined;
-            inputs["isTransient"] = state ? state.isTransient : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["dataRetentionDays"] = state ? state.dataRetentionDays : undefined;
+            resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["isManaged"] = state ? state.isManaged : undefined;
+            resourceInputs["isTransient"] = state ? state.isTransient : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SchemaArgs | undefined;
             if ((!args || args.database === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["dataRetentionDays"] = args ? args.dataRetentionDays : undefined;
-            inputs["database"] = args ? args.database : undefined;
-            inputs["isManaged"] = args ? args.isManaged : undefined;
-            inputs["isTransient"] = args ? args.isTransient : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["dataRetentionDays"] = args ? args.dataRetentionDays : undefined;
+            resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["isManaged"] = args ? args.isManaged : undefined;
+            resourceInputs["isTransient"] = args ? args.isTransient : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Schema.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Schema.__pulumiType, name, resourceInputs, opts);
     }
 }
 

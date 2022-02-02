@@ -109,26 +109,26 @@ export class StorageIntegration extends pulumi.CustomResource {
      */
     constructor(name: string, args: StorageIntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StorageIntegrationArgs | StorageIntegrationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StorageIntegrationState | undefined;
-            inputs["azureConsentUrl"] = state ? state.azureConsentUrl : undefined;
-            inputs["azureMultiTenantAppName"] = state ? state.azureMultiTenantAppName : undefined;
-            inputs["azureTenantId"] = state ? state.azureTenantId : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["createdOn"] = state ? state.createdOn : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["storageAllowedLocations"] = state ? state.storageAllowedLocations : undefined;
-            inputs["storageAwsExternalId"] = state ? state.storageAwsExternalId : undefined;
-            inputs["storageAwsIamUserArn"] = state ? state.storageAwsIamUserArn : undefined;
-            inputs["storageAwsObjectAcl"] = state ? state.storageAwsObjectAcl : undefined;
-            inputs["storageAwsRoleArn"] = state ? state.storageAwsRoleArn : undefined;
-            inputs["storageBlockedLocations"] = state ? state.storageBlockedLocations : undefined;
-            inputs["storageGcpServiceAccount"] = state ? state.storageGcpServiceAccount : undefined;
-            inputs["storageProvider"] = state ? state.storageProvider : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["azureConsentUrl"] = state ? state.azureConsentUrl : undefined;
+            resourceInputs["azureMultiTenantAppName"] = state ? state.azureMultiTenantAppName : undefined;
+            resourceInputs["azureTenantId"] = state ? state.azureTenantId : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["createdOn"] = state ? state.createdOn : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["storageAllowedLocations"] = state ? state.storageAllowedLocations : undefined;
+            resourceInputs["storageAwsExternalId"] = state ? state.storageAwsExternalId : undefined;
+            resourceInputs["storageAwsIamUserArn"] = state ? state.storageAwsIamUserArn : undefined;
+            resourceInputs["storageAwsObjectAcl"] = state ? state.storageAwsObjectAcl : undefined;
+            resourceInputs["storageAwsRoleArn"] = state ? state.storageAwsRoleArn : undefined;
+            resourceInputs["storageBlockedLocations"] = state ? state.storageBlockedLocations : undefined;
+            resourceInputs["storageGcpServiceAccount"] = state ? state.storageGcpServiceAccount : undefined;
+            resourceInputs["storageProvider"] = state ? state.storageProvider : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as StorageIntegrationArgs | undefined;
             if ((!args || args.storageAllowedLocations === undefined) && !opts.urn) {
@@ -137,27 +137,25 @@ export class StorageIntegration extends pulumi.CustomResource {
             if ((!args || args.storageProvider === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageProvider'");
             }
-            inputs["azureTenantId"] = args ? args.azureTenantId : undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["storageAllowedLocations"] = args ? args.storageAllowedLocations : undefined;
-            inputs["storageAwsObjectAcl"] = args ? args.storageAwsObjectAcl : undefined;
-            inputs["storageAwsRoleArn"] = args ? args.storageAwsRoleArn : undefined;
-            inputs["storageBlockedLocations"] = args ? args.storageBlockedLocations : undefined;
-            inputs["storageProvider"] = args ? args.storageProvider : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["azureConsentUrl"] = undefined /*out*/;
-            inputs["azureMultiTenantAppName"] = undefined /*out*/;
-            inputs["createdOn"] = undefined /*out*/;
-            inputs["storageAwsExternalId"] = undefined /*out*/;
-            inputs["storageAwsIamUserArn"] = undefined /*out*/;
-            inputs["storageGcpServiceAccount"] = undefined /*out*/;
+            resourceInputs["azureTenantId"] = args ? args.azureTenantId : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["storageAllowedLocations"] = args ? args.storageAllowedLocations : undefined;
+            resourceInputs["storageAwsObjectAcl"] = args ? args.storageAwsObjectAcl : undefined;
+            resourceInputs["storageAwsRoleArn"] = args ? args.storageAwsRoleArn : undefined;
+            resourceInputs["storageBlockedLocations"] = args ? args.storageBlockedLocations : undefined;
+            resourceInputs["storageProvider"] = args ? args.storageProvider : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["azureConsentUrl"] = undefined /*out*/;
+            resourceInputs["azureMultiTenantAppName"] = undefined /*out*/;
+            resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["storageAwsExternalId"] = undefined /*out*/;
+            resourceInputs["storageAwsIamUserArn"] = undefined /*out*/;
+            resourceInputs["storageGcpServiceAccount"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StorageIntegration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StorageIntegration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

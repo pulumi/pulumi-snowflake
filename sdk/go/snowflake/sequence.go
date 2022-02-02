@@ -174,7 +174,7 @@ type SequenceInput interface {
 }
 
 func (*Sequence) ElementType() reflect.Type {
-	return reflect.TypeOf((*Sequence)(nil))
+	return reflect.TypeOf((**Sequence)(nil)).Elem()
 }
 
 func (i *Sequence) ToSequenceOutput() SequenceOutput {
@@ -183,35 +183,6 @@ func (i *Sequence) ToSequenceOutput() SequenceOutput {
 
 func (i *Sequence) ToSequenceOutputWithContext(ctx context.Context) SequenceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SequenceOutput)
-}
-
-func (i *Sequence) ToSequencePtrOutput() SequencePtrOutput {
-	return i.ToSequencePtrOutputWithContext(context.Background())
-}
-
-func (i *Sequence) ToSequencePtrOutputWithContext(ctx context.Context) SequencePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SequencePtrOutput)
-}
-
-type SequencePtrInput interface {
-	pulumi.Input
-
-	ToSequencePtrOutput() SequencePtrOutput
-	ToSequencePtrOutputWithContext(ctx context.Context) SequencePtrOutput
-}
-
-type sequencePtrType SequenceArgs
-
-func (*sequencePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Sequence)(nil))
-}
-
-func (i *sequencePtrType) ToSequencePtrOutput() SequencePtrOutput {
-	return i.ToSequencePtrOutputWithContext(context.Background())
-}
-
-func (i *sequencePtrType) ToSequencePtrOutputWithContext(ctx context.Context) SequencePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SequencePtrOutput)
 }
 
 // SequenceArrayInput is an input type that accepts SequenceArray and SequenceArrayOutput values.
@@ -267,7 +238,7 @@ func (i SequenceMap) ToSequenceMapOutputWithContext(ctx context.Context) Sequenc
 type SequenceOutput struct{ *pulumi.OutputState }
 
 func (SequenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Sequence)(nil))
+	return reflect.TypeOf((**Sequence)(nil)).Elem()
 }
 
 func (o SequenceOutput) ToSequenceOutput() SequenceOutput {
@@ -278,44 +249,10 @@ func (o SequenceOutput) ToSequenceOutputWithContext(ctx context.Context) Sequenc
 	return o
 }
 
-func (o SequenceOutput) ToSequencePtrOutput() SequencePtrOutput {
-	return o.ToSequencePtrOutputWithContext(context.Background())
-}
-
-func (o SequenceOutput) ToSequencePtrOutputWithContext(ctx context.Context) SequencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sequence) *Sequence {
-		return &v
-	}).(SequencePtrOutput)
-}
-
-type SequencePtrOutput struct{ *pulumi.OutputState }
-
-func (SequencePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Sequence)(nil))
-}
-
-func (o SequencePtrOutput) ToSequencePtrOutput() SequencePtrOutput {
-	return o
-}
-
-func (o SequencePtrOutput) ToSequencePtrOutputWithContext(ctx context.Context) SequencePtrOutput {
-	return o
-}
-
-func (o SequencePtrOutput) Elem() SequenceOutput {
-	return o.ApplyT(func(v *Sequence) Sequence {
-		if v != nil {
-			return *v
-		}
-		var ret Sequence
-		return ret
-	}).(SequenceOutput)
-}
-
 type SequenceArrayOutput struct{ *pulumi.OutputState }
 
 func (SequenceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Sequence)(nil))
+	return reflect.TypeOf((*[]*Sequence)(nil)).Elem()
 }
 
 func (o SequenceArrayOutput) ToSequenceArrayOutput() SequenceArrayOutput {
@@ -327,15 +264,15 @@ func (o SequenceArrayOutput) ToSequenceArrayOutputWithContext(ctx context.Contex
 }
 
 func (o SequenceArrayOutput) Index(i pulumi.IntInput) SequenceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Sequence {
-		return vs[0].([]Sequence)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Sequence {
+		return vs[0].([]*Sequence)[vs[1].(int)]
 	}).(SequenceOutput)
 }
 
 type SequenceMapOutput struct{ *pulumi.OutputState }
 
 func (SequenceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Sequence)(nil))
+	return reflect.TypeOf((*map[string]*Sequence)(nil)).Elem()
 }
 
 func (o SequenceMapOutput) ToSequenceMapOutput() SequenceMapOutput {
@@ -347,18 +284,16 @@ func (o SequenceMapOutput) ToSequenceMapOutputWithContext(ctx context.Context) S
 }
 
 func (o SequenceMapOutput) MapIndex(k pulumi.StringInput) SequenceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Sequence {
-		return vs[0].(map[string]Sequence)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Sequence {
+		return vs[0].(map[string]*Sequence)[vs[1].(string)]
 	}).(SequenceOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SequenceInput)(nil)).Elem(), &Sequence{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SequencePtrInput)(nil)).Elem(), &Sequence{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SequenceArrayInput)(nil)).Elem(), SequenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SequenceMapInput)(nil)).Elem(), SequenceMap{})
 	pulumi.RegisterOutputType(SequenceOutput{})
-	pulumi.RegisterOutputType(SequencePtrOutput{})
 	pulumi.RegisterOutputType(SequenceArrayOutput{})
 	pulumi.RegisterOutputType(SequenceMapOutput{})
 }

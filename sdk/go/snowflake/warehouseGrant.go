@@ -151,7 +151,7 @@ type WarehouseGrantInput interface {
 }
 
 func (*WarehouseGrant) ElementType() reflect.Type {
-	return reflect.TypeOf((*WarehouseGrant)(nil))
+	return reflect.TypeOf((**WarehouseGrant)(nil)).Elem()
 }
 
 func (i *WarehouseGrant) ToWarehouseGrantOutput() WarehouseGrantOutput {
@@ -160,35 +160,6 @@ func (i *WarehouseGrant) ToWarehouseGrantOutput() WarehouseGrantOutput {
 
 func (i *WarehouseGrant) ToWarehouseGrantOutputWithContext(ctx context.Context) WarehouseGrantOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WarehouseGrantOutput)
-}
-
-func (i *WarehouseGrant) ToWarehouseGrantPtrOutput() WarehouseGrantPtrOutput {
-	return i.ToWarehouseGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *WarehouseGrant) ToWarehouseGrantPtrOutputWithContext(ctx context.Context) WarehouseGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WarehouseGrantPtrOutput)
-}
-
-type WarehouseGrantPtrInput interface {
-	pulumi.Input
-
-	ToWarehouseGrantPtrOutput() WarehouseGrantPtrOutput
-	ToWarehouseGrantPtrOutputWithContext(ctx context.Context) WarehouseGrantPtrOutput
-}
-
-type warehouseGrantPtrType WarehouseGrantArgs
-
-func (*warehouseGrantPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WarehouseGrant)(nil))
-}
-
-func (i *warehouseGrantPtrType) ToWarehouseGrantPtrOutput() WarehouseGrantPtrOutput {
-	return i.ToWarehouseGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *warehouseGrantPtrType) ToWarehouseGrantPtrOutputWithContext(ctx context.Context) WarehouseGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WarehouseGrantPtrOutput)
 }
 
 // WarehouseGrantArrayInput is an input type that accepts WarehouseGrantArray and WarehouseGrantArrayOutput values.
@@ -244,7 +215,7 @@ func (i WarehouseGrantMap) ToWarehouseGrantMapOutputWithContext(ctx context.Cont
 type WarehouseGrantOutput struct{ *pulumi.OutputState }
 
 func (WarehouseGrantOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WarehouseGrant)(nil))
+	return reflect.TypeOf((**WarehouseGrant)(nil)).Elem()
 }
 
 func (o WarehouseGrantOutput) ToWarehouseGrantOutput() WarehouseGrantOutput {
@@ -255,44 +226,10 @@ func (o WarehouseGrantOutput) ToWarehouseGrantOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o WarehouseGrantOutput) ToWarehouseGrantPtrOutput() WarehouseGrantPtrOutput {
-	return o.ToWarehouseGrantPtrOutputWithContext(context.Background())
-}
-
-func (o WarehouseGrantOutput) ToWarehouseGrantPtrOutputWithContext(ctx context.Context) WarehouseGrantPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WarehouseGrant) *WarehouseGrant {
-		return &v
-	}).(WarehouseGrantPtrOutput)
-}
-
-type WarehouseGrantPtrOutput struct{ *pulumi.OutputState }
-
-func (WarehouseGrantPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WarehouseGrant)(nil))
-}
-
-func (o WarehouseGrantPtrOutput) ToWarehouseGrantPtrOutput() WarehouseGrantPtrOutput {
-	return o
-}
-
-func (o WarehouseGrantPtrOutput) ToWarehouseGrantPtrOutputWithContext(ctx context.Context) WarehouseGrantPtrOutput {
-	return o
-}
-
-func (o WarehouseGrantPtrOutput) Elem() WarehouseGrantOutput {
-	return o.ApplyT(func(v *WarehouseGrant) WarehouseGrant {
-		if v != nil {
-			return *v
-		}
-		var ret WarehouseGrant
-		return ret
-	}).(WarehouseGrantOutput)
-}
-
 type WarehouseGrantArrayOutput struct{ *pulumi.OutputState }
 
 func (WarehouseGrantArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WarehouseGrant)(nil))
+	return reflect.TypeOf((*[]*WarehouseGrant)(nil)).Elem()
 }
 
 func (o WarehouseGrantArrayOutput) ToWarehouseGrantArrayOutput() WarehouseGrantArrayOutput {
@@ -304,15 +241,15 @@ func (o WarehouseGrantArrayOutput) ToWarehouseGrantArrayOutputWithContext(ctx co
 }
 
 func (o WarehouseGrantArrayOutput) Index(i pulumi.IntInput) WarehouseGrantOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WarehouseGrant {
-		return vs[0].([]WarehouseGrant)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WarehouseGrant {
+		return vs[0].([]*WarehouseGrant)[vs[1].(int)]
 	}).(WarehouseGrantOutput)
 }
 
 type WarehouseGrantMapOutput struct{ *pulumi.OutputState }
 
 func (WarehouseGrantMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WarehouseGrant)(nil))
+	return reflect.TypeOf((*map[string]*WarehouseGrant)(nil)).Elem()
 }
 
 func (o WarehouseGrantMapOutput) ToWarehouseGrantMapOutput() WarehouseGrantMapOutput {
@@ -324,18 +261,16 @@ func (o WarehouseGrantMapOutput) ToWarehouseGrantMapOutputWithContext(ctx contex
 }
 
 func (o WarehouseGrantMapOutput) MapIndex(k pulumi.StringInput) WarehouseGrantOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WarehouseGrant {
-		return vs[0].(map[string]WarehouseGrant)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *WarehouseGrant {
+		return vs[0].(map[string]*WarehouseGrant)[vs[1].(string)]
 	}).(WarehouseGrantOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WarehouseGrantInput)(nil)).Elem(), &WarehouseGrant{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WarehouseGrantPtrInput)(nil)).Elem(), &WarehouseGrant{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WarehouseGrantArrayInput)(nil)).Elem(), WarehouseGrantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WarehouseGrantMapInput)(nil)).Elem(), WarehouseGrantMap{})
 	pulumi.RegisterOutputType(WarehouseGrantOutput{})
-	pulumi.RegisterOutputType(WarehouseGrantPtrOutput{})
 	pulumi.RegisterOutputType(WarehouseGrantArrayOutput{})
 	pulumi.RegisterOutputType(WarehouseGrantMapOutput{})
 }

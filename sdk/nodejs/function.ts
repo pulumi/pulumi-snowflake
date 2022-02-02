@@ -95,23 +95,23 @@ export class Function extends pulumi.CustomResource {
      */
     constructor(name: string, args: FunctionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FunctionArgs | FunctionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FunctionState | undefined;
-            inputs["arguments"] = state ? state.arguments : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["database"] = state ? state.database : undefined;
-            inputs["handler"] = state ? state.handler : undefined;
-            inputs["imports"] = state ? state.imports : undefined;
-            inputs["language"] = state ? state.language : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["nullInputBehavior"] = state ? state.nullInputBehavior : undefined;
-            inputs["returnBehavior"] = state ? state.returnBehavior : undefined;
-            inputs["returnType"] = state ? state.returnType : undefined;
-            inputs["schema"] = state ? state.schema : undefined;
-            inputs["statement"] = state ? state.statement : undefined;
-            inputs["targetPath"] = state ? state.targetPath : undefined;
+            resourceInputs["arguments"] = state ? state.arguments : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["handler"] = state ? state.handler : undefined;
+            resourceInputs["imports"] = state ? state.imports : undefined;
+            resourceInputs["language"] = state ? state.language : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nullInputBehavior"] = state ? state.nullInputBehavior : undefined;
+            resourceInputs["returnBehavior"] = state ? state.returnBehavior : undefined;
+            resourceInputs["returnType"] = state ? state.returnType : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["statement"] = state ? state.statement : undefined;
+            resourceInputs["targetPath"] = state ? state.targetPath : undefined;
         } else {
             const args = argsOrState as FunctionArgs | undefined;
             if ((!args || args.database === undefined) && !opts.urn) {
@@ -126,24 +126,22 @@ export class Function extends pulumi.CustomResource {
             if ((!args || args.statement === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'statement'");
             }
-            inputs["arguments"] = args ? args.arguments : undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["database"] = args ? args.database : undefined;
-            inputs["handler"] = args ? args.handler : undefined;
-            inputs["imports"] = args ? args.imports : undefined;
-            inputs["language"] = args ? args.language : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["nullInputBehavior"] = args ? args.nullInputBehavior : undefined;
-            inputs["returnBehavior"] = args ? args.returnBehavior : undefined;
-            inputs["returnType"] = args ? args.returnType : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
-            inputs["statement"] = args ? args.statement : undefined;
-            inputs["targetPath"] = args ? args.targetPath : undefined;
+            resourceInputs["arguments"] = args ? args.arguments : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["handler"] = args ? args.handler : undefined;
+            resourceInputs["imports"] = args ? args.imports : undefined;
+            resourceInputs["language"] = args ? args.language : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nullInputBehavior"] = args ? args.nullInputBehavior : undefined;
+            resourceInputs["returnBehavior"] = args ? args.returnBehavior : undefined;
+            resourceInputs["returnType"] = args ? args.returnType : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["statement"] = args ? args.statement : undefined;
+            resourceInputs["targetPath"] = args ? args.targetPath : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Function.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Function.__pulumiType, name, resourceInputs, opts);
     }
 }
 

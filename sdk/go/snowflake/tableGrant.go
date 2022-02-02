@@ -197,7 +197,7 @@ type TableGrantInput interface {
 }
 
 func (*TableGrant) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableGrant)(nil))
+	return reflect.TypeOf((**TableGrant)(nil)).Elem()
 }
 
 func (i *TableGrant) ToTableGrantOutput() TableGrantOutput {
@@ -206,35 +206,6 @@ func (i *TableGrant) ToTableGrantOutput() TableGrantOutput {
 
 func (i *TableGrant) ToTableGrantOutputWithContext(ctx context.Context) TableGrantOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableGrantOutput)
-}
-
-func (i *TableGrant) ToTableGrantPtrOutput() TableGrantPtrOutput {
-	return i.ToTableGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *TableGrant) ToTableGrantPtrOutputWithContext(ctx context.Context) TableGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableGrantPtrOutput)
-}
-
-type TableGrantPtrInput interface {
-	pulumi.Input
-
-	ToTableGrantPtrOutput() TableGrantPtrOutput
-	ToTableGrantPtrOutputWithContext(ctx context.Context) TableGrantPtrOutput
-}
-
-type tableGrantPtrType TableGrantArgs
-
-func (*tableGrantPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TableGrant)(nil))
-}
-
-func (i *tableGrantPtrType) ToTableGrantPtrOutput() TableGrantPtrOutput {
-	return i.ToTableGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *tableGrantPtrType) ToTableGrantPtrOutputWithContext(ctx context.Context) TableGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableGrantPtrOutput)
 }
 
 // TableGrantArrayInput is an input type that accepts TableGrantArray and TableGrantArrayOutput values.
@@ -290,7 +261,7 @@ func (i TableGrantMap) ToTableGrantMapOutputWithContext(ctx context.Context) Tab
 type TableGrantOutput struct{ *pulumi.OutputState }
 
 func (TableGrantOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableGrant)(nil))
+	return reflect.TypeOf((**TableGrant)(nil)).Elem()
 }
 
 func (o TableGrantOutput) ToTableGrantOutput() TableGrantOutput {
@@ -301,44 +272,10 @@ func (o TableGrantOutput) ToTableGrantOutputWithContext(ctx context.Context) Tab
 	return o
 }
 
-func (o TableGrantOutput) ToTableGrantPtrOutput() TableGrantPtrOutput {
-	return o.ToTableGrantPtrOutputWithContext(context.Background())
-}
-
-func (o TableGrantOutput) ToTableGrantPtrOutputWithContext(ctx context.Context) TableGrantPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableGrant) *TableGrant {
-		return &v
-	}).(TableGrantPtrOutput)
-}
-
-type TableGrantPtrOutput struct{ *pulumi.OutputState }
-
-func (TableGrantPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TableGrant)(nil))
-}
-
-func (o TableGrantPtrOutput) ToTableGrantPtrOutput() TableGrantPtrOutput {
-	return o
-}
-
-func (o TableGrantPtrOutput) ToTableGrantPtrOutputWithContext(ctx context.Context) TableGrantPtrOutput {
-	return o
-}
-
-func (o TableGrantPtrOutput) Elem() TableGrantOutput {
-	return o.ApplyT(func(v *TableGrant) TableGrant {
-		if v != nil {
-			return *v
-		}
-		var ret TableGrant
-		return ret
-	}).(TableGrantOutput)
-}
-
 type TableGrantArrayOutput struct{ *pulumi.OutputState }
 
 func (TableGrantArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TableGrant)(nil))
+	return reflect.TypeOf((*[]*TableGrant)(nil)).Elem()
 }
 
 func (o TableGrantArrayOutput) ToTableGrantArrayOutput() TableGrantArrayOutput {
@@ -350,15 +287,15 @@ func (o TableGrantArrayOutput) ToTableGrantArrayOutputWithContext(ctx context.Co
 }
 
 func (o TableGrantArrayOutput) Index(i pulumi.IntInput) TableGrantOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableGrant {
-		return vs[0].([]TableGrant)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TableGrant {
+		return vs[0].([]*TableGrant)[vs[1].(int)]
 	}).(TableGrantOutput)
 }
 
 type TableGrantMapOutput struct{ *pulumi.OutputState }
 
 func (TableGrantMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TableGrant)(nil))
+	return reflect.TypeOf((*map[string]*TableGrant)(nil)).Elem()
 }
 
 func (o TableGrantMapOutput) ToTableGrantMapOutput() TableGrantMapOutput {
@@ -370,18 +307,16 @@ func (o TableGrantMapOutput) ToTableGrantMapOutputWithContext(ctx context.Contex
 }
 
 func (o TableGrantMapOutput) MapIndex(k pulumi.StringInput) TableGrantOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TableGrant {
-		return vs[0].(map[string]TableGrant)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TableGrant {
+		return vs[0].(map[string]*TableGrant)[vs[1].(string)]
 	}).(TableGrantOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGrantInput)(nil)).Elem(), &TableGrant{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TableGrantPtrInput)(nil)).Elem(), &TableGrant{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGrantArrayInput)(nil)).Elem(), TableGrantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGrantMapInput)(nil)).Elem(), TableGrantMap{})
 	pulumi.RegisterOutputType(TableGrantOutput{})
-	pulumi.RegisterOutputType(TableGrantPtrOutput{})
 	pulumi.RegisterOutputType(TableGrantArrayOutput{})
 	pulumi.RegisterOutputType(TableGrantMapOutput{})
 }

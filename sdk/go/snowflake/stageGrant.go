@@ -202,7 +202,7 @@ type StageGrantInput interface {
 }
 
 func (*StageGrant) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageGrant)(nil))
+	return reflect.TypeOf((**StageGrant)(nil)).Elem()
 }
 
 func (i *StageGrant) ToStageGrantOutput() StageGrantOutput {
@@ -211,35 +211,6 @@ func (i *StageGrant) ToStageGrantOutput() StageGrantOutput {
 
 func (i *StageGrant) ToStageGrantOutputWithContext(ctx context.Context) StageGrantOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StageGrantOutput)
-}
-
-func (i *StageGrant) ToStageGrantPtrOutput() StageGrantPtrOutput {
-	return i.ToStageGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *StageGrant) ToStageGrantPtrOutputWithContext(ctx context.Context) StageGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageGrantPtrOutput)
-}
-
-type StageGrantPtrInput interface {
-	pulumi.Input
-
-	ToStageGrantPtrOutput() StageGrantPtrOutput
-	ToStageGrantPtrOutputWithContext(ctx context.Context) StageGrantPtrOutput
-}
-
-type stageGrantPtrType StageGrantArgs
-
-func (*stageGrantPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageGrant)(nil))
-}
-
-func (i *stageGrantPtrType) ToStageGrantPtrOutput() StageGrantPtrOutput {
-	return i.ToStageGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *stageGrantPtrType) ToStageGrantPtrOutputWithContext(ctx context.Context) StageGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageGrantPtrOutput)
 }
 
 // StageGrantArrayInput is an input type that accepts StageGrantArray and StageGrantArrayOutput values.
@@ -295,7 +266,7 @@ func (i StageGrantMap) ToStageGrantMapOutputWithContext(ctx context.Context) Sta
 type StageGrantOutput struct{ *pulumi.OutputState }
 
 func (StageGrantOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageGrant)(nil))
+	return reflect.TypeOf((**StageGrant)(nil)).Elem()
 }
 
 func (o StageGrantOutput) ToStageGrantOutput() StageGrantOutput {
@@ -306,44 +277,10 @@ func (o StageGrantOutput) ToStageGrantOutputWithContext(ctx context.Context) Sta
 	return o
 }
 
-func (o StageGrantOutput) ToStageGrantPtrOutput() StageGrantPtrOutput {
-	return o.ToStageGrantPtrOutputWithContext(context.Background())
-}
-
-func (o StageGrantOutput) ToStageGrantPtrOutputWithContext(ctx context.Context) StageGrantPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageGrant) *StageGrant {
-		return &v
-	}).(StageGrantPtrOutput)
-}
-
-type StageGrantPtrOutput struct{ *pulumi.OutputState }
-
-func (StageGrantPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageGrant)(nil))
-}
-
-func (o StageGrantPtrOutput) ToStageGrantPtrOutput() StageGrantPtrOutput {
-	return o
-}
-
-func (o StageGrantPtrOutput) ToStageGrantPtrOutputWithContext(ctx context.Context) StageGrantPtrOutput {
-	return o
-}
-
-func (o StageGrantPtrOutput) Elem() StageGrantOutput {
-	return o.ApplyT(func(v *StageGrant) StageGrant {
-		if v != nil {
-			return *v
-		}
-		var ret StageGrant
-		return ret
-	}).(StageGrantOutput)
-}
-
 type StageGrantArrayOutput struct{ *pulumi.OutputState }
 
 func (StageGrantArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageGrant)(nil))
+	return reflect.TypeOf((*[]*StageGrant)(nil)).Elem()
 }
 
 func (o StageGrantArrayOutput) ToStageGrantArrayOutput() StageGrantArrayOutput {
@@ -355,15 +292,15 @@ func (o StageGrantArrayOutput) ToStageGrantArrayOutputWithContext(ctx context.Co
 }
 
 func (o StageGrantArrayOutput) Index(i pulumi.IntInput) StageGrantOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageGrant {
-		return vs[0].([]StageGrant)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StageGrant {
+		return vs[0].([]*StageGrant)[vs[1].(int)]
 	}).(StageGrantOutput)
 }
 
 type StageGrantMapOutput struct{ *pulumi.OutputState }
 
 func (StageGrantMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]StageGrant)(nil))
+	return reflect.TypeOf((*map[string]*StageGrant)(nil)).Elem()
 }
 
 func (o StageGrantMapOutput) ToStageGrantMapOutput() StageGrantMapOutput {
@@ -375,18 +312,16 @@ func (o StageGrantMapOutput) ToStageGrantMapOutputWithContext(ctx context.Contex
 }
 
 func (o StageGrantMapOutput) MapIndex(k pulumi.StringInput) StageGrantOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StageGrant {
-		return vs[0].(map[string]StageGrant)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *StageGrant {
+		return vs[0].(map[string]*StageGrant)[vs[1].(string)]
 	}).(StageGrantOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StageGrantInput)(nil)).Elem(), &StageGrant{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageGrantPtrInput)(nil)).Elem(), &StageGrant{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageGrantArrayInput)(nil)).Elem(), StageGrantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageGrantMapInput)(nil)).Elem(), StageGrantMap{})
 	pulumi.RegisterOutputType(StageGrantOutput{})
-	pulumi.RegisterOutputType(StageGrantPtrOutput{})
 	pulumi.RegisterOutputType(StageGrantArrayOutput{})
 	pulumi.RegisterOutputType(StageGrantMapOutput{})
 }

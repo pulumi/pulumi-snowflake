@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Snowflake
 {
@@ -37,7 +36,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSystemGenerateScimAccessTokenResult> InvokeAsync(GetSystemGenerateScimAccessTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSystemGenerateScimAccessTokenResult>("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", args ?? new GetSystemGenerateScimAccessTokenArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSystemGenerateScimAccessTokenResult>("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", args ?? new GetSystemGenerateScimAccessTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -64,7 +63,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSystemGenerateScimAccessTokenResult> Invoke(GetSystemGenerateScimAccessTokenInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSystemGenerateScimAccessTokenResult>("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", args ?? new GetSystemGenerateScimAccessTokenInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSystemGenerateScimAccessTokenResult>("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", args ?? new GetSystemGenerateScimAccessTokenInvokeArgs(), options.WithDefaults());
     }
 
 

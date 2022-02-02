@@ -23,9 +23,7 @@ export function getRowAccessPolicies(args: GetRowAccessPoliciesArgs, opts?: pulu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", {
         "database": args.database,
         "schema": args.schema,

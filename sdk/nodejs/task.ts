@@ -141,23 +141,23 @@ export class Task extends pulumi.CustomResource {
      */
     constructor(name: string, args: TaskArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TaskArgs | TaskState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TaskState | undefined;
-            inputs["after"] = state ? state.after : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["database"] = state ? state.database : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["schedule"] = state ? state.schedule : undefined;
-            inputs["schema"] = state ? state.schema : undefined;
-            inputs["sessionParameters"] = state ? state.sessionParameters : undefined;
-            inputs["sqlStatement"] = state ? state.sqlStatement : undefined;
-            inputs["userTaskManagedInitialWarehouseSize"] = state ? state.userTaskManagedInitialWarehouseSize : undefined;
-            inputs["userTaskTimeoutMs"] = state ? state.userTaskTimeoutMs : undefined;
-            inputs["warehouse"] = state ? state.warehouse : undefined;
-            inputs["when"] = state ? state.when : undefined;
+            resourceInputs["after"] = state ? state.after : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["schedule"] = state ? state.schedule : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["sessionParameters"] = state ? state.sessionParameters : undefined;
+            resourceInputs["sqlStatement"] = state ? state.sqlStatement : undefined;
+            resourceInputs["userTaskManagedInitialWarehouseSize"] = state ? state.userTaskManagedInitialWarehouseSize : undefined;
+            resourceInputs["userTaskTimeoutMs"] = state ? state.userTaskTimeoutMs : undefined;
+            resourceInputs["warehouse"] = state ? state.warehouse : undefined;
+            resourceInputs["when"] = state ? state.when : undefined;
         } else {
             const args = argsOrState as TaskArgs | undefined;
             if ((!args || args.database === undefined) && !opts.urn) {
@@ -169,24 +169,22 @@ export class Task extends pulumi.CustomResource {
             if ((!args || args.sqlStatement === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sqlStatement'");
             }
-            inputs["after"] = args ? args.after : undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["database"] = args ? args.database : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
-            inputs["sessionParameters"] = args ? args.sessionParameters : undefined;
-            inputs["sqlStatement"] = args ? args.sqlStatement : undefined;
-            inputs["userTaskManagedInitialWarehouseSize"] = args ? args.userTaskManagedInitialWarehouseSize : undefined;
-            inputs["userTaskTimeoutMs"] = args ? args.userTaskTimeoutMs : undefined;
-            inputs["warehouse"] = args ? args.warehouse : undefined;
-            inputs["when"] = args ? args.when : undefined;
+            resourceInputs["after"] = args ? args.after : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["sessionParameters"] = args ? args.sessionParameters : undefined;
+            resourceInputs["sqlStatement"] = args ? args.sqlStatement : undefined;
+            resourceInputs["userTaskManagedInitialWarehouseSize"] = args ? args.userTaskManagedInitialWarehouseSize : undefined;
+            resourceInputs["userTaskTimeoutMs"] = args ? args.userTaskTimeoutMs : undefined;
+            resourceInputs["warehouse"] = args ? args.warehouse : undefined;
+            resourceInputs["when"] = args ? args.when : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Task.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Task.__pulumiType, name, resourceInputs, opts);
     }
 }
 

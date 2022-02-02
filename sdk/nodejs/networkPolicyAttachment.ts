@@ -82,26 +82,24 @@ export class NetworkPolicyAttachment extends pulumi.CustomResource {
      */
     constructor(name: string, args: NetworkPolicyAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkPolicyAttachmentArgs | NetworkPolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkPolicyAttachmentState | undefined;
-            inputs["networkPolicyName"] = state ? state.networkPolicyName : undefined;
-            inputs["setForAccount"] = state ? state.setForAccount : undefined;
-            inputs["users"] = state ? state.users : undefined;
+            resourceInputs["networkPolicyName"] = state ? state.networkPolicyName : undefined;
+            resourceInputs["setForAccount"] = state ? state.setForAccount : undefined;
+            resourceInputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as NetworkPolicyAttachmentArgs | undefined;
             if ((!args || args.networkPolicyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkPolicyName'");
             }
-            inputs["networkPolicyName"] = args ? args.networkPolicyName : undefined;
-            inputs["setForAccount"] = args ? args.setForAccount : undefined;
-            inputs["users"] = args ? args.users : undefined;
+            resourceInputs["networkPolicyName"] = args ? args.networkPolicyName : undefined;
+            resourceInputs["setForAccount"] = args ? args.setForAccount : undefined;
+            resourceInputs["users"] = args ? args.users : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NetworkPolicyAttachment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NetworkPolicyAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

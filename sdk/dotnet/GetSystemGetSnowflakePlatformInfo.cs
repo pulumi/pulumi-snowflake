@@ -12,7 +12,7 @@ namespace Pulumi.Snowflake
     public static class GetSystemGetSnowflakePlatformInfo
     {
         public static Task<GetSystemGetSnowflakePlatformInfoResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSystemGetSnowflakePlatformInfoResult>("snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo", InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSystemGetSnowflakePlatformInfoResult>("snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

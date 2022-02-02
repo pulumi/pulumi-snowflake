@@ -102,35 +102,33 @@ export class ResourceMonitor extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ResourceMonitorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceMonitorArgs | ResourceMonitorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceMonitorState | undefined;
-            inputs["creditQuota"] = state ? state.creditQuota : undefined;
-            inputs["endTimestamp"] = state ? state.endTimestamp : undefined;
-            inputs["frequency"] = state ? state.frequency : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notifyTriggers"] = state ? state.notifyTriggers : undefined;
-            inputs["setForAccount"] = state ? state.setForAccount : undefined;
-            inputs["startTimestamp"] = state ? state.startTimestamp : undefined;
-            inputs["suspendImmediateTriggers"] = state ? state.suspendImmediateTriggers : undefined;
-            inputs["suspendTriggers"] = state ? state.suspendTriggers : undefined;
+            resourceInputs["creditQuota"] = state ? state.creditQuota : undefined;
+            resourceInputs["endTimestamp"] = state ? state.endTimestamp : undefined;
+            resourceInputs["frequency"] = state ? state.frequency : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notifyTriggers"] = state ? state.notifyTriggers : undefined;
+            resourceInputs["setForAccount"] = state ? state.setForAccount : undefined;
+            resourceInputs["startTimestamp"] = state ? state.startTimestamp : undefined;
+            resourceInputs["suspendImmediateTriggers"] = state ? state.suspendImmediateTriggers : undefined;
+            resourceInputs["suspendTriggers"] = state ? state.suspendTriggers : undefined;
         } else {
             const args = argsOrState as ResourceMonitorArgs | undefined;
-            inputs["creditQuota"] = args ? args.creditQuota : undefined;
-            inputs["endTimestamp"] = args ? args.endTimestamp : undefined;
-            inputs["frequency"] = args ? args.frequency : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notifyTriggers"] = args ? args.notifyTriggers : undefined;
-            inputs["setForAccount"] = args ? args.setForAccount : undefined;
-            inputs["startTimestamp"] = args ? args.startTimestamp : undefined;
-            inputs["suspendImmediateTriggers"] = args ? args.suspendImmediateTriggers : undefined;
-            inputs["suspendTriggers"] = args ? args.suspendTriggers : undefined;
+            resourceInputs["creditQuota"] = args ? args.creditQuota : undefined;
+            resourceInputs["endTimestamp"] = args ? args.endTimestamp : undefined;
+            resourceInputs["frequency"] = args ? args.frequency : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notifyTriggers"] = args ? args.notifyTriggers : undefined;
+            resourceInputs["setForAccount"] = args ? args.setForAccount : undefined;
+            resourceInputs["startTimestamp"] = args ? args.startTimestamp : undefined;
+            resourceInputs["suspendImmediateTriggers"] = args ? args.suspendImmediateTriggers : undefined;
+            resourceInputs["suspendTriggers"] = args ? args.suspendTriggers : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResourceMonitor.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResourceMonitor.__pulumiType, name, resourceInputs, opts);
     }
 }
 

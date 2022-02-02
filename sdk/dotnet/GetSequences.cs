@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Snowflake
 {
@@ -38,7 +37,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSequencesResult> InvokeAsync(GetSequencesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSequencesResult>("snowflake:index/getSequences:getSequences", args ?? new GetSequencesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSequencesResult>("snowflake:index/getSequences:getSequences", args ?? new GetSequencesArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -66,7 +65,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSequencesResult> Invoke(GetSequencesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSequencesResult>("snowflake:index/getSequences:getSequences", args ?? new GetSequencesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSequencesResult>("snowflake:index/getSequences:getSequences", args ?? new GetSequencesInvokeArgs(), options.WithDefaults());
     }
 
 

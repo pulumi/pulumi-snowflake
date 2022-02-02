@@ -199,7 +199,7 @@ type ViewGrantInput interface {
 }
 
 func (*ViewGrant) ElementType() reflect.Type {
-	return reflect.TypeOf((*ViewGrant)(nil))
+	return reflect.TypeOf((**ViewGrant)(nil)).Elem()
 }
 
 func (i *ViewGrant) ToViewGrantOutput() ViewGrantOutput {
@@ -208,35 +208,6 @@ func (i *ViewGrant) ToViewGrantOutput() ViewGrantOutput {
 
 func (i *ViewGrant) ToViewGrantOutputWithContext(ctx context.Context) ViewGrantOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ViewGrantOutput)
-}
-
-func (i *ViewGrant) ToViewGrantPtrOutput() ViewGrantPtrOutput {
-	return i.ToViewGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *ViewGrant) ToViewGrantPtrOutputWithContext(ctx context.Context) ViewGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ViewGrantPtrOutput)
-}
-
-type ViewGrantPtrInput interface {
-	pulumi.Input
-
-	ToViewGrantPtrOutput() ViewGrantPtrOutput
-	ToViewGrantPtrOutputWithContext(ctx context.Context) ViewGrantPtrOutput
-}
-
-type viewGrantPtrType ViewGrantArgs
-
-func (*viewGrantPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ViewGrant)(nil))
-}
-
-func (i *viewGrantPtrType) ToViewGrantPtrOutput() ViewGrantPtrOutput {
-	return i.ToViewGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *viewGrantPtrType) ToViewGrantPtrOutputWithContext(ctx context.Context) ViewGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ViewGrantPtrOutput)
 }
 
 // ViewGrantArrayInput is an input type that accepts ViewGrantArray and ViewGrantArrayOutput values.
@@ -292,7 +263,7 @@ func (i ViewGrantMap) ToViewGrantMapOutputWithContext(ctx context.Context) ViewG
 type ViewGrantOutput struct{ *pulumi.OutputState }
 
 func (ViewGrantOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ViewGrant)(nil))
+	return reflect.TypeOf((**ViewGrant)(nil)).Elem()
 }
 
 func (o ViewGrantOutput) ToViewGrantOutput() ViewGrantOutput {
@@ -303,44 +274,10 @@ func (o ViewGrantOutput) ToViewGrantOutputWithContext(ctx context.Context) ViewG
 	return o
 }
 
-func (o ViewGrantOutput) ToViewGrantPtrOutput() ViewGrantPtrOutput {
-	return o.ToViewGrantPtrOutputWithContext(context.Background())
-}
-
-func (o ViewGrantOutput) ToViewGrantPtrOutputWithContext(ctx context.Context) ViewGrantPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ViewGrant) *ViewGrant {
-		return &v
-	}).(ViewGrantPtrOutput)
-}
-
-type ViewGrantPtrOutput struct{ *pulumi.OutputState }
-
-func (ViewGrantPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ViewGrant)(nil))
-}
-
-func (o ViewGrantPtrOutput) ToViewGrantPtrOutput() ViewGrantPtrOutput {
-	return o
-}
-
-func (o ViewGrantPtrOutput) ToViewGrantPtrOutputWithContext(ctx context.Context) ViewGrantPtrOutput {
-	return o
-}
-
-func (o ViewGrantPtrOutput) Elem() ViewGrantOutput {
-	return o.ApplyT(func(v *ViewGrant) ViewGrant {
-		if v != nil {
-			return *v
-		}
-		var ret ViewGrant
-		return ret
-	}).(ViewGrantOutput)
-}
-
 type ViewGrantArrayOutput struct{ *pulumi.OutputState }
 
 func (ViewGrantArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ViewGrant)(nil))
+	return reflect.TypeOf((*[]*ViewGrant)(nil)).Elem()
 }
 
 func (o ViewGrantArrayOutput) ToViewGrantArrayOutput() ViewGrantArrayOutput {
@@ -352,15 +289,15 @@ func (o ViewGrantArrayOutput) ToViewGrantArrayOutputWithContext(ctx context.Cont
 }
 
 func (o ViewGrantArrayOutput) Index(i pulumi.IntInput) ViewGrantOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ViewGrant {
-		return vs[0].([]ViewGrant)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ViewGrant {
+		return vs[0].([]*ViewGrant)[vs[1].(int)]
 	}).(ViewGrantOutput)
 }
 
 type ViewGrantMapOutput struct{ *pulumi.OutputState }
 
 func (ViewGrantMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ViewGrant)(nil))
+	return reflect.TypeOf((*map[string]*ViewGrant)(nil)).Elem()
 }
 
 func (o ViewGrantMapOutput) ToViewGrantMapOutput() ViewGrantMapOutput {
@@ -372,18 +309,16 @@ func (o ViewGrantMapOutput) ToViewGrantMapOutputWithContext(ctx context.Context)
 }
 
 func (o ViewGrantMapOutput) MapIndex(k pulumi.StringInput) ViewGrantOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ViewGrant {
-		return vs[0].(map[string]ViewGrant)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ViewGrant {
+		return vs[0].(map[string]*ViewGrant)[vs[1].(string)]
 	}).(ViewGrantOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewGrantInput)(nil)).Elem(), &ViewGrant{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ViewGrantPtrInput)(nil)).Elem(), &ViewGrant{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewGrantArrayInput)(nil)).Elem(), ViewGrantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewGrantMapInput)(nil)).Elem(), ViewGrantMap{})
 	pulumi.RegisterOutputType(ViewGrantOutput{})
-	pulumi.RegisterOutputType(ViewGrantPtrOutput{})
 	pulumi.RegisterOutputType(ViewGrantArrayOutput{})
 	pulumi.RegisterOutputType(ViewGrantMapOutput{})
 }

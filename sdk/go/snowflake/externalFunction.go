@@ -292,7 +292,7 @@ type ExternalFunctionInput interface {
 }
 
 func (*ExternalFunction) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExternalFunction)(nil))
+	return reflect.TypeOf((**ExternalFunction)(nil)).Elem()
 }
 
 func (i *ExternalFunction) ToExternalFunctionOutput() ExternalFunctionOutput {
@@ -301,35 +301,6 @@ func (i *ExternalFunction) ToExternalFunctionOutput() ExternalFunctionOutput {
 
 func (i *ExternalFunction) ToExternalFunctionOutputWithContext(ctx context.Context) ExternalFunctionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalFunctionOutput)
-}
-
-func (i *ExternalFunction) ToExternalFunctionPtrOutput() ExternalFunctionPtrOutput {
-	return i.ToExternalFunctionPtrOutputWithContext(context.Background())
-}
-
-func (i *ExternalFunction) ToExternalFunctionPtrOutputWithContext(ctx context.Context) ExternalFunctionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExternalFunctionPtrOutput)
-}
-
-type ExternalFunctionPtrInput interface {
-	pulumi.Input
-
-	ToExternalFunctionPtrOutput() ExternalFunctionPtrOutput
-	ToExternalFunctionPtrOutputWithContext(ctx context.Context) ExternalFunctionPtrOutput
-}
-
-type externalFunctionPtrType ExternalFunctionArgs
-
-func (*externalFunctionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExternalFunction)(nil))
-}
-
-func (i *externalFunctionPtrType) ToExternalFunctionPtrOutput() ExternalFunctionPtrOutput {
-	return i.ToExternalFunctionPtrOutputWithContext(context.Background())
-}
-
-func (i *externalFunctionPtrType) ToExternalFunctionPtrOutputWithContext(ctx context.Context) ExternalFunctionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExternalFunctionPtrOutput)
 }
 
 // ExternalFunctionArrayInput is an input type that accepts ExternalFunctionArray and ExternalFunctionArrayOutput values.
@@ -385,7 +356,7 @@ func (i ExternalFunctionMap) ToExternalFunctionMapOutputWithContext(ctx context.
 type ExternalFunctionOutput struct{ *pulumi.OutputState }
 
 func (ExternalFunctionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExternalFunction)(nil))
+	return reflect.TypeOf((**ExternalFunction)(nil)).Elem()
 }
 
 func (o ExternalFunctionOutput) ToExternalFunctionOutput() ExternalFunctionOutput {
@@ -396,44 +367,10 @@ func (o ExternalFunctionOutput) ToExternalFunctionOutputWithContext(ctx context.
 	return o
 }
 
-func (o ExternalFunctionOutput) ToExternalFunctionPtrOutput() ExternalFunctionPtrOutput {
-	return o.ToExternalFunctionPtrOutputWithContext(context.Background())
-}
-
-func (o ExternalFunctionOutput) ToExternalFunctionPtrOutputWithContext(ctx context.Context) ExternalFunctionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExternalFunction) *ExternalFunction {
-		return &v
-	}).(ExternalFunctionPtrOutput)
-}
-
-type ExternalFunctionPtrOutput struct{ *pulumi.OutputState }
-
-func (ExternalFunctionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExternalFunction)(nil))
-}
-
-func (o ExternalFunctionPtrOutput) ToExternalFunctionPtrOutput() ExternalFunctionPtrOutput {
-	return o
-}
-
-func (o ExternalFunctionPtrOutput) ToExternalFunctionPtrOutputWithContext(ctx context.Context) ExternalFunctionPtrOutput {
-	return o
-}
-
-func (o ExternalFunctionPtrOutput) Elem() ExternalFunctionOutput {
-	return o.ApplyT(func(v *ExternalFunction) ExternalFunction {
-		if v != nil {
-			return *v
-		}
-		var ret ExternalFunction
-		return ret
-	}).(ExternalFunctionOutput)
-}
-
 type ExternalFunctionArrayOutput struct{ *pulumi.OutputState }
 
 func (ExternalFunctionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ExternalFunction)(nil))
+	return reflect.TypeOf((*[]*ExternalFunction)(nil)).Elem()
 }
 
 func (o ExternalFunctionArrayOutput) ToExternalFunctionArrayOutput() ExternalFunctionArrayOutput {
@@ -445,15 +382,15 @@ func (o ExternalFunctionArrayOutput) ToExternalFunctionArrayOutputWithContext(ct
 }
 
 func (o ExternalFunctionArrayOutput) Index(i pulumi.IntInput) ExternalFunctionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExternalFunction {
-		return vs[0].([]ExternalFunction)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExternalFunction {
+		return vs[0].([]*ExternalFunction)[vs[1].(int)]
 	}).(ExternalFunctionOutput)
 }
 
 type ExternalFunctionMapOutput struct{ *pulumi.OutputState }
 
 func (ExternalFunctionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ExternalFunction)(nil))
+	return reflect.TypeOf((*map[string]*ExternalFunction)(nil)).Elem()
 }
 
 func (o ExternalFunctionMapOutput) ToExternalFunctionMapOutput() ExternalFunctionMapOutput {
@@ -465,18 +402,16 @@ func (o ExternalFunctionMapOutput) ToExternalFunctionMapOutputWithContext(ctx co
 }
 
 func (o ExternalFunctionMapOutput) MapIndex(k pulumi.StringInput) ExternalFunctionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ExternalFunction {
-		return vs[0].(map[string]ExternalFunction)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ExternalFunction {
+		return vs[0].(map[string]*ExternalFunction)[vs[1].(string)]
 	}).(ExternalFunctionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalFunctionInput)(nil)).Elem(), &ExternalFunction{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ExternalFunctionPtrInput)(nil)).Elem(), &ExternalFunction{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalFunctionArrayInput)(nil)).Elem(), ExternalFunctionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalFunctionMapInput)(nil)).Elem(), ExternalFunctionMap{})
 	pulumi.RegisterOutputType(ExternalFunctionOutput{})
-	pulumi.RegisterOutputType(ExternalFunctionPtrOutput{})
 	pulumi.RegisterOutputType(ExternalFunctionArrayOutput{})
 	pulumi.RegisterOutputType(ExternalFunctionMapOutput{})
 }

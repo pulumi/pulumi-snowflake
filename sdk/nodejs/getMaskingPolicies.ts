@@ -23,9 +23,7 @@ export function getMaskingPolicies(args: GetMaskingPoliciesArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("snowflake:index/getMaskingPolicies:getMaskingPolicies", {
         "database": args.database,
         "schema": args.schema,

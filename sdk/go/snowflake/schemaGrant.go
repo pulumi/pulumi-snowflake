@@ -193,7 +193,7 @@ type SchemaGrantInput interface {
 }
 
 func (*SchemaGrant) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaGrant)(nil))
+	return reflect.TypeOf((**SchemaGrant)(nil)).Elem()
 }
 
 func (i *SchemaGrant) ToSchemaGrantOutput() SchemaGrantOutput {
@@ -202,35 +202,6 @@ func (i *SchemaGrant) ToSchemaGrantOutput() SchemaGrantOutput {
 
 func (i *SchemaGrant) ToSchemaGrantOutputWithContext(ctx context.Context) SchemaGrantOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaGrantOutput)
-}
-
-func (i *SchemaGrant) ToSchemaGrantPtrOutput() SchemaGrantPtrOutput {
-	return i.ToSchemaGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *SchemaGrant) ToSchemaGrantPtrOutputWithContext(ctx context.Context) SchemaGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaGrantPtrOutput)
-}
-
-type SchemaGrantPtrInput interface {
-	pulumi.Input
-
-	ToSchemaGrantPtrOutput() SchemaGrantPtrOutput
-	ToSchemaGrantPtrOutputWithContext(ctx context.Context) SchemaGrantPtrOutput
-}
-
-type schemaGrantPtrType SchemaGrantArgs
-
-func (*schemaGrantPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SchemaGrant)(nil))
-}
-
-func (i *schemaGrantPtrType) ToSchemaGrantPtrOutput() SchemaGrantPtrOutput {
-	return i.ToSchemaGrantPtrOutputWithContext(context.Background())
-}
-
-func (i *schemaGrantPtrType) ToSchemaGrantPtrOutputWithContext(ctx context.Context) SchemaGrantPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaGrantPtrOutput)
 }
 
 // SchemaGrantArrayInput is an input type that accepts SchemaGrantArray and SchemaGrantArrayOutput values.
@@ -286,7 +257,7 @@ func (i SchemaGrantMap) ToSchemaGrantMapOutputWithContext(ctx context.Context) S
 type SchemaGrantOutput struct{ *pulumi.OutputState }
 
 func (SchemaGrantOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaGrant)(nil))
+	return reflect.TypeOf((**SchemaGrant)(nil)).Elem()
 }
 
 func (o SchemaGrantOutput) ToSchemaGrantOutput() SchemaGrantOutput {
@@ -297,44 +268,10 @@ func (o SchemaGrantOutput) ToSchemaGrantOutputWithContext(ctx context.Context) S
 	return o
 }
 
-func (o SchemaGrantOutput) ToSchemaGrantPtrOutput() SchemaGrantPtrOutput {
-	return o.ToSchemaGrantPtrOutputWithContext(context.Background())
-}
-
-func (o SchemaGrantOutput) ToSchemaGrantPtrOutputWithContext(ctx context.Context) SchemaGrantPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchemaGrant) *SchemaGrant {
-		return &v
-	}).(SchemaGrantPtrOutput)
-}
-
-type SchemaGrantPtrOutput struct{ *pulumi.OutputState }
-
-func (SchemaGrantPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SchemaGrant)(nil))
-}
-
-func (o SchemaGrantPtrOutput) ToSchemaGrantPtrOutput() SchemaGrantPtrOutput {
-	return o
-}
-
-func (o SchemaGrantPtrOutput) ToSchemaGrantPtrOutputWithContext(ctx context.Context) SchemaGrantPtrOutput {
-	return o
-}
-
-func (o SchemaGrantPtrOutput) Elem() SchemaGrantOutput {
-	return o.ApplyT(func(v *SchemaGrant) SchemaGrant {
-		if v != nil {
-			return *v
-		}
-		var ret SchemaGrant
-		return ret
-	}).(SchemaGrantOutput)
-}
-
 type SchemaGrantArrayOutput struct{ *pulumi.OutputState }
 
 func (SchemaGrantArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaGrant)(nil))
+	return reflect.TypeOf((*[]*SchemaGrant)(nil)).Elem()
 }
 
 func (o SchemaGrantArrayOutput) ToSchemaGrantArrayOutput() SchemaGrantArrayOutput {
@@ -346,15 +283,15 @@ func (o SchemaGrantArrayOutput) ToSchemaGrantArrayOutputWithContext(ctx context.
 }
 
 func (o SchemaGrantArrayOutput) Index(i pulumi.IntInput) SchemaGrantOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaGrant {
-		return vs[0].([]SchemaGrant)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SchemaGrant {
+		return vs[0].([]*SchemaGrant)[vs[1].(int)]
 	}).(SchemaGrantOutput)
 }
 
 type SchemaGrantMapOutput struct{ *pulumi.OutputState }
 
 func (SchemaGrantMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SchemaGrant)(nil))
+	return reflect.TypeOf((*map[string]*SchemaGrant)(nil)).Elem()
 }
 
 func (o SchemaGrantMapOutput) ToSchemaGrantMapOutput() SchemaGrantMapOutput {
@@ -366,18 +303,16 @@ func (o SchemaGrantMapOutput) ToSchemaGrantMapOutputWithContext(ctx context.Cont
 }
 
 func (o SchemaGrantMapOutput) MapIndex(k pulumi.StringInput) SchemaGrantOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SchemaGrant {
-		return vs[0].(map[string]SchemaGrant)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SchemaGrant {
+		return vs[0].(map[string]*SchemaGrant)[vs[1].(string)]
 	}).(SchemaGrantOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaGrantInput)(nil)).Elem(), &SchemaGrant{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaGrantPtrInput)(nil)).Elem(), &SchemaGrant{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaGrantArrayInput)(nil)).Elem(), SchemaGrantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaGrantMapInput)(nil)).Elem(), SchemaGrantMap{})
 	pulumi.RegisterOutputType(SchemaGrantOutput{})
-	pulumi.RegisterOutputType(SchemaGrantPtrOutput{})
 	pulumi.RegisterOutputType(SchemaGrantArrayOutput{})
 	pulumi.RegisterOutputType(SchemaGrantMapOutput{})
 }

@@ -23,9 +23,7 @@ export function getViews(args: GetViewsArgs, opts?: pulumi.InvokeOptions): Promi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("snowflake:index/getViews:getViews", {
         "database": args.database,
         "schema": args.schema,

@@ -22,9 +22,7 @@ export function getSchemas(args: GetSchemasArgs, opts?: pulumi.InvokeOptions): P
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("snowflake:index/getSchemas:getSchemas", {
         "database": args.database,
     }, opts);

@@ -78,28 +78,26 @@ export class NetworkPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: NetworkPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkPolicyArgs | NetworkPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkPolicyState | undefined;
-            inputs["allowedIpLists"] = state ? state.allowedIpLists : undefined;
-            inputs["blockedIpLists"] = state ? state.blockedIpLists : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["allowedIpLists"] = state ? state.allowedIpLists : undefined;
+            resourceInputs["blockedIpLists"] = state ? state.blockedIpLists : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as NetworkPolicyArgs | undefined;
             if ((!args || args.allowedIpLists === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'allowedIpLists'");
             }
-            inputs["allowedIpLists"] = args ? args.allowedIpLists : undefined;
-            inputs["blockedIpLists"] = args ? args.blockedIpLists : undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["allowedIpLists"] = args ? args.allowedIpLists : undefined;
+            resourceInputs["blockedIpLists"] = args ? args.blockedIpLists : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NetworkPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NetworkPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 
