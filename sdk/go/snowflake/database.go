@@ -52,6 +52,8 @@ type Database struct {
 	DataRetentionTimeInDays pulumi.IntOutput       `pulumi:"dataRetentionTimeInDays"`
 	// Specify a database to create a clone from.
 	FromDatabase pulumi.StringPtrOutput `pulumi:"fromDatabase"`
+	// Specify a fully-qualified path to a database to create a replica from.
+	FromReplica pulumi.StringPtrOutput `pulumi:"fromReplica"`
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare pulumi.MapOutput    `pulumi:"fromShare"`
 	Name      pulumi.StringOutput `pulumi:"name"`
@@ -92,6 +94,8 @@ type databaseState struct {
 	DataRetentionTimeInDays *int    `pulumi:"dataRetentionTimeInDays"`
 	// Specify a database to create a clone from.
 	FromDatabase *string `pulumi:"fromDatabase"`
+	// Specify a fully-qualified path to a database to create a replica from.
+	FromReplica *string `pulumi:"fromReplica"`
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare map[string]interface{} `pulumi:"fromShare"`
 	Name      *string                `pulumi:"name"`
@@ -104,6 +108,8 @@ type DatabaseState struct {
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// Specify a database to create a clone from.
 	FromDatabase pulumi.StringPtrInput
+	// Specify a fully-qualified path to a database to create a replica from.
+	FromReplica pulumi.StringPtrInput
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare pulumi.MapInput
 	Name      pulumi.StringPtrInput
@@ -120,6 +126,8 @@ type databaseArgs struct {
 	DataRetentionTimeInDays *int    `pulumi:"dataRetentionTimeInDays"`
 	// Specify a database to create a clone from.
 	FromDatabase *string `pulumi:"fromDatabase"`
+	// Specify a fully-qualified path to a database to create a replica from.
+	FromReplica *string `pulumi:"fromReplica"`
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare map[string]interface{} `pulumi:"fromShare"`
 	Name      *string                `pulumi:"name"`
@@ -133,6 +141,8 @@ type DatabaseArgs struct {
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// Specify a database to create a clone from.
 	FromDatabase pulumi.StringPtrInput
+	// Specify a fully-qualified path to a database to create a replica from.
+	FromReplica pulumi.StringPtrInput
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare pulumi.MapInput
 	Name      pulumi.StringPtrInput

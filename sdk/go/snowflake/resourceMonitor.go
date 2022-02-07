@@ -71,6 +71,8 @@ type ResourceMonitor struct {
 	SuspendImmediateTriggers pulumi.IntArrayOutput `pulumi:"suspendImmediateTriggers"`
 	// A list of percentage thresholds at which to suspend all warehouses.
 	SuspendTriggers pulumi.IntArrayOutput `pulumi:"suspendTriggers"`
+	// A list of warehouses to apply the resource monitor to.
+	Warehouses pulumi.StringArrayOutput `pulumi:"warehouses"`
 }
 
 // NewResourceMonitor registers a new resource with the given unique name, arguments, and options.
@@ -120,6 +122,8 @@ type resourceMonitorState struct {
 	SuspendImmediateTriggers []int `pulumi:"suspendImmediateTriggers"`
 	// A list of percentage thresholds at which to suspend all warehouses.
 	SuspendTriggers []int `pulumi:"suspendTriggers"`
+	// A list of warehouses to apply the resource monitor to.
+	Warehouses []string `pulumi:"warehouses"`
 }
 
 type ResourceMonitorState struct {
@@ -141,6 +145,8 @@ type ResourceMonitorState struct {
 	SuspendImmediateTriggers pulumi.IntArrayInput
 	// A list of percentage thresholds at which to suspend all warehouses.
 	SuspendTriggers pulumi.IntArrayInput
+	// A list of warehouses to apply the resource monitor to.
+	Warehouses pulumi.StringArrayInput
 }
 
 func (ResourceMonitorState) ElementType() reflect.Type {
@@ -166,6 +172,8 @@ type resourceMonitorArgs struct {
 	SuspendImmediateTriggers []int `pulumi:"suspendImmediateTriggers"`
 	// A list of percentage thresholds at which to suspend all warehouses.
 	SuspendTriggers []int `pulumi:"suspendTriggers"`
+	// A list of warehouses to apply the resource monitor to.
+	Warehouses []string `pulumi:"warehouses"`
 }
 
 // The set of arguments for constructing a ResourceMonitor resource.
@@ -188,6 +196,8 @@ type ResourceMonitorArgs struct {
 	SuspendImmediateTriggers pulumi.IntArrayInput
 	// A list of percentage thresholds at which to suspend all warehouses.
 	SuspendTriggers pulumi.IntArrayInput
+	// A list of warehouses to apply the resource monitor to.
+	Warehouses pulumi.StringArrayInput
 }
 
 func (ResourceMonitorArgs) ElementType() reflect.Type {

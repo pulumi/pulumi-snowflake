@@ -92,6 +92,10 @@ export class ResourceMonitor extends pulumi.CustomResource {
      * A list of percentage thresholds at which to suspend all warehouses.
      */
     public readonly suspendTriggers!: pulumi.Output<number[] | undefined>;
+    /**
+     * A list of warehouses to apply the resource monitor to.
+     */
+    public readonly warehouses!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ResourceMonitor resource with the given unique name, arguments, and options.
@@ -115,6 +119,7 @@ export class ResourceMonitor extends pulumi.CustomResource {
             resourceInputs["startTimestamp"] = state ? state.startTimestamp : undefined;
             resourceInputs["suspendImmediateTriggers"] = state ? state.suspendImmediateTriggers : undefined;
             resourceInputs["suspendTriggers"] = state ? state.suspendTriggers : undefined;
+            resourceInputs["warehouses"] = state ? state.warehouses : undefined;
         } else {
             const args = argsOrState as ResourceMonitorArgs | undefined;
             resourceInputs["creditQuota"] = args ? args.creditQuota : undefined;
@@ -126,6 +131,7 @@ export class ResourceMonitor extends pulumi.CustomResource {
             resourceInputs["startTimestamp"] = args ? args.startTimestamp : undefined;
             resourceInputs["suspendImmediateTriggers"] = args ? args.suspendImmediateTriggers : undefined;
             resourceInputs["suspendTriggers"] = args ? args.suspendTriggers : undefined;
+            resourceInputs["warehouses"] = args ? args.warehouses : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResourceMonitor.__pulumiType, name, resourceInputs, opts);
@@ -172,6 +178,10 @@ export interface ResourceMonitorState {
      * A list of percentage thresholds at which to suspend all warehouses.
      */
     suspendTriggers?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * A list of warehouses to apply the resource monitor to.
+     */
+    warehouses?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -214,4 +224,8 @@ export interface ResourceMonitorArgs {
      * A list of percentage thresholds at which to suspend all warehouses.
      */
     suspendTriggers?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * A list of warehouses to apply the resource monitor to.
+     */
+    warehouses?: pulumi.Input<pulumi.Input<string>[]>;
 }

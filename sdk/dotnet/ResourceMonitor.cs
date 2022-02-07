@@ -107,6 +107,12 @@ namespace Pulumi.Snowflake
         [Output("suspendTriggers")]
         public Output<ImmutableArray<int>> SuspendTriggers { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of warehouses to apply the resource monitor to.
+        /// </summary>
+        [Output("warehouses")]
+        public Output<ImmutableArray<string>> Warehouses { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ResourceMonitor resource with the given unique name, arguments, and options.
@@ -225,6 +231,18 @@ namespace Pulumi.Snowflake
             set => _suspendTriggers = value;
         }
 
+        [Input("warehouses")]
+        private InputList<string>? _warehouses;
+
+        /// <summary>
+        /// A list of warehouses to apply the resource monitor to.
+        /// </summary>
+        public InputList<string> Warehouses
+        {
+            get => _warehouses ?? (_warehouses = new InputList<string>());
+            set => _warehouses = value;
+        }
+
         public ResourceMonitorArgs()
         {
         }
@@ -302,6 +320,18 @@ namespace Pulumi.Snowflake
         {
             get => _suspendTriggers ?? (_suspendTriggers = new InputList<int>());
             set => _suspendTriggers = value;
+        }
+
+        [Input("warehouses")]
+        private InputList<string>? _warehouses;
+
+        /// <summary>
+        /// A list of warehouses to apply the resource monitor to.
+        /// </summary>
+        public InputList<string> Warehouses
+        {
+            get => _warehouses ?? (_warehouses = new InputList<string>());
+            set => _warehouses = value;
         }
 
         public ResourceMonitorState()

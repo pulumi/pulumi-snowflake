@@ -96,6 +96,10 @@ export class Task extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Specifies the name of the notification integration used for error notifications.
+     */
+    public readonly errorIntegration!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -149,6 +153,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["errorIntegration"] = state ? state.errorIntegration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["schedule"] = state ? state.schedule : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
@@ -173,6 +178,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["errorIntegration"] = args ? args.errorIntegration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
@@ -208,6 +214,10 @@ export interface TaskState {
      * Specifies if the task should be started (enabled) after creation or should remain suspended (default).
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies the name of the notification integration used for error notifications.
+     */
+    errorIntegration?: pulumi.Input<string>;
     /**
      * Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
      */
@@ -266,6 +276,10 @@ export interface TaskArgs {
      * Specifies if the task should be started (enabled) after creation or should remain suspended (default).
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies the name of the notification integration used for error notifications.
+     */
+    errorIntegration?: pulumi.Input<string>;
     /**
      * Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
      */

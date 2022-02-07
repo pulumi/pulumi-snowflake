@@ -289,8 +289,8 @@ github.com/chanzuckerberg/aws-oidc v0.23.1/go.mod h1:AbN6f7tGQ1aR8kJdr5Mpnyk3iab
 github.com/chanzuckerberg/go-misc v0.0.0-20200814145037-61fd36eedee6/go.mod h1:5GljuH2+xw/T7ovs4sRj9WbNRrgePgom8sMzJJPlAAo=
 github.com/chanzuckerberg/go-misc v0.0.0-20210907173712-618127c04a73 h1:CD7GXPOaHahGVTrmqF7qr+xARoTwWZXHW2u0v7cM5KE=
 github.com/chanzuckerberg/go-misc v0.0.0-20210907173712-618127c04a73/go.mod h1:4Kf7OxUaVoQxT2PJt44vy93byI0T7sJqlwEoVevclHE=
-github.com/chanzuckerberg/terraform-provider-snowflake v0.25.34 h1:M2NEL6AdST/+NFILLgfKxXq+ws/g6fZknmnMpNIeKZU=
-github.com/chanzuckerberg/terraform-provider-snowflake v0.25.34/go.mod h1:EWaIce3+oGUPGk+RgK+OnUy/+KCEclC62QFJrrwLn7M=
+github.com/chanzuckerberg/terraform-provider-snowflake v0.26.1 h1:40FdHhpKIxUz1JbC7Ff2zx5xKO0SPZTQUvBioAT6u+E=
+github.com/chanzuckerberg/terraform-provider-snowflake v0.26.1/go.mod h1:0lipnkJtNYw5TTeuiWiIu9zu1tZdRlOwGjQK5ZAsrlM=
 github.com/cheggaaa/pb v1.0.18/go.mod h1:pQciLPpbU0oxA0h+VJYYLxO+XeDQb5pZijXscXHm81s=
 github.com/cheggaaa/pb v1.0.27 h1:wIkZHkNfC7R6GI5w7l/PdAdzXzlrbcI3p8OAlnkTsnc=
 github.com/cheggaaa/pb v1.0.27/go.mod h1:pQciLPpbU0oxA0h+VJYYLxO+XeDQb5pZijXscXHm81s=
@@ -1776,8 +1776,8 @@ golang.org/x/tools v0.0.0-20210105154028-b0ab187a4818/go.mod h1:emZCQorbCU4vsT4f
 golang.org/x/tools v0.0.0-20210108195828-e2f9c7f1fc8e/go.mod h1:emZCQorbCU4vsT4fOWvOPXz4eW1wZW4PmDk9uLelYpA=
 golang.org/x/tools v0.1.0/go.mod h1:xkSsbof2nBLbhDlRMhhhyNLN/zl3eTqcnHD5viDpcZ0=
 golang.org/x/tools v0.1.4/go.mod h1:o0xws9oXOQQZyjljx8fwUC0k7L1pTE6eaCbjGeHmOkk=
-golang.org/x/tools v0.1.8 h1:P1HhGGuLW4aAclzjtmJdf0mJOjVUZUzOTqkAkWL+l6w=
-golang.org/x/tools v0.1.8/go.mod h1:nABZi5QlRsZVlzPpHl034qft6wpY4eDcsTt5AaioBiU=
+golang.org/x/tools v0.1.9 h1:j9KsMiaP1c3B0OTQGth0/k+miLGTgLsAFUCrF2vLcF8=
+golang.org/x/tools v0.1.9/go.mod h1:nABZi5QlRsZVlzPpHl034qft6wpY4eDcsTt5AaioBiU=
 golang.org/x/xerrors v0.0.0-20190410155217-1f06c39b4373/go.mod h1:I/5z698sn9Ka8TeJc9MKroUUfqBBauWjQqLJ2OPfmY0=
 golang.org/x/xerrors v0.0.0-20190513163551-3ee3066db522/go.mod h1:I/5z698sn9Ka8TeJc9MKroUUfqBBauWjQqLJ2OPfmY0=
 golang.org/x/xerrors v0.0.0-20190717185122-a985d3407aa7/go.mod h1:I/5z698sn9Ka8TeJc9MKroUUfqBBauWjQqLJ2OPfmY0=

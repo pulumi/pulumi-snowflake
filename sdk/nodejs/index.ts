@@ -49,6 +49,7 @@ export * from "./materializedViewGrant";
 export * from "./networkPolicy";
 export * from "./networkPolicyAttachment";
 export * from "./notificationIntegration";
+export * from "./oauthIntegration";
 export * from "./pipe";
 export * from "./pipeGrant";
 export * from "./procedure";
@@ -60,6 +61,7 @@ export * from "./role";
 export * from "./roleGrants";
 export * from "./rowAccessPolicy";
 export * from "./rowAccessPolicyGrant";
+export * from "./samlIntegration";
 export * from "./schema";
 export * from "./schemaGrant";
 export * from "./scimIntegration";
@@ -113,6 +115,7 @@ import { MaterializedViewGrant } from "./materializedViewGrant";
 import { NetworkPolicy } from "./networkPolicy";
 import { NetworkPolicyAttachment } from "./networkPolicyAttachment";
 import { NotificationIntegration } from "./notificationIntegration";
+import { OauthIntegration } from "./oauthIntegration";
 import { Pipe } from "./pipe";
 import { PipeGrant } from "./pipeGrant";
 import { Procedure } from "./procedure";
@@ -123,6 +126,7 @@ import { Role } from "./role";
 import { RoleGrants } from "./roleGrants";
 import { RowAccessPolicy } from "./rowAccessPolicy";
 import { RowAccessPolicyGrant } from "./rowAccessPolicyGrant";
+import { SamlIntegration } from "./samlIntegration";
 import { Schema } from "./schema";
 import { SchemaGrant } from "./schemaGrant";
 import { ScimIntegration } from "./scimIntegration";
@@ -190,6 +194,8 @@ const _module = {
                 return new NetworkPolicyAttachment(name, <any>undefined, { urn })
             case "snowflake:index/notificationIntegration:NotificationIntegration":
                 return new NotificationIntegration(name, <any>undefined, { urn })
+            case "snowflake:index/oauthIntegration:OauthIntegration":
+                return new OauthIntegration(name, <any>undefined, { urn })
             case "snowflake:index/pipe:Pipe":
                 return new Pipe(name, <any>undefined, { urn })
             case "snowflake:index/pipeGrant:PipeGrant":
@@ -210,6 +216,8 @@ const _module = {
                 return new RowAccessPolicy(name, <any>undefined, { urn })
             case "snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant":
                 return new RowAccessPolicyGrant(name, <any>undefined, { urn })
+            case "snowflake:index/samlIntegration:SamlIntegration":
+                return new SamlIntegration(name, <any>undefined, { urn })
             case "snowflake:index/schema:Schema":
                 return new Schema(name, <any>undefined, { urn })
             case "snowflake:index/schemaGrant:SchemaGrant":
@@ -279,6 +287,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/materializedViewGrant"
 pulumi.runtime.registerResourceModule("snowflake", "index/networkPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/networkPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/notificationIntegration", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/oauthIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/pipe", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/pipeGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/procedure", _module)
@@ -289,6 +298,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/role", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/roleGrants", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/rowAccessPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/rowAccessPolicyGrant", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/samlIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/schema", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/schemaGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/scimIntegration", _module)
