@@ -56,6 +56,12 @@ namespace Pulumi.Snowflake
         public Output<string?> FromDatabase { get; private set; } = null!;
 
         /// <summary>
+        /// Specify a fully-qualified path to a database to create a replica from.
+        /// </summary>
+        [Output("fromReplica")]
+        public Output<string?> FromReplica { get; private set; } = null!;
+
+        /// <summary>
         /// Specify a provider and a share in this map to create a database from a share.
         /// </summary>
         [Output("fromShare")]
@@ -128,6 +134,12 @@ namespace Pulumi.Snowflake
         [Input("fromDatabase")]
         public Input<string>? FromDatabase { get; set; }
 
+        /// <summary>
+        /// Specify a fully-qualified path to a database to create a replica from.
+        /// </summary>
+        [Input("fromReplica")]
+        public Input<string>? FromReplica { get; set; }
+
         [Input("fromShare")]
         private InputMap<object>? _fromShare;
 
@@ -173,6 +185,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("fromDatabase")]
         public Input<string>? FromDatabase { get; set; }
+
+        /// <summary>
+        /// Specify a fully-qualified path to a database to create a replica from.
+        /// </summary>
+        [Input("fromReplica")]
+        public Input<string>? FromReplica { get; set; }
 
         [Input("fromShare")]
         private InputMap<object>? _fromShare;

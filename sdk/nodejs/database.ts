@@ -62,6 +62,10 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly fromDatabase!: pulumi.Output<string | undefined>;
     /**
+     * Specify a fully-qualified path to a database to create a replica from.
+     */
+    public readonly fromReplica!: pulumi.Output<string | undefined>;
+    /**
      * Specify a provider and a share in this map to create a database from a share.
      */
     public readonly fromShare!: pulumi.Output<{[key: string]: any} | undefined>;
@@ -87,6 +91,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["dataRetentionTimeInDays"] = state ? state.dataRetentionTimeInDays : undefined;
             resourceInputs["fromDatabase"] = state ? state.fromDatabase : undefined;
+            resourceInputs["fromReplica"] = state ? state.fromReplica : undefined;
             resourceInputs["fromShare"] = state ? state.fromShare : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -95,6 +100,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["dataRetentionTimeInDays"] = args ? args.dataRetentionTimeInDays : undefined;
             resourceInputs["fromDatabase"] = args ? args.fromDatabase : undefined;
+            resourceInputs["fromReplica"] = args ? args.fromReplica : undefined;
             resourceInputs["fromShare"] = args ? args.fromShare : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -114,6 +120,10 @@ export interface DatabaseState {
      * Specify a database to create a clone from.
      */
     fromDatabase?: pulumi.Input<string>;
+    /**
+     * Specify a fully-qualified path to a database to create a replica from.
+     */
+    fromReplica?: pulumi.Input<string>;
     /**
      * Specify a provider and a share in this map to create a database from a share.
      */
@@ -135,6 +145,10 @@ export interface DatabaseArgs {
      * Specify a database to create a clone from.
      */
     fromDatabase?: pulumi.Input<string>;
+    /**
+     * Specify a fully-qualified path to a database to create a replica from.
+     */
+    fromReplica?: pulumi.Input<string>;
     /**
      * Specify a provider and a share in this map to create a database from a share.
      */

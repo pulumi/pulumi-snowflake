@@ -82,6 +82,8 @@ type Task struct {
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Specifies if the task should be started (enabled) after creation or should remain suspended (default).
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Specifies the name of the notification integration used for error notifications.
+	ErrorIntegration pulumi.StringPtrOutput `pulumi:"errorIntegration"`
 	// Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflict with after)
@@ -148,6 +150,8 @@ type taskState struct {
 	Database *string `pulumi:"database"`
 	// Specifies if the task should be started (enabled) after creation or should remain suspended (default).
 	Enabled *bool `pulumi:"enabled"`
+	// Specifies the name of the notification integration used for error notifications.
+	ErrorIntegration *string `pulumi:"errorIntegration"`
 	// Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
 	Name *string `pulumi:"name"`
 	// The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflict with after)
@@ -177,6 +181,8 @@ type TaskState struct {
 	Database pulumi.StringPtrInput
 	// Specifies if the task should be started (enabled) after creation or should remain suspended (default).
 	Enabled pulumi.BoolPtrInput
+	// Specifies the name of the notification integration used for error notifications.
+	ErrorIntegration pulumi.StringPtrInput
 	// Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
 	Name pulumi.StringPtrInput
 	// The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflict with after)
@@ -210,6 +216,8 @@ type taskArgs struct {
 	Database string `pulumi:"database"`
 	// Specifies if the task should be started (enabled) after creation or should remain suspended (default).
 	Enabled *bool `pulumi:"enabled"`
+	// Specifies the name of the notification integration used for error notifications.
+	ErrorIntegration *string `pulumi:"errorIntegration"`
 	// Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
 	Name *string `pulumi:"name"`
 	// The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflict with after)
@@ -240,6 +248,8 @@ type TaskArgs struct {
 	Database pulumi.StringInput
 	// Specifies if the task should be started (enabled) after creation or should remain suspended (default).
 	Enabled pulumi.BoolPtrInput
+	// Specifies the name of the notification integration used for error notifications.
+	ErrorIntegration pulumi.StringPtrInput
 	// Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
 	Name pulumi.StringPtrInput
 	// The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflict with after)

@@ -60,6 +60,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkPolicyAttachment{}
 	case "snowflake:index/notificationIntegration:NotificationIntegration":
 		r = &NotificationIntegration{}
+	case "snowflake:index/oauthIntegration:OauthIntegration":
+		r = &OauthIntegration{}
 	case "snowflake:index/pipe:Pipe":
 		r = &Pipe{}
 	case "snowflake:index/pipeGrant:PipeGrant":
@@ -80,6 +82,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RowAccessPolicy{}
 	case "snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant":
 		r = &RowAccessPolicyGrant{}
+	case "snowflake:index/samlIntegration:SamlIntegration":
+		r = &SamlIntegration{}
 	case "snowflake:index/schema:Schema":
 		r = &Schema{}
 	case "snowflake:index/schemaGrant:SchemaGrant":
@@ -257,6 +261,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/oauthIntegration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/pipe",
 		&module{version},
 	)
@@ -303,6 +312,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/rowAccessPolicyGrant",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/samlIntegration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

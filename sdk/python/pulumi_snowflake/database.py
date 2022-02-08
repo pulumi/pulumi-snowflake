@@ -18,12 +18,14 @@ class DatabaseArgs:
                  comment: Optional[pulumi.Input[str]] = None,
                  data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
                  from_database: Optional[pulumi.Input[str]] = None,
+                 from_replica: Optional[pulumi.Input[str]] = None,
                  from_share: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]]] = None):
         """
         The set of arguments for constructing a Database resource.
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
+        :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from.
         :param pulumi.Input[Mapping[str, Any]] from_share: Specify a provider and a share in this map to create a database from a share.
         :param pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
@@ -33,6 +35,8 @@ class DatabaseArgs:
             pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
         if from_database is not None:
             pulumi.set(__self__, "from_database", from_database)
+        if from_replica is not None:
+            pulumi.set(__self__, "from_replica", from_replica)
         if from_share is not None:
             pulumi.set(__self__, "from_share", from_share)
         if name is not None:
@@ -69,6 +73,18 @@ class DatabaseArgs:
     @from_database.setter
     def from_database(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "from_database", value)
+
+    @property
+    @pulumi.getter(name="fromReplica")
+    def from_replica(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify a fully-qualified path to a database to create a replica from.
+        """
+        return pulumi.get(self, "from_replica")
+
+    @from_replica.setter
+    def from_replica(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "from_replica", value)
 
     @property
     @pulumi.getter(name="fromShare")
@@ -110,12 +126,14 @@ class _DatabaseState:
                  comment: Optional[pulumi.Input[str]] = None,
                  data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
                  from_database: Optional[pulumi.Input[str]] = None,
+                 from_replica: Optional[pulumi.Input[str]] = None,
                  from_share: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering Database resources.
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
+        :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from.
         :param pulumi.Input[Mapping[str, Any]] from_share: Specify a provider and a share in this map to create a database from a share.
         :param pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
@@ -125,6 +143,8 @@ class _DatabaseState:
             pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
         if from_database is not None:
             pulumi.set(__self__, "from_database", from_database)
+        if from_replica is not None:
+            pulumi.set(__self__, "from_replica", from_replica)
         if from_share is not None:
             pulumi.set(__self__, "from_share", from_share)
         if name is not None:
@@ -161,6 +181,18 @@ class _DatabaseState:
     @from_database.setter
     def from_database(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "from_database", value)
+
+    @property
+    @pulumi.getter(name="fromReplica")
+    def from_replica(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify a fully-qualified path to a database to create a replica from.
+        """
+        return pulumi.get(self, "from_replica")
+
+    @from_replica.setter
+    def from_replica(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "from_replica", value)
 
     @property
     @pulumi.getter(name="fromShare")
@@ -204,6 +236,7 @@ class Database(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[str]] = None,
                  data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
                  from_database: Optional[pulumi.Input[str]] = None,
+                 from_replica: Optional[pulumi.Input[str]] = None,
                  from_share: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseTagArgs']]]]] = None,
@@ -230,6 +263,7 @@ class Database(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
+        :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from.
         :param pulumi.Input[Mapping[str, Any]] from_share: Specify a provider and a share in this map to create a database from a share.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
@@ -276,6 +310,7 @@ class Database(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[str]] = None,
                  data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
                  from_database: Optional[pulumi.Input[str]] = None,
+                 from_replica: Optional[pulumi.Input[str]] = None,
                  from_share: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseTagArgs']]]]] = None,
@@ -294,6 +329,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["comment"] = comment
             __props__.__dict__["data_retention_time_in_days"] = data_retention_time_in_days
             __props__.__dict__["from_database"] = from_database
+            __props__.__dict__["from_replica"] = from_replica
             __props__.__dict__["from_share"] = from_share
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
@@ -310,6 +346,7 @@ class Database(pulumi.CustomResource):
             comment: Optional[pulumi.Input[str]] = None,
             data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
             from_database: Optional[pulumi.Input[str]] = None,
+            from_replica: Optional[pulumi.Input[str]] = None,
             from_share: Optional[pulumi.Input[Mapping[str, Any]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseTagArgs']]]]] = None) -> 'Database':
@@ -321,6 +358,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
+        :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from.
         :param pulumi.Input[Mapping[str, Any]] from_share: Specify a provider and a share in this map to create a database from a share.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
@@ -331,6 +369,7 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["comment"] = comment
         __props__.__dict__["data_retention_time_in_days"] = data_retention_time_in_days
         __props__.__dict__["from_database"] = from_database
+        __props__.__dict__["from_replica"] = from_replica
         __props__.__dict__["from_share"] = from_share
         __props__.__dict__["name"] = name
         __props__.__dict__["tags"] = tags
@@ -353,6 +392,14 @@ class Database(pulumi.CustomResource):
         Specify a database to create a clone from.
         """
         return pulumi.get(self, "from_database")
+
+    @property
+    @pulumi.getter(name="fromReplica")
+    def from_replica(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specify a fully-qualified path to a database to create a replica from.
+        """
+        return pulumi.get(self, "from_replica")
 
     @property
     @pulumi.getter(name="fromShare")

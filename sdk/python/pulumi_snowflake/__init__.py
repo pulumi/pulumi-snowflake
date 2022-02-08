@@ -49,6 +49,7 @@ from .materialized_view_grant import *
 from .network_policy import *
 from .network_policy_attachment import *
 from .notification_integration import *
+from .oauth_integration import *
 from .pipe import *
 from .pipe_grant import *
 from .procedure import *
@@ -60,6 +61,7 @@ from .role import *
 from .role_grants import *
 from .row_access_policy import *
 from .row_access_policy_grant import *
+from .saml_integration import *
 from .schema import *
 from .schema_grant import *
 from .scim_integration import *
@@ -257,6 +259,14 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/oauthIntegration",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/oauthIntegration:OauthIntegration": "OauthIntegration"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/pipe",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -333,6 +343,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant": "RowAccessPolicyGrant"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/samlIntegration",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/samlIntegration:SamlIntegration": "SamlIntegration"
   }
  },
  {

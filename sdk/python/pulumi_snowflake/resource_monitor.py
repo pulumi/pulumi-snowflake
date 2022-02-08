@@ -21,7 +21,8 @@ class ResourceMonitorArgs:
                  set_for_account: Optional[pulumi.Input[bool]] = None,
                  start_timestamp: Optional[pulumi.Input[str]] = None,
                  suspend_immediate_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+                 suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 warehouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ResourceMonitor resource.
         :param pulumi.Input[int] credit_quota: The number of credits allocated monthly to the resource monitor.
@@ -33,6 +34,7 @@ class ResourceMonitorArgs:
         :param pulumi.Input[str] start_timestamp: The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_immediate_triggers: A list of percentage thresholds at which to immediately suspend all warehouses.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_triggers: A list of percentage thresholds at which to suspend all warehouses.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] warehouses: A list of warehouses to apply the resource monitor to.
         """
         if credit_quota is not None:
             pulumi.set(__self__, "credit_quota", credit_quota)
@@ -52,6 +54,8 @@ class ResourceMonitorArgs:
             pulumi.set(__self__, "suspend_immediate_triggers", suspend_immediate_triggers)
         if suspend_triggers is not None:
             pulumi.set(__self__, "suspend_triggers", suspend_triggers)
+        if warehouses is not None:
+            pulumi.set(__self__, "warehouses", warehouses)
 
     @property
     @pulumi.getter(name="creditQuota")
@@ -160,6 +164,18 @@ class ResourceMonitorArgs:
     @suspend_triggers.setter
     def suspend_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "suspend_triggers", value)
+
+    @property
+    @pulumi.getter
+    def warehouses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of warehouses to apply the resource monitor to.
+        """
+        return pulumi.get(self, "warehouses")
+
+    @warehouses.setter
+    def warehouses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "warehouses", value)
 
 
 @pulumi.input_type
@@ -173,7 +189,8 @@ class _ResourceMonitorState:
                  set_for_account: Optional[pulumi.Input[bool]] = None,
                  start_timestamp: Optional[pulumi.Input[str]] = None,
                  suspend_immediate_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+                 suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 warehouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ResourceMonitor resources.
         :param pulumi.Input[int] credit_quota: The number of credits allocated monthly to the resource monitor.
@@ -185,6 +202,7 @@ class _ResourceMonitorState:
         :param pulumi.Input[str] start_timestamp: The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_immediate_triggers: A list of percentage thresholds at which to immediately suspend all warehouses.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_triggers: A list of percentage thresholds at which to suspend all warehouses.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] warehouses: A list of warehouses to apply the resource monitor to.
         """
         if credit_quota is not None:
             pulumi.set(__self__, "credit_quota", credit_quota)
@@ -204,6 +222,8 @@ class _ResourceMonitorState:
             pulumi.set(__self__, "suspend_immediate_triggers", suspend_immediate_triggers)
         if suspend_triggers is not None:
             pulumi.set(__self__, "suspend_triggers", suspend_triggers)
+        if warehouses is not None:
+            pulumi.set(__self__, "warehouses", warehouses)
 
     @property
     @pulumi.getter(name="creditQuota")
@@ -312,6 +332,18 @@ class _ResourceMonitorState:
     @suspend_triggers.setter
     def suspend_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "suspend_triggers", value)
+
+    @property
+    @pulumi.getter
+    def warehouses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of warehouses to apply the resource monitor to.
+        """
+        return pulumi.get(self, "warehouses")
+
+    @warehouses.setter
+    def warehouses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "warehouses", value)
 
 
 class ResourceMonitor(pulumi.CustomResource):
@@ -328,6 +360,7 @@ class ResourceMonitor(pulumi.CustomResource):
                  start_timestamp: Optional[pulumi.Input[str]] = None,
                  suspend_immediate_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 warehouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -363,6 +396,7 @@ class ResourceMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] start_timestamp: The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_immediate_triggers: A list of percentage thresholds at which to immediately suspend all warehouses.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_triggers: A list of percentage thresholds at which to suspend all warehouses.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] warehouses: A list of warehouses to apply the resource monitor to.
         """
         ...
     @overload
@@ -417,6 +451,7 @@ class ResourceMonitor(pulumi.CustomResource):
                  start_timestamp: Optional[pulumi.Input[str]] = None,
                  suspend_immediate_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 warehouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -438,6 +473,7 @@ class ResourceMonitor(pulumi.CustomResource):
             __props__.__dict__["start_timestamp"] = start_timestamp
             __props__.__dict__["suspend_immediate_triggers"] = suspend_immediate_triggers
             __props__.__dict__["suspend_triggers"] = suspend_triggers
+            __props__.__dict__["warehouses"] = warehouses
         super(ResourceMonitor, __self__).__init__(
             'snowflake:index/resourceMonitor:ResourceMonitor',
             resource_name,
@@ -456,7 +492,8 @@ class ResourceMonitor(pulumi.CustomResource):
             set_for_account: Optional[pulumi.Input[bool]] = None,
             start_timestamp: Optional[pulumi.Input[str]] = None,
             suspend_immediate_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-            suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None) -> 'ResourceMonitor':
+            suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+            warehouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'ResourceMonitor':
         """
         Get an existing ResourceMonitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -473,6 +510,7 @@ class ResourceMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] start_timestamp: The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_immediate_triggers: A list of percentage thresholds at which to immediately suspend all warehouses.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_triggers: A list of percentage thresholds at which to suspend all warehouses.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] warehouses: A list of warehouses to apply the resource monitor to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -487,6 +525,7 @@ class ResourceMonitor(pulumi.CustomResource):
         __props__.__dict__["start_timestamp"] = start_timestamp
         __props__.__dict__["suspend_immediate_triggers"] = suspend_immediate_triggers
         __props__.__dict__["suspend_triggers"] = suspend_triggers
+        __props__.__dict__["warehouses"] = warehouses
         return ResourceMonitor(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -560,4 +599,12 @@ class ResourceMonitor(pulumi.CustomResource):
         A list of percentage thresholds at which to suspend all warehouses.
         """
         return pulumi.get(self, "suspend_triggers")
+
+    @property
+    @pulumi.getter
+    def warehouses(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of warehouses to apply the resource monitor to.
+        """
+        return pulumi.get(self, "warehouses")
 

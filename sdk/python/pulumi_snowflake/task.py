@@ -19,6 +19,7 @@ class TaskArgs:
                  after: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 error_integration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
                  session_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -34,6 +35,7 @@ class TaskArgs:
         :param pulumi.Input[str] after: Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
         :param pulumi.Input[str] comment: Specifies a comment for the task.
         :param pulumi.Input[bool] enabled: Specifies if the task should be started (enabled) after creation or should remain suspended (default).
+        :param pulumi.Input[str] error_integration: Specifies the name of the notification integration used for error notifications.
         :param pulumi.Input[str] name: Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
         :param pulumi.Input[str] schedule: The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflict with after)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] session_parameters: Specifies session parameters to set for the session when the task runs. A task supports all session parameters.
@@ -51,6 +53,8 @@ class TaskArgs:
             pulumi.set(__self__, "comment", comment)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if error_integration is not None:
+            pulumi.set(__self__, "error_integration", error_integration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if schedule is not None:
@@ -137,6 +141,18 @@ class TaskArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="errorIntegration")
+    def error_integration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the notification integration used for error notifications.
+        """
+        return pulumi.get(self, "error_integration")
+
+    @error_integration.setter
+    def error_integration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_integration", value)
 
     @property
     @pulumi.getter
@@ -230,6 +246,7 @@ class _TaskState:
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 error_integration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
@@ -245,6 +262,7 @@ class _TaskState:
         :param pulumi.Input[str] comment: Specifies a comment for the task.
         :param pulumi.Input[str] database: The database in which to create the task.
         :param pulumi.Input[bool] enabled: Specifies if the task should be started (enabled) after creation or should remain suspended (default).
+        :param pulumi.Input[str] error_integration: Specifies the name of the notification integration used for error notifications.
         :param pulumi.Input[str] name: Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
         :param pulumi.Input[str] schedule: The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflict with after)
         :param pulumi.Input[str] schema: The schema in which to create the task.
@@ -263,6 +281,8 @@ class _TaskState:
             pulumi.set(__self__, "database", database)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if error_integration is not None:
+            pulumi.set(__self__, "error_integration", error_integration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if schedule is not None:
@@ -329,6 +349,18 @@ class _TaskState:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="errorIntegration")
+    def error_integration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the notification integration used for error notifications.
+        """
+        return pulumi.get(self, "error_integration")
+
+    @error_integration.setter
+    def error_integration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_integration", value)
 
     @property
     @pulumi.getter
@@ -448,6 +480,7 @@ class Task(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 error_integration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
@@ -509,6 +542,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the task.
         :param pulumi.Input[str] database: The database in which to create the task.
         :param pulumi.Input[bool] enabled: Specifies if the task should be started (enabled) after creation or should remain suspended (default).
+        :param pulumi.Input[str] error_integration: Specifies the name of the notification integration used for error notifications.
         :param pulumi.Input[str] name: Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
         :param pulumi.Input[str] schedule: The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflict with after)
         :param pulumi.Input[str] schema: The schema in which to create the task.
@@ -589,6 +623,7 @@ class Task(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 error_integration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
@@ -616,6 +651,7 @@ class Task(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["error_integration"] = error_integration
             __props__.__dict__["name"] = name
             __props__.__dict__["schedule"] = schedule
             if schema is None and not opts.urn:
@@ -643,6 +679,7 @@ class Task(pulumi.CustomResource):
             comment: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
+            error_integration: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             schedule: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None,
@@ -663,6 +700,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the task.
         :param pulumi.Input[str] database: The database in which to create the task.
         :param pulumi.Input[bool] enabled: Specifies if the task should be started (enabled) after creation or should remain suspended (default).
+        :param pulumi.Input[str] error_integration: Specifies the name of the notification integration used for error notifications.
         :param pulumi.Input[str] name: Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
         :param pulumi.Input[str] schedule: The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflict with after)
         :param pulumi.Input[str] schema: The schema in which to create the task.
@@ -681,6 +719,7 @@ class Task(pulumi.CustomResource):
         __props__.__dict__["comment"] = comment
         __props__.__dict__["database"] = database
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["error_integration"] = error_integration
         __props__.__dict__["name"] = name
         __props__.__dict__["schedule"] = schedule
         __props__.__dict__["schema"] = schema
@@ -723,6 +762,14 @@ class Task(pulumi.CustomResource):
         Specifies if the task should be started (enabled) after creation or should remain suspended (default).
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="errorIntegration")
+    def error_integration(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the name of the notification integration used for error notifications.
+        """
+        return pulumi.get(self, "error_integration")
 
     @property
     @pulumi.getter

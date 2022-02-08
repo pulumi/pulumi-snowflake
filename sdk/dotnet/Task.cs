@@ -95,6 +95,12 @@ namespace Pulumi.Snowflake
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the name of the notification integration used for error notifications.
+        /// </summary>
+        [Output("errorIntegration")]
+        public Output<string?> ErrorIntegration { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
         /// </summary>
         [Output("name")]
@@ -219,6 +225,12 @@ namespace Pulumi.Snowflake
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
+        /// Specifies the name of the notification integration used for error notifications.
+        /// </summary>
+        [Input("errorIntegration")]
+        public Input<string>? ErrorIntegration { get; set; }
+
+        /// <summary>
         /// Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
         /// </summary>
         [Input("name")]
@@ -308,6 +320,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// Specifies the name of the notification integration used for error notifications.
+        /// </summary>
+        [Input("errorIntegration")]
+        public Input<string>? ErrorIntegration { get; set; }
 
         /// <summary>
         /// Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
