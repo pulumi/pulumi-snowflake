@@ -323,3 +323,4 @@ export interface WarehouseTag {
      */
     value: pulumi.Input<string>;
 }
+

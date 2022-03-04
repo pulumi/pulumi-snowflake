@@ -157,6 +157,8 @@ func Provider() tfbridge.ProviderInfo {
 			"snowflake_streams":                            {Tok: makeDataSource(mainMod, "getStreams")},
 			"snowflake_tasks":                              {Tok: makeDataSource(mainMod, "getTasks")},
 			"snowflake_warehouses":                         {Tok: makeDataSource(mainMod, "getWarehouses")},
+			"snowflake_database":                           {Tok: makeDataSource(mainMod, "getDatabase")},
+			"snowflake_databases":                          {Tok: makeDataSource(mainMod, "getDatabases")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

@@ -82,6 +82,12 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the directory settings for the stage.
+        /// </summary>
+        [Output("directory")]
+        public Output<string?> Directory { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the encryption settings for the stage.
         /// </summary>
         [Output("encryption")]
@@ -200,6 +206,12 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
+        /// Specifies the directory settings for the stage.
+        /// </summary>
+        [Input("directory")]
+        public Input<string>? Directory { get; set; }
+
+        /// <summary>
         /// Specifies the encryption settings for the stage.
         /// </summary>
         [Input("encryption")]
@@ -283,6 +295,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
+
+        /// <summary>
+        /// Specifies the directory settings for the stage.
+        /// </summary>
+        [Input("directory")]
+        public Input<string>? Directory { get; set; }
 
         /// <summary>
         /// Specifies the encryption settings for the stage.

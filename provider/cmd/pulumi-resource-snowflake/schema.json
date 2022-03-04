@@ -859,6 +859,99 @@
                 "value"
             ]
         },
+        "snowflake:index/getDatabasesDatabase:getDatabasesDatabase": {
+            "properties": {
+                "comment": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "createdOn": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isCurrent": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isDefault": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "options": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "origin": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "owner": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "retentionTime": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "comment",
+                "createdOn",
+                "isCurrent",
+                "isDefault",
+                "name",
+                "options",
+                "origin",
+                "owner",
+                "retentionTime"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "snowflake:index/getExternalFunctionsExternalFunction:getExternalFunctionsExternalFunction": {
             "properties": {
                 "comment": {
@@ -4930,6 +5023,10 @@
                 "enabled": {
                     "type": "boolean"
                 },
+                "gcpPubsubServiceAccount": {
+                    "type": "string",
+                    "description": "The GCP service account identifier that Snowflake will use when assuming the GCP role\n"
+                },
                 "gcpPubsubSubscriptionName": {
                     "type": "string",
                     "description": "The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.\n"
@@ -4952,6 +5049,7 @@
                 "awsSqsExternalId",
                 "awsSqsIamUserArn",
                 "createdOn",
+                "gcpPubsubServiceAccount",
                 "name"
             ],
             "inputProperties": {
@@ -5063,6 +5161,10 @@
                     },
                     "enabled": {
                         "type": "boolean"
+                    },
+                    "gcpPubsubServiceAccount": {
+                        "type": "string",
+                        "description": "The GCP service account identifier that Snowflake will use when assuming the GCP role\n"
                     },
                     "gcpPubsubSubscriptionName": {
                         "type": "string",
@@ -7245,6 +7347,10 @@
                     "type": "string",
                     "description": "The database in which to create the stage.\n"
                 },
+                "directory": {
+                    "type": "string",
+                    "description": "Specifies the directory settings for the stage.\n"
+                },
                 "encryption": {
                     "type": "string",
                     "description": "Specifies the encryption settings for the stage.\n"
@@ -7307,6 +7413,10 @@
                     "type": "string",
                     "description": "The database in which to create the stage.\n"
                 },
+                "directory": {
+                    "type": "string",
+                    "description": "Specifies the directory settings for the stage.\n"
+                },
                 "encryption": {
                     "type": "string",
                     "description": "Specifies the encryption settings for the stage.\n"
@@ -7367,6 +7477,10 @@
                     "database": {
                         "type": "string",
                         "description": "The database in which to create the stage.\n"
+                    },
+                    "directory": {
+                        "type": "string",
+                        "description": "Specifies the directory settings for the stage.\n"
                     },
                     "encryption": {
                         "type": "string",
@@ -9523,6 +9637,96 @@
                     "account",
                     "region",
                     "url",
+                    "id"
+                ]
+            }
+        },
+        "snowflake:index/getDatabase:getDatabase": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst thisDatabase = pulumi.output(snowflake.getDatabase({\n    name: \"DEMO_DB\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nthis = snowflake.get_database(name=\"DEMO_DB\")\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var @this = Output.Create(Snowflake.GetDatabase.InvokeAsync(new Snowflake.GetDatabaseArgs\n        {\n            Name = \"DEMO_DB\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.LookupDatabase(ctx, \u0026GetDatabaseArgs{\n\t\t\tName: \"DEMO_DB\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getDatabase.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The database from which to return its metadata.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDatabase.\n",
+                "properties": {
+                    "comment": {
+                        "type": "string"
+                    },
+                    "createdOn": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "isCurrent": {
+                        "type": "boolean"
+                    },
+                    "isDefault": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The database from which to return its metadata.\n"
+                    },
+                    "options": {
+                        "type": "string"
+                    },
+                    "origin": {
+                        "type": "string"
+                    },
+                    "owner": {
+                        "type": "string"
+                    },
+                    "retentionTime": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "comment",
+                    "createdOn",
+                    "isCurrent",
+                    "isDefault",
+                    "name",
+                    "options",
+                    "origin",
+                    "owner",
+                    "retentionTime",
+                    "id"
+                ]
+            }
+        },
+        "snowflake:index/getDatabases:getDatabases": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst thisDatabases = pulumi.output(snowflake.getDatabases());\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nthis = snowflake.get_databases()\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var @this = Output.Create(Snowflake.GetDatabases.InvokeAsync());\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.GetDatabases(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "outputs": {
+                "description": "A collection of values returned by getDatabases.\n",
+                "properties": {
+                    "databases": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/getDatabasesDatabase:getDatabasesDatabase"
+                        },
+                        "description": "Snowflake databases\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "databases",
                     "id"
                 ]
             }

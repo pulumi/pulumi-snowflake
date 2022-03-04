@@ -114,6 +114,10 @@ export class NotificationIntegration extends pulumi.CustomResource {
     public readonly direction!: pulumi.Output<string | undefined>;
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The GCP service account identifier that Snowflake will use when assuming the GCP role
+     */
+    public /*out*/ readonly gcpPubsubServiceAccount!: pulumi.Output<string>;
+    /**
      * The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
      */
     public readonly gcpPubsubSubscriptionName!: pulumi.Output<string | undefined>;
@@ -154,6 +158,7 @@ export class NotificationIntegration extends pulumi.CustomResource {
             resourceInputs["createdOn"] = state ? state.createdOn : undefined;
             resourceInputs["direction"] = state ? state.direction : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["gcpPubsubServiceAccount"] = state ? state.gcpPubsubServiceAccount : undefined;
             resourceInputs["gcpPubsubSubscriptionName"] = state ? state.gcpPubsubSubscriptionName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["notificationProvider"] = state ? state.notificationProvider : undefined;
@@ -178,6 +183,7 @@ export class NotificationIntegration extends pulumi.CustomResource {
             resourceInputs["awsSqsExternalId"] = undefined /*out*/;
             resourceInputs["awsSqsIamUserArn"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["gcpPubsubServiceAccount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NotificationIntegration.__pulumiType, name, resourceInputs, opts);
@@ -241,6 +247,10 @@ export interface NotificationIntegrationState {
      */
     direction?: pulumi.Input<string>;
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The GCP service account identifier that Snowflake will use when assuming the GCP role
+     */
+    gcpPubsubServiceAccount?: pulumi.Input<string>;
     /**
      * The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
      */

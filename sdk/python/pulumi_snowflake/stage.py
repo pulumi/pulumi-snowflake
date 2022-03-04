@@ -21,6 +21,7 @@ class StageArgs:
                  comment: Optional[pulumi.Input[str]] = None,
                  copy_options: Optional[pulumi.Input[str]] = None,
                  credentials: Optional[pulumi.Input[str]] = None,
+                 directory: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[str]] = None,
                  file_format: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -35,6 +36,7 @@ class StageArgs:
         :param pulumi.Input[str] comment: Specifies a comment for the stage.
         :param pulumi.Input[str] copy_options: Specifies the copy options for the stage.
         :param pulumi.Input[str] credentials: Specifies the credentials for the stage.
+        :param pulumi.Input[str] directory: Specifies the directory settings for the stage.
         :param pulumi.Input[str] encryption: Specifies the encryption settings for the stage.
         :param pulumi.Input[str] file_format: Specifies the file format for the stage.
         :param pulumi.Input[str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
@@ -52,6 +54,8 @@ class StageArgs:
             pulumi.set(__self__, "copy_options", copy_options)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if directory is not None:
+            pulumi.set(__self__, "directory", directory)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
         if file_format is not None:
@@ -135,6 +139,18 @@ class StageArgs:
     @credentials.setter
     def credentials(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter
+    def directory(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the directory settings for the stage.
+        """
+        return pulumi.get(self, "directory")
+
+    @directory.setter
+    def directory(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "directory", value)
 
     @property
     @pulumi.getter
@@ -226,6 +242,7 @@ class _StageState:
                  copy_options: Optional[pulumi.Input[str]] = None,
                  credentials: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 directory: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[str]] = None,
                  file_format: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -240,6 +257,7 @@ class _StageState:
         :param pulumi.Input[str] copy_options: Specifies the copy options for the stage.
         :param pulumi.Input[str] credentials: Specifies the credentials for the stage.
         :param pulumi.Input[str] database: The database in which to create the stage.
+        :param pulumi.Input[str] directory: Specifies the directory settings for the stage.
         :param pulumi.Input[str] encryption: Specifies the encryption settings for the stage.
         :param pulumi.Input[str] file_format: Specifies the file format for the stage.
         :param pulumi.Input[str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
@@ -258,6 +276,8 @@ class _StageState:
             pulumi.set(__self__, "credentials", credentials)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if directory is not None:
+            pulumi.set(__self__, "directory", directory)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
         if file_format is not None:
@@ -331,6 +351,18 @@ class _StageState:
     @database.setter
     def database(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def directory(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the directory settings for the stage.
+        """
+        return pulumi.get(self, "directory")
+
+    @directory.setter
+    def directory(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "directory", value)
 
     @property
     @pulumi.getter
@@ -436,6 +468,7 @@ class Stage(pulumi.CustomResource):
                  copy_options: Optional[pulumi.Input[str]] = None,
                  credentials: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 directory: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[str]] = None,
                  file_format: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -479,6 +512,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] copy_options: Specifies the copy options for the stage.
         :param pulumi.Input[str] credentials: Specifies the credentials for the stage.
         :param pulumi.Input[str] database: The database in which to create the stage.
+        :param pulumi.Input[str] directory: Specifies the directory settings for the stage.
         :param pulumi.Input[str] encryption: Specifies the encryption settings for the stage.
         :param pulumi.Input[str] file_format: Specifies the file format for the stage.
         :param pulumi.Input[str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
@@ -541,6 +575,7 @@ class Stage(pulumi.CustomResource):
                  copy_options: Optional[pulumi.Input[str]] = None,
                  credentials: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 directory: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[str]] = None,
                  file_format: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -568,6 +603,7 @@ class Stage(pulumi.CustomResource):
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
+            __props__.__dict__["directory"] = directory
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["file_format"] = file_format
             __props__.__dict__["name"] = name
@@ -593,6 +629,7 @@ class Stage(pulumi.CustomResource):
             copy_options: Optional[pulumi.Input[str]] = None,
             credentials: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
+            directory: Optional[pulumi.Input[str]] = None,
             encryption: Optional[pulumi.Input[str]] = None,
             file_format: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -612,6 +649,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] copy_options: Specifies the copy options for the stage.
         :param pulumi.Input[str] credentials: Specifies the credentials for the stage.
         :param pulumi.Input[str] database: The database in which to create the stage.
+        :param pulumi.Input[str] directory: Specifies the directory settings for the stage.
         :param pulumi.Input[str] encryption: Specifies the encryption settings for the stage.
         :param pulumi.Input[str] file_format: Specifies the file format for the stage.
         :param pulumi.Input[str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
@@ -629,6 +667,7 @@ class Stage(pulumi.CustomResource):
         __props__.__dict__["copy_options"] = copy_options
         __props__.__dict__["credentials"] = credentials
         __props__.__dict__["database"] = database
+        __props__.__dict__["directory"] = directory
         __props__.__dict__["encryption"] = encryption
         __props__.__dict__["file_format"] = file_format
         __props__.__dict__["name"] = name
@@ -675,6 +714,14 @@ class Stage(pulumi.CustomResource):
         The database in which to create the stage.
         """
         return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def directory(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the directory settings for the stage.
+        """
+        return pulumi.get(self, "directory")
 
     @property
     @pulumi.getter

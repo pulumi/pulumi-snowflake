@@ -78,6 +78,8 @@ type NotificationIntegration struct {
 	// Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
 	Direction pulumi.StringPtrOutput `pulumi:"direction"`
 	Enabled   pulumi.BoolPtrOutput   `pulumi:"enabled"`
+	// The GCP service account identifier that Snowflake will use when assuming the GCP role
+	GcpPubsubServiceAccount pulumi.StringOutput `pulumi:"gcpPubsubServiceAccount"`
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName pulumi.StringPtrOutput `pulumi:"gcpPubsubSubscriptionName"`
 	Name                      pulumi.StringOutput    `pulumi:"name"`
@@ -143,6 +145,8 @@ type notificationIntegrationState struct {
 	// Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
 	Direction *string `pulumi:"direction"`
 	Enabled   *bool   `pulumi:"enabled"`
+	// The GCP service account identifier that Snowflake will use when assuming the GCP role
+	GcpPubsubServiceAccount *string `pulumi:"gcpPubsubServiceAccount"`
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName *string `pulumi:"gcpPubsubSubscriptionName"`
 	Name                      *string `pulumi:"name"`
@@ -180,6 +184,8 @@ type NotificationIntegrationState struct {
 	// Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
 	Direction pulumi.StringPtrInput
 	Enabled   pulumi.BoolPtrInput
+	// The GCP service account identifier that Snowflake will use when assuming the GCP role
+	GcpPubsubServiceAccount pulumi.StringPtrInput
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName pulumi.StringPtrInput
 	Name                      pulumi.StringPtrInput

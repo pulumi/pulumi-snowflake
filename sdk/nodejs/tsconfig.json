@@ -27,6 +27,8 @@
         "function.ts",
         "functionGrant.ts",
         "getCurrentAccount.ts",
+        "getDatabase.ts",
+        "getDatabases.ts",
         "getExternalFunctions.ts",
         "getExternalTables.ts",
         "getFileFormats.ts",

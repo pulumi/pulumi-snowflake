@@ -70,6 +70,8 @@ type Stage struct {
 	Credentials pulumi.StringPtrOutput `pulumi:"credentials"`
 	// The database in which to create the stage.
 	Database pulumi.StringOutput `pulumi:"database"`
+	// Specifies the directory settings for the stage.
+	Directory pulumi.StringPtrOutput `pulumi:"directory"`
 	// Specifies the encryption settings for the stage.
 	Encryption pulumi.StringPtrOutput `pulumi:"encryption"`
 	// Specifies the file format for the stage.
@@ -131,6 +133,8 @@ type stageState struct {
 	Credentials *string `pulumi:"credentials"`
 	// The database in which to create the stage.
 	Database *string `pulumi:"database"`
+	// Specifies the directory settings for the stage.
+	Directory *string `pulumi:"directory"`
 	// Specifies the encryption settings for the stage.
 	Encryption *string `pulumi:"encryption"`
 	// Specifies the file format for the stage.
@@ -158,6 +162,8 @@ type StageState struct {
 	Credentials pulumi.StringPtrInput
 	// The database in which to create the stage.
 	Database pulumi.StringPtrInput
+	// Specifies the directory settings for the stage.
+	Directory pulumi.StringPtrInput
 	// Specifies the encryption settings for the stage.
 	Encryption pulumi.StringPtrInput
 	// Specifies the file format for the stage.
@@ -189,6 +195,8 @@ type stageArgs struct {
 	Credentials *string `pulumi:"credentials"`
 	// The database in which to create the stage.
 	Database string `pulumi:"database"`
+	// Specifies the directory settings for the stage.
+	Directory *string `pulumi:"directory"`
 	// Specifies the encryption settings for the stage.
 	Encryption *string `pulumi:"encryption"`
 	// Specifies the file format for the stage.
@@ -217,6 +225,8 @@ type StageArgs struct {
 	Credentials pulumi.StringPtrInput
 	// The database in which to create the stage.
 	Database pulumi.StringInput
+	// Specifies the directory settings for the stage.
+	Directory pulumi.StringPtrInput
 	// Specifies the encryption settings for the stage.
 	Encryption pulumi.StringPtrInput
 	// Specifies the file format for the stage.
