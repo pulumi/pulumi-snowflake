@@ -2610,6 +2610,148 @@ func (o WarehouseTagArrayOutput) Index(i pulumi.IntInput) WarehouseTagOutput {
 	}).(WarehouseTagOutput)
 }
 
+type GetDatabasesDatabase struct {
+	Comment       string `pulumi:"comment"`
+	CreatedOn     string `pulumi:"createdOn"`
+	IsCurrent     bool   `pulumi:"isCurrent"`
+	IsDefault     bool   `pulumi:"isDefault"`
+	Name          string `pulumi:"name"`
+	Options       string `pulumi:"options"`
+	Origin        string `pulumi:"origin"`
+	Owner         string `pulumi:"owner"`
+	RetentionTime int    `pulumi:"retentionTime"`
+}
+
+// GetDatabasesDatabaseInput is an input type that accepts GetDatabasesDatabaseArgs and GetDatabasesDatabaseOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseInput` via:
+//
+//          GetDatabasesDatabaseArgs{...}
+type GetDatabasesDatabaseInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseOutput() GetDatabasesDatabaseOutput
+	ToGetDatabasesDatabaseOutputWithContext(context.Context) GetDatabasesDatabaseOutput
+}
+
+type GetDatabasesDatabaseArgs struct {
+	Comment       pulumi.StringInput `pulumi:"comment"`
+	CreatedOn     pulumi.StringInput `pulumi:"createdOn"`
+	IsCurrent     pulumi.BoolInput   `pulumi:"isCurrent"`
+	IsDefault     pulumi.BoolInput   `pulumi:"isDefault"`
+	Name          pulumi.StringInput `pulumi:"name"`
+	Options       pulumi.StringInput `pulumi:"options"`
+	Origin        pulumi.StringInput `pulumi:"origin"`
+	Owner         pulumi.StringInput `pulumi:"owner"`
+	RetentionTime pulumi.IntInput    `pulumi:"retentionTime"`
+}
+
+func (GetDatabasesDatabaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabase)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseArgs) ToGetDatabasesDatabaseOutput() GetDatabasesDatabaseOutput {
+	return i.ToGetDatabasesDatabaseOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseArgs) ToGetDatabasesDatabaseOutputWithContext(ctx context.Context) GetDatabasesDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseOutput)
+}
+
+// GetDatabasesDatabaseArrayInput is an input type that accepts GetDatabasesDatabaseArray and GetDatabasesDatabaseArrayOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseArrayInput` via:
+//
+//          GetDatabasesDatabaseArray{ GetDatabasesDatabaseArgs{...} }
+type GetDatabasesDatabaseArrayInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseArrayOutput() GetDatabasesDatabaseArrayOutput
+	ToGetDatabasesDatabaseArrayOutputWithContext(context.Context) GetDatabasesDatabaseArrayOutput
+}
+
+type GetDatabasesDatabaseArray []GetDatabasesDatabaseInput
+
+func (GetDatabasesDatabaseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabase)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseArray) ToGetDatabasesDatabaseArrayOutput() GetDatabasesDatabaseArrayOutput {
+	return i.ToGetDatabasesDatabaseArrayOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseArray) ToGetDatabasesDatabaseArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseArrayOutput)
+}
+
+type GetDatabasesDatabaseOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabase)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseOutput) ToGetDatabasesDatabaseOutput() GetDatabasesDatabaseOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseOutput) ToGetDatabasesDatabaseOutputWithContext(ctx context.Context) GetDatabasesDatabaseOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabase) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabase) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseOutput) IsCurrent() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDatabasesDatabase) bool { return v.IsCurrent }).(pulumi.BoolOutput)
+}
+
+func (o GetDatabasesDatabaseOutput) IsDefault() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDatabasesDatabase) bool { return v.IsDefault }).(pulumi.BoolOutput)
+}
+
+func (o GetDatabasesDatabaseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabase) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseOutput) Options() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabase) string { return v.Options }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseOutput) Origin() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabase) string { return v.Origin }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabase) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseOutput) RetentionTime() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDatabasesDatabase) int { return v.RetentionTime }).(pulumi.IntOutput)
+}
+
+type GetDatabasesDatabaseArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabase)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseArrayOutput) ToGetDatabasesDatabaseArrayOutput() GetDatabasesDatabaseArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseArrayOutput) ToGetDatabasesDatabaseArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseArrayOutput) Index(i pulumi.IntInput) GetDatabasesDatabaseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabase {
+		return vs[0].([]GetDatabasesDatabase)[vs[1].(int)]
+	}).(GetDatabasesDatabaseOutput)
+}
+
 type GetExternalFunctionsExternalFunction struct {
 	Comment string `pulumi:"comment"`
 	// The database from which to return the schemas from.
@@ -4946,6 +5088,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewTagArrayInput)(nil)).Elem(), ViewTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WarehouseTagInput)(nil)).Elem(), WarehouseTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WarehouseTagArrayInput)(nil)).Elem(), WarehouseTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseInput)(nil)).Elem(), GetDatabasesDatabaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseArrayInput)(nil)).Elem(), GetDatabasesDatabaseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalFunctionsExternalFunctionInput)(nil)).Elem(), GetExternalFunctionsExternalFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalFunctionsExternalFunctionArrayInput)(nil)).Elem(), GetExternalFunctionsExternalFunctionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalTablesExternalTableInput)(nil)).Elem(), GetExternalTablesExternalTableArgs{})
@@ -5026,6 +5170,8 @@ func init() {
 	pulumi.RegisterOutputType(ViewTagArrayOutput{})
 	pulumi.RegisterOutputType(WarehouseTagOutput{})
 	pulumi.RegisterOutputType(WarehouseTagArrayOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseArrayOutput{})
 	pulumi.RegisterOutputType(GetExternalFunctionsExternalFunctionOutput{})
 	pulumi.RegisterOutputType(GetExternalFunctionsExternalFunctionArrayOutput{})
 	pulumi.RegisterOutputType(GetExternalTablesExternalTableOutput{})

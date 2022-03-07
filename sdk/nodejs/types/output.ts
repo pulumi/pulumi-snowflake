@@ -101,6 +101,18 @@ export interface FunctionGrantArgument {
     type: string;
 }
 
+export interface GetDatabasesDatabase {
+    comment: string;
+    createdOn: string;
+    isCurrent: boolean;
+    isDefault: boolean;
+    name: string;
+    options: string;
+    origin: string;
+    owner: string;
+    retentionTime: number;
+}
+
 export interface GetExternalFunctionsExternalFunction {
     comment: string;
     /**
@@ -561,3 +573,4 @@ export interface WarehouseTag {
      */
     value: string;
 }
+

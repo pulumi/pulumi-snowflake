@@ -81,6 +81,10 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
+     * Specifies the directory settings for the stage.
+     */
+    public readonly directory!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the encryption settings for the stage.
      */
     public readonly encryption!: pulumi.Output<string | undefined>;
@@ -128,6 +132,7 @@ export class Stage extends pulumi.CustomResource {
             resourceInputs["copyOptions"] = state ? state.copyOptions : undefined;
             resourceInputs["credentials"] = state ? state.credentials : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["directory"] = state ? state.directory : undefined;
             resourceInputs["encryption"] = state ? state.encryption : undefined;
             resourceInputs["fileFormat"] = state ? state.fileFormat : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -149,6 +154,7 @@ export class Stage extends pulumi.CustomResource {
             resourceInputs["copyOptions"] = args ? args.copyOptions : undefined;
             resourceInputs["credentials"] = args ? args.credentials : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["directory"] = args ? args.directory : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["fileFormat"] = args ? args.fileFormat : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -184,6 +190,10 @@ export interface StageState {
      * The database in which to create the stage.
      */
     database?: pulumi.Input<string>;
+    /**
+     * Specifies the directory settings for the stage.
+     */
+    directory?: pulumi.Input<string>;
     /**
      * Specifies the encryption settings for the stage.
      */
@@ -236,6 +246,10 @@ export interface StageArgs {
      * The database in which to create the stage.
      */
     database: pulumi.Input<string>;
+    /**
+     * Specifies the directory settings for the stage.
+     */
+    directory?: pulumi.Input<string>;
     /**
      * Specifies the encryption settings for the stage.
      */

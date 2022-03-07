@@ -31,6 +31,7 @@ __all__ = [
     'UserTag',
     'ViewTag',
     'WarehouseTag',
+    'GetDatabasesDatabaseResult',
     'GetExternalFunctionsExternalFunctionResult',
     'GetExternalTablesExternalTableResult',
     'GetFileFormatsFileFormatResult',
@@ -987,6 +988,74 @@ class WarehouseTag(dict):
         Name of the schema that the tag was created in.
         """
         return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 created_on: str,
+                 is_current: bool,
+                 is_default: bool,
+                 name: str,
+                 options: str,
+                 origin: str,
+                 owner: str,
+                 retention_time: int):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "is_current", is_current)
+        pulumi.set(__self__, "is_default", is_default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "options", options)
+        pulumi.set(__self__, "origin", origin)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "retention_time", retention_time)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="isCurrent")
+    def is_current(self) -> bool:
+        return pulumi.get(self, "is_current")
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> bool:
+        return pulumi.get(self, "is_default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def options(self) -> str:
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter
+    def origin(self) -> str:
+        return pulumi.get(self, "origin")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="retentionTime")
+    def retention_time(self) -> int:
+        return pulumi.get(self, "retention_time")
 
 
 @pulumi.output_type

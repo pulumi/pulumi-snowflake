@@ -17,6 +17,8 @@ from .file_format_grant import *
 from .function import *
 from .function_grant import *
 from .get_current_account import *
+from .get_database import *
+from .get_databases import *
 from .get_external_functions import *
 from .get_external_tables import *
 from .get_file_formats import *

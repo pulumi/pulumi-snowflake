@@ -17,6 +17,8 @@ export * from "./fileFormatGrant";
 export * from "./function";
 export * from "./functionGrant";
 export * from "./getCurrentAccount";
+export * from "./getDatabase";
+export * from "./getDatabases";
 export * from "./getExternalFunctions";
 export * from "./getExternalTables";
 export * from "./getFileFormats";

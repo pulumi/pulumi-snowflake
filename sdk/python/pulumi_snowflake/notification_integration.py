@@ -235,6 +235,7 @@ class _NotificationIntegrationState:
                  created_on: Optional[pulumi.Input[str]] = None,
                  direction: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 gcp_pubsub_service_account: Optional[pulumi.Input[str]] = None,
                  gcp_pubsub_subscription_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_provider: Optional[pulumi.Input[str]] = None,
@@ -254,6 +255,7 @@ class _NotificationIntegrationState:
         :param pulumi.Input[str] comment: A comment for the integration
         :param pulumi.Input[str] created_on: Date and time when the notification integration was created.
         :param pulumi.Input[str] direction: Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
+        :param pulumi.Input[str] gcp_pubsub_service_account: The GCP service account identifier that Snowflake will use when assuming the GCP role
         :param pulumi.Input[str] gcp_pubsub_subscription_name: The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
         :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
         :param pulumi.Input[str] type: A type of integration
@@ -286,6 +288,8 @@ class _NotificationIntegrationState:
             pulumi.set(__self__, "direction", direction)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if gcp_pubsub_service_account is not None:
+            pulumi.set(__self__, "gcp_pubsub_service_account", gcp_pubsub_service_account)
         if gcp_pubsub_subscription_name is not None:
             pulumi.set(__self__, "gcp_pubsub_subscription_name", gcp_pubsub_subscription_name)
         if name is not None:
@@ -459,6 +463,18 @@ class _NotificationIntegrationState:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="gcpPubsubServiceAccount")
+    def gcp_pubsub_service_account(self) -> Optional[pulumi.Input[str]]:
+        """
+        The GCP service account identifier that Snowflake will use when assuming the GCP role
+        """
+        return pulumi.get(self, "gcp_pubsub_service_account")
+
+    @gcp_pubsub_service_account.setter
+    def gcp_pubsub_service_account(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gcp_pubsub_service_account", value)
 
     @property
     @pulumi.getter(name="gcpPubsubSubscriptionName")
@@ -657,6 +673,7 @@ class NotificationIntegration(pulumi.CustomResource):
             __props__.__dict__["aws_sqs_external_id"] = None
             __props__.__dict__["aws_sqs_iam_user_arn"] = None
             __props__.__dict__["created_on"] = None
+            __props__.__dict__["gcp_pubsub_service_account"] = None
         super(NotificationIntegration, __self__).__init__(
             'snowflake:index/notificationIntegration:NotificationIntegration',
             resource_name,
@@ -681,6 +698,7 @@ class NotificationIntegration(pulumi.CustomResource):
             created_on: Optional[pulumi.Input[str]] = None,
             direction: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
+            gcp_pubsub_service_account: Optional[pulumi.Input[str]] = None,
             gcp_pubsub_subscription_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             notification_provider: Optional[pulumi.Input[str]] = None,
@@ -705,6 +723,7 @@ class NotificationIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] comment: A comment for the integration
         :param pulumi.Input[str] created_on: Date and time when the notification integration was created.
         :param pulumi.Input[str] direction: Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
+        :param pulumi.Input[str] gcp_pubsub_service_account: The GCP service account identifier that Snowflake will use when assuming the GCP role
         :param pulumi.Input[str] gcp_pubsub_subscription_name: The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
         :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
         :param pulumi.Input[str] type: A type of integration
@@ -727,6 +746,7 @@ class NotificationIntegration(pulumi.CustomResource):
         __props__.__dict__["created_on"] = created_on
         __props__.__dict__["direction"] = direction
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["gcp_pubsub_service_account"] = gcp_pubsub_service_account
         __props__.__dict__["gcp_pubsub_subscription_name"] = gcp_pubsub_subscription_name
         __props__.__dict__["name"] = name
         __props__.__dict__["notification_provider"] = notification_provider
@@ -841,6 +861,14 @@ class NotificationIntegration(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="gcpPubsubServiceAccount")
+    def gcp_pubsub_service_account(self) -> pulumi.Output[str]:
+        """
+        The GCP service account identifier that Snowflake will use when assuming the GCP role
+        """
+        return pulumi.get(self, "gcp_pubsub_service_account")
 
     @property
     @pulumi.getter(name="gcpPubsubSubscriptionName")

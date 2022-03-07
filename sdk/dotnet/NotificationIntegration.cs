@@ -130,6 +130,12 @@ namespace Pulumi.Snowflake
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
+        /// The GCP service account identifier that Snowflake will use when assuming the GCP role
+        /// </summary>
+        [Output("gcpPubsubServiceAccount")]
+        public Output<string> GcpPubsubServiceAccount { get; private set; } = null!;
+
+        /// <summary>
         /// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
         /// </summary>
         [Output("gcpPubsubSubscriptionName")]
@@ -355,6 +361,12 @@ namespace Pulumi.Snowflake
 
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// The GCP service account identifier that Snowflake will use when assuming the GCP role
+        /// </summary>
+        [Input("gcpPubsubServiceAccount")]
+        public Input<string>? GcpPubsubServiceAccount { get; set; }
 
         /// <summary>
         /// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
