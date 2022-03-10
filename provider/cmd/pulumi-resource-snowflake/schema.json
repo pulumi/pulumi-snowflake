@@ -2808,6 +2808,268 @@
                 "type": "object"
             }
         },
+        "snowflake:index/externalOauthIntegration:ExternalOauthIntegration": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst azure = new snowflake.ExternalOauthIntegration(\"azure\", {\n    audienceUrls: [\"https://analysis.windows.net/powerbi/connector/Snowflake\"],\n    enabled: true,\n    issuer: \"https://sts.windows.net/00000000-0000-0000-0000-000000000000\",\n    jwsKeysUrls: [\"https://login.windows.net/common/discovery/keys\"],\n    snowflakeUserMappingAttribute: \"LOGIN_NAME\",\n    tokenUserMappingClaims: [\"upn\"],\n    type: \"AZURE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nazure = snowflake.ExternalOauthIntegration(\"azure\",\n    audience_urls=[\"https://analysis.windows.net/powerbi/connector/Snowflake\"],\n    enabled=True,\n    issuer=\"https://sts.windows.net/00000000-0000-0000-0000-000000000000\",\n    jws_keys_urls=[\"https://login.windows.net/common/discovery/keys\"],\n    snowflake_user_mapping_attribute=\"LOGIN_NAME\",\n    token_user_mapping_claims=[\"upn\"],\n    type=\"AZURE\")\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var azure = new Snowflake.ExternalOauthIntegration(\"azure\", new Snowflake.ExternalOauthIntegrationArgs\n        {\n            AudienceUrls = \n            {\n                \"https://analysis.windows.net/powerbi/connector/Snowflake\",\n            },\n            Enabled = true,\n            Issuer = \"https://sts.windows.net/00000000-0000-0000-0000-000000000000\",\n            JwsKeysUrls = \n            {\n                \"https://login.windows.net/common/discovery/keys\",\n            },\n            SnowflakeUserMappingAttribute = \"LOGIN_NAME\",\n            TokenUserMappingClaims = \n            {\n                \"upn\",\n            },\n            Type = \"AZURE\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewExternalOauthIntegration(ctx, \"azure\", \u0026snowflake.ExternalOauthIntegrationArgs{\n\t\t\tAudienceUrls: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"https://analysis.windows.net/powerbi/connector/Snowflake\"),\n\t\t\t},\n\t\t\tEnabled: pulumi.Bool(true),\n\t\t\tIssuer:  pulumi.String(\"https://sts.windows.net/00000000-0000-0000-0000-000000000000\"),\n\t\t\tJwsKeysUrls: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"https://login.windows.net/common/discovery/keys\"),\n\t\t\t},\n\t\t\tSnowflakeUserMappingAttribute: pulumi.String(\"LOGIN_NAME\"),\n\t\t\tTokenUserMappingClaims: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"upn\"),\n\t\t\t},\n\t\t\tType: pulumi.String(\"AZURE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example name\n```\n\n ",
+            "properties": {
+                "allowedRoles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the list of roles that the client can set as the primary role.\n"
+                },
+                "anyRoleMode": {
+                    "type": "string",
+                    "description": "Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.\n"
+                },
+                "audienceUrls": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL\n"
+                },
+                "blockedRoles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.\n"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "Specifies a comment for the OAuth integration.\n"
+                },
+                "createdOn": {
+                    "type": "string",
+                    "description": "Date and time when the External OAUTH integration was created.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Specifies whether to initiate operation of the integration or suspend it.\n"
+                },
+                "issuer": {
+                    "type": "string",
+                    "description": "Specifies the URL to define the OAuth 2.0 authorization server.\n"
+                },
+                "jwsKeysUrls": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.\n"
+                },
+                "rsaPublicKey": {
+                    "type": "string",
+                    "description": "Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.\n"
+                },
+                "rsaPublicKey2": {
+                    "type": "string",
+                    "description": "Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.\n"
+                },
+                "scopeDelimiter": {
+                    "type": "string",
+                    "description": "Specifies the scope delimiter in the authorization token.\n"
+                },
+                "snowflakeUserMappingAttribute": {
+                    "type": "string",
+                    "description": "Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.\n"
+                },
+                "tokenUserMappingClaims": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.\n"
+                }
+            },
+            "required": [
+                "createdOn",
+                "enabled",
+                "issuer",
+                "name",
+                "snowflakeUserMappingAttribute",
+                "tokenUserMappingClaims",
+                "type"
+            ],
+            "inputProperties": {
+                "allowedRoles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the list of roles that the client can set as the primary role.\n"
+                },
+                "anyRoleMode": {
+                    "type": "string",
+                    "description": "Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.\n"
+                },
+                "audienceUrls": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL\n"
+                },
+                "blockedRoles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.\n"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "Specifies a comment for the OAuth integration.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Specifies whether to initiate operation of the integration or suspend it.\n"
+                },
+                "issuer": {
+                    "type": "string",
+                    "description": "Specifies the URL to define the OAuth 2.0 authorization server.\n"
+                },
+                "jwsKeysUrls": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.\n"
+                },
+                "rsaPublicKey": {
+                    "type": "string",
+                    "description": "Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.\n"
+                },
+                "rsaPublicKey2": {
+                    "type": "string",
+                    "description": "Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.\n"
+                },
+                "scopeDelimiter": {
+                    "type": "string",
+                    "description": "Specifies the scope delimiter in the authorization token.\n"
+                },
+                "snowflakeUserMappingAttribute": {
+                    "type": "string",
+                    "description": "Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.\n"
+                },
+                "tokenUserMappingClaims": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.\n"
+                }
+            },
+            "requiredInputs": [
+                "enabled",
+                "issuer",
+                "snowflakeUserMappingAttribute",
+                "tokenUserMappingClaims",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ExternalOauthIntegration resources.\n",
+                "properties": {
+                    "allowedRoles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Specifies the list of roles that the client can set as the primary role.\n"
+                    },
+                    "anyRoleMode": {
+                        "type": "string",
+                        "description": "Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.\n"
+                    },
+                    "audienceUrls": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL\n"
+                    },
+                    "blockedRoles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.\n"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "Specifies a comment for the OAuth integration.\n"
+                    },
+                    "createdOn": {
+                        "type": "string",
+                        "description": "Date and time when the External OAUTH integration was created.\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Specifies whether to initiate operation of the integration or suspend it.\n"
+                    },
+                    "issuer": {
+                        "type": "string",
+                        "description": "Specifies the URL to define the OAuth 2.0 authorization server.\n"
+                    },
+                    "jwsKeysUrls": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.\n"
+                    },
+                    "rsaPublicKey": {
+                        "type": "string",
+                        "description": "Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.\n"
+                    },
+                    "rsaPublicKey2": {
+                        "type": "string",
+                        "description": "Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.\n"
+                    },
+                    "scopeDelimiter": {
+                        "type": "string",
+                        "description": "Specifies the scope delimiter in the authorization token.\n"
+                    },
+                    "snowflakeUserMappingAttribute": {
+                        "type": "string",
+                        "description": "Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.\n"
+                    },
+                    "tokenUserMappingClaims": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "snowflake:index/externalTable:ExternalTable": {
             "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst externalTable = new snowflake.ExternalTable(\"external_table\", {\n    columns: [\n        {\n            name: \"id\",\n            type: \"int\",\n        },\n        {\n            name: \"data\",\n            type: \"text\",\n        },\n    ],\n    comment: \"External table\",\n    database: \"db\",\n    schema: \"schema\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nexternal_table = snowflake.ExternalTable(\"externalTable\",\n    columns=[\n        snowflake.ExternalTableColumnArgs(\n            name=\"id\",\n            type=\"int\",\n        ),\n        snowflake.ExternalTableColumnArgs(\n            name=\"data\",\n            type=\"text\",\n        ),\n    ],\n    comment=\"External table\",\n    database=\"db\",\n    schema=\"schema\")\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var externalTable = new Snowflake.ExternalTable(\"externalTable\", new Snowflake.ExternalTableArgs\n        {\n            Columns = \n            {\n                new Snowflake.Inputs.ExternalTableColumnArgs\n                {\n                    Name = \"id\",\n                    Type = \"int\",\n                },\n                new Snowflake.Inputs.ExternalTableColumnArgs\n                {\n                    Name = \"data\",\n                    Type = \"text\",\n                },\n            },\n            Comment = \"External table\",\n            Database = \"db\",\n            Schema = \"schema\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewExternalTable(ctx, \"externalTable\", \u0026snowflake.ExternalTableArgs{\n\t\t\tColumns: ExternalTableColumnArray{\n\t\t\t\t\u0026ExternalTableColumnArgs{\n\t\t\t\t\tName: pulumi.String(\"id\"),\n\t\t\t\t\tType: pulumi.String(\"int\"),\n\t\t\t\t},\n\t\t\t\t\u0026ExternalTableColumnArgs{\n\t\t\t\t\tName: pulumi.String(\"data\"),\n\t\t\t\t\tType: pulumi.String(\"text\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tComment:  pulumi.String(\"External table\"),\n\t\t\tDatabase: pulumi.String(\"db\"),\n\t\t\tSchema:   pulumi.String(\"schema\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | external table name\n\n```sh\n $ pulumi import snowflake:index/externalTable:ExternalTable example 'dbName|schemaName|externalTableName'\n```\n\n ",
             "properties": {

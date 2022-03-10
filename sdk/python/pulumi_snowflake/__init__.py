@@ -10,6 +10,7 @@ from .api_integration import *
 from .database import *
 from .database_grant import *
 from .external_function import *
+from .external_oauth_integration import *
 from .external_table import *
 from .external_table_grant import *
 from .file_format import *
@@ -137,6 +138,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/externalFunction:ExternalFunction": "ExternalFunction"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/externalOauthIntegration",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/externalOauthIntegration:ExternalOauthIntegration": "ExternalOauthIntegration"
   }
  },
  {

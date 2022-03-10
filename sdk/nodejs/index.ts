@@ -10,6 +10,7 @@ export * from "./apiIntegration";
 export * from "./database";
 export * from "./databaseGrant";
 export * from "./externalFunction";
+export * from "./externalOauthIntegration";
 export * from "./externalTable";
 export * from "./externalTableGrant";
 export * from "./fileFormat";
@@ -102,6 +103,7 @@ import { ApiIntegration } from "./apiIntegration";
 import { Database } from "./database";
 import { DatabaseGrant } from "./databaseGrant";
 import { ExternalFunction } from "./externalFunction";
+import { ExternalOauthIntegration } from "./externalOauthIntegration";
 import { ExternalTable } from "./externalTable";
 import { ExternalTableGrant } from "./externalTableGrant";
 import { FileFormat } from "./fileFormat";
@@ -166,6 +168,8 @@ const _module = {
                 return new DatabaseGrant(name, <any>undefined, { urn })
             case "snowflake:index/externalFunction:ExternalFunction":
                 return new ExternalFunction(name, <any>undefined, { urn })
+            case "snowflake:index/externalOauthIntegration:ExternalOauthIntegration":
+                return new ExternalOauthIntegration(name, <any>undefined, { urn })
             case "snowflake:index/externalTable:ExternalTable":
                 return new ExternalTable(name, <any>undefined, { urn })
             case "snowflake:index/externalTableGrant:ExternalTableGrant":
@@ -274,6 +278,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/apiIntegration", _modu
 pulumi.runtime.registerResourceModule("snowflake", "index/database", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/databaseGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalFunction", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/externalOauthIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalTable", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalTableGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/fileFormat", _module)
