@@ -20,6 +20,7 @@
         "database.ts",
         "databaseGrant.ts",
         "externalFunction.ts",
+        "externalOauthIntegration.ts",
         "externalTable.ts",
         "externalTableGrant.ts",
         "fileFormat.ts",
