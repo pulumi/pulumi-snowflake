@@ -44,6 +44,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// # format is database name | schema name | sequence name
+//
+// ```sh
+//  $ pulumi import snowflake:index/sequence:Sequence example 'dbName|schemaName|sequenceName'
+// ```
 type Sequence struct {
 	pulumi.CustomResourceState
 

@@ -18,6 +18,14 @@ import * as utilities from "./utilities";
  *     schema: testSchema.name,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * # format is database name | schema name | sequence name
+ *
+ * ```sh
+ *  $ pulumi import snowflake:index/sequence:Sequence example 'dbName|schemaName|sequenceName'
+ * ```
  */
 export class Sequence extends pulumi.CustomResource {
     /**

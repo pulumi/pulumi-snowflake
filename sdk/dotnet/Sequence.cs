@@ -36,6 +36,14 @@ namespace Pulumi.Snowflake
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// # format is database name | schema name | sequence name
+    /// 
+    /// ```sh
+    ///  $ pulumi import snowflake:index/sequence:Sequence example 'dbName|schemaName|sequenceName'
+    /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/sequence:Sequence")]
     public partial class Sequence : Pulumi.CustomResource
