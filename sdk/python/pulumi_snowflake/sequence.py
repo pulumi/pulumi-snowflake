@@ -241,6 +241,14 @@ class Sequence(pulumi.CustomResource):
             schema=test_schema.name)
         ```
 
+        ## Import
+
+        # format is database name | schema name | sequence name
+
+        ```sh
+         $ pulumi import snowflake:index/sequence:Sequence example 'dbName|schemaName|sequenceName'
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the sequence.
@@ -267,6 +275,14 @@ class Sequence(pulumi.CustomResource):
         test_sequence = snowflake.Sequence("testSequence",
             database=snowflake_database["test_database"]["name"],
             schema=test_schema.name)
+        ```
+
+        ## Import
+
+        # format is database name | schema name | sequence name
+
+        ```sh
+         $ pulumi import snowflake:index/sequence:Sequence example 'dbName|schemaName|sequenceName'
         ```
 
         :param str resource_name: The name of the resource.

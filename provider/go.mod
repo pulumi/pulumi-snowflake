@@ -9,7 +9,7 @@ replace (
 
 require (
 	cloud.google.com/go/kms v1.4.0 // indirect
-	github.com/chanzuckerberg/terraform-provider-snowflake v0.28.3
+	github.com/chanzuckerberg/terraform-provider-snowflake v0.28.7
 	github.com/hashicorp/terraform-plugin-sdk v1.9.1 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.19.1
 	github.com/pulumi/pulumi/sdk/v3 v3.25.0
