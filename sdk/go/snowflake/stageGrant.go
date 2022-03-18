@@ -11,42 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewStageGrant(ctx, "grant", &snowflake.StageGrantArgs{
-// 			DatabaseName: pulumi.String("db"),
-// 			OnFuture:     pulumi.Bool(false),
-// 			Privilege:    pulumi.String("USAGE"),
-// 			Roles: pulumi.StringArray{
-// 				pulumi.String("role1"),
-// 				pulumi.String("role2"),
-// 			},
-// 			SchemaName: pulumi.String("schema"),
-// 			Shares: pulumi.StringArray{
-// 				pulumi.String("share1"),
-// 				pulumi.String("share2"),
-// 			},
-// 			StageName:       pulumi.String("stage"),
-// 			WithGrantOption: pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // # format is database name | schema name | stage name | privilege | true/false for with_grant_option
@@ -59,7 +23,7 @@ type StageGrant struct {
 
 	// The name of the database containing the current stage on which to grant privileges.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name and shares fields must be unset in order to use on*future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
 	// The privilege to grant on the stage.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
@@ -67,8 +31,6 @@ type StageGrant struct {
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current stage on which to grant privileges.
 	SchemaName pulumi.StringOutput `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if onFuture is false).
-	Shares pulumi.StringArrayOutput `pulumi:"shares"`
 	// The name of the stage on which to grant privilege (only valid if onFuture is false).
 	StageName pulumi.StringPtrOutput `pulumi:"stageName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -112,7 +74,7 @@ func GetStageGrant(ctx *pulumi.Context,
 type stageGrantState struct {
 	// The name of the database containing the current stage on which to grant privileges.
 	DatabaseName *string `pulumi:"databaseName"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name and shares fields must be unset in order to use on*future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the stage.
 	Privilege *string `pulumi:"privilege"`
@@ -120,8 +82,6 @@ type stageGrantState struct {
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current stage on which to grant privileges.
 	SchemaName *string `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if onFuture is false).
-	Shares []string `pulumi:"shares"`
 	// The name of the stage on which to grant privilege (only valid if onFuture is false).
 	StageName *string `pulumi:"stageName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -131,7 +91,7 @@ type stageGrantState struct {
 type StageGrantState struct {
 	// The name of the database containing the current stage on which to grant privileges.
 	DatabaseName pulumi.StringPtrInput
-	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name and shares fields must be unset in order to use on*future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the stage.
 	Privilege pulumi.StringPtrInput
@@ -139,8 +99,6 @@ type StageGrantState struct {
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current stage on which to grant privileges.
 	SchemaName pulumi.StringPtrInput
-	// Grants privilege to these shares (only valid if onFuture is false).
-	Shares pulumi.StringArrayInput
 	// The name of the stage on which to grant privilege (only valid if onFuture is false).
 	StageName pulumi.StringPtrInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -154,7 +112,7 @@ func (StageGrantState) ElementType() reflect.Type {
 type stageGrantArgs struct {
 	// The name of the database containing the current stage on which to grant privileges.
 	DatabaseName string `pulumi:"databaseName"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name and shares fields must be unset in order to use on*future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the stage.
 	Privilege *string `pulumi:"privilege"`
@@ -162,8 +120,6 @@ type stageGrantArgs struct {
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current stage on which to grant privileges.
 	SchemaName string `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if onFuture is false).
-	Shares []string `pulumi:"shares"`
 	// The name of the stage on which to grant privilege (only valid if onFuture is false).
 	StageName *string `pulumi:"stageName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -174,7 +130,7 @@ type stageGrantArgs struct {
 type StageGrantArgs struct {
 	// The name of the database containing the current stage on which to grant privileges.
 	DatabaseName pulumi.StringInput
-	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name and shares fields must be unset in order to use on*future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the stage.
 	Privilege pulumi.StringPtrInput
@@ -182,8 +138,6 @@ type StageGrantArgs struct {
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current stage on which to grant privileges.
 	SchemaName pulumi.StringInput
-	// Grants privilege to these shares (only valid if onFuture is false).
-	Shares pulumi.StringArrayInput
 	// The name of the stage on which to grant privilege (only valid if onFuture is false).
 	StageName pulumi.StringPtrInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.

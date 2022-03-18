@@ -4216,7 +4216,7 @@
             }
         },
         "snowflake:index/functionGrant:FunctionGrant": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.FunctionGrant(\"grant\", {\n    databaseName: \"db\",\n    schemaName: \"schema\",\n    functionName: \"function\",\n    arguments: [\n        {\n            name: \"a\",\n            type: \"array\",\n        },\n        {\n            name: \"b\",\n            type: \"string\",\n        },\n    ],\n    returnType: \"string\",\n    privilege: \"select\",\n    roles: [\n        \"role1\",\n        \"role2\",\n    ],\n    shares: [\n        \"share1\",\n        \"share2\",\n    ],\n    onFuture: false,\n    withGrantOption: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ngrant = snowflake.FunctionGrant(\"grant\",\n    database_name=\"db\",\n    schema_name=\"schema\",\n    function_name=\"function\",\n    arguments=[\n        snowflake.FunctionGrantArgumentArgs(\n            %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),\n            snowflake.FunctionGrantArgumentArgs(\n                %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),\n            ],\n            return_type=\"string\",\n            privilege=\"select\",\n            roles=[\n                \"role1\",\n                \"role2\",\n            ],\n            shares=[\n                \"share1\",\n                \"share2\",\n            ],\n            on_future=False,\n            with_grant_option=False)\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var grant = new Snowflake.FunctionGrant(\"grant\", new Snowflake.FunctionGrantArgs\n        {\n            DatabaseName = \"db\",\n            SchemaName = \"schema\",\n            FunctionName = \"function\",\n            Arguments = \n            {\n                new Snowflake.Inputs.FunctionGrantArgumentArgs\n                {\n                    %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),\n                    new Snowflake.Inputs.FunctionGrantArgumentArgs\n                    {\n                        %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),\n                    },\n                    ReturnType = \"string\",\n                    Privilege = \"select\",\n                    Roles = \n                    {\n                        \"role1\",\n                        \"role2\",\n                    },\n                    Shares = \n                    {\n                        \"share1\",\n                        \"share2\",\n                    },\n                    OnFuture = false,\n                    WithGrantOption = false,\n                });\n            }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewFunctionGrant(ctx, \"grant\", \u0026snowflake.FunctionGrantArgs{\n\t\t\tDatabaseName: pulumi.String(\"db\"),\n\t\t\tSchemaName:   pulumi.String(\"schema\"),\n\t\t\tFunctionName: pulumi.String(\"function\"),\n\t\t\tArguments: FunctionGrantArgumentArray{\n\t\t\t\t\u0026FunctionGrantArgumentArgs{\n\t\t\t\t\tName: pulumi.String(\"a\"),\n\t\t\t\t\tType: pulumi.String(\"array\"),\n\t\t\t\t},\n\t\t\t\t\u0026FunctionGrantArgumentArgs{\n\t\t\t\t\tName: pulumi.String(\"b\"),\n\t\t\t\t\tType: pulumi.String(\"string\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tReturnType: pulumi.String(\"string\"),\n\t\t\tPrivilege:  pulumi.String(\"select\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"role1\"),\n\t\t\t\tpulumi.String(\"role2\"),\n\t\t\t},\n\t\t\tShares: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"share1\"),\n\t\t\t\tpulumi.String(\"share2\"),\n\t\t\t},\n\t\t\tOnFuture:        pulumi.Bool(false),\n\t\t\tWithGrantOption: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | function signature | privilege | true/false for with_grant_option\n\n```sh\n $ pulumi import snowflake:index/functionGrant:FunctionGrant example 'dbName|schemaName|functionName(ARG1 ARG1TYPE, ARG2 ARG2TYPE):RETURNTYPE|USAGE|false'\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.FunctionGrant(\"grant\", {\n    databaseName: \"db\",\n    schemaName: \"schema\",\n    functionName: \"function\",\n    arguments: [\n        {\n            name: \"a\",\n            type: \"array\",\n        },\n        {\n            name: \"b\",\n            type: \"string\",\n        },\n    ],\n    returnType: \"string\",\n    privilege: \"USAGE\",\n    roles: [\n        \"role1\",\n        \"role2\",\n    ],\n    shares: [\n        \"share1\",\n        \"share2\",\n    ],\n    onFuture: false,\n    withGrantOption: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ngrant = snowflake.FunctionGrant(\"grant\",\n    database_name=\"db\",\n    schema_name=\"schema\",\n    function_name=\"function\",\n    arguments=[\n        snowflake.FunctionGrantArgumentArgs(\n            %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),\n            snowflake.FunctionGrantArgumentArgs(\n                %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),\n            ],\n            return_type=\"string\",\n            privilege=\"USAGE\",\n            roles=[\n                \"role1\",\n                \"role2\",\n            ],\n            shares=[\n                \"share1\",\n                \"share2\",\n            ],\n            on_future=False,\n            with_grant_option=False)\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var grant = new Snowflake.FunctionGrant(\"grant\", new Snowflake.FunctionGrantArgs\n        {\n            DatabaseName = \"db\",\n            SchemaName = \"schema\",\n            FunctionName = \"function\",\n            Arguments = \n            {\n                new Snowflake.Inputs.FunctionGrantArgumentArgs\n                {\n                    %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),\n                    new Snowflake.Inputs.FunctionGrantArgumentArgs\n                    {\n                        %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),\n                    },\n                    ReturnType = \"string\",\n                    Privilege = \"USAGE\",\n                    Roles = \n                    {\n                        \"role1\",\n                        \"role2\",\n                    },\n                    Shares = \n                    {\n                        \"share1\",\n                        \"share2\",\n                    },\n                    OnFuture = false,\n                    WithGrantOption = false,\n                });\n            }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewFunctionGrant(ctx, \"grant\", \u0026snowflake.FunctionGrantArgs{\n\t\t\tDatabaseName: pulumi.String(\"db\"),\n\t\t\tSchemaName:   pulumi.String(\"schema\"),\n\t\t\tFunctionName: pulumi.String(\"function\"),\n\t\t\tArguments: FunctionGrantArgumentArray{\n\t\t\t\t\u0026FunctionGrantArgumentArgs{\n\t\t\t\t\tName: pulumi.String(\"a\"),\n\t\t\t\t\tType: pulumi.String(\"array\"),\n\t\t\t\t},\n\t\t\t\t\u0026FunctionGrantArgumentArgs{\n\t\t\t\t\tName: pulumi.String(\"b\"),\n\t\t\t\t\tType: pulumi.String(\"string\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tReturnType: pulumi.String(\"string\"),\n\t\t\tPrivilege:  pulumi.String(\"USAGE\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"role1\"),\n\t\t\t\tpulumi.String(\"role2\"),\n\t\t\t},\n\t\t\tShares: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"share1\"),\n\t\t\t\tpulumi.String(\"share2\"),\n\t\t\t},\n\t\t\tOnFuture:        pulumi.Bool(false),\n\t\t\tWithGrantOption: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | function signature | privilege | true/false for with_grant_option\n\n```sh\n $ pulumi import snowflake:index/functionGrant:FunctionGrant example 'dbName|schemaName|functionName(ARG1 ARG1TYPE, ARG2 ARG2TYPE):RETURNTYPE|USAGE|false'\n```\n\n ",
             "properties": {
                 "arguments": {
                     "type": "array",
@@ -4239,7 +4239,7 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future function.\n"
+                    "description": "The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.\n"
                 },
                 "returnType": {
                     "type": "string",
@@ -4294,7 +4294,7 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future function.\n"
+                    "description": "The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.\n"
                 },
                 "returnType": {
                     "type": "string",
@@ -4351,7 +4351,7 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The privilege to grant on the current or future function.\n"
+                        "description": "The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.\n"
                     },
                     "returnType": {
                         "type": "string",
@@ -7783,7 +7783,7 @@
             }
         },
         "snowflake:index/stageGrant:StageGrant": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.StageGrant(\"grant\", {\n    databaseName: \"db\",\n    onFuture: false,\n    privilege: \"USAGE\",\n    roles: [\n        \"role1\",\n        \"role2\",\n    ],\n    schemaName: \"schema\",\n    shares: [\n        \"share1\",\n        \"share2\",\n    ],\n    stageName: \"stage\",\n    withGrantOption: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ngrant = snowflake.StageGrant(\"grant\",\n    database_name=\"db\",\n    on_future=False,\n    privilege=\"USAGE\",\n    roles=[\n        \"role1\",\n        \"role2\",\n    ],\n    schema_name=\"schema\",\n    shares=[\n        \"share1\",\n        \"share2\",\n    ],\n    stage_name=\"stage\",\n    with_grant_option=False)\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var grant = new Snowflake.StageGrant(\"grant\", new Snowflake.StageGrantArgs\n        {\n            DatabaseName = \"db\",\n            OnFuture = false,\n            Privilege = \"USAGE\",\n            Roles = \n            {\n                \"role1\",\n                \"role2\",\n            },\n            SchemaName = \"schema\",\n            Shares = \n            {\n                \"share1\",\n                \"share2\",\n            },\n            StageName = \"stage\",\n            WithGrantOption = false,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewStageGrant(ctx, \"grant\", \u0026snowflake.StageGrantArgs{\n\t\t\tDatabaseName: pulumi.String(\"db\"),\n\t\t\tOnFuture:     pulumi.Bool(false),\n\t\t\tPrivilege:    pulumi.String(\"USAGE\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"role1\"),\n\t\t\t\tpulumi.String(\"role2\"),\n\t\t\t},\n\t\t\tSchemaName: pulumi.String(\"schema\"),\n\t\t\tShares: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"share1\"),\n\t\t\t\tpulumi.String(\"share2\"),\n\t\t\t},\n\t\t\tStageName:       pulumi.String(\"stage\"),\n\t\t\tWithGrantOption: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | stage name | privilege | true/false for with_grant_option\n\n```sh\n $ pulumi import snowflake:index/stageGrant:StageGrant example 'databaseName|schemaName|stageName|USAGE|true'\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.StageGrant(\"grant\", {\n    databaseName: \"db\",\n    onFuture: false,\n    privilege: \"USAGE\",\n    roles: [\n        \"role1\",\n        \"role2\",\n    ],\n    schemaName: \"schema\",\n    shares: [\n        \"share1\",\n        \"share2\",\n    ],\n    stageName: \"stage\",\n    withGrantOption: false,\n});\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | stage name | privilege | true/false for with_grant_option\n\n```sh\n $ pulumi import snowflake:index/stageGrant:StageGrant example 'databaseName|schemaName|stageName|USAGE|true'\n```\n\n ",
             "properties": {
                 "databaseName": {
                     "type": "string",
@@ -7791,7 +7791,7 @@
                 },
                 "onFuture": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name and shares fields must be unset in order to use on*future.\n"
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.\n"
                 },
                 "privilege": {
                     "type": "string",
@@ -7807,13 +7807,6 @@
                 "schemaName": {
                     "type": "string",
                     "description": "The name of the schema containing the current stage on which to grant privileges.\n"
-                },
-                "shares": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Grants privilege to these shares (only valid if on_future is false).\n"
                 },
                 "stageName": {
                     "type": "string",
@@ -7835,7 +7828,7 @@
                 },
                 "onFuture": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name and shares fields must be unset in order to use on*future.\n"
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.\n"
                 },
                 "privilege": {
                     "type": "string",
@@ -7851,13 +7844,6 @@
                 "schemaName": {
                     "type": "string",
                     "description": "The name of the schema containing the current stage on which to grant privileges.\n"
-                },
-                "shares": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Grants privilege to these shares (only valid if on_future is false).\n"
                 },
                 "stageName": {
                     "type": "string",
@@ -7881,7 +7867,7 @@
                     },
                     "onFuture": {
                         "type": "boolean",
-                        "description": "When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name and shares fields must be unset in order to use on*future.\n"
+                        "description": "When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.\n"
                     },
                     "privilege": {
                         "type": "string",
@@ -7897,13 +7883,6 @@
                     "schemaName": {
                         "type": "string",
                         "description": "The name of the schema containing the current stage on which to grant privileges.\n"
-                    },
-                    "shares": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "Grants privilege to these shares (only valid if on_future is false).\n"
                     },
                     "stageName": {
                         "type": "string",

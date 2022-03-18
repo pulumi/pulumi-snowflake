@@ -70,7 +70,7 @@ export class StageGrant extends pulumi.CustomResource {
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name and shares fields must be unset in order to use on*future.
+     * When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
      */
     public readonly onFuture!: pulumi.Output<boolean | undefined>;
     /**
@@ -85,10 +85,6 @@ export class StageGrant extends pulumi.CustomResource {
      * The name of the schema containing the current stage on which to grant privileges.
      */
     public readonly schemaName!: pulumi.Output<string>;
-    /**
-     * Grants privilege to these shares (only valid if onFuture is false).
-     */
-    public readonly shares!: pulumi.Output<string[] | undefined>;
     /**
      * The name of the stage on which to grant privilege (only valid if onFuture is false).
      */
@@ -116,7 +112,6 @@ export class StageGrant extends pulumi.CustomResource {
             resourceInputs["privilege"] = state ? state.privilege : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
             resourceInputs["schemaName"] = state ? state.schemaName : undefined;
-            resourceInputs["shares"] = state ? state.shares : undefined;
             resourceInputs["stageName"] = state ? state.stageName : undefined;
             resourceInputs["withGrantOption"] = state ? state.withGrantOption : undefined;
         } else {
@@ -132,7 +127,6 @@ export class StageGrant extends pulumi.CustomResource {
             resourceInputs["privilege"] = args ? args.privilege : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
             resourceInputs["schemaName"] = args ? args.schemaName : undefined;
-            resourceInputs["shares"] = args ? args.shares : undefined;
             resourceInputs["stageName"] = args ? args.stageName : undefined;
             resourceInputs["withGrantOption"] = args ? args.withGrantOption : undefined;
         }
@@ -150,7 +144,7 @@ export interface StageGrantState {
      */
     databaseName?: pulumi.Input<string>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name and shares fields must be unset in order to use on*future.
+     * When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
@@ -165,10 +159,6 @@ export interface StageGrantState {
      * The name of the schema containing the current stage on which to grant privileges.
      */
     schemaName?: pulumi.Input<string>;
-    /**
-     * Grants privilege to these shares (only valid if onFuture is false).
-     */
-    shares?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the stage on which to grant privilege (only valid if onFuture is false).
      */
@@ -188,7 +178,7 @@ export interface StageGrantArgs {
      */
     databaseName: pulumi.Input<string>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name and shares fields must be unset in order to use on*future.
+     * When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
@@ -203,10 +193,6 @@ export interface StageGrantArgs {
      * The name of the schema containing the current stage on which to grant privileges.
      */
     schemaName: pulumi.Input<string>;
-    /**
-     * Grants privilege to these shares (only valid if onFuture is false).
-     */
-    shares?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the stage on which to grant privilege (only valid if onFuture is false).
      */
