@@ -18,17 +18,15 @@ class StageGrantArgs:
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  stage_name: Optional[pulumi.Input[str]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a StageGrant resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current stage on which to grant privileges.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current stage on which to grant privileges.
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name and shares fields must be unset in order to use on*future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
         :param pulumi.Input[str] privilege: The privilege to grant on the stage.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on_future is false).
         :param pulumi.Input[str] stage_name: The name of the stage on which to grant privilege (only valid if on_future is false).
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
@@ -40,8 +38,6 @@ class StageGrantArgs:
             pulumi.set(__self__, "privilege", privilege)
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
-        if shares is not None:
-            pulumi.set(__self__, "shares", shares)
         if stage_name is not None:
             pulumi.set(__self__, "stage_name", stage_name)
         if with_grant_option is not None:
@@ -75,7 +71,7 @@ class StageGrantArgs:
     @pulumi.getter(name="onFuture")
     def on_future(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name and shares fields must be unset in order to use on*future.
+        When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
         """
         return pulumi.get(self, "on_future")
 
@@ -106,18 +102,6 @@ class StageGrantArgs:
     @roles.setter
     def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "roles", value)
-
-    @property
-    @pulumi.getter
-    def shares(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Grants privilege to these shares (only valid if on_future is false).
-        """
-        return pulumi.get(self, "shares")
-
-    @shares.setter
-    def shares(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "shares", value)
 
     @property
     @pulumi.getter(name="stageName")
@@ -152,17 +136,15 @@ class _StageGrantState:
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
-                 shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  stage_name: Optional[pulumi.Input[str]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering StageGrant resources.
         :param pulumi.Input[str] database_name: The name of the database containing the current stage on which to grant privileges.
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name and shares fields must be unset in order to use on*future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
         :param pulumi.Input[str] privilege: The privilege to grant on the stage.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current stage on which to grant privileges.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on_future is false).
         :param pulumi.Input[str] stage_name: The name of the stage on which to grant privilege (only valid if on_future is false).
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
@@ -176,8 +158,6 @@ class _StageGrantState:
             pulumi.set(__self__, "roles", roles)
         if schema_name is not None:
             pulumi.set(__self__, "schema_name", schema_name)
-        if shares is not None:
-            pulumi.set(__self__, "shares", shares)
         if stage_name is not None:
             pulumi.set(__self__, "stage_name", stage_name)
         if with_grant_option is not None:
@@ -199,7 +179,7 @@ class _StageGrantState:
     @pulumi.getter(name="onFuture")
     def on_future(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name and shares fields must be unset in order to use on*future.
+        When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
         """
         return pulumi.get(self, "on_future")
 
@@ -244,18 +224,6 @@ class _StageGrantState:
         pulumi.set(self, "schema_name", value)
 
     @property
-    @pulumi.getter
-    def shares(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Grants privilege to these shares (only valid if on_future is false).
-        """
-        return pulumi.get(self, "shares")
-
-    @shares.setter
-    def shares(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "shares", value)
-
-    @property
     @pulumi.getter(name="stageName")
     def stage_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -290,34 +258,10 @@ class StageGrant(pulumi.CustomResource):
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
-                 shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  stage_name: Optional[pulumi.Input[str]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        grant = snowflake.StageGrant("grant",
-            database_name="db",
-            on_future=False,
-            privilege="USAGE",
-            roles=[
-                "role1",
-                "role2",
-            ],
-            schema_name="schema",
-            shares=[
-                "share1",
-                "share2",
-            ],
-            stage_name="stage",
-            with_grant_option=False)
-        ```
-
         ## Import
 
         # format is database name | schema name | stage name | privilege | true/false for with_grant_option
@@ -329,11 +273,10 @@ class StageGrant(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current stage on which to grant privileges.
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name and shares fields must be unset in order to use on*future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
         :param pulumi.Input[str] privilege: The privilege to grant on the stage.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current stage on which to grant privileges.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on_future is false).
         :param pulumi.Input[str] stage_name: The name of the stage on which to grant privilege (only valid if on_future is false).
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
@@ -344,29 +287,6 @@ class StageGrant(pulumi.CustomResource):
                  args: StageGrantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        grant = snowflake.StageGrant("grant",
-            database_name="db",
-            on_future=False,
-            privilege="USAGE",
-            roles=[
-                "role1",
-                "role2",
-            ],
-            schema_name="schema",
-            shares=[
-                "share1",
-                "share2",
-            ],
-            stage_name="stage",
-            with_grant_option=False)
-        ```
-
         ## Import
 
         # format is database name | schema name | stage name | privilege | true/false for with_grant_option
@@ -395,7 +315,6 @@ class StageGrant(pulumi.CustomResource):
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
-                 shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  stage_name: Optional[pulumi.Input[str]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -419,7 +338,6 @@ class StageGrant(pulumi.CustomResource):
             if schema_name is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_name'")
             __props__.__dict__["schema_name"] = schema_name
-            __props__.__dict__["shares"] = shares
             __props__.__dict__["stage_name"] = stage_name
             __props__.__dict__["with_grant_option"] = with_grant_option
         super(StageGrant, __self__).__init__(
@@ -437,7 +355,6 @@ class StageGrant(pulumi.CustomResource):
             privilege: Optional[pulumi.Input[str]] = None,
             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             schema_name: Optional[pulumi.Input[str]] = None,
-            shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             stage_name: Optional[pulumi.Input[str]] = None,
             with_grant_option: Optional[pulumi.Input[bool]] = None) -> 'StageGrant':
         """
@@ -448,11 +365,10 @@ class StageGrant(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current stage on which to grant privileges.
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name and shares fields must be unset in order to use on*future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
         :param pulumi.Input[str] privilege: The privilege to grant on the stage.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current stage on which to grant privileges.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on_future is false).
         :param pulumi.Input[str] stage_name: The name of the stage on which to grant privilege (only valid if on_future is false).
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
@@ -465,7 +381,6 @@ class StageGrant(pulumi.CustomResource):
         __props__.__dict__["privilege"] = privilege
         __props__.__dict__["roles"] = roles
         __props__.__dict__["schema_name"] = schema_name
-        __props__.__dict__["shares"] = shares
         __props__.__dict__["stage_name"] = stage_name
         __props__.__dict__["with_grant_option"] = with_grant_option
         return StageGrant(resource_name, opts=opts, __props__=__props__)
@@ -482,7 +397,7 @@ class StageGrant(pulumi.CustomResource):
     @pulumi.getter(name="onFuture")
     def on_future(self) -> pulumi.Output[Optional[bool]]:
         """
-        When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name and shares fields must be unset in order to use on*future.
+        When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
         """
         return pulumi.get(self, "on_future")
 
@@ -509,14 +424,6 @@ class StageGrant(pulumi.CustomResource):
         The name of the schema containing the current stage on which to grant privileges.
         """
         return pulumi.get(self, "schema_name")
-
-    @property
-    @pulumi.getter
-    def shares(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Grants privilege to these shares (only valid if on_future is false).
-        """
-        return pulumi.get(self, "shares")
 
     @property
     @pulumi.getter(name="stageName")

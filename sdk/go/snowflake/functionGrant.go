@@ -38,7 +38,7 @@ import (
 // 				},
 // 			},
 // 			ReturnType: pulumi.String("string"),
-// 			Privilege:  pulumi.String("select"),
+// 			Privilege:  pulumi.String("USAGE"),
 // 			Roles: pulumi.StringArray{
 // 				pulumi.String("role1"),
 // 				pulumi.String("role2"),
@@ -76,7 +76,7 @@ type FunctionGrant struct {
 	FunctionName pulumi.StringPtrOutput `pulumi:"functionName"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
-	// The privilege to grant on the current or future function.
+	// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
 	// The return type of the function (must be present if functionName is present)
 	ReturnType pulumi.StringPtrOutput `pulumi:"returnType"`
@@ -133,7 +133,7 @@ type functionGrantState struct {
 	FunctionName *string `pulumi:"functionName"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
 	OnFuture *bool `pulumi:"onFuture"`
-	// The privilege to grant on the current or future function.
+	// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
 	Privilege *string `pulumi:"privilege"`
 	// The return type of the function (must be present if functionName is present)
 	ReturnType *string `pulumi:"returnType"`
@@ -156,7 +156,7 @@ type FunctionGrantState struct {
 	FunctionName pulumi.StringPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
 	OnFuture pulumi.BoolPtrInput
-	// The privilege to grant on the current or future function.
+	// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
 	Privilege pulumi.StringPtrInput
 	// The return type of the function (must be present if functionName is present)
 	ReturnType pulumi.StringPtrInput
@@ -183,7 +183,7 @@ type functionGrantArgs struct {
 	FunctionName *string `pulumi:"functionName"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
 	OnFuture *bool `pulumi:"onFuture"`
-	// The privilege to grant on the current or future function.
+	// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
 	Privilege *string `pulumi:"privilege"`
 	// The return type of the function (must be present if functionName is present)
 	ReturnType *string `pulumi:"returnType"`
@@ -207,7 +207,7 @@ type FunctionGrantArgs struct {
 	FunctionName pulumi.StringPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
 	OnFuture pulumi.BoolPtrInput
-	// The privilege to grant on the current or future function.
+	// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
 	Privilege pulumi.StringPtrInput
 	// The return type of the function (must be present if functionName is present)
 	ReturnType pulumi.StringPtrInput

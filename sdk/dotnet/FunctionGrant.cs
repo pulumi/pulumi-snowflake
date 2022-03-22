@@ -35,7 +35,7 @@ namespace Pulumi.Snowflake
     ///                         %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
     ///                     },
     ///                     ReturnType = "string",
-    ///                     Privilege = "select",
+    ///                     Privilege = "USAGE",
     ///                     Roles = 
     ///                     {
     ///                         "role1",
@@ -90,7 +90,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> OnFuture { get; private set; } = null!;
 
         /// <summary>
-        /// The privilege to grant on the current or future function.
+        /// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
         /// </summary>
         [Output("privilege")]
         public Output<string?> Privilege { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? OnFuture { get; set; }
 
         /// <summary>
-        /// The privilege to grant on the current or future function.
+        /// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
         /// </summary>
         [Input("privilege")]
         public Input<string>? Privilege { get; set; }
@@ -287,7 +287,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? OnFuture { get; set; }
 
         /// <summary>
-        /// The privilege to grant on the current or future function.
+        /// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
         /// </summary>
         [Input("privilege")]
         public Input<string>? Privilege { get; set; }

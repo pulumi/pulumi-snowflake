@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  *         },
  *     ],
  *     returnType: "string",
- *     privilege: "select",
+ *     privilege: "USAGE",
  *     roles: [
  *         "role1",
  *         "role2",
@@ -94,7 +94,7 @@ export class FunctionGrant extends pulumi.CustomResource {
      */
     public readonly onFuture!: pulumi.Output<boolean | undefined>;
     /**
-     * The privilege to grant on the current or future function.
+     * The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
      */
     public readonly privilege!: pulumi.Output<string | undefined>;
     /**
@@ -186,7 +186,7 @@ export interface FunctionGrantState {
      */
     onFuture?: pulumi.Input<boolean>;
     /**
-     * The privilege to grant on the current or future function.
+     * The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
      */
     privilege?: pulumi.Input<string>;
     /**
@@ -232,7 +232,7 @@ export interface FunctionGrantArgs {
      */
     onFuture?: pulumi.Input<boolean>;
     /**
-     * The privilege to grant on the current or future function.
+     * The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
      */
     privilege?: pulumi.Input<string>;
     /**

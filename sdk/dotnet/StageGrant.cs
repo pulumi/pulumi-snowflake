@@ -10,40 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var grant = new Snowflake.StageGrant("grant", new Snowflake.StageGrantArgs
-    ///         {
-    ///             DatabaseName = "db",
-    ///             OnFuture = false,
-    ///             Privilege = "USAGE",
-    ///             Roles = 
-    ///             {
-    ///                 "role1",
-    ///                 "role2",
-    ///             },
-    ///             SchemaName = "schema",
-    ///             Shares = 
-    ///             {
-    ///                 "share1",
-    ///                 "share2",
-    ///             },
-    ///             StageName = "stage",
-    ///             WithGrantOption = false,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// # format is database name | schema name | stage name | privilege | true/false for with_grant_option
@@ -62,7 +28,7 @@ namespace Pulumi.Snowflake
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name and shares fields must be unset in order to use on*future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
         /// </summary>
         [Output("onFuture")]
         public Output<bool?> OnFuture { get; private set; } = null!;
@@ -84,12 +50,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("schemaName")]
         public Output<string> SchemaName { get; private set; } = null!;
-
-        /// <summary>
-        /// Grants privilege to these shares (only valid if on_future is false).
-        /// </summary>
-        [Output("shares")]
-        public Output<ImmutableArray<string>> Shares { get; private set; } = null!;
 
         /// <summary>
         /// The name of the stage on which to grant privilege (only valid if on_future is false).
@@ -156,7 +116,7 @@ namespace Pulumi.Snowflake
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name and shares fields must be unset in order to use on*future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -185,18 +145,6 @@ namespace Pulumi.Snowflake
         [Input("schemaName", required: true)]
         public Input<string> SchemaName { get; set; } = null!;
 
-        [Input("shares")]
-        private InputList<string>? _shares;
-
-        /// <summary>
-        /// Grants privilege to these shares (only valid if on_future is false).
-        /// </summary>
-        public InputList<string> Shares
-        {
-            get => _shares ?? (_shares = new InputList<string>());
-            set => _shares = value;
-        }
-
         /// <summary>
         /// The name of the stage on which to grant privilege (only valid if on_future is false).
         /// </summary>
@@ -223,7 +171,7 @@ namespace Pulumi.Snowflake
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name and shares fields must be unset in order to use on*future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -251,18 +199,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("schemaName")]
         public Input<string>? SchemaName { get; set; }
-
-        [Input("shares")]
-        private InputList<string>? _shares;
-
-        /// <summary>
-        /// Grants privilege to these shares (only valid if on_future is false).
-        /// </summary>
-        public InputList<string> Shares
-        {
-            get => _shares ?? (_shares = new InputList<string>());
-            set => _shares = value;
-        }
 
         /// <summary>
         /// The name of the stage on which to grant privilege (only valid if on_future is false).
