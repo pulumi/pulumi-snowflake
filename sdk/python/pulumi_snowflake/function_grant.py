@@ -18,6 +18,7 @@ class FunctionGrantArgs:
                  database_name: pulumi.Input[str],
                  schema_name: pulumi.Input[str],
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionGrantArgumentArgs']]]] = None,
+                 enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
@@ -30,6 +31,8 @@ class FunctionGrantArgs:
         :param pulumi.Input[str] database_name: The name of the database containing the current or future functions on which to grant privileges.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future functions on which to grant privileges.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionGrantArgumentArgs']]] arguments: List of the arguments for the function (must be present if function has arguments and function_name is present)
+        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] function_name: The name of the function on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
@@ -42,6 +45,8 @@ class FunctionGrantArgs:
         pulumi.set(__self__, "schema_name", schema_name)
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
+        if enable_multiple_grants is not None:
+            pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
         if function_name is not None:
             pulumi.set(__self__, "function_name", function_name)
         if on_future is not None:
@@ -92,6 +97,19 @@ class FunctionGrantArgs:
     @arguments.setter
     def arguments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionGrantArgumentArgs']]]]):
         pulumi.set(self, "arguments", value)
+
+    @property
+    @pulumi.getter(name="enableMultipleGrants")
+    def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        grants applied to roles and objects outside Terraform.
+        """
+        return pulumi.get(self, "enable_multiple_grants")
+
+    @enable_multiple_grants.setter
+    def enable_multiple_grants(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_multiple_grants", value)
 
     @property
     @pulumi.getter(name="functionName")
@@ -183,6 +201,7 @@ class _FunctionGrantState:
     def __init__(__self__, *,
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionGrantArgumentArgs']]]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
@@ -195,6 +214,8 @@ class _FunctionGrantState:
         Input properties used for looking up and filtering FunctionGrant resources.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionGrantArgumentArgs']]] arguments: List of the arguments for the function (must be present if function has arguments and function_name is present)
         :param pulumi.Input[str] database_name: The name of the database containing the current or future functions on which to grant privileges.
+        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] function_name: The name of the function on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
@@ -208,6 +229,8 @@ class _FunctionGrantState:
             pulumi.set(__self__, "arguments", arguments)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
+        if enable_multiple_grants is not None:
+            pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
         if function_name is not None:
             pulumi.set(__self__, "function_name", function_name)
         if on_future is not None:
@@ -248,6 +271,19 @@ class _FunctionGrantState:
     @database_name.setter
     def database_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="enableMultipleGrants")
+    def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        grants applied to roles and objects outside Terraform.
+        """
+        return pulumi.get(self, "enable_multiple_grants")
+
+    @enable_multiple_grants.setter
+    def enable_multiple_grants(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_multiple_grants", value)
 
     @property
     @pulumi.getter(name="functionName")
@@ -353,6 +389,7 @@ class FunctionGrant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionGrantArgumentArgs']]]]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
@@ -405,6 +442,8 @@ class FunctionGrant(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionGrantArgumentArgs']]]] arguments: List of the arguments for the function (must be present if function has arguments and function_name is present)
         :param pulumi.Input[str] database_name: The name of the database containing the current or future functions on which to grant privileges.
+        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] function_name: The name of the function on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
@@ -476,6 +515,7 @@ class FunctionGrant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionGrantArgumentArgs']]]]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
@@ -500,6 +540,7 @@ class FunctionGrant(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
+            __props__.__dict__["enable_multiple_grants"] = enable_multiple_grants
             __props__.__dict__["function_name"] = function_name
             __props__.__dict__["on_future"] = on_future
             __props__.__dict__["privilege"] = privilege
@@ -522,6 +563,7 @@ class FunctionGrant(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arguments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionGrantArgumentArgs']]]]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
+            enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
             function_name: Optional[pulumi.Input[str]] = None,
             on_future: Optional[pulumi.Input[bool]] = None,
             privilege: Optional[pulumi.Input[str]] = None,
@@ -539,6 +581,8 @@ class FunctionGrant(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionGrantArgumentArgs']]]] arguments: List of the arguments for the function (must be present if function has arguments and function_name is present)
         :param pulumi.Input[str] database_name: The name of the database containing the current or future functions on which to grant privileges.
+        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] function_name: The name of the function on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
@@ -554,6 +598,7 @@ class FunctionGrant(pulumi.CustomResource):
 
         __props__.__dict__["arguments"] = arguments
         __props__.__dict__["database_name"] = database_name
+        __props__.__dict__["enable_multiple_grants"] = enable_multiple_grants
         __props__.__dict__["function_name"] = function_name
         __props__.__dict__["on_future"] = on_future
         __props__.__dict__["privilege"] = privilege
@@ -579,6 +624,15 @@ class FunctionGrant(pulumi.CustomResource):
         The name of the database containing the current or future functions on which to grant privileges.
         """
         return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="enableMultipleGrants")
+    def enable_multiple_grants(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        grants applied to roles and objects outside Terraform.
+        """
+        return pulumi.get(self, "enable_multiple_grants")
 
     @property
     @pulumi.getter(name="functionName")

@@ -56,6 +56,9 @@ type DatabaseGrant struct {
 
 	// The name of the database on which to grant privileges.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// The privilege to grant on the database.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
 	// Grants privilege to these roles.
@@ -100,6 +103,9 @@ func GetDatabaseGrant(ctx *pulumi.Context,
 type databaseGrantState struct {
 	// The name of the database on which to grant privileges.
 	DatabaseName *string `pulumi:"databaseName"`
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// The privilege to grant on the database.
 	Privilege *string `pulumi:"privilege"`
 	// Grants privilege to these roles.
@@ -113,6 +119,9 @@ type databaseGrantState struct {
 type DatabaseGrantState struct {
 	// The name of the database on which to grant privileges.
 	DatabaseName pulumi.StringPtrInput
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrInput
 	// The privilege to grant on the database.
 	Privilege pulumi.StringPtrInput
 	// Grants privilege to these roles.
@@ -130,6 +139,9 @@ func (DatabaseGrantState) ElementType() reflect.Type {
 type databaseGrantArgs struct {
 	// The name of the database on which to grant privileges.
 	DatabaseName string `pulumi:"databaseName"`
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// The privilege to grant on the database.
 	Privilege *string `pulumi:"privilege"`
 	// Grants privilege to these roles.
@@ -144,6 +156,9 @@ type databaseGrantArgs struct {
 type DatabaseGrantArgs struct {
 	// The name of the database on which to grant privileges.
 	DatabaseName pulumi.StringInput
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrInput
 	// The privilege to grant on the database.
 	Privilege pulumi.StringPtrInput
 	// Grants privilege to these roles.

@@ -23,6 +23,9 @@ type StageGrant struct {
 
 	// The name of the database containing the current stage on which to grant privileges.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
 	// The privilege to grant on the stage.
@@ -74,6 +77,9 @@ func GetStageGrant(ctx *pulumi.Context,
 type stageGrantState struct {
 	// The name of the database containing the current stage on which to grant privileges.
 	DatabaseName *string `pulumi:"databaseName"`
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the stage.
@@ -91,6 +97,9 @@ type stageGrantState struct {
 type StageGrantState struct {
 	// The name of the database containing the current stage on which to grant privileges.
 	DatabaseName pulumi.StringPtrInput
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the stage.
@@ -112,6 +121,9 @@ func (StageGrantState) ElementType() reflect.Type {
 type stageGrantArgs struct {
 	// The name of the database containing the current stage on which to grant privileges.
 	DatabaseName string `pulumi:"databaseName"`
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the stage.
@@ -130,6 +142,9 @@ type stageGrantArgs struct {
 type StageGrantArgs struct {
 	// The name of the database containing the current stage on which to grant privileges.
 	DatabaseName pulumi.StringInput
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the stage.

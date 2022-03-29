@@ -80,6 +80,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Role{}
 	case "snowflake:index/roleGrants:RoleGrants":
 		r = &RoleGrants{}
+	case "snowflake:index/roleOwnershipGrant:RoleOwnershipGrant":
+		r = &RoleOwnershipGrant{}
 	case "snowflake:index/rowAccessPolicy:RowAccessPolicy":
 		r = &RowAccessPolicy{}
 	case "snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant":
@@ -309,6 +311,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/roleGrants",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/roleOwnershipGrant",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

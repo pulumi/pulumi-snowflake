@@ -73,6 +73,7 @@
         "resourceMonitorGrant.ts",
         "role.ts",
         "roleGrants.ts",
+        "roleOwnershipGrant.ts",
         "rowAccessPolicy.ts",
         "rowAccessPolicyGrant.ts",
         "samlIntegration.ts",

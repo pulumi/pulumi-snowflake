@@ -72,6 +72,9 @@ type FunctionGrant struct {
 	Arguments FunctionGrantArgumentArrayOutput `pulumi:"arguments"`
 	// The name of the database containing the current or future functions on which to grant privileges.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// The name of the function on which to grant privileges immediately (only valid if onFuture is false).
 	FunctionName pulumi.StringPtrOutput `pulumi:"functionName"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
@@ -129,6 +132,9 @@ type functionGrantState struct {
 	Arguments []FunctionGrantArgument `pulumi:"arguments"`
 	// The name of the database containing the current or future functions on which to grant privileges.
 	DatabaseName *string `pulumi:"databaseName"`
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// The name of the function on which to grant privileges immediately (only valid if onFuture is false).
 	FunctionName *string `pulumi:"functionName"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
@@ -152,6 +158,9 @@ type FunctionGrantState struct {
 	Arguments FunctionGrantArgumentArrayInput
 	// The name of the database containing the current or future functions on which to grant privileges.
 	DatabaseName pulumi.StringPtrInput
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrInput
 	// The name of the function on which to grant privileges immediately (only valid if onFuture is false).
 	FunctionName pulumi.StringPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
@@ -179,6 +188,9 @@ type functionGrantArgs struct {
 	Arguments []FunctionGrantArgument `pulumi:"arguments"`
 	// The name of the database containing the current or future functions on which to grant privileges.
 	DatabaseName string `pulumi:"databaseName"`
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// The name of the function on which to grant privileges immediately (only valid if onFuture is false).
 	FunctionName *string `pulumi:"functionName"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
@@ -203,6 +215,9 @@ type FunctionGrantArgs struct {
 	Arguments FunctionGrantArgumentArrayInput
 	// The name of the database containing the current or future functions on which to grant privileges.
 	DatabaseName pulumi.StringInput
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrInput
 	// The name of the function on which to grant privileges immediately (only valid if onFuture is false).
 	FunctionName pulumi.StringPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.

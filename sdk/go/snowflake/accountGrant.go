@@ -48,6 +48,9 @@ import (
 type AccountGrant struct {
 	pulumi.CustomResourceState
 
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// The privilege to grant on the account.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
 	// Grants privilege to these roles.
@@ -85,6 +88,9 @@ func GetAccountGrant(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountGrant resources.
 type accountGrantState struct {
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// The privilege to grant on the account.
 	Privilege *string `pulumi:"privilege"`
 	// Grants privilege to these roles.
@@ -94,6 +100,9 @@ type accountGrantState struct {
 }
 
 type AccountGrantState struct {
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrInput
 	// The privilege to grant on the account.
 	Privilege pulumi.StringPtrInput
 	// Grants privilege to these roles.
@@ -107,6 +116,9 @@ func (AccountGrantState) ElementType() reflect.Type {
 }
 
 type accountGrantArgs struct {
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// The privilege to grant on the account.
 	Privilege *string `pulumi:"privilege"`
 	// Grants privilege to these roles.
@@ -117,6 +129,9 @@ type accountGrantArgs struct {
 
 // The set of arguments for constructing a AccountGrant resource.
 type AccountGrantArgs struct {
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrInput
 	// The privilege to grant on the account.
 	Privilege pulumi.StringPtrInput
 	// Grants privilege to these roles.

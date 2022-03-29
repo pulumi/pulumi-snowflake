@@ -55,6 +55,9 @@ type SequenceGrant struct {
 
 	// The name of the database containing the current or future sequences on which to grant privileges.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
 	// The privilege to grant on the current or future sequence.
@@ -106,6 +109,9 @@ func GetSequenceGrant(ctx *pulumi.Context,
 type sequenceGrantState struct {
 	// The name of the database containing the current or future sequences on which to grant privileges.
 	DatabaseName *string `pulumi:"databaseName"`
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future sequence.
@@ -123,6 +129,9 @@ type sequenceGrantState struct {
 type SequenceGrantState struct {
 	// The name of the database containing the current or future sequences on which to grant privileges.
 	DatabaseName pulumi.StringPtrInput
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future sequence.
@@ -144,6 +153,9 @@ func (SequenceGrantState) ElementType() reflect.Type {
 type sequenceGrantArgs struct {
 	// The name of the database containing the current or future sequences on which to grant privileges.
 	DatabaseName string `pulumi:"databaseName"`
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future sequence.
@@ -162,6 +174,9 @@ type sequenceGrantArgs struct {
 type SequenceGrantArgs struct {
 	// The name of the database containing the current or future sequences on which to grant privileges.
 	DatabaseName pulumi.StringInput
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future sequence.

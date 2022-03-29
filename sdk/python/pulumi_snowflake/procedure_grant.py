@@ -18,6 +18,7 @@ class ProcedureGrantArgs:
                  database_name: pulumi.Input[str],
                  schema_name: pulumi.Input[str],
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedureGrantArgumentArgs']]]] = None,
+                 enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  procedure_name: Optional[pulumi.Input[str]] = None,
@@ -30,6 +31,8 @@ class ProcedureGrantArgs:
         :param pulumi.Input[str] database_name: The name of the database containing the current or future procedures on which to grant privileges.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future procedures on which to grant privileges.
         :param pulumi.Input[Sequence[pulumi.Input['ProcedureGrantArgumentArgs']]] arguments: List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
+        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future procedure.
         :param pulumi.Input[str] procedure_name: The name of the procedure on which to grant privileges immediately (only valid if on_future is false).
@@ -42,6 +45,8 @@ class ProcedureGrantArgs:
         pulumi.set(__self__, "schema_name", schema_name)
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
+        if enable_multiple_grants is not None:
+            pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
         if on_future is not None:
             pulumi.set(__self__, "on_future", on_future)
         if privilege is not None:
@@ -92,6 +97,19 @@ class ProcedureGrantArgs:
     @arguments.setter
     def arguments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedureGrantArgumentArgs']]]]):
         pulumi.set(self, "arguments", value)
+
+    @property
+    @pulumi.getter(name="enableMultipleGrants")
+    def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        grants applied to roles and objects outside Terraform.
+        """
+        return pulumi.get(self, "enable_multiple_grants")
+
+    @enable_multiple_grants.setter
+    def enable_multiple_grants(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_multiple_grants", value)
 
     @property
     @pulumi.getter(name="onFuture")
@@ -183,6 +201,7 @@ class _ProcedureGrantState:
     def __init__(__self__, *,
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedureGrantArgumentArgs']]]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  procedure_name: Optional[pulumi.Input[str]] = None,
@@ -195,6 +214,8 @@ class _ProcedureGrantState:
         Input properties used for looking up and filtering ProcedureGrant resources.
         :param pulumi.Input[Sequence[pulumi.Input['ProcedureGrantArgumentArgs']]] arguments: List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
         :param pulumi.Input[str] database_name: The name of the database containing the current or future procedures on which to grant privileges.
+        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future procedure.
         :param pulumi.Input[str] procedure_name: The name of the procedure on which to grant privileges immediately (only valid if on_future is false).
@@ -208,6 +229,8 @@ class _ProcedureGrantState:
             pulumi.set(__self__, "arguments", arguments)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
+        if enable_multiple_grants is not None:
+            pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
         if on_future is not None:
             pulumi.set(__self__, "on_future", on_future)
         if privilege is not None:
@@ -248,6 +271,19 @@ class _ProcedureGrantState:
     @database_name.setter
     def database_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="enableMultipleGrants")
+    def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        grants applied to roles and objects outside Terraform.
+        """
+        return pulumi.get(self, "enable_multiple_grants")
+
+    @enable_multiple_grants.setter
+    def enable_multiple_grants(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_multiple_grants", value)
 
     @property
     @pulumi.getter(name="onFuture")
@@ -353,6 +389,7 @@ class ProcedureGrant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProcedureGrantArgumentArgs']]]]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  procedure_name: Optional[pulumi.Input[str]] = None,
@@ -405,6 +442,8 @@ class ProcedureGrant(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProcedureGrantArgumentArgs']]]] arguments: List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
         :param pulumi.Input[str] database_name: The name of the database containing the current or future procedures on which to grant privileges.
+        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future procedure.
         :param pulumi.Input[str] procedure_name: The name of the procedure on which to grant privileges immediately (only valid if on_future is false).
@@ -476,6 +515,7 @@ class ProcedureGrant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProcedureGrantArgumentArgs']]]]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  procedure_name: Optional[pulumi.Input[str]] = None,
@@ -500,6 +540,7 @@ class ProcedureGrant(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
+            __props__.__dict__["enable_multiple_grants"] = enable_multiple_grants
             __props__.__dict__["on_future"] = on_future
             __props__.__dict__["privilege"] = privilege
             __props__.__dict__["procedure_name"] = procedure_name
@@ -522,6 +563,7 @@ class ProcedureGrant(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arguments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProcedureGrantArgumentArgs']]]]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
+            enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
             on_future: Optional[pulumi.Input[bool]] = None,
             privilege: Optional[pulumi.Input[str]] = None,
             procedure_name: Optional[pulumi.Input[str]] = None,
@@ -539,6 +581,8 @@ class ProcedureGrant(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProcedureGrantArgumentArgs']]]] arguments: List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
         :param pulumi.Input[str] database_name: The name of the database containing the current or future procedures on which to grant privileges.
+        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future procedure.
         :param pulumi.Input[str] procedure_name: The name of the procedure on which to grant privileges immediately (only valid if on_future is false).
@@ -554,6 +598,7 @@ class ProcedureGrant(pulumi.CustomResource):
 
         __props__.__dict__["arguments"] = arguments
         __props__.__dict__["database_name"] = database_name
+        __props__.__dict__["enable_multiple_grants"] = enable_multiple_grants
         __props__.__dict__["on_future"] = on_future
         __props__.__dict__["privilege"] = privilege
         __props__.__dict__["procedure_name"] = procedure_name
@@ -579,6 +624,15 @@ class ProcedureGrant(pulumi.CustomResource):
         The name of the database containing the current or future procedures on which to grant privileges.
         """
         return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="enableMultipleGrants")
+    def enable_multiple_grants(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        grants applied to roles and objects outside Terraform.
+        """
+        return pulumi.get(self, "enable_multiple_grants")
 
     @property
     @pulumi.getter(name="onFuture")

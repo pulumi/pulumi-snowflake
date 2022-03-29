@@ -56,6 +56,11 @@ export class WarehouseGrant extends pulumi.CustomResource {
     }
 
     /**
+     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+     * grants applied to roles and objects outside Terraform.
+     */
+    public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
+    /**
      * The privilege to grant on the warehouse.
      */
     public readonly privilege!: pulumi.Output<string | undefined>;
@@ -85,6 +90,7 @@ export class WarehouseGrant extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WarehouseGrantState | undefined;
+            resourceInputs["enableMultipleGrants"] = state ? state.enableMultipleGrants : undefined;
             resourceInputs["privilege"] = state ? state.privilege : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
             resourceInputs["warehouseName"] = state ? state.warehouseName : undefined;
@@ -94,6 +100,7 @@ export class WarehouseGrant extends pulumi.CustomResource {
             if ((!args || args.warehouseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'warehouseName'");
             }
+            resourceInputs["enableMultipleGrants"] = args ? args.enableMultipleGrants : undefined;
             resourceInputs["privilege"] = args ? args.privilege : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
             resourceInputs["warehouseName"] = args ? args.warehouseName : undefined;
@@ -108,6 +115,11 @@ export class WarehouseGrant extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WarehouseGrant resources.
  */
 export interface WarehouseGrantState {
+    /**
+     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+     * grants applied to roles and objects outside Terraform.
+     */
+    enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * The privilege to grant on the warehouse.
      */
@@ -130,6 +142,11 @@ export interface WarehouseGrantState {
  * The set of arguments for constructing a WarehouseGrant resource.
  */
 export interface WarehouseGrantArgs {
+    /**
+     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+     * grants applied to roles and objects outside Terraform.
+     */
+    enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * The privilege to grant on the warehouse.
      */

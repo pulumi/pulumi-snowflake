@@ -2123,6 +2123,10 @@
         "snowflake:index/accountGrant:AccountGrant": {
             "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.AccountGrant(\"grant\", {\n    privilege: \"CREATE ROLE\",\n    roles: [\n        \"role1\",\n        \"role2\",\n    ],\n    withGrantOption: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ngrant = snowflake.AccountGrant(\"grant\",\n    privilege=\"CREATE ROLE\",\n    roles=[\n        \"role1\",\n        \"role2\",\n    ],\n    with_grant_option=False)\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var grant = new Snowflake.AccountGrant(\"grant\", new Snowflake.AccountGrantArgs\n        {\n            Privilege = \"CREATE ROLE\",\n            Roles = \n            {\n                \"role1\",\n                \"role2\",\n            },\n            WithGrantOption = false,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewAccountGrant(ctx, \"grant\", \u0026snowflake.AccountGrantArgs{\n\t\t\tPrivilege: pulumi.String(\"CREATE ROLE\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"role1\"),\n\t\t\t\tpulumi.String(\"role2\"),\n\t\t\t},\n\t\t\tWithGrantOption: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is account name | | | privilege | true/false for with_grant_option\n\n```sh\n $ pulumi import snowflake:index/accountGrant:AccountGrant example 'accountName|||USAGE|true'\n```\n\n ",
             "properties": {
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "privilege": {
                     "type": "string",
                     "description": "The privilege to grant on the account.\n"
@@ -2140,6 +2144,10 @@
                 }
             },
             "inputProperties": {
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "privilege": {
                     "type": "string",
                     "description": "The privilege to grant on the account.\n"
@@ -2159,6 +2167,10 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering AccountGrant resources.\n",
                 "properties": {
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                    },
                     "privilege": {
                         "type": "string",
                         "description": "The privilege to grant on the account.\n"
@@ -2472,6 +2484,10 @@
                     "type": "string",
                     "description": "The name of the database on which to grant privileges.\n"
                 },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "privilege": {
                     "type": "string",
                     "description": "The privilege to grant on the database.\n"
@@ -2502,6 +2518,10 @@
                 "databaseName": {
                     "type": "string",
                     "description": "The name of the database on which to grant privileges.\n"
+                },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
                 "privilege": {
                     "type": "string",
@@ -2535,6 +2555,10 @@
                     "databaseName": {
                         "type": "string",
                         "description": "The name of the database on which to grant privileges.\n"
+                    },
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                     },
                     "privilege": {
                         "type": "string",
@@ -3309,6 +3333,10 @@
                     "type": "string",
                     "description": "The name of the database containing the current or future external tables on which to grant privileges.\n"
                 },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "externalTableName": {
                     "type": "string",
                     "description": "The name of the external table on which to grant privileges immediately (only valid if on_future is false).\n"
@@ -3352,6 +3380,10 @@
                 "databaseName": {
                     "type": "string",
                     "description": "The name of the database containing the current or future external tables on which to grant privileges.\n"
+                },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
                 "externalTableName": {
                     "type": "string",
@@ -3398,6 +3430,10 @@
                     "databaseName": {
                         "type": "string",
                         "description": "The name of the database containing the current or future external tables on which to grant privileges.\n"
+                    },
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                     },
                     "externalTableName": {
                         "type": "string",
@@ -3909,6 +3945,10 @@
                     "type": "string",
                     "description": "The name of the database containing the current or future file formats on which to grant privileges.\n"
                 },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "fileFormatName": {
                     "type": "string",
                     "description": "The name of the file format on which to grant privileges immediately (only valid if on_future is false).\n"
@@ -3945,6 +3985,10 @@
                 "databaseName": {
                     "type": "string",
                     "description": "The name of the database containing the current or future file formats on which to grant privileges.\n"
+                },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
                 "fileFormatName": {
                     "type": "string",
@@ -3984,6 +4028,10 @@
                     "databaseName": {
                         "type": "string",
                         "description": "The name of the database containing the current or future file formats on which to grant privileges.\n"
+                    },
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                     },
                     "fileFormatName": {
                         "type": "string",
@@ -4229,6 +4277,10 @@
                     "type": "string",
                     "description": "The name of the database containing the current or future functions on which to grant privileges.\n"
                 },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "functionName": {
                     "type": "string",
                     "description": "The name of the function on which to grant privileges immediately (only valid if on_future is false).\n"
@@ -4283,6 +4335,10 @@
                 "databaseName": {
                     "type": "string",
                     "description": "The name of the database containing the current or future functions on which to grant privileges.\n"
+                },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
                 "functionName": {
                     "type": "string",
@@ -4341,6 +4397,10 @@
                         "type": "string",
                         "description": "The name of the database containing the current or future functions on which to grant privileges.\n"
                     },
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                    },
                     "functionName": {
                         "type": "string",
                         "description": "The name of the function on which to grant privileges immediately (only valid if on_future is false).\n"
@@ -4386,6 +4446,10 @@
         "snowflake:index/integrationGrant:IntegrationGrant": {
             "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.IntegrationGrant(\"grant\", {\n    integrationName: \"integration\",\n    privilege: \"USAGE\",\n    roles: [\n        \"role1\",\n        \"role2\",\n    ],\n    withGrantOption: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ngrant = snowflake.IntegrationGrant(\"grant\",\n    integration_name=\"integration\",\n    privilege=\"USAGE\",\n    roles=[\n        \"role1\",\n        \"role2\",\n    ],\n    with_grant_option=False)\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var grant = new Snowflake.IntegrationGrant(\"grant\", new Snowflake.IntegrationGrantArgs\n        {\n            IntegrationName = \"integration\",\n            Privilege = \"USAGE\",\n            Roles = \n            {\n                \"role1\",\n                \"role2\",\n            },\n            WithGrantOption = false,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewIntegrationGrant(ctx, \"grant\", \u0026snowflake.IntegrationGrantArgs{\n\t\t\tIntegrationName: pulumi.String(\"integration\"),\n\t\t\tPrivilege:       pulumi.String(\"USAGE\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"role1\"),\n\t\t\t\tpulumi.String(\"role2\"),\n\t\t\t},\n\t\t\tWithGrantOption: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is integration name ||| privilege | true/false for with_grant_option\n\n```sh\n $ pulumi import snowflake:index/integrationGrant:IntegrationGrant example 'intName|||USAGE|true'\n```\n\n ",
             "properties": {
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "integrationName": {
                     "type": "string",
                     "description": "Identifier for the integration; must be unique for your account.\n"
@@ -4410,6 +4474,10 @@
                 "integrationName"
             ],
             "inputProperties": {
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "integrationName": {
                     "type": "string",
                     "description": "Identifier for the integration; must be unique for your account.\n"
@@ -4436,6 +4504,10 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering IntegrationGrant resources.\n",
                 "properties": {
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                    },
                     "integrationName": {
                         "type": "string",
                         "description": "Identifier for the integration; must be unique for your account.\n"
@@ -4704,6 +4776,10 @@
                     "type": "string",
                     "description": "The name of the database containing the masking policy on which to grant privileges.\n"
                 },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "maskingPolicyName": {
                     "type": "string",
                     "description": "The name of the masking policy on which to grant privileges immediately.\n"
@@ -4737,6 +4813,10 @@
                 "databaseName": {
                     "type": "string",
                     "description": "The name of the database containing the masking policy on which to grant privileges.\n"
+                },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
                 "maskingPolicyName": {
                     "type": "string",
@@ -4773,6 +4853,10 @@
                     "databaseName": {
                         "type": "string",
                         "description": "The name of the database containing the masking policy on which to grant privileges.\n"
+                    },
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                     },
                     "maskingPolicyName": {
                         "type": "string",
@@ -4951,6 +5035,10 @@
                     "type": "string",
                     "description": "The name of the database containing the current or future materialized views on which to grant privileges.\n"
                 },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "materializedViewName": {
                     "type": "string",
                     "description": "The name of the materialized view on which to grant privileges immediately (only valid if on_future is false).\n"
@@ -4993,6 +5081,10 @@
                 "databaseName": {
                     "type": "string",
                     "description": "The name of the database containing the current or future materialized views on which to grant privileges.\n"
+                },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
                 "materializedViewName": {
                     "type": "string",
@@ -5038,6 +5130,10 @@
                     "databaseName": {
                         "type": "string",
                         "description": "The name of the database containing the current or future materialized views on which to grant privileges.\n"
+                    },
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                     },
                     "materializedViewName": {
                         "type": "string",
@@ -5738,6 +5834,10 @@
                     "type": "string",
                     "description": "The name of the database containing the current or future pipes on which to grant privileges.\n"
                 },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "onFuture": {
                     "type": "boolean",
                     "description": "When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.\n"
@@ -5774,6 +5874,10 @@
                 "databaseName": {
                     "type": "string",
                     "description": "The name of the database containing the current or future pipes on which to grant privileges.\n"
+                },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
                 "onFuture": {
                     "type": "boolean",
@@ -5813,6 +5917,10 @@
                     "databaseName": {
                         "type": "string",
                         "description": "The name of the database containing the current or future pipes on which to grant privileges.\n"
+                    },
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                     },
                     "onFuture": {
                         "type": "boolean",
@@ -6014,6 +6122,10 @@
                     "type": "string",
                     "description": "The name of the database containing the current or future procedures on which to grant privileges.\n"
                 },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "onFuture": {
                     "type": "boolean",
                     "description": "When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.\n"
@@ -6068,6 +6180,10 @@
                 "databaseName": {
                     "type": "string",
                     "description": "The name of the database containing the current or future procedures on which to grant privileges.\n"
+                },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
                 "onFuture": {
                     "type": "boolean",
@@ -6125,6 +6241,10 @@
                     "databaseName": {
                         "type": "string",
                         "description": "The name of the database containing the current or future procedures on which to grant privileges.\n"
+                    },
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                     },
                     "onFuture": {
                         "type": "boolean",
@@ -6346,6 +6466,10 @@
         "snowflake:index/resourceMonitorGrant:ResourceMonitorGrant": {
             "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.MonitorGrant(\"grant\", {\n    monitorName: \"monitor\",\n    privilege: \"MODIFY\",\n    roles: [\"role1\"],\n    withGrantOption: false,\n});\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/resourceMonitorGrant:ResourceMonitorGrant example name\n```\n\n ",
             "properties": {
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "monitorName": {
                     "type": "string",
                     "description": "Identifier for the resource monitor; must be unique for your account.\n"
@@ -6370,6 +6494,10 @@
                 "monitorName"
             ],
             "inputProperties": {
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "monitorName": {
                     "type": "string",
                     "description": "Identifier for the resource monitor; must be unique for your account.\n"
@@ -6396,6 +6524,10 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering ResourceMonitorGrant resources.\n",
                 "properties": {
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                    },
                     "monitorName": {
                         "type": "string",
                         "description": "Identifier for the resource monitor; must be unique for your account.\n"
@@ -6477,6 +6609,10 @@
         "snowflake:index/roleGrants:RoleGrants": {
             "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst role = new snowflake.Role(\"role\", {\n    comment: \"for testing\",\n});\nconst user = new snowflake.User(\"user\", {\n    comment: \"for testing\",\n});\nconst user2 = new snowflake.User(\"user2\", {\n    comment: \"for testing\",\n});\nconst otherRole = new snowflake.Role(\"other_role\", {});\nconst grants = new snowflake.RoleGrants(\"grants\", {\n    roleName: role.name,\n    roles: [otherRole.name],\n    users: [\n        user.name,\n        user2.name,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nrole = snowflake.Role(\"role\", comment=\"for testing\")\nuser = snowflake.User(\"user\", comment=\"for testing\")\nuser2 = snowflake.User(\"user2\", comment=\"for testing\")\nother_role = snowflake.Role(\"otherRole\")\ngrants = snowflake.RoleGrants(\"grants\",\n    role_name=role.name,\n    roles=[other_role.name],\n    users=[\n        user.name,\n        user2.name,\n    ])\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var role = new Snowflake.Role(\"role\", new Snowflake.RoleArgs\n        {\n            Comment = \"for testing\",\n        });\n        var user = new Snowflake.User(\"user\", new Snowflake.UserArgs\n        {\n            Comment = \"for testing\",\n        });\n        var user2 = new Snowflake.User(\"user2\", new Snowflake.UserArgs\n        {\n            Comment = \"for testing\",\n        });\n        var otherRole = new Snowflake.Role(\"otherRole\", new Snowflake.RoleArgs\n        {\n        });\n        var grants = new Snowflake.RoleGrants(\"grants\", new Snowflake.RoleGrantsArgs\n        {\n            RoleName = role.Name,\n            Roles = \n            {\n                otherRole.Name,\n            },\n            Users = \n            {\n                user.Name,\n                user2.Name,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\trole, err := snowflake.NewRole(ctx, \"role\", \u0026snowflake.RoleArgs{\n\t\t\tComment: pulumi.String(\"for testing\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tuser, err := snowflake.NewUser(ctx, \"user\", \u0026snowflake.UserArgs{\n\t\t\tComment: pulumi.String(\"for testing\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tuser2, err := snowflake.NewUser(ctx, \"user2\", \u0026snowflake.UserArgs{\n\t\t\tComment: pulumi.String(\"for testing\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\totherRole, err := snowflake.NewRole(ctx, \"otherRole\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewRoleGrants(ctx, \"grants\", \u0026snowflake.RoleGrantsArgs{\n\t\t\tRoleName: role.Name,\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\totherRole.Name,\n\t\t\t},\n\t\t\tUsers: pulumi.StringArray{\n\t\t\t\tuser.Name,\n\t\t\t\tuser2.Name,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/roleGrants:RoleGrants example rolename\n```\n\n ",
             "properties": {
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "roleName": {
                     "type": "string",
                     "description": "The name of the role we are granting.\n"
@@ -6500,6 +6636,10 @@
                 "roleName"
             ],
             "inputProperties": {
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "roleName": {
                     "type": "string",
                     "description": "The name of the role we are granting.\n"
@@ -6525,6 +6665,10 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering RoleGrants resources.\n",
                 "properties": {
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                    },
                     "roleName": {
                         "type": "string",
                         "description": "The name of the role we are granting.\n"
@@ -6542,6 +6686,62 @@
                             "type": "string"
                         },
                         "description": "Grants role to this specified user.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "snowflake:index/roleOwnershipGrant:RoleOwnershipGrant": {
+            "properties": {
+                "currentGrants": {
+                    "type": "string",
+                    "description": "Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.\n"
+                },
+                "onRoleName": {
+                    "type": "string",
+                    "description": "The name of the role ownership is granted on.\n"
+                },
+                "toRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.\n"
+                }
+            },
+            "required": [
+                "onRoleName",
+                "toRoleName"
+            ],
+            "inputProperties": {
+                "currentGrants": {
+                    "type": "string",
+                    "description": "Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.\n"
+                },
+                "onRoleName": {
+                    "type": "string",
+                    "description": "The name of the role ownership is granted on.\n"
+                },
+                "toRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.\n"
+                }
+            },
+            "requiredInputs": [
+                "onRoleName",
+                "toRoleName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RoleOwnershipGrant resources.\n",
+                "properties": {
+                    "currentGrants": {
+                        "type": "string",
+                        "description": "Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.\n"
+                    },
+                    "onRoleName": {
+                        "type": "string",
+                        "description": "The name of the role ownership is granted on.\n"
+                    },
+                    "toRoleName": {
+                        "type": "string",
+                        "description": "The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.\n"
                     }
                 },
                 "type": "object"
@@ -6661,6 +6861,10 @@
                     "type": "string",
                     "description": "The name of the database containing the row access policy on which to grant privileges.\n"
                 },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "privilege": {
                     "type": "string",
                     "description": "The privilege to grant on the row access policy.\n"
@@ -6694,6 +6898,10 @@
                 "databaseName": {
                     "type": "string",
                     "description": "The name of the database containing the row access policy on which to grant privileges.\n"
+                },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
                 "privilege": {
                     "type": "string",
@@ -6730,6 +6938,10 @@
                     "databaseName": {
                         "type": "string",
                         "description": "The name of the database containing the row access policy on which to grant privileges.\n"
+                    },
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                     },
                     "privilege": {
                         "type": "string",
@@ -7119,6 +7331,10 @@
                     "type": "string",
                     "description": "The name of the database containing the schema on which to grant privileges.\n"
                 },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "onFuture": {
                     "type": "boolean",
                     "description": "When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.\n"
@@ -7157,6 +7373,10 @@
                 "databaseName": {
                     "type": "string",
                     "description": "The name of the database containing the schema on which to grant privileges.\n"
+                },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
                 "onFuture": {
                     "type": "boolean",
@@ -7198,6 +7418,10 @@
                     "databaseName": {
                         "type": "string",
                         "description": "The name of the database containing the schema on which to grant privileges.\n"
+                    },
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                     },
                     "onFuture": {
                         "type": "boolean",
@@ -7419,6 +7643,10 @@
                     "type": "string",
                     "description": "The name of the database containing the current or future sequences on which to grant privileges.\n"
                 },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "onFuture": {
                     "type": "boolean",
                     "description": "When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future.\n"
@@ -7455,6 +7683,10 @@
                 "databaseName": {
                     "type": "string",
                     "description": "The name of the database containing the current or future sequences on which to grant privileges.\n"
+                },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
                 "onFuture": {
                     "type": "boolean",
@@ -7494,6 +7726,10 @@
                     "databaseName": {
                         "type": "string",
                         "description": "The name of the database containing the current or future sequences on which to grant privileges.\n"
+                    },
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                     },
                     "onFuture": {
                         "type": "boolean",
@@ -7789,6 +8025,10 @@
                     "type": "string",
                     "description": "The name of the database containing the current stage on which to grant privileges.\n"
                 },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "onFuture": {
                     "type": "boolean",
                     "description": "When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.\n"
@@ -7825,6 +8065,10 @@
                 "databaseName": {
                     "type": "string",
                     "description": "The name of the database containing the current stage on which to grant privileges.\n"
+                },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
                 "onFuture": {
                     "type": "boolean",
@@ -7864,6 +8108,10 @@
                     "databaseName": {
                         "type": "string",
                         "description": "The name of the database containing the current stage on which to grant privileges.\n"
+                    },
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                     },
                     "onFuture": {
                         "type": "boolean",
@@ -8223,6 +8471,10 @@
                     "type": "string",
                     "description": "The name of the database containing the current or future streams on which to grant privileges.\n"
                 },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "onFuture": {
                     "type": "boolean",
                     "description": "When this is set to true and a schema*name is provided, apply this grant on all future streams in the given schema. When this is true and no schema*name is provided apply this grant on all future streams in the given database. The stream*name field must be unset in order to use on*future.\n"
@@ -8259,6 +8511,10 @@
                 "databaseName": {
                     "type": "string",
                     "description": "The name of the database containing the current or future streams on which to grant privileges.\n"
+                },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
                 "onFuture": {
                     "type": "boolean",
@@ -8298,6 +8554,10 @@
                     "databaseName": {
                         "type": "string",
                         "description": "The name of the database containing the current or future streams on which to grant privileges.\n"
+                    },
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                     },
                     "onFuture": {
                         "type": "boolean",
@@ -8517,6 +8777,10 @@
                     "type": "string",
                     "description": "The name of the database containing the current or future tables on which to grant privileges.\n"
                 },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "onFuture": {
                     "type": "boolean",
                     "description": "When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.\n"
@@ -8559,6 +8823,10 @@
                 "databaseName": {
                     "type": "string",
                     "description": "The name of the database containing the current or future tables on which to grant privileges.\n"
+                },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
                 "onFuture": {
                     "type": "boolean",
@@ -8604,6 +8872,10 @@
                     "databaseName": {
                         "type": "string",
                         "description": "The name of the database containing the current or future tables on which to grant privileges.\n"
+                    },
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                     },
                     "onFuture": {
                         "type": "boolean",
@@ -8920,6 +9192,10 @@
                     "type": "string",
                     "description": "The name of the database containing the current or future tasks on which to grant privileges.\n"
                 },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "onFuture": {
                     "type": "boolean",
                     "description": "When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.\n"
@@ -8956,6 +9232,10 @@
                 "databaseName": {
                     "type": "string",
                     "description": "The name of the database containing the current or future tasks on which to grant privileges.\n"
+                },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
                 "onFuture": {
                     "type": "boolean",
@@ -8995,6 +9275,10 @@
                     "databaseName": {
                         "type": "string",
                         "description": "The name of the database containing the current or future tasks on which to grant privileges.\n"
+                    },
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                     },
                     "onFuture": {
                         "type": "boolean",
@@ -9438,6 +9722,10 @@
                     "type": "string",
                     "description": "The name of the database containing the current or future views on which to grant privileges.\n"
                 },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "onFuture": {
                     "type": "boolean",
                     "description": "When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future.\n"
@@ -9480,6 +9768,10 @@
                 "databaseName": {
                     "type": "string",
                     "description": "The name of the database containing the current or future views on which to grant privileges.\n"
+                },
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
                 "onFuture": {
                     "type": "boolean",
@@ -9525,6 +9817,10 @@
                     "databaseName": {
                         "type": "string",
                         "description": "The name of the database containing the current or future views on which to grant privileges.\n"
+                    },
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                     },
                     "onFuture": {
                         "type": "boolean",
@@ -9776,6 +10072,10 @@
         "snowflake:index/warehouseGrant:WarehouseGrant": {
             "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.WarehouseGrant(\"grant\", {\n    privilege: \"MODIFY\",\n    roles: [\"role1\"],\n    warehouseName: \"wh\",\n    withGrantOption: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ngrant = snowflake.WarehouseGrant(\"grant\",\n    privilege=\"MODIFY\",\n    roles=[\"role1\"],\n    warehouse_name=\"wh\",\n    with_grant_option=False)\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var grant = new Snowflake.WarehouseGrant(\"grant\", new Snowflake.WarehouseGrantArgs\n        {\n            Privilege = \"MODIFY\",\n            Roles = \n            {\n                \"role1\",\n            },\n            WarehouseName = \"wh\",\n            WithGrantOption = false,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewWarehouseGrant(ctx, \"grant\", \u0026snowflake.WarehouseGrantArgs{\n\t\t\tPrivilege: pulumi.String(\"MODIFY\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"role1\"),\n\t\t\t},\n\t\t\tWarehouseName:   pulumi.String(\"wh\"),\n\t\t\tWithGrantOption: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is warehouse name | | | privilege | true/false for with_grant_option\n\n```sh\n $ pulumi import snowflake:index/warehouseGrant:WarehouseGrant example 'warehouseName|||MODIFY|true'\n```\n\n ",
             "properties": {
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "privilege": {
                     "type": "string",
                     "description": "The privilege to grant on the warehouse.\n"
@@ -9800,6 +10100,10 @@
                 "warehouseName"
             ],
             "inputProperties": {
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
                 "privilege": {
                     "type": "string",
                     "description": "The privilege to grant on the warehouse.\n"
@@ -9826,6 +10130,10 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering WarehouseGrant resources.\n",
                 "properties": {
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                    },
                     "privilege": {
                         "type": "string",
                         "description": "The privilege to grant on the warehouse.\n"

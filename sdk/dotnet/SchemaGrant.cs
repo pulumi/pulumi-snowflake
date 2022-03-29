@@ -61,6 +61,13 @@ namespace Pulumi.Snowflake
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
+        /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        /// grants applied to roles and objects outside Terraform.
+        /// </summary>
+        [Output("enableMultipleGrants")]
+        public Output<bool?> EnableMultipleGrants { get; private set; } = null!;
+
+        /// <summary>
         /// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
         /// </summary>
         [Output("onFuture")]
@@ -150,6 +157,13 @@ namespace Pulumi.Snowflake
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
+        /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        /// grants applied to roles and objects outside Terraform.
+        /// </summary>
+        [Input("enableMultipleGrants")]
+        public Input<bool>? EnableMultipleGrants { get; set; }
+
+        /// <summary>
         /// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
         /// </summary>
         [Input("onFuture")]
@@ -210,6 +224,13 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
+
+        /// <summary>
+        /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        /// grants applied to roles and objects outside Terraform.
+        /// </summary>
+        [Input("enableMultipleGrants")]
+        public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
         /// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.

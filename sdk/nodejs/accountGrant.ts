@@ -58,6 +58,11 @@ export class AccountGrant extends pulumi.CustomResource {
     }
 
     /**
+     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+     * grants applied to roles and objects outside Terraform.
+     */
+    public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
+    /**
      * The privilege to grant on the account.
      */
     public readonly privilege!: pulumi.Output<string | undefined>;
@@ -83,11 +88,13 @@ export class AccountGrant extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountGrantState | undefined;
+            resourceInputs["enableMultipleGrants"] = state ? state.enableMultipleGrants : undefined;
             resourceInputs["privilege"] = state ? state.privilege : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
             resourceInputs["withGrantOption"] = state ? state.withGrantOption : undefined;
         } else {
             const args = argsOrState as AccountGrantArgs | undefined;
+            resourceInputs["enableMultipleGrants"] = args ? args.enableMultipleGrants : undefined;
             resourceInputs["privilege"] = args ? args.privilege : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
             resourceInputs["withGrantOption"] = args ? args.withGrantOption : undefined;
@@ -101,6 +108,11 @@ export class AccountGrant extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AccountGrant resources.
  */
 export interface AccountGrantState {
+    /**
+     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+     * grants applied to roles and objects outside Terraform.
+     */
+    enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * The privilege to grant on the account.
      */
@@ -119,6 +131,11 @@ export interface AccountGrantState {
  * The set of arguments for constructing a AccountGrant resource.
  */
 export interface AccountGrantArgs {
+    /**
+     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+     * grants applied to roles and objects outside Terraform.
+     */
+    enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * The privilege to grant on the account.
      */

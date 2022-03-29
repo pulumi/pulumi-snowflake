@@ -70,6 +70,11 @@ export class MaterializedViewGrant extends pulumi.CustomResource {
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
+     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+     * grants applied to roles and objects outside Terraform.
+     */
+    public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the materialized view on which to grant privileges immediately (only valid if onFuture is false).
      */
     public readonly materializedViewName!: pulumi.Output<string | undefined>;
@@ -112,6 +117,7 @@ export class MaterializedViewGrant extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as MaterializedViewGrantState | undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["enableMultipleGrants"] = state ? state.enableMultipleGrants : undefined;
             resourceInputs["materializedViewName"] = state ? state.materializedViewName : undefined;
             resourceInputs["onFuture"] = state ? state.onFuture : undefined;
             resourceInputs["privilege"] = state ? state.privilege : undefined;
@@ -125,6 +131,7 @@ export class MaterializedViewGrant extends pulumi.CustomResource {
                 throw new Error("Missing required property 'databaseName'");
             }
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["enableMultipleGrants"] = args ? args.enableMultipleGrants : undefined;
             resourceInputs["materializedViewName"] = args ? args.materializedViewName : undefined;
             resourceInputs["onFuture"] = args ? args.onFuture : undefined;
             resourceInputs["privilege"] = args ? args.privilege : undefined;
@@ -146,6 +153,11 @@ export interface MaterializedViewGrantState {
      * The name of the database containing the current or future materialized views on which to grant privileges.
      */
     databaseName?: pulumi.Input<string>;
+    /**
+     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+     * grants applied to roles and objects outside Terraform.
+     */
+    enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * The name of the materialized view on which to grant privileges immediately (only valid if onFuture is false).
      */
@@ -184,6 +196,11 @@ export interface MaterializedViewGrantArgs {
      * The name of the database containing the current or future materialized views on which to grant privileges.
      */
     databaseName: pulumi.Input<string>;
+    /**
+     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+     * grants applied to roles and objects outside Terraform.
+     */
+    enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * The name of the materialized view on which to grant privileges immediately (only valid if onFuture is false).
      */

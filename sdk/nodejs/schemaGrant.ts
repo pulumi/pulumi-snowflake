@@ -69,6 +69,11 @@ export class SchemaGrant extends pulumi.CustomResource {
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
+     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+     * grants applied to roles and objects outside Terraform.
+     */
+    public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
+    /**
      * When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
      */
     public readonly onFuture!: pulumi.Output<boolean | undefined>;
@@ -108,6 +113,7 @@ export class SchemaGrant extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SchemaGrantState | undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["enableMultipleGrants"] = state ? state.enableMultipleGrants : undefined;
             resourceInputs["onFuture"] = state ? state.onFuture : undefined;
             resourceInputs["privilege"] = state ? state.privilege : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
@@ -120,6 +126,7 @@ export class SchemaGrant extends pulumi.CustomResource {
                 throw new Error("Missing required property 'databaseName'");
             }
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["enableMultipleGrants"] = args ? args.enableMultipleGrants : undefined;
             resourceInputs["onFuture"] = args ? args.onFuture : undefined;
             resourceInputs["privilege"] = args ? args.privilege : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
@@ -140,6 +147,11 @@ export interface SchemaGrantState {
      * The name of the database containing the schema on which to grant privileges.
      */
     databaseName?: pulumi.Input<string>;
+    /**
+     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+     * grants applied to roles and objects outside Terraform.
+     */
+    enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
      */
@@ -175,6 +187,11 @@ export interface SchemaGrantArgs {
      * The name of the database containing the schema on which to grant privileges.
      */
     databaseName: pulumi.Input<string>;
+    /**
+     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+     * grants applied to roles and objects outside Terraform.
+     */
+    enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
      */

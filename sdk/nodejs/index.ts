@@ -62,6 +62,7 @@ export * from "./resourceMonitor";
 export * from "./resourceMonitorGrant";
 export * from "./role";
 export * from "./roleGrants";
+export * from "./roleOwnershipGrant";
 export * from "./rowAccessPolicy";
 export * from "./rowAccessPolicyGrant";
 export * from "./samlIntegration";
@@ -128,6 +129,7 @@ import { ResourceMonitor } from "./resourceMonitor";
 import { ResourceMonitorGrant } from "./resourceMonitorGrant";
 import { Role } from "./role";
 import { RoleGrants } from "./roleGrants";
+import { RoleOwnershipGrant } from "./roleOwnershipGrant";
 import { RowAccessPolicy } from "./rowAccessPolicy";
 import { RowAccessPolicyGrant } from "./rowAccessPolicyGrant";
 import { SamlIntegration } from "./samlIntegration";
@@ -218,6 +220,8 @@ const _module = {
                 return new Role(name, <any>undefined, { urn })
             case "snowflake:index/roleGrants:RoleGrants":
                 return new RoleGrants(name, <any>undefined, { urn })
+            case "snowflake:index/roleOwnershipGrant:RoleOwnershipGrant":
+                return new RoleOwnershipGrant(name, <any>undefined, { urn })
             case "snowflake:index/rowAccessPolicy:RowAccessPolicy":
                 return new RowAccessPolicy(name, <any>undefined, { urn })
             case "snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant":
@@ -303,6 +307,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/resourceMonitor", _mod
 pulumi.runtime.registerResourceModule("snowflake", "index/resourceMonitorGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/role", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/roleGrants", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/roleOwnershipGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/rowAccessPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/rowAccessPolicyGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/samlIntegration", _module)

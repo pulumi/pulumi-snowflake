@@ -20,6 +20,13 @@ namespace Pulumi.Snowflake
     public partial class ResourceMonitorGrant : Pulumi.CustomResource
     {
         /// <summary>
+        /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        /// grants applied to roles and objects outside Terraform.
+        /// </summary>
+        [Output("enableMultipleGrants")]
+        public Output<bool?> EnableMultipleGrants { get; private set; } = null!;
+
+        /// <summary>
         /// Identifier for the resource monitor; must be unique for your account.
         /// </summary>
         [Output("monitorName")]
@@ -90,6 +97,13 @@ namespace Pulumi.Snowflake
     public sealed class ResourceMonitorGrantArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        /// grants applied to roles and objects outside Terraform.
+        /// </summary>
+        [Input("enableMultipleGrants")]
+        public Input<bool>? EnableMultipleGrants { get; set; }
+
+        /// <summary>
         /// Identifier for the resource monitor; must be unique for your account.
         /// </summary>
         [Input("monitorName", required: true)]
@@ -126,6 +140,13 @@ namespace Pulumi.Snowflake
 
     public sealed class ResourceMonitorGrantState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        /// grants applied to roles and objects outside Terraform.
+        /// </summary>
+        [Input("enableMultipleGrants")]
+        public Input<bool>? EnableMultipleGrants { get; set; }
+
         /// <summary>
         /// Identifier for the resource monitor; must be unique for your account.
         /// </summary>

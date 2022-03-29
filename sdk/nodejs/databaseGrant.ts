@@ -67,6 +67,11 @@ export class DatabaseGrant extends pulumi.CustomResource {
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
+     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+     * grants applied to roles and objects outside Terraform.
+     */
+    public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
+    /**
      * The privilege to grant on the database.
      */
     public readonly privilege!: pulumi.Output<string | undefined>;
@@ -97,6 +102,7 @@ export class DatabaseGrant extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DatabaseGrantState | undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["enableMultipleGrants"] = state ? state.enableMultipleGrants : undefined;
             resourceInputs["privilege"] = state ? state.privilege : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
             resourceInputs["shares"] = state ? state.shares : undefined;
@@ -107,6 +113,7 @@ export class DatabaseGrant extends pulumi.CustomResource {
                 throw new Error("Missing required property 'databaseName'");
             }
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["enableMultipleGrants"] = args ? args.enableMultipleGrants : undefined;
             resourceInputs["privilege"] = args ? args.privilege : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
             resourceInputs["shares"] = args ? args.shares : undefined;
@@ -125,6 +132,11 @@ export interface DatabaseGrantState {
      * The name of the database on which to grant privileges.
      */
     databaseName?: pulumi.Input<string>;
+    /**
+     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+     * grants applied to roles and objects outside Terraform.
+     */
+    enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * The privilege to grant on the database.
      */
@@ -151,6 +163,11 @@ export interface DatabaseGrantArgs {
      * The name of the database on which to grant privileges.
      */
     databaseName: pulumi.Input<string>;
+    /**
+     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+     * grants applied to roles and objects outside Terraform.
+     */
+    enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * The privilege to grant on the database.
      */

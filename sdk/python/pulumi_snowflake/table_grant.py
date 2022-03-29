@@ -14,6 +14,7 @@ __all__ = ['TableGrantArgs', 'TableGrant']
 class TableGrantArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
+                 enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -24,6 +25,8 @@ class TableGrantArgs:
         """
         The set of arguments for constructing a TableGrant resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future tables on which to grant privileges.
+        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
@@ -33,6 +36,8 @@ class TableGrantArgs:
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
         pulumi.set(__self__, "database_name", database_name)
+        if enable_multiple_grants is not None:
+            pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
         if on_future is not None:
             pulumi.set(__self__, "on_future", on_future)
         if privilege is not None:
@@ -59,6 +64,19 @@ class TableGrantArgs:
     @database_name.setter
     def database_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="enableMultipleGrants")
+    def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        grants applied to roles and objects outside Terraform.
+        """
+        return pulumi.get(self, "enable_multiple_grants")
+
+    @enable_multiple_grants.setter
+    def enable_multiple_grants(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_multiple_grants", value)
 
     @property
     @pulumi.getter(name="onFuture")
@@ -149,6 +167,7 @@ class TableGrantArgs:
 class _TableGrantState:
     def __init__(__self__, *,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -159,6 +178,8 @@ class _TableGrantState:
         """
         Input properties used for looking up and filtering TableGrant resources.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future tables on which to grant privileges.
+        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
@@ -169,6 +190,8 @@ class _TableGrantState:
         """
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
+        if enable_multiple_grants is not None:
+            pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
         if on_future is not None:
             pulumi.set(__self__, "on_future", on_future)
         if privilege is not None:
@@ -195,6 +218,19 @@ class _TableGrantState:
     @database_name.setter
     def database_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="enableMultipleGrants")
+    def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        grants applied to roles and objects outside Terraform.
+        """
+        return pulumi.get(self, "enable_multiple_grants")
+
+    @enable_multiple_grants.setter
+    def enable_multiple_grants(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_multiple_grants", value)
 
     @property
     @pulumi.getter(name="onFuture")
@@ -287,6 +323,7 @@ class TableGrant(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -324,6 +361,8 @@ class TableGrant(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future tables on which to grant privileges.
+        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
@@ -380,6 +419,7 @@ class TableGrant(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -402,6 +442,7 @@ class TableGrant(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
+            __props__.__dict__["enable_multiple_grants"] = enable_multiple_grants
             __props__.__dict__["on_future"] = on_future
             __props__.__dict__["privilege"] = privilege
             __props__.__dict__["roles"] = roles
@@ -420,6 +461,7 @@ class TableGrant(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             database_name: Optional[pulumi.Input[str]] = None,
+            enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
             on_future: Optional[pulumi.Input[bool]] = None,
             privilege: Optional[pulumi.Input[str]] = None,
             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -435,6 +477,8 @@ class TableGrant(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future tables on which to grant privileges.
+        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
@@ -448,6 +492,7 @@ class TableGrant(pulumi.CustomResource):
         __props__ = _TableGrantState.__new__(_TableGrantState)
 
         __props__.__dict__["database_name"] = database_name
+        __props__.__dict__["enable_multiple_grants"] = enable_multiple_grants
         __props__.__dict__["on_future"] = on_future
         __props__.__dict__["privilege"] = privilege
         __props__.__dict__["roles"] = roles
@@ -464,6 +509,15 @@ class TableGrant(pulumi.CustomResource):
         The name of the database containing the current or future tables on which to grant privileges.
         """
         return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="enableMultipleGrants")
+    def enable_multiple_grants(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        grants applied to roles and objects outside Terraform.
+        """
+        return pulumi.get(self, "enable_multiple_grants")
 
     @property
     @pulumi.getter(name="onFuture")
