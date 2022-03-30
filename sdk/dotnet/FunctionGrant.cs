@@ -78,6 +78,13 @@ namespace Pulumi.Snowflake
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
+        /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        /// grants applied to roles and objects outside Terraform.
+        /// </summary>
+        [Output("enableMultipleGrants")]
+        public Output<bool?> EnableMultipleGrants { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the function on which to grant privileges immediately (only valid if on_future is false).
         /// </summary>
         [Output("functionName")]
@@ -190,6 +197,13 @@ namespace Pulumi.Snowflake
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
+        /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        /// grants applied to roles and objects outside Terraform.
+        /// </summary>
+        [Input("enableMultipleGrants")]
+        public Input<bool>? EnableMultipleGrants { get; set; }
+
+        /// <summary>
         /// The name of the function on which to grant privileges immediately (only valid if on_future is false).
         /// </summary>
         [Input("functionName")]
@@ -273,6 +287,13 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
+
+        /// <summary>
+        /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        /// grants applied to roles and objects outside Terraform.
+        /// </summary>
+        [Input("enableMultipleGrants")]
+        public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
         /// The name of the function on which to grant privileges immediately (only valid if on_future is false).

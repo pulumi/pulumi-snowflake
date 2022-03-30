@@ -62,6 +62,7 @@ from .resource_monitor import *
 from .resource_monitor_grant import *
 from .role import *
 from .role_grants import *
+from .role_ownership_grant import *
 from .row_access_policy import *
 from .row_access_policy_grant import *
 from .saml_integration import *
@@ -338,6 +339,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/roleGrants:RoleGrants": "RoleGrants"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/roleOwnershipGrant",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/roleOwnershipGrant:RoleOwnershipGrant": "RoleOwnershipGrant"
   }
  },
  {

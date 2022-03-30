@@ -50,6 +50,9 @@ import (
 type IntegrationGrant struct {
 	pulumi.CustomResourceState
 
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// Identifier for the integration; must be unique for your account.
 	IntegrationName pulumi.StringOutput `pulumi:"integrationName"`
 	// The privilege to grant on the integration.
@@ -92,6 +95,9 @@ func GetIntegrationGrant(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationGrant resources.
 type integrationGrantState struct {
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// Identifier for the integration; must be unique for your account.
 	IntegrationName *string `pulumi:"integrationName"`
 	// The privilege to grant on the integration.
@@ -103,6 +109,9 @@ type integrationGrantState struct {
 }
 
 type IntegrationGrantState struct {
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrInput
 	// Identifier for the integration; must be unique for your account.
 	IntegrationName pulumi.StringPtrInput
 	// The privilege to grant on the integration.
@@ -118,6 +127,9 @@ func (IntegrationGrantState) ElementType() reflect.Type {
 }
 
 type integrationGrantArgs struct {
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// Identifier for the integration; must be unique for your account.
 	IntegrationName string `pulumi:"integrationName"`
 	// The privilege to grant on the integration.
@@ -130,6 +142,9 @@ type integrationGrantArgs struct {
 
 // The set of arguments for constructing a IntegrationGrant resource.
 type IntegrationGrantArgs struct {
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrInput
 	// Identifier for the integration; must be unique for your account.
 	IntegrationName pulumi.StringInput
 	// The privilege to grant on the integration.

@@ -16,6 +16,7 @@ class MaskingPolicyGrantArgs:
                  database_name: pulumi.Input[str],
                  masking_policy_name: pulumi.Input[str],
                  schema_name: pulumi.Input[str],
+                 enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
@@ -24,6 +25,8 @@ class MaskingPolicyGrantArgs:
         :param pulumi.Input[str] database_name: The name of the database containing the masking policy on which to grant privileges.
         :param pulumi.Input[str] masking_policy_name: The name of the masking policy on which to grant privileges immediately.
         :param pulumi.Input[str] schema_name: The name of the schema containing the masking policy on which to grant privileges.
+        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] privilege: The privilege to grant on the masking policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -31,6 +34,8 @@ class MaskingPolicyGrantArgs:
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "masking_policy_name", masking_policy_name)
         pulumi.set(__self__, "schema_name", schema_name)
+        if enable_multiple_grants is not None:
+            pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
         if privilege is not None:
             pulumi.set(__self__, "privilege", privilege)
         if roles is not None:
@@ -75,6 +80,19 @@ class MaskingPolicyGrantArgs:
         pulumi.set(self, "schema_name", value)
 
     @property
+    @pulumi.getter(name="enableMultipleGrants")
+    def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        grants applied to roles and objects outside Terraform.
+        """
+        return pulumi.get(self, "enable_multiple_grants")
+
+    @enable_multiple_grants.setter
+    def enable_multiple_grants(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_multiple_grants", value)
+
+    @property
     @pulumi.getter
     def privilege(self) -> Optional[pulumi.Input[str]]:
         """
@@ -115,6 +133,7 @@ class MaskingPolicyGrantArgs:
 class _MaskingPolicyGrantState:
     def __init__(__self__, *,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  masking_policy_name: Optional[pulumi.Input[str]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -123,6 +142,8 @@ class _MaskingPolicyGrantState:
         """
         Input properties used for looking up and filtering MaskingPolicyGrant resources.
         :param pulumi.Input[str] database_name: The name of the database containing the masking policy on which to grant privileges.
+        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] masking_policy_name: The name of the masking policy on which to grant privileges immediately.
         :param pulumi.Input[str] privilege: The privilege to grant on the masking policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
@@ -131,6 +152,8 @@ class _MaskingPolicyGrantState:
         """
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
+        if enable_multiple_grants is not None:
+            pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
         if masking_policy_name is not None:
             pulumi.set(__self__, "masking_policy_name", masking_policy_name)
         if privilege is not None:
@@ -153,6 +176,19 @@ class _MaskingPolicyGrantState:
     @database_name.setter
     def database_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="enableMultipleGrants")
+    def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        grants applied to roles and objects outside Terraform.
+        """
+        return pulumi.get(self, "enable_multiple_grants")
+
+    @enable_multiple_grants.setter
+    def enable_multiple_grants(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_multiple_grants", value)
 
     @property
     @pulumi.getter(name="maskingPolicyName")
@@ -221,6 +257,7 @@ class MaskingPolicyGrant(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  masking_policy_name: Optional[pulumi.Input[str]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -232,6 +269,8 @@ class MaskingPolicyGrant(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the masking policy on which to grant privileges.
+        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] masking_policy_name: The name of the masking policy on which to grant privileges immediately.
         :param pulumi.Input[str] privilege: The privilege to grant on the masking policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
@@ -262,6 +301,7 @@ class MaskingPolicyGrant(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  masking_policy_name: Optional[pulumi.Input[str]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -282,6 +322,7 @@ class MaskingPolicyGrant(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
+            __props__.__dict__["enable_multiple_grants"] = enable_multiple_grants
             if masking_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'masking_policy_name'")
             __props__.__dict__["masking_policy_name"] = masking_policy_name
@@ -302,6 +343,7 @@ class MaskingPolicyGrant(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             database_name: Optional[pulumi.Input[str]] = None,
+            enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
             masking_policy_name: Optional[pulumi.Input[str]] = None,
             privilege: Optional[pulumi.Input[str]] = None,
             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -315,6 +357,8 @@ class MaskingPolicyGrant(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the masking policy on which to grant privileges.
+        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] masking_policy_name: The name of the masking policy on which to grant privileges immediately.
         :param pulumi.Input[str] privilege: The privilege to grant on the masking policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
@@ -326,6 +370,7 @@ class MaskingPolicyGrant(pulumi.CustomResource):
         __props__ = _MaskingPolicyGrantState.__new__(_MaskingPolicyGrantState)
 
         __props__.__dict__["database_name"] = database_name
+        __props__.__dict__["enable_multiple_grants"] = enable_multiple_grants
         __props__.__dict__["masking_policy_name"] = masking_policy_name
         __props__.__dict__["privilege"] = privilege
         __props__.__dict__["roles"] = roles
@@ -340,6 +385,15 @@ class MaskingPolicyGrant(pulumi.CustomResource):
         The name of the database containing the masking policy on which to grant privileges.
         """
         return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="enableMultipleGrants")
+    def enable_multiple_grants(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        grants applied to roles and objects outside Terraform.
+        """
+        return pulumi.get(self, "enable_multiple_grants")
 
     @property
     @pulumi.getter(name="maskingPolicyName")

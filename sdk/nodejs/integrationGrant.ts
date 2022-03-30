@@ -59,6 +59,11 @@ export class IntegrationGrant extends pulumi.CustomResource {
     }
 
     /**
+     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+     * grants applied to roles and objects outside Terraform.
+     */
+    public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
+    /**
      * Identifier for the integration; must be unique for your account.
      */
     public readonly integrationName!: pulumi.Output<string>;
@@ -88,6 +93,7 @@ export class IntegrationGrant extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationGrantState | undefined;
+            resourceInputs["enableMultipleGrants"] = state ? state.enableMultipleGrants : undefined;
             resourceInputs["integrationName"] = state ? state.integrationName : undefined;
             resourceInputs["privilege"] = state ? state.privilege : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
@@ -97,6 +103,7 @@ export class IntegrationGrant extends pulumi.CustomResource {
             if ((!args || args.integrationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationName'");
             }
+            resourceInputs["enableMultipleGrants"] = args ? args.enableMultipleGrants : undefined;
             resourceInputs["integrationName"] = args ? args.integrationName : undefined;
             resourceInputs["privilege"] = args ? args.privilege : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
@@ -111,6 +118,11 @@ export class IntegrationGrant extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IntegrationGrant resources.
  */
 export interface IntegrationGrantState {
+    /**
+     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+     * grants applied to roles and objects outside Terraform.
+     */
+    enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * Identifier for the integration; must be unique for your account.
      */
@@ -133,6 +145,11 @@ export interface IntegrationGrantState {
  * The set of arguments for constructing a IntegrationGrant resource.
  */
 export interface IntegrationGrantArgs {
+    /**
+     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+     * grants applied to roles and objects outside Terraform.
+     */
+    enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * Identifier for the integration; must be unique for your account.
      */

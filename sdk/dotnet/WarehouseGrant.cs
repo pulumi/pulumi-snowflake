@@ -47,6 +47,13 @@ namespace Pulumi.Snowflake
     public partial class WarehouseGrant : Pulumi.CustomResource
     {
         /// <summary>
+        /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        /// grants applied to roles and objects outside Terraform.
+        /// </summary>
+        [Output("enableMultipleGrants")]
+        public Output<bool?> EnableMultipleGrants { get; private set; } = null!;
+
+        /// <summary>
         /// The privilege to grant on the warehouse.
         /// </summary>
         [Output("privilege")]
@@ -117,6 +124,13 @@ namespace Pulumi.Snowflake
     public sealed class WarehouseGrantArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        /// grants applied to roles and objects outside Terraform.
+        /// </summary>
+        [Input("enableMultipleGrants")]
+        public Input<bool>? EnableMultipleGrants { get; set; }
+
+        /// <summary>
         /// The privilege to grant on the warehouse.
         /// </summary>
         [Input("privilege")]
@@ -153,6 +167,13 @@ namespace Pulumi.Snowflake
 
     public sealed class WarehouseGrantState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        /// grants applied to roles and objects outside Terraform.
+        /// </summary>
+        [Input("enableMultipleGrants")]
+        public Input<bool>? EnableMultipleGrants { get; set; }
+
         /// <summary>
         /// The privilege to grant on the warehouse.
         /// </summary>

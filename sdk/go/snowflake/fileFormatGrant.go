@@ -55,6 +55,9 @@ type FileFormatGrant struct {
 
 	// The name of the database containing the current or future file formats on which to grant privileges.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// The name of the file format on which to grant privileges immediately (only valid if onFuture is false).
 	FileFormatName pulumi.StringPtrOutput `pulumi:"fileFormatName"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
@@ -106,6 +109,9 @@ func GetFileFormatGrant(ctx *pulumi.Context,
 type fileFormatGrantState struct {
 	// The name of the database containing the current or future file formats on which to grant privileges.
 	DatabaseName *string `pulumi:"databaseName"`
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// The name of the file format on which to grant privileges immediately (only valid if onFuture is false).
 	FileFormatName *string `pulumi:"fileFormatName"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
@@ -123,6 +129,9 @@ type fileFormatGrantState struct {
 type FileFormatGrantState struct {
 	// The name of the database containing the current or future file formats on which to grant privileges.
 	DatabaseName pulumi.StringPtrInput
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrInput
 	// The name of the file format on which to grant privileges immediately (only valid if onFuture is false).
 	FileFormatName pulumi.StringPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
@@ -144,6 +153,9 @@ func (FileFormatGrantState) ElementType() reflect.Type {
 type fileFormatGrantArgs struct {
 	// The name of the database containing the current or future file formats on which to grant privileges.
 	DatabaseName string `pulumi:"databaseName"`
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// The name of the file format on which to grant privileges immediately (only valid if onFuture is false).
 	FileFormatName *string `pulumi:"fileFormatName"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
@@ -162,6 +174,9 @@ type fileFormatGrantArgs struct {
 type FileFormatGrantArgs struct {
 	// The name of the database containing the current or future file formats on which to grant privileges.
 	DatabaseName pulumi.StringInput
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrInput
 	// The name of the file format on which to grant privileges immediately (only valid if onFuture is false).
 	FileFormatName pulumi.StringPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.

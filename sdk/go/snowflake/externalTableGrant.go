@@ -59,6 +59,9 @@ type ExternalTableGrant struct {
 
 	// The name of the database containing the current or future external tables on which to grant privileges.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// The name of the external table on which to grant privileges immediately (only valid if onFuture is false).
 	ExternalTableName pulumi.StringPtrOutput `pulumi:"externalTableName"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
@@ -112,6 +115,9 @@ func GetExternalTableGrant(ctx *pulumi.Context,
 type externalTableGrantState struct {
 	// The name of the database containing the current or future external tables on which to grant privileges.
 	DatabaseName *string `pulumi:"databaseName"`
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// The name of the external table on which to grant privileges immediately (only valid if onFuture is false).
 	ExternalTableName *string `pulumi:"externalTableName"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
@@ -131,6 +137,9 @@ type externalTableGrantState struct {
 type ExternalTableGrantState struct {
 	// The name of the database containing the current or future external tables on which to grant privileges.
 	DatabaseName pulumi.StringPtrInput
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrInput
 	// The name of the external table on which to grant privileges immediately (only valid if onFuture is false).
 	ExternalTableName pulumi.StringPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
@@ -154,6 +163,9 @@ func (ExternalTableGrantState) ElementType() reflect.Type {
 type externalTableGrantArgs struct {
 	// The name of the database containing the current or future external tables on which to grant privileges.
 	DatabaseName string `pulumi:"databaseName"`
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// The name of the external table on which to grant privileges immediately (only valid if onFuture is false).
 	ExternalTableName *string `pulumi:"externalTableName"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
@@ -174,6 +186,9 @@ type externalTableGrantArgs struct {
 type ExternalTableGrantArgs struct {
 	// The name of the database containing the current or future external tables on which to grant privileges.
 	DatabaseName pulumi.StringInput
+	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+	// grants applied to roles and objects outside Terraform.
+	EnableMultipleGrants pulumi.BoolPtrInput
 	// The name of the external table on which to grant privileges immediately (only valid if onFuture is false).
 	ExternalTableName pulumi.StringPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.

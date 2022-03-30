@@ -14,17 +14,22 @@ __all__ = ['IntegrationGrantArgs', 'IntegrationGrant']
 class IntegrationGrantArgs:
     def __init__(__self__, *,
                  integration_name: pulumi.Input[str],
+                 enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a IntegrationGrant resource.
         :param pulumi.Input[str] integration_name: Identifier for the integration; must be unique for your account.
+        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] privilege: The privilege to grant on the integration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
         pulumi.set(__self__, "integration_name", integration_name)
+        if enable_multiple_grants is not None:
+            pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
         if privilege is not None:
             pulumi.set(__self__, "privilege", privilege)
         if roles is not None:
@@ -43,6 +48,19 @@ class IntegrationGrantArgs:
     @integration_name.setter
     def integration_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "integration_name", value)
+
+    @property
+    @pulumi.getter(name="enableMultipleGrants")
+    def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        grants applied to roles and objects outside Terraform.
+        """
+        return pulumi.get(self, "enable_multiple_grants")
+
+    @enable_multiple_grants.setter
+    def enable_multiple_grants(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_multiple_grants", value)
 
     @property
     @pulumi.getter
@@ -84,17 +102,22 @@ class IntegrationGrantArgs:
 @pulumi.input_type
 class _IntegrationGrantState:
     def __init__(__self__, *,
+                 enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  integration_name: Optional[pulumi.Input[str]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering IntegrationGrant resources.
+        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] integration_name: Identifier for the integration; must be unique for your account.
         :param pulumi.Input[str] privilege: The privilege to grant on the integration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
+        if enable_multiple_grants is not None:
+            pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
         if integration_name is not None:
             pulumi.set(__self__, "integration_name", integration_name)
         if privilege is not None:
@@ -103,6 +126,19 @@ class _IntegrationGrantState:
             pulumi.set(__self__, "roles", roles)
         if with_grant_option is not None:
             pulumi.set(__self__, "with_grant_option", with_grant_option)
+
+    @property
+    @pulumi.getter(name="enableMultipleGrants")
+    def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        grants applied to roles and objects outside Terraform.
+        """
+        return pulumi.get(self, "enable_multiple_grants")
+
+    @enable_multiple_grants.setter
+    def enable_multiple_grants(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_multiple_grants", value)
 
     @property
     @pulumi.getter(name="integrationName")
@@ -158,6 +194,7 @@ class IntegrationGrant(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  integration_name: Optional[pulumi.Input[str]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -190,6 +227,8 @@ class IntegrationGrant(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] integration_name: Identifier for the integration; must be unique for your account.
         :param pulumi.Input[str] privilege: The privilege to grant on the integration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
@@ -241,6 +280,7 @@ class IntegrationGrant(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  integration_name: Optional[pulumi.Input[str]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -257,6 +297,7 @@ class IntegrationGrant(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IntegrationGrantArgs.__new__(IntegrationGrantArgs)
 
+            __props__.__dict__["enable_multiple_grants"] = enable_multiple_grants
             if integration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_name'")
             __props__.__dict__["integration_name"] = integration_name
@@ -273,6 +314,7 @@ class IntegrationGrant(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
             integration_name: Optional[pulumi.Input[str]] = None,
             privilege: Optional[pulumi.Input[str]] = None,
             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -284,6 +326,8 @@ class IntegrationGrant(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] integration_name: Identifier for the integration; must be unique for your account.
         :param pulumi.Input[str] privilege: The privilege to grant on the integration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
@@ -293,11 +337,21 @@ class IntegrationGrant(pulumi.CustomResource):
 
         __props__ = _IntegrationGrantState.__new__(_IntegrationGrantState)
 
+        __props__.__dict__["enable_multiple_grants"] = enable_multiple_grants
         __props__.__dict__["integration_name"] = integration_name
         __props__.__dict__["privilege"] = privilege
         __props__.__dict__["roles"] = roles
         __props__.__dict__["with_grant_option"] = with_grant_option
         return IntegrationGrant(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="enableMultipleGrants")
+    def enable_multiple_grants(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+        grants applied to roles and objects outside Terraform.
+        """
+        return pulumi.get(self, "enable_multiple_grants")
 
     @property
     @pulumi.getter(name="integrationName")
