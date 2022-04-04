@@ -26,6 +26,10 @@ export class Provider extends pulumi.ProviderResource {
     }
 
     public readonly account!: pulumi.Output<string>;
+    /**
+     * Supports passing in a custom host value to the snowflake go driver for use with privatelink
+     */
+    public readonly host!: pulumi.Output<string | undefined>;
     public readonly oauthAccessToken!: pulumi.Output<string | undefined>;
     public readonly oauthClientId!: pulumi.Output<string | undefined>;
     public readonly oauthClientSecret!: pulumi.Output<string | undefined>;
@@ -66,6 +70,7 @@ export class Provider extends pulumi.ProviderResource {
             }
             resourceInputs["account"] = args ? args.account : undefined;
             resourceInputs["browserAuth"] = pulumi.output(args ? args.browserAuth : undefined).apply(JSON.stringify);
+            resourceInputs["host"] = args ? args.host : undefined;
             resourceInputs["oauthAccessToken"] = args ? args.oauthAccessToken : undefined;
             resourceInputs["oauthClientId"] = args ? args.oauthClientId : undefined;
             resourceInputs["oauthClientSecret"] = args ? args.oauthClientSecret : undefined;
@@ -91,6 +96,10 @@ export class Provider extends pulumi.ProviderResource {
 export interface ProviderArgs {
     account: pulumi.Input<string>;
     browserAuth?: pulumi.Input<boolean>;
+    /**
+     * Supports passing in a custom host value to the snowflake go driver for use with privatelink
+     */
+    host?: pulumi.Input<string>;
     oauthAccessToken?: pulumi.Input<string>;
     oauthClientId?: pulumi.Input<string>;
     oauthClientSecret?: pulumi.Input<string>;

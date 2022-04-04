@@ -21,6 +21,12 @@ namespace Pulumi.Snowflake
         [Output("account")]
         public Output<string> Account { get; private set; } = null!;
 
+        /// <summary>
+        /// Supports passing in a custom host value to the snowflake go driver for use with privatelink
+        /// </summary>
+        [Output("host")]
+        public Output<string?> Host { get; private set; } = null!;
+
         [Output("oauthAccessToken")]
         public Output<string?> OauthAccessToken { get; private set; } = null!;
 
@@ -97,6 +103,12 @@ namespace Pulumi.Snowflake
 
         [Input("browserAuth", json: true)]
         public Input<bool>? BrowserAuth { get; set; }
+
+        /// <summary>
+        /// Supports passing in a custom host value to the snowflake go driver for use with privatelink
+        /// </summary>
+        [Input("host")]
+        public Input<string>? Host { get; set; }
 
         [Input("oauthAccessToken")]
         public Input<string>? OauthAccessToken { get; set; }

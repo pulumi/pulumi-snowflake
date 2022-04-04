@@ -20,6 +20,10 @@
             "browserAuth": {
                 "type": "boolean"
             },
+            "host": {
+                "type": "string",
+                "description": "Supports passing in a custom host value to the snowflake go driver for use with privatelink\n"
+            },
             "oauthAccessToken": {
                 "type": "string"
             },
@@ -2019,6 +2023,10 @@
             "browserAuth": {
                 "type": "boolean"
             },
+            "host": {
+                "type": "string",
+                "description": "Supports passing in a custom host value to the snowflake go driver for use with privatelink\n"
+            },
             "oauthAccessToken": {
                 "type": "string"
             },
@@ -2071,6 +2079,10 @@
             },
             "browserAuth": {
                 "type": "boolean"
+            },
+            "host": {
+                "type": "string",
+                "description": "Supports passing in a custom host value to the snowflake go driver for use with privatelink\n"
             },
             "oauthAccessToken": {
                 "type": "string"

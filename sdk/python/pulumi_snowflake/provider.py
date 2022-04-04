@@ -17,6 +17,7 @@ class ProviderArgs:
                  region: pulumi.Input[str],
                  username: pulumi.Input[str],
                  browser_auth: Optional[pulumi.Input[bool]] = None,
+                 host: Optional[pulumi.Input[str]] = None,
                  oauth_access_token: Optional[pulumi.Input[str]] = None,
                  oauth_client_id: Optional[pulumi.Input[str]] = None,
                  oauth_client_secret: Optional[pulumi.Input[str]] = None,
@@ -30,6 +31,7 @@ class ProviderArgs:
                  role: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
+        :param pulumi.Input[str] host: Supports passing in a custom host value to the snowflake go driver for use with privatelink
         :param pulumi.Input[str] private_key_passphrase: Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
                des-ede3-cbc
         """
@@ -38,6 +40,8 @@ class ProviderArgs:
         pulumi.set(__self__, "username", username)
         if browser_auth is not None:
             pulumi.set(__self__, "browser_auth", browser_auth)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
         if oauth_access_token is not None:
             pulumi.set(__self__, "oauth_access_token", oauth_access_token)
         if oauth_client_id is not None:
@@ -96,6 +100,18 @@ class ProviderArgs:
     @browser_auth.setter
     def browser_auth(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "browser_auth", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[pulumi.Input[str]]:
+        """
+        Supports passing in a custom host value to the snowflake go driver for use with privatelink
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host", value)
 
     @property
     @pulumi.getter(name="oauthAccessToken")
@@ -208,6 +224,7 @@ class Provider(pulumi.ProviderResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account: Optional[pulumi.Input[str]] = None,
                  browser_auth: Optional[pulumi.Input[bool]] = None,
+                 host: Optional[pulumi.Input[str]] = None,
                  oauth_access_token: Optional[pulumi.Input[str]] = None,
                  oauth_client_id: Optional[pulumi.Input[str]] = None,
                  oauth_client_secret: Optional[pulumi.Input[str]] = None,
@@ -230,6 +247,7 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] host: Supports passing in a custom host value to the snowflake go driver for use with privatelink
         :param pulumi.Input[str] private_key_passphrase: Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
                des-ede3-cbc
         """
@@ -262,6 +280,7 @@ class Provider(pulumi.ProviderResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account: Optional[pulumi.Input[str]] = None,
                  browser_auth: Optional[pulumi.Input[bool]] = None,
+                 host: Optional[pulumi.Input[str]] = None,
                  oauth_access_token: Optional[pulumi.Input[str]] = None,
                  oauth_client_id: Optional[pulumi.Input[str]] = None,
                  oauth_client_secret: Optional[pulumi.Input[str]] = None,
@@ -291,6 +310,7 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError("Missing required property 'account'")
             __props__.__dict__["account"] = account
             __props__.__dict__["browser_auth"] = pulumi.Output.from_input(browser_auth).apply(pulumi.runtime.to_json) if browser_auth is not None else None
+            __props__.__dict__["host"] = host
             __props__.__dict__["oauth_access_token"] = oauth_access_token
             __props__.__dict__["oauth_client_id"] = oauth_client_id
             __props__.__dict__["oauth_client_secret"] = oauth_client_secret
@@ -318,6 +338,14 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def account(self) -> pulumi.Output[str]:
         return pulumi.get(self, "account")
+
+    @property
+    @pulumi.getter
+    def host(self) -> pulumi.Output[Optional[str]]:
+        """
+        Supports passing in a custom host value to the snowflake go driver for use with privatelink
+        """
+        return pulumi.get(self, "host")
 
     @property
     @pulumi.getter(name="oauthAccessToken")

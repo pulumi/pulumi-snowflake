@@ -12,6 +12,11 @@ account: Optional[str]
 
 browserAuth: Optional[bool]
 
+host: Optional[str]
+"""
+Supports passing in a custom host value to the snowflake go driver for use with privatelink
+"""
+
 oauthAccessToken: Optional[str]
 
 oauthClientId: Optional[str]
