@@ -23,6 +23,13 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get_bool('browserAuth')
 
     @property
+    def host(self) -> Optional[str]:
+        """
+        Supports passing in a custom host value to the snowflake go driver for use with privatelink
+        """
+        return __config__.get('host')
+
+    @property
     def oauth_access_token(self) -> Optional[str]:
         return __config__.get('oauthAccessToken')
 

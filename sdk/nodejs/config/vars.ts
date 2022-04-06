@@ -23,6 +23,17 @@ Object.defineProperty(exports, "browserAuth", {
     enumerable: true,
 });
 
+/**
+ * Supports passing in a custom host value to the snowflake go driver for use with privatelink
+ */
+export declare const host: string | undefined;
+Object.defineProperty(exports, "host", {
+    get() {
+        return __config.get("host");
+    },
+    enumerable: true,
+});
+
 export declare const oauthAccessToken: string | undefined;
 Object.defineProperty(exports, "oauthAccessToken", {
     get() {

@@ -14,6 +14,11 @@ func GetAccount(ctx *pulumi.Context) string {
 func GetBrowserAuth(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "snowflake:browserAuth")
 }
+
+// Supports passing in a custom host value to the snowflake go driver for use with privatelink
+func GetHost(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:host")
+}
 func GetOauthAccessToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:oauthAccessToken")
 }

@@ -18,7 +18,9 @@ import (
 type Provider struct {
 	pulumi.ProviderResourceState
 
-	Account           pulumi.StringOutput    `pulumi:"account"`
+	Account pulumi.StringOutput `pulumi:"account"`
+	// Supports passing in a custom host value to the snowflake go driver for use with privatelink
+	Host              pulumi.StringPtrOutput `pulumi:"host"`
 	OauthAccessToken  pulumi.StringPtrOutput `pulumi:"oauthAccessToken"`
 	OauthClientId     pulumi.StringPtrOutput `pulumi:"oauthClientId"`
 	OauthClientSecret pulumi.StringPtrOutput `pulumi:"oauthClientSecret"`
@@ -61,8 +63,10 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	Account           string  `pulumi:"account"`
-	BrowserAuth       *bool   `pulumi:"browserAuth"`
+	Account     string `pulumi:"account"`
+	BrowserAuth *bool  `pulumi:"browserAuth"`
+	// Supports passing in a custom host value to the snowflake go driver for use with privatelink
+	Host              *string `pulumi:"host"`
 	OauthAccessToken  *string `pulumi:"oauthAccessToken"`
 	OauthClientId     *string `pulumi:"oauthClientId"`
 	OauthClientSecret *string `pulumi:"oauthClientSecret"`
@@ -82,8 +86,10 @@ type providerArgs struct {
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	Account           pulumi.StringInput
-	BrowserAuth       pulumi.BoolPtrInput
+	Account     pulumi.StringInput
+	BrowserAuth pulumi.BoolPtrInput
+	// Supports passing in a custom host value to the snowflake go driver for use with privatelink
+	Host              pulumi.StringPtrInput
 	OauthAccessToken  pulumi.StringPtrInput
 	OauthClientId     pulumi.StringPtrInput
 	OauthClientSecret pulumi.StringPtrInput

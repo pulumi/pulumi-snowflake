@@ -46,6 +46,16 @@ namespace Pulumi.Snowflake
             set => _browserAuth.Set(value);
         }
 
+        private static readonly __Value<string?> _host = new __Value<string?>(() => __config.Get("host"));
+        /// <summary>
+        /// Supports passing in a custom host value to the snowflake go driver for use with privatelink
+        /// </summary>
+        public static string? Host
+        {
+            get => _host.Get();
+            set => _host.Set(value);
+        }
+
         private static readonly __Value<string?> _oauthAccessToken = new __Value<string?>(() => __config.Get("oauthAccessToken"));
         public static string? OauthAccessToken
         {
