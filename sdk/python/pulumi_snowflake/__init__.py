@@ -29,6 +29,7 @@ from .get_materialized_views import *
 from .get_pipes import *
 from .get_procedures import *
 from .get_resource_monitors import *
+from .get_role import *
 from .get_row_access_policies import *
 from .get_schemas import *
 from .get_sequences import *
@@ -83,6 +84,7 @@ from .tag import *
 from .task import *
 from .task_grant import *
 from .user import *
+from .user_ownership_grant import *
 from .user_public_keys import *
 from .view import *
 from .view_grant import *
@@ -507,6 +509,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/user:User": "User"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/userOwnershipGrant",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/userOwnershipGrant:UserOwnershipGrant": "UserOwnershipGrant"
   }
  },
  {

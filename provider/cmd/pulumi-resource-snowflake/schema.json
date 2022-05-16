@@ -15,54 +15,68 @@
     "config": {
         "variables": {
             "account": {
-                "type": "string"
+                "type": "string",
+                "description": "The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.\n"
             },
             "browserAuth": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.\n"
             },
             "host": {
                 "type": "string",
-                "description": "Supports passing in a custom host value to the snowflake go driver for use with privatelink\n"
+                "description": "Supports passing in a custom host value to the snowflake go driver for use with privatelink.\n"
             },
             "oauthAccessToken": {
-                "type": "string"
+                "type": "string",
+                "description": "Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment\nvariable.\n"
             },
             "oauthClientId": {
-                "type": "string"
+                "type": "string",
+                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.\n"
             },
             "oauthClientSecret": {
-                "type": "string"
+                "type": "string",
+                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.\n"
             },
             "oauthEndpoint": {
-                "type": "string"
+                "type": "string",
+                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.\n"
             },
             "oauthRedirectUrl": {
-                "type": "string"
+                "type": "string",
+                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.\n"
             },
             "oauthRefreshToken": {
-                "type": "string"
+                "type": "string",
+                "description": "Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with\n`oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment\nvariable.\n"
             },
             "password": {
-                "type": "string"
+                "type": "string",
+                "description": "Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from\n`SNOWFLAKE_PASSWORD` environment variable.\n"
             },
             "privateKey": {
-                "type": "string"
+                "type": "string",
+                "description": "Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from\n`SNOWFLAKE_PRIVATE_KEY` environment variable.\n"
             },
             "privateKeyPassphrase": {
                 "type": "string",
                 "description": "Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and\ndes-ede3-cbc\n"
             },
             "privateKeyPath": {
-                "type": "string"
+                "type": "string",
+                "description": "Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or\n`password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.\n"
             },
             "region": {
-                "type": "string"
+                "type": "string",
+                "description": "[Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the\n`SNOWFLAKE_REGION` environment variable.\n"
             },
             "role": {
-                "type": "string"
+                "type": "string",
+                "description": "Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the\n`SNOWFLAKE_ROLE` environment variable.\n"
             },
             "username": {
-                "type": "string"
+                "type": "string",
+                "description": "Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.\n"
             }
         },
         "defaults": [
@@ -2018,54 +2032,68 @@
         "description": "The provider type for the snowflake package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
         "properties": {
             "account": {
-                "type": "string"
+                "type": "string",
+                "description": "The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.\n"
             },
             "browserAuth": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.\n"
             },
             "host": {
                 "type": "string",
-                "description": "Supports passing in a custom host value to the snowflake go driver for use with privatelink\n"
+                "description": "Supports passing in a custom host value to the snowflake go driver for use with privatelink.\n"
             },
             "oauthAccessToken": {
-                "type": "string"
+                "type": "string",
+                "description": "Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment\nvariable.\n"
             },
             "oauthClientId": {
-                "type": "string"
+                "type": "string",
+                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.\n"
             },
             "oauthClientSecret": {
-                "type": "string"
+                "type": "string",
+                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.\n"
             },
             "oauthEndpoint": {
-                "type": "string"
+                "type": "string",
+                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.\n"
             },
             "oauthRedirectUrl": {
-                "type": "string"
+                "type": "string",
+                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.\n"
             },
             "oauthRefreshToken": {
-                "type": "string"
+                "type": "string",
+                "description": "Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with\n`oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment\nvariable.\n"
             },
             "password": {
-                "type": "string"
+                "type": "string",
+                "description": "Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from\n`SNOWFLAKE_PASSWORD` environment variable.\n"
             },
             "privateKey": {
-                "type": "string"
+                "type": "string",
+                "description": "Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from\n`SNOWFLAKE_PRIVATE_KEY` environment variable.\n"
             },
             "privateKeyPassphrase": {
                 "type": "string",
                 "description": "Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and\ndes-ede3-cbc\n"
             },
             "privateKeyPath": {
-                "type": "string"
+                "type": "string",
+                "description": "Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or\n`password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.\n"
             },
             "region": {
-                "type": "string"
+                "type": "string",
+                "description": "[Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the\n`SNOWFLAKE_REGION` environment variable.\n"
             },
             "role": {
-                "type": "string"
+                "type": "string",
+                "description": "Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the\n`SNOWFLAKE_ROLE` environment variable.\n"
             },
             "username": {
-                "type": "string"
+                "type": "string",
+                "description": "Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.\n"
             }
         },
         "required": [
@@ -2075,54 +2103,68 @@
         ],
         "inputProperties": {
             "account": {
-                "type": "string"
+                "type": "string",
+                "description": "The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.\n"
             },
             "browserAuth": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.\n"
             },
             "host": {
                 "type": "string",
-                "description": "Supports passing in a custom host value to the snowflake go driver for use with privatelink\n"
+                "description": "Supports passing in a custom host value to the snowflake go driver for use with privatelink.\n"
             },
             "oauthAccessToken": {
-                "type": "string"
+                "type": "string",
+                "description": "Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment\nvariable.\n"
             },
             "oauthClientId": {
-                "type": "string"
+                "type": "string",
+                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.\n"
             },
             "oauthClientSecret": {
-                "type": "string"
+                "type": "string",
+                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.\n"
             },
             "oauthEndpoint": {
-                "type": "string"
+                "type": "string",
+                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.\n"
             },
             "oauthRedirectUrl": {
-                "type": "string"
+                "type": "string",
+                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.\n"
             },
             "oauthRefreshToken": {
-                "type": "string"
+                "type": "string",
+                "description": "Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with\n`oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment\nvariable.\n"
             },
             "password": {
-                "type": "string"
+                "type": "string",
+                "description": "Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from\n`SNOWFLAKE_PASSWORD` environment variable.\n"
             },
             "privateKey": {
-                "type": "string"
+                "type": "string",
+                "description": "Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from\n`SNOWFLAKE_PRIVATE_KEY` environment variable.\n"
             },
             "privateKeyPassphrase": {
                 "type": "string",
                 "description": "Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and\ndes-ede3-cbc\n"
             },
             "privateKeyPath": {
-                "type": "string"
+                "type": "string",
+                "description": "Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or\n`password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.\n"
             },
             "region": {
-                "type": "string"
+                "type": "string",
+                "description": "[Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the\n`SNOWFLAKE_REGION` environment variable.\n"
             },
             "role": {
-                "type": "string"
+                "type": "string",
+                "description": "Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the\n`SNOWFLAKE_ROLE` environment variable.\n"
             },
             "username": {
-                "type": "string"
+                "type": "string",
+                "description": "Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.\n"
             }
         },
         "requiredInputs": [
@@ -9547,6 +9589,62 @@
                 "type": "object"
             }
         },
+        "snowflake:index/userOwnershipGrant:UserOwnershipGrant": {
+            "properties": {
+                "currentGrants": {
+                    "type": "string",
+                    "description": "Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.\n"
+                },
+                "onUserName": {
+                    "type": "string",
+                    "description": "The name of the user ownership is granted on.\n"
+                },
+                "toRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.\n"
+                }
+            },
+            "required": [
+                "onUserName",
+                "toRoleName"
+            ],
+            "inputProperties": {
+                "currentGrants": {
+                    "type": "string",
+                    "description": "Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.\n"
+                },
+                "onUserName": {
+                    "type": "string",
+                    "description": "The name of the user ownership is granted on.\n"
+                },
+                "toRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.\n"
+                }
+            },
+            "requiredInputs": [
+                "onUserName",
+                "toRoleName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering UserOwnershipGrant resources.\n",
+                "properties": {
+                    "currentGrants": {
+                        "type": "string",
+                        "description": "Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.\n"
+                    },
+                    "onUserName": {
+                        "type": "string",
+                        "description": "The name of the user ownership is granted on.\n"
+                    },
+                    "toRoleName": {
+                        "type": "string",
+                        "description": "The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "snowflake:index/userPublicKeys:UserPublicKeys": {
             "properties": {
                 "name": {
@@ -10728,6 +10826,45 @@
                 "type": "object",
                 "required": [
                     "resourceMonitors",
+                    "id"
+                ]
+            }
+        },
+        "snowflake:index/getRole:getRole": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst thisRole = pulumi.output(snowflake.getRole({\n    name: \"role1\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nthis = snowflake.get_role(name=\"role1\")\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var @this = Output.Create(Snowflake.GetRole.InvokeAsync(new Snowflake.GetRoleArgs\n        {\n            Name = \"role1\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.LookupRole(ctx, \u0026GetRoleArgs{\n\t\t\tName: \"role1\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getRole.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The role for which to return metadata.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRole.\n",
+                "properties": {
+                    "comment": {
+                        "type": "string",
+                        "description": "The comment on the role\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The role for which to return metadata.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "comment",
+                    "name",
                     "id"
                 ]
             }

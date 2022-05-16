@@ -18,24 +18,47 @@ import (
 type Provider struct {
 	pulumi.ProviderResourceState
 
+	// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
 	Account pulumi.StringOutput `pulumi:"account"`
-	// Supports passing in a custom host value to the snowflake go driver for use with privatelink
-	Host              pulumi.StringPtrOutput `pulumi:"host"`
-	OauthAccessToken  pulumi.StringPtrOutput `pulumi:"oauthAccessToken"`
-	OauthClientId     pulumi.StringPtrOutput `pulumi:"oauthClientId"`
+	// Supports passing in a custom host value to the snowflake go driver for use with privatelink.
+	Host pulumi.StringPtrOutput `pulumi:"host"`
+	// Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
+	// `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
+	// variable.
+	OauthAccessToken pulumi.StringPtrOutput `pulumi:"oauthAccessToken"`
+	// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+	OauthClientId pulumi.StringPtrOutput `pulumi:"oauthClientId"`
+	// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
 	OauthClientSecret pulumi.StringPtrOutput `pulumi:"oauthClientSecret"`
-	OauthEndpoint     pulumi.StringPtrOutput `pulumi:"oauthEndpoint"`
-	OauthRedirectUrl  pulumi.StringPtrOutput `pulumi:"oauthRedirectUrl"`
+	// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
+	OauthEndpoint pulumi.StringPtrOutput `pulumi:"oauthEndpoint"`
+	// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
+	OauthRedirectUrl pulumi.StringPtrOutput `pulumi:"oauthRedirectUrl"`
+	// Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
+	// `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
+	// `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
+	// variable.
 	OauthRefreshToken pulumi.StringPtrOutput `pulumi:"oauthRefreshToken"`
-	Password          pulumi.StringPtrOutput `pulumi:"password"`
-	PrivateKey        pulumi.StringPtrOutput `pulumi:"privateKey"`
+	// Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from
+	// `SNOWFLAKE_PASSWORD` environment variable.
+	Password pulumi.StringPtrOutput `pulumi:"password"`
+	// Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
+	// `SNOWFLAKE_PRIVATE_KEY` environment variable.
+	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
 	// Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
 	// des-ede3-cbc
 	PrivateKeyPassphrase pulumi.StringPtrOutput `pulumi:"privateKeyPassphrase"`
-	PrivateKeyPath       pulumi.StringPtrOutput `pulumi:"privateKeyPath"`
-	Region               pulumi.StringOutput    `pulumi:"region"`
-	Role                 pulumi.StringPtrOutput `pulumi:"role"`
-	Username             pulumi.StringOutput    `pulumi:"username"`
+	// Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
+	// `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+	PrivateKeyPath pulumi.StringPtrOutput `pulumi:"privateKeyPath"`
+	// [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
+	// `SNOWFLAKE_REGION` environment variable.
+	Region pulumi.StringOutput `pulumi:"region"`
+	// Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the
+	// `SNOWFLAKE_ROLE` environment variable.
+	Role pulumi.StringPtrOutput `pulumi:"role"`
+	// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+	Username pulumi.StringOutput `pulumi:"username"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -63,48 +86,96 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	Account     string `pulumi:"account"`
-	BrowserAuth *bool  `pulumi:"browserAuth"`
-	// Supports passing in a custom host value to the snowflake go driver for use with privatelink
-	Host              *string `pulumi:"host"`
-	OauthAccessToken  *string `pulumi:"oauthAccessToken"`
-	OauthClientId     *string `pulumi:"oauthClientId"`
+	// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+	Account string `pulumi:"account"`
+	// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
+	BrowserAuth *bool `pulumi:"browserAuth"`
+	// Supports passing in a custom host value to the snowflake go driver for use with privatelink.
+	Host *string `pulumi:"host"`
+	// Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
+	// `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
+	// variable.
+	OauthAccessToken *string `pulumi:"oauthAccessToken"`
+	// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+	OauthClientId *string `pulumi:"oauthClientId"`
+	// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
 	OauthClientSecret *string `pulumi:"oauthClientSecret"`
-	OauthEndpoint     *string `pulumi:"oauthEndpoint"`
-	OauthRedirectUrl  *string `pulumi:"oauthRedirectUrl"`
+	// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
+	OauthEndpoint *string `pulumi:"oauthEndpoint"`
+	// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
+	OauthRedirectUrl *string `pulumi:"oauthRedirectUrl"`
+	// Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
+	// `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
+	// `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
+	// variable.
 	OauthRefreshToken *string `pulumi:"oauthRefreshToken"`
-	Password          *string `pulumi:"password"`
-	PrivateKey        *string `pulumi:"privateKey"`
+	// Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from
+	// `SNOWFLAKE_PASSWORD` environment variable.
+	Password *string `pulumi:"password"`
+	// Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
+	// `SNOWFLAKE_PRIVATE_KEY` environment variable.
+	PrivateKey *string `pulumi:"privateKey"`
 	// Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
 	// des-ede3-cbc
 	PrivateKeyPassphrase *string `pulumi:"privateKeyPassphrase"`
-	PrivateKeyPath       *string `pulumi:"privateKeyPath"`
-	Region               string  `pulumi:"region"`
-	Role                 *string `pulumi:"role"`
-	Username             string  `pulumi:"username"`
+	// Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
+	// `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+	PrivateKeyPath *string `pulumi:"privateKeyPath"`
+	// [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
+	// `SNOWFLAKE_REGION` environment variable.
+	Region string `pulumi:"region"`
+	// Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the
+	// `SNOWFLAKE_ROLE` environment variable.
+	Role *string `pulumi:"role"`
+	// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+	Username string `pulumi:"username"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	Account     pulumi.StringInput
+	// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+	Account pulumi.StringInput
+	// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
 	BrowserAuth pulumi.BoolPtrInput
-	// Supports passing in a custom host value to the snowflake go driver for use with privatelink
-	Host              pulumi.StringPtrInput
-	OauthAccessToken  pulumi.StringPtrInput
-	OauthClientId     pulumi.StringPtrInput
+	// Supports passing in a custom host value to the snowflake go driver for use with privatelink.
+	Host pulumi.StringPtrInput
+	// Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
+	// `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
+	// variable.
+	OauthAccessToken pulumi.StringPtrInput
+	// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+	OauthClientId pulumi.StringPtrInput
+	// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
 	OauthClientSecret pulumi.StringPtrInput
-	OauthEndpoint     pulumi.StringPtrInput
-	OauthRedirectUrl  pulumi.StringPtrInput
+	// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
+	OauthEndpoint pulumi.StringPtrInput
+	// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
+	OauthRedirectUrl pulumi.StringPtrInput
+	// Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
+	// `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
+	// `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
+	// variable.
 	OauthRefreshToken pulumi.StringPtrInput
-	Password          pulumi.StringPtrInput
-	PrivateKey        pulumi.StringPtrInput
+	// Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from
+	// `SNOWFLAKE_PASSWORD` environment variable.
+	Password pulumi.StringPtrInput
+	// Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
+	// `SNOWFLAKE_PRIVATE_KEY` environment variable.
+	PrivateKey pulumi.StringPtrInput
 	// Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
 	// des-ede3-cbc
 	PrivateKeyPassphrase pulumi.StringPtrInput
-	PrivateKeyPath       pulumi.StringPtrInput
-	Region               pulumi.StringInput
-	Role                 pulumi.StringPtrInput
-	Username             pulumi.StringInput
+	// Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
+	// `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+	PrivateKeyPath pulumi.StringPtrInput
+	// [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
+	// `SNOWFLAKE_REGION` environment variable.
+	Region pulumi.StringInput
+	// Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the
+	// `SNOWFLAKE_ROLE` environment variable.
+	Role pulumi.StringPtrInput
+	// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+	Username pulumi.StringInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {
