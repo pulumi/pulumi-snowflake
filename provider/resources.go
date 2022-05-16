@@ -133,6 +133,7 @@ func Provider() tfbridge.ProviderInfo {
 			"snowflake_saml_integration":           {Tok: makeResource(mainMod, "SamlIntegration")},
 			"snowflake_external_oauth_integration": {Tok: makeResource(mainMod, "ExternalOauthIntegration")},
 			"snowflake_role_ownership_grant":       {Tok: makeResource(mainMod, "RoleOwnershipGrant")},
+			"snowflake_user_ownership_grant":       {Tok: makeResource(mainMod, "UserOwnershipGrant")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"snowflake_current_account":                    {Tok: makeDataSource(mainMod, "getCurrentAccount")},
@@ -161,6 +162,7 @@ func Provider() tfbridge.ProviderInfo {
 			"snowflake_warehouses":                         {Tok: makeDataSource(mainMod, "getWarehouses")},
 			"snowflake_database":                           {Tok: makeDataSource(mainMod, "getDatabase")},
 			"snowflake_databases":                          {Tok: makeDataSource(mainMod, "getDatabases")},
+			"snowflake_role":                               {Tok: makeDataSource(mainMod, "getRole")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

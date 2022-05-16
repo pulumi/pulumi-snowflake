@@ -18,36 +18,70 @@ namespace Pulumi.Snowflake
     [SnowflakeResourceType("pulumi:providers:snowflake")]
     public partial class Provider : Pulumi.ProviderResource
     {
+        /// <summary>
+        /// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+        /// </summary>
         [Output("account")]
         public Output<string> Account { get; private set; } = null!;
 
         /// <summary>
-        /// Supports passing in a custom host value to the snowflake go driver for use with privatelink
+        /// Supports passing in a custom host value to the snowflake go driver for use with privatelink.
         /// </summary>
         [Output("host")]
         public Output<string?> Host { get; private set; } = null!;
 
+        /// <summary>
+        /// Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
+        /// `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
+        /// variable.
+        /// </summary>
         [Output("oauthAccessToken")]
         public Output<string?> OauthAccessToken { get; private set; } = null!;
 
+        /// <summary>
+        /// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+        /// </summary>
         [Output("oauthClientId")]
         public Output<string?> OauthClientId { get; private set; } = null!;
 
+        /// <summary>
+        /// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+        /// </summary>
         [Output("oauthClientSecret")]
         public Output<string?> OauthClientSecret { get; private set; } = null!;
 
+        /// <summary>
+        /// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
+        /// </summary>
         [Output("oauthEndpoint")]
         public Output<string?> OauthEndpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
+        /// </summary>
         [Output("oauthRedirectUrl")]
         public Output<string?> OauthRedirectUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
+        /// `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
+        /// `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
+        /// variable.
+        /// </summary>
         [Output("oauthRefreshToken")]
         public Output<string?> OauthRefreshToken { get; private set; } = null!;
 
+        /// <summary>
+        /// Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from
+        /// `SNOWFLAKE_PASSWORD` environment variable.
+        /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
 
+        /// <summary>
+        /// Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
+        /// `SNOWFLAKE_PRIVATE_KEY` environment variable.
+        /// </summary>
         [Output("privateKey")]
         public Output<string?> PrivateKey { get; private set; } = null!;
 
@@ -58,15 +92,30 @@ namespace Pulumi.Snowflake
         [Output("privateKeyPassphrase")]
         public Output<string?> PrivateKeyPassphrase { get; private set; } = null!;
 
+        /// <summary>
+        /// Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
+        /// `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+        /// </summary>
         [Output("privateKeyPath")]
         public Output<string?> PrivateKeyPath { get; private set; } = null!;
 
+        /// <summary>
+        /// [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
+        /// `SNOWFLAKE_REGION` environment variable.
+        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
+        /// <summary>
+        /// Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the
+        /// `SNOWFLAKE_ROLE` environment variable.
+        /// </summary>
         [Output("role")]
         public Output<string?> Role { get; private set; } = null!;
 
+        /// <summary>
+        /// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+        /// </summary>
         [Output("username")]
         public Output<string> Username { get; private set; } = null!;
 
@@ -98,39 +147,76 @@ namespace Pulumi.Snowflake
 
     public sealed class ProviderArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+        /// </summary>
         [Input("account", required: true)]
         public Input<string> Account { get; set; } = null!;
 
+        /// <summary>
+        /// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
+        /// </summary>
         [Input("browserAuth", json: true)]
         public Input<bool>? BrowserAuth { get; set; }
 
         /// <summary>
-        /// Supports passing in a custom host value to the snowflake go driver for use with privatelink
+        /// Supports passing in a custom host value to the snowflake go driver for use with privatelink.
         /// </summary>
         [Input("host")]
         public Input<string>? Host { get; set; }
 
+        /// <summary>
+        /// Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
+        /// `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
+        /// variable.
+        /// </summary>
         [Input("oauthAccessToken")]
         public Input<string>? OauthAccessToken { get; set; }
 
+        /// <summary>
+        /// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+        /// </summary>
         [Input("oauthClientId")]
         public Input<string>? OauthClientId { get; set; }
 
+        /// <summary>
+        /// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+        /// </summary>
         [Input("oauthClientSecret")]
         public Input<string>? OauthClientSecret { get; set; }
 
+        /// <summary>
+        /// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
+        /// </summary>
         [Input("oauthEndpoint")]
         public Input<string>? OauthEndpoint { get; set; }
 
+        /// <summary>
+        /// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
+        /// </summary>
         [Input("oauthRedirectUrl")]
         public Input<string>? OauthRedirectUrl { get; set; }
 
+        /// <summary>
+        /// Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
+        /// `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
+        /// `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
+        /// variable.
+        /// </summary>
         [Input("oauthRefreshToken")]
         public Input<string>? OauthRefreshToken { get; set; }
 
+        /// <summary>
+        /// Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from
+        /// `SNOWFLAKE_PASSWORD` environment variable.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
+        /// <summary>
+        /// Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
+        /// `SNOWFLAKE_PRIVATE_KEY` environment variable.
+        /// </summary>
         [Input("privateKey")]
         public Input<string>? PrivateKey { get; set; }
 
@@ -141,15 +227,30 @@ namespace Pulumi.Snowflake
         [Input("privateKeyPassphrase")]
         public Input<string>? PrivateKeyPassphrase { get; set; }
 
+        /// <summary>
+        /// Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
+        /// `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+        /// </summary>
         [Input("privateKeyPath")]
         public Input<string>? PrivateKeyPath { get; set; }
 
+        /// <summary>
+        /// [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
+        /// `SNOWFLAKE_REGION` environment variable.
+        /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 
+        /// <summary>
+        /// Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the
+        /// `SNOWFLAKE_ROLE` environment variable.
+        /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
 
+        /// <summary>
+        /// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 

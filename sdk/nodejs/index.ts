@@ -29,6 +29,7 @@ export * from "./getMaterializedViews";
 export * from "./getPipes";
 export * from "./getProcedures";
 export * from "./getResourceMonitors";
+export * from "./getRole";
 export * from "./getRowAccessPolicies";
 export * from "./getSchemas";
 export * from "./getSequences";
@@ -83,6 +84,7 @@ export * from "./tag";
 export * from "./task";
 export * from "./taskGrant";
 export * from "./user";
+export * from "./userOwnershipGrant";
 export * from "./userPublicKeys";
 export * from "./view";
 export * from "./viewGrant";
@@ -150,6 +152,7 @@ import { Tag } from "./tag";
 import { Task } from "./task";
 import { TaskGrant } from "./taskGrant";
 import { User } from "./user";
+import { UserOwnershipGrant } from "./userOwnershipGrant";
 import { UserPublicKeys } from "./userPublicKeys";
 import { View } from "./view";
 import { ViewGrant } from "./viewGrant";
@@ -262,6 +265,8 @@ const _module = {
                 return new TaskGrant(name, <any>undefined, { urn })
             case "snowflake:index/user:User":
                 return new User(name, <any>undefined, { urn })
+            case "snowflake:index/userOwnershipGrant:UserOwnershipGrant":
+                return new UserOwnershipGrant(name, <any>undefined, { urn })
             case "snowflake:index/userPublicKeys:UserPublicKeys":
                 return new UserPublicKeys(name, <any>undefined, { urn })
             case "snowflake:index/view:View":
@@ -328,6 +333,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/tag", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/task", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/taskGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/user", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/userOwnershipGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/userPublicKeys", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/view", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/viewGrant", _module)

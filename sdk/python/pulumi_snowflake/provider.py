@@ -31,9 +31,33 @@ class ProviderArgs:
                  role: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
-        :param pulumi.Input[str] host: Supports passing in a custom host value to the snowflake go driver for use with privatelink
+        :param pulumi.Input[str] account: The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+        :param pulumi.Input[str] region: [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
+               `SNOWFLAKE_REGION` environment variable.
+        :param pulumi.Input[str] username: Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+        :param pulumi.Input[bool] browser_auth: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
+        :param pulumi.Input[str] host: Supports passing in a custom host value to the snowflake go driver for use with privatelink.
+        :param pulumi.Input[str] oauth_access_token: Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
+               `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
+               variable.
+        :param pulumi.Input[str] oauth_client_id: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+        :param pulumi.Input[str] oauth_client_secret: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+        :param pulumi.Input[str] oauth_endpoint: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
+        :param pulumi.Input[str] oauth_redirect_url: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
+        :param pulumi.Input[str] oauth_refresh_token: Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
+               `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
+               `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
+               variable.
+        :param pulumi.Input[str] password: Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from
+               `SNOWFLAKE_PASSWORD` environment variable.
+        :param pulumi.Input[str] private_key: Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
+               `SNOWFLAKE_PRIVATE_KEY` environment variable.
         :param pulumi.Input[str] private_key_passphrase: Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
                des-ede3-cbc
+        :param pulumi.Input[str] private_key_path: Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
+               `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+        :param pulumi.Input[str] role: Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the
+               `SNOWFLAKE_ROLE` environment variable.
         """
         pulumi.set(__self__, "account", account)
         pulumi.set(__self__, "region", region)
@@ -68,6 +92,9 @@ class ProviderArgs:
     @property
     @pulumi.getter
     def account(self) -> pulumi.Input[str]:
+        """
+        The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+        """
         return pulumi.get(self, "account")
 
     @account.setter
@@ -77,6 +104,10 @@ class ProviderArgs:
     @property
     @pulumi.getter
     def region(self) -> pulumi.Input[str]:
+        """
+        [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
+        `SNOWFLAKE_REGION` environment variable.
+        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -86,6 +117,9 @@ class ProviderArgs:
     @property
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
+        """
+        Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -95,6 +129,9 @@ class ProviderArgs:
     @property
     @pulumi.getter(name="browserAuth")
     def browser_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
+        """
         return pulumi.get(self, "browser_auth")
 
     @browser_auth.setter
@@ -105,7 +142,7 @@ class ProviderArgs:
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[str]]:
         """
-        Supports passing in a custom host value to the snowflake go driver for use with privatelink
+        Supports passing in a custom host value to the snowflake go driver for use with privatelink.
         """
         return pulumi.get(self, "host")
 
@@ -116,6 +153,11 @@ class ProviderArgs:
     @property
     @pulumi.getter(name="oauthAccessToken")
     def oauth_access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
+        `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
+        variable.
+        """
         return pulumi.get(self, "oauth_access_token")
 
     @oauth_access_token.setter
@@ -125,6 +167,9 @@ class ProviderArgs:
     @property
     @pulumi.getter(name="oauthClientId")
     def oauth_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+        """
         return pulumi.get(self, "oauth_client_id")
 
     @oauth_client_id.setter
@@ -134,6 +179,9 @@ class ProviderArgs:
     @property
     @pulumi.getter(name="oauthClientSecret")
     def oauth_client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+        """
         return pulumi.get(self, "oauth_client_secret")
 
     @oauth_client_secret.setter
@@ -143,6 +191,9 @@ class ProviderArgs:
     @property
     @pulumi.getter(name="oauthEndpoint")
     def oauth_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
+        """
         return pulumi.get(self, "oauth_endpoint")
 
     @oauth_endpoint.setter
@@ -152,6 +203,9 @@ class ProviderArgs:
     @property
     @pulumi.getter(name="oauthRedirectUrl")
     def oauth_redirect_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
+        """
         return pulumi.get(self, "oauth_redirect_url")
 
     @oauth_redirect_url.setter
@@ -161,6 +215,12 @@ class ProviderArgs:
     @property
     @pulumi.getter(name="oauthRefreshToken")
     def oauth_refresh_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
+        `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
+        `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
+        variable.
+        """
         return pulumi.get(self, "oauth_refresh_token")
 
     @oauth_refresh_token.setter
@@ -170,6 +230,10 @@ class ProviderArgs:
     @property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from
+        `SNOWFLAKE_PASSWORD` environment variable.
+        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -179,6 +243,10 @@ class ProviderArgs:
     @property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
+        `SNOWFLAKE_PRIVATE_KEY` environment variable.
+        """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
@@ -201,6 +269,10 @@ class ProviderArgs:
     @property
     @pulumi.getter(name="privateKeyPath")
     def private_key_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
+        `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+        """
         return pulumi.get(self, "private_key_path")
 
     @private_key_path.setter
@@ -210,6 +282,10 @@ class ProviderArgs:
     @property
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the
+        `SNOWFLAKE_ROLE` environment variable.
+        """
         return pulumi.get(self, "role")
 
     @role.setter
@@ -247,9 +323,33 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] host: Supports passing in a custom host value to the snowflake go driver for use with privatelink
+        :param pulumi.Input[str] account: The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+        :param pulumi.Input[bool] browser_auth: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
+        :param pulumi.Input[str] host: Supports passing in a custom host value to the snowflake go driver for use with privatelink.
+        :param pulumi.Input[str] oauth_access_token: Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
+               `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
+               variable.
+        :param pulumi.Input[str] oauth_client_id: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+        :param pulumi.Input[str] oauth_client_secret: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+        :param pulumi.Input[str] oauth_endpoint: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
+        :param pulumi.Input[str] oauth_redirect_url: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
+        :param pulumi.Input[str] oauth_refresh_token: Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
+               `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
+               `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
+               variable.
+        :param pulumi.Input[str] password: Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from
+               `SNOWFLAKE_PASSWORD` environment variable.
+        :param pulumi.Input[str] private_key: Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
+               `SNOWFLAKE_PRIVATE_KEY` environment variable.
         :param pulumi.Input[str] private_key_passphrase: Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
                des-ede3-cbc
+        :param pulumi.Input[str] private_key_path: Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
+               `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+        :param pulumi.Input[str] region: [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
+               `SNOWFLAKE_REGION` environment variable.
+        :param pulumi.Input[str] role: Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the
+               `SNOWFLAKE_ROLE` environment variable.
+        :param pulumi.Input[str] username: Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
         """
         ...
     @overload
@@ -337,54 +437,88 @@ class Provider(pulumi.ProviderResource):
     @property
     @pulumi.getter
     def account(self) -> pulumi.Output[str]:
+        """
+        The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+        """
         return pulumi.get(self, "account")
 
     @property
     @pulumi.getter
     def host(self) -> pulumi.Output[Optional[str]]:
         """
-        Supports passing in a custom host value to the snowflake go driver for use with privatelink
+        Supports passing in a custom host value to the snowflake go driver for use with privatelink.
         """
         return pulumi.get(self, "host")
 
     @property
     @pulumi.getter(name="oauthAccessToken")
     def oauth_access_token(self) -> pulumi.Output[Optional[str]]:
+        """
+        Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
+        `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
+        variable.
+        """
         return pulumi.get(self, "oauth_access_token")
 
     @property
     @pulumi.getter(name="oauthClientId")
     def oauth_client_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+        """
         return pulumi.get(self, "oauth_client_id")
 
     @property
     @pulumi.getter(name="oauthClientSecret")
     def oauth_client_secret(self) -> pulumi.Output[Optional[str]]:
+        """
+        Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+        """
         return pulumi.get(self, "oauth_client_secret")
 
     @property
     @pulumi.getter(name="oauthEndpoint")
     def oauth_endpoint(self) -> pulumi.Output[Optional[str]]:
+        """
+        Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
+        """
         return pulumi.get(self, "oauth_endpoint")
 
     @property
     @pulumi.getter(name="oauthRedirectUrl")
     def oauth_redirect_url(self) -> pulumi.Output[Optional[str]]:
+        """
+        Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
+        """
         return pulumi.get(self, "oauth_redirect_url")
 
     @property
     @pulumi.getter(name="oauthRefreshToken")
     def oauth_refresh_token(self) -> pulumi.Output[Optional[str]]:
+        """
+        Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
+        `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
+        `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
+        variable.
+        """
         return pulumi.get(self, "oauth_refresh_token")
 
     @property
     @pulumi.getter
     def password(self) -> pulumi.Output[Optional[str]]:
+        """
+        Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from
+        `SNOWFLAKE_PASSWORD` environment variable.
+        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
+        `SNOWFLAKE_PRIVATE_KEY` environment variable.
+        """
         return pulumi.get(self, "private_key")
 
     @property
@@ -399,20 +533,35 @@ class Provider(pulumi.ProviderResource):
     @property
     @pulumi.getter(name="privateKeyPath")
     def private_key_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
+        `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+        """
         return pulumi.get(self, "private_key_path")
 
     @property
     @pulumi.getter
     def region(self) -> pulumi.Output[str]:
+        """
+        [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
+        `SNOWFLAKE_REGION` environment variable.
+        """
         return pulumi.get(self, "region")
 
     @property
     @pulumi.getter
     def role(self) -> pulumi.Output[Optional[str]]:
+        """
+        Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the
+        `SNOWFLAKE_ROLE` environment variable.
+        """
         return pulumi.get(self, "role")
 
     @property
     @pulumi.getter
     def username(self) -> pulumi.Output[str]:
+        """
+        Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+        """
         return pulumi.get(self, "username")
 
