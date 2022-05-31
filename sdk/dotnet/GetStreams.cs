@@ -71,15 +71,9 @@ namespace Pulumi.Snowflake
 
     public sealed class GetStreamsArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The database from which to return the streams from.
-        /// </summary>
         [Input("database", required: true)]
         public string Database { get; set; } = null!;
 
-        /// <summary>
-        /// The schema from which to return the streams from.
-        /// </summary>
         [Input("schema", required: true)]
         public string Schema { get; set; } = null!;
 
@@ -90,15 +84,9 @@ namespace Pulumi.Snowflake
 
     public sealed class GetStreamsInvokeArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The database from which to return the streams from.
-        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
-        /// <summary>
-        /// The schema from which to return the streams from.
-        /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
@@ -111,21 +99,12 @@ namespace Pulumi.Snowflake
     [OutputType]
     public sealed class GetStreamsResult
     {
-        /// <summary>
-        /// The database from which to return the streams from.
-        /// </summary>
         public readonly string Database;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The schema from which to return the streams from.
-        /// </summary>
         public readonly string Schema;
-        /// <summary>
-        /// The streams in the schema
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetStreamsStreamResult> Streams;
 
         [OutputConstructor]

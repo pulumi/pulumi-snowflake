@@ -247,6 +247,51 @@ func (o StreamOutput) ToStreamOutputWithContext(ctx context.Context) StreamOutpu
 	return o
 }
 
+// Type of the stream that will be created.
+func (o StreamOutput) AppendOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Stream) pulumi.BoolPtrOutput { return v.AppendOnly }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies a comment for the stream.
+func (o StreamOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// The database in which to create the stream.
+func (o StreamOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// Create an insert only stream type.
+func (o StreamOutput) InsertOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Stream) pulumi.BoolPtrOutput { return v.InsertOnly }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
+func (o StreamOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of the table the stream will monitor.
+func (o StreamOutput) OnTable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringPtrOutput { return v.OnTable }).(pulumi.StringPtrOutput)
+}
+
+// Name of the role that owns the stream.
+func (o StreamOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+}
+
+// The schema in which to create the stream.
+func (o StreamOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
+}
+
+// Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed.
+func (o StreamOutput) ShowInitialRows() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Stream) pulumi.BoolPtrOutput { return v.ShowInitialRows }).(pulumi.BoolPtrOutput)
+}
+
 type StreamArrayOutput struct{ *pulumi.OutputState }
 
 func (StreamArrayOutput) ElementType() reflect.Type {

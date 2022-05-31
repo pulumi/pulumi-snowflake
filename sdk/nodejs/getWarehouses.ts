@@ -33,8 +33,5 @@ export interface GetWarehousesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * The warehouses in the database
-     */
     readonly warehouses: outputs.GetWarehousesWarehouse[];
 }

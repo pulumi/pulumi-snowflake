@@ -20,7 +20,8 @@ namespace Pulumi.Snowflake
     public partial class ManagedAccount : Pulumi.CustomResource
     {
         /// <summary>
-        /// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+        /// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+        /// administrator for the account.
         /// </summary>
         [Output("adminName")]
         public Output<string> AdminName { get; private set; } = null!;
@@ -126,7 +127,8 @@ namespace Pulumi.Snowflake
     public sealed class ManagedAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+        /// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+        /// administrator for the account.
         /// </summary>
         [Input("adminName", required: true)]
         public Input<string> AdminName { get; set; } = null!;
@@ -163,7 +165,8 @@ namespace Pulumi.Snowflake
     public sealed class ManagedAccountState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+        /// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+        /// administrator for the account.
         /// </summary>
         [Input("adminName")]
         public Input<string>? AdminName { get; set; }

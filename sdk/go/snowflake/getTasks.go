@@ -44,22 +44,17 @@ func GetTasks(ctx *pulumi.Context, args *GetTasksArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getTasks.
 type GetTasksArgs struct {
-	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	// The schema from which to return the tasks from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // A collection of values returned by getTasks.
 type GetTasksResult struct {
-	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The schema from which to return the tasks from.
-	Schema string `pulumi:"schema"`
-	// The tasks in the schema
-	Tasks []GetTasksTask `pulumi:"tasks"`
+	Id     string         `pulumi:"id"`
+	Schema string         `pulumi:"schema"`
+	Tasks  []GetTasksTask `pulumi:"tasks"`
 }
 
 func GetTasksOutput(ctx *pulumi.Context, args GetTasksOutputArgs, opts ...pulumi.InvokeOption) GetTasksResultOutput {
@@ -77,10 +72,8 @@ func GetTasksOutput(ctx *pulumi.Context, args GetTasksOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getTasks.
 type GetTasksOutputArgs struct {
-	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the tasks from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetTasksOutputArgs) ElementType() reflect.Type {
@@ -102,7 +95,6 @@ func (o GetTasksResultOutput) ToGetTasksResultOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The database from which to return the schemas from.
 func (o GetTasksResultOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTasksResult) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -112,12 +104,10 @@ func (o GetTasksResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTasksResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the tasks from.
 func (o GetTasksResultOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTasksResult) string { return v.Schema }).(pulumi.StringOutput)
 }
 
-// The tasks in the schema
 func (o GetTasksResultOutput) Tasks() GetTasksTaskArrayOutput {
 	return o.ApplyT(func(v GetTasksResult) []GetTasksTask { return v.Tasks }).(GetTasksTaskArrayOutput)
 }

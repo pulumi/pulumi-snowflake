@@ -112,7 +112,9 @@ type Table struct {
 	Columns TableColumnArrayOutput `pulumi:"columns"`
 	// Specifies a comment for the table.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+	// historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the
+	// schema attribute to this argument.
 	DataRetentionDays pulumi.IntPtrOutput `pulumi:"dataRetentionDays"`
 	// The database in which to create the table.
 	Database pulumi.StringOutput `pulumi:"database"`
@@ -174,7 +176,9 @@ type tableState struct {
 	Columns []TableColumn `pulumi:"columns"`
 	// Specifies a comment for the table.
 	Comment *string `pulumi:"comment"`
-	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+	// historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the
+	// schema attribute to this argument.
 	DataRetentionDays *int `pulumi:"dataRetentionDays"`
 	// The database in which to create the table.
 	Database *string `pulumi:"database"`
@@ -199,7 +203,9 @@ type TableState struct {
 	Columns TableColumnArrayInput
 	// Specifies a comment for the table.
 	Comment pulumi.StringPtrInput
-	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+	// historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the
+	// schema attribute to this argument.
 	DataRetentionDays pulumi.IntPtrInput
 	// The database in which to create the table.
 	Database pulumi.StringPtrInput
@@ -228,7 +234,9 @@ type tableArgs struct {
 	Columns []TableColumn `pulumi:"columns"`
 	// Specifies a comment for the table.
 	Comment *string `pulumi:"comment"`
-	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+	// historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the
+	// schema attribute to this argument.
 	DataRetentionDays *int `pulumi:"dataRetentionDays"`
 	// The database in which to create the table.
 	Database string `pulumi:"database"`
@@ -252,7 +260,9 @@ type TableArgs struct {
 	Columns TableColumnArrayInput
 	// Specifies a comment for the table.
 	Comment pulumi.StringPtrInput
-	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+	// historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the
+	// schema attribute to this argument.
 	DataRetentionDays pulumi.IntPtrInput
 	// The database in which to create the table.
 	Database pulumi.StringInput
@@ -351,6 +361,63 @@ func (o TableOutput) ToTableOutput() TableOutput {
 
 func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 	return o
+}
+
+// Specifies whether to enable change tracking on the table. Default false.
+func (o TableOutput) ChangeTracking() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.BoolPtrOutput { return v.ChangeTracking }).(pulumi.BoolPtrOutput)
+}
+
+// A list of one or more table columns/expressions to be used as clustering key(s) for the table
+func (o TableOutput) ClusterBies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringArrayOutput { return v.ClusterBies }).(pulumi.StringArrayOutput)
+}
+
+// Definitions of a column to create in the table. Minimum one required.
+func (o TableOutput) Columns() TableColumnArrayOutput {
+	return o.ApplyT(func(v *Table) TableColumnArrayOutput { return v.Columns }).(TableColumnArrayOutput)
+}
+
+// Specifies a comment for the table.
+func (o TableOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+// historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the
+// schema attribute to this argument.
+func (o TableOutput) DataRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.IntPtrOutput { return v.DataRetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// The database in which to create the table.
+func (o TableOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+func (o TableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of the role that owns the table.
+func (o TableOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+}
+
+// Definitions of primary key constraint to create on table
+func (o TableOutput) PrimaryKey() TablePrimaryKeyPtrOutput {
+	return o.ApplyT(func(v *Table) TablePrimaryKeyPtrOutput { return v.PrimaryKey }).(TablePrimaryKeyPtrOutput)
+}
+
+// The schema in which to create the table.
+func (o TableOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
+}
+
+// Definitions of a tag to associate with the resource.
+func (o TableOutput) Tags() TableTagArrayOutput {
+	return o.ApplyT(func(v *Table) TableTagArrayOutput { return v.Tags }).(TableTagArrayOutput)
 }
 
 type TableArrayOutput struct{ *pulumi.OutputState }

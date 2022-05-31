@@ -44,21 +44,16 @@ func GetFunctions(ctx *pulumi.Context, args *GetFunctionsArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getFunctions.
 type GetFunctionsArgs struct {
-	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	// The schema from which to return the functions from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // A collection of values returned by getFunctions.
 type GetFunctionsResult struct {
-	// The database from which to return the schemas from.
-	Database string `pulumi:"database"`
-	// The functions in the schema
+	Database  string                 `pulumi:"database"`
 	Functions []GetFunctionsFunction `pulumi:"functions"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The schema from which to return the functions from.
+	Id     string `pulumi:"id"`
 	Schema string `pulumi:"schema"`
 }
 
@@ -77,10 +72,8 @@ func GetFunctionsOutput(ctx *pulumi.Context, args GetFunctionsOutputArgs, opts .
 
 // A collection of arguments for invoking getFunctions.
 type GetFunctionsOutputArgs struct {
-	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the functions from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetFunctionsOutputArgs) ElementType() reflect.Type {
@@ -102,12 +95,10 @@ func (o GetFunctionsResultOutput) ToGetFunctionsResultOutputWithContext(ctx cont
 	return o
 }
 
-// The database from which to return the schemas from.
 func (o GetFunctionsResultOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionsResult) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The functions in the schema
 func (o GetFunctionsResultOutput) Functions() GetFunctionsFunctionArrayOutput {
 	return o.ApplyT(func(v GetFunctionsResult) []GetFunctionsFunction { return v.Functions }).(GetFunctionsFunctionArrayOutput)
 }
@@ -117,7 +108,6 @@ func (o GetFunctionsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the functions from.
 func (o GetFunctionsResultOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionsResult) string { return v.Schema }).(pulumi.StringOutput)
 }

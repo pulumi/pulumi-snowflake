@@ -71,7 +71,9 @@ export class StreamGrant extends pulumi.CustomResource {
      */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future streams in the given schema. When this is true and no schema*name is provided apply this grant on all future streams in the given database. The stream*name field must be unset in order to use on*future.
+     * When this is set to true and a schema_name is provided, apply this grant on all future streams in the given schema. When
+     * this is true and no schema_name is provided apply this grant on all future streams in the given database. The
+     * stream_name field must be unset in order to use on_future.
      */
     public readonly onFuture!: pulumi.Output<boolean | undefined>;
     /**
@@ -87,7 +89,7 @@ export class StreamGrant extends pulumi.CustomResource {
      */
     public readonly schemaName!: pulumi.Output<string>;
     /**
-     * The name of the stream on which to grant privileges immediately (only valid if onFuture is false).
+     * The name of the stream on which to grant privileges immediately (only valid if on_future is false).
      */
     public readonly streamName!: pulumi.Output<string | undefined>;
     /**
@@ -152,7 +154,9 @@ export interface StreamGrantState {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future streams in the given schema. When this is true and no schema*name is provided apply this grant on all future streams in the given database. The stream*name field must be unset in order to use on*future.
+     * When this is set to true and a schema_name is provided, apply this grant on all future streams in the given schema. When
+     * this is true and no schema_name is provided apply this grant on all future streams in the given database. The
+     * stream_name field must be unset in order to use on_future.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
@@ -168,7 +172,7 @@ export interface StreamGrantState {
      */
     schemaName?: pulumi.Input<string>;
     /**
-     * The name of the stream on which to grant privileges immediately (only valid if onFuture is false).
+     * The name of the stream on which to grant privileges immediately (only valid if on_future is false).
      */
     streamName?: pulumi.Input<string>;
     /**
@@ -191,7 +195,9 @@ export interface StreamGrantArgs {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future streams in the given schema. When this is true and no schema*name is provided apply this grant on all future streams in the given database. The stream*name field must be unset in order to use on*future.
+     * When this is set to true and a schema_name is provided, apply this grant on all future streams in the given schema. When
+     * this is true and no schema_name is provided apply this grant on all future streams in the given database. The
+     * stream_name field must be unset in order to use on_future.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
@@ -207,7 +213,7 @@ export interface StreamGrantArgs {
      */
     schemaName: pulumi.Input<string>;
     /**
-     * The name of the stream on which to grant privileges immediately (only valid if onFuture is false).
+     * The name of the stream on which to grant privileges immediately (only valid if on_future is false).
      */
     streamName?: pulumi.Input<string>;
     /**

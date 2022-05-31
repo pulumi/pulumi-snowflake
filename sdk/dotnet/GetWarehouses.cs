@@ -44,9 +44,6 @@ namespace Pulumi.Snowflake
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The warehouses in the database
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetWarehousesWarehouseResult> Warehouses;
 
         [OutputConstructor]

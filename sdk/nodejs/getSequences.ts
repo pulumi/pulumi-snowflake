@@ -34,13 +34,7 @@ export function getSequences(args: GetSequencesArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getSequences.
  */
 export interface GetSequencesArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
-    /**
-     * The schema from which to return the sequences from.
-     */
     schema: string;
 }
 
@@ -48,21 +42,12 @@ export interface GetSequencesArgs {
  * A collection of values returned by getSequences.
  */
 export interface GetSequencesResult {
-    /**
-     * The database from which to return the schemas from.
-     */
     readonly database: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * The schema from which to return the sequences from.
-     */
     readonly schema: string;
-    /**
-     * The sequences in the schema
-     */
     readonly sequences: outputs.GetSequencesSequence[];
 }
 
@@ -74,12 +59,6 @@ export function getSequencesOutput(args: GetSequencesOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getSequences.
  */
 export interface GetSequencesOutputArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database: pulumi.Input<string>;
-    /**
-     * The schema from which to return the sequences from.
-     */
     schema: pulumi.Input<string>;
 }

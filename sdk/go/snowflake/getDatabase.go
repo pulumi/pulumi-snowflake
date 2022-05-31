@@ -43,7 +43,6 @@ func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulum
 
 // A collection of arguments for invoking getDatabase.
 type LookupDatabaseArgs struct {
-	// The database from which to return its metadata.
 	Name string `pulumi:"name"`
 }
 
@@ -52,10 +51,9 @@ type LookupDatabaseResult struct {
 	Comment   string `pulumi:"comment"`
 	CreatedOn string `pulumi:"createdOn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id        string `pulumi:"id"`
-	IsCurrent bool   `pulumi:"isCurrent"`
-	IsDefault bool   `pulumi:"isDefault"`
-	// The database from which to return its metadata.
+	Id            string `pulumi:"id"`
+	IsCurrent     bool   `pulumi:"isCurrent"`
+	IsDefault     bool   `pulumi:"isDefault"`
 	Name          string `pulumi:"name"`
 	Options       string `pulumi:"options"`
 	Origin        string `pulumi:"origin"`
@@ -78,7 +76,6 @@ func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, op
 
 // A collection of arguments for invoking getDatabase.
 type LookupDatabaseOutputArgs struct {
-	// The database from which to return its metadata.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -122,7 +119,6 @@ func (o LookupDatabaseResultOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
-// The database from which to return its metadata.
 func (o LookupDatabaseResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Name }).(pulumi.StringOutput)
 }

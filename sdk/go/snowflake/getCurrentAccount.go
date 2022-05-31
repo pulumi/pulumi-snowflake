@@ -46,12 +46,9 @@ func GetCurrentAccount(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCu
 
 // A collection of values returned by getCurrentAccount.
 type GetCurrentAccountResult struct {
-	// The Snowflake Account ID; as returned by CURRENT_ACCOUNT().
 	Account string `pulumi:"account"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The Snowflake Region; as returned by CURRENT_REGION()
+	Id     string `pulumi:"id"`
 	Region string `pulumi:"region"`
-	// The Snowflake URL.
-	Url string `pulumi:"url"`
+	Url    string `pulumi:"url"`
 }

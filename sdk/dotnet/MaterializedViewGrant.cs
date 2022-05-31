@@ -75,7 +75,9 @@ namespace Pulumi.Snowflake
         public Output<string?> MaterializedViewName { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema_name is provided, apply this grant on all future materialized views in the given
+        /// schema. When this is true and no schema_name is provided apply this grant on all future materialized views in the given
+        /// database. The materialized_view_name and shares fields must be unset in order to use on_future.
         /// </summary>
         [Output("onFuture")]
         public Output<bool?> OnFuture { get; private set; } = null!;
@@ -176,7 +178,9 @@ namespace Pulumi.Snowflake
         public Input<string>? MaterializedViewName { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema_name is provided, apply this grant on all future materialized views in the given
+        /// schema. When this is true and no schema_name is provided apply this grant on all future materialized views in the given
+        /// database. The materialized_view_name and shares fields must be unset in order to use on_future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -250,7 +254,9 @@ namespace Pulumi.Snowflake
         public Input<string>? MaterializedViewName { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema_name is provided, apply this grant on all future materialized views in the given
+        /// schema. When this is true and no schema_name is provided apply this grant on all future materialized views in the given
+        /// database. The materialized_view_name and shares fields must be unset in order to use on_future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }

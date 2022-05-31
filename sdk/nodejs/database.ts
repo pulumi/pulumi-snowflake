@@ -18,6 +18,18 @@ import * as utilities from "./utilities";
  * });
  * const test2 = new snowflake.Database("test2", {
  *     comment: "test comment 2",
+ *     replicationConfiguration: {
+ *         accounts: [
+ *             "test_account1",
+ *             "test_account_2",
+ *         ],
+ *         ignoreEditionCheck: true,
+ *     },
+ * });
+ * const test3 = new snowflake.Database("test3", {
+ *     comment: "test comment",
+ *     dataRetentionTimeInDays: 3,
+ *     fromReplica: "org1\".\"account1\".\"primary_db_name",
  * });
  * ```
  *
@@ -62,14 +74,19 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly fromDatabase!: pulumi.Output<string | undefined>;
     /**
-     * Specify a fully-qualified path to a database to create a replica from.
+     * Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
+     * "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
      */
     public readonly fromReplica!: pulumi.Output<string | undefined>;
     /**
      * Specify a provider and a share in this map to create a database from a share.
      */
-    public readonly fromShare!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly fromShare!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly name!: pulumi.Output<string>;
+    /**
+     * When set, specifies the configurations for database replication.
+     */
+    public readonly replicationConfiguration!: pulumi.Output<outputs.DatabaseReplicationConfiguration | undefined>;
     /**
      * Definitions of a tag to associate with the resource.
      */
@@ -94,6 +111,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["fromReplica"] = state ? state.fromReplica : undefined;
             resourceInputs["fromShare"] = state ? state.fromShare : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["replicationConfiguration"] = state ? state.replicationConfiguration : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DatabaseArgs | undefined;
@@ -103,6 +121,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["fromReplica"] = args ? args.fromReplica : undefined;
             resourceInputs["fromShare"] = args ? args.fromShare : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -121,14 +140,19 @@ export interface DatabaseState {
      */
     fromDatabase?: pulumi.Input<string>;
     /**
-     * Specify a fully-qualified path to a database to create a replica from.
+     * Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
+     * "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
      */
     fromReplica?: pulumi.Input<string>;
     /**
      * Specify a provider and a share in this map to create a database from a share.
      */
-    fromShare?: pulumi.Input<{[key: string]: any}>;
+    fromShare?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     name?: pulumi.Input<string>;
+    /**
+     * When set, specifies the configurations for database replication.
+     */
+    replicationConfiguration?: pulumi.Input<inputs.DatabaseReplicationConfiguration>;
     /**
      * Definitions of a tag to associate with the resource.
      */
@@ -146,14 +170,19 @@ export interface DatabaseArgs {
      */
     fromDatabase?: pulumi.Input<string>;
     /**
-     * Specify a fully-qualified path to a database to create a replica from.
+     * Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
+     * "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
      */
     fromReplica?: pulumi.Input<string>;
     /**
      * Specify a provider and a share in this map to create a database from a share.
      */
-    fromShare?: pulumi.Input<{[key: string]: any}>;
+    fromShare?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     name?: pulumi.Input<string>;
+    /**
+     * When set, specifies the configurations for database replication.
+     */
+    replicationConfiguration?: pulumi.Input<inputs.DatabaseReplicationConfiguration>;
     /**
      * Definitions of a tag to associate with the resource.
      */

@@ -91,7 +91,9 @@ namespace Pulumi.Snowflake
         public Output<string?> FunctionName { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema_name is provided, apply this grant on all future functions in the given schema.
+        /// When this is true and no schema_name is provided apply this grant on all future functions in the given database. The
+        /// function_name, arguments, return_type, and shares fields must be unset in order to use on_future.
         /// </summary>
         [Output("onFuture")]
         public Output<bool?> OnFuture { get; private set; } = null!;
@@ -210,7 +212,9 @@ namespace Pulumi.Snowflake
         public Input<string>? FunctionName { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema_name is provided, apply this grant on all future functions in the given schema.
+        /// When this is true and no schema_name is provided apply this grant on all future functions in the given database. The
+        /// function_name, arguments, return_type, and shares fields must be unset in order to use on_future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -302,7 +306,9 @@ namespace Pulumi.Snowflake
         public Input<string>? FunctionName { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema_name is provided, apply this grant on all future functions in the given schema.
+        /// When this is true and no schema_name is provided apply this grant on all future functions in the given database. The
+        /// function_name, arguments, return_type, and shares fields must be unset in order to use on_future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }

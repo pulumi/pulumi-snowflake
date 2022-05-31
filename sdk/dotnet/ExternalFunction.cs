@@ -65,7 +65,8 @@ namespace Pulumi.Snowflake
         public Output<string> ApiIntegration { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+        /// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
+        /// service expects.
         /// </summary>
         [Output("args")]
         public Output<ImmutableArray<Outputs.ExternalFunctionArg>> Args { get; private set; } = null!;
@@ -77,7 +78,8 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+        /// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
+        /// proxy service to Snowflake.
         /// </summary>
         [Output("compression")]
         public Output<string?> Compression { get; private set; } = null!;
@@ -113,7 +115,8 @@ namespace Pulumi.Snowflake
         public Output<int?> MaxBatchRows { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
+        /// well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -210,7 +213,8 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.ExternalFunctionArgArgs>? _args;
 
         /// <summary>
-        /// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+        /// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
+        /// service expects.
         /// </summary>
         public InputList<Inputs.ExternalFunctionArgArgs> Args
         {
@@ -225,7 +229,8 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+        /// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
+        /// proxy service to Snowflake.
         /// </summary>
         [Input("compression")]
         public Input<string>? Compression { get; set; }
@@ -267,7 +272,8 @@ namespace Pulumi.Snowflake
         public Input<int>? MaxBatchRows { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
+        /// well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -325,7 +331,8 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.ExternalFunctionArgGetArgs>? _args;
 
         /// <summary>
-        /// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+        /// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
+        /// service expects.
         /// </summary>
         public InputList<Inputs.ExternalFunctionArgGetArgs> Args
         {
@@ -340,7 +347,8 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+        /// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
+        /// proxy service to Snowflake.
         /// </summary>
         [Input("compression")]
         public Input<string>? Compression { get; set; }
@@ -388,7 +396,8 @@ namespace Pulumi.Snowflake
         public Input<int>? MaxBatchRows { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
+        /// well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -44,21 +44,16 @@ func GetSequences(ctx *pulumi.Context, args *GetSequencesArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getSequences.
 type GetSequencesArgs struct {
-	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	// The schema from which to return the sequences from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // A collection of values returned by getSequences.
 type GetSequencesResult struct {
-	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The schema from which to return the sequences from.
-	Schema string `pulumi:"schema"`
-	// The sequences in the schema
+	Id        string                 `pulumi:"id"`
+	Schema    string                 `pulumi:"schema"`
 	Sequences []GetSequencesSequence `pulumi:"sequences"`
 }
 
@@ -77,10 +72,8 @@ func GetSequencesOutput(ctx *pulumi.Context, args GetSequencesOutputArgs, opts .
 
 // A collection of arguments for invoking getSequences.
 type GetSequencesOutputArgs struct {
-	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the sequences from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetSequencesOutputArgs) ElementType() reflect.Type {
@@ -102,7 +95,6 @@ func (o GetSequencesResultOutput) ToGetSequencesResultOutputWithContext(ctx cont
 	return o
 }
 
-// The database from which to return the schemas from.
 func (o GetSequencesResultOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSequencesResult) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -112,12 +104,10 @@ func (o GetSequencesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSequencesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the sequences from.
 func (o GetSequencesResultOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSequencesResult) string { return v.Schema }).(pulumi.StringOutput)
 }
 
-// The sequences in the schema
 func (o GetSequencesResultOutput) Sequences() GetSequencesSequenceArrayOutput {
 	return o.ApplyT(func(v GetSequencesResult) []GetSequencesSequence { return v.Sequences }).(GetSequencesSequenceArrayOutput)
 }

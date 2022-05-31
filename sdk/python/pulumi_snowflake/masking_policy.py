@@ -28,7 +28,8 @@ class MaskingPolicyArgs:
         :param pulumi.Input[str] schema: The schema in which to create the masking policy.
         :param pulumi.Input[str] value_data_type: Specifies the data type to mask.
         :param pulumi.Input[str] comment: Specifies a comment for the masking policy.
-        :param pulumi.Input[str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        :param pulumi.Input[str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
+               is created.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "masking_expression", masking_expression)
@@ -116,7 +117,8 @@ class MaskingPolicyArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
+        is created.
         """
         return pulumi.get(self, "name")
 
@@ -140,7 +142,8 @@ class _MaskingPolicyState:
         :param pulumi.Input[str] comment: Specifies a comment for the masking policy.
         :param pulumi.Input[str] database: The database in which to create the masking policy.
         :param pulumi.Input[str] masking_expression: Specifies the SQL expression that transforms the data.
-        :param pulumi.Input[str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        :param pulumi.Input[str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
+               is created.
         :param pulumi.Input[str] return_data_type: Specifies the data type to return.
         :param pulumi.Input[str] schema: The schema in which to create the masking policy.
         :param pulumi.Input[str] value_data_type: Specifies the data type to mask.
@@ -200,7 +203,8 @@ class _MaskingPolicyState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
+        is created.
         """
         return pulumi.get(self, "name")
 
@@ -286,7 +290,8 @@ class MaskingPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the masking policy.
         :param pulumi.Input[str] database: The database in which to create the masking policy.
         :param pulumi.Input[str] masking_expression: Specifies the SQL expression that transforms the data.
-        :param pulumi.Input[str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        :param pulumi.Input[str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
+               is created.
         :param pulumi.Input[str] return_data_type: Specifies the data type to return.
         :param pulumi.Input[str] schema: The schema in which to create the masking policy.
         :param pulumi.Input[str] value_data_type: Specifies the data type to mask.
@@ -398,7 +403,8 @@ class MaskingPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the masking policy.
         :param pulumi.Input[str] database: The database in which to create the masking policy.
         :param pulumi.Input[str] masking_expression: Specifies the SQL expression that transforms the data.
-        :param pulumi.Input[str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        :param pulumi.Input[str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
+               is created.
         :param pulumi.Input[str] return_data_type: Specifies the data type to return.
         :param pulumi.Input[str] schema: The schema in which to create the masking policy.
         :param pulumi.Input[str] value_data_type: Specifies the data type to mask.
@@ -444,7 +450,8 @@ class MaskingPolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
+        is created.
         """
         return pulumi.get(self, "name")
 

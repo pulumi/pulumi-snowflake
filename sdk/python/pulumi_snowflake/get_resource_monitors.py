@@ -39,9 +39,6 @@ class GetResourceMonitorsResult:
     @property
     @pulumi.getter(name="resourceMonitors")
     def resource_monitors(self) -> Sequence['outputs.GetResourceMonitorsResourceMonitorResult']:
-        """
-        The resource monitors in the database
-        """
         return pulumi.get(self, "resource_monitors")
 
 

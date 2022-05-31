@@ -39,7 +39,6 @@ func GetStorageIntegrations(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*
 // A collection of values returned by getStorageIntegrations.
 type GetStorageIntegrationsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The storage integrations in the database
+	Id                  string                                     `pulumi:"id"`
 	StorageIntegrations []GetStorageIntegrationsStorageIntegration `pulumi:"storageIntegrations"`
 }

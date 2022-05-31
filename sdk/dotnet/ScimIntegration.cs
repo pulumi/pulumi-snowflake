@@ -47,19 +47,23 @@ namespace Pulumi.Snowflake
         public Output<string> CreatedOn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        /// Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be
+        /// unique among security integrations in your account.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new access token. If this parameter is not set, the network policy for the account (if any) is used instead.
+        /// Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses
+        /// when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new
+        /// access token. If this parameter is not set, the network policy for the account (if any) is used instead.
         /// </summary>
         [Output("networkPolicy")]
         public Output<string?> NetworkPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM.
+        /// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into
+        /// Snowflake using SCIM.
         /// </summary>
         [Output("provisionerRole")]
         public Output<string> ProvisionerRole { get; private set; } = null!;
@@ -117,19 +121,23 @@ namespace Pulumi.Snowflake
     public sealed class ScimIntegrationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        /// Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be
+        /// unique among security integrations in your account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new access token. If this parameter is not set, the network policy for the account (if any) is used instead.
+        /// Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses
+        /// when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new
+        /// access token. If this parameter is not set, the network policy for the account (if any) is used instead.
         /// </summary>
         [Input("networkPolicy")]
         public Input<string>? NetworkPolicy { get; set; }
 
         /// <summary>
-        /// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM.
+        /// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into
+        /// Snowflake using SCIM.
         /// </summary>
         [Input("provisionerRole", required: true)]
         public Input<string> ProvisionerRole { get; set; } = null!;
@@ -154,19 +162,23 @@ namespace Pulumi.Snowflake
         public Input<string>? CreatedOn { get; set; }
 
         /// <summary>
-        /// Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        /// Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be
+        /// unique among security integrations in your account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new access token. If this parameter is not set, the network policy for the account (if any) is used instead.
+        /// Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses
+        /// when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new
+        /// access token. If this parameter is not set, the network policy for the account (if any) is used instead.
         /// </summary>
         [Input("networkPolicy")]
         public Input<string>? NetworkPolicy { get; set; }
 
         /// <summary>
-        /// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM.
+        /// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into
+        /// Snowflake using SCIM.
         /// </summary>
         [Input("provisionerRole")]
         public Input<string>? ProvisionerRole { get; set; }

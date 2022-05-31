@@ -50,37 +50,59 @@ type SamlIntegration struct {
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
 	// Specifies whether this security integration is enabled or disabled.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+	// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be
+	// unique among security integrations in your account.
 	Name                   pulumi.StringOutput `pulumi:"name"`
 	Saml2DigestMethodsUsed pulumi.StringOutput `pulumi:"saml2DigestMethodsUsed"`
-	// The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in WIth button on the login page.  FALSE: does not display the Log in With button on the login page.
+	// The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in WIth button
+	// on the login page. FALSE: does not display the Log in With button on the login page.
 	Saml2EnableSpInitiated pulumi.BoolPtrOutput `pulumi:"saml2EnableSpInitiated"`
-	// The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the identity provider exists. FALSE: does not force users to authenticate again to access Snowflake.
+	// The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access
+	// Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake
+	// to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the
+	// identity provider exists. FALSE: does not force users to authenticate again to access Snowflake.
 	Saml2ForceAuthn pulumi.BoolPtrOutput `pulumi:"saml2ForceAuthn"`
 	// The string containing the IdP EntityID / Issuer.
 	Saml2Issuer pulumi.StringOutput `pulumi:"saml2Issuer"`
-	// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
+	// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web
+	// interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
 	Saml2PostLogoutRedirectUrl pulumi.StringPtrOutput `pulumi:"saml2PostLogoutRedirectUrl"`
 	// The string describing the IdP. One of the following: OKTA, ADFS, Custom.
 	Saml2Provider pulumi.StringOutput `pulumi:"saml2Provider"`
-	// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. If a value is not specified, Snowflake sends the urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress value in the authentication request to the IdP. NameID must be one of the following values: urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified, urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress, urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName, urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName, urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos, urn:oasis:names:tc:SAML:2.0:nameid-format:persistent, urn:oasis:names:tc:SAML:2.0:nameid-format:transient .
+	// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML
+	// Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. If a value is not specified,
+	// Snowflake sends the urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress value in the authentication request to the
+	// IdP. NameID must be one of the following values: urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified,
+	// urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress, urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName,
+	// urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName,
+	// urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos, urn:oasis:names:tc:SAML:2.0:nameid-format:persistent,
+	// urn:oasis:names:tc:SAML:2.0:nameid-format:transient .
 	Saml2RequestedNameidFormat pulumi.StringPtrOutput `pulumi:"saml2RequestedNameidFormat"`
-	// The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow SAML requests to be signed.
+	// The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow
+	// SAML requests to be signed.
 	Saml2SignRequest          pulumi.BoolPtrOutput `pulumi:"saml2SignRequest"`
 	Saml2SignatureMethodsUsed pulumi.StringOutput  `pulumi:"saml2SignatureMethodsUsed"`
-	// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use. Default: https://\n\n.\n\n.snowflakecomputing.com/fed/login
+	// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication
+	// response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when
+	// initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message
+	// indicating the acceptable values to use. Default: https://<account_locator>.<region>.snowflakecomputing.com/fed/login
 	Saml2SnowflakeAcsUrl pulumi.StringOutput `pulumi:"saml2SnowflakeAcsUrl"`
-	// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use.
+	// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified,
+	// Snowflake returns an error message indicating the acceptable values to use.
 	Saml2SnowflakeIssuerUrl pulumi.StringOutput `pulumi:"saml2SnowflakeIssuerUrl"`
 	// Metadata created by Snowflake to provide to SAML2 provider.
 	Saml2SnowflakeMetadata pulumi.StringOutput `pulumi:"saml2SnowflakeMetadata"`
-	// The Base64 encoded self-signed certificate generated by Snowflake for use with Encrypting SAML Assertions and Signed SAML Requests. You must have at least one of these features (encrypted SAML assertions or signed SAML responses) enabled in your Snowflake account to access the certificate value.
+	// The Base64 encoded self-signed certificate generated by Snowflake for use with Encrypting SAML Assertions and Signed
+	// SAML Requests. You must have at least one of these features (encrypted SAML assertions or signed SAML responses) enabled
+	// in your Snowflake account to access the certificate value.
 	Saml2SnowflakeX509Cert pulumi.StringOutput `pulumi:"saml2SnowflakeX509Cert"`
 	// The string containing the label to display after the Log In With button on the login page.
 	Saml2SpInitiatedLoginPageLabel pulumi.StringPtrOutput `pulumi:"saml2SpInitiatedLoginPageLabel"`
-	// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a SAML AuthnRequest message.
+	// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a
+	// SAML AuthnRequest message.
 	Saml2SsoUrl pulumi.StringOutput `pulumi:"saml2SsoUrl"`
-	// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
+	// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending
+	// -----END CERTIFICATE----- markers.
 	Saml2X509Cert pulumi.StringOutput `pulumi:"saml2X509Cert"`
 }
 
@@ -129,37 +151,59 @@ type samlIntegrationState struct {
 	CreatedOn *string `pulumi:"createdOn"`
 	// Specifies whether this security integration is enabled or disabled.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+	// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be
+	// unique among security integrations in your account.
 	Name                   *string `pulumi:"name"`
 	Saml2DigestMethodsUsed *string `pulumi:"saml2DigestMethodsUsed"`
-	// The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in WIth button on the login page.  FALSE: does not display the Log in With button on the login page.
+	// The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in WIth button
+	// on the login page. FALSE: does not display the Log in With button on the login page.
 	Saml2EnableSpInitiated *bool `pulumi:"saml2EnableSpInitiated"`
-	// The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the identity provider exists. FALSE: does not force users to authenticate again to access Snowflake.
+	// The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access
+	// Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake
+	// to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the
+	// identity provider exists. FALSE: does not force users to authenticate again to access Snowflake.
 	Saml2ForceAuthn *bool `pulumi:"saml2ForceAuthn"`
 	// The string containing the IdP EntityID / Issuer.
 	Saml2Issuer *string `pulumi:"saml2Issuer"`
-	// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
+	// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web
+	// interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
 	Saml2PostLogoutRedirectUrl *string `pulumi:"saml2PostLogoutRedirectUrl"`
 	// The string describing the IdP. One of the following: OKTA, ADFS, Custom.
 	Saml2Provider *string `pulumi:"saml2Provider"`
-	// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. If a value is not specified, Snowflake sends the urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress value in the authentication request to the IdP. NameID must be one of the following values: urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified, urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress, urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName, urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName, urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos, urn:oasis:names:tc:SAML:2.0:nameid-format:persistent, urn:oasis:names:tc:SAML:2.0:nameid-format:transient .
+	// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML
+	// Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. If a value is not specified,
+	// Snowflake sends the urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress value in the authentication request to the
+	// IdP. NameID must be one of the following values: urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified,
+	// urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress, urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName,
+	// urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName,
+	// urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos, urn:oasis:names:tc:SAML:2.0:nameid-format:persistent,
+	// urn:oasis:names:tc:SAML:2.0:nameid-format:transient .
 	Saml2RequestedNameidFormat *string `pulumi:"saml2RequestedNameidFormat"`
-	// The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow SAML requests to be signed.
+	// The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow
+	// SAML requests to be signed.
 	Saml2SignRequest          *bool   `pulumi:"saml2SignRequest"`
 	Saml2SignatureMethodsUsed *string `pulumi:"saml2SignatureMethodsUsed"`
-	// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use. Default: https://\n\n.\n\n.snowflakecomputing.com/fed/login
+	// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication
+	// response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when
+	// initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message
+	// indicating the acceptable values to use. Default: https://<account_locator>.<region>.snowflakecomputing.com/fed/login
 	Saml2SnowflakeAcsUrl *string `pulumi:"saml2SnowflakeAcsUrl"`
-	// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use.
+	// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified,
+	// Snowflake returns an error message indicating the acceptable values to use.
 	Saml2SnowflakeIssuerUrl *string `pulumi:"saml2SnowflakeIssuerUrl"`
 	// Metadata created by Snowflake to provide to SAML2 provider.
 	Saml2SnowflakeMetadata *string `pulumi:"saml2SnowflakeMetadata"`
-	// The Base64 encoded self-signed certificate generated by Snowflake for use with Encrypting SAML Assertions and Signed SAML Requests. You must have at least one of these features (encrypted SAML assertions or signed SAML responses) enabled in your Snowflake account to access the certificate value.
+	// The Base64 encoded self-signed certificate generated by Snowflake for use with Encrypting SAML Assertions and Signed
+	// SAML Requests. You must have at least one of these features (encrypted SAML assertions or signed SAML responses) enabled
+	// in your Snowflake account to access the certificate value.
 	Saml2SnowflakeX509Cert *string `pulumi:"saml2SnowflakeX509Cert"`
 	// The string containing the label to display after the Log In With button on the login page.
 	Saml2SpInitiatedLoginPageLabel *string `pulumi:"saml2SpInitiatedLoginPageLabel"`
-	// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a SAML AuthnRequest message.
+	// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a
+	// SAML AuthnRequest message.
 	Saml2SsoUrl *string `pulumi:"saml2SsoUrl"`
-	// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
+	// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending
+	// -----END CERTIFICATE----- markers.
 	Saml2X509Cert *string `pulumi:"saml2X509Cert"`
 }
 
@@ -168,37 +212,59 @@ type SamlIntegrationState struct {
 	CreatedOn pulumi.StringPtrInput
 	// Specifies whether this security integration is enabled or disabled.
 	Enabled pulumi.BoolPtrInput
-	// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+	// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be
+	// unique among security integrations in your account.
 	Name                   pulumi.StringPtrInput
 	Saml2DigestMethodsUsed pulumi.StringPtrInput
-	// The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in WIth button on the login page.  FALSE: does not display the Log in With button on the login page.
+	// The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in WIth button
+	// on the login page. FALSE: does not display the Log in With button on the login page.
 	Saml2EnableSpInitiated pulumi.BoolPtrInput
-	// The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the identity provider exists. FALSE: does not force users to authenticate again to access Snowflake.
+	// The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access
+	// Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake
+	// to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the
+	// identity provider exists. FALSE: does not force users to authenticate again to access Snowflake.
 	Saml2ForceAuthn pulumi.BoolPtrInput
 	// The string containing the IdP EntityID / Issuer.
 	Saml2Issuer pulumi.StringPtrInput
-	// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
+	// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web
+	// interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
 	Saml2PostLogoutRedirectUrl pulumi.StringPtrInput
 	// The string describing the IdP. One of the following: OKTA, ADFS, Custom.
 	Saml2Provider pulumi.StringPtrInput
-	// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. If a value is not specified, Snowflake sends the urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress value in the authentication request to the IdP. NameID must be one of the following values: urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified, urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress, urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName, urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName, urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos, urn:oasis:names:tc:SAML:2.0:nameid-format:persistent, urn:oasis:names:tc:SAML:2.0:nameid-format:transient .
+	// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML
+	// Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. If a value is not specified,
+	// Snowflake sends the urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress value in the authentication request to the
+	// IdP. NameID must be one of the following values: urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified,
+	// urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress, urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName,
+	// urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName,
+	// urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos, urn:oasis:names:tc:SAML:2.0:nameid-format:persistent,
+	// urn:oasis:names:tc:SAML:2.0:nameid-format:transient .
 	Saml2RequestedNameidFormat pulumi.StringPtrInput
-	// The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow SAML requests to be signed.
+	// The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow
+	// SAML requests to be signed.
 	Saml2SignRequest          pulumi.BoolPtrInput
 	Saml2SignatureMethodsUsed pulumi.StringPtrInput
-	// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use. Default: https://\n\n.\n\n.snowflakecomputing.com/fed/login
+	// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication
+	// response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when
+	// initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message
+	// indicating the acceptable values to use. Default: https://<account_locator>.<region>.snowflakecomputing.com/fed/login
 	Saml2SnowflakeAcsUrl pulumi.StringPtrInput
-	// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use.
+	// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified,
+	// Snowflake returns an error message indicating the acceptable values to use.
 	Saml2SnowflakeIssuerUrl pulumi.StringPtrInput
 	// Metadata created by Snowflake to provide to SAML2 provider.
 	Saml2SnowflakeMetadata pulumi.StringPtrInput
-	// The Base64 encoded self-signed certificate generated by Snowflake for use with Encrypting SAML Assertions and Signed SAML Requests. You must have at least one of these features (encrypted SAML assertions or signed SAML responses) enabled in your Snowflake account to access the certificate value.
+	// The Base64 encoded self-signed certificate generated by Snowflake for use with Encrypting SAML Assertions and Signed
+	// SAML Requests. You must have at least one of these features (encrypted SAML assertions or signed SAML responses) enabled
+	// in your Snowflake account to access the certificate value.
 	Saml2SnowflakeX509Cert pulumi.StringPtrInput
 	// The string containing the label to display after the Log In With button on the login page.
 	Saml2SpInitiatedLoginPageLabel pulumi.StringPtrInput
-	// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a SAML AuthnRequest message.
+	// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a
+	// SAML AuthnRequest message.
 	Saml2SsoUrl pulumi.StringPtrInput
-	// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
+	// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending
+	// -----END CERTIFICATE----- markers.
 	Saml2X509Cert pulumi.StringPtrInput
 }
 
@@ -209,33 +275,55 @@ func (SamlIntegrationState) ElementType() reflect.Type {
 type samlIntegrationArgs struct {
 	// Specifies whether this security integration is enabled or disabled.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+	// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be
+	// unique among security integrations in your account.
 	Name *string `pulumi:"name"`
-	// The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in WIth button on the login page.  FALSE: does not display the Log in With button on the login page.
+	// The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in WIth button
+	// on the login page. FALSE: does not display the Log in With button on the login page.
 	Saml2EnableSpInitiated *bool `pulumi:"saml2EnableSpInitiated"`
-	// The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the identity provider exists. FALSE: does not force users to authenticate again to access Snowflake.
+	// The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access
+	// Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake
+	// to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the
+	// identity provider exists. FALSE: does not force users to authenticate again to access Snowflake.
 	Saml2ForceAuthn *bool `pulumi:"saml2ForceAuthn"`
 	// The string containing the IdP EntityID / Issuer.
 	Saml2Issuer string `pulumi:"saml2Issuer"`
-	// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
+	// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web
+	// interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
 	Saml2PostLogoutRedirectUrl *string `pulumi:"saml2PostLogoutRedirectUrl"`
 	// The string describing the IdP. One of the following: OKTA, ADFS, Custom.
 	Saml2Provider string `pulumi:"saml2Provider"`
-	// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. If a value is not specified, Snowflake sends the urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress value in the authentication request to the IdP. NameID must be one of the following values: urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified, urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress, urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName, urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName, urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos, urn:oasis:names:tc:SAML:2.0:nameid-format:persistent, urn:oasis:names:tc:SAML:2.0:nameid-format:transient .
+	// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML
+	// Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. If a value is not specified,
+	// Snowflake sends the urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress value in the authentication request to the
+	// IdP. NameID must be one of the following values: urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified,
+	// urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress, urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName,
+	// urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName,
+	// urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos, urn:oasis:names:tc:SAML:2.0:nameid-format:persistent,
+	// urn:oasis:names:tc:SAML:2.0:nameid-format:transient .
 	Saml2RequestedNameidFormat *string `pulumi:"saml2RequestedNameidFormat"`
-	// The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow SAML requests to be signed.
+	// The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow
+	// SAML requests to be signed.
 	Saml2SignRequest *bool `pulumi:"saml2SignRequest"`
-	// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use. Default: https://\n\n.\n\n.snowflakecomputing.com/fed/login
+	// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication
+	// response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when
+	// initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message
+	// indicating the acceptable values to use. Default: https://<account_locator>.<region>.snowflakecomputing.com/fed/login
 	Saml2SnowflakeAcsUrl *string `pulumi:"saml2SnowflakeAcsUrl"`
-	// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use.
+	// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified,
+	// Snowflake returns an error message indicating the acceptable values to use.
 	Saml2SnowflakeIssuerUrl *string `pulumi:"saml2SnowflakeIssuerUrl"`
-	// The Base64 encoded self-signed certificate generated by Snowflake for use with Encrypting SAML Assertions and Signed SAML Requests. You must have at least one of these features (encrypted SAML assertions or signed SAML responses) enabled in your Snowflake account to access the certificate value.
+	// The Base64 encoded self-signed certificate generated by Snowflake for use with Encrypting SAML Assertions and Signed
+	// SAML Requests. You must have at least one of these features (encrypted SAML assertions or signed SAML responses) enabled
+	// in your Snowflake account to access the certificate value.
 	Saml2SnowflakeX509Cert *string `pulumi:"saml2SnowflakeX509Cert"`
 	// The string containing the label to display after the Log In With button on the login page.
 	Saml2SpInitiatedLoginPageLabel *string `pulumi:"saml2SpInitiatedLoginPageLabel"`
-	// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a SAML AuthnRequest message.
+	// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a
+	// SAML AuthnRequest message.
 	Saml2SsoUrl string `pulumi:"saml2SsoUrl"`
-	// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
+	// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending
+	// -----END CERTIFICATE----- markers.
 	Saml2X509Cert string `pulumi:"saml2X509Cert"`
 }
 
@@ -243,33 +331,55 @@ type samlIntegrationArgs struct {
 type SamlIntegrationArgs struct {
 	// Specifies whether this security integration is enabled or disabled.
 	Enabled pulumi.BoolPtrInput
-	// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+	// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be
+	// unique among security integrations in your account.
 	Name pulumi.StringPtrInput
-	// The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in WIth button on the login page.  FALSE: does not display the Log in With button on the login page.
+	// The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in WIth button
+	// on the login page. FALSE: does not display the Log in With button on the login page.
 	Saml2EnableSpInitiated pulumi.BoolPtrInput
-	// The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the identity provider exists. FALSE: does not force users to authenticate again to access Snowflake.
+	// The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access
+	// Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake
+	// to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the
+	// identity provider exists. FALSE: does not force users to authenticate again to access Snowflake.
 	Saml2ForceAuthn pulumi.BoolPtrInput
 	// The string containing the IdP EntityID / Issuer.
 	Saml2Issuer pulumi.StringInput
-	// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
+	// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web
+	// interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
 	Saml2PostLogoutRedirectUrl pulumi.StringPtrInput
 	// The string describing the IdP. One of the following: OKTA, ADFS, Custom.
 	Saml2Provider pulumi.StringInput
-	// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. If a value is not specified, Snowflake sends the urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress value in the authentication request to the IdP. NameID must be one of the following values: urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified, urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress, urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName, urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName, urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos, urn:oasis:names:tc:SAML:2.0:nameid-format:persistent, urn:oasis:names:tc:SAML:2.0:nameid-format:transient .
+	// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML
+	// Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. If a value is not specified,
+	// Snowflake sends the urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress value in the authentication request to the
+	// IdP. NameID must be one of the following values: urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified,
+	// urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress, urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName,
+	// urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName,
+	// urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos, urn:oasis:names:tc:SAML:2.0:nameid-format:persistent,
+	// urn:oasis:names:tc:SAML:2.0:nameid-format:transient .
 	Saml2RequestedNameidFormat pulumi.StringPtrInput
-	// The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow SAML requests to be signed.
+	// The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow
+	// SAML requests to be signed.
 	Saml2SignRequest pulumi.BoolPtrInput
-	// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use. Default: https://\n\n.\n\n.snowflakecomputing.com/fed/login
+	// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication
+	// response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when
+	// initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message
+	// indicating the acceptable values to use. Default: https://<account_locator>.<region>.snowflakecomputing.com/fed/login
 	Saml2SnowflakeAcsUrl pulumi.StringPtrInput
-	// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use.
+	// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified,
+	// Snowflake returns an error message indicating the acceptable values to use.
 	Saml2SnowflakeIssuerUrl pulumi.StringPtrInput
-	// The Base64 encoded self-signed certificate generated by Snowflake for use with Encrypting SAML Assertions and Signed SAML Requests. You must have at least one of these features (encrypted SAML assertions or signed SAML responses) enabled in your Snowflake account to access the certificate value.
+	// The Base64 encoded self-signed certificate generated by Snowflake for use with Encrypting SAML Assertions and Signed
+	// SAML Requests. You must have at least one of these features (encrypted SAML assertions or signed SAML responses) enabled
+	// in your Snowflake account to access the certificate value.
 	Saml2SnowflakeX509Cert pulumi.StringPtrInput
 	// The string containing the label to display after the Log In With button on the login page.
 	Saml2SpInitiatedLoginPageLabel pulumi.StringPtrInput
-	// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a SAML AuthnRequest message.
+	// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a
+	// SAML AuthnRequest message.
 	Saml2SsoUrl pulumi.StringInput
-	// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
+	// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending
+	// -----END CERTIFICATE----- markers.
 	Saml2X509Cert pulumi.StringInput
 }
 
@@ -358,6 +468,121 @@ func (o SamlIntegrationOutput) ToSamlIntegrationOutput() SamlIntegrationOutput {
 
 func (o SamlIntegrationOutput) ToSamlIntegrationOutputWithContext(ctx context.Context) SamlIntegrationOutput {
 	return o
+}
+
+// Date and time when the SAML integration was created.
+func (o SamlIntegrationOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIntegration) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// Specifies whether this security integration is enabled or disabled.
+func (o SamlIntegrationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SamlIntegration) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be
+// unique among security integrations in your account.
+func (o SamlIntegrationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SamlIntegrationOutput) Saml2DigestMethodsUsed() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIntegration) pulumi.StringOutput { return v.Saml2DigestMethodsUsed }).(pulumi.StringOutput)
+}
+
+// The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in WIth button
+// on the login page. FALSE: does not display the Log in With button on the login page.
+func (o SamlIntegrationOutput) Saml2EnableSpInitiated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SamlIntegration) pulumi.BoolPtrOutput { return v.Saml2EnableSpInitiated }).(pulumi.BoolPtrOutput)
+}
+
+// The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access
+// Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake
+// to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the
+// identity provider exists. FALSE: does not force users to authenticate again to access Snowflake.
+func (o SamlIntegrationOutput) Saml2ForceAuthn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SamlIntegration) pulumi.BoolPtrOutput { return v.Saml2ForceAuthn }).(pulumi.BoolPtrOutput)
+}
+
+// The string containing the IdP EntityID / Issuer.
+func (o SamlIntegrationOutput) Saml2Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIntegration) pulumi.StringOutput { return v.Saml2Issuer }).(pulumi.StringOutput)
+}
+
+// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web
+// interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
+func (o SamlIntegrationOutput) Saml2PostLogoutRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIntegration) pulumi.StringPtrOutput { return v.Saml2PostLogoutRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// The string describing the IdP. One of the following: OKTA, ADFS, Custom.
+func (o SamlIntegrationOutput) Saml2Provider() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIntegration) pulumi.StringOutput { return v.Saml2Provider }).(pulumi.StringOutput)
+}
+
+// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML
+// Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. If a value is not specified,
+// Snowflake sends the urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress value in the authentication request to the
+// IdP. NameID must be one of the following values: urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified,
+// urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress, urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName,
+// urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName,
+// urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos, urn:oasis:names:tc:SAML:2.0:nameid-format:persistent,
+// urn:oasis:names:tc:SAML:2.0:nameid-format:transient .
+func (o SamlIntegrationOutput) Saml2RequestedNameidFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIntegration) pulumi.StringPtrOutput { return v.Saml2RequestedNameidFormat }).(pulumi.StringPtrOutput)
+}
+
+// The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow
+// SAML requests to be signed.
+func (o SamlIntegrationOutput) Saml2SignRequest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SamlIntegration) pulumi.BoolPtrOutput { return v.Saml2SignRequest }).(pulumi.BoolPtrOutput)
+}
+
+func (o SamlIntegrationOutput) Saml2SignatureMethodsUsed() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIntegration) pulumi.StringOutput { return v.Saml2SignatureMethodsUsed }).(pulumi.StringOutput)
+}
+
+// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication
+// response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when
+// initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message
+// indicating the acceptable values to use. Default: https://<account_locator>.<region>.snowflakecomputing.com/fed/login
+func (o SamlIntegrationOutput) Saml2SnowflakeAcsUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIntegration) pulumi.StringOutput { return v.Saml2SnowflakeAcsUrl }).(pulumi.StringOutput)
+}
+
+// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified,
+// Snowflake returns an error message indicating the acceptable values to use.
+func (o SamlIntegrationOutput) Saml2SnowflakeIssuerUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIntegration) pulumi.StringOutput { return v.Saml2SnowflakeIssuerUrl }).(pulumi.StringOutput)
+}
+
+// Metadata created by Snowflake to provide to SAML2 provider.
+func (o SamlIntegrationOutput) Saml2SnowflakeMetadata() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIntegration) pulumi.StringOutput { return v.Saml2SnowflakeMetadata }).(pulumi.StringOutput)
+}
+
+// The Base64 encoded self-signed certificate generated by Snowflake for use with Encrypting SAML Assertions and Signed
+// SAML Requests. You must have at least one of these features (encrypted SAML assertions or signed SAML responses) enabled
+// in your Snowflake account to access the certificate value.
+func (o SamlIntegrationOutput) Saml2SnowflakeX509Cert() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIntegration) pulumi.StringOutput { return v.Saml2SnowflakeX509Cert }).(pulumi.StringOutput)
+}
+
+// The string containing the label to display after the Log In With button on the login page.
+func (o SamlIntegrationOutput) Saml2SpInitiatedLoginPageLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIntegration) pulumi.StringPtrOutput { return v.Saml2SpInitiatedLoginPageLabel }).(pulumi.StringPtrOutput)
+}
+
+// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a
+// SAML AuthnRequest message.
+func (o SamlIntegrationOutput) Saml2SsoUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIntegration) pulumi.StringOutput { return v.Saml2SsoUrl }).(pulumi.StringOutput)
+}
+
+// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending
+// -----END CERTIFICATE----- markers.
+func (o SamlIntegrationOutput) Saml2X509Cert() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIntegration) pulumi.StringOutput { return v.Saml2X509Cert }).(pulumi.StringOutput)
 }
 
 type SamlIntegrationArrayOutput struct{ *pulumi.OutputState }

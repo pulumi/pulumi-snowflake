@@ -52,6 +52,7 @@
         "getSystemGetSnowflakePlatformInfo.ts",
         "getTables.ts",
         "getTasks.ts",
+        "getUsers.ts",
         "getViews.ts",
         "getWarehouses.ts",
         "index.ts",

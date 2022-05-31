@@ -31,9 +31,6 @@ export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getRole.
  */
 export interface GetRoleArgs {
-    /**
-     * The role for which to return metadata.
-     */
     name: string;
 }
 
@@ -41,17 +38,11 @@ export interface GetRoleArgs {
  * A collection of values returned by getRole.
  */
 export interface GetRoleResult {
-    /**
-     * The comment on the role
-     */
     readonly comment: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * The role for which to return metadata.
-     */
     readonly name: string;
 }
 
@@ -63,8 +54,5 @@ export function getRoleOutput(args: GetRoleOutputArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getRole.
  */
 export interface GetRoleOutputArgs {
-    /**
-     * The role for which to return metadata.
-     */
     name: pulumi.Input<string>;
 }

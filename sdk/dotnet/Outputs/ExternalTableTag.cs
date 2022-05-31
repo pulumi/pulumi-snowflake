@@ -13,21 +13,9 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class ExternalTableTag
     {
-        /// <summary>
-        /// Name of the database that the tag was created in.
-        /// </summary>
         public readonly string? Database;
-        /// <summary>
-        /// Tag name, e.g. department.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Name of the schema that the tag was created in.
-        /// </summary>
         public readonly string? Schema;
-        /// <summary>
-        /// Tag value, e.g. marketing_info.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

@@ -23,14 +23,17 @@ class ApiIntegrationArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ApiIntegration resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_allowed_prefixes: Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_allowed_prefixes: Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
+               resources within those proxies.
         :param pulumi.Input[str] api_provider: Specifies the HTTPS proxy service type.
         :param pulumi.Input[str] api_aws_role_arn: ARN of a cloud platform role.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_blocked_prefixes: Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
         :param pulumi.Input[str] azure_ad_application_id: The 'Application (client) id' of the Azure AD app for your remote service.
         :param pulumi.Input[str] azure_tenant_id: Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
-        :param pulumi.Input[bool] enabled: Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
-        :param pulumi.Input[str] name: Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
+        :param pulumi.Input[bool] enabled: Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
+               that relies on it will not work.
+        :param pulumi.Input[str] name: Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
+               among api integrations in your account.
         """
         pulumi.set(__self__, "api_allowed_prefixes", api_allowed_prefixes)
         pulumi.set(__self__, "api_provider", api_provider)
@@ -51,7 +54,8 @@ class ApiIntegrationArgs:
     @pulumi.getter(name="apiAllowedPrefixes")
     def api_allowed_prefixes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
+        Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
+        resources within those proxies.
         """
         return pulumi.get(self, "api_allowed_prefixes")
 
@@ -123,7 +127,8 @@ class ApiIntegrationArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
+        that relies on it will not work.
         """
         return pulumi.get(self, "enabled")
 
@@ -135,7 +140,8 @@ class ApiIntegrationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
+        Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
+        among api integrations in your account.
         """
         return pulumi.get(self, "name")
 
@@ -162,7 +168,8 @@ class _ApiIntegrationState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ApiIntegration resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_allowed_prefixes: Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_allowed_prefixes: Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
+               resources within those proxies.
         :param pulumi.Input[str] api_aws_external_id: The external ID that Snowflake will use when assuming the AWS role.
         :param pulumi.Input[str] api_aws_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
         :param pulumi.Input[str] api_aws_role_arn: ARN of a cloud platform role.
@@ -171,8 +178,10 @@ class _ApiIntegrationState:
         :param pulumi.Input[str] azure_ad_application_id: The 'Application (client) id' of the Azure AD app for your remote service.
         :param pulumi.Input[str] azure_tenant_id: Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
         :param pulumi.Input[str] created_on: Date and time when the API integration was created.
-        :param pulumi.Input[bool] enabled: Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
-        :param pulumi.Input[str] name: Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
+        :param pulumi.Input[bool] enabled: Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
+               that relies on it will not work.
+        :param pulumi.Input[str] name: Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
+               among api integrations in your account.
         """
         if api_allowed_prefixes is not None:
             pulumi.set(__self__, "api_allowed_prefixes", api_allowed_prefixes)
@@ -205,7 +214,8 @@ class _ApiIntegrationState:
     @pulumi.getter(name="apiAllowedPrefixes")
     def api_allowed_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
+        Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
+        resources within those proxies.
         """
         return pulumi.get(self, "api_allowed_prefixes")
 
@@ -331,7 +341,8 @@ class _ApiIntegrationState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
+        that relies on it will not work.
         """
         return pulumi.get(self, "enabled")
 
@@ -343,7 +354,8 @@ class _ApiIntegrationState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
+        Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
+        among api integrations in your account.
         """
         return pulumi.get(self, "name")
 
@@ -388,14 +400,17 @@ class ApiIntegration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_allowed_prefixes: Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_allowed_prefixes: Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
+               resources within those proxies.
         :param pulumi.Input[str] api_aws_role_arn: ARN of a cloud platform role.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_blocked_prefixes: Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
         :param pulumi.Input[str] api_provider: Specifies the HTTPS proxy service type.
         :param pulumi.Input[str] azure_ad_application_id: The 'Application (client) id' of the Azure AD app for your remote service.
         :param pulumi.Input[str] azure_tenant_id: Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
-        :param pulumi.Input[bool] enabled: Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
-        :param pulumi.Input[str] name: Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
+        :param pulumi.Input[bool] enabled: Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
+               that relies on it will not work.
+        :param pulumi.Input[str] name: Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
+               among api integrations in your account.
         """
         ...
     @overload
@@ -505,7 +520,8 @@ class ApiIntegration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_allowed_prefixes: Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_allowed_prefixes: Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
+               resources within those proxies.
         :param pulumi.Input[str] api_aws_external_id: The external ID that Snowflake will use when assuming the AWS role.
         :param pulumi.Input[str] api_aws_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
         :param pulumi.Input[str] api_aws_role_arn: ARN of a cloud platform role.
@@ -514,8 +530,10 @@ class ApiIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] azure_ad_application_id: The 'Application (client) id' of the Azure AD app for your remote service.
         :param pulumi.Input[str] azure_tenant_id: Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
         :param pulumi.Input[str] created_on: Date and time when the API integration was created.
-        :param pulumi.Input[bool] enabled: Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
-        :param pulumi.Input[str] name: Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
+        :param pulumi.Input[bool] enabled: Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
+               that relies on it will not work.
+        :param pulumi.Input[str] name: Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
+               among api integrations in your account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -540,7 +558,8 @@ class ApiIntegration(pulumi.CustomResource):
     @pulumi.getter(name="apiAllowedPrefixes")
     def api_allowed_prefixes(self) -> pulumi.Output[Sequence[str]]:
         """
-        Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
+        Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
+        resources within those proxies.
         """
         return pulumi.get(self, "api_allowed_prefixes")
 
@@ -622,7 +641,8 @@ class ApiIntegration(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
+        that relies on it will not work.
         """
         return pulumi.get(self, "enabled")
 
@@ -630,7 +650,8 @@ class ApiIntegration(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
+        Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
+        among api integrations in your account.
         """
         return pulumi.get(self, "name")
 

@@ -42,6 +42,7 @@ from .get_system_get_private_link_config import *
 from .get_system_get_snowflake_platform_info import *
 from .get_tables import *
 from .get_tasks import *
+from .get_users import *
 from .get_views import *
 from .get_warehouses import *
 from .integration_grant import *

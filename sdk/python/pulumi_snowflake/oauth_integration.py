@@ -24,13 +24,17 @@ class OauthIntegrationArgs:
         """
         The set of arguments for constructing a OauthIntegration resource.
         :param pulumi.Input[str] oauth_client: Specifies the OAuth client type.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles_lists: List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles_lists: List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN
+               or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
         :param pulumi.Input[bool] enabled: Specifies whether this OAuth integration is enabled or disabled.
-        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
-        :param pulumi.Input[bool] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
-        :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
-        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
+        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+               unique among security integrations in your account.
+        :param pulumi.Input[bool] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+               expired.
+        :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
+        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being
+               opened.
         """
         pulumi.set(__self__, "oauth_client", oauth_client)
         if blocked_roles_lists is not None:
@@ -64,7 +68,8 @@ class OauthIntegrationArgs:
     @pulumi.getter(name="blockedRolesLists")
     def blocked_roles_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+        List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN
+        or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         """
         return pulumi.get(self, "blocked_roles_lists")
 
@@ -100,7 +105,8 @@ class OauthIntegrationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+        unique among security integrations in your account.
         """
         return pulumi.get(self, "name")
 
@@ -112,7 +118,8 @@ class OauthIntegrationArgs:
     @pulumi.getter(name="oauthIssueRefreshTokens")
     def oauth_issue_refresh_tokens(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
+        Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+        expired.
         """
         return pulumi.get(self, "oauth_issue_refresh_tokens")
 
@@ -124,7 +131,7 @@ class OauthIntegrationArgs:
     @pulumi.getter(name="oauthRefreshTokenValidity")
     def oauth_refresh_token_validity(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+        Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
         """
         return pulumi.get(self, "oauth_refresh_token_validity")
 
@@ -136,7 +143,8 @@ class OauthIntegrationArgs:
     @pulumi.getter(name="oauthUseSecondaryRoles")
     def oauth_use_secondary_roles(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
+        Specifies whether default secondary roles set in the user properties are activated by default in the session being
+        opened.
         """
         return pulumi.get(self, "oauth_use_secondary_roles")
 
@@ -159,15 +167,19 @@ class _OauthIntegrationState:
                  oauth_use_secondary_roles: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OauthIntegration resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles_lists: List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles_lists: List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN
+               or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
         :param pulumi.Input[str] created_on: Date and time when the OAuth integration was created.
         :param pulumi.Input[bool] enabled: Specifies whether this OAuth integration is enabled or disabled.
-        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+               unique among security integrations in your account.
         :param pulumi.Input[str] oauth_client: Specifies the OAuth client type.
-        :param pulumi.Input[bool] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
-        :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
-        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
+        :param pulumi.Input[bool] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+               expired.
+        :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
+        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being
+               opened.
         """
         if blocked_roles_lists is not None:
             pulumi.set(__self__, "blocked_roles_lists", blocked_roles_lists)
@@ -192,7 +204,8 @@ class _OauthIntegrationState:
     @pulumi.getter(name="blockedRolesLists")
     def blocked_roles_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+        List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN
+        or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         """
         return pulumi.get(self, "blocked_roles_lists")
 
@@ -240,7 +253,8 @@ class _OauthIntegrationState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+        unique among security integrations in your account.
         """
         return pulumi.get(self, "name")
 
@@ -264,7 +278,8 @@ class _OauthIntegrationState:
     @pulumi.getter(name="oauthIssueRefreshTokens")
     def oauth_issue_refresh_tokens(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
+        Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+        expired.
         """
         return pulumi.get(self, "oauth_issue_refresh_tokens")
 
@@ -276,7 +291,7 @@ class _OauthIntegrationState:
     @pulumi.getter(name="oauthRefreshTokenValidity")
     def oauth_refresh_token_validity(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+        Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
         """
         return pulumi.get(self, "oauth_refresh_token_validity")
 
@@ -288,7 +303,8 @@ class _OauthIntegrationState:
     @pulumi.getter(name="oauthUseSecondaryRoles")
     def oauth_use_secondary_roles(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
+        Specifies whether default secondary roles set in the user properties are activated by default in the session being
+        opened.
         """
         return pulumi.get(self, "oauth_use_secondary_roles")
 
@@ -334,14 +350,18 @@ class OauthIntegration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles_lists: List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles_lists: List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN
+               or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
         :param pulumi.Input[bool] enabled: Specifies whether this OAuth integration is enabled or disabled.
-        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+               unique among security integrations in your account.
         :param pulumi.Input[str] oauth_client: Specifies the OAuth client type.
-        :param pulumi.Input[bool] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
-        :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
-        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
+        :param pulumi.Input[bool] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+               expired.
+        :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
+        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being
+               opened.
         """
         ...
     @overload
@@ -442,15 +462,19 @@ class OauthIntegration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles_lists: List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles_lists: List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN
+               or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
         :param pulumi.Input[str] created_on: Date and time when the OAuth integration was created.
         :param pulumi.Input[bool] enabled: Specifies whether this OAuth integration is enabled or disabled.
-        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+               unique among security integrations in your account.
         :param pulumi.Input[str] oauth_client: Specifies the OAuth client type.
-        :param pulumi.Input[bool] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
-        :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
-        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
+        :param pulumi.Input[bool] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+               expired.
+        :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
+        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being
+               opened.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -471,7 +495,8 @@ class OauthIntegration(pulumi.CustomResource):
     @pulumi.getter(name="blockedRolesLists")
     def blocked_roles_lists(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+        List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN
+        or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         """
         return pulumi.get(self, "blocked_roles_lists")
 
@@ -503,7 +528,8 @@ class OauthIntegration(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+        unique among security integrations in your account.
         """
         return pulumi.get(self, "name")
 
@@ -519,7 +545,8 @@ class OauthIntegration(pulumi.CustomResource):
     @pulumi.getter(name="oauthIssueRefreshTokens")
     def oauth_issue_refresh_tokens(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
+        Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+        expired.
         """
         return pulumi.get(self, "oauth_issue_refresh_tokens")
 
@@ -527,7 +554,7 @@ class OauthIntegration(pulumi.CustomResource):
     @pulumi.getter(name="oauthRefreshTokenValidity")
     def oauth_refresh_token_validity(self) -> pulumi.Output[Optional[int]]:
         """
-        Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+        Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
         """
         return pulumi.get(self, "oauth_refresh_token_validity")
 
@@ -535,7 +562,8 @@ class OauthIntegration(pulumi.CustomResource):
     @pulumi.getter(name="oauthUseSecondaryRoles")
     def oauth_use_secondary_roles(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
+        Specifies whether default secondary roles set in the user properties are activated by default in the session being
+        opened.
         """
         return pulumi.get(self, "oauth_use_secondary_roles")
 

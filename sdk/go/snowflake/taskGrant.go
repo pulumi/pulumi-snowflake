@@ -58,7 +58,9 @@ type TaskGrant struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
+	// When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
+	// this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
+	// field must be unset in order to use on_future.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
 	// The privilege to grant on the current or future task.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
@@ -66,7 +68,7 @@ type TaskGrant struct {
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current or future tasks on which to grant privileges.
 	SchemaName pulumi.StringOutput `pulumi:"schemaName"`
-	// The name of the task on which to grant privileges immediately (only valid if onFuture is false).
+	// The name of the task on which to grant privileges immediately (only valid if on_future is false).
 	TaskName pulumi.StringPtrOutput `pulumi:"taskName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrOutput `pulumi:"withGrantOption"`
@@ -112,7 +114,9 @@ type taskGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
+	// When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
+	// this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
+	// field must be unset in order to use on_future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future task.
 	Privilege *string `pulumi:"privilege"`
@@ -120,7 +124,7 @@ type taskGrantState struct {
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future tasks on which to grant privileges.
 	SchemaName *string `pulumi:"schemaName"`
-	// The name of the task on which to grant privileges immediately (only valid if onFuture is false).
+	// The name of the task on which to grant privileges immediately (only valid if on_future is false).
 	TaskName *string `pulumi:"taskName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
@@ -132,7 +136,9 @@ type TaskGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
+	// When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
+	// this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
+	// field must be unset in order to use on_future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future task.
 	Privilege pulumi.StringPtrInput
@@ -140,7 +146,7 @@ type TaskGrantState struct {
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future tasks on which to grant privileges.
 	SchemaName pulumi.StringPtrInput
-	// The name of the task on which to grant privileges immediately (only valid if onFuture is false).
+	// The name of the task on which to grant privileges immediately (only valid if on_future is false).
 	TaskName pulumi.StringPtrInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
@@ -156,7 +162,9 @@ type taskGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
+	// When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
+	// this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
+	// field must be unset in order to use on_future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future task.
 	Privilege *string `pulumi:"privilege"`
@@ -164,7 +172,7 @@ type taskGrantArgs struct {
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future tasks on which to grant privileges.
 	SchemaName string `pulumi:"schemaName"`
-	// The name of the task on which to grant privileges immediately (only valid if onFuture is false).
+	// The name of the task on which to grant privileges immediately (only valid if on_future is false).
 	TaskName *string `pulumi:"taskName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
@@ -177,7 +185,9 @@ type TaskGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
+	// When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
+	// this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
+	// field must be unset in order to use on_future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future task.
 	Privilege pulumi.StringPtrInput
@@ -185,7 +195,7 @@ type TaskGrantArgs struct {
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future tasks on which to grant privileges.
 	SchemaName pulumi.StringInput
-	// The name of the task on which to grant privileges immediately (only valid if onFuture is false).
+	// The name of the task on which to grant privileges immediately (only valid if on_future is false).
 	TaskName pulumi.StringPtrInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
@@ -276,6 +286,49 @@ func (o TaskGrantOutput) ToTaskGrantOutput() TaskGrantOutput {
 
 func (o TaskGrantOutput) ToTaskGrantOutputWithContext(ctx context.Context) TaskGrantOutput {
 	return o
+}
+
+// The name of the database containing the current or future tasks on which to grant privileges.
+func (o TaskGrantOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v *TaskGrant) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+// grants applied to roles and objects outside Terraform.
+func (o TaskGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TaskGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
+}
+
+// When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
+// this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
+// field must be unset in order to use on_future.
+func (o TaskGrantOutput) OnFuture() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TaskGrant) pulumi.BoolPtrOutput { return v.OnFuture }).(pulumi.BoolPtrOutput)
+}
+
+// The privilege to grant on the current or future task.
+func (o TaskGrantOutput) Privilege() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
+}
+
+// Grants privilege to these roles.
+func (o TaskGrantOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TaskGrant) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+// The name of the schema containing the current or future tasks on which to grant privileges.
+func (o TaskGrantOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v *TaskGrant) pulumi.StringOutput { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+// The name of the task on which to grant privileges immediately (only valid if on_future is false).
+func (o TaskGrantOutput) TaskName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskGrant) pulumi.StringPtrOutput { return v.TaskName }).(pulumi.StringPtrOutput)
+}
+
+// When this is set to true, allows the recipient role to grant the privileges to other roles.
+func (o TaskGrantOutput) WithGrantOption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TaskGrant) pulumi.BoolPtrOutput { return v.WithGrantOption }).(pulumi.BoolPtrOutput)
 }
 
 type TaskGrantArrayOutput struct{ *pulumi.OutputState }

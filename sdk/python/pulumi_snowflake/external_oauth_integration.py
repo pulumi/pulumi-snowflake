@@ -34,16 +34,22 @@ class ExternalOauthIntegrationArgs:
         :param pulumi.Input[str] issuer: Specifies the URL to define the OAuth 2.0 authorization server.
         :param pulumi.Input[str] snowflake_user_mapping_attribute: Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] token_user_mapping_claims: Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
-        :param pulumi.Input[str] type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
+        :param pulumi.Input[str] type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
+               OAuth 2.0 authorization server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_roles: Specifies the list of roles that the client can set as the primary role.
         :param pulumi.Input[str] any_role_mode: Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] audience_urls: Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles: Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] audience_urls: Specifies additional values that can be used for the access token's audience validation on top of using the Customer's
+               Snowflake Account URL
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles: Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or
+               SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] jws_keys_urls: Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
-        :param pulumi.Input[str] name: Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] jws_keys_urls: Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
+               OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+        :param pulumi.Input[str] name: Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
+               be unique among security integrations in your account.
         :param pulumi.Input[str] rsa_public_key: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
-        :param pulumi.Input[str] rsa_public_key2: Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
+        :param pulumi.Input[str] rsa_public_key2: Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
+               key rotation.
         :param pulumi.Input[str] scope_delimiter: Specifies the scope delimiter in the authorization token.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -124,7 +130,8 @@ class ExternalOauthIntegrationArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
+        Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
+        OAuth 2.0 authorization server.
         """
         return pulumi.get(self, "type")
 
@@ -160,7 +167,8 @@ class ExternalOauthIntegrationArgs:
     @pulumi.getter(name="audienceUrls")
     def audience_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+        Specifies additional values that can be used for the access token's audience validation on top of using the Customer's
+        Snowflake Account URL
         """
         return pulumi.get(self, "audience_urls")
 
@@ -172,7 +180,8 @@ class ExternalOauthIntegrationArgs:
     @pulumi.getter(name="blockedRoles")
     def blocked_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+        Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or
+        SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         """
         return pulumi.get(self, "blocked_roles")
 
@@ -196,7 +205,8 @@ class ExternalOauthIntegrationArgs:
     @pulumi.getter(name="jwsKeysUrls")
     def jws_keys_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+        Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
+        OAuth access token. The maximum number of URLs that can be specified in the list is 3.
         """
         return pulumi.get(self, "jws_keys_urls")
 
@@ -208,7 +218,8 @@ class ExternalOauthIntegrationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
+        be unique among security integrations in your account.
         """
         return pulumi.get(self, "name")
 
@@ -232,7 +243,8 @@ class ExternalOauthIntegrationArgs:
     @pulumi.getter(name="rsaPublicKey2")
     def rsa_public_key2(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
+        Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
+        key rotation.
         """
         return pulumi.get(self, "rsa_public_key2")
 
@@ -276,20 +288,26 @@ class _ExternalOauthIntegrationState:
         Input properties used for looking up and filtering ExternalOauthIntegration resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_roles: Specifies the list of roles that the client can set as the primary role.
         :param pulumi.Input[str] any_role_mode: Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] audience_urls: Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles: Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] audience_urls: Specifies additional values that can be used for the access token's audience validation on top of using the Customer's
+               Snowflake Account URL
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles: Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or
+               SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
         :param pulumi.Input[str] created_on: Date and time when the External OAUTH integration was created.
         :param pulumi.Input[bool] enabled: Specifies whether to initiate operation of the integration or suspend it.
         :param pulumi.Input[str] issuer: Specifies the URL to define the OAuth 2.0 authorization server.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] jws_keys_urls: Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
-        :param pulumi.Input[str] name: Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] jws_keys_urls: Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
+               OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+        :param pulumi.Input[str] name: Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
+               be unique among security integrations in your account.
         :param pulumi.Input[str] rsa_public_key: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
-        :param pulumi.Input[str] rsa_public_key2: Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
+        :param pulumi.Input[str] rsa_public_key2: Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
+               key rotation.
         :param pulumi.Input[str] scope_delimiter: Specifies the scope delimiter in the authorization token.
         :param pulumi.Input[str] snowflake_user_mapping_attribute: Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] token_user_mapping_claims: Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
-        :param pulumi.Input[str] type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
+        :param pulumi.Input[str] type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
+               OAuth 2.0 authorization server.
         """
         if allowed_roles is not None:
             pulumi.set(__self__, "allowed_roles", allowed_roles)
@@ -352,7 +370,8 @@ class _ExternalOauthIntegrationState:
     @pulumi.getter(name="audienceUrls")
     def audience_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+        Specifies additional values that can be used for the access token's audience validation on top of using the Customer's
+        Snowflake Account URL
         """
         return pulumi.get(self, "audience_urls")
 
@@ -364,7 +383,8 @@ class _ExternalOauthIntegrationState:
     @pulumi.getter(name="blockedRoles")
     def blocked_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+        Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or
+        SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         """
         return pulumi.get(self, "blocked_roles")
 
@@ -424,7 +444,8 @@ class _ExternalOauthIntegrationState:
     @pulumi.getter(name="jwsKeysUrls")
     def jws_keys_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+        Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
+        OAuth access token. The maximum number of URLs that can be specified in the list is 3.
         """
         return pulumi.get(self, "jws_keys_urls")
 
@@ -436,7 +457,8 @@ class _ExternalOauthIntegrationState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
+        be unique among security integrations in your account.
         """
         return pulumi.get(self, "name")
 
@@ -460,7 +482,8 @@ class _ExternalOauthIntegrationState:
     @pulumi.getter(name="rsaPublicKey2")
     def rsa_public_key2(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
+        Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
+        key rotation.
         """
         return pulumi.get(self, "rsa_public_key2")
 
@@ -508,7 +531,8 @@ class _ExternalOauthIntegrationState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
+        Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
+        OAuth 2.0 authorization server.
         """
         return pulumi.get(self, "type")
 
@@ -565,19 +589,25 @@ class ExternalOauthIntegration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_roles: Specifies the list of roles that the client can set as the primary role.
         :param pulumi.Input[str] any_role_mode: Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] audience_urls: Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles: Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] audience_urls: Specifies additional values that can be used for the access token's audience validation on top of using the Customer's
+               Snowflake Account URL
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles: Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or
+               SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
         :param pulumi.Input[bool] enabled: Specifies whether to initiate operation of the integration or suspend it.
         :param pulumi.Input[str] issuer: Specifies the URL to define the OAuth 2.0 authorization server.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] jws_keys_urls: Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
-        :param pulumi.Input[str] name: Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] jws_keys_urls: Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
+               OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+        :param pulumi.Input[str] name: Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
+               be unique among security integrations in your account.
         :param pulumi.Input[str] rsa_public_key: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
-        :param pulumi.Input[str] rsa_public_key2: Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
+        :param pulumi.Input[str] rsa_public_key2: Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
+               key rotation.
         :param pulumi.Input[str] scope_delimiter: Specifies the scope delimiter in the authorization token.
         :param pulumi.Input[str] snowflake_user_mapping_attribute: Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] token_user_mapping_claims: Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
-        :param pulumi.Input[str] type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
+        :param pulumi.Input[str] type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
+               OAuth 2.0 authorization server.
         """
         ...
     @overload
@@ -711,20 +741,26 @@ class ExternalOauthIntegration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_roles: Specifies the list of roles that the client can set as the primary role.
         :param pulumi.Input[str] any_role_mode: Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] audience_urls: Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles: Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] audience_urls: Specifies additional values that can be used for the access token's audience validation on top of using the Customer's
+               Snowflake Account URL
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles: Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or
+               SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
         :param pulumi.Input[str] created_on: Date and time when the External OAUTH integration was created.
         :param pulumi.Input[bool] enabled: Specifies whether to initiate operation of the integration or suspend it.
         :param pulumi.Input[str] issuer: Specifies the URL to define the OAuth 2.0 authorization server.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] jws_keys_urls: Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
-        :param pulumi.Input[str] name: Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] jws_keys_urls: Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
+               OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+        :param pulumi.Input[str] name: Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
+               be unique among security integrations in your account.
         :param pulumi.Input[str] rsa_public_key: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
-        :param pulumi.Input[str] rsa_public_key2: Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
+        :param pulumi.Input[str] rsa_public_key2: Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
+               key rotation.
         :param pulumi.Input[str] scope_delimiter: Specifies the scope delimiter in the authorization token.
         :param pulumi.Input[str] snowflake_user_mapping_attribute: Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] token_user_mapping_claims: Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
-        :param pulumi.Input[str] type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
+        :param pulumi.Input[str] type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
+               OAuth 2.0 authorization server.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -768,7 +804,8 @@ class ExternalOauthIntegration(pulumi.CustomResource):
     @pulumi.getter(name="audienceUrls")
     def audience_urls(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+        Specifies additional values that can be used for the access token's audience validation on top of using the Customer's
+        Snowflake Account URL
         """
         return pulumi.get(self, "audience_urls")
 
@@ -776,7 +813,8 @@ class ExternalOauthIntegration(pulumi.CustomResource):
     @pulumi.getter(name="blockedRoles")
     def blocked_roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+        Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or
+        SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         """
         return pulumi.get(self, "blocked_roles")
 
@@ -816,7 +854,8 @@ class ExternalOauthIntegration(pulumi.CustomResource):
     @pulumi.getter(name="jwsKeysUrls")
     def jws_keys_urls(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+        Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
+        OAuth access token. The maximum number of URLs that can be specified in the list is 3.
         """
         return pulumi.get(self, "jws_keys_urls")
 
@@ -824,7 +863,8 @@ class ExternalOauthIntegration(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
+        be unique among security integrations in your account.
         """
         return pulumi.get(self, "name")
 
@@ -840,7 +880,8 @@ class ExternalOauthIntegration(pulumi.CustomResource):
     @pulumi.getter(name="rsaPublicKey2")
     def rsa_public_key2(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
+        Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
+        key rotation.
         """
         return pulumi.get(self, "rsa_public_key2")
 
@@ -872,7 +913,8 @@ class ExternalOauthIntegration(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
+        Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
+        OAuth 2.0 authorization server.
         """
         return pulumi.get(self, "type")
 

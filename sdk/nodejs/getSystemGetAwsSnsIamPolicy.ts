@@ -19,9 +19,6 @@ export function getSystemGetAwsSnsIamPolicy(args: GetSystemGetAwsSnsIamPolicyArg
  * A collection of arguments for invoking getSystemGetAwsSnsIamPolicy.
  */
 export interface GetSystemGetAwsSnsIamPolicyArgs {
-    /**
-     * Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
-     */
     awsSnsTopicArn: string;
 }
 
@@ -29,13 +26,7 @@ export interface GetSystemGetAwsSnsIamPolicyArgs {
  * A collection of values returned by getSystemGetAwsSnsIamPolicy.
  */
 export interface GetSystemGetAwsSnsIamPolicyResult {
-    /**
-     * Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
-     */
     readonly awsSnsTopicArn: string;
-    /**
-     * IAM policy for Snowflake’s SQS queue to subscribe to this topic
-     */
     readonly awsSnsTopicPolicyJson: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -51,8 +42,5 @@ export function getSystemGetAwsSnsIamPolicyOutput(args: GetSystemGetAwsSnsIamPol
  * A collection of arguments for invoking getSystemGetAwsSnsIamPolicy.
  */
 export interface GetSystemGetAwsSnsIamPolicyOutputArgs {
-    /**
-     * Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
-     */
     awsSnsTopicArn: pulumi.Input<string>;
 }

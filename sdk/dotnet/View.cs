@@ -65,7 +65,8 @@ namespace Pulumi.Snowflake
         public Output<bool?> IsSecure { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+        /// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
+        /// character.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -159,7 +160,8 @@ namespace Pulumi.Snowflake
         public Input<bool>? IsSecure { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+        /// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
+        /// character.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -220,7 +222,8 @@ namespace Pulumi.Snowflake
         public Input<bool>? IsSecure { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+        /// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
+        /// character.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

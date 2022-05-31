@@ -38,9 +38,6 @@ class GetStreamsResult:
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the streams from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -54,17 +51,11 @@ class GetStreamsResult:
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the streams from.
-        """
         return pulumi.get(self, "schema")
 
     @property
     @pulumi.getter
     def streams(self) -> Sequence['outputs.GetStreamsStreamResult']:
-        """
-        The streams in the schema
-        """
         return pulumi.get(self, "streams")
 
 
@@ -93,10 +84,6 @@ def get_streams(database: Optional[str] = None,
     current = snowflake.get_streams(database="MYDB",
         schema="MYSCHEMA")
     ```
-
-
-    :param str database: The database from which to return the streams from.
-    :param str schema: The schema from which to return the streams from.
     """
     __args__ = dict()
     __args__['database'] = database
@@ -128,9 +115,5 @@ def get_streams_output(database: Optional[pulumi.Input[str]] = None,
     current = snowflake.get_streams(database="MYDB",
         schema="MYSCHEMA")
     ```
-
-
-    :param str database: The database from which to return the streams from.
-    :param str schema: The schema from which to return the streams from.
     """
     ...

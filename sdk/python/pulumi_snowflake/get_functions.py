@@ -38,17 +38,11 @@ class GetFunctionsResult:
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
     def functions(self) -> Sequence['outputs.GetFunctionsFunctionResult']:
-        """
-        The functions in the schema
-        """
         return pulumi.get(self, "functions")
 
     @property
@@ -62,9 +56,6 @@ class GetFunctionsResult:
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the functions from.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -93,10 +84,6 @@ def get_functions(database: Optional[str] = None,
     current = snowflake.get_functions(database="MYDB",
         schema="MYSCHEMA")
     ```
-
-
-    :param str database: The database from which to return the schemas from.
-    :param str schema: The schema from which to return the functions from.
     """
     __args__ = dict()
     __args__['database'] = database
@@ -128,9 +115,5 @@ def get_functions_output(database: Optional[pulumi.Input[str]] = None,
     current = snowflake.get_functions(database="MYDB",
         schema="MYSCHEMA")
     ```
-
-
-    :param str database: The database from which to return the schemas from.
-    :param str schema: The schema from which to return the functions from.
     """
     ...

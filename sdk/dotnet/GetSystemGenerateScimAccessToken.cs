@@ -69,9 +69,6 @@ namespace Pulumi.Snowflake
 
     public sealed class GetSystemGenerateScimAccessTokenArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// SCIM Integration Name
-        /// </summary>
         [Input("integrationName", required: true)]
         public string IntegrationName { get; set; } = null!;
 
@@ -82,9 +79,6 @@ namespace Pulumi.Snowflake
 
     public sealed class GetSystemGenerateScimAccessTokenInvokeArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// SCIM Integration Name
-        /// </summary>
         [Input("integrationName", required: true)]
         public Input<string> IntegrationName { get; set; } = null!;
 
@@ -97,17 +91,11 @@ namespace Pulumi.Snowflake
     [OutputType]
     public sealed class GetSystemGenerateScimAccessTokenResult
     {
-        /// <summary>
-        /// SCIM Access Token
-        /// </summary>
         public readonly string AccessToken;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// SCIM Integration Name
-        /// </summary>
         public readonly string IntegrationName;
 
         [OutputConstructor]

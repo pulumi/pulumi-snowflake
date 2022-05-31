@@ -43,17 +43,14 @@ func LookupRole(ctx *pulumi.Context, args *LookupRoleArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getRole.
 type LookupRoleArgs struct {
-	// The role for which to return metadata.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getRole.
 type LookupRoleResult struct {
-	// The comment on the role
 	Comment string `pulumi:"comment"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The role for which to return metadata.
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }
 
@@ -72,7 +69,6 @@ func LookupRoleOutput(ctx *pulumi.Context, args LookupRoleOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getRole.
 type LookupRoleOutputArgs struct {
-	// The role for which to return metadata.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -95,7 +91,6 @@ func (o LookupRoleResultOutput) ToLookupRoleResultOutputWithContext(ctx context.
 	return o
 }
 
-// The comment on the role
 func (o LookupRoleResultOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoleResult) string { return v.Comment }).(pulumi.StringOutput)
 }
@@ -105,7 +100,6 @@ func (o LookupRoleResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoleResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The role for which to return metadata.
 func (o LookupRoleResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoleResult) string { return v.Name }).(pulumi.StringOutput)
 }

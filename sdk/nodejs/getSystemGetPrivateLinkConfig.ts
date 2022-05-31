@@ -18,28 +18,13 @@ export function getSystemGetPrivateLinkConfig(opts?: pulumi.InvokeOptions): Prom
  * A collection of values returned by getSystemGetPrivateLinkConfig.
  */
 export interface GetSystemGetPrivateLinkConfigResult {
-    /**
-     * The name of your Snowflake account.
-     */
     readonly accountName: string;
-    /**
-     * The URL used to connect to Snowflake through AWS PrivateLink or Azure Private Link.
-     */
     readonly accountUrl: string;
-    /**
-     * The AWS VPCE ID for your account.
-     */
     readonly awsVpceId: string;
-    /**
-     * The Azure Private Link Service ID for your account.
-     */
     readonly azurePlsId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
-     */
     readonly ocspUrl: string;
 }

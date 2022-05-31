@@ -18,13 +18,7 @@ export function getSystemGetSnowflakePlatformInfo(opts?: pulumi.InvokeOptions): 
  * A collection of values returned by getSystemGetSnowflakePlatformInfo.
  */
 export interface GetSystemGetSnowflakePlatformInfoResult {
-    /**
-     * Snowflake AWS Virtual Private Cloud IDs
-     */
     readonly awsVpcIds: string[];
-    /**
-     * Snowflake Azure Virtual Network Subnet IDs
-     */
     readonly azureVnetSubnetIds: string[];
     /**
      * The provider-assigned unique ID for this managed resource.

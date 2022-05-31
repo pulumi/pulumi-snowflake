@@ -53,7 +53,8 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> AllowedIpLists { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
+        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account&lt;br&gt;&lt;br&gt;**Do not**
+        /// add `0.0.0.0/0` to `blocked_ip_list`
         /// </summary>
         [Output("blockedIpLists")]
         public Output<ImmutableArray<string>> BlockedIpLists { get; private set; } = null!;
@@ -132,7 +133,8 @@ namespace Pulumi.Snowflake
         private InputList<string>? _blockedIpLists;
 
         /// <summary>
-        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
+        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account&lt;br&gt;&lt;br&gt;**Do not**
+        /// add `0.0.0.0/0` to `blocked_ip_list`
         /// </summary>
         public InputList<string> BlockedIpLists
         {
@@ -175,7 +177,8 @@ namespace Pulumi.Snowflake
         private InputList<string>? _blockedIpLists;
 
         /// <summary>
-        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
+        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account&lt;br&gt;&lt;br&gt;**Do not**
+        /// add `0.0.0.0/0` to `blocked_ip_list`
         /// </summary>
         public InputList<string> BlockedIpLists
         {

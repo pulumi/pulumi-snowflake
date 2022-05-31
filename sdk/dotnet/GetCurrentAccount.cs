@@ -46,21 +46,12 @@ namespace Pulumi.Snowflake
     [OutputType]
     public sealed class GetCurrentAccountResult
     {
-        /// <summary>
-        /// The Snowflake Account ID; as returned by CURRENT_ACCOUNT().
-        /// </summary>
         public readonly string Account;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The Snowflake Region; as returned by CURRENT_REGION()
-        /// </summary>
         public readonly string Region;
-        /// <summary>
-        /// The Snowflake URL.
-        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]

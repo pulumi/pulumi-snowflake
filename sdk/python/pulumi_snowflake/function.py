@@ -39,7 +39,8 @@ class FunctionArgs:
         :param pulumi.Input[str] handler: the handler method for Java function.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: jar files to import for Java function.
         :param pulumi.Input[str] language: The language of the statement
-        :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
+        :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
+               Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
         :param pulumi.Input[str] target_path: the target path for compiled jar file for Java function.
@@ -179,7 +180,8 @@ class FunctionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
+        Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
+        Don't use the | character.
         """
         return pulumi.get(self, "name")
 
@@ -248,7 +250,8 @@ class _FunctionState:
         :param pulumi.Input[str] handler: the handler method for Java function.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: jar files to import for Java function.
         :param pulumi.Input[str] language: The language of the statement
-        :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
+        :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
+               Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
         :param pulumi.Input[str] return_type: The return type of the function
@@ -359,7 +362,8 @@ class _FunctionState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
+        Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
+        Don't use the | character.
         """
         return pulumi.get(self, "name")
 
@@ -469,7 +473,8 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] handler: the handler method for Java function.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: jar files to import for Java function.
         :param pulumi.Input[str] language: The language of the statement
-        :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
+        :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
+               Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
         :param pulumi.Input[str] return_type: The return type of the function
@@ -582,7 +587,8 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] handler: the handler method for Java function.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: jar files to import for Java function.
         :param pulumi.Input[str] language: The language of the statement
-        :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
+        :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
+               Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
         :param pulumi.Input[str] return_type: The return type of the function
@@ -661,7 +667,8 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
+        Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
+        Don't use the | character.
         """
         return pulumi.get(self, "name")
 

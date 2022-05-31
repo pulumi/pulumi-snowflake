@@ -19,7 +19,7 @@ import (
 	"path/filepath"
 	"unicode"
 
-	snowflake "github.com/chanzuckerberg/terraform-provider-snowflake/pkg/provider"
+	snowflake "github.com/Snowflake-Labs/terraform-provider-snowflake/pkg/provider"
 	"github.com/pulumi/pulumi-snowflake/provider/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
@@ -73,7 +73,7 @@ func Provider() tfbridge.ProviderInfo {
 		Keywords:    []string{"pulumi", "snowflake"},
 		License:     "Apache-2.0",
 		Homepage:    "https://pulumi.io",
-		GitHubOrg:   "chanzuckerberg",
+		GitHubOrg:   "Snowflake-Labs",
 		Repository:  "https://github.com/pulumi/pulumi-snowflake",
 		Config:      map[string]*tfbridge.SchemaInfo{},
 		Resources: map[string]*tfbridge.ResourceInfo{
@@ -163,6 +163,7 @@ func Provider() tfbridge.ProviderInfo {
 			"snowflake_database":                           {Tok: makeDataSource(mainMod, "getDatabase")},
 			"snowflake_databases":                          {Tok: makeDataSource(mainMod, "getDatabases")},
 			"snowflake_role":                               {Tok: makeDataSource(mainMod, "getRole")},
+			"snowflake_users":                              {Tok: makeDataSource(mainMod, "getUsers")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

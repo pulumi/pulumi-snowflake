@@ -81,7 +81,8 @@ type Stage struct {
 	// The schema in which to create the stage.
 	Schema           pulumi.StringOutput `pulumi:"schema"`
 	SnowflakeIamUser pulumi.StringOutput `pulumi:"snowflakeIamUser"`
-	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+	// to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration pulumi.StringPtrOutput `pulumi:"storageIntegration"`
 	// Definitions of a tag to associate with the resource.
 	Tags StageTagArrayOutput `pulumi:"tags"`
@@ -144,7 +145,8 @@ type stageState struct {
 	// The schema in which to create the stage.
 	Schema           *string `pulumi:"schema"`
 	SnowflakeIamUser *string `pulumi:"snowflakeIamUser"`
-	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+	// to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration *string `pulumi:"storageIntegration"`
 	// Definitions of a tag to associate with the resource.
 	Tags []StageTag `pulumi:"tags"`
@@ -173,7 +175,8 @@ type StageState struct {
 	// The schema in which to create the stage.
 	Schema           pulumi.StringPtrInput
 	SnowflakeIamUser pulumi.StringPtrInput
-	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+	// to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
 	Tags StageTagArrayInput
@@ -206,7 +209,8 @@ type stageArgs struct {
 	// The schema in which to create the stage.
 	Schema           string  `pulumi:"schema"`
 	SnowflakeIamUser *string `pulumi:"snowflakeIamUser"`
-	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+	// to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration *string `pulumi:"storageIntegration"`
 	// Definitions of a tag to associate with the resource.
 	Tags []StageTag `pulumi:"tags"`
@@ -236,7 +240,8 @@ type StageArgs struct {
 	// The schema in which to create the stage.
 	Schema           pulumi.StringInput
 	SnowflakeIamUser pulumi.StringPtrInput
-	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+	// to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
 	Tags StageTagArrayInput
@@ -329,6 +334,75 @@ func (o StageOutput) ToStageOutput() StageOutput {
 
 func (o StageOutput) ToStageOutputWithContext(ctx context.Context) StageOutput {
 	return o
+}
+
+func (o StageOutput) AwsExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.AwsExternalId }).(pulumi.StringOutput)
+}
+
+// Specifies a comment for the stage.
+func (o StageOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the copy options for the stage.
+func (o StageOutput) CopyOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.CopyOptions }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the credentials for the stage.
+func (o StageOutput) Credentials() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.Credentials }).(pulumi.StringPtrOutput)
+}
+
+// The database in which to create the stage.
+func (o StageOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// Specifies the directory settings for the stage.
+func (o StageOutput) Directory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.Directory }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the encryption settings for the stage.
+func (o StageOutput) Encryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.Encryption }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the file format for the stage.
+func (o StageOutput) FileFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.FileFormat }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
+func (o StageOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The schema in which to create the stage.
+func (o StageOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
+}
+
+func (o StageOutput) SnowflakeIamUser() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.SnowflakeIamUser }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+// to a Snowflake identity and access management (IAM) entity.
+func (o StageOutput) StorageIntegration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.StorageIntegration }).(pulumi.StringPtrOutput)
+}
+
+// Definitions of a tag to associate with the resource.
+func (o StageOutput) Tags() StageTagArrayOutput {
+	return o.ApplyT(func(v *Stage) StageTagArrayOutput { return v.Tags }).(StageTagArrayOutput)
+}
+
+// Specifies the URL for the stage.
+func (o StageOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
 }
 
 type StageArrayOutput struct{ *pulumi.OutputState }

@@ -38,9 +38,6 @@ class GetTasksResult:
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -54,17 +51,11 @@ class GetTasksResult:
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the tasks from.
-        """
         return pulumi.get(self, "schema")
 
     @property
     @pulumi.getter
     def tasks(self) -> Sequence['outputs.GetTasksTaskResult']:
-        """
-        The tasks in the schema
-        """
         return pulumi.get(self, "tasks")
 
 
@@ -93,10 +84,6 @@ def get_tasks(database: Optional[str] = None,
     current = snowflake.get_tasks(database="MYDB",
         schema="MYSCHEMA")
     ```
-
-
-    :param str database: The database from which to return the schemas from.
-    :param str schema: The schema from which to return the tasks from.
     """
     __args__ = dict()
     __args__['database'] = database
@@ -128,9 +115,5 @@ def get_tasks_output(database: Optional[pulumi.Input[str]] = None,
     current = snowflake.get_tasks(database="MYDB",
         schema="MYSCHEMA")
     ```
-
-
-    :param str database: The database from which to return the schemas from.
-    :param str schema: The schema from which to return the tasks from.
     """
     ...

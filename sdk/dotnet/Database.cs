@@ -28,6 +28,21 @@ namespace Pulumi.Snowflake
     ///         var test2 = new Snowflake.Database("test2", new Snowflake.DatabaseArgs
     ///         {
     ///             Comment = "test comment 2",
+    ///             ReplicationConfiguration = new Snowflake.Inputs.DatabaseReplicationConfigurationArgs
+    ///             {
+    ///                 Accounts = 
+    ///                 {
+    ///                     "test_account1",
+    ///                     "test_account_2",
+    ///                 },
+    ///                 IgnoreEditionCheck = true,
+    ///             },
+    ///         });
+    ///         var test3 = new Snowflake.Database("test3", new Snowflake.DatabaseArgs
+    ///         {
+    ///             Comment = "test comment",
+    ///             DataRetentionTimeInDays = 3,
+    ///             FromReplica = "org1\".\"account1\".\"primary_db_name",
     ///         });
     ///     }
     /// 
@@ -56,7 +71,8 @@ namespace Pulumi.Snowflake
         public Output<string?> FromDatabase { get; private set; } = null!;
 
         /// <summary>
-        /// Specify a fully-qualified path to a database to create a replica from.
+        /// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
+        /// "&lt;organization_name&gt;"."&lt;account_name&gt;"."&lt;db_name&gt;". An example would be: "myorg1"."account1"."db1"
         /// </summary>
         [Output("fromReplica")]
         public Output<string?> FromReplica { get; private set; } = null!;
@@ -65,10 +81,16 @@ namespace Pulumi.Snowflake
         /// Specify a provider and a share in this map to create a database from a share.
         /// </summary>
         [Output("fromShare")]
-        public Output<ImmutableDictionary<string, object>?> FromShare { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> FromShare { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// When set, specifies the configurations for database replication.
+        /// </summary>
+        [Output("replicationConfiguration")]
+        public Output<Outputs.DatabaseReplicationConfiguration?> ReplicationConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Definitions of a tag to associate with the resource.
@@ -135,25 +157,32 @@ namespace Pulumi.Snowflake
         public Input<string>? FromDatabase { get; set; }
 
         /// <summary>
-        /// Specify a fully-qualified path to a database to create a replica from.
+        /// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
+        /// "&lt;organization_name&gt;"."&lt;account_name&gt;"."&lt;db_name&gt;". An example would be: "myorg1"."account1"."db1"
         /// </summary>
         [Input("fromReplica")]
         public Input<string>? FromReplica { get; set; }
 
         [Input("fromShare")]
-        private InputMap<object>? _fromShare;
+        private InputMap<string>? _fromShare;
 
         /// <summary>
         /// Specify a provider and a share in this map to create a database from a share.
         /// </summary>
-        public InputMap<object> FromShare
+        public InputMap<string> FromShare
         {
-            get => _fromShare ?? (_fromShare = new InputMap<object>());
+            get => _fromShare ?? (_fromShare = new InputMap<string>());
             set => _fromShare = value;
         }
 
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// When set, specifies the configurations for database replication.
+        /// </summary>
+        [Input("replicationConfiguration")]
+        public Input<Inputs.DatabaseReplicationConfigurationArgs>? ReplicationConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.DatabaseTagArgs>? _tags;
@@ -187,25 +216,32 @@ namespace Pulumi.Snowflake
         public Input<string>? FromDatabase { get; set; }
 
         /// <summary>
-        /// Specify a fully-qualified path to a database to create a replica from.
+        /// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
+        /// "&lt;organization_name&gt;"."&lt;account_name&gt;"."&lt;db_name&gt;". An example would be: "myorg1"."account1"."db1"
         /// </summary>
         [Input("fromReplica")]
         public Input<string>? FromReplica { get; set; }
 
         [Input("fromShare")]
-        private InputMap<object>? _fromShare;
+        private InputMap<string>? _fromShare;
 
         /// <summary>
         /// Specify a provider and a share in this map to create a database from a share.
         /// </summary>
-        public InputMap<object> FromShare
+        public InputMap<string> FromShare
         {
-            get => _fromShare ?? (_fromShare = new InputMap<object>());
+            get => _fromShare ?? (_fromShare = new InputMap<string>());
             set => _fromShare = value;
         }
 
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// When set, specifies the configurations for database replication.
+        /// </summary>
+        [Input("replicationConfiguration")]
+        public Input<Inputs.DatabaseReplicationConfigurationGetArgs>? ReplicationConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.DatabaseTagGetArgs>? _tags;

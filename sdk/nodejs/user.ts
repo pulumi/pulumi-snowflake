@@ -65,7 +65,8 @@ export class User extends pulumi.CustomResource {
 
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login.
+     * Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
+     * login.
      */
     public readonly defaultNamespace!: pulumi.Output<string | undefined>;
     /**
@@ -102,11 +103,13 @@ export class User extends pulumi.CustomResource {
      */
     public readonly loginName!: pulumi.Output<string>;
     /**
-     * Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
+     * Specifies whether the user is forced to change their password on next login (including their first/initial login) into
+     * the system.
      */
     public readonly mustChangePassword!: pulumi.Output<boolean | undefined>;
     /**
-     * Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
+     * Name of the user. Note that if you do not supply login_name this will be used as login_name.
+     * [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -118,7 +121,8 @@ export class User extends pulumi.CustomResource {
      */
     public readonly rsaPublicKey!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+     * Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication
+     * based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      */
     public readonly rsaPublicKey2!: pulumi.Output<string | undefined>;
     /**
@@ -187,7 +191,8 @@ export class User extends pulumi.CustomResource {
 export interface UserState {
     comment?: pulumi.Input<string>;
     /**
-     * Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login.
+     * Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
+     * login.
      */
     defaultNamespace?: pulumi.Input<string>;
     /**
@@ -224,11 +229,13 @@ export interface UserState {
      */
     loginName?: pulumi.Input<string>;
     /**
-     * Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
+     * Specifies whether the user is forced to change their password on next login (including their first/initial login) into
+     * the system.
      */
     mustChangePassword?: pulumi.Input<boolean>;
     /**
-     * Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
+     * Name of the user. Note that if you do not supply login_name this will be used as login_name.
+     * [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
      */
     name?: pulumi.Input<string>;
     /**
@@ -240,7 +247,8 @@ export interface UserState {
      */
     rsaPublicKey?: pulumi.Input<string>;
     /**
-     * Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+     * Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication
+     * based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      */
     rsaPublicKey2?: pulumi.Input<string>;
     /**
@@ -255,7 +263,8 @@ export interface UserState {
 export interface UserArgs {
     comment?: pulumi.Input<string>;
     /**
-     * Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login.
+     * Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
+     * login.
      */
     defaultNamespace?: pulumi.Input<string>;
     /**
@@ -288,11 +297,13 @@ export interface UserArgs {
      */
     loginName?: pulumi.Input<string>;
     /**
-     * Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
+     * Specifies whether the user is forced to change their password on next login (including their first/initial login) into
+     * the system.
      */
     mustChangePassword?: pulumi.Input<boolean>;
     /**
-     * Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
+     * Name of the user. Note that if you do not supply login_name this will be used as login_name.
+     * [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
      */
     name?: pulumi.Input<string>;
     /**
@@ -304,7 +315,8 @@ export interface UserArgs {
      */
     rsaPublicKey?: pulumi.Input<string>;
     /**
-     * Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+     * Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication
+     * based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      */
     rsaPublicKey2?: pulumi.Input<string>;
     /**

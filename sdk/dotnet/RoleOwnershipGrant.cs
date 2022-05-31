@@ -13,7 +13,8 @@ namespace Pulumi.Snowflake
     public partial class RoleOwnershipGrant : Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
+        /// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+        /// a new role.
         /// </summary>
         [Output("currentGrants")]
         public Output<string?> CurrentGrants { get; private set; } = null!;
@@ -77,7 +78,8 @@ namespace Pulumi.Snowflake
     public sealed class RoleOwnershipGrantArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
+        /// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+        /// a new role.
         /// </summary>
         [Input("currentGrants")]
         public Input<string>? CurrentGrants { get; set; }
@@ -102,7 +104,8 @@ namespace Pulumi.Snowflake
     public sealed class RoleOwnershipGrantState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
+        /// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+        /// a new role.
         /// </summary>
         [Input("currentGrants")]
         public Input<string>? CurrentGrants { get; set; }

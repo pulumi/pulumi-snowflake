@@ -39,9 +39,6 @@ class GetWarehousesResult:
     @property
     @pulumi.getter
     def warehouses(self) -> Sequence['outputs.GetWarehousesWarehouseResult']:
-        """
-        The warehouses in the database
-        """
         return pulumi.get(self, "warehouses")
 
 

@@ -83,9 +83,6 @@ class GetDatabaseResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The database from which to return its metadata.
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -138,9 +135,6 @@ def get_database(name: Optional[str] = None,
 
     this = snowflake.get_database(name="DEMO_DB")
     ```
-
-
-    :param str name: The database from which to return its metadata.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -175,8 +169,5 @@ def get_database_output(name: Optional[pulumi.Input[str]] = None,
 
     this = snowflake.get_database(name="DEMO_DB")
     ```
-
-
-    :param str name: The database from which to return its metadata.
     """
     ...

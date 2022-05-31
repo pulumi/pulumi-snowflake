@@ -59,17 +59,21 @@ type Warehouse struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
 	ResourceMonitor pulumi.StringOutput `pulumi:"resourceMonitor"`
-	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
+	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
+	// Auto-scale mode.
 	ScalingPolicy pulumi.StringOutput `pulumi:"scalingPolicy"`
-	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
+	// warehouse before it is canceled by the system.
 	StatementQueuedTimeoutInSeconds pulumi.IntPtrOutput `pulumi:"statementQueuedTimeoutInSeconds"`
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
 	StatementTimeoutInSeconds pulumi.IntPtrOutput `pulumi:"statementTimeoutInSeconds"`
 	// Definitions of a tag to associate with the resource.
 	Tags WarehouseTagArrayOutput `pulumi:"tags"`
-	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
+	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued
+	// or new queries.
 	WaitForProvisioning pulumi.BoolPtrOutput `pulumi:"waitForProvisioning"`
-	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and
+	// only available on Amazon Web Services (AWS).
 	WarehouseSize pulumi.StringOutput `pulumi:"warehouseSize"`
 }
 
@@ -119,17 +123,21 @@ type warehouseState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
 	ResourceMonitor *string `pulumi:"resourceMonitor"`
-	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
+	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
+	// Auto-scale mode.
 	ScalingPolicy *string `pulumi:"scalingPolicy"`
-	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
+	// warehouse before it is canceled by the system.
 	StatementQueuedTimeoutInSeconds *int `pulumi:"statementQueuedTimeoutInSeconds"`
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
 	StatementTimeoutInSeconds *int `pulumi:"statementTimeoutInSeconds"`
 	// Definitions of a tag to associate with the resource.
 	Tags []WarehouseTag `pulumi:"tags"`
-	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
+	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued
+	// or new queries.
 	WaitForProvisioning *bool `pulumi:"waitForProvisioning"`
-	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and
+	// only available on Amazon Web Services (AWS).
 	WarehouseSize *string `pulumi:"warehouseSize"`
 }
 
@@ -151,17 +159,21 @@ type WarehouseState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
 	ResourceMonitor pulumi.StringPtrInput
-	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
+	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
+	// Auto-scale mode.
 	ScalingPolicy pulumi.StringPtrInput
-	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
+	// warehouse before it is canceled by the system.
 	StatementQueuedTimeoutInSeconds pulumi.IntPtrInput
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
 	StatementTimeoutInSeconds pulumi.IntPtrInput
 	// Definitions of a tag to associate with the resource.
 	Tags WarehouseTagArrayInput
-	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
+	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued
+	// or new queries.
 	WaitForProvisioning pulumi.BoolPtrInput
-	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and
+	// only available on Amazon Web Services (AWS).
 	WarehouseSize pulumi.StringPtrInput
 }
 
@@ -187,17 +199,21 @@ type warehouseArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
 	ResourceMonitor *string `pulumi:"resourceMonitor"`
-	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
+	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
+	// Auto-scale mode.
 	ScalingPolicy *string `pulumi:"scalingPolicy"`
-	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
+	// warehouse before it is canceled by the system.
 	StatementQueuedTimeoutInSeconds *int `pulumi:"statementQueuedTimeoutInSeconds"`
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
 	StatementTimeoutInSeconds *int `pulumi:"statementTimeoutInSeconds"`
 	// Definitions of a tag to associate with the resource.
 	Tags []WarehouseTag `pulumi:"tags"`
-	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
+	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued
+	// or new queries.
 	WaitForProvisioning *bool `pulumi:"waitForProvisioning"`
-	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and
+	// only available on Amazon Web Services (AWS).
 	WarehouseSize *string `pulumi:"warehouseSize"`
 }
 
@@ -220,17 +236,21 @@ type WarehouseArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
 	ResourceMonitor pulumi.StringPtrInput
-	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
+	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
+	// Auto-scale mode.
 	ScalingPolicy pulumi.StringPtrInput
-	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
+	// warehouse before it is canceled by the system.
 	StatementQueuedTimeoutInSeconds pulumi.IntPtrInput
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
 	StatementTimeoutInSeconds pulumi.IntPtrInput
 	// Definitions of a tag to associate with the resource.
 	Tags WarehouseTagArrayInput
-	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
+	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued
+	// or new queries.
 	WaitForProvisioning pulumi.BoolPtrInput
-	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and
+	// only available on Amazon Web Services (AWS).
 	WarehouseSize pulumi.StringPtrInput
 }
 
@@ -319,6 +339,84 @@ func (o WarehouseOutput) ToWarehouseOutput() WarehouseOutput {
 
 func (o WarehouseOutput) ToWarehouseOutputWithContext(ctx context.Context) WarehouseOutput {
 	return o
+}
+
+// Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it.
+func (o WarehouseOutput) AutoResume() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Warehouse) pulumi.BoolOutput { return v.AutoResume }).(pulumi.BoolOutput)
+}
+
+// Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+func (o WarehouseOutput) AutoSuspend() pulumi.IntOutput {
+	return o.ApplyT(func(v *Warehouse) pulumi.IntOutput { return v.AutoSuspend }).(pulumi.IntOutput)
+}
+
+func (o WarehouseOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Warehouse) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the warehouse is created initially in the ‘Suspended’ state.
+func (o WarehouseOutput) InitiallySuspended() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Warehouse) pulumi.BoolPtrOutput { return v.InitiallySuspended }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the maximum number of server clusters for the warehouse.
+func (o WarehouseOutput) MaxClusterCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *Warehouse) pulumi.IntOutput { return v.MaxClusterCount }).(pulumi.IntOutput)
+}
+
+// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+func (o WarehouseOutput) MaxConcurrencyLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Warehouse) pulumi.IntPtrOutput { return v.MaxConcurrencyLevel }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
+func (o WarehouseOutput) MinClusterCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *Warehouse) pulumi.IntOutput { return v.MinClusterCount }).(pulumi.IntOutput)
+}
+
+// Identifier for the virtual warehouse; must be unique for your account.
+func (o WarehouseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Warehouse) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
+func (o WarehouseOutput) ResourceMonitor() pulumi.StringOutput {
+	return o.ApplyT(func(v *Warehouse) pulumi.StringOutput { return v.ResourceMonitor }).(pulumi.StringOutput)
+}
+
+// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
+// Auto-scale mode.
+func (o WarehouseOutput) ScalingPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v *Warehouse) pulumi.StringOutput { return v.ScalingPolicy }).(pulumi.StringOutput)
+}
+
+// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
+// warehouse before it is canceled by the system.
+func (o WarehouseOutput) StatementQueuedTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Warehouse) pulumi.IntPtrOutput { return v.StatementQueuedTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
+func (o WarehouseOutput) StatementTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Warehouse) pulumi.IntPtrOutput { return v.StatementTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Definitions of a tag to associate with the resource.
+func (o WarehouseOutput) Tags() WarehouseTagArrayOutput {
+	return o.ApplyT(func(v *Warehouse) WarehouseTagArrayOutput { return v.Tags }).(WarehouseTagArrayOutput)
+}
+
+// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued
+// or new queries.
+func (o WarehouseOutput) WaitForProvisioning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Warehouse) pulumi.BoolPtrOutput { return v.WaitForProvisioning }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and
+// only available on Amazon Web Services (AWS).
+func (o WarehouseOutput) WarehouseSize() pulumi.StringOutput {
+	return o.ApplyT(func(v *Warehouse) pulumi.StringOutput { return v.WarehouseSize }).(pulumi.StringOutput)
 }
 
 type WarehouseArrayOutput struct{ *pulumi.OutputState }

@@ -253,6 +253,27 @@ func (o RoleGrantsOutput) ToRoleGrantsOutputWithContext(ctx context.Context) Rol
 	return o
 }
 
+// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+// grants applied to roles and objects outside Terraform.
+func (o RoleGrantsOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RoleGrants) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the role we are granting.
+func (o RoleGrantsOutput) RoleName() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleGrants) pulumi.StringOutput { return v.RoleName }).(pulumi.StringOutput)
+}
+
+// Grants role to this specified role.
+func (o RoleGrantsOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RoleGrants) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+// Grants role to this specified user.
+func (o RoleGrantsOutput) Users() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RoleGrants) pulumi.StringArrayOutput { return v.Users }).(pulumi.StringArrayOutput)
+}
+
 type RoleGrantsArrayOutput struct{ *pulumi.OutputState }
 
 func (RoleGrantsArrayOutput) ElementType() reflect.Type {

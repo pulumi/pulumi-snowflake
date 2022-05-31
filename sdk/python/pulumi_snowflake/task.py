@@ -32,16 +32,20 @@ class TaskArgs:
         :param pulumi.Input[str] database: The database in which to create the task.
         :param pulumi.Input[str] schema: The schema in which to create the task.
         :param pulumi.Input[str] sql_statement: Any single SQL statement, or a call to a stored procedure, executed when the task runs.
-        :param pulumi.Input[str] after: Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+        :param pulumi.Input[str] after: Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task
+               finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
         :param pulumi.Input[str] comment: Specifies a comment for the task.
         :param pulumi.Input[bool] enabled: Specifies if the task should be started (enabled) after creation or should remain suspended (default).
         :param pulumi.Input[str] error_integration: Specifies the name of the notification integration used for error notifications.
         :param pulumi.Input[str] name: Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
         :param pulumi.Input[str] schedule: The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflict with after)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] session_parameters: Specifies session parameters to set for the session when the task runs. A task supports all session parameters.
-        :param pulumi.Input[str] user_task_managed_initial_warehouse_size: Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
+        :param pulumi.Input[str] user_task_managed_initial_warehouse_size: Specifies the size of the compute resources to provision for the first run of the task, before a task history is
+               available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
+               this parameter setting. (Conflicts with warehouse)
         :param pulumi.Input[int] user_task_timeout_ms: Specifies the time limit on a single run of the task before it times out (in milliseconds).
-        :param pulumi.Input[str] warehouse: The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)
+        :param pulumi.Input[str] warehouse: The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
+               (Conflicts with user_task_managed_initial_warehouse_size)
         :param pulumi.Input[str] when: Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported.
         """
         pulumi.set(__self__, "database", database)
@@ -110,7 +114,8 @@ class TaskArgs:
     @pulumi.getter
     def after(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+        Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task
+        finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
         """
         return pulumi.get(self, "after")
 
@@ -194,7 +199,9 @@ class TaskArgs:
     @pulumi.getter(name="userTaskManagedInitialWarehouseSize")
     def user_task_managed_initial_warehouse_size(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
+        Specifies the size of the compute resources to provision for the first run of the task, before a task history is
+        available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
+        this parameter setting. (Conflicts with warehouse)
         """
         return pulumi.get(self, "user_task_managed_initial_warehouse_size")
 
@@ -218,7 +225,8 @@ class TaskArgs:
     @pulumi.getter
     def warehouse(self) -> Optional[pulumi.Input[str]]:
         """
-        The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)
+        The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
+        (Conflicts with user_task_managed_initial_warehouse_size)
         """
         return pulumi.get(self, "warehouse")
 
@@ -258,7 +266,8 @@ class _TaskState:
                  when: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Task resources.
-        :param pulumi.Input[str] after: Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+        :param pulumi.Input[str] after: Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task
+               finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
         :param pulumi.Input[str] comment: Specifies a comment for the task.
         :param pulumi.Input[str] database: The database in which to create the task.
         :param pulumi.Input[bool] enabled: Specifies if the task should be started (enabled) after creation or should remain suspended (default).
@@ -268,9 +277,12 @@ class _TaskState:
         :param pulumi.Input[str] schema: The schema in which to create the task.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] session_parameters: Specifies session parameters to set for the session when the task runs. A task supports all session parameters.
         :param pulumi.Input[str] sql_statement: Any single SQL statement, or a call to a stored procedure, executed when the task runs.
-        :param pulumi.Input[str] user_task_managed_initial_warehouse_size: Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
+        :param pulumi.Input[str] user_task_managed_initial_warehouse_size: Specifies the size of the compute resources to provision for the first run of the task, before a task history is
+               available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
+               this parameter setting. (Conflicts with warehouse)
         :param pulumi.Input[int] user_task_timeout_ms: Specifies the time limit on a single run of the task before it times out (in milliseconds).
-        :param pulumi.Input[str] warehouse: The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)
+        :param pulumi.Input[str] warehouse: The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
+               (Conflicts with user_task_managed_initial_warehouse_size)
         :param pulumi.Input[str] when: Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported.
         """
         if after is not None:
@@ -306,7 +318,8 @@ class _TaskState:
     @pulumi.getter
     def after(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+        Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task
+        finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
         """
         return pulumi.get(self, "after")
 
@@ -426,7 +439,9 @@ class _TaskState:
     @pulumi.getter(name="userTaskManagedInitialWarehouseSize")
     def user_task_managed_initial_warehouse_size(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
+        Specifies the size of the compute resources to provision for the first run of the task, before a task history is
+        available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
+        this parameter setting. (Conflicts with warehouse)
         """
         return pulumi.get(self, "user_task_managed_initial_warehouse_size")
 
@@ -450,7 +465,8 @@ class _TaskState:
     @pulumi.getter
     def warehouse(self) -> Optional[pulumi.Input[str]]:
         """
-        The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)
+        The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
+        (Conflicts with user_task_managed_initial_warehouse_size)
         """
         return pulumi.get(self, "warehouse")
 
@@ -538,7 +554,8 @@ class Task(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] after: Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+        :param pulumi.Input[str] after: Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task
+               finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
         :param pulumi.Input[str] comment: Specifies a comment for the task.
         :param pulumi.Input[str] database: The database in which to create the task.
         :param pulumi.Input[bool] enabled: Specifies if the task should be started (enabled) after creation or should remain suspended (default).
@@ -548,9 +565,12 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[str] schema: The schema in which to create the task.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] session_parameters: Specifies session parameters to set for the session when the task runs. A task supports all session parameters.
         :param pulumi.Input[str] sql_statement: Any single SQL statement, or a call to a stored procedure, executed when the task runs.
-        :param pulumi.Input[str] user_task_managed_initial_warehouse_size: Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
+        :param pulumi.Input[str] user_task_managed_initial_warehouse_size: Specifies the size of the compute resources to provision for the first run of the task, before a task history is
+               available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
+               this parameter setting. (Conflicts with warehouse)
         :param pulumi.Input[int] user_task_timeout_ms: Specifies the time limit on a single run of the task before it times out (in milliseconds).
-        :param pulumi.Input[str] warehouse: The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)
+        :param pulumi.Input[str] warehouse: The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
+               (Conflicts with user_task_managed_initial_warehouse_size)
         :param pulumi.Input[str] when: Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported.
         """
         ...
@@ -696,7 +716,8 @@ class Task(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] after: Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+        :param pulumi.Input[str] after: Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task
+               finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
         :param pulumi.Input[str] comment: Specifies a comment for the task.
         :param pulumi.Input[str] database: The database in which to create the task.
         :param pulumi.Input[bool] enabled: Specifies if the task should be started (enabled) after creation or should remain suspended (default).
@@ -706,9 +727,12 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[str] schema: The schema in which to create the task.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] session_parameters: Specifies session parameters to set for the session when the task runs. A task supports all session parameters.
         :param pulumi.Input[str] sql_statement: Any single SQL statement, or a call to a stored procedure, executed when the task runs.
-        :param pulumi.Input[str] user_task_managed_initial_warehouse_size: Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
+        :param pulumi.Input[str] user_task_managed_initial_warehouse_size: Specifies the size of the compute resources to provision for the first run of the task, before a task history is
+               available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
+               this parameter setting. (Conflicts with warehouse)
         :param pulumi.Input[int] user_task_timeout_ms: Specifies the time limit on a single run of the task before it times out (in milliseconds).
-        :param pulumi.Input[str] warehouse: The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)
+        :param pulumi.Input[str] warehouse: The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
+               (Conflicts with user_task_managed_initial_warehouse_size)
         :param pulumi.Input[str] when: Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -735,7 +759,8 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def after(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+        Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task
+        finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
         """
         return pulumi.get(self, "after")
 
@@ -815,7 +840,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="userTaskManagedInitialWarehouseSize")
     def user_task_managed_initial_warehouse_size(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
+        Specifies the size of the compute resources to provision for the first run of the task, before a task history is
+        available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
+        this parameter setting. (Conflicts with warehouse)
         """
         return pulumi.get(self, "user_task_managed_initial_warehouse_size")
 
@@ -831,7 +858,8 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def warehouse(self) -> pulumi.Output[Optional[str]]:
         """
-        The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)
+        The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
+        (Conflicts with user_task_managed_initial_warehouse_size)
         """
         return pulumi.get(self, "warehouse")
 

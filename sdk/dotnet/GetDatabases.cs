@@ -40,9 +40,6 @@ namespace Pulumi.Snowflake
     [OutputType]
     public sealed class GetDatabasesResult
     {
-        /// <summary>
-        /// Snowflake databases
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDatabasesDatabaseResult> Databases;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

@@ -260,6 +260,79 @@ func (o StorageIntegrationOutput) ToStorageIntegrationOutputWithContext(ctx cont
 	return o
 }
 
+// The consent URL that is used to create an Azure Snowflake service principle inside your tenant.
+func (o StorageIntegrationOutput) AzureConsentUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageIntegration) pulumi.StringOutput { return v.AzureConsentUrl }).(pulumi.StringOutput)
+}
+
+// This is the name of the Snowflake client application created for your account.
+func (o StorageIntegrationOutput) AzureMultiTenantAppName() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageIntegration) pulumi.StringOutput { return v.AzureMultiTenantAppName }).(pulumi.StringOutput)
+}
+
+func (o StorageIntegrationOutput) AzureTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageIntegration) pulumi.StringPtrOutput { return v.AzureTenantId }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageIntegration) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// Date and time when the storage integration was created.
+func (o StorageIntegrationOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageIntegration) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+func (o StorageIntegrationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageIntegration) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o StorageIntegrationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Explicitly limits external stages that use the integration to reference one or more storage locations.
+func (o StorageIntegrationOutput) StorageAllowedLocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageIntegration) pulumi.StringArrayOutput { return v.StorageAllowedLocations }).(pulumi.StringArrayOutput)
+}
+
+// The external ID that Snowflake will use when assuming the AWS role.
+func (o StorageIntegrationOutput) StorageAwsExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageIntegration) pulumi.StringOutput { return v.StorageAwsExternalId }).(pulumi.StringOutput)
+}
+
+// The Snowflake user that will attempt to assume the AWS role.
+func (o StorageIntegrationOutput) StorageAwsIamUserArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageIntegration) pulumi.StringOutput { return v.StorageAwsIamUserArn }).(pulumi.StringOutput)
+}
+
+// "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
+func (o StorageIntegrationOutput) StorageAwsObjectAcl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageIntegration) pulumi.StringPtrOutput { return v.StorageAwsObjectAcl }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationOutput) StorageAwsRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageIntegration) pulumi.StringPtrOutput { return v.StorageAwsRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
+func (o StorageIntegrationOutput) StorageBlockedLocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageIntegration) pulumi.StringArrayOutput { return v.StorageBlockedLocations }).(pulumi.StringArrayOutput)
+}
+
+// This is the name of the Snowflake Google Service Account created for your account.
+func (o StorageIntegrationOutput) StorageGcpServiceAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageIntegration) pulumi.StringOutput { return v.StorageGcpServiceAccount }).(pulumi.StringOutput)
+}
+
+func (o StorageIntegrationOutput) StorageProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageIntegration) pulumi.StringOutput { return v.StorageProvider }).(pulumi.StringOutput)
+}
+
+func (o StorageIntegrationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageIntegration) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 type StorageIntegrationArrayOutput struct{ *pulumi.OutputState }
 
 func (StorageIntegrationArrayOutput) ElementType() reflect.Type {

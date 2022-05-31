@@ -39,7 +39,6 @@ func GetWarehouses(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetWareho
 // A collection of values returned by getWarehouses.
 type GetWarehousesResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The warehouses in the database
+	Id         string                   `pulumi:"id"`
 	Warehouses []GetWarehousesWarehouse `pulumi:"warehouses"`
 }

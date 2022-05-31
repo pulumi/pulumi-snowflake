@@ -34,9 +34,6 @@ class GetSystemGenerateScimAccessTokenResult:
     @property
     @pulumi.getter(name="accessToken")
     def access_token(self) -> str:
-        """
-        SCIM Access Token
-        """
         return pulumi.get(self, "access_token")
 
     @property
@@ -50,9 +47,6 @@ class GetSystemGenerateScimAccessTokenResult:
     @property
     @pulumi.getter(name="integrationName")
     def integration_name(self) -> str:
-        """
-        SCIM Integration Name
-        """
         return pulumi.get(self, "integration_name")
 
 
@@ -78,9 +72,6 @@ def get_system_generate_scim_access_token(integration_name: Optional[str] = None
 
     scim = snowflake.get_system_generate_scim_access_token(integration_name="AAD_PROVISIONING")
     ```
-
-
-    :param str integration_name: SCIM Integration Name
     """
     __args__ = dict()
     __args__['integrationName'] = integration_name
@@ -108,8 +99,5 @@ def get_system_generate_scim_access_token_output(integration_name: Optional[pulu
 
     scim = snowflake.get_system_generate_scim_access_token(integration_name="AAD_PROVISIONING")
     ```
-
-
-    :param str integration_name: SCIM Integration Name
     """
     ...

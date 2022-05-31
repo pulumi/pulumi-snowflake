@@ -21,7 +21,7 @@ import (
 type Pipe struct {
 	pulumi.CustomResourceState
 
-	// Specifies a autoIngest param for the pipe.
+	// Specifies a auto_ingest param for the pipe.
 	AutoIngest pulumi.BoolPtrOutput `pulumi:"autoIngest"`
 	// Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
 	AwsSnsTopicArn pulumi.StringPtrOutput `pulumi:"awsSnsTopicArn"`
@@ -83,7 +83,7 @@ func GetPipe(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Pipe resources.
 type pipeState struct {
-	// Specifies a autoIngest param for the pipe.
+	// Specifies a auto_ingest param for the pipe.
 	AutoIngest *bool `pulumi:"autoIngest"`
 	// Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
 	AwsSnsTopicArn *string `pulumi:"awsSnsTopicArn"`
@@ -108,7 +108,7 @@ type pipeState struct {
 }
 
 type PipeState struct {
-	// Specifies a autoIngest param for the pipe.
+	// Specifies a auto_ingest param for the pipe.
 	AutoIngest pulumi.BoolPtrInput
 	// Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
 	AwsSnsTopicArn pulumi.StringPtrInput
@@ -137,7 +137,7 @@ func (PipeState) ElementType() reflect.Type {
 }
 
 type pipeArgs struct {
-	// Specifies a autoIngest param for the pipe.
+	// Specifies a auto_ingest param for the pipe.
 	AutoIngest *bool `pulumi:"autoIngest"`
 	// Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
 	AwsSnsTopicArn *string `pulumi:"awsSnsTopicArn"`
@@ -159,7 +159,7 @@ type pipeArgs struct {
 
 // The set of arguments for constructing a Pipe resource.
 type PipeArgs struct {
-	// Specifies a autoIngest param for the pipe.
+	// Specifies a auto_ingest param for the pipe.
 	AutoIngest pulumi.BoolPtrInput
 	// Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
 	AwsSnsTopicArn pulumi.StringPtrInput
@@ -264,6 +264,61 @@ func (o PipeOutput) ToPipeOutput() PipeOutput {
 
 func (o PipeOutput) ToPipeOutputWithContext(ctx context.Context) PipeOutput {
 	return o
+}
+
+// Specifies a auto_ingest param for the pipe.
+func (o PipeOutput) AutoIngest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Pipe) pulumi.BoolPtrOutput { return v.AutoIngest }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
+func (o PipeOutput) AwsSnsTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipe) pulumi.StringPtrOutput { return v.AwsSnsTopicArn }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a comment for the pipe.
+func (o PipeOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipe) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the copy statement for the pipe.
+func (o PipeOutput) CopyStatement() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.CopyStatement }).(pulumi.StringOutput)
+}
+
+// The database in which to create the pipe.
+func (o PipeOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the notification integration used for error notifications.
+func (o PipeOutput) ErrorIntegration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipe) pulumi.StringPtrOutput { return v.ErrorIntegration }).(pulumi.StringPtrOutput)
+}
+
+// Specifies an integration for the pipe.
+func (o PipeOutput) Integration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipe) pulumi.StringPtrOutput { return v.Integration }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+func (o PipeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
+func (o PipeOutput) NotificationChannel() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.NotificationChannel }).(pulumi.StringOutput)
+}
+
+// Name of the role that owns the pipe.
+func (o PipeOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+}
+
+// The schema in which to create the pipe.
+func (o PipeOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
 
 type PipeArrayOutput struct{ *pulumi.OutputState }

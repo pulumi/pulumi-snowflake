@@ -38,7 +38,6 @@ func GetDatabases(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetDatabas
 
 // A collection of values returned by getDatabases.
 type GetDatabasesResult struct {
-	// Snowflake databases
 	Databases []GetDatabasesDatabase `pulumi:"databases"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`

@@ -71,15 +71,9 @@ namespace Pulumi.Snowflake
 
     public sealed class GetTablesArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The database from which to return the schemas from.
-        /// </summary>
         [Input("database", required: true)]
         public string Database { get; set; } = null!;
 
-        /// <summary>
-        /// The schema from which to return the tables from.
-        /// </summary>
         [Input("schema", required: true)]
         public string Schema { get; set; } = null!;
 
@@ -90,15 +84,9 @@ namespace Pulumi.Snowflake
 
     public sealed class GetTablesInvokeArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The database from which to return the schemas from.
-        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
-        /// <summary>
-        /// The schema from which to return the tables from.
-        /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
@@ -111,21 +99,12 @@ namespace Pulumi.Snowflake
     [OutputType]
     public sealed class GetTablesResult
     {
-        /// <summary>
-        /// The database from which to return the schemas from.
-        /// </summary>
         public readonly string Database;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The schema from which to return the tables from.
-        /// </summary>
         public readonly string Schema;
-        /// <summary>
-        /// The tables in the schema
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetTablesTableResult> Tables;
 
         [OutputConstructor]

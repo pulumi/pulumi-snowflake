@@ -46,7 +46,8 @@ namespace Pulumi.Snowflake
     public partial class OauthIntegration : Pulumi.CustomResource
     {
         /// <summary>
-        /// List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+        /// List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN
+        /// or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         /// </summary>
         [Output("blockedRolesLists")]
         public Output<ImmutableArray<string>> BlockedRolesLists { get; private set; } = null!;
@@ -70,7 +71,8 @@ namespace Pulumi.Snowflake
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        /// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+        /// unique among security integrations in your account.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -82,19 +84,21 @@ namespace Pulumi.Snowflake
         public Output<string> OauthClient { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
+        /// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+        /// expired.
         /// </summary>
         [Output("oauthIssueRefreshTokens")]
         public Output<bool?> OauthIssueRefreshTokens { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+        /// Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
         /// </summary>
         [Output("oauthRefreshTokenValidity")]
         public Output<int?> OauthRefreshTokenValidity { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
+        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being
+        /// opened.
         /// </summary>
         [Output("oauthUseSecondaryRoles")]
         public Output<string?> OauthUseSecondaryRoles { get; private set; } = null!;
@@ -149,7 +153,8 @@ namespace Pulumi.Snowflake
         private InputList<string>? _blockedRolesLists;
 
         /// <summary>
-        /// List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+        /// List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN
+        /// or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         /// </summary>
         public InputList<string> BlockedRolesLists
         {
@@ -170,7 +175,8 @@ namespace Pulumi.Snowflake
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        /// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+        /// unique among security integrations in your account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -182,19 +188,21 @@ namespace Pulumi.Snowflake
         public Input<string> OauthClient { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
+        /// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+        /// expired.
         /// </summary>
         [Input("oauthIssueRefreshTokens")]
         public Input<bool>? OauthIssueRefreshTokens { get; set; }
 
         /// <summary>
-        /// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+        /// Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
         /// </summary>
         [Input("oauthRefreshTokenValidity")]
         public Input<int>? OauthRefreshTokenValidity { get; set; }
 
         /// <summary>
-        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
+        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being
+        /// opened.
         /// </summary>
         [Input("oauthUseSecondaryRoles")]
         public Input<string>? OauthUseSecondaryRoles { get; set; }
@@ -210,7 +218,8 @@ namespace Pulumi.Snowflake
         private InputList<string>? _blockedRolesLists;
 
         /// <summary>
-        /// List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+        /// List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN
+        /// or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         /// </summary>
         public InputList<string> BlockedRolesLists
         {
@@ -237,7 +246,8 @@ namespace Pulumi.Snowflake
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        /// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+        /// unique among security integrations in your account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -249,19 +259,21 @@ namespace Pulumi.Snowflake
         public Input<string>? OauthClient { get; set; }
 
         /// <summary>
-        /// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
+        /// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+        /// expired.
         /// </summary>
         [Input("oauthIssueRefreshTokens")]
         public Input<bool>? OauthIssueRefreshTokens { get; set; }
 
         /// <summary>
-        /// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+        /// Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
         /// </summary>
         [Input("oauthRefreshTokenValidity")]
         public Input<int>? OauthRefreshTokenValidity { get; set; }
 
         /// <summary>
-        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
+        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being
+        /// opened.
         /// </summary>
         [Input("oauthUseSecondaryRoles")]
         public Input<string>? OauthUseSecondaryRoles { get; set; }

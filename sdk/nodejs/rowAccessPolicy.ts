@@ -67,7 +67,8 @@ export class RowAccessPolicy extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
-     * Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
+     * Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
+     * policy is created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -79,7 +80,9 @@ export class RowAccessPolicy extends pulumi.CustomResource {
      */
     public readonly schema!: pulumi.Output<string>;
     /**
-     * Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+     * Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A
+     * signature specifies a set of attributes that must be considered to determine whether the row is accessible. The
+     * attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
      */
     public readonly signature!: pulumi.Output<{[key: string]: string}>;
 
@@ -141,7 +144,8 @@ export interface RowAccessPolicyState {
      */
     database?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
+     * Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
+     * policy is created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -153,7 +157,9 @@ export interface RowAccessPolicyState {
      */
     schema?: pulumi.Input<string>;
     /**
-     * Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+     * Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A
+     * signature specifies a set of attributes that must be considered to determine whether the row is accessible. The
+     * attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
      */
     signature?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -171,7 +177,8 @@ export interface RowAccessPolicyArgs {
      */
     database: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
+     * Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
+     * policy is created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -183,7 +190,9 @@ export interface RowAccessPolicyArgs {
      */
     schema: pulumi.Input<string>;
     /**
-     * Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+     * Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A
+     * signature specifies a set of attributes that must be considered to determine whether the row is accessible. The
+     * attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
      */
     signature: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -55,7 +55,8 @@ type View struct {
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Specifies that the view is secure.
 	IsSecure pulumi.BoolPtrOutput `pulumi:"isSecure"`
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
+	// character.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Overwrites the View if it exists.
 	OrReplace pulumi.BoolPtrOutput `pulumi:"orReplace"`
@@ -111,7 +112,8 @@ type viewState struct {
 	Database *string `pulumi:"database"`
 	// Specifies that the view is secure.
 	IsSecure *bool `pulumi:"isSecure"`
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
+	// character.
 	Name *string `pulumi:"name"`
 	// Overwrites the View if it exists.
 	OrReplace *bool `pulumi:"orReplace"`
@@ -130,7 +132,8 @@ type ViewState struct {
 	Database pulumi.StringPtrInput
 	// Specifies that the view is secure.
 	IsSecure pulumi.BoolPtrInput
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
+	// character.
 	Name pulumi.StringPtrInput
 	// Overwrites the View if it exists.
 	OrReplace pulumi.BoolPtrInput
@@ -153,7 +156,8 @@ type viewArgs struct {
 	Database string `pulumi:"database"`
 	// Specifies that the view is secure.
 	IsSecure *bool `pulumi:"isSecure"`
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
+	// character.
 	Name *string `pulumi:"name"`
 	// Overwrites the View if it exists.
 	OrReplace *bool `pulumi:"orReplace"`
@@ -173,7 +177,8 @@ type ViewArgs struct {
 	Database pulumi.StringInput
 	// Specifies that the view is secure.
 	IsSecure pulumi.BoolPtrInput
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
+	// character.
 	Name pulumi.StringPtrInput
 	// Overwrites the View if it exists.
 	OrReplace pulumi.BoolPtrInput
@@ -270,6 +275,47 @@ func (o ViewOutput) ToViewOutput() ViewOutput {
 
 func (o ViewOutput) ToViewOutputWithContext(ctx context.Context) ViewOutput {
 	return o
+}
+
+// Specifies a comment for the view.
+func (o ViewOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// The database in which to create the view. Don't use the | character.
+func (o ViewOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// Specifies that the view is secure.
+func (o ViewOutput) IsSecure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *View) pulumi.BoolPtrOutput { return v.IsSecure }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
+// character.
+func (o ViewOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Overwrites the View if it exists.
+func (o ViewOutput) OrReplace() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *View) pulumi.BoolPtrOutput { return v.OrReplace }).(pulumi.BoolPtrOutput)
+}
+
+// The schema in which to create the view. Don't use the | character.
+func (o ViewOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
+}
+
+// Specifies the query used to create the view.
+func (o ViewOutput) Statement() pulumi.StringOutput {
+	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Statement }).(pulumi.StringOutput)
+}
+
+// Definitions of a tag to associate with the resource.
+func (o ViewOutput) Tags() ViewTagArrayOutput {
+	return o.ApplyT(func(v *View) ViewTagArrayOutput { return v.Tags }).(ViewTagArrayOutput)
 }
 
 type ViewArrayOutput struct{ *pulumi.OutputState }

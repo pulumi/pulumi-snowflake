@@ -4,100 +4,48 @@
 import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
+export interface DatabaseReplicationConfiguration {
+    accounts: string[];
+    ignoreEditionCheck?: boolean;
+}
+
 export interface DatabaseTag {
-    /**
-     * Name of the database that the tag was created in.
-     */
     database?: string;
-    /**
-     * Tag name, e.g. department.
-     */
     name: string;
-    /**
-     * Name of the schema that the tag was created in.
-     */
     schema?: string;
-    /**
-     * Tag value, e.g. marketing_info.
-     */
     value: string;
 }
 
 export interface ExternalFunctionArg {
-    /**
-     * Argument name
-     */
     name: string;
-    /**
-     * Argument type, e.g. VARCHAR
-     */
     type: string;
 }
 
 export interface ExternalFunctionHeader {
-    /**
-     * Header name
-     */
     name: string;
-    /**
-     * Header value
-     */
     value: string;
 }
 
 export interface ExternalTableColumn {
-    /**
-     * String that specifies the expression for the column. When queried, the column returns results derived from this expression.
-     */
     as: string;
-    /**
-     * Column name
-     */
     name: string;
-    /**
-     * Column type, e.g. VARIANT
-     */
     type: string;
 }
 
 export interface ExternalTableTag {
-    /**
-     * Name of the database that the tag was created in.
-     */
     database?: string;
-    /**
-     * Tag name, e.g. department.
-     */
     name: string;
-    /**
-     * Name of the schema that the tag was created in.
-     */
     schema?: string;
-    /**
-     * Tag value, e.g. marketing_info.
-     */
     value: string;
 }
 
 export interface FunctionArgument {
-    /**
-     * The argument name
-     */
     name: string;
-    /**
-     * The argument type
-     */
     type: string;
 }
 
 export interface FunctionGrantArgument {
-    /**
-     * The argument name
-     */
     name: string;
-    /**
-     * The argument type
-     */
     type: string;
 }
 
@@ -110,118 +58,76 @@ export interface GetDatabasesDatabase {
     options: string;
     origin: string;
     owner: string;
+    replicationConfigurations: outputs.GetDatabasesDatabaseReplicationConfiguration[];
     retentionTime: number;
+}
+
+export interface GetDatabasesDatabaseReplicationConfiguration {
+    accounts: string[];
+    ignoreEditionCheck: boolean;
 }
 
 export interface GetExternalFunctionsExternalFunction {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     language: string;
     name: string;
-    /**
-     * The schema from which to return the external functions from.
-     */
     schema: string;
 }
 
 export interface GetExternalTablesExternalTable {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     name: string;
-    /**
-     * The schema from which to return the external tables from.
-     */
     schema: string;
 }
 
 export interface GetFileFormatsFileFormat {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     formatType: string;
     name: string;
-    /**
-     * The schema from which to return the file formats from.
-     */
     schema: string;
 }
 
 export interface GetFunctionsFunction {
     argumentTypes: string[];
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     name: string;
     returnType: string;
-    /**
-     * The schema from which to return the functions from.
-     */
     schema: string;
 }
 
 export interface GetMaskingPoliciesMaskingPolicy {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     kind: string;
     name: string;
-    /**
-     * The schema from which to return the maskingPolicies from.
-     */
     schema: string;
 }
 
 export interface GetMaterializedViewsMaterializedView {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     name: string;
-    /**
-     * The schema from which to return the views from.
-     */
     schema: string;
 }
 
 export interface GetPipesPipe {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     integration: string;
     name: string;
-    /**
-     * The schema from which to return the pipes from.
-     */
     schema: string;
 }
 
 export interface GetProceduresProcedure {
     argumentTypes: string[];
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     name: string;
     returnType: string;
-    /**
-     * The schema from which to return the procedures from.
-     */
     schema: string;
 }
 
@@ -234,49 +140,28 @@ export interface GetResourceMonitorsResourceMonitor {
 
 export interface GetRowAccessPoliciesRowAccessPolicy {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     name: string;
-    /**
-     * The schema from which to return the row access policyfrom.
-     */
     schema: string;
 }
 
 export interface GetSchemasSchema {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     name: string;
 }
 
 export interface GetSequencesSequence {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     name: string;
-    /**
-     * The schema from which to return the sequences from.
-     */
     schema: string;
 }
 
 export interface GetStagesStage {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     name: string;
-    /**
-     * The schema from which to return the stages from.
-     */
     schema: string;
     storageIntegration: string;
 }
@@ -290,55 +175,46 @@ export interface GetStorageIntegrationsStorageIntegration {
 
 export interface GetStreamsStream {
     comment: string;
-    /**
-     * The database from which to return the streams from.
-     */
     database: string;
     name: string;
-    /**
-     * The schema from which to return the streams from.
-     */
     schema: string;
     table: string;
 }
 
 export interface GetTablesTable {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     name: string;
-    /**
-     * The schema from which to return the tables from.
-     */
     schema: string;
 }
 
 export interface GetTasksTask {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     name: string;
-    /**
-     * The schema from which to return the tasks from.
-     */
     schema: string;
     warehouse: string;
 }
 
+export interface GetUsersUser {
+    comment: string;
+    defaultNamespace: string;
+    defaultRole: string;
+    defaultWarehouse: string;
+    disabled: boolean;
+    displayName: string;
+    email: string;
+    firstName: string;
+    hasRsaPublicKey: boolean;
+    lastName: string;
+    loginName: string;
+    name: string;
+}
+
 export interface GetViewsView {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     name: string;
-    /**
-     * The schema from which to return the views from.
-     */
     schema: string;
 }
 
@@ -352,127 +228,49 @@ export interface GetWarehousesWarehouse {
 }
 
 export interface MaterializedViewTag {
-    /**
-     * Name of the database that the tag was created in.
-     */
     database?: string;
-    /**
-     * Tag name, e.g. department.
-     */
     name: string;
-    /**
-     * Name of the schema that the tag was created in.
-     */
     schema?: string;
-    /**
-     * Tag value, e.g. marketing_info.
-     */
     value: string;
 }
 
 export interface ProcedureArgument {
-    /**
-     * The argument name
-     */
     name: string;
-    /**
-     * The argument type
-     */
     type: string;
 }
 
 export interface ProcedureGrantArgument {
-    /**
-     * The argument name
-     */
     name: string;
-    /**
-     * The argument type
-     */
     type: string;
 }
 
 export interface RoleTag {
-    /**
-     * Name of the database that the tag was created in.
-     */
     database?: string;
-    /**
-     * Tag name, e.g. department.
-     */
     name: string;
-    /**
-     * Name of the schema that the tag was created in.
-     */
     schema?: string;
-    /**
-     * Tag value, e.g. marketing_info.
-     */
     value: string;
 }
 
 export interface SchemaTag {
-    /**
-     * Name of the database that the tag was created in.
-     */
     database?: string;
-    /**
-     * Tag name, e.g. department.
-     */
     name: string;
-    /**
-     * Name of the schema that the tag was created in.
-     */
     schema?: string;
-    /**
-     * Tag value, e.g. marketing_info.
-     */
     value: string;
 }
 
 export interface StageTag {
-    /**
-     * Name of the database that the tag was created in.
-     */
     database?: string;
-    /**
-     * Tag name, e.g. department.
-     */
     name: string;
-    /**
-     * Name of the schema that the tag was created in.
-     */
     schema?: string;
-    /**
-     * Tag value, e.g. marketing_info.
-     */
     value: string;
 }
 
 export interface TableColumn {
-    /**
-     * Column comment
-     */
     comment?: string;
-    /**
-     * Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
-     */
     default?: outputs.TableColumnDefault;
-    /**
-     * Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
-     */
     identity?: outputs.TableColumnIdentity;
-    /**
-     * Column name
-     */
     name: string;
-    /**
-     * Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
-     */
     nullable?: boolean;
-    /**
-     * Column type, e.g. VARIANT
-     */
     type: string;
 }
 
@@ -488,89 +286,34 @@ export interface TableColumnIdentity {
 }
 
 export interface TablePrimaryKey {
-    /**
-     * Columns to use in primary key
-     */
     keys: string[];
-    /**
-     * Name of constraint
-     */
     name?: string;
 }
 
 export interface TableTag {
-    /**
-     * Name of the database that the tag was created in.
-     */
     database?: string;
-    /**
-     * Tag name, e.g. department.
-     */
     name: string;
-    /**
-     * Name of the schema that the tag was created in.
-     */
     schema?: string;
-    /**
-     * Tag value, e.g. marketing_info.
-     */
     value: string;
 }
 
 export interface UserTag {
-    /**
-     * Name of the database that the tag was created in.
-     */
     database?: string;
-    /**
-     * Tag name, e.g. department.
-     */
     name: string;
-    /**
-     * Name of the schema that the tag was created in.
-     */
     schema?: string;
-    /**
-     * Tag value, e.g. marketing_info.
-     */
     value: string;
 }
 
 export interface ViewTag {
-    /**
-     * Name of the database that the tag was created in.
-     */
     database?: string;
-    /**
-     * Tag name, e.g. department.
-     */
     name: string;
-    /**
-     * Name of the schema that the tag was created in.
-     */
     schema?: string;
-    /**
-     * Tag value, e.g. marketing_info.
-     */
     value: string;
 }
 
 export interface WarehouseTag {
-    /**
-     * Name of the database that the tag was created in.
-     */
     database?: string;
-    /**
-     * Tag name, e.g. department.
-     */
     name: string;
-    /**
-     * Name of the schema that the tag was created in.
-     */
     schema?: string;
-    /**
-     * Tag value, e.g. marketing_info.
-     */
     value: string;
 }
-

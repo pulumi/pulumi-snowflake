@@ -27,7 +27,8 @@ class ResourceMonitorArgs:
         The set of arguments for constructing a ResourceMonitor resource.
         :param pulumi.Input[int] credit_quota: The number of credits allocated monthly to the resource monitor.
         :param pulumi.Input[str] end_timestamp: The date and time when the resource monitor suspends the assigned warehouses.
-        :param pulumi.Input[str] frequency: The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+        :param pulumi.Input[str] frequency: The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
+               also set START_TIMESTAMP.
         :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] notify_triggers: A list of percentage thresholds at which to send an alert to subscribed users.
         :param pulumi.Input[bool] set_for_account: Specifies whether the resource monitor should be applied globally to your Snowflake account.
@@ -85,7 +86,8 @@ class ResourceMonitorArgs:
     @pulumi.getter
     def frequency(self) -> Optional[pulumi.Input[str]]:
         """
-        The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+        The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
+        also set START_TIMESTAMP.
         """
         return pulumi.get(self, "frequency")
 
@@ -195,7 +197,8 @@ class _ResourceMonitorState:
         Input properties used for looking up and filtering ResourceMonitor resources.
         :param pulumi.Input[int] credit_quota: The number of credits allocated monthly to the resource monitor.
         :param pulumi.Input[str] end_timestamp: The date and time when the resource monitor suspends the assigned warehouses.
-        :param pulumi.Input[str] frequency: The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+        :param pulumi.Input[str] frequency: The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
+               also set START_TIMESTAMP.
         :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] notify_triggers: A list of percentage thresholds at which to send an alert to subscribed users.
         :param pulumi.Input[bool] set_for_account: Specifies whether the resource monitor should be applied globally to your Snowflake account.
@@ -253,7 +256,8 @@ class _ResourceMonitorState:
     @pulumi.getter
     def frequency(self) -> Optional[pulumi.Input[str]]:
         """
-        The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+        The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
+        also set START_TIMESTAMP.
         """
         return pulumi.get(self, "frequency")
 
@@ -389,7 +393,8 @@ class ResourceMonitor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] credit_quota: The number of credits allocated monthly to the resource monitor.
         :param pulumi.Input[str] end_timestamp: The date and time when the resource monitor suspends the assigned warehouses.
-        :param pulumi.Input[str] frequency: The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+        :param pulumi.Input[str] frequency: The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
+               also set START_TIMESTAMP.
         :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] notify_triggers: A list of percentage thresholds at which to send an alert to subscribed users.
         :param pulumi.Input[bool] set_for_account: Specifies whether the resource monitor should be applied globally to your Snowflake account.
@@ -503,7 +508,8 @@ class ResourceMonitor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] credit_quota: The number of credits allocated monthly to the resource monitor.
         :param pulumi.Input[str] end_timestamp: The date and time when the resource monitor suspends the assigned warehouses.
-        :param pulumi.Input[str] frequency: The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+        :param pulumi.Input[str] frequency: The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
+               also set START_TIMESTAMP.
         :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] notify_triggers: A list of percentage thresholds at which to send an alert to subscribed users.
         :param pulumi.Input[bool] set_for_account: Specifies whether the resource monitor should be applied globally to your Snowflake account.
@@ -548,7 +554,8 @@ class ResourceMonitor(pulumi.CustomResource):
     @pulumi.getter
     def frequency(self) -> pulumi.Output[str]:
         """
-        The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+        The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
+        also set START_TIMESTAMP.
         """
         return pulumi.get(self, "frequency")
 

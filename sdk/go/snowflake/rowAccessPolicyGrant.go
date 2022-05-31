@@ -270,6 +270,42 @@ func (o RowAccessPolicyGrantOutput) ToRowAccessPolicyGrantOutputWithContext(ctx 
 	return o
 }
 
+// The name of the database containing the row access policy on which to grant privileges.
+func (o RowAccessPolicyGrantOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v *RowAccessPolicyGrant) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+// grants applied to roles and objects outside Terraform.
+func (o RowAccessPolicyGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RowAccessPolicyGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
+}
+
+// The privilege to grant on the row access policy.
+func (o RowAccessPolicyGrantOutput) Privilege() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RowAccessPolicyGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
+}
+
+// Grants privilege to these roles.
+func (o RowAccessPolicyGrantOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RowAccessPolicyGrant) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+// The name of the row access policy on which to grant privileges immediately.
+func (o RowAccessPolicyGrantOutput) RowAccessPolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *RowAccessPolicyGrant) pulumi.StringOutput { return v.RowAccessPolicyName }).(pulumi.StringOutput)
+}
+
+// The name of the schema containing the row access policy on which to grant privileges.
+func (o RowAccessPolicyGrantOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v *RowAccessPolicyGrant) pulumi.StringOutput { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+// When this is set to true, allows the recipient role to grant the privileges to other roles.
+func (o RowAccessPolicyGrantOutput) WithGrantOption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RowAccessPolicyGrant) pulumi.BoolPtrOutput { return v.WithGrantOption }).(pulumi.BoolPtrOutput)
+}
+
 type RowAccessPolicyGrantArrayOutput struct{ *pulumi.OutputState }
 
 func (RowAccessPolicyGrantArrayOutput) ElementType() reflect.Type {

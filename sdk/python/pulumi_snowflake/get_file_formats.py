@@ -38,17 +38,11 @@ class GetFileFormatsResult:
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter(name="fileFormats")
     def file_formats(self) -> Sequence['outputs.GetFileFormatsFileFormatResult']:
-        """
-        The file formats in the schema
-        """
         return pulumi.get(self, "file_formats")
 
     @property
@@ -62,9 +56,6 @@ class GetFileFormatsResult:
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the file formats from.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -93,10 +84,6 @@ def get_file_formats(database: Optional[str] = None,
     current = snowflake.get_file_formats(database="MYDB",
         schema="MYSCHEMA")
     ```
-
-
-    :param str database: The database from which to return the schemas from.
-    :param str schema: The schema from which to return the file formats from.
     """
     __args__ = dict()
     __args__['database'] = database
@@ -128,9 +115,5 @@ def get_file_formats_output(database: Optional[pulumi.Input[str]] = None,
     current = snowflake.get_file_formats(database="MYDB",
         schema="MYSCHEMA")
     ```
-
-
-    :param str database: The database from which to return the schemas from.
-    :param str schema: The schema from which to return the file formats from.
     """
     ...

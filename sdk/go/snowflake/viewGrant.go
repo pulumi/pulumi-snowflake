@@ -62,7 +62,9 @@ type ViewGrant struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future.
+	// When this is set to true and a schema_name is provided, apply this grant on all future views in the given schema. When
+	// this is true and no schema_name is provided apply this grant on all future views in the given database. The view_name
+	// and shares fields must be unset in order to use on_future.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
 	// The privilege to grant on the current or future view.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
@@ -70,9 +72,9 @@ type ViewGrant struct {
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current or future views on which to grant privileges.
 	SchemaName pulumi.StringPtrOutput `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if onFuture is unset).
+	// Grants privilege to these shares (only valid if on_future is unset).
 	Shares pulumi.StringArrayOutput `pulumi:"shares"`
-	// The name of the view on which to grant privileges immediately (only valid if onFuture is unset).
+	// The name of the view on which to grant privileges immediately (only valid if on_future is unset).
 	ViewName pulumi.StringPtrOutput `pulumi:"viewName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrOutput `pulumi:"withGrantOption"`
@@ -115,7 +117,9 @@ type viewGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future.
+	// When this is set to true and a schema_name is provided, apply this grant on all future views in the given schema. When
+	// this is true and no schema_name is provided apply this grant on all future views in the given database. The view_name
+	// and shares fields must be unset in order to use on_future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future view.
 	Privilege *string `pulumi:"privilege"`
@@ -123,9 +127,9 @@ type viewGrantState struct {
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future views on which to grant privileges.
 	SchemaName *string `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if onFuture is unset).
+	// Grants privilege to these shares (only valid if on_future is unset).
 	Shares []string `pulumi:"shares"`
-	// The name of the view on which to grant privileges immediately (only valid if onFuture is unset).
+	// The name of the view on which to grant privileges immediately (only valid if on_future is unset).
 	ViewName *string `pulumi:"viewName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
@@ -137,7 +141,9 @@ type ViewGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future.
+	// When this is set to true and a schema_name is provided, apply this grant on all future views in the given schema. When
+	// this is true and no schema_name is provided apply this grant on all future views in the given database. The view_name
+	// and shares fields must be unset in order to use on_future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future view.
 	Privilege pulumi.StringPtrInput
@@ -145,9 +151,9 @@ type ViewGrantState struct {
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future views on which to grant privileges.
 	SchemaName pulumi.StringPtrInput
-	// Grants privilege to these shares (only valid if onFuture is unset).
+	// Grants privilege to these shares (only valid if on_future is unset).
 	Shares pulumi.StringArrayInput
-	// The name of the view on which to grant privileges immediately (only valid if onFuture is unset).
+	// The name of the view on which to grant privileges immediately (only valid if on_future is unset).
 	ViewName pulumi.StringPtrInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
@@ -163,7 +169,9 @@ type viewGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future.
+	// When this is set to true and a schema_name is provided, apply this grant on all future views in the given schema. When
+	// this is true and no schema_name is provided apply this grant on all future views in the given database. The view_name
+	// and shares fields must be unset in order to use on_future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future view.
 	Privilege *string `pulumi:"privilege"`
@@ -171,9 +179,9 @@ type viewGrantArgs struct {
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future views on which to grant privileges.
 	SchemaName *string `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if onFuture is unset).
+	// Grants privilege to these shares (only valid if on_future is unset).
 	Shares []string `pulumi:"shares"`
-	// The name of the view on which to grant privileges immediately (only valid if onFuture is unset).
+	// The name of the view on which to grant privileges immediately (only valid if on_future is unset).
 	ViewName *string `pulumi:"viewName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
@@ -186,7 +194,9 @@ type ViewGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future.
+	// When this is set to true and a schema_name is provided, apply this grant on all future views in the given schema. When
+	// this is true and no schema_name is provided apply this grant on all future views in the given database. The view_name
+	// and shares fields must be unset in order to use on_future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future view.
 	Privilege pulumi.StringPtrInput
@@ -194,9 +204,9 @@ type ViewGrantArgs struct {
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future views on which to grant privileges.
 	SchemaName pulumi.StringPtrInput
-	// Grants privilege to these shares (only valid if onFuture is unset).
+	// Grants privilege to these shares (only valid if on_future is unset).
 	Shares pulumi.StringArrayInput
-	// The name of the view on which to grant privileges immediately (only valid if onFuture is unset).
+	// The name of the view on which to grant privileges immediately (only valid if on_future is unset).
 	ViewName pulumi.StringPtrInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
@@ -287,6 +297,54 @@ func (o ViewGrantOutput) ToViewGrantOutput() ViewGrantOutput {
 
 func (o ViewGrantOutput) ToViewGrantOutputWithContext(ctx context.Context) ViewGrantOutput {
 	return o
+}
+
+// The name of the database containing the current or future views on which to grant privileges.
+func (o ViewGrantOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ViewGrant) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+// grants applied to roles and objects outside Terraform.
+func (o ViewGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ViewGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
+}
+
+// When this is set to true and a schema_name is provided, apply this grant on all future views in the given schema. When
+// this is true and no schema_name is provided apply this grant on all future views in the given database. The view_name
+// and shares fields must be unset in order to use on_future.
+func (o ViewGrantOutput) OnFuture() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ViewGrant) pulumi.BoolPtrOutput { return v.OnFuture }).(pulumi.BoolPtrOutput)
+}
+
+// The privilege to grant on the current or future view.
+func (o ViewGrantOutput) Privilege() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ViewGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
+}
+
+// Grants privilege to these roles.
+func (o ViewGrantOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ViewGrant) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+// The name of the schema containing the current or future views on which to grant privileges.
+func (o ViewGrantOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ViewGrant) pulumi.StringPtrOutput { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+// Grants privilege to these shares (only valid if on_future is unset).
+func (o ViewGrantOutput) Shares() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ViewGrant) pulumi.StringArrayOutput { return v.Shares }).(pulumi.StringArrayOutput)
+}
+
+// The name of the view on which to grant privileges immediately (only valid if on_future is unset).
+func (o ViewGrantOutput) ViewName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ViewGrant) pulumi.StringPtrOutput { return v.ViewName }).(pulumi.StringPtrOutput)
+}
+
+// When this is set to true, allows the recipient role to grant the privileges to other roles.
+func (o ViewGrantOutput) WithGrantOption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ViewGrant) pulumi.BoolPtrOutput { return v.WithGrantOption }).(pulumi.BoolPtrOutput)
 }
 
 type ViewGrantArrayOutput struct{ *pulumi.OutputState }

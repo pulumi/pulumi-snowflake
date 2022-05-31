@@ -30,7 +30,8 @@ class ViewArgs:
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
         :param pulumi.Input[str] comment: Specifies a comment for the view.
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure.
-        :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+        :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
+               character.
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
         :param pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
@@ -112,7 +113,8 @@ class ViewArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+        Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
+        character.
         """
         return pulumi.get(self, "name")
 
@@ -161,7 +163,8 @@ class _ViewState:
         :param pulumi.Input[str] comment: Specifies a comment for the view.
         :param pulumi.Input[str] database: The database in which to create the view. Don't use the | character.
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure.
-        :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+        :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
+               character.
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
         :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
@@ -224,7 +227,8 @@ class _ViewState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+        Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
+        character.
         """
         return pulumi.get(self, "name")
 
@@ -324,7 +328,8 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the view.
         :param pulumi.Input[str] database: The database in which to create the view. Don't use the | character.
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure.
-        :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+        :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
+               character.
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
         :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
@@ -437,7 +442,8 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the view.
         :param pulumi.Input[str] database: The database in which to create the view. Don't use the | character.
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure.
-        :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+        :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
+               character.
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
         :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
@@ -485,7 +491,8 @@ class View(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+        Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
+        character.
         """
         return pulumi.get(self, "name")
 

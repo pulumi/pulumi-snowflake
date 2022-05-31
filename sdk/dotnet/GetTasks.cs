@@ -71,15 +71,9 @@ namespace Pulumi.Snowflake
 
     public sealed class GetTasksArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The database from which to return the schemas from.
-        /// </summary>
         [Input("database", required: true)]
         public string Database { get; set; } = null!;
 
-        /// <summary>
-        /// The schema from which to return the tasks from.
-        /// </summary>
         [Input("schema", required: true)]
         public string Schema { get; set; } = null!;
 
@@ -90,15 +84,9 @@ namespace Pulumi.Snowflake
 
     public sealed class GetTasksInvokeArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The database from which to return the schemas from.
-        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
-        /// <summary>
-        /// The schema from which to return the tasks from.
-        /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
@@ -111,21 +99,12 @@ namespace Pulumi.Snowflake
     [OutputType]
     public sealed class GetTasksResult
     {
-        /// <summary>
-        /// The database from which to return the schemas from.
-        /// </summary>
         public readonly string Database;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The schema from which to return the tasks from.
-        /// </summary>
         public readonly string Schema;
-        /// <summary>
-        /// The tasks in the schema
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetTasksTaskResult> Tasks;
 
         [OutputConstructor]

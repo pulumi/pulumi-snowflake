@@ -194,6 +194,26 @@ func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return o
 }
 
+// Specifies a comment for the tag.
+func (o TagOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Tag) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// The database in which to create the tag.
+func (o TagOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// Specifies the identifier for the tag; must be unique for the database in which the tag is created.
+func (o TagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The schema in which to create the tag.
+func (o TagOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
+}
+
 type TagArrayOutput struct{ *pulumi.OutputState }
 
 func (TagArrayOutput) ElementType() reflect.Type {

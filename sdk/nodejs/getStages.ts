@@ -34,13 +34,7 @@ export function getStages(args: GetStagesArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getStages.
  */
 export interface GetStagesArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
-    /**
-     * The schema from which to return the stages from.
-     */
     schema: string;
 }
 
@@ -48,21 +42,12 @@ export interface GetStagesArgs {
  * A collection of values returned by getStages.
  */
 export interface GetStagesResult {
-    /**
-     * The database from which to return the schemas from.
-     */
     readonly database: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * The schema from which to return the stages from.
-     */
     readonly schema: string;
-    /**
-     * The stages in the schema
-     */
     readonly stages: outputs.GetStagesStage[];
 }
 
@@ -74,12 +59,6 @@ export function getStagesOutput(args: GetStagesOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getStages.
  */
 export interface GetStagesOutputArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database: pulumi.Input<string>;
-    /**
-     * The schema from which to return the stages from.
-     */
     schema: pulumi.Input<string>;
 }

@@ -38,9 +38,6 @@ class GetPipesResult:
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -54,17 +51,11 @@ class GetPipesResult:
     @property
     @pulumi.getter
     def pipes(self) -> Sequence['outputs.GetPipesPipeResult']:
-        """
-        The pipes in the schema
-        """
         return pulumi.get(self, "pipes")
 
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the pipes from.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -93,10 +84,6 @@ def get_pipes(database: Optional[str] = None,
     current = snowflake.get_pipes(database="MYDB",
         schema="MYSCHEMA")
     ```
-
-
-    :param str database: The database from which to return the schemas from.
-    :param str schema: The schema from which to return the pipes from.
     """
     __args__ = dict()
     __args__['database'] = database
@@ -128,9 +115,5 @@ def get_pipes_output(database: Optional[pulumi.Input[str]] = None,
     current = snowflake.get_pipes(database="MYDB",
         schema="MYSCHEMA")
     ```
-
-
-    :param str database: The database from which to return the schemas from.
-    :param str schema: The schema from which to return the pipes from.
     """
     ...

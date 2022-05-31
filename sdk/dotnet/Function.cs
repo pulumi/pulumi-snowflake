@@ -49,7 +49,8 @@ namespace Pulumi.Snowflake
         public Output<string?> Language { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
+        /// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
+        /// Don't use the | character.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -185,7 +186,8 @@ namespace Pulumi.Snowflake
         public Input<string>? Language { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
+        /// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
+        /// Don't use the | character.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -282,7 +284,8 @@ namespace Pulumi.Snowflake
         public Input<string>? Language { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
+        /// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
+        /// Don't use the | character.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -14,7 +14,8 @@ import (
 type RoleOwnershipGrant struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
+	// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+	// a new role.
 	CurrentGrants pulumi.StringPtrOutput `pulumi:"currentGrants"`
 	// The name of the role ownership is granted on.
 	OnRoleName pulumi.StringOutput `pulumi:"onRoleName"`
@@ -57,7 +58,8 @@ func GetRoleOwnershipGrant(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RoleOwnershipGrant resources.
 type roleOwnershipGrantState struct {
-	// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
+	// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+	// a new role.
 	CurrentGrants *string `pulumi:"currentGrants"`
 	// The name of the role ownership is granted on.
 	OnRoleName *string `pulumi:"onRoleName"`
@@ -66,7 +68,8 @@ type roleOwnershipGrantState struct {
 }
 
 type RoleOwnershipGrantState struct {
-	// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
+	// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+	// a new role.
 	CurrentGrants pulumi.StringPtrInput
 	// The name of the role ownership is granted on.
 	OnRoleName pulumi.StringPtrInput
@@ -79,7 +82,8 @@ func (RoleOwnershipGrantState) ElementType() reflect.Type {
 }
 
 type roleOwnershipGrantArgs struct {
-	// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
+	// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+	// a new role.
 	CurrentGrants *string `pulumi:"currentGrants"`
 	// The name of the role ownership is granted on.
 	OnRoleName string `pulumi:"onRoleName"`
@@ -89,7 +93,8 @@ type roleOwnershipGrantArgs struct {
 
 // The set of arguments for constructing a RoleOwnershipGrant resource.
 type RoleOwnershipGrantArgs struct {
-	// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
+	// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+	// a new role.
 	CurrentGrants pulumi.StringPtrInput
 	// The name of the role ownership is granted on.
 	OnRoleName pulumi.StringInput
@@ -182,6 +187,22 @@ func (o RoleOwnershipGrantOutput) ToRoleOwnershipGrantOutput() RoleOwnershipGran
 
 func (o RoleOwnershipGrantOutput) ToRoleOwnershipGrantOutputWithContext(ctx context.Context) RoleOwnershipGrantOutput {
 	return o
+}
+
+// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+// a new role.
+func (o RoleOwnershipGrantOutput) CurrentGrants() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleOwnershipGrant) pulumi.StringPtrOutput { return v.CurrentGrants }).(pulumi.StringPtrOutput)
+}
+
+// The name of the role ownership is granted on.
+func (o RoleOwnershipGrantOutput) OnRoleName() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleOwnershipGrant) pulumi.StringOutput { return v.OnRoleName }).(pulumi.StringOutput)
+}
+
+// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
+func (o RoleOwnershipGrantOutput) ToRoleName() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleOwnershipGrant) pulumi.StringOutput { return v.ToRoleName }).(pulumi.StringOutput)
 }
 
 type RoleOwnershipGrantArrayOutput struct{ *pulumi.OutputState }

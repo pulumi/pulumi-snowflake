@@ -205,6 +205,21 @@ func (o ShareOutput) ToShareOutputWithContext(ctx context.Context) ShareOutput {
 	return o
 }
 
+// A list of accounts to be added to the share.
+func (o ShareOutput) Accounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringArrayOutput { return v.Accounts }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a comment for the managed account.
+func (o ShareOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identifier for the share; must be unique for the account in which the share is created.
+func (o ShareOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
 type ShareArrayOutput struct{ *pulumi.OutputState }
 
 func (ShareArrayOutput) ElementType() reflect.Type {

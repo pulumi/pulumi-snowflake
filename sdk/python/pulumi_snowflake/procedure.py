@@ -34,7 +34,8 @@ class ProcedureArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ProcedureArgumentArgs']]] arguments: List of the arguments for the procedure
         :param pulumi.Input[str] comment: Specifies a comment for the procedure.
         :param pulumi.Input[str] execute_as: Sets execute context - see caller's rights and owner's rights
-        :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+        :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
+               Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs.
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
         """
@@ -143,7 +144,8 @@ class ProcedureArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+        Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
+        Don't use the | character.
         """
         return pulumi.get(self, "name")
 
@@ -195,7 +197,8 @@ class _ProcedureState:
         :param pulumi.Input[str] comment: Specifies a comment for the procedure.
         :param pulumi.Input[str] database: The database in which to create the procedure. Don't use the | character.
         :param pulumi.Input[str] execute_as: Sets execute context - see caller's rights and owner's rights
-        :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+        :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
+               Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs.
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
         :param pulumi.Input[str] return_type: The return type of the procedure
@@ -275,7 +278,8 @@ class _ProcedureState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+        Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
+        Don't use the | character.
         """
         return pulumi.get(self, "name")
 
@@ -408,7 +412,8 @@ class Procedure(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the procedure.
         :param pulumi.Input[str] database: The database in which to create the procedure. Don't use the | character.
         :param pulumi.Input[str] execute_as: Sets execute context - see caller's rights and owner's rights
-        :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+        :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
+               Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs.
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
         :param pulumi.Input[str] return_type: The return type of the procedure
@@ -549,7 +554,8 @@ class Procedure(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the procedure.
         :param pulumi.Input[str] database: The database in which to create the procedure. Don't use the | character.
         :param pulumi.Input[str] execute_as: Sets execute context - see caller's rights and owner's rights
-        :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+        :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
+               Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs.
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
         :param pulumi.Input[str] return_type: The return type of the procedure
@@ -608,7 +614,8 @@ class Procedure(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+        Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
+        Don't use the | character.
         """
         return pulumi.get(self, "name")
 

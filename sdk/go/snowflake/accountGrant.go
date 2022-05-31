@@ -227,6 +227,27 @@ func (o AccountGrantOutput) ToAccountGrantOutputWithContext(ctx context.Context)
 	return o
 }
 
+// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+// grants applied to roles and objects outside Terraform.
+func (o AccountGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
+}
+
+// The privilege to grant on the account.
+func (o AccountGrantOutput) Privilege() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
+}
+
+// Grants privilege to these roles.
+func (o AccountGrantOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccountGrant) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+// When this is set to true, allows the recipient role to grant the privileges to other roles.
+func (o AccountGrantOutput) WithGrantOption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountGrant) pulumi.BoolPtrOutput { return v.WithGrantOption }).(pulumi.BoolPtrOutput)
+}
+
 type AccountGrantArrayOutput struct{ *pulumi.OutputState }
 
 func (AccountGrantArrayOutput) ElementType() reflect.Type {

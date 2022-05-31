@@ -34,9 +34,6 @@ class GetRoleResult:
     @property
     @pulumi.getter
     def comment(self) -> str:
-        """
-        The comment on the role
-        """
         return pulumi.get(self, "comment")
 
     @property
@@ -50,9 +47,6 @@ class GetRoleResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The role for which to return metadata.
-        """
         return pulumi.get(self, "name")
 
 
@@ -78,9 +72,6 @@ def get_role(name: Optional[str] = None,
 
     this = snowflake.get_role(name="role1")
     ```
-
-
-    :param str name: The role for which to return metadata.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -108,8 +99,5 @@ def get_role_output(name: Optional[pulumi.Input[str]] = None,
 
     this = snowflake.get_role(name="role1")
     ```
-
-
-    :param str name: The role for which to return metadata.
     """
     ...

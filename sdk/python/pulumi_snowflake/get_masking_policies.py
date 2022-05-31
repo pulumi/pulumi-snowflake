@@ -38,9 +38,6 @@ class GetMaskingPoliciesResult:
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -54,17 +51,11 @@ class GetMaskingPoliciesResult:
     @property
     @pulumi.getter(name="maskingPolicies")
     def masking_policies(self) -> Sequence['outputs.GetMaskingPoliciesMaskingPolicyResult']:
-        """
-        The maskingPolicies in the schema
-        """
         return pulumi.get(self, "masking_policies")
 
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the maskingPolicies from.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -93,10 +84,6 @@ def get_masking_policies(database: Optional[str] = None,
     current = snowflake.get_masking_policies(database="MYDB",
         schema="MYSCHEMA")
     ```
-
-
-    :param str database: The database from which to return the schemas from.
-    :param str schema: The schema from which to return the maskingPolicies from.
     """
     __args__ = dict()
     __args__['database'] = database
@@ -128,9 +115,5 @@ def get_masking_policies_output(database: Optional[pulumi.Input[str]] = None,
     current = snowflake.get_masking_policies(database="MYDB",
         schema="MYSCHEMA")
     ```
-
-
-    :param str database: The database from which to return the schemas from.
-    :param str schema: The schema from which to return the maskingPolicies from.
     """
     ...

@@ -84,7 +84,8 @@ type Procedure struct {
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Sets execute context - see caller's rights and owner's rights
 	ExecuteAs pulumi.StringPtrOutput `pulumi:"executeAs"`
-	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
+	// Don't use the | character.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior pulumi.StringPtrOutput `pulumi:"nullInputBehavior"`
@@ -147,7 +148,8 @@ type procedureState struct {
 	Database *string `pulumi:"database"`
 	// Sets execute context - see caller's rights and owner's rights
 	ExecuteAs *string `pulumi:"executeAs"`
-	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
+	// Don't use the | character.
 	Name *string `pulumi:"name"`
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
@@ -170,7 +172,8 @@ type ProcedureState struct {
 	Database pulumi.StringPtrInput
 	// Sets execute context - see caller's rights and owner's rights
 	ExecuteAs pulumi.StringPtrInput
-	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
+	// Don't use the | character.
 	Name pulumi.StringPtrInput
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior pulumi.StringPtrInput
@@ -197,7 +200,8 @@ type procedureArgs struct {
 	Database string `pulumi:"database"`
 	// Sets execute context - see caller's rights and owner's rights
 	ExecuteAs *string `pulumi:"executeAs"`
-	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
+	// Don't use the | character.
 	Name *string `pulumi:"name"`
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
@@ -221,7 +225,8 @@ type ProcedureArgs struct {
 	Database pulumi.StringInput
 	// Sets execute context - see caller's rights and owner's rights
 	ExecuteAs pulumi.StringPtrInput
-	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
+	// Don't use the | character.
 	Name pulumi.StringPtrInput
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior pulumi.StringPtrInput
@@ -320,6 +325,57 @@ func (o ProcedureOutput) ToProcedureOutput() ProcedureOutput {
 
 func (o ProcedureOutput) ToProcedureOutputWithContext(ctx context.Context) ProcedureOutput {
 	return o
+}
+
+// List of the arguments for the procedure
+func (o ProcedureOutput) Arguments() ProcedureArgumentArrayOutput {
+	return o.ApplyT(func(v *Procedure) ProcedureArgumentArrayOutput { return v.Arguments }).(ProcedureArgumentArrayOutput)
+}
+
+// Specifies a comment for the procedure.
+func (o ProcedureOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Procedure) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// The database in which to create the procedure. Don't use the | character.
+func (o ProcedureOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v *Procedure) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// Sets execute context - see caller's rights and owner's rights
+func (o ProcedureOutput) ExecuteAs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Procedure) pulumi.StringPtrOutput { return v.ExecuteAs }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
+// Don't use the | character.
+func (o ProcedureOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Procedure) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the behavior of the procedure when called with null inputs.
+func (o ProcedureOutput) NullInputBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Procedure) pulumi.StringPtrOutput { return v.NullInputBehavior }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the behavior of the function when returning results
+func (o ProcedureOutput) ReturnBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Procedure) pulumi.StringPtrOutput { return v.ReturnBehavior }).(pulumi.StringPtrOutput)
+}
+
+// The return type of the procedure
+func (o ProcedureOutput) ReturnType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Procedure) pulumi.StringOutput { return v.ReturnType }).(pulumi.StringOutput)
+}
+
+// The schema in which to create the procedure. Don't use the | character.
+func (o ProcedureOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v *Procedure) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
+}
+
+// Specifies the javascript code used to create the procedure.
+func (o ProcedureOutput) Statement() pulumi.StringOutput {
+	return o.ApplyT(func(v *Procedure) pulumi.StringOutput { return v.Statement }).(pulumi.StringOutput)
 }
 
 type ProcedureArrayOutput struct{ *pulumi.OutputState }

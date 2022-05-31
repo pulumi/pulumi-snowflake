@@ -33,7 +33,9 @@ class TableArgs:
         :param pulumi.Input[bool] change_tracking: Specifies whether to enable change tracking on the table. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[str] comment: Specifies a comment for the table.
-        :param pulumi.Input[int] data_retention_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        :param pulumi.Input[int] data_retention_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+               historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the
+               schema attribute to this argument.
         :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input['TablePrimaryKeyArgs'] primary_key: Definitions of primary key constraint to create on table
         :param pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]] tags: Definitions of a tag to associate with the resource.
@@ -132,7 +134,9 @@ class TableArgs:
     @pulumi.getter(name="dataRetentionDays")
     def data_retention_days(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+        historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the
+        schema attribute to this argument.
         """
         return pulumi.get(self, "data_retention_days")
 
@@ -197,7 +201,9 @@ class _TableState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[str] comment: Specifies a comment for the table.
-        :param pulumi.Input[int] data_retention_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        :param pulumi.Input[int] data_retention_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+               historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the
+               schema attribute to this argument.
         :param pulumi.Input[str] database: The database in which to create the table.
         :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input[str] owner: Name of the role that owns the table.
@@ -280,7 +286,9 @@ class _TableState:
     @pulumi.getter(name="dataRetentionDays")
     def data_retention_days(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+        historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the
+        schema attribute to this argument.
         """
         return pulumi.get(self, "data_retention_days")
 
@@ -450,7 +458,9 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[str] comment: Specifies a comment for the table.
-        :param pulumi.Input[int] data_retention_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        :param pulumi.Input[int] data_retention_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+               historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the
+               schema attribute to this argument.
         :param pulumi.Input[str] database: The database in which to create the table.
         :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']] primary_key: Definitions of primary key constraint to create on table
@@ -616,7 +626,9 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[str] comment: Specifies a comment for the table.
-        :param pulumi.Input[int] data_retention_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        :param pulumi.Input[int] data_retention_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+               historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the
+               schema attribute to this argument.
         :param pulumi.Input[str] database: The database in which to create the table.
         :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input[str] owner: Name of the role that owns the table.
@@ -677,7 +689,9 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="dataRetentionDays")
     def data_retention_days(self) -> pulumi.Output[Optional[int]]:
         """
-        Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+        historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the
+        schema attribute to this argument.
         """
         return pulumi.get(self, "data_retention_days")
 

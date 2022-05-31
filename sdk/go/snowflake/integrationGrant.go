@@ -242,6 +242,32 @@ func (o IntegrationGrantOutput) ToIntegrationGrantOutputWithContext(ctx context.
 	return o
 }
 
+// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+// grants applied to roles and objects outside Terraform.
+func (o IntegrationGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IntegrationGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
+}
+
+// Identifier for the integration; must be unique for your account.
+func (o IntegrationGrantOutput) IntegrationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationGrant) pulumi.StringOutput { return v.IntegrationName }).(pulumi.StringOutput)
+}
+
+// The privilege to grant on the integration.
+func (o IntegrationGrantOutput) Privilege() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
+}
+
+// Grants privilege to these roles.
+func (o IntegrationGrantOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IntegrationGrant) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+// When this is set to true, allows the recipient role to grant the privileges to other roles.
+func (o IntegrationGrantOutput) WithGrantOption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IntegrationGrant) pulumi.BoolPtrOutput { return v.WithGrantOption }).(pulumi.BoolPtrOutput)
+}
+
 type IntegrationGrantArrayOutput struct{ *pulumi.OutputState }
 
 func (IntegrationGrantArrayOutput) ElementType() reflect.Type {

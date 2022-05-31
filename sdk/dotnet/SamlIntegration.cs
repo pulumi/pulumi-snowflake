@@ -55,7 +55,8 @@ namespace Pulumi.Snowflake
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        /// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be
+        /// unique among security integrations in your account.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -64,13 +65,17 @@ namespace Pulumi.Snowflake
         public Output<string> Saml2DigestMethodsUsed { get; private set; } = null!;
 
         /// <summary>
-        /// The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in WIth button on the login page.  FALSE: does not display the Log in With button on the login page.
+        /// The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in WIth button
+        /// on the login page. FALSE: does not display the Log in With button on the login page.
         /// </summary>
         [Output("saml2EnableSpInitiated")]
         public Output<bool?> Saml2EnableSpInitiated { get; private set; } = null!;
 
         /// <summary>
-        /// The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the identity provider exists. FALSE: does not force users to authenticate again to access Snowflake.
+        /// The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access
+        /// Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake
+        /// to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the
+        /// identity provider exists. FALSE: does not force users to authenticate again to access Snowflake.
         /// </summary>
         [Output("saml2ForceAuthn")]
         public Output<bool?> Saml2ForceAuthn { get; private set; } = null!;
@@ -82,7 +87,8 @@ namespace Pulumi.Snowflake
         public Output<string> Saml2Issuer { get; private set; } = null!;
 
         /// <summary>
-        /// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
+        /// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web
+        /// interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
         /// </summary>
         [Output("saml2PostLogoutRedirectUrl")]
         public Output<string?> Saml2PostLogoutRedirectUrl { get; private set; } = null!;
@@ -94,13 +100,21 @@ namespace Pulumi.Snowflake
         public Output<string> Saml2Provider { get; private set; } = null!;
 
         /// <summary>
-        /// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. If a value is not specified, Snowflake sends the urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress value in the authentication request to the IdP. NameID must be one of the following values: urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified, urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress, urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName, urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName, urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos, urn:oasis:names:tc:SAML:2.0:nameid-format:persistent, urn:oasis:names:tc:SAML:2.0:nameid-format:transient .
+        /// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML
+        /// Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. If a value is not specified,
+        /// Snowflake sends the urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress value in the authentication request to the
+        /// IdP. NameID must be one of the following values: urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified,
+        /// urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress, urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName,
+        /// urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName,
+        /// urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos, urn:oasis:names:tc:SAML:2.0:nameid-format:persistent,
+        /// urn:oasis:names:tc:SAML:2.0:nameid-format:transient .
         /// </summary>
         [Output("saml2RequestedNameidFormat")]
         public Output<string?> Saml2RequestedNameidFormat { get; private set; } = null!;
 
         /// <summary>
-        /// The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow SAML requests to be signed.
+        /// The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow
+        /// SAML requests to be signed.
         /// </summary>
         [Output("saml2SignRequest")]
         public Output<bool?> Saml2SignRequest { get; private set; } = null!;
@@ -109,13 +123,17 @@ namespace Pulumi.Snowflake
         public Output<string> Saml2SignatureMethodsUsed { get; private set; } = null!;
 
         /// <summary>
-        /// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use. Default: https://\n\n.\n\n.snowflakecomputing.com/fed/login
+        /// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication
+        /// response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when
+        /// initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message
+        /// indicating the acceptable values to use. Default: https://&lt;account_locator&gt;.&lt;region&gt;.snowflakecomputing.com/fed/login
         /// </summary>
         [Output("saml2SnowflakeAcsUrl")]
         public Output<string> Saml2SnowflakeAcsUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use.
+        /// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified,
+        /// Snowflake returns an error message indicating the acceptable values to use.
         /// </summary>
         [Output("saml2SnowflakeIssuerUrl")]
         public Output<string> Saml2SnowflakeIssuerUrl { get; private set; } = null!;
@@ -127,7 +145,9 @@ namespace Pulumi.Snowflake
         public Output<string> Saml2SnowflakeMetadata { get; private set; } = null!;
 
         /// <summary>
-        /// The Base64 encoded self-signed certificate generated by Snowflake for use with Encrypting SAML Assertions and Signed SAML Requests. You must have at least one of these features (encrypted SAML assertions or signed SAML responses) enabled in your Snowflake account to access the certificate value.
+        /// The Base64 encoded self-signed certificate generated by Snowflake for use with Encrypting SAML Assertions and Signed
+        /// SAML Requests. You must have at least one of these features (encrypted SAML assertions or signed SAML responses) enabled
+        /// in your Snowflake account to access the certificate value.
         /// </summary>
         [Output("saml2SnowflakeX509Cert")]
         public Output<string> Saml2SnowflakeX509Cert { get; private set; } = null!;
@@ -139,13 +159,15 @@ namespace Pulumi.Snowflake
         public Output<string?> Saml2SpInitiatedLoginPageLabel { get; private set; } = null!;
 
         /// <summary>
-        /// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a SAML AuthnRequest message.
+        /// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a
+        /// SAML AuthnRequest message.
         /// </summary>
         [Output("saml2SsoUrl")]
         public Output<string> Saml2SsoUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
+        /// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending
+        /// -----END CERTIFICATE----- markers.
         /// </summary>
         [Output("saml2X509Cert")]
         public Output<string> Saml2X509Cert { get; private set; } = null!;
@@ -203,19 +225,24 @@ namespace Pulumi.Snowflake
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        /// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be
+        /// unique among security integrations in your account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in WIth button on the login page.  FALSE: does not display the Log in With button on the login page.
+        /// The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in WIth button
+        /// on the login page. FALSE: does not display the Log in With button on the login page.
         /// </summary>
         [Input("saml2EnableSpInitiated")]
         public Input<bool>? Saml2EnableSpInitiated { get; set; }
 
         /// <summary>
-        /// The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the identity provider exists. FALSE: does not force users to authenticate again to access Snowflake.
+        /// The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access
+        /// Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake
+        /// to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the
+        /// identity provider exists. FALSE: does not force users to authenticate again to access Snowflake.
         /// </summary>
         [Input("saml2ForceAuthn")]
         public Input<bool>? Saml2ForceAuthn { get; set; }
@@ -227,7 +254,8 @@ namespace Pulumi.Snowflake
         public Input<string> Saml2Issuer { get; set; } = null!;
 
         /// <summary>
-        /// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
+        /// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web
+        /// interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
         /// </summary>
         [Input("saml2PostLogoutRedirectUrl")]
         public Input<string>? Saml2PostLogoutRedirectUrl { get; set; }
@@ -239,31 +267,45 @@ namespace Pulumi.Snowflake
         public Input<string> Saml2Provider { get; set; } = null!;
 
         /// <summary>
-        /// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. If a value is not specified, Snowflake sends the urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress value in the authentication request to the IdP. NameID must be one of the following values: urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified, urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress, urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName, urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName, urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos, urn:oasis:names:tc:SAML:2.0:nameid-format:persistent, urn:oasis:names:tc:SAML:2.0:nameid-format:transient .
+        /// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML
+        /// Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. If a value is not specified,
+        /// Snowflake sends the urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress value in the authentication request to the
+        /// IdP. NameID must be one of the following values: urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified,
+        /// urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress, urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName,
+        /// urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName,
+        /// urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos, urn:oasis:names:tc:SAML:2.0:nameid-format:persistent,
+        /// urn:oasis:names:tc:SAML:2.0:nameid-format:transient .
         /// </summary>
         [Input("saml2RequestedNameidFormat")]
         public Input<string>? Saml2RequestedNameidFormat { get; set; }
 
         /// <summary>
-        /// The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow SAML requests to be signed.
+        /// The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow
+        /// SAML requests to be signed.
         /// </summary>
         [Input("saml2SignRequest")]
         public Input<bool>? Saml2SignRequest { get; set; }
 
         /// <summary>
-        /// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use. Default: https://\n\n.\n\n.snowflakecomputing.com/fed/login
+        /// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication
+        /// response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when
+        /// initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message
+        /// indicating the acceptable values to use. Default: https://&lt;account_locator&gt;.&lt;region&gt;.snowflakecomputing.com/fed/login
         /// </summary>
         [Input("saml2SnowflakeAcsUrl")]
         public Input<string>? Saml2SnowflakeAcsUrl { get; set; }
 
         /// <summary>
-        /// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use.
+        /// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified,
+        /// Snowflake returns an error message indicating the acceptable values to use.
         /// </summary>
         [Input("saml2SnowflakeIssuerUrl")]
         public Input<string>? Saml2SnowflakeIssuerUrl { get; set; }
 
         /// <summary>
-        /// The Base64 encoded self-signed certificate generated by Snowflake for use with Encrypting SAML Assertions and Signed SAML Requests. You must have at least one of these features (encrypted SAML assertions or signed SAML responses) enabled in your Snowflake account to access the certificate value.
+        /// The Base64 encoded self-signed certificate generated by Snowflake for use with Encrypting SAML Assertions and Signed
+        /// SAML Requests. You must have at least one of these features (encrypted SAML assertions or signed SAML responses) enabled
+        /// in your Snowflake account to access the certificate value.
         /// </summary>
         [Input("saml2SnowflakeX509Cert")]
         public Input<string>? Saml2SnowflakeX509Cert { get; set; }
@@ -275,13 +317,15 @@ namespace Pulumi.Snowflake
         public Input<string>? Saml2SpInitiatedLoginPageLabel { get; set; }
 
         /// <summary>
-        /// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a SAML AuthnRequest message.
+        /// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a
+        /// SAML AuthnRequest message.
         /// </summary>
         [Input("saml2SsoUrl", required: true)]
         public Input<string> Saml2SsoUrl { get; set; } = null!;
 
         /// <summary>
-        /// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
+        /// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending
+        /// -----END CERTIFICATE----- markers.
         /// </summary>
         [Input("saml2X509Cert", required: true)]
         public Input<string> Saml2X509Cert { get; set; } = null!;
@@ -306,7 +350,8 @@ namespace Pulumi.Snowflake
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        /// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be
+        /// unique among security integrations in your account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -315,13 +360,17 @@ namespace Pulumi.Snowflake
         public Input<string>? Saml2DigestMethodsUsed { get; set; }
 
         /// <summary>
-        /// The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in WIth button on the login page.  FALSE: does not display the Log in With button on the login page.
+        /// The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in WIth button
+        /// on the login page. FALSE: does not display the Log in With button on the login page.
         /// </summary>
         [Input("saml2EnableSpInitiated")]
         public Input<bool>? Saml2EnableSpInitiated { get; set; }
 
         /// <summary>
-        /// The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the identity provider exists. FALSE: does not force users to authenticate again to access Snowflake.
+        /// The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access
+        /// Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake
+        /// to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the
+        /// identity provider exists. FALSE: does not force users to authenticate again to access Snowflake.
         /// </summary>
         [Input("saml2ForceAuthn")]
         public Input<bool>? Saml2ForceAuthn { get; set; }
@@ -333,7 +382,8 @@ namespace Pulumi.Snowflake
         public Input<string>? Saml2Issuer { get; set; }
 
         /// <summary>
-        /// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
+        /// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web
+        /// interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
         /// </summary>
         [Input("saml2PostLogoutRedirectUrl")]
         public Input<string>? Saml2PostLogoutRedirectUrl { get; set; }
@@ -345,13 +395,21 @@ namespace Pulumi.Snowflake
         public Input<string>? Saml2Provider { get; set; }
 
         /// <summary>
-        /// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. If a value is not specified, Snowflake sends the urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress value in the authentication request to the IdP. NameID must be one of the following values: urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified, urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress, urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName, urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName, urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos, urn:oasis:names:tc:SAML:2.0:nameid-format:persistent, urn:oasis:names:tc:SAML:2.0:nameid-format:transient .
+        /// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML
+        /// Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. If a value is not specified,
+        /// Snowflake sends the urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress value in the authentication request to the
+        /// IdP. NameID must be one of the following values: urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified,
+        /// urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress, urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName,
+        /// urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName,
+        /// urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos, urn:oasis:names:tc:SAML:2.0:nameid-format:persistent,
+        /// urn:oasis:names:tc:SAML:2.0:nameid-format:transient .
         /// </summary>
         [Input("saml2RequestedNameidFormat")]
         public Input<string>? Saml2RequestedNameidFormat { get; set; }
 
         /// <summary>
-        /// The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow SAML requests to be signed.
+        /// The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow
+        /// SAML requests to be signed.
         /// </summary>
         [Input("saml2SignRequest")]
         public Input<bool>? Saml2SignRequest { get; set; }
@@ -360,13 +418,17 @@ namespace Pulumi.Snowflake
         public Input<string>? Saml2SignatureMethodsUsed { get; set; }
 
         /// <summary>
-        /// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use. Default: https://\n\n.\n\n.snowflakecomputing.com/fed/login
+        /// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication
+        /// response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when
+        /// initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message
+        /// indicating the acceptable values to use. Default: https://&lt;account_locator&gt;.&lt;region&gt;.snowflakecomputing.com/fed/login
         /// </summary>
         [Input("saml2SnowflakeAcsUrl")]
         public Input<string>? Saml2SnowflakeAcsUrl { get; set; }
 
         /// <summary>
-        /// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use.
+        /// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified,
+        /// Snowflake returns an error message indicating the acceptable values to use.
         /// </summary>
         [Input("saml2SnowflakeIssuerUrl")]
         public Input<string>? Saml2SnowflakeIssuerUrl { get; set; }
@@ -378,7 +440,9 @@ namespace Pulumi.Snowflake
         public Input<string>? Saml2SnowflakeMetadata { get; set; }
 
         /// <summary>
-        /// The Base64 encoded self-signed certificate generated by Snowflake for use with Encrypting SAML Assertions and Signed SAML Requests. You must have at least one of these features (encrypted SAML assertions or signed SAML responses) enabled in your Snowflake account to access the certificate value.
+        /// The Base64 encoded self-signed certificate generated by Snowflake for use with Encrypting SAML Assertions and Signed
+        /// SAML Requests. You must have at least one of these features (encrypted SAML assertions or signed SAML responses) enabled
+        /// in your Snowflake account to access the certificate value.
         /// </summary>
         [Input("saml2SnowflakeX509Cert")]
         public Input<string>? Saml2SnowflakeX509Cert { get; set; }
@@ -390,13 +454,15 @@ namespace Pulumi.Snowflake
         public Input<string>? Saml2SpInitiatedLoginPageLabel { get; set; }
 
         /// <summary>
-        /// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a SAML AuthnRequest message.
+        /// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a
+        /// SAML AuthnRequest message.
         /// </summary>
         [Input("saml2SsoUrl")]
         public Input<string>? Saml2SsoUrl { get; set; }
 
         /// <summary>
-        /// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
+        /// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending
+        /// -----END CERTIFICATE----- markers.
         /// </summary>
         [Input("saml2X509Cert")]
         public Input<string>? Saml2X509Cert { get; set; }

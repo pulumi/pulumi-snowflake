@@ -62,9 +62,11 @@ type MaterializedViewGrant struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
-	// The name of the materialized view on which to grant privileges immediately (only valid if onFuture is false).
+	// The name of the materialized view on which to grant privileges immediately (only valid if on_future is false).
 	MaterializedViewName pulumi.StringPtrOutput `pulumi:"materializedViewName"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema_name is provided, apply this grant on all future materialized views in the given
+	// schema. When this is true and no schema_name is provided apply this grant on all future materialized views in the given
+	// database. The materialized_view_name and shares fields must be unset in order to use on_future.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
 	// The privilege to grant on the current or future materialized view view.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
@@ -72,7 +74,7 @@ type MaterializedViewGrant struct {
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current or future materialized views on which to grant privileges.
 	SchemaName pulumi.StringPtrOutput `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if onFuture is false).
+	// Grants privilege to these shares (only valid if on_future is false).
 	Shares pulumi.StringArrayOutput `pulumi:"shares"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrOutput `pulumi:"withGrantOption"`
@@ -115,9 +117,11 @@ type materializedViewGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// The name of the materialized view on which to grant privileges immediately (only valid if onFuture is false).
+	// The name of the materialized view on which to grant privileges immediately (only valid if on_future is false).
 	MaterializedViewName *string `pulumi:"materializedViewName"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema_name is provided, apply this grant on all future materialized views in the given
+	// schema. When this is true and no schema_name is provided apply this grant on all future materialized views in the given
+	// database. The materialized_view_name and shares fields must be unset in order to use on_future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future materialized view view.
 	Privilege *string `pulumi:"privilege"`
@@ -125,7 +129,7 @@ type materializedViewGrantState struct {
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future materialized views on which to grant privileges.
 	SchemaName *string `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if onFuture is false).
+	// Grants privilege to these shares (only valid if on_future is false).
 	Shares []string `pulumi:"shares"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
@@ -137,9 +141,11 @@ type MaterializedViewGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// The name of the materialized view on which to grant privileges immediately (only valid if onFuture is false).
+	// The name of the materialized view on which to grant privileges immediately (only valid if on_future is false).
 	MaterializedViewName pulumi.StringPtrInput
-	// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema_name is provided, apply this grant on all future materialized views in the given
+	// schema. When this is true and no schema_name is provided apply this grant on all future materialized views in the given
+	// database. The materialized_view_name and shares fields must be unset in order to use on_future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future materialized view view.
 	Privilege pulumi.StringPtrInput
@@ -147,7 +153,7 @@ type MaterializedViewGrantState struct {
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future materialized views on which to grant privileges.
 	SchemaName pulumi.StringPtrInput
-	// Grants privilege to these shares (only valid if onFuture is false).
+	// Grants privilege to these shares (only valid if on_future is false).
 	Shares pulumi.StringArrayInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
@@ -163,9 +169,11 @@ type materializedViewGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// The name of the materialized view on which to grant privileges immediately (only valid if onFuture is false).
+	// The name of the materialized view on which to grant privileges immediately (only valid if on_future is false).
 	MaterializedViewName *string `pulumi:"materializedViewName"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema_name is provided, apply this grant on all future materialized views in the given
+	// schema. When this is true and no schema_name is provided apply this grant on all future materialized views in the given
+	// database. The materialized_view_name and shares fields must be unset in order to use on_future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future materialized view view.
 	Privilege *string `pulumi:"privilege"`
@@ -173,7 +181,7 @@ type materializedViewGrantArgs struct {
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future materialized views on which to grant privileges.
 	SchemaName *string `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if onFuture is false).
+	// Grants privilege to these shares (only valid if on_future is false).
 	Shares []string `pulumi:"shares"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
@@ -186,9 +194,11 @@ type MaterializedViewGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// The name of the materialized view on which to grant privileges immediately (only valid if onFuture is false).
+	// The name of the materialized view on which to grant privileges immediately (only valid if on_future is false).
 	MaterializedViewName pulumi.StringPtrInput
-	// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema_name is provided, apply this grant on all future materialized views in the given
+	// schema. When this is true and no schema_name is provided apply this grant on all future materialized views in the given
+	// database. The materialized_view_name and shares fields must be unset in order to use on_future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future materialized view view.
 	Privilege pulumi.StringPtrInput
@@ -196,7 +206,7 @@ type MaterializedViewGrantArgs struct {
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future materialized views on which to grant privileges.
 	SchemaName pulumi.StringPtrInput
-	// Grants privilege to these shares (only valid if onFuture is false).
+	// Grants privilege to these shares (only valid if on_future is false).
 	Shares pulumi.StringArrayInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
@@ -287,6 +297,54 @@ func (o MaterializedViewGrantOutput) ToMaterializedViewGrantOutput() Materialize
 
 func (o MaterializedViewGrantOutput) ToMaterializedViewGrantOutputWithContext(ctx context.Context) MaterializedViewGrantOutput {
 	return o
+}
+
+// The name of the database containing the current or future materialized views on which to grant privileges.
+func (o MaterializedViewGrantOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaterializedViewGrant) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+// grants applied to roles and objects outside Terraform.
+func (o MaterializedViewGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MaterializedViewGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the materialized view on which to grant privileges immediately (only valid if on_future is false).
+func (o MaterializedViewGrantOutput) MaterializedViewName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaterializedViewGrant) pulumi.StringPtrOutput { return v.MaterializedViewName }).(pulumi.StringPtrOutput)
+}
+
+// When this is set to true and a schema_name is provided, apply this grant on all future materialized views in the given
+// schema. When this is true and no schema_name is provided apply this grant on all future materialized views in the given
+// database. The materialized_view_name and shares fields must be unset in order to use on_future.
+func (o MaterializedViewGrantOutput) OnFuture() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MaterializedViewGrant) pulumi.BoolPtrOutput { return v.OnFuture }).(pulumi.BoolPtrOutput)
+}
+
+// The privilege to grant on the current or future materialized view view.
+func (o MaterializedViewGrantOutput) Privilege() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaterializedViewGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
+}
+
+// Grants privilege to these roles.
+func (o MaterializedViewGrantOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MaterializedViewGrant) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+// The name of the schema containing the current or future materialized views on which to grant privileges.
+func (o MaterializedViewGrantOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaterializedViewGrant) pulumi.StringPtrOutput { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+// Grants privilege to these shares (only valid if on_future is false).
+func (o MaterializedViewGrantOutput) Shares() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MaterializedViewGrant) pulumi.StringArrayOutput { return v.Shares }).(pulumi.StringArrayOutput)
+}
+
+// When this is set to true, allows the recipient role to grant the privileges to other roles.
+func (o MaterializedViewGrantOutput) WithGrantOption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MaterializedViewGrant) pulumi.BoolPtrOutput { return v.WithGrantOption }).(pulumi.BoolPtrOutput)
 }
 
 type MaterializedViewGrantArrayOutput struct{ *pulumi.OutputState }
