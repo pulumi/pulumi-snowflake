@@ -54,7 +54,8 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login.
+        /// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
+        /// login.
         /// </summary>
         [Output("defaultNamespace")]
         public Output<string?> DefaultNamespace { get; private set; } = null!;
@@ -111,13 +112,15 @@ namespace Pulumi.Snowflake
         public Output<string> LoginName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
+        /// Specifies whether the user is forced to change their password on next login (including their first/initial login) into
+        /// the system.
         /// </summary>
         [Output("mustChangePassword")]
         public Output<bool?> MustChangePassword { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
+        /// Name of the user. Note that if you do not supply login_name this will be used as login_name.
+        /// [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -135,7 +138,8 @@ namespace Pulumi.Snowflake
         public Output<string?> RsaPublicKey { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+        /// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication
+        /// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         /// </summary>
         [Output("rsaPublicKey2")]
         public Output<string?> RsaPublicKey2 { get; private set; } = null!;
@@ -196,7 +200,8 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login.
+        /// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
+        /// login.
         /// </summary>
         [Input("defaultNamespace")]
         public Input<string>? DefaultNamespace { get; set; }
@@ -247,13 +252,15 @@ namespace Pulumi.Snowflake
         public Input<string>? LoginName { get; set; }
 
         /// <summary>
-        /// Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
+        /// Specifies whether the user is forced to change their password on next login (including their first/initial login) into
+        /// the system.
         /// </summary>
         [Input("mustChangePassword")]
         public Input<bool>? MustChangePassword { get; set; }
 
         /// <summary>
-        /// Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
+        /// Name of the user. Note that if you do not supply login_name this will be used as login_name.
+        /// [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -271,7 +278,8 @@ namespace Pulumi.Snowflake
         public Input<string>? RsaPublicKey { get; set; }
 
         /// <summary>
-        /// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+        /// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication
+        /// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         /// </summary>
         [Input("rsaPublicKey2")]
         public Input<string>? RsaPublicKey2 { get; set; }
@@ -299,7 +307,8 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login.
+        /// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
+        /// login.
         /// </summary>
         [Input("defaultNamespace")]
         public Input<string>? DefaultNamespace { get; set; }
@@ -356,13 +365,15 @@ namespace Pulumi.Snowflake
         public Input<string>? LoginName { get; set; }
 
         /// <summary>
-        /// Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
+        /// Specifies whether the user is forced to change their password on next login (including their first/initial login) into
+        /// the system.
         /// </summary>
         [Input("mustChangePassword")]
         public Input<bool>? MustChangePassword { get; set; }
 
         /// <summary>
-        /// Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
+        /// Name of the user. Note that if you do not supply login_name this will be used as login_name.
+        /// [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -380,7 +391,8 @@ namespace Pulumi.Snowflake
         public Input<string>? RsaPublicKey { get; set; }
 
         /// <summary>
-        /// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+        /// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication
+        /// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         /// </summary>
         [Input("rsaPublicKey2")]
         public Input<string>? RsaPublicKey2 { get; set; }

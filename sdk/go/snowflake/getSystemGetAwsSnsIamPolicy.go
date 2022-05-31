@@ -21,15 +21,12 @@ func GetSystemGetAwsSnsIamPolicy(ctx *pulumi.Context, args *GetSystemGetAwsSnsIa
 
 // A collection of arguments for invoking getSystemGetAwsSnsIamPolicy.
 type GetSystemGetAwsSnsIamPolicyArgs struct {
-	// Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
 	AwsSnsTopicArn string `pulumi:"awsSnsTopicArn"`
 }
 
 // A collection of values returned by getSystemGetAwsSnsIamPolicy.
 type GetSystemGetAwsSnsIamPolicyResult struct {
-	// Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
-	AwsSnsTopicArn string `pulumi:"awsSnsTopicArn"`
-	// IAM policy for Snowflake’s SQS queue to subscribe to this topic
+	AwsSnsTopicArn        string `pulumi:"awsSnsTopicArn"`
 	AwsSnsTopicPolicyJson string `pulumi:"awsSnsTopicPolicyJson"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -50,7 +47,6 @@ func GetSystemGetAwsSnsIamPolicyOutput(ctx *pulumi.Context, args GetSystemGetAws
 
 // A collection of arguments for invoking getSystemGetAwsSnsIamPolicy.
 type GetSystemGetAwsSnsIamPolicyOutputArgs struct {
-	// Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
 	AwsSnsTopicArn pulumi.StringInput `pulumi:"awsSnsTopicArn"`
 }
 
@@ -73,12 +69,10 @@ func (o GetSystemGetAwsSnsIamPolicyResultOutput) ToGetSystemGetAwsSnsIamPolicyRe
 	return o
 }
 
-// Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
 func (o GetSystemGetAwsSnsIamPolicyResultOutput) AwsSnsTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSystemGetAwsSnsIamPolicyResult) string { return v.AwsSnsTopicArn }).(pulumi.StringOutput)
 }
 
-// IAM policy for Snowflake’s SQS queue to subscribe to this topic
 func (o GetSystemGetAwsSnsIamPolicyResultOutput) AwsSnsTopicPolicyJson() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSystemGetAwsSnsIamPolicyResult) string { return v.AwsSnsTopicPolicyJson }).(pulumi.StringOutput)
 }

@@ -12,15 +12,9 @@ namespace Pulumi.Snowflake.Inputs
 
     public sealed class ExternalFunctionArgGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Argument name
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Argument type, e.g. VARCHAR
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

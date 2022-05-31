@@ -42,33 +42,21 @@ class GetSystemGetPrivateLinkConfigResult:
     @property
     @pulumi.getter(name="accountName")
     def account_name(self) -> str:
-        """
-        The name of your Snowflake account.
-        """
         return pulumi.get(self, "account_name")
 
     @property
     @pulumi.getter(name="accountUrl")
     def account_url(self) -> str:
-        """
-        The URL used to connect to Snowflake through AWS PrivateLink or Azure Private Link.
-        """
         return pulumi.get(self, "account_url")
 
     @property
     @pulumi.getter(name="awsVpceId")
     def aws_vpce_id(self) -> str:
-        """
-        The AWS VPCE ID for your account.
-        """
         return pulumi.get(self, "aws_vpce_id")
 
     @property
     @pulumi.getter(name="azurePlsId")
     def azure_pls_id(self) -> str:
-        """
-        The Azure Private Link Service ID for your account.
-        """
         return pulumi.get(self, "azure_pls_id")
 
     @property
@@ -82,9 +70,6 @@ class GetSystemGetPrivateLinkConfigResult:
     @property
     @pulumi.getter(name="ocspUrl")
     def ocsp_url(self) -> str:
-        """
-        The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
-        """
         return pulumi.get(self, "ocsp_url")
 
 

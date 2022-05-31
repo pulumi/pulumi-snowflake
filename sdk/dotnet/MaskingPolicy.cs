@@ -63,7 +63,8 @@ namespace Pulumi.Snowflake
         public Output<string> MaskingExpression { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
+        /// is created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -151,7 +152,8 @@ namespace Pulumi.Snowflake
         public Input<string> MaskingExpression { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
+        /// is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -200,7 +202,8 @@ namespace Pulumi.Snowflake
         public Input<string>? MaskingExpression { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
+        /// is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
+    'DatabaseReplicationConfigurationArgs',
     'DatabaseTagArgs',
     'ExternalFunctionArgArgs',
     'ExternalFunctionHeaderArgs',
@@ -33,18 +34,40 @@ __all__ = [
 ]
 
 @pulumi.input_type
+class DatabaseReplicationConfigurationArgs:
+    def __init__(__self__, *,
+                 accounts: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 ignore_edition_check: Optional[pulumi.Input[bool]] = None):
+        pulumi.set(__self__, "accounts", accounts)
+        if ignore_edition_check is not None:
+            pulumi.set(__self__, "ignore_edition_check", ignore_edition_check)
+
+    @property
+    @pulumi.getter
+    def accounts(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "accounts")
+
+    @accounts.setter
+    def accounts(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "accounts", value)
+
+    @property
+    @pulumi.getter(name="ignoreEditionCheck")
+    def ignore_edition_check(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "ignore_edition_check")
+
+    @ignore_edition_check.setter
+    def ignore_edition_check(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_edition_check", value)
+
+
+@pulumi.input_type
 class DatabaseTagArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str],
                  database: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Tag name, e.g. department.
-        :param pulumi.Input[str] value: Tag value, e.g. marketing_info.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if database is not None:
@@ -55,9 +78,6 @@ class DatabaseTagArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -67,9 +87,6 @@ class DatabaseTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        Tag value, e.g. marketing_info.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -79,9 +96,6 @@ class DatabaseTagArgs:
     @property
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the database that the tag was created in.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -91,9 +105,6 @@ class DatabaseTagArgs:
     @property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the schema that the tag was created in.
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -106,19 +117,12 @@ class ExternalFunctionArgArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] name: Argument name
-        :param pulumi.Input[str] type: Argument type, e.g. VARCHAR
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Argument name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -128,9 +132,6 @@ class ExternalFunctionArgArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Argument type, e.g. VARCHAR
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -143,19 +144,12 @@ class ExternalFunctionHeaderArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] name: Header name
-        :param pulumi.Input[str] value: Header value
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Header name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -165,9 +159,6 @@ class ExternalFunctionHeaderArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        Header value
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -181,11 +172,6 @@ class ExternalTableColumnArgs:
                  as_: pulumi.Input[str],
                  name: pulumi.Input[str],
                  type: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] as_: String that specifies the expression for the column. When queried, the column returns results derived from this expression.
-        :param pulumi.Input[str] name: Column name
-        :param pulumi.Input[str] type: Column type, e.g. VARIANT
-        """
         pulumi.set(__self__, "as_", as_)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -193,9 +179,6 @@ class ExternalTableColumnArgs:
     @property
     @pulumi.getter(name="as")
     def as_(self) -> pulumi.Input[str]:
-        """
-        String that specifies the expression for the column. When queried, the column returns results derived from this expression.
-        """
         return pulumi.get(self, "as_")
 
     @as_.setter
@@ -205,9 +188,6 @@ class ExternalTableColumnArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Column name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -217,9 +197,6 @@ class ExternalTableColumnArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Column type, e.g. VARIANT
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -234,12 +211,6 @@ class ExternalTableTagArgs:
                  value: pulumi.Input[str],
                  database: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Tag name, e.g. department.
-        :param pulumi.Input[str] value: Tag value, e.g. marketing_info.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if database is not None:
@@ -250,9 +221,6 @@ class ExternalTableTagArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -262,9 +230,6 @@ class ExternalTableTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        Tag value, e.g. marketing_info.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -274,9 +239,6 @@ class ExternalTableTagArgs:
     @property
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the database that the tag was created in.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -286,9 +248,6 @@ class ExternalTableTagArgs:
     @property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the schema that the tag was created in.
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -301,19 +260,12 @@ class FunctionArgumentArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] name: The argument name
-        :param pulumi.Input[str] type: The argument type
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        The argument name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -323,9 +275,6 @@ class FunctionArgumentArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        The argument type
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -338,19 +287,12 @@ class FunctionGrantArgumentArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] name: The argument name
-        :param pulumi.Input[str] type: The argument type
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        The argument name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -360,9 +302,6 @@ class FunctionGrantArgumentArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        The argument type
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -377,12 +316,6 @@ class MaterializedViewTagArgs:
                  value: pulumi.Input[str],
                  database: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Tag name, e.g. department.
-        :param pulumi.Input[str] value: Tag value, e.g. marketing_info.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if database is not None:
@@ -393,9 +326,6 @@ class MaterializedViewTagArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -405,9 +335,6 @@ class MaterializedViewTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        Tag value, e.g. marketing_info.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -417,9 +344,6 @@ class MaterializedViewTagArgs:
     @property
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the database that the tag was created in.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -429,9 +353,6 @@ class MaterializedViewTagArgs:
     @property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the schema that the tag was created in.
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -444,19 +365,12 @@ class ProcedureArgumentArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] name: The argument name
-        :param pulumi.Input[str] type: The argument type
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        The argument name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -466,9 +380,6 @@ class ProcedureArgumentArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        The argument type
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -481,19 +392,12 @@ class ProcedureGrantArgumentArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] name: The argument name
-        :param pulumi.Input[str] type: The argument type
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        The argument name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -503,9 +407,6 @@ class ProcedureGrantArgumentArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        The argument type
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -520,12 +421,6 @@ class RoleTagArgs:
                  value: pulumi.Input[str],
                  database: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Tag name, e.g. department.
-        :param pulumi.Input[str] value: Tag value, e.g. marketing_info.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if database is not None:
@@ -536,9 +431,6 @@ class RoleTagArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -548,9 +440,6 @@ class RoleTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        Tag value, e.g. marketing_info.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -560,9 +449,6 @@ class RoleTagArgs:
     @property
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the database that the tag was created in.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -572,9 +458,6 @@ class RoleTagArgs:
     @property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the schema that the tag was created in.
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -589,12 +472,6 @@ class SchemaTagArgs:
                  value: pulumi.Input[str],
                  database: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Tag name, e.g. department.
-        :param pulumi.Input[str] value: Tag value, e.g. marketing_info.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if database is not None:
@@ -605,9 +482,6 @@ class SchemaTagArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -617,9 +491,6 @@ class SchemaTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        Tag value, e.g. marketing_info.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -629,9 +500,6 @@ class SchemaTagArgs:
     @property
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the database that the tag was created in.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -641,9 +509,6 @@ class SchemaTagArgs:
     @property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the schema that the tag was created in.
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -658,12 +523,6 @@ class StageTagArgs:
                  value: pulumi.Input[str],
                  database: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Tag name, e.g. department.
-        :param pulumi.Input[str] value: Tag value, e.g. marketing_info.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if database is not None:
@@ -674,9 +533,6 @@ class StageTagArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -686,9 +542,6 @@ class StageTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        Tag value, e.g. marketing_info.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -698,9 +551,6 @@ class StageTagArgs:
     @property
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the database that the tag was created in.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -710,9 +560,6 @@ class StageTagArgs:
     @property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the schema that the tag was created in.
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -729,14 +576,6 @@ class TableColumnArgs:
                  default: Optional[pulumi.Input['TableColumnDefaultArgs']] = None,
                  identity: Optional[pulumi.Input['TableColumnIdentityArgs']] = None,
                  nullable: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[str] name: Column name
-        :param pulumi.Input[str] type: Column type, e.g. VARIANT
-        :param pulumi.Input[str] comment: Column comment
-        :param pulumi.Input['TableColumnDefaultArgs'] default: Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
-        :param pulumi.Input['TableColumnIdentityArgs'] identity: Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
-        :param pulumi.Input[bool] nullable: Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         if comment is not None:
@@ -751,9 +590,6 @@ class TableColumnArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Column name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -763,9 +599,6 @@ class TableColumnArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Column type, e.g. VARIANT
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -775,9 +608,6 @@ class TableColumnArgs:
     @property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[str]]:
-        """
-        Column comment
-        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -787,9 +617,6 @@ class TableColumnArgs:
     @property
     @pulumi.getter
     def default(self) -> Optional[pulumi.Input['TableColumnDefaultArgs']]:
-        """
-        Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
-        """
         return pulumi.get(self, "default")
 
     @default.setter
@@ -799,9 +626,6 @@ class TableColumnArgs:
     @property
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['TableColumnIdentityArgs']]:
-        """
-        Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
-        """
         return pulumi.get(self, "identity")
 
     @identity.setter
@@ -811,9 +635,6 @@ class TableColumnArgs:
     @property
     @pulumi.getter
     def nullable(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
-        """
         return pulumi.get(self, "nullable")
 
     @nullable.setter
@@ -896,10 +717,6 @@ class TablePrimaryKeyArgs:
     def __init__(__self__, *,
                  keys: pulumi.Input[Sequence[pulumi.Input[str]]],
                  name: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] keys: Columns to use in primary key
-        :param pulumi.Input[str] name: Name of constraint
-        """
         pulumi.set(__self__, "keys", keys)
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -907,9 +724,6 @@ class TablePrimaryKeyArgs:
     @property
     @pulumi.getter
     def keys(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Columns to use in primary key
-        """
         return pulumi.get(self, "keys")
 
     @keys.setter
@@ -919,9 +733,6 @@ class TablePrimaryKeyArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of constraint
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -936,12 +747,6 @@ class TableTagArgs:
                  value: pulumi.Input[str],
                  database: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Tag name, e.g. department.
-        :param pulumi.Input[str] value: Tag value, e.g. marketing_info.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if database is not None:
@@ -952,9 +757,6 @@ class TableTagArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -964,9 +766,6 @@ class TableTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        Tag value, e.g. marketing_info.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -976,9 +775,6 @@ class TableTagArgs:
     @property
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the database that the tag was created in.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -988,9 +784,6 @@ class TableTagArgs:
     @property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the schema that the tag was created in.
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -1005,12 +798,6 @@ class UserTagArgs:
                  value: pulumi.Input[str],
                  database: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Tag name, e.g. department.
-        :param pulumi.Input[str] value: Tag value, e.g. marketing_info.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if database is not None:
@@ -1021,9 +808,6 @@ class UserTagArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1033,9 +817,6 @@ class UserTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        Tag value, e.g. marketing_info.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1045,9 +826,6 @@ class UserTagArgs:
     @property
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the database that the tag was created in.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -1057,9 +835,6 @@ class UserTagArgs:
     @property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the schema that the tag was created in.
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -1074,12 +849,6 @@ class ViewTagArgs:
                  value: pulumi.Input[str],
                  database: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Tag name, e.g. department.
-        :param pulumi.Input[str] value: Tag value, e.g. marketing_info.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if database is not None:
@@ -1090,9 +859,6 @@ class ViewTagArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1102,9 +868,6 @@ class ViewTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        Tag value, e.g. marketing_info.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1114,9 +877,6 @@ class ViewTagArgs:
     @property
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the database that the tag was created in.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -1126,9 +886,6 @@ class ViewTagArgs:
     @property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the schema that the tag was created in.
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -1143,12 +900,6 @@ class WarehouseTagArgs:
                  value: pulumi.Input[str],
                  database: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Tag name, e.g. department.
-        :param pulumi.Input[str] value: Tag value, e.g. marketing_info.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if database is not None:
@@ -1159,9 +910,6 @@ class WarehouseTagArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1171,9 +919,6 @@ class WarehouseTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        Tag value, e.g. marketing_info.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1183,9 +928,6 @@ class WarehouseTagArgs:
     @property
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the database that the tag was created in.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -1195,9 +937,6 @@ class WarehouseTagArgs:
     @property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the schema that the tag was created in.
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter

@@ -19,13 +19,7 @@ namespace Pulumi.Snowflake
     [OutputType]
     public sealed class GetSystemGetSnowflakePlatformInfoResult
     {
-        /// <summary>
-        /// Snowflake AWS Virtual Private Cloud IDs
-        /// </summary>
         public readonly ImmutableArray<string> AwsVpcIds;
-        /// <summary>
-        /// Snowflake Azure Virtual Network Subnet IDs
-        /// </summary>
         public readonly ImmutableArray<string> AzureVnetSubnetIds;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

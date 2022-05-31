@@ -56,7 +56,8 @@ import (
 type ExternalTable struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+	// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
+	// created.
 	AutoRefresh pulumi.BoolPtrOutput `pulumi:"autoRefresh"`
 	// Specifies the aws sns topic for the external table.
 	AwsSnsTopic pulumi.StringPtrOutput `pulumi:"awsSnsTopic"`
@@ -64,7 +65,8 @@ type ExternalTable struct {
 	Columns ExternalTableColumnArrayOutput `pulumi:"columns"`
 	// Specifies a comment for the external table.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
+	// OR REPLACE TABLE variant
 	CopyGrants pulumi.BoolPtrOutput `pulumi:"copyGrants"`
 	// The database in which to create the external table.
 	Database pulumi.StringOutput `pulumi:"database"`
@@ -72,7 +74,8 @@ type ExternalTable struct {
 	FileFormat pulumi.StringOutput `pulumi:"fileFormat"`
 	// Specifies a location for the external table.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
+	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
+	// is created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of the role that owns the external table.
 	Owner pulumi.StringOutput `pulumi:"owner"`
@@ -132,7 +135,8 @@ func GetExternalTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ExternalTable resources.
 type externalTableState struct {
-	// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+	// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
+	// created.
 	AutoRefresh *bool `pulumi:"autoRefresh"`
 	// Specifies the aws sns topic for the external table.
 	AwsSnsTopic *string `pulumi:"awsSnsTopic"`
@@ -140,7 +144,8 @@ type externalTableState struct {
 	Columns []ExternalTableColumn `pulumi:"columns"`
 	// Specifies a comment for the external table.
 	Comment *string `pulumi:"comment"`
-	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
+	// OR REPLACE TABLE variant
 	CopyGrants *bool `pulumi:"copyGrants"`
 	// The database in which to create the external table.
 	Database *string `pulumi:"database"`
@@ -148,7 +153,8 @@ type externalTableState struct {
 	FileFormat *string `pulumi:"fileFormat"`
 	// Specifies a location for the external table.
 	Location *string `pulumi:"location"`
-	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
+	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
+	// is created.
 	Name *string `pulumi:"name"`
 	// Name of the role that owns the external table.
 	Owner *string `pulumi:"owner"`
@@ -165,7 +171,8 @@ type externalTableState struct {
 }
 
 type ExternalTableState struct {
-	// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+	// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
+	// created.
 	AutoRefresh pulumi.BoolPtrInput
 	// Specifies the aws sns topic for the external table.
 	AwsSnsTopic pulumi.StringPtrInput
@@ -173,7 +180,8 @@ type ExternalTableState struct {
 	Columns ExternalTableColumnArrayInput
 	// Specifies a comment for the external table.
 	Comment pulumi.StringPtrInput
-	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
+	// OR REPLACE TABLE variant
 	CopyGrants pulumi.BoolPtrInput
 	// The database in which to create the external table.
 	Database pulumi.StringPtrInput
@@ -181,7 +189,8 @@ type ExternalTableState struct {
 	FileFormat pulumi.StringPtrInput
 	// Specifies a location for the external table.
 	Location pulumi.StringPtrInput
-	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
+	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
+	// is created.
 	Name pulumi.StringPtrInput
 	// Name of the role that owns the external table.
 	Owner pulumi.StringPtrInput
@@ -202,7 +211,8 @@ func (ExternalTableState) ElementType() reflect.Type {
 }
 
 type externalTableArgs struct {
-	// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+	// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
+	// created.
 	AutoRefresh *bool `pulumi:"autoRefresh"`
 	// Specifies the aws sns topic for the external table.
 	AwsSnsTopic *string `pulumi:"awsSnsTopic"`
@@ -210,7 +220,8 @@ type externalTableArgs struct {
 	Columns []ExternalTableColumn `pulumi:"columns"`
 	// Specifies a comment for the external table.
 	Comment *string `pulumi:"comment"`
-	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
+	// OR REPLACE TABLE variant
 	CopyGrants *bool `pulumi:"copyGrants"`
 	// The database in which to create the external table.
 	Database string `pulumi:"database"`
@@ -218,7 +229,8 @@ type externalTableArgs struct {
 	FileFormat string `pulumi:"fileFormat"`
 	// Specifies a location for the external table.
 	Location string `pulumi:"location"`
-	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
+	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
+	// is created.
 	Name *string `pulumi:"name"`
 	// Specifies any partition columns to evaluate for the external table.
 	PartitionBies []string `pulumi:"partitionBies"`
@@ -234,7 +246,8 @@ type externalTableArgs struct {
 
 // The set of arguments for constructing a ExternalTable resource.
 type ExternalTableArgs struct {
-	// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+	// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
+	// created.
 	AutoRefresh pulumi.BoolPtrInput
 	// Specifies the aws sns topic for the external table.
 	AwsSnsTopic pulumi.StringPtrInput
@@ -242,7 +255,8 @@ type ExternalTableArgs struct {
 	Columns ExternalTableColumnArrayInput
 	// Specifies a comment for the external table.
 	Comment pulumi.StringPtrInput
-	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
+	// OR REPLACE TABLE variant
 	CopyGrants pulumi.BoolPtrInput
 	// The database in which to create the external table.
 	Database pulumi.StringInput
@@ -250,7 +264,8 @@ type ExternalTableArgs struct {
 	FileFormat pulumi.StringInput
 	// Specifies a location for the external table.
 	Location pulumi.StringInput
-	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
+	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
+	// is created.
 	Name pulumi.StringPtrInput
 	// Specifies any partition columns to evaluate for the external table.
 	PartitionBies pulumi.StringArrayInput
@@ -349,6 +364,84 @@ func (o ExternalTableOutput) ToExternalTableOutput() ExternalTableOutput {
 
 func (o ExternalTableOutput) ToExternalTableOutputWithContext(ctx context.Context) ExternalTableOutput {
 	return o
+}
+
+// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
+// created.
+func (o ExternalTableOutput) AutoRefresh() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExternalTable) pulumi.BoolPtrOutput { return v.AutoRefresh }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the aws sns topic for the external table.
+func (o ExternalTableOutput) AwsSnsTopic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExternalTable) pulumi.StringPtrOutput { return v.AwsSnsTopic }).(pulumi.StringPtrOutput)
+}
+
+// Definitions of a column to create in the external table. Minimum one required.
+func (o ExternalTableOutput) Columns() ExternalTableColumnArrayOutput {
+	return o.ApplyT(func(v *ExternalTable) ExternalTableColumnArrayOutput { return v.Columns }).(ExternalTableColumnArrayOutput)
+}
+
+// Specifies a comment for the external table.
+func (o ExternalTableOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExternalTable) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
+// OR REPLACE TABLE variant
+func (o ExternalTableOutput) CopyGrants() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExternalTable) pulumi.BoolPtrOutput { return v.CopyGrants }).(pulumi.BoolPtrOutput)
+}
+
+// The database in which to create the external table.
+func (o ExternalTableOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExternalTable) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// Specifies the file format for the external table.
+func (o ExternalTableOutput) FileFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExternalTable) pulumi.StringOutput { return v.FileFormat }).(pulumi.StringOutput)
+}
+
+// Specifies a location for the external table.
+func (o ExternalTableOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExternalTable) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
+// is created.
+func (o ExternalTableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExternalTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of the role that owns the external table.
+func (o ExternalTableOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExternalTable) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+}
+
+// Specifies any partition columns to evaluate for the external table.
+func (o ExternalTableOutput) PartitionBies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExternalTable) pulumi.StringArrayOutput { return v.PartitionBies }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the file names and/or paths on the external stage to match.
+func (o ExternalTableOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExternalTable) pulumi.StringPtrOutput { return v.Pattern }).(pulumi.StringPtrOutput)
+}
+
+// Specifies weather to refresh when an external table is created.
+func (o ExternalTableOutput) RefreshOnCreate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExternalTable) pulumi.BoolPtrOutput { return v.RefreshOnCreate }).(pulumi.BoolPtrOutput)
+}
+
+// The schema in which to create the external table.
+func (o ExternalTableOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExternalTable) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
+}
+
+// Definitions of a tag to associate with the resource.
+func (o ExternalTableOutput) Tags() ExternalTableTagArrayOutput {
+	return o.ApplyT(func(v *ExternalTable) ExternalTableTagArrayOutput { return v.Tags }).(ExternalTableTagArrayOutput)
 }
 
 type ExternalTableArrayOutput struct{ *pulumi.OutputState }

@@ -26,7 +26,8 @@ type Function struct {
 	Imports pulumi.StringArrayOutput `pulumi:"imports"`
 	// The language of the statement
 	Language pulumi.StringPtrOutput `pulumi:"language"`
-	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
+	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
+	// Don't use the | character.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the behavior of the function when called with null inputs.
 	NullInputBehavior pulumi.StringPtrOutput `pulumi:"nullInputBehavior"`
@@ -95,7 +96,8 @@ type functionState struct {
 	Imports []string `pulumi:"imports"`
 	// The language of the statement
 	Language *string `pulumi:"language"`
-	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
+	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
+	// Don't use the | character.
 	Name *string `pulumi:"name"`
 	// Specifies the behavior of the function when called with null inputs.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
@@ -124,7 +126,8 @@ type FunctionState struct {
 	Imports pulumi.StringArrayInput
 	// The language of the statement
 	Language pulumi.StringPtrInput
-	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
+	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
+	// Don't use the | character.
 	Name pulumi.StringPtrInput
 	// Specifies the behavior of the function when called with null inputs.
 	NullInputBehavior pulumi.StringPtrInput
@@ -157,7 +160,8 @@ type functionArgs struct {
 	Imports []string `pulumi:"imports"`
 	// The language of the statement
 	Language *string `pulumi:"language"`
-	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
+	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
+	// Don't use the | character.
 	Name *string `pulumi:"name"`
 	// Specifies the behavior of the function when called with null inputs.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
@@ -187,7 +191,8 @@ type FunctionArgs struct {
 	Imports pulumi.StringArrayInput
 	// The language of the statement
 	Language pulumi.StringPtrInput
-	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
+	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
+	// Don't use the | character.
 	Name pulumi.StringPtrInput
 	// Specifies the behavior of the function when called with null inputs.
 	NullInputBehavior pulumi.StringPtrInput
@@ -288,6 +293,72 @@ func (o FunctionOutput) ToFunctionOutput() FunctionOutput {
 
 func (o FunctionOutput) ToFunctionOutputWithContext(ctx context.Context) FunctionOutput {
 	return o
+}
+
+// List of the arguments for the function
+func (o FunctionOutput) Arguments() FunctionArgumentArrayOutput {
+	return o.ApplyT(func(v *Function) FunctionArgumentArrayOutput { return v.Arguments }).(FunctionArgumentArrayOutput)
+}
+
+// Specifies a comment for the function.
+func (o FunctionOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// The database in which to create the function. Don't use the | character.
+func (o FunctionOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// the handler method for Java function.
+func (o FunctionOutput) Handler() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Handler }).(pulumi.StringPtrOutput)
+}
+
+// jar files to import for Java function.
+func (o FunctionOutput) Imports() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringArrayOutput { return v.Imports }).(pulumi.StringArrayOutput)
+}
+
+// The language of the statement
+func (o FunctionOutput) Language() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Language }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
+// Don't use the | character.
+func (o FunctionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the behavior of the function when called with null inputs.
+func (o FunctionOutput) NullInputBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.NullInputBehavior }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the behavior of the function when returning results
+func (o FunctionOutput) ReturnBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.ReturnBehavior }).(pulumi.StringPtrOutput)
+}
+
+// The return type of the function
+func (o FunctionOutput) ReturnType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.ReturnType }).(pulumi.StringOutput)
+}
+
+// The schema in which to create the function. Don't use the | character.
+func (o FunctionOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
+}
+
+// Specifies the javascript / java / sql code used to create the function.
+func (o FunctionOutput) Statement() pulumi.StringOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Statement }).(pulumi.StringOutput)
+}
+
+// the target path for compiled jar file for Java function.
+func (o FunctionOutput) TargetPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.TargetPath }).(pulumi.StringPtrOutput)
 }
 
 type FunctionArrayOutput struct{ *pulumi.OutputState }

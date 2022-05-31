@@ -12,15 +12,9 @@ namespace Pulumi.Snowflake.Inputs
 
     public sealed class FunctionGrantArgumentArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The argument name
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The argument type
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

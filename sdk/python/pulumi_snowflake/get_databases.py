@@ -31,9 +31,6 @@ class GetDatabasesResult:
     @property
     @pulumi.getter
     def databases(self) -> Sequence['outputs.GetDatabasesDatabaseResult']:
-        """
-        Snowflake databases
-        """
         return pulumi.get(self, "databases")
 
     @property

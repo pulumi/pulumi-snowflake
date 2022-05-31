@@ -19,14 +19,17 @@ class DatabaseArgs:
                  data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
                  from_database: Optional[pulumi.Input[str]] = None,
                  from_replica: Optional[pulumi.Input[str]] = None,
-                 from_share: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 from_share: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 replication_configuration: Optional[pulumi.Input['DatabaseReplicationConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]]] = None):
         """
         The set of arguments for constructing a Database resource.
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
-        :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from.
-        :param pulumi.Input[Mapping[str, Any]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
+               "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input['DatabaseReplicationConfigurationArgs'] replication_configuration: When set, specifies the configurations for database replication.
         :param pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         if comment is not None:
@@ -41,6 +44,8 @@ class DatabaseArgs:
             pulumi.set(__self__, "from_share", from_share)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if replication_configuration is not None:
+            pulumi.set(__self__, "replication_configuration", replication_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -78,7 +83,8 @@ class DatabaseArgs:
     @pulumi.getter(name="fromReplica")
     def from_replica(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify a fully-qualified path to a database to create a replica from.
+        Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
+        "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
         """
         return pulumi.get(self, "from_replica")
 
@@ -88,14 +94,14 @@ class DatabaseArgs:
 
     @property
     @pulumi.getter(name="fromShare")
-    def from_share(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def from_share(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Specify a provider and a share in this map to create a database from a share.
         """
         return pulumi.get(self, "from_share")
 
     @from_share.setter
-    def from_share(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def from_share(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "from_share", value)
 
     @property
@@ -106,6 +112,18 @@ class DatabaseArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="replicationConfiguration")
+    def replication_configuration(self) -> Optional[pulumi.Input['DatabaseReplicationConfigurationArgs']]:
+        """
+        When set, specifies the configurations for database replication.
+        """
+        return pulumi.get(self, "replication_configuration")
+
+    @replication_configuration.setter
+    def replication_configuration(self, value: Optional[pulumi.Input['DatabaseReplicationConfigurationArgs']]):
+        pulumi.set(self, "replication_configuration", value)
 
     @property
     @pulumi.getter
@@ -127,14 +145,17 @@ class _DatabaseState:
                  data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
                  from_database: Optional[pulumi.Input[str]] = None,
                  from_replica: Optional[pulumi.Input[str]] = None,
-                 from_share: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 from_share: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 replication_configuration: Optional[pulumi.Input['DatabaseReplicationConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering Database resources.
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
-        :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from.
-        :param pulumi.Input[Mapping[str, Any]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
+               "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input['DatabaseReplicationConfigurationArgs'] replication_configuration: When set, specifies the configurations for database replication.
         :param pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         if comment is not None:
@@ -149,6 +170,8 @@ class _DatabaseState:
             pulumi.set(__self__, "from_share", from_share)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if replication_configuration is not None:
+            pulumi.set(__self__, "replication_configuration", replication_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -186,7 +209,8 @@ class _DatabaseState:
     @pulumi.getter(name="fromReplica")
     def from_replica(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify a fully-qualified path to a database to create a replica from.
+        Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
+        "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
         """
         return pulumi.get(self, "from_replica")
 
@@ -196,14 +220,14 @@ class _DatabaseState:
 
     @property
     @pulumi.getter(name="fromShare")
-    def from_share(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def from_share(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Specify a provider and a share in this map to create a database from a share.
         """
         return pulumi.get(self, "from_share")
 
     @from_share.setter
-    def from_share(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def from_share(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "from_share", value)
 
     @property
@@ -214,6 +238,18 @@ class _DatabaseState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="replicationConfiguration")
+    def replication_configuration(self) -> Optional[pulumi.Input['DatabaseReplicationConfigurationArgs']]:
+        """
+        When set, specifies the configurations for database replication.
+        """
+        return pulumi.get(self, "replication_configuration")
+
+    @replication_configuration.setter
+    def replication_configuration(self, value: Optional[pulumi.Input['DatabaseReplicationConfigurationArgs']]):
+        pulumi.set(self, "replication_configuration", value)
 
     @property
     @pulumi.getter
@@ -237,8 +273,9 @@ class Database(pulumi.CustomResource):
                  data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
                  from_database: Optional[pulumi.Input[str]] = None,
                  from_replica: Optional[pulumi.Input[str]] = None,
-                 from_share: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 from_share: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 replication_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseReplicationConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -251,7 +288,19 @@ class Database(pulumi.CustomResource):
         test = snowflake.Database("test",
             comment="test comment",
             data_retention_time_in_days=3)
-        test2 = snowflake.Database("test2", comment="test comment 2")
+        test2 = snowflake.Database("test2",
+            comment="test comment 2",
+            replication_configuration=snowflake.DatabaseReplicationConfigurationArgs(
+                accounts=[
+                    "test_account1",
+                    "test_account_2",
+                ],
+                ignore_edition_check=True,
+            ))
+        test3 = snowflake.Database("test3",
+            comment="test comment",
+            data_retention_time_in_days=3,
+            from_replica="org1\".\"account1\".\"primary_db_name")
         ```
 
         ## Import
@@ -263,8 +312,10 @@ class Database(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
-        :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from.
-        :param pulumi.Input[Mapping[str, Any]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
+               "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input[pulumi.InputType['DatabaseReplicationConfigurationArgs']] replication_configuration: When set, specifies the configurations for database replication.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         ...
@@ -283,7 +334,19 @@ class Database(pulumi.CustomResource):
         test = snowflake.Database("test",
             comment="test comment",
             data_retention_time_in_days=3)
-        test2 = snowflake.Database("test2", comment="test comment 2")
+        test2 = snowflake.Database("test2",
+            comment="test comment 2",
+            replication_configuration=snowflake.DatabaseReplicationConfigurationArgs(
+                accounts=[
+                    "test_account1",
+                    "test_account_2",
+                ],
+                ignore_edition_check=True,
+            ))
+        test3 = snowflake.Database("test3",
+            comment="test comment",
+            data_retention_time_in_days=3,
+            from_replica="org1\".\"account1\".\"primary_db_name")
         ```
 
         ## Import
@@ -311,8 +374,9 @@ class Database(pulumi.CustomResource):
                  data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
                  from_database: Optional[pulumi.Input[str]] = None,
                  from_replica: Optional[pulumi.Input[str]] = None,
-                 from_share: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 from_share: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 replication_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseReplicationConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -332,6 +396,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["from_replica"] = from_replica
             __props__.__dict__["from_share"] = from_share
             __props__.__dict__["name"] = name
+            __props__.__dict__["replication_configuration"] = replication_configuration
             __props__.__dict__["tags"] = tags
         super(Database, __self__).__init__(
             'snowflake:index/database:Database',
@@ -347,8 +412,9 @@ class Database(pulumi.CustomResource):
             data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
             from_database: Optional[pulumi.Input[str]] = None,
             from_replica: Optional[pulumi.Input[str]] = None,
-            from_share: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            from_share: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            replication_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseReplicationConfigurationArgs']]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseTagArgs']]]]] = None) -> 'Database':
         """
         Get an existing Database resource's state with the given name, id, and optional extra
@@ -358,8 +424,10 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
-        :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from.
-        :param pulumi.Input[Mapping[str, Any]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
+               "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input[pulumi.InputType['DatabaseReplicationConfigurationArgs']] replication_configuration: When set, specifies the configurations for database replication.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -372,6 +440,7 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["from_replica"] = from_replica
         __props__.__dict__["from_share"] = from_share
         __props__.__dict__["name"] = name
+        __props__.__dict__["replication_configuration"] = replication_configuration
         __props__.__dict__["tags"] = tags
         return Database(resource_name, opts=opts, __props__=__props__)
 
@@ -397,13 +466,14 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="fromReplica")
     def from_replica(self) -> pulumi.Output[Optional[str]]:
         """
-        Specify a fully-qualified path to a database to create a replica from.
+        Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
+        "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
         """
         return pulumi.get(self, "from_replica")
 
     @property
     @pulumi.getter(name="fromShare")
-    def from_share(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def from_share(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Specify a provider and a share in this map to create a database from a share.
         """
@@ -413,6 +483,14 @@ class Database(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="replicationConfiguration")
+    def replication_configuration(self) -> pulumi.Output[Optional['outputs.DatabaseReplicationConfiguration']]:
+        """
+        When set, specifies the configurations for database replication.
+        """
+        return pulumi.get(self, "replication_configuration")
 
     @property
     @pulumi.getter

@@ -50,13 +50,16 @@ type Schema struct {
 
 	// Specifies a comment for the schema.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as
+	// specifying the default Time Travel retention time for all tables created in the schema.
 	DataRetentionDays pulumi.IntPtrOutput `pulumi:"dataRetentionDays"`
 	// The database in which to create the schema.
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
 	IsManaged pulumi.BoolPtrOutput `pulumi:"isManaged"`
-	// Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+	// Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
+	// storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+	// a data loss.
 	IsTransient pulumi.BoolPtrOutput `pulumi:"isTransient"`
 	// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -98,13 +101,16 @@ func GetSchema(ctx *pulumi.Context,
 type schemaState struct {
 	// Specifies a comment for the schema.
 	Comment *string `pulumi:"comment"`
-	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as
+	// specifying the default Time Travel retention time for all tables created in the schema.
 	DataRetentionDays *int `pulumi:"dataRetentionDays"`
 	// The database in which to create the schema.
 	Database *string `pulumi:"database"`
 	// Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
 	IsManaged *bool `pulumi:"isManaged"`
-	// Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+	// Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
+	// storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+	// a data loss.
 	IsTransient *bool `pulumi:"isTransient"`
 	// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
 	Name *string `pulumi:"name"`
@@ -115,13 +121,16 @@ type schemaState struct {
 type SchemaState struct {
 	// Specifies a comment for the schema.
 	Comment pulumi.StringPtrInput
-	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as
+	// specifying the default Time Travel retention time for all tables created in the schema.
 	DataRetentionDays pulumi.IntPtrInput
 	// The database in which to create the schema.
 	Database pulumi.StringPtrInput
 	// Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
 	IsManaged pulumi.BoolPtrInput
-	// Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+	// Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
+	// storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+	// a data loss.
 	IsTransient pulumi.BoolPtrInput
 	// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
 	Name pulumi.StringPtrInput
@@ -136,13 +145,16 @@ func (SchemaState) ElementType() reflect.Type {
 type schemaArgs struct {
 	// Specifies a comment for the schema.
 	Comment *string `pulumi:"comment"`
-	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as
+	// specifying the default Time Travel retention time for all tables created in the schema.
 	DataRetentionDays *int `pulumi:"dataRetentionDays"`
 	// The database in which to create the schema.
 	Database string `pulumi:"database"`
 	// Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
 	IsManaged *bool `pulumi:"isManaged"`
-	// Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+	// Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
+	// storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+	// a data loss.
 	IsTransient *bool `pulumi:"isTransient"`
 	// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
 	Name *string `pulumi:"name"`
@@ -154,13 +166,16 @@ type schemaArgs struct {
 type SchemaArgs struct {
 	// Specifies a comment for the schema.
 	Comment pulumi.StringPtrInput
-	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as
+	// specifying the default Time Travel retention time for all tables created in the schema.
 	DataRetentionDays pulumi.IntPtrInput
 	// The database in which to create the schema.
 	Database pulumi.StringInput
 	// Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
 	IsManaged pulumi.BoolPtrInput
-	// Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+	// Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
+	// storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+	// a data loss.
 	IsTransient pulumi.BoolPtrInput
 	// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
 	Name pulumi.StringPtrInput
@@ -253,6 +268,44 @@ func (o SchemaOutput) ToSchemaOutput() SchemaOutput {
 
 func (o SchemaOutput) ToSchemaOutputWithContext(ctx context.Context) SchemaOutput {
 	return o
+}
+
+// Specifies a comment for the schema.
+func (o SchemaOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as
+// specifying the default Time Travel retention time for all tables created in the schema.
+func (o SchemaOutput) DataRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.IntPtrOutput { return v.DataRetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// The database in which to create the schema.
+func (o SchemaOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
+func (o SchemaOutput) IsManaged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.BoolPtrOutput { return v.IsManaged }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
+// storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+// a data loss.
+func (o SchemaOutput) IsTransient() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.BoolPtrOutput { return v.IsTransient }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+func (o SchemaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Definitions of a tag to associate with the resource.
+func (o SchemaOutput) Tags() SchemaTagArrayOutput {
+	return o.ApplyT(func(v *Schema) SchemaTagArrayOutput { return v.Tags }).(SchemaTagArrayOutput)
 }
 
 type SchemaArrayOutput struct{ *pulumi.OutputState }

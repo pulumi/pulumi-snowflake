@@ -60,7 +60,8 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
+        /// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
+        /// policy is created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -78,7 +79,9 @@ namespace Pulumi.Snowflake
         public Output<string> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+        /// Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A
+        /// signature specifies a set of attributes that must be considered to determine whether the row is accessible. The
+        /// attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
         /// </summary>
         [Output("signature")]
         public Output<ImmutableDictionary<string, string>> Signature { get; private set; } = null!;
@@ -142,7 +145,8 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
+        /// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
+        /// policy is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -163,7 +167,9 @@ namespace Pulumi.Snowflake
         private InputMap<string>? _signature;
 
         /// <summary>
-        /// Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+        /// Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A
+        /// signature specifies a set of attributes that must be considered to determine whether the row is accessible. The
+        /// attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
         /// </summary>
         public InputMap<string> Signature
         {
@@ -191,7 +197,8 @@ namespace Pulumi.Snowflake
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
+        /// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
+        /// policy is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -212,7 +219,9 @@ namespace Pulumi.Snowflake
         private InputMap<string>? _signature;
 
         /// <summary>
-        /// Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+        /// Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A
+        /// signature specifies a set of attributes that must be considered to determine whether the row is accessible. The
+        /// attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
         /// </summary>
         public InputMap<string> Signature
         {

@@ -83,7 +83,7 @@ type NotificationIntegration struct {
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName pulumi.StringPtrOutput `pulumi:"gcpPubsubSubscriptionName"`
 	Name                      pulumi.StringOutput    `pulumi:"name"`
-	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+	// The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
 	NotificationProvider pulumi.StringPtrOutput `pulumi:"notificationProvider"`
 	// A type of integration
 	Type pulumi.StringPtrOutput `pulumi:"type"`
@@ -150,7 +150,7 @@ type notificationIntegrationState struct {
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName *string `pulumi:"gcpPubsubSubscriptionName"`
 	Name                      *string `pulumi:"name"`
-	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+	// The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
 	NotificationProvider *string `pulumi:"notificationProvider"`
 	// A type of integration
 	Type *string `pulumi:"type"`
@@ -189,7 +189,7 @@ type NotificationIntegrationState struct {
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName pulumi.StringPtrInput
 	Name                      pulumi.StringPtrInput
-	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+	// The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
 	NotificationProvider pulumi.StringPtrInput
 	// A type of integration
 	Type pulumi.StringPtrInput
@@ -220,7 +220,7 @@ type notificationIntegrationArgs struct {
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName *string `pulumi:"gcpPubsubSubscriptionName"`
 	Name                      *string `pulumi:"name"`
-	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+	// The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
 	NotificationProvider *string `pulumi:"notificationProvider"`
 	// A type of integration
 	Type *string `pulumi:"type"`
@@ -248,7 +248,7 @@ type NotificationIntegrationArgs struct {
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName pulumi.StringPtrInput
 	Name                      pulumi.StringPtrInput
-	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+	// The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
 	NotificationProvider pulumi.StringPtrInput
 	// A type of integration
 	Type pulumi.StringPtrInput
@@ -339,6 +339,99 @@ func (o NotificationIntegrationOutput) ToNotificationIntegrationOutput() Notific
 
 func (o NotificationIntegrationOutput) ToNotificationIntegrationOutputWithContext(ctx context.Context) NotificationIntegrationOutput {
 	return o
+}
+
+// The external ID that Snowflake will use when assuming the AWS role
+func (o NotificationIntegrationOutput) AwsSnsExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringOutput { return v.AwsSnsExternalId }).(pulumi.StringOutput)
+}
+
+// The Snowflake user that will attempt to assume the AWS role.
+func (o NotificationIntegrationOutput) AwsSnsIamUserArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringOutput { return v.AwsSnsIamUserArn }).(pulumi.StringOutput)
+}
+
+// AWS IAM role ARN for notification integration to assume
+func (o NotificationIntegrationOutput) AwsSnsRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringPtrOutput { return v.AwsSnsRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// AWS SNS Topic ARN for notification integration to connect to
+func (o NotificationIntegrationOutput) AwsSnsTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringPtrOutput { return v.AwsSnsTopicArn }).(pulumi.StringPtrOutput)
+}
+
+// AWS SQS queue ARN for notification integration to connect to
+func (o NotificationIntegrationOutput) AwsSqsArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringPtrOutput { return v.AwsSqsArn }).(pulumi.StringPtrOutput)
+}
+
+// The external ID that Snowflake will use when assuming the AWS role
+func (o NotificationIntegrationOutput) AwsSqsExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringOutput { return v.AwsSqsExternalId }).(pulumi.StringOutput)
+}
+
+// The Snowflake user that will attempt to assume the AWS role.
+func (o NotificationIntegrationOutput) AwsSqsIamUserArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringOutput { return v.AwsSqsIamUserArn }).(pulumi.StringOutput)
+}
+
+// AWS IAM role ARN for notification integration to assume
+func (o NotificationIntegrationOutput) AwsSqsRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringPtrOutput { return v.AwsSqsRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The queue ID for the Azure Queue Storage queue created for Event Grid notifications
+func (o NotificationIntegrationOutput) AzureStorageQueuePrimaryUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringPtrOutput { return v.AzureStorageQueuePrimaryUri }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Azure Active Directory tenant used for identity management
+func (o NotificationIntegrationOutput) AzureTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringPtrOutput { return v.AzureTenantId }).(pulumi.StringPtrOutput)
+}
+
+// A comment for the integration
+func (o NotificationIntegrationOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// Date and time when the notification integration was created.
+func (o NotificationIntegrationOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
+func (o NotificationIntegrationOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringPtrOutput { return v.Direction }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationIntegrationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NotificationIntegration) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The GCP service account identifier that Snowflake will use when assuming the GCP role
+func (o NotificationIntegrationOutput) GcpPubsubServiceAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringOutput { return v.GcpPubsubServiceAccount }).(pulumi.StringOutput)
+}
+
+// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
+func (o NotificationIntegrationOutput) GcpPubsubSubscriptionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringPtrOutput { return v.GcpPubsubSubscriptionName }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationIntegrationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
+func (o NotificationIntegrationOutput) NotificationProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringPtrOutput { return v.NotificationProvider }).(pulumi.StringPtrOutput)
+}
+
+// A type of integration
+func (o NotificationIntegrationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type NotificationIntegrationArrayOutput struct{ *pulumi.OutputState }

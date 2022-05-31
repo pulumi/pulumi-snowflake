@@ -42,6 +42,7 @@ export * from "./getSystemGetPrivateLinkConfig";
 export * from "./getSystemGetSnowflakePlatformInfo";
 export * from "./getTables";
 export * from "./getTasks";
+export * from "./getUsers";
 export * from "./getViews";
 export * from "./getWarehouses";
 export * from "./integrationGrant";

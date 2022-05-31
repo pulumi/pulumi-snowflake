@@ -54,7 +54,8 @@ type User struct {
 	pulumi.CustomResourceState
 
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login.
+	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
+	// login.
 	DefaultNamespace pulumi.StringPtrOutput `pulumi:"defaultNamespace"`
 	// Specifies the role that is active by default for the user’s session upon login.
 	DefaultRole pulumi.StringOutput `pulumi:"defaultRole"`
@@ -73,15 +74,18 @@ type User struct {
 	LastName pulumi.StringPtrOutput `pulumi:"lastName"`
 	// The name users use to log in. If not supplied, snowflake will use name instead.
 	LoginName pulumi.StringOutput `pulumi:"loginName"`
-	// Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
+	// Specifies whether the user is forced to change their password on next login (including their first/initial login) into
+	// the system.
 	MustChangePassword pulumi.BoolPtrOutput `pulumi:"mustChangePassword"`
-	// Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
+	// Name of the user. Note that if you do not supply login_name this will be used as login_name.
+	// [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
 	Name pulumi.StringOutput `pulumi:"name"`
 	// **WARNING:** this will put the password in the terraform state file. Use carefully.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
 	RsaPublicKey pulumi.StringPtrOutput `pulumi:"rsaPublicKey"`
-	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication
+	// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 pulumi.StringPtrOutput `pulumi:"rsaPublicKey2"`
 	// Definitions of a tag to associate with the resource.
 	Tags UserTagArrayOutput `pulumi:"tags"`
@@ -117,7 +121,8 @@ func GetUser(ctx *pulumi.Context,
 // Input properties used for looking up and filtering User resources.
 type userState struct {
 	Comment *string `pulumi:"comment"`
-	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login.
+	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
+	// login.
 	DefaultNamespace *string `pulumi:"defaultNamespace"`
 	// Specifies the role that is active by default for the user’s session upon login.
 	DefaultRole *string `pulumi:"defaultRole"`
@@ -136,15 +141,18 @@ type userState struct {
 	LastName *string `pulumi:"lastName"`
 	// The name users use to log in. If not supplied, snowflake will use name instead.
 	LoginName *string `pulumi:"loginName"`
-	// Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
+	// Specifies whether the user is forced to change their password on next login (including their first/initial login) into
+	// the system.
 	MustChangePassword *bool `pulumi:"mustChangePassword"`
-	// Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
+	// Name of the user. Note that if you do not supply login_name this will be used as login_name.
+	// [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
 	Name *string `pulumi:"name"`
 	// **WARNING:** this will put the password in the terraform state file. Use carefully.
 	Password *string `pulumi:"password"`
 	// Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
 	RsaPublicKey *string `pulumi:"rsaPublicKey"`
-	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication
+	// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 *string `pulumi:"rsaPublicKey2"`
 	// Definitions of a tag to associate with the resource.
 	Tags []UserTag `pulumi:"tags"`
@@ -152,7 +160,8 @@ type userState struct {
 
 type UserState struct {
 	Comment pulumi.StringPtrInput
-	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login.
+	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
+	// login.
 	DefaultNamespace pulumi.StringPtrInput
 	// Specifies the role that is active by default for the user’s session upon login.
 	DefaultRole pulumi.StringPtrInput
@@ -171,15 +180,18 @@ type UserState struct {
 	LastName pulumi.StringPtrInput
 	// The name users use to log in. If not supplied, snowflake will use name instead.
 	LoginName pulumi.StringPtrInput
-	// Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
+	// Specifies whether the user is forced to change their password on next login (including their first/initial login) into
+	// the system.
 	MustChangePassword pulumi.BoolPtrInput
-	// Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
+	// Name of the user. Note that if you do not supply login_name this will be used as login_name.
+	// [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
 	Name pulumi.StringPtrInput
 	// **WARNING:** this will put the password in the terraform state file. Use carefully.
 	Password pulumi.StringPtrInput
 	// Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
 	RsaPublicKey pulumi.StringPtrInput
-	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication
+	// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
 	Tags UserTagArrayInput
@@ -191,7 +203,8 @@ func (UserState) ElementType() reflect.Type {
 
 type userArgs struct {
 	Comment *string `pulumi:"comment"`
-	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login.
+	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
+	// login.
 	DefaultNamespace *string `pulumi:"defaultNamespace"`
 	// Specifies the role that is active by default for the user’s session upon login.
 	DefaultRole *string `pulumi:"defaultRole"`
@@ -208,15 +221,18 @@ type userArgs struct {
 	LastName *string `pulumi:"lastName"`
 	// The name users use to log in. If not supplied, snowflake will use name instead.
 	LoginName *string `pulumi:"loginName"`
-	// Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
+	// Specifies whether the user is forced to change their password on next login (including their first/initial login) into
+	// the system.
 	MustChangePassword *bool `pulumi:"mustChangePassword"`
-	// Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
+	// Name of the user. Note that if you do not supply login_name this will be used as login_name.
+	// [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
 	Name *string `pulumi:"name"`
 	// **WARNING:** this will put the password in the terraform state file. Use carefully.
 	Password *string `pulumi:"password"`
 	// Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
 	RsaPublicKey *string `pulumi:"rsaPublicKey"`
-	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication
+	// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 *string `pulumi:"rsaPublicKey2"`
 	// Definitions of a tag to associate with the resource.
 	Tags []UserTag `pulumi:"tags"`
@@ -225,7 +241,8 @@ type userArgs struct {
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
 	Comment pulumi.StringPtrInput
-	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login.
+	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
+	// login.
 	DefaultNamespace pulumi.StringPtrInput
 	// Specifies the role that is active by default for the user’s session upon login.
 	DefaultRole pulumi.StringPtrInput
@@ -242,15 +259,18 @@ type UserArgs struct {
 	LastName pulumi.StringPtrInput
 	// The name users use to log in. If not supplied, snowflake will use name instead.
 	LoginName pulumi.StringPtrInput
-	// Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
+	// Specifies whether the user is forced to change their password on next login (including their first/initial login) into
+	// the system.
 	MustChangePassword pulumi.BoolPtrInput
-	// Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
+	// Name of the user. Note that if you do not supply login_name this will be used as login_name.
+	// [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
 	Name pulumi.StringPtrInput
 	// **WARNING:** this will put the password in the terraform state file. Use carefully.
 	Password pulumi.StringPtrInput
 	// Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
 	RsaPublicKey pulumi.StringPtrInput
-	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication
+	// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
 	Tags UserTagArrayInput
@@ -341,6 +361,93 @@ func (o UserOutput) ToUserOutput() UserOutput {
 
 func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
+}
+
+func (o UserOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
+// login.
+func (o UserOutput) DefaultNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.DefaultNamespace }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the role that is active by default for the user’s session upon login.
+func (o UserOutput) DefaultRole() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.DefaultRole }).(pulumi.StringOutput)
+}
+
+// Specifies the virtual warehouse that is active by default for the user’s session upon login.
+func (o UserOutput) DefaultWarehouse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.DefaultWarehouse }).(pulumi.StringPtrOutput)
+}
+
+func (o UserOutput) Disabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolOutput { return v.Disabled }).(pulumi.BoolOutput)
+}
+
+// Name displayed for the user in the Snowflake web interface.
+func (o UserOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Email address for the user.
+func (o UserOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// First name of the user.
+func (o UserOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.FirstName }).(pulumi.StringPtrOutput)
+}
+
+// Will be true if user as an RSA key set.
+func (o UserOutput) HasRsaPublicKey() pulumi.BoolOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolOutput { return v.HasRsaPublicKey }).(pulumi.BoolOutput)
+}
+
+// Last name of the user.
+func (o UserOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.LastName }).(pulumi.StringPtrOutput)
+}
+
+// The name users use to log in. If not supplied, snowflake will use name instead.
+func (o UserOutput) LoginName() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.LoginName }).(pulumi.StringOutput)
+}
+
+// Specifies whether the user is forced to change their password on next login (including their first/initial login) into
+// the system.
+func (o UserOutput) MustChangePassword() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.MustChangePassword }).(pulumi.BoolPtrOutput)
+}
+
+// Name of the user. Note that if you do not supply login_name this will be used as login_name.
+// [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
+func (o UserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// **WARNING:** this will put the password in the terraform state file. Use carefully.
+func (o UserOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
+func (o UserOutput) RsaPublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.RsaPublicKey }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication
+// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+func (o UserOutput) RsaPublicKey2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.RsaPublicKey2 }).(pulumi.StringPtrOutput)
+}
+
+// Definitions of a tag to associate with the resource.
+func (o UserOutput) Tags() UserTagArrayOutput {
+	return o.ApplyT(func(v *User) UserTagArrayOutput { return v.Tags }).(UserTagArrayOutput)
 }
 
 type UserArrayOutput struct{ *pulumi.OutputState }

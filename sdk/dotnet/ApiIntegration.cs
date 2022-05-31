@@ -45,7 +45,8 @@ namespace Pulumi.Snowflake
     public partial class ApiIntegration : Pulumi.CustomResource
     {
         /// <summary>
-        /// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
+        /// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
+        /// resources within those proxies.
         /// </summary>
         [Output("apiAllowedPrefixes")]
         public Output<ImmutableArray<string>> ApiAllowedPrefixes { get; private set; } = null!;
@@ -105,13 +106,15 @@ namespace Pulumi.Snowflake
         public Output<string> CreatedOn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        /// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
+        /// that relies on it will not work.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
+        /// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
+        /// among api integrations in your account.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -166,7 +169,8 @@ namespace Pulumi.Snowflake
         private InputList<string>? _apiAllowedPrefixes;
 
         /// <summary>
-        /// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
+        /// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
+        /// resources within those proxies.
         /// </summary>
         public InputList<string> ApiAllowedPrefixes
         {
@@ -211,13 +215,15 @@ namespace Pulumi.Snowflake
         public Input<string>? AzureTenantId { get; set; }
 
         /// <summary>
-        /// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        /// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
+        /// that relies on it will not work.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
+        /// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
+        /// among api integrations in your account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -233,7 +239,8 @@ namespace Pulumi.Snowflake
         private InputList<string>? _apiAllowedPrefixes;
 
         /// <summary>
-        /// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
+        /// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
+        /// resources within those proxies.
         /// </summary>
         public InputList<string> ApiAllowedPrefixes
         {
@@ -302,13 +309,15 @@ namespace Pulumi.Snowflake
         public Input<string>? CreatedOn { get; set; }
 
         /// <summary>
-        /// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        /// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
+        /// that relies on it will not work.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
+        /// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
+        /// among api integrations in your account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

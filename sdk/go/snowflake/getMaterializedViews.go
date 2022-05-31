@@ -44,22 +44,17 @@ func GetMaterializedViews(ctx *pulumi.Context, args *GetMaterializedViewsArgs, o
 
 // A collection of arguments for invoking getMaterializedViews.
 type GetMaterializedViewsArgs struct {
-	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	// The schema from which to return the views from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // A collection of values returned by getMaterializedViews.
 type GetMaterializedViewsResult struct {
-	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The views in the schema
+	Id                string                                 `pulumi:"id"`
 	MaterializedViews []GetMaterializedViewsMaterializedView `pulumi:"materializedViews"`
-	// The schema from which to return the views from.
-	Schema string `pulumi:"schema"`
+	Schema            string                                 `pulumi:"schema"`
 }
 
 func GetMaterializedViewsOutput(ctx *pulumi.Context, args GetMaterializedViewsOutputArgs, opts ...pulumi.InvokeOption) GetMaterializedViewsResultOutput {
@@ -77,10 +72,8 @@ func GetMaterializedViewsOutput(ctx *pulumi.Context, args GetMaterializedViewsOu
 
 // A collection of arguments for invoking getMaterializedViews.
 type GetMaterializedViewsOutputArgs struct {
-	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the views from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetMaterializedViewsOutputArgs) ElementType() reflect.Type {
@@ -102,7 +95,6 @@ func (o GetMaterializedViewsResultOutput) ToGetMaterializedViewsResultOutputWith
 	return o
 }
 
-// The database from which to return the schemas from.
 func (o GetMaterializedViewsResultOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMaterializedViewsResult) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -112,12 +104,10 @@ func (o GetMaterializedViewsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMaterializedViewsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The views in the schema
 func (o GetMaterializedViewsResultOutput) MaterializedViews() GetMaterializedViewsMaterializedViewArrayOutput {
 	return o.ApplyT(func(v GetMaterializedViewsResult) []GetMaterializedViewsMaterializedView { return v.MaterializedViews }).(GetMaterializedViewsMaterializedViewArrayOutput)
 }
 
-// The schema from which to return the views from.
 func (o GetMaterializedViewsResultOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMaterializedViewsResult) string { return v.Schema }).(pulumi.StringOutput)
 }

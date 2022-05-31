@@ -20,7 +20,8 @@ class NetworkPolicyArgs:
         """
         The set of arguments for constructing a NetworkPolicy resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ip_lists: Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_ip_lists: Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_ip_lists: Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account<br><br>**Do not**
+               add `0.0.0.0/0` to `blocked_ip_list`
         :param pulumi.Input[str] comment: Specifies a comment for the network policy.
         :param pulumi.Input[str] name: Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
         """
@@ -48,7 +49,8 @@ class NetworkPolicyArgs:
     @pulumi.getter(name="blockedIpLists")
     def blocked_ip_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
+        Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account<br><br>**Do not**
+        add `0.0.0.0/0` to `blocked_ip_list`
         """
         return pulumi.get(self, "blocked_ip_lists")
 
@@ -91,7 +93,8 @@ class _NetworkPolicyState:
         """
         Input properties used for looking up and filtering NetworkPolicy resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ip_lists: Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_ip_lists: Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_ip_lists: Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account<br><br>**Do not**
+               add `0.0.0.0/0` to `blocked_ip_list`
         :param pulumi.Input[str] comment: Specifies a comment for the network policy.
         :param pulumi.Input[str] name: Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
         """
@@ -120,7 +123,8 @@ class _NetworkPolicyState:
     @pulumi.getter(name="blockedIpLists")
     def blocked_ip_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
+        Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account<br><br>**Do not**
+        add `0.0.0.0/0` to `blocked_ip_list`
         """
         return pulumi.get(self, "blocked_ip_lists")
 
@@ -185,7 +189,8 @@ class NetworkPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ip_lists: Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_ip_lists: Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_ip_lists: Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account<br><br>**Do not**
+               add `0.0.0.0/0` to `blocked_ip_list`
         :param pulumi.Input[str] comment: Specifies a comment for the network policy.
         :param pulumi.Input[str] name: Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
         """
@@ -273,7 +278,8 @@ class NetworkPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ip_lists: Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_ip_lists: Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_ip_lists: Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account<br><br>**Do not**
+               add `0.0.0.0/0` to `blocked_ip_list`
         :param pulumi.Input[str] comment: Specifies a comment for the network policy.
         :param pulumi.Input[str] name: Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
         """
@@ -299,7 +305,8 @@ class NetworkPolicy(pulumi.CustomResource):
     @pulumi.getter(name="blockedIpLists")
     def blocked_ip_lists(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
+        Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account<br><br>**Do not**
+        add `0.0.0.0/0` to `blocked_ip_list`
         """
         return pulumi.get(self, "blocked_ip_lists")
 

@@ -195,6 +195,19 @@ func (o RoleOutput) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
 	return o
 }
 
+func (o RoleOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Role) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o RoleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Definitions of a tag to associate with the resource.
+func (o RoleOutput) Tags() RoleTagArrayOutput {
+	return o.ApplyT(func(v *Role) RoleTagArrayOutput { return v.Tags }).(RoleTagArrayOutput)
+}
+
 type RoleArrayOutput struct{ *pulumi.OutputState }
 
 func (RoleArrayOutput) ElementType() reflect.Type {

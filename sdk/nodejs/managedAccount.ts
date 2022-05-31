@@ -57,7 +57,8 @@ export class ManagedAccount extends pulumi.CustomResource {
     }
 
     /**
-     * Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+     * Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+     * administrator for the account.
      */
     public readonly adminName!: pulumi.Output<string>;
     /**
@@ -149,7 +150,8 @@ export class ManagedAccount extends pulumi.CustomResource {
  */
 export interface ManagedAccountState {
     /**
-     * Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+     * Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+     * administrator for the account.
      */
     adminName?: pulumi.Input<string>;
     /**
@@ -195,7 +197,8 @@ export interface ManagedAccountState {
  */
 export interface ManagedAccountArgs {
     /**
-     * Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+     * Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+     * administrator for the account.
      */
     adminName: pulumi.Input<string>;
     /**

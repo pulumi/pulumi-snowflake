@@ -40,7 +40,8 @@ class StageArgs:
         :param pulumi.Input[str] encryption: Specifies the encryption settings for the stage.
         :param pulumi.Input[str] file_format: Specifies the file format for the stage.
         :param pulumi.Input[str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
-        :param pulumi.Input[str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+        :param pulumi.Input[str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+               to a Snowflake identity and access management (IAM) entity.
         :param pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[str] url: Specifies the URL for the stage.
         """
@@ -201,7 +202,8 @@ class StageArgs:
     @pulumi.getter(name="storageIntegration")
     def storage_integration(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+        Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+        to a Snowflake identity and access management (IAM) entity.
         """
         return pulumi.get(self, "storage_integration")
 
@@ -262,7 +264,8 @@ class _StageState:
         :param pulumi.Input[str] file_format: Specifies the file format for the stage.
         :param pulumi.Input[str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         :param pulumi.Input[str] schema: The schema in which to create the stage.
-        :param pulumi.Input[str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+        :param pulumi.Input[str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+               to a Snowflake identity and access management (IAM) entity.
         :param pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[str] url: Specifies the URL for the stage.
         """
@@ -425,7 +428,8 @@ class _StageState:
     @pulumi.getter(name="storageIntegration")
     def storage_integration(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+        Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+        to a Snowflake identity and access management (IAM) entity.
         """
         return pulumi.get(self, "storage_integration")
 
@@ -517,7 +521,8 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] file_format: Specifies the file format for the stage.
         :param pulumi.Input[str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         :param pulumi.Input[str] schema: The schema in which to create the stage.
-        :param pulumi.Input[str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+        :param pulumi.Input[str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+               to a Snowflake identity and access management (IAM) entity.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[str] url: Specifies the URL for the stage.
         """
@@ -654,7 +659,8 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] file_format: Specifies the file format for the stage.
         :param pulumi.Input[str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         :param pulumi.Input[str] schema: The schema in which to create the stage.
-        :param pulumi.Input[str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+        :param pulumi.Input[str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+               to a Snowflake identity and access management (IAM) entity.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[str] url: Specifies the URL for the stage.
         """
@@ -764,7 +770,8 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="storageIntegration")
     def storage_integration(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+        Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+        to a Snowflake identity and access management (IAM) entity.
         """
         return pulumi.get(self, "storage_integration")
 

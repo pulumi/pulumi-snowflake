@@ -232,6 +232,42 @@ func (o MaskingPolicyGrantOutput) ToMaskingPolicyGrantOutputWithContext(ctx cont
 	return o
 }
 
+// The name of the database containing the masking policy on which to grant privileges.
+func (o MaskingPolicyGrantOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaskingPolicyGrant) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+// grants applied to roles and objects outside Terraform.
+func (o MaskingPolicyGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MaskingPolicyGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the masking policy on which to grant privileges immediately.
+func (o MaskingPolicyGrantOutput) MaskingPolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaskingPolicyGrant) pulumi.StringOutput { return v.MaskingPolicyName }).(pulumi.StringOutput)
+}
+
+// The privilege to grant on the masking policy.
+func (o MaskingPolicyGrantOutput) Privilege() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaskingPolicyGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
+}
+
+// Grants privilege to these roles.
+func (o MaskingPolicyGrantOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MaskingPolicyGrant) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+// The name of the schema containing the masking policy on which to grant privileges.
+func (o MaskingPolicyGrantOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaskingPolicyGrant) pulumi.StringOutput { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+// When this is set to true, allows the recipient role to grant the privileges to other roles.
+func (o MaskingPolicyGrantOutput) WithGrantOption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MaskingPolicyGrant) pulumi.BoolPtrOutput { return v.WithGrantOption }).(pulumi.BoolPtrOutput)
+}
+
 type MaskingPolicyGrantArrayOutput struct{ *pulumi.OutputState }
 
 func (MaskingPolicyGrantArrayOutput) ElementType() reflect.Type {

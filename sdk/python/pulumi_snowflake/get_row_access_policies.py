@@ -38,9 +38,6 @@ class GetRowAccessPoliciesResult:
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -54,17 +51,11 @@ class GetRowAccessPoliciesResult:
     @property
     @pulumi.getter(name="rowAccessPolicies")
     def row_access_policies(self) -> Sequence['outputs.GetRowAccessPoliciesRowAccessPolicyResult']:
-        """
-        The row access policy in the schema
-        """
         return pulumi.get(self, "row_access_policies")
 
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the row access policyfrom.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -93,10 +84,6 @@ def get_row_access_policies(database: Optional[str] = None,
     current = snowflake.get_row_access_policies(database="MYDB",
         schema="MYSCHEMA")
     ```
-
-
-    :param str database: The database from which to return the schemas from.
-    :param str schema: The schema from which to return the row access policyfrom.
     """
     __args__ = dict()
     __args__['database'] = database
@@ -128,9 +115,5 @@ def get_row_access_policies_output(database: Optional[pulumi.Input[str]] = None,
     current = snowflake.get_row_access_policies(database="MYDB",
         schema="MYSCHEMA")
     ```
-
-
-    :param str database: The database from which to return the schemas from.
-    :param str schema: The schema from which to return the row access policyfrom.
     """
     ...

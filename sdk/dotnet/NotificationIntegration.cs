@@ -145,7 +145,7 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+        /// The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
         /// </summary>
         [Output("notificationProvider")]
         public Output<string?> NotificationProvider { get; private set; } = null!;
@@ -263,7 +263,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+        /// The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
         /// </summary>
         [Input("notificationProvider")]
         public Input<string>? NotificationProvider { get; set; }
@@ -378,7 +378,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+        /// The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
         /// </summary>
         [Input("notificationProvider")]
         public Input<string>? NotificationProvider { get; set; }

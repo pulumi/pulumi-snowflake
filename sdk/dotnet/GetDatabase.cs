@@ -69,9 +69,6 @@ namespace Pulumi.Snowflake
 
     public sealed class GetDatabaseArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The database from which to return its metadata.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -82,9 +79,6 @@ namespace Pulumi.Snowflake
 
     public sealed class GetDatabaseInvokeArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The database from which to return its metadata.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -105,9 +99,6 @@ namespace Pulumi.Snowflake
         public readonly string Id;
         public readonly bool IsCurrent;
         public readonly bool IsDefault;
-        /// <summary>
-        /// The database from which to return its metadata.
-        /// </summary>
         public readonly string Name;
         public readonly string Options;
         public readonly string Origin;

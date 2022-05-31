@@ -61,11 +61,13 @@ type ExternalFunction struct {
 
 	// The name of the API integration object that should be used to authenticate the call to the proxy service.
 	ApiIntegration pulumi.StringOutput `pulumi:"apiIntegration"`
-	// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+	// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
+	// service expects.
 	Args ExternalFunctionArgArrayOutput `pulumi:"args"`
 	// A description of the external function.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+	// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
+	// proxy service to Snowflake.
 	Compression pulumi.StringPtrOutput `pulumi:"compression"`
 	// Binds Snowflake context function results to HTTP headers.
 	ContextHeaders pulumi.StringArrayOutput `pulumi:"contextHeaders"`
@@ -77,7 +79,8 @@ type ExternalFunction struct {
 	Headers ExternalFunctionHeaderArrayOutput `pulumi:"headers"`
 	// This specifies the maximum number of rows in each batch sent to the proxy service.
 	MaxBatchRows pulumi.IntPtrOutput `pulumi:"maxBatchRows"`
-	// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+	// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
+	// well as the function name. The function's signature (name and argument data types) must be unique within the schema.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the behavior of the external function when called with null inputs.
 	NullInputBehavior pulumi.StringPtrOutput `pulumi:"nullInputBehavior"`
@@ -142,11 +145,13 @@ func GetExternalFunction(ctx *pulumi.Context,
 type externalFunctionState struct {
 	// The name of the API integration object that should be used to authenticate the call to the proxy service.
 	ApiIntegration *string `pulumi:"apiIntegration"`
-	// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+	// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
+	// service expects.
 	Args []ExternalFunctionArg `pulumi:"args"`
 	// A description of the external function.
 	Comment *string `pulumi:"comment"`
-	// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+	// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
+	// proxy service to Snowflake.
 	Compression *string `pulumi:"compression"`
 	// Binds Snowflake context function results to HTTP headers.
 	ContextHeaders []string `pulumi:"contextHeaders"`
@@ -158,7 +163,8 @@ type externalFunctionState struct {
 	Headers []ExternalFunctionHeader `pulumi:"headers"`
 	// This specifies the maximum number of rows in each batch sent to the proxy service.
 	MaxBatchRows *int `pulumi:"maxBatchRows"`
-	// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+	// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
+	// well as the function name. The function's signature (name and argument data types) must be unique within the schema.
 	Name *string `pulumi:"name"`
 	// Specifies the behavior of the external function when called with null inputs.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
@@ -177,11 +183,13 @@ type externalFunctionState struct {
 type ExternalFunctionState struct {
 	// The name of the API integration object that should be used to authenticate the call to the proxy service.
 	ApiIntegration pulumi.StringPtrInput
-	// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+	// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
+	// service expects.
 	Args ExternalFunctionArgArrayInput
 	// A description of the external function.
 	Comment pulumi.StringPtrInput
-	// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+	// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
+	// proxy service to Snowflake.
 	Compression pulumi.StringPtrInput
 	// Binds Snowflake context function results to HTTP headers.
 	ContextHeaders pulumi.StringArrayInput
@@ -193,7 +201,8 @@ type ExternalFunctionState struct {
 	Headers ExternalFunctionHeaderArrayInput
 	// This specifies the maximum number of rows in each batch sent to the proxy service.
 	MaxBatchRows pulumi.IntPtrInput
-	// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+	// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
+	// well as the function name. The function's signature (name and argument data types) must be unique within the schema.
 	Name pulumi.StringPtrInput
 	// Specifies the behavior of the external function when called with null inputs.
 	NullInputBehavior pulumi.StringPtrInput
@@ -216,11 +225,13 @@ func (ExternalFunctionState) ElementType() reflect.Type {
 type externalFunctionArgs struct {
 	// The name of the API integration object that should be used to authenticate the call to the proxy service.
 	ApiIntegration string `pulumi:"apiIntegration"`
-	// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+	// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
+	// service expects.
 	Args []ExternalFunctionArg `pulumi:"args"`
 	// A description of the external function.
 	Comment *string `pulumi:"comment"`
-	// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+	// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
+	// proxy service to Snowflake.
 	Compression *string `pulumi:"compression"`
 	// Binds Snowflake context function results to HTTP headers.
 	ContextHeaders []string `pulumi:"contextHeaders"`
@@ -230,7 +241,8 @@ type externalFunctionArgs struct {
 	Headers []ExternalFunctionHeader `pulumi:"headers"`
 	// This specifies the maximum number of rows in each batch sent to the proxy service.
 	MaxBatchRows *int `pulumi:"maxBatchRows"`
-	// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+	// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
+	// well as the function name. The function's signature (name and argument data types) must be unique within the schema.
 	Name *string `pulumi:"name"`
 	// Specifies the behavior of the external function when called with null inputs.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
@@ -250,11 +262,13 @@ type externalFunctionArgs struct {
 type ExternalFunctionArgs struct {
 	// The name of the API integration object that should be used to authenticate the call to the proxy service.
 	ApiIntegration pulumi.StringInput
-	// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+	// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
+	// service expects.
 	Args ExternalFunctionArgArrayInput
 	// A description of the external function.
 	Comment pulumi.StringPtrInput
-	// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+	// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
+	// proxy service to Snowflake.
 	Compression pulumi.StringPtrInput
 	// Binds Snowflake context function results to HTTP headers.
 	ContextHeaders pulumi.StringArrayInput
@@ -264,7 +278,8 @@ type ExternalFunctionArgs struct {
 	Headers ExternalFunctionHeaderArrayInput
 	// This specifies the maximum number of rows in each batch sent to the proxy service.
 	MaxBatchRows pulumi.IntPtrInput
-	// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+	// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
+	// well as the function name. The function's signature (name and argument data types) must be unique within the schema.
 	Name pulumi.StringPtrInput
 	// Specifies the behavior of the external function when called with null inputs.
 	NullInputBehavior pulumi.StringPtrInput
@@ -365,6 +380,89 @@ func (o ExternalFunctionOutput) ToExternalFunctionOutput() ExternalFunctionOutpu
 
 func (o ExternalFunctionOutput) ToExternalFunctionOutputWithContext(ctx context.Context) ExternalFunctionOutput {
 	return o
+}
+
+// The name of the API integration object that should be used to authenticate the call to the proxy service.
+func (o ExternalFunctionOutput) ApiIntegration() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExternalFunction) pulumi.StringOutput { return v.ApiIntegration }).(pulumi.StringOutput)
+}
+
+// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
+// service expects.
+func (o ExternalFunctionOutput) Args() ExternalFunctionArgArrayOutput {
+	return o.ApplyT(func(v *ExternalFunction) ExternalFunctionArgArrayOutput { return v.Args }).(ExternalFunctionArgArrayOutput)
+}
+
+// A description of the external function.
+func (o ExternalFunctionOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExternalFunction) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
+// proxy service to Snowflake.
+func (o ExternalFunctionOutput) Compression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExternalFunction) pulumi.StringPtrOutput { return v.Compression }).(pulumi.StringPtrOutput)
+}
+
+// Binds Snowflake context function results to HTTP headers.
+func (o ExternalFunctionOutput) ContextHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExternalFunction) pulumi.StringArrayOutput { return v.ContextHeaders }).(pulumi.StringArrayOutput)
+}
+
+// Date and time when the external function was created.
+func (o ExternalFunctionOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExternalFunction) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// The database in which to create the external function.
+func (o ExternalFunctionOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExternalFunction) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// Allows users to specify key-value metadata that is sent with every request as HTTP headers.
+func (o ExternalFunctionOutput) Headers() ExternalFunctionHeaderArrayOutput {
+	return o.ApplyT(func(v *ExternalFunction) ExternalFunctionHeaderArrayOutput { return v.Headers }).(ExternalFunctionHeaderArrayOutput)
+}
+
+// This specifies the maximum number of rows in each batch sent to the proxy service.
+func (o ExternalFunctionOutput) MaxBatchRows() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ExternalFunction) pulumi.IntPtrOutput { return v.MaxBatchRows }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
+// well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+func (o ExternalFunctionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExternalFunction) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the behavior of the external function when called with null inputs.
+func (o ExternalFunctionOutput) NullInputBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExternalFunction) pulumi.StringPtrOutput { return v.NullInputBehavior }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the behavior of the function when returning results
+func (o ExternalFunctionOutput) ReturnBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExternalFunction) pulumi.StringOutput { return v.ReturnBehavior }).(pulumi.StringOutput)
+}
+
+// Indicates whether the function can return NULL values or must return only NON-NULL values.
+func (o ExternalFunctionOutput) ReturnNullAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExternalFunction) pulumi.BoolPtrOutput { return v.ReturnNullAllowed }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the data type returned by the external function.
+func (o ExternalFunctionOutput) ReturnType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExternalFunction) pulumi.StringOutput { return v.ReturnType }).(pulumi.StringOutput)
+}
+
+// The schema in which to create the external function.
+func (o ExternalFunctionOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExternalFunction) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
+}
+
+// This is the invocation URL of the proxy service and resource through which Snowflake calls the remote service.
+func (o ExternalFunctionOutput) UrlOfProxyAndResource() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExternalFunction) pulumi.StringOutput { return v.UrlOfProxyAndResource }).(pulumi.StringOutput)
 }
 
 type ExternalFunctionArrayOutput struct{ *pulumi.OutputState }

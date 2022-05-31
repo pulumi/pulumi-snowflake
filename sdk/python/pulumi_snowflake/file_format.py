@@ -60,29 +60,36 @@ class FileFormatArgs:
         :param pulumi.Input[str] comment: Specifies a comment for the file format.
         :param pulumi.Input[str] compression: Specifies the current compression algorithm for the data file.
         :param pulumi.Input[str] date_format: Defines the format of date values in the data files (data loading) or table (data unloading).
-        :param pulumi.Input[bool] disable_auto_convert: Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
+        :param pulumi.Input[bool] disable_auto_convert: Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
+               native representation.
         :param pulumi.Input[bool] disable_snowflake_data: Boolean that specifies whether the XML parser disables recognition of Snowflake semi-structured data tags.
-        :param pulumi.Input[bool] empty_field_as_null: Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
+        :param pulumi.Input[bool] empty_field_as_null: Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
+               delimiters.
         :param pulumi.Input[bool] enable_octal: Boolean that enables parsing of octal numbers.
         :param pulumi.Input[str] encoding: String (constant) that specifies the character set of the source data when loading data into a table.
-        :param pulumi.Input[bool] error_on_column_count_mismatch: Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
+        :param pulumi.Input[bool] error_on_column_count_mismatch: Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
+               file does not match the number of columns in the corresponding table.
         :param pulumi.Input[str] escape: Single character string used as the escape character for field values.
         :param pulumi.Input[str] escape_unenclosed_field: Single character string used as the escape character for unenclosed field values only.
-        :param pulumi.Input[str] field_delimiter: Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
+        :param pulumi.Input[str] field_delimiter: Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
+               unloaded file (data unloading).
         :param pulumi.Input[str] field_optionally_enclosed_by: Character used to enclose strings.
         :param pulumi.Input[str] file_extension: Specifies the extension for files unloaded to a stage.
         :param pulumi.Input[bool] ignore_utf8_errors: Boolean that specifies whether UTF-8 encoding errors produce error conditions.
-        :param pulumi.Input[str] name: Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
+        :param pulumi.Input[str] name: Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
+               created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] null_ifs: String used to convert to and from SQL NULL.
         :param pulumi.Input[bool] preserve_space: Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
-        :param pulumi.Input[str] record_delimiter: Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
+        :param pulumi.Input[str] record_delimiter: Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
+               unloaded file (data unloading).
         :param pulumi.Input[bool] replace_invalid_characters: Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�).
         :param pulumi.Input[bool] skip_blank_lines: Boolean that specifies to skip any blank lines encountered in the data files.
         :param pulumi.Input[bool] skip_byte_order_mark: Boolean that specifies whether to skip the BOM (byte order mark), if present in a data file.
         :param pulumi.Input[int] skip_header: Number of lines at the start of the file to skip.
         :param pulumi.Input[bool] strip_null_values: Boolean that instructs the JSON parser to remove object fields or array elements containing null values.
         :param pulumi.Input[bool] strip_outer_array: Boolean that instructs the JSON parser to remove outer brackets.
-        :param pulumi.Input[bool] strip_outer_element: Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
+        :param pulumi.Input[bool] strip_outer_element: Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
+               documents.
         :param pulumi.Input[str] time_format: Defines the format of time values in the data files (data loading) or table (data unloading).
         :param pulumi.Input[str] timestamp_format: Defines the format of timestamp values in the data files (data loading) or table (data unloading).
         :param pulumi.Input[bool] trim_space: Boolean that specifies whether to remove white space from fields.
@@ -270,7 +277,8 @@ class FileFormatArgs:
     @pulumi.getter(name="disableAutoConvert")
     def disable_auto_convert(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
+        Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
+        native representation.
         """
         return pulumi.get(self, "disable_auto_convert")
 
@@ -294,7 +302,8 @@ class FileFormatArgs:
     @pulumi.getter(name="emptyFieldAsNull")
     def empty_field_as_null(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
+        Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
+        delimiters.
         """
         return pulumi.get(self, "empty_field_as_null")
 
@@ -330,7 +339,8 @@ class FileFormatArgs:
     @pulumi.getter(name="errorOnColumnCountMismatch")
     def error_on_column_count_mismatch(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
+        Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
+        file does not match the number of columns in the corresponding table.
         """
         return pulumi.get(self, "error_on_column_count_mismatch")
 
@@ -366,7 +376,8 @@ class FileFormatArgs:
     @pulumi.getter(name="fieldDelimiter")
     def field_delimiter(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
+        Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
+        unloaded file (data unloading).
         """
         return pulumi.get(self, "field_delimiter")
 
@@ -414,7 +425,8 @@ class FileFormatArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
+        Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
+        created.
         """
         return pulumi.get(self, "name")
 
@@ -450,7 +462,8 @@ class FileFormatArgs:
     @pulumi.getter(name="recordDelimiter")
     def record_delimiter(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
+        Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
+        unloaded file (data unloading).
         """
         return pulumi.get(self, "record_delimiter")
 
@@ -534,7 +547,8 @@ class FileFormatArgs:
     @pulumi.getter(name="stripOuterElement")
     def strip_outer_element(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
+        Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
+        documents.
         """
         return pulumi.get(self, "strip_outer_element")
 
@@ -639,23 +653,29 @@ class _FileFormatState:
         :param pulumi.Input[str] compression: Specifies the current compression algorithm for the data file.
         :param pulumi.Input[str] database: The database in which to create the file format.
         :param pulumi.Input[str] date_format: Defines the format of date values in the data files (data loading) or table (data unloading).
-        :param pulumi.Input[bool] disable_auto_convert: Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
+        :param pulumi.Input[bool] disable_auto_convert: Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
+               native representation.
         :param pulumi.Input[bool] disable_snowflake_data: Boolean that specifies whether the XML parser disables recognition of Snowflake semi-structured data tags.
-        :param pulumi.Input[bool] empty_field_as_null: Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
+        :param pulumi.Input[bool] empty_field_as_null: Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
+               delimiters.
         :param pulumi.Input[bool] enable_octal: Boolean that enables parsing of octal numbers.
         :param pulumi.Input[str] encoding: String (constant) that specifies the character set of the source data when loading data into a table.
-        :param pulumi.Input[bool] error_on_column_count_mismatch: Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
+        :param pulumi.Input[bool] error_on_column_count_mismatch: Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
+               file does not match the number of columns in the corresponding table.
         :param pulumi.Input[str] escape: Single character string used as the escape character for field values.
         :param pulumi.Input[str] escape_unenclosed_field: Single character string used as the escape character for unenclosed field values only.
-        :param pulumi.Input[str] field_delimiter: Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
+        :param pulumi.Input[str] field_delimiter: Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
+               unloaded file (data unloading).
         :param pulumi.Input[str] field_optionally_enclosed_by: Character used to enclose strings.
         :param pulumi.Input[str] file_extension: Specifies the extension for files unloaded to a stage.
         :param pulumi.Input[str] format_type: Specifies the format of the input files (for data loading) or output files (for data unloading).
         :param pulumi.Input[bool] ignore_utf8_errors: Boolean that specifies whether UTF-8 encoding errors produce error conditions.
-        :param pulumi.Input[str] name: Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
+        :param pulumi.Input[str] name: Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
+               created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] null_ifs: String used to convert to and from SQL NULL.
         :param pulumi.Input[bool] preserve_space: Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
-        :param pulumi.Input[str] record_delimiter: Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
+        :param pulumi.Input[str] record_delimiter: Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
+               unloaded file (data unloading).
         :param pulumi.Input[bool] replace_invalid_characters: Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�).
         :param pulumi.Input[str] schema: The schema in which to create the file format.
         :param pulumi.Input[bool] skip_blank_lines: Boolean that specifies to skip any blank lines encountered in the data files.
@@ -663,7 +683,8 @@ class _FileFormatState:
         :param pulumi.Input[int] skip_header: Number of lines at the start of the file to skip.
         :param pulumi.Input[bool] strip_null_values: Boolean that instructs the JSON parser to remove object fields or array elements containing null values.
         :param pulumi.Input[bool] strip_outer_array: Boolean that instructs the JSON parser to remove outer brackets.
-        :param pulumi.Input[bool] strip_outer_element: Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
+        :param pulumi.Input[bool] strip_outer_element: Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
+               documents.
         :param pulumi.Input[str] time_format: Defines the format of time values in the data files (data loading) or table (data unloading).
         :param pulumi.Input[str] timestamp_format: Defines the format of timestamp values in the data files (data loading) or table (data unloading).
         :param pulumi.Input[bool] trim_space: Boolean that specifies whether to remove white space from fields.
@@ -830,7 +851,8 @@ class _FileFormatState:
     @pulumi.getter(name="disableAutoConvert")
     def disable_auto_convert(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
+        Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
+        native representation.
         """
         return pulumi.get(self, "disable_auto_convert")
 
@@ -854,7 +876,8 @@ class _FileFormatState:
     @pulumi.getter(name="emptyFieldAsNull")
     def empty_field_as_null(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
+        Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
+        delimiters.
         """
         return pulumi.get(self, "empty_field_as_null")
 
@@ -890,7 +913,8 @@ class _FileFormatState:
     @pulumi.getter(name="errorOnColumnCountMismatch")
     def error_on_column_count_mismatch(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
+        Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
+        file does not match the number of columns in the corresponding table.
         """
         return pulumi.get(self, "error_on_column_count_mismatch")
 
@@ -926,7 +950,8 @@ class _FileFormatState:
     @pulumi.getter(name="fieldDelimiter")
     def field_delimiter(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
+        Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
+        unloaded file (data unloading).
         """
         return pulumi.get(self, "field_delimiter")
 
@@ -986,7 +1011,8 @@ class _FileFormatState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
+        Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
+        created.
         """
         return pulumi.get(self, "name")
 
@@ -1022,7 +1048,8 @@ class _FileFormatState:
     @pulumi.getter(name="recordDelimiter")
     def record_delimiter(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
+        Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
+        unloaded file (data unloading).
         """
         return pulumi.get(self, "record_delimiter")
 
@@ -1118,7 +1145,8 @@ class _FileFormatState:
     @pulumi.getter(name="stripOuterElement")
     def strip_outer_element(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
+        Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
+        documents.
         """
         return pulumi.get(self, "strip_outer_element")
 
@@ -1247,23 +1275,29 @@ class FileFormat(pulumi.CustomResource):
         :param pulumi.Input[str] compression: Specifies the current compression algorithm for the data file.
         :param pulumi.Input[str] database: The database in which to create the file format.
         :param pulumi.Input[str] date_format: Defines the format of date values in the data files (data loading) or table (data unloading).
-        :param pulumi.Input[bool] disable_auto_convert: Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
+        :param pulumi.Input[bool] disable_auto_convert: Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
+               native representation.
         :param pulumi.Input[bool] disable_snowflake_data: Boolean that specifies whether the XML parser disables recognition of Snowflake semi-structured data tags.
-        :param pulumi.Input[bool] empty_field_as_null: Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
+        :param pulumi.Input[bool] empty_field_as_null: Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
+               delimiters.
         :param pulumi.Input[bool] enable_octal: Boolean that enables parsing of octal numbers.
         :param pulumi.Input[str] encoding: String (constant) that specifies the character set of the source data when loading data into a table.
-        :param pulumi.Input[bool] error_on_column_count_mismatch: Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
+        :param pulumi.Input[bool] error_on_column_count_mismatch: Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
+               file does not match the number of columns in the corresponding table.
         :param pulumi.Input[str] escape: Single character string used as the escape character for field values.
         :param pulumi.Input[str] escape_unenclosed_field: Single character string used as the escape character for unenclosed field values only.
-        :param pulumi.Input[str] field_delimiter: Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
+        :param pulumi.Input[str] field_delimiter: Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
+               unloaded file (data unloading).
         :param pulumi.Input[str] field_optionally_enclosed_by: Character used to enclose strings.
         :param pulumi.Input[str] file_extension: Specifies the extension for files unloaded to a stage.
         :param pulumi.Input[str] format_type: Specifies the format of the input files (for data loading) or output files (for data unloading).
         :param pulumi.Input[bool] ignore_utf8_errors: Boolean that specifies whether UTF-8 encoding errors produce error conditions.
-        :param pulumi.Input[str] name: Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
+        :param pulumi.Input[str] name: Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
+               created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] null_ifs: String used to convert to and from SQL NULL.
         :param pulumi.Input[bool] preserve_space: Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
-        :param pulumi.Input[str] record_delimiter: Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
+        :param pulumi.Input[str] record_delimiter: Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
+               unloaded file (data unloading).
         :param pulumi.Input[bool] replace_invalid_characters: Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�).
         :param pulumi.Input[str] schema: The schema in which to create the file format.
         :param pulumi.Input[bool] skip_blank_lines: Boolean that specifies to skip any blank lines encountered in the data files.
@@ -1271,7 +1305,8 @@ class FileFormat(pulumi.CustomResource):
         :param pulumi.Input[int] skip_header: Number of lines at the start of the file to skip.
         :param pulumi.Input[bool] strip_null_values: Boolean that instructs the JSON parser to remove object fields or array elements containing null values.
         :param pulumi.Input[bool] strip_outer_array: Boolean that instructs the JSON parser to remove outer brackets.
-        :param pulumi.Input[bool] strip_outer_element: Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
+        :param pulumi.Input[bool] strip_outer_element: Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
+               documents.
         :param pulumi.Input[str] time_format: Defines the format of time values in the data files (data loading) or table (data unloading).
         :param pulumi.Input[str] timestamp_format: Defines the format of timestamp values in the data files (data loading) or table (data unloading).
         :param pulumi.Input[bool] trim_space: Boolean that specifies whether to remove white space from fields.
@@ -1469,23 +1504,29 @@ class FileFormat(pulumi.CustomResource):
         :param pulumi.Input[str] compression: Specifies the current compression algorithm for the data file.
         :param pulumi.Input[str] database: The database in which to create the file format.
         :param pulumi.Input[str] date_format: Defines the format of date values in the data files (data loading) or table (data unloading).
-        :param pulumi.Input[bool] disable_auto_convert: Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
+        :param pulumi.Input[bool] disable_auto_convert: Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
+               native representation.
         :param pulumi.Input[bool] disable_snowflake_data: Boolean that specifies whether the XML parser disables recognition of Snowflake semi-structured data tags.
-        :param pulumi.Input[bool] empty_field_as_null: Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
+        :param pulumi.Input[bool] empty_field_as_null: Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
+               delimiters.
         :param pulumi.Input[bool] enable_octal: Boolean that enables parsing of octal numbers.
         :param pulumi.Input[str] encoding: String (constant) that specifies the character set of the source data when loading data into a table.
-        :param pulumi.Input[bool] error_on_column_count_mismatch: Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
+        :param pulumi.Input[bool] error_on_column_count_mismatch: Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
+               file does not match the number of columns in the corresponding table.
         :param pulumi.Input[str] escape: Single character string used as the escape character for field values.
         :param pulumi.Input[str] escape_unenclosed_field: Single character string used as the escape character for unenclosed field values only.
-        :param pulumi.Input[str] field_delimiter: Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
+        :param pulumi.Input[str] field_delimiter: Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
+               unloaded file (data unloading).
         :param pulumi.Input[str] field_optionally_enclosed_by: Character used to enclose strings.
         :param pulumi.Input[str] file_extension: Specifies the extension for files unloaded to a stage.
         :param pulumi.Input[str] format_type: Specifies the format of the input files (for data loading) or output files (for data unloading).
         :param pulumi.Input[bool] ignore_utf8_errors: Boolean that specifies whether UTF-8 encoding errors produce error conditions.
-        :param pulumi.Input[str] name: Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
+        :param pulumi.Input[str] name: Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
+               created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] null_ifs: String used to convert to and from SQL NULL.
         :param pulumi.Input[bool] preserve_space: Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
-        :param pulumi.Input[str] record_delimiter: Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
+        :param pulumi.Input[str] record_delimiter: Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
+               unloaded file (data unloading).
         :param pulumi.Input[bool] replace_invalid_characters: Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�).
         :param pulumi.Input[str] schema: The schema in which to create the file format.
         :param pulumi.Input[bool] skip_blank_lines: Boolean that specifies to skip any blank lines encountered in the data files.
@@ -1493,7 +1534,8 @@ class FileFormat(pulumi.CustomResource):
         :param pulumi.Input[int] skip_header: Number of lines at the start of the file to skip.
         :param pulumi.Input[bool] strip_null_values: Boolean that instructs the JSON parser to remove object fields or array elements containing null values.
         :param pulumi.Input[bool] strip_outer_array: Boolean that instructs the JSON parser to remove outer brackets.
-        :param pulumi.Input[bool] strip_outer_element: Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
+        :param pulumi.Input[bool] strip_outer_element: Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
+               documents.
         :param pulumi.Input[str] time_format: Defines the format of time values in the data files (data loading) or table (data unloading).
         :param pulumi.Input[str] timestamp_format: Defines the format of timestamp values in the data files (data loading) or table (data unloading).
         :param pulumi.Input[bool] trim_space: Boolean that specifies whether to remove white space from fields.
@@ -1601,7 +1643,8 @@ class FileFormat(pulumi.CustomResource):
     @pulumi.getter(name="disableAutoConvert")
     def disable_auto_convert(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
+        Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
+        native representation.
         """
         return pulumi.get(self, "disable_auto_convert")
 
@@ -1617,7 +1660,8 @@ class FileFormat(pulumi.CustomResource):
     @pulumi.getter(name="emptyFieldAsNull")
     def empty_field_as_null(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
+        Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
+        delimiters.
         """
         return pulumi.get(self, "empty_field_as_null")
 
@@ -1641,7 +1685,8 @@ class FileFormat(pulumi.CustomResource):
     @pulumi.getter(name="errorOnColumnCountMismatch")
     def error_on_column_count_mismatch(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
+        Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
+        file does not match the number of columns in the corresponding table.
         """
         return pulumi.get(self, "error_on_column_count_mismatch")
 
@@ -1665,7 +1710,8 @@ class FileFormat(pulumi.CustomResource):
     @pulumi.getter(name="fieldDelimiter")
     def field_delimiter(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
+        Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
+        unloaded file (data unloading).
         """
         return pulumi.get(self, "field_delimiter")
 
@@ -1705,7 +1751,8 @@ class FileFormat(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
+        Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
+        created.
         """
         return pulumi.get(self, "name")
 
@@ -1729,7 +1776,8 @@ class FileFormat(pulumi.CustomResource):
     @pulumi.getter(name="recordDelimiter")
     def record_delimiter(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
+        Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
+        unloaded file (data unloading).
         """
         return pulumi.get(self, "record_delimiter")
 
@@ -1793,7 +1841,8 @@ class FileFormat(pulumi.CustomResource):
     @pulumi.getter(name="stripOuterElement")
     def strip_outer_element(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
+        Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
+        documents.
         """
         return pulumi.get(self, "strip_outer_element")
 

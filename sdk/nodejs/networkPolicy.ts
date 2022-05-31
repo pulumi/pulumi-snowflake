@@ -57,7 +57,8 @@ export class NetworkPolicy extends pulumi.CustomResource {
      */
     public readonly allowedIpLists!: pulumi.Output<string[]>;
     /**
-     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blockedIpList`
+     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account<br><br>**Do not**
+     * add `0.0.0.0/0` to `blocked_ip_list`
      */
     public readonly blockedIpLists!: pulumi.Output<string[] | undefined>;
     /**
@@ -110,7 +111,8 @@ export interface NetworkPolicyState {
      */
     allowedIpLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blockedIpList`
+     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account<br><br>**Do not**
+     * add `0.0.0.0/0` to `blocked_ip_list`
      */
     blockedIpLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -132,7 +134,8 @@ export interface NetworkPolicyArgs {
      */
     allowedIpLists: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blockedIpList`
+     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account<br><br>**Do not**
+     * add `0.0.0.0/0` to `blocked_ip_list`
      */
     blockedIpLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -211,6 +211,32 @@ func (o ResourceMonitorGrantOutput) ToResourceMonitorGrantOutputWithContext(ctx 
 	return o
 }
 
+// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+// grants applied to roles and objects outside Terraform.
+func (o ResourceMonitorGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResourceMonitorGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
+}
+
+// Identifier for the resource monitor; must be unique for your account.
+func (o ResourceMonitorGrantOutput) MonitorName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceMonitorGrant) pulumi.StringOutput { return v.MonitorName }).(pulumi.StringOutput)
+}
+
+// The privilege to grant on the resource monitor.
+func (o ResourceMonitorGrantOutput) Privilege() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceMonitorGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
+}
+
+// Grants privilege to these roles.
+func (o ResourceMonitorGrantOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResourceMonitorGrant) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+// When this is set to true, allows the recipient role to grant the privileges to other roles.
+func (o ResourceMonitorGrantOutput) WithGrantOption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResourceMonitorGrant) pulumi.BoolPtrOutput { return v.WithGrantOption }).(pulumi.BoolPtrOutput)
+}
+
 type ResourceMonitorGrantArrayOutput struct{ *pulumi.OutputState }
 
 func (ResourceMonitorGrantArrayOutput) ElementType() reflect.Type {

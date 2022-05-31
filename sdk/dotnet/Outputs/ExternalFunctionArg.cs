@@ -13,13 +13,7 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class ExternalFunctionArg
     {
-        /// <summary>
-        /// Argument name
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Argument type, e.g. VARCHAR
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

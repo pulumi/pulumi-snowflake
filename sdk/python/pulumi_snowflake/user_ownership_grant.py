@@ -20,7 +20,8 @@ class UserOwnershipGrantArgs:
         The set of arguments for constructing a UserOwnershipGrant resource.
         :param pulumi.Input[str] on_user_name: The name of the user ownership is granted on.
         :param pulumi.Input[str] to_role_name: The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-        :param pulumi.Input[str] current_grants: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
+        :param pulumi.Input[str] current_grants: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+               a new role.
         """
         pulumi.set(__self__, "on_user_name", on_user_name)
         pulumi.set(__self__, "to_role_name", to_role_name)
@@ -55,7 +56,8 @@ class UserOwnershipGrantArgs:
     @pulumi.getter(name="currentGrants")
     def current_grants(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
+        Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+        a new role.
         """
         return pulumi.get(self, "current_grants")
 
@@ -72,7 +74,8 @@ class _UserOwnershipGrantState:
                  to_role_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering UserOwnershipGrant resources.
-        :param pulumi.Input[str] current_grants: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
+        :param pulumi.Input[str] current_grants: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+               a new role.
         :param pulumi.Input[str] on_user_name: The name of the user ownership is granted on.
         :param pulumi.Input[str] to_role_name: The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
         """
@@ -87,7 +90,8 @@ class _UserOwnershipGrantState:
     @pulumi.getter(name="currentGrants")
     def current_grants(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
+        Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+        a new role.
         """
         return pulumi.get(self, "current_grants")
 
@@ -133,7 +137,8 @@ class UserOwnershipGrant(pulumi.CustomResource):
         Create a UserOwnershipGrant resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] current_grants: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
+        :param pulumi.Input[str] current_grants: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+               a new role.
         :param pulumi.Input[str] on_user_name: The name of the user ownership is granted on.
         :param pulumi.Input[str] to_role_name: The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
         """
@@ -202,7 +207,8 @@ class UserOwnershipGrant(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] current_grants: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
+        :param pulumi.Input[str] current_grants: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+               a new role.
         :param pulumi.Input[str] on_user_name: The name of the user ownership is granted on.
         :param pulumi.Input[str] to_role_name: The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
         """
@@ -219,7 +225,8 @@ class UserOwnershipGrant(pulumi.CustomResource):
     @pulumi.getter(name="currentGrants")
     def current_grants(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
+        Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+        a new role.
         """
         return pulumi.get(self, "current_grants")
 

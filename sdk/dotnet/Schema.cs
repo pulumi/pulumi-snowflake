@@ -51,7 +51,8 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
+        /// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as
+        /// specifying the default Time Travel retention time for all tables created in the schema.
         /// </summary>
         [Output("dataRetentionDays")]
         public Output<int?> DataRetentionDays { get; private set; } = null!;
@@ -69,7 +70,9 @@ namespace Pulumi.Snowflake
         public Output<bool?> IsManaged { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        /// Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
+        /// storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+        /// a data loss.
         /// </summary>
         [Output("isTransient")]
         public Output<bool?> IsTransient { get; private set; } = null!;
@@ -139,7 +142,8 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
+        /// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as
+        /// specifying the default Time Travel retention time for all tables created in the schema.
         /// </summary>
         [Input("dataRetentionDays")]
         public Input<int>? DataRetentionDays { get; set; }
@@ -157,7 +161,9 @@ namespace Pulumi.Snowflake
         public Input<bool>? IsManaged { get; set; }
 
         /// <summary>
-        /// Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        /// Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
+        /// storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+        /// a data loss.
         /// </summary>
         [Input("isTransient")]
         public Input<bool>? IsTransient { get; set; }
@@ -194,7 +200,8 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
+        /// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as
+        /// specifying the default Time Travel retention time for all tables created in the schema.
         /// </summary>
         [Input("dataRetentionDays")]
         public Input<int>? DataRetentionDays { get; set; }
@@ -212,7 +219,9 @@ namespace Pulumi.Snowflake
         public Input<bool>? IsManaged { get; set; }
 
         /// <summary>
-        /// Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        /// Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
+        /// storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+        /// a data loss.
         /// </summary>
         [Input("isTransient")]
         public Input<bool>? IsTransient { get; set; }

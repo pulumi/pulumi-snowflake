@@ -10,6 +10,7 @@ from . import _utilities
 from . import outputs
 
 __all__ = [
+    'DatabaseReplicationConfiguration',
     'DatabaseTag',
     'ExternalFunctionArg',
     'ExternalFunctionHeader',
@@ -32,6 +33,7 @@ __all__ = [
     'ViewTag',
     'WarehouseTag',
     'GetDatabasesDatabaseResult',
+    'GetDatabasesDatabaseReplicationConfigurationResult',
     'GetExternalFunctionsExternalFunctionResult',
     'GetExternalTablesExternalTableResult',
     'GetFileFormatsFileFormatResult',
@@ -49,9 +51,47 @@ __all__ = [
     'GetStreamsStreamResult',
     'GetTablesTableResult',
     'GetTasksTaskResult',
+    'GetUsersUserResult',
     'GetViewsViewResult',
     'GetWarehousesWarehouseResult',
 ]
+
+@pulumi.output_type
+class DatabaseReplicationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoreEditionCheck":
+            suggest = "ignore_edition_check"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseReplicationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseReplicationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseReplicationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 accounts: Sequence[str],
+                 ignore_edition_check: Optional[bool] = None):
+        pulumi.set(__self__, "accounts", accounts)
+        if ignore_edition_check is not None:
+            pulumi.set(__self__, "ignore_edition_check", ignore_edition_check)
+
+    @property
+    @pulumi.getter
+    def accounts(self) -> Sequence[str]:
+        return pulumi.get(self, "accounts")
+
+    @property
+    @pulumi.getter(name="ignoreEditionCheck")
+    def ignore_edition_check(self) -> Optional[bool]:
+        return pulumi.get(self, "ignore_edition_check")
+
 
 @pulumi.output_type
 class DatabaseTag(dict):
@@ -60,12 +100,6 @@ class DatabaseTag(dict):
                  value: str,
                  database: Optional[str] = None,
                  schema: Optional[str] = None):
-        """
-        :param str name: Tag name, e.g. department.
-        :param str value: Tag value, e.g. marketing_info.
-        :param str database: Name of the database that the tag was created in.
-        :param str schema: Name of the schema that the tag was created in.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if database is not None:
@@ -76,33 +110,21 @@ class DatabaseTag(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        Tag value, e.g. marketing_info.
-        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
     def database(self) -> Optional[str]:
-        """
-        Name of the database that the tag was created in.
-        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
     def schema(self) -> Optional[str]:
-        """
-        Name of the schema that the tag was created in.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -111,27 +133,17 @@ class ExternalFunctionArg(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
-        """
-        :param str name: Argument name
-        :param str type: Argument type, e.g. VARCHAR
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Argument name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        Argument type, e.g. VARCHAR
-        """
         return pulumi.get(self, "type")
 
 
@@ -140,27 +152,17 @@ class ExternalFunctionHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
-        """
-        :param str name: Header name
-        :param str value: Header value
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Header name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        Header value
-        """
         return pulumi.get(self, "value")
 
 
@@ -187,11 +189,6 @@ class ExternalTableColumn(dict):
                  as_: str,
                  name: str,
                  type: str):
-        """
-        :param str as_: String that specifies the expression for the column. When queried, the column returns results derived from this expression.
-        :param str name: Column name
-        :param str type: Column type, e.g. VARIANT
-        """
         pulumi.set(__self__, "as_", as_)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -199,25 +196,16 @@ class ExternalTableColumn(dict):
     @property
     @pulumi.getter(name="as")
     def as_(self) -> str:
-        """
-        String that specifies the expression for the column. When queried, the column returns results derived from this expression.
-        """
         return pulumi.get(self, "as_")
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Column name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        Column type, e.g. VARIANT
-        """
         return pulumi.get(self, "type")
 
 
@@ -228,12 +216,6 @@ class ExternalTableTag(dict):
                  value: str,
                  database: Optional[str] = None,
                  schema: Optional[str] = None):
-        """
-        :param str name: Tag name, e.g. department.
-        :param str value: Tag value, e.g. marketing_info.
-        :param str database: Name of the database that the tag was created in.
-        :param str schema: Name of the schema that the tag was created in.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if database is not None:
@@ -244,33 +226,21 @@ class ExternalTableTag(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        Tag value, e.g. marketing_info.
-        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
     def database(self) -> Optional[str]:
-        """
-        Name of the database that the tag was created in.
-        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
     def schema(self) -> Optional[str]:
-        """
-        Name of the schema that the tag was created in.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -279,27 +249,17 @@ class FunctionArgument(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
-        """
-        :param str name: The argument name
-        :param str type: The argument type
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The argument name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        The argument type
-        """
         return pulumi.get(self, "type")
 
 
@@ -308,27 +268,17 @@ class FunctionGrantArgument(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
-        """
-        :param str name: The argument name
-        :param str type: The argument type
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The argument name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        The argument type
-        """
         return pulumi.get(self, "type")
 
 
@@ -339,12 +289,6 @@ class MaterializedViewTag(dict):
                  value: str,
                  database: Optional[str] = None,
                  schema: Optional[str] = None):
-        """
-        :param str name: Tag name, e.g. department.
-        :param str value: Tag value, e.g. marketing_info.
-        :param str database: Name of the database that the tag was created in.
-        :param str schema: Name of the schema that the tag was created in.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if database is not None:
@@ -355,33 +299,21 @@ class MaterializedViewTag(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        Tag value, e.g. marketing_info.
-        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
     def database(self) -> Optional[str]:
-        """
-        Name of the database that the tag was created in.
-        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
     def schema(self) -> Optional[str]:
-        """
-        Name of the schema that the tag was created in.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -390,27 +322,17 @@ class ProcedureArgument(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
-        """
-        :param str name: The argument name
-        :param str type: The argument type
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The argument name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        The argument type
-        """
         return pulumi.get(self, "type")
 
 
@@ -419,27 +341,17 @@ class ProcedureGrantArgument(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
-        """
-        :param str name: The argument name
-        :param str type: The argument type
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The argument name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        The argument type
-        """
         return pulumi.get(self, "type")
 
 
@@ -450,12 +362,6 @@ class RoleTag(dict):
                  value: str,
                  database: Optional[str] = None,
                  schema: Optional[str] = None):
-        """
-        :param str name: Tag name, e.g. department.
-        :param str value: Tag value, e.g. marketing_info.
-        :param str database: Name of the database that the tag was created in.
-        :param str schema: Name of the schema that the tag was created in.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if database is not None:
@@ -466,33 +372,21 @@ class RoleTag(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        Tag value, e.g. marketing_info.
-        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
     def database(self) -> Optional[str]:
-        """
-        Name of the database that the tag was created in.
-        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
     def schema(self) -> Optional[str]:
-        """
-        Name of the schema that the tag was created in.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -503,12 +397,6 @@ class SchemaTag(dict):
                  value: str,
                  database: Optional[str] = None,
                  schema: Optional[str] = None):
-        """
-        :param str name: Tag name, e.g. department.
-        :param str value: Tag value, e.g. marketing_info.
-        :param str database: Name of the database that the tag was created in.
-        :param str schema: Name of the schema that the tag was created in.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if database is not None:
@@ -519,33 +407,21 @@ class SchemaTag(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        Tag value, e.g. marketing_info.
-        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
     def database(self) -> Optional[str]:
-        """
-        Name of the database that the tag was created in.
-        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
     def schema(self) -> Optional[str]:
-        """
-        Name of the schema that the tag was created in.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -556,12 +432,6 @@ class StageTag(dict):
                  value: str,
                  database: Optional[str] = None,
                  schema: Optional[str] = None):
-        """
-        :param str name: Tag name, e.g. department.
-        :param str value: Tag value, e.g. marketing_info.
-        :param str database: Name of the database that the tag was created in.
-        :param str schema: Name of the schema that the tag was created in.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if database is not None:
@@ -572,33 +442,21 @@ class StageTag(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        Tag value, e.g. marketing_info.
-        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
     def database(self) -> Optional[str]:
-        """
-        Name of the database that the tag was created in.
-        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
     def schema(self) -> Optional[str]:
-        """
-        Name of the schema that the tag was created in.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -611,14 +469,6 @@ class TableColumn(dict):
                  default: Optional['outputs.TableColumnDefault'] = None,
                  identity: Optional['outputs.TableColumnIdentity'] = None,
                  nullable: Optional[bool] = None):
-        """
-        :param str name: Column name
-        :param str type: Column type, e.g. VARIANT
-        :param str comment: Column comment
-        :param 'TableColumnDefaultArgs' default: Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
-        :param 'TableColumnIdentityArgs' identity: Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
-        :param bool nullable: Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         if comment is not None:
@@ -633,49 +483,31 @@ class TableColumn(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Column name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        Column type, e.g. VARIANT
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def comment(self) -> Optional[str]:
-        """
-        Column comment
-        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter
     def default(self) -> Optional['outputs.TableColumnDefault']:
-        """
-        Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
-        """
         return pulumi.get(self, "default")
 
     @property
     @pulumi.getter
     def identity(self) -> Optional['outputs.TableColumnIdentity']:
-        """
-        Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
-        """
         return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
     def nullable(self) -> Optional[bool]:
-        """
-        Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
-        """
         return pulumi.get(self, "nullable")
 
 
@@ -753,10 +585,6 @@ class TablePrimaryKey(dict):
     def __init__(__self__, *,
                  keys: Sequence[str],
                  name: Optional[str] = None):
-        """
-        :param Sequence[str] keys: Columns to use in primary key
-        :param str name: Name of constraint
-        """
         pulumi.set(__self__, "keys", keys)
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -764,17 +592,11 @@ class TablePrimaryKey(dict):
     @property
     @pulumi.getter
     def keys(self) -> Sequence[str]:
-        """
-        Columns to use in primary key
-        """
         return pulumi.get(self, "keys")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        Name of constraint
-        """
         return pulumi.get(self, "name")
 
 
@@ -785,12 +607,6 @@ class TableTag(dict):
                  value: str,
                  database: Optional[str] = None,
                  schema: Optional[str] = None):
-        """
-        :param str name: Tag name, e.g. department.
-        :param str value: Tag value, e.g. marketing_info.
-        :param str database: Name of the database that the tag was created in.
-        :param str schema: Name of the schema that the tag was created in.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if database is not None:
@@ -801,33 +617,21 @@ class TableTag(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        Tag value, e.g. marketing_info.
-        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
     def database(self) -> Optional[str]:
-        """
-        Name of the database that the tag was created in.
-        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
     def schema(self) -> Optional[str]:
-        """
-        Name of the schema that the tag was created in.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -838,12 +642,6 @@ class UserTag(dict):
                  value: str,
                  database: Optional[str] = None,
                  schema: Optional[str] = None):
-        """
-        :param str name: Tag name, e.g. department.
-        :param str value: Tag value, e.g. marketing_info.
-        :param str database: Name of the database that the tag was created in.
-        :param str schema: Name of the schema that the tag was created in.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if database is not None:
@@ -854,33 +652,21 @@ class UserTag(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        Tag value, e.g. marketing_info.
-        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
     def database(self) -> Optional[str]:
-        """
-        Name of the database that the tag was created in.
-        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
     def schema(self) -> Optional[str]:
-        """
-        Name of the schema that the tag was created in.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -891,12 +677,6 @@ class ViewTag(dict):
                  value: str,
                  database: Optional[str] = None,
                  schema: Optional[str] = None):
-        """
-        :param str name: Tag name, e.g. department.
-        :param str value: Tag value, e.g. marketing_info.
-        :param str database: Name of the database that the tag was created in.
-        :param str schema: Name of the schema that the tag was created in.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if database is not None:
@@ -907,33 +687,21 @@ class ViewTag(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        Tag value, e.g. marketing_info.
-        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
     def database(self) -> Optional[str]:
-        """
-        Name of the database that the tag was created in.
-        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
     def schema(self) -> Optional[str]:
-        """
-        Name of the schema that the tag was created in.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -944,12 +712,6 @@ class WarehouseTag(dict):
                  value: str,
                  database: Optional[str] = None,
                  schema: Optional[str] = None):
-        """
-        :param str name: Tag name, e.g. department.
-        :param str value: Tag value, e.g. marketing_info.
-        :param str database: Name of the database that the tag was created in.
-        :param str schema: Name of the schema that the tag was created in.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if database is not None:
@@ -960,33 +722,21 @@ class WarehouseTag(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        Tag value, e.g. marketing_info.
-        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
     def database(self) -> Optional[str]:
-        """
-        Name of the database that the tag was created in.
-        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
     def schema(self) -> Optional[str]:
-        """
-        Name of the schema that the tag was created in.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -1001,6 +751,7 @@ class GetDatabasesDatabaseResult(dict):
                  options: str,
                  origin: str,
                  owner: str,
+                 replication_configurations: Sequence['outputs.GetDatabasesDatabaseReplicationConfigurationResult'],
                  retention_time: int):
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "created_on", created_on)
@@ -1010,6 +761,7 @@ class GetDatabasesDatabaseResult(dict):
         pulumi.set(__self__, "options", options)
         pulumi.set(__self__, "origin", origin)
         pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "replication_configurations", replication_configurations)
         pulumi.set(__self__, "retention_time", retention_time)
 
     @property
@@ -1053,9 +805,33 @@ class GetDatabasesDatabaseResult(dict):
         return pulumi.get(self, "owner")
 
     @property
+    @pulumi.getter(name="replicationConfigurations")
+    def replication_configurations(self) -> Sequence['outputs.GetDatabasesDatabaseReplicationConfigurationResult']:
+        return pulumi.get(self, "replication_configurations")
+
+    @property
     @pulumi.getter(name="retentionTime")
     def retention_time(self) -> int:
         return pulumi.get(self, "retention_time")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseReplicationConfigurationResult(dict):
+    def __init__(__self__, *,
+                 accounts: Sequence[str],
+                 ignore_edition_check: bool):
+        pulumi.set(__self__, "accounts", accounts)
+        pulumi.set(__self__, "ignore_edition_check", ignore_edition_check)
+
+    @property
+    @pulumi.getter
+    def accounts(self) -> Sequence[str]:
+        return pulumi.get(self, "accounts")
+
+    @property
+    @pulumi.getter(name="ignoreEditionCheck")
+    def ignore_edition_check(self) -> bool:
+        return pulumi.get(self, "ignore_edition_check")
 
 
 @pulumi.output_type
@@ -1066,10 +842,6 @@ class GetExternalFunctionsExternalFunctionResult(dict):
                  language: str,
                  name: str,
                  schema: str):
-        """
-        :param str database: The database from which to return the schemas from.
-        :param str schema: The schema from which to return the external functions from.
-        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "language", language)
@@ -1084,9 +856,6 @@ class GetExternalFunctionsExternalFunctionResult(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -1102,9 +871,6 @@ class GetExternalFunctionsExternalFunctionResult(dict):
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the external functions from.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -1115,10 +881,6 @@ class GetExternalTablesExternalTableResult(dict):
                  database: str,
                  name: str,
                  schema: str):
-        """
-        :param str database: The database from which to return the schemas from.
-        :param str schema: The schema from which to return the external tables from.
-        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "name", name)
@@ -1132,9 +894,6 @@ class GetExternalTablesExternalTableResult(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -1145,9 +904,6 @@ class GetExternalTablesExternalTableResult(dict):
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the external tables from.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -1159,10 +915,6 @@ class GetFileFormatsFileFormatResult(dict):
                  format_type: str,
                  name: str,
                  schema: str):
-        """
-        :param str database: The database from which to return the schemas from.
-        :param str schema: The schema from which to return the file formats from.
-        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "format_type", format_type)
@@ -1177,9 +929,6 @@ class GetFileFormatsFileFormatResult(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -1195,9 +944,6 @@ class GetFileFormatsFileFormatResult(dict):
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the file formats from.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -1210,10 +956,6 @@ class GetFunctionsFunctionResult(dict):
                  name: str,
                  return_type: str,
                  schema: str):
-        """
-        :param str database: The database from which to return the schemas from.
-        :param str schema: The schema from which to return the functions from.
-        """
         pulumi.set(__self__, "argument_types", argument_types)
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "database", database)
@@ -1234,9 +976,6 @@ class GetFunctionsFunctionResult(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -1252,9 +991,6 @@ class GetFunctionsFunctionResult(dict):
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the functions from.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -1266,10 +1002,6 @@ class GetMaskingPoliciesMaskingPolicyResult(dict):
                  kind: str,
                  name: str,
                  schema: str):
-        """
-        :param str database: The database from which to return the schemas from.
-        :param str schema: The schema from which to return the maskingPolicies from.
-        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "kind", kind)
@@ -1284,9 +1016,6 @@ class GetMaskingPoliciesMaskingPolicyResult(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -1302,9 +1031,6 @@ class GetMaskingPoliciesMaskingPolicyResult(dict):
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the maskingPolicies from.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -1315,10 +1041,6 @@ class GetMaterializedViewsMaterializedViewResult(dict):
                  database: str,
                  name: str,
                  schema: str):
-        """
-        :param str database: The database from which to return the schemas from.
-        :param str schema: The schema from which to return the views from.
-        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "name", name)
@@ -1332,9 +1054,6 @@ class GetMaterializedViewsMaterializedViewResult(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -1345,9 +1064,6 @@ class GetMaterializedViewsMaterializedViewResult(dict):
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the views from.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -1359,10 +1075,6 @@ class GetPipesPipeResult(dict):
                  integration: str,
                  name: str,
                  schema: str):
-        """
-        :param str database: The database from which to return the schemas from.
-        :param str schema: The schema from which to return the pipes from.
-        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "integration", integration)
@@ -1377,9 +1089,6 @@ class GetPipesPipeResult(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -1395,9 +1104,6 @@ class GetPipesPipeResult(dict):
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the pipes from.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -1410,10 +1116,6 @@ class GetProceduresProcedureResult(dict):
                  name: str,
                  return_type: str,
                  schema: str):
-        """
-        :param str database: The database from which to return the schemas from.
-        :param str schema: The schema from which to return the procedures from.
-        """
         pulumi.set(__self__, "argument_types", argument_types)
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "database", database)
@@ -1434,9 +1136,6 @@ class GetProceduresProcedureResult(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -1452,9 +1151,6 @@ class GetProceduresProcedureResult(dict):
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the procedures from.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -1498,10 +1194,6 @@ class GetRowAccessPoliciesRowAccessPolicyResult(dict):
                  database: str,
                  name: str,
                  schema: str):
-        """
-        :param str database: The database from which to return the schemas from.
-        :param str schema: The schema from which to return the row access policyfrom.
-        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "name", name)
@@ -1515,9 +1207,6 @@ class GetRowAccessPoliciesRowAccessPolicyResult(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -1528,9 +1217,6 @@ class GetRowAccessPoliciesRowAccessPolicyResult(dict):
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the row access policyfrom.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -1540,9 +1226,6 @@ class GetSchemasSchemaResult(dict):
                  comment: str,
                  database: str,
                  name: str):
-        """
-        :param str database: The database from which to return the schemas from.
-        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "name", name)
@@ -1555,9 +1238,6 @@ class GetSchemasSchemaResult(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -1573,10 +1253,6 @@ class GetSequencesSequenceResult(dict):
                  database: str,
                  name: str,
                  schema: str):
-        """
-        :param str database: The database from which to return the schemas from.
-        :param str schema: The schema from which to return the sequences from.
-        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "name", name)
@@ -1590,9 +1266,6 @@ class GetSequencesSequenceResult(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -1603,9 +1276,6 @@ class GetSequencesSequenceResult(dict):
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the sequences from.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -1617,10 +1287,6 @@ class GetStagesStageResult(dict):
                  name: str,
                  schema: str,
                  storage_integration: str):
-        """
-        :param str database: The database from which to return the schemas from.
-        :param str schema: The schema from which to return the stages from.
-        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "name", name)
@@ -1635,9 +1301,6 @@ class GetStagesStageResult(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -1648,9 +1311,6 @@ class GetStagesStageResult(dict):
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the stages from.
-        """
         return pulumi.get(self, "schema")
 
     @property
@@ -1700,10 +1360,6 @@ class GetStreamsStreamResult(dict):
                  name: str,
                  schema: str,
                  table: str):
-        """
-        :param str database: The database from which to return the streams from.
-        :param str schema: The schema from which to return the streams from.
-        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "name", name)
@@ -1718,9 +1374,6 @@ class GetStreamsStreamResult(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the streams from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -1731,9 +1384,6 @@ class GetStreamsStreamResult(dict):
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the streams from.
-        """
         return pulumi.get(self, "schema")
 
     @property
@@ -1749,10 +1399,6 @@ class GetTablesTableResult(dict):
                  database: str,
                  name: str,
                  schema: str):
-        """
-        :param str database: The database from which to return the schemas from.
-        :param str schema: The schema from which to return the tables from.
-        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "name", name)
@@ -1766,9 +1412,6 @@ class GetTablesTableResult(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -1779,9 +1422,6 @@ class GetTablesTableResult(dict):
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the tables from.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -1793,10 +1433,6 @@ class GetTasksTaskResult(dict):
                  name: str,
                  schema: str,
                  warehouse: str):
-        """
-        :param str database: The database from which to return the schemas from.
-        :param str schema: The schema from which to return the tasks from.
-        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "name", name)
@@ -1811,9 +1447,6 @@ class GetTasksTaskResult(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -1824,9 +1457,6 @@ class GetTasksTaskResult(dict):
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the tasks from.
-        """
         return pulumi.get(self, "schema")
 
     @property
@@ -1836,16 +1466,101 @@ class GetTasksTaskResult(dict):
 
 
 @pulumi.output_type
+class GetUsersUserResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 default_namespace: str,
+                 default_role: str,
+                 default_warehouse: str,
+                 disabled: bool,
+                 display_name: str,
+                 email: str,
+                 first_name: str,
+                 has_rsa_public_key: bool,
+                 last_name: str,
+                 login_name: str,
+                 name: str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "default_namespace", default_namespace)
+        pulumi.set(__self__, "default_role", default_role)
+        pulumi.set(__self__, "default_warehouse", default_warehouse)
+        pulumi.set(__self__, "disabled", disabled)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "first_name", first_name)
+        pulumi.set(__self__, "has_rsa_public_key", has_rsa_public_key)
+        pulumi.set(__self__, "last_name", last_name)
+        pulumi.set(__self__, "login_name", login_name)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="defaultNamespace")
+    def default_namespace(self) -> str:
+        return pulumi.get(self, "default_namespace")
+
+    @property
+    @pulumi.getter(name="defaultRole")
+    def default_role(self) -> str:
+        return pulumi.get(self, "default_role")
+
+    @property
+    @pulumi.getter(name="defaultWarehouse")
+    def default_warehouse(self) -> str:
+        return pulumi.get(self, "default_warehouse")
+
+    @property
+    @pulumi.getter
+    def disabled(self) -> bool:
+        return pulumi.get(self, "disabled")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def email(self) -> str:
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> str:
+        return pulumi.get(self, "first_name")
+
+    @property
+    @pulumi.getter(name="hasRsaPublicKey")
+    def has_rsa_public_key(self) -> bool:
+        return pulumi.get(self, "has_rsa_public_key")
+
+    @property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> str:
+        return pulumi.get(self, "last_name")
+
+    @property
+    @pulumi.getter(name="loginName")
+    def login_name(self) -> str:
+        return pulumi.get(self, "login_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class GetViewsViewResult(dict):
     def __init__(__self__, *,
                  comment: str,
                  database: str,
                  name: str,
                  schema: str):
-        """
-        :param str database: The database from which to return the schemas from.
-        :param str schema: The schema from which to return the views from.
-        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "name", name)
@@ -1859,9 +1574,6 @@ class GetViewsViewResult(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -1872,9 +1584,6 @@ class GetViewsViewResult(dict):
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the views from.
-        """
         return pulumi.get(self, "schema")
 
 

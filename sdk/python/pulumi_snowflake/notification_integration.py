@@ -37,7 +37,7 @@ class NotificationIntegrationArgs:
         :param pulumi.Input[str] comment: A comment for the integration
         :param pulumi.Input[str] direction: Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         :param pulumi.Input[str] gcp_pubsub_subscription_name: The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
-        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
         :param pulumi.Input[str] type: A type of integration
         """
         if aws_sns_role_arn is not None:
@@ -197,7 +197,7 @@ class NotificationIntegrationArgs:
     @pulumi.getter(name="notificationProvider")
     def notification_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+        The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
         """
         return pulumi.get(self, "notification_provider")
 
@@ -257,7 +257,7 @@ class _NotificationIntegrationState:
         :param pulumi.Input[str] direction: Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         :param pulumi.Input[str] gcp_pubsub_service_account: The GCP service account identifier that Snowflake will use when assuming the GCP role
         :param pulumi.Input[str] gcp_pubsub_subscription_name: The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
-        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
         :param pulumi.Input[str] type: A type of integration
         """
         if aws_sns_external_id is not None:
@@ -501,7 +501,7 @@ class _NotificationIntegrationState:
     @pulumi.getter(name="notificationProvider")
     def notification_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+        The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
         """
         return pulumi.get(self, "notification_provider")
 
@@ -579,7 +579,7 @@ class NotificationIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] comment: A comment for the integration
         :param pulumi.Input[str] direction: Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         :param pulumi.Input[str] gcp_pubsub_subscription_name: The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
-        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
         :param pulumi.Input[str] type: A type of integration
         """
         ...
@@ -725,7 +725,7 @@ class NotificationIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] direction: Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         :param pulumi.Input[str] gcp_pubsub_service_account: The GCP service account identifier that Snowflake will use when assuming the GCP role
         :param pulumi.Input[str] gcp_pubsub_subscription_name: The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
-        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
         :param pulumi.Input[str] type: A type of integration
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -887,7 +887,7 @@ class NotificationIntegration(pulumi.CustomResource):
     @pulumi.getter(name="notificationProvider")
     def notification_provider(self) -> pulumi.Output[Optional[str]]:
         """
-        The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+        The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
         """
         return pulumi.get(self, "notification_provider")
 

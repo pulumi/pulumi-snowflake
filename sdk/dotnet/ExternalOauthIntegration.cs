@@ -66,13 +66,15 @@ namespace Pulumi.Snowflake
         public Output<string?> AnyRoleMode { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+        /// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's
+        /// Snowflake Account URL
         /// </summary>
         [Output("audienceUrls")]
         public Output<ImmutableArray<string>> AudienceUrls { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+        /// Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or
+        /// SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         /// </summary>
         [Output("blockedRoles")]
         public Output<ImmutableArray<string>> BlockedRoles { get; private set; } = null!;
@@ -102,13 +104,15 @@ namespace Pulumi.Snowflake
         public Output<string> Issuer { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+        /// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
+        /// OAuth access token. The maximum number of URLs that can be specified in the list is 3.
         /// </summary>
         [Output("jwsKeysUrls")]
         public Output<ImmutableArray<string>> JwsKeysUrls { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        /// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
+        /// be unique among security integrations in your account.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -120,7 +124,8 @@ namespace Pulumi.Snowflake
         public Output<string?> RsaPublicKey { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
+        /// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
+        /// key rotation.
         /// </summary>
         [Output("rsaPublicKey2")]
         public Output<string?> RsaPublicKey2 { get; private set; } = null!;
@@ -144,7 +149,8 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> TokenUserMappingClaims { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
+        /// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
+        /// OAuth 2.0 authorization server.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -217,7 +223,8 @@ namespace Pulumi.Snowflake
         private InputList<string>? _audienceUrls;
 
         /// <summary>
-        /// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+        /// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's
+        /// Snowflake Account URL
         /// </summary>
         public InputList<string> AudienceUrls
         {
@@ -229,7 +236,8 @@ namespace Pulumi.Snowflake
         private InputList<string>? _blockedRoles;
 
         /// <summary>
-        /// Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+        /// Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or
+        /// SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         /// </summary>
         public InputList<string> BlockedRoles
         {
@@ -259,7 +267,8 @@ namespace Pulumi.Snowflake
         private InputList<string>? _jwsKeysUrls;
 
         /// <summary>
-        /// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+        /// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
+        /// OAuth access token. The maximum number of URLs that can be specified in the list is 3.
         /// </summary>
         public InputList<string> JwsKeysUrls
         {
@@ -268,7 +277,8 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        /// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
+        /// be unique among security integrations in your account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -280,7 +290,8 @@ namespace Pulumi.Snowflake
         public Input<string>? RsaPublicKey { get; set; }
 
         /// <summary>
-        /// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
+        /// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
+        /// key rotation.
         /// </summary>
         [Input("rsaPublicKey2")]
         public Input<string>? RsaPublicKey2 { get; set; }
@@ -310,7 +321,8 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
+        /// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
+        /// OAuth 2.0 authorization server.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -344,7 +356,8 @@ namespace Pulumi.Snowflake
         private InputList<string>? _audienceUrls;
 
         /// <summary>
-        /// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+        /// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's
+        /// Snowflake Account URL
         /// </summary>
         public InputList<string> AudienceUrls
         {
@@ -356,7 +369,8 @@ namespace Pulumi.Snowflake
         private InputList<string>? _blockedRoles;
 
         /// <summary>
-        /// Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+        /// Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or
+        /// SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         /// </summary>
         public InputList<string> BlockedRoles
         {
@@ -392,7 +406,8 @@ namespace Pulumi.Snowflake
         private InputList<string>? _jwsKeysUrls;
 
         /// <summary>
-        /// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+        /// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
+        /// OAuth access token. The maximum number of URLs that can be specified in the list is 3.
         /// </summary>
         public InputList<string> JwsKeysUrls
         {
@@ -401,7 +416,8 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        /// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
+        /// be unique among security integrations in your account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -413,7 +429,8 @@ namespace Pulumi.Snowflake
         public Input<string>? RsaPublicKey { get; set; }
 
         /// <summary>
-        /// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
+        /// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
+        /// key rotation.
         /// </summary>
         [Input("rsaPublicKey2")]
         public Input<string>? RsaPublicKey2 { get; set; }
@@ -443,7 +460,8 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
+        /// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
+        /// OAuth 2.0 authorization server.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

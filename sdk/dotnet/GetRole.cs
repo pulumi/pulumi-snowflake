@@ -69,9 +69,6 @@ namespace Pulumi.Snowflake
 
     public sealed class GetRoleArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The role for which to return metadata.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -82,9 +79,6 @@ namespace Pulumi.Snowflake
 
     public sealed class GetRoleInvokeArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The role for which to return metadata.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -97,17 +91,11 @@ namespace Pulumi.Snowflake
     [OutputType]
     public sealed class GetRoleResult
     {
-        /// <summary>
-        /// The comment on the role
-        /// </summary>
         public readonly string Comment;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The role for which to return metadata.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

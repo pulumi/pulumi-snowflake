@@ -28,7 +28,9 @@ class FileFormatGrantArgs:
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] file_format_name: The name of the file format on which to grant privileges immediately (only valid if on_future is false).
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema_name is provided, apply this grant on all future file formats in the given schema.
+               When this is true and no schema_name is provided apply this grant on all future file formats in the given database. The
+               file_format_name field must be unset in order to use on_future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future file format.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -101,7 +103,9 @@ class FileFormatGrantArgs:
     @pulumi.getter(name="onFuture")
     def on_future(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
+        When this is set to true and a schema_name is provided, apply this grant on all future file formats in the given schema.
+        When this is true and no schema_name is provided apply this grant on all future file formats in the given database. The
+        file_format_name field must be unset in order to use on_future.
         """
         return pulumi.get(self, "on_future")
 
@@ -163,7 +167,9 @@ class _FileFormatGrantState:
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] file_format_name: The name of the file format on which to grant privileges immediately (only valid if on_future is false).
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema_name is provided, apply this grant on all future file formats in the given schema.
+               When this is true and no schema_name is provided apply this grant on all future file formats in the given database. The
+               file_format_name field must be unset in order to use on_future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future file format.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future file formats on which to grant privileges.
@@ -227,7 +233,9 @@ class _FileFormatGrantState:
     @pulumi.getter(name="onFuture")
     def on_future(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
+        When this is set to true and a schema_name is provided, apply this grant on all future file formats in the given schema.
+        When this is true and no schema_name is provided apply this grant on all future file formats in the given database. The
+        file_format_name field must be unset in order to use on_future.
         """
         return pulumi.get(self, "on_future")
 
@@ -332,7 +340,9 @@ class FileFormatGrant(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] file_format_name: The name of the file format on which to grant privileges immediately (only valid if on_future is false).
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema_name is provided, apply this grant on all future file formats in the given schema.
+               When this is true and no schema_name is provided apply this grant on all future file formats in the given database. The
+               file_format_name field must be unset in order to use on_future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future file format.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future file formats on which to grant privileges.
@@ -448,7 +458,9 @@ class FileFormatGrant(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] file_format_name: The name of the file format on which to grant privileges immediately (only valid if on_future is false).
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema_name is provided, apply this grant on all future file formats in the given schema.
+               When this is true and no schema_name is provided apply this grant on all future file formats in the given database. The
+               file_format_name field must be unset in order to use on_future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future file format.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future file formats on which to grant privileges.
@@ -497,7 +509,9 @@ class FileFormatGrant(pulumi.CustomResource):
     @pulumi.getter(name="onFuture")
     def on_future(self) -> pulumi.Output[Optional[bool]]:
         """
-        When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
+        When this is set to true and a schema_name is provided, apply this grant on all future file formats in the given schema.
+        When this is true and no schema_name is provided apply this grant on all future file formats in the given database. The
+        file_format_name field must be unset in order to use on_future.
         """
         return pulumi.get(self, "on_future")
 

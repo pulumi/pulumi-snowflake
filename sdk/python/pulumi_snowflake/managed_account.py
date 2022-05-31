@@ -20,7 +20,8 @@ class ManagedAccountArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ManagedAccount resource.
-        :param pulumi.Input[str] admin_name: Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+        :param pulumi.Input[str] admin_name: Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+               administrator for the account.
         :param pulumi.Input[str] admin_password: Password for the initial user in the managed account.
         :param pulumi.Input[str] comment: Specifies a comment for the managed account.
         :param pulumi.Input[str] name: Identifier for the managed account; must be unique for your account.
@@ -39,7 +40,8 @@ class ManagedAccountArgs:
     @pulumi.getter(name="adminName")
     def admin_name(self) -> pulumi.Input[str]:
         """
-        Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+        Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+        administrator for the account.
         """
         return pulumi.get(self, "admin_name")
 
@@ -111,7 +113,8 @@ class _ManagedAccountState:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ManagedAccount resources.
-        :param pulumi.Input[str] admin_name: Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+        :param pulumi.Input[str] admin_name: Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+               administrator for the account.
         :param pulumi.Input[str] admin_password: Password for the initial user in the managed account.
         :param pulumi.Input[str] cloud: Cloud in which the managed account is located.
         :param pulumi.Input[str] comment: Specifies a comment for the managed account.
@@ -147,7 +150,8 @@ class _ManagedAccountState:
     @pulumi.getter(name="adminName")
     def admin_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+        Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+        administrator for the account.
         """
         return pulumi.get(self, "admin_name")
 
@@ -284,7 +288,8 @@ class ManagedAccount(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] admin_name: Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+        :param pulumi.Input[str] admin_name: Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+               administrator for the account.
         :param pulumi.Input[str] admin_password: Password for the initial user in the managed account.
         :param pulumi.Input[str] comment: Specifies a comment for the managed account.
         :param pulumi.Input[str] name: Identifier for the managed account; must be unique for your account.
@@ -376,7 +381,8 @@ class ManagedAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] admin_name: Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+        :param pulumi.Input[str] admin_name: Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+               administrator for the account.
         :param pulumi.Input[str] admin_password: Password for the initial user in the managed account.
         :param pulumi.Input[str] cloud: Cloud in which the managed account is located.
         :param pulumi.Input[str] comment: Specifies a comment for the managed account.
@@ -407,7 +413,8 @@ class ManagedAccount(pulumi.CustomResource):
     @pulumi.getter(name="adminName")
     def admin_name(self) -> pulumi.Output[str]:
         """
-        Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+        Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+        administrator for the account.
         """
         return pulumi.get(self, "admin_name")
 

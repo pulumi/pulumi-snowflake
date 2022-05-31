@@ -257,6 +257,41 @@ func (o SequenceOutput) ToSequenceOutputWithContext(ctx context.Context) Sequenc
 	return o
 }
 
+// Specifies a comment for the sequence.
+func (o SequenceOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sequence) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// The database in which to create the sequence. Don't use the | character.
+func (o SequenceOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v *Sequence) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// The fully qualified name of the sequence.
+func (o SequenceOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Sequence) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
+}
+
+// The amount the sequence will increase by each time it is used
+func (o SequenceOutput) Increment() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Sequence) pulumi.IntPtrOutput { return v.Increment }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the name for the sequence.
+func (o SequenceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Sequence) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The next value the sequence will provide.
+func (o SequenceOutput) NextValue() pulumi.IntOutput {
+	return o.ApplyT(func(v *Sequence) pulumi.IntOutput { return v.NextValue }).(pulumi.IntOutput)
+}
+
+// The schema in which to create the sequence. Don't use the | character.
+func (o SequenceOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v *Sequence) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
+}
+
 type SequenceArrayOutput struct{ *pulumi.OutputState }
 
 func (SequenceArrayOutput) ElementType() reflect.Type {

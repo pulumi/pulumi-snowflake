@@ -115,7 +115,8 @@ namespace Pulumi.Snowflake
         public Output<string> SnowflakeIamUser { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+        /// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+        /// to a Snowflake identity and access management (IAM) entity.
         /// </summary>
         [Output("storageIntegration")]
         public Output<string?> StorageIntegration { get; private set; } = null!;
@@ -239,7 +240,8 @@ namespace Pulumi.Snowflake
         public Input<string>? SnowflakeIamUser { get; set; }
 
         /// <summary>
-        /// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+        /// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+        /// to a Snowflake identity and access management (IAM) entity.
         /// </summary>
         [Input("storageIntegration")]
         public Input<string>? StorageIntegration { get; set; }
@@ -330,7 +332,8 @@ namespace Pulumi.Snowflake
         public Input<string>? SnowflakeIamUser { get; set; }
 
         /// <summary>
-        /// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+        /// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+        /// to a Snowflake identity and access management (IAM) entity.
         /// </summary>
         [Input("storageIntegration")]
         public Input<string>? StorageIntegration { get; set; }

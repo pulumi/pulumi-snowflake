@@ -286,6 +286,51 @@ func (o MaterializedViewOutput) ToMaterializedViewOutputWithContext(ctx context.
 	return o
 }
 
+// Specifies a comment for the view.
+func (o MaterializedViewOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaterializedView) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// The database in which to create the view. Don't use the | character.
+func (o MaterializedViewOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaterializedView) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// Specifies that the view is secure.
+func (o MaterializedViewOutput) IsSecure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MaterializedView) pulumi.BoolPtrOutput { return v.IsSecure }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the identifier for the view; must be unique for the schema in which the view is created.
+func (o MaterializedViewOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaterializedView) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Overwrites the View if it exists.
+func (o MaterializedViewOutput) OrReplace() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MaterializedView) pulumi.BoolPtrOutput { return v.OrReplace }).(pulumi.BoolPtrOutput)
+}
+
+// The schema in which to create the view. Don't use the | character.
+func (o MaterializedViewOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaterializedView) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
+}
+
+// Specifies the query used to create the view.
+func (o MaterializedViewOutput) Statement() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaterializedView) pulumi.StringOutput { return v.Statement }).(pulumi.StringOutput)
+}
+
+// Definitions of a tag to associate with the resource.
+func (o MaterializedViewOutput) Tags() MaterializedViewTagArrayOutput {
+	return o.ApplyT(func(v *MaterializedView) MaterializedViewTagArrayOutput { return v.Tags }).(MaterializedViewTagArrayOutput)
+}
+
+// The warehouse name.
+func (o MaterializedViewOutput) Warehouse() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaterializedView) pulumi.StringOutput { return v.Warehouse }).(pulumi.StringOutput)
+}
+
 type MaterializedViewArrayOutput struct{ *pulumi.OutputState }
 
 func (MaterializedViewArrayOutput) ElementType() reflect.Type {

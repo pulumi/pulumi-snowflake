@@ -21,6 +21,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string Options;
         public readonly string Origin;
         public readonly string Owner;
+        public readonly ImmutableArray<Outputs.GetDatabasesDatabaseReplicationConfigurationResult> ReplicationConfigurations;
         public readonly int RetentionTime;
 
         [OutputConstructor]
@@ -41,6 +42,8 @@ namespace Pulumi.Snowflake.Outputs
 
             string owner,
 
+            ImmutableArray<Outputs.GetDatabasesDatabaseReplicationConfigurationResult> replicationConfigurations,
+
             int retentionTime)
         {
             Comment = comment;
@@ -51,6 +54,7 @@ namespace Pulumi.Snowflake.Outputs
             Options = options;
             Origin = origin;
             Owner = owner;
+            ReplicationConfigurations = replicationConfigurations;
             RetentionTime = retentionTime;
         }
     }

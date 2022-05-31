@@ -26,9 +26,12 @@ class SchemaArgs:
         The set of arguments for constructing a Schema resource.
         :param pulumi.Input[str] database: The database in which to create the schema.
         :param pulumi.Input[str] comment: Specifies a comment for the schema.
-        :param pulumi.Input[int] data_retention_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
+        :param pulumi.Input[int] data_retention_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as
+               specifying the default Time Travel retention time for all tables created in the schema.
         :param pulumi.Input[bool] is_managed: Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
-        :param pulumi.Input[bool] is_transient: Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        :param pulumi.Input[bool] is_transient: Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
+               storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+               a data loss.
         :param pulumi.Input[str] name: Specifies the identifier for the schema; must be unique for the database in which the schema is created.
         :param pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
@@ -74,7 +77,8 @@ class SchemaArgs:
     @pulumi.getter(name="dataRetentionDays")
     def data_retention_days(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
+        Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as
+        specifying the default Time Travel retention time for all tables created in the schema.
         """
         return pulumi.get(self, "data_retention_days")
 
@@ -98,7 +102,9 @@ class SchemaArgs:
     @pulumi.getter(name="isTransient")
     def is_transient(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
+        storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+        a data loss.
         """
         return pulumi.get(self, "is_transient")
 
@@ -144,10 +150,13 @@ class _SchemaState:
         """
         Input properties used for looking up and filtering Schema resources.
         :param pulumi.Input[str] comment: Specifies a comment for the schema.
-        :param pulumi.Input[int] data_retention_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
+        :param pulumi.Input[int] data_retention_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as
+               specifying the default Time Travel retention time for all tables created in the schema.
         :param pulumi.Input[str] database: The database in which to create the schema.
         :param pulumi.Input[bool] is_managed: Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
-        :param pulumi.Input[bool] is_transient: Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        :param pulumi.Input[bool] is_transient: Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
+               storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+               a data loss.
         :param pulumi.Input[str] name: Specifies the identifier for the schema; must be unique for the database in which the schema is created.
         :param pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
@@ -182,7 +191,8 @@ class _SchemaState:
     @pulumi.getter(name="dataRetentionDays")
     def data_retention_days(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
+        Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as
+        specifying the default Time Travel retention time for all tables created in the schema.
         """
         return pulumi.get(self, "data_retention_days")
 
@@ -218,7 +228,9 @@ class _SchemaState:
     @pulumi.getter(name="isTransient")
     def is_transient(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
+        storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+        a data loss.
         """
         return pulumi.get(self, "is_transient")
 
@@ -290,10 +302,13 @@ class Schema(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the schema.
-        :param pulumi.Input[int] data_retention_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
+        :param pulumi.Input[int] data_retention_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as
+               specifying the default Time Travel retention time for all tables created in the schema.
         :param pulumi.Input[str] database: The database in which to create the schema.
         :param pulumi.Input[bool] is_managed: Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
-        :param pulumi.Input[bool] is_transient: Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        :param pulumi.Input[bool] is_transient: Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
+               storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+               a data loss.
         :param pulumi.Input[str] name: Specifies the identifier for the schema; must be unique for the database in which the schema is created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
@@ -394,10 +409,13 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the schema.
-        :param pulumi.Input[int] data_retention_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
+        :param pulumi.Input[int] data_retention_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as
+               specifying the default Time Travel retention time for all tables created in the schema.
         :param pulumi.Input[str] database: The database in which to create the schema.
         :param pulumi.Input[bool] is_managed: Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
-        :param pulumi.Input[bool] is_transient: Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        :param pulumi.Input[bool] is_transient: Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
+               storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+               a data loss.
         :param pulumi.Input[str] name: Specifies the identifier for the schema; must be unique for the database in which the schema is created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
@@ -426,7 +444,8 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter(name="dataRetentionDays")
     def data_retention_days(self) -> pulumi.Output[Optional[int]]:
         """
-        Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
+        Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as
+        specifying the default Time Travel retention time for all tables created in the schema.
         """
         return pulumi.get(self, "data_retention_days")
 
@@ -450,7 +469,9 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter(name="isTransient")
     def is_transient(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
+        storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+        a data loss.
         """
         return pulumi.get(self, "is_transient")
 

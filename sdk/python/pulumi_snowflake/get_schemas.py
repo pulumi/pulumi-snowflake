@@ -35,9 +35,6 @@ class GetSchemasResult:
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -51,9 +48,6 @@ class GetSchemasResult:
     @property
     @pulumi.getter
     def schemas(self) -> Sequence['outputs.GetSchemasSchemaResult']:
-        """
-        The schemas in the database
-        """
         return pulumi.get(self, "schemas")
 
 
@@ -79,9 +73,6 @@ def get_schemas(database: Optional[str] = None,
 
     current = snowflake.get_schemas(database="MYDB")
     ```
-
-
-    :param str database: The database from which to return the schemas from.
     """
     __args__ = dict()
     __args__['database'] = database
@@ -109,8 +100,5 @@ def get_schemas_output(database: Optional[pulumi.Input[str]] = None,
 
     current = snowflake.get_schemas(database="MYDB")
     ```
-
-
-    :param str database: The database from which to return the schemas from.
     """
     ...

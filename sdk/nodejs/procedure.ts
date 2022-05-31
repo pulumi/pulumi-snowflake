@@ -94,7 +94,8 @@ export class Procedure extends pulumi.CustomResource {
      */
     public readonly executeAs!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+     * Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
+     * Don't use the | character.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -192,7 +193,8 @@ export interface ProcedureState {
      */
     executeAs?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+     * Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
+     * Don't use the | character.
      */
     name?: pulumi.Input<string>;
     /**
@@ -238,7 +240,8 @@ export interface ProcedureArgs {
      */
     executeAs?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+     * Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
+     * Don't use the | character.
      */
     name?: pulumi.Input<string>;
     /**

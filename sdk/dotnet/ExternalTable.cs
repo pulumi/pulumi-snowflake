@@ -56,7 +56,8 @@ namespace Pulumi.Snowflake
     public partial class ExternalTable : Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+        /// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
+        /// created.
         /// </summary>
         [Output("autoRefresh")]
         public Output<bool?> AutoRefresh { get; private set; } = null!;
@@ -80,7 +81,8 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+        /// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
+        /// OR REPLACE TABLE variant
         /// </summary>
         [Output("copyGrants")]
         public Output<bool?> CopyGrants { get; private set; } = null!;
@@ -104,7 +106,8 @@ namespace Pulumi.Snowflake
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
+        /// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
+        /// is created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -192,7 +195,8 @@ namespace Pulumi.Snowflake
     public sealed class ExternalTableArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+        /// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
+        /// created.
         /// </summary>
         [Input("autoRefresh")]
         public Input<bool>? AutoRefresh { get; set; }
@@ -222,7 +226,8 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+        /// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
+        /// OR REPLACE TABLE variant
         /// </summary>
         [Input("copyGrants")]
         public Input<bool>? CopyGrants { get; set; }
@@ -246,7 +251,8 @@ namespace Pulumi.Snowflake
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
+        /// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
+        /// is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -301,7 +307,8 @@ namespace Pulumi.Snowflake
     public sealed class ExternalTableState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+        /// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
+        /// created.
         /// </summary>
         [Input("autoRefresh")]
         public Input<bool>? AutoRefresh { get; set; }
@@ -331,7 +338,8 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+        /// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
+        /// OR REPLACE TABLE variant
         /// </summary>
         [Input("copyGrants")]
         public Input<bool>? CopyGrants { get; set; }
@@ -355,7 +363,8 @@ namespace Pulumi.Snowflake
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
+        /// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
+        /// is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

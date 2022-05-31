@@ -132,7 +132,9 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        /// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+        /// historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the
+        /// schema attribute to this argument.
         /// </summary>
         [Output("dataRetentionDays")]
         public Output<int?> DataRetentionDays { get; private set; } = null!;
@@ -256,7 +258,9 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        /// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+        /// historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the
+        /// schema attribute to this argument.
         /// </summary>
         [Input("dataRetentionDays")]
         public Input<int>? DataRetentionDays { get; set; }
@@ -341,7 +345,9 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        /// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+        /// historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the
+        /// schema attribute to this argument.
         /// </summary>
         [Input("dataRetentionDays")]
         public Input<int>? DataRetentionDays { get; set; }

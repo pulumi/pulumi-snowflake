@@ -33,7 +33,9 @@ class ProcedureGrantArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ProcedureGrantArgumentArgs']]] arguments: List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema_name is provided, apply this grant on all future procedures in the given schema.
+               When this is true and no schema_name is provided apply this grant on all future procedures in the given database. The
+               procedure_name and shares fields must be unset in order to use on_future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future procedure.
         :param pulumi.Input[str] procedure_name: The name of the procedure on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[str] return_type: The return type of the procedure (must be present if procedure_name is present)
@@ -115,7 +117,9 @@ class ProcedureGrantArgs:
     @pulumi.getter(name="onFuture")
     def on_future(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
+        When this is set to true and a schema_name is provided, apply this grant on all future procedures in the given schema.
+        When this is true and no schema_name is provided apply this grant on all future procedures in the given database. The
+        procedure_name and shares fields must be unset in order to use on_future.
         """
         return pulumi.get(self, "on_future")
 
@@ -216,7 +220,9 @@ class _ProcedureGrantState:
         :param pulumi.Input[str] database_name: The name of the database containing the current or future procedures on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema_name is provided, apply this grant on all future procedures in the given schema.
+               When this is true and no schema_name is provided apply this grant on all future procedures in the given database. The
+               procedure_name and shares fields must be unset in order to use on_future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future procedure.
         :param pulumi.Input[str] procedure_name: The name of the procedure on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[str] return_type: The return type of the procedure (must be present if procedure_name is present)
@@ -289,7 +295,9 @@ class _ProcedureGrantState:
     @pulumi.getter(name="onFuture")
     def on_future(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
+        When this is set to true and a schema_name is provided, apply this grant on all future procedures in the given schema.
+        When this is true and no schema_name is provided apply this grant on all future procedures in the given database. The
+        procedure_name and shares fields must be unset in order to use on_future.
         """
         return pulumi.get(self, "on_future")
 
@@ -444,7 +452,9 @@ class ProcedureGrant(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: The name of the database containing the current or future procedures on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema_name is provided, apply this grant on all future procedures in the given schema.
+               When this is true and no schema_name is provided apply this grant on all future procedures in the given database. The
+               procedure_name and shares fields must be unset in order to use on_future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future procedure.
         :param pulumi.Input[str] procedure_name: The name of the procedure on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[str] return_type: The return type of the procedure (must be present if procedure_name is present)
@@ -583,7 +593,9 @@ class ProcedureGrant(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: The name of the database containing the current or future procedures on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema_name is provided, apply this grant on all future procedures in the given schema.
+               When this is true and no schema_name is provided apply this grant on all future procedures in the given database. The
+               procedure_name and shares fields must be unset in order to use on_future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future procedure.
         :param pulumi.Input[str] procedure_name: The name of the procedure on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[str] return_type: The return type of the procedure (must be present if procedure_name is present)
@@ -638,7 +650,9 @@ class ProcedureGrant(pulumi.CustomResource):
     @pulumi.getter(name="onFuture")
     def on_future(self) -> pulumi.Output[Optional[bool]]:
         """
-        When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
+        When this is set to true and a schema_name is provided, apply this grant on all future procedures in the given schema.
+        When this is true and no schema_name is provided apply this grant on all future procedures in the given database. The
+        procedure_name and shares fields must be unset in order to use on_future.
         """
         return pulumi.get(self, "on_future")
 

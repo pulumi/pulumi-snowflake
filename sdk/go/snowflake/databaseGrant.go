@@ -256,6 +256,37 @@ func (o DatabaseGrantOutput) ToDatabaseGrantOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The name of the database on which to grant privileges.
+func (o DatabaseGrantOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseGrant) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+// grants applied to roles and objects outside Terraform.
+func (o DatabaseGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatabaseGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
+}
+
+// The privilege to grant on the database.
+func (o DatabaseGrantOutput) Privilege() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
+}
+
+// Grants privilege to these roles.
+func (o DatabaseGrantOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DatabaseGrant) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+// Grants privilege to these shares.
+func (o DatabaseGrantOutput) Shares() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DatabaseGrant) pulumi.StringArrayOutput { return v.Shares }).(pulumi.StringArrayOutput)
+}
+
+// When this is set to true, allows the recipient role to grant the privileges to other roles.
+func (o DatabaseGrantOutput) WithGrantOption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatabaseGrant) pulumi.BoolPtrOutput { return v.WithGrantOption }).(pulumi.BoolPtrOutput)
+}
+
 type DatabaseGrantArrayOutput struct{ *pulumi.OutputState }
 
 func (DatabaseGrantArrayOutput) ElementType() reflect.Type {

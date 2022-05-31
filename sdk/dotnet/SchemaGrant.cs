@@ -68,7 +68,8 @@ namespace Pulumi.Snowflake
         public Output<bool?> EnableMultipleGrants { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
+        /// When this is set to true, apply this grant on all future schemas in the given database. The schema_name and shares
+        /// fields must be unset in order to use on_future.
         /// </summary>
         [Output("onFuture")]
         public Output<bool?> OnFuture { get; private set; } = null!;
@@ -164,7 +165,8 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
+        /// When this is set to true, apply this grant on all future schemas in the given database. The schema_name and shares
+        /// fields must be unset in order to use on_future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -233,7 +235,8 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
+        /// When this is set to true, apply this grant on all future schemas in the given database. The schema_name and shares
+        /// fields must be unset in order to use on_future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }

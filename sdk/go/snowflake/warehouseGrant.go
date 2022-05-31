@@ -241,6 +241,32 @@ func (o WarehouseGrantOutput) ToWarehouseGrantOutputWithContext(ctx context.Cont
 	return o
 }
 
+// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+// grants applied to roles and objects outside Terraform.
+func (o WarehouseGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WarehouseGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
+}
+
+// The privilege to grant on the warehouse.
+func (o WarehouseGrantOutput) Privilege() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WarehouseGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
+}
+
+// Grants privilege to these roles.
+func (o WarehouseGrantOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WarehouseGrant) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+// The name of the warehouse on which to grant privileges.
+func (o WarehouseGrantOutput) WarehouseName() pulumi.StringOutput {
+	return o.ApplyT(func(v *WarehouseGrant) pulumi.StringOutput { return v.WarehouseName }).(pulumi.StringOutput)
+}
+
+// When this is set to true, allows the recipient role to grant the privileges to other roles.
+func (o WarehouseGrantOutput) WithGrantOption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WarehouseGrant) pulumi.BoolPtrOutput { return v.WithGrantOption }).(pulumi.BoolPtrOutput)
+}
+
 type WarehouseGrantArrayOutput struct{ *pulumi.OutputState }
 
 func (WarehouseGrantArrayOutput) ElementType() reflect.Type {

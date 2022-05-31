@@ -19,7 +19,8 @@ import (
 type ManagedAccount struct {
 	pulumi.CustomResourceState
 
-	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+	// administrator for the account.
 	AdminName pulumi.StringOutput `pulumi:"adminName"`
 	// Password for the initial user in the managed account.
 	AdminPassword pulumi.StringOutput `pulumi:"adminPassword"`
@@ -76,7 +77,8 @@ func GetManagedAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedAccount resources.
 type managedAccountState struct {
-	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+	// administrator for the account.
 	AdminName *string `pulumi:"adminName"`
 	// Password for the initial user in the managed account.
 	AdminPassword *string `pulumi:"adminPassword"`
@@ -99,7 +101,8 @@ type managedAccountState struct {
 }
 
 type ManagedAccountState struct {
-	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+	// administrator for the account.
 	AdminName pulumi.StringPtrInput
 	// Password for the initial user in the managed account.
 	AdminPassword pulumi.StringPtrInput
@@ -126,7 +129,8 @@ func (ManagedAccountState) ElementType() reflect.Type {
 }
 
 type managedAccountArgs struct {
-	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+	// administrator for the account.
 	AdminName string `pulumi:"adminName"`
 	// Password for the initial user in the managed account.
 	AdminPassword string `pulumi:"adminPassword"`
@@ -140,7 +144,8 @@ type managedAccountArgs struct {
 
 // The set of arguments for constructing a ManagedAccount resource.
 type ManagedAccountArgs struct {
-	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+	// administrator for the account.
 	AdminName pulumi.StringInput
 	// Password for the initial user in the managed account.
 	AdminPassword pulumi.StringInput
@@ -237,6 +242,57 @@ func (o ManagedAccountOutput) ToManagedAccountOutput() ManagedAccountOutput {
 
 func (o ManagedAccountOutput) ToManagedAccountOutputWithContext(ctx context.Context) ManagedAccountOutput {
 	return o
+}
+
+// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+// administrator for the account.
+func (o ManagedAccountOutput) AdminName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedAccount) pulumi.StringOutput { return v.AdminName }).(pulumi.StringOutput)
+}
+
+// Password for the initial user in the managed account.
+func (o ManagedAccountOutput) AdminPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedAccount) pulumi.StringOutput { return v.AdminPassword }).(pulumi.StringOutput)
+}
+
+// Cloud in which the managed account is located.
+func (o ManagedAccountOutput) Cloud() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedAccount) pulumi.StringOutput { return v.Cloud }).(pulumi.StringOutput)
+}
+
+// Specifies a comment for the managed account.
+func (o ManagedAccountOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedAccount) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// Date and time when the managed account was created.
+func (o ManagedAccountOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedAccount) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// Display name of the managed account.
+func (o ManagedAccountOutput) Locator() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedAccount) pulumi.StringOutput { return v.Locator }).(pulumi.StringOutput)
+}
+
+// Identifier for the managed account; must be unique for your account.
+func (o ManagedAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Snowflake Region in which the managed account is located.
+func (o ManagedAccountOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedAccount) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// Specifies the type of managed account.
+func (o ManagedAccountOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedAccount) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// URL for accessing the managed account, particularly through the web interface.
+func (o ManagedAccountOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedAccount) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }
 
 type ManagedAccountArrayOutput struct{ *pulumi.OutputState }

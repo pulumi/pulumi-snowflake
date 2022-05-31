@@ -20,7 +20,8 @@ class UserPublicKeysArgs:
         The set of arguments for constructing a UserPublicKeys resource.
         :param pulumi.Input[str] name: Name of the user.
         :param pulumi.Input[str] rsa_public_key: Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
-        :param pulumi.Input[str] rsa_public_key2: Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+        :param pulumi.Input[str] rsa_public_key2: Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
+               based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -57,7 +58,8 @@ class UserPublicKeysArgs:
     @pulumi.getter(name="rsaPublicKey2")
     def rsa_public_key2(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+        Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
+        based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         """
         return pulumi.get(self, "rsa_public_key2")
 
@@ -76,7 +78,8 @@ class _UserPublicKeysState:
         Input properties used for looking up and filtering UserPublicKeys resources.
         :param pulumi.Input[str] name: Name of the user.
         :param pulumi.Input[str] rsa_public_key: Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
-        :param pulumi.Input[str] rsa_public_key2: Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+        :param pulumi.Input[str] rsa_public_key2: Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
+               based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -113,7 +116,8 @@ class _UserPublicKeysState:
     @pulumi.getter(name="rsaPublicKey2")
     def rsa_public_key2(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+        Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
+        based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         """
         return pulumi.get(self, "rsa_public_key2")
 
@@ -137,7 +141,8 @@ class UserPublicKeys(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of the user.
         :param pulumi.Input[str] rsa_public_key: Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
-        :param pulumi.Input[str] rsa_public_key2: Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+        :param pulumi.Input[str] rsa_public_key2: Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
+               based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         """
         ...
     @overload
@@ -202,7 +207,8 @@ class UserPublicKeys(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of the user.
         :param pulumi.Input[str] rsa_public_key: Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
-        :param pulumi.Input[str] rsa_public_key2: Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+        :param pulumi.Input[str] rsa_public_key2: Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
+               based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -233,7 +239,8 @@ class UserPublicKeys(pulumi.CustomResource):
     @pulumi.getter(name="rsaPublicKey2")
     def rsa_public_key2(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+        Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
+        based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         """
         return pulumi.get(self, "rsa_public_key2")
 

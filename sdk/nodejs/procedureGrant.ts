@@ -78,7 +78,7 @@ export class ProcedureGrant extends pulumi.CustomResource {
     }
 
     /**
-     * List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
+     * List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
      */
     public readonly arguments!: pulumi.Output<outputs.ProcedureGrantArgument[] | undefined>;
     /**
@@ -91,7 +91,9 @@ export class ProcedureGrant extends pulumi.CustomResource {
      */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
+     * When this is set to true and a schema_name is provided, apply this grant on all future procedures in the given schema.
+     * When this is true and no schema_name is provided apply this grant on all future procedures in the given database. The
+     * procedure_name and shares fields must be unset in order to use on_future.
      */
     public readonly onFuture!: pulumi.Output<boolean | undefined>;
     /**
@@ -99,11 +101,11 @@ export class ProcedureGrant extends pulumi.CustomResource {
      */
     public readonly privilege!: pulumi.Output<string | undefined>;
     /**
-     * The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
+     * The name of the procedure on which to grant privileges immediately (only valid if on_future is false).
      */
     public readonly procedureName!: pulumi.Output<string | undefined>;
     /**
-     * The return type of the procedure (must be present if procedureName is present)
+     * The return type of the procedure (must be present if procedure_name is present)
      */
     public readonly returnType!: pulumi.Output<string | undefined>;
     /**
@@ -115,7 +117,7 @@ export class ProcedureGrant extends pulumi.CustomResource {
      */
     public readonly schemaName!: pulumi.Output<string>;
     /**
-     * Grants privilege to these shares (only valid if onFuture is false).
+     * Grants privilege to these shares (only valid if on_future is false).
      */
     public readonly shares!: pulumi.Output<string[] | undefined>;
     /**
@@ -177,7 +179,7 @@ export class ProcedureGrant extends pulumi.CustomResource {
  */
 export interface ProcedureGrantState {
     /**
-     * List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
+     * List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
      */
     arguments?: pulumi.Input<pulumi.Input<inputs.ProcedureGrantArgument>[]>;
     /**
@@ -190,7 +192,9 @@ export interface ProcedureGrantState {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
+     * When this is set to true and a schema_name is provided, apply this grant on all future procedures in the given schema.
+     * When this is true and no schema_name is provided apply this grant on all future procedures in the given database. The
+     * procedure_name and shares fields must be unset in order to use on_future.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
@@ -198,11 +202,11 @@ export interface ProcedureGrantState {
      */
     privilege?: pulumi.Input<string>;
     /**
-     * The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
+     * The name of the procedure on which to grant privileges immediately (only valid if on_future is false).
      */
     procedureName?: pulumi.Input<string>;
     /**
-     * The return type of the procedure (must be present if procedureName is present)
+     * The return type of the procedure (must be present if procedure_name is present)
      */
     returnType?: pulumi.Input<string>;
     /**
@@ -214,7 +218,7 @@ export interface ProcedureGrantState {
      */
     schemaName?: pulumi.Input<string>;
     /**
-     * Grants privilege to these shares (only valid if onFuture is false).
+     * Grants privilege to these shares (only valid if on_future is false).
      */
     shares?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -228,7 +232,7 @@ export interface ProcedureGrantState {
  */
 export interface ProcedureGrantArgs {
     /**
-     * List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
+     * List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
      */
     arguments?: pulumi.Input<pulumi.Input<inputs.ProcedureGrantArgument>[]>;
     /**
@@ -241,7 +245,9 @@ export interface ProcedureGrantArgs {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
+     * When this is set to true and a schema_name is provided, apply this grant on all future procedures in the given schema.
+     * When this is true and no schema_name is provided apply this grant on all future procedures in the given database. The
+     * procedure_name and shares fields must be unset in order to use on_future.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
@@ -249,11 +255,11 @@ export interface ProcedureGrantArgs {
      */
     privilege?: pulumi.Input<string>;
     /**
-     * The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
+     * The name of the procedure on which to grant privileges immediately (only valid if on_future is false).
      */
     procedureName?: pulumi.Input<string>;
     /**
-     * The return type of the procedure (must be present if procedureName is present)
+     * The return type of the procedure (must be present if procedure_name is present)
      */
     returnType?: pulumi.Input<string>;
     /**
@@ -265,7 +271,7 @@ export interface ProcedureGrantArgs {
      */
     schemaName: pulumi.Input<string>;
     /**
-     * Grants privilege to these shares (only valid if onFuture is false).
+     * Grants privilege to these shares (only valid if on_future is false).
      */
     shares?: pulumi.Input<pulumi.Input<string>[]>;
     /**

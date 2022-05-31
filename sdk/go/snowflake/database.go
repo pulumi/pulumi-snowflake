@@ -31,6 +31,21 @@ import (
 // 		}
 // 		_, err = snowflake.NewDatabase(ctx, "test2", &snowflake.DatabaseArgs{
 // 			Comment: pulumi.String("test comment 2"),
+// 			ReplicationConfiguration: &DatabaseReplicationConfigurationArgs{
+// 				Accounts: pulumi.StringArray{
+// 					pulumi.String("test_account1"),
+// 					pulumi.String("test_account_2"),
+// 				},
+// 				IgnoreEditionCheck: pulumi.Bool(true),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewDatabase(ctx, "test3", &snowflake.DatabaseArgs{
+// 			Comment:                 pulumi.String("test comment"),
+// 			DataRetentionTimeInDays: pulumi.Int(3),
+// 			FromReplica:             pulumi.String("org1\".\"account1\".\"primary_db_name"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -52,11 +67,14 @@ type Database struct {
 	DataRetentionTimeInDays pulumi.IntOutput       `pulumi:"dataRetentionTimeInDays"`
 	// Specify a database to create a clone from.
 	FromDatabase pulumi.StringPtrOutput `pulumi:"fromDatabase"`
-	// Specify a fully-qualified path to a database to create a replica from.
+	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
+	// "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
 	FromReplica pulumi.StringPtrOutput `pulumi:"fromReplica"`
 	// Specify a provider and a share in this map to create a database from a share.
-	FromShare pulumi.MapOutput    `pulumi:"fromShare"`
-	Name      pulumi.StringOutput `pulumi:"name"`
+	FromShare pulumi.StringMapOutput `pulumi:"fromShare"`
+	Name      pulumi.StringOutput    `pulumi:"name"`
+	// When set, specifies the configurations for database replication.
+	ReplicationConfiguration DatabaseReplicationConfigurationPtrOutput `pulumi:"replicationConfiguration"`
 	// Definitions of a tag to associate with the resource.
 	Tags DatabaseTagArrayOutput `pulumi:"tags"`
 }
@@ -94,11 +112,14 @@ type databaseState struct {
 	DataRetentionTimeInDays *int    `pulumi:"dataRetentionTimeInDays"`
 	// Specify a database to create a clone from.
 	FromDatabase *string `pulumi:"fromDatabase"`
-	// Specify a fully-qualified path to a database to create a replica from.
+	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
+	// "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
 	FromReplica *string `pulumi:"fromReplica"`
 	// Specify a provider and a share in this map to create a database from a share.
-	FromShare map[string]interface{} `pulumi:"fromShare"`
-	Name      *string                `pulumi:"name"`
+	FromShare map[string]string `pulumi:"fromShare"`
+	Name      *string           `pulumi:"name"`
+	// When set, specifies the configurations for database replication.
+	ReplicationConfiguration *DatabaseReplicationConfiguration `pulumi:"replicationConfiguration"`
 	// Definitions of a tag to associate with the resource.
 	Tags []DatabaseTag `pulumi:"tags"`
 }
@@ -108,11 +129,14 @@ type DatabaseState struct {
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// Specify a database to create a clone from.
 	FromDatabase pulumi.StringPtrInput
-	// Specify a fully-qualified path to a database to create a replica from.
+	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
+	// "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
 	FromReplica pulumi.StringPtrInput
 	// Specify a provider and a share in this map to create a database from a share.
-	FromShare pulumi.MapInput
+	FromShare pulumi.StringMapInput
 	Name      pulumi.StringPtrInput
+	// When set, specifies the configurations for database replication.
+	ReplicationConfiguration DatabaseReplicationConfigurationPtrInput
 	// Definitions of a tag to associate with the resource.
 	Tags DatabaseTagArrayInput
 }
@@ -126,11 +150,14 @@ type databaseArgs struct {
 	DataRetentionTimeInDays *int    `pulumi:"dataRetentionTimeInDays"`
 	// Specify a database to create a clone from.
 	FromDatabase *string `pulumi:"fromDatabase"`
-	// Specify a fully-qualified path to a database to create a replica from.
+	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
+	// "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
 	FromReplica *string `pulumi:"fromReplica"`
 	// Specify a provider and a share in this map to create a database from a share.
-	FromShare map[string]interface{} `pulumi:"fromShare"`
-	Name      *string                `pulumi:"name"`
+	FromShare map[string]string `pulumi:"fromShare"`
+	Name      *string           `pulumi:"name"`
+	// When set, specifies the configurations for database replication.
+	ReplicationConfiguration *DatabaseReplicationConfiguration `pulumi:"replicationConfiguration"`
 	// Definitions of a tag to associate with the resource.
 	Tags []DatabaseTag `pulumi:"tags"`
 }
@@ -141,11 +168,14 @@ type DatabaseArgs struct {
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// Specify a database to create a clone from.
 	FromDatabase pulumi.StringPtrInput
-	// Specify a fully-qualified path to a database to create a replica from.
+	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
+	// "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
 	FromReplica pulumi.StringPtrInput
 	// Specify a provider and a share in this map to create a database from a share.
-	FromShare pulumi.MapInput
+	FromShare pulumi.StringMapInput
 	Name      pulumi.StringPtrInput
+	// When set, specifies the configurations for database replication.
+	ReplicationConfiguration DatabaseReplicationConfigurationPtrInput
 	// Definitions of a tag to associate with the resource.
 	Tags DatabaseTagArrayInput
 }
@@ -235,6 +265,44 @@ func (o DatabaseOutput) ToDatabaseOutput() DatabaseOutput {
 
 func (o DatabaseOutput) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutput {
 	return o
+}
+
+func (o DatabaseOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseOutput) DataRetentionTimeInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v *Database) pulumi.IntOutput { return v.DataRetentionTimeInDays }).(pulumi.IntOutput)
+}
+
+// Specify a database to create a clone from.
+func (o DatabaseOutput) FromDatabase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.FromDatabase }).(pulumi.StringPtrOutput)
+}
+
+// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
+// "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
+func (o DatabaseOutput) FromReplica() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.FromReplica }).(pulumi.StringPtrOutput)
+}
+
+// Specify a provider and a share in this map to create a database from a share.
+func (o DatabaseOutput) FromShare() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringMapOutput { return v.FromShare }).(pulumi.StringMapOutput)
+}
+
+func (o DatabaseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// When set, specifies the configurations for database replication.
+func (o DatabaseOutput) ReplicationConfiguration() DatabaseReplicationConfigurationPtrOutput {
+	return o.ApplyT(func(v *Database) DatabaseReplicationConfigurationPtrOutput { return v.ReplicationConfiguration }).(DatabaseReplicationConfigurationPtrOutput)
+}
+
+// Definitions of a tag to associate with the resource.
+func (o DatabaseOutput) Tags() DatabaseTagArrayOutput {
+	return o.ApplyT(func(v *Database) DatabaseTagArrayOutput { return v.Tags }).(DatabaseTagArrayOutput)
 }
 
 type DatabaseArrayOutput struct{ *pulumi.OutputState }

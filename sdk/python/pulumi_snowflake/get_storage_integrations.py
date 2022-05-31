@@ -39,9 +39,6 @@ class GetStorageIntegrationsResult:
     @property
     @pulumi.getter(name="storageIntegrations")
     def storage_integrations(self) -> Sequence['outputs.GetStorageIntegrationsStorageIntegrationResult']:
-        """
-        The storage integrations in the database
-        """
         return pulumi.get(self, "storage_integrations")
 
 

@@ -44,22 +44,17 @@ func GetViews(ctx *pulumi.Context, args *GetViewsArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getViews.
 type GetViewsArgs struct {
-	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	// The schema from which to return the views from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // A collection of values returned by getViews.
 type GetViewsResult struct {
-	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The schema from which to return the views from.
-	Schema string `pulumi:"schema"`
-	// The views in the schema
-	Views []GetViewsView `pulumi:"views"`
+	Id     string         `pulumi:"id"`
+	Schema string         `pulumi:"schema"`
+	Views  []GetViewsView `pulumi:"views"`
 }
 
 func GetViewsOutput(ctx *pulumi.Context, args GetViewsOutputArgs, opts ...pulumi.InvokeOption) GetViewsResultOutput {
@@ -77,10 +72,8 @@ func GetViewsOutput(ctx *pulumi.Context, args GetViewsOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getViews.
 type GetViewsOutputArgs struct {
-	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the views from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetViewsOutputArgs) ElementType() reflect.Type {
@@ -102,7 +95,6 @@ func (o GetViewsResultOutput) ToGetViewsResultOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The database from which to return the schemas from.
 func (o GetViewsResultOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetViewsResult) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -112,12 +104,10 @@ func (o GetViewsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetViewsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the views from.
 func (o GetViewsResultOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetViewsResult) string { return v.Schema }).(pulumi.StringOutput)
 }
 
-// The views in the schema
 func (o GetViewsResultOutput) Views() GetViewsViewArrayOutput {
 	return o.ApplyT(func(v GetViewsResult) []GetViewsView { return v.Views }).(GetViewsViewArrayOutput)
 }

@@ -57,7 +57,8 @@ type ResourceMonitor struct {
 	CreditQuota pulumi.IntOutput `pulumi:"creditQuota"`
 	// The date and time when the resource monitor suspends the assigned warehouses.
 	EndTimestamp pulumi.StringPtrOutput `pulumi:"endTimestamp"`
-	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
+	// also set START_TIMESTAMP.
 	Frequency pulumi.StringOutput `pulumi:"frequency"`
 	// Identifier for the resource monitor; must be unique for your account.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -108,7 +109,8 @@ type resourceMonitorState struct {
 	CreditQuota *int `pulumi:"creditQuota"`
 	// The date and time when the resource monitor suspends the assigned warehouses.
 	EndTimestamp *string `pulumi:"endTimestamp"`
-	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
+	// also set START_TIMESTAMP.
 	Frequency *string `pulumi:"frequency"`
 	// Identifier for the resource monitor; must be unique for your account.
 	Name *string `pulumi:"name"`
@@ -131,7 +133,8 @@ type ResourceMonitorState struct {
 	CreditQuota pulumi.IntPtrInput
 	// The date and time when the resource monitor suspends the assigned warehouses.
 	EndTimestamp pulumi.StringPtrInput
-	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
+	// also set START_TIMESTAMP.
 	Frequency pulumi.StringPtrInput
 	// Identifier for the resource monitor; must be unique for your account.
 	Name pulumi.StringPtrInput
@@ -158,7 +161,8 @@ type resourceMonitorArgs struct {
 	CreditQuota *int `pulumi:"creditQuota"`
 	// The date and time when the resource monitor suspends the assigned warehouses.
 	EndTimestamp *string `pulumi:"endTimestamp"`
-	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
+	// also set START_TIMESTAMP.
 	Frequency *string `pulumi:"frequency"`
 	// Identifier for the resource monitor; must be unique for your account.
 	Name *string `pulumi:"name"`
@@ -182,7 +186,8 @@ type ResourceMonitorArgs struct {
 	CreditQuota pulumi.IntPtrInput
 	// The date and time when the resource monitor suspends the assigned warehouses.
 	EndTimestamp pulumi.StringPtrInput
-	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
+	// also set START_TIMESTAMP.
 	Frequency pulumi.StringPtrInput
 	// Identifier for the resource monitor; must be unique for your account.
 	Name pulumi.StringPtrInput
@@ -285,6 +290,57 @@ func (o ResourceMonitorOutput) ToResourceMonitorOutput() ResourceMonitorOutput {
 
 func (o ResourceMonitorOutput) ToResourceMonitorOutputWithContext(ctx context.Context) ResourceMonitorOutput {
 	return o
+}
+
+// The number of credits allocated monthly to the resource monitor.
+func (o ResourceMonitorOutput) CreditQuota() pulumi.IntOutput {
+	return o.ApplyT(func(v *ResourceMonitor) pulumi.IntOutput { return v.CreditQuota }).(pulumi.IntOutput)
+}
+
+// The date and time when the resource monitor suspends the assigned warehouses.
+func (o ResourceMonitorOutput) EndTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceMonitor) pulumi.StringPtrOutput { return v.EndTimestamp }).(pulumi.StringPtrOutput)
+}
+
+// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
+// also set START_TIMESTAMP.
+func (o ResourceMonitorOutput) Frequency() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceMonitor) pulumi.StringOutput { return v.Frequency }).(pulumi.StringOutput)
+}
+
+// Identifier for the resource monitor; must be unique for your account.
+func (o ResourceMonitorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceMonitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of percentage thresholds at which to send an alert to subscribed users.
+func (o ResourceMonitorOutput) NotifyTriggers() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *ResourceMonitor) pulumi.IntArrayOutput { return v.NotifyTriggers }).(pulumi.IntArrayOutput)
+}
+
+// Specifies whether the resource monitor should be applied globally to your Snowflake account.
+func (o ResourceMonitorOutput) SetForAccount() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResourceMonitor) pulumi.BoolPtrOutput { return v.SetForAccount }).(pulumi.BoolPtrOutput)
+}
+
+// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
+func (o ResourceMonitorOutput) StartTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceMonitor) pulumi.StringOutput { return v.StartTimestamp }).(pulumi.StringOutput)
+}
+
+// A list of percentage thresholds at which to immediately suspend all warehouses.
+func (o ResourceMonitorOutput) SuspendImmediateTriggers() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *ResourceMonitor) pulumi.IntArrayOutput { return v.SuspendImmediateTriggers }).(pulumi.IntArrayOutput)
+}
+
+// A list of percentage thresholds at which to suspend all warehouses.
+func (o ResourceMonitorOutput) SuspendTriggers() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *ResourceMonitor) pulumi.IntArrayOutput { return v.SuspendTriggers }).(pulumi.IntArrayOutput)
+}
+
+// A list of warehouses to apply the resource monitor to.
+func (o ResourceMonitorOutput) Warehouses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResourceMonitor) pulumi.StringArrayOutput { return v.Warehouses }).(pulumi.StringArrayOutput)
 }
 
 type ResourceMonitorArrayOutput struct{ *pulumi.OutputState }

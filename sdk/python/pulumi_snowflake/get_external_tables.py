@@ -38,17 +38,11 @@ class GetExternalTablesResult:
     @property
     @pulumi.getter
     def database(self) -> str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter(name="externalTables")
     def external_tables(self) -> Sequence['outputs.GetExternalTablesExternalTableResult']:
-        """
-        The external tables in the schema
-        """
         return pulumi.get(self, "external_tables")
 
     @property
@@ -62,9 +56,6 @@ class GetExternalTablesResult:
     @property
     @pulumi.getter
     def schema(self) -> str:
-        """
-        The schema from which to return the external tables from.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -93,10 +84,6 @@ def get_external_tables(database: Optional[str] = None,
     current = snowflake.get_external_tables(database="MYDB",
         schema="MYSCHEMA")
     ```
-
-
-    :param str database: The database from which to return the schemas from.
-    :param str schema: The schema from which to return the external tables from.
     """
     __args__ = dict()
     __args__['database'] = database
@@ -128,9 +115,5 @@ def get_external_tables_output(database: Optional[pulumi.Input[str]] = None,
     current = snowflake.get_external_tables(database="MYDB",
         schema="MYSCHEMA")
     ```
-
-
-    :param str database: The database from which to return the schemas from.
-    :param str schema: The schema from which to return the external tables from.
     """
     ...

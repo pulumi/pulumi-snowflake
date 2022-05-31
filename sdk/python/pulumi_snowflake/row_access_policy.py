@@ -24,9 +24,12 @@ class RowAccessPolicyArgs:
         :param pulumi.Input[str] database: The database in which to create the row access policy.
         :param pulumi.Input[str] row_access_expression: Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
         :param pulumi.Input[str] schema: The schema in which to create the row access policy.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] signature: Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] signature: Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A
+               signature specifies a set of attributes that must be considered to determine whether the row is accessible. The
+               attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
         :param pulumi.Input[str] comment: Specifies a comment for the row access policy.
-        :param pulumi.Input[str] name: Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
+        :param pulumi.Input[str] name: Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
+               policy is created.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "row_access_expression", row_access_expression)
@@ -77,7 +80,9 @@ class RowAccessPolicyArgs:
     @pulumi.getter
     def signature(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         """
-        Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+        Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A
+        signature specifies a set of attributes that must be considered to determine whether the row is accessible. The
+        attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
         """
         return pulumi.get(self, "signature")
 
@@ -101,7 +106,8 @@ class RowAccessPolicyArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
+        Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
+        policy is created.
         """
         return pulumi.get(self, "name")
 
@@ -123,10 +129,13 @@ class _RowAccessPolicyState:
         Input properties used for looking up and filtering RowAccessPolicy resources.
         :param pulumi.Input[str] comment: Specifies a comment for the row access policy.
         :param pulumi.Input[str] database: The database in which to create the row access policy.
-        :param pulumi.Input[str] name: Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
+        :param pulumi.Input[str] name: Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
+               policy is created.
         :param pulumi.Input[str] row_access_expression: Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
         :param pulumi.Input[str] schema: The schema in which to create the row access policy.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] signature: Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] signature: Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A
+               signature specifies a set of attributes that must be considered to determine whether the row is accessible. The
+               attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -169,7 +178,8 @@ class _RowAccessPolicyState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
+        Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
+        policy is created.
         """
         return pulumi.get(self, "name")
 
@@ -205,7 +215,9 @@ class _RowAccessPolicyState:
     @pulumi.getter
     def signature(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+        Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A
+        signature specifies a set of attributes that must be considered to determine whether the row is accessible. The
+        attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
         """
         return pulumi.get(self, "signature")
 
@@ -255,10 +267,13 @@ class RowAccessPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the row access policy.
         :param pulumi.Input[str] database: The database in which to create the row access policy.
-        :param pulumi.Input[str] name: Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
+        :param pulumi.Input[str] name: Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
+               policy is created.
         :param pulumi.Input[str] row_access_expression: Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
         :param pulumi.Input[str] schema: The schema in which to create the row access policy.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] signature: Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] signature: Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A
+               signature specifies a set of attributes that must be considered to determine whether the row is accessible. The
+               attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
         """
         ...
     @overload
@@ -363,10 +378,13 @@ class RowAccessPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the row access policy.
         :param pulumi.Input[str] database: The database in which to create the row access policy.
-        :param pulumi.Input[str] name: Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
+        :param pulumi.Input[str] name: Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
+               policy is created.
         :param pulumi.Input[str] row_access_expression: Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
         :param pulumi.Input[str] schema: The schema in which to create the row access policy.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] signature: Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] signature: Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A
+               signature specifies a set of attributes that must be considered to determine whether the row is accessible. The
+               attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -400,7 +418,8 @@ class RowAccessPolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
+        Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
+        policy is created.
         """
         return pulumi.get(self, "name")
 
@@ -424,7 +443,9 @@ class RowAccessPolicy(pulumi.CustomResource):
     @pulumi.getter
     def signature(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+        Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A
+        signature specifies a set of attributes that must be considered to determine whether the row is accessible. The
+        attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
         """
         return pulumi.get(self, "signature")
 

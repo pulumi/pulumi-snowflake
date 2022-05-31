@@ -36,9 +36,6 @@ class GetCurrentAccountResult:
     @property
     @pulumi.getter
     def account(self) -> str:
-        """
-        The Snowflake Account ID; as returned by CURRENT_ACCOUNT().
-        """
         return pulumi.get(self, "account")
 
     @property
@@ -52,17 +49,11 @@ class GetCurrentAccountResult:
     @property
     @pulumi.getter
     def region(self) -> str:
-        """
-        The Snowflake Region; as returned by CURRENT_REGION()
-        """
         return pulumi.get(self, "region")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        The Snowflake URL.
-        """
         return pulumi.get(self, "url")
 
 

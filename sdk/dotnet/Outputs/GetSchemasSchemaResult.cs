@@ -14,9 +14,6 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class GetSchemasSchemaResult
     {
         public readonly string Comment;
-        /// <summary>
-        /// The database from which to return the schemas from.
-        /// </summary>
         public readonly string Database;
         public readonly string Name;
 

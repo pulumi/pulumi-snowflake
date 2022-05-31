@@ -66,7 +66,8 @@ namespace Pulumi.Snowflake
         public Output<string?> EndTimestamp { get; private set; } = null!;
 
         /// <summary>
-        /// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+        /// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
+        /// also set START_TIMESTAMP.
         /// </summary>
         [Output("frequency")]
         public Output<string> Frequency { get; private set; } = null!;
@@ -172,7 +173,8 @@ namespace Pulumi.Snowflake
         public Input<string>? EndTimestamp { get; set; }
 
         /// <summary>
-        /// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+        /// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
+        /// also set START_TIMESTAMP.
         /// </summary>
         [Input("frequency")]
         public Input<string>? Frequency { get; set; }
@@ -263,7 +265,8 @@ namespace Pulumi.Snowflake
         public Input<string>? EndTimestamp { get; set; }
 
         /// <summary>
-        /// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+        /// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
+        /// also set START_TIMESTAMP.
         /// </summary>
         [Input("frequency")]
         public Input<string>? Frequency { get; set; }

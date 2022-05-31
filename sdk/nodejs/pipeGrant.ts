@@ -71,11 +71,13 @@ export class PipeGrant extends pulumi.CustomResource {
      */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
+     * When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
+     * this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
+     * field must be unset in order to use on_future.
      */
     public readonly onFuture!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the pipe on which to grant privileges immediately (only valid if onFuture is false).
+     * The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
      */
     public readonly pipeName!: pulumi.Output<string | undefined>;
     /**
@@ -152,11 +154,13 @@ export interface PipeGrantState {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
+     * When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
+     * this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
+     * field must be unset in order to use on_future.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
-     * The name of the pipe on which to grant privileges immediately (only valid if onFuture is false).
+     * The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
      */
     pipeName?: pulumi.Input<string>;
     /**
@@ -191,11 +195,13 @@ export interface PipeGrantArgs {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
+     * When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
+     * this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
+     * field must be unset in order to use on_future.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
-     * The name of the pipe on which to grant privileges immediately (only valid if onFuture is false).
+     * The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
      */
     pipeName?: pulumi.Input<string>;
     /**
