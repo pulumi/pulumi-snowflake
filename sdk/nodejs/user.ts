@@ -6,29 +6,6 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const user = new snowflake.User("user", {
- *     comment: "A user of snowflake.",
- *     defaultRole: "role1",
- *     defaultWarehouse: "warehouse",
- *     disabled: false,
- *     displayName: "Snowflake User",
- *     email: "user@snowflake.example",
- *     firstName: "Snowflake",
- *     lastName: "User",
- *     loginName: "snowflake_user",
- *     mustChangePassword: false,
- *     password: "secret",
- *     rsaPublicKey: "...",
- *     rsaPublicKey2: "...",
- * });
- * ```
- *
  * ## Import
  *
  * ```sh
@@ -73,6 +50,10 @@ export class User extends pulumi.CustomResource {
      * Specifies the role that is active by default for the user’s session upon login.
      */
     public readonly defaultRole!: pulumi.Output<string>;
+    /**
+     * Specifies the set of secondary roles that are active for the user’s session upon login.
+     */
+    public readonly defaultSecondaryRoles!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the virtual warehouse that is active by default for the user’s session upon login.
      */
@@ -146,6 +127,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["defaultNamespace"] = state ? state.defaultNamespace : undefined;
             resourceInputs["defaultRole"] = state ? state.defaultRole : undefined;
+            resourceInputs["defaultSecondaryRoles"] = state ? state.defaultSecondaryRoles : undefined;
             resourceInputs["defaultWarehouse"] = state ? state.defaultWarehouse : undefined;
             resourceInputs["disabled"] = state ? state.disabled : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
@@ -165,6 +147,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["defaultNamespace"] = args ? args.defaultNamespace : undefined;
             resourceInputs["defaultRole"] = args ? args.defaultRole : undefined;
+            resourceInputs["defaultSecondaryRoles"] = args ? args.defaultSecondaryRoles : undefined;
             resourceInputs["defaultWarehouse"] = args ? args.defaultWarehouse : undefined;
             resourceInputs["disabled"] = args ? args.disabled : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
@@ -199,6 +182,10 @@ export interface UserState {
      * Specifies the role that is active by default for the user’s session upon login.
      */
     defaultRole?: pulumi.Input<string>;
+    /**
+     * Specifies the set of secondary roles that are active for the user’s session upon login.
+     */
+    defaultSecondaryRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the virtual warehouse that is active by default for the user’s session upon login.
      */
@@ -271,6 +258,10 @@ export interface UserArgs {
      * Specifies the role that is active by default for the user’s session upon login.
      */
     defaultRole?: pulumi.Input<string>;
+    /**
+     * Specifies the set of secondary roles that are active for the user’s session upon login.
+     */
+    defaultSecondaryRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the virtual warehouse that is active by default for the user’s session upon login.
      */

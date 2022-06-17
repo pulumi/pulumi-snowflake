@@ -15,17 +15,21 @@ class TagArgs:
     def __init__(__self__, *,
                  database: pulumi.Input[str],
                  schema: pulumi.Input[str],
+                 allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Tag resource.
         :param pulumi.Input[str] database: The database in which to create the tag.
         :param pulumi.Input[str] schema: The schema in which to create the tag.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_values: List of allowed values for the tag.
         :param pulumi.Input[str] comment: Specifies a comment for the tag.
         :param pulumi.Input[str] name: Specifies the identifier for the tag; must be unique for the database in which the tag is created.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "schema", schema)
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if name is not None:
@@ -56,6 +60,18 @@ class TagArgs:
         pulumi.set(self, "schema", value)
 
     @property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of allowed values for the tag.
+        """
+        return pulumi.get(self, "allowed_values")
+
+    @allowed_values.setter
+    def allowed_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_values", value)
+
+    @property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[str]]:
         """
@@ -83,17 +99,21 @@ class TagArgs:
 @pulumi.input_type
 class _TagState:
     def __init__(__self__, *,
+                 allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Tag resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_values: List of allowed values for the tag.
         :param pulumi.Input[str] comment: Specifies a comment for the tag.
         :param pulumi.Input[str] database: The database in which to create the tag.
         :param pulumi.Input[str] name: Specifies the identifier for the tag; must be unique for the database in which the tag is created.
         :param pulumi.Input[str] schema: The schema in which to create the tag.
         """
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if database is not None:
@@ -102,6 +122,18 @@ class _TagState:
             pulumi.set(__self__, "name", name)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of allowed values for the tag.
+        """
+        return pulumi.get(self, "allowed_values")
+
+    @allowed_values.setter
+    def allowed_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_values", value)
 
     @property
     @pulumi.getter
@@ -157,15 +189,40 @@ class Tag(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Tag resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        test_tag = snowflake.Tag("testTag",
+            allowed_values=[
+                "foo",
+                "bar",
+            ],
+            comment="test comment",
+            database="test_db",
+            schema="test_schema")
+        ```
+
+        ## Import
+
+        # format is database name | schema name | tag name
+
+        ```sh
+         $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_values: List of allowed values for the tag.
         :param pulumi.Input[str] comment: Specifies a comment for the tag.
         :param pulumi.Input[str] database: The database in which to create the tag.
         :param pulumi.Input[str] name: Specifies the identifier for the tag; must be unique for the database in which the tag is created.
@@ -178,7 +235,30 @@ class Tag(pulumi.CustomResource):
                  args: TagArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Tag resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        test_tag = snowflake.Tag("testTag",
+            allowed_values=[
+                "foo",
+                "bar",
+            ],
+            comment="test comment",
+            database="test_db",
+            schema="test_schema")
+        ```
+
+        ## Import
+
+        # format is database name | schema name | tag name
+
+        ```sh
+         $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
+        ```
+
         :param str resource_name: The name of the resource.
         :param TagArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,6 +274,7 @@ class Tag(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -210,6 +291,7 @@ class Tag(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TagArgs.__new__(TagArgs)
 
+            __props__.__dict__["allowed_values"] = allowed_values
             __props__.__dict__["comment"] = comment
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")
@@ -228,6 +310,7 @@ class Tag(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             comment: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -239,6 +322,7 @@ class Tag(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_values: List of allowed values for the tag.
         :param pulumi.Input[str] comment: Specifies a comment for the tag.
         :param pulumi.Input[str] database: The database in which to create the tag.
         :param pulumi.Input[str] name: Specifies the identifier for the tag; must be unique for the database in which the tag is created.
@@ -248,11 +332,20 @@ class Tag(pulumi.CustomResource):
 
         __props__ = _TagState.__new__(_TagState)
 
+        __props__.__dict__["allowed_values"] = allowed_values
         __props__.__dict__["comment"] = comment
         __props__.__dict__["database"] = database
         __props__.__dict__["name"] = name
         __props__.__dict__["schema"] = schema
         return Tag(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of allowed values for the tag.
+        """
+        return pulumi.get(self, "allowed_values")
 
     @property
     @pulumi.getter

@@ -22,6 +22,7 @@ class ProcedureArgs:
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedureArgumentArgs']]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  execute_as: Optional[pulumi.Input[str]] = None,
+                 language: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_input_behavior: Optional[pulumi.Input[str]] = None,
                  return_behavior: Optional[pulumi.Input[str]] = None):
@@ -34,6 +35,7 @@ class ProcedureArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ProcedureArgumentArgs']]] arguments: List of the arguments for the procedure
         :param pulumi.Input[str] comment: Specifies a comment for the procedure.
         :param pulumi.Input[str] execute_as: Sets execute context - see caller's rights and owner's rights
+        :param pulumi.Input[str] language: Specifies the language of the stored procedure code.
         :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
                Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs.
@@ -49,6 +51,8 @@ class ProcedureArgs:
             pulumi.set(__self__, "comment", comment)
         if execute_as is not None:
             pulumi.set(__self__, "execute_as", execute_as)
+        if language is not None:
+            pulumi.set(__self__, "language", language)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if null_input_behavior is not None:
@@ -142,6 +146,18 @@ class ProcedureArgs:
 
     @property
     @pulumi.getter
+    def language(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the language of the stored procedure code.
+        """
+        return pulumi.get(self, "language")
+
+    @language.setter
+    def language(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "language", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
@@ -185,6 +201,7 @@ class _ProcedureState:
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  execute_as: Optional[pulumi.Input[str]] = None,
+                 language: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_input_behavior: Optional[pulumi.Input[str]] = None,
                  return_behavior: Optional[pulumi.Input[str]] = None,
@@ -197,6 +214,7 @@ class _ProcedureState:
         :param pulumi.Input[str] comment: Specifies a comment for the procedure.
         :param pulumi.Input[str] database: The database in which to create the procedure. Don't use the | character.
         :param pulumi.Input[str] execute_as: Sets execute context - see caller's rights and owner's rights
+        :param pulumi.Input[str] language: Specifies the language of the stored procedure code.
         :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
                Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs.
@@ -213,6 +231,8 @@ class _ProcedureState:
             pulumi.set(__self__, "database", database)
         if execute_as is not None:
             pulumi.set(__self__, "execute_as", execute_as)
+        if language is not None:
+            pulumi.set(__self__, "language", language)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if null_input_behavior is not None:
@@ -273,6 +293,18 @@ class _ProcedureState:
     @execute_as.setter
     def execute_as(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "execute_as", value)
+
+    @property
+    @pulumi.getter
+    def language(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the language of the stored procedure code.
+        """
+        return pulumi.get(self, "language")
+
+    @language.setter
+    def language(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "language", value)
 
     @property
     @pulumi.getter
@@ -357,6 +389,7 @@ class Procedure(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  execute_as: Optional[pulumi.Input[str]] = None,
+                 language: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_input_behavior: Optional[pulumi.Input[str]] = None,
                  return_behavior: Optional[pulumi.Input[str]] = None,
@@ -378,6 +411,7 @@ class Procedure(pulumi.CustomResource):
         proc = snowflake.Procedure("proc",
             database=snowflake_database["db"]["name"],
             schema=schema.name,
+            language="JAVASCRIPT",
             arguments=[
                 snowflake.ProcedureArgumentArgs(
                     name="arg1",
@@ -412,6 +446,7 @@ class Procedure(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the procedure.
         :param pulumi.Input[str] database: The database in which to create the procedure. Don't use the | character.
         :param pulumi.Input[str] execute_as: Sets execute context - see caller's rights and owner's rights
+        :param pulumi.Input[str] language: Specifies the language of the stored procedure code.
         :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
                Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs.
@@ -440,6 +475,7 @@ class Procedure(pulumi.CustomResource):
         proc = snowflake.Procedure("proc",
             database=snowflake_database["db"]["name"],
             schema=schema.name,
+            language="JAVASCRIPT",
             arguments=[
                 snowflake.ProcedureArgumentArgs(
                     name="arg1",
@@ -487,6 +523,7 @@ class Procedure(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  execute_as: Optional[pulumi.Input[str]] = None,
+                 language: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_input_behavior: Optional[pulumi.Input[str]] = None,
                  return_behavior: Optional[pulumi.Input[str]] = None,
@@ -511,6 +548,7 @@ class Procedure(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
             __props__.__dict__["execute_as"] = execute_as
+            __props__.__dict__["language"] = language
             __props__.__dict__["name"] = name
             __props__.__dict__["null_input_behavior"] = null_input_behavior
             __props__.__dict__["return_behavior"] = return_behavior
@@ -537,6 +575,7 @@ class Procedure(pulumi.CustomResource):
             comment: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
             execute_as: Optional[pulumi.Input[str]] = None,
+            language: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             null_input_behavior: Optional[pulumi.Input[str]] = None,
             return_behavior: Optional[pulumi.Input[str]] = None,
@@ -554,6 +593,7 @@ class Procedure(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the procedure.
         :param pulumi.Input[str] database: The database in which to create the procedure. Don't use the | character.
         :param pulumi.Input[str] execute_as: Sets execute context - see caller's rights and owner's rights
+        :param pulumi.Input[str] language: Specifies the language of the stored procedure code.
         :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
                Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs.
@@ -570,6 +610,7 @@ class Procedure(pulumi.CustomResource):
         __props__.__dict__["comment"] = comment
         __props__.__dict__["database"] = database
         __props__.__dict__["execute_as"] = execute_as
+        __props__.__dict__["language"] = language
         __props__.__dict__["name"] = name
         __props__.__dict__["null_input_behavior"] = null_input_behavior
         __props__.__dict__["return_behavior"] = return_behavior
@@ -609,6 +650,14 @@ class Procedure(pulumi.CustomResource):
         Sets execute context - see caller's rights and owner's rights
         """
         return pulumi.get(self, "execute_as")
+
+    @property
+    @pulumi.getter
+    def language(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the language of the stored procedure code.
+        """
+        return pulumi.get(self, "language")
 
     @property
     @pulumi.getter

@@ -24,9 +24,6 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := snowflake.NewProcedureGrant(ctx, "grant", &snowflake.ProcedureGrantArgs{
-// 			DatabaseName:  pulumi.String("db"),
-// 			SchemaName:    pulumi.String("schema"),
-// 			ProcedureName: pulumi.String("procedure"),
 // 			Arguments: ProcedureGrantArgumentArray{
 // 				&ProcedureGrantArgumentArgs{
 // 					Name: pulumi.String("a"),
@@ -37,17 +34,20 @@ import (
 // 					Type: pulumi.String("string"),
 // 				},
 // 			},
-// 			ReturnType: pulumi.String("string"),
-// 			Privilege:  pulumi.String("select"),
+// 			DatabaseName:  pulumi.String("db"),
+// 			OnFuture:      pulumi.Bool(false),
+// 			Privilege:     pulumi.String("select"),
+// 			ProcedureName: pulumi.String("procedure"),
+// 			ReturnType:    pulumi.String("string"),
 // 			Roles: pulumi.StringArray{
 // 				pulumi.String("role1"),
 // 				pulumi.String("role2"),
 // 			},
+// 			SchemaName: pulumi.String("schema"),
 // 			Shares: pulumi.StringArray{
 // 				pulumi.String("share1"),
 // 				pulumi.String("share2"),
 // 			},
-// 			OnFuture:        pulumi.Bool(false),
 // 			WithGrantOption: pulumi.Bool(false),
 // 		})
 // 		if err != nil {

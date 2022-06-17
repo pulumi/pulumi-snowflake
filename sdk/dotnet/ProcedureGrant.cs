@@ -22,34 +22,38 @@ namespace Pulumi.Snowflake
     ///     {
     ///         var grant = new Snowflake.ProcedureGrant("grant", new Snowflake.ProcedureGrantArgs
     ///         {
-    ///             DatabaseName = "db",
-    ///             SchemaName = "schema",
-    ///             ProcedureName = "procedure",
     ///             Arguments = 
     ///             {
     ///                 new Snowflake.Inputs.ProcedureGrantArgumentArgs
     ///                 {
-    ///                     %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-    ///                     new Snowflake.Inputs.ProcedureGrantArgumentArgs
-    ///                     {
-    ///                         %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-    ///                     },
-    ///                     ReturnType = "string",
-    ///                     Privilege = "select",
-    ///                     Roles = 
-    ///                     {
-    ///                         "role1",
-    ///                         "role2",
-    ///                     },
-    ///                     Shares = 
-    ///                     {
-    ///                         "share1",
-    ///                         "share2",
-    ///                     },
-    ///                     OnFuture = false,
-    ///                     WithGrantOption = false,
-    ///                 });
-    ///             }
+    ///                     Name = "a",
+    ///                     Type = "array",
+    ///                 },
+    ///                 new Snowflake.Inputs.ProcedureGrantArgumentArgs
+    ///                 {
+    ///                     Name = "b",
+    ///                     Type = "string",
+    ///                 },
+    ///             },
+    ///             DatabaseName = "db",
+    ///             OnFuture = false,
+    ///             Privilege = "select",
+    ///             ProcedureName = "procedure",
+    ///             ReturnType = "string",
+    ///             Roles = 
+    ///             {
+    ///                 "role1",
+    ///                 "role2",
+    ///             },
+    ///             SchemaName = "schema",
+    ///             Shares = 
+    ///             {
+    ///                 "share1",
+    ///                 "share2",
+    ///             },
+    ///             WithGrantOption = false,
+    ///         });
+    ///     }
     /// 
     /// }
     /// ```

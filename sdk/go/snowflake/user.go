@@ -10,41 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewUser(ctx, "user", &snowflake.UserArgs{
-// 			Comment:            pulumi.String("A user of snowflake."),
-// 			DefaultRole:        pulumi.String("role1"),
-// 			DefaultWarehouse:   pulumi.String("warehouse"),
-// 			Disabled:           pulumi.Bool(false),
-// 			DisplayName:        pulumi.String("Snowflake User"),
-// 			Email:              pulumi.String("user@snowflake.example"),
-// 			FirstName:          pulumi.String("Snowflake"),
-// 			LastName:           pulumi.String("User"),
-// 			LoginName:          pulumi.String("snowflake_user"),
-// 			MustChangePassword: pulumi.Bool(false),
-// 			Password:           pulumi.String("secret"),
-// 			RsaPublicKey:       pulumi.String("..."),
-// 			RsaPublicKey2:      pulumi.String("..."),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // ```sh
@@ -59,6 +24,8 @@ type User struct {
 	DefaultNamespace pulumi.StringPtrOutput `pulumi:"defaultNamespace"`
 	// Specifies the role that is active by default for the user’s session upon login.
 	DefaultRole pulumi.StringOutput `pulumi:"defaultRole"`
+	// Specifies the set of secondary roles that are active for the user’s session upon login.
+	DefaultSecondaryRoles pulumi.StringArrayOutput `pulumi:"defaultSecondaryRoles"`
 	// Specifies the virtual warehouse that is active by default for the user’s session upon login.
 	DefaultWarehouse pulumi.StringPtrOutput `pulumi:"defaultWarehouse"`
 	Disabled         pulumi.BoolOutput      `pulumi:"disabled"`
@@ -126,6 +93,8 @@ type userState struct {
 	DefaultNamespace *string `pulumi:"defaultNamespace"`
 	// Specifies the role that is active by default for the user’s session upon login.
 	DefaultRole *string `pulumi:"defaultRole"`
+	// Specifies the set of secondary roles that are active for the user’s session upon login.
+	DefaultSecondaryRoles []string `pulumi:"defaultSecondaryRoles"`
 	// Specifies the virtual warehouse that is active by default for the user’s session upon login.
 	DefaultWarehouse *string `pulumi:"defaultWarehouse"`
 	Disabled         *bool   `pulumi:"disabled"`
@@ -165,6 +134,8 @@ type UserState struct {
 	DefaultNamespace pulumi.StringPtrInput
 	// Specifies the role that is active by default for the user’s session upon login.
 	DefaultRole pulumi.StringPtrInput
+	// Specifies the set of secondary roles that are active for the user’s session upon login.
+	DefaultSecondaryRoles pulumi.StringArrayInput
 	// Specifies the virtual warehouse that is active by default for the user’s session upon login.
 	DefaultWarehouse pulumi.StringPtrInput
 	Disabled         pulumi.BoolPtrInput
@@ -208,6 +179,8 @@ type userArgs struct {
 	DefaultNamespace *string `pulumi:"defaultNamespace"`
 	// Specifies the role that is active by default for the user’s session upon login.
 	DefaultRole *string `pulumi:"defaultRole"`
+	// Specifies the set of secondary roles that are active for the user’s session upon login.
+	DefaultSecondaryRoles []string `pulumi:"defaultSecondaryRoles"`
 	// Specifies the virtual warehouse that is active by default for the user’s session upon login.
 	DefaultWarehouse *string `pulumi:"defaultWarehouse"`
 	Disabled         *bool   `pulumi:"disabled"`
@@ -246,6 +219,8 @@ type UserArgs struct {
 	DefaultNamespace pulumi.StringPtrInput
 	// Specifies the role that is active by default for the user’s session upon login.
 	DefaultRole pulumi.StringPtrInput
+	// Specifies the set of secondary roles that are active for the user’s session upon login.
+	DefaultSecondaryRoles pulumi.StringArrayInput
 	// Specifies the virtual warehouse that is active by default for the user’s session upon login.
 	DefaultWarehouse pulumi.StringPtrInput
 	Disabled         pulumi.BoolPtrInput
@@ -376,6 +351,11 @@ func (o UserOutput) DefaultNamespace() pulumi.StringPtrOutput {
 // Specifies the role that is active by default for the user’s session upon login.
 func (o UserOutput) DefaultRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.DefaultRole }).(pulumi.StringOutput)
+}
+
+// Specifies the set of secondary roles that are active for the user’s session upon login.
+func (o UserOutput) DefaultSecondaryRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.DefaultSecondaryRoles }).(pulumi.StringArrayOutput)
 }
 
 // Specifies the virtual warehouse that is active by default for the user’s session upon login.

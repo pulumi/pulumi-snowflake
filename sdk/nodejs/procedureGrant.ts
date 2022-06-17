@@ -13,9 +13,6 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const grant = new snowflake.ProcedureGrant("grant", {
- *     databaseName: "db",
- *     schemaName: "schema",
- *     procedureName: "procedure",
  *     arguments: [
  *         {
  *             name: "a",
@@ -26,17 +23,20 @@ import * as utilities from "./utilities";
  *             type: "string",
  *         },
  *     ],
- *     returnType: "string",
+ *     databaseName: "db",
+ *     onFuture: false,
  *     privilege: "select",
+ *     procedureName: "procedure",
+ *     returnType: "string",
  *     roles: [
  *         "role1",
  *         "role2",
  *     ],
+ *     schemaName: "schema",
  *     shares: [
  *         "share1",
  *         "share2",
  *     ],
- *     onFuture: false,
  *     withGrantOption: false,
  * });
  * ```

@@ -415,27 +415,31 @@ class ProcedureGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.ProcedureGrant("grant",
-            database_name="db",
-            schema_name="schema",
-            procedure_name="procedure",
             arguments=[
                 snowflake.ProcedureGrantArgumentArgs(
-                    %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-                    snowflake.ProcedureGrantArgumentArgs(
-                        %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-                    ],
-                    return_type="string",
-                    privilege="select",
-                    roles=[
-                        "role1",
-                        "role2",
-                    ],
-                    shares=[
-                        "share1",
-                        "share2",
-                    ],
-                    on_future=False,
-                    with_grant_option=False)
+                    name="a",
+                    type="array",
+                ),
+                snowflake.ProcedureGrantArgumentArgs(
+                    name="b",
+                    type="string",
+                ),
+            ],
+            database_name="db",
+            on_future=False,
+            privilege="select",
+            procedure_name="procedure",
+            return_type="string",
+            roles=[
+                "role1",
+                "role2",
+            ],
+            schema_name="schema",
+            shares=[
+                "share1",
+                "share2",
+            ],
+            with_grant_option=False)
         ```
 
         ## Import
@@ -477,27 +481,31 @@ class ProcedureGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.ProcedureGrant("grant",
-            database_name="db",
-            schema_name="schema",
-            procedure_name="procedure",
             arguments=[
                 snowflake.ProcedureGrantArgumentArgs(
-                    %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-                    snowflake.ProcedureGrantArgumentArgs(
-                        %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-                    ],
-                    return_type="string",
-                    privilege="select",
-                    roles=[
-                        "role1",
-                        "role2",
-                    ],
-                    shares=[
-                        "share1",
-                        "share2",
-                    ],
-                    on_future=False,
-                    with_grant_option=False)
+                    name="a",
+                    type="array",
+                ),
+                snowflake.ProcedureGrantArgumentArgs(
+                    name="b",
+                    type="string",
+                ),
+            ],
+            database_name="db",
+            on_future=False,
+            privilege="select",
+            procedure_name="procedure",
+            return_type="string",
+            roles=[
+                "role1",
+                "role2",
+            ],
+            schema_name="schema",
+            shares=[
+                "share1",
+                "share2",
+            ],
+            with_grant_option=False)
         ```
 
         ## Import

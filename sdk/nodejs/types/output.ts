@@ -200,6 +200,7 @@ export interface GetUsersUser {
     comment: string;
     defaultNamespace: string;
     defaultRole: string;
+    defaultSecondaryRoles: string[];
     defaultWarehouse: string;
     disabled: boolean;
     displayName: string;

@@ -41,6 +41,7 @@ import (
 // 		_, err = snowflake.NewProcedure(ctx, "proc", &snowflake.ProcedureArgs{
 // 			Database: pulumi.Any(snowflake_database.Db.Name),
 // 			Schema:   schema.Name,
+// 			Language: pulumi.String("JAVASCRIPT"),
 // 			Arguments: ProcedureArgumentArray{
 // 				&ProcedureArgumentArgs{
 // 					Name: pulumi.String("arg1"),
@@ -84,6 +85,8 @@ type Procedure struct {
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Sets execute context - see caller's rights and owner's rights
 	ExecuteAs pulumi.StringPtrOutput `pulumi:"executeAs"`
+	// Specifies the language of the stored procedure code.
+	Language pulumi.StringPtrOutput `pulumi:"language"`
 	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
 	// Don't use the | character.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -148,6 +151,8 @@ type procedureState struct {
 	Database *string `pulumi:"database"`
 	// Sets execute context - see caller's rights and owner's rights
 	ExecuteAs *string `pulumi:"executeAs"`
+	// Specifies the language of the stored procedure code.
+	Language *string `pulumi:"language"`
 	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
 	// Don't use the | character.
 	Name *string `pulumi:"name"`
@@ -172,6 +177,8 @@ type ProcedureState struct {
 	Database pulumi.StringPtrInput
 	// Sets execute context - see caller's rights and owner's rights
 	ExecuteAs pulumi.StringPtrInput
+	// Specifies the language of the stored procedure code.
+	Language pulumi.StringPtrInput
 	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
 	// Don't use the | character.
 	Name pulumi.StringPtrInput
@@ -200,6 +207,8 @@ type procedureArgs struct {
 	Database string `pulumi:"database"`
 	// Sets execute context - see caller's rights and owner's rights
 	ExecuteAs *string `pulumi:"executeAs"`
+	// Specifies the language of the stored procedure code.
+	Language *string `pulumi:"language"`
 	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
 	// Don't use the | character.
 	Name *string `pulumi:"name"`
@@ -225,6 +234,8 @@ type ProcedureArgs struct {
 	Database pulumi.StringInput
 	// Sets execute context - see caller's rights and owner's rights
 	ExecuteAs pulumi.StringPtrInput
+	// Specifies the language of the stored procedure code.
+	Language pulumi.StringPtrInput
 	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
 	// Don't use the | character.
 	Name pulumi.StringPtrInput
@@ -345,6 +356,11 @@ func (o ProcedureOutput) Database() pulumi.StringOutput {
 // Sets execute context - see caller's rights and owner's rights
 func (o ProcedureOutput) ExecuteAs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Procedure) pulumi.StringPtrOutput { return v.ExecuteAs }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the language of the stored procedure code.
+func (o ProcedureOutput) Language() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Procedure) pulumi.StringPtrOutput { return v.Language }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.

@@ -4782,18 +4782,19 @@ func (o GetTasksTaskArrayOutput) Index(i pulumi.IntInput) GetTasksTaskOutput {
 }
 
 type GetUsersUser struct {
-	Comment          string `pulumi:"comment"`
-	DefaultNamespace string `pulumi:"defaultNamespace"`
-	DefaultRole      string `pulumi:"defaultRole"`
-	DefaultWarehouse string `pulumi:"defaultWarehouse"`
-	Disabled         bool   `pulumi:"disabled"`
-	DisplayName      string `pulumi:"displayName"`
-	Email            string `pulumi:"email"`
-	FirstName        string `pulumi:"firstName"`
-	HasRsaPublicKey  bool   `pulumi:"hasRsaPublicKey"`
-	LastName         string `pulumi:"lastName"`
-	LoginName        string `pulumi:"loginName"`
-	Name             string `pulumi:"name"`
+	Comment               string   `pulumi:"comment"`
+	DefaultNamespace      string   `pulumi:"defaultNamespace"`
+	DefaultRole           string   `pulumi:"defaultRole"`
+	DefaultSecondaryRoles []string `pulumi:"defaultSecondaryRoles"`
+	DefaultWarehouse      string   `pulumi:"defaultWarehouse"`
+	Disabled              bool     `pulumi:"disabled"`
+	DisplayName           string   `pulumi:"displayName"`
+	Email                 string   `pulumi:"email"`
+	FirstName             string   `pulumi:"firstName"`
+	HasRsaPublicKey       bool     `pulumi:"hasRsaPublicKey"`
+	LastName              string   `pulumi:"lastName"`
+	LoginName             string   `pulumi:"loginName"`
+	Name                  string   `pulumi:"name"`
 }
 
 // GetUsersUserInput is an input type that accepts GetUsersUserArgs and GetUsersUserOutput values.
@@ -4808,18 +4809,19 @@ type GetUsersUserInput interface {
 }
 
 type GetUsersUserArgs struct {
-	Comment          pulumi.StringInput `pulumi:"comment"`
-	DefaultNamespace pulumi.StringInput `pulumi:"defaultNamespace"`
-	DefaultRole      pulumi.StringInput `pulumi:"defaultRole"`
-	DefaultWarehouse pulumi.StringInput `pulumi:"defaultWarehouse"`
-	Disabled         pulumi.BoolInput   `pulumi:"disabled"`
-	DisplayName      pulumi.StringInput `pulumi:"displayName"`
-	Email            pulumi.StringInput `pulumi:"email"`
-	FirstName        pulumi.StringInput `pulumi:"firstName"`
-	HasRsaPublicKey  pulumi.BoolInput   `pulumi:"hasRsaPublicKey"`
-	LastName         pulumi.StringInput `pulumi:"lastName"`
-	LoginName        pulumi.StringInput `pulumi:"loginName"`
-	Name             pulumi.StringInput `pulumi:"name"`
+	Comment               pulumi.StringInput      `pulumi:"comment"`
+	DefaultNamespace      pulumi.StringInput      `pulumi:"defaultNamespace"`
+	DefaultRole           pulumi.StringInput      `pulumi:"defaultRole"`
+	DefaultSecondaryRoles pulumi.StringArrayInput `pulumi:"defaultSecondaryRoles"`
+	DefaultWarehouse      pulumi.StringInput      `pulumi:"defaultWarehouse"`
+	Disabled              pulumi.BoolInput        `pulumi:"disabled"`
+	DisplayName           pulumi.StringInput      `pulumi:"displayName"`
+	Email                 pulumi.StringInput      `pulumi:"email"`
+	FirstName             pulumi.StringInput      `pulumi:"firstName"`
+	HasRsaPublicKey       pulumi.BoolInput        `pulumi:"hasRsaPublicKey"`
+	LastName              pulumi.StringInput      `pulumi:"lastName"`
+	LoginName             pulumi.StringInput      `pulumi:"loginName"`
+	Name                  pulumi.StringInput      `pulumi:"name"`
 }
 
 func (GetUsersUserArgs) ElementType() reflect.Type {
@@ -4883,6 +4885,10 @@ func (o GetUsersUserOutput) DefaultNamespace() pulumi.StringOutput {
 
 func (o GetUsersUserOutput) DefaultRole() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.DefaultRole }).(pulumi.StringOutput)
+}
+
+func (o GetUsersUserOutput) DefaultSecondaryRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetUsersUser) []string { return v.DefaultSecondaryRoles }).(pulumi.StringArrayOutput)
 }
 
 func (o GetUsersUserOutput) DefaultWarehouse() pulumi.StringOutput {

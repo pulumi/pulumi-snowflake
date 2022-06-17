@@ -4,6 +4,33 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const testTag = new snowflake.Tag("test_tag", {
+ *     allowedValues: [
+ *         "foo",
+ *         "bar",
+ *     ],
+ *     // Optionals
+ *     comment: "test comment",
+ *     database: "test_db",
+ *     schema: "test_schema",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * # format is database name | schema name | tag name
+ *
+ * ```sh
+ *  $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
+ * ```
+ */
 export class Tag extends pulumi.CustomResource {
     /**
      * Get an existing Tag resource's state with the given name, ID, and optional extra
@@ -32,6 +59,10 @@ export class Tag extends pulumi.CustomResource {
         return obj['__pulumiType'] === Tag.__pulumiType;
     }
 
+    /**
+     * List of allowed values for the tag.
+     */
+    public readonly allowedValues!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies a comment for the tag.
      */
@@ -62,6 +93,7 @@ export class Tag extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TagState | undefined;
+            resourceInputs["allowedValues"] = state ? state.allowedValues : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -74,6 +106,7 @@ export class Tag extends pulumi.CustomResource {
             if ((!args || args.schema === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
+            resourceInputs["allowedValues"] = args ? args.allowedValues : undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -88,6 +121,10 @@ export class Tag extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Tag resources.
  */
 export interface TagState {
+    /**
+     * List of allowed values for the tag.
+     */
+    allowedValues?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies a comment for the tag.
      */
@@ -110,6 +147,10 @@ export interface TagState {
  * The set of arguments for constructing a Tag resource.
  */
 export interface TagArgs {
+    /**
+     * List of allowed values for the tag.
+     */
+    allowedValues?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies a comment for the tag.
      */

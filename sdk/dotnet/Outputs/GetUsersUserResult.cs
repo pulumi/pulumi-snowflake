@@ -16,6 +16,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string Comment;
         public readonly string DefaultNamespace;
         public readonly string DefaultRole;
+        public readonly ImmutableArray<string> DefaultSecondaryRoles;
         public readonly string DefaultWarehouse;
         public readonly bool Disabled;
         public readonly string DisplayName;
@@ -33,6 +34,8 @@ namespace Pulumi.Snowflake.Outputs
             string defaultNamespace,
 
             string defaultRole,
+
+            ImmutableArray<string> defaultSecondaryRoles,
 
             string defaultWarehouse,
 
@@ -55,6 +58,7 @@ namespace Pulumi.Snowflake.Outputs
             Comment = comment;
             DefaultNamespace = defaultNamespace;
             DefaultRole = defaultRole;
+            DefaultSecondaryRoles = defaultSecondaryRoles;
             DefaultWarehouse = defaultWarehouse;
             Disabled = disabled;
             DisplayName = displayName;
