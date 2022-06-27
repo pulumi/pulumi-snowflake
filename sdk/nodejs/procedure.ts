@@ -20,6 +20,7 @@ import * as utilities from "./utilities";
  * const proc = new snowflake.Procedure("proc", {
  *     database: snowflake_database.db.name,
  *     schema: schema.name,
+ *     language: "JAVASCRIPT",
  *     arguments: [
  *         {
  *             name: "arg1",
@@ -94,6 +95,10 @@ export class Procedure extends pulumi.CustomResource {
      */
     public readonly executeAs!: pulumi.Output<string | undefined>;
     /**
+     * Specifies the language of the stored procedure code.
+     */
+    public readonly language!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
      * Don't use the | character.
      */
@@ -136,6 +141,7 @@ export class Procedure extends pulumi.CustomResource {
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["executeAs"] = state ? state.executeAs : undefined;
+            resourceInputs["language"] = state ? state.language : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nullInputBehavior"] = state ? state.nullInputBehavior : undefined;
             resourceInputs["returnBehavior"] = state ? state.returnBehavior : undefined;
@@ -160,6 +166,7 @@ export class Procedure extends pulumi.CustomResource {
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["executeAs"] = args ? args.executeAs : undefined;
+            resourceInputs["language"] = args ? args.language : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nullInputBehavior"] = args ? args.nullInputBehavior : undefined;
             resourceInputs["returnBehavior"] = args ? args.returnBehavior : undefined;
@@ -192,6 +199,10 @@ export interface ProcedureState {
      * Sets execute context - see caller's rights and owner's rights
      */
     executeAs?: pulumi.Input<string>;
+    /**
+     * Specifies the language of the stored procedure code.
+     */
+    language?: pulumi.Input<string>;
     /**
      * Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
      * Don't use the | character.
@@ -239,6 +250,10 @@ export interface ProcedureArgs {
      * Sets execute context - see caller's rights and owner's rights
      */
     executeAs?: pulumi.Input<string>;
+    /**
+     * Specifies the language of the stored procedure code.
+     */
+    language?: pulumi.Input<string>;
     /**
      * Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
      * Don't use the | character.

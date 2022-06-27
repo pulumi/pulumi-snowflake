@@ -415,27 +415,31 @@ class FunctionGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.FunctionGrant("grant",
-            database_name="db",
-            schema_name="schema",
-            function_name="function",
             arguments=[
                 snowflake.FunctionGrantArgumentArgs(
-                    %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-                    snowflake.FunctionGrantArgumentArgs(
-                        %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-                    ],
-                    return_type="string",
-                    privilege="USAGE",
-                    roles=[
-                        "role1",
-                        "role2",
-                    ],
-                    shares=[
-                        "share1",
-                        "share2",
-                    ],
-                    on_future=False,
-                    with_grant_option=False)
+                    name="a",
+                    type="array",
+                ),
+                snowflake.FunctionGrantArgumentArgs(
+                    name="b",
+                    type="string",
+                ),
+            ],
+            database_name="db",
+            function_name="function",
+            on_future=False,
+            privilege="USAGE",
+            return_type="string",
+            roles=[
+                "role1",
+                "role2",
+            ],
+            schema_name="schema",
+            shares=[
+                "share1",
+                "share2",
+            ],
+            with_grant_option=False)
         ```
 
         ## Import
@@ -477,27 +481,31 @@ class FunctionGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.FunctionGrant("grant",
-            database_name="db",
-            schema_name="schema",
-            function_name="function",
             arguments=[
                 snowflake.FunctionGrantArgumentArgs(
-                    %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-                    snowflake.FunctionGrantArgumentArgs(
-                        %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-                    ],
-                    return_type="string",
-                    privilege="USAGE",
-                    roles=[
-                        "role1",
-                        "role2",
-                    ],
-                    shares=[
-                        "share1",
-                        "share2",
-                    ],
-                    on_future=False,
-                    with_grant_option=False)
+                    name="a",
+                    type="array",
+                ),
+                snowflake.FunctionGrantArgumentArgs(
+                    name="b",
+                    type="string",
+                ),
+            ],
+            database_name="db",
+            function_name="function",
+            on_future=False,
+            privilege="USAGE",
+            return_type="string",
+            roles=[
+                "role1",
+                "role2",
+            ],
+            schema_name="schema",
+            shares=[
+                "share1",
+                "share2",
+            ],
+            with_grant_option=False)
         ```
 
         ## Import

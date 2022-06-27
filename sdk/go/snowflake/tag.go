@@ -11,9 +11,47 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewTag(ctx, "testTag", &snowflake.TagArgs{
+// 			AllowedValues: pulumi.StringArray{
+// 				pulumi.String("foo"),
+// 				pulumi.String("bar"),
+// 			},
+// 			Comment:  pulumi.String("test comment"),
+// 			Database: pulumi.String("test_db"),
+// 			Schema:   pulumi.String("test_schema"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Import
+//
+// # format is database name | schema name | tag name
+//
+// ```sh
+//  $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
+// ```
 type Tag struct {
 	pulumi.CustomResourceState
 
+	// List of allowed values for the tag.
+	AllowedValues pulumi.StringArrayOutput `pulumi:"allowedValues"`
 	// Specifies a comment for the tag.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The database in which to create the tag.
@@ -59,6 +97,8 @@ func GetTag(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Tag resources.
 type tagState struct {
+	// List of allowed values for the tag.
+	AllowedValues []string `pulumi:"allowedValues"`
 	// Specifies a comment for the tag.
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the tag.
@@ -70,6 +110,8 @@ type tagState struct {
 }
 
 type TagState struct {
+	// List of allowed values for the tag.
+	AllowedValues pulumi.StringArrayInput
 	// Specifies a comment for the tag.
 	Comment pulumi.StringPtrInput
 	// The database in which to create the tag.
@@ -85,6 +127,8 @@ func (TagState) ElementType() reflect.Type {
 }
 
 type tagArgs struct {
+	// List of allowed values for the tag.
+	AllowedValues []string `pulumi:"allowedValues"`
 	// Specifies a comment for the tag.
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the tag.
@@ -97,6 +141,8 @@ type tagArgs struct {
 
 // The set of arguments for constructing a Tag resource.
 type TagArgs struct {
+	// List of allowed values for the tag.
+	AllowedValues pulumi.StringArrayInput
 	// Specifies a comment for the tag.
 	Comment pulumi.StringPtrInput
 	// The database in which to create the tag.
@@ -192,6 +238,11 @@ func (o TagOutput) ToTagOutput() TagOutput {
 
 func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return o
+}
+
+// List of allowed values for the tag.
+func (o TagOutput) AllowedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Tag) pulumi.StringArrayOutput { return v.AllowedValues }).(pulumi.StringArrayOutput)
 }
 
 // Specifies a comment for the tag.

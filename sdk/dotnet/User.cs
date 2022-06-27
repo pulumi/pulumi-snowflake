@@ -10,37 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var user = new Snowflake.User("user", new Snowflake.UserArgs
-    ///         {
-    ///             Comment = "A user of snowflake.",
-    ///             DefaultRole = "role1",
-    ///             DefaultWarehouse = "warehouse",
-    ///             Disabled = false,
-    ///             DisplayName = "Snowflake User",
-    ///             Email = "user@snowflake.example",
-    ///             FirstName = "Snowflake",
-    ///             LastName = "User",
-    ///             LoginName = "snowflake_user",
-    ///             MustChangePassword = false,
-    ///             Password = "secret",
-    ///             RsaPublicKey = "...",
-    ///             RsaPublicKey2 = "...",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -65,6 +34,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("defaultRole")]
         public Output<string> DefaultRole { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the set of secondary roles that are active for the user’s session upon login.
+        /// </summary>
+        [Output("defaultSecondaryRoles")]
+        public Output<ImmutableArray<string>> DefaultSecondaryRoles { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the virtual warehouse that is active by default for the user’s session upon login.
@@ -212,6 +187,18 @@ namespace Pulumi.Snowflake
         [Input("defaultRole")]
         public Input<string>? DefaultRole { get; set; }
 
+        [Input("defaultSecondaryRoles")]
+        private InputList<string>? _defaultSecondaryRoles;
+
+        /// <summary>
+        /// Specifies the set of secondary roles that are active for the user’s session upon login.
+        /// </summary>
+        public InputList<string> DefaultSecondaryRoles
+        {
+            get => _defaultSecondaryRoles ?? (_defaultSecondaryRoles = new InputList<string>());
+            set => _defaultSecondaryRoles = value;
+        }
+
         /// <summary>
         /// Specifies the virtual warehouse that is active by default for the user’s session upon login.
         /// </summary>
@@ -318,6 +305,18 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("defaultRole")]
         public Input<string>? DefaultRole { get; set; }
+
+        [Input("defaultSecondaryRoles")]
+        private InputList<string>? _defaultSecondaryRoles;
+
+        /// <summary>
+        /// Specifies the set of secondary roles that are active for the user’s session upon login.
+        /// </summary>
+        public InputList<string> DefaultSecondaryRoles
+        {
+            get => _defaultSecondaryRoles ?? (_defaultSecondaryRoles = new InputList<string>());
+            set => _defaultSecondaryRoles = value;
+        }
 
         /// <summary>
         /// Specifies the virtual warehouse that is active by default for the user’s session upon login.

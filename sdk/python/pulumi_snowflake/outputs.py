@@ -1471,6 +1471,7 @@ class GetUsersUserResult(dict):
                  comment: str,
                  default_namespace: str,
                  default_role: str,
+                 default_secondary_roles: Sequence[str],
                  default_warehouse: str,
                  disabled: bool,
                  display_name: str,
@@ -1483,6 +1484,7 @@ class GetUsersUserResult(dict):
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "default_namespace", default_namespace)
         pulumi.set(__self__, "default_role", default_role)
+        pulumi.set(__self__, "default_secondary_roles", default_secondary_roles)
         pulumi.set(__self__, "default_warehouse", default_warehouse)
         pulumi.set(__self__, "disabled", disabled)
         pulumi.set(__self__, "display_name", display_name)
@@ -1507,6 +1509,11 @@ class GetUsersUserResult(dict):
     @pulumi.getter(name="defaultRole")
     def default_role(self) -> str:
         return pulumi.get(self, "default_role")
+
+    @property
+    @pulumi.getter(name="defaultSecondaryRoles")
+    def default_secondary_roles(self) -> Sequence[str]:
+        return pulumi.get(self, "default_secondary_roles")
 
     @property
     @pulumi.getter(name="defaultWarehouse")

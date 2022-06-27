@@ -33,6 +33,7 @@ namespace Pulumi.Snowflake
     ///         {
     ///             Database = snowflake_database.Db.Name,
     ///             Schema = schema.Name,
+    ///             Language = "JAVASCRIPT",
     ///             Arguments = 
     ///             {
     ///                 new Snowflake.Inputs.ProcedureArgumentArgs
@@ -94,6 +95,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("executeAs")]
         public Output<string?> ExecuteAs { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the language of the stored procedure code.
+        /// </summary>
+        [Output("language")]
+        public Output<string?> Language { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
@@ -209,6 +216,12 @@ namespace Pulumi.Snowflake
         public Input<string>? ExecuteAs { get; set; }
 
         /// <summary>
+        /// Specifies the language of the stored procedure code.
+        /// </summary>
+        [Input("language")]
+        public Input<string>? Language { get; set; }
+
+        /// <summary>
         /// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
         /// Don't use the | character.
         /// </summary>
@@ -281,6 +294,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("executeAs")]
         public Input<string>? ExecuteAs { get; set; }
+
+        /// <summary>
+        /// Specifies the language of the stored procedure code.
+        /// </summary>
+        [Input("language")]
+        public Input<string>? Language { get; set; }
 
         /// <summary>
         /// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.

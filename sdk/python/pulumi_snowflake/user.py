@@ -18,6 +18,7 @@ class UserArgs:
                  comment: Optional[pulumi.Input[str]] = None,
                  default_namespace: Optional[pulumi.Input[str]] = None,
                  default_role: Optional[pulumi.Input[str]] = None,
+                 default_secondary_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_warehouse: Optional[pulumi.Input[str]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -36,6 +37,7 @@ class UserArgs:
         :param pulumi.Input[str] default_namespace: Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
                login.
         :param pulumi.Input[str] default_role: Specifies the role that is active by default for the user’s session upon login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_secondary_roles: Specifies the set of secondary roles that are active for the user’s session upon login.
         :param pulumi.Input[str] default_warehouse: Specifies the virtual warehouse that is active by default for the user’s session upon login.
         :param pulumi.Input[str] display_name: Name displayed for the user in the Snowflake web interface.
         :param pulumi.Input[str] email: Email address for the user.
@@ -58,6 +60,8 @@ class UserArgs:
             pulumi.set(__self__, "default_namespace", default_namespace)
         if default_role is not None:
             pulumi.set(__self__, "default_role", default_role)
+        if default_secondary_roles is not None:
+            pulumi.set(__self__, "default_secondary_roles", default_secondary_roles)
         if default_warehouse is not None:
             pulumi.set(__self__, "default_warehouse", default_warehouse)
         if disabled is not None:
@@ -118,6 +122,18 @@ class UserArgs:
     @default_role.setter
     def default_role(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_role", value)
+
+    @property
+    @pulumi.getter(name="defaultSecondaryRoles")
+    def default_secondary_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the set of secondary roles that are active for the user’s session upon login.
+        """
+        return pulumi.get(self, "default_secondary_roles")
+
+    @default_secondary_roles.setter
+    def default_secondary_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "default_secondary_roles", value)
 
     @property
     @pulumi.getter(name="defaultWarehouse")
@@ -282,6 +298,7 @@ class _UserState:
                  comment: Optional[pulumi.Input[str]] = None,
                  default_namespace: Optional[pulumi.Input[str]] = None,
                  default_role: Optional[pulumi.Input[str]] = None,
+                 default_secondary_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_warehouse: Optional[pulumi.Input[str]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -301,6 +318,7 @@ class _UserState:
         :param pulumi.Input[str] default_namespace: Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
                login.
         :param pulumi.Input[str] default_role: Specifies the role that is active by default for the user’s session upon login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_secondary_roles: Specifies the set of secondary roles that are active for the user’s session upon login.
         :param pulumi.Input[str] default_warehouse: Specifies the virtual warehouse that is active by default for the user’s session upon login.
         :param pulumi.Input[str] display_name: Name displayed for the user in the Snowflake web interface.
         :param pulumi.Input[str] email: Email address for the user.
@@ -324,6 +342,8 @@ class _UserState:
             pulumi.set(__self__, "default_namespace", default_namespace)
         if default_role is not None:
             pulumi.set(__self__, "default_role", default_role)
+        if default_secondary_roles is not None:
+            pulumi.set(__self__, "default_secondary_roles", default_secondary_roles)
         if default_warehouse is not None:
             pulumi.set(__self__, "default_warehouse", default_warehouse)
         if disabled is not None:
@@ -386,6 +406,18 @@ class _UserState:
     @default_role.setter
     def default_role(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_role", value)
+
+    @property
+    @pulumi.getter(name="defaultSecondaryRoles")
+    def default_secondary_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the set of secondary roles that are active for the user’s session upon login.
+        """
+        return pulumi.get(self, "default_secondary_roles")
+
+    @default_secondary_roles.setter
+    def default_secondary_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "default_secondary_roles", value)
 
     @property
     @pulumi.getter(name="defaultWarehouse")
@@ -564,6 +596,7 @@ class User(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[str]] = None,
                  default_namespace: Optional[pulumi.Input[str]] = None,
                  default_role: Optional[pulumi.Input[str]] = None,
+                 default_secondary_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_warehouse: Optional[pulumi.Input[str]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -579,28 +612,6 @@ class User(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserTagArgs']]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        user = snowflake.User("user",
-            comment="A user of snowflake.",
-            default_role="role1",
-            default_warehouse="warehouse",
-            disabled=False,
-            display_name="Snowflake User",
-            email="user@snowflake.example",
-            first_name="Snowflake",
-            last_name="User",
-            login_name="snowflake_user",
-            must_change_password=False,
-            password="secret",
-            rsa_public_key="...",
-            rsa_public_key2="...")
-        ```
-
         ## Import
 
         ```sh
@@ -612,6 +623,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] default_namespace: Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
                login.
         :param pulumi.Input[str] default_role: Specifies the role that is active by default for the user’s session upon login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_secondary_roles: Specifies the set of secondary roles that are active for the user’s session upon login.
         :param pulumi.Input[str] default_warehouse: Specifies the virtual warehouse that is active by default for the user’s session upon login.
         :param pulumi.Input[str] display_name: Name displayed for the user in the Snowflake web interface.
         :param pulumi.Input[str] email: Email address for the user.
@@ -635,28 +647,6 @@ class User(pulumi.CustomResource):
                  args: Optional[UserArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        user = snowflake.User("user",
-            comment="A user of snowflake.",
-            default_role="role1",
-            default_warehouse="warehouse",
-            disabled=False,
-            display_name="Snowflake User",
-            email="user@snowflake.example",
-            first_name="Snowflake",
-            last_name="User",
-            login_name="snowflake_user",
-            must_change_password=False,
-            password="secret",
-            rsa_public_key="...",
-            rsa_public_key2="...")
-        ```
-
         ## Import
 
         ```sh
@@ -681,6 +671,7 @@ class User(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[str]] = None,
                  default_namespace: Optional[pulumi.Input[str]] = None,
                  default_role: Optional[pulumi.Input[str]] = None,
+                 default_secondary_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_warehouse: Optional[pulumi.Input[str]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -709,6 +700,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["comment"] = comment
             __props__.__dict__["default_namespace"] = default_namespace
             __props__.__dict__["default_role"] = default_role
+            __props__.__dict__["default_secondary_roles"] = default_secondary_roles
             __props__.__dict__["default_warehouse"] = default_warehouse
             __props__.__dict__["disabled"] = disabled
             __props__.__dict__["display_name"] = display_name
@@ -736,6 +728,7 @@ class User(pulumi.CustomResource):
             comment: Optional[pulumi.Input[str]] = None,
             default_namespace: Optional[pulumi.Input[str]] = None,
             default_role: Optional[pulumi.Input[str]] = None,
+            default_secondary_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             default_warehouse: Optional[pulumi.Input[str]] = None,
             disabled: Optional[pulumi.Input[bool]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
@@ -760,6 +753,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] default_namespace: Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
                login.
         :param pulumi.Input[str] default_role: Specifies the role that is active by default for the user’s session upon login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_secondary_roles: Specifies the set of secondary roles that are active for the user’s session upon login.
         :param pulumi.Input[str] default_warehouse: Specifies the virtual warehouse that is active by default for the user’s session upon login.
         :param pulumi.Input[str] display_name: Name displayed for the user in the Snowflake web interface.
         :param pulumi.Input[str] email: Email address for the user.
@@ -784,6 +778,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["comment"] = comment
         __props__.__dict__["default_namespace"] = default_namespace
         __props__.__dict__["default_role"] = default_role
+        __props__.__dict__["default_secondary_roles"] = default_secondary_roles
         __props__.__dict__["default_warehouse"] = default_warehouse
         __props__.__dict__["disabled"] = disabled
         __props__.__dict__["display_name"] = display_name
@@ -821,6 +816,14 @@ class User(pulumi.CustomResource):
         Specifies the role that is active by default for the user’s session upon login.
         """
         return pulumi.get(self, "default_role")
+
+    @property
+    @pulumi.getter(name="defaultSecondaryRoles")
+    def default_secondary_roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies the set of secondary roles that are active for the user’s session upon login.
+        """
+        return pulumi.get(self, "default_secondary_roles")
 
     @property
     @pulumi.getter(name="defaultWarehouse")

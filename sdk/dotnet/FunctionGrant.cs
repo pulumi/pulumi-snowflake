@@ -22,34 +22,38 @@ namespace Pulumi.Snowflake
     ///     {
     ///         var grant = new Snowflake.FunctionGrant("grant", new Snowflake.FunctionGrantArgs
     ///         {
-    ///             DatabaseName = "db",
-    ///             SchemaName = "schema",
-    ///             FunctionName = "function",
     ///             Arguments = 
     ///             {
     ///                 new Snowflake.Inputs.FunctionGrantArgumentArgs
     ///                 {
-    ///                     %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-    ///                     new Snowflake.Inputs.FunctionGrantArgumentArgs
-    ///                     {
-    ///                         %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-    ///                     },
-    ///                     ReturnType = "string",
-    ///                     Privilege = "USAGE",
-    ///                     Roles = 
-    ///                     {
-    ///                         "role1",
-    ///                         "role2",
-    ///                     },
-    ///                     Shares = 
-    ///                     {
-    ///                         "share1",
-    ///                         "share2",
-    ///                     },
-    ///                     OnFuture = false,
-    ///                     WithGrantOption = false,
-    ///                 });
-    ///             }
+    ///                     Name = "a",
+    ///                     Type = "array",
+    ///                 },
+    ///                 new Snowflake.Inputs.FunctionGrantArgumentArgs
+    ///                 {
+    ///                     Name = "b",
+    ///                     Type = "string",
+    ///                 },
+    ///             },
+    ///             DatabaseName = "db",
+    ///             FunctionName = "function",
+    ///             OnFuture = false,
+    ///             Privilege = "USAGE",
+    ///             ReturnType = "string",
+    ///             Roles = 
+    ///             {
+    ///                 "role1",
+    ///                 "role2",
+    ///             },
+    ///             SchemaName = "schema",
+    ///             Shares = 
+    ///             {
+    ///                 "share1",
+    ///                 "share2",
+    ///             },
+    ///             WithGrantOption = false,
+    ///         });
+    ///     }
     /// 
     /// }
     /// ```
