@@ -137,3 +137,10 @@ class _ExportableConfig(types.ModuleType):
         """
         return __config__.get('username')
 
+    @property
+    def warehouse(self) -> Optional[str]:
+        """
+        Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+        """
+        return __config__.get('warehouse')
+

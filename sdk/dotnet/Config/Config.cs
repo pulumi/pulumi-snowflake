@@ -203,5 +203,15 @@ namespace Pulumi.Snowflake
             set => _username.Set(value);
         }
 
+        private static readonly __Value<string?> _warehouse = new __Value<string?>(() => __config.Get("warehouse"));
+        /// <summary>
+        /// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+        /// </summary>
+        public static string? Warehouse
+        {
+            get => _warehouse.Get();
+            set => _warehouse.Set(value);
+        }
+
     }
 }

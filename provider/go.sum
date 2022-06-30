@@ -141,8 +141,8 @@ github.com/Netflix/go-expect v0.0.0-20180615182759-c93bf25de8e8/go.mod h1:oX5x61
 github.com/OneOfOne/xxhash v1.2.2/go.mod h1:HSdplMjZKSmBqAxg5vPj2TmRDmfkzw+cTzAElWljhcU=
 github.com/Pallinder/go-randomdata v1.2.0 h1:DZ41wBchNRb/0GfsePLiSwb0PHZmT67XY00lCDlaYPg=
 github.com/ProtonMail/go-crypto v0.0.0-20210428141323-04723f9f07d7/go.mod h1:z4/9nQmJSSwwds7ejkxaJwO37dru3geImFUdJlaLzQo=
-github.com/Snowflake-Labs/terraform-provider-snowflake v0.36.0 h1:osfivDhp9y/JViq41dOkq2imxheV2Z8GxhP0Dk5pt9Y=
-github.com/Snowflake-Labs/terraform-provider-snowflake v0.36.0/go.mod h1:WLrVPEldpgwFnb+iMHuR2hHgY3D8jlr8thz45Enw9fQ=
+github.com/Snowflake-Labs/terraform-provider-snowflake v0.37.0 h1:dcCb/rqGFewfh3vGUVJIyn9mixLzcb4XcMUM8dnM7xk=
+github.com/Snowflake-Labs/terraform-provider-snowflake v0.37.0/go.mod h1:WLrVPEldpgwFnb+iMHuR2hHgY3D8jlr8thz45Enw9fQ=
 github.com/acomagu/bufpipe v1.0.3/go.mod h1:mxdxdup/WdsKVreO5GpW4+M/1CE2sMG4jeGJ2sYmHc4=
 github.com/agext/levenshtein v1.2.1/go.mod h1:JEDfjyjHDjOF/1e4FlBE/PkbqA9OfWu2ki2W0IB5558=
 github.com/agext/levenshtein v1.2.2/go.mod h1:JEDfjyjHDjOF/1e4FlBE/PkbqA9OfWu2ki2W0IB5558=

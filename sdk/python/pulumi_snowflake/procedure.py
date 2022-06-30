@@ -398,40 +398,6 @@ class Procedure(pulumi.CustomResource):
                  statement: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        db = snowflake.Schema("db", data_retention_days=1)
-        schema = snowflake.Schema("schema",
-            database=snowflake_database["db"]["name"],
-            data_retention_days=1)
-        proc = snowflake.Procedure("proc",
-            database=snowflake_database["db"]["name"],
-            schema=schema.name,
-            language="JAVASCRIPT",
-            arguments=[
-                snowflake.ProcedureArgumentArgs(
-                    name="arg1",
-                    type="varchar",
-                ),
-                snowflake.ProcedureArgumentArgs(
-                    name="arg2",
-                    type="DATE",
-                ),
-            ],
-            comment="Procedure with 2 arguments",
-            return_type="VARCHAR",
-            execute_as="CALLER",
-            return_behavior="IMMUTABLE",
-            null_input_behavior="RETURNS NULL ON NULL INPUT",
-            statement=\"\"\"var X=1
-        return X
-        \"\"\")
-        ```
-
         ## Import
 
         # format is database name | schema name | stored procedure name | <list of arg types, separated with '-'>
@@ -462,40 +428,6 @@ class Procedure(pulumi.CustomResource):
                  args: ProcedureArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        db = snowflake.Schema("db", data_retention_days=1)
-        schema = snowflake.Schema("schema",
-            database=snowflake_database["db"]["name"],
-            data_retention_days=1)
-        proc = snowflake.Procedure("proc",
-            database=snowflake_database["db"]["name"],
-            schema=schema.name,
-            language="JAVASCRIPT",
-            arguments=[
-                snowflake.ProcedureArgumentArgs(
-                    name="arg1",
-                    type="varchar",
-                ),
-                snowflake.ProcedureArgumentArgs(
-                    name="arg2",
-                    type="DATE",
-                ),
-            ],
-            comment="Procedure with 2 arguments",
-            return_type="VARCHAR",
-            execute_as="CALLER",
-            return_behavior="IMMUTABLE",
-            null_input_behavior="RETURNS NULL ON NULL INPUT",
-            statement=\"\"\"var X=1
-        return X
-        \"\"\")
-        ```
-
         ## Import
 
         # format is database name | schema name | stored procedure name | <list of arg types, separated with '-'>

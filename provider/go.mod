@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-snowflake/provider
 
-go 1.17
+go 1.18
 
 replace (
 	cloud.google.com/go/storage => cloud.google.com/go/storage v1.15.0
@@ -9,7 +9,7 @@ replace (
 )
 
 require (
-	github.com/Snowflake-Labs/terraform-provider-snowflake v0.36.0
+	github.com/Snowflake-Labs/terraform-provider-snowflake v0.37.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.24.1
 	github.com/pulumi/pulumi/sdk/v3 v3.33.1
 )

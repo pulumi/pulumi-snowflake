@@ -59,6 +59,8 @@ type Provider struct {
 	Role pulumi.StringPtrOutput `pulumi:"role"`
 	// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
 	Username pulumi.StringOutput `pulumi:"username"`
+	// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+	Warehouse pulumi.StringPtrOutput `pulumi:"warehouse"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -129,6 +131,8 @@ type providerArgs struct {
 	Role *string `pulumi:"role"`
 	// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
 	Username string `pulumi:"username"`
+	// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+	Warehouse *string `pulumi:"warehouse"`
 }
 
 // The set of arguments for constructing a Provider resource.
@@ -176,6 +180,8 @@ type ProviderArgs struct {
 	Role pulumi.StringPtrInput
 	// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
 	Username pulumi.StringInput
+	// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+	Warehouse pulumi.StringPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {
@@ -299,6 +305,11 @@ func (o ProviderOutput) Role() pulumi.StringPtrOutput {
 // Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
 func (o ProviderOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
+}
+
+// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+func (o ProviderOutput) Warehouse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Warehouse }).(pulumi.StringPtrOutput)
 }
 
 func init() {
