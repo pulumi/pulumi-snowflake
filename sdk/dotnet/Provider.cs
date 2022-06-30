@@ -119,6 +119,12 @@ namespace Pulumi.Snowflake
         [Output("username")]
         public Output<string> Username { get; private set; } = null!;
 
+        /// <summary>
+        /// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+        /// </summary>
+        [Output("warehouse")]
+        public Output<string?> Warehouse { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
@@ -253,6 +259,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
+
+        /// <summary>
+        /// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+        /// </summary>
+        [Input("warehouse")]
+        public Input<string>? Warehouse { get; set; }
 
         public ProviderArgs()
         {

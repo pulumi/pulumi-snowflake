@@ -99,3 +99,8 @@ username: Optional[str]
 Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
 """
 
+warehouse: Optional[str]
+"""
+Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+"""
+

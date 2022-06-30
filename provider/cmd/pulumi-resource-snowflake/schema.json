@@ -77,6 +77,10 @@
             "username": {
                 "type": "string",
                 "description": "Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.\n"
+            },
+            "warehouse": {
+                "type": "string",
+                "description": "Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.\n"
             }
         },
         "defaults": [
@@ -2209,6 +2213,10 @@
             "username": {
                 "type": "string",
                 "description": "Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.\n"
+            },
+            "warehouse": {
+                "type": "string",
+                "description": "Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.\n"
             }
         },
         "required": [
@@ -2280,6 +2288,10 @@
             "username": {
                 "type": "string",
                 "description": "Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.\n"
+            },
+            "warehouse": {
+                "type": "string",
+                "description": "Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.\n"
             }
         },
         "requiredInputs": [
@@ -4366,6 +4378,7 @@
             }
         },
         "snowflake:index/function:Function": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var db = new Database(\"db\", DatabaseArgs.builder()        \n            .dataRetentionDays(1)\n            .build());\n\n        var schema = new Schema(\"schema\", SchemaArgs.builder()        \n            .database(db.name())\n            .dataRetentionDays(1)\n            .build());\n\n        var testFunctJava = new Function(\"testFunctJava\", FunctionArgs.builder()        \n            .database(\"MY_DB\")\n            .schema(\"MY_SCHEMA\")\n            .arguments(FunctionArgumentArgs.builder()\n                .name(\"arg1\")\n                .type(\"number\")\n                .build())\n            .comment(\"Example for java language\")\n            .returnType(\"varchar\")\n            .language(\"java\")\n            .handler(\"CoolFunc.test\")\n            .statement(\"class CoolFunc {public static String test(int n) {return \\\"hello!\\\";}}\")\n            .build());\n\n        var pythonTest = new Function(\"pythonTest\", FunctionArgs.builder()        \n            .database(\"MY_DB\")\n            .schema(\"MY_SCHEMA\")\n            .arguments(FunctionArgumentArgs.builder()\n                .name(\"arg1\")\n                .type(\"number\")\n                .build())\n            .comment(\"Example for Python language\")\n            .returnType(\"NUMBER(38,0)\")\n            .nullInputBehavior(\"CALLED ON NULL INPUT\")\n            .returnBehavior(\"VOLATILE\")\n            .language(\"python\")\n            .runtimeVersion(\"3.8\")\n            .handler(\"add_py\")\n            .statement(\"def add_py(i): return i+1\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  db:\n    type: snowflake:Database\n    properties:\n      dataRetentionDays: 1\n  schema:\n    type: snowflake:Schema\n    properties:\n      database: ${db.name}\n      dataRetentionDays: 1\n  testFunctJava:\n    type: snowflake:Function\n    properties:\n      database: MY_DB\n      schema: MY_SCHEMA\n      arguments:\n        - name: arg1\n          type: number\n      comment: Example for java language\n      returnType: varchar\n      language: java\n      handler: CoolFunc.test\n      statement: class CoolFunc {public static String test(int n) {return \"hello!\";}}\n  pythonTest:\n    type: snowflake:Function\n    properties:\n      database: MY_DB\n      schema: MY_SCHEMA\n      arguments:\n        - name: arg1\n          type: number\n      comment: Example for Python language\n      returnType: NUMBER(38,0)\n      nullInputBehavior: CALLED ON NULL INPUT\n      returnBehavior: VOLATILE\n      language: python\n      runtimeVersion: 3.8\n      handler: add_py\n      statement: 'def add_py(i): return i+1'\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | function name | \u003clist of arg types, separated with '-'\u003e\n\n```sh\n $ pulumi import snowflake:index/function:Function example 'dbName|schemaName|functionName|varchar-varchar-varchar'\n```\n\n ",
             "properties": {
                 "arguments": {
                     "type": "array",
@@ -4384,14 +4397,14 @@
                 },
                 "handler": {
                     "type": "string",
-                    "description": "the handler method for Java function.\n"
+                    "description": "The handler method for Java / Python function.\n"
                 },
                 "imports": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "jar files to import for Java function.\n"
+                    "description": "Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.\n"
                 },
                 "language": {
                     "type": "string",
@@ -4405,6 +4418,13 @@
                     "type": "string",
                     "description": "Specifies the behavior of the function when called with null inputs.\n"
                 },
+                "packages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of package imports to use for Java / Python functions. For Java, package imports should be of the form:\npackage_name:version_number, where package_name is snowflake_domain:package. For Python use it should be:\n('numpy','pandas','xgboost==1.5.0').\n"
+                },
                 "returnBehavior": {
                     "type": "string",
                     "description": "Specifies the behavior of the function when returning results\n"
@@ -4413,17 +4433,21 @@
                     "type": "string",
                     "description": "The return type of the function\n"
                 },
+                "runtimeVersion": {
+                    "type": "string",
+                    "description": "Required for Python functions. Specifies Python runtime version.\n"
+                },
                 "schema": {
                     "type": "string",
                     "description": "The schema in which to create the function. Don't use the | character.\n"
                 },
                 "statement": {
                     "type": "string",
-                    "description": "Specifies the javascript / java / sql code used to create the function.\n"
+                    "description": "Specifies the javascript / java / sql / python code used to create the function.\n"
                 },
                 "targetPath": {
                     "type": "string",
-                    "description": "the target path for compiled jar file for Java function.\n"
+                    "description": "The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is\nthe path of the Python files.\n"
                 }
             },
             "required": [
@@ -4453,7 +4477,7 @@
                 },
                 "handler": {
                     "type": "string",
-                    "description": "the handler method for Java function.\n",
+                    "description": "The handler method for Java / Python function.\n",
                     "willReplaceOnChanges": true
                 },
                 "imports": {
@@ -4461,7 +4485,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "jar files to import for Java function.\n",
+                    "description": "Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.\n",
                     "willReplaceOnChanges": true
                 },
                 "language": {
@@ -4478,6 +4502,14 @@
                     "description": "Specifies the behavior of the function when called with null inputs.\n",
                     "willReplaceOnChanges": true
                 },
+                "packages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of package imports to use for Java / Python functions. For Java, package imports should be of the form:\npackage_name:version_number, where package_name is snowflake_domain:package. For Python use it should be:\n('numpy','pandas','xgboost==1.5.0').\n",
+                    "willReplaceOnChanges": true
+                },
                 "returnBehavior": {
                     "type": "string",
                     "description": "Specifies the behavior of the function when returning results\n",
@@ -4488,6 +4520,11 @@
                     "description": "The return type of the function\n",
                     "willReplaceOnChanges": true
                 },
+                "runtimeVersion": {
+                    "type": "string",
+                    "description": "Required for Python functions. Specifies Python runtime version.\n",
+                    "willReplaceOnChanges": true
+                },
                 "schema": {
                     "type": "string",
                     "description": "The schema in which to create the function. Don't use the | character.\n",
@@ -4495,12 +4532,12 @@
                 },
                 "statement": {
                     "type": "string",
-                    "description": "Specifies the javascript / java / sql code used to create the function.\n",
+                    "description": "Specifies the javascript / java / sql / python code used to create the function.\n",
                     "willReplaceOnChanges": true
                 },
                 "targetPath": {
                     "type": "string",
-                    "description": "the target path for compiled jar file for Java function.\n",
+                    "description": "The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is\nthe path of the Python files.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -4532,7 +4569,7 @@
                     },
                     "handler": {
                         "type": "string",
-                        "description": "the handler method for Java function.\n",
+                        "description": "The handler method for Java / Python function.\n",
                         "willReplaceOnChanges": true
                     },
                     "imports": {
@@ -4540,7 +4577,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "jar files to import for Java function.\n",
+                        "description": "Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.\n",
                         "willReplaceOnChanges": true
                     },
                     "language": {
@@ -4557,6 +4594,14 @@
                         "description": "Specifies the behavior of the function when called with null inputs.\n",
                         "willReplaceOnChanges": true
                     },
+                    "packages": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of package imports to use for Java / Python functions. For Java, package imports should be of the form:\npackage_name:version_number, where package_name is snowflake_domain:package. For Python use it should be:\n('numpy','pandas','xgboost==1.5.0').\n",
+                        "willReplaceOnChanges": true
+                    },
                     "returnBehavior": {
                         "type": "string",
                         "description": "Specifies the behavior of the function when returning results\n",
@@ -4567,6 +4612,11 @@
                         "description": "The return type of the function\n",
                         "willReplaceOnChanges": true
                     },
+                    "runtimeVersion": {
+                        "type": "string",
+                        "description": "Required for Python functions. Specifies Python runtime version.\n",
+                        "willReplaceOnChanges": true
+                    },
                     "schema": {
                         "type": "string",
                         "description": "The schema in which to create the function. Don't use the | character.\n",
@@ -4574,12 +4624,12 @@
                     },
                     "statement": {
                         "type": "string",
-                        "description": "Specifies the javascript / java / sql code used to create the function.\n",
+                        "description": "Specifies the javascript / java / sql / python code used to create the function.\n",
                         "willReplaceOnChanges": true
                     },
                     "targetPath": {
                         "type": "string",
-                        "description": "the target path for compiled jar file for Java function.\n",
+                        "description": "The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is\nthe path of the Python files.\n",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -6411,7 +6461,7 @@
             }
         },
         "snowflake:index/procedure:Procedure": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst db = new snowflake.Schema(\"db\", {dataRetentionDays: 1});\nconst schema = new snowflake.Schema(\"schema\", {\n    database: snowflake_database.db.name,\n    dataRetentionDays: 1,\n});\nconst proc = new snowflake.Procedure(\"proc\", {\n    database: snowflake_database.db.name,\n    schema: schema.name,\n    language: \"JAVASCRIPT\",\n    arguments: [\n        {\n            name: \"arg1\",\n            type: \"varchar\",\n        },\n        {\n            name: \"arg2\",\n            type: \"DATE\",\n        },\n    ],\n    comment: \"Procedure with 2 arguments\",\n    returnType: \"VARCHAR\",\n    executeAs: \"CALLER\",\n    returnBehavior: \"IMMUTABLE\",\n    nullInputBehavior: \"RETURNS NULL ON NULL INPUT\",\n    statement: `var X=1\nreturn X\n`,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ndb = snowflake.Schema(\"db\", data_retention_days=1)\nschema = snowflake.Schema(\"schema\",\n    database=snowflake_database[\"db\"][\"name\"],\n    data_retention_days=1)\nproc = snowflake.Procedure(\"proc\",\n    database=snowflake_database[\"db\"][\"name\"],\n    schema=schema.name,\n    language=\"JAVASCRIPT\",\n    arguments=[\n        snowflake.ProcedureArgumentArgs(\n            name=\"arg1\",\n            type=\"varchar\",\n        ),\n        snowflake.ProcedureArgumentArgs(\n            name=\"arg2\",\n            type=\"DATE\",\n        ),\n    ],\n    comment=\"Procedure with 2 arguments\",\n    return_type=\"VARCHAR\",\n    execute_as=\"CALLER\",\n    return_behavior=\"IMMUTABLE\",\n    null_input_behavior=\"RETURNS NULL ON NULL INPUT\",\n    statement=\"\"\"var X=1\nreturn X\n\"\"\")\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var db = new Snowflake.Schema(\"db\", new Snowflake.SchemaArgs\n        {\n            DataRetentionDays = 1,\n        });\n        var schema = new Snowflake.Schema(\"schema\", new Snowflake.SchemaArgs\n        {\n            Database = snowflake_database.Db.Name,\n            DataRetentionDays = 1,\n        });\n        var proc = new Snowflake.Procedure(\"proc\", new Snowflake.ProcedureArgs\n        {\n            Database = snowflake_database.Db.Name,\n            Schema = schema.Name,\n            Language = \"JAVASCRIPT\",\n            Arguments = \n            {\n                new Snowflake.Inputs.ProcedureArgumentArgs\n                {\n                    Name = \"arg1\",\n                    Type = \"varchar\",\n                },\n                new Snowflake.Inputs.ProcedureArgumentArgs\n                {\n                    Name = \"arg2\",\n                    Type = \"DATE\",\n                },\n            },\n            Comment = \"Procedure with 2 arguments\",\n            ReturnType = \"VARCHAR\",\n            ExecuteAs = \"CALLER\",\n            ReturnBehavior = \"IMMUTABLE\",\n            NullInputBehavior = \"RETURNS NULL ON NULL INPUT\",\n            Statement = @\"var X=1\nreturn X\n\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewSchema(ctx, \"db\", \u0026snowflake.SchemaArgs{\n\t\t\tDataRetentionDays: pulumi.Int(1),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tschema, err := snowflake.NewSchema(ctx, \"schema\", \u0026snowflake.SchemaArgs{\n\t\t\tDatabase:          pulumi.Any(snowflake_database.Db.Name),\n\t\t\tDataRetentionDays: pulumi.Int(1),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewProcedure(ctx, \"proc\", \u0026snowflake.ProcedureArgs{\n\t\t\tDatabase: pulumi.Any(snowflake_database.Db.Name),\n\t\t\tSchema:   schema.Name,\n\t\t\tLanguage: pulumi.String(\"JAVASCRIPT\"),\n\t\t\tArguments: ProcedureArgumentArray{\n\t\t\t\t\u0026ProcedureArgumentArgs{\n\t\t\t\t\tName: pulumi.String(\"arg1\"),\n\t\t\t\t\tType: pulumi.String(\"varchar\"),\n\t\t\t\t},\n\t\t\t\t\u0026ProcedureArgumentArgs{\n\t\t\t\t\tName: pulumi.String(\"arg2\"),\n\t\t\t\t\tType: pulumi.String(\"DATE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tComment:           pulumi.String(\"Procedure with 2 arguments\"),\n\t\t\tReturnType:        pulumi.String(\"VARCHAR\"),\n\t\t\tExecuteAs:         pulumi.String(\"CALLER\"),\n\t\t\tReturnBehavior:    pulumi.String(\"IMMUTABLE\"),\n\t\t\tNullInputBehavior: pulumi.String(\"RETURNS NULL ON NULL INPUT\"),\n\t\t\tStatement:         pulumi.String(fmt.Sprintf(\"%v%v\", \"var X=1\\n\", \"return X\\n\")),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var db = new Schema(\"db\", SchemaArgs.builder()        \n            .dataRetentionDays(1)\n            .build());\n\n        var schema = new Schema(\"schema\", SchemaArgs.builder()        \n            .database(snowflake_database.db().name())\n            .dataRetentionDays(1)\n            .build());\n\n        var proc = new Procedure(\"proc\", ProcedureArgs.builder()        \n            .database(snowflake_database.db().name())\n            .schema(schema.name())\n            .language(\"JAVASCRIPT\")\n            .arguments(            \n                ProcedureArgumentArgs.builder()\n                    .name(\"arg1\")\n                    .type(\"varchar\")\n                    .build(),\n                ProcedureArgumentArgs.builder()\n                    .name(\"arg2\")\n                    .type(\"DATE\")\n                    .build())\n            .comment(\"Procedure with 2 arguments\")\n            .returnType(\"VARCHAR\")\n            .executeAs(\"CALLER\")\n            .returnBehavior(\"IMMUTABLE\")\n            .nullInputBehavior(\"RETURNS NULL ON NULL INPUT\")\n            .statement(\"\"\"\nvar X=1\nreturn X\n            \"\"\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  db:\n    type: snowflake:Schema\n    properties:\n      dataRetentionDays: 1\n  schema:\n    type: snowflake:Schema\n    properties:\n      database: ${snowflake_database.db.name}\n      dataRetentionDays: 1\n  proc:\n    type: snowflake:Procedure\n    properties:\n      database: ${snowflake_database.db.name}\n      schema: ${schema.name}\n      language: JAVASCRIPT\n      arguments:\n        - name: arg1\n          type: varchar\n        - name: arg2\n          type: DATE\n      comment: Procedure with 2 arguments\n      returnType: VARCHAR\n      executeAs: CALLER\n      returnBehavior: IMMUTABLE\n      nullInputBehavior: RETURNS NULL ON NULL INPUT\n      statement: |\n        var X=1\n        return X\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | stored procedure name | \u003clist of arg types, separated with '-'\u003e\n\n```sh\n $ pulumi import snowflake:index/procedure:Procedure example 'dbName|schemaName|procedureName|varchar-varchar-varchar'\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var db = new Database(\"db\", DatabaseArgs.builder()        \n            .dataRetentionDays(1)\n            .build());\n\n        var schema = new Schema(\"schema\", SchemaArgs.builder()        \n            .database(db.name())\n            .dataRetentionDays(1)\n            .build());\n\n        var proc = new Procedure(\"proc\", ProcedureArgs.builder()        \n            .database(db.name())\n            .schema(schema.name())\n            .language(\"JAVASCRIPT\")\n            .arguments(            \n                ProcedureArgumentArgs.builder()\n                    .name(\"arg1\")\n                    .type(\"varchar\")\n                    .build(),\n                ProcedureArgumentArgs.builder()\n                    .name(\"arg2\")\n                    .type(\"DATE\")\n                    .build())\n            .comment(\"Procedure with 2 arguments\")\n            .returnType(\"VARCHAR\")\n            .executeAs(\"CALLER\")\n            .returnBehavior(\"IMMUTABLE\")\n            .nullInputBehavior(\"RETURNS NULL ON NULL INPUT\")\n            .statement(\"\"\"\nvar X=1\nreturn X\n            \"\"\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  db:\n    type: snowflake:Database\n    properties:\n      dataRetentionDays: 1\n  schema:\n    type: snowflake:Schema\n    properties:\n      database: ${db.name}\n      dataRetentionDays: 1\n  proc:\n    type: snowflake:Procedure\n    properties:\n      database: ${db.name}\n      schema: ${schema.name}\n      language: JAVASCRIPT\n      arguments:\n        - name: arg1\n          type: varchar\n        - name: arg2\n          type: DATE\n      comment: Procedure with 2 arguments\n      returnType: VARCHAR\n      executeAs: CALLER\n      returnBehavior: IMMUTABLE\n      nullInputBehavior: RETURNS NULL ON NULL INPUT\n      statement: |\n        var X=1\n        return X\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | stored procedure name | \u003clist of arg types, separated with '-'\u003e\n\n```sh\n $ pulumi import snowflake:index/procedure:Procedure example 'dbName|schemaName|procedureName|varchar-varchar-varchar'\n```\n\n ",
             "properties": {
                 "arguments": {
                     "type": "array",

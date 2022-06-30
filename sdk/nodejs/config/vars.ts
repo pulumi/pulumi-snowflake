@@ -194,3 +194,14 @@ Object.defineProperty(exports, "username", {
     enumerable: true,
 });
 
+/**
+ * Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+ */
+export declare const warehouse: string | undefined;
+Object.defineProperty(exports, "warehouse", {
+    get() {
+        return __config.get("warehouse");
+    },
+    enumerable: true,
+});
+

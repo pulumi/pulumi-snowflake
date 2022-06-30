@@ -98,3 +98,8 @@ func GetRole(ctx *pulumi.Context) string {
 func GetUsername(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:username")
 }
+
+// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+func GetWarehouse(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:warehouse")
+}

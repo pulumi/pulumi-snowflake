@@ -6,42 +6,6 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const db = new snowflake.Schema("db", {dataRetentionDays: 1});
- * const schema = new snowflake.Schema("schema", {
- *     database: snowflake_database.db.name,
- *     dataRetentionDays: 1,
- * });
- * const proc = new snowflake.Procedure("proc", {
- *     database: snowflake_database.db.name,
- *     schema: schema.name,
- *     language: "JAVASCRIPT",
- *     arguments: [
- *         {
- *             name: "arg1",
- *             type: "varchar",
- *         },
- *         {
- *             name: "arg2",
- *             type: "DATE",
- *         },
- *     ],
- *     comment: "Procedure with 2 arguments",
- *     returnType: "VARCHAR",
- *     executeAs: "CALLER",
- *     returnBehavior: "IMMUTABLE",
- *     nullInputBehavior: "RETURNS NULL ON NULL INPUT",
- *     statement: `var X=1
- * return X
- * `,
- * });
- * ```
- *
  * ## Import
  *
  * # format is database name | schema name | stored procedure name | <list of arg types, separated with '-'>

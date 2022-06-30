@@ -96,6 +96,10 @@ export class Provider extends pulumi.ProviderResource {
      * Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
      */
     public readonly username!: pulumi.Output<string>;
+    /**
+     * Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+     */
+    public readonly warehouse!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -133,6 +137,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["warehouse"] = args ? args.warehouse : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
@@ -218,4 +223,8 @@ export interface ProviderArgs {
      * Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
      */
     username: pulumi.Input<string>;
+    /**
+     * Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+     */
+    warehouse?: pulumi.Input<string>;
 }

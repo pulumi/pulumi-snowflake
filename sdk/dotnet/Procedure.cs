@@ -10,57 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var db = new Snowflake.Schema("db", new Snowflake.SchemaArgs
-    ///         {
-    ///             DataRetentionDays = 1,
-    ///         });
-    ///         var schema = new Snowflake.Schema("schema", new Snowflake.SchemaArgs
-    ///         {
-    ///             Database = snowflake_database.Db.Name,
-    ///             DataRetentionDays = 1,
-    ///         });
-    ///         var proc = new Snowflake.Procedure("proc", new Snowflake.ProcedureArgs
-    ///         {
-    ///             Database = snowflake_database.Db.Name,
-    ///             Schema = schema.Name,
-    ///             Language = "JAVASCRIPT",
-    ///             Arguments = 
-    ///             {
-    ///                 new Snowflake.Inputs.ProcedureArgumentArgs
-    ///                 {
-    ///                     Name = "arg1",
-    ///                     Type = "varchar",
-    ///                 },
-    ///                 new Snowflake.Inputs.ProcedureArgumentArgs
-    ///                 {
-    ///                     Name = "arg2",
-    ///                     Type = "DATE",
-    ///                 },
-    ///             },
-    ///             Comment = "Procedure with 2 arguments",
-    ///             ReturnType = "VARCHAR",
-    ///             ExecuteAs = "CALLER",
-    ///             ReturnBehavior = "IMMUTABLE",
-    ///             NullInputBehavior = "RETURNS NULL ON NULL INPUT",
-    ///             Statement = @"var X=1
-    /// return X
-    /// ",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// # format is database name | schema name | stored procedure name | &lt;list of arg types, separated with '-'&gt;

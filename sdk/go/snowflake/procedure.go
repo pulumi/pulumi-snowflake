@@ -11,62 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"fmt"
-//
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewSchema(ctx, "db", &snowflake.SchemaArgs{
-// 			DataRetentionDays: pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
-// 			Database:          pulumi.Any(snowflake_database.Db.Name),
-// 			DataRetentionDays: pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = snowflake.NewProcedure(ctx, "proc", &snowflake.ProcedureArgs{
-// 			Database: pulumi.Any(snowflake_database.Db.Name),
-// 			Schema:   schema.Name,
-// 			Language: pulumi.String("JAVASCRIPT"),
-// 			Arguments: ProcedureArgumentArray{
-// 				&ProcedureArgumentArgs{
-// 					Name: pulumi.String("arg1"),
-// 					Type: pulumi.String("varchar"),
-// 				},
-// 				&ProcedureArgumentArgs{
-// 					Name: pulumi.String("arg2"),
-// 					Type: pulumi.String("DATE"),
-// 				},
-// 			},
-// 			Comment:           pulumi.String("Procedure with 2 arguments"),
-// 			ReturnType:        pulumi.String("VARCHAR"),
-// 			ExecuteAs:         pulumi.String("CALLER"),
-// 			ReturnBehavior:    pulumi.String("IMMUTABLE"),
-// 			NullInputBehavior: pulumi.String("RETURNS NULL ON NULL INPUT"),
-// 			Statement:         pulumi.String(fmt.Sprintf("%v%v", "var X=1\n", "return X\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // # format is database name | schema name | stored procedure name | <list of arg types, separated with '-'>

@@ -9,6 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// # format is database name | schema name | function name | &lt;list of arg types, separated with '-'&gt;
+    /// 
+    /// ```sh
+    ///  $ pulumi import snowflake:index/function:Function example 'dbName|schemaName|functionName|varchar-varchar-varchar'
+    /// ```
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/function:Function")]
     public partial class Function : Pulumi.CustomResource
     {
@@ -31,13 +40,13 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
-        /// the handler method for Java function.
+        /// The handler method for Java / Python function.
         /// </summary>
         [Output("handler")]
         public Output<string?> Handler { get; private set; } = null!;
 
         /// <summary>
-        /// jar files to import for Java function.
+        /// Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
         /// </summary>
         [Output("imports")]
         public Output<ImmutableArray<string>> Imports { get; private set; } = null!;
@@ -62,6 +71,14 @@ namespace Pulumi.Snowflake
         public Output<string?> NullInputBehavior { get; private set; } = null!;
 
         /// <summary>
+        /// List of package imports to use for Java / Python functions. For Java, package imports should be of the form:
+        /// package_name:version_number, where package_name is snowflake_domain:package. For Python use it should be:
+        /// ('numpy','pandas','xgboost==1.5.0').
+        /// </summary>
+        [Output("packages")]
+        public Output<ImmutableArray<string>> Packages { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the behavior of the function when returning results
         /// </summary>
         [Output("returnBehavior")]
@@ -74,19 +91,26 @@ namespace Pulumi.Snowflake
         public Output<string> ReturnType { get; private set; } = null!;
 
         /// <summary>
+        /// Required for Python functions. Specifies Python runtime version.
+        /// </summary>
+        [Output("runtimeVersion")]
+        public Output<string?> RuntimeVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The schema in which to create the function. Don't use the | character.
         /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the javascript / java / sql code used to create the function.
+        /// Specifies the javascript / java / sql / python code used to create the function.
         /// </summary>
         [Output("statement")]
         public Output<string> Statement { get; private set; } = null!;
 
         /// <summary>
-        /// the target path for compiled jar file for Java function.
+        /// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is
+        /// the path of the Python files.
         /// </summary>
         [Output("targetPath")]
         public Output<string?> TargetPath { get; private set; } = null!;
@@ -162,7 +186,7 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// the handler method for Java function.
+        /// The handler method for Java / Python function.
         /// </summary>
         [Input("handler")]
         public Input<string>? Handler { get; set; }
@@ -171,7 +195,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _imports;
 
         /// <summary>
-        /// jar files to import for Java function.
+        /// Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
         /// </summary>
         public InputList<string> Imports
         {
@@ -198,6 +222,20 @@ namespace Pulumi.Snowflake
         [Input("nullInputBehavior")]
         public Input<string>? NullInputBehavior { get; set; }
 
+        [Input("packages")]
+        private InputList<string>? _packages;
+
+        /// <summary>
+        /// List of package imports to use for Java / Python functions. For Java, package imports should be of the form:
+        /// package_name:version_number, where package_name is snowflake_domain:package. For Python use it should be:
+        /// ('numpy','pandas','xgboost==1.5.0').
+        /// </summary>
+        public InputList<string> Packages
+        {
+            get => _packages ?? (_packages = new InputList<string>());
+            set => _packages = value;
+        }
+
         /// <summary>
         /// Specifies the behavior of the function when returning results
         /// </summary>
@@ -211,19 +249,26 @@ namespace Pulumi.Snowflake
         public Input<string> ReturnType { get; set; } = null!;
 
         /// <summary>
+        /// Required for Python functions. Specifies Python runtime version.
+        /// </summary>
+        [Input("runtimeVersion")]
+        public Input<string>? RuntimeVersion { get; set; }
+
+        /// <summary>
         /// The schema in which to create the function. Don't use the | character.
         /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the javascript / java / sql code used to create the function.
+        /// Specifies the javascript / java / sql / python code used to create the function.
         /// </summary>
         [Input("statement", required: true)]
         public Input<string> Statement { get; set; } = null!;
 
         /// <summary>
-        /// the target path for compiled jar file for Java function.
+        /// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is
+        /// the path of the Python files.
         /// </summary>
         [Input("targetPath")]
         public Input<string>? TargetPath { get; set; }
@@ -260,7 +305,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// the handler method for Java function.
+        /// The handler method for Java / Python function.
         /// </summary>
         [Input("handler")]
         public Input<string>? Handler { get; set; }
@@ -269,7 +314,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _imports;
 
         /// <summary>
-        /// jar files to import for Java function.
+        /// Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
         /// </summary>
         public InputList<string> Imports
         {
@@ -296,6 +341,20 @@ namespace Pulumi.Snowflake
         [Input("nullInputBehavior")]
         public Input<string>? NullInputBehavior { get; set; }
 
+        [Input("packages")]
+        private InputList<string>? _packages;
+
+        /// <summary>
+        /// List of package imports to use for Java / Python functions. For Java, package imports should be of the form:
+        /// package_name:version_number, where package_name is snowflake_domain:package. For Python use it should be:
+        /// ('numpy','pandas','xgboost==1.5.0').
+        /// </summary>
+        public InputList<string> Packages
+        {
+            get => _packages ?? (_packages = new InputList<string>());
+            set => _packages = value;
+        }
+
         /// <summary>
         /// Specifies the behavior of the function when returning results
         /// </summary>
@@ -309,19 +368,26 @@ namespace Pulumi.Snowflake
         public Input<string>? ReturnType { get; set; }
 
         /// <summary>
+        /// Required for Python functions. Specifies Python runtime version.
+        /// </summary>
+        [Input("runtimeVersion")]
+        public Input<string>? RuntimeVersion { get; set; }
+
+        /// <summary>
         /// The schema in which to create the function. Don't use the | character.
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
 
         /// <summary>
-        /// Specifies the javascript / java / sql code used to create the function.
+        /// Specifies the javascript / java / sql / python code used to create the function.
         /// </summary>
         [Input("statement")]
         public Input<string>? Statement { get; set; }
 
         /// <summary>
-        /// the target path for compiled jar file for Java function.
+        /// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is
+        /// the path of the Python files.
         /// </summary>
         [Input("targetPath")]
         public Input<string>? TargetPath { get; set; }

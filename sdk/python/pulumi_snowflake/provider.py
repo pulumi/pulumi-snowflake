@@ -28,7 +28,8 @@ class ProviderArgs:
                  private_key: Optional[pulumi.Input[str]] = None,
                  private_key_passphrase: Optional[pulumi.Input[str]] = None,
                  private_key_path: Optional[pulumi.Input[str]] = None,
-                 role: Optional[pulumi.Input[str]] = None):
+                 role: Optional[pulumi.Input[str]] = None,
+                 warehouse: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] account: The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
@@ -58,6 +59,7 @@ class ProviderArgs:
                `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
         :param pulumi.Input[str] role: Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the
                `SNOWFLAKE_ROLE` environment variable.
+        :param pulumi.Input[str] warehouse: Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
         """
         pulumi.set(__self__, "account", account)
         pulumi.set(__self__, "region", region)
@@ -88,6 +90,8 @@ class ProviderArgs:
             pulumi.set(__self__, "private_key_path", private_key_path)
         if role is not None:
             pulumi.set(__self__, "role", role)
+        if warehouse is not None:
+            pulumi.set(__self__, "warehouse", warehouse)
 
     @property
     @pulumi.getter
@@ -292,6 +296,18 @@ class ProviderArgs:
     def role(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role", value)
 
+    @property
+    @pulumi.getter
+    def warehouse(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+        """
+        return pulumi.get(self, "warehouse")
+
+    @warehouse.setter
+    def warehouse(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "warehouse", value)
+
 
 class Provider(pulumi.ProviderResource):
     @overload
@@ -314,6 +330,7 @@ class Provider(pulumi.ProviderResource):
                  region: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
+                 warehouse: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The provider type for the snowflake package. By default, resources use package-wide configuration
@@ -350,6 +367,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] role: Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the
                `SNOWFLAKE_ROLE` environment variable.
         :param pulumi.Input[str] username: Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+        :param pulumi.Input[str] warehouse: Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
         """
         ...
     @overload
@@ -394,6 +412,7 @@ class Provider(pulumi.ProviderResource):
                  region: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
+                 warehouse: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -428,6 +447,7 @@ class Provider(pulumi.ProviderResource):
             if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
             __props__.__dict__["username"] = username
+            __props__.__dict__["warehouse"] = warehouse
         super(Provider, __self__).__init__(
             'snowflake',
             resource_name,
@@ -564,4 +584,12 @@ class Provider(pulumi.ProviderResource):
         Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def warehouse(self) -> pulumi.Output[Optional[str]]:
+        """
+        Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+        """
+        return pulumi.get(self, "warehouse")
 
