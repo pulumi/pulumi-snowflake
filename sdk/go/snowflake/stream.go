@@ -33,6 +33,8 @@ type Stream struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of the table the stream will monitor.
 	OnTable pulumi.StringPtrOutput `pulumi:"onTable"`
+	// Name of the view the stream will monitor.
+	OnView pulumi.StringPtrOutput `pulumi:"onView"`
 	// Name of the role that owns the stream.
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// The schema in which to create the stream.
@@ -88,6 +90,8 @@ type streamState struct {
 	Name *string `pulumi:"name"`
 	// Name of the table the stream will monitor.
 	OnTable *string `pulumi:"onTable"`
+	// Name of the view the stream will monitor.
+	OnView *string `pulumi:"onView"`
 	// Name of the role that owns the stream.
 	Owner *string `pulumi:"owner"`
 	// The schema in which to create the stream.
@@ -109,6 +113,8 @@ type StreamState struct {
 	Name pulumi.StringPtrInput
 	// Name of the table the stream will monitor.
 	OnTable pulumi.StringPtrInput
+	// Name of the view the stream will monitor.
+	OnView pulumi.StringPtrInput
 	// Name of the role that owns the stream.
 	Owner pulumi.StringPtrInput
 	// The schema in which to create the stream.
@@ -134,6 +140,8 @@ type streamArgs struct {
 	Name *string `pulumi:"name"`
 	// Name of the table the stream will monitor.
 	OnTable *string `pulumi:"onTable"`
+	// Name of the view the stream will monitor.
+	OnView *string `pulumi:"onView"`
 	// The schema in which to create the stream.
 	Schema string `pulumi:"schema"`
 	// Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed.
@@ -154,6 +162,8 @@ type StreamArgs struct {
 	Name pulumi.StringPtrInput
 	// Name of the table the stream will monitor.
 	OnTable pulumi.StringPtrInput
+	// Name of the view the stream will monitor.
+	OnView pulumi.StringPtrInput
 	// The schema in which to create the stream.
 	Schema pulumi.StringInput
 	// Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed.
@@ -275,6 +285,11 @@ func (o StreamOutput) Name() pulumi.StringOutput {
 // Name of the table the stream will monitor.
 func (o StreamOutput) OnTable() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringPtrOutput { return v.OnTable }).(pulumi.StringPtrOutput)
+}
+
+// Name of the view the stream will monitor.
+func (o StreamOutput) OnView() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringPtrOutput { return v.OnView }).(pulumi.StringPtrOutput)
 }
 
 // Name of the role that owns the stream.

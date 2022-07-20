@@ -95,7 +95,7 @@ export class ExternalTableGrant extends pulumi.CustomResource {
     /**
      * The name of the schema containing the current or future external tables on which to grant privileges.
      */
-    public readonly schemaName!: pulumi.Output<string>;
+    public readonly schemaName!: pulumi.Output<string | undefined>;
     /**
      * Grants privilege to these shares (only valid if on_future is false).
      */
@@ -131,9 +131,6 @@ export class ExternalTableGrant extends pulumi.CustomResource {
             const args = argsOrState as ExternalTableGrantArgs | undefined;
             if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
-            }
-            if ((!args || args.schemaName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'schemaName'");
             }
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["enableMultipleGrants"] = args ? args.enableMultipleGrants : undefined;
@@ -229,7 +226,7 @@ export interface ExternalTableGrantArgs {
     /**
      * The name of the schema containing the current or future external tables on which to grant privileges.
      */
-    schemaName: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
     /**
      * Grants privilege to these shares (only valid if on_future is false).
      */
