@@ -58,6 +58,12 @@ namespace Pulumi.Snowflake
         public Output<string?> OnTable { get; private set; } = null!;
 
         /// <summary>
+        /// Name of the view the stream will monitor.
+        /// </summary>
+        [Output("onView")]
+        public Output<string?> OnView { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the role that owns the stream.
         /// </summary>
         [Output("owner")]
@@ -158,6 +164,12 @@ namespace Pulumi.Snowflake
         public Input<string>? OnTable { get; set; }
 
         /// <summary>
+        /// Name of the view the stream will monitor.
+        /// </summary>
+        [Input("onView")]
+        public Input<string>? OnView { get; set; }
+
+        /// <summary>
         /// The schema in which to create the stream.
         /// </summary>
         [Input("schema", required: true)]
@@ -211,6 +223,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("onTable")]
         public Input<string>? OnTable { get; set; }
+
+        /// <summary>
+        /// Name of the view the stream will monitor.
+        /// </summary>
+        [Input("onView")]
+        public Input<string>? OnView { get; set; }
 
         /// <summary>
         /// Name of the role that owns the stream.

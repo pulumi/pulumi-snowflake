@@ -2625,8 +2625,7 @@
                 },
                 "replicationConfiguration": {
                     "$ref": "#/types/snowflake:index/DatabaseReplicationConfiguration:DatabaseReplicationConfiguration",
-                    "description": "When set, specifies the configurations for database replication.\n",
-                    "willReplaceOnChanges": true
+                    "description": "When set, specifies the configurations for database replication.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -2668,8 +2667,7 @@
                     },
                     "replicationConfiguration": {
                         "$ref": "#/types/snowflake:index/DatabaseReplicationConfiguration:DatabaseReplicationConfiguration",
-                        "description": "When set, specifies the configurations for database replication.\n",
-                        "willReplaceOnChanges": true
+                        "description": "When set, specifies the configurations for database replication.\n"
                     },
                     "tags": {
                         "type": "array",
@@ -3644,8 +3642,7 @@
                 }
             },
             "required": [
-                "databaseName",
-                "schemaName"
+                "databaseName"
             ],
             "inputProperties": {
                 "databaseName": {
@@ -3701,8 +3698,7 @@
                 }
             },
             "requiredInputs": [
-                "databaseName",
-                "schemaName"
+                "databaseName"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering ExternalTableGrant resources.\n",
@@ -6319,7 +6315,7 @@
             }
         },
         "snowflake:index/pipeGrant:PipeGrant": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.PipeGrant(\"grant\", {\n    databaseName: \"db\",\n    onFuture: false,\n    privilege: \"operate\",\n    roles: [\n        \"role1\",\n        \"role2\",\n    ],\n    schemaName: \"schema\",\n    sequenceName: \"sequence\",\n    withGrantOption: false,\n});\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var grant = new PipeGrant(\"grant\", PipeGrantArgs.builder()        \n            .databaseName(\"db\")\n            .onFuture(false)\n            .privilege(\"operate\")\n            .roles(            \n                \"role1\",\n                \"role2\")\n            .schemaName(\"schema\")\n            .sequenceName(\"sequence\")\n            .withGrantOption(false)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  grant:\n    type: snowflake:PipeGrant\n    properties:\n      databaseName: db\n      onFuture: false\n      privilege: operate\n      roles:\n        - role1\n        - role2\n      schemaName: schema\n      sequenceName: sequence\n      withGrantOption: false\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | pipe name | privilege | true/false for with_grant_option\n\n```sh\n $ pulumi import snowflake:index/pipeGrant:PipeGrant example 'dbName|schemaName|pipeName|OPERATE|false'\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.PipeGrant(\"grant\", {\n    databaseName: \"db\",\n    onFuture: false,\n    pipeName: \"pipe\",\n    privilege: \"operate\",\n    roles: [\n        \"role1\",\n        \"role2\",\n    ],\n    schemaName: \"schema\",\n    withGrantOption: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ngrant = snowflake.PipeGrant(\"grant\",\n    database_name=\"db\",\n    on_future=False,\n    pipe_name=\"pipe\",\n    privilege=\"operate\",\n    roles=[\n        \"role1\",\n        \"role2\",\n    ],\n    schema_name=\"schema\",\n    with_grant_option=False)\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var grant = new Snowflake.PipeGrant(\"grant\", new Snowflake.PipeGrantArgs\n        {\n            DatabaseName = \"db\",\n            OnFuture = false,\n            PipeName = \"pipe\",\n            Privilege = \"operate\",\n            Roles = \n            {\n                \"role1\",\n                \"role2\",\n            },\n            SchemaName = \"schema\",\n            WithGrantOption = false,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewPipeGrant(ctx, \"grant\", \u0026snowflake.PipeGrantArgs{\n\t\t\tDatabaseName: pulumi.String(\"db\"),\n\t\t\tOnFuture:     pulumi.Bool(false),\n\t\t\tPipeName:     pulumi.String(\"pipe\"),\n\t\t\tPrivilege:    pulumi.String(\"operate\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"role1\"),\n\t\t\t\tpulumi.String(\"role2\"),\n\t\t\t},\n\t\t\tSchemaName:      pulumi.String(\"schema\"),\n\t\t\tWithGrantOption: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var grant = new PipeGrant(\"grant\", PipeGrantArgs.builder()        \n            .databaseName(\"db\")\n            .onFuture(false)\n            .pipeName(\"pipe\")\n            .privilege(\"operate\")\n            .roles(            \n                \"role1\",\n                \"role2\")\n            .schemaName(\"schema\")\n            .withGrantOption(false)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  grant:\n    type: snowflake:PipeGrant\n    properties:\n      databaseName: db\n      onFuture: false\n      pipeName: pipe\n      privilege: operate\n      roles:\n        - role1\n        - role2\n      schemaName: schema\n      withGrantOption: false\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | pipe name | privilege | true/false for with_grant_option\n\n```sh\n $ pulumi import snowflake:index/pipeGrant:PipeGrant example 'dbName|schemaName|pipeName|OPERATE|false'\n```\n\n ",
             "properties": {
                 "databaseName": {
                     "type": "string",
@@ -8410,14 +8406,14 @@
             }
         },
         "snowflake:index/share:Share": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst test = new snowflake.Share(\"test\", {\n    comment: \"cool comment\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ntest = snowflake.Share(\"test\", comment=\"cool comment\")\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test = new Snowflake.Share(\"test\", new Snowflake.ShareArgs\n        {\n            Comment = \"cool comment\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewShare(ctx, \"test\", \u0026snowflake.ShareArgs{\n\t\t\tComment: pulumi.String(\"cool comment\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new Share(\"test\", ShareArgs.builder()        \n            .comment(\"cool comment\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: snowflake:Share\n    properties:\n      comment: cool comment\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/share:Share example name\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst test = new snowflake.Share(\"test\", {\n    accounts: \"organizationName.accountName\",\n    comment: \"cool comment\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ntest = snowflake.Share(\"test\",\n    accounts=\"organizationName.accountName\",\n    comment=\"cool comment\")\n```\n```csharp\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test = new Snowflake.Share(\"test\", new Snowflake.ShareArgs\n        {\n            Accounts = \"organizationName.accountName\",\n            Comment = \"cool comment\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewShare(ctx, \"test\", \u0026snowflake.ShareArgs{\n\t\t\tAccounts: pulumi.StringArray(\"organizationName.accountName\"),\n\t\t\tComment:  pulumi.String(\"cool comment\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new Share(\"test\", ShareArgs.builder()        \n            .accounts(\"organizationName.accountName\")\n            .comment(\"cool comment\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: snowflake:Share\n    properties:\n      accounts: organizationName.accountName\n      comment: cool comment\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/share:Share example name\n```\n\n ",
             "properties": {
                 "accounts": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of accounts to be added to the share.\n"
+                    "description": "A list of accounts to be added to the share. Values should not be the account locator, but in the form of\n'organization_name.account_name\n"
                 },
                 "comment": {
                     "type": "string",
@@ -8437,7 +8433,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of accounts to be added to the share.\n"
+                    "description": "A list of accounts to be added to the share. Values should not be the account locator, but in the form of\n'organization_name.account_name\n"
                 },
                 "comment": {
                     "type": "string",
@@ -8457,7 +8453,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of accounts to be added to the share.\n"
+                        "description": "A list of accounts to be added to the share. Values should not be the account locator, but in the form of\n'organization_name.account_name\n"
                     },
                     "comment": {
                         "type": "string",
@@ -9041,6 +9037,10 @@
                     "type": "string",
                     "description": "Name of the table the stream will monitor.\n"
                 },
+                "onView": {
+                    "type": "string",
+                    "description": "Name of the view the stream will monitor.\n"
+                },
                 "owner": {
                     "type": "string",
                     "description": "Name of the role that owns the stream.\n"
@@ -9090,6 +9090,11 @@
                     "description": "Name of the table the stream will monitor.\n",
                     "willReplaceOnChanges": true
                 },
+                "onView": {
+                    "type": "string",
+                    "description": "Name of the view the stream will monitor.\n",
+                    "willReplaceOnChanges": true
+                },
                 "schema": {
                     "type": "string",
                     "description": "The schema in which to create the stream.\n",
@@ -9135,6 +9140,11 @@
                     "onTable": {
                         "type": "string",
                         "description": "Name of the table the stream will monitor.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "onView": {
+                        "type": "string",
+                        "description": "Name of the view the stream will monitor.\n",
                         "willReplaceOnChanges": true
                     },
                     "owner": {

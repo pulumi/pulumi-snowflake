@@ -83,6 +83,10 @@ export class Stream extends pulumi.CustomResource {
      */
     public readonly onTable!: pulumi.Output<string | undefined>;
     /**
+     * Name of the view the stream will monitor.
+     */
+    public readonly onView!: pulumi.Output<string | undefined>;
+    /**
      * Name of the role that owns the stream.
      */
     public /*out*/ readonly owner!: pulumi.Output<string>;
@@ -114,6 +118,7 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["insertOnly"] = state ? state.insertOnly : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["onTable"] = state ? state.onTable : undefined;
+            resourceInputs["onView"] = state ? state.onView : undefined;
             resourceInputs["owner"] = state ? state.owner : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
             resourceInputs["showInitialRows"] = state ? state.showInitialRows : undefined;
@@ -131,6 +136,7 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["insertOnly"] = args ? args.insertOnly : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["onTable"] = args ? args.onTable : undefined;
+            resourceInputs["onView"] = args ? args.onView : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["showInitialRows"] = args ? args.showInitialRows : undefined;
             resourceInputs["owner"] = undefined /*out*/;
@@ -168,6 +174,10 @@ export interface StreamState {
      * Name of the table the stream will monitor.
      */
     onTable?: pulumi.Input<string>;
+    /**
+     * Name of the view the stream will monitor.
+     */
+    onView?: pulumi.Input<string>;
     /**
      * Name of the role that owns the stream.
      */
@@ -210,6 +220,10 @@ export interface StreamArgs {
      * Name of the table the stream will monitor.
      */
     onTable?: pulumi.Input<string>;
+    /**
+     * Name of the view the stream will monitor.
+     */
+    onView?: pulumi.Input<string>;
     /**
      * The schema in which to create the stream.
      */

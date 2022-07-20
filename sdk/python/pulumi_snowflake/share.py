@@ -18,7 +18,8 @@ class ShareArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Share resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts: A list of accounts to be added to the share.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts: A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+               'organization_name.account_name
         :param pulumi.Input[str] comment: Specifies a comment for the managed account.
         :param pulumi.Input[str] name: Specifies the identifier for the share; must be unique for the account in which the share is created.
         """
@@ -33,7 +34,8 @@ class ShareArgs:
     @pulumi.getter
     def accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of accounts to be added to the share.
+        A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+        'organization_name.account_name
         """
         return pulumi.get(self, "accounts")
 
@@ -74,7 +76,8 @@ class _ShareState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Share resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts: A list of accounts to be added to the share.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts: A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+               'organization_name.account_name
         :param pulumi.Input[str] comment: Specifies a comment for the managed account.
         :param pulumi.Input[str] name: Specifies the identifier for the share; must be unique for the account in which the share is created.
         """
@@ -89,7 +92,8 @@ class _ShareState:
     @pulumi.getter
     def accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of accounts to be added to the share.
+        A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+        'organization_name.account_name
         """
         return pulumi.get(self, "accounts")
 
@@ -138,7 +142,9 @@ class Share(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        test = snowflake.Share("test", comment="cool comment")
+        test = snowflake.Share("test",
+            accounts="organizationName.accountName",
+            comment="cool comment")
         ```
 
         ## Import
@@ -149,7 +155,8 @@ class Share(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts: A list of accounts to be added to the share.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts: A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+               'organization_name.account_name
         :param pulumi.Input[str] comment: Specifies a comment for the managed account.
         :param pulumi.Input[str] name: Specifies the identifier for the share; must be unique for the account in which the share is created.
         """
@@ -166,7 +173,9 @@ class Share(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        test = snowflake.Share("test", comment="cool comment")
+        test = snowflake.Share("test",
+            accounts="organizationName.accountName",
+            comment="cool comment")
         ```
 
         ## Import
@@ -228,7 +237,8 @@ class Share(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts: A list of accounts to be added to the share.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts: A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+               'organization_name.account_name
         :param pulumi.Input[str] comment: Specifies a comment for the managed account.
         :param pulumi.Input[str] name: Specifies the identifier for the share; must be unique for the account in which the share is created.
         """
@@ -245,7 +255,8 @@ class Share(pulumi.CustomResource):
     @pulumi.getter
     def accounts(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of accounts to be added to the share.
+        A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+        'organization_name.account_name
         """
         return pulumi.get(self, "accounts")
 

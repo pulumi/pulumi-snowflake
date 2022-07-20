@@ -307,6 +307,25 @@ class PipeGrant(pulumi.CustomResource):
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        grant = snowflake.PipeGrant("grant",
+            database_name="db",
+            on_future=False,
+            pipe_name="pipe",
+            privilege="operate",
+            roles=[
+                "role1",
+                "role2",
+            ],
+            schema_name="schema",
+            with_grant_option=False)
+        ```
+
         ## Import
 
         # format is database name | schema name | pipe name | privilege | true/false for with_grant_option
@@ -336,6 +355,25 @@ class PipeGrant(pulumi.CustomResource):
                  args: PipeGrantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        grant = snowflake.PipeGrant("grant",
+            database_name="db",
+            on_future=False,
+            pipe_name="pipe",
+            privilege="operate",
+            roles=[
+                "role1",
+                "role2",
+            ],
+            schema_name="schema",
+            with_grant_option=False)
+        ```
+
         ## Import
 
         # format is database name | schema name | pipe name | privilege | true/false for with_grant_option

@@ -22,6 +22,7 @@ namespace Pulumi.Snowflake
     ///     {
     ///         var test = new Snowflake.Share("test", new Snowflake.ShareArgs
     ///         {
+    ///             Accounts = "organizationName.accountName",
     ///             Comment = "cool comment",
     ///         });
     ///     }
@@ -39,7 +40,8 @@ namespace Pulumi.Snowflake
     public partial class Share : Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of accounts to be added to the share.
+        /// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+        /// 'organization_name.account_name
         /// </summary>
         [Output("accounts")]
         public Output<ImmutableArray<string>> Accounts { get; private set; } = null!;
@@ -106,7 +108,8 @@ namespace Pulumi.Snowflake
         private InputList<string>? _accounts;
 
         /// <summary>
-        /// A list of accounts to be added to the share.
+        /// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+        /// 'organization_name.account_name
         /// </summary>
         public InputList<string> Accounts
         {
@@ -137,7 +140,8 @@ namespace Pulumi.Snowflake
         private InputList<string>? _accounts;
 
         /// <summary>
-        /// A list of accounts to be added to the share.
+        /// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+        /// 'organization_name.account_name
         /// </summary>
         public InputList<string> Accounts
         {

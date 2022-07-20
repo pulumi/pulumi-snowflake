@@ -20,6 +20,7 @@ class StreamArgs:
                  insert_only: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  on_table: Optional[pulumi.Input[str]] = None,
+                 on_view: Optional[pulumi.Input[str]] = None,
                  show_initial_rows: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Stream resource.
@@ -30,6 +31,7 @@ class StreamArgs:
         :param pulumi.Input[bool] insert_only: Create an insert only stream type.
         :param pulumi.Input[str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
         :param pulumi.Input[str] on_table: Name of the table the stream will monitor.
+        :param pulumi.Input[str] on_view: Name of the view the stream will monitor.
         :param pulumi.Input[bool] show_initial_rows: Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed.
         """
         pulumi.set(__self__, "database", database)
@@ -44,6 +46,8 @@ class StreamArgs:
             pulumi.set(__self__, "name", name)
         if on_table is not None:
             pulumi.set(__self__, "on_table", on_table)
+        if on_view is not None:
+            pulumi.set(__self__, "on_view", on_view)
         if show_initial_rows is not None:
             pulumi.set(__self__, "show_initial_rows", show_initial_rows)
 
@@ -132,6 +136,18 @@ class StreamArgs:
         pulumi.set(self, "on_table", value)
 
     @property
+    @pulumi.getter(name="onView")
+    def on_view(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the view the stream will monitor.
+        """
+        return pulumi.get(self, "on_view")
+
+    @on_view.setter
+    def on_view(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "on_view", value)
+
+    @property
     @pulumi.getter(name="showInitialRows")
     def show_initial_rows(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -153,6 +169,7 @@ class _StreamState:
                  insert_only: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  on_table: Optional[pulumi.Input[str]] = None,
+                 on_view: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  show_initial_rows: Optional[pulumi.Input[bool]] = None):
@@ -164,6 +181,7 @@ class _StreamState:
         :param pulumi.Input[bool] insert_only: Create an insert only stream type.
         :param pulumi.Input[str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
         :param pulumi.Input[str] on_table: Name of the table the stream will monitor.
+        :param pulumi.Input[str] on_view: Name of the view the stream will monitor.
         :param pulumi.Input[str] owner: Name of the role that owns the stream.
         :param pulumi.Input[str] schema: The schema in which to create the stream.
         :param pulumi.Input[bool] show_initial_rows: Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed.
@@ -180,6 +198,8 @@ class _StreamState:
             pulumi.set(__self__, "name", name)
         if on_table is not None:
             pulumi.set(__self__, "on_table", on_table)
+        if on_view is not None:
+            pulumi.set(__self__, "on_view", on_view)
         if owner is not None:
             pulumi.set(__self__, "owner", owner)
         if schema is not None:
@@ -260,6 +280,18 @@ class _StreamState:
         pulumi.set(self, "on_table", value)
 
     @property
+    @pulumi.getter(name="onView")
+    def on_view(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the view the stream will monitor.
+        """
+        return pulumi.get(self, "on_view")
+
+    @on_view.setter
+    def on_view(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "on_view", value)
+
+    @property
     @pulumi.getter
     def owner(self) -> Optional[pulumi.Input[str]]:
         """
@@ -307,6 +339,7 @@ class Stream(pulumi.CustomResource):
                  insert_only: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  on_table: Optional[pulumi.Input[str]] = None,
+                 on_view: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  show_initial_rows: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -327,6 +360,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[bool] insert_only: Create an insert only stream type.
         :param pulumi.Input[str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
         :param pulumi.Input[str] on_table: Name of the table the stream will monitor.
+        :param pulumi.Input[str] on_view: Name of the view the stream will monitor.
         :param pulumi.Input[str] schema: The schema in which to create the stream.
         :param pulumi.Input[bool] show_initial_rows: Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed.
         """
@@ -366,6 +400,7 @@ class Stream(pulumi.CustomResource):
                  insert_only: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  on_table: Optional[pulumi.Input[str]] = None,
+                 on_view: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  show_initial_rows: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -388,6 +423,7 @@ class Stream(pulumi.CustomResource):
             __props__.__dict__["insert_only"] = insert_only
             __props__.__dict__["name"] = name
             __props__.__dict__["on_table"] = on_table
+            __props__.__dict__["on_view"] = on_view
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
@@ -409,6 +445,7 @@ class Stream(pulumi.CustomResource):
             insert_only: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             on_table: Optional[pulumi.Input[str]] = None,
+            on_view: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None,
             show_initial_rows: Optional[pulumi.Input[bool]] = None) -> 'Stream':
@@ -425,6 +462,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[bool] insert_only: Create an insert only stream type.
         :param pulumi.Input[str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
         :param pulumi.Input[str] on_table: Name of the table the stream will monitor.
+        :param pulumi.Input[str] on_view: Name of the view the stream will monitor.
         :param pulumi.Input[str] owner: Name of the role that owns the stream.
         :param pulumi.Input[str] schema: The schema in which to create the stream.
         :param pulumi.Input[bool] show_initial_rows: Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed.
@@ -439,6 +477,7 @@ class Stream(pulumi.CustomResource):
         __props__.__dict__["insert_only"] = insert_only
         __props__.__dict__["name"] = name
         __props__.__dict__["on_table"] = on_table
+        __props__.__dict__["on_view"] = on_view
         __props__.__dict__["owner"] = owner
         __props__.__dict__["schema"] = schema
         __props__.__dict__["show_initial_rows"] = show_initial_rows
@@ -491,6 +530,14 @@ class Stream(pulumi.CustomResource):
         Name of the table the stream will monitor.
         """
         return pulumi.get(self, "on_table")
+
+    @property
+    @pulumi.getter(name="onView")
+    def on_view(self) -> pulumi.Output[Optional[str]]:
+        """
+        Name of the view the stream will monitor.
+        """
+        return pulumi.get(self, "on_view")
 
     @property
     @pulumi.getter

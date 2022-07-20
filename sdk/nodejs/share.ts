@@ -12,6 +12,7 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const test = new snowflake.Share("test", {
+ *     accounts: "organizationName.accountName",
  *     comment: "cool comment",
  * });
  * ```
@@ -51,7 +52,8 @@ export class Share extends pulumi.CustomResource {
     }
 
     /**
-     * A list of accounts to be added to the share.
+     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+     * 'organization_name.account_name
      */
     public readonly accounts!: pulumi.Output<string[] | undefined>;
     /**
@@ -95,7 +97,8 @@ export class Share extends pulumi.CustomResource {
  */
 export interface ShareState {
     /**
-     * A list of accounts to be added to the share.
+     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+     * 'organization_name.account_name
      */
     accounts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -113,7 +116,8 @@ export interface ShareState {
  */
 export interface ShareArgs {
     /**
-     * A list of accounts to be added to the share.
+     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+     * 'organization_name.account_name
      */
     accounts?: pulumi.Input<pulumi.Input<string>[]>;
     /**

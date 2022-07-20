@@ -14,18 +14,17 @@ __all__ = ['ExternalTableGrantArgs', 'ExternalTableGrant']
 class ExternalTableGrantArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
-                 schema_name: pulumi.Input[str],
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  external_table_name: Optional[pulumi.Input[str]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 schema_name: Optional[pulumi.Input[str]] = None,
                  shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ExternalTableGrant resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future external tables on which to grant privileges.
-        :param pulumi.Input[str] schema_name: The name of the schema containing the current or future external tables on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] external_table_name: The name of the external table on which to grant privileges immediately (only valid if on_future is false).
@@ -34,11 +33,11 @@ class ExternalTableGrantArgs:
                database. The external_table_name and shares fields must be unset in order to use on_future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future external table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
+        :param pulumi.Input[str] schema_name: The name of the schema containing the current or future external tables on which to grant privileges.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on_future is false).
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
         pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "schema_name", schema_name)
         if enable_multiple_grants is not None:
             pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
         if external_table_name is not None:
@@ -49,6 +48,8 @@ class ExternalTableGrantArgs:
             pulumi.set(__self__, "privilege", privilege)
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
         if shares is not None:
             pulumi.set(__self__, "shares", shares)
         if with_grant_option is not None:
@@ -65,18 +66,6 @@ class ExternalTableGrantArgs:
     @database_name.setter
     def database_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "database_name", value)
-
-    @property
-    @pulumi.getter(name="schemaName")
-    def schema_name(self) -> pulumi.Input[str]:
-        """
-        The name of the schema containing the current or future external tables on which to grant privileges.
-        """
-        return pulumi.get(self, "schema_name")
-
-    @schema_name.setter
-    def schema_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "schema_name", value)
 
     @property
     @pulumi.getter(name="enableMultipleGrants")
@@ -140,6 +129,18 @@ class ExternalTableGrantArgs:
     @roles.setter
     def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "roles", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the schema containing the current or future external tables on which to grant privileges.
+        """
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_name", value)
 
     @property
     @pulumi.getter
@@ -468,8 +469,6 @@ class ExternalTableGrant(pulumi.CustomResource):
             __props__.__dict__["on_future"] = on_future
             __props__.__dict__["privilege"] = privilege
             __props__.__dict__["roles"] = roles
-            if schema_name is None and not opts.urn:
-                raise TypeError("Missing required property 'schema_name'")
             __props__.__dict__["schema_name"] = schema_name
             __props__.__dict__["shares"] = shares
             __props__.__dict__["with_grant_option"] = with_grant_option
@@ -580,7 +579,7 @@ class ExternalTableGrant(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="schemaName")
-    def schema_name(self) -> pulumi.Output[str]:
+    def schema_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the schema containing the current or future external tables on which to grant privileges.
         """

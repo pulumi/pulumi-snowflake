@@ -23,7 +23,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := snowflake.NewShare(ctx, "test", &snowflake.ShareArgs{
-// 			Comment: pulumi.String("cool comment"),
+// 			Accounts: pulumi.StringArray("organizationName.accountName"),
+// 			Comment:  pulumi.String("cool comment"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -41,7 +42,8 @@ import (
 type Share struct {
 	pulumi.CustomResourceState
 
-	// A list of accounts to be added to the share.
+	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+	// 'organization_name.account_name
 	Accounts pulumi.StringArrayOutput `pulumi:"accounts"`
 	// Specifies a comment for the managed account.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
@@ -78,7 +80,8 @@ func GetShare(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Share resources.
 type shareState struct {
-	// A list of accounts to be added to the share.
+	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+	// 'organization_name.account_name
 	Accounts []string `pulumi:"accounts"`
 	// Specifies a comment for the managed account.
 	Comment *string `pulumi:"comment"`
@@ -87,7 +90,8 @@ type shareState struct {
 }
 
 type ShareState struct {
-	// A list of accounts to be added to the share.
+	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+	// 'organization_name.account_name
 	Accounts pulumi.StringArrayInput
 	// Specifies a comment for the managed account.
 	Comment pulumi.StringPtrInput
@@ -100,7 +104,8 @@ func (ShareState) ElementType() reflect.Type {
 }
 
 type shareArgs struct {
-	// A list of accounts to be added to the share.
+	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+	// 'organization_name.account_name
 	Accounts []string `pulumi:"accounts"`
 	// Specifies a comment for the managed account.
 	Comment *string `pulumi:"comment"`
@@ -110,7 +115,8 @@ type shareArgs struct {
 
 // The set of arguments for constructing a Share resource.
 type ShareArgs struct {
-	// A list of accounts to be added to the share.
+	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+	// 'organization_name.account_name
 	Accounts pulumi.StringArrayInput
 	// Specifies a comment for the managed account.
 	Comment pulumi.StringPtrInput
@@ -205,7 +211,8 @@ func (o ShareOutput) ToShareOutputWithContext(ctx context.Context) ShareOutput {
 	return o
 }
 
-// A list of accounts to be added to the share.
+// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+// 'organization_name.account_name
 func (o ShareOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Share) pulumi.StringArrayOutput { return v.Accounts }).(pulumi.StringArrayOutput)
 }
