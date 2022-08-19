@@ -16,22 +16,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.GetTables(ctx, &GetTablesArgs{
-// 			Database: "MYDB",
-// 			Schema:   "MYSCHEMA",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.GetTables(ctx, &GetTablesArgs{
+//				Database: "MYDB",
+//				Schema:   "MYSCHEMA",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetTables(ctx *pulumi.Context, args *GetTablesArgs, opts ...pulumi.InvokeOption) (*GetTablesResult, error) {
 	var rv GetTablesResult
@@ -44,16 +47,21 @@ func GetTables(ctx *pulumi.Context, args *GetTablesArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getTables.
 type GetTablesArgs struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the tables from.
+	Schema string `pulumi:"schema"`
 }
 
 // A collection of values returned by getTables.
 type GetTablesResult struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string           `pulumi:"id"`
-	Schema string           `pulumi:"schema"`
+	Id string `pulumi:"id"`
+	// The schema from which to return the tables from.
+	Schema string `pulumi:"schema"`
+	// The tables in the schema
 	Tables []GetTablesTable `pulumi:"tables"`
 }
 
@@ -72,8 +80,10 @@ func GetTablesOutput(ctx *pulumi.Context, args GetTablesOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getTables.
 type GetTablesOutputArgs struct {
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the tables from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetTablesOutputArgs) ElementType() reflect.Type {
@@ -95,6 +105,7 @@ func (o GetTablesResultOutput) ToGetTablesResultOutputWithContext(ctx context.Co
 	return o
 }
 
+// The database from which to return the schemas from.
 func (o GetTablesResultOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTablesResult) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -104,10 +115,12 @@ func (o GetTablesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTablesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the tables from.
 func (o GetTablesResultOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTablesResult) string { return v.Schema }).(pulumi.StringOutput)
 }
 
+// The tables in the schema
 func (o GetTablesResultOutput) Tables() GetTablesTableArrayOutput {
 	return o.ApplyT(func(v GetTablesResult) []GetTablesTable { return v.Tables }).(GetTablesTableArrayOutput)
 }

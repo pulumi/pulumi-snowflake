@@ -17,21 +17,19 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Snowflake.GetStreams.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Snowflake.GetStreams.InvokeAsync(new Snowflake.GetStreamsArgs
-        ///         {
-        ///             Database = "MYDB",
-        ///             Schema = "MYSCHEMA",
-        ///         }));
-        ///     }
+        ///         Database = "MYDB",
+        ///         Schema = "MYSCHEMA",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -45,21 +43,19 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Snowflake.GetStreams.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Snowflake.GetStreams.InvokeAsync(new Snowflake.GetStreamsArgs
-        ///         {
-        ///             Database = "MYDB",
-        ///             Schema = "MYSCHEMA",
-        ///         }));
-        ///     }
+        ///         Database = "MYDB",
+        ///         Schema = "MYSCHEMA",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -69,42 +65,65 @@ namespace Pulumi.Snowflake
     }
 
 
-    public sealed class GetStreamsArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the streams from.
+        /// </summary>
         [Input("database", required: true)]
         public string Database { get; set; } = null!;
 
+        /// <summary>
+        /// The schema from which to return the streams from.
+        /// </summary>
         [Input("schema", required: true)]
         public string Schema { get; set; } = null!;
 
         public GetStreamsArgs()
         {
         }
+        public static new GetStreamsArgs Empty => new GetStreamsArgs();
     }
 
-    public sealed class GetStreamsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the streams from.
+        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
+        /// <summary>
+        /// The schema from which to return the streams from.
+        /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
         public GetStreamsInvokeArgs()
         {
         }
+        public static new GetStreamsInvokeArgs Empty => new GetStreamsInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetStreamsResult
     {
+        /// <summary>
+        /// The database from which to return the streams from.
+        /// </summary>
         public readonly string Database;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The schema from which to return the streams from.
+        /// </summary>
         public readonly string Schema;
+        /// <summary>
+        /// The streams in the schema
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetStreamsStreamResult> Streams;
 
         [OutputConstructor]

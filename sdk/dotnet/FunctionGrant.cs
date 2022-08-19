@@ -13,49 +13,47 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var grant = new Snowflake.FunctionGrant("grant", new()
     ///     {
-    ///         var grant = new Snowflake.FunctionGrant("grant", new Snowflake.FunctionGrantArgs
+    ///         Arguments = new[]
     ///         {
-    ///             Arguments = 
+    ///             new Snowflake.Inputs.FunctionGrantArgumentArgs
     ///             {
-    ///                 new Snowflake.Inputs.FunctionGrantArgumentArgs
-    ///                 {
-    ///                     Name = "a",
-    ///                     Type = "array",
-    ///                 },
-    ///                 new Snowflake.Inputs.FunctionGrantArgumentArgs
-    ///                 {
-    ///                     Name = "b",
-    ///                     Type = "string",
-    ///                 },
+    ///                 Name = "a",
+    ///                 Type = "array",
     ///             },
-    ///             DatabaseName = "db",
-    ///             FunctionName = "function",
-    ///             OnFuture = false,
-    ///             Privilege = "USAGE",
-    ///             ReturnType = "string",
-    ///             Roles = 
+    ///             new Snowflake.Inputs.FunctionGrantArgumentArgs
     ///             {
-    ///                 "role1",
-    ///                 "role2",
+    ///                 Name = "b",
+    ///                 Type = "string",
     ///             },
-    ///             SchemaName = "schema",
-    ///             Shares = 
-    ///             {
-    ///                 "share1",
-    ///                 "share2",
-    ///             },
-    ///             WithGrantOption = false,
-    ///         });
-    ///     }
+    ///         },
+    ///         DatabaseName = "db",
+    ///         FunctionName = "function",
+    ///         OnFuture = false,
+    ///         Privilege = "USAGE",
+    ///         ReturnType = "string",
+    ///         Roles = new[]
+    ///         {
+    ///             "role1",
+    ///             "role2",
+    ///         },
+    ///         SchemaName = "schema",
+    ///         Shares = new[]
+    ///         {
+    ///             "share1",
+    ///             "share2",
+    ///         },
+    ///         WithGrantOption = false,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +65,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/functionGrant:FunctionGrant")]
-    public partial class FunctionGrant : Pulumi.CustomResource
+    public partial class FunctionGrant : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of the arguments for the function (must be present if function has arguments and function_name is present)
@@ -95,9 +93,7 @@ namespace Pulumi.Snowflake
         public Output<string?> FunctionName { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future functions in the given schema.
-        /// When this is true and no schema_name is provided apply this grant on all future functions in the given database. The
-        /// function_name, arguments, return_type, and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
         /// </summary>
         [Output("onFuture")]
         public Output<bool?> OnFuture { get; private set; } = null!;
@@ -182,7 +178,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class FunctionGrantArgs : Pulumi.ResourceArgs
+    public sealed class FunctionGrantArgs : global::Pulumi.ResourceArgs
     {
         [Input("arguments")]
         private InputList<Inputs.FunctionGrantArgumentArgs>? _arguments;
@@ -216,9 +212,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FunctionName { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future functions in the given schema.
-        /// When this is true and no schema_name is provided apply this grant on all future functions in the given database. The
-        /// function_name, arguments, return_type, and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -274,9 +268,10 @@ namespace Pulumi.Snowflake
         public FunctionGrantArgs()
         {
         }
+        public static new FunctionGrantArgs Empty => new FunctionGrantArgs();
     }
 
-    public sealed class FunctionGrantState : Pulumi.ResourceArgs
+    public sealed class FunctionGrantState : global::Pulumi.ResourceArgs
     {
         [Input("arguments")]
         private InputList<Inputs.FunctionGrantArgumentGetArgs>? _arguments;
@@ -310,9 +305,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FunctionName { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future functions in the given schema.
-        /// When this is true and no schema_name is provided apply this grant on all future functions in the given database. The
-        /// function_name, arguments, return_type, and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -368,5 +361,6 @@ namespace Pulumi.Snowflake
         public FunctionGrantState()
         {
         }
+        public static new FunctionGrantState Empty => new FunctionGrantState();
     }
 }

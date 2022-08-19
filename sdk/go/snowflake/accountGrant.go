@@ -16,26 +16,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewAccountGrant(ctx, "grant", &snowflake.AccountGrantArgs{
-// 			Privilege: pulumi.String("CREATE ROLE"),
-// 			Roles: pulumi.StringArray{
-// 				pulumi.String("role1"),
-// 				pulumi.String("role2"),
-// 			},
-// 			WithGrantOption: pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewAccountGrant(ctx, "grant", &snowflake.AccountGrantArgs{
+//				Privilege: pulumi.String("CREATE ROLE"),
+//				Roles: pulumi.StringArray{
+//					pulumi.String("role1"),
+//					pulumi.String("role2"),
+//				},
+//				WithGrantOption: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // # format is account name | | | privilege | true/false for with_grant_option
 //
 // ```sh
-//  $ pulumi import snowflake:index/accountGrant:AccountGrant example 'accountName|||USAGE|true'
+//
+//	$ pulumi import snowflake:index/accountGrant:AccountGrant example 'accountName|||USAGE|true'
+//
 // ```
 type AccountGrant struct {
 	pulumi.CustomResourceState
@@ -166,7 +171,7 @@ func (i *AccountGrant) ToAccountGrantOutputWithContext(ctx context.Context) Acco
 // AccountGrantArrayInput is an input type that accepts AccountGrantArray and AccountGrantArrayOutput values.
 // You can construct a concrete instance of `AccountGrantArrayInput` via:
 //
-//          AccountGrantArray{ AccountGrantArgs{...} }
+//	AccountGrantArray{ AccountGrantArgs{...} }
 type AccountGrantArrayInput interface {
 	pulumi.Input
 
@@ -191,7 +196,7 @@ func (i AccountGrantArray) ToAccountGrantArrayOutputWithContext(ctx context.Cont
 // AccountGrantMapInput is an input type that accepts AccountGrantMap and AccountGrantMapOutput values.
 // You can construct a concrete instance of `AccountGrantMapInput` via:
 //
-//          AccountGrantMap{ "key": AccountGrantArgs{...} }
+//	AccountGrantMap{ "key": AccountGrantArgs{...} }
 type AccountGrantMapInput interface {
 	pulumi.Input
 

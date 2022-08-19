@@ -75,13 +75,11 @@ export class MaterializedViewGrant extends pulumi.CustomResource {
      */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the materialized view on which to grant privileges immediately (only valid if on_future is false).
+     * The name of the materialized view on which to grant privileges immediately (only valid if onFuture is false).
      */
     public readonly materializedViewName!: pulumi.Output<string | undefined>;
     /**
-     * When this is set to true and a schema_name is provided, apply this grant on all future materialized views in the given
-     * schema. When this is true and no schema_name is provided apply this grant on all future materialized views in the given
-     * database. The materialized_view_name and shares fields must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
      */
     public readonly onFuture!: pulumi.Output<boolean | undefined>;
     /**
@@ -97,7 +95,7 @@ export class MaterializedViewGrant extends pulumi.CustomResource {
      */
     public readonly schemaName!: pulumi.Output<string | undefined>;
     /**
-     * Grants privilege to these shares (only valid if on_future is false).
+     * Grants privilege to these shares (only valid if onFuture is false).
      */
     public readonly shares!: pulumi.Output<string[] | undefined>;
     /**
@@ -161,13 +159,11 @@ export interface MaterializedViewGrantState {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * The name of the materialized view on which to grant privileges immediately (only valid if on_future is false).
+     * The name of the materialized view on which to grant privileges immediately (only valid if onFuture is false).
      */
     materializedViewName?: pulumi.Input<string>;
     /**
-     * When this is set to true and a schema_name is provided, apply this grant on all future materialized views in the given
-     * schema. When this is true and no schema_name is provided apply this grant on all future materialized views in the given
-     * database. The materialized_view_name and shares fields must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
@@ -183,7 +179,7 @@ export interface MaterializedViewGrantState {
      */
     schemaName?: pulumi.Input<string>;
     /**
-     * Grants privilege to these shares (only valid if on_future is false).
+     * Grants privilege to these shares (only valid if onFuture is false).
      */
     shares?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -206,13 +202,11 @@ export interface MaterializedViewGrantArgs {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * The name of the materialized view on which to grant privileges immediately (only valid if on_future is false).
+     * The name of the materialized view on which to grant privileges immediately (only valid if onFuture is false).
      */
     materializedViewName?: pulumi.Input<string>;
     /**
-     * When this is set to true and a schema_name is provided, apply this grant on all future materialized views in the given
-     * schema. When this is true and no schema_name is provided apply this grant on all future materialized views in the given
-     * database. The materialized_view_name and shares fields must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
@@ -228,7 +222,7 @@ export interface MaterializedViewGrantArgs {
      */
     schemaName?: pulumi.Input<string>;
     /**
-     * Grants privilege to these shares (only valid if on_future is false).
+     * Grants privilege to these shares (only valid if onFuture is false).
      */
     shares?: pulumi.Input<pulumi.Input<string>[]>;
     /**

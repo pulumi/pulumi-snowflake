@@ -14,9 +14,15 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class GetFileFormatsFileFormatResult
     {
         public readonly string Comment;
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         public readonly string Database;
         public readonly string FormatType;
         public readonly string Name;
+        /// <summary>
+        /// The schema from which to return the file formats from.
+        /// </summary>
         public readonly string Schema;
 
         [OutputConstructor]

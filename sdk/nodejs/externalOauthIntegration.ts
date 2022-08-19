@@ -65,13 +65,11 @@ export class ExternalOauthIntegration extends pulumi.CustomResource {
      */
     public readonly anyRoleMode!: pulumi.Output<string | undefined>;
     /**
-     * Specifies additional values that can be used for the access token's audience validation on top of using the Customer's
-     * Snowflake Account URL
+     * Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
      */
     public readonly audienceUrls!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or
-     * SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+     * Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
      */
     public readonly blockedRoles!: pulumi.Output<string[] | undefined>;
     /**
@@ -91,13 +89,11 @@ export class ExternalOauthIntegration extends pulumi.CustomResource {
      */
     public readonly issuer!: pulumi.Output<string>;
     /**
-     * Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
-     * OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+     * Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
      */
     public readonly jwsKeysUrls!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
-     * be unique among security integrations in your account.
+     * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -105,8 +101,7 @@ export class ExternalOauthIntegration extends pulumi.CustomResource {
      */
     public readonly rsaPublicKey!: pulumi.Output<string | undefined>;
     /**
-     * Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
-     * key rotation.
+     * Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
      */
     public readonly rsaPublicKey2!: pulumi.Output<string | undefined>;
     /**
@@ -122,8 +117,7 @@ export class ExternalOauthIntegration extends pulumi.CustomResource {
      */
     public readonly tokenUserMappingClaims!: pulumi.Output<string[]>;
     /**
-     * Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
-     * OAuth 2.0 authorization server.
+     * Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -208,13 +202,11 @@ export interface ExternalOauthIntegrationState {
      */
     anyRoleMode?: pulumi.Input<string>;
     /**
-     * Specifies additional values that can be used for the access token's audience validation on top of using the Customer's
-     * Snowflake Account URL
+     * Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
      */
     audienceUrls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or
-     * SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+     * Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
      */
     blockedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -234,13 +226,11 @@ export interface ExternalOauthIntegrationState {
      */
     issuer?: pulumi.Input<string>;
     /**
-     * Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
-     * OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+     * Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
      */
     jwsKeysUrls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
-     * be unique among security integrations in your account.
+     * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
      */
     name?: pulumi.Input<string>;
     /**
@@ -248,8 +238,7 @@ export interface ExternalOauthIntegrationState {
      */
     rsaPublicKey?: pulumi.Input<string>;
     /**
-     * Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
-     * key rotation.
+     * Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
      */
     rsaPublicKey2?: pulumi.Input<string>;
     /**
@@ -265,8 +254,7 @@ export interface ExternalOauthIntegrationState {
      */
     tokenUserMappingClaims?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
-     * OAuth 2.0 authorization server.
+     * Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
      */
     type?: pulumi.Input<string>;
 }
@@ -284,13 +272,11 @@ export interface ExternalOauthIntegrationArgs {
      */
     anyRoleMode?: pulumi.Input<string>;
     /**
-     * Specifies additional values that can be used for the access token's audience validation on top of using the Customer's
-     * Snowflake Account URL
+     * Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
      */
     audienceUrls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or
-     * SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+     * Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
      */
     blockedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -306,13 +292,11 @@ export interface ExternalOauthIntegrationArgs {
      */
     issuer: pulumi.Input<string>;
     /**
-     * Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
-     * OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+     * Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
      */
     jwsKeysUrls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
-     * be unique among security integrations in your account.
+     * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
      */
     name?: pulumi.Input<string>;
     /**
@@ -320,8 +304,7 @@ export interface ExternalOauthIntegrationArgs {
      */
     rsaPublicKey?: pulumi.Input<string>;
     /**
-     * Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
-     * key rotation.
+     * Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
      */
     rsaPublicKey2?: pulumi.Input<string>;
     /**
@@ -337,8 +320,7 @@ export interface ExternalOauthIntegrationArgs {
      */
     tokenUserMappingClaims: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
-     * OAuth 2.0 authorization server.
+     * Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
      */
     type: pulumi.Input<string>;
 }

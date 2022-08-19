@@ -34,7 +34,13 @@ export function getStreams(args: GetStreamsArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getStreams.
  */
 export interface GetStreamsArgs {
+    /**
+     * The database from which to return the streams from.
+     */
     database: string;
+    /**
+     * The schema from which to return the streams from.
+     */
     schema: string;
 }
 
@@ -42,12 +48,21 @@ export interface GetStreamsArgs {
  * A collection of values returned by getStreams.
  */
 export interface GetStreamsResult {
+    /**
+     * The database from which to return the streams from.
+     */
     readonly database: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The schema from which to return the streams from.
+     */
     readonly schema: string;
+    /**
+     * The streams in the schema
+     */
     readonly streams: outputs.GetStreamsStream[];
 }
 
@@ -59,6 +74,12 @@ export function getStreamsOutput(args: GetStreamsOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getStreams.
  */
 export interface GetStreamsOutputArgs {
+    /**
+     * The database from which to return the streams from.
+     */
     database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the streams from.
+     */
     schema: pulumi.Input<string>;
 }

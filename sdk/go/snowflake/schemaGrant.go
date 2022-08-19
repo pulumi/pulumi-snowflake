@@ -17,33 +17,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewSchemaGrant(ctx, "grant", &snowflake.SchemaGrantArgs{
-// 			DatabaseName: pulumi.String("db"),
-// 			OnFuture:     pulumi.Bool(false),
-// 			Privilege:    pulumi.String("USAGE"),
-// 			Roles: pulumi.StringArray{
-// 				pulumi.String("role1"),
-// 				pulumi.String("role2"),
-// 			},
-// 			SchemaName: pulumi.String("schema"),
-// 			Shares: pulumi.StringArray{
-// 				pulumi.String("share1"),
-// 				pulumi.String("share2"),
-// 			},
-// 			WithGrantOption: pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewSchemaGrant(ctx, "grant", &snowflake.SchemaGrantArgs{
+//				DatabaseName: pulumi.String("db"),
+//				OnFuture:     pulumi.Bool(false),
+//				Privilege:    pulumi.String("USAGE"),
+//				Roles: pulumi.StringArray{
+//					pulumi.String("role1"),
+//					pulumi.String("role2"),
+//				},
+//				SchemaName: pulumi.String("schema"),
+//				Shares: pulumi.StringArray{
+//					pulumi.String("share1"),
+//					pulumi.String("share2"),
+//				},
+//				WithGrantOption: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // # format is database name | schema name | | privilege | true/false for with_grant_option
 //
 // ```sh
-//  $ pulumi import snowflake:index/schemaGrant:SchemaGrant example 'databaseName|schemaName||MONITOR|false'
+//
+//	$ pulumi import snowflake:index/schemaGrant:SchemaGrant example 'databaseName|schemaName||MONITOR|false'
+//
 // ```
 type SchemaGrant struct {
 	pulumi.CustomResourceState
@@ -61,8 +66,7 @@ type SchemaGrant struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
-	// When this is set to true, apply this grant on all future schemas in the given database. The schema_name and shares
-	// fields must be unset in order to use on_future.
+	// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
 	// The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
 	// terraform is using is granted access.
@@ -71,7 +75,7 @@ type SchemaGrant struct {
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema on which to grant privileges.
 	SchemaName pulumi.StringPtrOutput `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if on_future is unset).
+	// Grants privilege to these shares (only valid if onFuture is unset).
 	Shares pulumi.StringArrayOutput `pulumi:"shares"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrOutput `pulumi:"withGrantOption"`
@@ -114,8 +118,7 @@ type schemaGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// When this is set to true, apply this grant on all future schemas in the given database. The schema_name and shares
-	// fields must be unset in order to use on_future.
+	// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
 	// terraform is using is granted access.
@@ -124,7 +127,7 @@ type schemaGrantState struct {
 	Roles []string `pulumi:"roles"`
 	// The name of the schema on which to grant privileges.
 	SchemaName *string `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if on_future is unset).
+	// Grants privilege to these shares (only valid if onFuture is unset).
 	Shares []string `pulumi:"shares"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
@@ -136,8 +139,7 @@ type SchemaGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// When this is set to true, apply this grant on all future schemas in the given database. The schema_name and shares
-	// fields must be unset in order to use on_future.
+	// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
 	// terraform is using is granted access.
@@ -146,7 +148,7 @@ type SchemaGrantState struct {
 	Roles pulumi.StringArrayInput
 	// The name of the schema on which to grant privileges.
 	SchemaName pulumi.StringPtrInput
-	// Grants privilege to these shares (only valid if on_future is unset).
+	// Grants privilege to these shares (only valid if onFuture is unset).
 	Shares pulumi.StringArrayInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
@@ -162,8 +164,7 @@ type schemaGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// When this is set to true, apply this grant on all future schemas in the given database. The schema_name and shares
-	// fields must be unset in order to use on_future.
+	// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
 	// terraform is using is granted access.
@@ -172,7 +173,7 @@ type schemaGrantArgs struct {
 	Roles []string `pulumi:"roles"`
 	// The name of the schema on which to grant privileges.
 	SchemaName *string `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if on_future is unset).
+	// Grants privilege to these shares (only valid if onFuture is unset).
 	Shares []string `pulumi:"shares"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
@@ -185,8 +186,7 @@ type SchemaGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// When this is set to true, apply this grant on all future schemas in the given database. The schema_name and shares
-	// fields must be unset in order to use on_future.
+	// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
 	// terraform is using is granted access.
@@ -195,7 +195,7 @@ type SchemaGrantArgs struct {
 	Roles pulumi.StringArrayInput
 	// The name of the schema on which to grant privileges.
 	SchemaName pulumi.StringPtrInput
-	// Grants privilege to these shares (only valid if on_future is unset).
+	// Grants privilege to these shares (only valid if onFuture is unset).
 	Shares pulumi.StringArrayInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
@@ -227,7 +227,7 @@ func (i *SchemaGrant) ToSchemaGrantOutputWithContext(ctx context.Context) Schema
 // SchemaGrantArrayInput is an input type that accepts SchemaGrantArray and SchemaGrantArrayOutput values.
 // You can construct a concrete instance of `SchemaGrantArrayInput` via:
 //
-//          SchemaGrantArray{ SchemaGrantArgs{...} }
+//	SchemaGrantArray{ SchemaGrantArgs{...} }
 type SchemaGrantArrayInput interface {
 	pulumi.Input
 
@@ -252,7 +252,7 @@ func (i SchemaGrantArray) ToSchemaGrantArrayOutputWithContext(ctx context.Contex
 // SchemaGrantMapInput is an input type that accepts SchemaGrantMap and SchemaGrantMapOutput values.
 // You can construct a concrete instance of `SchemaGrantMapInput` via:
 //
-//          SchemaGrantMap{ "key": SchemaGrantArgs{...} }
+//	SchemaGrantMap{ "key": SchemaGrantArgs{...} }
 type SchemaGrantMapInput interface {
 	pulumi.Input
 
@@ -299,8 +299,7 @@ func (o SchemaGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SchemaGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }
 
-// When this is set to true, apply this grant on all future schemas in the given database. The schema_name and shares
-// fields must be unset in order to use on_future.
+// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
 func (o SchemaGrantOutput) OnFuture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SchemaGrant) pulumi.BoolPtrOutput { return v.OnFuture }).(pulumi.BoolPtrOutput)
 }
@@ -321,7 +320,7 @@ func (o SchemaGrantOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaGrant) pulumi.StringPtrOutput { return v.SchemaName }).(pulumi.StringPtrOutput)
 }
 
-// Grants privilege to these shares (only valid if on_future is unset).
+// Grants privilege to these shares (only valid if onFuture is unset).
 func (o SchemaGrantOutput) Shares() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SchemaGrant) pulumi.StringArrayOutput { return v.Shares }).(pulumi.StringArrayOutput)
 }

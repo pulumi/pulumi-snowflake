@@ -17,17 +17,15 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Snowflake.GetStorageIntegrations.InvokeAsync());
-        ///     }
+        ///     var current = Snowflake.GetStorageIntegrations.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -44,6 +42,9 @@ namespace Pulumi.Snowflake
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The storage integrations in the database
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetStorageIntegrationsStorageIntegrationResult> StorageIntegrations;
 
         [OutputConstructor]

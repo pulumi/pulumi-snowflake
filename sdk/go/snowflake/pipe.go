@@ -16,12 +16,14 @@ import (
 // # format is database name | schema name | pipe name
 //
 // ```sh
-//  $ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
+//
+//	$ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
+//
 // ```
 type Pipe struct {
 	pulumi.CustomResourceState
 
-	// Specifies a auto_ingest param for the pipe.
+	// Specifies a autoIngest param for the pipe.
 	AutoIngest pulumi.BoolPtrOutput `pulumi:"autoIngest"`
 	// Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
 	AwsSnsTopicArn pulumi.StringPtrOutput `pulumi:"awsSnsTopicArn"`
@@ -83,7 +85,7 @@ func GetPipe(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Pipe resources.
 type pipeState struct {
-	// Specifies a auto_ingest param for the pipe.
+	// Specifies a autoIngest param for the pipe.
 	AutoIngest *bool `pulumi:"autoIngest"`
 	// Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
 	AwsSnsTopicArn *string `pulumi:"awsSnsTopicArn"`
@@ -108,7 +110,7 @@ type pipeState struct {
 }
 
 type PipeState struct {
-	// Specifies a auto_ingest param for the pipe.
+	// Specifies a autoIngest param for the pipe.
 	AutoIngest pulumi.BoolPtrInput
 	// Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
 	AwsSnsTopicArn pulumi.StringPtrInput
@@ -137,7 +139,7 @@ func (PipeState) ElementType() reflect.Type {
 }
 
 type pipeArgs struct {
-	// Specifies a auto_ingest param for the pipe.
+	// Specifies a autoIngest param for the pipe.
 	AutoIngest *bool `pulumi:"autoIngest"`
 	// Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
 	AwsSnsTopicArn *string `pulumi:"awsSnsTopicArn"`
@@ -159,7 +161,7 @@ type pipeArgs struct {
 
 // The set of arguments for constructing a Pipe resource.
 type PipeArgs struct {
-	// Specifies a auto_ingest param for the pipe.
+	// Specifies a autoIngest param for the pipe.
 	AutoIngest pulumi.BoolPtrInput
 	// Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
 	AwsSnsTopicArn pulumi.StringPtrInput
@@ -205,7 +207,7 @@ func (i *Pipe) ToPipeOutputWithContext(ctx context.Context) PipeOutput {
 // PipeArrayInput is an input type that accepts PipeArray and PipeArrayOutput values.
 // You can construct a concrete instance of `PipeArrayInput` via:
 //
-//          PipeArray{ PipeArgs{...} }
+//	PipeArray{ PipeArgs{...} }
 type PipeArrayInput interface {
 	pulumi.Input
 
@@ -230,7 +232,7 @@ func (i PipeArray) ToPipeArrayOutputWithContext(ctx context.Context) PipeArrayOu
 // PipeMapInput is an input type that accepts PipeMap and PipeMapOutput values.
 // You can construct a concrete instance of `PipeMapInput` via:
 //
-//          PipeMap{ "key": PipeArgs{...} }
+//	PipeMap{ "key": PipeArgs{...} }
 type PipeMapInput interface {
 	pulumi.Input
 
@@ -266,7 +268,7 @@ func (o PipeOutput) ToPipeOutputWithContext(ctx context.Context) PipeOutput {
 	return o
 }
 
-// Specifies a auto_ingest param for the pipe.
+// Specifies a autoIngest param for the pipe.
 func (o PipeOutput) AutoIngest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.BoolPtrOutput { return v.AutoIngest }).(pulumi.BoolPtrOutput)
 }

@@ -10,28 +10,47 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake.Inputs
 {
 
-    public sealed class TableColumnGetArgs : Pulumi.ResourceArgs
+    public sealed class TableColumnGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Column comment
+        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        /// <summary>
+        /// Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
+        /// </summary>
         [Input("default")]
         public Input<Inputs.TableColumnDefaultGetArgs>? Default { get; set; }
 
+        /// <summary>
+        /// Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
+        /// </summary>
         [Input("identity")]
         public Input<Inputs.TableColumnIdentityGetArgs>? Identity { get; set; }
 
+        /// <summary>
+        /// Column name
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+        /// </summary>
         [Input("nullable")]
         public Input<bool>? Nullable { get; set; }
 
+        /// <summary>
+        /// Column type, e.g. VARIANT
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         public TableColumnGetArgs()
         {
         }
+        public static new TableColumnGetArgs Empty => new TableColumnGetArgs();
     }
 }

@@ -14,13 +14,14 @@ import (
 // ## Import
 //
 // ```sh
-//  $ pulumi import snowflake:index/managedAccount:ManagedAccount example name
+//
+//	$ pulumi import snowflake:index/managedAccount:ManagedAccount example name
+//
 // ```
 type ManagedAccount struct {
 	pulumi.CustomResourceState
 
-	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
-	// administrator for the account.
+	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
 	AdminName pulumi.StringOutput `pulumi:"adminName"`
 	// Password for the initial user in the managed account.
 	AdminPassword pulumi.StringOutput `pulumi:"adminPassword"`
@@ -77,8 +78,7 @@ func GetManagedAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedAccount resources.
 type managedAccountState struct {
-	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
-	// administrator for the account.
+	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
 	AdminName *string `pulumi:"adminName"`
 	// Password for the initial user in the managed account.
 	AdminPassword *string `pulumi:"adminPassword"`
@@ -101,8 +101,7 @@ type managedAccountState struct {
 }
 
 type ManagedAccountState struct {
-	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
-	// administrator for the account.
+	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
 	AdminName pulumi.StringPtrInput
 	// Password for the initial user in the managed account.
 	AdminPassword pulumi.StringPtrInput
@@ -129,8 +128,7 @@ func (ManagedAccountState) ElementType() reflect.Type {
 }
 
 type managedAccountArgs struct {
-	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
-	// administrator for the account.
+	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
 	AdminName string `pulumi:"adminName"`
 	// Password for the initial user in the managed account.
 	AdminPassword string `pulumi:"adminPassword"`
@@ -144,8 +142,7 @@ type managedAccountArgs struct {
 
 // The set of arguments for constructing a ManagedAccount resource.
 type ManagedAccountArgs struct {
-	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
-	// administrator for the account.
+	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
 	AdminName pulumi.StringInput
 	// Password for the initial user in the managed account.
 	AdminPassword pulumi.StringInput
@@ -183,7 +180,7 @@ func (i *ManagedAccount) ToManagedAccountOutputWithContext(ctx context.Context) 
 // ManagedAccountArrayInput is an input type that accepts ManagedAccountArray and ManagedAccountArrayOutput values.
 // You can construct a concrete instance of `ManagedAccountArrayInput` via:
 //
-//          ManagedAccountArray{ ManagedAccountArgs{...} }
+//	ManagedAccountArray{ ManagedAccountArgs{...} }
 type ManagedAccountArrayInput interface {
 	pulumi.Input
 
@@ -208,7 +205,7 @@ func (i ManagedAccountArray) ToManagedAccountArrayOutputWithContext(ctx context.
 // ManagedAccountMapInput is an input type that accepts ManagedAccountMap and ManagedAccountMapOutput values.
 // You can construct a concrete instance of `ManagedAccountMapInput` via:
 //
-//          ManagedAccountMap{ "key": ManagedAccountArgs{...} }
+//	ManagedAccountMap{ "key": ManagedAccountArgs{...} }
 type ManagedAccountMapInput interface {
 	pulumi.Input
 
@@ -244,8 +241,7 @@ func (o ManagedAccountOutput) ToManagedAccountOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
-// administrator for the account.
+// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
 func (o ManagedAccountOutput) AdminName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedAccount) pulumi.StringOutput { return v.AdminName }).(pulumi.StringOutput)
 }

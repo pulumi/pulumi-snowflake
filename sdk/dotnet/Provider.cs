@@ -16,7 +16,7 @@ namespace Pulumi.Snowflake
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
     [SnowflakeResourceType("pulumi:providers:snowflake")]
-    public partial class Provider : Pulumi.ProviderResource
+    public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
         /// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
@@ -151,7 +151,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class ProviderArgs : Pulumi.ResourceArgs
+    public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
@@ -269,5 +269,6 @@ namespace Pulumi.Snowflake
         public ProviderArgs()
         {
         }
+        public static new ProviderArgs Empty => new ProviderArgs();
     }
 }

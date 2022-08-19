@@ -19,14 +19,29 @@ namespace Pulumi.Snowflake
     [OutputType]
     public sealed class GetSystemGetPrivateLinkConfigResult
     {
+        /// <summary>
+        /// The name of your Snowflake account.
+        /// </summary>
         public readonly string AccountName;
+        /// <summary>
+        /// The URL used to connect to Snowflake through AWS PrivateLink or Azure Private Link.
+        /// </summary>
         public readonly string AccountUrl;
+        /// <summary>
+        /// The AWS VPCE ID for your account.
+        /// </summary>
         public readonly string AwsVpceId;
+        /// <summary>
+        /// The Azure Private Link Service ID for your account.
+        /// </summary>
         public readonly string AzurePlsId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
+        /// </summary>
         public readonly string OcspUrl;
 
         [OutputConstructor]

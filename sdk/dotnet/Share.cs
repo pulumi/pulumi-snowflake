@@ -13,21 +13,19 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Snowflake.Share("test", new()
     ///     {
-    ///         var test = new Snowflake.Share("test", new Snowflake.ShareArgs
-    ///         {
-    ///             Accounts = "organizationName.accountName",
-    ///             Comment = "cool comment",
-    ///         });
-    ///     }
+    ///         Accounts = "organizationName.accountName",
+    ///         Comment = "cool comment",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -37,11 +35,10 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/share:Share")]
-    public partial class Share : Pulumi.CustomResource
+    public partial class Share : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-        /// 'organization_name.account_name
+        /// A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
         /// </summary>
         [Output("accounts")]
         public Output<ImmutableArray<string>> Accounts { get; private set; } = null!;
@@ -102,14 +99,13 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class ShareArgs : Pulumi.ResourceArgs
+    public sealed class ShareArgs : global::Pulumi.ResourceArgs
     {
         [Input("accounts")]
         private InputList<string>? _accounts;
 
         /// <summary>
-        /// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-        /// 'organization_name.account_name
+        /// A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
         /// </summary>
         public InputList<string> Accounts
         {
@@ -132,16 +128,16 @@ namespace Pulumi.Snowflake
         public ShareArgs()
         {
         }
+        public static new ShareArgs Empty => new ShareArgs();
     }
 
-    public sealed class ShareState : Pulumi.ResourceArgs
+    public sealed class ShareState : global::Pulumi.ResourceArgs
     {
         [Input("accounts")]
         private InputList<string>? _accounts;
 
         /// <summary>
-        /// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-        /// 'organization_name.account_name
+        /// A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
         /// </summary>
         public InputList<string> Accounts
         {
@@ -164,5 +160,6 @@ namespace Pulumi.Snowflake
         public ShareState()
         {
         }
+        public static new ShareState Empty => new ShareState();
     }
 }

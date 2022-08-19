@@ -17,26 +17,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewView(ctx, "view", &snowflake.ViewArgs{
-// 			Database:  pulumi.String("db"),
-// 			Schema:    pulumi.String("schema"),
-// 			Comment:   pulumi.String("comment"),
-// 			Statement: pulumi.String("select * from foo;\n"),
-// 			OrReplace: pulumi.Bool(false),
-// 			IsSecure:  pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewView(ctx, "view", &snowflake.ViewArgs{
+//				Database:  pulumi.String("db"),
+//				Schema:    pulumi.String("schema"),
+//				Comment:   pulumi.String("comment"),
+//				Statement: pulumi.String("select * from foo;\n"),
+//				OrReplace: pulumi.Bool(false),
+//				IsSecure:  pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // # format is database name | schema name | view name
 //
 // ```sh
-//  $ pulumi import snowflake:index/view:View example 'dbName|schemaName|viewName'
+//
+//	$ pulumi import snowflake:index/view:View example 'dbName|schemaName|viewName'
+//
 // ```
 type View struct {
 	pulumi.CustomResourceState
@@ -55,8 +60,7 @@ type View struct {
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Specifies that the view is secure.
 	IsSecure pulumi.BoolPtrOutput `pulumi:"isSecure"`
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
-	// character.
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Overwrites the View if it exists.
 	OrReplace pulumi.BoolPtrOutput `pulumi:"orReplace"`
@@ -112,8 +116,7 @@ type viewState struct {
 	Database *string `pulumi:"database"`
 	// Specifies that the view is secure.
 	IsSecure *bool `pulumi:"isSecure"`
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
-	// character.
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
 	Name *string `pulumi:"name"`
 	// Overwrites the View if it exists.
 	OrReplace *bool `pulumi:"orReplace"`
@@ -132,8 +135,7 @@ type ViewState struct {
 	Database pulumi.StringPtrInput
 	// Specifies that the view is secure.
 	IsSecure pulumi.BoolPtrInput
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
-	// character.
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
 	Name pulumi.StringPtrInput
 	// Overwrites the View if it exists.
 	OrReplace pulumi.BoolPtrInput
@@ -156,8 +158,7 @@ type viewArgs struct {
 	Database string `pulumi:"database"`
 	// Specifies that the view is secure.
 	IsSecure *bool `pulumi:"isSecure"`
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
-	// character.
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
 	Name *string `pulumi:"name"`
 	// Overwrites the View if it exists.
 	OrReplace *bool `pulumi:"orReplace"`
@@ -177,8 +178,7 @@ type ViewArgs struct {
 	Database pulumi.StringInput
 	// Specifies that the view is secure.
 	IsSecure pulumi.BoolPtrInput
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
-	// character.
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
 	Name pulumi.StringPtrInput
 	// Overwrites the View if it exists.
 	OrReplace pulumi.BoolPtrInput
@@ -216,7 +216,7 @@ func (i *View) ToViewOutputWithContext(ctx context.Context) ViewOutput {
 // ViewArrayInput is an input type that accepts ViewArray and ViewArrayOutput values.
 // You can construct a concrete instance of `ViewArrayInput` via:
 //
-//          ViewArray{ ViewArgs{...} }
+//	ViewArray{ ViewArgs{...} }
 type ViewArrayInput interface {
 	pulumi.Input
 
@@ -241,7 +241,7 @@ func (i ViewArray) ToViewArrayOutputWithContext(ctx context.Context) ViewArrayOu
 // ViewMapInput is an input type that accepts ViewMap and ViewMapOutput values.
 // You can construct a concrete instance of `ViewMapInput` via:
 //
-//          ViewMap{ "key": ViewArgs{...} }
+//	ViewMap{ "key": ViewArgs{...} }
 type ViewMapInput interface {
 	pulumi.Input
 
@@ -292,8 +292,7 @@ func (o ViewOutput) IsSecure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.BoolPtrOutput { return v.IsSecure }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
-// character.
+// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
 func (o ViewOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

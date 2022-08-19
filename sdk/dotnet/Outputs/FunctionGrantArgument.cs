@@ -13,7 +13,13 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class FunctionGrantArgument
     {
+        /// <summary>
+        /// The argument name
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The argument type
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

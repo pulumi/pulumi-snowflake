@@ -19,31 +19,45 @@ namespace Pulumi.Snowflake
     }
 
 
-    public sealed class GetSystemGetAwsSnsIamPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetSystemGetAwsSnsIamPolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
+        /// </summary>
         [Input("awsSnsTopicArn", required: true)]
         public string AwsSnsTopicArn { get; set; } = null!;
 
         public GetSystemGetAwsSnsIamPolicyArgs()
         {
         }
+        public static new GetSystemGetAwsSnsIamPolicyArgs Empty => new GetSystemGetAwsSnsIamPolicyArgs();
     }
 
-    public sealed class GetSystemGetAwsSnsIamPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSystemGetAwsSnsIamPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
+        /// </summary>
         [Input("awsSnsTopicArn", required: true)]
         public Input<string> AwsSnsTopicArn { get; set; } = null!;
 
         public GetSystemGetAwsSnsIamPolicyInvokeArgs()
         {
         }
+        public static new GetSystemGetAwsSnsIamPolicyInvokeArgs Empty => new GetSystemGetAwsSnsIamPolicyInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetSystemGetAwsSnsIamPolicyResult
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
+        /// </summary>
         public readonly string AwsSnsTopicArn;
+        /// <summary>
+        /// IAM policy for Snowflake’s SQS queue to subscribe to this topic
+        /// </summary>
         public readonly string AwsSnsTopicPolicyJson;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

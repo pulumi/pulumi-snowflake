@@ -16,49 +16,54 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewDatabase(ctx, "test", &snowflake.DatabaseArgs{
-// 			Comment:                 pulumi.String("test comment"),
-// 			DataRetentionTimeInDays: pulumi.Int(3),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = snowflake.NewDatabase(ctx, "test2", &snowflake.DatabaseArgs{
-// 			Comment: pulumi.String("test comment 2"),
-// 			ReplicationConfiguration: &DatabaseReplicationConfigurationArgs{
-// 				Accounts: pulumi.StringArray{
-// 					pulumi.String("test_account1"),
-// 					pulumi.String("test_account_2"),
-// 				},
-// 				IgnoreEditionCheck: pulumi.Bool(true),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = snowflake.NewDatabase(ctx, "test3", &snowflake.DatabaseArgs{
-// 			Comment:                 pulumi.String("test comment"),
-// 			DataRetentionTimeInDays: pulumi.Int(3),
-// 			FromReplica:             pulumi.String("org1\".\"account1\".\"primary_db_name"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewDatabase(ctx, "test", &snowflake.DatabaseArgs{
+//				Comment:                 pulumi.String("test comment"),
+//				DataRetentionTimeInDays: pulumi.Int(3),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewDatabase(ctx, "test2", &snowflake.DatabaseArgs{
+//				Comment: pulumi.String("test comment 2"),
+//				ReplicationConfiguration: &DatabaseReplicationConfigurationArgs{
+//					Accounts: pulumi.StringArray{
+//						pulumi.String("test_account1"),
+//						pulumi.String("test_account_2"),
+//					},
+//					IgnoreEditionCheck: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewDatabase(ctx, "test3", &snowflake.DatabaseArgs{
+//				Comment:                 pulumi.String("test comment"),
+//				DataRetentionTimeInDays: pulumi.Int(3),
+//				FromReplica:             pulumi.String("org1\".\"account1\".\"primary_db_name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
 // ```sh
-//  $ pulumi import snowflake:index/database:Database example name
+//
+//	$ pulumi import snowflake:index/database:Database example name
+//
 // ```
 type Database struct {
 	pulumi.CustomResourceState
@@ -67,8 +72,7 @@ type Database struct {
 	DataRetentionTimeInDays pulumi.IntOutput       `pulumi:"dataRetentionTimeInDays"`
 	// Specify a database to create a clone from.
 	FromDatabase pulumi.StringPtrOutput `pulumi:"fromDatabase"`
-	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
-	// "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
+	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
 	FromReplica pulumi.StringPtrOutput `pulumi:"fromReplica"`
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare pulumi.StringMapOutput `pulumi:"fromShare"`
@@ -112,8 +116,7 @@ type databaseState struct {
 	DataRetentionTimeInDays *int    `pulumi:"dataRetentionTimeInDays"`
 	// Specify a database to create a clone from.
 	FromDatabase *string `pulumi:"fromDatabase"`
-	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
-	// "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
+	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
 	FromReplica *string `pulumi:"fromReplica"`
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare map[string]string `pulumi:"fromShare"`
@@ -129,8 +132,7 @@ type DatabaseState struct {
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// Specify a database to create a clone from.
 	FromDatabase pulumi.StringPtrInput
-	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
-	// "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
+	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
 	FromReplica pulumi.StringPtrInput
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare pulumi.StringMapInput
@@ -150,8 +152,7 @@ type databaseArgs struct {
 	DataRetentionTimeInDays *int    `pulumi:"dataRetentionTimeInDays"`
 	// Specify a database to create a clone from.
 	FromDatabase *string `pulumi:"fromDatabase"`
-	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
-	// "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
+	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
 	FromReplica *string `pulumi:"fromReplica"`
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare map[string]string `pulumi:"fromShare"`
@@ -168,8 +169,7 @@ type DatabaseArgs struct {
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// Specify a database to create a clone from.
 	FromDatabase pulumi.StringPtrInput
-	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
-	// "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
+	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
 	FromReplica pulumi.StringPtrInput
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare pulumi.StringMapInput
@@ -206,7 +206,7 @@ func (i *Database) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutp
 // DatabaseArrayInput is an input type that accepts DatabaseArray and DatabaseArrayOutput values.
 // You can construct a concrete instance of `DatabaseArrayInput` via:
 //
-//          DatabaseArray{ DatabaseArgs{...} }
+//	DatabaseArray{ DatabaseArgs{...} }
 type DatabaseArrayInput interface {
 	pulumi.Input
 
@@ -231,7 +231,7 @@ func (i DatabaseArray) ToDatabaseArrayOutputWithContext(ctx context.Context) Dat
 // DatabaseMapInput is an input type that accepts DatabaseMap and DatabaseMapOutput values.
 // You can construct a concrete instance of `DatabaseMapInput` via:
 //
-//          DatabaseMap{ "key": DatabaseArgs{...} }
+//	DatabaseMap{ "key": DatabaseArgs{...} }
 type DatabaseMapInput interface {
 	pulumi.Input
 
@@ -280,8 +280,7 @@ func (o DatabaseOutput) FromDatabase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.FromDatabase }).(pulumi.StringPtrOutput)
 }
 
-// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
-// "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
+// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
 func (o DatabaseOutput) FromReplica() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.FromReplica }).(pulumi.StringPtrOutput)
 }

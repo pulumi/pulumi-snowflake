@@ -13,34 +13,33 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleStage = new Snowflake.Stage("exampleStage", new()
     ///     {
-    ///         var exampleStage = new Snowflake.Stage("exampleStage", new Snowflake.StageArgs
-    ///         {
-    ///             Url = "s3://com.example.bucket/prefix",
-    ///             Database = "EXAMPLE_DB",
-    ///             Schema = "EXAMPLE_SCHEMA",
-    ///             Credentials = $"AWS_KEY_ID='{@var.Example_aws_key_id}' AWS_SECRET_KEY='{@var.Example_aws_secret_key}'",
-    ///         });
-    ///         var grantExampleStage = new Snowflake.StageGrant("grantExampleStage", new Snowflake.StageGrantArgs
-    ///         {
-    ///             DatabaseName = exampleStage.Database,
-    ///             SchemaName = exampleStage.Schema,
-    ///             Roles = 
-    ///             {
-    ///                 "LOADER",
-    ///             },
-    ///             Privilege = "OWNERSHIP",
-    ///             StageName = exampleStage.Name,
-    ///         });
-    ///     }
+    ///         Url = "s3://com.example.bucket/prefix",
+    ///         Database = "EXAMPLE_DB",
+    ///         Schema = "EXAMPLE_SCHEMA",
+    ///         Credentials = $"AWS_KEY_ID='{@var.Example_aws_key_id}' AWS_SECRET_KEY='{@var.Example_aws_secret_key}'",
+    ///     });
     /// 
-    /// }
+    ///     var grantExampleStage = new Snowflake.StageGrant("grantExampleStage", new()
+    ///     {
+    ///         DatabaseName = exampleStage.Database,
+    ///         SchemaName = exampleStage.Schema,
+    ///         Roles = new[]
+    ///         {
+    ///             "LOADER",
+    ///         },
+    ///         Privilege = "OWNERSHIP",
+    ///         StageName = exampleStage.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +51,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/stage:Stage")]
-    public partial class Stage : Pulumi.CustomResource
+    public partial class Stage : global::Pulumi.CustomResource
     {
         [Output("awsExternalId")]
         public Output<string> AwsExternalId { get; private set; } = null!;
@@ -115,8 +114,7 @@ namespace Pulumi.Snowflake
         public Output<string> SnowflakeIamUser { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
-        /// to a Snowflake identity and access management (IAM) entity.
+        /// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         /// </summary>
         [Output("storageIntegration")]
         public Output<string?> StorageIntegration { get; private set; } = null!;
@@ -177,7 +175,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class StageArgs : Pulumi.ResourceArgs
+    public sealed class StageArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsExternalId")]
         public Input<string>? AwsExternalId { get; set; }
@@ -240,8 +238,7 @@ namespace Pulumi.Snowflake
         public Input<string>? SnowflakeIamUser { get; set; }
 
         /// <summary>
-        /// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
-        /// to a Snowflake identity and access management (IAM) entity.
+        /// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         /// </summary>
         [Input("storageIntegration")]
         public Input<string>? StorageIntegration { get; set; }
@@ -267,9 +264,10 @@ namespace Pulumi.Snowflake
         public StageArgs()
         {
         }
+        public static new StageArgs Empty => new StageArgs();
     }
 
-    public sealed class StageState : Pulumi.ResourceArgs
+    public sealed class StageState : global::Pulumi.ResourceArgs
     {
         [Input("awsExternalId")]
         public Input<string>? AwsExternalId { get; set; }
@@ -332,8 +330,7 @@ namespace Pulumi.Snowflake
         public Input<string>? SnowflakeIamUser { get; set; }
 
         /// <summary>
-        /// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
-        /// to a Snowflake identity and access management (IAM) entity.
+        /// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         /// </summary>
         [Input("storageIntegration")]
         public Input<string>? StorageIntegration { get; set; }
@@ -359,5 +356,6 @@ namespace Pulumi.Snowflake
         public StageState()
         {
         }
+        public static new StageState Empty => new StageState();
     }
 }

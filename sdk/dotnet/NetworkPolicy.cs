@@ -13,28 +13,26 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var policy = new Snowflake.NetworkPolicy("policy", new()
     ///     {
-    ///         var policy = new Snowflake.NetworkPolicy("policy", new Snowflake.NetworkPolicyArgs
+    ///         AllowedIpLists = new[]
     ///         {
-    ///             AllowedIpLists = 
-    ///             {
-    ///                 "192.168.0.100/24",
-    ///             },
-    ///             BlockedIpLists = 
-    ///             {
-    ///                 "192.168.0.101",
-    ///             },
-    ///             Comment = "A policy.",
-    ///         });
-    ///     }
+    ///             "192.168.0.100/24",
+    ///         },
+    ///         BlockedIpLists = new[]
+    ///         {
+    ///             "192.168.0.101",
+    ///         },
+    ///         Comment = "A policy.",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/networkPolicy:NetworkPolicy")]
-    public partial class NetworkPolicy : Pulumi.CustomResource
+    public partial class NetworkPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account
@@ -53,8 +51,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> AllowedIpLists { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account&lt;br&gt;&lt;br&gt;**Do not**
-        /// add `0.0.0.0/0` to `blocked_ip_list`
+        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
         /// </summary>
         [Output("blockedIpLists")]
         public Output<ImmutableArray<string>> BlockedIpLists { get; private set; } = null!;
@@ -115,7 +112,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class NetworkPolicyArgs : Pulumi.ResourceArgs
+    public sealed class NetworkPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedIpLists", required: true)]
         private InputList<string>? _allowedIpLists;
@@ -133,8 +130,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _blockedIpLists;
 
         /// <summary>
-        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account&lt;br&gt;&lt;br&gt;**Do not**
-        /// add `0.0.0.0/0` to `blocked_ip_list`
+        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
         /// </summary>
         public InputList<string> BlockedIpLists
         {
@@ -157,9 +153,10 @@ namespace Pulumi.Snowflake
         public NetworkPolicyArgs()
         {
         }
+        public static new NetworkPolicyArgs Empty => new NetworkPolicyArgs();
     }
 
-    public sealed class NetworkPolicyState : Pulumi.ResourceArgs
+    public sealed class NetworkPolicyState : global::Pulumi.ResourceArgs
     {
         [Input("allowedIpLists")]
         private InputList<string>? _allowedIpLists;
@@ -177,8 +174,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _blockedIpLists;
 
         /// <summary>
-        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account&lt;br&gt;&lt;br&gt;**Do not**
-        /// add `0.0.0.0/0` to `blocked_ip_list`
+        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
         /// </summary>
         public InputList<string> BlockedIpLists
         {
@@ -201,5 +197,6 @@ namespace Pulumi.Snowflake
         public NetworkPolicyState()
         {
         }
+        public static new NetworkPolicyState Empty => new NetworkPolicyState();
     }
 }

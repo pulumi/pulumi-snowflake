@@ -17,29 +17,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewRowAccessPolicyGrant(ctx, "grant", &snowflake.RowAccessPolicyGrantArgs{
-// 			DatabaseName: pulumi.String("db"),
-// 			Privilege:    pulumi.String("APPLY"),
-// 			Roles: pulumi.StringArray{
-// 				pulumi.String("role1"),
-// 				pulumi.String("role2"),
-// 			},
-// 			RowAccessPolicyName: pulumi.String("row_access_policy"),
-// 			SchemaName:          pulumi.String("schema"),
-// 			WithGrantOption:     pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewRowAccessPolicyGrant(ctx, "grant", &snowflake.RowAccessPolicyGrantArgs{
+//				DatabaseName: pulumi.String("db"),
+//				Privilege:    pulumi.String("APPLY"),
+//				Roles: pulumi.StringArray{
+//					pulumi.String("role1"),
+//					pulumi.String("role2"),
+//				},
+//				RowAccessPolicyName: pulumi.String("row_access_policy"),
+//				SchemaName:          pulumi.String("schema"),
+//				WithGrantOption:     pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // # format is database name | schema name | row access policy name | privilege | true/false for with_grant_option
 //
 // ```sh
-//  $ pulumi import snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant example 'dbName|schemaName|rowAccessPolicyName|SELECT|false'
+//
+//	$ pulumi import snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant example 'dbName|schemaName|rowAccessPolicyName|SELECT|false'
+//
 // ```
 type RowAccessPolicyGrant struct {
 	pulumi.CustomResourceState
@@ -209,7 +214,7 @@ func (i *RowAccessPolicyGrant) ToRowAccessPolicyGrantOutputWithContext(ctx conte
 // RowAccessPolicyGrantArrayInput is an input type that accepts RowAccessPolicyGrantArray and RowAccessPolicyGrantArrayOutput values.
 // You can construct a concrete instance of `RowAccessPolicyGrantArrayInput` via:
 //
-//          RowAccessPolicyGrantArray{ RowAccessPolicyGrantArgs{...} }
+//	RowAccessPolicyGrantArray{ RowAccessPolicyGrantArgs{...} }
 type RowAccessPolicyGrantArrayInput interface {
 	pulumi.Input
 
@@ -234,7 +239,7 @@ func (i RowAccessPolicyGrantArray) ToRowAccessPolicyGrantArrayOutputWithContext(
 // RowAccessPolicyGrantMapInput is an input type that accepts RowAccessPolicyGrantMap and RowAccessPolicyGrantMapOutput values.
 // You can construct a concrete instance of `RowAccessPolicyGrantMapInput` via:
 //
-//          RowAccessPolicyGrantMap{ "key": RowAccessPolicyGrantArgs{...} }
+//	RowAccessPolicyGrantMap{ "key": RowAccessPolicyGrantArgs{...} }
 type RowAccessPolicyGrantMapInput interface {
 	pulumi.Input
 

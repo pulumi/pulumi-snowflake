@@ -17,20 +17,18 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Snowflake.GetSchemas.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Snowflake.GetSchemas.InvokeAsync(new Snowflake.GetSchemasArgs
-        ///         {
-        ///             Database = "MYDB",
-        ///         }));
-        ///     }
+        ///         Database = "MYDB",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -44,20 +42,18 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Snowflake.GetSchemas.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Snowflake.GetSchemas.InvokeAsync(new Snowflake.GetSchemasArgs
-        ///         {
-        ///             Database = "MYDB",
-        ///         }));
-        ///     }
+        ///         Database = "MYDB",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -67,35 +63,49 @@ namespace Pulumi.Snowflake
     }
 
 
-    public sealed class GetSchemasArgs : Pulumi.InvokeArgs
+    public sealed class GetSchemasArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database", required: true)]
         public string Database { get; set; } = null!;
 
         public GetSchemasArgs()
         {
         }
+        public static new GetSchemasArgs Empty => new GetSchemasArgs();
     }
 
-    public sealed class GetSchemasInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSchemasInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
         public GetSchemasInvokeArgs()
         {
         }
+        public static new GetSchemasInvokeArgs Empty => new GetSchemasInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetSchemasResult
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         public readonly string Database;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The schemas in the database
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetSchemasSchemaResult> Schemas;
 
         [OutputConstructor]

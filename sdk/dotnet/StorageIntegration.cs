@@ -17,7 +17,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/storageIntegration:StorageIntegration")]
-    public partial class StorageIntegration : Pulumi.CustomResource
+    public partial class StorageIntegration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The consent URL that is used to create an Azure Snowflake service principle inside your tenant.
@@ -138,7 +138,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class StorageIntegrationArgs : Pulumi.ResourceArgs
+    public sealed class StorageIntegrationArgs : global::Pulumi.ResourceArgs
     {
         [Input("azureTenantId")]
         public Input<string>? AzureTenantId { get; set; }
@@ -194,9 +194,10 @@ namespace Pulumi.Snowflake
         public StorageIntegrationArgs()
         {
         }
+        public static new StorageIntegrationArgs Empty => new StorageIntegrationArgs();
     }
 
-    public sealed class StorageIntegrationState : Pulumi.ResourceArgs
+    public sealed class StorageIntegrationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The consent URL that is used to create an Azure Snowflake service principle inside your tenant.
@@ -288,5 +289,6 @@ namespace Pulumi.Snowflake
         public StorageIntegrationState()
         {
         }
+        public static new StorageIntegrationState Empty => new StorageIntegrationState();
     }
 }

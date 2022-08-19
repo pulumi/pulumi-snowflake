@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     [SnowflakeResourceType("snowflake:index/maskingPolicyGrant:MaskingPolicyGrant")]
-    public partial class MaskingPolicyGrant : Pulumi.CustomResource
+    public partial class MaskingPolicyGrant : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the database containing the masking policy on which to grant privileges.
@@ -99,7 +99,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class MaskingPolicyGrantArgs : Pulumi.ResourceArgs
+    public sealed class MaskingPolicyGrantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database containing the masking policy on which to grant privileges.
@@ -153,9 +153,10 @@ namespace Pulumi.Snowflake
         public MaskingPolicyGrantArgs()
         {
         }
+        public static new MaskingPolicyGrantArgs Empty => new MaskingPolicyGrantArgs();
     }
 
-    public sealed class MaskingPolicyGrantState : Pulumi.ResourceArgs
+    public sealed class MaskingPolicyGrantState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database containing the masking policy on which to grant privileges.
@@ -209,5 +210,6 @@ namespace Pulumi.Snowflake
         public MaskingPolicyGrantState()
         {
         }
+        public static new MaskingPolicyGrantState Empty => new MaskingPolicyGrantState();
     }
 }

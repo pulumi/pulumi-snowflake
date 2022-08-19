@@ -33,5 +33,8 @@ export interface GetResourceMonitorsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The resource monitors in the database
+     */
     readonly resourceMonitors: outputs.GetResourceMonitorsResourceMonitor[];
 }

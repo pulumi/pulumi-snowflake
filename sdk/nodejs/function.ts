@@ -67,8 +67,7 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly language!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
-     * Don't use the | character.
+     * Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -76,9 +75,7 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly nullInputBehavior!: pulumi.Output<string | undefined>;
     /**
-     * List of package imports to use for Java / Python functions. For Java, package imports should be of the form:
-     * package_name:version_number, where package_name is snowflake_domain:package. For Python use it should be:
-     * ('numpy','pandas','xgboost==1.5.0').
+     * List of package imports to use for Java / Python functions. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
      */
     public readonly packages!: pulumi.Output<string[] | undefined>;
     /**
@@ -102,8 +99,7 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly statement!: pulumi.Output<string>;
     /**
-     * The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is
-     * the path of the Python files.
+     * The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
      */
     public readonly targetPath!: pulumi.Output<string | undefined>;
 
@@ -199,8 +195,7 @@ export interface FunctionState {
      */
     language?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
-     * Don't use the | character.
+     * Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
      */
     name?: pulumi.Input<string>;
     /**
@@ -208,9 +203,7 @@ export interface FunctionState {
      */
     nullInputBehavior?: pulumi.Input<string>;
     /**
-     * List of package imports to use for Java / Python functions. For Java, package imports should be of the form:
-     * package_name:version_number, where package_name is snowflake_domain:package. For Python use it should be:
-     * ('numpy','pandas','xgboost==1.5.0').
+     * List of package imports to use for Java / Python functions. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
      */
     packages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -234,8 +227,7 @@ export interface FunctionState {
      */
     statement?: pulumi.Input<string>;
     /**
-     * The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is
-     * the path of the Python files.
+     * The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
      */
     targetPath?: pulumi.Input<string>;
 }
@@ -269,8 +261,7 @@ export interface FunctionArgs {
      */
     language?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
-     * Don't use the | character.
+     * Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
      */
     name?: pulumi.Input<string>;
     /**
@@ -278,9 +269,7 @@ export interface FunctionArgs {
      */
     nullInputBehavior?: pulumi.Input<string>;
     /**
-     * List of package imports to use for Java / Python functions. For Java, package imports should be of the form:
-     * package_name:version_number, where package_name is snowflake_domain:package. For Python use it should be:
-     * ('numpy','pandas','xgboost==1.5.0').
+     * List of package imports to use for Java / Python functions. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
      */
     packages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -304,8 +293,7 @@ export interface FunctionArgs {
      */
     statement: pulumi.Input<string>;
     /**
-     * The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is
-     * the path of the Python files.
+     * The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
      */
     targetPath?: pulumi.Input<string>;
 }

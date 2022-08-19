@@ -13,35 +13,33 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var grant = new Snowflake.ViewGrant("grant", new()
     ///     {
-    ///         var grant = new Snowflake.ViewGrant("grant", new Snowflake.ViewGrantArgs
+    ///         DatabaseName = "db",
+    ///         OnFuture = false,
+    ///         Privilege = "select",
+    ///         Roles = new[]
     ///         {
-    ///             DatabaseName = "db",
-    ///             OnFuture = false,
-    ///             Privilege = "select",
-    ///             Roles = 
-    ///             {
-    ///                 "role1",
-    ///                 "role2",
-    ///             },
-    ///             SchemaName = "schema",
-    ///             Shares = 
-    ///             {
-    ///                 "share1",
-    ///                 "share2",
-    ///             },
-    ///             ViewName = "view",
-    ///             WithGrantOption = false,
-    ///         });
-    ///     }
+    ///             "role1",
+    ///             "role2",
+    ///         },
+    ///         SchemaName = "schema",
+    ///         Shares = new[]
+    ///         {
+    ///             "share1",
+    ///             "share2",
+    ///         },
+    ///         ViewName = "view",
+    ///         WithGrantOption = false,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/viewGrant:ViewGrant")]
-    public partial class ViewGrant : Pulumi.CustomResource
+    public partial class ViewGrant : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the database containing the current or future views on which to grant privileges.
@@ -69,9 +67,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> EnableMultipleGrants { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future views in the given schema. When
-        /// this is true and no schema_name is provided apply this grant on all future views in the given database. The view_name
-        /// and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future.
         /// </summary>
         [Output("onFuture")]
         public Output<bool?> OnFuture { get; private set; } = null!;
@@ -156,7 +152,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class ViewGrantArgs : Pulumi.ResourceArgs
+    public sealed class ViewGrantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database containing the current or future views on which to grant privileges.
@@ -172,9 +168,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future views in the given schema. When
-        /// this is true and no schema_name is provided apply this grant on all future views in the given database. The view_name
-        /// and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -230,9 +224,10 @@ namespace Pulumi.Snowflake
         public ViewGrantArgs()
         {
         }
+        public static new ViewGrantArgs Empty => new ViewGrantArgs();
     }
 
-    public sealed class ViewGrantState : Pulumi.ResourceArgs
+    public sealed class ViewGrantState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database containing the current or future views on which to grant privileges.
@@ -248,9 +243,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future views in the given schema. When
-        /// this is true and no schema_name is provided apply this grant on all future views in the given database. The view_name
-        /// and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -306,5 +299,6 @@ namespace Pulumi.Snowflake
         public ViewGrantState()
         {
         }
+        public static new ViewGrantState Empty => new ViewGrantState();
     }
 }

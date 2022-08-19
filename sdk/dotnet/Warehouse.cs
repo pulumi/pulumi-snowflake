@@ -13,21 +13,19 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var warehouse = new Snowflake.Warehouse("warehouse", new()
     ///     {
-    ///         var warehouse = new Snowflake.Warehouse("warehouse", new Snowflake.WarehouseArgs
-    ///         {
-    ///             Comment = "foo",
-    ///             WarehouseSize = "small",
-    ///         });
-    ///     }
+    ///         Comment = "foo",
+    ///         WarehouseSize = "small",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -37,7 +35,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/warehouse:Warehouse")]
-    public partial class Warehouse : Pulumi.CustomResource
+    public partial class Warehouse : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it.
@@ -91,15 +89,13 @@ namespace Pulumi.Snowflake
         public Output<string> ResourceMonitor { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
-        /// Auto-scale mode.
+        /// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
         /// </summary>
         [Output("scalingPolicy")]
         public Output<string> ScalingPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
-        /// warehouse before it is canceled by the system.
+        /// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
         /// </summary>
         [Output("statementQueuedTimeoutInSeconds")]
         public Output<int?> StatementQueuedTimeoutInSeconds { get; private set; } = null!;
@@ -117,15 +113,13 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<Outputs.WarehouseTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued
-        /// or new queries.
+        /// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         /// </summary>
         [Output("waitForProvisioning")]
         public Output<bool?> WaitForProvisioning { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and
-        /// only available on Amazon Web Services (AWS).
+        /// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
         /// </summary>
         [Output("warehouseSize")]
         public Output<string> WarehouseSize { get; private set; } = null!;
@@ -174,7 +168,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class WarehouseArgs : Pulumi.ResourceArgs
+    public sealed class WarehouseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it.
@@ -228,15 +222,13 @@ namespace Pulumi.Snowflake
         public Input<string>? ResourceMonitor { get; set; }
 
         /// <summary>
-        /// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
-        /// Auto-scale mode.
+        /// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
         /// </summary>
         [Input("scalingPolicy")]
         public Input<string>? ScalingPolicy { get; set; }
 
         /// <summary>
-        /// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
-        /// warehouse before it is canceled by the system.
+        /// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
         /// </summary>
         [Input("statementQueuedTimeoutInSeconds")]
         public Input<int>? StatementQueuedTimeoutInSeconds { get; set; }
@@ -260,15 +252,13 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued
-        /// or new queries.
+        /// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         /// </summary>
         [Input("waitForProvisioning")]
         public Input<bool>? WaitForProvisioning { get; set; }
 
         /// <summary>
-        /// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and
-        /// only available on Amazon Web Services (AWS).
+        /// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
         /// </summary>
         [Input("warehouseSize")]
         public Input<string>? WarehouseSize { get; set; }
@@ -276,9 +266,10 @@ namespace Pulumi.Snowflake
         public WarehouseArgs()
         {
         }
+        public static new WarehouseArgs Empty => new WarehouseArgs();
     }
 
-    public sealed class WarehouseState : Pulumi.ResourceArgs
+    public sealed class WarehouseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it.
@@ -332,15 +323,13 @@ namespace Pulumi.Snowflake
         public Input<string>? ResourceMonitor { get; set; }
 
         /// <summary>
-        /// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
-        /// Auto-scale mode.
+        /// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
         /// </summary>
         [Input("scalingPolicy")]
         public Input<string>? ScalingPolicy { get; set; }
 
         /// <summary>
-        /// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
-        /// warehouse before it is canceled by the system.
+        /// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
         /// </summary>
         [Input("statementQueuedTimeoutInSeconds")]
         public Input<int>? StatementQueuedTimeoutInSeconds { get; set; }
@@ -364,15 +353,13 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued
-        /// or new queries.
+        /// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         /// </summary>
         [Input("waitForProvisioning")]
         public Input<bool>? WaitForProvisioning { get; set; }
 
         /// <summary>
-        /// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and
-        /// only available on Amazon Web Services (AWS).
+        /// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
         /// </summary>
         [Input("warehouseSize")]
         public Input<string>? WarehouseSize { get; set; }
@@ -380,5 +367,6 @@ namespace Pulumi.Snowflake
         public WarehouseState()
         {
         }
+        public static new WarehouseState Empty => new WarehouseState();
     }
 }

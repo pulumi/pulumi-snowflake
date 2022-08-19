@@ -123,7 +123,7 @@ export class NotificationIntegration extends pulumi.CustomResource {
     public readonly gcpPubsubSubscriptionName!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
     /**
-     * The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
+     * The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
      */
     public readonly notificationProvider!: pulumi.Output<string | undefined>;
     /**
@@ -257,7 +257,7 @@ export interface NotificationIntegrationState {
     gcpPubsubSubscriptionName?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     /**
-     * The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
+     * The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
      */
     notificationProvider?: pulumi.Input<string>;
     /**
@@ -309,7 +309,7 @@ export interface NotificationIntegrationArgs {
     gcpPubsubSubscriptionName?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     /**
-     * The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
+     * The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
      */
     notificationProvider?: pulumi.Input<string>;
     /**

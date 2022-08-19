@@ -71,8 +71,7 @@ export class View extends pulumi.CustomResource {
      */
     public readonly isSecure!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
-     * character.
+     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -155,8 +154,7 @@ export interface ViewState {
      */
     isSecure?: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
-     * character.
+     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
      */
     name?: pulumi.Input<string>;
     /**
@@ -194,8 +192,7 @@ export interface ViewArgs {
      */
     isSecure?: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
-     * character.
+     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
      */
     name?: pulumi.Input<string>;
     /**

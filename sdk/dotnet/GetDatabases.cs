@@ -17,17 +17,15 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var @this = Output.Create(Snowflake.GetDatabases.InvokeAsync());
-        ///     }
+        ///     var @this = Snowflake.GetDatabases.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -40,6 +38,9 @@ namespace Pulumi.Snowflake
     [OutputType]
     public sealed class GetDatabasesResult
     {
+        /// <summary>
+        /// Snowflake databases
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetDatabasesDatabaseResult> Databases;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

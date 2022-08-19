@@ -16,22 +16,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.GetStreams(ctx, &GetStreamsArgs{
-// 			Database: "MYDB",
-// 			Schema:   "MYSCHEMA",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.GetStreams(ctx, &GetStreamsArgs{
+//				Database: "MYDB",
+//				Schema:   "MYSCHEMA",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetStreams(ctx *pulumi.Context, args *GetStreamsArgs, opts ...pulumi.InvokeOption) (*GetStreamsResult, error) {
 	var rv GetStreamsResult
@@ -44,16 +47,21 @@ func GetStreams(ctx *pulumi.Context, args *GetStreamsArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getStreams.
 type GetStreamsArgs struct {
+	// The database from which to return the streams from.
 	Database string `pulumi:"database"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the streams from.
+	Schema string `pulumi:"schema"`
 }
 
 // A collection of values returned by getStreams.
 type GetStreamsResult struct {
+	// The database from which to return the streams from.
 	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
-	Id      string             `pulumi:"id"`
-	Schema  string             `pulumi:"schema"`
+	Id string `pulumi:"id"`
+	// The schema from which to return the streams from.
+	Schema string `pulumi:"schema"`
+	// The streams in the schema
 	Streams []GetStreamsStream `pulumi:"streams"`
 }
 
@@ -72,8 +80,10 @@ func GetStreamsOutput(ctx *pulumi.Context, args GetStreamsOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getStreams.
 type GetStreamsOutputArgs struct {
+	// The database from which to return the streams from.
 	Database pulumi.StringInput `pulumi:"database"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the streams from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetStreamsOutputArgs) ElementType() reflect.Type {
@@ -95,6 +105,7 @@ func (o GetStreamsResultOutput) ToGetStreamsResultOutputWithContext(ctx context.
 	return o
 }
 
+// The database from which to return the streams from.
 func (o GetStreamsResultOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStreamsResult) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -104,10 +115,12 @@ func (o GetStreamsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStreamsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the streams from.
 func (o GetStreamsResultOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStreamsResult) string { return v.Schema }).(pulumi.StringOutput)
 }
 
+// The streams in the schema
 func (o GetStreamsResultOutput) Streams() GetStreamsStreamArrayOutput {
 	return o.ApplyT(func(v GetStreamsResult) []GetStreamsStream { return v.Streams }).(GetStreamsStreamArrayOutput)
 }

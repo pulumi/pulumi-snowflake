@@ -31,6 +31,9 @@ export function getSystemGenerateScimAccessToken(args: GetSystemGenerateScimAcce
  * A collection of arguments for invoking getSystemGenerateScimAccessToken.
  */
 export interface GetSystemGenerateScimAccessTokenArgs {
+    /**
+     * SCIM Integration Name
+     */
     integrationName: string;
 }
 
@@ -38,11 +41,17 @@ export interface GetSystemGenerateScimAccessTokenArgs {
  * A collection of values returned by getSystemGenerateScimAccessToken.
  */
 export interface GetSystemGenerateScimAccessTokenResult {
+    /**
+     * SCIM Access Token
+     */
     readonly accessToken: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * SCIM Integration Name
+     */
     readonly integrationName: string;
 }
 
@@ -54,5 +63,8 @@ export function getSystemGenerateScimAccessTokenOutput(args: GetSystemGenerateSc
  * A collection of arguments for invoking getSystemGenerateScimAccessToken.
  */
 export interface GetSystemGenerateScimAccessTokenOutputArgs {
+    /**
+     * SCIM Integration Name
+     */
     integrationName: pulumi.Input<string>;
 }

@@ -34,7 +34,13 @@ export function getViews(args: GetViewsArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getViews.
  */
 export interface GetViewsArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
+    /**
+     * The schema from which to return the views from.
+     */
     schema: string;
 }
 
@@ -42,12 +48,21 @@ export interface GetViewsArgs {
  * A collection of values returned by getViews.
  */
 export interface GetViewsResult {
+    /**
+     * The database from which to return the schemas from.
+     */
     readonly database: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The schema from which to return the views from.
+     */
     readonly schema: string;
+    /**
+     * The views in the schema
+     */
     readonly views: outputs.GetViewsView[];
 }
 
@@ -59,6 +74,12 @@ export function getViewsOutput(args: GetViewsOutputArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getViews.
  */
 export interface GetViewsOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the views from.
+     */
     schema: pulumi.Input<string>;
 }

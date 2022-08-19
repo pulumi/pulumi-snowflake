@@ -16,34 +16,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewShare(ctx, "test", &snowflake.ShareArgs{
-// 			Accounts: pulumi.StringArray("organizationName.accountName"),
-// 			Comment:  pulumi.String("cool comment"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewShare(ctx, "test", &snowflake.ShareArgs{
+//				Accounts: pulumi.StringArray("organizationName.accountName"),
+//				Comment:  pulumi.String("cool comment"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
 // ```sh
-//  $ pulumi import snowflake:index/share:Share example name
+//
+//	$ pulumi import snowflake:index/share:Share example name
+//
 // ```
 type Share struct {
 	pulumi.CustomResourceState
 
-	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-	// 'organization_name.account_name
+	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
 	Accounts pulumi.StringArrayOutput `pulumi:"accounts"`
 	// Specifies a comment for the managed account.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
@@ -80,8 +84,7 @@ func GetShare(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Share resources.
 type shareState struct {
-	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-	// 'organization_name.account_name
+	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
 	Accounts []string `pulumi:"accounts"`
 	// Specifies a comment for the managed account.
 	Comment *string `pulumi:"comment"`
@@ -90,8 +93,7 @@ type shareState struct {
 }
 
 type ShareState struct {
-	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-	// 'organization_name.account_name
+	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
 	Accounts pulumi.StringArrayInput
 	// Specifies a comment for the managed account.
 	Comment pulumi.StringPtrInput
@@ -104,8 +106,7 @@ func (ShareState) ElementType() reflect.Type {
 }
 
 type shareArgs struct {
-	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-	// 'organization_name.account_name
+	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
 	Accounts []string `pulumi:"accounts"`
 	// Specifies a comment for the managed account.
 	Comment *string `pulumi:"comment"`
@@ -115,8 +116,7 @@ type shareArgs struct {
 
 // The set of arguments for constructing a Share resource.
 type ShareArgs struct {
-	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-	// 'organization_name.account_name
+	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
 	Accounts pulumi.StringArrayInput
 	// Specifies a comment for the managed account.
 	Comment pulumi.StringPtrInput
@@ -150,7 +150,7 @@ func (i *Share) ToShareOutputWithContext(ctx context.Context) ShareOutput {
 // ShareArrayInput is an input type that accepts ShareArray and ShareArrayOutput values.
 // You can construct a concrete instance of `ShareArrayInput` via:
 //
-//          ShareArray{ ShareArgs{...} }
+//	ShareArray{ ShareArgs{...} }
 type ShareArrayInput interface {
 	pulumi.Input
 
@@ -175,7 +175,7 @@ func (i ShareArray) ToShareArrayOutputWithContext(ctx context.Context) ShareArra
 // ShareMapInput is an input type that accepts ShareMap and ShareMapOutput values.
 // You can construct a concrete instance of `ShareMapInput` via:
 //
-//          ShareMap{ "key": ShareArgs{...} }
+//	ShareMap{ "key": ShareArgs{...} }
 type ShareMapInput interface {
 	pulumi.Input
 
@@ -211,8 +211,7 @@ func (o ShareOutput) ToShareOutputWithContext(ctx context.Context) ShareOutput {
 	return o
 }
 
-// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-// 'organization_name.account_name
+// A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
 func (o ShareOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Share) pulumi.StringArrayOutput { return v.Accounts }).(pulumi.StringArrayOutput)
 }

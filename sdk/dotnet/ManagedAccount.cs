@@ -17,11 +17,10 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/managedAccount:ManagedAccount")]
-    public partial class ManagedAccount : Pulumi.CustomResource
+    public partial class ManagedAccount : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
-        /// administrator for the account.
+        /// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
         /// </summary>
         [Output("adminName")]
         public Output<string> AdminName { get; private set; } = null!;
@@ -124,11 +123,10 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class ManagedAccountArgs : Pulumi.ResourceArgs
+    public sealed class ManagedAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
-        /// administrator for the account.
+        /// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
         /// </summary>
         [Input("adminName", required: true)]
         public Input<string> AdminName { get; set; } = null!;
@@ -160,13 +158,13 @@ namespace Pulumi.Snowflake
         public ManagedAccountArgs()
         {
         }
+        public static new ManagedAccountArgs Empty => new ManagedAccountArgs();
     }
 
-    public sealed class ManagedAccountState : Pulumi.ResourceArgs
+    public sealed class ManagedAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
-        /// administrator for the account.
+        /// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
         /// </summary>
         [Input("adminName")]
         public Input<string>? AdminName { get; set; }
@@ -228,5 +226,6 @@ namespace Pulumi.Snowflake
         public ManagedAccountState()
         {
         }
+        public static new ManagedAccountState Empty => new ManagedAccountState();
     }
 }

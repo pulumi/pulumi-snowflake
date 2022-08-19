@@ -34,7 +34,13 @@ export function getPipes(args: GetPipesArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getPipes.
  */
 export interface GetPipesArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
+    /**
+     * The schema from which to return the pipes from.
+     */
     schema: string;
 }
 
@@ -42,12 +48,21 @@ export interface GetPipesArgs {
  * A collection of values returned by getPipes.
  */
 export interface GetPipesResult {
+    /**
+     * The database from which to return the schemas from.
+     */
     readonly database: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The pipes in the schema
+     */
     readonly pipes: outputs.GetPipesPipe[];
+    /**
+     * The schema from which to return the pipes from.
+     */
     readonly schema: string;
 }
 
@@ -59,6 +74,12 @@ export function getPipesOutput(args: GetPipesOutputArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getPipes.
  */
 export interface GetPipesOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the pipes from.
+     */
     schema: pulumi.Input<string>;
 }

@@ -18,7 +18,9 @@ func GetSystemGetSnowflakePlatformInfo(ctx *pulumi.Context, opts ...pulumi.Invok
 
 // A collection of values returned by getSystemGetSnowflakePlatformInfo.
 type GetSystemGetSnowflakePlatformInfoResult struct {
-	AwsVpcIds          []string `pulumi:"awsVpcIds"`
+	// Snowflake AWS Virtual Private Cloud IDs
+	AwsVpcIds []string `pulumi:"awsVpcIds"`
+	// Snowflake Azure Virtual Network Subnet IDs
 	AzureVnetSubnetIds []string `pulumi:"azureVnetSubnetIds"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`

@@ -13,44 +13,44 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var role = new Snowflake.Role("role", new()
     ///     {
-    ///         var role = new Snowflake.Role("role", new Snowflake.RoleArgs
-    ///         {
-    ///             Comment = "for testing",
-    ///         });
-    ///         var user = new Snowflake.User("user", new Snowflake.UserArgs
-    ///         {
-    ///             Comment = "for testing",
-    ///         });
-    ///         var user2 = new Snowflake.User("user2", new Snowflake.UserArgs
-    ///         {
-    ///             Comment = "for testing",
-    ///         });
-    ///         var otherRole = new Snowflake.Role("otherRole", new Snowflake.RoleArgs
-    ///         {
-    ///         });
-    ///         var grants = new Snowflake.RoleGrants("grants", new Snowflake.RoleGrantsArgs
-    ///         {
-    ///             RoleName = role.Name,
-    ///             Roles = 
-    ///             {
-    ///                 otherRole.Name,
-    ///             },
-    ///             Users = 
-    ///             {
-    ///                 user.Name,
-    ///                 user2.Name,
-    ///             },
-    ///         });
-    ///     }
+    ///         Comment = "for testing",
+    ///     });
     /// 
-    /// }
+    ///     var user = new Snowflake.User("user", new()
+    ///     {
+    ///         Comment = "for testing",
+    ///     });
+    /// 
+    ///     var user2 = new Snowflake.User("user2", new()
+    ///     {
+    ///         Comment = "for testing",
+    ///     });
+    /// 
+    ///     var otherRole = new Snowflake.Role("otherRole");
+    /// 
+    ///     var grants = new Snowflake.RoleGrants("grants", new()
+    ///     {
+    ///         RoleName = role.Name,
+    ///         Roles = new[]
+    ///         {
+    ///             otherRole.Name,
+    ///         },
+    ///         Users = new[]
+    ///         {
+    ///             user.Name,
+    ///             user2.Name,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +60,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/roleGrants:RoleGrants")]
-    public partial class RoleGrants : Pulumi.CustomResource
+    public partial class RoleGrants : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -131,7 +131,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class RoleGrantsArgs : Pulumi.ResourceArgs
+    public sealed class RoleGrantsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -173,9 +173,10 @@ namespace Pulumi.Snowflake
         public RoleGrantsArgs()
         {
         }
+        public static new RoleGrantsArgs Empty => new RoleGrantsArgs();
     }
 
-    public sealed class RoleGrantsState : Pulumi.ResourceArgs
+    public sealed class RoleGrantsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -217,5 +218,6 @@ namespace Pulumi.Snowflake
         public RoleGrantsState()
         {
         }
+        public static new RoleGrantsState Empty => new RoleGrantsState();
     }
 }

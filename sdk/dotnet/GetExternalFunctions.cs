@@ -17,21 +17,19 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Snowflake.GetExternalFunctions.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Snowflake.GetExternalFunctions.InvokeAsync(new Snowflake.GetExternalFunctionsArgs
-        ///         {
-        ///             Database = "MYDB",
-        ///             Schema = "MYSCHEMA",
-        ///         }));
-        ///     }
+        ///         Database = "MYDB",
+        ///         Schema = "MYSCHEMA",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -45,21 +43,19 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Snowflake.GetExternalFunctions.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Snowflake.GetExternalFunctions.InvokeAsync(new Snowflake.GetExternalFunctionsArgs
-        ///         {
-        ///             Database = "MYDB",
-        ///             Schema = "MYSCHEMA",
-        ///         }));
-        ///     }
+        ///         Database = "MYDB",
+        ///         Schema = "MYSCHEMA",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -69,42 +65,65 @@ namespace Pulumi.Snowflake
     }
 
 
-    public sealed class GetExternalFunctionsArgs : Pulumi.InvokeArgs
+    public sealed class GetExternalFunctionsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database", required: true)]
         public string Database { get; set; } = null!;
 
+        /// <summary>
+        /// The schema from which to return the external functions from.
+        /// </summary>
         [Input("schema", required: true)]
         public string Schema { get; set; } = null!;
 
         public GetExternalFunctionsArgs()
         {
         }
+        public static new GetExternalFunctionsArgs Empty => new GetExternalFunctionsArgs();
     }
 
-    public sealed class GetExternalFunctionsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetExternalFunctionsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
+        /// <summary>
+        /// The schema from which to return the external functions from.
+        /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
         public GetExternalFunctionsInvokeArgs()
         {
         }
+        public static new GetExternalFunctionsInvokeArgs Empty => new GetExternalFunctionsInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetExternalFunctionsResult
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         public readonly string Database;
+        /// <summary>
+        /// The external functions in the schema
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetExternalFunctionsExternalFunctionResult> ExternalFunctions;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The schema from which to return the external functions from.
+        /// </summary>
         public readonly string Schema;
 
         [OutputConstructor]

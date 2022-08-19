@@ -13,34 +13,32 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var grant = new Snowflake.SchemaGrant("grant", new()
     ///     {
-    ///         var grant = new Snowflake.SchemaGrant("grant", new Snowflake.SchemaGrantArgs
+    ///         DatabaseName = "db",
+    ///         OnFuture = false,
+    ///         Privilege = "USAGE",
+    ///         Roles = new[]
     ///         {
-    ///             DatabaseName = "db",
-    ///             OnFuture = false,
-    ///             Privilege = "USAGE",
-    ///             Roles = 
-    ///             {
-    ///                 "role1",
-    ///                 "role2",
-    ///             },
-    ///             SchemaName = "schema",
-    ///             Shares = 
-    ///             {
-    ///                 "share1",
-    ///                 "share2",
-    ///             },
-    ///             WithGrantOption = false,
-    ///         });
-    ///     }
+    ///             "role1",
+    ///             "role2",
+    ///         },
+    ///         SchemaName = "schema",
+    ///         Shares = new[]
+    ///         {
+    ///             "share1",
+    ///             "share2",
+    ///         },
+    ///         WithGrantOption = false,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +50,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/schemaGrant:SchemaGrant")]
-    public partial class SchemaGrant : Pulumi.CustomResource
+    public partial class SchemaGrant : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the database containing the schema on which to grant privileges.
@@ -68,8 +66,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> EnableMultipleGrants { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to true, apply this grant on all future schemas in the given database. The schema_name and shares
-        /// fields must be unset in order to use on_future.
+        /// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
         /// </summary>
         [Output("onFuture")]
         public Output<bool?> OnFuture { get; private set; } = null!;
@@ -149,7 +146,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class SchemaGrantArgs : Pulumi.ResourceArgs
+    public sealed class SchemaGrantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database containing the schema on which to grant privileges.
@@ -165,8 +162,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// When this is set to true, apply this grant on all future schemas in the given database. The schema_name and shares
-        /// fields must be unset in order to use on_future.
+        /// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -217,9 +213,10 @@ namespace Pulumi.Snowflake
         public SchemaGrantArgs()
         {
         }
+        public static new SchemaGrantArgs Empty => new SchemaGrantArgs();
     }
 
-    public sealed class SchemaGrantState : Pulumi.ResourceArgs
+    public sealed class SchemaGrantState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database containing the schema on which to grant privileges.
@@ -235,8 +232,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// When this is set to true, apply this grant on all future schemas in the given database. The schema_name and shares
-        /// fields must be unset in order to use on_future.
+        /// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -287,5 +283,6 @@ namespace Pulumi.Snowflake
         public SchemaGrantState()
         {
         }
+        public static new SchemaGrantState Empty => new SchemaGrantState();
     }
 }

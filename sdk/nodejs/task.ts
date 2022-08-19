@@ -80,8 +80,7 @@ export class Task extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task
-     * finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+     * Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
      */
     public readonly after!: pulumi.Output<string | undefined>;
     /**
@@ -121,9 +120,7 @@ export class Task extends pulumi.CustomResource {
      */
     public readonly sqlStatement!: pulumi.Output<string>;
     /**
-     * Specifies the size of the compute resources to provision for the first run of the task, before a task history is
-     * available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
-     * this parameter setting. (Conflicts with warehouse)
+     * Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
      */
     public readonly userTaskManagedInitialWarehouseSize!: pulumi.Output<string | undefined>;
     /**
@@ -131,8 +128,7 @@ export class Task extends pulumi.CustomResource {
      */
     public readonly userTaskTimeoutMs!: pulumi.Output<number | undefined>;
     /**
-     * The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
-     * (Conflicts with user_task_managed_initial_warehouse_size)
+     * The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)
      */
     public readonly warehouse!: pulumi.Output<string | undefined>;
     /**
@@ -203,8 +199,7 @@ export class Task extends pulumi.CustomResource {
  */
 export interface TaskState {
     /**
-     * Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task
-     * finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+     * Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
      */
     after?: pulumi.Input<string>;
     /**
@@ -244,9 +239,7 @@ export interface TaskState {
      */
     sqlStatement?: pulumi.Input<string>;
     /**
-     * Specifies the size of the compute resources to provision for the first run of the task, before a task history is
-     * available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
-     * this parameter setting. (Conflicts with warehouse)
+     * Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
      */
     userTaskManagedInitialWarehouseSize?: pulumi.Input<string>;
     /**
@@ -254,8 +247,7 @@ export interface TaskState {
      */
     userTaskTimeoutMs?: pulumi.Input<number>;
     /**
-     * The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
-     * (Conflicts with user_task_managed_initial_warehouse_size)
+     * The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)
      */
     warehouse?: pulumi.Input<string>;
     /**
@@ -269,8 +261,7 @@ export interface TaskState {
  */
 export interface TaskArgs {
     /**
-     * Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task
-     * finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+     * Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
      */
     after?: pulumi.Input<string>;
     /**
@@ -310,9 +301,7 @@ export interface TaskArgs {
      */
     sqlStatement: pulumi.Input<string>;
     /**
-     * Specifies the size of the compute resources to provision for the first run of the task, before a task history is
-     * available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
-     * this parameter setting. (Conflicts with warehouse)
+     * Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
      */
     userTaskManagedInitialWarehouseSize?: pulumi.Input<string>;
     /**
@@ -320,8 +309,7 @@ export interface TaskArgs {
      */
     userTaskTimeoutMs?: pulumi.Input<number>;
     /**
-     * The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
-     * (Conflicts with user_task_managed_initial_warehouse_size)
+     * The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)
      */
     warehouse?: pulumi.Input<string>;
     /**

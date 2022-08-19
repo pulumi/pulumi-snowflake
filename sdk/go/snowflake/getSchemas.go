@@ -16,21 +16,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.GetSchemas(ctx, &GetSchemasArgs{
-// 			Database: "MYDB",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.GetSchemas(ctx, &GetSchemasArgs{
+//				Database: "MYDB",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetSchemas(ctx *pulumi.Context, args *GetSchemasArgs, opts ...pulumi.InvokeOption) (*GetSchemasResult, error) {
 	var rv GetSchemasResult
@@ -43,14 +46,17 @@ func GetSchemas(ctx *pulumi.Context, args *GetSchemasArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getSchemas.
 type GetSchemasArgs struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 }
 
 // A collection of values returned by getSchemas.
 type GetSchemasResult struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
-	Id      string             `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The schemas in the database
 	Schemas []GetSchemasSchema `pulumi:"schemas"`
 }
 
@@ -69,6 +75,7 @@ func GetSchemasOutput(ctx *pulumi.Context, args GetSchemasOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getSchemas.
 type GetSchemasOutputArgs struct {
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
 }
 
@@ -91,6 +98,7 @@ func (o GetSchemasResultOutput) ToGetSchemasResultOutputWithContext(ctx context.
 	return o
 }
 
+// The database from which to return the schemas from.
 func (o GetSchemasResultOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemasResult) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -100,6 +108,7 @@ func (o GetSchemasResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemasResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The schemas in the database
 func (o GetSchemasResultOutput) Schemas() GetSchemasSchemaArrayOutput {
 	return o.ApplyT(func(v GetSchemasResult) []GetSchemasSchema { return v.Schemas }).(GetSchemasSchemaArrayOutput)
 }

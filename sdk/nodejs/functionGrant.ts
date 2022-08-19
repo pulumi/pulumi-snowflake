@@ -78,7 +78,7 @@ export class FunctionGrant extends pulumi.CustomResource {
     }
 
     /**
-     * List of the arguments for the function (must be present if function has arguments and function_name is present)
+     * List of the arguments for the function (must be present if function has arguments and functionName is present)
      */
     public readonly arguments!: pulumi.Output<outputs.FunctionGrantArgument[] | undefined>;
     /**
@@ -91,13 +91,11 @@ export class FunctionGrant extends pulumi.CustomResource {
      */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the function on which to grant privileges immediately (only valid if on_future is false).
+     * The name of the function on which to grant privileges immediately (only valid if onFuture is false).
      */
     public readonly functionName!: pulumi.Output<string | undefined>;
     /**
-     * When this is set to true and a schema_name is provided, apply this grant on all future functions in the given schema.
-     * When this is true and no schema_name is provided apply this grant on all future functions in the given database. The
-     * function_name, arguments, return_type, and shares fields must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
      */
     public readonly onFuture!: pulumi.Output<boolean | undefined>;
     /**
@@ -105,7 +103,7 @@ export class FunctionGrant extends pulumi.CustomResource {
      */
     public readonly privilege!: pulumi.Output<string | undefined>;
     /**
-     * The return type of the function (must be present if function_name is present)
+     * The return type of the function (must be present if functionName is present)
      */
     public readonly returnType!: pulumi.Output<string | undefined>;
     /**
@@ -117,7 +115,7 @@ export class FunctionGrant extends pulumi.CustomResource {
      */
     public readonly schemaName!: pulumi.Output<string>;
     /**
-     * Grants privilege to these shares (only valid if on_future is false).
+     * Grants privilege to these shares (only valid if onFuture is false).
      */
     public readonly shares!: pulumi.Output<string[] | undefined>;
     /**
@@ -179,7 +177,7 @@ export class FunctionGrant extends pulumi.CustomResource {
  */
 export interface FunctionGrantState {
     /**
-     * List of the arguments for the function (must be present if function has arguments and function_name is present)
+     * List of the arguments for the function (must be present if function has arguments and functionName is present)
      */
     arguments?: pulumi.Input<pulumi.Input<inputs.FunctionGrantArgument>[]>;
     /**
@@ -192,13 +190,11 @@ export interface FunctionGrantState {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * The name of the function on which to grant privileges immediately (only valid if on_future is false).
+     * The name of the function on which to grant privileges immediately (only valid if onFuture is false).
      */
     functionName?: pulumi.Input<string>;
     /**
-     * When this is set to true and a schema_name is provided, apply this grant on all future functions in the given schema.
-     * When this is true and no schema_name is provided apply this grant on all future functions in the given database. The
-     * function_name, arguments, return_type, and shares fields must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
@@ -206,7 +202,7 @@ export interface FunctionGrantState {
      */
     privilege?: pulumi.Input<string>;
     /**
-     * The return type of the function (must be present if function_name is present)
+     * The return type of the function (must be present if functionName is present)
      */
     returnType?: pulumi.Input<string>;
     /**
@@ -218,7 +214,7 @@ export interface FunctionGrantState {
      */
     schemaName?: pulumi.Input<string>;
     /**
-     * Grants privilege to these shares (only valid if on_future is false).
+     * Grants privilege to these shares (only valid if onFuture is false).
      */
     shares?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -232,7 +228,7 @@ export interface FunctionGrantState {
  */
 export interface FunctionGrantArgs {
     /**
-     * List of the arguments for the function (must be present if function has arguments and function_name is present)
+     * List of the arguments for the function (must be present if function has arguments and functionName is present)
      */
     arguments?: pulumi.Input<pulumi.Input<inputs.FunctionGrantArgument>[]>;
     /**
@@ -245,13 +241,11 @@ export interface FunctionGrantArgs {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * The name of the function on which to grant privileges immediately (only valid if on_future is false).
+     * The name of the function on which to grant privileges immediately (only valid if onFuture is false).
      */
     functionName?: pulumi.Input<string>;
     /**
-     * When this is set to true and a schema_name is provided, apply this grant on all future functions in the given schema.
-     * When this is true and no schema_name is provided apply this grant on all future functions in the given database. The
-     * function_name, arguments, return_type, and shares fields must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
@@ -259,7 +253,7 @@ export interface FunctionGrantArgs {
      */
     privilege?: pulumi.Input<string>;
     /**
-     * The return type of the function (must be present if function_name is present)
+     * The return type of the function (must be present if functionName is present)
      */
     returnType?: pulumi.Input<string>;
     /**
@@ -271,7 +265,7 @@ export interface FunctionGrantArgs {
      */
     schemaName: pulumi.Input<string>;
     /**
-     * Grants privilege to these shares (only valid if on_future is false).
+     * Grants privilege to these shares (only valid if onFuture is false).
      */
     shares?: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -13,30 +13,28 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var grant = new Snowflake.TaskGrant("grant", new()
     ///     {
-    ///         var grant = new Snowflake.TaskGrant("grant", new Snowflake.TaskGrantArgs
+    ///         DatabaseName = "db",
+    ///         OnFuture = false,
+    ///         Privilege = "operate",
+    ///         Roles = new[]
     ///         {
-    ///             DatabaseName = "db",
-    ///             OnFuture = false,
-    ///             Privilege = "operate",
-    ///             Roles = 
-    ///             {
-    ///                 "role1",
-    ///                 "role2",
-    ///             },
-    ///             SchemaName = "schema",
-    ///             TaskName = "task",
-    ///             WithGrantOption = false,
-    ///         });
-    ///     }
+    ///             "role1",
+    ///             "role2",
+    ///         },
+    ///         SchemaName = "schema",
+    ///         TaskName = "task",
+    ///         WithGrantOption = false,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +46,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/taskGrant:TaskGrant")]
-    public partial class TaskGrant : Pulumi.CustomResource
+    public partial class TaskGrant : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the database containing the current or future tasks on which to grant privileges.
@@ -64,9 +62,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> EnableMultipleGrants { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
-        /// this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
-        /// field must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
         /// </summary>
         [Output("onFuture")]
         public Output<bool?> OnFuture { get; private set; } = null!;
@@ -145,7 +141,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class TaskGrantArgs : Pulumi.ResourceArgs
+    public sealed class TaskGrantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database containing the current or future tasks on which to grant privileges.
@@ -161,9 +157,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
-        /// this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
-        /// field must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -207,9 +201,10 @@ namespace Pulumi.Snowflake
         public TaskGrantArgs()
         {
         }
+        public static new TaskGrantArgs Empty => new TaskGrantArgs();
     }
 
-    public sealed class TaskGrantState : Pulumi.ResourceArgs
+    public sealed class TaskGrantState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database containing the current or future tasks on which to grant privileges.
@@ -225,9 +220,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
-        /// this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
-        /// field must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -271,5 +264,6 @@ namespace Pulumi.Snowflake
         public TaskGrantState()
         {
         }
+        public static new TaskGrantState Empty => new TaskGrantState();
     }
 }

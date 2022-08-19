@@ -13,26 +13,24 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var view = new Snowflake.View("view", new()
     ///     {
-    ///         var view = new Snowflake.View("view", new Snowflake.ViewArgs
-    ///         {
-    ///             Database = "db",
-    ///             Schema = "schema",
-    ///             Comment = "comment",
-    ///             Statement = @"select * from foo;
+    ///         Database = "db",
+    ///         Schema = "schema",
+    ///         Comment = "comment",
+    ///         Statement = @"select * from foo;
     /// ",
-    ///             OrReplace = false,
-    ///             IsSecure = false,
-    ///         });
-    ///     }
+    ///         OrReplace = false,
+    ///         IsSecure = false,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/view:View")]
-    public partial class View : Pulumi.CustomResource
+    public partial class View : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies a comment for the view.
@@ -65,8 +63,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> IsSecure { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
-        /// character.
+        /// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -139,7 +136,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class ViewArgs : Pulumi.ResourceArgs
+    public sealed class ViewArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a comment for the view.
@@ -160,8 +157,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? IsSecure { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
-        /// character.
+        /// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -199,9 +195,10 @@ namespace Pulumi.Snowflake
         public ViewArgs()
         {
         }
+        public static new ViewArgs Empty => new ViewArgs();
     }
 
-    public sealed class ViewState : Pulumi.ResourceArgs
+    public sealed class ViewState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a comment for the view.
@@ -222,8 +219,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? IsSecure { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the |
-        /// character.
+        /// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -261,5 +257,6 @@ namespace Pulumi.Snowflake
         public ViewState()
         {
         }
+        public static new ViewState Empty => new ViewState();
     }
 }

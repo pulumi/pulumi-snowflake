@@ -34,7 +34,13 @@ export function getProcedures(args: GetProceduresArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getProcedures.
  */
 export interface GetProceduresArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
+    /**
+     * The schema from which to return the procedures from.
+     */
     schema: string;
 }
 
@@ -42,12 +48,21 @@ export interface GetProceduresArgs {
  * A collection of values returned by getProcedures.
  */
 export interface GetProceduresResult {
+    /**
+     * The database from which to return the schemas from.
+     */
     readonly database: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The procedures in the schema
+     */
     readonly procedures: outputs.GetProceduresProcedure[];
+    /**
+     * The schema from which to return the procedures from.
+     */
     readonly schema: string;
 }
 
@@ -59,6 +74,12 @@ export function getProceduresOutput(args: GetProceduresOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getProcedures.
  */
 export interface GetProceduresOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the procedures from.
+     */
     schema: pulumi.Input<string>;
 }

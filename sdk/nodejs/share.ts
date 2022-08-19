@@ -52,8 +52,7 @@ export class Share extends pulumi.CustomResource {
     }
 
     /**
-     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-     * 'organization_name.account_name
+     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
      */
     public readonly accounts!: pulumi.Output<string[] | undefined>;
     /**
@@ -97,8 +96,7 @@ export class Share extends pulumi.CustomResource {
  */
 export interface ShareState {
     /**
-     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-     * 'organization_name.account_name
+     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
      */
     accounts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -116,8 +114,7 @@ export interface ShareState {
  */
 export interface ShareArgs {
     /**
-     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-     * 'organization_name.account_name
+     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
      */
     accounts?: pulumi.Input<pulumi.Input<string>[]>;
     /**

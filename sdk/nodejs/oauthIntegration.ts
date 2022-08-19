@@ -55,8 +55,7 @@ export class OauthIntegration extends pulumi.CustomResource {
     }
 
     /**
-     * List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN
-     * or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+     * List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
      */
     public readonly blockedRolesLists!: pulumi.Output<string[] | undefined>;
     /**
@@ -72,8 +71,7 @@ export class OauthIntegration extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
-     * unique among security integrations in your account.
+     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -81,17 +79,15 @@ export class OauthIntegration extends pulumi.CustomResource {
      */
     public readonly oauthClient!: pulumi.Output<string>;
     /**
-     * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
-     * expired.
+     * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
      */
     public readonly oauthIssueRefreshTokens!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
+     * Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
      */
     public readonly oauthRefreshTokenValidity!: pulumi.Output<number | undefined>;
     /**
-     * Specifies whether default secondary roles set in the user properties are activated by default in the session being
-     * opened.
+     * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
      */
     public readonly oauthUseSecondaryRoles!: pulumi.Output<string | undefined>;
 
@@ -142,8 +138,7 @@ export class OauthIntegration extends pulumi.CustomResource {
  */
 export interface OauthIntegrationState {
     /**
-     * List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN
-     * or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+     * List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
      */
     blockedRolesLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -159,8 +154,7 @@ export interface OauthIntegrationState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
-     * unique among security integrations in your account.
+     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
      */
     name?: pulumi.Input<string>;
     /**
@@ -168,17 +162,15 @@ export interface OauthIntegrationState {
      */
     oauthClient?: pulumi.Input<string>;
     /**
-     * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
-     * expired.
+     * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
      */
     oauthIssueRefreshTokens?: pulumi.Input<boolean>;
     /**
-     * Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
+     * Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
      */
     oauthRefreshTokenValidity?: pulumi.Input<number>;
     /**
-     * Specifies whether default secondary roles set in the user properties are activated by default in the session being
-     * opened.
+     * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
      */
     oauthUseSecondaryRoles?: pulumi.Input<string>;
 }
@@ -188,8 +180,7 @@ export interface OauthIntegrationState {
  */
 export interface OauthIntegrationArgs {
     /**
-     * List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN
-     * or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+     * List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
      */
     blockedRolesLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -201,8 +192,7 @@ export interface OauthIntegrationArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
-     * unique among security integrations in your account.
+     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
      */
     name?: pulumi.Input<string>;
     /**
@@ -210,17 +200,15 @@ export interface OauthIntegrationArgs {
      */
     oauthClient: pulumi.Input<string>;
     /**
-     * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
-     * expired.
+     * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
      */
     oauthIssueRefreshTokens?: pulumi.Input<boolean>;
     /**
-     * Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
+     * Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
      */
     oauthRefreshTokenValidity?: pulumi.Input<number>;
     /**
-     * Specifies whether default secondary roles set in the user properties are activated by default in the session being
-     * opened.
+     * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
      */
     oauthUseSecondaryRoles?: pulumi.Input<string>;
 }

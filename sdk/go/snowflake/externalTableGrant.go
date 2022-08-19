@@ -17,34 +17,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewExternalTableGrant(ctx, "grant", &snowflake.ExternalTableGrantArgs{
-// 			DatabaseName:      pulumi.String("db"),
-// 			ExternalTableName: pulumi.String("external_table"),
-// 			OnFuture:          pulumi.Bool(false),
-// 			Privilege:         pulumi.String("select"),
-// 			Roles: pulumi.StringArray{
-// 				pulumi.String("role1"),
-// 				pulumi.String("role2"),
-// 			},
-// 			SchemaName: pulumi.String("schema"),
-// 			Shares: pulumi.StringArray{
-// 				pulumi.String("share1"),
-// 				pulumi.String("share2"),
-// 			},
-// 			WithGrantOption: pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewExternalTableGrant(ctx, "grant", &snowflake.ExternalTableGrantArgs{
+//				DatabaseName:      pulumi.String("db"),
+//				ExternalTableName: pulumi.String("external_table"),
+//				OnFuture:          pulumi.Bool(false),
+//				Privilege:         pulumi.String("select"),
+//				Roles: pulumi.StringArray{
+//					pulumi.String("role1"),
+//					pulumi.String("role2"),
+//				},
+//				SchemaName: pulumi.String("schema"),
+//				Shares: pulumi.StringArray{
+//					pulumi.String("share1"),
+//					pulumi.String("share2"),
+//				},
+//				WithGrantOption: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +55,9 @@ import (
 // # format is database name | schema name | external table name | privilege | true/false for with_grant_option
 //
 // ```sh
-//  $ pulumi import snowflake:index/externalTableGrant:ExternalTableGrant example 'dbName|schemaName|externalTableName|SELECT|false'
+//
+//	$ pulumi import snowflake:index/externalTableGrant:ExternalTableGrant example 'dbName|schemaName|externalTableName|SELECT|false'
+//
 // ```
 type ExternalTableGrant struct {
 	pulumi.CustomResourceState
@@ -62,11 +67,9 @@ type ExternalTableGrant struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
-	// The name of the external table on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the external table on which to grant privileges immediately (only valid if onFuture is false).
 	ExternalTableName pulumi.StringPtrOutput `pulumi:"externalTableName"`
-	// When this is set to true and a schema_name is provided, apply this grant on all future external tables in the given
-	// schema. When this is true and no schema_name is provided apply this grant on all future external tables in the given
-	// database. The external_table_name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
 	// The privilege to grant on the current or future external table.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
@@ -74,7 +77,7 @@ type ExternalTableGrant struct {
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current or future external tables on which to grant privileges.
 	SchemaName pulumi.StringPtrOutput `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if on_future is false).
+	// Grants privilege to these shares (only valid if onFuture is false).
 	Shares pulumi.StringArrayOutput `pulumi:"shares"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrOutput `pulumi:"withGrantOption"`
@@ -117,11 +120,9 @@ type externalTableGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// The name of the external table on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the external table on which to grant privileges immediately (only valid if onFuture is false).
 	ExternalTableName *string `pulumi:"externalTableName"`
-	// When this is set to true and a schema_name is provided, apply this grant on all future external tables in the given
-	// schema. When this is true and no schema_name is provided apply this grant on all future external tables in the given
-	// database. The external_table_name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future external table.
 	Privilege *string `pulumi:"privilege"`
@@ -129,7 +130,7 @@ type externalTableGrantState struct {
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future external tables on which to grant privileges.
 	SchemaName *string `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if on_future is false).
+	// Grants privilege to these shares (only valid if onFuture is false).
 	Shares []string `pulumi:"shares"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
@@ -141,11 +142,9 @@ type ExternalTableGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// The name of the external table on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the external table on which to grant privileges immediately (only valid if onFuture is false).
 	ExternalTableName pulumi.StringPtrInput
-	// When this is set to true and a schema_name is provided, apply this grant on all future external tables in the given
-	// schema. When this is true and no schema_name is provided apply this grant on all future external tables in the given
-	// database. The external_table_name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future external table.
 	Privilege pulumi.StringPtrInput
@@ -153,7 +152,7 @@ type ExternalTableGrantState struct {
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future external tables on which to grant privileges.
 	SchemaName pulumi.StringPtrInput
-	// Grants privilege to these shares (only valid if on_future is false).
+	// Grants privilege to these shares (only valid if onFuture is false).
 	Shares pulumi.StringArrayInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
@@ -169,11 +168,9 @@ type externalTableGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// The name of the external table on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the external table on which to grant privileges immediately (only valid if onFuture is false).
 	ExternalTableName *string `pulumi:"externalTableName"`
-	// When this is set to true and a schema_name is provided, apply this grant on all future external tables in the given
-	// schema. When this is true and no schema_name is provided apply this grant on all future external tables in the given
-	// database. The external_table_name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future external table.
 	Privilege *string `pulumi:"privilege"`
@@ -181,7 +178,7 @@ type externalTableGrantArgs struct {
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future external tables on which to grant privileges.
 	SchemaName *string `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if on_future is false).
+	// Grants privilege to these shares (only valid if onFuture is false).
 	Shares []string `pulumi:"shares"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
@@ -194,11 +191,9 @@ type ExternalTableGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// The name of the external table on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the external table on which to grant privileges immediately (only valid if onFuture is false).
 	ExternalTableName pulumi.StringPtrInput
-	// When this is set to true and a schema_name is provided, apply this grant on all future external tables in the given
-	// schema. When this is true and no schema_name is provided apply this grant on all future external tables in the given
-	// database. The external_table_name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future external table.
 	Privilege pulumi.StringPtrInput
@@ -206,7 +201,7 @@ type ExternalTableGrantArgs struct {
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future external tables on which to grant privileges.
 	SchemaName pulumi.StringPtrInput
-	// Grants privilege to these shares (only valid if on_future is false).
+	// Grants privilege to these shares (only valid if onFuture is false).
 	Shares pulumi.StringArrayInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
@@ -238,7 +233,7 @@ func (i *ExternalTableGrant) ToExternalTableGrantOutputWithContext(ctx context.C
 // ExternalTableGrantArrayInput is an input type that accepts ExternalTableGrantArray and ExternalTableGrantArrayOutput values.
 // You can construct a concrete instance of `ExternalTableGrantArrayInput` via:
 //
-//          ExternalTableGrantArray{ ExternalTableGrantArgs{...} }
+//	ExternalTableGrantArray{ ExternalTableGrantArgs{...} }
 type ExternalTableGrantArrayInput interface {
 	pulumi.Input
 
@@ -263,7 +258,7 @@ func (i ExternalTableGrantArray) ToExternalTableGrantArrayOutputWithContext(ctx 
 // ExternalTableGrantMapInput is an input type that accepts ExternalTableGrantMap and ExternalTableGrantMapOutput values.
 // You can construct a concrete instance of `ExternalTableGrantMapInput` via:
 //
-//          ExternalTableGrantMap{ "key": ExternalTableGrantArgs{...} }
+//	ExternalTableGrantMap{ "key": ExternalTableGrantArgs{...} }
 type ExternalTableGrantMapInput interface {
 	pulumi.Input
 
@@ -310,14 +305,12 @@ func (o ExternalTableGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ExternalTableGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the external table on which to grant privileges immediately (only valid if on_future is false).
+// The name of the external table on which to grant privileges immediately (only valid if onFuture is false).
 func (o ExternalTableGrantOutput) ExternalTableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExternalTableGrant) pulumi.StringPtrOutput { return v.ExternalTableName }).(pulumi.StringPtrOutput)
 }
 
-// When this is set to true and a schema_name is provided, apply this grant on all future external tables in the given
-// schema. When this is true and no schema_name is provided apply this grant on all future external tables in the given
-// database. The external_table_name and shares fields must be unset in order to use on_future.
+// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
 func (o ExternalTableGrantOutput) OnFuture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ExternalTableGrant) pulumi.BoolPtrOutput { return v.OnFuture }).(pulumi.BoolPtrOutput)
 }
@@ -337,7 +330,7 @@ func (o ExternalTableGrantOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExternalTableGrant) pulumi.StringPtrOutput { return v.SchemaName }).(pulumi.StringPtrOutput)
 }
 
-// Grants privilege to these shares (only valid if on_future is false).
+// Grants privilege to these shares (only valid if onFuture is false).
 func (o ExternalTableGrantOutput) Shares() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExternalTableGrant) pulumi.StringArrayOutput { return v.Shares }).(pulumi.StringArrayOutput)
 }

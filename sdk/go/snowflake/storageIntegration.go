@@ -14,7 +14,9 @@ import (
 // ## Import
 //
 // ```sh
-//  $ pulumi import snowflake:index/storageIntegration:StorageIntegration example name
+//
+//	$ pulumi import snowflake:index/storageIntegration:StorageIntegration example name
+//
 // ```
 type StorageIntegration struct {
 	pulumi.CustomResourceState
@@ -199,7 +201,7 @@ func (i *StorageIntegration) ToStorageIntegrationOutputWithContext(ctx context.C
 // StorageIntegrationArrayInput is an input type that accepts StorageIntegrationArray and StorageIntegrationArrayOutput values.
 // You can construct a concrete instance of `StorageIntegrationArrayInput` via:
 //
-//          StorageIntegrationArray{ StorageIntegrationArgs{...} }
+//	StorageIntegrationArray{ StorageIntegrationArgs{...} }
 type StorageIntegrationArrayInput interface {
 	pulumi.Input
 
@@ -224,7 +226,7 @@ func (i StorageIntegrationArray) ToStorageIntegrationArrayOutputWithContext(ctx 
 // StorageIntegrationMapInput is an input type that accepts StorageIntegrationMap and StorageIntegrationMapOutput values.
 // You can construct a concrete instance of `StorageIntegrationMapInput` via:
 //
-//          StorageIntegrationMap{ "key": StorageIntegrationArgs{...} }
+//	StorageIntegrationMap{ "key": StorageIntegrationArgs{...} }
 type StorageIntegrationMapInput interface {
 	pulumi.Input
 

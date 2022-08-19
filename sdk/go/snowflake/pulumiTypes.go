@@ -18,7 +18,7 @@ type DatabaseReplicationConfiguration struct {
 // DatabaseReplicationConfigurationInput is an input type that accepts DatabaseReplicationConfigurationArgs and DatabaseReplicationConfigurationOutput values.
 // You can construct a concrete instance of `DatabaseReplicationConfigurationInput` via:
 //
-//          DatabaseReplicationConfigurationArgs{...}
+//	DatabaseReplicationConfigurationArgs{...}
 type DatabaseReplicationConfigurationInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i DatabaseReplicationConfigurationArgs) ToDatabaseReplicationConfiguration
 // DatabaseReplicationConfigurationPtrInput is an input type that accepts DatabaseReplicationConfigurationArgs, DatabaseReplicationConfigurationPtr and DatabaseReplicationConfigurationPtrOutput values.
 // You can construct a concrete instance of `DatabaseReplicationConfigurationPtrInput` via:
 //
-//          DatabaseReplicationConfigurationArgs{...}
+//	        DatabaseReplicationConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatabaseReplicationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -159,16 +159,20 @@ func (o DatabaseReplicationConfigurationPtrOutput) IgnoreEditionCheck() pulumi.B
 }
 
 type DatabaseTag struct {
+	// Name of the database that the tag was created in.
 	Database *string `pulumi:"database"`
-	Name     string  `pulumi:"name"`
-	Schema   *string `pulumi:"schema"`
-	Value    string  `pulumi:"value"`
+	// Tag name, e.g. department.
+	Name string `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema *string `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value string `pulumi:"value"`
 }
 
 // DatabaseTagInput is an input type that accepts DatabaseTagArgs and DatabaseTagOutput values.
 // You can construct a concrete instance of `DatabaseTagInput` via:
 //
-//          DatabaseTagArgs{...}
+//	DatabaseTagArgs{...}
 type DatabaseTagInput interface {
 	pulumi.Input
 
@@ -177,10 +181,14 @@ type DatabaseTagInput interface {
 }
 
 type DatabaseTagArgs struct {
+	// Name of the database that the tag was created in.
 	Database pulumi.StringPtrInput `pulumi:"database"`
-	Name     pulumi.StringInput    `pulumi:"name"`
-	Schema   pulumi.StringPtrInput `pulumi:"schema"`
-	Value    pulumi.StringInput    `pulumi:"value"`
+	// Tag name, e.g. department.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (DatabaseTagArgs) ElementType() reflect.Type {
@@ -198,7 +206,7 @@ func (i DatabaseTagArgs) ToDatabaseTagOutputWithContext(ctx context.Context) Dat
 // DatabaseTagArrayInput is an input type that accepts DatabaseTagArray and DatabaseTagArrayOutput values.
 // You can construct a concrete instance of `DatabaseTagArrayInput` via:
 //
-//          DatabaseTagArray{ DatabaseTagArgs{...} }
+//	DatabaseTagArray{ DatabaseTagArgs{...} }
 type DatabaseTagArrayInput interface {
 	pulumi.Input
 
@@ -234,18 +242,22 @@ func (o DatabaseTagOutput) ToDatabaseTagOutputWithContext(ctx context.Context) D
 	return o
 }
 
+// Name of the database that the tag was created in.
 func (o DatabaseTagOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseTag) *string { return v.Database }).(pulumi.StringPtrOutput)
 }
 
+// Tag name, e.g. department.
 func (o DatabaseTagOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseTag) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Name of the schema that the tag was created in.
 func (o DatabaseTagOutput) Schema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
 }
 
+// Tag value, e.g. marketing_info.
 func (o DatabaseTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -271,14 +283,16 @@ func (o DatabaseTagArrayOutput) Index(i pulumi.IntInput) DatabaseTagOutput {
 }
 
 type ExternalFunctionArg struct {
+	// Argument name
 	Name string `pulumi:"name"`
+	// Argument type, e.g. VARCHAR
 	Type string `pulumi:"type"`
 }
 
 // ExternalFunctionArgInput is an input type that accepts ExternalFunctionArgArgs and ExternalFunctionArgOutput values.
 // You can construct a concrete instance of `ExternalFunctionArgInput` via:
 //
-//          ExternalFunctionArgArgs{...}
+//	ExternalFunctionArgArgs{...}
 type ExternalFunctionArgInput interface {
 	pulumi.Input
 
@@ -287,7 +301,9 @@ type ExternalFunctionArgInput interface {
 }
 
 type ExternalFunctionArgArgs struct {
+	// Argument name
 	Name pulumi.StringInput `pulumi:"name"`
+	// Argument type, e.g. VARCHAR
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -306,7 +322,7 @@ func (i ExternalFunctionArgArgs) ToExternalFunctionArgOutputWithContext(ctx cont
 // ExternalFunctionArgArrayInput is an input type that accepts ExternalFunctionArgArray and ExternalFunctionArgArrayOutput values.
 // You can construct a concrete instance of `ExternalFunctionArgArrayInput` via:
 //
-//          ExternalFunctionArgArray{ ExternalFunctionArgArgs{...} }
+//	ExternalFunctionArgArray{ ExternalFunctionArgArgs{...} }
 type ExternalFunctionArgArrayInput interface {
 	pulumi.Input
 
@@ -342,10 +358,12 @@ func (o ExternalFunctionArgOutput) ToExternalFunctionArgOutputWithContext(ctx co
 	return o
 }
 
+// Argument name
 func (o ExternalFunctionArgOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ExternalFunctionArg) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Argument type, e.g. VARCHAR
 func (o ExternalFunctionArgOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ExternalFunctionArg) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -371,14 +389,16 @@ func (o ExternalFunctionArgArrayOutput) Index(i pulumi.IntInput) ExternalFunctio
 }
 
 type ExternalFunctionHeader struct {
-	Name  string `pulumi:"name"`
+	// Header name
+	Name string `pulumi:"name"`
+	// Header value
 	Value string `pulumi:"value"`
 }
 
 // ExternalFunctionHeaderInput is an input type that accepts ExternalFunctionHeaderArgs and ExternalFunctionHeaderOutput values.
 // You can construct a concrete instance of `ExternalFunctionHeaderInput` via:
 //
-//          ExternalFunctionHeaderArgs{...}
+//	ExternalFunctionHeaderArgs{...}
 type ExternalFunctionHeaderInput interface {
 	pulumi.Input
 
@@ -387,7 +407,9 @@ type ExternalFunctionHeaderInput interface {
 }
 
 type ExternalFunctionHeaderArgs struct {
-	Name  pulumi.StringInput `pulumi:"name"`
+	// Header name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Header value
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -406,7 +428,7 @@ func (i ExternalFunctionHeaderArgs) ToExternalFunctionHeaderOutputWithContext(ct
 // ExternalFunctionHeaderArrayInput is an input type that accepts ExternalFunctionHeaderArray and ExternalFunctionHeaderArrayOutput values.
 // You can construct a concrete instance of `ExternalFunctionHeaderArrayInput` via:
 //
-//          ExternalFunctionHeaderArray{ ExternalFunctionHeaderArgs{...} }
+//	ExternalFunctionHeaderArray{ ExternalFunctionHeaderArgs{...} }
 type ExternalFunctionHeaderArrayInput interface {
 	pulumi.Input
 
@@ -442,10 +464,12 @@ func (o ExternalFunctionHeaderOutput) ToExternalFunctionHeaderOutputWithContext(
 	return o
 }
 
+// Header name
 func (o ExternalFunctionHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ExternalFunctionHeader) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Header value
 func (o ExternalFunctionHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ExternalFunctionHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -471,15 +495,18 @@ func (o ExternalFunctionHeaderArrayOutput) Index(i pulumi.IntInput) ExternalFunc
 }
 
 type ExternalTableColumn struct {
-	As   string `pulumi:"as"`
+	// String that specifies the expression for the column. When queried, the column returns results derived from this expression.
+	As string `pulumi:"as"`
+	// Column name
 	Name string `pulumi:"name"`
+	// Column type, e.g. VARIANT
 	Type string `pulumi:"type"`
 }
 
 // ExternalTableColumnInput is an input type that accepts ExternalTableColumnArgs and ExternalTableColumnOutput values.
 // You can construct a concrete instance of `ExternalTableColumnInput` via:
 //
-//          ExternalTableColumnArgs{...}
+//	ExternalTableColumnArgs{...}
 type ExternalTableColumnInput interface {
 	pulumi.Input
 
@@ -488,8 +515,11 @@ type ExternalTableColumnInput interface {
 }
 
 type ExternalTableColumnArgs struct {
-	As   pulumi.StringInput `pulumi:"as"`
+	// String that specifies the expression for the column. When queried, the column returns results derived from this expression.
+	As pulumi.StringInput `pulumi:"as"`
+	// Column name
 	Name pulumi.StringInput `pulumi:"name"`
+	// Column type, e.g. VARIANT
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -508,7 +538,7 @@ func (i ExternalTableColumnArgs) ToExternalTableColumnOutputWithContext(ctx cont
 // ExternalTableColumnArrayInput is an input type that accepts ExternalTableColumnArray and ExternalTableColumnArrayOutput values.
 // You can construct a concrete instance of `ExternalTableColumnArrayInput` via:
 //
-//          ExternalTableColumnArray{ ExternalTableColumnArgs{...} }
+//	ExternalTableColumnArray{ ExternalTableColumnArgs{...} }
 type ExternalTableColumnArrayInput interface {
 	pulumi.Input
 
@@ -544,14 +574,17 @@ func (o ExternalTableColumnOutput) ToExternalTableColumnOutputWithContext(ctx co
 	return o
 }
 
+// String that specifies the expression for the column. When queried, the column returns results derived from this expression.
 func (o ExternalTableColumnOutput) As() pulumi.StringOutput {
 	return o.ApplyT(func(v ExternalTableColumn) string { return v.As }).(pulumi.StringOutput)
 }
 
+// Column name
 func (o ExternalTableColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ExternalTableColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Column type, e.g. VARIANT
 func (o ExternalTableColumnOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ExternalTableColumn) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -577,16 +610,20 @@ func (o ExternalTableColumnArrayOutput) Index(i pulumi.IntInput) ExternalTableCo
 }
 
 type ExternalTableTag struct {
+	// Name of the database that the tag was created in.
 	Database *string `pulumi:"database"`
-	Name     string  `pulumi:"name"`
-	Schema   *string `pulumi:"schema"`
-	Value    string  `pulumi:"value"`
+	// Tag name, e.g. department.
+	Name string `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema *string `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value string `pulumi:"value"`
 }
 
 // ExternalTableTagInput is an input type that accepts ExternalTableTagArgs and ExternalTableTagOutput values.
 // You can construct a concrete instance of `ExternalTableTagInput` via:
 //
-//          ExternalTableTagArgs{...}
+//	ExternalTableTagArgs{...}
 type ExternalTableTagInput interface {
 	pulumi.Input
 
@@ -595,10 +632,14 @@ type ExternalTableTagInput interface {
 }
 
 type ExternalTableTagArgs struct {
+	// Name of the database that the tag was created in.
 	Database pulumi.StringPtrInput `pulumi:"database"`
-	Name     pulumi.StringInput    `pulumi:"name"`
-	Schema   pulumi.StringPtrInput `pulumi:"schema"`
-	Value    pulumi.StringInput    `pulumi:"value"`
+	// Tag name, e.g. department.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (ExternalTableTagArgs) ElementType() reflect.Type {
@@ -616,7 +657,7 @@ func (i ExternalTableTagArgs) ToExternalTableTagOutputWithContext(ctx context.Co
 // ExternalTableTagArrayInput is an input type that accepts ExternalTableTagArray and ExternalTableTagArrayOutput values.
 // You can construct a concrete instance of `ExternalTableTagArrayInput` via:
 //
-//          ExternalTableTagArray{ ExternalTableTagArgs{...} }
+//	ExternalTableTagArray{ ExternalTableTagArgs{...} }
 type ExternalTableTagArrayInput interface {
 	pulumi.Input
 
@@ -652,18 +693,22 @@ func (o ExternalTableTagOutput) ToExternalTableTagOutputWithContext(ctx context.
 	return o
 }
 
+// Name of the database that the tag was created in.
 func (o ExternalTableTagOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExternalTableTag) *string { return v.Database }).(pulumi.StringPtrOutput)
 }
 
+// Tag name, e.g. department.
 func (o ExternalTableTagOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ExternalTableTag) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Name of the schema that the tag was created in.
 func (o ExternalTableTagOutput) Schema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExternalTableTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
 }
 
+// Tag value, e.g. marketing_info.
 func (o ExternalTableTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ExternalTableTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -689,14 +734,16 @@ func (o ExternalTableTagArrayOutput) Index(i pulumi.IntInput) ExternalTableTagOu
 }
 
 type FunctionArgument struct {
+	// The argument name
 	Name string `pulumi:"name"`
+	// The argument type
 	Type string `pulumi:"type"`
 }
 
 // FunctionArgumentInput is an input type that accepts FunctionArgumentArgs and FunctionArgumentOutput values.
 // You can construct a concrete instance of `FunctionArgumentInput` via:
 //
-//          FunctionArgumentArgs{...}
+//	FunctionArgumentArgs{...}
 type FunctionArgumentInput interface {
 	pulumi.Input
 
@@ -705,7 +752,9 @@ type FunctionArgumentInput interface {
 }
 
 type FunctionArgumentArgs struct {
+	// The argument name
 	Name pulumi.StringInput `pulumi:"name"`
+	// The argument type
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -724,7 +773,7 @@ func (i FunctionArgumentArgs) ToFunctionArgumentOutputWithContext(ctx context.Co
 // FunctionArgumentArrayInput is an input type that accepts FunctionArgumentArray and FunctionArgumentArrayOutput values.
 // You can construct a concrete instance of `FunctionArgumentArrayInput` via:
 //
-//          FunctionArgumentArray{ FunctionArgumentArgs{...} }
+//	FunctionArgumentArray{ FunctionArgumentArgs{...} }
 type FunctionArgumentArrayInput interface {
 	pulumi.Input
 
@@ -760,10 +809,12 @@ func (o FunctionArgumentOutput) ToFunctionArgumentOutputWithContext(ctx context.
 	return o
 }
 
+// The argument name
 func (o FunctionArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionArgument) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The argument type
 func (o FunctionArgumentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionArgument) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -789,14 +840,16 @@ func (o FunctionArgumentArrayOutput) Index(i pulumi.IntInput) FunctionArgumentOu
 }
 
 type FunctionGrantArgument struct {
+	// The argument name
 	Name string `pulumi:"name"`
+	// The argument type
 	Type string `pulumi:"type"`
 }
 
 // FunctionGrantArgumentInput is an input type that accepts FunctionGrantArgumentArgs and FunctionGrantArgumentOutput values.
 // You can construct a concrete instance of `FunctionGrantArgumentInput` via:
 //
-//          FunctionGrantArgumentArgs{...}
+//	FunctionGrantArgumentArgs{...}
 type FunctionGrantArgumentInput interface {
 	pulumi.Input
 
@@ -805,7 +858,9 @@ type FunctionGrantArgumentInput interface {
 }
 
 type FunctionGrantArgumentArgs struct {
+	// The argument name
 	Name pulumi.StringInput `pulumi:"name"`
+	// The argument type
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -824,7 +879,7 @@ func (i FunctionGrantArgumentArgs) ToFunctionGrantArgumentOutputWithContext(ctx 
 // FunctionGrantArgumentArrayInput is an input type that accepts FunctionGrantArgumentArray and FunctionGrantArgumentArrayOutput values.
 // You can construct a concrete instance of `FunctionGrantArgumentArrayInput` via:
 //
-//          FunctionGrantArgumentArray{ FunctionGrantArgumentArgs{...} }
+//	FunctionGrantArgumentArray{ FunctionGrantArgumentArgs{...} }
 type FunctionGrantArgumentArrayInput interface {
 	pulumi.Input
 
@@ -860,10 +915,12 @@ func (o FunctionGrantArgumentOutput) ToFunctionGrantArgumentOutputWithContext(ct
 	return o
 }
 
+// The argument name
 func (o FunctionGrantArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionGrantArgument) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The argument type
 func (o FunctionGrantArgumentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionGrantArgument) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -889,16 +946,20 @@ func (o FunctionGrantArgumentArrayOutput) Index(i pulumi.IntInput) FunctionGrant
 }
 
 type MaterializedViewTag struct {
+	// Name of the database that the tag was created in.
 	Database *string `pulumi:"database"`
-	Name     string  `pulumi:"name"`
-	Schema   *string `pulumi:"schema"`
-	Value    string  `pulumi:"value"`
+	// Tag name, e.g. department.
+	Name string `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema *string `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value string `pulumi:"value"`
 }
 
 // MaterializedViewTagInput is an input type that accepts MaterializedViewTagArgs and MaterializedViewTagOutput values.
 // You can construct a concrete instance of `MaterializedViewTagInput` via:
 //
-//          MaterializedViewTagArgs{...}
+//	MaterializedViewTagArgs{...}
 type MaterializedViewTagInput interface {
 	pulumi.Input
 
@@ -907,10 +968,14 @@ type MaterializedViewTagInput interface {
 }
 
 type MaterializedViewTagArgs struct {
+	// Name of the database that the tag was created in.
 	Database pulumi.StringPtrInput `pulumi:"database"`
-	Name     pulumi.StringInput    `pulumi:"name"`
-	Schema   pulumi.StringPtrInput `pulumi:"schema"`
-	Value    pulumi.StringInput    `pulumi:"value"`
+	// Tag name, e.g. department.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (MaterializedViewTagArgs) ElementType() reflect.Type {
@@ -928,7 +993,7 @@ func (i MaterializedViewTagArgs) ToMaterializedViewTagOutputWithContext(ctx cont
 // MaterializedViewTagArrayInput is an input type that accepts MaterializedViewTagArray and MaterializedViewTagArrayOutput values.
 // You can construct a concrete instance of `MaterializedViewTagArrayInput` via:
 //
-//          MaterializedViewTagArray{ MaterializedViewTagArgs{...} }
+//	MaterializedViewTagArray{ MaterializedViewTagArgs{...} }
 type MaterializedViewTagArrayInput interface {
 	pulumi.Input
 
@@ -964,18 +1029,22 @@ func (o MaterializedViewTagOutput) ToMaterializedViewTagOutputWithContext(ctx co
 	return o
 }
 
+// Name of the database that the tag was created in.
 func (o MaterializedViewTagOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaterializedViewTag) *string { return v.Database }).(pulumi.StringPtrOutput)
 }
 
+// Tag name, e.g. department.
 func (o MaterializedViewTagOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MaterializedViewTag) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Name of the schema that the tag was created in.
 func (o MaterializedViewTagOutput) Schema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaterializedViewTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
 }
 
+// Tag value, e.g. marketing_info.
 func (o MaterializedViewTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v MaterializedViewTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1001,14 +1070,16 @@ func (o MaterializedViewTagArrayOutput) Index(i pulumi.IntInput) MaterializedVie
 }
 
 type ProcedureArgument struct {
+	// The argument name
 	Name string `pulumi:"name"`
+	// The argument type
 	Type string `pulumi:"type"`
 }
 
 // ProcedureArgumentInput is an input type that accepts ProcedureArgumentArgs and ProcedureArgumentOutput values.
 // You can construct a concrete instance of `ProcedureArgumentInput` via:
 //
-//          ProcedureArgumentArgs{...}
+//	ProcedureArgumentArgs{...}
 type ProcedureArgumentInput interface {
 	pulumi.Input
 
@@ -1017,7 +1088,9 @@ type ProcedureArgumentInput interface {
 }
 
 type ProcedureArgumentArgs struct {
+	// The argument name
 	Name pulumi.StringInput `pulumi:"name"`
+	// The argument type
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1036,7 +1109,7 @@ func (i ProcedureArgumentArgs) ToProcedureArgumentOutputWithContext(ctx context.
 // ProcedureArgumentArrayInput is an input type that accepts ProcedureArgumentArray and ProcedureArgumentArrayOutput values.
 // You can construct a concrete instance of `ProcedureArgumentArrayInput` via:
 //
-//          ProcedureArgumentArray{ ProcedureArgumentArgs{...} }
+//	ProcedureArgumentArray{ ProcedureArgumentArgs{...} }
 type ProcedureArgumentArrayInput interface {
 	pulumi.Input
 
@@ -1072,10 +1145,12 @@ func (o ProcedureArgumentOutput) ToProcedureArgumentOutputWithContext(ctx contex
 	return o
 }
 
+// The argument name
 func (o ProcedureArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureArgument) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The argument type
 func (o ProcedureArgumentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureArgument) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1101,14 +1176,16 @@ func (o ProcedureArgumentArrayOutput) Index(i pulumi.IntInput) ProcedureArgument
 }
 
 type ProcedureGrantArgument struct {
+	// The argument name
 	Name string `pulumi:"name"`
+	// The argument type
 	Type string `pulumi:"type"`
 }
 
 // ProcedureGrantArgumentInput is an input type that accepts ProcedureGrantArgumentArgs and ProcedureGrantArgumentOutput values.
 // You can construct a concrete instance of `ProcedureGrantArgumentInput` via:
 //
-//          ProcedureGrantArgumentArgs{...}
+//	ProcedureGrantArgumentArgs{...}
 type ProcedureGrantArgumentInput interface {
 	pulumi.Input
 
@@ -1117,7 +1194,9 @@ type ProcedureGrantArgumentInput interface {
 }
 
 type ProcedureGrantArgumentArgs struct {
+	// The argument name
 	Name pulumi.StringInput `pulumi:"name"`
+	// The argument type
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1136,7 +1215,7 @@ func (i ProcedureGrantArgumentArgs) ToProcedureGrantArgumentOutputWithContext(ct
 // ProcedureGrantArgumentArrayInput is an input type that accepts ProcedureGrantArgumentArray and ProcedureGrantArgumentArrayOutput values.
 // You can construct a concrete instance of `ProcedureGrantArgumentArrayInput` via:
 //
-//          ProcedureGrantArgumentArray{ ProcedureGrantArgumentArgs{...} }
+//	ProcedureGrantArgumentArray{ ProcedureGrantArgumentArgs{...} }
 type ProcedureGrantArgumentArrayInput interface {
 	pulumi.Input
 
@@ -1172,10 +1251,12 @@ func (o ProcedureGrantArgumentOutput) ToProcedureGrantArgumentOutputWithContext(
 	return o
 }
 
+// The argument name
 func (o ProcedureGrantArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureGrantArgument) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The argument type
 func (o ProcedureGrantArgumentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureGrantArgument) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1201,16 +1282,20 @@ func (o ProcedureGrantArgumentArrayOutput) Index(i pulumi.IntInput) ProcedureGra
 }
 
 type RoleTag struct {
+	// Name of the database that the tag was created in.
 	Database *string `pulumi:"database"`
-	Name     string  `pulumi:"name"`
-	Schema   *string `pulumi:"schema"`
-	Value    string  `pulumi:"value"`
+	// Tag name, e.g. department.
+	Name string `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema *string `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value string `pulumi:"value"`
 }
 
 // RoleTagInput is an input type that accepts RoleTagArgs and RoleTagOutput values.
 // You can construct a concrete instance of `RoleTagInput` via:
 //
-//          RoleTagArgs{...}
+//	RoleTagArgs{...}
 type RoleTagInput interface {
 	pulumi.Input
 
@@ -1219,10 +1304,14 @@ type RoleTagInput interface {
 }
 
 type RoleTagArgs struct {
+	// Name of the database that the tag was created in.
 	Database pulumi.StringPtrInput `pulumi:"database"`
-	Name     pulumi.StringInput    `pulumi:"name"`
-	Schema   pulumi.StringPtrInput `pulumi:"schema"`
-	Value    pulumi.StringInput    `pulumi:"value"`
+	// Tag name, e.g. department.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (RoleTagArgs) ElementType() reflect.Type {
@@ -1240,7 +1329,7 @@ func (i RoleTagArgs) ToRoleTagOutputWithContext(ctx context.Context) RoleTagOutp
 // RoleTagArrayInput is an input type that accepts RoleTagArray and RoleTagArrayOutput values.
 // You can construct a concrete instance of `RoleTagArrayInput` via:
 //
-//          RoleTagArray{ RoleTagArgs{...} }
+//	RoleTagArray{ RoleTagArgs{...} }
 type RoleTagArrayInput interface {
 	pulumi.Input
 
@@ -1276,18 +1365,22 @@ func (o RoleTagOutput) ToRoleTagOutputWithContext(ctx context.Context) RoleTagOu
 	return o
 }
 
+// Name of the database that the tag was created in.
 func (o RoleTagOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoleTag) *string { return v.Database }).(pulumi.StringPtrOutput)
 }
 
+// Tag name, e.g. department.
 func (o RoleTagOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RoleTag) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Name of the schema that the tag was created in.
 func (o RoleTagOutput) Schema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoleTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
 }
 
+// Tag value, e.g. marketing_info.
 func (o RoleTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v RoleTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1313,16 +1406,20 @@ func (o RoleTagArrayOutput) Index(i pulumi.IntInput) RoleTagOutput {
 }
 
 type SchemaTag struct {
+	// Name of the database that the tag was created in.
 	Database *string `pulumi:"database"`
-	Name     string  `pulumi:"name"`
-	Schema   *string `pulumi:"schema"`
-	Value    string  `pulumi:"value"`
+	// Tag name, e.g. department.
+	Name string `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema *string `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value string `pulumi:"value"`
 }
 
 // SchemaTagInput is an input type that accepts SchemaTagArgs and SchemaTagOutput values.
 // You can construct a concrete instance of `SchemaTagInput` via:
 //
-//          SchemaTagArgs{...}
+//	SchemaTagArgs{...}
 type SchemaTagInput interface {
 	pulumi.Input
 
@@ -1331,10 +1428,14 @@ type SchemaTagInput interface {
 }
 
 type SchemaTagArgs struct {
+	// Name of the database that the tag was created in.
 	Database pulumi.StringPtrInput `pulumi:"database"`
-	Name     pulumi.StringInput    `pulumi:"name"`
-	Schema   pulumi.StringPtrInput `pulumi:"schema"`
-	Value    pulumi.StringInput    `pulumi:"value"`
+	// Tag name, e.g. department.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (SchemaTagArgs) ElementType() reflect.Type {
@@ -1352,7 +1453,7 @@ func (i SchemaTagArgs) ToSchemaTagOutputWithContext(ctx context.Context) SchemaT
 // SchemaTagArrayInput is an input type that accepts SchemaTagArray and SchemaTagArrayOutput values.
 // You can construct a concrete instance of `SchemaTagArrayInput` via:
 //
-//          SchemaTagArray{ SchemaTagArgs{...} }
+//	SchemaTagArray{ SchemaTagArgs{...} }
 type SchemaTagArrayInput interface {
 	pulumi.Input
 
@@ -1388,18 +1489,22 @@ func (o SchemaTagOutput) ToSchemaTagOutputWithContext(ctx context.Context) Schem
 	return o
 }
 
+// Name of the database that the tag was created in.
 func (o SchemaTagOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaTag) *string { return v.Database }).(pulumi.StringPtrOutput)
 }
 
+// Tag name, e.g. department.
 func (o SchemaTagOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaTag) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Name of the schema that the tag was created in.
 func (o SchemaTagOutput) Schema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
 }
 
+// Tag value, e.g. marketing_info.
 func (o SchemaTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1425,16 +1530,20 @@ func (o SchemaTagArrayOutput) Index(i pulumi.IntInput) SchemaTagOutput {
 }
 
 type StageTag struct {
+	// Name of the database that the tag was created in.
 	Database *string `pulumi:"database"`
-	Name     string  `pulumi:"name"`
-	Schema   *string `pulumi:"schema"`
-	Value    string  `pulumi:"value"`
+	// Tag name, e.g. department.
+	Name string `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema *string `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value string `pulumi:"value"`
 }
 
 // StageTagInput is an input type that accepts StageTagArgs and StageTagOutput values.
 // You can construct a concrete instance of `StageTagInput` via:
 //
-//          StageTagArgs{...}
+//	StageTagArgs{...}
 type StageTagInput interface {
 	pulumi.Input
 
@@ -1443,10 +1552,14 @@ type StageTagInput interface {
 }
 
 type StageTagArgs struct {
+	// Name of the database that the tag was created in.
 	Database pulumi.StringPtrInput `pulumi:"database"`
-	Name     pulumi.StringInput    `pulumi:"name"`
-	Schema   pulumi.StringPtrInput `pulumi:"schema"`
-	Value    pulumi.StringInput    `pulumi:"value"`
+	// Tag name, e.g. department.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (StageTagArgs) ElementType() reflect.Type {
@@ -1464,7 +1577,7 @@ func (i StageTagArgs) ToStageTagOutputWithContext(ctx context.Context) StageTagO
 // StageTagArrayInput is an input type that accepts StageTagArray and StageTagArrayOutput values.
 // You can construct a concrete instance of `StageTagArrayInput` via:
 //
-//          StageTagArray{ StageTagArgs{...} }
+//	StageTagArray{ StageTagArgs{...} }
 type StageTagArrayInput interface {
 	pulumi.Input
 
@@ -1500,18 +1613,22 @@ func (o StageTagOutput) ToStageTagOutputWithContext(ctx context.Context) StageTa
 	return o
 }
 
+// Name of the database that the tag was created in.
 func (o StageTagOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StageTag) *string { return v.Database }).(pulumi.StringPtrOutput)
 }
 
+// Tag name, e.g. department.
 func (o StageTagOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v StageTag) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Name of the schema that the tag was created in.
 func (o StageTagOutput) Schema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StageTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
 }
 
+// Tag value, e.g. marketing_info.
 func (o StageTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v StageTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1537,18 +1654,24 @@ func (o StageTagArrayOutput) Index(i pulumi.IntInput) StageTagOutput {
 }
 
 type TableColumn struct {
-	Comment  *string              `pulumi:"comment"`
-	Default  *TableColumnDefault  `pulumi:"default"`
+	// Column comment
+	Comment *string `pulumi:"comment"`
+	// Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
+	Default *TableColumnDefault `pulumi:"default"`
+	// Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
 	Identity *TableColumnIdentity `pulumi:"identity"`
-	Name     string               `pulumi:"name"`
-	Nullable *bool                `pulumi:"nullable"`
-	Type     string               `pulumi:"type"`
+	// Column name
+	Name string `pulumi:"name"`
+	// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+	Nullable *bool `pulumi:"nullable"`
+	// Column type, e.g. VARIANT
+	Type string `pulumi:"type"`
 }
 
 // TableColumnInput is an input type that accepts TableColumnArgs and TableColumnOutput values.
 // You can construct a concrete instance of `TableColumnInput` via:
 //
-//          TableColumnArgs{...}
+//	TableColumnArgs{...}
 type TableColumnInput interface {
 	pulumi.Input
 
@@ -1557,12 +1680,18 @@ type TableColumnInput interface {
 }
 
 type TableColumnArgs struct {
-	Comment  pulumi.StringPtrInput       `pulumi:"comment"`
-	Default  TableColumnDefaultPtrInput  `pulumi:"default"`
+	// Column comment
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
+	Default TableColumnDefaultPtrInput `pulumi:"default"`
+	// Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
 	Identity TableColumnIdentityPtrInput `pulumi:"identity"`
-	Name     pulumi.StringInput          `pulumi:"name"`
-	Nullable pulumi.BoolPtrInput         `pulumi:"nullable"`
-	Type     pulumi.StringInput          `pulumi:"type"`
+	// Column name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+	Nullable pulumi.BoolPtrInput `pulumi:"nullable"`
+	// Column type, e.g. VARIANT
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (TableColumnArgs) ElementType() reflect.Type {
@@ -1580,7 +1709,7 @@ func (i TableColumnArgs) ToTableColumnOutputWithContext(ctx context.Context) Tab
 // TableColumnArrayInput is an input type that accepts TableColumnArray and TableColumnArrayOutput values.
 // You can construct a concrete instance of `TableColumnArrayInput` via:
 //
-//          TableColumnArray{ TableColumnArgs{...} }
+//	TableColumnArray{ TableColumnArgs{...} }
 type TableColumnArrayInput interface {
 	pulumi.Input
 
@@ -1616,26 +1745,32 @@ func (o TableColumnOutput) ToTableColumnOutputWithContext(ctx context.Context) T
 	return o
 }
 
+// Column comment
 func (o TableColumnOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableColumn) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
 func (o TableColumnOutput) Default() TableColumnDefaultPtrOutput {
 	return o.ApplyT(func(v TableColumn) *TableColumnDefault { return v.Default }).(TableColumnDefaultPtrOutput)
 }
 
+// Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
 func (o TableColumnOutput) Identity() TableColumnIdentityPtrOutput {
 	return o.ApplyT(func(v TableColumn) *TableColumnIdentity { return v.Identity }).(TableColumnIdentityPtrOutput)
 }
 
+// Column name
 func (o TableColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TableColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
 func (o TableColumnOutput) Nullable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TableColumn) *bool { return v.Nullable }).(pulumi.BoolPtrOutput)
 }
 
+// Column type, e.g. VARIANT
 func (o TableColumnOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TableColumn) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1669,7 +1804,7 @@ type TableColumnDefault struct {
 // TableColumnDefaultInput is an input type that accepts TableColumnDefaultArgs and TableColumnDefaultOutput values.
 // You can construct a concrete instance of `TableColumnDefaultInput` via:
 //
-//          TableColumnDefaultArgs{...}
+//	TableColumnDefaultArgs{...}
 type TableColumnDefaultInput interface {
 	pulumi.Input
 
@@ -1706,11 +1841,11 @@ func (i TableColumnDefaultArgs) ToTableColumnDefaultPtrOutputWithContext(ctx con
 // TableColumnDefaultPtrInput is an input type that accepts TableColumnDefaultArgs, TableColumnDefaultPtr and TableColumnDefaultPtrOutput values.
 // You can construct a concrete instance of `TableColumnDefaultPtrInput` via:
 //
-//          TableColumnDefaultArgs{...}
+//	        TableColumnDefaultArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TableColumnDefaultPtrInput interface {
 	pulumi.Input
 
@@ -1831,7 +1966,7 @@ type TableColumnIdentity struct {
 // TableColumnIdentityInput is an input type that accepts TableColumnIdentityArgs and TableColumnIdentityOutput values.
 // You can construct a concrete instance of `TableColumnIdentityInput` via:
 //
-//          TableColumnIdentityArgs{...}
+//	TableColumnIdentityArgs{...}
 type TableColumnIdentityInput interface {
 	pulumi.Input
 
@@ -1867,11 +2002,11 @@ func (i TableColumnIdentityArgs) ToTableColumnIdentityPtrOutputWithContext(ctx c
 // TableColumnIdentityPtrInput is an input type that accepts TableColumnIdentityArgs, TableColumnIdentityPtr and TableColumnIdentityPtrOutput values.
 // You can construct a concrete instance of `TableColumnIdentityPtrInput` via:
 //
-//          TableColumnIdentityArgs{...}
+//	        TableColumnIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TableColumnIdentityPtrInput interface {
 	pulumi.Input
 
@@ -1972,14 +2107,16 @@ func (o TableColumnIdentityPtrOutput) StepNum() pulumi.IntPtrOutput {
 }
 
 type TablePrimaryKey struct {
+	// Columns to use in primary key
 	Keys []string `pulumi:"keys"`
-	Name *string  `pulumi:"name"`
+	// Name of constraint
+	Name *string `pulumi:"name"`
 }
 
 // TablePrimaryKeyInput is an input type that accepts TablePrimaryKeyArgs and TablePrimaryKeyOutput values.
 // You can construct a concrete instance of `TablePrimaryKeyInput` via:
 //
-//          TablePrimaryKeyArgs{...}
+//	TablePrimaryKeyArgs{...}
 type TablePrimaryKeyInput interface {
 	pulumi.Input
 
@@ -1988,8 +2125,10 @@ type TablePrimaryKeyInput interface {
 }
 
 type TablePrimaryKeyArgs struct {
+	// Columns to use in primary key
 	Keys pulumi.StringArrayInput `pulumi:"keys"`
-	Name pulumi.StringPtrInput   `pulumi:"name"`
+	// Name of constraint
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (TablePrimaryKeyArgs) ElementType() reflect.Type {
@@ -2015,11 +2154,11 @@ func (i TablePrimaryKeyArgs) ToTablePrimaryKeyPtrOutputWithContext(ctx context.C
 // TablePrimaryKeyPtrInput is an input type that accepts TablePrimaryKeyArgs, TablePrimaryKeyPtr and TablePrimaryKeyPtrOutput values.
 // You can construct a concrete instance of `TablePrimaryKeyPtrInput` via:
 //
-//          TablePrimaryKeyArgs{...}
+//	        TablePrimaryKeyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TablePrimaryKeyPtrInput interface {
 	pulumi.Input
 
@@ -2069,10 +2208,12 @@ func (o TablePrimaryKeyOutput) ToTablePrimaryKeyPtrOutputWithContext(ctx context
 	}).(TablePrimaryKeyPtrOutput)
 }
 
+// Columns to use in primary key
 func (o TablePrimaryKeyOutput) Keys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TablePrimaryKey) []string { return v.Keys }).(pulumi.StringArrayOutput)
 }
 
+// Name of constraint
 func (o TablePrimaryKeyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TablePrimaryKey) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2101,6 +2242,7 @@ func (o TablePrimaryKeyPtrOutput) Elem() TablePrimaryKeyOutput {
 	}).(TablePrimaryKeyOutput)
 }
 
+// Columns to use in primary key
 func (o TablePrimaryKeyPtrOutput) Keys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TablePrimaryKey) []string {
 		if v == nil {
@@ -2110,6 +2252,7 @@ func (o TablePrimaryKeyPtrOutput) Keys() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// Name of constraint
 func (o TablePrimaryKeyPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TablePrimaryKey) *string {
 		if v == nil {
@@ -2120,16 +2263,20 @@ func (o TablePrimaryKeyPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type TableTag struct {
+	// Name of the database that the tag was created in.
 	Database *string `pulumi:"database"`
-	Name     string  `pulumi:"name"`
-	Schema   *string `pulumi:"schema"`
-	Value    string  `pulumi:"value"`
+	// Tag name, e.g. department.
+	Name string `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema *string `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value string `pulumi:"value"`
 }
 
 // TableTagInput is an input type that accepts TableTagArgs and TableTagOutput values.
 // You can construct a concrete instance of `TableTagInput` via:
 //
-//          TableTagArgs{...}
+//	TableTagArgs{...}
 type TableTagInput interface {
 	pulumi.Input
 
@@ -2138,10 +2285,14 @@ type TableTagInput interface {
 }
 
 type TableTagArgs struct {
+	// Name of the database that the tag was created in.
 	Database pulumi.StringPtrInput `pulumi:"database"`
-	Name     pulumi.StringInput    `pulumi:"name"`
-	Schema   pulumi.StringPtrInput `pulumi:"schema"`
-	Value    pulumi.StringInput    `pulumi:"value"`
+	// Tag name, e.g. department.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (TableTagArgs) ElementType() reflect.Type {
@@ -2159,7 +2310,7 @@ func (i TableTagArgs) ToTableTagOutputWithContext(ctx context.Context) TableTagO
 // TableTagArrayInput is an input type that accepts TableTagArray and TableTagArrayOutput values.
 // You can construct a concrete instance of `TableTagArrayInput` via:
 //
-//          TableTagArray{ TableTagArgs{...} }
+//	TableTagArray{ TableTagArgs{...} }
 type TableTagArrayInput interface {
 	pulumi.Input
 
@@ -2195,18 +2346,22 @@ func (o TableTagOutput) ToTableTagOutputWithContext(ctx context.Context) TableTa
 	return o
 }
 
+// Name of the database that the tag was created in.
 func (o TableTagOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableTag) *string { return v.Database }).(pulumi.StringPtrOutput)
 }
 
+// Tag name, e.g. department.
 func (o TableTagOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TableTag) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Name of the schema that the tag was created in.
 func (o TableTagOutput) Schema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
 }
 
+// Tag value, e.g. marketing_info.
 func (o TableTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TableTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2232,16 +2387,20 @@ func (o TableTagArrayOutput) Index(i pulumi.IntInput) TableTagOutput {
 }
 
 type UserTag struct {
+	// Name of the database that the tag was created in.
 	Database *string `pulumi:"database"`
-	Name     string  `pulumi:"name"`
-	Schema   *string `pulumi:"schema"`
-	Value    string  `pulumi:"value"`
+	// Tag name, e.g. department.
+	Name string `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema *string `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value string `pulumi:"value"`
 }
 
 // UserTagInput is an input type that accepts UserTagArgs and UserTagOutput values.
 // You can construct a concrete instance of `UserTagInput` via:
 //
-//          UserTagArgs{...}
+//	UserTagArgs{...}
 type UserTagInput interface {
 	pulumi.Input
 
@@ -2250,10 +2409,14 @@ type UserTagInput interface {
 }
 
 type UserTagArgs struct {
+	// Name of the database that the tag was created in.
 	Database pulumi.StringPtrInput `pulumi:"database"`
-	Name     pulumi.StringInput    `pulumi:"name"`
-	Schema   pulumi.StringPtrInput `pulumi:"schema"`
-	Value    pulumi.StringInput    `pulumi:"value"`
+	// Tag name, e.g. department.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (UserTagArgs) ElementType() reflect.Type {
@@ -2271,7 +2434,7 @@ func (i UserTagArgs) ToUserTagOutputWithContext(ctx context.Context) UserTagOutp
 // UserTagArrayInput is an input type that accepts UserTagArray and UserTagArrayOutput values.
 // You can construct a concrete instance of `UserTagArrayInput` via:
 //
-//          UserTagArray{ UserTagArgs{...} }
+//	UserTagArray{ UserTagArgs{...} }
 type UserTagArrayInput interface {
 	pulumi.Input
 
@@ -2307,18 +2470,22 @@ func (o UserTagOutput) ToUserTagOutputWithContext(ctx context.Context) UserTagOu
 	return o
 }
 
+// Name of the database that the tag was created in.
 func (o UserTagOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserTag) *string { return v.Database }).(pulumi.StringPtrOutput)
 }
 
+// Tag name, e.g. department.
 func (o UserTagOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v UserTag) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Name of the schema that the tag was created in.
 func (o UserTagOutput) Schema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
 }
 
+// Tag value, e.g. marketing_info.
 func (o UserTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v UserTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2344,16 +2511,20 @@ func (o UserTagArrayOutput) Index(i pulumi.IntInput) UserTagOutput {
 }
 
 type ViewTag struct {
+	// Name of the database that the tag was created in.
 	Database *string `pulumi:"database"`
-	Name     string  `pulumi:"name"`
-	Schema   *string `pulumi:"schema"`
-	Value    string  `pulumi:"value"`
+	// Tag name, e.g. department.
+	Name string `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema *string `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value string `pulumi:"value"`
 }
 
 // ViewTagInput is an input type that accepts ViewTagArgs and ViewTagOutput values.
 // You can construct a concrete instance of `ViewTagInput` via:
 //
-//          ViewTagArgs{...}
+//	ViewTagArgs{...}
 type ViewTagInput interface {
 	pulumi.Input
 
@@ -2362,10 +2533,14 @@ type ViewTagInput interface {
 }
 
 type ViewTagArgs struct {
+	// Name of the database that the tag was created in.
 	Database pulumi.StringPtrInput `pulumi:"database"`
-	Name     pulumi.StringInput    `pulumi:"name"`
-	Schema   pulumi.StringPtrInput `pulumi:"schema"`
-	Value    pulumi.StringInput    `pulumi:"value"`
+	// Tag name, e.g. department.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (ViewTagArgs) ElementType() reflect.Type {
@@ -2383,7 +2558,7 @@ func (i ViewTagArgs) ToViewTagOutputWithContext(ctx context.Context) ViewTagOutp
 // ViewTagArrayInput is an input type that accepts ViewTagArray and ViewTagArrayOutput values.
 // You can construct a concrete instance of `ViewTagArrayInput` via:
 //
-//          ViewTagArray{ ViewTagArgs{...} }
+//	ViewTagArray{ ViewTagArgs{...} }
 type ViewTagArrayInput interface {
 	pulumi.Input
 
@@ -2419,18 +2594,22 @@ func (o ViewTagOutput) ToViewTagOutputWithContext(ctx context.Context) ViewTagOu
 	return o
 }
 
+// Name of the database that the tag was created in.
 func (o ViewTagOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ViewTag) *string { return v.Database }).(pulumi.StringPtrOutput)
 }
 
+// Tag name, e.g. department.
 func (o ViewTagOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ViewTag) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Name of the schema that the tag was created in.
 func (o ViewTagOutput) Schema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ViewTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
 }
 
+// Tag value, e.g. marketing_info.
 func (o ViewTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ViewTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2456,16 +2635,20 @@ func (o ViewTagArrayOutput) Index(i pulumi.IntInput) ViewTagOutput {
 }
 
 type WarehouseTag struct {
+	// Name of the database that the tag was created in.
 	Database *string `pulumi:"database"`
-	Name     string  `pulumi:"name"`
-	Schema   *string `pulumi:"schema"`
-	Value    string  `pulumi:"value"`
+	// Tag name, e.g. department.
+	Name string `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema *string `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value string `pulumi:"value"`
 }
 
 // WarehouseTagInput is an input type that accepts WarehouseTagArgs and WarehouseTagOutput values.
 // You can construct a concrete instance of `WarehouseTagInput` via:
 //
-//          WarehouseTagArgs{...}
+//	WarehouseTagArgs{...}
 type WarehouseTagInput interface {
 	pulumi.Input
 
@@ -2474,10 +2657,14 @@ type WarehouseTagInput interface {
 }
 
 type WarehouseTagArgs struct {
+	// Name of the database that the tag was created in.
 	Database pulumi.StringPtrInput `pulumi:"database"`
-	Name     pulumi.StringInput    `pulumi:"name"`
-	Schema   pulumi.StringPtrInput `pulumi:"schema"`
-	Value    pulumi.StringInput    `pulumi:"value"`
+	// Tag name, e.g. department.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the schema that the tag was created in.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+	// Tag value, e.g. marketing_info.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (WarehouseTagArgs) ElementType() reflect.Type {
@@ -2495,7 +2682,7 @@ func (i WarehouseTagArgs) ToWarehouseTagOutputWithContext(ctx context.Context) W
 // WarehouseTagArrayInput is an input type that accepts WarehouseTagArray and WarehouseTagArrayOutput values.
 // You can construct a concrete instance of `WarehouseTagArrayInput` via:
 //
-//          WarehouseTagArray{ WarehouseTagArgs{...} }
+//	WarehouseTagArray{ WarehouseTagArgs{...} }
 type WarehouseTagArrayInput interface {
 	pulumi.Input
 
@@ -2531,18 +2718,22 @@ func (o WarehouseTagOutput) ToWarehouseTagOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Name of the database that the tag was created in.
 func (o WarehouseTagOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WarehouseTag) *string { return v.Database }).(pulumi.StringPtrOutput)
 }
 
+// Tag name, e.g. department.
 func (o WarehouseTagOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WarehouseTag) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Name of the schema that the tag was created in.
 func (o WarehouseTagOutput) Schema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WarehouseTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
 }
 
+// Tag value, e.g. marketing_info.
 func (o WarehouseTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v WarehouseTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2583,7 +2774,7 @@ type GetDatabasesDatabase struct {
 // GetDatabasesDatabaseInput is an input type that accepts GetDatabasesDatabaseArgs and GetDatabasesDatabaseOutput values.
 // You can construct a concrete instance of `GetDatabasesDatabaseInput` via:
 //
-//          GetDatabasesDatabaseArgs{...}
+//	GetDatabasesDatabaseArgs{...}
 type GetDatabasesDatabaseInput interface {
 	pulumi.Input
 
@@ -2619,7 +2810,7 @@ func (i GetDatabasesDatabaseArgs) ToGetDatabasesDatabaseOutputWithContext(ctx co
 // GetDatabasesDatabaseArrayInput is an input type that accepts GetDatabasesDatabaseArray and GetDatabasesDatabaseArrayOutput values.
 // You can construct a concrete instance of `GetDatabasesDatabaseArrayInput` via:
 //
-//          GetDatabasesDatabaseArray{ GetDatabasesDatabaseArgs{...} }
+//	GetDatabasesDatabaseArray{ GetDatabasesDatabaseArgs{...} }
 type GetDatabasesDatabaseArrayInput interface {
 	pulumi.Input
 
@@ -2725,7 +2916,7 @@ type GetDatabasesDatabaseReplicationConfiguration struct {
 // GetDatabasesDatabaseReplicationConfigurationInput is an input type that accepts GetDatabasesDatabaseReplicationConfigurationArgs and GetDatabasesDatabaseReplicationConfigurationOutput values.
 // You can construct a concrete instance of `GetDatabasesDatabaseReplicationConfigurationInput` via:
 //
-//          GetDatabasesDatabaseReplicationConfigurationArgs{...}
+//	GetDatabasesDatabaseReplicationConfigurationArgs{...}
 type GetDatabasesDatabaseReplicationConfigurationInput interface {
 	pulumi.Input
 
@@ -2753,7 +2944,7 @@ func (i GetDatabasesDatabaseReplicationConfigurationArgs) ToGetDatabasesDatabase
 // GetDatabasesDatabaseReplicationConfigurationArrayInput is an input type that accepts GetDatabasesDatabaseReplicationConfigurationArray and GetDatabasesDatabaseReplicationConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetDatabasesDatabaseReplicationConfigurationArrayInput` via:
 //
-//          GetDatabasesDatabaseReplicationConfigurationArray{ GetDatabasesDatabaseReplicationConfigurationArgs{...} }
+//	GetDatabasesDatabaseReplicationConfigurationArray{ GetDatabasesDatabaseReplicationConfigurationArgs{...} }
 type GetDatabasesDatabaseReplicationConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -2818,17 +3009,19 @@ func (o GetDatabasesDatabaseReplicationConfigurationArrayOutput) Index(i pulumi.
 }
 
 type GetExternalFunctionsExternalFunction struct {
-	Comment  string `pulumi:"comment"`
+	Comment string `pulumi:"comment"`
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	Language string `pulumi:"language"`
 	Name     string `pulumi:"name"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the external functions from.
+	Schema string `pulumi:"schema"`
 }
 
 // GetExternalFunctionsExternalFunctionInput is an input type that accepts GetExternalFunctionsExternalFunctionArgs and GetExternalFunctionsExternalFunctionOutput values.
 // You can construct a concrete instance of `GetExternalFunctionsExternalFunctionInput` via:
 //
-//          GetExternalFunctionsExternalFunctionArgs{...}
+//	GetExternalFunctionsExternalFunctionArgs{...}
 type GetExternalFunctionsExternalFunctionInput interface {
 	pulumi.Input
 
@@ -2837,11 +3030,13 @@ type GetExternalFunctionsExternalFunctionInput interface {
 }
 
 type GetExternalFunctionsExternalFunctionArgs struct {
-	Comment  pulumi.StringInput `pulumi:"comment"`
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
 	Language pulumi.StringInput `pulumi:"language"`
 	Name     pulumi.StringInput `pulumi:"name"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the external functions from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetExternalFunctionsExternalFunctionArgs) ElementType() reflect.Type {
@@ -2859,7 +3054,7 @@ func (i GetExternalFunctionsExternalFunctionArgs) ToGetExternalFunctionsExternal
 // GetExternalFunctionsExternalFunctionArrayInput is an input type that accepts GetExternalFunctionsExternalFunctionArray and GetExternalFunctionsExternalFunctionArrayOutput values.
 // You can construct a concrete instance of `GetExternalFunctionsExternalFunctionArrayInput` via:
 //
-//          GetExternalFunctionsExternalFunctionArray{ GetExternalFunctionsExternalFunctionArgs{...} }
+//	GetExternalFunctionsExternalFunctionArray{ GetExternalFunctionsExternalFunctionArgs{...} }
 type GetExternalFunctionsExternalFunctionArrayInput interface {
 	pulumi.Input
 
@@ -2899,6 +3094,7 @@ func (o GetExternalFunctionsExternalFunctionOutput) Comment() pulumi.StringOutpu
 	return o.ApplyT(func(v GetExternalFunctionsExternalFunction) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// The database from which to return the schemas from.
 func (o GetExternalFunctionsExternalFunctionOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExternalFunctionsExternalFunction) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -2911,6 +3107,7 @@ func (o GetExternalFunctionsExternalFunctionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExternalFunctionsExternalFunction) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the external functions from.
 func (o GetExternalFunctionsExternalFunctionOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExternalFunctionsExternalFunction) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -2936,16 +3133,18 @@ func (o GetExternalFunctionsExternalFunctionArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetExternalTablesExternalTable struct {
-	Comment  string `pulumi:"comment"`
+	Comment string `pulumi:"comment"`
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	Name     string `pulumi:"name"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the external tables from.
+	Schema string `pulumi:"schema"`
 }
 
 // GetExternalTablesExternalTableInput is an input type that accepts GetExternalTablesExternalTableArgs and GetExternalTablesExternalTableOutput values.
 // You can construct a concrete instance of `GetExternalTablesExternalTableInput` via:
 //
-//          GetExternalTablesExternalTableArgs{...}
+//	GetExternalTablesExternalTableArgs{...}
 type GetExternalTablesExternalTableInput interface {
 	pulumi.Input
 
@@ -2954,10 +3153,12 @@ type GetExternalTablesExternalTableInput interface {
 }
 
 type GetExternalTablesExternalTableArgs struct {
-	Comment  pulumi.StringInput `pulumi:"comment"`
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
 	Name     pulumi.StringInput `pulumi:"name"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the external tables from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetExternalTablesExternalTableArgs) ElementType() reflect.Type {
@@ -2975,7 +3176,7 @@ func (i GetExternalTablesExternalTableArgs) ToGetExternalTablesExternalTableOutp
 // GetExternalTablesExternalTableArrayInput is an input type that accepts GetExternalTablesExternalTableArray and GetExternalTablesExternalTableArrayOutput values.
 // You can construct a concrete instance of `GetExternalTablesExternalTableArrayInput` via:
 //
-//          GetExternalTablesExternalTableArray{ GetExternalTablesExternalTableArgs{...} }
+//	GetExternalTablesExternalTableArray{ GetExternalTablesExternalTableArgs{...} }
 type GetExternalTablesExternalTableArrayInput interface {
 	pulumi.Input
 
@@ -3015,6 +3216,7 @@ func (o GetExternalTablesExternalTableOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExternalTablesExternalTable) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// The database from which to return the schemas from.
 func (o GetExternalTablesExternalTableOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExternalTablesExternalTable) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -3023,6 +3225,7 @@ func (o GetExternalTablesExternalTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExternalTablesExternalTable) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the external tables from.
 func (o GetExternalTablesExternalTableOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExternalTablesExternalTable) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -3048,17 +3251,19 @@ func (o GetExternalTablesExternalTableArrayOutput) Index(i pulumi.IntInput) GetE
 }
 
 type GetFileFormatsFileFormat struct {
-	Comment    string `pulumi:"comment"`
+	Comment string `pulumi:"comment"`
+	// The database from which to return the schemas from.
 	Database   string `pulumi:"database"`
 	FormatType string `pulumi:"formatType"`
 	Name       string `pulumi:"name"`
-	Schema     string `pulumi:"schema"`
+	// The schema from which to return the file formats from.
+	Schema string `pulumi:"schema"`
 }
 
 // GetFileFormatsFileFormatInput is an input type that accepts GetFileFormatsFileFormatArgs and GetFileFormatsFileFormatOutput values.
 // You can construct a concrete instance of `GetFileFormatsFileFormatInput` via:
 //
-//          GetFileFormatsFileFormatArgs{...}
+//	GetFileFormatsFileFormatArgs{...}
 type GetFileFormatsFileFormatInput interface {
 	pulumi.Input
 
@@ -3067,11 +3272,13 @@ type GetFileFormatsFileFormatInput interface {
 }
 
 type GetFileFormatsFileFormatArgs struct {
-	Comment    pulumi.StringInput `pulumi:"comment"`
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// The database from which to return the schemas from.
 	Database   pulumi.StringInput `pulumi:"database"`
 	FormatType pulumi.StringInput `pulumi:"formatType"`
 	Name       pulumi.StringInput `pulumi:"name"`
-	Schema     pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the file formats from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetFileFormatsFileFormatArgs) ElementType() reflect.Type {
@@ -3089,7 +3296,7 @@ func (i GetFileFormatsFileFormatArgs) ToGetFileFormatsFileFormatOutputWithContex
 // GetFileFormatsFileFormatArrayInput is an input type that accepts GetFileFormatsFileFormatArray and GetFileFormatsFileFormatArrayOutput values.
 // You can construct a concrete instance of `GetFileFormatsFileFormatArrayInput` via:
 //
-//          GetFileFormatsFileFormatArray{ GetFileFormatsFileFormatArgs{...} }
+//	GetFileFormatsFileFormatArray{ GetFileFormatsFileFormatArgs{...} }
 type GetFileFormatsFileFormatArrayInput interface {
 	pulumi.Input
 
@@ -3129,6 +3336,7 @@ func (o GetFileFormatsFileFormatOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileFormatsFileFormat) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// The database from which to return the schemas from.
 func (o GetFileFormatsFileFormatOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileFormatsFileFormat) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -3141,6 +3349,7 @@ func (o GetFileFormatsFileFormatOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileFormatsFileFormat) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the file formats from.
 func (o GetFileFormatsFileFormatOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileFormatsFileFormat) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -3168,16 +3377,18 @@ func (o GetFileFormatsFileFormatArrayOutput) Index(i pulumi.IntInput) GetFileFor
 type GetFunctionsFunction struct {
 	ArgumentTypes []string `pulumi:"argumentTypes"`
 	Comment       string   `pulumi:"comment"`
-	Database      string   `pulumi:"database"`
-	Name          string   `pulumi:"name"`
-	ReturnType    string   `pulumi:"returnType"`
-	Schema        string   `pulumi:"schema"`
+	// The database from which to return the schemas from.
+	Database   string `pulumi:"database"`
+	Name       string `pulumi:"name"`
+	ReturnType string `pulumi:"returnType"`
+	// The schema from which to return the functions from.
+	Schema string `pulumi:"schema"`
 }
 
 // GetFunctionsFunctionInput is an input type that accepts GetFunctionsFunctionArgs and GetFunctionsFunctionOutput values.
 // You can construct a concrete instance of `GetFunctionsFunctionInput` via:
 //
-//          GetFunctionsFunctionArgs{...}
+//	GetFunctionsFunctionArgs{...}
 type GetFunctionsFunctionInput interface {
 	pulumi.Input
 
@@ -3188,10 +3399,12 @@ type GetFunctionsFunctionInput interface {
 type GetFunctionsFunctionArgs struct {
 	ArgumentTypes pulumi.StringArrayInput `pulumi:"argumentTypes"`
 	Comment       pulumi.StringInput      `pulumi:"comment"`
-	Database      pulumi.StringInput      `pulumi:"database"`
-	Name          pulumi.StringInput      `pulumi:"name"`
-	ReturnType    pulumi.StringInput      `pulumi:"returnType"`
-	Schema        pulumi.StringInput      `pulumi:"schema"`
+	// The database from which to return the schemas from.
+	Database   pulumi.StringInput `pulumi:"database"`
+	Name       pulumi.StringInput `pulumi:"name"`
+	ReturnType pulumi.StringInput `pulumi:"returnType"`
+	// The schema from which to return the functions from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetFunctionsFunctionArgs) ElementType() reflect.Type {
@@ -3209,7 +3422,7 @@ func (i GetFunctionsFunctionArgs) ToGetFunctionsFunctionOutputWithContext(ctx co
 // GetFunctionsFunctionArrayInput is an input type that accepts GetFunctionsFunctionArray and GetFunctionsFunctionArrayOutput values.
 // You can construct a concrete instance of `GetFunctionsFunctionArrayInput` via:
 //
-//          GetFunctionsFunctionArray{ GetFunctionsFunctionArgs{...} }
+//	GetFunctionsFunctionArray{ GetFunctionsFunctionArgs{...} }
 type GetFunctionsFunctionArrayInput interface {
 	pulumi.Input
 
@@ -3253,6 +3466,7 @@ func (o GetFunctionsFunctionOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionsFunction) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// The database from which to return the schemas from.
 func (o GetFunctionsFunctionOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionsFunction) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -3265,6 +3479,7 @@ func (o GetFunctionsFunctionOutput) ReturnType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionsFunction) string { return v.ReturnType }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the functions from.
 func (o GetFunctionsFunctionOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionsFunction) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -3290,17 +3505,19 @@ func (o GetFunctionsFunctionArrayOutput) Index(i pulumi.IntInput) GetFunctionsFu
 }
 
 type GetMaskingPoliciesMaskingPolicy struct {
-	Comment  string `pulumi:"comment"`
+	Comment string `pulumi:"comment"`
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	Kind     string `pulumi:"kind"`
 	Name     string `pulumi:"name"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the maskingPolicies from.
+	Schema string `pulumi:"schema"`
 }
 
 // GetMaskingPoliciesMaskingPolicyInput is an input type that accepts GetMaskingPoliciesMaskingPolicyArgs and GetMaskingPoliciesMaskingPolicyOutput values.
 // You can construct a concrete instance of `GetMaskingPoliciesMaskingPolicyInput` via:
 //
-//          GetMaskingPoliciesMaskingPolicyArgs{...}
+//	GetMaskingPoliciesMaskingPolicyArgs{...}
 type GetMaskingPoliciesMaskingPolicyInput interface {
 	pulumi.Input
 
@@ -3309,11 +3526,13 @@ type GetMaskingPoliciesMaskingPolicyInput interface {
 }
 
 type GetMaskingPoliciesMaskingPolicyArgs struct {
-	Comment  pulumi.StringInput `pulumi:"comment"`
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
 	Kind     pulumi.StringInput `pulumi:"kind"`
 	Name     pulumi.StringInput `pulumi:"name"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the maskingPolicies from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetMaskingPoliciesMaskingPolicyArgs) ElementType() reflect.Type {
@@ -3331,7 +3550,7 @@ func (i GetMaskingPoliciesMaskingPolicyArgs) ToGetMaskingPoliciesMaskingPolicyOu
 // GetMaskingPoliciesMaskingPolicyArrayInput is an input type that accepts GetMaskingPoliciesMaskingPolicyArray and GetMaskingPoliciesMaskingPolicyArrayOutput values.
 // You can construct a concrete instance of `GetMaskingPoliciesMaskingPolicyArrayInput` via:
 //
-//          GetMaskingPoliciesMaskingPolicyArray{ GetMaskingPoliciesMaskingPolicyArgs{...} }
+//	GetMaskingPoliciesMaskingPolicyArray{ GetMaskingPoliciesMaskingPolicyArgs{...} }
 type GetMaskingPoliciesMaskingPolicyArrayInput interface {
 	pulumi.Input
 
@@ -3371,6 +3590,7 @@ func (o GetMaskingPoliciesMaskingPolicyOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMaskingPoliciesMaskingPolicy) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// The database from which to return the schemas from.
 func (o GetMaskingPoliciesMaskingPolicyOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMaskingPoliciesMaskingPolicy) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -3383,6 +3603,7 @@ func (o GetMaskingPoliciesMaskingPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMaskingPoliciesMaskingPolicy) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the maskingPolicies from.
 func (o GetMaskingPoliciesMaskingPolicyOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMaskingPoliciesMaskingPolicy) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -3408,16 +3629,18 @@ func (o GetMaskingPoliciesMaskingPolicyArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetMaterializedViewsMaterializedView struct {
-	Comment  string `pulumi:"comment"`
+	Comment string `pulumi:"comment"`
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	Name     string `pulumi:"name"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the views from.
+	Schema string `pulumi:"schema"`
 }
 
 // GetMaterializedViewsMaterializedViewInput is an input type that accepts GetMaterializedViewsMaterializedViewArgs and GetMaterializedViewsMaterializedViewOutput values.
 // You can construct a concrete instance of `GetMaterializedViewsMaterializedViewInput` via:
 //
-//          GetMaterializedViewsMaterializedViewArgs{...}
+//	GetMaterializedViewsMaterializedViewArgs{...}
 type GetMaterializedViewsMaterializedViewInput interface {
 	pulumi.Input
 
@@ -3426,10 +3649,12 @@ type GetMaterializedViewsMaterializedViewInput interface {
 }
 
 type GetMaterializedViewsMaterializedViewArgs struct {
-	Comment  pulumi.StringInput `pulumi:"comment"`
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
 	Name     pulumi.StringInput `pulumi:"name"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the views from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetMaterializedViewsMaterializedViewArgs) ElementType() reflect.Type {
@@ -3447,7 +3672,7 @@ func (i GetMaterializedViewsMaterializedViewArgs) ToGetMaterializedViewsMaterial
 // GetMaterializedViewsMaterializedViewArrayInput is an input type that accepts GetMaterializedViewsMaterializedViewArray and GetMaterializedViewsMaterializedViewArrayOutput values.
 // You can construct a concrete instance of `GetMaterializedViewsMaterializedViewArrayInput` via:
 //
-//          GetMaterializedViewsMaterializedViewArray{ GetMaterializedViewsMaterializedViewArgs{...} }
+//	GetMaterializedViewsMaterializedViewArray{ GetMaterializedViewsMaterializedViewArgs{...} }
 type GetMaterializedViewsMaterializedViewArrayInput interface {
 	pulumi.Input
 
@@ -3487,6 +3712,7 @@ func (o GetMaterializedViewsMaterializedViewOutput) Comment() pulumi.StringOutpu
 	return o.ApplyT(func(v GetMaterializedViewsMaterializedView) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// The database from which to return the schemas from.
 func (o GetMaterializedViewsMaterializedViewOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMaterializedViewsMaterializedView) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -3495,6 +3721,7 @@ func (o GetMaterializedViewsMaterializedViewOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMaterializedViewsMaterializedView) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the views from.
 func (o GetMaterializedViewsMaterializedViewOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMaterializedViewsMaterializedView) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -3520,17 +3747,19 @@ func (o GetMaterializedViewsMaterializedViewArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetPipesPipe struct {
-	Comment     string `pulumi:"comment"`
+	Comment string `pulumi:"comment"`
+	// The database from which to return the schemas from.
 	Database    string `pulumi:"database"`
 	Integration string `pulumi:"integration"`
 	Name        string `pulumi:"name"`
-	Schema      string `pulumi:"schema"`
+	// The schema from which to return the pipes from.
+	Schema string `pulumi:"schema"`
 }
 
 // GetPipesPipeInput is an input type that accepts GetPipesPipeArgs and GetPipesPipeOutput values.
 // You can construct a concrete instance of `GetPipesPipeInput` via:
 //
-//          GetPipesPipeArgs{...}
+//	GetPipesPipeArgs{...}
 type GetPipesPipeInput interface {
 	pulumi.Input
 
@@ -3539,11 +3768,13 @@ type GetPipesPipeInput interface {
 }
 
 type GetPipesPipeArgs struct {
-	Comment     pulumi.StringInput `pulumi:"comment"`
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// The database from which to return the schemas from.
 	Database    pulumi.StringInput `pulumi:"database"`
 	Integration pulumi.StringInput `pulumi:"integration"`
 	Name        pulumi.StringInput `pulumi:"name"`
-	Schema      pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the pipes from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetPipesPipeArgs) ElementType() reflect.Type {
@@ -3561,7 +3792,7 @@ func (i GetPipesPipeArgs) ToGetPipesPipeOutputWithContext(ctx context.Context) G
 // GetPipesPipeArrayInput is an input type that accepts GetPipesPipeArray and GetPipesPipeArrayOutput values.
 // You can construct a concrete instance of `GetPipesPipeArrayInput` via:
 //
-//          GetPipesPipeArray{ GetPipesPipeArgs{...} }
+//	GetPipesPipeArray{ GetPipesPipeArgs{...} }
 type GetPipesPipeArrayInput interface {
 	pulumi.Input
 
@@ -3601,6 +3832,7 @@ func (o GetPipesPipeOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPipesPipe) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// The database from which to return the schemas from.
 func (o GetPipesPipeOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPipesPipe) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -3613,6 +3845,7 @@ func (o GetPipesPipeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPipesPipe) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the pipes from.
 func (o GetPipesPipeOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPipesPipe) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -3640,16 +3873,18 @@ func (o GetPipesPipeArrayOutput) Index(i pulumi.IntInput) GetPipesPipeOutput {
 type GetProceduresProcedure struct {
 	ArgumentTypes []string `pulumi:"argumentTypes"`
 	Comment       string   `pulumi:"comment"`
-	Database      string   `pulumi:"database"`
-	Name          string   `pulumi:"name"`
-	ReturnType    string   `pulumi:"returnType"`
-	Schema        string   `pulumi:"schema"`
+	// The database from which to return the schemas from.
+	Database   string `pulumi:"database"`
+	Name       string `pulumi:"name"`
+	ReturnType string `pulumi:"returnType"`
+	// The schema from which to return the procedures from.
+	Schema string `pulumi:"schema"`
 }
 
 // GetProceduresProcedureInput is an input type that accepts GetProceduresProcedureArgs and GetProceduresProcedureOutput values.
 // You can construct a concrete instance of `GetProceduresProcedureInput` via:
 //
-//          GetProceduresProcedureArgs{...}
+//	GetProceduresProcedureArgs{...}
 type GetProceduresProcedureInput interface {
 	pulumi.Input
 
@@ -3660,10 +3895,12 @@ type GetProceduresProcedureInput interface {
 type GetProceduresProcedureArgs struct {
 	ArgumentTypes pulumi.StringArrayInput `pulumi:"argumentTypes"`
 	Comment       pulumi.StringInput      `pulumi:"comment"`
-	Database      pulumi.StringInput      `pulumi:"database"`
-	Name          pulumi.StringInput      `pulumi:"name"`
-	ReturnType    pulumi.StringInput      `pulumi:"returnType"`
-	Schema        pulumi.StringInput      `pulumi:"schema"`
+	// The database from which to return the schemas from.
+	Database   pulumi.StringInput `pulumi:"database"`
+	Name       pulumi.StringInput `pulumi:"name"`
+	ReturnType pulumi.StringInput `pulumi:"returnType"`
+	// The schema from which to return the procedures from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetProceduresProcedureArgs) ElementType() reflect.Type {
@@ -3681,7 +3918,7 @@ func (i GetProceduresProcedureArgs) ToGetProceduresProcedureOutputWithContext(ct
 // GetProceduresProcedureArrayInput is an input type that accepts GetProceduresProcedureArray and GetProceduresProcedureArrayOutput values.
 // You can construct a concrete instance of `GetProceduresProcedureArrayInput` via:
 //
-//          GetProceduresProcedureArray{ GetProceduresProcedureArgs{...} }
+//	GetProceduresProcedureArray{ GetProceduresProcedureArgs{...} }
 type GetProceduresProcedureArrayInput interface {
 	pulumi.Input
 
@@ -3725,6 +3962,7 @@ func (o GetProceduresProcedureOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProceduresProcedure) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// The database from which to return the schemas from.
 func (o GetProceduresProcedureOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProceduresProcedure) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -3737,6 +3975,7 @@ func (o GetProceduresProcedureOutput) ReturnType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProceduresProcedure) string { return v.ReturnType }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the procedures from.
 func (o GetProceduresProcedureOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProceduresProcedure) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -3771,7 +4010,7 @@ type GetResourceMonitorsResourceMonitor struct {
 // GetResourceMonitorsResourceMonitorInput is an input type that accepts GetResourceMonitorsResourceMonitorArgs and GetResourceMonitorsResourceMonitorOutput values.
 // You can construct a concrete instance of `GetResourceMonitorsResourceMonitorInput` via:
 //
-//          GetResourceMonitorsResourceMonitorArgs{...}
+//	GetResourceMonitorsResourceMonitorArgs{...}
 type GetResourceMonitorsResourceMonitorInput interface {
 	pulumi.Input
 
@@ -3801,7 +4040,7 @@ func (i GetResourceMonitorsResourceMonitorArgs) ToGetResourceMonitorsResourceMon
 // GetResourceMonitorsResourceMonitorArrayInput is an input type that accepts GetResourceMonitorsResourceMonitorArray and GetResourceMonitorsResourceMonitorArrayOutput values.
 // You can construct a concrete instance of `GetResourceMonitorsResourceMonitorArrayInput` via:
 //
-//          GetResourceMonitorsResourceMonitorArray{ GetResourceMonitorsResourceMonitorArgs{...} }
+//	GetResourceMonitorsResourceMonitorArray{ GetResourceMonitorsResourceMonitorArgs{...} }
 type GetResourceMonitorsResourceMonitorArrayInput interface {
 	pulumi.Input
 
@@ -3874,16 +4113,18 @@ func (o GetResourceMonitorsResourceMonitorArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetRowAccessPoliciesRowAccessPolicy struct {
-	Comment  string `pulumi:"comment"`
+	Comment string `pulumi:"comment"`
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	Name     string `pulumi:"name"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the row access policyfrom.
+	Schema string `pulumi:"schema"`
 }
 
 // GetRowAccessPoliciesRowAccessPolicyInput is an input type that accepts GetRowAccessPoliciesRowAccessPolicyArgs and GetRowAccessPoliciesRowAccessPolicyOutput values.
 // You can construct a concrete instance of `GetRowAccessPoliciesRowAccessPolicyInput` via:
 //
-//          GetRowAccessPoliciesRowAccessPolicyArgs{...}
+//	GetRowAccessPoliciesRowAccessPolicyArgs{...}
 type GetRowAccessPoliciesRowAccessPolicyInput interface {
 	pulumi.Input
 
@@ -3892,10 +4133,12 @@ type GetRowAccessPoliciesRowAccessPolicyInput interface {
 }
 
 type GetRowAccessPoliciesRowAccessPolicyArgs struct {
-	Comment  pulumi.StringInput `pulumi:"comment"`
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
 	Name     pulumi.StringInput `pulumi:"name"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the row access policyfrom.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetRowAccessPoliciesRowAccessPolicyArgs) ElementType() reflect.Type {
@@ -3913,7 +4156,7 @@ func (i GetRowAccessPoliciesRowAccessPolicyArgs) ToGetRowAccessPoliciesRowAccess
 // GetRowAccessPoliciesRowAccessPolicyArrayInput is an input type that accepts GetRowAccessPoliciesRowAccessPolicyArray and GetRowAccessPoliciesRowAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `GetRowAccessPoliciesRowAccessPolicyArrayInput` via:
 //
-//          GetRowAccessPoliciesRowAccessPolicyArray{ GetRowAccessPoliciesRowAccessPolicyArgs{...} }
+//	GetRowAccessPoliciesRowAccessPolicyArray{ GetRowAccessPoliciesRowAccessPolicyArgs{...} }
 type GetRowAccessPoliciesRowAccessPolicyArrayInput interface {
 	pulumi.Input
 
@@ -3953,6 +4196,7 @@ func (o GetRowAccessPoliciesRowAccessPolicyOutput) Comment() pulumi.StringOutput
 	return o.ApplyT(func(v GetRowAccessPoliciesRowAccessPolicy) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// The database from which to return the schemas from.
 func (o GetRowAccessPoliciesRowAccessPolicyOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRowAccessPoliciesRowAccessPolicy) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -3961,6 +4205,7 @@ func (o GetRowAccessPoliciesRowAccessPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRowAccessPoliciesRowAccessPolicy) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the row access policyfrom.
 func (o GetRowAccessPoliciesRowAccessPolicyOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRowAccessPoliciesRowAccessPolicy) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -3986,7 +4231,8 @@ func (o GetRowAccessPoliciesRowAccessPolicyArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetSchemasSchema struct {
-	Comment  string `pulumi:"comment"`
+	Comment string `pulumi:"comment"`
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	Name     string `pulumi:"name"`
 }
@@ -3994,7 +4240,7 @@ type GetSchemasSchema struct {
 // GetSchemasSchemaInput is an input type that accepts GetSchemasSchemaArgs and GetSchemasSchemaOutput values.
 // You can construct a concrete instance of `GetSchemasSchemaInput` via:
 //
-//          GetSchemasSchemaArgs{...}
+//	GetSchemasSchemaArgs{...}
 type GetSchemasSchemaInput interface {
 	pulumi.Input
 
@@ -4003,7 +4249,8 @@ type GetSchemasSchemaInput interface {
 }
 
 type GetSchemasSchemaArgs struct {
-	Comment  pulumi.StringInput `pulumi:"comment"`
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
 	Name     pulumi.StringInput `pulumi:"name"`
 }
@@ -4023,7 +4270,7 @@ func (i GetSchemasSchemaArgs) ToGetSchemasSchemaOutputWithContext(ctx context.Co
 // GetSchemasSchemaArrayInput is an input type that accepts GetSchemasSchemaArray and GetSchemasSchemaArrayOutput values.
 // You can construct a concrete instance of `GetSchemasSchemaArrayInput` via:
 //
-//          GetSchemasSchemaArray{ GetSchemasSchemaArgs{...} }
+//	GetSchemasSchemaArray{ GetSchemasSchemaArgs{...} }
 type GetSchemasSchemaArrayInput interface {
 	pulumi.Input
 
@@ -4063,6 +4310,7 @@ func (o GetSchemasSchemaOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemasSchema) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// The database from which to return the schemas from.
 func (o GetSchemasSchemaOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemasSchema) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -4092,16 +4340,18 @@ func (o GetSchemasSchemaArrayOutput) Index(i pulumi.IntInput) GetSchemasSchemaOu
 }
 
 type GetSequencesSequence struct {
-	Comment  string `pulumi:"comment"`
+	Comment string `pulumi:"comment"`
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	Name     string `pulumi:"name"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the sequences from.
+	Schema string `pulumi:"schema"`
 }
 
 // GetSequencesSequenceInput is an input type that accepts GetSequencesSequenceArgs and GetSequencesSequenceOutput values.
 // You can construct a concrete instance of `GetSequencesSequenceInput` via:
 //
-//          GetSequencesSequenceArgs{...}
+//	GetSequencesSequenceArgs{...}
 type GetSequencesSequenceInput interface {
 	pulumi.Input
 
@@ -4110,10 +4360,12 @@ type GetSequencesSequenceInput interface {
 }
 
 type GetSequencesSequenceArgs struct {
-	Comment  pulumi.StringInput `pulumi:"comment"`
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
 	Name     pulumi.StringInput `pulumi:"name"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the sequences from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetSequencesSequenceArgs) ElementType() reflect.Type {
@@ -4131,7 +4383,7 @@ func (i GetSequencesSequenceArgs) ToGetSequencesSequenceOutputWithContext(ctx co
 // GetSequencesSequenceArrayInput is an input type that accepts GetSequencesSequenceArray and GetSequencesSequenceArrayOutput values.
 // You can construct a concrete instance of `GetSequencesSequenceArrayInput` via:
 //
-//          GetSequencesSequenceArray{ GetSequencesSequenceArgs{...} }
+//	GetSequencesSequenceArray{ GetSequencesSequenceArgs{...} }
 type GetSequencesSequenceArrayInput interface {
 	pulumi.Input
 
@@ -4171,6 +4423,7 @@ func (o GetSequencesSequenceOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSequencesSequence) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// The database from which to return the schemas from.
 func (o GetSequencesSequenceOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSequencesSequence) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -4179,6 +4432,7 @@ func (o GetSequencesSequenceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSequencesSequence) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the sequences from.
 func (o GetSequencesSequenceOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSequencesSequence) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -4204,9 +4458,11 @@ func (o GetSequencesSequenceArrayOutput) Index(i pulumi.IntInput) GetSequencesSe
 }
 
 type GetStagesStage struct {
-	Comment            string `pulumi:"comment"`
-	Database           string `pulumi:"database"`
-	Name               string `pulumi:"name"`
+	Comment string `pulumi:"comment"`
+	// The database from which to return the schemas from.
+	Database string `pulumi:"database"`
+	Name     string `pulumi:"name"`
+	// The schema from which to return the stages from.
 	Schema             string `pulumi:"schema"`
 	StorageIntegration string `pulumi:"storageIntegration"`
 }
@@ -4214,7 +4470,7 @@ type GetStagesStage struct {
 // GetStagesStageInput is an input type that accepts GetStagesStageArgs and GetStagesStageOutput values.
 // You can construct a concrete instance of `GetStagesStageInput` via:
 //
-//          GetStagesStageArgs{...}
+//	GetStagesStageArgs{...}
 type GetStagesStageInput interface {
 	pulumi.Input
 
@@ -4223,9 +4479,11 @@ type GetStagesStageInput interface {
 }
 
 type GetStagesStageArgs struct {
-	Comment            pulumi.StringInput `pulumi:"comment"`
-	Database           pulumi.StringInput `pulumi:"database"`
-	Name               pulumi.StringInput `pulumi:"name"`
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// The database from which to return the schemas from.
+	Database pulumi.StringInput `pulumi:"database"`
+	Name     pulumi.StringInput `pulumi:"name"`
+	// The schema from which to return the stages from.
 	Schema             pulumi.StringInput `pulumi:"schema"`
 	StorageIntegration pulumi.StringInput `pulumi:"storageIntegration"`
 }
@@ -4245,7 +4503,7 @@ func (i GetStagesStageArgs) ToGetStagesStageOutputWithContext(ctx context.Contex
 // GetStagesStageArrayInput is an input type that accepts GetStagesStageArray and GetStagesStageArrayOutput values.
 // You can construct a concrete instance of `GetStagesStageArrayInput` via:
 //
-//          GetStagesStageArray{ GetStagesStageArgs{...} }
+//	GetStagesStageArray{ GetStagesStageArgs{...} }
 type GetStagesStageArrayInput interface {
 	pulumi.Input
 
@@ -4285,6 +4543,7 @@ func (o GetStagesStageOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStagesStage) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// The database from which to return the schemas from.
 func (o GetStagesStageOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStagesStage) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -4293,6 +4552,7 @@ func (o GetStagesStageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStagesStage) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the stages from.
 func (o GetStagesStageOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStagesStage) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -4331,7 +4591,7 @@ type GetStorageIntegrationsStorageIntegration struct {
 // GetStorageIntegrationsStorageIntegrationInput is an input type that accepts GetStorageIntegrationsStorageIntegrationArgs and GetStorageIntegrationsStorageIntegrationOutput values.
 // You can construct a concrete instance of `GetStorageIntegrationsStorageIntegrationInput` via:
 //
-//          GetStorageIntegrationsStorageIntegrationArgs{...}
+//	GetStorageIntegrationsStorageIntegrationArgs{...}
 type GetStorageIntegrationsStorageIntegrationInput interface {
 	pulumi.Input
 
@@ -4361,7 +4621,7 @@ func (i GetStorageIntegrationsStorageIntegrationArgs) ToGetStorageIntegrationsSt
 // GetStorageIntegrationsStorageIntegrationArrayInput is an input type that accepts GetStorageIntegrationsStorageIntegrationArray and GetStorageIntegrationsStorageIntegrationArrayOutput values.
 // You can construct a concrete instance of `GetStorageIntegrationsStorageIntegrationArrayInput` via:
 //
-//          GetStorageIntegrationsStorageIntegrationArray{ GetStorageIntegrationsStorageIntegrationArgs{...} }
+//	GetStorageIntegrationsStorageIntegrationArray{ GetStorageIntegrationsStorageIntegrationArgs{...} }
 type GetStorageIntegrationsStorageIntegrationArrayInput interface {
 	pulumi.Input
 
@@ -4434,17 +4694,19 @@ func (o GetStorageIntegrationsStorageIntegrationArrayOutput) Index(i pulumi.IntI
 }
 
 type GetStreamsStream struct {
-	Comment  string `pulumi:"comment"`
+	Comment string `pulumi:"comment"`
+	// The database from which to return the streams from.
 	Database string `pulumi:"database"`
 	Name     string `pulumi:"name"`
-	Schema   string `pulumi:"schema"`
-	Table    string `pulumi:"table"`
+	// The schema from which to return the streams from.
+	Schema string `pulumi:"schema"`
+	Table  string `pulumi:"table"`
 }
 
 // GetStreamsStreamInput is an input type that accepts GetStreamsStreamArgs and GetStreamsStreamOutput values.
 // You can construct a concrete instance of `GetStreamsStreamInput` via:
 //
-//          GetStreamsStreamArgs{...}
+//	GetStreamsStreamArgs{...}
 type GetStreamsStreamInput interface {
 	pulumi.Input
 
@@ -4453,11 +4715,13 @@ type GetStreamsStreamInput interface {
 }
 
 type GetStreamsStreamArgs struct {
-	Comment  pulumi.StringInput `pulumi:"comment"`
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// The database from which to return the streams from.
 	Database pulumi.StringInput `pulumi:"database"`
 	Name     pulumi.StringInput `pulumi:"name"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
-	Table    pulumi.StringInput `pulumi:"table"`
+	// The schema from which to return the streams from.
+	Schema pulumi.StringInput `pulumi:"schema"`
+	Table  pulumi.StringInput `pulumi:"table"`
 }
 
 func (GetStreamsStreamArgs) ElementType() reflect.Type {
@@ -4475,7 +4739,7 @@ func (i GetStreamsStreamArgs) ToGetStreamsStreamOutputWithContext(ctx context.Co
 // GetStreamsStreamArrayInput is an input type that accepts GetStreamsStreamArray and GetStreamsStreamArrayOutput values.
 // You can construct a concrete instance of `GetStreamsStreamArrayInput` via:
 //
-//          GetStreamsStreamArray{ GetStreamsStreamArgs{...} }
+//	GetStreamsStreamArray{ GetStreamsStreamArgs{...} }
 type GetStreamsStreamArrayInput interface {
 	pulumi.Input
 
@@ -4515,6 +4779,7 @@ func (o GetStreamsStreamOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStreamsStream) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// The database from which to return the streams from.
 func (o GetStreamsStreamOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStreamsStream) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -4523,6 +4788,7 @@ func (o GetStreamsStreamOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStreamsStream) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the streams from.
 func (o GetStreamsStreamOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStreamsStream) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -4552,16 +4818,18 @@ func (o GetStreamsStreamArrayOutput) Index(i pulumi.IntInput) GetStreamsStreamOu
 }
 
 type GetTablesTable struct {
-	Comment  string `pulumi:"comment"`
+	Comment string `pulumi:"comment"`
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	Name     string `pulumi:"name"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the tables from.
+	Schema string `pulumi:"schema"`
 }
 
 // GetTablesTableInput is an input type that accepts GetTablesTableArgs and GetTablesTableOutput values.
 // You can construct a concrete instance of `GetTablesTableInput` via:
 //
-//          GetTablesTableArgs{...}
+//	GetTablesTableArgs{...}
 type GetTablesTableInput interface {
 	pulumi.Input
 
@@ -4570,10 +4838,12 @@ type GetTablesTableInput interface {
 }
 
 type GetTablesTableArgs struct {
-	Comment  pulumi.StringInput `pulumi:"comment"`
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
 	Name     pulumi.StringInput `pulumi:"name"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the tables from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetTablesTableArgs) ElementType() reflect.Type {
@@ -4591,7 +4861,7 @@ func (i GetTablesTableArgs) ToGetTablesTableOutputWithContext(ctx context.Contex
 // GetTablesTableArrayInput is an input type that accepts GetTablesTableArray and GetTablesTableArrayOutput values.
 // You can construct a concrete instance of `GetTablesTableArrayInput` via:
 //
-//          GetTablesTableArray{ GetTablesTableArgs{...} }
+//	GetTablesTableArray{ GetTablesTableArgs{...} }
 type GetTablesTableArrayInput interface {
 	pulumi.Input
 
@@ -4631,6 +4901,7 @@ func (o GetTablesTableOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTablesTable) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// The database from which to return the schemas from.
 func (o GetTablesTableOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTablesTable) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -4639,6 +4910,7 @@ func (o GetTablesTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTablesTable) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the tables from.
 func (o GetTablesTableOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTablesTable) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -4664,9 +4936,11 @@ func (o GetTablesTableArrayOutput) Index(i pulumi.IntInput) GetTablesTableOutput
 }
 
 type GetTasksTask struct {
-	Comment   string `pulumi:"comment"`
-	Database  string `pulumi:"database"`
-	Name      string `pulumi:"name"`
+	Comment string `pulumi:"comment"`
+	// The database from which to return the schemas from.
+	Database string `pulumi:"database"`
+	Name     string `pulumi:"name"`
+	// The schema from which to return the tasks from.
 	Schema    string `pulumi:"schema"`
 	Warehouse string `pulumi:"warehouse"`
 }
@@ -4674,7 +4948,7 @@ type GetTasksTask struct {
 // GetTasksTaskInput is an input type that accepts GetTasksTaskArgs and GetTasksTaskOutput values.
 // You can construct a concrete instance of `GetTasksTaskInput` via:
 //
-//          GetTasksTaskArgs{...}
+//	GetTasksTaskArgs{...}
 type GetTasksTaskInput interface {
 	pulumi.Input
 
@@ -4683,9 +4957,11 @@ type GetTasksTaskInput interface {
 }
 
 type GetTasksTaskArgs struct {
-	Comment   pulumi.StringInput `pulumi:"comment"`
-	Database  pulumi.StringInput `pulumi:"database"`
-	Name      pulumi.StringInput `pulumi:"name"`
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// The database from which to return the schemas from.
+	Database pulumi.StringInput `pulumi:"database"`
+	Name     pulumi.StringInput `pulumi:"name"`
+	// The schema from which to return the tasks from.
 	Schema    pulumi.StringInput `pulumi:"schema"`
 	Warehouse pulumi.StringInput `pulumi:"warehouse"`
 }
@@ -4705,7 +4981,7 @@ func (i GetTasksTaskArgs) ToGetTasksTaskOutputWithContext(ctx context.Context) G
 // GetTasksTaskArrayInput is an input type that accepts GetTasksTaskArray and GetTasksTaskArrayOutput values.
 // You can construct a concrete instance of `GetTasksTaskArrayInput` via:
 //
-//          GetTasksTaskArray{ GetTasksTaskArgs{...} }
+//	GetTasksTaskArray{ GetTasksTaskArgs{...} }
 type GetTasksTaskArrayInput interface {
 	pulumi.Input
 
@@ -4745,6 +5021,7 @@ func (o GetTasksTaskOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTasksTask) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// The database from which to return the schemas from.
 func (o GetTasksTaskOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTasksTask) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -4753,6 +5030,7 @@ func (o GetTasksTaskOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTasksTask) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the tasks from.
 func (o GetTasksTaskOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTasksTask) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -4800,7 +5078,7 @@ type GetUsersUser struct {
 // GetUsersUserInput is an input type that accepts GetUsersUserArgs and GetUsersUserOutput values.
 // You can construct a concrete instance of `GetUsersUserInput` via:
 //
-//          GetUsersUserArgs{...}
+//	GetUsersUserArgs{...}
 type GetUsersUserInput interface {
 	pulumi.Input
 
@@ -4839,7 +5117,7 @@ func (i GetUsersUserArgs) ToGetUsersUserOutputWithContext(ctx context.Context) G
 // GetUsersUserArrayInput is an input type that accepts GetUsersUserArray and GetUsersUserArrayOutput values.
 // You can construct a concrete instance of `GetUsersUserArrayInput` via:
 //
-//          GetUsersUserArray{ GetUsersUserArgs{...} }
+//	GetUsersUserArray{ GetUsersUserArgs{...} }
 type GetUsersUserArrayInput interface {
 	pulumi.Input
 
@@ -4948,16 +5226,18 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 type GetViewsView struct {
-	Comment  string `pulumi:"comment"`
+	Comment string `pulumi:"comment"`
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	Name     string `pulumi:"name"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the views from.
+	Schema string `pulumi:"schema"`
 }
 
 // GetViewsViewInput is an input type that accepts GetViewsViewArgs and GetViewsViewOutput values.
 // You can construct a concrete instance of `GetViewsViewInput` via:
 //
-//          GetViewsViewArgs{...}
+//	GetViewsViewArgs{...}
 type GetViewsViewInput interface {
 	pulumi.Input
 
@@ -4966,10 +5246,12 @@ type GetViewsViewInput interface {
 }
 
 type GetViewsViewArgs struct {
-	Comment  pulumi.StringInput `pulumi:"comment"`
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
 	Name     pulumi.StringInput `pulumi:"name"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the views from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetViewsViewArgs) ElementType() reflect.Type {
@@ -4987,7 +5269,7 @@ func (i GetViewsViewArgs) ToGetViewsViewOutputWithContext(ctx context.Context) G
 // GetViewsViewArrayInput is an input type that accepts GetViewsViewArray and GetViewsViewArrayOutput values.
 // You can construct a concrete instance of `GetViewsViewArrayInput` via:
 //
-//          GetViewsViewArray{ GetViewsViewArgs{...} }
+//	GetViewsViewArray{ GetViewsViewArgs{...} }
 type GetViewsViewArrayInput interface {
 	pulumi.Input
 
@@ -5027,6 +5309,7 @@ func (o GetViewsViewOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetViewsView) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// The database from which to return the schemas from.
 func (o GetViewsViewOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetViewsView) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -5035,6 +5318,7 @@ func (o GetViewsViewOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetViewsView) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the views from.
 func (o GetViewsViewOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetViewsView) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -5071,7 +5355,7 @@ type GetWarehousesWarehouse struct {
 // GetWarehousesWarehouseInput is an input type that accepts GetWarehousesWarehouseArgs and GetWarehousesWarehouseOutput values.
 // You can construct a concrete instance of `GetWarehousesWarehouseInput` via:
 //
-//          GetWarehousesWarehouseArgs{...}
+//	GetWarehousesWarehouseArgs{...}
 type GetWarehousesWarehouseInput interface {
 	pulumi.Input
 
@@ -5103,7 +5387,7 @@ func (i GetWarehousesWarehouseArgs) ToGetWarehousesWarehouseOutputWithContext(ct
 // GetWarehousesWarehouseArrayInput is an input type that accepts GetWarehousesWarehouseArray and GetWarehousesWarehouseArrayOutput values.
 // You can construct a concrete instance of `GetWarehousesWarehouseArrayInput` via:
 //
-//          GetWarehousesWarehouseArray{ GetWarehousesWarehouseArgs{...} }
+//	GetWarehousesWarehouseArray{ GetWarehousesWarehouseArgs{...} }
 type GetWarehousesWarehouseArrayInput interface {
 	pulumi.Input
 

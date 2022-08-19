@@ -19,7 +19,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/stageGrant:StageGrant")]
-    public partial class StageGrant : Pulumi.CustomResource
+    public partial class StageGrant : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the database containing the current stage on which to grant privileges.
@@ -35,9 +35,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> EnableMultipleGrants { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future stages in the given schema. When
-        /// this is true and no schema_name is provided apply this grant on all future stages in the given database. The stage_name
-        /// field must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
         /// </summary>
         [Output("onFuture")]
         public Output<bool?> OnFuture { get; private set; } = null!;
@@ -116,7 +114,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class StageGrantArgs : Pulumi.ResourceArgs
+    public sealed class StageGrantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database containing the current stage on which to grant privileges.
@@ -132,9 +130,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future stages in the given schema. When
-        /// this is true and no schema_name is provided apply this grant on all future stages in the given database. The stage_name
-        /// field must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -178,9 +174,10 @@ namespace Pulumi.Snowflake
         public StageGrantArgs()
         {
         }
+        public static new StageGrantArgs Empty => new StageGrantArgs();
     }
 
-    public sealed class StageGrantState : Pulumi.ResourceArgs
+    public sealed class StageGrantState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database containing the current stage on which to grant privileges.
@@ -196,9 +193,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future stages in the given schema. When
-        /// this is true and no schema_name is provided apply this grant on all future stages in the given database. The stage_name
-        /// field must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -242,5 +237,6 @@ namespace Pulumi.Snowflake
         public StageGrantState()
         {
         }
+        public static new StageGrantState Empty => new StageGrantState();
     }
 }

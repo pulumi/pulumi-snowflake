@@ -13,27 +13,25 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var view = new Snowflake.MaterializedView("view", new()
     ///     {
-    ///         var view = new Snowflake.MaterializedView("view", new Snowflake.MaterializedViewArgs
-    ///         {
-    ///             Database = "db",
-    ///             Schema = "schema",
-    ///             Warehouse = "warehouse",
-    ///             Comment = "comment",
-    ///             Statement = @"select * from foo;
+    ///         Database = "db",
+    ///         Schema = "schema",
+    ///         Warehouse = "warehouse",
+    ///         Comment = "comment",
+    ///         Statement = @"select * from foo;
     /// ",
-    ///             OrReplace = false,
-    ///             IsSecure = false,
-    ///         });
-    ///     }
+    ///         OrReplace = false,
+    ///         IsSecure = false,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/materializedView:MaterializedView")]
-    public partial class MaterializedView : Pulumi.CustomResource
+    public partial class MaterializedView : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies a comment for the view.
@@ -145,7 +143,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class MaterializedViewArgs : Pulumi.ResourceArgs
+    public sealed class MaterializedViewArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a comment for the view.
@@ -210,9 +208,10 @@ namespace Pulumi.Snowflake
         public MaterializedViewArgs()
         {
         }
+        public static new MaterializedViewArgs Empty => new MaterializedViewArgs();
     }
 
-    public sealed class MaterializedViewState : Pulumi.ResourceArgs
+    public sealed class MaterializedViewState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a comment for the view.
@@ -277,5 +276,6 @@ namespace Pulumi.Snowflake
         public MaterializedViewState()
         {
         }
+        public static new MaterializedViewState Empty => new MaterializedViewState();
     }
 }

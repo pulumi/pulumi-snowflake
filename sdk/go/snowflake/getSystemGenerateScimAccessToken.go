@@ -16,21 +16,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.GetSystemGenerateScimAccessToken(ctx, &GetSystemGenerateScimAccessTokenArgs{
-// 			IntegrationName: "AAD_PROVISIONING",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.GetSystemGenerateScimAccessToken(ctx, &GetSystemGenerateScimAccessTokenArgs{
+//				IntegrationName: "AAD_PROVISIONING",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetSystemGenerateScimAccessToken(ctx *pulumi.Context, args *GetSystemGenerateScimAccessTokenArgs, opts ...pulumi.InvokeOption) (*GetSystemGenerateScimAccessTokenResult, error) {
 	var rv GetSystemGenerateScimAccessTokenResult
@@ -43,14 +46,17 @@ func GetSystemGenerateScimAccessToken(ctx *pulumi.Context, args *GetSystemGenera
 
 // A collection of arguments for invoking getSystemGenerateScimAccessToken.
 type GetSystemGenerateScimAccessTokenArgs struct {
+	// SCIM Integration Name
 	IntegrationName string `pulumi:"integrationName"`
 }
 
 // A collection of values returned by getSystemGenerateScimAccessToken.
 type GetSystemGenerateScimAccessTokenResult struct {
+	// SCIM Access Token
 	AccessToken string `pulumi:"accessToken"`
 	// The provider-assigned unique ID for this managed resource.
-	Id              string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// SCIM Integration Name
 	IntegrationName string `pulumi:"integrationName"`
 }
 
@@ -69,6 +75,7 @@ func GetSystemGenerateScimAccessTokenOutput(ctx *pulumi.Context, args GetSystemG
 
 // A collection of arguments for invoking getSystemGenerateScimAccessToken.
 type GetSystemGenerateScimAccessTokenOutputArgs struct {
+	// SCIM Integration Name
 	IntegrationName pulumi.StringInput `pulumi:"integrationName"`
 }
 
@@ -91,6 +98,7 @@ func (o GetSystemGenerateScimAccessTokenResultOutput) ToGetSystemGenerateScimAcc
 	return o
 }
 
+// SCIM Access Token
 func (o GetSystemGenerateScimAccessTokenResultOutput) AccessToken() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSystemGenerateScimAccessTokenResult) string { return v.AccessToken }).(pulumi.StringOutput)
 }
@@ -100,6 +108,7 @@ func (o GetSystemGenerateScimAccessTokenResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSystemGenerateScimAccessTokenResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// SCIM Integration Name
 func (o GetSystemGenerateScimAccessTokenResultOutput) IntegrationName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSystemGenerateScimAccessTokenResult) string { return v.IntegrationName }).(pulumi.StringOutput)
 }

@@ -66,8 +66,7 @@ export class ExternalTable extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
-     * created.
+     * Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
      */
     public readonly autoRefresh!: pulumi.Output<boolean | undefined>;
     /**
@@ -83,8 +82,7 @@ export class ExternalTable extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
-     * OR REPLACE TABLE variant
+     * Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
      */
     public readonly copyGrants!: pulumi.Output<boolean | undefined>;
     /**
@@ -100,8 +98,7 @@ export class ExternalTable extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
-     * is created.
+     * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -200,8 +197,7 @@ export class ExternalTable extends pulumi.CustomResource {
  */
 export interface ExternalTableState {
     /**
-     * Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
-     * created.
+     * Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
      */
     autoRefresh?: pulumi.Input<boolean>;
     /**
@@ -217,8 +213,7 @@ export interface ExternalTableState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
-     * OR REPLACE TABLE variant
+     * Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
      */
     copyGrants?: pulumi.Input<boolean>;
     /**
@@ -234,8 +229,7 @@ export interface ExternalTableState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
-     * is created.
+     * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -269,8 +263,7 @@ export interface ExternalTableState {
  */
 export interface ExternalTableArgs {
     /**
-     * Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
-     * created.
+     * Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
      */
     autoRefresh?: pulumi.Input<boolean>;
     /**
@@ -286,8 +279,7 @@ export interface ExternalTableArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
-     * OR REPLACE TABLE variant
+     * Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
      */
     copyGrants?: pulumi.Input<boolean>;
     /**
@@ -303,8 +295,7 @@ export interface ExternalTableArgs {
      */
     location: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
-     * is created.
+     * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
      */
     name?: pulumi.Input<string>;
     /**

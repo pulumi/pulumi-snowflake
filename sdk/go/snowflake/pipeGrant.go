@@ -17,30 +17,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewPipeGrant(ctx, "grant", &snowflake.PipeGrantArgs{
-// 			DatabaseName: pulumi.String("db"),
-// 			OnFuture:     pulumi.Bool(false),
-// 			PipeName:     pulumi.String("pipe"),
-// 			Privilege:    pulumi.String("operate"),
-// 			Roles: pulumi.StringArray{
-// 				pulumi.String("role1"),
-// 				pulumi.String("role2"),
-// 			},
-// 			SchemaName:      pulumi.String("schema"),
-// 			WithGrantOption: pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewPipeGrant(ctx, "grant", &snowflake.PipeGrantArgs{
+//				DatabaseName: pulumi.String("db"),
+//				OnFuture:     pulumi.Bool(false),
+//				PipeName:     pulumi.String("pipe"),
+//				Privilege:    pulumi.String("operate"),
+//				Roles: pulumi.StringArray{
+//					pulumi.String("role1"),
+//					pulumi.String("role2"),
+//				},
+//				SchemaName:      pulumi.String("schema"),
+//				WithGrantOption: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // # format is database name | schema name | pipe name | privilege | true/false for with_grant_option
 //
 // ```sh
-//  $ pulumi import snowflake:index/pipeGrant:PipeGrant example 'dbName|schemaName|pipeName|OPERATE|false'
+//
+//	$ pulumi import snowflake:index/pipeGrant:PipeGrant example 'dbName|schemaName|pipeName|OPERATE|false'
+//
 // ```
 type PipeGrant struct {
 	pulumi.CustomResourceState
@@ -58,11 +63,9 @@ type PipeGrant struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-	// this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-	// field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
-	// The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the pipe on which to grant privileges immediately (only valid if onFuture is false).
 	PipeName pulumi.StringPtrOutput `pulumi:"pipeName"`
 	// The privilege to grant on the current or future pipe.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
@@ -114,11 +117,9 @@ type pipeGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-	// this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-	// field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
 	OnFuture *bool `pulumi:"onFuture"`
-	// The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the pipe on which to grant privileges immediately (only valid if onFuture is false).
 	PipeName *string `pulumi:"pipeName"`
 	// The privilege to grant on the current or future pipe.
 	Privilege *string `pulumi:"privilege"`
@@ -136,11 +137,9 @@ type PipeGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-	// this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-	// field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrInput
-	// The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the pipe on which to grant privileges immediately (only valid if onFuture is false).
 	PipeName pulumi.StringPtrInput
 	// The privilege to grant on the current or future pipe.
 	Privilege pulumi.StringPtrInput
@@ -162,11 +161,9 @@ type pipeGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-	// this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-	// field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
 	OnFuture *bool `pulumi:"onFuture"`
-	// The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the pipe on which to grant privileges immediately (only valid if onFuture is false).
 	PipeName *string `pulumi:"pipeName"`
 	// The privilege to grant on the current or future pipe.
 	Privilege *string `pulumi:"privilege"`
@@ -185,11 +182,9 @@ type PipeGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-	// this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-	// field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrInput
-	// The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the pipe on which to grant privileges immediately (only valid if onFuture is false).
 	PipeName pulumi.StringPtrInput
 	// The privilege to grant on the current or future pipe.
 	Privilege pulumi.StringPtrInput
@@ -227,7 +222,7 @@ func (i *PipeGrant) ToPipeGrantOutputWithContext(ctx context.Context) PipeGrantO
 // PipeGrantArrayInput is an input type that accepts PipeGrantArray and PipeGrantArrayOutput values.
 // You can construct a concrete instance of `PipeGrantArrayInput` via:
 //
-//          PipeGrantArray{ PipeGrantArgs{...} }
+//	PipeGrantArray{ PipeGrantArgs{...} }
 type PipeGrantArrayInput interface {
 	pulumi.Input
 
@@ -252,7 +247,7 @@ func (i PipeGrantArray) ToPipeGrantArrayOutputWithContext(ctx context.Context) P
 // PipeGrantMapInput is an input type that accepts PipeGrantMap and PipeGrantMapOutput values.
 // You can construct a concrete instance of `PipeGrantMapInput` via:
 //
-//          PipeGrantMap{ "key": PipeGrantArgs{...} }
+//	PipeGrantMap{ "key": PipeGrantArgs{...} }
 type PipeGrantMapInput interface {
 	pulumi.Input
 
@@ -299,14 +294,12 @@ func (o PipeGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PipeGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }
 
-// When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-// this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-// field must be unset in order to use on_future.
+// When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
 func (o PipeGrantOutput) OnFuture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PipeGrant) pulumi.BoolPtrOutput { return v.OnFuture }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
+// The name of the pipe on which to grant privileges immediately (only valid if onFuture is false).
 func (o PipeGrantOutput) PipeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeGrant) pulumi.StringPtrOutput { return v.PipeName }).(pulumi.StringPtrOutput)
 }

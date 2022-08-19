@@ -13,26 +13,24 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var grant = new Snowflake.WarehouseGrant("grant", new()
     ///     {
-    ///         var grant = new Snowflake.WarehouseGrant("grant", new Snowflake.WarehouseGrantArgs
+    ///         Privilege = "MODIFY",
+    ///         Roles = new[]
     ///         {
-    ///             Privilege = "MODIFY",
-    ///             Roles = 
-    ///             {
-    ///                 "role1",
-    ///             },
-    ///             WarehouseName = "wh",
-    ///             WithGrantOption = false,
-    ///         });
-    ///     }
+    ///             "role1",
+    ///         },
+    ///         WarehouseName = "wh",
+    ///         WithGrantOption = false,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/warehouseGrant:WarehouseGrant")]
-    public partial class WarehouseGrant : Pulumi.CustomResource
+    public partial class WarehouseGrant : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -121,7 +119,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class WarehouseGrantArgs : Pulumi.ResourceArgs
+    public sealed class WarehouseGrantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -163,9 +161,10 @@ namespace Pulumi.Snowflake
         public WarehouseGrantArgs()
         {
         }
+        public static new WarehouseGrantArgs Empty => new WarehouseGrantArgs();
     }
 
-    public sealed class WarehouseGrantState : Pulumi.ResourceArgs
+    public sealed class WarehouseGrantState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -207,5 +206,6 @@ namespace Pulumi.Snowflake
         public WarehouseGrantState()
         {
         }
+        public static new WarehouseGrantState Empty => new WarehouseGrantState();
     }
 }

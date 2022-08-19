@@ -82,6 +82,7 @@ from .stream_grant import *
 from .table import *
 from .table_grant import *
 from .tag import *
+from .tag_grant import *
 from .task import *
 from .task_grant import *
 from .user import *
@@ -486,6 +487,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/tag:Tag": "Tag"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/tagGrant",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/tagGrant:TagGrant": "TagGrant"
   }
  },
  {

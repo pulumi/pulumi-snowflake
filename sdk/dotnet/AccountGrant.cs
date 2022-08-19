@@ -13,26 +13,24 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var grant = new Snowflake.AccountGrant("grant", new()
     ///     {
-    ///         var grant = new Snowflake.AccountGrant("grant", new Snowflake.AccountGrantArgs
+    ///         Privilege = "CREATE ROLE",
+    ///         Roles = new[]
     ///         {
-    ///             Privilege = "CREATE ROLE",
-    ///             Roles = 
-    ///             {
-    ///                 "role1",
-    ///                 "role2",
-    ///             },
-    ///             WithGrantOption = false,
-    ///         });
-    ///     }
+    ///             "role1",
+    ///             "role2",
+    ///         },
+    ///         WithGrantOption = false,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/accountGrant:AccountGrant")]
-    public partial class AccountGrant : Pulumi.CustomResource
+    public partial class AccountGrant : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -115,7 +113,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class AccountGrantArgs : Pulumi.ResourceArgs
+    public sealed class AccountGrantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -151,9 +149,10 @@ namespace Pulumi.Snowflake
         public AccountGrantArgs()
         {
         }
+        public static new AccountGrantArgs Empty => new AccountGrantArgs();
     }
 
-    public sealed class AccountGrantState : Pulumi.ResourceArgs
+    public sealed class AccountGrantState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -189,5 +188,6 @@ namespace Pulumi.Snowflake
         public AccountGrantState()
         {
         }
+        public static new AccountGrantState Empty => new AccountGrantState();
     }
 }

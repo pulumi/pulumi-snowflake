@@ -13,29 +13,27 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var grant = new Snowflake.RowAccessPolicyGrant("grant", new()
     ///     {
-    ///         var grant = new Snowflake.RowAccessPolicyGrant("grant", new Snowflake.RowAccessPolicyGrantArgs
+    ///         DatabaseName = "db",
+    ///         Privilege = "APPLY",
+    ///         Roles = new[]
     ///         {
-    ///             DatabaseName = "db",
-    ///             Privilege = "APPLY",
-    ///             Roles = 
-    ///             {
-    ///                 "role1",
-    ///                 "role2",
-    ///             },
-    ///             RowAccessPolicyName = "row_access_policy",
-    ///             SchemaName = "schema",
-    ///             WithGrantOption = false,
-    ///         });
-    ///     }
+    ///             "role1",
+    ///             "role2",
+    ///         },
+    ///         RowAccessPolicyName = "row_access_policy",
+    ///         SchemaName = "schema",
+    ///         WithGrantOption = false,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant")]
-    public partial class RowAccessPolicyGrant : Pulumi.CustomResource
+    public partial class RowAccessPolicyGrant : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the database containing the row access policy on which to grant privileges.
@@ -136,7 +134,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class RowAccessPolicyGrantArgs : Pulumi.ResourceArgs
+    public sealed class RowAccessPolicyGrantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database containing the row access policy on which to grant privileges.
@@ -190,9 +188,10 @@ namespace Pulumi.Snowflake
         public RowAccessPolicyGrantArgs()
         {
         }
+        public static new RowAccessPolicyGrantArgs Empty => new RowAccessPolicyGrantArgs();
     }
 
-    public sealed class RowAccessPolicyGrantState : Pulumi.ResourceArgs
+    public sealed class RowAccessPolicyGrantState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database containing the row access policy on which to grant privileges.
@@ -246,5 +245,6 @@ namespace Pulumi.Snowflake
         public RowAccessPolicyGrantState()
         {
         }
+        public static new RowAccessPolicyGrantState Empty => new RowAccessPolicyGrantState();
     }
 }

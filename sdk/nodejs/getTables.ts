@@ -34,7 +34,13 @@ export function getTables(args: GetTablesArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getTables.
  */
 export interface GetTablesArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
+    /**
+     * The schema from which to return the tables from.
+     */
     schema: string;
 }
 
@@ -42,12 +48,21 @@ export interface GetTablesArgs {
  * A collection of values returned by getTables.
  */
 export interface GetTablesResult {
+    /**
+     * The database from which to return the schemas from.
+     */
     readonly database: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The schema from which to return the tables from.
+     */
     readonly schema: string;
+    /**
+     * The tables in the schema
+     */
     readonly tables: outputs.GetTablesTable[];
 }
 
@@ -59,6 +74,12 @@ export function getTablesOutput(args: GetTablesOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getTables.
  */
 export interface GetTablesOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the tables from.
+     */
     schema: pulumi.Input<string>;
 }
