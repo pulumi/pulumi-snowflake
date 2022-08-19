@@ -13,26 +13,24 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var attach = new Snowflake.NetworkPolicyAttachment("attach", new()
     ///     {
-    ///         var attach = new Snowflake.NetworkPolicyAttachment("attach", new Snowflake.NetworkPolicyAttachmentArgs
+    ///         NetworkPolicyName = "policy",
+    ///         SetForAccount = false,
+    ///         Users = new[]
     ///         {
-    ///             NetworkPolicyName = "policy",
-    ///             SetForAccount = false,
-    ///             Users = 
-    ///             {
-    ///                 "user1",
-    ///                 "user2",
-    ///             },
-    ///         });
-    ///     }
+    ///             "user1",
+    ///             "user2",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment")]
-    public partial class NetworkPolicyAttachment : Pulumi.CustomResource
+    public partial class NetworkPolicyAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
@@ -111,7 +109,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class NetworkPolicyAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class NetworkPolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
@@ -145,9 +143,10 @@ namespace Pulumi.Snowflake
         public NetworkPolicyAttachmentArgs()
         {
         }
+        public static new NetworkPolicyAttachmentArgs Empty => new NetworkPolicyAttachmentArgs();
     }
 
-    public sealed class NetworkPolicyAttachmentState : Pulumi.ResourceArgs
+    public sealed class NetworkPolicyAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
@@ -181,5 +180,6 @@ namespace Pulumi.Snowflake
         public NetworkPolicyAttachmentState()
         {
         }
+        public static new NetworkPolicyAttachmentState Empty => new NetworkPolicyAttachmentState();
     }
 }

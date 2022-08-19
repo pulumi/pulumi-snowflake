@@ -33,11 +33,20 @@ export function getCurrentAccount(opts?: pulumi.InvokeOptions): Promise<GetCurre
  * A collection of values returned by getCurrentAccount.
  */
 export interface GetCurrentAccountResult {
+    /**
+     * The Snowflake Account ID; as returned by CURRENT_ACCOUNT().
+     */
     readonly account: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The Snowflake Region; as returned by CURRENT_REGION()
+     */
     readonly region: string;
+    /**
+     * The Snowflake URL.
+     */
     readonly url: string;
 }

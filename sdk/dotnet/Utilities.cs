@@ -74,7 +74,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    internal sealed class SnowflakeResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    internal sealed class SnowflakeResourceTypeAttribute : global::Pulumi.ResourceTypeAttribute
     {
         public SnowflakeResourceTypeAttribute(string type) : base(type, Utilities.Version)
         {

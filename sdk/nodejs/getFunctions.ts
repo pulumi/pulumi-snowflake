@@ -34,7 +34,13 @@ export function getFunctions(args: GetFunctionsArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getFunctions.
  */
 export interface GetFunctionsArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
+    /**
+     * The schema from which to return the functions from.
+     */
     schema: string;
 }
 
@@ -42,12 +48,21 @@ export interface GetFunctionsArgs {
  * A collection of values returned by getFunctions.
  */
 export interface GetFunctionsResult {
+    /**
+     * The database from which to return the schemas from.
+     */
     readonly database: string;
+    /**
+     * The functions in the schema
+     */
     readonly functions: outputs.GetFunctionsFunction[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The schema from which to return the functions from.
+     */
     readonly schema: string;
 }
 
@@ -59,6 +74,12 @@ export function getFunctionsOutput(args: GetFunctionsOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getFunctions.
  */
 export interface GetFunctionsOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the functions from.
+     */
     schema: pulumi.Input<string>;
 }

@@ -171,7 +171,7 @@ func (i *MaskingPolicyGrant) ToMaskingPolicyGrantOutputWithContext(ctx context.C
 // MaskingPolicyGrantArrayInput is an input type that accepts MaskingPolicyGrantArray and MaskingPolicyGrantArrayOutput values.
 // You can construct a concrete instance of `MaskingPolicyGrantArrayInput` via:
 //
-//          MaskingPolicyGrantArray{ MaskingPolicyGrantArgs{...} }
+//	MaskingPolicyGrantArray{ MaskingPolicyGrantArgs{...} }
 type MaskingPolicyGrantArrayInput interface {
 	pulumi.Input
 
@@ -196,7 +196,7 @@ func (i MaskingPolicyGrantArray) ToMaskingPolicyGrantArrayOutputWithContext(ctx 
 // MaskingPolicyGrantMapInput is an input type that accepts MaskingPolicyGrantMap and MaskingPolicyGrantMapOutput values.
 // You can construct a concrete instance of `MaskingPolicyGrantMapInput` via:
 //
-//          MaskingPolicyGrantMap{ "key": MaskingPolicyGrantArgs{...} }
+//	MaskingPolicyGrantMap{ "key": MaskingPolicyGrantArgs{...} }
 type MaskingPolicyGrantMapInput interface {
 	pulumi.Input
 

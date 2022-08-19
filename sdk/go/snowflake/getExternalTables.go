@@ -16,22 +16,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.GetExternalTables(ctx, &GetExternalTablesArgs{
-// 			Database: "MYDB",
-// 			Schema:   "MYSCHEMA",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.GetExternalTables(ctx, &GetExternalTablesArgs{
+//				Database: "MYDB",
+//				Schema:   "MYSCHEMA",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetExternalTables(ctx *pulumi.Context, args *GetExternalTablesArgs, opts ...pulumi.InvokeOption) (*GetExternalTablesResult, error) {
 	var rv GetExternalTablesResult
@@ -44,16 +47,21 @@ func GetExternalTables(ctx *pulumi.Context, args *GetExternalTablesArgs, opts ..
 
 // A collection of arguments for invoking getExternalTables.
 type GetExternalTablesArgs struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the external tables from.
+	Schema string `pulumi:"schema"`
 }
 
 // A collection of values returned by getExternalTables.
 type GetExternalTablesResult struct {
-	Database       string                           `pulumi:"database"`
+	// The database from which to return the schemas from.
+	Database string `pulumi:"database"`
+	// The external tables in the schema
 	ExternalTables []GetExternalTablesExternalTable `pulumi:"externalTables"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The schema from which to return the external tables from.
 	Schema string `pulumi:"schema"`
 }
 
@@ -72,8 +80,10 @@ func GetExternalTablesOutput(ctx *pulumi.Context, args GetExternalTablesOutputAr
 
 // A collection of arguments for invoking getExternalTables.
 type GetExternalTablesOutputArgs struct {
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the external tables from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetExternalTablesOutputArgs) ElementType() reflect.Type {
@@ -95,10 +105,12 @@ func (o GetExternalTablesResultOutput) ToGetExternalTablesResultOutputWithContex
 	return o
 }
 
+// The database from which to return the schemas from.
 func (o GetExternalTablesResultOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExternalTablesResult) string { return v.Database }).(pulumi.StringOutput)
 }
 
+// The external tables in the schema
 func (o GetExternalTablesResultOutput) ExternalTables() GetExternalTablesExternalTableArrayOutput {
 	return o.ApplyT(func(v GetExternalTablesResult) []GetExternalTablesExternalTable { return v.ExternalTables }).(GetExternalTablesExternalTableArrayOutput)
 }
@@ -108,6 +120,7 @@ func (o GetExternalTablesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExternalTablesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the external tables from.
 func (o GetExternalTablesResultOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExternalTablesResult) string { return v.Schema }).(pulumi.StringOutput)
 }

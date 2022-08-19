@@ -19,7 +19,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/function:Function")]
-    public partial class Function : Pulumi.CustomResource
+    public partial class Function : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of the arguments for the function
@@ -58,8 +58,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Language { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
-        /// Don't use the | character.
+        /// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -71,9 +70,7 @@ namespace Pulumi.Snowflake
         public Output<string?> NullInputBehavior { get; private set; } = null!;
 
         /// <summary>
-        /// List of package imports to use for Java / Python functions. For Java, package imports should be of the form:
-        /// package_name:version_number, where package_name is snowflake_domain:package. For Python use it should be:
-        /// ('numpy','pandas','xgboost==1.5.0').
+        /// List of package imports to use for Java / Python functions. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
         /// </summary>
         [Output("packages")]
         public Output<ImmutableArray<string>> Packages { get; private set; } = null!;
@@ -109,8 +106,7 @@ namespace Pulumi.Snowflake
         public Output<string> Statement { get; private set; } = null!;
 
         /// <summary>
-        /// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is
-        /// the path of the Python files.
+        /// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
         /// </summary>
         [Output("targetPath")]
         public Output<string?> TargetPath { get; private set; } = null!;
@@ -159,7 +155,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class FunctionArgs : Pulumi.ResourceArgs
+    public sealed class FunctionArgs : global::Pulumi.ResourceArgs
     {
         [Input("arguments")]
         private InputList<Inputs.FunctionArgumentArgs>? _arguments;
@@ -210,8 +206,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Language { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
-        /// Don't use the | character.
+        /// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -226,9 +221,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _packages;
 
         /// <summary>
-        /// List of package imports to use for Java / Python functions. For Java, package imports should be of the form:
-        /// package_name:version_number, where package_name is snowflake_domain:package. For Python use it should be:
-        /// ('numpy','pandas','xgboost==1.5.0').
+        /// List of package imports to use for Java / Python functions. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
         /// </summary>
         public InputList<string> Packages
         {
@@ -267,8 +260,7 @@ namespace Pulumi.Snowflake
         public Input<string> Statement { get; set; } = null!;
 
         /// <summary>
-        /// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is
-        /// the path of the Python files.
+        /// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
         /// </summary>
         [Input("targetPath")]
         public Input<string>? TargetPath { get; set; }
@@ -276,9 +268,10 @@ namespace Pulumi.Snowflake
         public FunctionArgs()
         {
         }
+        public static new FunctionArgs Empty => new FunctionArgs();
     }
 
-    public sealed class FunctionState : Pulumi.ResourceArgs
+    public sealed class FunctionState : global::Pulumi.ResourceArgs
     {
         [Input("arguments")]
         private InputList<Inputs.FunctionArgumentGetArgs>? _arguments;
@@ -329,8 +322,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Language { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
-        /// Don't use the | character.
+        /// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -345,9 +337,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _packages;
 
         /// <summary>
-        /// List of package imports to use for Java / Python functions. For Java, package imports should be of the form:
-        /// package_name:version_number, where package_name is snowflake_domain:package. For Python use it should be:
-        /// ('numpy','pandas','xgboost==1.5.0').
+        /// List of package imports to use for Java / Python functions. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
         /// </summary>
         public InputList<string> Packages
         {
@@ -386,8 +376,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Statement { get; set; }
 
         /// <summary>
-        /// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is
-        /// the path of the Python files.
+        /// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
         /// </summary>
         [Input("targetPath")]
         public Input<string>? TargetPath { get; set; }
@@ -395,5 +384,6 @@ namespace Pulumi.Snowflake
         public FunctionState()
         {
         }
+        public static new FunctionState Empty => new FunctionState();
     }
 }

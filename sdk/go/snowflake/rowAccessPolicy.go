@@ -17,27 +17,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewRowAccessPolicy(ctx, "exampleRowAccessPolicy", &snowflake.RowAccessPolicyArgs{
-// 			Database:            pulumi.String("EXAMPLE_DB"),
-// 			RowAccessExpression: pulumi.String("case when current_role() in ('ANALYST') then true else false end"),
-// 			Schema:              pulumi.String("EXAMPLE_SCHEMA"),
-// 			Signature: pulumi.StringMap{
-// 				"A": pulumi.String("VARCHAR"),
-// 				"B": pulumi.String("VARCHAR"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewRowAccessPolicy(ctx, "exampleRowAccessPolicy", &snowflake.RowAccessPolicyArgs{
+//				Database:            pulumi.String("EXAMPLE_DB"),
+//				RowAccessExpression: pulumi.String("case when current_role() in ('ANALYST') then true else false end"),
+//				Schema:              pulumi.String("EXAMPLE_SCHEMA"),
+//				Signature: pulumi.StringMap{
+//					"A": pulumi.String("VARCHAR"),
+//					"B": pulumi.String("VARCHAR"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // # format is database name | schema name | policy name
 //
 // ```sh
-//  $ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example 'dbName|schemaName|policyName'
+//
+//	$ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example 'dbName|schemaName|policyName'
+//
 // ```
 type RowAccessPolicy struct {
 	pulumi.CustomResourceState
@@ -54,16 +59,13 @@ type RowAccessPolicy struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The database in which to create the row access policy.
 	Database pulumi.StringOutput `pulumi:"database"`
-	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
-	// policy is created.
+	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
 	RowAccessExpression pulumi.StringOutput `pulumi:"rowAccessExpression"`
 	// The schema in which to create the row access policy.
 	Schema pulumi.StringOutput `pulumi:"schema"`
-	// Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A
-	// signature specifies a set of attributes that must be considered to determine whether the row is accessible. The
-	// attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+	// Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
 	Signature pulumi.StringMapOutput `pulumi:"signature"`
 }
 
@@ -112,16 +114,13 @@ type rowAccessPolicyState struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the row access policy.
 	Database *string `pulumi:"database"`
-	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
-	// policy is created.
+	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
 	Name *string `pulumi:"name"`
 	// Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
 	RowAccessExpression *string `pulumi:"rowAccessExpression"`
 	// The schema in which to create the row access policy.
 	Schema *string `pulumi:"schema"`
-	// Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A
-	// signature specifies a set of attributes that must be considered to determine whether the row is accessible. The
-	// attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+	// Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
 	Signature map[string]string `pulumi:"signature"`
 }
 
@@ -130,16 +129,13 @@ type RowAccessPolicyState struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the row access policy.
 	Database pulumi.StringPtrInput
-	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
-	// policy is created.
+	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
 	Name pulumi.StringPtrInput
 	// Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
 	RowAccessExpression pulumi.StringPtrInput
 	// The schema in which to create the row access policy.
 	Schema pulumi.StringPtrInput
-	// Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A
-	// signature specifies a set of attributes that must be considered to determine whether the row is accessible. The
-	// attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+	// Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
 	Signature pulumi.StringMapInput
 }
 
@@ -152,16 +148,13 @@ type rowAccessPolicyArgs struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the row access policy.
 	Database string `pulumi:"database"`
-	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
-	// policy is created.
+	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
 	Name *string `pulumi:"name"`
 	// Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
 	RowAccessExpression string `pulumi:"rowAccessExpression"`
 	// The schema in which to create the row access policy.
 	Schema string `pulumi:"schema"`
-	// Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A
-	// signature specifies a set of attributes that must be considered to determine whether the row is accessible. The
-	// attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+	// Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
 	Signature map[string]string `pulumi:"signature"`
 }
 
@@ -171,16 +164,13 @@ type RowAccessPolicyArgs struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the row access policy.
 	Database pulumi.StringInput
-	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
-	// policy is created.
+	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
 	Name pulumi.StringPtrInput
 	// Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
 	RowAccessExpression pulumi.StringInput
 	// The schema in which to create the row access policy.
 	Schema pulumi.StringInput
-	// Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A
-	// signature specifies a set of attributes that must be considered to determine whether the row is accessible. The
-	// attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+	// Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
 	Signature pulumi.StringMapInput
 }
 
@@ -210,7 +200,7 @@ func (i *RowAccessPolicy) ToRowAccessPolicyOutputWithContext(ctx context.Context
 // RowAccessPolicyArrayInput is an input type that accepts RowAccessPolicyArray and RowAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `RowAccessPolicyArrayInput` via:
 //
-//          RowAccessPolicyArray{ RowAccessPolicyArgs{...} }
+//	RowAccessPolicyArray{ RowAccessPolicyArgs{...} }
 type RowAccessPolicyArrayInput interface {
 	pulumi.Input
 
@@ -235,7 +225,7 @@ func (i RowAccessPolicyArray) ToRowAccessPolicyArrayOutputWithContext(ctx contex
 // RowAccessPolicyMapInput is an input type that accepts RowAccessPolicyMap and RowAccessPolicyMapOutput values.
 // You can construct a concrete instance of `RowAccessPolicyMapInput` via:
 //
-//          RowAccessPolicyMap{ "key": RowAccessPolicyArgs{...} }
+//	RowAccessPolicyMap{ "key": RowAccessPolicyArgs{...} }
 type RowAccessPolicyMapInput interface {
 	pulumi.Input
 
@@ -281,8 +271,7 @@ func (o RowAccessPolicyOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *RowAccessPolicy) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
-// policy is created.
+// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
 func (o RowAccessPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RowAccessPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -297,9 +286,7 @@ func (o RowAccessPolicyOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *RowAccessPolicy) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
 
-// Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A
-// signature specifies a set of attributes that must be considered to determine whether the row is accessible. The
-// attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+// Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
 func (o RowAccessPolicyOutput) Signature() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RowAccessPolicy) pulumi.StringMapOutput { return v.Signature }).(pulumi.StringMapOutput)
 }

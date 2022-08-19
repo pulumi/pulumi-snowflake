@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake.Inputs
 {
 
-    public sealed class TableColumnDefaultArgs : Pulumi.ResourceArgs
+    public sealed class TableColumnDefaultArgs : global::Pulumi.ResourceArgs
     {
         [Input("constant")]
         public Input<string>? Constant { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.Snowflake.Inputs
         public TableColumnDefaultArgs()
         {
         }
+        public static new TableColumnDefaultArgs Empty => new TableColumnDefaultArgs();
     }
 }

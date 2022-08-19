@@ -17,21 +17,19 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Snowflake.GetRowAccessPolicies.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Snowflake.GetRowAccessPolicies.InvokeAsync(new Snowflake.GetRowAccessPoliciesArgs
-        ///         {
-        ///             Database = "MYDB",
-        ///             Schema = "MYSCHEMA",
-        ///         }));
-        ///     }
+        ///         Database = "MYDB",
+        ///         Schema = "MYSCHEMA",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -45,21 +43,19 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Snowflake.GetRowAccessPolicies.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Snowflake.GetRowAccessPolicies.InvokeAsync(new Snowflake.GetRowAccessPoliciesArgs
-        ///         {
-        ///             Database = "MYDB",
-        ///             Schema = "MYSCHEMA",
-        ///         }));
-        ///     }
+        ///         Database = "MYDB",
+        ///         Schema = "MYSCHEMA",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -69,42 +65,65 @@ namespace Pulumi.Snowflake
     }
 
 
-    public sealed class GetRowAccessPoliciesArgs : Pulumi.InvokeArgs
+    public sealed class GetRowAccessPoliciesArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database", required: true)]
         public string Database { get; set; } = null!;
 
+        /// <summary>
+        /// The schema from which to return the row access policyfrom.
+        /// </summary>
         [Input("schema", required: true)]
         public string Schema { get; set; } = null!;
 
         public GetRowAccessPoliciesArgs()
         {
         }
+        public static new GetRowAccessPoliciesArgs Empty => new GetRowAccessPoliciesArgs();
     }
 
-    public sealed class GetRowAccessPoliciesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRowAccessPoliciesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
+        /// <summary>
+        /// The schema from which to return the row access policyfrom.
+        /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
         public GetRowAccessPoliciesInvokeArgs()
         {
         }
+        public static new GetRowAccessPoliciesInvokeArgs Empty => new GetRowAccessPoliciesInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetRowAccessPoliciesResult
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         public readonly string Database;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The row access policy in the schema
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetRowAccessPoliciesRowAccessPolicyResult> RowAccessPolicies;
+        /// <summary>
+        /// The schema from which to return the row access policyfrom.
+        /// </summary>
         public readonly string Schema;
 
         [OutputConstructor]

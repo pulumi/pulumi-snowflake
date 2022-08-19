@@ -16,22 +16,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.GetRowAccessPolicies(ctx, &GetRowAccessPoliciesArgs{
-// 			Database: "MYDB",
-// 			Schema:   "MYSCHEMA",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.GetRowAccessPolicies(ctx, &GetRowAccessPoliciesArgs{
+//				Database: "MYDB",
+//				Schema:   "MYSCHEMA",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetRowAccessPolicies(ctx *pulumi.Context, args *GetRowAccessPoliciesArgs, opts ...pulumi.InvokeOption) (*GetRowAccessPoliciesResult, error) {
 	var rv GetRowAccessPoliciesResult
@@ -44,17 +47,22 @@ func GetRowAccessPolicies(ctx *pulumi.Context, args *GetRowAccessPoliciesArgs, o
 
 // A collection of arguments for invoking getRowAccessPolicies.
 type GetRowAccessPoliciesArgs struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the row access policyfrom.
+	Schema string `pulumi:"schema"`
 }
 
 // A collection of values returned by getRowAccessPolicies.
 type GetRowAccessPoliciesResult struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                string                                `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The row access policy in the schema
 	RowAccessPolicies []GetRowAccessPoliciesRowAccessPolicy `pulumi:"rowAccessPolicies"`
-	Schema            string                                `pulumi:"schema"`
+	// The schema from which to return the row access policyfrom.
+	Schema string `pulumi:"schema"`
 }
 
 func GetRowAccessPoliciesOutput(ctx *pulumi.Context, args GetRowAccessPoliciesOutputArgs, opts ...pulumi.InvokeOption) GetRowAccessPoliciesResultOutput {
@@ -72,8 +80,10 @@ func GetRowAccessPoliciesOutput(ctx *pulumi.Context, args GetRowAccessPoliciesOu
 
 // A collection of arguments for invoking getRowAccessPolicies.
 type GetRowAccessPoliciesOutputArgs struct {
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the row access policyfrom.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetRowAccessPoliciesOutputArgs) ElementType() reflect.Type {
@@ -95,6 +105,7 @@ func (o GetRowAccessPoliciesResultOutput) ToGetRowAccessPoliciesResultOutputWith
 	return o
 }
 
+// The database from which to return the schemas from.
 func (o GetRowAccessPoliciesResultOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRowAccessPoliciesResult) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -104,10 +115,12 @@ func (o GetRowAccessPoliciesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRowAccessPoliciesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The row access policy in the schema
 func (o GetRowAccessPoliciesResultOutput) RowAccessPolicies() GetRowAccessPoliciesRowAccessPolicyArrayOutput {
 	return o.ApplyT(func(v GetRowAccessPoliciesResult) []GetRowAccessPoliciesRowAccessPolicy { return v.RowAccessPolicies }).(GetRowAccessPoliciesRowAccessPolicyArrayOutput)
 }
 
+// The schema from which to return the row access policyfrom.
 func (o GetRowAccessPoliciesResultOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRowAccessPoliciesResult) string { return v.Schema }).(pulumi.StringOutput)
 }

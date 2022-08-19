@@ -13,30 +13,28 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var integration = new Snowflake.NotificationIntegration("integration", new()
     ///     {
-    ///         var integration = new Snowflake.NotificationIntegration("integration", new Snowflake.NotificationIntegrationArgs
-    ///         {
-    ///             AwsSnsRoleArn = "...",
-    ///             AwsSnsTopicArn = "...",
-    ///             AwsSqsArn = "...",
-    ///             AwsSqsRoleArn = "...",
-    ///             AzureStorageQueuePrimaryUri = "...",
-    ///             AzureTenantId = "...",
-    ///             Comment = "A notification integration.",
-    ///             Direction = "OUTBOUND",
-    ///             Enabled = true,
-    ///             NotificationProvider = "AWS_SNS",
-    ///             Type = "QUEUE",
-    ///         });
-    ///     }
+    ///         AwsSnsRoleArn = "...",
+    ///         AwsSnsTopicArn = "...",
+    ///         AwsSqsArn = "...",
+    ///         AwsSqsRoleArn = "...",
+    ///         AzureStorageQueuePrimaryUri = "...",
+    ///         AzureTenantId = "...",
+    ///         Comment = "A notification integration.",
+    ///         Direction = "OUTBOUND",
+    ///         Enabled = true,
+    ///         NotificationProvider = "AWS_SNS",
+    ///         Type = "QUEUE",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/notificationIntegration:NotificationIntegration")]
-    public partial class NotificationIntegration : Pulumi.CustomResource
+    public partial class NotificationIntegration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The external ID that Snowflake will use when assuming the AWS role
@@ -145,7 +143,7 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
+        /// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
         /// </summary>
         [Output("notificationProvider")]
         public Output<string?> NotificationProvider { get; private set; } = null!;
@@ -200,7 +198,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class NotificationIntegrationArgs : Pulumi.ResourceArgs
+    public sealed class NotificationIntegrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AWS IAM role ARN for notification integration to assume
@@ -263,7 +261,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
+        /// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
         /// </summary>
         [Input("notificationProvider")]
         public Input<string>? NotificationProvider { get; set; }
@@ -277,9 +275,10 @@ namespace Pulumi.Snowflake
         public NotificationIntegrationArgs()
         {
         }
+        public static new NotificationIntegrationArgs Empty => new NotificationIntegrationArgs();
     }
 
-    public sealed class NotificationIntegrationState : Pulumi.ResourceArgs
+    public sealed class NotificationIntegrationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The external ID that Snowflake will use when assuming the AWS role
@@ -378,7 +377,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
+        /// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
         /// </summary>
         [Input("notificationProvider")]
         public Input<string>? NotificationProvider { get; set; }
@@ -392,5 +391,6 @@ namespace Pulumi.Snowflake
         public NotificationIntegrationState()
         {
         }
+        public static new NotificationIntegrationState Empty => new NotificationIntegrationState();
     }
 }

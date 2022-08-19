@@ -16,39 +16,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewResourceMonitor(ctx, "monitor", &snowflake.ResourceMonitorArgs{
-// 			CreditQuota:  pulumi.Int(100),
-// 			EndTimestamp: pulumi.String("2021-12-07 00:00"),
-// 			Frequency:    pulumi.String("DAILY"),
-// 			NotifyTriggers: pulumi.IntArray{
-// 				pulumi.Int(40),
-// 			},
-// 			StartTimestamp: pulumi.String("2020-12-07 00:00"),
-// 			SuspendImmediateTriggers: pulumi.IntArray{
-// 				pulumi.Int(90),
-// 			},
-// 			SuspendTriggers: pulumi.IntArray{
-// 				pulumi.Int(50),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewResourceMonitor(ctx, "monitor", &snowflake.ResourceMonitorArgs{
+//				CreditQuota:  pulumi.Int(100),
+//				EndTimestamp: pulumi.String("2021-12-07 00:00"),
+//				Frequency:    pulumi.String("DAILY"),
+//				NotifyTriggers: pulumi.IntArray{
+//					pulumi.Int(40),
+//				},
+//				StartTimestamp: pulumi.String("2020-12-07 00:00"),
+//				SuspendImmediateTriggers: pulumi.IntArray{
+//					pulumi.Int(90),
+//				},
+//				SuspendTriggers: pulumi.IntArray{
+//					pulumi.Int(50),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
 // ```sh
-//  $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example
+//
+//	$ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example
+//
 // ```
 type ResourceMonitor struct {
 	pulumi.CustomResourceState
@@ -57,8 +62,7 @@ type ResourceMonitor struct {
 	CreditQuota pulumi.IntOutput `pulumi:"creditQuota"`
 	// The date and time when the resource monitor suspends the assigned warehouses.
 	EndTimestamp pulumi.StringPtrOutput `pulumi:"endTimestamp"`
-	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
-	// also set START_TIMESTAMP.
+	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
 	Frequency pulumi.StringOutput `pulumi:"frequency"`
 	// Identifier for the resource monitor; must be unique for your account.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -109,8 +113,7 @@ type resourceMonitorState struct {
 	CreditQuota *int `pulumi:"creditQuota"`
 	// The date and time when the resource monitor suspends the assigned warehouses.
 	EndTimestamp *string `pulumi:"endTimestamp"`
-	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
-	// also set START_TIMESTAMP.
+	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
 	Frequency *string `pulumi:"frequency"`
 	// Identifier for the resource monitor; must be unique for your account.
 	Name *string `pulumi:"name"`
@@ -133,8 +136,7 @@ type ResourceMonitorState struct {
 	CreditQuota pulumi.IntPtrInput
 	// The date and time when the resource monitor suspends the assigned warehouses.
 	EndTimestamp pulumi.StringPtrInput
-	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
-	// also set START_TIMESTAMP.
+	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
 	Frequency pulumi.StringPtrInput
 	// Identifier for the resource monitor; must be unique for your account.
 	Name pulumi.StringPtrInput
@@ -161,8 +163,7 @@ type resourceMonitorArgs struct {
 	CreditQuota *int `pulumi:"creditQuota"`
 	// The date and time when the resource monitor suspends the assigned warehouses.
 	EndTimestamp *string `pulumi:"endTimestamp"`
-	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
-	// also set START_TIMESTAMP.
+	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
 	Frequency *string `pulumi:"frequency"`
 	// Identifier for the resource monitor; must be unique for your account.
 	Name *string `pulumi:"name"`
@@ -186,8 +187,7 @@ type ResourceMonitorArgs struct {
 	CreditQuota pulumi.IntPtrInput
 	// The date and time when the resource monitor suspends the assigned warehouses.
 	EndTimestamp pulumi.StringPtrInput
-	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
-	// also set START_TIMESTAMP.
+	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
 	Frequency pulumi.StringPtrInput
 	// Identifier for the resource monitor; must be unique for your account.
 	Name pulumi.StringPtrInput
@@ -231,7 +231,7 @@ func (i *ResourceMonitor) ToResourceMonitorOutputWithContext(ctx context.Context
 // ResourceMonitorArrayInput is an input type that accepts ResourceMonitorArray and ResourceMonitorArrayOutput values.
 // You can construct a concrete instance of `ResourceMonitorArrayInput` via:
 //
-//          ResourceMonitorArray{ ResourceMonitorArgs{...} }
+//	ResourceMonitorArray{ ResourceMonitorArgs{...} }
 type ResourceMonitorArrayInput interface {
 	pulumi.Input
 
@@ -256,7 +256,7 @@ func (i ResourceMonitorArray) ToResourceMonitorArrayOutputWithContext(ctx contex
 // ResourceMonitorMapInput is an input type that accepts ResourceMonitorMap and ResourceMonitorMapOutput values.
 // You can construct a concrete instance of `ResourceMonitorMapInput` via:
 //
-//          ResourceMonitorMap{ "key": ResourceMonitorArgs{...} }
+//	ResourceMonitorMap{ "key": ResourceMonitorArgs{...} }
 type ResourceMonitorMapInput interface {
 	pulumi.Input
 
@@ -302,8 +302,7 @@ func (o ResourceMonitorOutput) EndTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceMonitor) pulumi.StringPtrOutput { return v.EndTimestamp }).(pulumi.StringPtrOutput)
 }
 
-// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
-// also set START_TIMESTAMP.
+// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
 func (o ResourceMonitorOutput) Frequency() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceMonitor) pulumi.StringOutput { return v.Frequency }).(pulumi.StringOutput)
 }

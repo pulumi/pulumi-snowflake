@@ -33,5 +33,8 @@ export interface GetStorageIntegrationsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The storage integrations in the database
+     */
     readonly storageIntegrations: outputs.GetStorageIntegrationsStorageIntegration[];
 }

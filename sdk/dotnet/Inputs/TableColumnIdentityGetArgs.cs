@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake.Inputs
 {
 
-    public sealed class TableColumnIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class TableColumnIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("startNum")]
         public Input<int>? StartNum { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.Snowflake.Inputs
         public TableColumnIdentityGetArgs()
         {
         }
+        public static new TableColumnIdentityGetArgs Empty => new TableColumnIdentityGetArgs();
     }
 }

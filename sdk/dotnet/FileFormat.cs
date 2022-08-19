@@ -13,22 +13,20 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleFileFormat = new Snowflake.FileFormat("exampleFileFormat", new()
     ///     {
-    ///         var exampleFileFormat = new Snowflake.FileFormat("exampleFileFormat", new Snowflake.FileFormatArgs
-    ///         {
-    ///             Database = "EXAMPLE_DB",
-    ///             FormatType = "CSV",
-    ///             Schema = "EXAMPLE_SCHEMA",
-    ///         });
-    ///     }
+    ///         Database = "EXAMPLE_DB",
+    ///         FormatType = "CSV",
+    ///         Schema = "EXAMPLE_SCHEMA",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/fileFormat:FileFormat")]
-    public partial class FileFormat : Pulumi.CustomResource
+    public partial class FileFormat : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Boolean that specifies to allow duplicate object field names (only the last one will be preserved).
@@ -85,8 +83,7 @@ namespace Pulumi.Snowflake
         public Output<string?> DateFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
-        /// native representation.
+        /// Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
         /// </summary>
         [Output("disableAutoConvert")]
         public Output<bool?> DisableAutoConvert { get; private set; } = null!;
@@ -98,8 +95,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> DisableSnowflakeData { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
-        /// delimiters.
+        /// Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
         /// </summary>
         [Output("emptyFieldAsNull")]
         public Output<bool?> EmptyFieldAsNull { get; private set; } = null!;
@@ -117,8 +113,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Encoding { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
-        /// file does not match the number of columns in the corresponding table.
+        /// Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
         /// </summary>
         [Output("errorOnColumnCountMismatch")]
         public Output<bool?> ErrorOnColumnCountMismatch { get; private set; } = null!;
@@ -136,8 +131,7 @@ namespace Pulumi.Snowflake
         public Output<string?> EscapeUnenclosedField { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
-        /// unloaded file (data unloading).
+        /// Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
         /// </summary>
         [Output("fieldDelimiter")]
         public Output<string?> FieldDelimiter { get; private set; } = null!;
@@ -167,8 +161,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> IgnoreUtf8Errors { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
-        /// created.
+        /// Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -186,8 +179,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> PreserveSpace { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
-        /// unloaded file (data unloading).
+        /// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
         /// </summary>
         [Output("recordDelimiter")]
         public Output<string?> RecordDelimiter { get; private set; } = null!;
@@ -235,8 +227,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> StripOuterArray { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
-        /// documents.
+        /// Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
         /// </summary>
         [Output("stripOuterElement")]
         public Output<bool?> StripOuterElement { get; private set; } = null!;
@@ -258,12 +249,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("trimSpace")]
         public Output<bool?> TrimSpace { get; private set; } = null!;
-
-        /// <summary>
-        /// Boolean that specifies whether to validate UTF-8 character encoding in string column data.
-        /// </summary>
-        [Output("validateUtf8")]
-        public Output<bool?> ValidateUtf8 { get; private set; } = null!;
 
 
         /// <summary>
@@ -309,7 +294,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class FileFormatArgs : Pulumi.ResourceArgs
+    public sealed class FileFormatArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean that specifies to allow duplicate object field names (only the last one will be preserved).
@@ -354,8 +339,7 @@ namespace Pulumi.Snowflake
         public Input<string>? DateFormat { get; set; }
 
         /// <summary>
-        /// Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
-        /// native representation.
+        /// Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
         /// </summary>
         [Input("disableAutoConvert")]
         public Input<bool>? DisableAutoConvert { get; set; }
@@ -367,8 +351,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? DisableSnowflakeData { get; set; }
 
         /// <summary>
-        /// Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
-        /// delimiters.
+        /// Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
         /// </summary>
         [Input("emptyFieldAsNull")]
         public Input<bool>? EmptyFieldAsNull { get; set; }
@@ -386,8 +369,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Encoding { get; set; }
 
         /// <summary>
-        /// Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
-        /// file does not match the number of columns in the corresponding table.
+        /// Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
         /// </summary>
         [Input("errorOnColumnCountMismatch")]
         public Input<bool>? ErrorOnColumnCountMismatch { get; set; }
@@ -405,8 +387,7 @@ namespace Pulumi.Snowflake
         public Input<string>? EscapeUnenclosedField { get; set; }
 
         /// <summary>
-        /// Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
-        /// unloaded file (data unloading).
+        /// Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
         /// </summary>
         [Input("fieldDelimiter")]
         public Input<string>? FieldDelimiter { get; set; }
@@ -436,8 +417,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? IgnoreUtf8Errors { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
-        /// created.
+        /// Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -461,8 +441,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? PreserveSpace { get; set; }
 
         /// <summary>
-        /// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
-        /// unloaded file (data unloading).
+        /// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
         /// </summary>
         [Input("recordDelimiter")]
         public Input<string>? RecordDelimiter { get; set; }
@@ -510,8 +489,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? StripOuterArray { get; set; }
 
         /// <summary>
-        /// Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
-        /// documents.
+        /// Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
         /// </summary>
         [Input("stripOuterElement")]
         public Input<bool>? StripOuterElement { get; set; }
@@ -534,18 +512,13 @@ namespace Pulumi.Snowflake
         [Input("trimSpace")]
         public Input<bool>? TrimSpace { get; set; }
 
-        /// <summary>
-        /// Boolean that specifies whether to validate UTF-8 character encoding in string column data.
-        /// </summary>
-        [Input("validateUtf8")]
-        public Input<bool>? ValidateUtf8 { get; set; }
-
         public FileFormatArgs()
         {
         }
+        public static new FileFormatArgs Empty => new FileFormatArgs();
     }
 
-    public sealed class FileFormatState : Pulumi.ResourceArgs
+    public sealed class FileFormatState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean that specifies to allow duplicate object field names (only the last one will be preserved).
@@ -590,8 +563,7 @@ namespace Pulumi.Snowflake
         public Input<string>? DateFormat { get; set; }
 
         /// <summary>
-        /// Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
-        /// native representation.
+        /// Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
         /// </summary>
         [Input("disableAutoConvert")]
         public Input<bool>? DisableAutoConvert { get; set; }
@@ -603,8 +575,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? DisableSnowflakeData { get; set; }
 
         /// <summary>
-        /// Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
-        /// delimiters.
+        /// Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
         /// </summary>
         [Input("emptyFieldAsNull")]
         public Input<bool>? EmptyFieldAsNull { get; set; }
@@ -622,8 +593,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Encoding { get; set; }
 
         /// <summary>
-        /// Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
-        /// file does not match the number of columns in the corresponding table.
+        /// Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
         /// </summary>
         [Input("errorOnColumnCountMismatch")]
         public Input<bool>? ErrorOnColumnCountMismatch { get; set; }
@@ -641,8 +611,7 @@ namespace Pulumi.Snowflake
         public Input<string>? EscapeUnenclosedField { get; set; }
 
         /// <summary>
-        /// Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
-        /// unloaded file (data unloading).
+        /// Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
         /// </summary>
         [Input("fieldDelimiter")]
         public Input<string>? FieldDelimiter { get; set; }
@@ -672,8 +641,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? IgnoreUtf8Errors { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
-        /// created.
+        /// Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -697,8 +665,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? PreserveSpace { get; set; }
 
         /// <summary>
-        /// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
-        /// unloaded file (data unloading).
+        /// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
         /// </summary>
         [Input("recordDelimiter")]
         public Input<string>? RecordDelimiter { get; set; }
@@ -746,8 +713,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? StripOuterArray { get; set; }
 
         /// <summary>
-        /// Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
-        /// documents.
+        /// Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
         /// </summary>
         [Input("stripOuterElement")]
         public Input<bool>? StripOuterElement { get; set; }
@@ -770,14 +736,9 @@ namespace Pulumi.Snowflake
         [Input("trimSpace")]
         public Input<bool>? TrimSpace { get; set; }
 
-        /// <summary>
-        /// Boolean that specifies whether to validate UTF-8 character encoding in string column data.
-        /// </summary>
-        [Input("validateUtf8")]
-        public Input<bool>? ValidateUtf8 { get; set; }
-
         public FileFormatState()
         {
         }
+        public static new FileFormatState Empty => new FileFormatState();
     }
 }

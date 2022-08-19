@@ -17,21 +17,19 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Snowflake.GetFileFormats.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Snowflake.GetFileFormats.InvokeAsync(new Snowflake.GetFileFormatsArgs
-        ///         {
-        ///             Database = "MYDB",
-        ///             Schema = "MYSCHEMA",
-        ///         }));
-        ///     }
+        ///         Database = "MYDB",
+        ///         Schema = "MYSCHEMA",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -45,21 +43,19 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Snowflake.GetFileFormats.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Snowflake.GetFileFormats.InvokeAsync(new Snowflake.GetFileFormatsArgs
-        ///         {
-        ///             Database = "MYDB",
-        ///             Schema = "MYSCHEMA",
-        ///         }));
-        ///     }
+        ///         Database = "MYDB",
+        ///         Schema = "MYSCHEMA",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -69,42 +65,65 @@ namespace Pulumi.Snowflake
     }
 
 
-    public sealed class GetFileFormatsArgs : Pulumi.InvokeArgs
+    public sealed class GetFileFormatsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database", required: true)]
         public string Database { get; set; } = null!;
 
+        /// <summary>
+        /// The schema from which to return the file formats from.
+        /// </summary>
         [Input("schema", required: true)]
         public string Schema { get; set; } = null!;
 
         public GetFileFormatsArgs()
         {
         }
+        public static new GetFileFormatsArgs Empty => new GetFileFormatsArgs();
     }
 
-    public sealed class GetFileFormatsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFileFormatsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
+        /// <summary>
+        /// The schema from which to return the file formats from.
+        /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
         public GetFileFormatsInvokeArgs()
         {
         }
+        public static new GetFileFormatsInvokeArgs Empty => new GetFileFormatsInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetFileFormatsResult
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         public readonly string Database;
+        /// <summary>
+        /// The file formats in the schema
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetFileFormatsFileFormatResult> FileFormats;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The schema from which to return the file formats from.
+        /// </summary>
         public readonly string Schema;
 
         [OutputConstructor]

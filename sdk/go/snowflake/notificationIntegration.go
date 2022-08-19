@@ -16,37 +16,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewNotificationIntegration(ctx, "integration", &snowflake.NotificationIntegrationArgs{
-// 			AwsSnsRoleArn:               pulumi.String("..."),
-// 			AwsSnsTopicArn:              pulumi.String("..."),
-// 			AwsSqsArn:                   pulumi.String("..."),
-// 			AwsSqsRoleArn:               pulumi.String("..."),
-// 			AzureStorageQueuePrimaryUri: pulumi.String("..."),
-// 			AzureTenantId:               pulumi.String("..."),
-// 			Comment:                     pulumi.String("A notification integration."),
-// 			Direction:                   pulumi.String("OUTBOUND"),
-// 			Enabled:                     pulumi.Bool(true),
-// 			NotificationProvider:        pulumi.String("AWS_SNS"),
-// 			Type:                        pulumi.String("QUEUE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewNotificationIntegration(ctx, "integration", &snowflake.NotificationIntegrationArgs{
+//				AwsSnsRoleArn:               pulumi.String("..."),
+//				AwsSnsTopicArn:              pulumi.String("..."),
+//				AwsSqsArn:                   pulumi.String("..."),
+//				AwsSqsRoleArn:               pulumi.String("..."),
+//				AzureStorageQueuePrimaryUri: pulumi.String("..."),
+//				AzureTenantId:               pulumi.String("..."),
+//				Comment:                     pulumi.String("A notification integration."),
+//				Direction:                   pulumi.String("OUTBOUND"),
+//				Enabled:                     pulumi.Bool(true),
+//				NotificationProvider:        pulumi.String("AWS_SNS"),
+//				Type:                        pulumi.String("QUEUE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
 // ```sh
-//  $ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name
+//
+//	$ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name
+//
 // ```
 type NotificationIntegration struct {
 	pulumi.CustomResourceState
@@ -83,7 +88,7 @@ type NotificationIntegration struct {
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName pulumi.StringPtrOutput `pulumi:"gcpPubsubSubscriptionName"`
 	Name                      pulumi.StringOutput    `pulumi:"name"`
-	// The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
+	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
 	NotificationProvider pulumi.StringPtrOutput `pulumi:"notificationProvider"`
 	// A type of integration
 	Type pulumi.StringPtrOutput `pulumi:"type"`
@@ -150,7 +155,7 @@ type notificationIntegrationState struct {
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName *string `pulumi:"gcpPubsubSubscriptionName"`
 	Name                      *string `pulumi:"name"`
-	// The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
+	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
 	NotificationProvider *string `pulumi:"notificationProvider"`
 	// A type of integration
 	Type *string `pulumi:"type"`
@@ -189,7 +194,7 @@ type NotificationIntegrationState struct {
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName pulumi.StringPtrInput
 	Name                      pulumi.StringPtrInput
-	// The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
+	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
 	NotificationProvider pulumi.StringPtrInput
 	// A type of integration
 	Type pulumi.StringPtrInput
@@ -220,7 +225,7 @@ type notificationIntegrationArgs struct {
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName *string `pulumi:"gcpPubsubSubscriptionName"`
 	Name                      *string `pulumi:"name"`
-	// The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
+	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
 	NotificationProvider *string `pulumi:"notificationProvider"`
 	// A type of integration
 	Type *string `pulumi:"type"`
@@ -248,7 +253,7 @@ type NotificationIntegrationArgs struct {
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName pulumi.StringPtrInput
 	Name                      pulumi.StringPtrInput
-	// The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
+	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
 	NotificationProvider pulumi.StringPtrInput
 	// A type of integration
 	Type pulumi.StringPtrInput
@@ -280,7 +285,7 @@ func (i *NotificationIntegration) ToNotificationIntegrationOutputWithContext(ctx
 // NotificationIntegrationArrayInput is an input type that accepts NotificationIntegrationArray and NotificationIntegrationArrayOutput values.
 // You can construct a concrete instance of `NotificationIntegrationArrayInput` via:
 //
-//          NotificationIntegrationArray{ NotificationIntegrationArgs{...} }
+//	NotificationIntegrationArray{ NotificationIntegrationArgs{...} }
 type NotificationIntegrationArrayInput interface {
 	pulumi.Input
 
@@ -305,7 +310,7 @@ func (i NotificationIntegrationArray) ToNotificationIntegrationArrayOutputWithCo
 // NotificationIntegrationMapInput is an input type that accepts NotificationIntegrationMap and NotificationIntegrationMapOutput values.
 // You can construct a concrete instance of `NotificationIntegrationMapInput` via:
 //
-//          NotificationIntegrationMap{ "key": NotificationIntegrationArgs{...} }
+//	NotificationIntegrationMap{ "key": NotificationIntegrationArgs{...} }
 type NotificationIntegrationMapInput interface {
 	pulumi.Input
 
@@ -424,7 +429,7 @@ func (o NotificationIntegrationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The third-party cloud message queuing service (e.g. AZURE_STORAGE_QUEUE, AWS_SQS, AWS_SNS)
+// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
 func (o NotificationIntegrationOutput) NotificationProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringPtrOutput { return v.NotificationProvider }).(pulumi.StringPtrOutput)
 }

@@ -86,13 +86,11 @@ export class Warehouse extends pulumi.CustomResource {
      */
     public readonly resourceMonitor!: pulumi.Output<string>;
     /**
-     * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
-     * Auto-scale mode.
+     * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
      */
     public readonly scalingPolicy!: pulumi.Output<string>;
     /**
-     * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
-     * warehouse before it is canceled by the system.
+     * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
      */
     public readonly statementQueuedTimeoutInSeconds!: pulumi.Output<number | undefined>;
     /**
@@ -104,13 +102,11 @@ export class Warehouse extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<outputs.WarehouseTag[] | undefined>;
     /**
-     * Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued
-     * or new queries.
+     * Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
      */
     public readonly waitForProvisioning!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and
-     * only available on Amazon Web Services (AWS).
+     * Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
      */
     public readonly warehouseSize!: pulumi.Output<string>;
 
@@ -203,13 +199,11 @@ export interface WarehouseState {
      */
     resourceMonitor?: pulumi.Input<string>;
     /**
-     * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
-     * Auto-scale mode.
+     * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
      */
     scalingPolicy?: pulumi.Input<string>;
     /**
-     * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
-     * warehouse before it is canceled by the system.
+     * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
      */
     statementQueuedTimeoutInSeconds?: pulumi.Input<number>;
     /**
@@ -221,13 +215,11 @@ export interface WarehouseState {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.WarehouseTag>[]>;
     /**
-     * Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued
-     * or new queries.
+     * Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
      */
     waitForProvisioning?: pulumi.Input<boolean>;
     /**
-     * Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and
-     * only available on Amazon Web Services (AWS).
+     * Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
      */
     warehouseSize?: pulumi.Input<string>;
 }
@@ -270,13 +262,11 @@ export interface WarehouseArgs {
      */
     resourceMonitor?: pulumi.Input<string>;
     /**
-     * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
-     * Auto-scale mode.
+     * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
      */
     scalingPolicy?: pulumi.Input<string>;
     /**
-     * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
-     * warehouse before it is canceled by the system.
+     * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
      */
     statementQueuedTimeoutInSeconds?: pulumi.Input<number>;
     /**
@@ -288,13 +278,11 @@ export interface WarehouseArgs {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.WarehouseTag>[]>;
     /**
-     * Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued
-     * or new queries.
+     * Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
      */
     waitForProvisioning?: pulumi.Input<boolean>;
     /**
-     * Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and
-     * only available on Amazon Web Services (AWS).
+     * Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
      */
     warehouseSize?: pulumi.Input<string>;
 }

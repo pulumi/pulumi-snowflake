@@ -17,20 +17,18 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var @this = Snowflake.GetRole.Invoke(new()
         ///     {
-        ///         var @this = Output.Create(Snowflake.GetRole.InvokeAsync(new Snowflake.GetRoleArgs
-        ///         {
-        ///             Name = "role1",
-        ///         }));
-        ///     }
+        ///         Name = "role1",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -44,20 +42,18 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var @this = Snowflake.GetRole.Invoke(new()
         ///     {
-        ///         var @this = Output.Create(Snowflake.GetRole.InvokeAsync(new Snowflake.GetRoleArgs
-        ///         {
-        ///             Name = "role1",
-        ///         }));
-        ///     }
+        ///         Name = "role1",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -67,35 +63,49 @@ namespace Pulumi.Snowflake
     }
 
 
-    public sealed class GetRoleArgs : Pulumi.InvokeArgs
+    public sealed class GetRoleArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The role for which to return metadata.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         public GetRoleArgs()
         {
         }
+        public static new GetRoleArgs Empty => new GetRoleArgs();
     }
 
-    public sealed class GetRoleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRoleInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The role for which to return metadata.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         public GetRoleInvokeArgs()
         {
         }
+        public static new GetRoleInvokeArgs Empty => new GetRoleInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetRoleResult
     {
+        /// <summary>
+        /// The comment on the role
+        /// </summary>
         public readonly string Comment;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The role for which to return metadata.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

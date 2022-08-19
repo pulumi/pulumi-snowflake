@@ -17,21 +17,19 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Snowflake.GetTasks.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Snowflake.GetTasks.InvokeAsync(new Snowflake.GetTasksArgs
-        ///         {
-        ///             Database = "MYDB",
-        ///             Schema = "MYSCHEMA",
-        ///         }));
-        ///     }
+        ///         Database = "MYDB",
+        ///         Schema = "MYSCHEMA",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -45,21 +43,19 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Snowflake.GetTasks.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Snowflake.GetTasks.InvokeAsync(new Snowflake.GetTasksArgs
-        ///         {
-        ///             Database = "MYDB",
-        ///             Schema = "MYSCHEMA",
-        ///         }));
-        ///     }
+        ///         Database = "MYDB",
+        ///         Schema = "MYSCHEMA",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -69,42 +65,65 @@ namespace Pulumi.Snowflake
     }
 
 
-    public sealed class GetTasksArgs : Pulumi.InvokeArgs
+    public sealed class GetTasksArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database", required: true)]
         public string Database { get; set; } = null!;
 
+        /// <summary>
+        /// The schema from which to return the tasks from.
+        /// </summary>
         [Input("schema", required: true)]
         public string Schema { get; set; } = null!;
 
         public GetTasksArgs()
         {
         }
+        public static new GetTasksArgs Empty => new GetTasksArgs();
     }
 
-    public sealed class GetTasksInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTasksInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
+        /// <summary>
+        /// The schema from which to return the tasks from.
+        /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
         public GetTasksInvokeArgs()
         {
         }
+        public static new GetTasksInvokeArgs Empty => new GetTasksInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetTasksResult
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         public readonly string Database;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The schema from which to return the tasks from.
+        /// </summary>
         public readonly string Schema;
+        /// <summary>
+        /// The tasks in the schema
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetTasksTaskResult> Tasks;
 
         [OutputConstructor]

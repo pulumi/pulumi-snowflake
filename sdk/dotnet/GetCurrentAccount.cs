@@ -17,23 +17,22 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var @this = Output.Create(Snowflake.GetCurrentAccount.InvokeAsync());
-        ///         var snowflakeAccountUrl = new Aws.Ssm.Parameter("snowflakeAccountUrl", new Aws.Ssm.ParameterArgs
-        ///         {
-        ///             Type = "String",
-        ///             Value = @this.Apply(@this =&gt; @this.Url),
-        ///         });
-        ///     }
+        ///     var @this = Snowflake.GetCurrentAccount.Invoke();
         /// 
-        /// }
+        ///     var snowflakeAccountUrl = new Aws.Ssm.Parameter("snowflakeAccountUrl", new()
+        ///     {
+        ///         Type = "String",
+        ///         Value = @this.Apply(getCurrentAccountResult =&gt; getCurrentAccountResult).Apply(@this =&gt; @this.Apply(getCurrentAccountResult =&gt; getCurrentAccountResult.Url)),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -46,12 +45,21 @@ namespace Pulumi.Snowflake
     [OutputType]
     public sealed class GetCurrentAccountResult
     {
+        /// <summary>
+        /// The Snowflake Account ID; as returned by CURRENT_ACCOUNT().
+        /// </summary>
         public readonly string Account;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The Snowflake Region; as returned by CURRENT_REGION()
+        /// </summary>
         public readonly string Region;
+        /// <summary>
+        /// The Snowflake URL.
+        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]

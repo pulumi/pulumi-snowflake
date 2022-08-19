@@ -17,7 +17,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/resourceMonitorGrant:ResourceMonitorGrant")]
-    public partial class ResourceMonitorGrant : Pulumi.CustomResource
+    public partial class ResourceMonitorGrant : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -94,7 +94,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class ResourceMonitorGrantArgs : Pulumi.ResourceArgs
+    public sealed class ResourceMonitorGrantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -136,9 +136,10 @@ namespace Pulumi.Snowflake
         public ResourceMonitorGrantArgs()
         {
         }
+        public static new ResourceMonitorGrantArgs Empty => new ResourceMonitorGrantArgs();
     }
 
-    public sealed class ResourceMonitorGrantState : Pulumi.ResourceArgs
+    public sealed class ResourceMonitorGrantState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -180,5 +181,6 @@ namespace Pulumi.Snowflake
         public ResourceMonitorGrantState()
         {
         }
+        public static new ResourceMonitorGrantState Empty => new ResourceMonitorGrantState();
     }
 }

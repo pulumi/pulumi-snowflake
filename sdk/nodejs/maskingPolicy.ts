@@ -69,8 +69,7 @@ export class MaskingPolicy extends pulumi.CustomResource {
      */
     public readonly maskingExpression!: pulumi.Output<string>;
     /**
-     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-     * is created.
+     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -153,8 +152,7 @@ export interface MaskingPolicyState {
      */
     maskingExpression?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-     * is created.
+     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -188,8 +186,7 @@ export interface MaskingPolicyArgs {
      */
     maskingExpression: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-     * is created.
+     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
      */
     name?: pulumi.Input<string>;
     /**

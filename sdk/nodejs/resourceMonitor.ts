@@ -65,8 +65,7 @@ export class ResourceMonitor extends pulumi.CustomResource {
      */
     public readonly endTimestamp!: pulumi.Output<string | undefined>;
     /**
-     * The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
-     * also set START_TIMESTAMP.
+     * The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
      */
     public readonly frequency!: pulumi.Output<string>;
     /**
@@ -152,8 +151,7 @@ export interface ResourceMonitorState {
      */
     endTimestamp?: pulumi.Input<string>;
     /**
-     * The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
-     * also set START_TIMESTAMP.
+     * The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
      */
     frequency?: pulumi.Input<string>;
     /**
@@ -199,8 +197,7 @@ export interface ResourceMonitorArgs {
      */
     endTimestamp?: pulumi.Input<string>;
     /**
-     * The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
-     * also set START_TIMESTAMP.
+     * The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
      */
     frequency?: pulumi.Input<string>;
     /**

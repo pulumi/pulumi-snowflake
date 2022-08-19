@@ -13,28 +13,26 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var database = new Snowflake.Database("database", new Snowflake.DatabaseArgs
-    ///         {
-    ///         });
-    ///         var testSchema = new Snowflake.Schema("testSchema", new Snowflake.SchemaArgs
-    ///         {
-    ///             Database = snowflake_database.Test_database.Name,
-    ///         });
-    ///         var testSequence = new Snowflake.Sequence("testSequence", new Snowflake.SequenceArgs
-    ///         {
-    ///             Database = snowflake_database.Test_database.Name,
-    ///             Schema = testSchema.Name,
-    ///         });
-    ///     }
+    ///     var database = new Snowflake.Database("database");
     /// 
-    /// }
+    ///     var testSchema = new Snowflake.Schema("testSchema", new()
+    ///     {
+    ///         Database = snowflake_database.Test_database.Name,
+    ///     });
+    /// 
+    ///     var testSequence = new Snowflake.Sequence("testSequence", new()
+    ///     {
+    ///         Database = snowflake_database.Test_database.Name,
+    ///         Schema = testSchema.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/sequence:Sequence")]
-    public partial class Sequence : Pulumi.CustomResource
+    public partial class Sequence : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies a comment for the sequence.
@@ -134,7 +132,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class SequenceArgs : Pulumi.ResourceArgs
+    public sealed class SequenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a comment for the sequence.
@@ -169,9 +167,10 @@ namespace Pulumi.Snowflake
         public SequenceArgs()
         {
         }
+        public static new SequenceArgs Empty => new SequenceArgs();
     }
 
-    public sealed class SequenceState : Pulumi.ResourceArgs
+    public sealed class SequenceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a comment for the sequence.
@@ -218,5 +217,6 @@ namespace Pulumi.Snowflake
         public SequenceState()
         {
         }
+        public static new SequenceState Empty => new SequenceState();
     }
 }

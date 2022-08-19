@@ -13,30 +13,28 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var grant = new Snowflake.FileFormatGrant("grant", new()
     ///     {
-    ///         var grant = new Snowflake.FileFormatGrant("grant", new Snowflake.FileFormatGrantArgs
+    ///         DatabaseName = "db",
+    ///         FileFormatName = "file_format",
+    ///         OnFuture = false,
+    ///         Privilege = "select",
+    ///         Roles = new[]
     ///         {
-    ///             DatabaseName = "db",
-    ///             FileFormatName = "file_format",
-    ///             OnFuture = false,
-    ///             Privilege = "select",
-    ///             Roles = 
-    ///             {
-    ///                 "role1",
-    ///                 "role2",
-    ///             },
-    ///             SchemaName = "schema",
-    ///             WithGrantOption = false,
-    ///         });
-    ///     }
+    ///             "role1",
+    ///             "role2",
+    ///         },
+    ///         SchemaName = "schema",
+    ///         WithGrantOption = false,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +46,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/fileFormatGrant:FileFormatGrant")]
-    public partial class FileFormatGrant : Pulumi.CustomResource
+    public partial class FileFormatGrant : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the database containing the current or future file formats on which to grant privileges.
@@ -70,9 +68,7 @@ namespace Pulumi.Snowflake
         public Output<string?> FileFormatName { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future file formats in the given schema.
-        /// When this is true and no schema_name is provided apply this grant on all future file formats in the given database. The
-        /// file_format_name field must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
         /// </summary>
         [Output("onFuture")]
         public Output<bool?> OnFuture { get; private set; } = null!;
@@ -145,7 +141,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class FileFormatGrantArgs : Pulumi.ResourceArgs
+    public sealed class FileFormatGrantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database containing the current or future file formats on which to grant privileges.
@@ -167,9 +163,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FileFormatName { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future file formats in the given schema.
-        /// When this is true and no schema_name is provided apply this grant on all future file formats in the given database. The
-        /// file_format_name field must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -207,9 +201,10 @@ namespace Pulumi.Snowflake
         public FileFormatGrantArgs()
         {
         }
+        public static new FileFormatGrantArgs Empty => new FileFormatGrantArgs();
     }
 
-    public sealed class FileFormatGrantState : Pulumi.ResourceArgs
+    public sealed class FileFormatGrantState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database containing the current or future file formats on which to grant privileges.
@@ -231,9 +226,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FileFormatName { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future file formats in the given schema.
-        /// When this is true and no schema_name is provided apply this grant on all future file formats in the given database. The
-        /// file_format_name field must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -271,5 +264,6 @@ namespace Pulumi.Snowflake
         public FileFormatGrantState()
         {
         }
+        public static new FileFormatGrantState Empty => new FileFormatGrantState();
     }
 }

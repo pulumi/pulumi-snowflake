@@ -13,35 +13,33 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var monitor = new Snowflake.ResourceMonitor("monitor", new()
     ///     {
-    ///         var monitor = new Snowflake.ResourceMonitor("monitor", new Snowflake.ResourceMonitorArgs
+    ///         CreditQuota = 100,
+    ///         EndTimestamp = "2021-12-07 00:00",
+    ///         Frequency = "DAILY",
+    ///         NotifyTriggers = new[]
     ///         {
-    ///             CreditQuota = 100,
-    ///             EndTimestamp = "2021-12-07 00:00",
-    ///             Frequency = "DAILY",
-    ///             NotifyTriggers = 
-    ///             {
-    ///                 40,
-    ///             },
-    ///             StartTimestamp = "2020-12-07 00:00",
-    ///             SuspendImmediateTriggers = 
-    ///             {
-    ///                 90,
-    ///             },
-    ///             SuspendTriggers = 
-    ///             {
-    ///                 50,
-    ///             },
-    ///         });
-    ///     }
+    ///             40,
+    ///         },
+    ///         StartTimestamp = "2020-12-07 00:00",
+    ///         SuspendImmediateTriggers = new[]
+    ///         {
+    ///             90,
+    ///         },
+    ///         SuspendTriggers = new[]
+    ///         {
+    ///             50,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +49,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/resourceMonitor:ResourceMonitor")]
-    public partial class ResourceMonitor : Pulumi.CustomResource
+    public partial class ResourceMonitor : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The number of credits allocated monthly to the resource monitor.
@@ -66,8 +64,7 @@ namespace Pulumi.Snowflake
         public Output<string?> EndTimestamp { get; private set; } = null!;
 
         /// <summary>
-        /// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
-        /// also set START_TIMESTAMP.
+        /// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
         /// </summary>
         [Output("frequency")]
         public Output<string> Frequency { get; private set; } = null!;
@@ -158,7 +155,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class ResourceMonitorArgs : Pulumi.ResourceArgs
+    public sealed class ResourceMonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of credits allocated monthly to the resource monitor.
@@ -173,8 +170,7 @@ namespace Pulumi.Snowflake
         public Input<string>? EndTimestamp { get; set; }
 
         /// <summary>
-        /// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
-        /// also set START_TIMESTAMP.
+        /// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
         /// </summary>
         [Input("frequency")]
         public Input<string>? Frequency { get; set; }
@@ -248,9 +244,10 @@ namespace Pulumi.Snowflake
         public ResourceMonitorArgs()
         {
         }
+        public static new ResourceMonitorArgs Empty => new ResourceMonitorArgs();
     }
 
-    public sealed class ResourceMonitorState : Pulumi.ResourceArgs
+    public sealed class ResourceMonitorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of credits allocated monthly to the resource monitor.
@@ -265,8 +262,7 @@ namespace Pulumi.Snowflake
         public Input<string>? EndTimestamp { get; set; }
 
         /// <summary>
-        /// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must
-        /// also set START_TIMESTAMP.
+        /// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
         /// </summary>
         [Input("frequency")]
         public Input<string>? Frequency { get; set; }
@@ -340,5 +336,6 @@ namespace Pulumi.Snowflake
         public ResourceMonitorState()
         {
         }
+        public static new ResourceMonitorState Empty => new ResourceMonitorState();
     }
 }

@@ -62,8 +62,7 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as
-     * specifying the default Time Travel retention time for all tables created in the schema.
+     * Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
      */
     public readonly dataRetentionDays!: pulumi.Output<number | undefined>;
     /**
@@ -75,9 +74,7 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly isManaged!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
-     * storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
-     * a data loss.
+     * Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
      */
     public readonly isTransient!: pulumi.Output<boolean | undefined>;
     /**
@@ -136,8 +133,7 @@ export interface SchemaState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as
-     * specifying the default Time Travel retention time for all tables created in the schema.
+     * Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
      */
     dataRetentionDays?: pulumi.Input<number>;
     /**
@@ -149,9 +145,7 @@ export interface SchemaState {
      */
     isManaged?: pulumi.Input<boolean>;
     /**
-     * Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
-     * storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
-     * a data loss.
+     * Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
      */
     isTransient?: pulumi.Input<boolean>;
     /**
@@ -173,8 +167,7 @@ export interface SchemaArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as
-     * specifying the default Time Travel retention time for all tables created in the schema.
+     * Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
      */
     dataRetentionDays?: pulumi.Input<number>;
     /**
@@ -186,9 +179,7 @@ export interface SchemaArgs {
      */
     isManaged?: pulumi.Input<boolean>;
     /**
-     * Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
-     * storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
-     * a data loss.
+     * Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
      */
     isTransient?: pulumi.Input<boolean>;
     /**

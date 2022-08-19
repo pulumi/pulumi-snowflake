@@ -74,8 +74,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly fromDatabase!: pulumi.Output<string | undefined>;
     /**
-     * Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
-     * "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
+     * Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
      */
     public readonly fromReplica!: pulumi.Output<string | undefined>;
     /**
@@ -140,8 +139,7 @@ export interface DatabaseState {
      */
     fromDatabase?: pulumi.Input<string>;
     /**
-     * Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
-     * "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
+     * Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
      */
     fromReplica?: pulumi.Input<string>;
     /**
@@ -170,8 +168,7 @@ export interface DatabaseArgs {
      */
     fromDatabase?: pulumi.Input<string>;
     /**
-     * Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
-     * "<organization_name>"."<account_name>"."<db_name>". An example would be: "myorg1"."account1"."db1"
+     * Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
      */
     fromReplica?: pulumi.Input<string>;
     /**

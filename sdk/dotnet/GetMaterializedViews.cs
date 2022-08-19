@@ -17,21 +17,19 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Snowflake.GetMaterializedViews.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Snowflake.GetMaterializedViews.InvokeAsync(new Snowflake.GetMaterializedViewsArgs
-        ///         {
-        ///             Database = "MYDB",
-        ///             Schema = "MYSCHEMA",
-        ///         }));
-        ///     }
+        ///         Database = "MYDB",
+        ///         Schema = "MYSCHEMA",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -45,21 +43,19 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Snowflake.GetMaterializedViews.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Snowflake.GetMaterializedViews.InvokeAsync(new Snowflake.GetMaterializedViewsArgs
-        ///         {
-        ///             Database = "MYDB",
-        ///             Schema = "MYSCHEMA",
-        ///         }));
-        ///     }
+        ///         Database = "MYDB",
+        ///         Schema = "MYSCHEMA",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -69,42 +65,65 @@ namespace Pulumi.Snowflake
     }
 
 
-    public sealed class GetMaterializedViewsArgs : Pulumi.InvokeArgs
+    public sealed class GetMaterializedViewsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database", required: true)]
         public string Database { get; set; } = null!;
 
+        /// <summary>
+        /// The schema from which to return the views from.
+        /// </summary>
         [Input("schema", required: true)]
         public string Schema { get; set; } = null!;
 
         public GetMaterializedViewsArgs()
         {
         }
+        public static new GetMaterializedViewsArgs Empty => new GetMaterializedViewsArgs();
     }
 
-    public sealed class GetMaterializedViewsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMaterializedViewsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
+        /// <summary>
+        /// The schema from which to return the views from.
+        /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
         public GetMaterializedViewsInvokeArgs()
         {
         }
+        public static new GetMaterializedViewsInvokeArgs Empty => new GetMaterializedViewsInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetMaterializedViewsResult
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         public readonly string Database;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The views in the schema
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetMaterializedViewsMaterializedViewResult> MaterializedViews;
+        /// <summary>
+        /// The schema from which to return the views from.
+        /// </summary>
         public readonly string Schema;
 
         [OutputConstructor]

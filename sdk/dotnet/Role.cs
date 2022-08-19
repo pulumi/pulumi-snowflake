@@ -13,20 +13,18 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var role = new Snowflake.Role("role", new()
     ///     {
-    ///         var role = new Snowflake.Role("role", new Snowflake.RoleArgs
-    ///         {
-    ///             Comment = "A role.",
-    ///         });
-    ///     }
+    ///         Comment = "A role.",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -36,7 +34,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/role:Role")]
-    public partial class Role : Pulumi.CustomResource
+    public partial class Role : global::Pulumi.CustomResource
     {
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
@@ -94,7 +92,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class RoleArgs : Pulumi.ResourceArgs
+    public sealed class RoleArgs : global::Pulumi.ResourceArgs
     {
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -117,9 +115,10 @@ namespace Pulumi.Snowflake
         public RoleArgs()
         {
         }
+        public static new RoleArgs Empty => new RoleArgs();
     }
 
-    public sealed class RoleState : Pulumi.ResourceArgs
+    public sealed class RoleState : global::Pulumi.ResourceArgs
     {
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -142,5 +141,6 @@ namespace Pulumi.Snowflake
         public RoleState()
         {
         }
+        public static new RoleState Empty => new RoleState();
     }
 }

@@ -13,32 +13,30 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var grant = new Snowflake.DatabaseGrant("grant", new()
     ///     {
-    ///         var grant = new Snowflake.DatabaseGrant("grant", new Snowflake.DatabaseGrantArgs
+    ///         DatabaseName = "db",
+    ///         Privilege = "USAGE",
+    ///         Roles = new[]
     ///         {
-    ///             DatabaseName = "db",
-    ///             Privilege = "USAGE",
-    ///             Roles = 
-    ///             {
-    ///                 "role1",
-    ///                 "role2",
-    ///             },
-    ///             Shares = 
-    ///             {
-    ///                 "share1",
-    ///                 "share2",
-    ///             },
-    ///             WithGrantOption = false,
-    ///         });
-    ///     }
+    ///             "role1",
+    ///             "role2",
+    ///         },
+    ///         Shares = new[]
+    ///         {
+    ///             "share1",
+    ///             "share2",
+    ///         },
+    ///         WithGrantOption = false,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/databaseGrant:DatabaseGrant")]
-    public partial class DatabaseGrant : Pulumi.CustomResource
+    public partial class DatabaseGrant : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the database on which to grant privileges.
@@ -133,7 +131,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class DatabaseGrantArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseGrantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database on which to grant privileges.
@@ -187,9 +185,10 @@ namespace Pulumi.Snowflake
         public DatabaseGrantArgs()
         {
         }
+        public static new DatabaseGrantArgs Empty => new DatabaseGrantArgs();
     }
 
-    public sealed class DatabaseGrantState : Pulumi.ResourceArgs
+    public sealed class DatabaseGrantState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database on which to grant privileges.
@@ -243,5 +242,6 @@ namespace Pulumi.Snowflake
         public DatabaseGrantState()
         {
         }
+        public static new DatabaseGrantState Empty => new DatabaseGrantState();
     }
 }

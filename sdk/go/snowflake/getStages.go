@@ -16,22 +16,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.GetStages(ctx, &GetStagesArgs{
-// 			Database: "MYDB",
-// 			Schema:   "MYSCHEMA",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.GetStages(ctx, &GetStagesArgs{
+//				Database: "MYDB",
+//				Schema:   "MYSCHEMA",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetStages(ctx *pulumi.Context, args *GetStagesArgs, opts ...pulumi.InvokeOption) (*GetStagesResult, error) {
 	var rv GetStagesResult
@@ -44,16 +47,21 @@ func GetStages(ctx *pulumi.Context, args *GetStagesArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getStages.
 type GetStagesArgs struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the stages from.
+	Schema string `pulumi:"schema"`
 }
 
 // A collection of values returned by getStages.
 type GetStagesResult struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string           `pulumi:"id"`
-	Schema string           `pulumi:"schema"`
+	Id string `pulumi:"id"`
+	// The schema from which to return the stages from.
+	Schema string `pulumi:"schema"`
+	// The stages in the schema
 	Stages []GetStagesStage `pulumi:"stages"`
 }
 
@@ -72,8 +80,10 @@ func GetStagesOutput(ctx *pulumi.Context, args GetStagesOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getStages.
 type GetStagesOutputArgs struct {
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the stages from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetStagesOutputArgs) ElementType() reflect.Type {
@@ -95,6 +105,7 @@ func (o GetStagesResultOutput) ToGetStagesResultOutputWithContext(ctx context.Co
 	return o
 }
 
+// The database from which to return the schemas from.
 func (o GetStagesResultOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStagesResult) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -104,10 +115,12 @@ func (o GetStagesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStagesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the stages from.
 func (o GetStagesResultOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStagesResult) string { return v.Schema }).(pulumi.StringOutput)
 }
 
+// The stages in the schema
 func (o GetStagesResultOutput) Stages() GetStagesStageArrayOutput {
 	return o.ApplyT(func(v GetStagesResult) []GetStagesStage { return v.Stages }).(GetStagesStageArrayOutput)
 }

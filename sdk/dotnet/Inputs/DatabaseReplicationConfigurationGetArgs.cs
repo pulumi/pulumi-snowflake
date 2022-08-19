@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake.Inputs
 {
 
-    public sealed class DatabaseReplicationConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseReplicationConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("accounts", required: true)]
         private InputList<string>? _accounts;
@@ -26,5 +26,6 @@ namespace Pulumi.Snowflake.Inputs
         public DatabaseReplicationConfigurationGetArgs()
         {
         }
+        public static new DatabaseReplicationConfigurationGetArgs Empty => new DatabaseReplicationConfigurationGetArgs();
     }
 }

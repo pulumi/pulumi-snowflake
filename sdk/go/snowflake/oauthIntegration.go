@@ -17,39 +17,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewOauthIntegration(ctx, "tableauDesktop", &snowflake.OauthIntegrationArgs{
-// 			BlockedRolesLists: pulumi.StringArray{
-// 				pulumi.String("SYSADMIN"),
-// 			},
-// 			Enabled:                   pulumi.Bool(true),
-// 			OauthClient:               pulumi.String("TABLEAU_DESKTOP"),
-// 			OauthIssueRefreshTokens:   pulumi.Bool(true),
-// 			OauthRefreshTokenValidity: pulumi.Int(3600),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewOauthIntegration(ctx, "tableauDesktop", &snowflake.OauthIntegrationArgs{
+//				BlockedRolesLists: pulumi.StringArray{
+//					pulumi.String("SYSADMIN"),
+//				},
+//				Enabled:                   pulumi.Bool(true),
+//				OauthClient:               pulumi.String("TABLEAU_DESKTOP"),
+//				OauthIssueRefreshTokens:   pulumi.Bool(true),
+//				OauthRefreshTokenValidity: pulumi.Int(3600),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
 // ```sh
-//  $ pulumi import snowflake:index/oauthIntegration:OauthIntegration example name
+//
+//	$ pulumi import snowflake:index/oauthIntegration:OauthIntegration example name
+//
 // ```
 type OauthIntegration struct {
 	pulumi.CustomResourceState
 
-	// List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN
-	// or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+	// List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
 	BlockedRolesLists pulumi.StringArrayOutput `pulumi:"blockedRolesLists"`
 	// Specifies a comment for the OAuth integration.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
@@ -57,18 +61,15 @@ type OauthIntegration struct {
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
 	// Specifies whether this OAuth integration is enabled or disabled.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
-	// unique among security integrations in your account.
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the OAuth client type.
 	OauthClient pulumi.StringOutput `pulumi:"oauthClient"`
-	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
-	// expired.
+	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
 	OauthIssueRefreshTokens pulumi.BoolPtrOutput `pulumi:"oauthIssueRefreshTokens"`
-	// Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
+	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity pulumi.IntPtrOutput `pulumi:"oauthRefreshTokenValidity"`
-	// Specifies whether default secondary roles set in the user properties are activated by default in the session being
-	// opened.
+	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
 	OauthUseSecondaryRoles pulumi.StringPtrOutput `pulumi:"oauthUseSecondaryRoles"`
 }
 
@@ -104,8 +105,7 @@ func GetOauthIntegration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OauthIntegration resources.
 type oauthIntegrationState struct {
-	// List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN
-	// or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+	// List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
 	BlockedRolesLists []string `pulumi:"blockedRolesLists"`
 	// Specifies a comment for the OAuth integration.
 	Comment *string `pulumi:"comment"`
@@ -113,24 +113,20 @@ type oauthIntegrationState struct {
 	CreatedOn *string `pulumi:"createdOn"`
 	// Specifies whether this OAuth integration is enabled or disabled.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
-	// unique among security integrations in your account.
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
 	Name *string `pulumi:"name"`
 	// Specifies the OAuth client type.
 	OauthClient *string `pulumi:"oauthClient"`
-	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
-	// expired.
+	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
 	OauthIssueRefreshTokens *bool `pulumi:"oauthIssueRefreshTokens"`
-	// Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
+	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity *int `pulumi:"oauthRefreshTokenValidity"`
-	// Specifies whether default secondary roles set in the user properties are activated by default in the session being
-	// opened.
+	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
 	OauthUseSecondaryRoles *string `pulumi:"oauthUseSecondaryRoles"`
 }
 
 type OauthIntegrationState struct {
-	// List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN
-	// or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+	// List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
 	BlockedRolesLists pulumi.StringArrayInput
 	// Specifies a comment for the OAuth integration.
 	Comment pulumi.StringPtrInput
@@ -138,18 +134,15 @@ type OauthIntegrationState struct {
 	CreatedOn pulumi.StringPtrInput
 	// Specifies whether this OAuth integration is enabled or disabled.
 	Enabled pulumi.BoolPtrInput
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
-	// unique among security integrations in your account.
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
 	Name pulumi.StringPtrInput
 	// Specifies the OAuth client type.
 	OauthClient pulumi.StringPtrInput
-	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
-	// expired.
+	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
 	OauthIssueRefreshTokens pulumi.BoolPtrInput
-	// Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
+	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity pulumi.IntPtrInput
-	// Specifies whether default secondary roles set in the user properties are activated by default in the session being
-	// opened.
+	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
 	OauthUseSecondaryRoles pulumi.StringPtrInput
 }
 
@@ -158,49 +151,41 @@ func (OauthIntegrationState) ElementType() reflect.Type {
 }
 
 type oauthIntegrationArgs struct {
-	// List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN
-	// or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+	// List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
 	BlockedRolesLists []string `pulumi:"blockedRolesLists"`
 	// Specifies a comment for the OAuth integration.
 	Comment *string `pulumi:"comment"`
 	// Specifies whether this OAuth integration is enabled or disabled.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
-	// unique among security integrations in your account.
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
 	Name *string `pulumi:"name"`
 	// Specifies the OAuth client type.
 	OauthClient string `pulumi:"oauthClient"`
-	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
-	// expired.
+	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
 	OauthIssueRefreshTokens *bool `pulumi:"oauthIssueRefreshTokens"`
-	// Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
+	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity *int `pulumi:"oauthRefreshTokenValidity"`
-	// Specifies whether default secondary roles set in the user properties are activated by default in the session being
-	// opened.
+	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
 	OauthUseSecondaryRoles *string `pulumi:"oauthUseSecondaryRoles"`
 }
 
 // The set of arguments for constructing a OauthIntegration resource.
 type OauthIntegrationArgs struct {
-	// List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN
-	// or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+	// List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
 	BlockedRolesLists pulumi.StringArrayInput
 	// Specifies a comment for the OAuth integration.
 	Comment pulumi.StringPtrInput
 	// Specifies whether this OAuth integration is enabled or disabled.
 	Enabled pulumi.BoolPtrInput
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
-	// unique among security integrations in your account.
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
 	Name pulumi.StringPtrInput
 	// Specifies the OAuth client type.
 	OauthClient pulumi.StringInput
-	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
-	// expired.
+	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
 	OauthIssueRefreshTokens pulumi.BoolPtrInput
-	// Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
+	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity pulumi.IntPtrInput
-	// Specifies whether default secondary roles set in the user properties are activated by default in the session being
-	// opened.
+	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
 	OauthUseSecondaryRoles pulumi.StringPtrInput
 }
 
@@ -230,7 +215,7 @@ func (i *OauthIntegration) ToOauthIntegrationOutputWithContext(ctx context.Conte
 // OauthIntegrationArrayInput is an input type that accepts OauthIntegrationArray and OauthIntegrationArrayOutput values.
 // You can construct a concrete instance of `OauthIntegrationArrayInput` via:
 //
-//          OauthIntegrationArray{ OauthIntegrationArgs{...} }
+//	OauthIntegrationArray{ OauthIntegrationArgs{...} }
 type OauthIntegrationArrayInput interface {
 	pulumi.Input
 
@@ -255,7 +240,7 @@ func (i OauthIntegrationArray) ToOauthIntegrationArrayOutputWithContext(ctx cont
 // OauthIntegrationMapInput is an input type that accepts OauthIntegrationMap and OauthIntegrationMapOutput values.
 // You can construct a concrete instance of `OauthIntegrationMapInput` via:
 //
-//          OauthIntegrationMap{ "key": OauthIntegrationArgs{...} }
+//	OauthIntegrationMap{ "key": OauthIntegrationArgs{...} }
 type OauthIntegrationMapInput interface {
 	pulumi.Input
 
@@ -291,8 +276,7 @@ func (o OauthIntegrationOutput) ToOauthIntegrationOutputWithContext(ctx context.
 	return o
 }
 
-// List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN
-// or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+// List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
 func (o OauthIntegrationOutput) BlockedRolesLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OauthIntegration) pulumi.StringArrayOutput { return v.BlockedRolesLists }).(pulumi.StringArrayOutput)
 }
@@ -312,8 +296,7 @@ func (o OauthIntegrationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OauthIntegration) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
-// unique among security integrations in your account.
+// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
 func (o OauthIntegrationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OauthIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -323,19 +306,17 @@ func (o OauthIntegrationOutput) OauthClient() pulumi.StringOutput {
 	return o.ApplyT(func(v *OauthIntegration) pulumi.StringOutput { return v.OauthClient }).(pulumi.StringOutput)
 }
 
-// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
-// expired.
+// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
 func (o OauthIntegrationOutput) OauthIssueRefreshTokens() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OauthIntegration) pulumi.BoolPtrOutput { return v.OauthIssueRefreshTokens }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
+// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 func (o OauthIntegrationOutput) OauthRefreshTokenValidity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OauthIntegration) pulumi.IntPtrOutput { return v.OauthRefreshTokenValidity }).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether default secondary roles set in the user properties are activated by default in the session being
-// opened.
+// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
 func (o OauthIntegrationOutput) OauthUseSecondaryRoles() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OauthIntegration) pulumi.StringPtrOutput { return v.OauthUseSecondaryRoles }).(pulumi.StringPtrOutput)
 }

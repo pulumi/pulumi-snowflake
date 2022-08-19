@@ -17,20 +17,18 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var scim = Snowflake.GetSystemGenerateScimAccessToken.Invoke(new()
         ///     {
-        ///         var scim = Output.Create(Snowflake.GetSystemGenerateScimAccessToken.InvokeAsync(new Snowflake.GetSystemGenerateScimAccessTokenArgs
-        ///         {
-        ///             IntegrationName = "AAD_PROVISIONING",
-        ///         }));
-        ///     }
+        ///         IntegrationName = "AAD_PROVISIONING",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -44,20 +42,18 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var scim = Snowflake.GetSystemGenerateScimAccessToken.Invoke(new()
         ///     {
-        ///         var scim = Output.Create(Snowflake.GetSystemGenerateScimAccessToken.InvokeAsync(new Snowflake.GetSystemGenerateScimAccessTokenArgs
-        ///         {
-        ///             IntegrationName = "AAD_PROVISIONING",
-        ///         }));
-        ///     }
+        ///         IntegrationName = "AAD_PROVISIONING",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -67,35 +63,49 @@ namespace Pulumi.Snowflake
     }
 
 
-    public sealed class GetSystemGenerateScimAccessTokenArgs : Pulumi.InvokeArgs
+    public sealed class GetSystemGenerateScimAccessTokenArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// SCIM Integration Name
+        /// </summary>
         [Input("integrationName", required: true)]
         public string IntegrationName { get; set; } = null!;
 
         public GetSystemGenerateScimAccessTokenArgs()
         {
         }
+        public static new GetSystemGenerateScimAccessTokenArgs Empty => new GetSystemGenerateScimAccessTokenArgs();
     }
 
-    public sealed class GetSystemGenerateScimAccessTokenInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSystemGenerateScimAccessTokenInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// SCIM Integration Name
+        /// </summary>
         [Input("integrationName", required: true)]
         public Input<string> IntegrationName { get; set; } = null!;
 
         public GetSystemGenerateScimAccessTokenInvokeArgs()
         {
         }
+        public static new GetSystemGenerateScimAccessTokenInvokeArgs Empty => new GetSystemGenerateScimAccessTokenInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetSystemGenerateScimAccessTokenResult
     {
+        /// <summary>
+        /// SCIM Access Token
+        /// </summary>
         public readonly string AccessToken;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// SCIM Integration Name
+        /// </summary>
         public readonly string IntegrationName;
 
         [OutputConstructor]

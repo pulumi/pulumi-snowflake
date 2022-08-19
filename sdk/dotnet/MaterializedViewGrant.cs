@@ -13,35 +13,33 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var grant = new Snowflake.MaterializedViewGrant("grant", new()
     ///     {
-    ///         var grant = new Snowflake.MaterializedViewGrant("grant", new Snowflake.MaterializedViewGrantArgs
+    ///         DatabaseName = "db",
+    ///         MaterializedViewName = "materialized_view",
+    ///         OnFuture = false,
+    ///         Privilege = "select",
+    ///         Roles = new[]
     ///         {
-    ///             DatabaseName = "db",
-    ///             MaterializedViewName = "materialized_view",
-    ///             OnFuture = false,
-    ///             Privilege = "select",
-    ///             Roles = 
-    ///             {
-    ///                 "role1",
-    ///                 "role2",
-    ///             },
-    ///             SchemaName = "schema",
-    ///             Shares = 
-    ///             {
-    ///                 "share1",
-    ///                 "share2",
-    ///             },
-    ///             WithGrantOption = false,
-    ///         });
-    ///     }
+    ///             "role1",
+    ///             "role2",
+    ///         },
+    ///         SchemaName = "schema",
+    ///         Shares = new[]
+    ///         {
+    ///             "share1",
+    ///             "share2",
+    ///         },
+    ///         WithGrantOption = false,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/materializedViewGrant:MaterializedViewGrant")]
-    public partial class MaterializedViewGrant : Pulumi.CustomResource
+    public partial class MaterializedViewGrant : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the database containing the current or future materialized views on which to grant privileges.
@@ -75,9 +73,7 @@ namespace Pulumi.Snowflake
         public Output<string?> MaterializedViewName { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future materialized views in the given
-        /// schema. When this is true and no schema_name is provided apply this grant on all future materialized views in the given
-        /// database. The materialized_view_name and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
         /// </summary>
         [Output("onFuture")]
         public Output<bool?> OnFuture { get; private set; } = null!;
@@ -156,7 +152,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class MaterializedViewGrantArgs : Pulumi.ResourceArgs
+    public sealed class MaterializedViewGrantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database containing the current or future materialized views on which to grant privileges.
@@ -178,9 +174,7 @@ namespace Pulumi.Snowflake
         public Input<string>? MaterializedViewName { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future materialized views in the given
-        /// schema. When this is true and no schema_name is provided apply this grant on all future materialized views in the given
-        /// database. The materialized_view_name and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -230,9 +224,10 @@ namespace Pulumi.Snowflake
         public MaterializedViewGrantArgs()
         {
         }
+        public static new MaterializedViewGrantArgs Empty => new MaterializedViewGrantArgs();
     }
 
-    public sealed class MaterializedViewGrantState : Pulumi.ResourceArgs
+    public sealed class MaterializedViewGrantState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database containing the current or future materialized views on which to grant privileges.
@@ -254,9 +249,7 @@ namespace Pulumi.Snowflake
         public Input<string>? MaterializedViewName { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future materialized views in the given
-        /// schema. When this is true and no schema_name is provided apply this grant on all future materialized views in the given
-        /// database. The materialized_view_name and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -306,5 +299,6 @@ namespace Pulumi.Snowflake
         public MaterializedViewGrantState()
         {
         }
+        public static new MaterializedViewGrantState Empty => new MaterializedViewGrantState();
     }
 }

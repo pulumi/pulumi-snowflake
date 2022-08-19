@@ -34,7 +34,13 @@ export function getExternalTables(args: GetExternalTablesArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getExternalTables.
  */
 export interface GetExternalTablesArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
+    /**
+     * The schema from which to return the external tables from.
+     */
     schema: string;
 }
 
@@ -42,12 +48,21 @@ export interface GetExternalTablesArgs {
  * A collection of values returned by getExternalTables.
  */
 export interface GetExternalTablesResult {
+    /**
+     * The database from which to return the schemas from.
+     */
     readonly database: string;
+    /**
+     * The external tables in the schema
+     */
     readonly externalTables: outputs.GetExternalTablesExternalTable[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The schema from which to return the external tables from.
+     */
     readonly schema: string;
 }
 
@@ -59,6 +74,12 @@ export function getExternalTablesOutput(args: GetExternalTablesOutputArgs, opts?
  * A collection of arguments for invoking getExternalTables.
  */
 export interface GetExternalTablesOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the external tables from.
+     */
     schema: pulumi.Input<string>;
 }

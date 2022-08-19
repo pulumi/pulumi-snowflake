@@ -16,22 +16,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.GetMaskingPolicies(ctx, &GetMaskingPoliciesArgs{
-// 			Database: "MYDB",
-// 			Schema:   "MYSCHEMA",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.GetMaskingPolicies(ctx, &GetMaskingPoliciesArgs{
+//				Database: "MYDB",
+//				Schema:   "MYSCHEMA",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetMaskingPolicies(ctx *pulumi.Context, args *GetMaskingPoliciesArgs, opts ...pulumi.InvokeOption) (*GetMaskingPoliciesResult, error) {
 	var rv GetMaskingPoliciesResult
@@ -44,17 +47,22 @@ func GetMaskingPolicies(ctx *pulumi.Context, args *GetMaskingPoliciesArgs, opts 
 
 // A collection of arguments for invoking getMaskingPolicies.
 type GetMaskingPoliciesArgs struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the maskingPolicies from.
+	Schema string `pulumi:"schema"`
 }
 
 // A collection of values returned by getMaskingPolicies.
 type GetMaskingPoliciesResult struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
-	Id              string                            `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The maskingPolicies in the schema
 	MaskingPolicies []GetMaskingPoliciesMaskingPolicy `pulumi:"maskingPolicies"`
-	Schema          string                            `pulumi:"schema"`
+	// The schema from which to return the maskingPolicies from.
+	Schema string `pulumi:"schema"`
 }
 
 func GetMaskingPoliciesOutput(ctx *pulumi.Context, args GetMaskingPoliciesOutputArgs, opts ...pulumi.InvokeOption) GetMaskingPoliciesResultOutput {
@@ -72,8 +80,10 @@ func GetMaskingPoliciesOutput(ctx *pulumi.Context, args GetMaskingPoliciesOutput
 
 // A collection of arguments for invoking getMaskingPolicies.
 type GetMaskingPoliciesOutputArgs struct {
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the maskingPolicies from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetMaskingPoliciesOutputArgs) ElementType() reflect.Type {
@@ -95,6 +105,7 @@ func (o GetMaskingPoliciesResultOutput) ToGetMaskingPoliciesResultOutputWithCont
 	return o
 }
 
+// The database from which to return the schemas from.
 func (o GetMaskingPoliciesResultOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMaskingPoliciesResult) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -104,10 +115,12 @@ func (o GetMaskingPoliciesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMaskingPoliciesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The maskingPolicies in the schema
 func (o GetMaskingPoliciesResultOutput) MaskingPolicies() GetMaskingPoliciesMaskingPolicyArrayOutput {
 	return o.ApplyT(func(v GetMaskingPoliciesResult) []GetMaskingPoliciesMaskingPolicy { return v.MaskingPolicies }).(GetMaskingPoliciesMaskingPolicyArrayOutput)
 }
 
+// The schema from which to return the maskingPolicies from.
 func (o GetMaskingPoliciesResultOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMaskingPoliciesResult) string { return v.Schema }).(pulumi.StringOutput)
 }

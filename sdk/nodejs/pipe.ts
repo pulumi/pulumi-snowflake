@@ -18,7 +18,6 @@ import * as utilities from "./utilities";
  *     copyStatement: "copy into mytable from @mystage",
  *     database: "db",
  *     notificationChannel: "...",
- *     owner: "role1",
  *     schema: "schema",
  * });
  * ```
@@ -60,7 +59,7 @@ export class Pipe extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies a auto_ingest param for the pipe.
+     * Specifies a autoIngest param for the pipe.
      */
     public readonly autoIngest!: pulumi.Output<boolean | undefined>;
     /**
@@ -161,7 +160,7 @@ export class Pipe extends pulumi.CustomResource {
  */
 export interface PipeState {
     /**
-     * Specifies a auto_ingest param for the pipe.
+     * Specifies a autoIngest param for the pipe.
      */
     autoIngest?: pulumi.Input<boolean>;
     /**
@@ -211,7 +210,7 @@ export interface PipeState {
  */
 export interface PipeArgs {
     /**
-     * Specifies a auto_ingest param for the pipe.
+     * Specifies a autoIngest param for the pipe.
      */
     autoIngest?: pulumi.Input<boolean>;
     /**

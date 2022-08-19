@@ -13,7 +13,13 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class TablePrimaryKey
     {
+        /// <summary>
+        /// Columns to use in primary key
+        /// </summary>
         public readonly ImmutableArray<string> Keys;
+        /// <summary>
+        /// Name of constraint
+        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

@@ -69,9 +69,7 @@ export class TableGrant extends pulumi.CustomResource {
      */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
-     * When this is set to true and a schema_name is provided, apply this grant on all future tables in the given schema. When
-     * this is true and no schema_name is provided apply this grant on all future tables in the given database. The table_name
-     * and shares fields must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
      */
     public readonly onFuture!: pulumi.Output<boolean | undefined>;
     /**
@@ -87,11 +85,11 @@ export class TableGrant extends pulumi.CustomResource {
      */
     public readonly schemaName!: pulumi.Output<string | undefined>;
     /**
-     * Grants privilege to these shares (only valid if on_future is unset).
+     * Grants privilege to these shares (only valid if onFuture is unset).
      */
     public readonly shares!: pulumi.Output<string[] | undefined>;
     /**
-     * The name of the table on which to grant privileges immediately (only valid if on_future is unset).
+     * The name of the table on which to grant privileges immediately (only valid if onFuture is unset).
      */
     public readonly tableName!: pulumi.Output<string | undefined>;
     /**
@@ -155,9 +153,7 @@ export interface TableGrantState {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * When this is set to true and a schema_name is provided, apply this grant on all future tables in the given schema. When
-     * this is true and no schema_name is provided apply this grant on all future tables in the given database. The table_name
-     * and shares fields must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
@@ -173,11 +169,11 @@ export interface TableGrantState {
      */
     schemaName?: pulumi.Input<string>;
     /**
-     * Grants privilege to these shares (only valid if on_future is unset).
+     * Grants privilege to these shares (only valid if onFuture is unset).
      */
     shares?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the table on which to grant privileges immediately (only valid if on_future is unset).
+     * The name of the table on which to grant privileges immediately (only valid if onFuture is unset).
      */
     tableName?: pulumi.Input<string>;
     /**
@@ -200,9 +196,7 @@ export interface TableGrantArgs {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * When this is set to true and a schema_name is provided, apply this grant on all future tables in the given schema. When
-     * this is true and no schema_name is provided apply this grant on all future tables in the given database. The table_name
-     * and shares fields must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
@@ -218,11 +212,11 @@ export interface TableGrantArgs {
      */
     schemaName?: pulumi.Input<string>;
     /**
-     * Grants privilege to these shares (only valid if on_future is unset).
+     * Grants privilege to these shares (only valid if onFuture is unset).
      */
     shares?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the table on which to grant privileges immediately (only valid if on_future is unset).
+     * The name of the table on which to grant privileges immediately (only valid if onFuture is unset).
      */
     tableName?: pulumi.Input<string>;
     /**

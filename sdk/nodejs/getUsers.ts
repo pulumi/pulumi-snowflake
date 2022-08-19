@@ -32,6 +32,9 @@ export function getUsers(args: GetUsersArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getUsers.
  */
 export interface GetUsersArgs {
+    /**
+     * Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+     */
     pattern: string;
 }
 
@@ -43,7 +46,13 @@ export interface GetUsersResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+     */
     readonly pattern: string;
+    /**
+     * The users in the database
+     */
     readonly users: outputs.GetUsersUser[];
 }
 
@@ -55,5 +64,8 @@ export function getUsersOutput(args: GetUsersOutputArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getUsers.
  */
 export interface GetUsersOutputArgs {
+    /**
+     * Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+     */
     pattern: pulumi.Input<string>;
 }

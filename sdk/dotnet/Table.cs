@@ -13,87 +13,87 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var schema = new Snowflake.Schema("schema", new()
     ///     {
-    ///         var schema = new Snowflake.Schema("schema", new Snowflake.SchemaArgs
-    ///         {
-    ///             Database = "database",
-    ///             DataRetentionDays = 1,
-    ///         });
-    ///         var sequence = new Snowflake.Sequence("sequence", new Snowflake.SequenceArgs
-    ///         {
-    ///             Database = schema.Database,
-    ///             Schema = schema.Name,
-    ///         });
-    ///         var table = new Snowflake.Table("table", new Snowflake.TableArgs
-    ///         {
-    ///             Database = schema.Database,
-    ///             Schema = schema.Name,
-    ///             Comment = "A table.",
-    ///             ClusterBies = 
-    ///             {
-    ///                 "to_date(DATE)",
-    ///             },
-    ///             DataRetentionDays = schema.DataRetentionDays,
-    ///             ChangeTracking = false,
-    ///             Columns = 
-    ///             {
-    ///                 new Snowflake.Inputs.TableColumnArgs
-    ///                 {
-    ///                     Name = "id",
-    ///                     Type = "int",
-    ///                     Nullable = true,
-    ///                     Default = new Snowflake.Inputs.TableColumnDefaultArgs
-    ///                     {
-    ///                         Sequence = sequence.FullyQualifiedName,
-    ///                     },
-    ///                 },
-    ///                 new Snowflake.Inputs.TableColumnArgs
-    ///                 {
-    ///                     Name = "identity",
-    ///                     Type = "NUMBER(38,0)",
-    ///                     Nullable = true,
-    ///                     Identity = new Snowflake.Inputs.TableColumnIdentityArgs
-    ///                     {
-    ///                         StartNum = 1,
-    ///                         StepNum = 3,
-    ///                     },
-    ///                 },
-    ///                 new Snowflake.Inputs.TableColumnArgs
-    ///                 {
-    ///                     Name = "data",
-    ///                     Type = "text",
-    ///                     Nullable = false,
-    ///                 },
-    ///                 new Snowflake.Inputs.TableColumnArgs
-    ///                 {
-    ///                     Name = "DATE",
-    ///                     Type = "TIMESTAMP_NTZ(9)",
-    ///                 },
-    ///                 new Snowflake.Inputs.TableColumnArgs
-    ///                 {
-    ///                     Name = "extra",
-    ///                     Type = "VARIANT",
-    ///                     Comment = "extra data",
-    ///                 },
-    ///             },
-    ///             PrimaryKey = new Snowflake.Inputs.TablePrimaryKeyArgs
-    ///             {
-    ///                 Name = "my_key",
-    ///                 Keys = 
-    ///                 {
-    ///                     "data",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Database = "database",
+    ///         DataRetentionDays = 1,
+    ///     });
     /// 
-    /// }
+    ///     var sequence = new Snowflake.Sequence("sequence", new()
+    ///     {
+    ///         Database = schema.Database,
+    ///         Schema = schema.Name,
+    ///     });
+    /// 
+    ///     var table = new Snowflake.Table("table", new()
+    ///     {
+    ///         Database = schema.Database,
+    ///         Schema = schema.Name,
+    ///         Comment = "A table.",
+    ///         ClusterBies = new[]
+    ///         {
+    ///             "to_date(DATE)",
+    ///         },
+    ///         DataRetentionDays = schema.DataRetentionDays,
+    ///         ChangeTracking = false,
+    ///         Columns = new[]
+    ///         {
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "id",
+    ///                 Type = "int",
+    ///                 Nullable = true,
+    ///                 Default = new Snowflake.Inputs.TableColumnDefaultArgs
+    ///                 {
+    ///                     Sequence = sequence.FullyQualifiedName,
+    ///                 },
+    ///             },
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "identity",
+    ///                 Type = "NUMBER(38,0)",
+    ///                 Nullable = true,
+    ///                 Identity = new Snowflake.Inputs.TableColumnIdentityArgs
+    ///                 {
+    ///                     StartNum = 1,
+    ///                     StepNum = 3,
+    ///                 },
+    ///             },
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "data",
+    ///                 Type = "text",
+    ///                 Nullable = false,
+    ///             },
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "DATE",
+    ///                 Type = "TIMESTAMP_NTZ(9)",
+    ///             },
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "extra",
+    ///                 Type = "VARIANT",
+    ///                 Comment = "extra data",
+    ///             },
+    ///         },
+    ///         PrimaryKey = new Snowflake.Inputs.TablePrimaryKeyArgs
+    ///         {
+    ///             Name = "my_key",
+    ///             Keys = new[]
+    ///             {
+    ///                 "data",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -105,7 +105,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/table:Table")]
-    public partial class Table : Pulumi.CustomResource
+    public partial class Table : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether to enable change tracking on the table. Default false.
@@ -132,9 +132,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
-        /// historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the
-        /// schema attribute to this argument.
+        /// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
         /// </summary>
         [Output("dataRetentionDays")]
         public Output<int?> DataRetentionDays { get; private set; } = null!;
@@ -219,7 +217,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class TableArgs : Pulumi.ResourceArgs
+    public sealed class TableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether to enable change tracking on the table. Default false.
@@ -258,9 +256,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
-        /// historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the
-        /// schema attribute to this argument.
+        /// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
         /// </summary>
         [Input("dataRetentionDays")]
         public Input<int>? DataRetentionDays { get; set; }
@@ -304,9 +300,10 @@ namespace Pulumi.Snowflake
         public TableArgs()
         {
         }
+        public static new TableArgs Empty => new TableArgs();
     }
 
-    public sealed class TableState : Pulumi.ResourceArgs
+    public sealed class TableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether to enable change tracking on the table. Default false.
@@ -345,9 +342,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
-        /// historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the
-        /// schema attribute to this argument.
+        /// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
         /// </summary>
         [Input("dataRetentionDays")]
         public Input<int>? DataRetentionDays { get; set; }
@@ -397,5 +392,6 @@ namespace Pulumi.Snowflake
         public TableState()
         {
         }
+        public static new TableState Empty => new TableState();
     }
 }

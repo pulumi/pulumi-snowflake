@@ -13,19 +13,22 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.GetDatabases(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.GetDatabases(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetDatabases(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetDatabasesResult, error) {
 	var rv GetDatabasesResult
@@ -38,6 +41,7 @@ func GetDatabases(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetDatabas
 
 // A collection of values returned by getDatabases.
 type GetDatabasesResult struct {
+	// Snowflake databases
 	Databases []GetDatabasesDatabase `pulumi:"databases"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`

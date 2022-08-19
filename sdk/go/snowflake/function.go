@@ -16,7 +16,9 @@ import (
 // # format is database name | schema name | function name | <list of arg types, separated with '-'>
 //
 // ```sh
-//  $ pulumi import snowflake:index/function:Function example 'dbName|schemaName|functionName|varchar-varchar-varchar'
+//
+//	$ pulumi import snowflake:index/function:Function example 'dbName|schemaName|functionName|varchar-varchar-varchar'
+//
 // ```
 type Function struct {
 	pulumi.CustomResourceState
@@ -33,14 +35,11 @@ type Function struct {
 	Imports pulumi.StringArrayOutput `pulumi:"imports"`
 	// The language of the statement
 	Language pulumi.StringPtrOutput `pulumi:"language"`
-	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
-	// Don't use the | character.
+	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the behavior of the function when called with null inputs.
 	NullInputBehavior pulumi.StringPtrOutput `pulumi:"nullInputBehavior"`
-	// List of package imports to use for Java / Python functions. For Java, package imports should be of the form:
-	// package_name:version_number, where package_name is snowflake_domain:package. For Python use it should be:
-	// ('numpy','pandas','xgboost==1.5.0').
+	// List of package imports to use for Java / Python functions. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
 	Packages pulumi.StringArrayOutput `pulumi:"packages"`
 	// Specifies the behavior of the function when returning results
 	ReturnBehavior pulumi.StringPtrOutput `pulumi:"returnBehavior"`
@@ -52,8 +51,7 @@ type Function struct {
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Specifies the javascript / java / sql / python code used to create the function.
 	Statement pulumi.StringOutput `pulumi:"statement"`
-	// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is
-	// the path of the Python files.
+	// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
 	TargetPath pulumi.StringPtrOutput `pulumi:"targetPath"`
 }
 
@@ -110,14 +108,11 @@ type functionState struct {
 	Imports []string `pulumi:"imports"`
 	// The language of the statement
 	Language *string `pulumi:"language"`
-	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
-	// Don't use the | character.
+	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
 	Name *string `pulumi:"name"`
 	// Specifies the behavior of the function when called with null inputs.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
-	// List of package imports to use for Java / Python functions. For Java, package imports should be of the form:
-	// package_name:version_number, where package_name is snowflake_domain:package. For Python use it should be:
-	// ('numpy','pandas','xgboost==1.5.0').
+	// List of package imports to use for Java / Python functions. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
 	Packages []string `pulumi:"packages"`
 	// Specifies the behavior of the function when returning results
 	ReturnBehavior *string `pulumi:"returnBehavior"`
@@ -129,8 +124,7 @@ type functionState struct {
 	Schema *string `pulumi:"schema"`
 	// Specifies the javascript / java / sql / python code used to create the function.
 	Statement *string `pulumi:"statement"`
-	// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is
-	// the path of the Python files.
+	// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
 	TargetPath *string `pulumi:"targetPath"`
 }
 
@@ -147,14 +141,11 @@ type FunctionState struct {
 	Imports pulumi.StringArrayInput
 	// The language of the statement
 	Language pulumi.StringPtrInput
-	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
-	// Don't use the | character.
+	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
 	Name pulumi.StringPtrInput
 	// Specifies the behavior of the function when called with null inputs.
 	NullInputBehavior pulumi.StringPtrInput
-	// List of package imports to use for Java / Python functions. For Java, package imports should be of the form:
-	// package_name:version_number, where package_name is snowflake_domain:package. For Python use it should be:
-	// ('numpy','pandas','xgboost==1.5.0').
+	// List of package imports to use for Java / Python functions. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
 	Packages pulumi.StringArrayInput
 	// Specifies the behavior of the function when returning results
 	ReturnBehavior pulumi.StringPtrInput
@@ -166,8 +157,7 @@ type FunctionState struct {
 	Schema pulumi.StringPtrInput
 	// Specifies the javascript / java / sql / python code used to create the function.
 	Statement pulumi.StringPtrInput
-	// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is
-	// the path of the Python files.
+	// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
 	TargetPath pulumi.StringPtrInput
 }
 
@@ -188,14 +178,11 @@ type functionArgs struct {
 	Imports []string `pulumi:"imports"`
 	// The language of the statement
 	Language *string `pulumi:"language"`
-	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
-	// Don't use the | character.
+	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
 	Name *string `pulumi:"name"`
 	// Specifies the behavior of the function when called with null inputs.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
-	// List of package imports to use for Java / Python functions. For Java, package imports should be of the form:
-	// package_name:version_number, where package_name is snowflake_domain:package. For Python use it should be:
-	// ('numpy','pandas','xgboost==1.5.0').
+	// List of package imports to use for Java / Python functions. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
 	Packages []string `pulumi:"packages"`
 	// Specifies the behavior of the function when returning results
 	ReturnBehavior *string `pulumi:"returnBehavior"`
@@ -207,8 +194,7 @@ type functionArgs struct {
 	Schema string `pulumi:"schema"`
 	// Specifies the javascript / java / sql / python code used to create the function.
 	Statement string `pulumi:"statement"`
-	// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is
-	// the path of the Python files.
+	// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
 	TargetPath *string `pulumi:"targetPath"`
 }
 
@@ -226,14 +212,11 @@ type FunctionArgs struct {
 	Imports pulumi.StringArrayInput
 	// The language of the statement
 	Language pulumi.StringPtrInput
-	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
-	// Don't use the | character.
+	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
 	Name pulumi.StringPtrInput
 	// Specifies the behavior of the function when called with null inputs.
 	NullInputBehavior pulumi.StringPtrInput
-	// List of package imports to use for Java / Python functions. For Java, package imports should be of the form:
-	// package_name:version_number, where package_name is snowflake_domain:package. For Python use it should be:
-	// ('numpy','pandas','xgboost==1.5.0').
+	// List of package imports to use for Java / Python functions. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
 	Packages pulumi.StringArrayInput
 	// Specifies the behavior of the function when returning results
 	ReturnBehavior pulumi.StringPtrInput
@@ -245,8 +228,7 @@ type FunctionArgs struct {
 	Schema pulumi.StringInput
 	// Specifies the javascript / java / sql / python code used to create the function.
 	Statement pulumi.StringInput
-	// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is
-	// the path of the Python files.
+	// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
 	TargetPath pulumi.StringPtrInput
 }
 
@@ -276,7 +258,7 @@ func (i *Function) ToFunctionOutputWithContext(ctx context.Context) FunctionOutp
 // FunctionArrayInput is an input type that accepts FunctionArray and FunctionArrayOutput values.
 // You can construct a concrete instance of `FunctionArrayInput` via:
 //
-//          FunctionArray{ FunctionArgs{...} }
+//	FunctionArray{ FunctionArgs{...} }
 type FunctionArrayInput interface {
 	pulumi.Input
 
@@ -301,7 +283,7 @@ func (i FunctionArray) ToFunctionArrayOutputWithContext(ctx context.Context) Fun
 // FunctionMapInput is an input type that accepts FunctionMap and FunctionMapOutput values.
 // You can construct a concrete instance of `FunctionMapInput` via:
 //
-//          FunctionMap{ "key": FunctionArgs{...} }
+//	FunctionMap{ "key": FunctionArgs{...} }
 type FunctionMapInput interface {
 	pulumi.Input
 
@@ -367,8 +349,7 @@ func (o FunctionOutput) Language() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Language }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created.
-// Don't use the | character.
+// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
 func (o FunctionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -378,9 +359,7 @@ func (o FunctionOutput) NullInputBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.NullInputBehavior }).(pulumi.StringPtrOutput)
 }
 
-// List of package imports to use for Java / Python functions. For Java, package imports should be of the form:
-// package_name:version_number, where package_name is snowflake_domain:package. For Python use it should be:
-// ('numpy','pandas','xgboost==1.5.0').
+// List of package imports to use for Java / Python functions. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
 func (o FunctionOutput) Packages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringArrayOutput { return v.Packages }).(pulumi.StringArrayOutput)
 }
@@ -410,8 +389,7 @@ func (o FunctionOutput) Statement() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Statement }).(pulumi.StringOutput)
 }
 
-// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is
-// the path of the Python files.
+// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
 func (o FunctionOutput) TargetPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.TargetPath }).(pulumi.StringPtrOutput)
 }

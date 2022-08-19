@@ -34,7 +34,13 @@ export function getMaskingPolicies(args: GetMaskingPoliciesArgs, opts?: pulumi.I
  * A collection of arguments for invoking getMaskingPolicies.
  */
 export interface GetMaskingPoliciesArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
+    /**
+     * The schema from which to return the maskingPolicies from.
+     */
     schema: string;
 }
 
@@ -42,12 +48,21 @@ export interface GetMaskingPoliciesArgs {
  * A collection of values returned by getMaskingPolicies.
  */
 export interface GetMaskingPoliciesResult {
+    /**
+     * The database from which to return the schemas from.
+     */
     readonly database: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The maskingPolicies in the schema
+     */
     readonly maskingPolicies: outputs.GetMaskingPoliciesMaskingPolicy[];
+    /**
+     * The schema from which to return the maskingPolicies from.
+     */
     readonly schema: string;
 }
 
@@ -59,6 +74,12 @@ export function getMaskingPoliciesOutput(args: GetMaskingPoliciesOutputArgs, opt
  * A collection of arguments for invoking getMaskingPolicies.
  */
 export interface GetMaskingPoliciesOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the maskingPolicies from.
+     */
     schema: pulumi.Input<string>;
 }

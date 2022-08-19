@@ -13,8 +13,17 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class ExternalTableColumn
     {
+        /// <summary>
+        /// String that specifies the expression for the column. When queried, the column returns results derived from this expression.
+        /// </summary>
         public readonly string As;
+        /// <summary>
+        /// Column name
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Column type, e.g. VARIANT
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

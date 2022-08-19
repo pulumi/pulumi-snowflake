@@ -17,51 +17,54 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewTask(ctx, "task", &snowflake.TaskArgs{
-// 			Comment:      pulumi.String("my task"),
-// 			Database:     pulumi.String("db"),
-// 			Schema:       pulumi.String("schema"),
-// 			Warehouse:    pulumi.String("warehouse"),
-// 			Schedule:     pulumi.String("10 MINUTE"),
-// 			SqlStatement: pulumi.String("select * from foo;"),
-// 			SessionParameters: pulumi.StringMap{
-// 				"foo": pulumi.String("bar"),
-// 			},
-// 			UserTaskTimeoutMs: pulumi.Int(10000),
-// 			After:             pulumi.String("preceding_task"),
-// 			When:              pulumi.String("foo AND bar"),
-// 			Enabled:           pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = snowflake.NewTask(ctx, "serverlessTask", &snowflake.TaskArgs{
-// 			Comment:      pulumi.String("my serverless task"),
-// 			Database:     pulumi.String("db"),
-// 			Schema:       pulumi.String("schema"),
-// 			Schedule:     pulumi.String("10 MINUTE"),
-// 			SqlStatement: pulumi.String("select * from foo;"),
-// 			SessionParameters: pulumi.StringMap{
-// 				"foo": pulumi.String("bar"),
-// 			},
-// 			UserTaskTimeoutMs:                   pulumi.Int(10000),
-// 			UserTaskManagedInitialWarehouseSize: pulumi.String("XSMALL"),
-// 			After:                               pulumi.String("preceding_task"),
-// 			When:                                pulumi.String("foo AND bar"),
-// 			Enabled:                             pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewTask(ctx, "task", &snowflake.TaskArgs{
+//				Comment:      pulumi.String("my task"),
+//				Database:     pulumi.String("db"),
+//				Schema:       pulumi.String("schema"),
+//				Warehouse:    pulumi.String("warehouse"),
+//				Schedule:     pulumi.String("10 MINUTE"),
+//				SqlStatement: pulumi.String("select * from foo;"),
+//				SessionParameters: pulumi.StringMap{
+//					"foo": pulumi.String("bar"),
+//				},
+//				UserTaskTimeoutMs: pulumi.Int(10000),
+//				After:             pulumi.String("preceding_task"),
+//				When:              pulumi.String("foo AND bar"),
+//				Enabled:           pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewTask(ctx, "serverlessTask", &snowflake.TaskArgs{
+//				Comment:      pulumi.String("my serverless task"),
+//				Database:     pulumi.String("db"),
+//				Schema:       pulumi.String("schema"),
+//				Schedule:     pulumi.String("10 MINUTE"),
+//				SqlStatement: pulumi.String("select * from foo;"),
+//				SessionParameters: pulumi.StringMap{
+//					"foo": pulumi.String("bar"),
+//				},
+//				UserTaskTimeoutMs:                   pulumi.Int(10000),
+//				UserTaskManagedInitialWarehouseSize: pulumi.String("XSMALL"),
+//				After:                               pulumi.String("preceding_task"),
+//				When:                                pulumi.String("foo AND bar"),
+//				Enabled:                             pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -69,13 +72,14 @@ import (
 // # format is database name | schema name | task name
 //
 // ```sh
-//  $ pulumi import snowflake:index/task:Task example 'dbName|schemaName|taskName'
+//
+//	$ pulumi import snowflake:index/task:Task example 'dbName|schemaName|taskName'
+//
 // ```
 type Task struct {
 	pulumi.CustomResourceState
 
-	// Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task
-	// finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+	// Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
 	After pulumi.StringPtrOutput `pulumi:"after"`
 	// Specifies a comment for the task.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
@@ -95,14 +99,11 @@ type Task struct {
 	SessionParameters pulumi.StringMapOutput `pulumi:"sessionParameters"`
 	// Any single SQL statement, or a call to a stored procedure, executed when the task runs.
 	SqlStatement pulumi.StringOutput `pulumi:"sqlStatement"`
-	// Specifies the size of the compute resources to provision for the first run of the task, before a task history is
-	// available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
-	// this parameter setting. (Conflicts with warehouse)
+	// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
 	UserTaskManagedInitialWarehouseSize pulumi.StringPtrOutput `pulumi:"userTaskManagedInitialWarehouseSize"`
 	// Specifies the time limit on a single run of the task before it times out (in milliseconds).
 	UserTaskTimeoutMs pulumi.IntPtrOutput `pulumi:"userTaskTimeoutMs"`
-	// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
-	// (Conflicts with user_task_managed_initial_warehouse_size)
+	// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)
 	Warehouse pulumi.StringPtrOutput `pulumi:"warehouse"`
 	// Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported.
 	When pulumi.StringPtrOutput `pulumi:"when"`
@@ -146,8 +147,7 @@ func GetTask(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Task resources.
 type taskState struct {
-	// Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task
-	// finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+	// Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
 	After *string `pulumi:"after"`
 	// Specifies a comment for the task.
 	Comment *string `pulumi:"comment"`
@@ -167,22 +167,18 @@ type taskState struct {
 	SessionParameters map[string]string `pulumi:"sessionParameters"`
 	// Any single SQL statement, or a call to a stored procedure, executed when the task runs.
 	SqlStatement *string `pulumi:"sqlStatement"`
-	// Specifies the size of the compute resources to provision for the first run of the task, before a task history is
-	// available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
-	// this parameter setting. (Conflicts with warehouse)
+	// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
 	UserTaskManagedInitialWarehouseSize *string `pulumi:"userTaskManagedInitialWarehouseSize"`
 	// Specifies the time limit on a single run of the task before it times out (in milliseconds).
 	UserTaskTimeoutMs *int `pulumi:"userTaskTimeoutMs"`
-	// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
-	// (Conflicts with user_task_managed_initial_warehouse_size)
+	// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)
 	Warehouse *string `pulumi:"warehouse"`
 	// Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported.
 	When *string `pulumi:"when"`
 }
 
 type TaskState struct {
-	// Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task
-	// finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+	// Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
 	After pulumi.StringPtrInput
 	// Specifies a comment for the task.
 	Comment pulumi.StringPtrInput
@@ -202,14 +198,11 @@ type TaskState struct {
 	SessionParameters pulumi.StringMapInput
 	// Any single SQL statement, or a call to a stored procedure, executed when the task runs.
 	SqlStatement pulumi.StringPtrInput
-	// Specifies the size of the compute resources to provision for the first run of the task, before a task history is
-	// available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
-	// this parameter setting. (Conflicts with warehouse)
+	// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
 	UserTaskManagedInitialWarehouseSize pulumi.StringPtrInput
 	// Specifies the time limit on a single run of the task before it times out (in milliseconds).
 	UserTaskTimeoutMs pulumi.IntPtrInput
-	// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
-	// (Conflicts with user_task_managed_initial_warehouse_size)
+	// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)
 	Warehouse pulumi.StringPtrInput
 	// Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported.
 	When pulumi.StringPtrInput
@@ -220,8 +213,7 @@ func (TaskState) ElementType() reflect.Type {
 }
 
 type taskArgs struct {
-	// Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task
-	// finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+	// Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
 	After *string `pulumi:"after"`
 	// Specifies a comment for the task.
 	Comment *string `pulumi:"comment"`
@@ -241,14 +233,11 @@ type taskArgs struct {
 	SessionParameters map[string]string `pulumi:"sessionParameters"`
 	// Any single SQL statement, or a call to a stored procedure, executed when the task runs.
 	SqlStatement string `pulumi:"sqlStatement"`
-	// Specifies the size of the compute resources to provision for the first run of the task, before a task history is
-	// available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
-	// this parameter setting. (Conflicts with warehouse)
+	// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
 	UserTaskManagedInitialWarehouseSize *string `pulumi:"userTaskManagedInitialWarehouseSize"`
 	// Specifies the time limit on a single run of the task before it times out (in milliseconds).
 	UserTaskTimeoutMs *int `pulumi:"userTaskTimeoutMs"`
-	// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
-	// (Conflicts with user_task_managed_initial_warehouse_size)
+	// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)
 	Warehouse *string `pulumi:"warehouse"`
 	// Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported.
 	When *string `pulumi:"when"`
@@ -256,8 +245,7 @@ type taskArgs struct {
 
 // The set of arguments for constructing a Task resource.
 type TaskArgs struct {
-	// Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task
-	// finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+	// Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
 	After pulumi.StringPtrInput
 	// Specifies a comment for the task.
 	Comment pulumi.StringPtrInput
@@ -277,14 +265,11 @@ type TaskArgs struct {
 	SessionParameters pulumi.StringMapInput
 	// Any single SQL statement, or a call to a stored procedure, executed when the task runs.
 	SqlStatement pulumi.StringInput
-	// Specifies the size of the compute resources to provision for the first run of the task, before a task history is
-	// available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
-	// this parameter setting. (Conflicts with warehouse)
+	// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
 	UserTaskManagedInitialWarehouseSize pulumi.StringPtrInput
 	// Specifies the time limit on a single run of the task before it times out (in milliseconds).
 	UserTaskTimeoutMs pulumi.IntPtrInput
-	// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
-	// (Conflicts with user_task_managed_initial_warehouse_size)
+	// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)
 	Warehouse pulumi.StringPtrInput
 	// Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported.
 	When pulumi.StringPtrInput
@@ -316,7 +301,7 @@ func (i *Task) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 // TaskArrayInput is an input type that accepts TaskArray and TaskArrayOutput values.
 // You can construct a concrete instance of `TaskArrayInput` via:
 //
-//          TaskArray{ TaskArgs{...} }
+//	TaskArray{ TaskArgs{...} }
 type TaskArrayInput interface {
 	pulumi.Input
 
@@ -341,7 +326,7 @@ func (i TaskArray) ToTaskArrayOutputWithContext(ctx context.Context) TaskArrayOu
 // TaskMapInput is an input type that accepts TaskMap and TaskMapOutput values.
 // You can construct a concrete instance of `TaskMapInput` via:
 //
-//          TaskMap{ "key": TaskArgs{...} }
+//	TaskMap{ "key": TaskArgs{...} }
 type TaskMapInput interface {
 	pulumi.Input
 
@@ -377,8 +362,7 @@ func (o TaskOutput) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 	return o
 }
 
-// Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task
-// finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+// Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
 func (o TaskOutput) After() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringPtrOutput { return v.After }).(pulumi.StringPtrOutput)
 }
@@ -428,9 +412,7 @@ func (o TaskOutput) SqlStatement() pulumi.StringOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.SqlStatement }).(pulumi.StringOutput)
 }
 
-// Specifies the size of the compute resources to provision for the first run of the task, before a task history is
-// available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
-// this parameter setting. (Conflicts with warehouse)
+// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
 func (o TaskOutput) UserTaskManagedInitialWarehouseSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringPtrOutput { return v.UserTaskManagedInitialWarehouseSize }).(pulumi.StringPtrOutput)
 }
@@ -440,8 +422,7 @@ func (o TaskOutput) UserTaskTimeoutMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Task) pulumi.IntPtrOutput { return v.UserTaskTimeoutMs }).(pulumi.IntPtrOutput)
 }
 
-// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
-// (Conflicts with user_task_managed_initial_warehouse_size)
+// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)
 func (o TaskOutput) Warehouse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringPtrOutput { return v.Warehouse }).(pulumi.StringPtrOutput)
 }

@@ -17,38 +17,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewApiIntegration(ctx, "apiIntegration", &snowflake.ApiIntegrationArgs{
-// 			ApiAllowedPrefixes: pulumi.StringArray{
-// 				pulumi.String("https://123456.execute-api.us-west-2.amazonaws.com/prod/"),
-// 			},
-// 			ApiAwsRoleArn: pulumi.String("arn:aws:iam::000000000001:/role/test"),
-// 			ApiProvider:   pulumi.String("aws_api_gateway"),
-// 			Enabled:       pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewApiIntegration(ctx, "apiIntegration", &snowflake.ApiIntegrationArgs{
+//				ApiAllowedPrefixes: pulumi.StringArray{
+//					pulumi.String("https://123456.execute-api.us-west-2.amazonaws.com/prod/"),
+//				},
+//				ApiAwsRoleArn: pulumi.String("arn:aws:iam::000000000001:/role/test"),
+//				ApiProvider:   pulumi.String("aws_api_gateway"),
+//				Enabled:       pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
 // ```sh
-//  $ pulumi import snowflake:index/apiIntegration:ApiIntegration example name
+//
+//	$ pulumi import snowflake:index/apiIntegration:ApiIntegration example name
+//
 // ```
 type ApiIntegration struct {
 	pulumi.CustomResourceState
 
-	// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
-	// resources within those proxies.
+	// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
 	ApiAllowedPrefixes pulumi.StringArrayOutput `pulumi:"apiAllowedPrefixes"`
 	// The external ID that Snowflake will use when assuming the AWS role.
 	ApiAwsExternalId pulumi.StringOutput `pulumi:"apiAwsExternalId"`
@@ -68,11 +72,9 @@ type ApiIntegration struct {
 	AzureTenantId pulumi.StringPtrOutput `pulumi:"azureTenantId"`
 	// Date and time when the API integration was created.
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
-	// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
-	// that relies on it will not work.
+	// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
-	// among api integrations in your account.
+	// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -111,8 +113,7 @@ func GetApiIntegration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiIntegration resources.
 type apiIntegrationState struct {
-	// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
-	// resources within those proxies.
+	// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
 	ApiAllowedPrefixes []string `pulumi:"apiAllowedPrefixes"`
 	// The external ID that Snowflake will use when assuming the AWS role.
 	ApiAwsExternalId *string `pulumi:"apiAwsExternalId"`
@@ -132,17 +133,14 @@ type apiIntegrationState struct {
 	AzureTenantId *string `pulumi:"azureTenantId"`
 	// Date and time when the API integration was created.
 	CreatedOn *string `pulumi:"createdOn"`
-	// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
-	// that relies on it will not work.
+	// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
-	// among api integrations in your account.
+	// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
 	Name *string `pulumi:"name"`
 }
 
 type ApiIntegrationState struct {
-	// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
-	// resources within those proxies.
+	// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
 	ApiAllowedPrefixes pulumi.StringArrayInput
 	// The external ID that Snowflake will use when assuming the AWS role.
 	ApiAwsExternalId pulumi.StringPtrInput
@@ -162,11 +160,9 @@ type ApiIntegrationState struct {
 	AzureTenantId pulumi.StringPtrInput
 	// Date and time when the API integration was created.
 	CreatedOn pulumi.StringPtrInput
-	// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
-	// that relies on it will not work.
+	// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
 	Enabled pulumi.BoolPtrInput
-	// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
-	// among api integrations in your account.
+	// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
 	Name pulumi.StringPtrInput
 }
 
@@ -175,8 +171,7 @@ func (ApiIntegrationState) ElementType() reflect.Type {
 }
 
 type apiIntegrationArgs struct {
-	// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
-	// resources within those proxies.
+	// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
 	ApiAllowedPrefixes []string `pulumi:"apiAllowedPrefixes"`
 	// ARN of a cloud platform role.
 	ApiAwsRoleArn *string `pulumi:"apiAwsRoleArn"`
@@ -188,18 +183,15 @@ type apiIntegrationArgs struct {
 	AzureAdApplicationId *string `pulumi:"azureAdApplicationId"`
 	// Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
 	AzureTenantId *string `pulumi:"azureTenantId"`
-	// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
-	// that relies on it will not work.
+	// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
-	// among api integrations in your account.
+	// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a ApiIntegration resource.
 type ApiIntegrationArgs struct {
-	// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
-	// resources within those proxies.
+	// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
 	ApiAllowedPrefixes pulumi.StringArrayInput
 	// ARN of a cloud platform role.
 	ApiAwsRoleArn pulumi.StringPtrInput
@@ -211,11 +203,9 @@ type ApiIntegrationArgs struct {
 	AzureAdApplicationId pulumi.StringPtrInput
 	// Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
 	AzureTenantId pulumi.StringPtrInput
-	// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
-	// that relies on it will not work.
+	// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
 	Enabled pulumi.BoolPtrInput
-	// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
-	// among api integrations in your account.
+	// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
 	Name pulumi.StringPtrInput
 }
 
@@ -245,7 +235,7 @@ func (i *ApiIntegration) ToApiIntegrationOutputWithContext(ctx context.Context) 
 // ApiIntegrationArrayInput is an input type that accepts ApiIntegrationArray and ApiIntegrationArrayOutput values.
 // You can construct a concrete instance of `ApiIntegrationArrayInput` via:
 //
-//          ApiIntegrationArray{ ApiIntegrationArgs{...} }
+//	ApiIntegrationArray{ ApiIntegrationArgs{...} }
 type ApiIntegrationArrayInput interface {
 	pulumi.Input
 
@@ -270,7 +260,7 @@ func (i ApiIntegrationArray) ToApiIntegrationArrayOutputWithContext(ctx context.
 // ApiIntegrationMapInput is an input type that accepts ApiIntegrationMap and ApiIntegrationMapOutput values.
 // You can construct a concrete instance of `ApiIntegrationMapInput` via:
 //
-//          ApiIntegrationMap{ "key": ApiIntegrationArgs{...} }
+//	ApiIntegrationMap{ "key": ApiIntegrationArgs{...} }
 type ApiIntegrationMapInput interface {
 	pulumi.Input
 
@@ -306,8 +296,7 @@ func (o ApiIntegrationOutput) ToApiIntegrationOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
-// resources within those proxies.
+// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
 func (o ApiIntegrationOutput) ApiAllowedPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiIntegration) pulumi.StringArrayOutput { return v.ApiAllowedPrefixes }).(pulumi.StringArrayOutput)
 }
@@ -360,14 +349,12 @@ func (o ApiIntegrationOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiIntegration) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
-// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
-// that relies on it will not work.
+// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
 func (o ApiIntegrationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApiIntegration) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
-// among api integrations in your account.
+// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
 func (o ApiIntegrationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -17,38 +17,41 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleStage, err := snowflake.NewStage(ctx, "exampleStage", &snowflake.StageArgs{
-// 			Url:         pulumi.String("s3://com.example.bucket/prefix"),
-// 			Database:    pulumi.String("EXAMPLE_DB"),
-// 			Schema:      pulumi.String("EXAMPLE_SCHEMA"),
-// 			Credentials: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "AWS_KEY_ID='", _var.Example_aws_key_id, "' AWS_SECRET_KEY='", _var.Example_aws_secret_key, "'")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = snowflake.NewStageGrant(ctx, "grantExampleStage", &snowflake.StageGrantArgs{
-// 			DatabaseName: exampleStage.Database,
-// 			SchemaName:   exampleStage.Schema,
-// 			Roles: pulumi.StringArray{
-// 				pulumi.String("LOADER"),
-// 			},
-// 			Privilege: pulumi.String("OWNERSHIP"),
-// 			StageName: exampleStage.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleStage, err := snowflake.NewStage(ctx, "exampleStage", &snowflake.StageArgs{
+//				Url:         pulumi.String("s3://com.example.bucket/prefix"),
+//				Database:    pulumi.String("EXAMPLE_DB"),
+//				Schema:      pulumi.String("EXAMPLE_SCHEMA"),
+//				Credentials: pulumi.String(fmt.Sprintf("AWS_KEY_ID='%v' AWS_SECRET_KEY='%v'", _var.Example_aws_key_id, _var.Example_aws_secret_key)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewStageGrant(ctx, "grantExampleStage", &snowflake.StageGrantArgs{
+//				DatabaseName: exampleStage.Database,
+//				SchemaName:   exampleStage.Schema,
+//				Roles: pulumi.StringArray{
+//					pulumi.String("LOADER"),
+//				},
+//				Privilege: pulumi.String("OWNERSHIP"),
+//				StageName: exampleStage.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -56,7 +59,9 @@ import (
 // # format is database name | schema name | stage name
 //
 // ```sh
-//  $ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'
+//
+//	$ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'
+//
 // ```
 type Stage struct {
 	pulumi.CustomResourceState
@@ -81,8 +86,7 @@ type Stage struct {
 	// The schema in which to create the stage.
 	Schema           pulumi.StringOutput `pulumi:"schema"`
 	SnowflakeIamUser pulumi.StringOutput `pulumi:"snowflakeIamUser"`
-	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
-	// to a Snowflake identity and access management (IAM) entity.
+	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration pulumi.StringPtrOutput `pulumi:"storageIntegration"`
 	// Definitions of a tag to associate with the resource.
 	Tags StageTagArrayOutput `pulumi:"tags"`
@@ -145,8 +149,7 @@ type stageState struct {
 	// The schema in which to create the stage.
 	Schema           *string `pulumi:"schema"`
 	SnowflakeIamUser *string `pulumi:"snowflakeIamUser"`
-	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
-	// to a Snowflake identity and access management (IAM) entity.
+	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration *string `pulumi:"storageIntegration"`
 	// Definitions of a tag to associate with the resource.
 	Tags []StageTag `pulumi:"tags"`
@@ -175,8 +178,7 @@ type StageState struct {
 	// The schema in which to create the stage.
 	Schema           pulumi.StringPtrInput
 	SnowflakeIamUser pulumi.StringPtrInput
-	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
-	// to a Snowflake identity and access management (IAM) entity.
+	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
 	Tags StageTagArrayInput
@@ -209,8 +211,7 @@ type stageArgs struct {
 	// The schema in which to create the stage.
 	Schema           string  `pulumi:"schema"`
 	SnowflakeIamUser *string `pulumi:"snowflakeIamUser"`
-	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
-	// to a Snowflake identity and access management (IAM) entity.
+	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration *string `pulumi:"storageIntegration"`
 	// Definitions of a tag to associate with the resource.
 	Tags []StageTag `pulumi:"tags"`
@@ -240,8 +241,7 @@ type StageArgs struct {
 	// The schema in which to create the stage.
 	Schema           pulumi.StringInput
 	SnowflakeIamUser pulumi.StringPtrInput
-	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
-	// to a Snowflake identity and access management (IAM) entity.
+	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
 	Tags StageTagArrayInput
@@ -275,7 +275,7 @@ func (i *Stage) ToStageOutputWithContext(ctx context.Context) StageOutput {
 // StageArrayInput is an input type that accepts StageArray and StageArrayOutput values.
 // You can construct a concrete instance of `StageArrayInput` via:
 //
-//          StageArray{ StageArgs{...} }
+//	StageArray{ StageArgs{...} }
 type StageArrayInput interface {
 	pulumi.Input
 
@@ -300,7 +300,7 @@ func (i StageArray) ToStageArrayOutputWithContext(ctx context.Context) StageArra
 // StageMapInput is an input type that accepts StageMap and StageMapOutput values.
 // You can construct a concrete instance of `StageMapInput` via:
 //
-//          StageMap{ "key": StageArgs{...} }
+//	StageMap{ "key": StageArgs{...} }
 type StageMapInput interface {
 	pulumi.Input
 
@@ -389,8 +389,7 @@ func (o StageOutput) SnowflakeIamUser() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.SnowflakeIamUser }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
-// to a Snowflake identity and access management (IAM) entity.
+// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
 func (o StageOutput) StorageIntegration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.StorageIntegration }).(pulumi.StringPtrOutput)
 }

@@ -19,7 +19,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/procedure:Procedure")]
-    public partial class Procedure : Pulumi.CustomResource
+    public partial class Procedure : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of the arguments for the procedure
@@ -52,8 +52,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Language { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
-        /// Don't use the | character.
+        /// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -132,7 +131,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class ProcedureArgs : Pulumi.ResourceArgs
+    public sealed class ProcedureArgs : global::Pulumi.ResourceArgs
     {
         [Input("arguments")]
         private InputList<Inputs.ProcedureArgumentArgs>? _arguments;
@@ -171,8 +170,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Language { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
-        /// Don't use the | character.
+        /// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -210,9 +208,10 @@ namespace Pulumi.Snowflake
         public ProcedureArgs()
         {
         }
+        public static new ProcedureArgs Empty => new ProcedureArgs();
     }
 
-    public sealed class ProcedureState : Pulumi.ResourceArgs
+    public sealed class ProcedureState : global::Pulumi.ResourceArgs
     {
         [Input("arguments")]
         private InputList<Inputs.ProcedureArgumentGetArgs>? _arguments;
@@ -251,8 +250,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Language { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
-        /// Don't use the | character.
+        /// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -290,5 +288,6 @@ namespace Pulumi.Snowflake
         public ProcedureState()
         {
         }
+        public static new ProcedureState Empty => new ProcedureState();
     }
 }

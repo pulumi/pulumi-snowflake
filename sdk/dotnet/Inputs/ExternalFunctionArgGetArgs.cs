@@ -10,16 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake.Inputs
 {
 
-    public sealed class ExternalFunctionArgGetArgs : Pulumi.ResourceArgs
+    public sealed class ExternalFunctionArgGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Argument name
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Argument type, e.g. VARCHAR
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         public ExternalFunctionArgGetArgs()
         {
         }
+        public static new ExternalFunctionArgGetArgs Empty => new ExternalFunctionArgGetArgs();
     }
 }

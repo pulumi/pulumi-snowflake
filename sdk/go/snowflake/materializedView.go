@@ -17,27 +17,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewMaterializedView(ctx, "view", &snowflake.MaterializedViewArgs{
-// 			Database:  pulumi.String("db"),
-// 			Schema:    pulumi.String("schema"),
-// 			Warehouse: pulumi.String("warehouse"),
-// 			Comment:   pulumi.String("comment"),
-// 			Statement: pulumi.String("select * from foo;\n"),
-// 			OrReplace: pulumi.Bool(false),
-// 			IsSecure:  pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewMaterializedView(ctx, "view", &snowflake.MaterializedViewArgs{
+//				Database:  pulumi.String("db"),
+//				Schema:    pulumi.String("schema"),
+//				Warehouse: pulumi.String("warehouse"),
+//				Comment:   pulumi.String("comment"),
+//				Statement: pulumi.String("select * from foo;\n"),
+//				OrReplace: pulumi.Bool(false),
+//				IsSecure:  pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // # format is database name | schema name | view name
 //
 // ```sh
-//  $ pulumi import snowflake:index/materializedView:MaterializedView example 'dbName|schemaName|viewName'
+//
+//	$ pulumi import snowflake:index/materializedView:MaterializedView example 'dbName|schemaName|viewName'
+//
 // ```
 type MaterializedView struct {
 	pulumi.CustomResourceState
@@ -225,7 +230,7 @@ func (i *MaterializedView) ToMaterializedViewOutputWithContext(ctx context.Conte
 // MaterializedViewArrayInput is an input type that accepts MaterializedViewArray and MaterializedViewArrayOutput values.
 // You can construct a concrete instance of `MaterializedViewArrayInput` via:
 //
-//          MaterializedViewArray{ MaterializedViewArgs{...} }
+//	MaterializedViewArray{ MaterializedViewArgs{...} }
 type MaterializedViewArrayInput interface {
 	pulumi.Input
 
@@ -250,7 +255,7 @@ func (i MaterializedViewArray) ToMaterializedViewArrayOutputWithContext(ctx cont
 // MaterializedViewMapInput is an input type that accepts MaterializedViewMap and MaterializedViewMapOutput values.
 // You can construct a concrete instance of `MaterializedViewMapInput` via:
 //
-//          MaterializedViewMap{ "key": MaterializedViewArgs{...} }
+//	MaterializedViewMap{ "key": MaterializedViewArgs{...} }
 type MaterializedViewMapInput interface {
 	pulumi.Input
 

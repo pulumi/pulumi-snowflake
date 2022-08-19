@@ -17,21 +17,19 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Snowflake.GetExternalTables.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Snowflake.GetExternalTables.InvokeAsync(new Snowflake.GetExternalTablesArgs
-        ///         {
-        ///             Database = "MYDB",
-        ///             Schema = "MYSCHEMA",
-        ///         }));
-        ///     }
+        ///         Database = "MYDB",
+        ///         Schema = "MYSCHEMA",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -45,21 +43,19 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Snowflake.GetExternalTables.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Snowflake.GetExternalTables.InvokeAsync(new Snowflake.GetExternalTablesArgs
-        ///         {
-        ///             Database = "MYDB",
-        ///             Schema = "MYSCHEMA",
-        ///         }));
-        ///     }
+        ///         Database = "MYDB",
+        ///         Schema = "MYSCHEMA",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -69,42 +65,65 @@ namespace Pulumi.Snowflake
     }
 
 
-    public sealed class GetExternalTablesArgs : Pulumi.InvokeArgs
+    public sealed class GetExternalTablesArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database", required: true)]
         public string Database { get; set; } = null!;
 
+        /// <summary>
+        /// The schema from which to return the external tables from.
+        /// </summary>
         [Input("schema", required: true)]
         public string Schema { get; set; } = null!;
 
         public GetExternalTablesArgs()
         {
         }
+        public static new GetExternalTablesArgs Empty => new GetExternalTablesArgs();
     }
 
-    public sealed class GetExternalTablesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetExternalTablesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
+        /// <summary>
+        /// The schema from which to return the external tables from.
+        /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
         public GetExternalTablesInvokeArgs()
         {
         }
+        public static new GetExternalTablesInvokeArgs Empty => new GetExternalTablesInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetExternalTablesResult
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         public readonly string Database;
+        /// <summary>
+        /// The external tables in the schema
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetExternalTablesExternalTableResult> ExternalTables;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The schema from which to return the external tables from.
+        /// </summary>
         public readonly string Schema;
 
         [OutputConstructor]

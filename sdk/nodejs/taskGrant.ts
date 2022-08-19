@@ -71,9 +71,7 @@ export class TaskGrant extends pulumi.CustomResource {
      */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
-     * When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
-     * this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
-     * field must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
      */
     public readonly onFuture!: pulumi.Output<boolean | undefined>;
     /**
@@ -89,7 +87,7 @@ export class TaskGrant extends pulumi.CustomResource {
      */
     public readonly schemaName!: pulumi.Output<string>;
     /**
-     * The name of the task on which to grant privileges immediately (only valid if on_future is false).
+     * The name of the task on which to grant privileges immediately (only valid if onFuture is false).
      */
     public readonly taskName!: pulumi.Output<string | undefined>;
     /**
@@ -154,9 +152,7 @@ export interface TaskGrantState {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
-     * this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
-     * field must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
@@ -172,7 +168,7 @@ export interface TaskGrantState {
      */
     schemaName?: pulumi.Input<string>;
     /**
-     * The name of the task on which to grant privileges immediately (only valid if on_future is false).
+     * The name of the task on which to grant privileges immediately (only valid if onFuture is false).
      */
     taskName?: pulumi.Input<string>;
     /**
@@ -195,9 +191,7 @@ export interface TaskGrantArgs {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * When this is set to true and a schema_name is provided, apply this grant on all future tasks in the given schema. When
-     * this is true and no schema_name is provided apply this grant on all future tasks in the given database. The task_name
-     * field must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
@@ -213,7 +207,7 @@ export interface TaskGrantArgs {
      */
     schemaName: pulumi.Input<string>;
     /**
-     * The name of the task on which to grant privileges immediately (only valid if on_future is false).
+     * The name of the task on which to grant privileges immediately (only valid if onFuture is false).
      */
     taskName?: pulumi.Input<string>;
     /**

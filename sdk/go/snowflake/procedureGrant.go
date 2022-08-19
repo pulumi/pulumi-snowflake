@@ -17,45 +17,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewProcedureGrant(ctx, "grant", &snowflake.ProcedureGrantArgs{
-// 			Arguments: ProcedureGrantArgumentArray{
-// 				&ProcedureGrantArgumentArgs{
-// 					Name: pulumi.String("a"),
-// 					Type: pulumi.String("array"),
-// 				},
-// 				&ProcedureGrantArgumentArgs{
-// 					Name: pulumi.String("b"),
-// 					Type: pulumi.String("string"),
-// 				},
-// 			},
-// 			DatabaseName:  pulumi.String("db"),
-// 			OnFuture:      pulumi.Bool(false),
-// 			Privilege:     pulumi.String("select"),
-// 			ProcedureName: pulumi.String("procedure"),
-// 			ReturnType:    pulumi.String("string"),
-// 			Roles: pulumi.StringArray{
-// 				pulumi.String("role1"),
-// 				pulumi.String("role2"),
-// 			},
-// 			SchemaName: pulumi.String("schema"),
-// 			Shares: pulumi.StringArray{
-// 				pulumi.String("share1"),
-// 				pulumi.String("share2"),
-// 			},
-// 			WithGrantOption: pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewProcedureGrant(ctx, "grant", &snowflake.ProcedureGrantArgs{
+//				Arguments: ProcedureGrantArgumentArray{
+//					&ProcedureGrantArgumentArgs{
+//						Name: pulumi.String("a"),
+//						Type: pulumi.String("array"),
+//					},
+//					&ProcedureGrantArgumentArgs{
+//						Name: pulumi.String("b"),
+//						Type: pulumi.String("string"),
+//					},
+//				},
+//				DatabaseName:  pulumi.String("db"),
+//				OnFuture:      pulumi.Bool(false),
+//				Privilege:     pulumi.String("select"),
+//				ProcedureName: pulumi.String("procedure"),
+//				ReturnType:    pulumi.String("string"),
+//				Roles: pulumi.StringArray{
+//					pulumi.String("role1"),
+//					pulumi.String("role2"),
+//				},
+//				SchemaName: pulumi.String("schema"),
+//				Shares: pulumi.StringArray{
+//					pulumi.String("share1"),
+//					pulumi.String("share2"),
+//				},
+//				WithGrantOption: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -63,33 +66,33 @@ import (
 // # format is database name | schema name | procedure signature | privilege | true/false for with_grant_option
 //
 // ```sh
-//  $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'dbName|schemaName|procedureName(ARG1 ARG1TYPE, ARG2 ARG2TYPE):RETURNTYPE|USAGE|false'
+//
+//	$ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'dbName|schemaName|procedureName(ARG1 ARG1TYPE, ARG2 ARG2TYPE):RETURNTYPE|USAGE|false'
+//
 // ```
 type ProcedureGrant struct {
 	pulumi.CustomResourceState
 
-	// List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
+	// List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
 	Arguments ProcedureGrantArgumentArrayOutput `pulumi:"arguments"`
 	// The name of the database containing the current or future procedures on which to grant privileges.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema_name is provided, apply this grant on all future procedures in the given schema.
-	// When this is true and no schema_name is provided apply this grant on all future procedures in the given database. The
-	// procedure_name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
 	// The privilege to grant on the current or future procedure.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
-	// The name of the procedure on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 	ProcedureName pulumi.StringPtrOutput `pulumi:"procedureName"`
-	// The return type of the procedure (must be present if procedure_name is present)
+	// The return type of the procedure (must be present if procedureName is present)
 	ReturnType pulumi.StringPtrOutput `pulumi:"returnType"`
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current or future procedures on which to grant privileges.
 	SchemaName pulumi.StringOutput `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if on_future is false).
+	// Grants privilege to these shares (only valid if onFuture is false).
 	Shares pulumi.StringArrayOutput `pulumi:"shares"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrOutput `pulumi:"withGrantOption"`
@@ -130,56 +133,52 @@ func GetProcedureGrant(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProcedureGrant resources.
 type procedureGrantState struct {
-	// List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
+	// List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
 	Arguments []ProcedureGrantArgument `pulumi:"arguments"`
 	// The name of the database containing the current or future procedures on which to grant privileges.
 	DatabaseName *string `pulumi:"databaseName"`
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema_name is provided, apply this grant on all future procedures in the given schema.
-	// When this is true and no schema_name is provided apply this grant on all future procedures in the given database. The
-	// procedure_name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future procedure.
 	Privilege *string `pulumi:"privilege"`
-	// The name of the procedure on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 	ProcedureName *string `pulumi:"procedureName"`
-	// The return type of the procedure (must be present if procedure_name is present)
+	// The return type of the procedure (must be present if procedureName is present)
 	ReturnType *string `pulumi:"returnType"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future procedures on which to grant privileges.
 	SchemaName *string `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if on_future is false).
+	// Grants privilege to these shares (only valid if onFuture is false).
 	Shares []string `pulumi:"shares"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
 }
 
 type ProcedureGrantState struct {
-	// List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
+	// List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
 	Arguments ProcedureGrantArgumentArrayInput
 	// The name of the database containing the current or future procedures on which to grant privileges.
 	DatabaseName pulumi.StringPtrInput
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// When this is set to true and a schema_name is provided, apply this grant on all future procedures in the given schema.
-	// When this is true and no schema_name is provided apply this grant on all future procedures in the given database. The
-	// procedure_name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future procedure.
 	Privilege pulumi.StringPtrInput
-	// The name of the procedure on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 	ProcedureName pulumi.StringPtrInput
-	// The return type of the procedure (must be present if procedure_name is present)
+	// The return type of the procedure (must be present if procedureName is present)
 	ReturnType pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future procedures on which to grant privileges.
 	SchemaName pulumi.StringPtrInput
-	// Grants privilege to these shares (only valid if on_future is false).
+	// Grants privilege to these shares (only valid if onFuture is false).
 	Shares pulumi.StringArrayInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
@@ -190,28 +189,26 @@ func (ProcedureGrantState) ElementType() reflect.Type {
 }
 
 type procedureGrantArgs struct {
-	// List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
+	// List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
 	Arguments []ProcedureGrantArgument `pulumi:"arguments"`
 	// The name of the database containing the current or future procedures on which to grant privileges.
 	DatabaseName string `pulumi:"databaseName"`
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema_name is provided, apply this grant on all future procedures in the given schema.
-	// When this is true and no schema_name is provided apply this grant on all future procedures in the given database. The
-	// procedure_name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future procedure.
 	Privilege *string `pulumi:"privilege"`
-	// The name of the procedure on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 	ProcedureName *string `pulumi:"procedureName"`
-	// The return type of the procedure (must be present if procedure_name is present)
+	// The return type of the procedure (must be present if procedureName is present)
 	ReturnType *string `pulumi:"returnType"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future procedures on which to grant privileges.
 	SchemaName string `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if on_future is false).
+	// Grants privilege to these shares (only valid if onFuture is false).
 	Shares []string `pulumi:"shares"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
@@ -219,28 +216,26 @@ type procedureGrantArgs struct {
 
 // The set of arguments for constructing a ProcedureGrant resource.
 type ProcedureGrantArgs struct {
-	// List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
+	// List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
 	Arguments ProcedureGrantArgumentArrayInput
 	// The name of the database containing the current or future procedures on which to grant privileges.
 	DatabaseName pulumi.StringInput
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// When this is set to true and a schema_name is provided, apply this grant on all future procedures in the given schema.
-	// When this is true and no schema_name is provided apply this grant on all future procedures in the given database. The
-	// procedure_name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future procedure.
 	Privilege pulumi.StringPtrInput
-	// The name of the procedure on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 	ProcedureName pulumi.StringPtrInput
-	// The return type of the procedure (must be present if procedure_name is present)
+	// The return type of the procedure (must be present if procedureName is present)
 	ReturnType pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future procedures on which to grant privileges.
 	SchemaName pulumi.StringInput
-	// Grants privilege to these shares (only valid if on_future is false).
+	// Grants privilege to these shares (only valid if onFuture is false).
 	Shares pulumi.StringArrayInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
@@ -272,7 +267,7 @@ func (i *ProcedureGrant) ToProcedureGrantOutputWithContext(ctx context.Context) 
 // ProcedureGrantArrayInput is an input type that accepts ProcedureGrantArray and ProcedureGrantArrayOutput values.
 // You can construct a concrete instance of `ProcedureGrantArrayInput` via:
 //
-//          ProcedureGrantArray{ ProcedureGrantArgs{...} }
+//	ProcedureGrantArray{ ProcedureGrantArgs{...} }
 type ProcedureGrantArrayInput interface {
 	pulumi.Input
 
@@ -297,7 +292,7 @@ func (i ProcedureGrantArray) ToProcedureGrantArrayOutputWithContext(ctx context.
 // ProcedureGrantMapInput is an input type that accepts ProcedureGrantMap and ProcedureGrantMapOutput values.
 // You can construct a concrete instance of `ProcedureGrantMapInput` via:
 //
-//          ProcedureGrantMap{ "key": ProcedureGrantArgs{...} }
+//	ProcedureGrantMap{ "key": ProcedureGrantArgs{...} }
 type ProcedureGrantMapInput interface {
 	pulumi.Input
 
@@ -333,7 +328,7 @@ func (o ProcedureGrantOutput) ToProcedureGrantOutputWithContext(ctx context.Cont
 	return o
 }
 
-// List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
+// List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
 func (o ProcedureGrantOutput) Arguments() ProcedureGrantArgumentArrayOutput {
 	return o.ApplyT(func(v *ProcedureGrant) ProcedureGrantArgumentArrayOutput { return v.Arguments }).(ProcedureGrantArgumentArrayOutput)
 }
@@ -349,9 +344,7 @@ func (o ProcedureGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ProcedureGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }
 
-// When this is set to true and a schema_name is provided, apply this grant on all future procedures in the given schema.
-// When this is true and no schema_name is provided apply this grant on all future procedures in the given database. The
-// procedure_name and shares fields must be unset in order to use on_future.
+// When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
 func (o ProcedureGrantOutput) OnFuture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ProcedureGrant) pulumi.BoolPtrOutput { return v.OnFuture }).(pulumi.BoolPtrOutput)
 }
@@ -361,12 +354,12 @@ func (o ProcedureGrantOutput) Privilege() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProcedureGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
 }
 
-// The name of the procedure on which to grant privileges immediately (only valid if on_future is false).
+// The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 func (o ProcedureGrantOutput) ProcedureName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProcedureGrant) pulumi.StringPtrOutput { return v.ProcedureName }).(pulumi.StringPtrOutput)
 }
 
-// The return type of the procedure (must be present if procedure_name is present)
+// The return type of the procedure (must be present if procedureName is present)
 func (o ProcedureGrantOutput) ReturnType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProcedureGrant) pulumi.StringPtrOutput { return v.ReturnType }).(pulumi.StringPtrOutput)
 }
@@ -381,7 +374,7 @@ func (o ProcedureGrantOutput) SchemaName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProcedureGrant) pulumi.StringOutput { return v.SchemaName }).(pulumi.StringOutput)
 }
 
-// Grants privilege to these shares (only valid if on_future is false).
+// Grants privilege to these shares (only valid if onFuture is false).
 func (o ProcedureGrantOutput) Shares() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ProcedureGrant) pulumi.StringArrayOutput { return v.Shares }).(pulumi.StringArrayOutput)
 }

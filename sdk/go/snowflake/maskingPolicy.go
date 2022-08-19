@@ -17,25 +17,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewMaskingPolicy(ctx, "exampleMaskingPolicy", &snowflake.MaskingPolicyArgs{
-// 			Database:          pulumi.String("EXAMPLE_DB"),
-// 			MaskingExpression: pulumi.String("case when current_role() in ('ANALYST') then val else sha2(val, 512) end"),
-// 			ReturnDataType:    pulumi.String("string"),
-// 			Schema:            pulumi.String("EXAMPLE_SCHEMA"),
-// 			ValueDataType:     pulumi.String("string"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewMaskingPolicy(ctx, "exampleMaskingPolicy", &snowflake.MaskingPolicyArgs{
+//				Database:          pulumi.String("EXAMPLE_DB"),
+//				MaskingExpression: pulumi.String("case when current_role() in ('ANALYST') then val else sha2(val, 512) end"),
+//				ReturnDataType:    pulumi.String("string"),
+//				Schema:            pulumi.String("EXAMPLE_SCHEMA"),
+//				ValueDataType:     pulumi.String("string"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // # format is database name | schema name | policy name
 //
 // ```sh
-//  $ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example 'dbName|schemaName|policyName'
+//
+//	$ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example 'dbName|schemaName|policyName'
+//
 // ```
 type MaskingPolicy struct {
 	pulumi.CustomResourceState
@@ -54,8 +59,7 @@ type MaskingPolicy struct {
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Specifies the SQL expression that transforms the data.
 	MaskingExpression pulumi.StringOutput `pulumi:"maskingExpression"`
-	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-	// is created.
+	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the data type to return.
 	ReturnDataType pulumi.StringOutput `pulumi:"returnDataType"`
@@ -115,8 +119,7 @@ type maskingPolicyState struct {
 	Database *string `pulumi:"database"`
 	// Specifies the SQL expression that transforms the data.
 	MaskingExpression *string `pulumi:"maskingExpression"`
-	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-	// is created.
+	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
 	Name *string `pulumi:"name"`
 	// Specifies the data type to return.
 	ReturnDataType *string `pulumi:"returnDataType"`
@@ -133,8 +136,7 @@ type MaskingPolicyState struct {
 	Database pulumi.StringPtrInput
 	// Specifies the SQL expression that transforms the data.
 	MaskingExpression pulumi.StringPtrInput
-	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-	// is created.
+	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
 	Name pulumi.StringPtrInput
 	// Specifies the data type to return.
 	ReturnDataType pulumi.StringPtrInput
@@ -155,8 +157,7 @@ type maskingPolicyArgs struct {
 	Database string `pulumi:"database"`
 	// Specifies the SQL expression that transforms the data.
 	MaskingExpression string `pulumi:"maskingExpression"`
-	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-	// is created.
+	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
 	Name *string `pulumi:"name"`
 	// Specifies the data type to return.
 	ReturnDataType string `pulumi:"returnDataType"`
@@ -174,8 +175,7 @@ type MaskingPolicyArgs struct {
 	Database pulumi.StringInput
 	// Specifies the SQL expression that transforms the data.
 	MaskingExpression pulumi.StringInput
-	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-	// is created.
+	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
 	Name pulumi.StringPtrInput
 	// Specifies the data type to return.
 	ReturnDataType pulumi.StringInput
@@ -211,7 +211,7 @@ func (i *MaskingPolicy) ToMaskingPolicyOutputWithContext(ctx context.Context) Ma
 // MaskingPolicyArrayInput is an input type that accepts MaskingPolicyArray and MaskingPolicyArrayOutput values.
 // You can construct a concrete instance of `MaskingPolicyArrayInput` via:
 //
-//          MaskingPolicyArray{ MaskingPolicyArgs{...} }
+//	MaskingPolicyArray{ MaskingPolicyArgs{...} }
 type MaskingPolicyArrayInput interface {
 	pulumi.Input
 
@@ -236,7 +236,7 @@ func (i MaskingPolicyArray) ToMaskingPolicyArrayOutputWithContext(ctx context.Co
 // MaskingPolicyMapInput is an input type that accepts MaskingPolicyMap and MaskingPolicyMapOutput values.
 // You can construct a concrete instance of `MaskingPolicyMapInput` via:
 //
-//          MaskingPolicyMap{ "key": MaskingPolicyArgs{...} }
+//	MaskingPolicyMap{ "key": MaskingPolicyArgs{...} }
 type MaskingPolicyMapInput interface {
 	pulumi.Input
 
@@ -287,8 +287,7 @@ func (o MaskingPolicyOutput) MaskingExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaskingPolicy) pulumi.StringOutput { return v.MaskingExpression }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-// is created.
+// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
 func (o MaskingPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaskingPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

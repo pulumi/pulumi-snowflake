@@ -13,7 +13,13 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class ExternalFunctionHeader
     {
+        /// <summary>
+        /// Header name
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Header value
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

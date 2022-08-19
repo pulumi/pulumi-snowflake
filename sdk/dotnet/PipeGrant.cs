@@ -13,30 +13,28 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var grant = new Snowflake.PipeGrant("grant", new()
     ///     {
-    ///         var grant = new Snowflake.PipeGrant("grant", new Snowflake.PipeGrantArgs
+    ///         DatabaseName = "db",
+    ///         OnFuture = false,
+    ///         PipeName = "pipe",
+    ///         Privilege = "operate",
+    ///         Roles = new[]
     ///         {
-    ///             DatabaseName = "db",
-    ///             OnFuture = false,
-    ///             PipeName = "pipe",
-    ///             Privilege = "operate",
-    ///             Roles = 
-    ///             {
-    ///                 "role1",
-    ///                 "role2",
-    ///             },
-    ///             SchemaName = "schema",
-    ///             WithGrantOption = false,
-    ///         });
-    ///     }
+    ///             "role1",
+    ///             "role2",
+    ///         },
+    ///         SchemaName = "schema",
+    ///         WithGrantOption = false,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +46,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/pipeGrant:PipeGrant")]
-    public partial class PipeGrant : Pulumi.CustomResource
+    public partial class PipeGrant : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the database containing the current or future pipes on which to grant privileges.
@@ -64,9 +62,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> EnableMultipleGrants { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-        /// this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-        /// field must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
         /// </summary>
         [Output("onFuture")]
         public Output<bool?> OnFuture { get; private set; } = null!;
@@ -145,7 +141,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class PipeGrantArgs : Pulumi.ResourceArgs
+    public sealed class PipeGrantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database containing the current or future pipes on which to grant privileges.
@@ -161,9 +157,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-        /// this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-        /// field must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -207,9 +201,10 @@ namespace Pulumi.Snowflake
         public PipeGrantArgs()
         {
         }
+        public static new PipeGrantArgs Empty => new PipeGrantArgs();
     }
 
-    public sealed class PipeGrantState : Pulumi.ResourceArgs
+    public sealed class PipeGrantState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database containing the current or future pipes on which to grant privileges.
@@ -225,9 +220,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future pipes in the given schema. When
-        /// this is true and no schema_name is provided apply this grant on all future pipes in the given database. The pipe_name
-        /// field must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -271,5 +264,6 @@ namespace Pulumi.Snowflake
         public PipeGrantState()
         {
         }
+        public static new PipeGrantState Empty => new PipeGrantState();
     }
 }

@@ -13,35 +13,33 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var grant = new Snowflake.ExternalTableGrant("grant", new()
     ///     {
-    ///         var grant = new Snowflake.ExternalTableGrant("grant", new Snowflake.ExternalTableGrantArgs
+    ///         DatabaseName = "db",
+    ///         ExternalTableName = "external_table",
+    ///         OnFuture = false,
+    ///         Privilege = "select",
+    ///         Roles = new[]
     ///         {
-    ///             DatabaseName = "db",
-    ///             ExternalTableName = "external_table",
-    ///             OnFuture = false,
-    ///             Privilege = "select",
-    ///             Roles = 
-    ///             {
-    ///                 "role1",
-    ///                 "role2",
-    ///             },
-    ///             SchemaName = "schema",
-    ///             Shares = 
-    ///             {
-    ///                 "share1",
-    ///                 "share2",
-    ///             },
-    ///             WithGrantOption = false,
-    ///         });
-    ///     }
+    ///             "role1",
+    ///             "role2",
+    ///         },
+    ///         SchemaName = "schema",
+    ///         Shares = new[]
+    ///         {
+    ///             "share1",
+    ///             "share2",
+    ///         },
+    ///         WithGrantOption = false,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/externalTableGrant:ExternalTableGrant")]
-    public partial class ExternalTableGrant : Pulumi.CustomResource
+    public partial class ExternalTableGrant : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the database containing the current or future external tables on which to grant privileges.
@@ -75,9 +73,7 @@ namespace Pulumi.Snowflake
         public Output<string?> ExternalTableName { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future external tables in the given
-        /// schema. When this is true and no schema_name is provided apply this grant on all future external tables in the given
-        /// database. The external_table_name and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
         /// </summary>
         [Output("onFuture")]
         public Output<bool?> OnFuture { get; private set; } = null!;
@@ -156,7 +152,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class ExternalTableGrantArgs : Pulumi.ResourceArgs
+    public sealed class ExternalTableGrantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database containing the current or future external tables on which to grant privileges.
@@ -178,9 +174,7 @@ namespace Pulumi.Snowflake
         public Input<string>? ExternalTableName { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future external tables in the given
-        /// schema. When this is true and no schema_name is provided apply this grant on all future external tables in the given
-        /// database. The external_table_name and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -230,9 +224,10 @@ namespace Pulumi.Snowflake
         public ExternalTableGrantArgs()
         {
         }
+        public static new ExternalTableGrantArgs Empty => new ExternalTableGrantArgs();
     }
 
-    public sealed class ExternalTableGrantState : Pulumi.ResourceArgs
+    public sealed class ExternalTableGrantState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database containing the current or future external tables on which to grant privileges.
@@ -254,9 +249,7 @@ namespace Pulumi.Snowflake
         public Input<string>? ExternalTableName { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future external tables in the given
-        /// schema. When this is true and no schema_name is provided apply this grant on all future external tables in the given
-        /// database. The external_table_name and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -306,5 +299,6 @@ namespace Pulumi.Snowflake
         public ExternalTableGrantState()
         {
         }
+        public static new ExternalTableGrantState Empty => new ExternalTableGrantState();
     }
 }

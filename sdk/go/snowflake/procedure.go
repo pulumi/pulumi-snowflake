@@ -16,7 +16,9 @@ import (
 // # format is database name | schema name | stored procedure name | <list of arg types, separated with '-'>
 //
 // ```sh
-//  $ pulumi import snowflake:index/procedure:Procedure example 'dbName|schemaName|procedureName|varchar-varchar-varchar'
+//
+//	$ pulumi import snowflake:index/procedure:Procedure example 'dbName|schemaName|procedureName|varchar-varchar-varchar'
+//
 // ```
 type Procedure struct {
 	pulumi.CustomResourceState
@@ -31,8 +33,7 @@ type Procedure struct {
 	ExecuteAs pulumi.StringPtrOutput `pulumi:"executeAs"`
 	// Specifies the language of the stored procedure code.
 	Language pulumi.StringPtrOutput `pulumi:"language"`
-	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
-	// Don't use the | character.
+	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior pulumi.StringPtrOutput `pulumi:"nullInputBehavior"`
@@ -97,8 +98,7 @@ type procedureState struct {
 	ExecuteAs *string `pulumi:"executeAs"`
 	// Specifies the language of the stored procedure code.
 	Language *string `pulumi:"language"`
-	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
-	// Don't use the | character.
+	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
 	Name *string `pulumi:"name"`
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
@@ -123,8 +123,7 @@ type ProcedureState struct {
 	ExecuteAs pulumi.StringPtrInput
 	// Specifies the language of the stored procedure code.
 	Language pulumi.StringPtrInput
-	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
-	// Don't use the | character.
+	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
 	Name pulumi.StringPtrInput
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior pulumi.StringPtrInput
@@ -153,8 +152,7 @@ type procedureArgs struct {
 	ExecuteAs *string `pulumi:"executeAs"`
 	// Specifies the language of the stored procedure code.
 	Language *string `pulumi:"language"`
-	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
-	// Don't use the | character.
+	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
 	Name *string `pulumi:"name"`
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
@@ -180,8 +178,7 @@ type ProcedureArgs struct {
 	ExecuteAs pulumi.StringPtrInput
 	// Specifies the language of the stored procedure code.
 	Language pulumi.StringPtrInput
-	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
-	// Don't use the | character.
+	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
 	Name pulumi.StringPtrInput
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior pulumi.StringPtrInput
@@ -221,7 +218,7 @@ func (i *Procedure) ToProcedureOutputWithContext(ctx context.Context) ProcedureO
 // ProcedureArrayInput is an input type that accepts ProcedureArray and ProcedureArrayOutput values.
 // You can construct a concrete instance of `ProcedureArrayInput` via:
 //
-//          ProcedureArray{ ProcedureArgs{...} }
+//	ProcedureArray{ ProcedureArgs{...} }
 type ProcedureArrayInput interface {
 	pulumi.Input
 
@@ -246,7 +243,7 @@ func (i ProcedureArray) ToProcedureArrayOutputWithContext(ctx context.Context) P
 // ProcedureMapInput is an input type that accepts ProcedureMap and ProcedureMapOutput values.
 // You can construct a concrete instance of `ProcedureMapInput` via:
 //
-//          ProcedureMap{ "key": ProcedureArgs{...} }
+//	ProcedureMap{ "key": ProcedureArgs{...} }
 type ProcedureMapInput interface {
 	pulumi.Input
 
@@ -307,8 +304,7 @@ func (o ProcedureOutput) Language() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Procedure) pulumi.StringPtrOutput { return v.Language }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created.
-// Don't use the | character.
+// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
 func (o ProcedureOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Procedure) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

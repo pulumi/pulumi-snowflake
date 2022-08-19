@@ -17,20 +17,18 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var @this = Snowflake.GetDatabase.Invoke(new()
         ///     {
-        ///         var @this = Output.Create(Snowflake.GetDatabase.InvokeAsync(new Snowflake.GetDatabaseArgs
-        ///         {
-        ///             Name = "DEMO_DB",
-        ///         }));
-        ///     }
+        ///         Name = "DEMO_DB",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -44,20 +42,18 @@ namespace Pulumi.Snowflake
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Snowflake = Pulumi.Snowflake;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var @this = Snowflake.GetDatabase.Invoke(new()
         ///     {
-        ///         var @this = Output.Create(Snowflake.GetDatabase.InvokeAsync(new Snowflake.GetDatabaseArgs
-        ///         {
-        ///             Name = "DEMO_DB",
-        ///         }));
-        ///     }
+        ///         Name = "DEMO_DB",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -67,24 +63,32 @@ namespace Pulumi.Snowflake
     }
 
 
-    public sealed class GetDatabaseArgs : Pulumi.InvokeArgs
+    public sealed class GetDatabaseArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return its metadata.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         public GetDatabaseArgs()
         {
         }
+        public static new GetDatabaseArgs Empty => new GetDatabaseArgs();
     }
 
-    public sealed class GetDatabaseInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDatabaseInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return its metadata.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         public GetDatabaseInvokeArgs()
         {
         }
+        public static new GetDatabaseInvokeArgs Empty => new GetDatabaseInvokeArgs();
     }
 
 
@@ -99,6 +103,9 @@ namespace Pulumi.Snowflake
         public readonly string Id;
         public readonly bool IsCurrent;
         public readonly bool IsDefault;
+        /// <summary>
+        /// The database from which to return its metadata.
+        /// </summary>
         public readonly string Name;
         public readonly string Options;
         public readonly string Origin;

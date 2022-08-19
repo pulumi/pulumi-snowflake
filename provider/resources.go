@@ -134,6 +134,7 @@ func Provider() tfbridge.ProviderInfo {
 			"snowflake_external_oauth_integration": {Tok: makeResource(mainMod, "ExternalOauthIntegration")},
 			"snowflake_role_ownership_grant":       {Tok: makeResource(mainMod, "RoleOwnershipGrant")},
 			"snowflake_user_ownership_grant":       {Tok: makeResource(mainMod, "UserOwnershipGrant")},
+			"snowflake_tag_grant":                  {Tok: makeResource(mainMod, "TagGrant")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"snowflake_current_account":                    {Tok: makeDataSource(mainMod, "getCurrentAccount")},

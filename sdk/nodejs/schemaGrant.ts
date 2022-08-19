@@ -74,8 +74,7 @@ export class SchemaGrant extends pulumi.CustomResource {
      */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
-     * When this is set to true, apply this grant on all future schemas in the given database. The schema_name and shares
-     * fields must be unset in order to use on_future.
+     * When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
      */
     public readonly onFuture!: pulumi.Output<boolean | undefined>;
     /**
@@ -92,7 +91,7 @@ export class SchemaGrant extends pulumi.CustomResource {
      */
     public readonly schemaName!: pulumi.Output<string | undefined>;
     /**
-     * Grants privilege to these shares (only valid if on_future is unset).
+     * Grants privilege to these shares (only valid if onFuture is unset).
      */
     public readonly shares!: pulumi.Output<string[] | undefined>;
     /**
@@ -154,8 +153,7 @@ export interface SchemaGrantState {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * When this is set to true, apply this grant on all future schemas in the given database. The schema_name and shares
-     * fields must be unset in order to use on_future.
+     * When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
@@ -172,7 +170,7 @@ export interface SchemaGrantState {
      */
     schemaName?: pulumi.Input<string>;
     /**
-     * Grants privilege to these shares (only valid if on_future is unset).
+     * Grants privilege to these shares (only valid if onFuture is unset).
      */
     shares?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -195,8 +193,7 @@ export interface SchemaGrantArgs {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * When this is set to true, apply this grant on all future schemas in the given database. The schema_name and shares
-     * fields must be unset in order to use on_future.
+     * When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
@@ -213,7 +210,7 @@ export interface SchemaGrantArgs {
      */
     schemaName?: pulumi.Input<string>;
     /**
-     * Grants privilege to these shares (only valid if on_future is unset).
+     * Grants privilege to these shares (only valid if onFuture is unset).
      */
     shares?: pulumi.Input<pulumi.Input<string>[]>;
     /**

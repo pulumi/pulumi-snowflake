@@ -33,8 +33,7 @@ export class RoleOwnershipGrant extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
-     * a new role.
+     * Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
      */
     public readonly currentGrants!: pulumi.Output<string | undefined>;
     /**
@@ -84,8 +83,7 @@ export class RoleOwnershipGrant extends pulumi.CustomResource {
  */
 export interface RoleOwnershipGrantState {
     /**
-     * Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
-     * a new role.
+     * Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
      */
     currentGrants?: pulumi.Input<string>;
     /**
@@ -103,8 +101,7 @@ export interface RoleOwnershipGrantState {
  */
 export interface RoleOwnershipGrantArgs {
     /**
-     * Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
-     * a new role.
+     * Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
      */
     currentGrants?: pulumi.Input<string>;
     /**

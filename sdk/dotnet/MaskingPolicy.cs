@@ -13,24 +13,22 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleMaskingPolicy = new Snowflake.MaskingPolicy("exampleMaskingPolicy", new()
     ///     {
-    ///         var exampleMaskingPolicy = new Snowflake.MaskingPolicy("exampleMaskingPolicy", new Snowflake.MaskingPolicyArgs
-    ///         {
-    ///             Database = "EXAMPLE_DB",
-    ///             MaskingExpression = "case when current_role() in ('ANALYST') then val else sha2(val, 512) end",
-    ///             ReturnDataType = "string",
-    ///             Schema = "EXAMPLE_SCHEMA",
-    ///             ValueDataType = "string",
-    ///         });
-    ///     }
+    ///         Database = "EXAMPLE_DB",
+    ///         MaskingExpression = "case when current_role() in ('ANALYST') then val else sha2(val, 512) end",
+    ///         ReturnDataType = "string",
+    ///         Schema = "EXAMPLE_SCHEMA",
+    ///         ValueDataType = "string",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/maskingPolicy:MaskingPolicy")]
-    public partial class MaskingPolicy : Pulumi.CustomResource
+    public partial class MaskingPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies a comment for the masking policy.
@@ -63,8 +61,7 @@ namespace Pulumi.Snowflake
         public Output<string> MaskingExpression { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-        /// is created.
+        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -131,7 +128,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class MaskingPolicyArgs : Pulumi.ResourceArgs
+    public sealed class MaskingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a comment for the masking policy.
@@ -152,8 +149,7 @@ namespace Pulumi.Snowflake
         public Input<string> MaskingExpression { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-        /// is created.
+        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -179,9 +175,10 @@ namespace Pulumi.Snowflake
         public MaskingPolicyArgs()
         {
         }
+        public static new MaskingPolicyArgs Empty => new MaskingPolicyArgs();
     }
 
-    public sealed class MaskingPolicyState : Pulumi.ResourceArgs
+    public sealed class MaskingPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a comment for the masking policy.
@@ -202,8 +199,7 @@ namespace Pulumi.Snowflake
         public Input<string>? MaskingExpression { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-        /// is created.
+        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -229,5 +225,6 @@ namespace Pulumi.Snowflake
         public MaskingPolicyState()
         {
         }
+        public static new MaskingPolicyState Empty => new MaskingPolicyState();
     }
 }

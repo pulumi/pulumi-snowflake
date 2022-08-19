@@ -19,7 +19,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/stream:Stream")]
-    public partial class Stream : Pulumi.CustomResource
+    public partial class Stream : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Type of the stream that will be created.
@@ -125,7 +125,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class StreamArgs : Pulumi.ResourceArgs
+    public sealed class StreamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the stream that will be created.
@@ -184,9 +184,10 @@ namespace Pulumi.Snowflake
         public StreamArgs()
         {
         }
+        public static new StreamArgs Empty => new StreamArgs();
     }
 
-    public sealed class StreamState : Pulumi.ResourceArgs
+    public sealed class StreamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the stream that will be created.
@@ -251,5 +252,6 @@ namespace Pulumi.Snowflake
         public StreamState()
         {
         }
+        public static new StreamState Empty => new StreamState();
     }
 }

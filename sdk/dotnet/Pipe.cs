@@ -19,7 +19,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/pipe:Pipe")]
-    public partial class Pipe : Pulumi.CustomResource
+    public partial class Pipe : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies a auto_ingest param for the pipe.
@@ -131,7 +131,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class PipeArgs : Pulumi.ResourceArgs
+    public sealed class PipeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a auto_ingest param for the pipe.
@@ -190,9 +190,10 @@ namespace Pulumi.Snowflake
         public PipeArgs()
         {
         }
+        public static new PipeArgs Empty => new PipeArgs();
     }
 
-    public sealed class PipeState : Pulumi.ResourceArgs
+    public sealed class PipeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a auto_ingest param for the pipe.
@@ -263,5 +264,6 @@ namespace Pulumi.Snowflake
         public PipeState()
         {
         }
+        public static new PipeState Empty => new PipeState();
     }
 }

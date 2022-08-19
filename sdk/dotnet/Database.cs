@@ -13,40 +13,40 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Snowflake.Database("test", new()
     ///     {
-    ///         var test = new Snowflake.Database("test", new Snowflake.DatabaseArgs
-    ///         {
-    ///             Comment = "test comment",
-    ///             DataRetentionTimeInDays = 3,
-    ///         });
-    ///         var test2 = new Snowflake.Database("test2", new Snowflake.DatabaseArgs
-    ///         {
-    ///             Comment = "test comment 2",
-    ///             ReplicationConfiguration = new Snowflake.Inputs.DatabaseReplicationConfigurationArgs
-    ///             {
-    ///                 Accounts = 
-    ///                 {
-    ///                     "test_account1",
-    ///                     "test_account_2",
-    ///                 },
-    ///                 IgnoreEditionCheck = true,
-    ///             },
-    ///         });
-    ///         var test3 = new Snowflake.Database("test3", new Snowflake.DatabaseArgs
-    ///         {
-    ///             Comment = "test comment",
-    ///             DataRetentionTimeInDays = 3,
-    ///             FromReplica = "org1\".\"account1\".\"primary_db_name",
-    ///         });
-    ///     }
+    ///         Comment = "test comment",
+    ///         DataRetentionTimeInDays = 3,
+    ///     });
     /// 
-    /// }
+    ///     var test2 = new Snowflake.Database("test2", new()
+    ///     {
+    ///         Comment = "test comment 2",
+    ///         ReplicationConfiguration = new Snowflake.Inputs.DatabaseReplicationConfigurationArgs
+    ///         {
+    ///             Accounts = new[]
+    ///             {
+    ///                 "test_account1",
+    ///                 "test_account_2",
+    ///             },
+    ///             IgnoreEditionCheck = true,
+    ///         },
+    ///     });
+    /// 
+    ///     var test3 = new Snowflake.Database("test3", new()
+    ///     {
+    ///         Comment = "test comment",
+    ///         DataRetentionTimeInDays = 3,
+    ///         FromReplica = "org1\".\"account1\".\"primary_db_name",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +56,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/database:Database")]
-    public partial class Database : Pulumi.CustomResource
+    public partial class Database : global::Pulumi.CustomResource
     {
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
@@ -71,8 +71,7 @@ namespace Pulumi.Snowflake
         public Output<string?> FromDatabase { get; private set; } = null!;
 
         /// <summary>
-        /// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
-        /// "&lt;organization_name&gt;"."&lt;account_name&gt;"."&lt;db_name&gt;". An example would be: "myorg1"."account1"."db1"
+        /// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
         /// </summary>
         [Output("fromReplica")]
         public Output<string?> FromReplica { get; private set; } = null!;
@@ -142,7 +141,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class DatabaseArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseArgs : global::Pulumi.ResourceArgs
     {
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -157,8 +156,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FromDatabase { get; set; }
 
         /// <summary>
-        /// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
-        /// "&lt;organization_name&gt;"."&lt;account_name&gt;"."&lt;db_name&gt;". An example would be: "myorg1"."account1"."db1"
+        /// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
         /// </summary>
         [Input("fromReplica")]
         public Input<string>? FromReplica { get; set; }
@@ -199,9 +197,10 @@ namespace Pulumi.Snowflake
         public DatabaseArgs()
         {
         }
+        public static new DatabaseArgs Empty => new DatabaseArgs();
     }
 
-    public sealed class DatabaseState : Pulumi.ResourceArgs
+    public sealed class DatabaseState : global::Pulumi.ResourceArgs
     {
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -216,8 +215,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FromDatabase { get; set; }
 
         /// <summary>
-        /// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of
-        /// "&lt;organization_name&gt;"."&lt;account_name&gt;"."&lt;db_name&gt;". An example would be: "myorg1"."account1"."db1"
+        /// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
         /// </summary>
         [Input("fromReplica")]
         public Input<string>? FromReplica { get; set; }
@@ -258,5 +256,6 @@ namespace Pulumi.Snowflake
         public DatabaseState()
         {
         }
+        public static new DatabaseState Empty => new DatabaseState();
     }
 }

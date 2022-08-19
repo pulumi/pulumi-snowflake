@@ -34,7 +34,13 @@ export function getFileFormats(args: GetFileFormatsArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getFileFormats.
  */
 export interface GetFileFormatsArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
+    /**
+     * The schema from which to return the file formats from.
+     */
     schema: string;
 }
 
@@ -42,12 +48,21 @@ export interface GetFileFormatsArgs {
  * A collection of values returned by getFileFormats.
  */
 export interface GetFileFormatsResult {
+    /**
+     * The database from which to return the schemas from.
+     */
     readonly database: string;
+    /**
+     * The file formats in the schema
+     */
     readonly fileFormats: outputs.GetFileFormatsFileFormat[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The schema from which to return the file formats from.
+     */
     readonly schema: string;
 }
 
@@ -59,6 +74,12 @@ export function getFileFormatsOutput(args: GetFileFormatsOutputArgs, opts?: pulu
  * A collection of arguments for invoking getFileFormats.
  */
 export interface GetFileFormatsOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the file formats from.
+     */
     schema: pulumi.Input<string>;
 }

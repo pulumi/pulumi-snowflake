@@ -31,6 +31,9 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
  * A collection of arguments for invoking getDatabase.
  */
 export interface GetDatabaseArgs {
+    /**
+     * The database from which to return its metadata.
+     */
     name: string;
 }
 
@@ -46,6 +49,9 @@ export interface GetDatabaseResult {
     readonly id: string;
     readonly isCurrent: boolean;
     readonly isDefault: boolean;
+    /**
+     * The database from which to return its metadata.
+     */
     readonly name: string;
     readonly options: string;
     readonly origin: string;
@@ -61,5 +67,8 @@ export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getDatabase.
  */
 export interface GetDatabaseOutputArgs {
+    /**
+     * The database from which to return its metadata.
+     */
     name: pulumi.Input<string>;
 }

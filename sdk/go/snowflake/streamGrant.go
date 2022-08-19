@@ -17,30 +17,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewStreamGrant(ctx, "grant", &snowflake.StreamGrantArgs{
-// 			DatabaseName: pulumi.String("db"),
-// 			OnFuture:     pulumi.Bool(false),
-// 			Privilege:    pulumi.String("select"),
-// 			Roles: pulumi.StringArray{
-// 				pulumi.String("role1"),
-// 				pulumi.String("role2"),
-// 			},
-// 			SchemaName:      pulumi.String("schema"),
-// 			StreamName:      pulumi.String("view"),
-// 			WithGrantOption: pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewStreamGrant(ctx, "grant", &snowflake.StreamGrantArgs{
+//				DatabaseName: pulumi.String("db"),
+//				OnFuture:     pulumi.Bool(false),
+//				Privilege:    pulumi.String("select"),
+//				Roles: pulumi.StringArray{
+//					pulumi.String("role1"),
+//					pulumi.String("role2"),
+//				},
+//				SchemaName:      pulumi.String("schema"),
+//				StreamName:      pulumi.String("view"),
+//				WithGrantOption: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // # format is database name | schema name | stream name | privilege | true/false for with_grant_option
 //
 // ```sh
-//  $ pulumi import snowflake:index/streamGrant:StreamGrant example 'dbName|schemaName|streamName|SELECT|false'
+//
+//	$ pulumi import snowflake:index/streamGrant:StreamGrant example 'dbName|schemaName|streamName|SELECT|false'
+//
 // ```
 type StreamGrant struct {
 	pulumi.CustomResourceState
@@ -58,9 +63,7 @@ type StreamGrant struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema_name is provided, apply this grant on all future streams in the given schema. When
-	// this is true and no schema_name is provided apply this grant on all future streams in the given database. The
-	// stream_name field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future streams in the given schema. When this is true and no schema*name is provided apply this grant on all future streams in the given database. The stream*name field must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
 	// The privilege to grant on the current or future stream.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
@@ -68,7 +71,7 @@ type StreamGrant struct {
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current or future streams on which to grant privileges.
 	SchemaName pulumi.StringOutput `pulumi:"schemaName"`
-	// The name of the stream on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the stream on which to grant privileges immediately (only valid if onFuture is false).
 	StreamName pulumi.StringPtrOutput `pulumi:"streamName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrOutput `pulumi:"withGrantOption"`
@@ -114,9 +117,7 @@ type streamGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema_name is provided, apply this grant on all future streams in the given schema. When
-	// this is true and no schema_name is provided apply this grant on all future streams in the given database. The
-	// stream_name field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future streams in the given schema. When this is true and no schema*name is provided apply this grant on all future streams in the given database. The stream*name field must be unset in order to use on*future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future stream.
 	Privilege *string `pulumi:"privilege"`
@@ -124,7 +125,7 @@ type streamGrantState struct {
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future streams on which to grant privileges.
 	SchemaName *string `pulumi:"schemaName"`
-	// The name of the stream on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the stream on which to grant privileges immediately (only valid if onFuture is false).
 	StreamName *string `pulumi:"streamName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
@@ -136,9 +137,7 @@ type StreamGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// When this is set to true and a schema_name is provided, apply this grant on all future streams in the given schema. When
-	// this is true and no schema_name is provided apply this grant on all future streams in the given database. The
-	// stream_name field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future streams in the given schema. When this is true and no schema*name is provided apply this grant on all future streams in the given database. The stream*name field must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future stream.
 	Privilege pulumi.StringPtrInput
@@ -146,7 +145,7 @@ type StreamGrantState struct {
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future streams on which to grant privileges.
 	SchemaName pulumi.StringPtrInput
-	// The name of the stream on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the stream on which to grant privileges immediately (only valid if onFuture is false).
 	StreamName pulumi.StringPtrInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
@@ -162,9 +161,7 @@ type streamGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema_name is provided, apply this grant on all future streams in the given schema. When
-	// this is true and no schema_name is provided apply this grant on all future streams in the given database. The
-	// stream_name field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future streams in the given schema. When this is true and no schema*name is provided apply this grant on all future streams in the given database. The stream*name field must be unset in order to use on*future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future stream.
 	Privilege *string `pulumi:"privilege"`
@@ -172,7 +169,7 @@ type streamGrantArgs struct {
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future streams on which to grant privileges.
 	SchemaName string `pulumi:"schemaName"`
-	// The name of the stream on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the stream on which to grant privileges immediately (only valid if onFuture is false).
 	StreamName *string `pulumi:"streamName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
@@ -185,9 +182,7 @@ type StreamGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// When this is set to true and a schema_name is provided, apply this grant on all future streams in the given schema. When
-	// this is true and no schema_name is provided apply this grant on all future streams in the given database. The
-	// stream_name field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future streams in the given schema. When this is true and no schema*name is provided apply this grant on all future streams in the given database. The stream*name field must be unset in order to use on*future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future stream.
 	Privilege pulumi.StringPtrInput
@@ -195,7 +190,7 @@ type StreamGrantArgs struct {
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future streams on which to grant privileges.
 	SchemaName pulumi.StringInput
-	// The name of the stream on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the stream on which to grant privileges immediately (only valid if onFuture is false).
 	StreamName pulumi.StringPtrInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
@@ -227,7 +222,7 @@ func (i *StreamGrant) ToStreamGrantOutputWithContext(ctx context.Context) Stream
 // StreamGrantArrayInput is an input type that accepts StreamGrantArray and StreamGrantArrayOutput values.
 // You can construct a concrete instance of `StreamGrantArrayInput` via:
 //
-//          StreamGrantArray{ StreamGrantArgs{...} }
+//	StreamGrantArray{ StreamGrantArgs{...} }
 type StreamGrantArrayInput interface {
 	pulumi.Input
 
@@ -252,7 +247,7 @@ func (i StreamGrantArray) ToStreamGrantArrayOutputWithContext(ctx context.Contex
 // StreamGrantMapInput is an input type that accepts StreamGrantMap and StreamGrantMapOutput values.
 // You can construct a concrete instance of `StreamGrantMapInput` via:
 //
-//          StreamGrantMap{ "key": StreamGrantArgs{...} }
+//	StreamGrantMap{ "key": StreamGrantArgs{...} }
 type StreamGrantMapInput interface {
 	pulumi.Input
 
@@ -299,9 +294,7 @@ func (o StreamGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StreamGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }
 
-// When this is set to true and a schema_name is provided, apply this grant on all future streams in the given schema. When
-// this is true and no schema_name is provided apply this grant on all future streams in the given database. The
-// stream_name field must be unset in order to use on_future.
+// When this is set to true and a schema*name is provided, apply this grant on all future streams in the given schema. When this is true and no schema*name is provided apply this grant on all future streams in the given database. The stream*name field must be unset in order to use on*future.
 func (o StreamGrantOutput) OnFuture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StreamGrant) pulumi.BoolPtrOutput { return v.OnFuture }).(pulumi.BoolPtrOutput)
 }
@@ -321,7 +314,7 @@ func (o StreamGrantOutput) SchemaName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamGrant) pulumi.StringOutput { return v.SchemaName }).(pulumi.StringOutput)
 }
 
-// The name of the stream on which to grant privileges immediately (only valid if on_future is false).
+// The name of the stream on which to grant privileges immediately (only valid if onFuture is false).
 func (o StreamGrantOutput) StreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamGrant) pulumi.StringPtrOutput { return v.StreamName }).(pulumi.StringPtrOutput)
 }

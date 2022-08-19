@@ -116,6 +116,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TableGrant{}
 	case "snowflake:index/tag:Tag":
 		r = &Tag{}
+	case "snowflake:index/tagGrant:TagGrant":
+		r = &TagGrant{}
 	case "snowflake:index/task:Task":
 		r = &Task{}
 	case "snowflake:index/taskGrant:TaskGrant":
@@ -400,6 +402,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/tag",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/tagGrant",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

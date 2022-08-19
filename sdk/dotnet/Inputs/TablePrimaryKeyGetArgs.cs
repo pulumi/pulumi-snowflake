@@ -10,21 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake.Inputs
 {
 
-    public sealed class TablePrimaryKeyGetArgs : Pulumi.ResourceArgs
+    public sealed class TablePrimaryKeyGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("keys", required: true)]
         private InputList<string>? _keys;
+
+        /// <summary>
+        /// Columns to use in primary key
+        /// </summary>
         public InputList<string> Keys
         {
             get => _keys ?? (_keys = new InputList<string>());
             set => _keys = value;
         }
 
+        /// <summary>
+        /// Name of constraint
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         public TablePrimaryKeyGetArgs()
         {
         }
+        public static new TablePrimaryKeyGetArgs Empty => new TablePrimaryKeyGetArgs();
     }
 }

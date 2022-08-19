@@ -13,27 +13,25 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testTag = new Snowflake.Tag("testTag", new()
     ///     {
-    ///         var testTag = new Snowflake.Tag("testTag", new Snowflake.TagArgs
+    ///         AllowedValues = new[]
     ///         {
-    ///             AllowedValues = 
-    ///             {
-    ///                 "foo",
-    ///                 "bar",
-    ///             },
-    ///             Comment = "test comment",
-    ///             Database = "test_db",
-    ///             Schema = "test_schema",
-    ///         });
-    ///     }
+    ///             "foo",
+    ///             "bar",
+    ///         },
+    ///         Comment = "test comment",
+    ///         Database = "test_db",
+    ///         Schema = "test_schema",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/tag:Tag")]
-    public partial class Tag : Pulumi.CustomResource
+    public partial class Tag : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of allowed values for the tag.
@@ -121,7 +119,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class TagArgs : Pulumi.ResourceArgs
+    public sealed class TagArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedValues")]
         private InputList<string>? _allowedValues;
@@ -162,9 +160,10 @@ namespace Pulumi.Snowflake
         public TagArgs()
         {
         }
+        public static new TagArgs Empty => new TagArgs();
     }
 
-    public sealed class TagState : Pulumi.ResourceArgs
+    public sealed class TagState : global::Pulumi.ResourceArgs
     {
         [Input("allowedValues")]
         private InputList<string>? _allowedValues;
@@ -205,5 +204,6 @@ namespace Pulumi.Snowflake
         public TagState()
         {
         }
+        public static new TagState Empty => new TagState();
     }
 }

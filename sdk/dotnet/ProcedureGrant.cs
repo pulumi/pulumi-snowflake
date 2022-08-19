@@ -13,49 +13,47 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var grant = new Snowflake.ProcedureGrant("grant", new()
     ///     {
-    ///         var grant = new Snowflake.ProcedureGrant("grant", new Snowflake.ProcedureGrantArgs
+    ///         Arguments = new[]
     ///         {
-    ///             Arguments = 
+    ///             new Snowflake.Inputs.ProcedureGrantArgumentArgs
     ///             {
-    ///                 new Snowflake.Inputs.ProcedureGrantArgumentArgs
-    ///                 {
-    ///                     Name = "a",
-    ///                     Type = "array",
-    ///                 },
-    ///                 new Snowflake.Inputs.ProcedureGrantArgumentArgs
-    ///                 {
-    ///                     Name = "b",
-    ///                     Type = "string",
-    ///                 },
+    ///                 Name = "a",
+    ///                 Type = "array",
     ///             },
-    ///             DatabaseName = "db",
-    ///             OnFuture = false,
-    ///             Privilege = "select",
-    ///             ProcedureName = "procedure",
-    ///             ReturnType = "string",
-    ///             Roles = 
+    ///             new Snowflake.Inputs.ProcedureGrantArgumentArgs
     ///             {
-    ///                 "role1",
-    ///                 "role2",
+    ///                 Name = "b",
+    ///                 Type = "string",
     ///             },
-    ///             SchemaName = "schema",
-    ///             Shares = 
-    ///             {
-    ///                 "share1",
-    ///                 "share2",
-    ///             },
-    ///             WithGrantOption = false,
-    ///         });
-    ///     }
+    ///         },
+    ///         DatabaseName = "db",
+    ///         OnFuture = false,
+    ///         Privilege = "select",
+    ///         ProcedureName = "procedure",
+    ///         ReturnType = "string",
+    ///         Roles = new[]
+    ///         {
+    ///             "role1",
+    ///             "role2",
+    ///         },
+    ///         SchemaName = "schema",
+    ///         Shares = new[]
+    ///         {
+    ///             "share1",
+    ///             "share2",
+    ///         },
+    ///         WithGrantOption = false,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +65,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/procedureGrant:ProcedureGrant")]
-    public partial class ProcedureGrant : Pulumi.CustomResource
+    public partial class ProcedureGrant : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
@@ -89,9 +87,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> EnableMultipleGrants { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future procedures in the given schema.
-        /// When this is true and no schema_name is provided apply this grant on all future procedures in the given database. The
-        /// procedure_name and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
         /// </summary>
         [Output("onFuture")]
         public Output<bool?> OnFuture { get; private set; } = null!;
@@ -182,7 +178,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class ProcedureGrantArgs : Pulumi.ResourceArgs
+    public sealed class ProcedureGrantArgs : global::Pulumi.ResourceArgs
     {
         [Input("arguments")]
         private InputList<Inputs.ProcedureGrantArgumentArgs>? _arguments;
@@ -210,9 +206,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future procedures in the given schema.
-        /// When this is true and no schema_name is provided apply this grant on all future procedures in the given database. The
-        /// procedure_name and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -274,9 +268,10 @@ namespace Pulumi.Snowflake
         public ProcedureGrantArgs()
         {
         }
+        public static new ProcedureGrantArgs Empty => new ProcedureGrantArgs();
     }
 
-    public sealed class ProcedureGrantState : Pulumi.ResourceArgs
+    public sealed class ProcedureGrantState : global::Pulumi.ResourceArgs
     {
         [Input("arguments")]
         private InputList<Inputs.ProcedureGrantArgumentGetArgs>? _arguments;
@@ -304,9 +299,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema_name is provided, apply this grant on all future procedures in the given schema.
-        /// When this is true and no schema_name is provided apply this grant on all future procedures in the given database. The
-        /// procedure_name and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -368,5 +361,6 @@ namespace Pulumi.Snowflake
         public ProcedureGrantState()
         {
         }
+        public static new ProcedureGrantState Empty => new ProcedureGrantState();
     }
 }

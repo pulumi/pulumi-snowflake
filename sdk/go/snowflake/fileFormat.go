@@ -17,23 +17,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewFileFormat(ctx, "exampleFileFormat", &snowflake.FileFormatArgs{
-// 			Database:   pulumi.String("EXAMPLE_DB"),
-// 			FormatType: pulumi.String("CSV"),
-// 			Schema:     pulumi.String("EXAMPLE_SCHEMA"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewFileFormat(ctx, "exampleFileFormat", &snowflake.FileFormatArgs{
+//				Database:   pulumi.String("EXAMPLE_DB"),
+//				FormatType: pulumi.String("CSV"),
+//				Schema:     pulumi.String("EXAMPLE_SCHEMA"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // # format is database name | schema name | file format name
 //
 // ```sh
-//  $ pulumi import snowflake:index/fileFormat:FileFormat example 'dbName|schemaName|fileFormatName'
+//
+//	$ pulumi import snowflake:index/fileFormat:FileFormat example 'dbName|schemaName|fileFormatName'
+//
 // ```
 type FileFormat struct {
 	pulumi.CustomResourceState
@@ -60,27 +65,23 @@ type FileFormat struct {
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Defines the format of date values in the data files (data loading) or table (data unloading).
 	DateFormat pulumi.StringPtrOutput `pulumi:"dateFormat"`
-	// Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
-	// native representation.
+	// Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
 	DisableAutoConvert pulumi.BoolPtrOutput `pulumi:"disableAutoConvert"`
 	// Boolean that specifies whether the XML parser disables recognition of Snowflake semi-structured data tags.
 	DisableSnowflakeData pulumi.BoolPtrOutput `pulumi:"disableSnowflakeData"`
-	// Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
-	// delimiters.
+	// Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
 	EmptyFieldAsNull pulumi.BoolPtrOutput `pulumi:"emptyFieldAsNull"`
 	// Boolean that enables parsing of octal numbers.
 	EnableOctal pulumi.BoolPtrOutput `pulumi:"enableOctal"`
 	// String (constant) that specifies the character set of the source data when loading data into a table.
 	Encoding pulumi.StringPtrOutput `pulumi:"encoding"`
-	// Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
-	// file does not match the number of columns in the corresponding table.
+	// Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
 	ErrorOnColumnCountMismatch pulumi.BoolPtrOutput `pulumi:"errorOnColumnCountMismatch"`
 	// Single character string used as the escape character for field values.
 	Escape pulumi.StringPtrOutput `pulumi:"escape"`
 	// Single character string used as the escape character for unenclosed field values only.
 	EscapeUnenclosedField pulumi.StringPtrOutput `pulumi:"escapeUnenclosedField"`
-	// Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
-	// unloaded file (data unloading).
+	// Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
 	FieldDelimiter pulumi.StringPtrOutput `pulumi:"fieldDelimiter"`
 	// Character used to enclose strings.
 	FieldOptionallyEnclosedBy pulumi.StringPtrOutput `pulumi:"fieldOptionallyEnclosedBy"`
@@ -90,15 +91,13 @@ type FileFormat struct {
 	FormatType pulumi.StringOutput `pulumi:"formatType"`
 	// Boolean that specifies whether UTF-8 encoding errors produce error conditions.
 	IgnoreUtf8Errors pulumi.BoolPtrOutput `pulumi:"ignoreUtf8Errors"`
-	// Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
-	// created.
+	// Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// String used to convert to and from SQL NULL.
 	NullIfs pulumi.StringArrayOutput `pulumi:"nullIfs"`
 	// Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
 	PreserveSpace pulumi.BoolPtrOutput `pulumi:"preserveSpace"`
-	// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
-	// unloaded file (data unloading).
+	// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
 	RecordDelimiter pulumi.StringPtrOutput `pulumi:"recordDelimiter"`
 	// Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�).
 	ReplaceInvalidCharacters pulumi.BoolPtrOutput `pulumi:"replaceInvalidCharacters"`
@@ -114,8 +113,7 @@ type FileFormat struct {
 	StripNullValues pulumi.BoolPtrOutput `pulumi:"stripNullValues"`
 	// Boolean that instructs the JSON parser to remove outer brackets.
 	StripOuterArray pulumi.BoolPtrOutput `pulumi:"stripOuterArray"`
-	// Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
-	// documents.
+	// Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
 	StripOuterElement pulumi.BoolPtrOutput `pulumi:"stripOuterElement"`
 	// Defines the format of time values in the data files (data loading) or table (data unloading).
 	TimeFormat pulumi.StringPtrOutput `pulumi:"timeFormat"`
@@ -123,8 +121,6 @@ type FileFormat struct {
 	TimestampFormat pulumi.StringPtrOutput `pulumi:"timestampFormat"`
 	// Boolean that specifies whether to remove white space from fields.
 	TrimSpace pulumi.BoolPtrOutput `pulumi:"trimSpace"`
-	// Boolean that specifies whether to validate UTF-8 character encoding in string column data.
-	ValidateUtf8 pulumi.BoolPtrOutput `pulumi:"validateUtf8"`
 }
 
 // NewFileFormat registers a new resource with the given unique name, arguments, and options.
@@ -179,27 +175,23 @@ type fileFormatState struct {
 	Database *string `pulumi:"database"`
 	// Defines the format of date values in the data files (data loading) or table (data unloading).
 	DateFormat *string `pulumi:"dateFormat"`
-	// Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
-	// native representation.
+	// Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
 	DisableAutoConvert *bool `pulumi:"disableAutoConvert"`
 	// Boolean that specifies whether the XML parser disables recognition of Snowflake semi-structured data tags.
 	DisableSnowflakeData *bool `pulumi:"disableSnowflakeData"`
-	// Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
-	// delimiters.
+	// Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
 	EmptyFieldAsNull *bool `pulumi:"emptyFieldAsNull"`
 	// Boolean that enables parsing of octal numbers.
 	EnableOctal *bool `pulumi:"enableOctal"`
 	// String (constant) that specifies the character set of the source data when loading data into a table.
 	Encoding *string `pulumi:"encoding"`
-	// Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
-	// file does not match the number of columns in the corresponding table.
+	// Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
 	ErrorOnColumnCountMismatch *bool `pulumi:"errorOnColumnCountMismatch"`
 	// Single character string used as the escape character for field values.
 	Escape *string `pulumi:"escape"`
 	// Single character string used as the escape character for unenclosed field values only.
 	EscapeUnenclosedField *string `pulumi:"escapeUnenclosedField"`
-	// Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
-	// unloaded file (data unloading).
+	// Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
 	FieldDelimiter *string `pulumi:"fieldDelimiter"`
 	// Character used to enclose strings.
 	FieldOptionallyEnclosedBy *string `pulumi:"fieldOptionallyEnclosedBy"`
@@ -209,15 +201,13 @@ type fileFormatState struct {
 	FormatType *string `pulumi:"formatType"`
 	// Boolean that specifies whether UTF-8 encoding errors produce error conditions.
 	IgnoreUtf8Errors *bool `pulumi:"ignoreUtf8Errors"`
-	// Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
-	// created.
+	// Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
 	Name *string `pulumi:"name"`
 	// String used to convert to and from SQL NULL.
 	NullIfs []string `pulumi:"nullIfs"`
 	// Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
 	PreserveSpace *bool `pulumi:"preserveSpace"`
-	// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
-	// unloaded file (data unloading).
+	// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
 	RecordDelimiter *string `pulumi:"recordDelimiter"`
 	// Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�).
 	ReplaceInvalidCharacters *bool `pulumi:"replaceInvalidCharacters"`
@@ -233,8 +223,7 @@ type fileFormatState struct {
 	StripNullValues *bool `pulumi:"stripNullValues"`
 	// Boolean that instructs the JSON parser to remove outer brackets.
 	StripOuterArray *bool `pulumi:"stripOuterArray"`
-	// Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
-	// documents.
+	// Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
 	StripOuterElement *bool `pulumi:"stripOuterElement"`
 	// Defines the format of time values in the data files (data loading) or table (data unloading).
 	TimeFormat *string `pulumi:"timeFormat"`
@@ -242,8 +231,6 @@ type fileFormatState struct {
 	TimestampFormat *string `pulumi:"timestampFormat"`
 	// Boolean that specifies whether to remove white space from fields.
 	TrimSpace *bool `pulumi:"trimSpace"`
-	// Boolean that specifies whether to validate UTF-8 character encoding in string column data.
-	ValidateUtf8 *bool `pulumi:"validateUtf8"`
 }
 
 type FileFormatState struct {
@@ -261,27 +248,23 @@ type FileFormatState struct {
 	Database pulumi.StringPtrInput
 	// Defines the format of date values in the data files (data loading) or table (data unloading).
 	DateFormat pulumi.StringPtrInput
-	// Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
-	// native representation.
+	// Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
 	DisableAutoConvert pulumi.BoolPtrInput
 	// Boolean that specifies whether the XML parser disables recognition of Snowflake semi-structured data tags.
 	DisableSnowflakeData pulumi.BoolPtrInput
-	// Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
-	// delimiters.
+	// Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
 	EmptyFieldAsNull pulumi.BoolPtrInput
 	// Boolean that enables parsing of octal numbers.
 	EnableOctal pulumi.BoolPtrInput
 	// String (constant) that specifies the character set of the source data when loading data into a table.
 	Encoding pulumi.StringPtrInput
-	// Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
-	// file does not match the number of columns in the corresponding table.
+	// Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
 	ErrorOnColumnCountMismatch pulumi.BoolPtrInput
 	// Single character string used as the escape character for field values.
 	Escape pulumi.StringPtrInput
 	// Single character string used as the escape character for unenclosed field values only.
 	EscapeUnenclosedField pulumi.StringPtrInput
-	// Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
-	// unloaded file (data unloading).
+	// Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
 	FieldDelimiter pulumi.StringPtrInput
 	// Character used to enclose strings.
 	FieldOptionallyEnclosedBy pulumi.StringPtrInput
@@ -291,15 +274,13 @@ type FileFormatState struct {
 	FormatType pulumi.StringPtrInput
 	// Boolean that specifies whether UTF-8 encoding errors produce error conditions.
 	IgnoreUtf8Errors pulumi.BoolPtrInput
-	// Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
-	// created.
+	// Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
 	Name pulumi.StringPtrInput
 	// String used to convert to and from SQL NULL.
 	NullIfs pulumi.StringArrayInput
 	// Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
 	PreserveSpace pulumi.BoolPtrInput
-	// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
-	// unloaded file (data unloading).
+	// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
 	RecordDelimiter pulumi.StringPtrInput
 	// Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�).
 	ReplaceInvalidCharacters pulumi.BoolPtrInput
@@ -315,8 +296,7 @@ type FileFormatState struct {
 	StripNullValues pulumi.BoolPtrInput
 	// Boolean that instructs the JSON parser to remove outer brackets.
 	StripOuterArray pulumi.BoolPtrInput
-	// Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
-	// documents.
+	// Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
 	StripOuterElement pulumi.BoolPtrInput
 	// Defines the format of time values in the data files (data loading) or table (data unloading).
 	TimeFormat pulumi.StringPtrInput
@@ -324,8 +304,6 @@ type FileFormatState struct {
 	TimestampFormat pulumi.StringPtrInput
 	// Boolean that specifies whether to remove white space from fields.
 	TrimSpace pulumi.BoolPtrInput
-	// Boolean that specifies whether to validate UTF-8 character encoding in string column data.
-	ValidateUtf8 pulumi.BoolPtrInput
 }
 
 func (FileFormatState) ElementType() reflect.Type {
@@ -347,27 +325,23 @@ type fileFormatArgs struct {
 	Database string `pulumi:"database"`
 	// Defines the format of date values in the data files (data loading) or table (data unloading).
 	DateFormat *string `pulumi:"dateFormat"`
-	// Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
-	// native representation.
+	// Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
 	DisableAutoConvert *bool `pulumi:"disableAutoConvert"`
 	// Boolean that specifies whether the XML parser disables recognition of Snowflake semi-structured data tags.
 	DisableSnowflakeData *bool `pulumi:"disableSnowflakeData"`
-	// Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
-	// delimiters.
+	// Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
 	EmptyFieldAsNull *bool `pulumi:"emptyFieldAsNull"`
 	// Boolean that enables parsing of octal numbers.
 	EnableOctal *bool `pulumi:"enableOctal"`
 	// String (constant) that specifies the character set of the source data when loading data into a table.
 	Encoding *string `pulumi:"encoding"`
-	// Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
-	// file does not match the number of columns in the corresponding table.
+	// Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
 	ErrorOnColumnCountMismatch *bool `pulumi:"errorOnColumnCountMismatch"`
 	// Single character string used as the escape character for field values.
 	Escape *string `pulumi:"escape"`
 	// Single character string used as the escape character for unenclosed field values only.
 	EscapeUnenclosedField *string `pulumi:"escapeUnenclosedField"`
-	// Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
-	// unloaded file (data unloading).
+	// Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
 	FieldDelimiter *string `pulumi:"fieldDelimiter"`
 	// Character used to enclose strings.
 	FieldOptionallyEnclosedBy *string `pulumi:"fieldOptionallyEnclosedBy"`
@@ -377,15 +351,13 @@ type fileFormatArgs struct {
 	FormatType string `pulumi:"formatType"`
 	// Boolean that specifies whether UTF-8 encoding errors produce error conditions.
 	IgnoreUtf8Errors *bool `pulumi:"ignoreUtf8Errors"`
-	// Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
-	// created.
+	// Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
 	Name *string `pulumi:"name"`
 	// String used to convert to and from SQL NULL.
 	NullIfs []string `pulumi:"nullIfs"`
 	// Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
 	PreserveSpace *bool `pulumi:"preserveSpace"`
-	// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
-	// unloaded file (data unloading).
+	// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
 	RecordDelimiter *string `pulumi:"recordDelimiter"`
 	// Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�).
 	ReplaceInvalidCharacters *bool `pulumi:"replaceInvalidCharacters"`
@@ -401,8 +373,7 @@ type fileFormatArgs struct {
 	StripNullValues *bool `pulumi:"stripNullValues"`
 	// Boolean that instructs the JSON parser to remove outer brackets.
 	StripOuterArray *bool `pulumi:"stripOuterArray"`
-	// Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
-	// documents.
+	// Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
 	StripOuterElement *bool `pulumi:"stripOuterElement"`
 	// Defines the format of time values in the data files (data loading) or table (data unloading).
 	TimeFormat *string `pulumi:"timeFormat"`
@@ -410,8 +381,6 @@ type fileFormatArgs struct {
 	TimestampFormat *string `pulumi:"timestampFormat"`
 	// Boolean that specifies whether to remove white space from fields.
 	TrimSpace *bool `pulumi:"trimSpace"`
-	// Boolean that specifies whether to validate UTF-8 character encoding in string column data.
-	ValidateUtf8 *bool `pulumi:"validateUtf8"`
 }
 
 // The set of arguments for constructing a FileFormat resource.
@@ -430,27 +399,23 @@ type FileFormatArgs struct {
 	Database pulumi.StringInput
 	// Defines the format of date values in the data files (data loading) or table (data unloading).
 	DateFormat pulumi.StringPtrInput
-	// Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
-	// native representation.
+	// Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
 	DisableAutoConvert pulumi.BoolPtrInput
 	// Boolean that specifies whether the XML parser disables recognition of Snowflake semi-structured data tags.
 	DisableSnowflakeData pulumi.BoolPtrInput
-	// Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
-	// delimiters.
+	// Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
 	EmptyFieldAsNull pulumi.BoolPtrInput
 	// Boolean that enables parsing of octal numbers.
 	EnableOctal pulumi.BoolPtrInput
 	// String (constant) that specifies the character set of the source data when loading data into a table.
 	Encoding pulumi.StringPtrInput
-	// Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
-	// file does not match the number of columns in the corresponding table.
+	// Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
 	ErrorOnColumnCountMismatch pulumi.BoolPtrInput
 	// Single character string used as the escape character for field values.
 	Escape pulumi.StringPtrInput
 	// Single character string used as the escape character for unenclosed field values only.
 	EscapeUnenclosedField pulumi.StringPtrInput
-	// Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
-	// unloaded file (data unloading).
+	// Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
 	FieldDelimiter pulumi.StringPtrInput
 	// Character used to enclose strings.
 	FieldOptionallyEnclosedBy pulumi.StringPtrInput
@@ -460,15 +425,13 @@ type FileFormatArgs struct {
 	FormatType pulumi.StringInput
 	// Boolean that specifies whether UTF-8 encoding errors produce error conditions.
 	IgnoreUtf8Errors pulumi.BoolPtrInput
-	// Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
-	// created.
+	// Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
 	Name pulumi.StringPtrInput
 	// String used to convert to and from SQL NULL.
 	NullIfs pulumi.StringArrayInput
 	// Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
 	PreserveSpace pulumi.BoolPtrInput
-	// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
-	// unloaded file (data unloading).
+	// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
 	RecordDelimiter pulumi.StringPtrInput
 	// Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�).
 	ReplaceInvalidCharacters pulumi.BoolPtrInput
@@ -484,8 +447,7 @@ type FileFormatArgs struct {
 	StripNullValues pulumi.BoolPtrInput
 	// Boolean that instructs the JSON parser to remove outer brackets.
 	StripOuterArray pulumi.BoolPtrInput
-	// Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
-	// documents.
+	// Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
 	StripOuterElement pulumi.BoolPtrInput
 	// Defines the format of time values in the data files (data loading) or table (data unloading).
 	TimeFormat pulumi.StringPtrInput
@@ -493,8 +455,6 @@ type FileFormatArgs struct {
 	TimestampFormat pulumi.StringPtrInput
 	// Boolean that specifies whether to remove white space from fields.
 	TrimSpace pulumi.BoolPtrInput
-	// Boolean that specifies whether to validate UTF-8 character encoding in string column data.
-	ValidateUtf8 pulumi.BoolPtrInput
 }
 
 func (FileFormatArgs) ElementType() reflect.Type {
@@ -523,7 +483,7 @@ func (i *FileFormat) ToFileFormatOutputWithContext(ctx context.Context) FileForm
 // FileFormatArrayInput is an input type that accepts FileFormatArray and FileFormatArrayOutput values.
 // You can construct a concrete instance of `FileFormatArrayInput` via:
 //
-//          FileFormatArray{ FileFormatArgs{...} }
+//	FileFormatArray{ FileFormatArgs{...} }
 type FileFormatArrayInput interface {
 	pulumi.Input
 
@@ -548,7 +508,7 @@ func (i FileFormatArray) ToFileFormatArrayOutputWithContext(ctx context.Context)
 // FileFormatMapInput is an input type that accepts FileFormatMap and FileFormatMapOutput values.
 // You can construct a concrete instance of `FileFormatMapInput` via:
 //
-//          FileFormatMap{ "key": FileFormatArgs{...} }
+//	FileFormatMap{ "key": FileFormatArgs{...} }
 type FileFormatMapInput interface {
 	pulumi.Input
 
@@ -619,8 +579,7 @@ func (o FileFormatOutput) DateFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileFormat) pulumi.StringPtrOutput { return v.DateFormat }).(pulumi.StringPtrOutput)
 }
 
-// Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
-// native representation.
+// Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
 func (o FileFormatOutput) DisableAutoConvert() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FileFormat) pulumi.BoolPtrOutput { return v.DisableAutoConvert }).(pulumi.BoolPtrOutput)
 }
@@ -630,8 +589,7 @@ func (o FileFormatOutput) DisableSnowflakeData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FileFormat) pulumi.BoolPtrOutput { return v.DisableSnowflakeData }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
-// delimiters.
+// Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
 func (o FileFormatOutput) EmptyFieldAsNull() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FileFormat) pulumi.BoolPtrOutput { return v.EmptyFieldAsNull }).(pulumi.BoolPtrOutput)
 }
@@ -646,8 +604,7 @@ func (o FileFormatOutput) Encoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileFormat) pulumi.StringPtrOutput { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
-// Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
-// file does not match the number of columns in the corresponding table.
+// Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
 func (o FileFormatOutput) ErrorOnColumnCountMismatch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FileFormat) pulumi.BoolPtrOutput { return v.ErrorOnColumnCountMismatch }).(pulumi.BoolPtrOutput)
 }
@@ -662,8 +619,7 @@ func (o FileFormatOutput) EscapeUnenclosedField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileFormat) pulumi.StringPtrOutput { return v.EscapeUnenclosedField }).(pulumi.StringPtrOutput)
 }
 
-// Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
-// unloaded file (data unloading).
+// Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
 func (o FileFormatOutput) FieldDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileFormat) pulumi.StringPtrOutput { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
 }
@@ -688,8 +644,7 @@ func (o FileFormatOutput) IgnoreUtf8Errors() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FileFormat) pulumi.BoolPtrOutput { return v.IgnoreUtf8Errors }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
-// created.
+// Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
 func (o FileFormatOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileFormat) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -704,8 +659,7 @@ func (o FileFormatOutput) PreserveSpace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FileFormat) pulumi.BoolPtrOutput { return v.PreserveSpace }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
-// unloaded file (data unloading).
+// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
 func (o FileFormatOutput) RecordDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileFormat) pulumi.StringPtrOutput { return v.RecordDelimiter }).(pulumi.StringPtrOutput)
 }
@@ -745,8 +699,7 @@ func (o FileFormatOutput) StripOuterArray() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FileFormat) pulumi.BoolPtrOutput { return v.StripOuterArray }).(pulumi.BoolPtrOutput)
 }
 
-// Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
-// documents.
+// Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
 func (o FileFormatOutput) StripOuterElement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FileFormat) pulumi.BoolPtrOutput { return v.StripOuterElement }).(pulumi.BoolPtrOutput)
 }
@@ -764,11 +717,6 @@ func (o FileFormatOutput) TimestampFormat() pulumi.StringPtrOutput {
 // Boolean that specifies whether to remove white space from fields.
 func (o FileFormatOutput) TrimSpace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FileFormat) pulumi.BoolPtrOutput { return v.TrimSpace }).(pulumi.BoolPtrOutput)
-}
-
-// Boolean that specifies whether to validate UTF-8 character encoding in string column data.
-func (o FileFormatOutput) ValidateUtf8() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *FileFormat) pulumi.BoolPtrOutput { return v.ValidateUtf8 }).(pulumi.BoolPtrOutput)
 }
 
 type FileFormatArrayOutput struct{ *pulumi.OutputState }

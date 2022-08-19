@@ -13,38 +13,36 @@ namespace Pulumi.Snowflake
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testExtFunc = new Snowflake.ExternalFunction("testExtFunc", new()
     ///     {
-    ///         var testExtFunc = new Snowflake.ExternalFunction("testExtFunc", new Snowflake.ExternalFunctionArgs
+    ///         ApiIntegration = "api_integration_name",
+    ///         Args = new[]
     ///         {
-    ///             ApiIntegration = "api_integration_name",
-    ///             Args = 
+    ///             new Snowflake.Inputs.ExternalFunctionArgArgs
     ///             {
-    ///                 new Snowflake.Inputs.ExternalFunctionArgArgs
-    ///                 {
-    ///                     Name = "arg1",
-    ///                     Type = "varchar",
-    ///                 },
-    ///                 new Snowflake.Inputs.ExternalFunctionArgArgs
-    ///                 {
-    ///                     Name = "arg2",
-    ///                     Type = "varchar",
-    ///                 },
+    ///                 Name = "arg1",
+    ///                 Type = "varchar",
     ///             },
-    ///             Database = "my_test_db",
-    ///             ReturnBehavior = "IMMUTABLE",
-    ///             ReturnType = "varchar",
-    ///             Schema = "my_test_schema",
-    ///             UrlOfProxyAndResource = "https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func",
-    ///         });
-    ///     }
+    ///             new Snowflake.Inputs.ExternalFunctionArgArgs
+    ///             {
+    ///                 Name = "arg2",
+    ///                 Type = "varchar",
+    ///             },
+    ///         },
+    ///         Database = "my_test_db",
+    ///         ReturnBehavior = "IMMUTABLE",
+    ///         ReturnType = "varchar",
+    ///         Schema = "my_test_schema",
+    ///         UrlOfProxyAndResource = "https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +54,7 @@ namespace Pulumi.Snowflake
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/externalFunction:ExternalFunction")]
-    public partial class ExternalFunction : Pulumi.CustomResource
+    public partial class ExternalFunction : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the API integration object that should be used to authenticate the call to the proxy service.
@@ -65,8 +63,7 @@ namespace Pulumi.Snowflake
         public Output<string> ApiIntegration { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
-        /// service expects.
+        /// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
         /// </summary>
         [Output("args")]
         public Output<ImmutableArray<Outputs.ExternalFunctionArg>> Args { get; private set; } = null!;
@@ -78,8 +75,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
-        /// proxy service to Snowflake.
+        /// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
         /// </summary>
         [Output("compression")]
         public Output<string?> Compression { get; private set; } = null!;
@@ -115,8 +111,7 @@ namespace Pulumi.Snowflake
         public Output<int?> MaxBatchRows { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
-        /// well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -201,7 +196,7 @@ namespace Pulumi.Snowflake
         }
     }
 
-    public sealed class ExternalFunctionArgs : Pulumi.ResourceArgs
+    public sealed class ExternalFunctionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API integration object that should be used to authenticate the call to the proxy service.
@@ -213,8 +208,7 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.ExternalFunctionArgArgs>? _args;
 
         /// <summary>
-        /// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
-        /// service expects.
+        /// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
         /// </summary>
         public InputList<Inputs.ExternalFunctionArgArgs> Args
         {
@@ -229,8 +223,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
-        /// proxy service to Snowflake.
+        /// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
         /// </summary>
         [Input("compression")]
         public Input<string>? Compression { get; set; }
@@ -272,8 +265,7 @@ namespace Pulumi.Snowflake
         public Input<int>? MaxBatchRows { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
-        /// well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -317,9 +309,10 @@ namespace Pulumi.Snowflake
         public ExternalFunctionArgs()
         {
         }
+        public static new ExternalFunctionArgs Empty => new ExternalFunctionArgs();
     }
 
-    public sealed class ExternalFunctionState : Pulumi.ResourceArgs
+    public sealed class ExternalFunctionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API integration object that should be used to authenticate the call to the proxy service.
@@ -331,8 +324,7 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.ExternalFunctionArgGetArgs>? _args;
 
         /// <summary>
-        /// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
-        /// service expects.
+        /// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
         /// </summary>
         public InputList<Inputs.ExternalFunctionArgGetArgs> Args
         {
@@ -347,8 +339,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
-        /// proxy service to Snowflake.
+        /// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
         /// </summary>
         [Input("compression")]
         public Input<string>? Compression { get; set; }
@@ -396,8 +387,7 @@ namespace Pulumi.Snowflake
         public Input<int>? MaxBatchRows { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
-        /// well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -441,5 +431,6 @@ namespace Pulumi.Snowflake
         public ExternalFunctionState()
         {
         }
+        public static new ExternalFunctionState Empty => new ExternalFunctionState();
     }
 }

@@ -102,8 +102,7 @@ export class Stage extends pulumi.CustomResource {
     public readonly schema!: pulumi.Output<string>;
     public readonly snowflakeIamUser!: pulumi.Output<string>;
     /**
-     * Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
-     * to a Snowflake identity and access management (IAM) entity.
+     * Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
      */
     public readonly storageIntegration!: pulumi.Output<string | undefined>;
     /**
@@ -213,8 +212,7 @@ export interface StageState {
     schema?: pulumi.Input<string>;
     snowflakeIamUser?: pulumi.Input<string>;
     /**
-     * Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
-     * to a Snowflake identity and access management (IAM) entity.
+     * Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
      */
     storageIntegration?: pulumi.Input<string>;
     /**
@@ -270,8 +268,7 @@ export interface StageArgs {
     schema: pulumi.Input<string>;
     snowflakeIamUser?: pulumi.Input<string>;
     /**
-     * Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
-     * to a Snowflake identity and access management (IAM) entity.
+     * Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
      */
     storageIntegration?: pulumi.Input<string>;
     /**

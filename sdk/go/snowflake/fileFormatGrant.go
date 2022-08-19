@@ -17,30 +17,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewFileFormatGrant(ctx, "grant", &snowflake.FileFormatGrantArgs{
-// 			DatabaseName:   pulumi.String("db"),
-// 			FileFormatName: pulumi.String("file_format"),
-// 			OnFuture:       pulumi.Bool(false),
-// 			Privilege:      pulumi.String("select"),
-// 			Roles: pulumi.StringArray{
-// 				pulumi.String("role1"),
-// 				pulumi.String("role2"),
-// 			},
-// 			SchemaName:      pulumi.String("schema"),
-// 			WithGrantOption: pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewFileFormatGrant(ctx, "grant", &snowflake.FileFormatGrantArgs{
+//				DatabaseName:   pulumi.String("db"),
+//				FileFormatName: pulumi.String("file_format"),
+//				OnFuture:       pulumi.Bool(false),
+//				Privilege:      pulumi.String("select"),
+//				Roles: pulumi.StringArray{
+//					pulumi.String("role1"),
+//					pulumi.String("role2"),
+//				},
+//				SchemaName:      pulumi.String("schema"),
+//				WithGrantOption: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // # format is database name | schema name | file format name | privilege | true/false for with_grant_option
 //
 // ```sh
-//  $ pulumi import snowflake:index/fileFormatGrant:FileFormatGrant example 'dbName|schemaName|fileFormatName|USAGE|false'
+//
+//	$ pulumi import snowflake:index/fileFormatGrant:FileFormatGrant example 'dbName|schemaName|fileFormatName|USAGE|false'
+//
 // ```
 type FileFormatGrant struct {
 	pulumi.CustomResourceState
@@ -58,11 +63,9 @@ type FileFormatGrant struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
-	// The name of the file format on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the file format on which to grant privileges immediately (only valid if onFuture is false).
 	FileFormatName pulumi.StringPtrOutput `pulumi:"fileFormatName"`
-	// When this is set to true and a schema_name is provided, apply this grant on all future file formats in the given schema.
-	// When this is true and no schema_name is provided apply this grant on all future file formats in the given database. The
-	// file_format_name field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
 	// The privilege to grant on the current or future file format.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
@@ -114,11 +117,9 @@ type fileFormatGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// The name of the file format on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the file format on which to grant privileges immediately (only valid if onFuture is false).
 	FileFormatName *string `pulumi:"fileFormatName"`
-	// When this is set to true and a schema_name is provided, apply this grant on all future file formats in the given schema.
-	// When this is true and no schema_name is provided apply this grant on all future file formats in the given database. The
-	// file_format_name field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future file format.
 	Privilege *string `pulumi:"privilege"`
@@ -136,11 +137,9 @@ type FileFormatGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// The name of the file format on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the file format on which to grant privileges immediately (only valid if onFuture is false).
 	FileFormatName pulumi.StringPtrInput
-	// When this is set to true and a schema_name is provided, apply this grant on all future file formats in the given schema.
-	// When this is true and no schema_name is provided apply this grant on all future file formats in the given database. The
-	// file_format_name field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future file format.
 	Privilege pulumi.StringPtrInput
@@ -162,11 +161,9 @@ type fileFormatGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// The name of the file format on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the file format on which to grant privileges immediately (only valid if onFuture is false).
 	FileFormatName *string `pulumi:"fileFormatName"`
-	// When this is set to true and a schema_name is provided, apply this grant on all future file formats in the given schema.
-	// When this is true and no schema_name is provided apply this grant on all future file formats in the given database. The
-	// file_format_name field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future file format.
 	Privilege *string `pulumi:"privilege"`
@@ -185,11 +182,9 @@ type FileFormatGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// The name of the file format on which to grant privileges immediately (only valid if on_future is false).
+	// The name of the file format on which to grant privileges immediately (only valid if onFuture is false).
 	FileFormatName pulumi.StringPtrInput
-	// When this is set to true and a schema_name is provided, apply this grant on all future file formats in the given schema.
-	// When this is true and no schema_name is provided apply this grant on all future file formats in the given database. The
-	// file_format_name field must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future file format.
 	Privilege pulumi.StringPtrInput
@@ -227,7 +222,7 @@ func (i *FileFormatGrant) ToFileFormatGrantOutputWithContext(ctx context.Context
 // FileFormatGrantArrayInput is an input type that accepts FileFormatGrantArray and FileFormatGrantArrayOutput values.
 // You can construct a concrete instance of `FileFormatGrantArrayInput` via:
 //
-//          FileFormatGrantArray{ FileFormatGrantArgs{...} }
+//	FileFormatGrantArray{ FileFormatGrantArgs{...} }
 type FileFormatGrantArrayInput interface {
 	pulumi.Input
 
@@ -252,7 +247,7 @@ func (i FileFormatGrantArray) ToFileFormatGrantArrayOutputWithContext(ctx contex
 // FileFormatGrantMapInput is an input type that accepts FileFormatGrantMap and FileFormatGrantMapOutput values.
 // You can construct a concrete instance of `FileFormatGrantMapInput` via:
 //
-//          FileFormatGrantMap{ "key": FileFormatGrantArgs{...} }
+//	FileFormatGrantMap{ "key": FileFormatGrantArgs{...} }
 type FileFormatGrantMapInput interface {
 	pulumi.Input
 
@@ -299,14 +294,12 @@ func (o FileFormatGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FileFormatGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the file format on which to grant privileges immediately (only valid if on_future is false).
+// The name of the file format on which to grant privileges immediately (only valid if onFuture is false).
 func (o FileFormatGrantOutput) FileFormatName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileFormatGrant) pulumi.StringPtrOutput { return v.FileFormatName }).(pulumi.StringPtrOutput)
 }
 
-// When this is set to true and a schema_name is provided, apply this grant on all future file formats in the given schema.
-// When this is true and no schema_name is provided apply this grant on all future file formats in the given database. The
-// file_format_name field must be unset in order to use on_future.
+// When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
 func (o FileFormatGrantOutput) OnFuture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FileFormatGrant) pulumi.BoolPtrOutput { return v.OnFuture }).(pulumi.BoolPtrOutput)
 }

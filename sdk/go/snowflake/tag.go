@@ -17,27 +17,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := snowflake.NewTag(ctx, "testTag", &snowflake.TagArgs{
-// 			AllowedValues: pulumi.StringArray{
-// 				pulumi.String("foo"),
-// 				pulumi.String("bar"),
-// 			},
-// 			Comment:  pulumi.String("test comment"),
-// 			Database: pulumi.String("test_db"),
-// 			Schema:   pulumi.String("test_schema"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewTag(ctx, "testTag", &snowflake.TagArgs{
+//				AllowedValues: pulumi.StringArray{
+//					pulumi.String("foo"),
+//					pulumi.String("bar"),
+//				},
+//				Comment:  pulumi.String("test comment"),
+//				Database: pulumi.String("test_db"),
+//				Schema:   pulumi.String("test_schema"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // # format is database name | schema name | tag name
 //
 // ```sh
-//  $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
+//
+//	$ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
+//
 // ```
 type Tag struct {
 	pulumi.CustomResourceState
@@ -179,7 +184,7 @@ func (i *Tag) ToTagOutputWithContext(ctx context.Context) TagOutput {
 // TagArrayInput is an input type that accepts TagArray and TagArrayOutput values.
 // You can construct a concrete instance of `TagArrayInput` via:
 //
-//          TagArray{ TagArgs{...} }
+//	TagArray{ TagArgs{...} }
 type TagArrayInput interface {
 	pulumi.Input
 
@@ -204,7 +209,7 @@ func (i TagArray) ToTagArrayOutputWithContext(ctx context.Context) TagArrayOutpu
 // TagMapInput is an input type that accepts TagMap and TagMapOutput values.
 // You can construct a concrete instance of `TagMapInput` via:
 //
-//          TagMap{ "key": TagArgs{...} }
+//	TagMap{ "key": TagArgs{...} }
 type TagMapInput interface {
 	pulumi.Input
 

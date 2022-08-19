@@ -54,8 +54,7 @@ export class ApiIntegration extends pulumi.CustomResource {
     }
 
     /**
-     * Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
-     * resources within those proxies.
+     * Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
      */
     public readonly apiAllowedPrefixes!: pulumi.Output<string[]>;
     /**
@@ -93,13 +92,11 @@ export class ApiIntegration extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdOn!: pulumi.Output<string>;
     /**
-     * Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
-     * that relies on it will not work.
+     * Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
-     * among api integrations in your account.
+     * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -161,8 +158,7 @@ export class ApiIntegration extends pulumi.CustomResource {
  */
 export interface ApiIntegrationState {
     /**
-     * Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
-     * resources within those proxies.
+     * Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
      */
     apiAllowedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -200,13 +196,11 @@ export interface ApiIntegrationState {
      */
     createdOn?: pulumi.Input<string>;
     /**
-     * Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
-     * that relies on it will not work.
+     * Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
-     * among api integrations in your account.
+     * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
      */
     name?: pulumi.Input<string>;
 }
@@ -216,8 +210,7 @@ export interface ApiIntegrationState {
  */
 export interface ApiIntegrationArgs {
     /**
-     * Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
-     * resources within those proxies.
+     * Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
      */
     apiAllowedPrefixes: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -241,13 +234,11 @@ export interface ApiIntegrationArgs {
      */
     azureTenantId?: pulumi.Input<string>;
     /**
-     * Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
-     * that relies on it will not work.
+     * Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
-     * among api integrations in your account.
+     * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
      */
     name?: pulumi.Input<string>;
 }

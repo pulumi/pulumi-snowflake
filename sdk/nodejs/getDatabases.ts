@@ -29,6 +29,9 @@ export function getDatabases(opts?: pulumi.InvokeOptions): Promise<GetDatabasesR
  * A collection of values returned by getDatabases.
  */
 export interface GetDatabasesResult {
+    /**
+     * Snowflake databases
+     */
     readonly databases: outputs.GetDatabasesDatabase[];
     /**
      * The provider-assigned unique ID for this managed resource.
