@@ -10,6 +10,47 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewUser(ctx, "user", &snowflake.UserArgs{
+//				Comment:     pulumi.String("A user of snowflake."),
+//				DefaultRole: pulumi.String("role1"),
+//				DefaultSecondaryRoles: pulumi.StringArray{
+//					pulumi.String("ALL"),
+//				},
+//				DefaultWarehouse:   pulumi.String("warehouse"),
+//				Disabled:           pulumi.Bool(false),
+//				DisplayName:        pulumi.String("Snowflake User"),
+//				Email:              pulumi.String("user@snowflake.example"),
+//				FirstName:          pulumi.String("Snowflake"),
+//				LastName:           pulumi.String("User"),
+//				LoginName:          pulumi.String("snowflake_user"),
+//				MustChangePassword: pulumi.Bool(false),
+//				Password:           pulumi.String("secret"),
+//				RsaPublicKey:       pulumi.String("..."),
+//				RsaPublicKey2:      pulumi.String("..."),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh
@@ -53,6 +94,8 @@ type User struct {
 	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 pulumi.StringPtrOutput `pulumi:"rsaPublicKey2"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags UserTagArrayOutput `pulumi:"tags"`
 }
 
@@ -118,6 +161,8 @@ type userState struct {
 	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 *string `pulumi:"rsaPublicKey2"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags []UserTag `pulumi:"tags"`
 }
 
@@ -155,6 +200,8 @@ type UserState struct {
 	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags UserTagArrayInput
 }
 
@@ -194,6 +241,8 @@ type userArgs struct {
 	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 *string `pulumi:"rsaPublicKey2"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags []UserTag `pulumi:"tags"`
 }
 
@@ -230,6 +279,8 @@ type UserArgs struct {
 	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags UserTagArrayInput
 }
 
@@ -404,6 +455,8 @@ func (o UserOutput) RsaPublicKey2() pulumi.StringPtrOutput {
 }
 
 // Definitions of a tag to associate with the resource.
+//
+// Deprecated: Use the 'snowflake_tag_association' resource instead.
 func (o UserOutput) Tags() UserTagArrayOutput {
 	return o.ApplyT(func(v *User) UserTagArrayOutput { return v.Tags }).(UserTagArrayOutput)
 }

@@ -23,6 +23,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.Database;
+ * import com.pulumi.snowflake.Schema;
+ * import com.pulumi.snowflake.SchemaArgs;
  * import com.pulumi.snowflake.Tag;
  * import com.pulumi.snowflake.TagArgs;
  * import java.util.List;
@@ -38,13 +41,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testTag = new Tag(&#34;testTag&#34;, TagArgs.builder()        
+ *         var database = new Database(&#34;database&#34;);
+ * 
+ *         var schema = new Schema(&#34;schema&#34;, SchemaArgs.builder()        
+ *             .database(database.name())
+ *             .build());
+ * 
+ *         var tag = new Tag(&#34;tag&#34;, TagArgs.builder()        
+ *             .database(database.name())
+ *             .schema(schema.name())
  *             .allowedValues(            
- *                 &#34;foo&#34;,
- *                 &#34;bar&#34;)
- *             .comment(&#34;test comment&#34;)
- *             .database(&#34;test_db&#34;)
- *             .schema(&#34;test_schema&#34;)
+ *                 &#34;finance&#34;,
+ *                 &#34;engineering&#34;)
  *             .build());
  * 
  *     }

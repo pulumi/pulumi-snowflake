@@ -264,7 +264,11 @@ public class Table extends com.pulumi.resources.CustomResource {
     /**
      * Definitions of a tag to associate with the resource.
      * 
+     * @deprecated
+     * Use the &#39;snowflake_tag_association&#39; resource instead.
+     * 
      */
+    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
     @Export(name="tags", type=List.class, parameters={TableTag.class})
     private Output</* @Nullable */ List<TableTag>> tags;
 

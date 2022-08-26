@@ -47,6 +47,9 @@ class ViewArgs:
         if or_replace is not None:
             pulumi.set(__self__, "or_replace", or_replace)
         if tags is not None:
+            warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
+        if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
@@ -182,6 +185,9 @@ class _ViewState:
             pulumi.set(__self__, "schema", schema)
         if statement is not None:
             pulumi.set(__self__, "statement", statement)
+        if tags is not None:
+            warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -406,6 +412,9 @@ class View(pulumi.CustomResource):
             if statement is None and not opts.urn:
                 raise TypeError("Missing required property 'statement'")
             __props__.__dict__["statement"] = statement
+            if tags is not None and not opts.urn:
+                warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+                pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
             __props__.__dict__["tags"] = tags
         super(View, __self__).__init__(
             'snowflake:index/view:View',

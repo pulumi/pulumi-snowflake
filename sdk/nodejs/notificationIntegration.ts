@@ -12,16 +12,13 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const integration = new snowflake.NotificationIntegration("integration", {
- *     awsSnsRoleArn: "...",
- *     awsSnsTopicArn: "...",
- *     awsSqsArn: "...",
- *     awsSqsRoleArn: "...",
  *     azureStorageQueuePrimaryUri: "...",
  *     azureTenantId: "...",
  *     comment: "A notification integration.",
  *     direction: "OUTBOUND",
  *     enabled: true,
- *     notificationProvider: "AWS_SNS",
+ *     // AZURE_STORAGE_QUEUE
+ *     notificationProvider: "AZURE_STORAGE_QUEUE",
  *     type: "QUEUE",
  * });
  * ```

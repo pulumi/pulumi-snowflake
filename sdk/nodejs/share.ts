@@ -12,7 +12,7 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const test = new snowflake.Share("test", {
- *     accounts: "organizationName.accountName",
+ *     accounts: ["organizationName.accountName"],
  *     comment: "cool comment",
  * });
  * ```

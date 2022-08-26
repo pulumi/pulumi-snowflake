@@ -203,14 +203,15 @@ class Tag(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        test_tag = snowflake.Tag("testTag",
+        database = snowflake.Database("database")
+        schema = snowflake.Schema("schema", database=database.name)
+        tag = snowflake.Tag("tag",
+            database=database.name,
+            schema=schema.name,
             allowed_values=[
-                "foo",
-                "bar",
-            ],
-            comment="test comment",
-            database="test_db",
-            schema="test_schema")
+                "finance",
+                "engineering",
+            ])
         ```
 
         ## Import
@@ -242,14 +243,15 @@ class Tag(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        test_tag = snowflake.Tag("testTag",
+        database = snowflake.Database("database")
+        schema = snowflake.Schema("schema", database=database.name)
+        tag = snowflake.Tag("tag",
+            database=database.name,
+            schema=schema.name,
             allowed_values=[
-                "foo",
-                "bar",
-            ],
-            comment="test comment",
-            database="test_db",
-            schema="test_schema")
+                "finance",
+                "engineering",
+            ])
         ```
 
         ## Import

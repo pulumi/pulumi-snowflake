@@ -84,6 +84,9 @@ class UserArgs:
         if rsa_public_key2 is not None:
             pulumi.set(__self__, "rsa_public_key2", rsa_public_key2)
         if tags is not None:
+            warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
+        if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
@@ -360,6 +363,9 @@ class _UserState:
         if rsa_public_key2 is not None:
             pulumi.set(__self__, "rsa_public_key2", rsa_public_key2)
         if tags is not None:
+            warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
+        if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
@@ -597,6 +603,29 @@ class User(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserTagArgs']]]]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        user = snowflake.User("user",
+            comment="A user of snowflake.",
+            default_role="role1",
+            default_secondary_roles=["ALL"],
+            default_warehouse="warehouse",
+            disabled=False,
+            display_name="Snowflake User",
+            email="user@snowflake.example",
+            first_name="Snowflake",
+            last_name="User",
+            login_name="snowflake_user",
+            must_change_password=False,
+            password="secret",
+            rsa_public_key="...",
+            rsa_public_key2="...")
+        ```
+
         ## Import
 
         ```sh
@@ -628,6 +657,29 @@ class User(pulumi.CustomResource):
                  args: Optional[UserArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        user = snowflake.User("user",
+            comment="A user of snowflake.",
+            default_role="role1",
+            default_secondary_roles=["ALL"],
+            default_warehouse="warehouse",
+            disabled=False,
+            display_name="Snowflake User",
+            email="user@snowflake.example",
+            first_name="Snowflake",
+            last_name="User",
+            login_name="snowflake_user",
+            must_change_password=False,
+            password="secret",
+            rsa_public_key="...",
+            rsa_public_key2="...")
+        ```
+
         ## Import
 
         ```sh
@@ -691,6 +743,9 @@ class User(pulumi.CustomResource):
             __props__.__dict__["password"] = password
             __props__.__dict__["rsa_public_key"] = rsa_public_key
             __props__.__dict__["rsa_public_key2"] = rsa_public_key2
+            if tags is not None and not opts.urn:
+                warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+                pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
             __props__.__dict__["tags"] = tags
             __props__.__dict__["has_rsa_public_key"] = None
         super(User, __self__).__init__(

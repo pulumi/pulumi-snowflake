@@ -83,6 +83,8 @@ export class Schema extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     public readonly tags!: pulumi.Output<outputs.SchemaTag[] | undefined>;
 
@@ -154,6 +156,8 @@ export interface SchemaState {
     name?: pulumi.Input<string>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.SchemaTag>[]>;
 }
@@ -188,6 +192,8 @@ export interface SchemaArgs {
     name?: pulumi.Input<string>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.SchemaTag>[]>;
 }

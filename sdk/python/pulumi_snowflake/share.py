@@ -140,7 +140,7 @@ class Share(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         test = snowflake.Share("test",
-            accounts="organizationName.accountName",
+            accounts=["organizationName.accountName"],
             comment="cool comment")
         ```
 
@@ -170,7 +170,7 @@ class Share(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         test = snowflake.Share("test",
-            accounts="organizationName.accountName",
+            accounts=["organizationName.accountName"],
             comment="cool comment")
         ```
 

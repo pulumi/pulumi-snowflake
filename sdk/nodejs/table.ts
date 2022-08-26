@@ -145,6 +145,8 @@ export class Table extends pulumi.CustomResource {
     public readonly schema!: pulumi.Output<string>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     public readonly tags!: pulumi.Output<outputs.TableTag[] | undefined>;
 
@@ -246,6 +248,8 @@ export interface TableState {
     schema?: pulumi.Input<string>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TableTag>[]>;
 }
@@ -292,6 +296,8 @@ export interface TableArgs {
     schema: pulumi.Input<string>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TableTag>[]>;
 }

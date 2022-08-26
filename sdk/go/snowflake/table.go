@@ -130,6 +130,8 @@ type Table struct {
 	// The schema in which to create the table.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags TableTagArrayOutput `pulumi:"tags"`
 }
 
@@ -192,6 +194,8 @@ type tableState struct {
 	// The schema in which to create the table.
 	Schema *string `pulumi:"schema"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags []TableTag `pulumi:"tags"`
 }
 
@@ -217,6 +221,8 @@ type TableState struct {
 	// The schema in which to create the table.
 	Schema pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags TableTagArrayInput
 }
 
@@ -244,6 +250,8 @@ type tableArgs struct {
 	// The schema in which to create the table.
 	Schema string `pulumi:"schema"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags []TableTag `pulumi:"tags"`
 }
 
@@ -268,6 +276,8 @@ type TableArgs struct {
 	// The schema in which to create the table.
 	Schema pulumi.StringInput
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags TableTagArrayInput
 }
 
@@ -409,6 +419,8 @@ func (o TableOutput) Schema() pulumi.StringOutput {
 }
 
 // Definitions of a tag to associate with the resource.
+//
+// Deprecated: Use the 'snowflake_tag_association' resource instead.
 func (o TableOutput) Tags() TableTagArrayOutput {
 	return o.ApplyT(func(v *Table) TableTagArrayOutput { return v.Tags }).(TableTagArrayOutput)
 }

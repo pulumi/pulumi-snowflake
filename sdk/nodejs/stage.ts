@@ -107,6 +107,8 @@ export class Stage extends pulumi.CustomResource {
     public readonly storageIntegration!: pulumi.Output<string | undefined>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     public readonly tags!: pulumi.Output<outputs.StageTag[] | undefined>;
     /**
@@ -217,6 +219,8 @@ export interface StageState {
     storageIntegration?: pulumi.Input<string>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.StageTag>[]>;
     /**
@@ -273,6 +277,8 @@ export interface StageArgs {
     storageIntegration?: pulumi.Input<string>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.StageTag>[]>;
     /**

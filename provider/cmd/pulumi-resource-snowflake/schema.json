@@ -2683,7 +2683,7 @@
             }
         },
         "snowflake:index/database:Database": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst test = new snowflake.Database(\"test\", {\n    comment: \"test comment\",\n    dataRetentionTimeInDays: 3,\n});\nconst test2 = new snowflake.Database(\"test2\", {\n    comment: \"test comment 2\",\n    replicationConfiguration: {\n        accounts: [\n            \"test_account1\",\n            \"test_account_2\",\n        ],\n        ignoreEditionCheck: true,\n    },\n});\nconst test3 = new snowflake.Database(\"test3\", {\n    comment: \"test comment\",\n    dataRetentionTimeInDays: 3,\n    fromReplica: \"org1\\\".\\\"account1\\\".\\\"primary_db_name\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ntest = snowflake.Database(\"test\",\n    comment=\"test comment\",\n    data_retention_time_in_days=3)\ntest2 = snowflake.Database(\"test2\",\n    comment=\"test comment 2\",\n    replication_configuration=snowflake.DatabaseReplicationConfigurationArgs(\n        accounts=[\n            \"test_account1\",\n            \"test_account_2\",\n        ],\n        ignore_edition_check=True,\n    ))\ntest3 = snowflake.Database(\"test3\",\n    comment=\"test comment\",\n    data_retention_time_in_days=3,\n    from_replica=\"org1\\\".\\\"account1\\\".\\\"primary_db_name\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Snowflake.Database(\"test\", new()\n    {\n        Comment = \"test comment\",\n        DataRetentionTimeInDays = 3,\n    });\n\n    var test2 = new Snowflake.Database(\"test2\", new()\n    {\n        Comment = \"test comment 2\",\n        ReplicationConfiguration = new Snowflake.Inputs.DatabaseReplicationConfigurationArgs\n        {\n            Accounts = new[]\n            {\n                \"test_account1\",\n                \"test_account_2\",\n            },\n            IgnoreEditionCheck = true,\n        },\n    });\n\n    var test3 = new Snowflake.Database(\"test3\", new()\n    {\n        Comment = \"test comment\",\n        DataRetentionTimeInDays = 3,\n        FromReplica = \"org1\\\".\\\"account1\\\".\\\"primary_db_name\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewDatabase(ctx, \"test\", \u0026snowflake.DatabaseArgs{\n\t\t\tComment:                 pulumi.String(\"test comment\"),\n\t\t\tDataRetentionTimeInDays: pulumi.Int(3),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewDatabase(ctx, \"test2\", \u0026snowflake.DatabaseArgs{\n\t\t\tComment: pulumi.String(\"test comment 2\"),\n\t\t\tReplicationConfiguration: \u0026DatabaseReplicationConfigurationArgs{\n\t\t\t\tAccounts: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"test_account1\"),\n\t\t\t\t\tpulumi.String(\"test_account_2\"),\n\t\t\t\t},\n\t\t\t\tIgnoreEditionCheck: pulumi.Bool(true),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewDatabase(ctx, \"test3\", \u0026snowflake.DatabaseArgs{\n\t\t\tComment:                 pulumi.String(\"test comment\"),\n\t\t\tDataRetentionTimeInDays: pulumi.Int(3),\n\t\t\tFromReplica:             pulumi.String(\"org1\\\".\\\"account1\\\".\\\"primary_db_name\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Database;\nimport com.pulumi.snowflake.DatabaseArgs;\nimport com.pulumi.snowflake.inputs.DatabaseReplicationConfigurationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new Database(\"test\", DatabaseArgs.builder()        \n            .comment(\"test comment\")\n            .dataRetentionTimeInDays(3)\n            .build());\n\n        var test2 = new Database(\"test2\", DatabaseArgs.builder()        \n            .comment(\"test comment 2\")\n            .replicationConfiguration(DatabaseReplicationConfigurationArgs.builder()\n                .accounts(                \n                    \"test_account1\",\n                    \"test_account_2\")\n                .ignoreEditionCheck(true)\n                .build())\n            .build());\n\n        var test3 = new Database(\"test3\", DatabaseArgs.builder()        \n            .comment(\"test comment\")\n            .dataRetentionTimeInDays(3)\n            .fromReplica(\"org1\\\".\\\"account1\\\".\\\"primary_db_name\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: snowflake:Database\n    properties:\n      comment: test comment\n      dataRetentionTimeInDays: 3\n  test2:\n    type: snowflake:Database\n    properties:\n      comment: test comment 2\n      replicationConfiguration:\n        accounts:\n          - test_account1\n          - test_account_2\n        ignoreEditionCheck: true\n  test3:\n    type: snowflake:Database\n    properties:\n      comment: test comment\n      dataRetentionTimeInDays: 3\n      fromReplica: org1\".\"account1\".\"primary_db_name\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/database:Database example name\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst simple = new snowflake.Database(\"simple\", {\n    comment: \"test comment\",\n    dataRetentionTimeInDays: 3,\n});\nconst withReplication = new snowflake.Database(\"with_replication\", {\n    comment: \"test comment 2\",\n    replicationConfiguration: {\n        accounts: [\n            \"test_account1\",\n            \"test_account_2\",\n        ],\n        ignoreEditionCheck: true,\n    },\n});\nconst fromReplica = new snowflake.Database(\"from_replica\", {\n    comment: \"test comment\",\n    dataRetentionTimeInDays: 3,\n    fromReplica: \"org1\\\".\\\"account1\\\".\\\"primary_db_name\",\n});\nconst fromShare = new snowflake.Database(\"from_share\", {\n    comment: \"test comment\",\n    fromShare: {\n        provider: \"org1\\\".\\\"account1\",\n        share: \"share1\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nsimple = snowflake.Database(\"simple\",\n    comment=\"test comment\",\n    data_retention_time_in_days=3)\nwith_replication = snowflake.Database(\"withReplication\",\n    comment=\"test comment 2\",\n    replication_configuration=snowflake.DatabaseReplicationConfigurationArgs(\n        accounts=[\n            \"test_account1\",\n            \"test_account_2\",\n        ],\n        ignore_edition_check=True,\n    ))\nfrom_replica = snowflake.Database(\"fromReplica\",\n    comment=\"test comment\",\n    data_retention_time_in_days=3,\n    from_replica=\"org1\\\".\\\"account1\\\".\\\"primary_db_name\")\nfrom_share = snowflake.Database(\"fromShare\",\n    comment=\"test comment\",\n    from_share={\n        \"provider\": \"org1\\\".\\\"account1\",\n        \"share\": \"share1\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var simple = new Snowflake.Database(\"simple\", new()\n    {\n        Comment = \"test comment\",\n        DataRetentionTimeInDays = 3,\n    });\n\n    var withReplication = new Snowflake.Database(\"withReplication\", new()\n    {\n        Comment = \"test comment 2\",\n        ReplicationConfiguration = new Snowflake.Inputs.DatabaseReplicationConfigurationArgs\n        {\n            Accounts = new[]\n            {\n                \"test_account1\",\n                \"test_account_2\",\n            },\n            IgnoreEditionCheck = true,\n        },\n    });\n\n    var fromReplica = new Snowflake.Database(\"fromReplica\", new()\n    {\n        Comment = \"test comment\",\n        DataRetentionTimeInDays = 3,\n        FromReplica = \"org1\\\".\\\"account1\\\".\\\"primary_db_name\",\n    });\n\n    var fromShare = new Snowflake.Database(\"fromShare\", new()\n    {\n        Comment = \"test comment\",\n        FromShare = \n        {\n            { \"provider\", \"org1\\\".\\\"account1\" },\n            { \"share\", \"share1\" },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewDatabase(ctx, \"simple\", \u0026snowflake.DatabaseArgs{\n\t\t\tComment:                 pulumi.String(\"test comment\"),\n\t\t\tDataRetentionTimeInDays: pulumi.Int(3),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewDatabase(ctx, \"withReplication\", \u0026snowflake.DatabaseArgs{\n\t\t\tComment: pulumi.String(\"test comment 2\"),\n\t\t\tReplicationConfiguration: \u0026DatabaseReplicationConfigurationArgs{\n\t\t\t\tAccounts: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"test_account1\"),\n\t\t\t\t\tpulumi.String(\"test_account_2\"),\n\t\t\t\t},\n\t\t\t\tIgnoreEditionCheck: pulumi.Bool(true),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewDatabase(ctx, \"fromReplica\", \u0026snowflake.DatabaseArgs{\n\t\t\tComment:                 pulumi.String(\"test comment\"),\n\t\t\tDataRetentionTimeInDays: pulumi.Int(3),\n\t\t\tFromReplica:             pulumi.String(\"org1\\\".\\\"account1\\\".\\\"primary_db_name\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewDatabase(ctx, \"fromShare\", \u0026snowflake.DatabaseArgs{\n\t\t\tComment: pulumi.String(\"test comment\"),\n\t\t\tFromShare: pulumi.StringMap{\n\t\t\t\t\"provider\": pulumi.String(\"org1\\\".\\\"account1\"),\n\t\t\t\t\"share\":    pulumi.String(\"share1\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Database;\nimport com.pulumi.snowflake.DatabaseArgs;\nimport com.pulumi.snowflake.inputs.DatabaseReplicationConfigurationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var simple = new Database(\"simple\", DatabaseArgs.builder()        \n            .comment(\"test comment\")\n            .dataRetentionTimeInDays(3)\n            .build());\n\n        var withReplication = new Database(\"withReplication\", DatabaseArgs.builder()        \n            .comment(\"test comment 2\")\n            .replicationConfiguration(DatabaseReplicationConfigurationArgs.builder()\n                .accounts(                \n                    \"test_account1\",\n                    \"test_account_2\")\n                .ignoreEditionCheck(true)\n                .build())\n            .build());\n\n        var fromReplica = new Database(\"fromReplica\", DatabaseArgs.builder()        \n            .comment(\"test comment\")\n            .dataRetentionTimeInDays(3)\n            .fromReplica(\"org1\\\".\\\"account1\\\".\\\"primary_db_name\")\n            .build());\n\n        var fromShare = new Database(\"fromShare\", DatabaseArgs.builder()        \n            .comment(\"test comment\")\n            .fromShare(Map.ofEntries(\n                Map.entry(\"provider\", \"org1\\\".\\\"account1\"),\n                Map.entry(\"share\", \"share1\")\n            ))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  simple:\n    type: snowflake:Database\n    properties:\n      comment: test comment\n      dataRetentionTimeInDays: 3\n  withReplication:\n    type: snowflake:Database\n    properties:\n      comment: test comment 2\n      replicationConfiguration:\n        accounts:\n          - test_account1\n          - test_account_2\n        ignoreEditionCheck: true\n  fromReplica:\n    type: snowflake:Database\n    properties:\n      comment: test comment\n      dataRetentionTimeInDays: 3\n      fromReplica: org1\".\"account1\".\"primary_db_name\n  fromShare:\n    type: snowflake:Database\n    properties:\n      comment: test comment\n      fromShare:\n        provider: org1\".\"account1\n        share: share1\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/database:Database example name\n```\n\n ",
             "properties": {
                 "comment": {
                     "type": "string"
@@ -2706,6 +2706,10 @@
                     },
                     "description": "Specify a provider and a share in this map to create a database from a share.\n"
                 },
+                "isTransient": {
+                    "type": "boolean",
+                    "description": "Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.\n"
+                },
                 "name": {
                     "type": "string"
                 },
@@ -2718,7 +2722,8 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/DatabaseTag:DatabaseTag"
                     },
-                    "description": "Definitions of a tag to associate with the resource.\n"
+                    "description": "Definitions of a tag to associate with the resource.\n",
+                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                 }
             },
             "required": [
@@ -2750,6 +2755,11 @@
                     "description": "Specify a provider and a share in this map to create a database from a share.\n",
                     "willReplaceOnChanges": true
                 },
+                "isTransient": {
+                    "type": "boolean",
+                    "description": "Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.\n",
+                    "willReplaceOnChanges": true
+                },
                 "name": {
                     "type": "string"
                 },
@@ -2762,7 +2772,8 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/DatabaseTag:DatabaseTag"
                     },
-                    "description": "Definitions of a tag to associate with the resource.\n"
+                    "description": "Definitions of a tag to associate with the resource.\n",
+                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                 }
             },
             "stateInputs": {
@@ -2792,6 +2803,11 @@
                         "description": "Specify a provider and a share in this map to create a database from a share.\n",
                         "willReplaceOnChanges": true
                     },
+                    "isTransient": {
+                        "type": "boolean",
+                        "description": "Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.\n",
+                        "willReplaceOnChanges": true
+                    },
                     "name": {
                         "type": "string"
                     },
@@ -2804,7 +2820,8 @@
                         "items": {
                             "$ref": "#/types/snowflake:index/DatabaseTag:DatabaseTag"
                         },
-                        "description": "Definitions of a tag to associate with the resource.\n"
+                        "description": "Definitions of a tag to associate with the resource.\n",
+                        "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                     }
                 },
                 "type": "object"
@@ -3537,7 +3554,8 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/ExternalTableTag:ExternalTableTag"
                     },
-                    "description": "Definitions of a tag to associate with the resource.\n"
+                    "description": "Definitions of a tag to associate with the resource.\n",
+                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                 }
             },
             "required": [
@@ -3626,7 +3644,8 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/ExternalTableTag:ExternalTableTag"
                     },
-                    "description": "Definitions of a tag to associate with the resource.\n"
+                    "description": "Definitions of a tag to associate with the resource.\n",
+                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                 }
             },
             "requiredInputs": [
@@ -3719,7 +3738,8 @@
                         "items": {
                             "$ref": "#/types/snowflake:index/ExternalTableTag:ExternalTableTag"
                         },
-                        "description": "Definitions of a tag to associate with the resource.\n"
+                        "description": "Definitions of a tag to associate with the resource.\n",
+                        "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                     }
                 },
                 "type": "object"
@@ -5474,7 +5494,8 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/MaterializedViewTag:MaterializedViewTag"
                     },
-                    "description": "Definitions of a tag to associate with the resource.\n"
+                    "description": "Definitions of a tag to associate with the resource.\n",
+                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                 },
                 "warehouse": {
                     "type": "string",
@@ -5525,7 +5546,8 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/MaterializedViewTag:MaterializedViewTag"
                     },
-                    "description": "Definitions of a tag to associate with the resource.\n"
+                    "description": "Definitions of a tag to associate with the resource.\n",
+                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                 },
                 "warehouse": {
                     "type": "string",
@@ -5578,7 +5600,8 @@
                         "items": {
                             "$ref": "#/types/snowflake:index/MaterializedViewTag:MaterializedViewTag"
                         },
-                        "description": "Definitions of a tag to associate with the resource.\n"
+                        "description": "Definitions of a tag to associate with the resource.\n",
+                        "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                     },
                     "warehouse": {
                         "type": "string",
@@ -5907,7 +5930,7 @@
             }
         },
         "snowflake:index/notificationIntegration:NotificationIntegration": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst integration = new snowflake.NotificationIntegration(\"integration\", {\n    awsSnsRoleArn: \"...\",\n    awsSnsTopicArn: \"...\",\n    awsSqsArn: \"...\",\n    awsSqsRoleArn: \"...\",\n    azureStorageQueuePrimaryUri: \"...\",\n    azureTenantId: \"...\",\n    comment: \"A notification integration.\",\n    direction: \"OUTBOUND\",\n    enabled: true,\n    notificationProvider: \"AWS_SNS\",\n    type: \"QUEUE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nintegration = snowflake.NotificationIntegration(\"integration\",\n    aws_sns_role_arn=\"...\",\n    aws_sns_topic_arn=\"...\",\n    aws_sqs_arn=\"...\",\n    aws_sqs_role_arn=\"...\",\n    azure_storage_queue_primary_uri=\"...\",\n    azure_tenant_id=\"...\",\n    comment=\"A notification integration.\",\n    direction=\"OUTBOUND\",\n    enabled=True,\n    notification_provider=\"AWS_SNS\",\n    type=\"QUEUE\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var integration = new Snowflake.NotificationIntegration(\"integration\", new()\n    {\n        AwsSnsRoleArn = \"...\",\n        AwsSnsTopicArn = \"...\",\n        AwsSqsArn = \"...\",\n        AwsSqsRoleArn = \"...\",\n        AzureStorageQueuePrimaryUri = \"...\",\n        AzureTenantId = \"...\",\n        Comment = \"A notification integration.\",\n        Direction = \"OUTBOUND\",\n        Enabled = true,\n        NotificationProvider = \"AWS_SNS\",\n        Type = \"QUEUE\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewNotificationIntegration(ctx, \"integration\", \u0026snowflake.NotificationIntegrationArgs{\n\t\t\tAwsSnsRoleArn:               pulumi.String(\"...\"),\n\t\t\tAwsSnsTopicArn:              pulumi.String(\"...\"),\n\t\t\tAwsSqsArn:                   pulumi.String(\"...\"),\n\t\t\tAwsSqsRoleArn:               pulumi.String(\"...\"),\n\t\t\tAzureStorageQueuePrimaryUri: pulumi.String(\"...\"),\n\t\t\tAzureTenantId:               pulumi.String(\"...\"),\n\t\t\tComment:                     pulumi.String(\"A notification integration.\"),\n\t\t\tDirection:                   pulumi.String(\"OUTBOUND\"),\n\t\t\tEnabled:                     pulumi.Bool(true),\n\t\t\tNotificationProvider:        pulumi.String(\"AWS_SNS\"),\n\t\t\tType:                        pulumi.String(\"QUEUE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.NotificationIntegration;\nimport com.pulumi.snowflake.NotificationIntegrationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var integration = new NotificationIntegration(\"integration\", NotificationIntegrationArgs.builder()        \n            .awsSnsRoleArn(\"...\")\n            .awsSnsTopicArn(\"...\")\n            .awsSqsArn(\"...\")\n            .awsSqsRoleArn(\"...\")\n            .azureStorageQueuePrimaryUri(\"...\")\n            .azureTenantId(\"...\")\n            .comment(\"A notification integration.\")\n            .direction(\"OUTBOUND\")\n            .enabled(true)\n            .notificationProvider(\"AWS_SNS\")\n            .type(\"QUEUE\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  integration:\n    type: snowflake:NotificationIntegration\n    properties:\n      awsSnsRoleArn: '...'\n      awsSnsTopicArn: '...'\n      awsSqsArn: '...'\n      awsSqsRoleArn: '...'\n      azureStorageQueuePrimaryUri: '...'\n      azureTenantId: '...'\n      comment: A notification integration.\n      direction: OUTBOUND\n      enabled: true\n      notificationProvider: AWS_SNS\n      type: QUEUE\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst integration = new snowflake.NotificationIntegration(\"integration\", {\n    azureStorageQueuePrimaryUri: \"...\",\n    azureTenantId: \"...\",\n    comment: \"A notification integration.\",\n    direction: \"OUTBOUND\",\n    enabled: true,\n    // AZURE_STORAGE_QUEUE\n    notificationProvider: \"AZURE_STORAGE_QUEUE\",\n    type: \"QUEUE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nintegration = snowflake.NotificationIntegration(\"integration\",\n    azure_storage_queue_primary_uri=\"...\",\n    azure_tenant_id=\"...\",\n    comment=\"A notification integration.\",\n    direction=\"OUTBOUND\",\n    enabled=True,\n    notification_provider=\"AZURE_STORAGE_QUEUE\",\n    type=\"QUEUE\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var integration = new Snowflake.NotificationIntegration(\"integration\", new()\n    {\n        AzureStorageQueuePrimaryUri = \"...\",\n        AzureTenantId = \"...\",\n        Comment = \"A notification integration.\",\n        Direction = \"OUTBOUND\",\n        Enabled = true,\n        NotificationProvider = \"AZURE_STORAGE_QUEUE\",\n        Type = \"QUEUE\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewNotificationIntegration(ctx, \"integration\", \u0026snowflake.NotificationIntegrationArgs{\n\t\t\tAzureStorageQueuePrimaryUri: pulumi.String(\"...\"),\n\t\t\tAzureTenantId:               pulumi.String(\"...\"),\n\t\t\tComment:                     pulumi.String(\"A notification integration.\"),\n\t\t\tDirection:                   pulumi.String(\"OUTBOUND\"),\n\t\t\tEnabled:                     pulumi.Bool(true),\n\t\t\tNotificationProvider:        pulumi.String(\"AZURE_STORAGE_QUEUE\"),\n\t\t\tType:                        pulumi.String(\"QUEUE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.NotificationIntegration;\nimport com.pulumi.snowflake.NotificationIntegrationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var integration = new NotificationIntegration(\"integration\", NotificationIntegrationArgs.builder()        \n            .azureStorageQueuePrimaryUri(\"...\")\n            .azureTenantId(\"...\")\n            .comment(\"A notification integration.\")\n            .direction(\"OUTBOUND\")\n            .enabled(true)\n            .notificationProvider(\"AZURE_STORAGE_QUEUE\")\n            .type(\"QUEUE\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  integration:\n    type: snowflake:NotificationIntegration\n    properties:\n      azureStorageQueuePrimaryUri: '...'\n      azureTenantId: '...'\n      comment: A notification integration.\n      direction: OUTBOUND\n      enabled: true\n      # AZURE_STORAGE_QUEUE\n      notificationProvider: AZURE_STORAGE_QUEUE\n      type: QUEUE\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name\n```\n\n ",
             "properties": {
                 "awsSnsExternalId": {
                     "type": "string",
@@ -7153,7 +7176,7 @@
             }
         },
         "snowflake:index/resourceMonitorGrant:ResourceMonitorGrant": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.MonitorGrant(\"grant\", {\n    monitorName: \"monitor\",\n    privilege: \"MODIFY\",\n    roles: [\"role1\"],\n    withGrantOption: false,\n});\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/resourceMonitorGrant:ResourceMonitorGrant example name\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.ResourceMonitorGrant(\"grant\", {\n    monitorName: \"monitor\",\n    privilege: \"MODIFY\",\n    roles: [\"role1\"],\n    withGrantOption: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ngrant = snowflake.ResourceMonitorGrant(\"grant\",\n    monitor_name=\"monitor\",\n    privilege=\"MODIFY\",\n    roles=[\"role1\"],\n    with_grant_option=False)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var grant = new Snowflake.ResourceMonitorGrant(\"grant\", new()\n    {\n        MonitorName = \"monitor\",\n        Privilege = \"MODIFY\",\n        Roles = new[]\n        {\n            \"role1\",\n        },\n        WithGrantOption = false,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewResourceMonitorGrant(ctx, \"grant\", \u0026snowflake.ResourceMonitorGrantArgs{\n\t\t\tMonitorName: pulumi.String(\"monitor\"),\n\t\t\tPrivilege:   pulumi.String(\"MODIFY\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"role1\"),\n\t\t\t},\n\t\t\tWithGrantOption: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.ResourceMonitorGrant;\nimport com.pulumi.snowflake.ResourceMonitorGrantArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var grant = new ResourceMonitorGrant(\"grant\", ResourceMonitorGrantArgs.builder()        \n            .monitorName(\"monitor\")\n            .privilege(\"MODIFY\")\n            .roles(\"role1\")\n            .withGrantOption(false)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  grant:\n    type: snowflake:ResourceMonitorGrant\n    properties:\n      monitorName: monitor\n      privilege: MODIFY\n      roles:\n        - role1\n      withGrantOption: false\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/resourceMonitorGrant:ResourceMonitorGrant example name\n```\n\n ",
             "properties": {
                 "enableMultipleGrants": {
                     "type": "boolean",
@@ -7264,7 +7287,8 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/RoleTag:RoleTag"
                     },
-                    "description": "Definitions of a tag to associate with the resource.\n"
+                    "description": "Definitions of a tag to associate with the resource.\n",
+                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                 }
             },
             "required": [
@@ -7282,7 +7306,8 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/RoleTag:RoleTag"
                     },
-                    "description": "Definitions of a tag to associate with the resource.\n"
+                    "description": "Definitions of a tag to associate with the resource.\n",
+                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                 }
             },
             "stateInputs": {
@@ -7299,7 +7324,8 @@
                         "items": {
                             "$ref": "#/types/snowflake:index/RoleTag:RoleTag"
                         },
-                        "description": "Definitions of a tag to associate with the resource.\n"
+                        "description": "Definitions of a tag to associate with the resource.\n",
+                        "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                     }
                 },
                 "type": "object"
@@ -7966,7 +7992,8 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/SchemaTag:SchemaTag"
                     },
-                    "description": "Definitions of a tag to associate with the resource.\n"
+                    "description": "Definitions of a tag to associate with the resource.\n",
+                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                 }
             },
             "required": [
@@ -8005,7 +8032,8 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/SchemaTag:SchemaTag"
                     },
-                    "description": "Definitions of a tag to associate with the resource.\n"
+                    "description": "Definitions of a tag to associate with the resource.\n",
+                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                 }
             },
             "requiredInputs": [
@@ -8045,7 +8073,8 @@
                         "items": {
                             "$ref": "#/types/snowflake:index/SchemaTag:SchemaTag"
                         },
-                        "description": "Definitions of a tag to associate with the resource.\n"
+                        "description": "Definitions of a tag to associate with the resource.\n",
+                        "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                     }
                 },
                 "type": "object"
@@ -8524,7 +8553,7 @@
             }
         },
         "snowflake:index/share:Share": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst test = new snowflake.Share(\"test\", {\n    accounts: \"organizationName.accountName\",\n    comment: \"cool comment\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ntest = snowflake.Share(\"test\",\n    accounts=\"organizationName.accountName\",\n    comment=\"cool comment\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Snowflake.Share(\"test\", new()\n    {\n        Accounts = \"organizationName.accountName\",\n        Comment = \"cool comment\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewShare(ctx, \"test\", \u0026snowflake.ShareArgs{\n\t\t\tAccounts: pulumi.StringArray(\"organizationName.accountName\"),\n\t\t\tComment:  pulumi.String(\"cool comment\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Share;\nimport com.pulumi.snowflake.ShareArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new Share(\"test\", ShareArgs.builder()        \n            .accounts(\"organizationName.accountName\")\n            .comment(\"cool comment\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: snowflake:Share\n    properties:\n      accounts: organizationName.accountName\n      comment: cool comment\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/share:Share example name\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst test = new snowflake.Share(\"test\", {\n    accounts: [\"organizationName.accountName\"],\n    comment: \"cool comment\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ntest = snowflake.Share(\"test\",\n    accounts=[\"organizationName.accountName\"],\n    comment=\"cool comment\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Snowflake.Share(\"test\", new()\n    {\n        Accounts = new[]\n        {\n            \"organizationName.accountName\",\n        },\n        Comment = \"cool comment\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewShare(ctx, \"test\", \u0026snowflake.ShareArgs{\n\t\t\tAccounts: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"organizationName.accountName\"),\n\t\t\t},\n\t\t\tComment: pulumi.String(\"cool comment\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Share;\nimport com.pulumi.snowflake.ShareArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new Share(\"test\", ShareArgs.builder()        \n            .accounts(\"organizationName.accountName\")\n            .comment(\"cool comment\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: snowflake:Share\n    properties:\n      accounts:\n        - organizationName.accountName\n      comment: cool comment\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/share:Share example name\n```\n\n ",
             "properties": {
                 "accounts": {
                     "type": "array",
@@ -8640,7 +8669,8 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/StageTag:StageTag"
                     },
-                    "description": "Definitions of a tag to associate with the resource.\n"
+                    "description": "Definitions of a tag to associate with the resource.\n",
+                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                 },
                 "url": {
                     "type": "string",
@@ -8710,7 +8740,8 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/StageTag:StageTag"
                     },
-                    "description": "Definitions of a tag to associate with the resource.\n"
+                    "description": "Definitions of a tag to associate with the resource.\n",
+                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                 },
                 "url": {
                     "type": "string",
@@ -8779,7 +8810,8 @@
                         "items": {
                             "$ref": "#/types/snowflake:index/StageTag:StageTag"
                         },
-                        "description": "Definitions of a tag to associate with the resource.\n"
+                        "description": "Definitions of a tag to associate with the resource.\n",
+                        "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                     },
                     "url": {
                         "type": "string",
@@ -9479,7 +9511,8 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/TableTag:TableTag"
                     },
-                    "description": "Definitions of a tag to associate with the resource.\n"
+                    "description": "Definitions of a tag to associate with the resource.\n",
+                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                 }
             },
             "required": [
@@ -9539,7 +9572,8 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/TableTag:TableTag"
                     },
-                    "description": "Definitions of a tag to associate with the resource.\n"
+                    "description": "Definitions of a tag to associate with the resource.\n",
+                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                 }
             },
             "requiredInputs": [
@@ -9603,7 +9637,8 @@
                         "items": {
                             "$ref": "#/types/snowflake:index/TableTag:TableTag"
                         },
-                        "description": "Definitions of a tag to associate with the resource.\n"
+                        "description": "Definitions of a tag to associate with the resource.\n",
+                        "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                     }
                 },
                 "type": "object"
@@ -9767,7 +9802,7 @@
             }
         },
         "snowflake:index/tag:Tag": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst testTag = new snowflake.Tag(\"test_tag\", {\n    allowedValues: [\n        \"foo\",\n        \"bar\",\n    ],\n    // Optionals\n    comment: \"test comment\",\n    database: \"test_db\",\n    schema: \"test_schema\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ntest_tag = snowflake.Tag(\"testTag\",\n    allowed_values=[\n        \"foo\",\n        \"bar\",\n    ],\n    comment=\"test comment\",\n    database=\"test_db\",\n    schema=\"test_schema\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var testTag = new Snowflake.Tag(\"testTag\", new()\n    {\n        AllowedValues = new[]\n        {\n            \"foo\",\n            \"bar\",\n        },\n        Comment = \"test comment\",\n        Database = \"test_db\",\n        Schema = \"test_schema\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewTag(ctx, \"testTag\", \u0026snowflake.TagArgs{\n\t\t\tAllowedValues: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"foo\"),\n\t\t\t\tpulumi.String(\"bar\"),\n\t\t\t},\n\t\t\tComment:  pulumi.String(\"test comment\"),\n\t\t\tDatabase: pulumi.String(\"test_db\"),\n\t\t\tSchema:   pulumi.String(\"test_schema\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Tag;\nimport com.pulumi.snowflake.TagArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var testTag = new Tag(\"testTag\", TagArgs.builder()        \n            .allowedValues(            \n                \"foo\",\n                \"bar\")\n            .comment(\"test comment\")\n            .database(\"test_db\")\n            .schema(\"test_schema\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  testTag:\n    type: snowflake:Tag\n    properties:\n      allowedValues:\n        - foo\n        - bar\n      # Optionals\n      comment: test comment\n      database: test_db\n      schema: test_schema\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | tag name\n\n```sh\n $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst database = new snowflake.Database(\"database\", {});\nconst schema = new snowflake.Schema(\"schema\", {database: database.name});\nconst tag = new snowflake.Tag(\"tag\", {\n    database: database.name,\n    schema: schema.name,\n    allowedValues: [\n        \"finance\",\n        \"engineering\",\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ndatabase = snowflake.Database(\"database\")\nschema = snowflake.Schema(\"schema\", database=database.name)\ntag = snowflake.Tag(\"tag\",\n    database=database.name,\n    schema=schema.name,\n    allowed_values=[\n        \"finance\",\n        \"engineering\",\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var database = new Snowflake.Database(\"database\");\n\n    var schema = new Snowflake.Schema(\"schema\", new()\n    {\n        Database = database.Name,\n    });\n\n    var tag = new Snowflake.Tag(\"tag\", new()\n    {\n        Database = database.Name,\n        Schema = schema.Name,\n        AllowedValues = new[]\n        {\n            \"finance\",\n            \"engineering\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdatabase, err := snowflake.NewDatabase(ctx, \"database\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tschema, err := snowflake.NewSchema(ctx, \"schema\", \u0026snowflake.SchemaArgs{\n\t\t\tDatabase: database.Name,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewTag(ctx, \"tag\", \u0026snowflake.TagArgs{\n\t\t\tDatabase: database.Name,\n\t\t\tSchema:   schema.Name,\n\t\t\tAllowedValues: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"finance\"),\n\t\t\t\tpulumi.String(\"engineering\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Database;\nimport com.pulumi.snowflake.Schema;\nimport com.pulumi.snowflake.SchemaArgs;\nimport com.pulumi.snowflake.Tag;\nimport com.pulumi.snowflake.TagArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var database = new Database(\"database\");\n\n        var schema = new Schema(\"schema\", SchemaArgs.builder()        \n            .database(database.name())\n            .build());\n\n        var tag = new Tag(\"tag\", TagArgs.builder()        \n            .database(database.name())\n            .schema(schema.name())\n            .allowedValues(            \n                \"finance\",\n                \"engineering\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  database:\n    type: snowflake:Database\n  schema:\n    type: snowflake:Schema\n    properties:\n      database: ${database.name}\n  tag:\n    type: snowflake:Tag\n    properties:\n      database: ${database.name}\n      schema: ${schema.name}\n      allowedValues:\n        - finance\n        - engineering\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is database name | schema name | tag name\n\n```sh\n $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'\n```\n\n ",
             "properties": {
                 "allowedValues": {
                     "type": "array",
@@ -9857,6 +9892,99 @@
                     "schema": {
                         "type": "string",
                         "description": "The schema in which to create the tag.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "snowflake:index/tagAssociation:TagAssociation": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst database = new snowflake.Database(\"database\", {});\nconst schema = new snowflake.Schema(\"schema\", {database: database.name});\nconst tag = new snowflake.Tag(\"tag\", {\n    database: database.name,\n    schema: schema.name,\n    allowedValues: [\n        \"finance\",\n        \"engineering\",\n    ],\n});\nconst association = new snowflake.TagAssociation(\"association\", {\n    objectName: database.name,\n    objectType: \"DATABASE\",\n    tagId: tag.id,\n    tagValue: \"finance\",\n    skipValidation: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ndatabase = snowflake.Database(\"database\")\nschema = snowflake.Schema(\"schema\", database=database.name)\ntag = snowflake.Tag(\"tag\",\n    database=database.name,\n    schema=schema.name,\n    allowed_values=[\n        \"finance\",\n        \"engineering\",\n    ])\nassociation = snowflake.TagAssociation(\"association\",\n    object_name=database.name,\n    object_type=\"DATABASE\",\n    tag_id=tag.id,\n    tag_value=\"finance\",\n    skip_validation=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var database = new Snowflake.Database(\"database\");\n\n    var schema = new Snowflake.Schema(\"schema\", new()\n    {\n        Database = database.Name,\n    });\n\n    var tag = new Snowflake.Tag(\"tag\", new()\n    {\n        Database = database.Name,\n        Schema = schema.Name,\n        AllowedValues = new[]\n        {\n            \"finance\",\n            \"engineering\",\n        },\n    });\n\n    var association = new Snowflake.TagAssociation(\"association\", new()\n    {\n        ObjectName = database.Name,\n        ObjectType = \"DATABASE\",\n        TagId = tag.Id,\n        TagValue = \"finance\",\n        SkipValidation = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdatabase, err := snowflake.NewDatabase(ctx, \"database\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tschema, err := snowflake.NewSchema(ctx, \"schema\", \u0026snowflake.SchemaArgs{\n\t\t\tDatabase: database.Name,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttag, err := snowflake.NewTag(ctx, \"tag\", \u0026snowflake.TagArgs{\n\t\t\tDatabase: database.Name,\n\t\t\tSchema:   schema.Name,\n\t\t\tAllowedValues: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"finance\"),\n\t\t\t\tpulumi.String(\"engineering\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewTagAssociation(ctx, \"association\", \u0026snowflake.TagAssociationArgs{\n\t\t\tObjectName:     database.Name,\n\t\t\tObjectType:     pulumi.String(\"DATABASE\"),\n\t\t\tTagId:          tag.ID(),\n\t\t\tTagValue:       pulumi.String(\"finance\"),\n\t\t\tSkipValidation: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Database;\nimport com.pulumi.snowflake.Schema;\nimport com.pulumi.snowflake.SchemaArgs;\nimport com.pulumi.snowflake.Tag;\nimport com.pulumi.snowflake.TagArgs;\nimport com.pulumi.snowflake.TagAssociation;\nimport com.pulumi.snowflake.TagAssociationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var database = new Database(\"database\");\n\n        var schema = new Schema(\"schema\", SchemaArgs.builder()        \n            .database(database.name())\n            .build());\n\n        var tag = new Tag(\"tag\", TagArgs.builder()        \n            .database(database.name())\n            .schema(schema.name())\n            .allowedValues(            \n                \"finance\",\n                \"engineering\")\n            .build());\n\n        var association = new TagAssociation(\"association\", TagAssociationArgs.builder()        \n            .objectName(database.name())\n            .objectType(\"DATABASE\")\n            .tagId(tag.id())\n            .tagValue(\"finance\")\n            .skipValidation(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  database:\n    type: snowflake:Database\n  schema:\n    type: snowflake:Schema\n    properties:\n      database: ${database.name}\n  tag:\n    type: snowflake:Tag\n    properties:\n      database: ${database.name}\n      schema: ${schema.name}\n      allowedValues:\n        - finance\n        - engineering\n  association:\n    type: snowflake:TagAssociation\n    properties:\n      objectName: ${database.name}\n      objectType: DATABASE\n      tagId: ${tag.id}\n      tagValue: finance\n      skipValidation: true\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# format is dbName.schemaName.tagName or dbName.schemaName.tagName\n\n```sh\n $ pulumi import snowflake:index/tagAssociation:TagAssociation example 'dbName.schemaName.tagName'\n```\n\n ",
+            "properties": {
+                "objectName": {
+                    "type": "string",
+                    "description": "Specifies the object identifier for the tag association.\n"
+                },
+                "objectType": {
+                    "type": "string",
+                    "description": "Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects\n"
+                },
+                "skipValidation": {
+                    "type": "boolean",
+                    "description": "If true, skips validation of the tag association. It can take up to an hour for the SNOWFLAKE.TAG*REFERENCES table to update, and also requires ACCOUNT*ADMIN role to read from. https://docs.snowflake.com/en/sql-reference/account-usage/tag_references.html\n"
+                },
+                "tagId": {
+                    "type": "string",
+                    "description": "Specifies the identifier for the tag. Note: format must follow: \"databaseName\".\"schemaName\".\"tagName\" or \"databaseName.schemaName.tagName\" or \"databaseName|schemaName.tagName\" (snowflake_tag.tag.id)\n"
+                },
+                "tagValue": {
+                    "type": "string",
+                    "description": "Specifies the value of the tag, (e.g. 'finance' or 'engineering')\n"
+                }
+            },
+            "required": [
+                "objectName",
+                "objectType",
+                "tagId",
+                "tagValue"
+            ],
+            "inputProperties": {
+                "objectName": {
+                    "type": "string",
+                    "description": "Specifies the object identifier for the tag association.\n",
+                    "willReplaceOnChanges": true
+                },
+                "objectType": {
+                    "type": "string",
+                    "description": "Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects\n",
+                    "willReplaceOnChanges": true
+                },
+                "skipValidation": {
+                    "type": "boolean",
+                    "description": "If true, skips validation of the tag association. It can take up to an hour for the SNOWFLAKE.TAG*REFERENCES table to update, and also requires ACCOUNT*ADMIN role to read from. https://docs.snowflake.com/en/sql-reference/account-usage/tag_references.html\n"
+                },
+                "tagId": {
+                    "type": "string",
+                    "description": "Specifies the identifier for the tag. Note: format must follow: \"databaseName\".\"schemaName\".\"tagName\" or \"databaseName.schemaName.tagName\" or \"databaseName|schemaName.tagName\" (snowflake_tag.tag.id)\n",
+                    "willReplaceOnChanges": true
+                },
+                "tagValue": {
+                    "type": "string",
+                    "description": "Specifies the value of the tag, (e.g. 'finance' or 'engineering')\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "objectName",
+                "objectType",
+                "tagId",
+                "tagValue"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering TagAssociation resources.\n",
+                "properties": {
+                    "objectName": {
+                        "type": "string",
+                        "description": "Specifies the object identifier for the tag association.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "objectType": {
+                        "type": "string",
+                        "description": "Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "skipValidation": {
+                        "type": "boolean",
+                        "description": "If true, skips validation of the tag association. It can take up to an hour for the SNOWFLAKE.TAG*REFERENCES table to update, and also requires ACCOUNT*ADMIN role to read from. https://docs.snowflake.com/en/sql-reference/account-usage/tag_references.html\n"
+                    },
+                    "tagId": {
+                        "type": "string",
+                        "description": "Specifies the identifier for the tag. Note: format must follow: \"databaseName\".\"schemaName\".\"tagName\" or \"databaseName.schemaName.tagName\" or \"databaseName|schemaName.tagName\" (snowflake_tag.tag.id)\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tagValue": {
+                        "type": "string",
+                        "description": "Specifies the value of the tag, (e.g. 'finance' or 'engineering')\n",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -10341,7 +10469,7 @@
             }
         },
         "snowflake:index/user:User": {
-            "description": "\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/user:User example userName\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst user = new snowflake.User(\"user\", {\n    comment: \"A user of snowflake.\",\n    defaultRole: \"role1\",\n    defaultSecondaryRoles: [\"ALL\"],\n    defaultWarehouse: \"warehouse\",\n    disabled: false,\n    displayName: \"Snowflake User\",\n    email: \"user@snowflake.example\",\n    firstName: \"Snowflake\",\n    lastName: \"User\",\n    loginName: \"snowflake_user\",\n    mustChangePassword: false,\n    password: \"secret\",\n    rsaPublicKey: \"...\",\n    rsaPublicKey2: \"...\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nuser = snowflake.User(\"user\",\n    comment=\"A user of snowflake.\",\n    default_role=\"role1\",\n    default_secondary_roles=[\"ALL\"],\n    default_warehouse=\"warehouse\",\n    disabled=False,\n    display_name=\"Snowflake User\",\n    email=\"user@snowflake.example\",\n    first_name=\"Snowflake\",\n    last_name=\"User\",\n    login_name=\"snowflake_user\",\n    must_change_password=False,\n    password=\"secret\",\n    rsa_public_key=\"...\",\n    rsa_public_key2=\"...\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var user = new Snowflake.User(\"user\", new()\n    {\n        Comment = \"A user of snowflake.\",\n        DefaultRole = \"role1\",\n        DefaultSecondaryRoles = new[]\n        {\n            \"ALL\",\n        },\n        DefaultWarehouse = \"warehouse\",\n        Disabled = false,\n        DisplayName = \"Snowflake User\",\n        Email = \"user@snowflake.example\",\n        FirstName = \"Snowflake\",\n        LastName = \"User\",\n        LoginName = \"snowflake_user\",\n        MustChangePassword = false,\n        Password = \"secret\",\n        RsaPublicKey = \"...\",\n        RsaPublicKey2 = \"...\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewUser(ctx, \"user\", \u0026snowflake.UserArgs{\n\t\t\tComment:     pulumi.String(\"A user of snowflake.\"),\n\t\t\tDefaultRole: pulumi.String(\"role1\"),\n\t\t\tDefaultSecondaryRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"ALL\"),\n\t\t\t},\n\t\t\tDefaultWarehouse:   pulumi.String(\"warehouse\"),\n\t\t\tDisabled:           pulumi.Bool(false),\n\t\t\tDisplayName:        pulumi.String(\"Snowflake User\"),\n\t\t\tEmail:              pulumi.String(\"user@snowflake.example\"),\n\t\t\tFirstName:          pulumi.String(\"Snowflake\"),\n\t\t\tLastName:           pulumi.String(\"User\"),\n\t\t\tLoginName:          pulumi.String(\"snowflake_user\"),\n\t\t\tMustChangePassword: pulumi.Bool(false),\n\t\t\tPassword:           pulumi.String(\"secret\"),\n\t\t\tRsaPublicKey:       pulumi.String(\"...\"),\n\t\t\tRsaPublicKey2:      pulumi.String(\"...\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.User;\nimport com.pulumi.snowflake.UserArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var user = new User(\"user\", UserArgs.builder()        \n            .comment(\"A user of snowflake.\")\n            .defaultRole(\"role1\")\n            .defaultSecondaryRoles(\"ALL\")\n            .defaultWarehouse(\"warehouse\")\n            .disabled(false)\n            .displayName(\"Snowflake User\")\n            .email(\"user@snowflake.example\")\n            .firstName(\"Snowflake\")\n            .lastName(\"User\")\n            .loginName(\"snowflake_user\")\n            .mustChangePassword(false)\n            .password(\"secret\")\n            .rsaPublicKey(\"...\")\n            .rsaPublicKey2(\"...\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  user:\n    type: snowflake:User\n    properties:\n      comment: A user of snowflake.\n      defaultRole: role1\n      defaultSecondaryRoles:\n        - ALL\n      defaultWarehouse: warehouse\n      disabled: false\n      displayName: Snowflake User\n      email: user@snowflake.example\n      firstName: Snowflake\n      lastName: User\n      loginName: snowflake_user\n      mustChangePassword: false\n      password: secret\n      rsaPublicKey: '...'\n      rsaPublicKey2: '...'\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/user:User example userName\n```\n\n ",
             "properties": {
                 "comment": {
                     "type": "string"
@@ -10417,7 +10545,8 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/UserTag:UserTag"
                     },
-                    "description": "Definitions of a tag to associate with the resource.\n"
+                    "description": "Definitions of a tag to associate with the resource.\n",
+                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                 }
             },
             "required": [
@@ -10499,7 +10628,8 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/UserTag:UserTag"
                     },
-                    "description": "Definitions of a tag to associate with the resource.\n"
+                    "description": "Definitions of a tag to associate with the resource.\n",
+                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                 }
             },
             "stateInputs": {
@@ -10579,7 +10709,8 @@
                         "items": {
                             "$ref": "#/types/snowflake:index/UserTag:UserTag"
                         },
-                        "description": "Definitions of a tag to associate with the resource.\n"
+                        "description": "Definitions of a tag to associate with the resource.\n",
+                        "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                     }
                 },
                 "type": "object"
@@ -10730,7 +10861,8 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/ViewTag:ViewTag"
                     },
-                    "description": "Definitions of a tag to associate with the resource.\n"
+                    "description": "Definitions of a tag to associate with the resource.\n",
+                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                 }
             },
             "required": [
@@ -10776,7 +10908,8 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/ViewTag:ViewTag"
                     },
-                    "description": "Definitions of a tag to associate with the resource.\n"
+                    "description": "Definitions of a tag to associate with the resource.\n",
+                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                 }
             },
             "requiredInputs": [
@@ -10823,7 +10956,8 @@
                         "items": {
                             "$ref": "#/types/snowflake:index/ViewTag:ViewTag"
                         },
-                        "description": "Definitions of a tag to associate with the resource.\n"
+                        "description": "Definitions of a tag to associate with the resource.\n",
+                        "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                     }
                 },
                 "type": "object"
@@ -11041,7 +11175,8 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/WarehouseTag:WarehouseTag"
                     },
-                    "description": "Definitions of a tag to associate with the resource.\n"
+                    "description": "Definitions of a tag to associate with the resource.\n",
+                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                 },
                 "waitForProvisioning": {
                     "type": "boolean",
@@ -11116,7 +11251,8 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/WarehouseTag:WarehouseTag"
                     },
-                    "description": "Definitions of a tag to associate with the resource.\n"
+                    "description": "Definitions of a tag to associate with the resource.\n",
+                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                 },
                 "waitForProvisioning": {
                     "type": "boolean",
@@ -11184,7 +11320,8 @@
                         "items": {
                             "$ref": "#/types/snowflake:index/WarehouseTag:WarehouseTag"
                         },
-                        "description": "Definitions of a tag to associate with the resource.\n"
+                        "description": "Definitions of a tag to associate with the resource.\n",
+                        "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                     },
                     "waitForProvisioning": {
                         "type": "boolean",

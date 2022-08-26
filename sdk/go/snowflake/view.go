@@ -69,6 +69,8 @@ type View struct {
 	// Specifies the query used to create the view.
 	Statement pulumi.StringOutput `pulumi:"statement"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags ViewTagArrayOutput `pulumi:"tags"`
 }
 
@@ -125,6 +127,8 @@ type viewState struct {
 	// Specifies the query used to create the view.
 	Statement *string `pulumi:"statement"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags []ViewTag `pulumi:"tags"`
 }
 
@@ -144,6 +148,8 @@ type ViewState struct {
 	// Specifies the query used to create the view.
 	Statement pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags ViewTagArrayInput
 }
 
@@ -167,6 +173,8 @@ type viewArgs struct {
 	// Specifies the query used to create the view.
 	Statement string `pulumi:"statement"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags []ViewTag `pulumi:"tags"`
 }
 
@@ -187,6 +195,8 @@ type ViewArgs struct {
 	// Specifies the query used to create the view.
 	Statement pulumi.StringInput
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags ViewTagArrayInput
 }
 
@@ -313,6 +323,8 @@ func (o ViewOutput) Statement() pulumi.StringOutput {
 }
 
 // Definitions of a tag to associate with the resource.
+//
+// Deprecated: Use the 'snowflake_tag_association' resource instead.
 func (o ViewOutput) Tags() ViewTagArrayOutput {
 	return o.ApplyT(func(v *View) ViewTagArrayOutput { return v.Tags }).(ViewTagArrayOutput)
 }

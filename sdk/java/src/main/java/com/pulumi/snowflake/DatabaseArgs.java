@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.snowflake.inputs.DatabaseReplicationConfigurationArgs;
 import com.pulumi.snowflake.inputs.DatabaseTagArgs;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -79,6 +80,21 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.fromShare);
     }
 
+    /**
+     * Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+     * 
+     */
+    @Import(name="isTransient")
+    private @Nullable Output<Boolean> isTransient;
+
+    /**
+     * @return Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+     * 
+     */
+    public Optional<Output<Boolean>> isTransient() {
+        return Optional.ofNullable(this.isTransient);
+    }
+
     @Import(name="name")
     private @Nullable Output<String> name;
 
@@ -104,14 +120,22 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Definitions of a tag to associate with the resource.
      * 
+     * @deprecated
+     * Use the &#39;snowflake_tag_association&#39; resource instead.
+     * 
      */
+    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
     @Import(name="tags")
     private @Nullable Output<List<DatabaseTagArgs>> tags;
 
     /**
      * @return Definitions of a tag to associate with the resource.
      * 
+     * @deprecated
+     * Use the &#39;snowflake_tag_association&#39; resource instead.
+     * 
      */
+    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
     public Optional<Output<List<DatabaseTagArgs>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -124,6 +148,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         this.fromDatabase = $.fromDatabase;
         this.fromReplica = $.fromReplica;
         this.fromShare = $.fromShare;
+        this.isTransient = $.isTransient;
         this.name = $.name;
         this.replicationConfiguration = $.replicationConfiguration;
         this.tags = $.tags;
@@ -228,6 +253,27 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
             return fromShare(Output.of(fromShare));
         }
 
+        /**
+         * @param isTransient Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isTransient(@Nullable Output<Boolean> isTransient) {
+            $.isTransient = isTransient;
+            return this;
+        }
+
+        /**
+         * @param isTransient Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isTransient(Boolean isTransient) {
+            return isTransient(Output.of(isTransient));
+        }
+
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
@@ -263,7 +309,11 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use the &#39;snowflake_tag_association&#39; resource instead.
+         * 
          */
+        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
         public Builder tags(@Nullable Output<List<DatabaseTagArgs>> tags) {
             $.tags = tags;
             return this;
@@ -274,7 +324,11 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use the &#39;snowflake_tag_association&#39; resource instead.
+         * 
          */
+        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
         public Builder tags(List<DatabaseTagArgs> tags) {
             return tags(Output.of(tags));
         }
@@ -284,7 +338,11 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use the &#39;snowflake_tag_association&#39; resource instead.
+         * 
          */
+        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
         public Builder tags(DatabaseTagArgs... tags) {
             return tags(List.of(tags));
         }

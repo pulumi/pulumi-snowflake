@@ -24,14 +24,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewDatabase(ctx, "test", &snowflake.DatabaseArgs{
+//			_, err := snowflake.NewDatabase(ctx, "simple", &snowflake.DatabaseArgs{
 //				Comment:                 pulumi.String("test comment"),
 //				DataRetentionTimeInDays: pulumi.Int(3),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewDatabase(ctx, "test2", &snowflake.DatabaseArgs{
+//			_, err = snowflake.NewDatabase(ctx, "withReplication", &snowflake.DatabaseArgs{
 //				Comment: pulumi.String("test comment 2"),
 //				ReplicationConfiguration: &DatabaseReplicationConfigurationArgs{
 //					Accounts: pulumi.StringArray{
@@ -44,10 +44,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewDatabase(ctx, "test3", &snowflake.DatabaseArgs{
+//			_, err = snowflake.NewDatabase(ctx, "fromReplica", &snowflake.DatabaseArgs{
 //				Comment:                 pulumi.String("test comment"),
 //				DataRetentionTimeInDays: pulumi.Int(3),
 //				FromReplica:             pulumi.String("org1\".\"account1\".\"primary_db_name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewDatabase(ctx, "fromShare", &snowflake.DatabaseArgs{
+//				Comment: pulumi.String("test comment"),
+//				FromShare: pulumi.StringMap{
+//					"provider": pulumi.String("org1\".\"account1"),
+//					"share":    pulumi.String("share1"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -76,10 +86,14 @@ type Database struct {
 	FromReplica pulumi.StringPtrOutput `pulumi:"fromReplica"`
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare pulumi.StringMapOutput `pulumi:"fromShare"`
-	Name      pulumi.StringOutput    `pulumi:"name"`
+	// Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+	IsTransient pulumi.BoolPtrOutput `pulumi:"isTransient"`
+	Name        pulumi.StringOutput  `pulumi:"name"`
 	// When set, specifies the configurations for database replication.
 	ReplicationConfiguration DatabaseReplicationConfigurationPtrOutput `pulumi:"replicationConfiguration"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags DatabaseTagArrayOutput `pulumi:"tags"`
 }
 
@@ -120,10 +134,14 @@ type databaseState struct {
 	FromReplica *string `pulumi:"fromReplica"`
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare map[string]string `pulumi:"fromShare"`
-	Name      *string           `pulumi:"name"`
+	// Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+	IsTransient *bool   `pulumi:"isTransient"`
+	Name        *string `pulumi:"name"`
 	// When set, specifies the configurations for database replication.
 	ReplicationConfiguration *DatabaseReplicationConfiguration `pulumi:"replicationConfiguration"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags []DatabaseTag `pulumi:"tags"`
 }
 
@@ -136,10 +154,14 @@ type DatabaseState struct {
 	FromReplica pulumi.StringPtrInput
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare pulumi.StringMapInput
-	Name      pulumi.StringPtrInput
+	// Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+	IsTransient pulumi.BoolPtrInput
+	Name        pulumi.StringPtrInput
 	// When set, specifies the configurations for database replication.
 	ReplicationConfiguration DatabaseReplicationConfigurationPtrInput
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags DatabaseTagArrayInput
 }
 
@@ -156,10 +178,14 @@ type databaseArgs struct {
 	FromReplica *string `pulumi:"fromReplica"`
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare map[string]string `pulumi:"fromShare"`
-	Name      *string           `pulumi:"name"`
+	// Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+	IsTransient *bool   `pulumi:"isTransient"`
+	Name        *string `pulumi:"name"`
 	// When set, specifies the configurations for database replication.
 	ReplicationConfiguration *DatabaseReplicationConfiguration `pulumi:"replicationConfiguration"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags []DatabaseTag `pulumi:"tags"`
 }
 
@@ -173,10 +199,14 @@ type DatabaseArgs struct {
 	FromReplica pulumi.StringPtrInput
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare pulumi.StringMapInput
-	Name      pulumi.StringPtrInput
+	// Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+	IsTransient pulumi.BoolPtrInput
+	Name        pulumi.StringPtrInput
 	// When set, specifies the configurations for database replication.
 	ReplicationConfiguration DatabaseReplicationConfigurationPtrInput
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags DatabaseTagArrayInput
 }
 
@@ -290,6 +320,11 @@ func (o DatabaseOutput) FromShare() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringMapOutput { return v.FromShare }).(pulumi.StringMapOutput)
 }
 
+// Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+func (o DatabaseOutput) IsTransient() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.BoolPtrOutput { return v.IsTransient }).(pulumi.BoolPtrOutput)
+}
+
 func (o DatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -300,6 +335,8 @@ func (o DatabaseOutput) ReplicationConfiguration() DatabaseReplicationConfigurat
 }
 
 // Definitions of a tag to associate with the resource.
+//
+// Deprecated: Use the 'snowflake_tag_association' resource instead.
 func (o DatabaseOutput) Tags() DatabaseTagArrayOutput {
 	return o.ApplyT(func(v *Database) DatabaseTagArrayOutput { return v.Tags }).(DatabaseTagArrayOutput)
 }

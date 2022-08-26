@@ -12,6 +12,7 @@ import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.DatabaseState;
 import com.pulumi.snowflake.outputs.DatabaseReplicationConfiguration;
 import com.pulumi.snowflake.outputs.DatabaseTag;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -43,12 +44,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Database(&#34;test&#34;, DatabaseArgs.builder()        
+ *         var simple = new Database(&#34;simple&#34;, DatabaseArgs.builder()        
  *             .comment(&#34;test comment&#34;)
  *             .dataRetentionTimeInDays(3)
  *             .build());
  * 
- *         var test2 = new Database(&#34;test2&#34;, DatabaseArgs.builder()        
+ *         var withReplication = new Database(&#34;withReplication&#34;, DatabaseArgs.builder()        
  *             .comment(&#34;test comment 2&#34;)
  *             .replicationConfiguration(DatabaseReplicationConfigurationArgs.builder()
  *                 .accounts(                
@@ -58,10 +59,18 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var test3 = new Database(&#34;test3&#34;, DatabaseArgs.builder()        
+ *         var fromReplica = new Database(&#34;fromReplica&#34;, DatabaseArgs.builder()        
  *             .comment(&#34;test comment&#34;)
  *             .dataRetentionTimeInDays(3)
  *             .fromReplica(&#34;org1\&#34;.\&#34;account1\&#34;.\&#34;primary_db_name&#34;)
+ *             .build());
+ * 
+ *         var fromShare = new Database(&#34;fromShare&#34;, DatabaseArgs.builder()        
+ *             .comment(&#34;test comment&#34;)
+ *             .fromShare(Map.ofEntries(
+ *                 Map.entry(&#34;provider&#34;, &#34;org1\&#34;.\&#34;account1&#34;),
+ *                 Map.entry(&#34;share&#34;, &#34;share1&#34;)
+ *             ))
  *             .build());
  * 
  *     }
@@ -131,6 +140,20 @@ public class Database extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> fromShare() {
         return Codegen.optional(this.fromShare);
     }
+    /**
+     * Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+     * 
+     */
+    @Export(name="isTransient", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> isTransient;
+
+    /**
+     * @return Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+     * 
+     */
+    public Output<Optional<Boolean>> isTransient() {
+        return Codegen.optional(this.isTransient);
+    }
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
@@ -154,7 +177,11 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * Definitions of a tag to associate with the resource.
      * 
+     * @deprecated
+     * Use the &#39;snowflake_tag_association&#39; resource instead.
+     * 
      */
+    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
     @Export(name="tags", type=List.class, parameters={DatabaseTag.class})
     private Output</* @Nullable */ List<DatabaseTag>> tags;
 

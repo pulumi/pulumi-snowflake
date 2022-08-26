@@ -25,16 +25,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewNotificationIntegration(ctx, "integration", &snowflake.NotificationIntegrationArgs{
-//				AwsSnsRoleArn:               pulumi.String("..."),
-//				AwsSnsTopicArn:              pulumi.String("..."),
-//				AwsSqsArn:                   pulumi.String("..."),
-//				AwsSqsRoleArn:               pulumi.String("..."),
 //				AzureStorageQueuePrimaryUri: pulumi.String("..."),
 //				AzureTenantId:               pulumi.String("..."),
 //				Comment:                     pulumi.String("A notification integration."),
 //				Direction:                   pulumi.String("OUTBOUND"),
 //				Enabled:                     pulumi.Bool(true),
-//				NotificationProvider:        pulumi.String("AWS_SNS"),
+//				NotificationProvider:        pulumi.String("AZURE_STORAGE_QUEUE"),
 //				Type:                        pulumi.String("QUEUE"),
 //			})
 //			if err != nil {

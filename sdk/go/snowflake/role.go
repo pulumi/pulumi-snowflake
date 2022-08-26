@@ -49,6 +49,8 @@ type Role struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	Name    pulumi.StringOutput    `pulumi:"name"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags RoleTagArrayOutput `pulumi:"tags"`
 }
 
@@ -84,6 +86,8 @@ type roleState struct {
 	Comment *string `pulumi:"comment"`
 	Name    *string `pulumi:"name"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags []RoleTag `pulumi:"tags"`
 }
 
@@ -91,6 +95,8 @@ type RoleState struct {
 	Comment pulumi.StringPtrInput
 	Name    pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags RoleTagArrayInput
 }
 
@@ -102,6 +108,8 @@ type roleArgs struct {
 	Comment *string `pulumi:"comment"`
 	Name    *string `pulumi:"name"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags []RoleTag `pulumi:"tags"`
 }
 
@@ -110,6 +118,8 @@ type RoleArgs struct {
 	Comment pulumi.StringPtrInput
 	Name    pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags RoleTagArrayInput
 }
 
@@ -209,6 +219,8 @@ func (o RoleOutput) Name() pulumi.StringOutput {
 }
 
 // Definitions of a tag to associate with the resource.
+//
+// Deprecated: Use the 'snowflake_tag_association' resource instead.
 func (o RoleOutput) Tags() RoleTagArrayOutput {
 	return o.ApplyT(func(v *Role) RoleTagArrayOutput { return v.Tags }).(RoleTagArrayOutput)
 }

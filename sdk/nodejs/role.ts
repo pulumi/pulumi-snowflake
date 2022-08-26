@@ -55,6 +55,8 @@ export class Role extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     public readonly tags!: pulumi.Output<outputs.RoleTag[] | undefined>;
 
@@ -93,6 +95,8 @@ export interface RoleState {
     name?: pulumi.Input<string>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.RoleTag>[]>;
 }
@@ -105,6 +109,8 @@ export interface RoleArgs {
     name?: pulumi.Input<string>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.RoleTag>[]>;
 }

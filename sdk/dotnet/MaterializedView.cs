@@ -193,6 +193,7 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// Definitions of a tag to associate with the resource.
         /// </summary>
+        [Obsolete(@"Use the 'snowflake_tag_association' resource instead.")]
         public InputList<Inputs.MaterializedViewTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.MaterializedViewTagArgs>());
@@ -261,6 +262,7 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// Definitions of a tag to associate with the resource.
         /// </summary>
+        [Obsolete(@"Use the 'snowflake_tag_association' resource instead.")]
         public InputList<Inputs.MaterializedViewTagGetArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.MaterializedViewTagGetArgs>());

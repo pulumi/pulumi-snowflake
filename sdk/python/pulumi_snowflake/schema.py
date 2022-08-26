@@ -45,6 +45,9 @@ class SchemaArgs:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
+            warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
+        if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
@@ -164,6 +167,9 @@ class _SchemaState:
             pulumi.set(__self__, "is_transient", is_transient)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -366,6 +372,9 @@ class Schema(pulumi.CustomResource):
             __props__.__dict__["is_managed"] = is_managed
             __props__.__dict__["is_transient"] = is_transient
             __props__.__dict__["name"] = name
+            if tags is not None and not opts.urn:
+                warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+                pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
             __props__.__dict__["tags"] = tags
         super(Schema, __self__).__init__(
             'snowflake:index/schema:Schema',

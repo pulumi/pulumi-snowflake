@@ -19,13 +19,13 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Snowflake.Database("test", new()
+    ///     var simple = new Snowflake.Database("simple", new()
     ///     {
     ///         Comment = "test comment",
     ///         DataRetentionTimeInDays = 3,
     ///     });
     /// 
-    ///     var test2 = new Snowflake.Database("test2", new()
+    ///     var withReplication = new Snowflake.Database("withReplication", new()
     ///     {
     ///         Comment = "test comment 2",
     ///         ReplicationConfiguration = new Snowflake.Inputs.DatabaseReplicationConfigurationArgs
@@ -39,11 +39,21 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var test3 = new Snowflake.Database("test3", new()
+    ///     var fromReplica = new Snowflake.Database("fromReplica", new()
     ///     {
     ///         Comment = "test comment",
     ///         DataRetentionTimeInDays = 3,
     ///         FromReplica = "org1\".\"account1\".\"primary_db_name",
+    ///     });
+    /// 
+    ///     var fromShare = new Snowflake.Database("fromShare", new()
+    ///     {
+    ///         Comment = "test comment",
+    ///         FromShare = 
+    ///         {
+    ///             { "provider", "org1\".\"account1" },
+    ///             { "share", "share1" },
+    ///         },
     ///     });
     /// 
     /// });
@@ -81,6 +91,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("fromShare")]
         public Output<ImmutableDictionary<string, string>?> FromShare { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        /// </summary>
+        [Output("isTransient")]
+        public Output<bool?> IsTransient { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -173,6 +189,12 @@ namespace Pulumi.Snowflake
             set => _fromShare = value;
         }
 
+        /// <summary>
+        /// Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        /// </summary>
+        [Input("isTransient")]
+        public Input<bool>? IsTransient { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -188,6 +210,7 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// Definitions of a tag to associate with the resource.
         /// </summary>
+        [Obsolete(@"Use the 'snowflake_tag_association' resource instead.")]
         public InputList<Inputs.DatabaseTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.DatabaseTagArgs>());
@@ -232,6 +255,12 @@ namespace Pulumi.Snowflake
             set => _fromShare = value;
         }
 
+        /// <summary>
+        /// Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        /// </summary>
+        [Input("isTransient")]
+        public Input<bool>? IsTransient { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -247,6 +276,7 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// Definitions of a tag to associate with the resource.
         /// </summary>
+        [Obsolete(@"Use the 'snowflake_tag_association' resource instead.")]
         public InputList<Inputs.DatabaseTagGetArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.DatabaseTagGetArgs>());

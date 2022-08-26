@@ -71,6 +71,8 @@ type Warehouse struct {
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
 	StatementTimeoutInSeconds pulumi.IntPtrOutput `pulumi:"statementTimeoutInSeconds"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags WarehouseTagArrayOutput `pulumi:"tags"`
 	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
 	WaitForProvisioning pulumi.BoolPtrOutput `pulumi:"waitForProvisioning"`
@@ -131,6 +133,8 @@ type warehouseState struct {
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
 	StatementTimeoutInSeconds *int `pulumi:"statementTimeoutInSeconds"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags []WarehouseTag `pulumi:"tags"`
 	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
 	WaitForProvisioning *bool `pulumi:"waitForProvisioning"`
@@ -163,6 +167,8 @@ type WarehouseState struct {
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
 	StatementTimeoutInSeconds pulumi.IntPtrInput
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags WarehouseTagArrayInput
 	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
 	WaitForProvisioning pulumi.BoolPtrInput
@@ -199,6 +205,8 @@ type warehouseArgs struct {
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
 	StatementTimeoutInSeconds *int `pulumi:"statementTimeoutInSeconds"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags []WarehouseTag `pulumi:"tags"`
 	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
 	WaitForProvisioning *bool `pulumi:"waitForProvisioning"`
@@ -232,6 +240,8 @@ type WarehouseArgs struct {
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
 	StatementTimeoutInSeconds pulumi.IntPtrInput
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags WarehouseTagArrayInput
 	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
 	WaitForProvisioning pulumi.BoolPtrInput
@@ -386,6 +396,8 @@ func (o WarehouseOutput) StatementTimeoutInSeconds() pulumi.IntPtrOutput {
 }
 
 // Definitions of a tag to associate with the resource.
+//
+// Deprecated: Use the 'snowflake_tag_association' resource instead.
 func (o WarehouseOutput) Tags() WarehouseTagArrayOutput {
 	return o.ApplyT(func(v *Warehouse) WarehouseTagArrayOutput { return v.Tags }).(WarehouseTagArrayOutput)
 }

@@ -28,6 +28,9 @@ class RoleArgs:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
+            warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
+        if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
@@ -75,6 +78,9 @@ class _RoleState:
             pulumi.set(__self__, "comment", comment)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -189,6 +195,9 @@ class Role(pulumi.CustomResource):
 
             __props__.__dict__["comment"] = comment
             __props__.__dict__["name"] = name
+            if tags is not None and not opts.urn:
+                warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+                pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
             __props__.__dict__["tags"] = tags
         super(Role, __self__).__init__(
             'snowflake:index/role:Role',

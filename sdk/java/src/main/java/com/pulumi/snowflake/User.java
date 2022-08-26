@@ -18,6 +18,49 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.User;
+ * import com.pulumi.snowflake.UserArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var user = new User(&#34;user&#34;, UserArgs.builder()        
+ *             .comment(&#34;A user of snowflake.&#34;)
+ *             .defaultRole(&#34;role1&#34;)
+ *             .defaultSecondaryRoles(&#34;ALL&#34;)
+ *             .defaultWarehouse(&#34;warehouse&#34;)
+ *             .disabled(false)
+ *             .displayName(&#34;Snowflake User&#34;)
+ *             .email(&#34;user@snowflake.example&#34;)
+ *             .firstName(&#34;Snowflake&#34;)
+ *             .lastName(&#34;User&#34;)
+ *             .loginName(&#34;snowflake_user&#34;)
+ *             .mustChangePassword(false)
+ *             .password(&#34;secret&#34;)
+ *             .rsaPublicKey(&#34;...&#34;)
+ *             .rsaPublicKey2(&#34;...&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * ```sh
@@ -252,7 +295,11 @@ public class User extends com.pulumi.resources.CustomResource {
     /**
      * Definitions of a tag to associate with the resource.
      * 
+     * @deprecated
+     * Use the &#39;snowflake_tag_association&#39; resource instead.
+     * 
      */
+    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
     @Export(name="tags", type=List.class, parameters={UserTag.class})
     private Output</* @Nullable */ List<UserTag>> tags;
 
