@@ -6,6 +6,30 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const user = new snowflake.User("user", {
+ *     comment: "A user of snowflake.",
+ *     defaultRole: "role1",
+ *     defaultSecondaryRoles: ["ALL"],
+ *     defaultWarehouse: "warehouse",
+ *     disabled: false,
+ *     displayName: "Snowflake User",
+ *     email: "user@snowflake.example",
+ *     firstName: "Snowflake",
+ *     lastName: "User",
+ *     loginName: "snowflake_user",
+ *     mustChangePassword: false,
+ *     password: "secret",
+ *     rsaPublicKey: "...",
+ *     rsaPublicKey2: "...",
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh
@@ -104,6 +128,8 @@ export class User extends pulumi.CustomResource {
     public readonly rsaPublicKey2!: pulumi.Output<string | undefined>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     public readonly tags!: pulumi.Output<outputs.UserTag[] | undefined>;
 
@@ -232,6 +258,8 @@ export interface UserState {
     rsaPublicKey2?: pulumi.Input<string>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.UserTag>[]>;
 }
@@ -300,6 +328,8 @@ export interface UserArgs {
     rsaPublicKey2?: pulumi.Input<string>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.UserTag>[]>;
 }

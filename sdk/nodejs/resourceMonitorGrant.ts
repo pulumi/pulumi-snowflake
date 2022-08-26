@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const grant = new snowflake.MonitorGrant("grant", {
+ * const grant = new snowflake.ResourceMonitorGrant("grant", {
  *     monitorName: "monitor",
  *     privilege: "MODIFY",
  *     roles: ["role1"],

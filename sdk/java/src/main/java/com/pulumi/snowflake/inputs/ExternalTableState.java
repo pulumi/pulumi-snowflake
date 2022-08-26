@@ -232,14 +232,22 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
     /**
      * Definitions of a tag to associate with the resource.
      * 
+     * @deprecated
+     * Use the &#39;snowflake_tag_association&#39; resource instead.
+     * 
      */
+    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
     @Import(name="tags")
     private @Nullable Output<List<ExternalTableTagArgs>> tags;
 
     /**
      * @return Definitions of a tag to associate with the resource.
      * 
+     * @deprecated
+     * Use the &#39;snowflake_tag_association&#39; resource instead.
+     * 
      */
+    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
     public Optional<Output<List<ExternalTableTagArgs>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -601,7 +609,11 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use the &#39;snowflake_tag_association&#39; resource instead.
+         * 
          */
+        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
         public Builder tags(@Nullable Output<List<ExternalTableTagArgs>> tags) {
             $.tags = tags;
             return this;
@@ -612,7 +624,11 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use the &#39;snowflake_tag_association&#39; resource instead.
+         * 
          */
+        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
         public Builder tags(List<ExternalTableTagArgs> tags) {
             return tags(Output.of(tags));
         }
@@ -622,7 +638,11 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use the &#39;snowflake_tag_association&#39; resource instead.
+         * 
          */
+        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
         public Builder tags(ExternalTableTagArgs... tags) {
             return tags(List.of(tags));
         }

@@ -25,14 +25,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewTag(ctx, "testTag", &snowflake.TagArgs{
+//			database, err := snowflake.NewDatabase(ctx, "database", nil)
+//			if err != nil {
+//				return err
+//			}
+//			schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
+//				Database: database.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewTag(ctx, "tag", &snowflake.TagArgs{
+//				Database: database.Name,
+//				Schema:   schema.Name,
 //				AllowedValues: pulumi.StringArray{
-//					pulumi.String("foo"),
-//					pulumi.String("bar"),
+//					pulumi.String("finance"),
+//					pulumi.String("engineering"),
 //				},
-//				Comment:  pulumi.String("test comment"),
-//				Database: pulumi.String("test_db"),
-//				Schema:   pulumi.String("test_schema"),
 //			})
 //			if err != nil {
 //				return err

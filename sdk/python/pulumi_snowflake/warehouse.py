@@ -73,6 +73,9 @@ class WarehouseArgs:
         if statement_timeout_in_seconds is not None:
             pulumi.set(__self__, "statement_timeout_in_seconds", statement_timeout_in_seconds)
         if tags is not None:
+            warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
+        if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if wait_for_provisioning is not None:
             pulumi.set(__self__, "wait_for_provisioning", wait_for_provisioning)
@@ -316,6 +319,9 @@ class _WarehouseState:
             pulumi.set(__self__, "statement_queued_timeout_in_seconds", statement_queued_timeout_in_seconds)
         if statement_timeout_in_seconds is not None:
             pulumi.set(__self__, "statement_timeout_in_seconds", statement_timeout_in_seconds)
+        if tags is not None:
+            warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if wait_for_provisioning is not None:
@@ -632,6 +638,9 @@ class Warehouse(pulumi.CustomResource):
             __props__.__dict__["scaling_policy"] = scaling_policy
             __props__.__dict__["statement_queued_timeout_in_seconds"] = statement_queued_timeout_in_seconds
             __props__.__dict__["statement_timeout_in_seconds"] = statement_timeout_in_seconds
+            if tags is not None and not opts.urn:
+                warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+                pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
             __props__.__dict__["tags"] = tags
             __props__.__dict__["wait_for_provisioning"] = wait_for_provisioning
             __props__.__dict__["warehouse_size"] = warehouse_size

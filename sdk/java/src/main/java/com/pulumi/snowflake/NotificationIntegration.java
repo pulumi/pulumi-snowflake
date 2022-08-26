@@ -39,16 +39,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var integration = new NotificationIntegration(&#34;integration&#34;, NotificationIntegrationArgs.builder()        
- *             .awsSnsRoleArn(&#34;...&#34;)
- *             .awsSnsTopicArn(&#34;...&#34;)
- *             .awsSqsArn(&#34;...&#34;)
- *             .awsSqsRoleArn(&#34;...&#34;)
  *             .azureStorageQueuePrimaryUri(&#34;...&#34;)
  *             .azureTenantId(&#34;...&#34;)
  *             .comment(&#34;A notification integration.&#34;)
  *             .direction(&#34;OUTBOUND&#34;)
  *             .enabled(true)
- *             .notificationProvider(&#34;AWS_SNS&#34;)
+ *             .notificationProvider(&#34;AZURE_STORAGE_QUEUE&#34;)
  *             .type(&#34;QUEUE&#34;)
  *             .build());
  * 

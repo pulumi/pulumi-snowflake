@@ -66,6 +66,8 @@ type Schema struct {
 	// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags SchemaTagArrayOutput `pulumi:"tags"`
 }
 
@@ -114,6 +116,8 @@ type schemaState struct {
 	// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
 	Name *string `pulumi:"name"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags []SchemaTag `pulumi:"tags"`
 }
 
@@ -131,6 +135,8 @@ type SchemaState struct {
 	// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
 	Name pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags SchemaTagArrayInput
 }
 
@@ -152,6 +158,8 @@ type schemaArgs struct {
 	// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
 	Name *string `pulumi:"name"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags []SchemaTag `pulumi:"tags"`
 }
 
@@ -170,6 +178,8 @@ type SchemaArgs struct {
 	// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
 	Name pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags SchemaTagArrayInput
 }
 
@@ -291,6 +301,8 @@ func (o SchemaOutput) Name() pulumi.StringOutput {
 }
 
 // Definitions of a tag to associate with the resource.
+//
+// Deprecated: Use the 'snowflake_tag_association' resource instead.
 func (o SchemaOutput) Tags() SchemaTagArrayOutput {
 	return o.ApplyT(func(v *Schema) SchemaTagArrayOutput { return v.Tags }).(SchemaTagArrayOutput)
 }

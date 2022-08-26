@@ -99,6 +99,8 @@ export class Warehouse extends pulumi.CustomResource {
     public readonly statementTimeoutInSeconds!: pulumi.Output<number | undefined>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     public readonly tags!: pulumi.Output<outputs.WarehouseTag[] | undefined>;
     /**
@@ -212,6 +214,8 @@ export interface WarehouseState {
     statementTimeoutInSeconds?: pulumi.Input<number>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.WarehouseTag>[]>;
     /**
@@ -275,6 +279,8 @@ export interface WarehouseArgs {
     statementTimeoutInSeconds?: pulumi.Input<number>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.WarehouseTag>[]>;
     /**

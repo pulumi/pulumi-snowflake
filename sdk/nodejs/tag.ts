@@ -11,15 +11,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const testTag = new snowflake.Tag("test_tag", {
+ * const database = new snowflake.Database("database", {});
+ * const schema = new snowflake.Schema("schema", {database: database.name});
+ * const tag = new snowflake.Tag("tag", {
+ *     database: database.name,
+ *     schema: schema.name,
  *     allowedValues: [
- *         "foo",
- *         "bar",
+ *         "finance",
+ *         "engineering",
  *     ],
- *     // Optionals
- *     comment: "test comment",
- *     database: "test_db",
- *     schema: "test_schema",
  * });
  * ```
  *

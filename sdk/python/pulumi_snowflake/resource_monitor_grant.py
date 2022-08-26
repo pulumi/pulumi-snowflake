@@ -202,6 +202,19 @@ class ResourceMonitorGrant(pulumi.CustomResource):
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        grant = snowflake.ResourceMonitorGrant("grant",
+            monitor_name="monitor",
+            privilege="MODIFY",
+            roles=["role1"],
+            with_grant_option=False)
+        ```
+
         ## Import
 
         ```sh
@@ -224,6 +237,19 @@ class ResourceMonitorGrant(pulumi.CustomResource):
                  args: ResourceMonitorGrantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        grant = snowflake.ResourceMonitorGrant("grant",
+            monitor_name="monitor",
+            privilege="MODIFY",
+            roles=["role1"],
+            with_grant_option=False)
+        ```
+
         ## Import
 
         ```sh

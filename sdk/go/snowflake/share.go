@@ -25,8 +25,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewShare(ctx, "test", &snowflake.ShareArgs{
-//				Accounts: pulumi.StringArray("organizationName.accountName"),
-//				Comment:  pulumi.String("cool comment"),
+//				Accounts: pulumi.StringArray{
+//					pulumi.String("organizationName.accountName"),
+//				},
+//				Comment: pulumi.String("cool comment"),
 //			})
 //			if err != nil {
 //				return err

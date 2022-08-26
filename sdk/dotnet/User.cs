@@ -10,6 +10,39 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var user = new Snowflake.User("user", new()
+    ///     {
+    ///         Comment = "A user of snowflake.",
+    ///         DefaultRole = "role1",
+    ///         DefaultSecondaryRoles = new[]
+    ///         {
+    ///             "ALL",
+    ///         },
+    ///         DefaultWarehouse = "warehouse",
+    ///         Disabled = false,
+    ///         DisplayName = "Snowflake User",
+    ///         Email = "user@snowflake.example",
+    ///         FirstName = "Snowflake",
+    ///         LastName = "User",
+    ///         LoginName = "snowflake_user",
+    ///         MustChangePassword = false,
+    ///         Password = "secret",
+    ///         RsaPublicKey = "...",
+    ///         RsaPublicKey2 = "...",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -269,6 +302,7 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// Definitions of a tag to associate with the resource.
         /// </summary>
+        [Obsolete(@"Use the 'snowflake_tag_association' resource instead.")]
         public InputList<Inputs.UserTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.UserTagArgs>());
@@ -391,6 +425,7 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// Definitions of a tag to associate with the resource.
         /// </summary>
+        [Obsolete(@"Use the 'snowflake_tag_association' resource instead.")]
         public InputList<Inputs.UserTagGetArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.UserTagGetArgs>());

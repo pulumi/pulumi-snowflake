@@ -89,6 +89,8 @@ export class MaterializedView extends pulumi.CustomResource {
     public readonly statement!: pulumi.Output<string>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     public readonly tags!: pulumi.Output<outputs.MaterializedViewTag[] | undefined>;
     /**
@@ -181,6 +183,8 @@ export interface MaterializedViewState {
     statement?: pulumi.Input<string>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.MaterializedViewTag>[]>;
     /**
@@ -223,6 +227,8 @@ export interface MaterializedViewArgs {
     statement: pulumi.Input<string>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.MaterializedViewTag>[]>;
     /**

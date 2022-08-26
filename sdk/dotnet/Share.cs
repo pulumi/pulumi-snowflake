@@ -21,7 +21,10 @@ namespace Pulumi.Snowflake
     /// {
     ///     var test = new Snowflake.Share("test", new()
     ///     {
-    ///         Accounts = "organizationName.accountName",
+    ///         Accounts = new[]
+    ///         {
+    ///             "organizationName.accountName",
+    ///         },
     ///         Comment = "cool comment",
     ///     });
     /// 

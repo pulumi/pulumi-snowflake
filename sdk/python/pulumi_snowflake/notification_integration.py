@@ -550,16 +550,12 @@ class NotificationIntegration(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         integration = snowflake.NotificationIntegration("integration",
-            aws_sns_role_arn="...",
-            aws_sns_topic_arn="...",
-            aws_sqs_arn="...",
-            aws_sqs_role_arn="...",
             azure_storage_queue_primary_uri="...",
             azure_tenant_id="...",
             comment="A notification integration.",
             direction="OUTBOUND",
             enabled=True,
-            notification_provider="AWS_SNS",
+            notification_provider="AZURE_STORAGE_QUEUE",
             type="QUEUE")
         ```
 
@@ -597,16 +593,12 @@ class NotificationIntegration(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         integration = snowflake.NotificationIntegration("integration",
-            aws_sns_role_arn="...",
-            aws_sns_topic_arn="...",
-            aws_sqs_arn="...",
-            aws_sqs_role_arn="...",
             azure_storage_queue_primary_uri="...",
             azure_tenant_id="...",
             comment="A notification integration.",
             direction="OUTBOUND",
             enabled=True,
-            notification_provider="AWS_SNS",
+            notification_provider="AZURE_STORAGE_QUEUE",
             type="QUEUE")
         ```
 

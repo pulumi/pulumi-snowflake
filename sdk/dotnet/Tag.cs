@@ -19,16 +19,22 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testTag = new Snowflake.Tag("testTag", new()
+    ///     var database = new Snowflake.Database("database");
+    /// 
+    ///     var schema = new Snowflake.Schema("schema", new()
     ///     {
+    ///         Database = database.Name,
+    ///     });
+    /// 
+    ///     var tag = new Snowflake.Tag("tag", new()
+    ///     {
+    ///         Database = database.Name,
+    ///         Schema = schema.Name,
     ///         AllowedValues = new[]
     ///         {
-    ///             "foo",
-    ///             "bar",
+    ///             "finance",
+    ///             "engineering",
     ///         },
-    ///         Comment = "test comment",
-    ///         Database = "test_db",
-    ///         Schema = "test_schema",
     ///     });
     /// 
     /// });

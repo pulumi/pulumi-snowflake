@@ -88,6 +88,8 @@ export class View extends pulumi.CustomResource {
     public readonly statement!: pulumi.Output<string>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     public readonly tags!: pulumi.Output<outputs.ViewTag[] | undefined>;
 
@@ -171,6 +173,8 @@ export interface ViewState {
     statement?: pulumi.Input<string>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.ViewTag>[]>;
 }
@@ -209,6 +213,8 @@ export interface ViewArgs {
     statement: pulumi.Input<string>;
     /**
      * Definitions of a tag to associate with the resource.
+     *
+     * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.ViewTag>[]>;
 }

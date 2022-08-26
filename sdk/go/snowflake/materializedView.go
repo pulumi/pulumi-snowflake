@@ -70,6 +70,8 @@ type MaterializedView struct {
 	// Specifies the query used to create the view.
 	Statement pulumi.StringOutput `pulumi:"statement"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags MaterializedViewTagArrayOutput `pulumi:"tags"`
 	// The warehouse name.
 	Warehouse pulumi.StringOutput `pulumi:"warehouse"`
@@ -131,6 +133,8 @@ type materializedViewState struct {
 	// Specifies the query used to create the view.
 	Statement *string `pulumi:"statement"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags []MaterializedViewTag `pulumi:"tags"`
 	// The warehouse name.
 	Warehouse *string `pulumi:"warehouse"`
@@ -152,6 +156,8 @@ type MaterializedViewState struct {
 	// Specifies the query used to create the view.
 	Statement pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags MaterializedViewTagArrayInput
 	// The warehouse name.
 	Warehouse pulumi.StringPtrInput
@@ -177,6 +183,8 @@ type materializedViewArgs struct {
 	// Specifies the query used to create the view.
 	Statement string `pulumi:"statement"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags []MaterializedViewTag `pulumi:"tags"`
 	// The warehouse name.
 	Warehouse string `pulumi:"warehouse"`
@@ -199,6 +207,8 @@ type MaterializedViewArgs struct {
 	// Specifies the query used to create the view.
 	Statement pulumi.StringInput
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags MaterializedViewTagArrayInput
 	// The warehouse name.
 	Warehouse pulumi.StringInput
@@ -327,6 +337,8 @@ func (o MaterializedViewOutput) Statement() pulumi.StringOutput {
 }
 
 // Definitions of a tag to associate with the resource.
+//
+// Deprecated: Use the 'snowflake_tag_association' resource instead.
 func (o MaterializedViewOutput) Tags() MaterializedViewTagArrayOutput {
 	return o.ApplyT(func(v *MaterializedView) MaterializedViewTagArrayOutput { return v.Tags }).(MaterializedViewTagArrayOutput)
 }

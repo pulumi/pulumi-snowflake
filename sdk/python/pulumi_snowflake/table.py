@@ -55,6 +55,9 @@ class TableArgs:
         if primary_key is not None:
             pulumi.set(__self__, "primary_key", primary_key)
         if tags is not None:
+            warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
+        if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
@@ -226,6 +229,9 @@ class _TableState:
             pulumi.set(__self__, "primary_key", primary_key)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
+        if tags is not None:
+            warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -580,6 +586,9 @@ class Table(pulumi.CustomResource):
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
+            if tags is not None and not opts.urn:
+                warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+                pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
             __props__.__dict__["tags"] = tags
             __props__.__dict__["owner"] = None
         super(Table, __self__).__init__(

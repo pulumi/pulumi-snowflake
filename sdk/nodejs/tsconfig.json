@@ -93,6 +93,7 @@
         "table.ts",
         "tableGrant.ts",
         "tag.ts",
+        "tagAssociation.ts",
         "tagGrant.ts",
         "task.ts",
         "taskGrant.ts",

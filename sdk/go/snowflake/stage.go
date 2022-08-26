@@ -89,6 +89,8 @@ type Stage struct {
 	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration pulumi.StringPtrOutput `pulumi:"storageIntegration"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags StageTagArrayOutput `pulumi:"tags"`
 	// Specifies the URL for the stage.
 	Url pulumi.StringPtrOutput `pulumi:"url"`
@@ -152,6 +154,8 @@ type stageState struct {
 	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration *string `pulumi:"storageIntegration"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags []StageTag `pulumi:"tags"`
 	// Specifies the URL for the stage.
 	Url *string `pulumi:"url"`
@@ -181,6 +185,8 @@ type StageState struct {
 	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags StageTagArrayInput
 	// Specifies the URL for the stage.
 	Url pulumi.StringPtrInput
@@ -214,6 +220,8 @@ type stageArgs struct {
 	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration *string `pulumi:"storageIntegration"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags []StageTag `pulumi:"tags"`
 	// Specifies the URL for the stage.
 	Url *string `pulumi:"url"`
@@ -244,6 +252,8 @@ type StageArgs struct {
 	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags StageTagArrayInput
 	// Specifies the URL for the stage.
 	Url pulumi.StringPtrInput
@@ -395,6 +405,8 @@ func (o StageOutput) StorageIntegration() pulumi.StringPtrOutput {
 }
 
 // Definitions of a tag to associate with the resource.
+//
+// Deprecated: Use the 'snowflake_tag_association' resource instead.
 func (o StageOutput) Tags() StageTagArrayOutput {
 	return o.ApplyT(func(v *Stage) StageTagArrayOutput { return v.Tags }).(StageTagArrayOutput)
 }

@@ -10,6 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var grant = new Snowflake.ResourceMonitorGrant("grant", new()
+    ///     {
+    ///         MonitorName = "monitor",
+    ///         Privilege = "MODIFY",
+    ///         Roles = new[]
+    ///         {
+    ///             "role1",
+    ///         },
+    ///         WithGrantOption = false,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

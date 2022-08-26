@@ -18,6 +18,37 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.ResourceMonitorGrant;
+ * import com.pulumi.snowflake.ResourceMonitorGrantArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var grant = new ResourceMonitorGrant(&#34;grant&#34;, ResourceMonitorGrantArgs.builder()        
+ *             .monitorName(&#34;monitor&#34;)
+ *             .privilege(&#34;MODIFY&#34;)
+ *             .roles(&#34;role1&#34;)
+ *             .withGrantOption(false)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

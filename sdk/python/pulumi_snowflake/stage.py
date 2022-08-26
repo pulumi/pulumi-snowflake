@@ -68,6 +68,9 @@ class StageArgs:
         if storage_integration is not None:
             pulumi.set(__self__, "storage_integration", storage_integration)
         if tags is not None:
+            warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
+        if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if url is not None:
             pulumi.set(__self__, "url", url)
@@ -291,6 +294,9 @@ class _StageState:
             pulumi.set(__self__, "snowflake_iam_user", snowflake_iam_user)
         if storage_integration is not None:
             pulumi.set(__self__, "storage_integration", storage_integration)
+        if tags is not None:
+            warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if url is not None:
@@ -610,6 +616,9 @@ class Stage(pulumi.CustomResource):
             __props__.__dict__["schema"] = schema
             __props__.__dict__["snowflake_iam_user"] = snowflake_iam_user
             __props__.__dict__["storage_integration"] = storage_integration
+            if tags is not None and not opts.urn:
+                warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+                pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
             __props__.__dict__["tags"] = tags
             __props__.__dict__["url"] = url
         super(Stage, __self__).__init__(

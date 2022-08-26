@@ -21,6 +21,7 @@ class DatabaseArgs:
                  from_database: Optional[pulumi.Input[str]] = None,
                  from_replica: Optional[pulumi.Input[str]] = None,
                  from_share: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 is_transient: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  replication_configuration: Optional[pulumi.Input['DatabaseReplicationConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]]] = None):
@@ -29,6 +30,7 @@ class DatabaseArgs:
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
         :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\\n\\n"."\\n\\n"."\\n\\n". An example would be: "myorg1"."account1"."db1"
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input[bool] is_transient: Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
         :param pulumi.Input['DatabaseReplicationConfigurationArgs'] replication_configuration: When set, specifies the configurations for database replication.
         :param pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
@@ -42,10 +44,15 @@ class DatabaseArgs:
             pulumi.set(__self__, "from_replica", from_replica)
         if from_share is not None:
             pulumi.set(__self__, "from_share", from_share)
+        if is_transient is not None:
+            pulumi.set(__self__, "is_transient", is_transient)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if replication_configuration is not None:
             pulumi.set(__self__, "replication_configuration", replication_configuration)
+        if tags is not None:
+            warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -102,6 +109,18 @@ class DatabaseArgs:
     @from_share.setter
     def from_share(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "from_share", value)
+
+    @property
+    @pulumi.getter(name="isTransient")
+    def is_transient(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        """
+        return pulumi.get(self, "is_transient")
+
+    @is_transient.setter
+    def is_transient(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_transient", value)
 
     @property
     @pulumi.getter
@@ -145,6 +164,7 @@ class _DatabaseState:
                  from_database: Optional[pulumi.Input[str]] = None,
                  from_replica: Optional[pulumi.Input[str]] = None,
                  from_share: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 is_transient: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  replication_configuration: Optional[pulumi.Input['DatabaseReplicationConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]]] = None):
@@ -153,6 +173,7 @@ class _DatabaseState:
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
         :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\\n\\n"."\\n\\n"."\\n\\n". An example would be: "myorg1"."account1"."db1"
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input[bool] is_transient: Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
         :param pulumi.Input['DatabaseReplicationConfigurationArgs'] replication_configuration: When set, specifies the configurations for database replication.
         :param pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
@@ -166,10 +187,15 @@ class _DatabaseState:
             pulumi.set(__self__, "from_replica", from_replica)
         if from_share is not None:
             pulumi.set(__self__, "from_share", from_share)
+        if is_transient is not None:
+            pulumi.set(__self__, "is_transient", is_transient)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if replication_configuration is not None:
             pulumi.set(__self__, "replication_configuration", replication_configuration)
+        if tags is not None:
+            warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -226,6 +252,18 @@ class _DatabaseState:
     @from_share.setter
     def from_share(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "from_share", value)
+
+    @property
+    @pulumi.getter(name="isTransient")
+    def is_transient(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        """
+        return pulumi.get(self, "is_transient")
+
+    @is_transient.setter
+    def is_transient(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_transient", value)
 
     @property
     @pulumi.getter
@@ -271,6 +309,7 @@ class Database(pulumi.CustomResource):
                  from_database: Optional[pulumi.Input[str]] = None,
                  from_replica: Optional[pulumi.Input[str]] = None,
                  from_share: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 is_transient: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  replication_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseReplicationConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseTagArgs']]]]] = None,
@@ -282,10 +321,10 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        test = snowflake.Database("test",
+        simple = snowflake.Database("simple",
             comment="test comment",
             data_retention_time_in_days=3)
-        test2 = snowflake.Database("test2",
+        with_replication = snowflake.Database("withReplication",
             comment="test comment 2",
             replication_configuration=snowflake.DatabaseReplicationConfigurationArgs(
                 accounts=[
@@ -294,10 +333,16 @@ class Database(pulumi.CustomResource):
                 ],
                 ignore_edition_check=True,
             ))
-        test3 = snowflake.Database("test3",
+        from_replica = snowflake.Database("fromReplica",
             comment="test comment",
             data_retention_time_in_days=3,
             from_replica="org1\\".\\"account1\\".\\"primary_db_name")
+        from_share = snowflake.Database("fromShare",
+            comment="test comment",
+            from_share={
+                "provider": "org1\\".\\"account1",
+                "share": "share1",
+            })
         ```
 
         ## Import
@@ -311,6 +356,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
         :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\\n\\n"."\\n\\n"."\\n\\n". An example would be: "myorg1"."account1"."db1"
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input[bool] is_transient: Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
         :param pulumi.Input[pulumi.InputType['DatabaseReplicationConfigurationArgs']] replication_configuration: When set, specifies the configurations for database replication.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
@@ -327,10 +373,10 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        test = snowflake.Database("test",
+        simple = snowflake.Database("simple",
             comment="test comment",
             data_retention_time_in_days=3)
-        test2 = snowflake.Database("test2",
+        with_replication = snowflake.Database("withReplication",
             comment="test comment 2",
             replication_configuration=snowflake.DatabaseReplicationConfigurationArgs(
                 accounts=[
@@ -339,10 +385,16 @@ class Database(pulumi.CustomResource):
                 ],
                 ignore_edition_check=True,
             ))
-        test3 = snowflake.Database("test3",
+        from_replica = snowflake.Database("fromReplica",
             comment="test comment",
             data_retention_time_in_days=3,
             from_replica="org1\\".\\"account1\\".\\"primary_db_name")
+        from_share = snowflake.Database("fromShare",
+            comment="test comment",
+            from_share={
+                "provider": "org1\\".\\"account1",
+                "share": "share1",
+            })
         ```
 
         ## Import
@@ -371,6 +423,7 @@ class Database(pulumi.CustomResource):
                  from_database: Optional[pulumi.Input[str]] = None,
                  from_replica: Optional[pulumi.Input[str]] = None,
                  from_share: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 is_transient: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  replication_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseReplicationConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseTagArgs']]]]] = None,
@@ -388,8 +441,12 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["from_database"] = from_database
             __props__.__dict__["from_replica"] = from_replica
             __props__.__dict__["from_share"] = from_share
+            __props__.__dict__["is_transient"] = is_transient
             __props__.__dict__["name"] = name
             __props__.__dict__["replication_configuration"] = replication_configuration
+            if tags is not None and not opts.urn:
+                warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+                pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
             __props__.__dict__["tags"] = tags
         super(Database, __self__).__init__(
             'snowflake:index/database:Database',
@@ -406,6 +463,7 @@ class Database(pulumi.CustomResource):
             from_database: Optional[pulumi.Input[str]] = None,
             from_replica: Optional[pulumi.Input[str]] = None,
             from_share: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            is_transient: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             replication_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseReplicationConfigurationArgs']]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseTagArgs']]]]] = None) -> 'Database':
@@ -419,6 +477,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
         :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\\n\\n"."\\n\\n"."\\n\\n". An example would be: "myorg1"."account1"."db1"
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input[bool] is_transient: Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
         :param pulumi.Input[pulumi.InputType['DatabaseReplicationConfigurationArgs']] replication_configuration: When set, specifies the configurations for database replication.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
@@ -431,6 +490,7 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["from_database"] = from_database
         __props__.__dict__["from_replica"] = from_replica
         __props__.__dict__["from_share"] = from_share
+        __props__.__dict__["is_transient"] = is_transient
         __props__.__dict__["name"] = name
         __props__.__dict__["replication_configuration"] = replication_configuration
         __props__.__dict__["tags"] = tags
@@ -469,6 +529,14 @@ class Database(pulumi.CustomResource):
         Specify a provider and a share in this map to create a database from a share.
         """
         return pulumi.get(self, "from_share")
+
+    @property
+    @pulumi.getter(name="isTransient")
+    def is_transient(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        """
+        return pulumi.get(self, "is_transient")
 
     @property
     @pulumi.getter

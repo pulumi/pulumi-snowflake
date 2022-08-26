@@ -90,6 +90,8 @@ type ExternalTable struct {
 	// The schema in which to create the external table.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags ExternalTableTagArrayOutput `pulumi:"tags"`
 }
 
@@ -166,6 +168,8 @@ type externalTableState struct {
 	// The schema in which to create the external table.
 	Schema *string `pulumi:"schema"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags []ExternalTableTag `pulumi:"tags"`
 }
 
@@ -199,6 +203,8 @@ type ExternalTableState struct {
 	// The schema in which to create the external table.
 	Schema pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags ExternalTableTagArrayInput
 }
 
@@ -234,6 +240,8 @@ type externalTableArgs struct {
 	// The schema in which to create the external table.
 	Schema string `pulumi:"schema"`
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags []ExternalTableTag `pulumi:"tags"`
 }
 
@@ -266,6 +274,8 @@ type ExternalTableArgs struct {
 	// The schema in which to create the external table.
 	Schema pulumi.StringInput
 	// Definitions of a tag to associate with the resource.
+	//
+	// Deprecated: Use the 'snowflake_tag_association' resource instead.
 	Tags ExternalTableTagArrayInput
 }
 
@@ -427,6 +437,8 @@ func (o ExternalTableOutput) Schema() pulumi.StringOutput {
 }
 
 // Definitions of a tag to associate with the resource.
+//
+// Deprecated: Use the 'snowflake_tag_association' resource instead.
 func (o ExternalTableOutput) Tags() ExternalTableTagArrayOutput {
 	return o.ApplyT(func(v *ExternalTable) ExternalTableTagArrayOutput { return v.Tags }).(ExternalTableTagArrayOutput)
 }
