@@ -11,50 +11,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUsersUser {
-    private final String comment;
-    private final String defaultNamespace;
-    private final String defaultRole;
-    private final List<String> defaultSecondaryRoles;
-    private final String defaultWarehouse;
-    private final Boolean disabled;
-    private final String displayName;
-    private final String email;
-    private final String firstName;
-    private final Boolean hasRsaPublicKey;
-    private final String lastName;
-    private final String loginName;
-    private final String name;
+    private String comment;
+    private String defaultNamespace;
+    private String defaultRole;
+    private List<String> defaultSecondaryRoles;
+    private String defaultWarehouse;
+    private Boolean disabled;
+    private String displayName;
+    private String email;
+    private String firstName;
+    private Boolean hasRsaPublicKey;
+    private String lastName;
+    private String loginName;
+    private String name;
 
-    @CustomType.Constructor
-    private GetUsersUser(
-        @CustomType.Parameter("comment") String comment,
-        @CustomType.Parameter("defaultNamespace") String defaultNamespace,
-        @CustomType.Parameter("defaultRole") String defaultRole,
-        @CustomType.Parameter("defaultSecondaryRoles") List<String> defaultSecondaryRoles,
-        @CustomType.Parameter("defaultWarehouse") String defaultWarehouse,
-        @CustomType.Parameter("disabled") Boolean disabled,
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("email") String email,
-        @CustomType.Parameter("firstName") String firstName,
-        @CustomType.Parameter("hasRsaPublicKey") Boolean hasRsaPublicKey,
-        @CustomType.Parameter("lastName") String lastName,
-        @CustomType.Parameter("loginName") String loginName,
-        @CustomType.Parameter("name") String name) {
-        this.comment = comment;
-        this.defaultNamespace = defaultNamespace;
-        this.defaultRole = defaultRole;
-        this.defaultSecondaryRoles = defaultSecondaryRoles;
-        this.defaultWarehouse = defaultWarehouse;
-        this.disabled = disabled;
-        this.displayName = displayName;
-        this.email = email;
-        this.firstName = firstName;
-        this.hasRsaPublicKey = hasRsaPublicKey;
-        this.lastName = lastName;
-        this.loginName = loginName;
-        this.name = name;
-    }
-
+    private GetUsersUser() {}
     public String comment() {
         return this.comment;
     }
@@ -102,7 +73,7 @@ public final class GetUsersUser {
     public static Builder builder(GetUsersUser defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String comment;
         private String defaultNamespace;
@@ -117,11 +88,7 @@ public final class GetUsersUser {
         private String lastName;
         private String loginName;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUsersUser defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
@@ -139,18 +106,22 @@ public final class GetUsersUser {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder comment(String comment) {
             this.comment = Objects.requireNonNull(comment);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultNamespace(String defaultNamespace) {
             this.defaultNamespace = Objects.requireNonNull(defaultNamespace);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultRole(String defaultRole) {
             this.defaultRole = Objects.requireNonNull(defaultRole);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultSecondaryRoles(List<String> defaultSecondaryRoles) {
             this.defaultSecondaryRoles = Objects.requireNonNull(defaultSecondaryRoles);
             return this;
@@ -158,43 +129,67 @@ public final class GetUsersUser {
         public Builder defaultSecondaryRoles(String... defaultSecondaryRoles) {
             return defaultSecondaryRoles(List.of(defaultSecondaryRoles));
         }
+        @CustomType.Setter
         public Builder defaultWarehouse(String defaultWarehouse) {
             this.defaultWarehouse = Objects.requireNonNull(defaultWarehouse);
             return this;
         }
+        @CustomType.Setter
         public Builder disabled(Boolean disabled) {
             this.disabled = Objects.requireNonNull(disabled);
             return this;
         }
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder email(String email) {
             this.email = Objects.requireNonNull(email);
             return this;
         }
+        @CustomType.Setter
         public Builder firstName(String firstName) {
             this.firstName = Objects.requireNonNull(firstName);
             return this;
         }
+        @CustomType.Setter
         public Builder hasRsaPublicKey(Boolean hasRsaPublicKey) {
             this.hasRsaPublicKey = Objects.requireNonNull(hasRsaPublicKey);
             return this;
         }
+        @CustomType.Setter
         public Builder lastName(String lastName) {
             this.lastName = Objects.requireNonNull(lastName);
             return this;
         }
+        @CustomType.Setter
         public Builder loginName(String loginName) {
             this.loginName = Objects.requireNonNull(loginName);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetUsersUser build() {
-            return new GetUsersUser(comment, defaultNamespace, defaultRole, defaultSecondaryRoles, defaultWarehouse, disabled, displayName, email, firstName, hasRsaPublicKey, lastName, loginName, name);
+        }
+        public GetUsersUser build() {
+            final var o = new GetUsersUser();
+            o.comment = comment;
+            o.defaultNamespace = defaultNamespace;
+            o.defaultRole = defaultRole;
+            o.defaultSecondaryRoles = defaultSecondaryRoles;
+            o.defaultWarehouse = defaultWarehouse;
+            o.disabled = disabled;
+            o.displayName = displayName;
+            o.email = email;
+            o.firstName = firstName;
+            o.hasRsaPublicKey = hasRsaPublicKey;
+            o.lastName = lastName;
+            o.loginName = loginName;
+            o.name = name;
+            return o;
         }
     }
 }

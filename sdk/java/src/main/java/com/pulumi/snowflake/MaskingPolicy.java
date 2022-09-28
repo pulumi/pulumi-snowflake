@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # format is database name | schema name | policy name
+ * format is database name | schema name | policy name
  * 
  * ```sh
  *  $ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example &#39;dbName|schemaName|policyName&#39;

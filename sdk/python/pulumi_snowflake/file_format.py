@@ -1200,7 +1200,7 @@ class FileFormat(pulumi.CustomResource):
 
         ## Import
 
-        # format is database name | schema name | file format name
+        format is database name | schema name | file format name
 
         ```sh
          $ pulumi import snowflake:index/fileFormat:FileFormat example 'dbName|schemaName|fileFormatName'
@@ -1265,7 +1265,7 @@ class FileFormat(pulumi.CustomResource):
 
         ## Import
 
-        # format is database name | schema name | file format name
+        format is database name | schema name | file format name
 
         ```sh
          $ pulumi import snowflake:index/fileFormat:FileFormat example 'dbName|schemaName|fileFormatName'

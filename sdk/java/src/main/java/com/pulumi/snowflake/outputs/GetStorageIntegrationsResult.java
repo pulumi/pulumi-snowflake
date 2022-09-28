@@ -15,21 +15,14 @@ public final class GetStorageIntegrationsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The storage integrations in the database
      * 
      */
-    private final List<GetStorageIntegrationsStorageIntegration> storageIntegrations;
+    private List<GetStorageIntegrationsStorageIntegration> storageIntegrations;
 
-    @CustomType.Constructor
-    private GetStorageIntegrationsResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("storageIntegrations") List<GetStorageIntegrationsStorageIntegration> storageIntegrations) {
-        this.id = id;
-        this.storageIntegrations = storageIntegrations;
-    }
-
+    private GetStorageIntegrationsResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -52,33 +45,35 @@ public final class GetStorageIntegrationsResult {
     public static Builder builder(GetStorageIntegrationsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private List<GetStorageIntegrationsStorageIntegration> storageIntegrations;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetStorageIntegrationsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.storageIntegrations = defaults.storageIntegrations;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder storageIntegrations(List<GetStorageIntegrationsStorageIntegration> storageIntegrations) {
             this.storageIntegrations = Objects.requireNonNull(storageIntegrations);
             return this;
         }
         public Builder storageIntegrations(GetStorageIntegrationsStorageIntegration... storageIntegrations) {
             return storageIntegrations(List.of(storageIntegrations));
-        }        public GetStorageIntegrationsResult build() {
-            return new GetStorageIntegrationsResult(id, storageIntegrations);
+        }
+        public GetStorageIntegrationsResult build() {
+            final var o = new GetStorageIntegrationsResult();
+            o.id = id;
+            o.storageIntegrations = storageIntegrations;
+            return o;
         }
     }
 }

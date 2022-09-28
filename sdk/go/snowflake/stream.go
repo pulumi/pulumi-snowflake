@@ -13,7 +13,7 @@ import (
 
 // ## Import
 //
-// # format is database name | schema name | stream name
+// format is database name | schema name | stream name
 //
 // ```sh
 //

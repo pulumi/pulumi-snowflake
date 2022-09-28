@@ -35,7 +35,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetMaterializedViewsResult> InvokeAsync(GetMaterializedViewsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMaterializedViewsResult>("snowflake:index/getMaterializedViews:getMaterializedViews", args ?? new GetMaterializedViewsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMaterializedViewsResult>("snowflake:index/getMaterializedViews:getMaterializedViews", args ?? new GetMaterializedViewsArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -61,7 +61,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetMaterializedViewsResult> Invoke(GetMaterializedViewsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMaterializedViewsResult>("snowflake:index/getMaterializedViews:getMaterializedViews", args ?? new GetMaterializedViewsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMaterializedViewsResult>("snowflake:index/getMaterializedViews:getMaterializedViews", args ?? new GetMaterializedViewsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -321,7 +321,7 @@ class StreamGrant(pulumi.CustomResource):
 
         ## Import
 
-        # format is database name | schema name | stream name | privilege | true/false for with_grant_option
+        format is database name | schema name | stream name | privilege | true/false for with_grant_option
 
         ```sh
          $ pulumi import snowflake:index/streamGrant:StreamGrant example 'dbName|schemaName|streamName|SELECT|false'
@@ -367,7 +367,7 @@ class StreamGrant(pulumi.CustomResource):
 
         ## Import
 
-        # format is database name | schema name | stream name | privilege | true/false for with_grant_option
+        format is database name | schema name | stream name | privilege | true/false for with_grant_option
 
         ```sh
          $ pulumi import snowflake:index/streamGrant:StreamGrant example 'dbName|schemaName|streamName|SELECT|false'

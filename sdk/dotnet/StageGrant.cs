@@ -12,7 +12,7 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Import
     /// 
-    /// # format is database name | schema name | stage name | privilege | true/false for with_grant_option
+    /// format is database name | schema name | stage name | privilege | true/false for with_grant_option
     /// 
     /// ```sh
     ///  $ pulumi import snowflake:index/stageGrant:StageGrant example 'databaseName|schemaName|stageName|USAGE|true'

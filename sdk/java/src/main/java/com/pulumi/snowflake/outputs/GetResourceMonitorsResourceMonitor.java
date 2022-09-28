@@ -9,23 +9,12 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResourceMonitorsResourceMonitor {
-    private final String comment;
-    private final String creditQuota;
-    private final String frequency;
-    private final String name;
+    private String comment;
+    private String creditQuota;
+    private String frequency;
+    private String name;
 
-    @CustomType.Constructor
-    private GetResourceMonitorsResourceMonitor(
-        @CustomType.Parameter("comment") String comment,
-        @CustomType.Parameter("creditQuota") String creditQuota,
-        @CustomType.Parameter("frequency") String frequency,
-        @CustomType.Parameter("name") String name) {
-        this.comment = comment;
-        this.creditQuota = creditQuota;
-        this.frequency = frequency;
-        this.name = name;
-    }
-
+    private GetResourceMonitorsResourceMonitor() {}
     public String comment() {
         return this.comment;
     }
@@ -46,17 +35,13 @@ public final class GetResourceMonitorsResourceMonitor {
     public static Builder builder(GetResourceMonitorsResourceMonitor defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String comment;
         private String creditQuota;
         private String frequency;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResourceMonitorsResourceMonitor defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
@@ -65,23 +50,33 @@ public final class GetResourceMonitorsResourceMonitor {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder comment(String comment) {
             this.comment = Objects.requireNonNull(comment);
             return this;
         }
+        @CustomType.Setter
         public Builder creditQuota(String creditQuota) {
             this.creditQuota = Objects.requireNonNull(creditQuota);
             return this;
         }
+        @CustomType.Setter
         public Builder frequency(String frequency) {
             this.frequency = Objects.requireNonNull(frequency);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetResourceMonitorsResourceMonitor build() {
-            return new GetResourceMonitorsResourceMonitor(comment, creditQuota, frequency, name);
+        }
+        public GetResourceMonitorsResourceMonitor build() {
+            final var o = new GetResourceMonitorsResourceMonitor();
+            o.comment = comment;
+            o.creditQuota = creditQuota;
+            o.frequency = frequency;
+            o.name = name;
+            return o;
         }
     }
 }

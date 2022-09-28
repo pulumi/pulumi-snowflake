@@ -15,21 +15,14 @@ public final class GetDatabasesResult {
      * @return Snowflake databases
      * 
      */
-    private final List<GetDatabasesDatabase> databases;
+    private List<GetDatabasesDatabase> databases;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetDatabasesResult(
-        @CustomType.Parameter("databases") List<GetDatabasesDatabase> databases,
-        @CustomType.Parameter("id") String id) {
-        this.databases = databases;
-        this.id = id;
-    }
-
+    private GetDatabasesResult() {}
     /**
      * @return Snowflake databases
      * 
@@ -52,21 +45,18 @@ public final class GetDatabasesResult {
     public static Builder builder(GetDatabasesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetDatabasesDatabase> databases;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDatabasesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.databases = defaults.databases;
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder databases(List<GetDatabasesDatabase> databases) {
             this.databases = Objects.requireNonNull(databases);
             return this;
@@ -74,11 +64,16 @@ public final class GetDatabasesResult {
         public Builder databases(GetDatabasesDatabase... databases) {
             return databases(List.of(databases));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetDatabasesResult build() {
-            return new GetDatabasesResult(databases, id);
+        }
+        public GetDatabasesResult build() {
+            final var o = new GetDatabasesResult();
+            o.databases = databases;
+            o.id = id;
+            return o;
         }
     }
 }

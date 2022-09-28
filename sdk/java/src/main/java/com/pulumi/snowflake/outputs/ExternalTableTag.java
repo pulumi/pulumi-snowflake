@@ -15,35 +15,24 @@ public final class ExternalTableTag {
      * @return Name of the database that the tag was created in.
      * 
      */
-    private final @Nullable String database;
+    private @Nullable String database;
     /**
      * @return Tag name, e.g. department.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Name of the schema that the tag was created in.
      * 
      */
-    private final @Nullable String schema;
+    private @Nullable String schema;
     /**
      * @return Tag value, e.g. marketing_info.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private ExternalTableTag(
-        @CustomType.Parameter("database") @Nullable String database,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("schema") @Nullable String schema,
-        @CustomType.Parameter("value") String value) {
-        this.database = database;
-        this.name = name;
-        this.schema = schema;
-        this.value = value;
-    }
-
+    private ExternalTableTag() {}
     /**
      * @return Name of the database that the tag was created in.
      * 
@@ -80,17 +69,13 @@ public final class ExternalTableTag {
     public static Builder builder(ExternalTableTag defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String database;
         private String name;
         private @Nullable String schema;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ExternalTableTag defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.database = defaults.database;
@@ -99,23 +84,33 @@ public final class ExternalTableTag {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder database(@Nullable String database) {
             this.database = database;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder schema(@Nullable String schema) {
             this.schema = schema;
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public ExternalTableTag build() {
-            return new ExternalTableTag(database, name, schema, value);
+        }
+        public ExternalTableTag build() {
+            final var o = new ExternalTableTag();
+            o.database = database;
+            o.name = name;
+            o.schema = schema;
+            o.value = value;
+            return o;
         }
     }
 }

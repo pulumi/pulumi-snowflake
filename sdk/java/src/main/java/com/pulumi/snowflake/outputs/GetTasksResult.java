@@ -15,35 +15,24 @@ public final class GetTasksResult {
      * @return The database from which to return the schemas from.
      * 
      */
-    private final String database;
+    private String database;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The schema from which to return the tasks from.
      * 
      */
-    private final String schema;
+    private String schema;
     /**
      * @return The tasks in the schema
      * 
      */
-    private final List<GetTasksTask> tasks;
+    private List<GetTasksTask> tasks;
 
-    @CustomType.Constructor
-    private GetTasksResult(
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("schema") String schema,
-        @CustomType.Parameter("tasks") List<GetTasksTask> tasks) {
-        this.database = database;
-        this.id = id;
-        this.schema = schema;
-        this.tasks = tasks;
-    }
-
+    private GetTasksResult() {}
     /**
      * @return The database from which to return the schemas from.
      * 
@@ -80,17 +69,13 @@ public final class GetTasksResult {
     public static Builder builder(GetTasksResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String database;
         private String id;
         private String schema;
         private List<GetTasksTask> tasks;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTasksResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.database = defaults.database;
@@ -99,26 +84,36 @@ public final class GetTasksResult {
     	      this.tasks = defaults.tasks;
         }
 
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder schema(String schema) {
             this.schema = Objects.requireNonNull(schema);
             return this;
         }
+        @CustomType.Setter
         public Builder tasks(List<GetTasksTask> tasks) {
             this.tasks = Objects.requireNonNull(tasks);
             return this;
         }
         public Builder tasks(GetTasksTask... tasks) {
             return tasks(List.of(tasks));
-        }        public GetTasksResult build() {
-            return new GetTasksResult(database, id, schema, tasks);
+        }
+        public GetTasksResult build() {
+            final var o = new GetTasksResult();
+            o.database = database;
+            o.id = id;
+            o.schema = schema;
+            o.tasks = tasks;
+            return o;
         }
     }
 }

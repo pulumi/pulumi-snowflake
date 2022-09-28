@@ -15,35 +15,24 @@ public final class GetMaskingPoliciesResult {
      * @return The database from which to return the schemas from.
      * 
      */
-    private final String database;
+    private String database;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The maskingPolicies in the schema
      * 
      */
-    private final List<GetMaskingPoliciesMaskingPolicy> maskingPolicies;
+    private List<GetMaskingPoliciesMaskingPolicy> maskingPolicies;
     /**
      * @return The schema from which to return the maskingPolicies from.
      * 
      */
-    private final String schema;
+    private String schema;
 
-    @CustomType.Constructor
-    private GetMaskingPoliciesResult(
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("maskingPolicies") List<GetMaskingPoliciesMaskingPolicy> maskingPolicies,
-        @CustomType.Parameter("schema") String schema) {
-        this.database = database;
-        this.id = id;
-        this.maskingPolicies = maskingPolicies;
-        this.schema = schema;
-    }
-
+    private GetMaskingPoliciesResult() {}
     /**
      * @return The database from which to return the schemas from.
      * 
@@ -80,17 +69,13 @@ public final class GetMaskingPoliciesResult {
     public static Builder builder(GetMaskingPoliciesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String database;
         private String id;
         private List<GetMaskingPoliciesMaskingPolicy> maskingPolicies;
         private String schema;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetMaskingPoliciesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.database = defaults.database;
@@ -99,14 +84,17 @@ public final class GetMaskingPoliciesResult {
     	      this.schema = defaults.schema;
         }
 
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder maskingPolicies(List<GetMaskingPoliciesMaskingPolicy> maskingPolicies) {
             this.maskingPolicies = Objects.requireNonNull(maskingPolicies);
             return this;
@@ -114,11 +102,18 @@ public final class GetMaskingPoliciesResult {
         public Builder maskingPolicies(GetMaskingPoliciesMaskingPolicy... maskingPolicies) {
             return maskingPolicies(List.of(maskingPolicies));
         }
+        @CustomType.Setter
         public Builder schema(String schema) {
             this.schema = Objects.requireNonNull(schema);
             return this;
-        }        public GetMaskingPoliciesResult build() {
-            return new GetMaskingPoliciesResult(database, id, maskingPolicies, schema);
+        }
+        public GetMaskingPoliciesResult build() {
+            final var o = new GetMaskingPoliciesResult();
+            o.database = database;
+            o.id = id;
+            o.maskingPolicies = maskingPolicies;
+            o.schema = schema;
+            return o;
         }
     }
 }

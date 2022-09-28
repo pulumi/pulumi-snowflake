@@ -321,7 +321,7 @@ class FileFormatGrant(pulumi.CustomResource):
 
         ## Import
 
-        # format is database name | schema name | file format name | privilege | true/false for with_grant_option
+        format is database name | schema name | file format name | privilege | true/false for with_grant_option
 
         ```sh
          $ pulumi import snowflake:index/fileFormatGrant:FileFormatGrant example 'dbName|schemaName|fileFormatName|USAGE|false'
@@ -367,7 +367,7 @@ class FileFormatGrant(pulumi.CustomResource):
 
         ## Import
 
-        # format is database name | schema name | file format name | privilege | true/false for with_grant_option
+        format is database name | schema name | file format name | privilege | true/false for with_grant_option
 
         ```sh
          $ pulumi import snowflake:index/fileFormatGrant:FileFormatGrant example 'dbName|schemaName|fileFormatName|USAGE|false'

@@ -428,16 +428,16 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["account"] = account
             __props__.__dict__["browser_auth"] = pulumi.Output.from_input(browser_auth).apply(pulumi.runtime.to_json) if browser_auth is not None else None
             __props__.__dict__["host"] = host
-            __props__.__dict__["oauth_access_token"] = oauth_access_token
-            __props__.__dict__["oauth_client_id"] = oauth_client_id
-            __props__.__dict__["oauth_client_secret"] = oauth_client_secret
-            __props__.__dict__["oauth_endpoint"] = oauth_endpoint
-            __props__.__dict__["oauth_redirect_url"] = oauth_redirect_url
-            __props__.__dict__["oauth_refresh_token"] = oauth_refresh_token
-            __props__.__dict__["password"] = password
-            __props__.__dict__["private_key"] = private_key
-            __props__.__dict__["private_key_passphrase"] = private_key_passphrase
-            __props__.__dict__["private_key_path"] = private_key_path
+            __props__.__dict__["oauth_access_token"] = None if oauth_access_token is None else pulumi.Output.secret(oauth_access_token)
+            __props__.__dict__["oauth_client_id"] = None if oauth_client_id is None else pulumi.Output.secret(oauth_client_id)
+            __props__.__dict__["oauth_client_secret"] = None if oauth_client_secret is None else pulumi.Output.secret(oauth_client_secret)
+            __props__.__dict__["oauth_endpoint"] = None if oauth_endpoint is None else pulumi.Output.secret(oauth_endpoint)
+            __props__.__dict__["oauth_redirect_url"] = None if oauth_redirect_url is None else pulumi.Output.secret(oauth_redirect_url)
+            __props__.__dict__["oauth_refresh_token"] = None if oauth_refresh_token is None else pulumi.Output.secret(oauth_refresh_token)
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
+            __props__.__dict__["private_key"] = None if private_key is None else pulumi.Output.secret(private_key)
+            __props__.__dict__["private_key_passphrase"] = None if private_key_passphrase is None else pulumi.Output.secret(private_key_passphrase)
+            __props__.__dict__["private_key_path"] = None if private_key_path is None else pulumi.Output.secret(private_key_path)
             if region is None and not opts.urn:
                 raise TypeError("Missing required property 'region'")
             __props__.__dict__["region"] = region
@@ -446,6 +446,8 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError("Missing required property 'username'")
             __props__.__dict__["username"] = username
             __props__.__dict__["warehouse"] = warehouse
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["oauthAccessToken", "oauthClientId", "oauthClientSecret", "oauthEndpoint", "oauthRedirectUrl", "oauthRefreshToken", "password", "privateKey", "privateKeyPassphrase", "privateKeyPath"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'snowflake',
             resource_name,

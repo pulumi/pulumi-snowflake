@@ -45,7 +45,7 @@ import (
 //
 // ## Import
 //
-// # format is database name | schema name | tag name | privilege | roles | true/false for with_grant_option
+// format is database name | schema name | tag name | privilege | roles | true/false for with_grant_option
 //
 // ```sh
 //

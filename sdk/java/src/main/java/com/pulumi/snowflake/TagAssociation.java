@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # format is dbName.schemaName.tagName or dbName.schemaName.tagName
+ * format is dbName.schemaName.tagName or dbName.schemaName.tagName
  * 
  * ```sh
  *  $ pulumi import snowflake:index/tagAssociation:TagAssociation example &#39;dbName.schemaName.tagName&#39;

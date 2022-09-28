@@ -102,6 +102,10 @@ namespace Pulumi.Snowflake
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "adminPassword",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -131,11 +135,21 @@ namespace Pulumi.Snowflake
         [Input("adminName", required: true)]
         public Input<string> AdminName { get; set; } = null!;
 
+        [Input("adminPassword", required: true)]
+        private Input<string>? _adminPassword;
+
         /// <summary>
         /// Password for the initial user in the managed account.
         /// </summary>
-        [Input("adminPassword", required: true)]
-        public Input<string> AdminPassword { get; set; } = null!;
+        public Input<string>? AdminPassword
+        {
+            get => _adminPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _adminPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies a comment for the managed account.
@@ -169,11 +183,21 @@ namespace Pulumi.Snowflake
         [Input("adminName")]
         public Input<string>? AdminName { get; set; }
 
+        [Input("adminPassword")]
+        private Input<string>? _adminPassword;
+
         /// <summary>
         /// Password for the initial user in the managed account.
         /// </summary>
-        [Input("adminPassword")]
-        public Input<string>? AdminPassword { get; set; }
+        public Input<string>? AdminPassword
+        {
+            get => _adminPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _adminPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Cloud in which the managed account is located.

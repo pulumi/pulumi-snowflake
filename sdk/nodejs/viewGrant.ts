@@ -31,7 +31,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * # format is database name | schema name | view name | privilege | true/false for with_grant_option
+ * format is database name | schema name | view name | privilege | true/false for with_grant_option
  *
  * ```sh
  *  $ pulumi import snowflake:index/viewGrant:ViewGrant example 'dbName|schemaName|viewName|USAGE|false'

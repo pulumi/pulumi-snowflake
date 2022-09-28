@@ -15,35 +15,24 @@ public final class GetFunctionsResult {
      * @return The database from which to return the schemas from.
      * 
      */
-    private final String database;
+    private String database;
     /**
      * @return The functions in the schema
      * 
      */
-    private final List<GetFunctionsFunction> functions;
+    private List<GetFunctionsFunction> functions;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The schema from which to return the functions from.
      * 
      */
-    private final String schema;
+    private String schema;
 
-    @CustomType.Constructor
-    private GetFunctionsResult(
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("functions") List<GetFunctionsFunction> functions,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("schema") String schema) {
-        this.database = database;
-        this.functions = functions;
-        this.id = id;
-        this.schema = schema;
-    }
-
+    private GetFunctionsResult() {}
     /**
      * @return The database from which to return the schemas from.
      * 
@@ -80,17 +69,13 @@ public final class GetFunctionsResult {
     public static Builder builder(GetFunctionsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String database;
         private List<GetFunctionsFunction> functions;
         private String id;
         private String schema;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFunctionsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.database = defaults.database;
@@ -99,10 +84,12 @@ public final class GetFunctionsResult {
     	      this.schema = defaults.schema;
         }
 
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder functions(List<GetFunctionsFunction> functions) {
             this.functions = Objects.requireNonNull(functions);
             return this;
@@ -110,15 +97,23 @@ public final class GetFunctionsResult {
         public Builder functions(GetFunctionsFunction... functions) {
             return functions(List.of(functions));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder schema(String schema) {
             this.schema = Objects.requireNonNull(schema);
             return this;
-        }        public GetFunctionsResult build() {
-            return new GetFunctionsResult(database, functions, id, schema);
+        }
+        public GetFunctionsResult build() {
+            final var o = new GetFunctionsResult();
+            o.database = database;
+            o.functions = functions;
+            o.id = id;
+            o.schema = schema;
+            return o;
         }
     }
 }

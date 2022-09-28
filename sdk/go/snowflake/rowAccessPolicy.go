@@ -45,7 +45,7 @@ import (
 //
 // ## Import
 //
-// # format is database name | schema name | policy name
+// format is database name | schema name | policy name
 //
 // ```sh
 //

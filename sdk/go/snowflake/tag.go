@@ -54,7 +54,7 @@ import (
 //
 // ## Import
 //
-// # format is database name | schema name | tag name
+// format is database name | schema name | tag name
 //
 // ```sh
 //

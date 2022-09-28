@@ -11,17 +11,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TableColumnIdentity {
-    private final @Nullable Integer startNum;
-    private final @Nullable Integer stepNum;
+    private @Nullable Integer startNum;
+    private @Nullable Integer stepNum;
 
-    @CustomType.Constructor
-    private TableColumnIdentity(
-        @CustomType.Parameter("startNum") @Nullable Integer startNum,
-        @CustomType.Parameter("stepNum") @Nullable Integer stepNum) {
-        this.startNum = startNum;
-        this.stepNum = stepNum;
-    }
-
+    private TableColumnIdentity() {}
     public Optional<Integer> startNum() {
         return Optional.ofNullable(this.startNum);
     }
@@ -36,30 +29,32 @@ public final class TableColumnIdentity {
     public static Builder builder(TableColumnIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer startNum;
         private @Nullable Integer stepNum;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TableColumnIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.startNum = defaults.startNum;
     	      this.stepNum = defaults.stepNum;
         }
 
+        @CustomType.Setter
         public Builder startNum(@Nullable Integer startNum) {
             this.startNum = startNum;
             return this;
         }
+        @CustomType.Setter
         public Builder stepNum(@Nullable Integer stepNum) {
             this.stepNum = stepNum;
             return this;
-        }        public TableColumnIdentity build() {
-            return new TableColumnIdentity(startNum, stepNum);
+        }
+        public TableColumnIdentity build() {
+            final var o = new TableColumnIdentity();
+            o.startNum = startNum;
+            o.stepNum = stepNum;
+            return o;
         }
     }
 }

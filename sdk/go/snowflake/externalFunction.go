@@ -54,7 +54,7 @@ import (
 //
 // ## Import
 //
-// # format is database name | schema name | external function name | <list of function arg types, separated with '-'>
+// format is database name | schema name | external function name | <list of function arg types, separated with '-'>
 //
 // ```sh
 //

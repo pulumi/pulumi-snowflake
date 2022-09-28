@@ -10,37 +10,22 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFunctionsFunction {
-    private final List<String> argumentTypes;
-    private final String comment;
+    private List<String> argumentTypes;
+    private String comment;
     /**
      * @return The database from which to return the schemas from.
      * 
      */
-    private final String database;
-    private final String name;
-    private final String returnType;
+    private String database;
+    private String name;
+    private String returnType;
     /**
      * @return The schema from which to return the functions from.
      * 
      */
-    private final String schema;
+    private String schema;
 
-    @CustomType.Constructor
-    private GetFunctionsFunction(
-        @CustomType.Parameter("argumentTypes") List<String> argumentTypes,
-        @CustomType.Parameter("comment") String comment,
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("returnType") String returnType,
-        @CustomType.Parameter("schema") String schema) {
-        this.argumentTypes = argumentTypes;
-        this.comment = comment;
-        this.database = database;
-        this.name = name;
-        this.returnType = returnType;
-        this.schema = schema;
-    }
-
+    private GetFunctionsFunction() {}
     public List<String> argumentTypes() {
         return this.argumentTypes;
     }
@@ -75,7 +60,7 @@ public final class GetFunctionsFunction {
     public static Builder builder(GetFunctionsFunction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> argumentTypes;
         private String comment;
@@ -83,11 +68,7 @@ public final class GetFunctionsFunction {
         private String name;
         private String returnType;
         private String schema;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFunctionsFunction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.argumentTypes = defaults.argumentTypes;
@@ -98,6 +79,7 @@ public final class GetFunctionsFunction {
     	      this.schema = defaults.schema;
         }
 
+        @CustomType.Setter
         public Builder argumentTypes(List<String> argumentTypes) {
             this.argumentTypes = Objects.requireNonNull(argumentTypes);
             return this;
@@ -105,27 +87,40 @@ public final class GetFunctionsFunction {
         public Builder argumentTypes(String... argumentTypes) {
             return argumentTypes(List.of(argumentTypes));
         }
+        @CustomType.Setter
         public Builder comment(String comment) {
             this.comment = Objects.requireNonNull(comment);
             return this;
         }
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder returnType(String returnType) {
             this.returnType = Objects.requireNonNull(returnType);
             return this;
         }
+        @CustomType.Setter
         public Builder schema(String schema) {
             this.schema = Objects.requireNonNull(schema);
             return this;
-        }        public GetFunctionsFunction build() {
-            return new GetFunctionsFunction(argumentTypes, comment, database, name, returnType, schema);
+        }
+        public GetFunctionsFunction build() {
+            final var o = new GetFunctionsFunction();
+            o.argumentTypes = argumentTypes;
+            o.comment = comment;
+            o.database = database;
+            o.name = name;
+            o.returnType = returnType;
+            o.schema = schema;
+            return o;
         }
     }
 }

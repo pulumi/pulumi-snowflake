@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -43,7 +44,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * # format is database name | schema name | function signature | privilege | true/false for with_grant_option
+ * format is database name | schema name | function signature | privilege | true/false for with_grant_option
  *
  * ```sh
  *  $ pulumi import snowflake:index/functionGrant:FunctionGrant example 'dbName|schemaName|functionName(ARG1 ARG1TYPE, ARG2 ARG2TYPE):RETURNTYPE|USAGE|false'

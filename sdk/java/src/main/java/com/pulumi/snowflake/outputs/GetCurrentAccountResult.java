@@ -13,35 +13,24 @@ public final class GetCurrentAccountResult {
      * @return The Snowflake Account ID; as returned by CURRENT_ACCOUNT().
      * 
      */
-    private final String account;
+    private String account;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Snowflake Region; as returned by CURRENT_REGION()
      * 
      */
-    private final String region;
+    private String region;
     /**
      * @return The Snowflake URL.
      * 
      */
-    private final String url;
+    private String url;
 
-    @CustomType.Constructor
-    private GetCurrentAccountResult(
-        @CustomType.Parameter("account") String account,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("region") String region,
-        @CustomType.Parameter("url") String url) {
-        this.account = account;
-        this.id = id;
-        this.region = region;
-        this.url = url;
-    }
-
+    private GetCurrentAccountResult() {}
     /**
      * @return The Snowflake Account ID; as returned by CURRENT_ACCOUNT().
      * 
@@ -78,17 +67,13 @@ public final class GetCurrentAccountResult {
     public static Builder builder(GetCurrentAccountResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String account;
         private String id;
         private String region;
         private String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCurrentAccountResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.account = defaults.account;
@@ -97,23 +82,33 @@ public final class GetCurrentAccountResult {
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder account(String account) {
             this.account = Objects.requireNonNull(account);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder region(String region) {
             this.region = Objects.requireNonNull(region);
             return this;
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
-        }        public GetCurrentAccountResult build() {
-            return new GetCurrentAccountResult(account, id, region, url);
+        }
+        public GetCurrentAccountResult build() {
+            final var o = new GetCurrentAccountResult();
+            o.account = account;
+            o.id = id;
+            o.region = region;
+            o.url = url;
+            return o;
         }
     }
 }

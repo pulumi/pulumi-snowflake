@@ -10,23 +10,12 @@ import java.util.Objects;
 
 @CustomType
 public final class GetStorageIntegrationsStorageIntegration {
-    private final String comment;
-    private final Boolean enabled;
-    private final String name;
-    private final String type;
+    private String comment;
+    private Boolean enabled;
+    private String name;
+    private String type;
 
-    @CustomType.Constructor
-    private GetStorageIntegrationsStorageIntegration(
-        @CustomType.Parameter("comment") String comment,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") String type) {
-        this.comment = comment;
-        this.enabled = enabled;
-        this.name = name;
-        this.type = type;
-    }
-
+    private GetStorageIntegrationsStorageIntegration() {}
     public String comment() {
         return this.comment;
     }
@@ -47,17 +36,13 @@ public final class GetStorageIntegrationsStorageIntegration {
     public static Builder builder(GetStorageIntegrationsStorageIntegration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String comment;
         private Boolean enabled;
         private String name;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetStorageIntegrationsStorageIntegration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
@@ -66,23 +51,33 @@ public final class GetStorageIntegrationsStorageIntegration {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder comment(String comment) {
             this.comment = Objects.requireNonNull(comment);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetStorageIntegrationsStorageIntegration build() {
-            return new GetStorageIntegrationsStorageIntegration(comment, enabled, name, type);
+        }
+        public GetStorageIntegrationsStorageIntegration build() {
+            final var o = new GetStorageIntegrationsStorageIntegration();
+            o.comment = comment;
+            o.enabled = enabled;
+            o.name = name;
+            o.type = type;
+            return o;
         }
     }
 }

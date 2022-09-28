@@ -13,17 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DatabaseReplicationConfiguration {
-    private final List<String> accounts;
-    private final @Nullable Boolean ignoreEditionCheck;
+    private List<String> accounts;
+    private @Nullable Boolean ignoreEditionCheck;
 
-    @CustomType.Constructor
-    private DatabaseReplicationConfiguration(
-        @CustomType.Parameter("accounts") List<String> accounts,
-        @CustomType.Parameter("ignoreEditionCheck") @Nullable Boolean ignoreEditionCheck) {
-        this.accounts = accounts;
-        this.ignoreEditionCheck = ignoreEditionCheck;
-    }
-
+    private DatabaseReplicationConfiguration() {}
     public List<String> accounts() {
         return this.accounts;
     }
@@ -38,21 +31,18 @@ public final class DatabaseReplicationConfiguration {
     public static Builder builder(DatabaseReplicationConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> accounts;
         private @Nullable Boolean ignoreEditionCheck;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DatabaseReplicationConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accounts = defaults.accounts;
     	      this.ignoreEditionCheck = defaults.ignoreEditionCheck;
         }
 
+        @CustomType.Setter
         public Builder accounts(List<String> accounts) {
             this.accounts = Objects.requireNonNull(accounts);
             return this;
@@ -60,11 +50,16 @@ public final class DatabaseReplicationConfiguration {
         public Builder accounts(String... accounts) {
             return accounts(List.of(accounts));
         }
+        @CustomType.Setter
         public Builder ignoreEditionCheck(@Nullable Boolean ignoreEditionCheck) {
             this.ignoreEditionCheck = ignoreEditionCheck;
             return this;
-        }        public DatabaseReplicationConfiguration build() {
-            return new DatabaseReplicationConfiguration(accounts, ignoreEditionCheck);
+        }
+        public DatabaseReplicationConfiguration build() {
+            final var o = new DatabaseReplicationConfiguration();
+            o.accounts = accounts;
+            o.ignoreEditionCheck = ignoreEditionCheck;
+            return o;
         }
     }
 }

@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -29,7 +30,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * # format is database name | schema name | stage name
+ * format is database name | schema name | stage name
  *
  * ```sh
  *  $ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'
@@ -154,7 +155,7 @@ export class Stage extends pulumi.CustomResource {
             resourceInputs["awsExternalId"] = args ? args.awsExternalId : undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["copyOptions"] = args ? args.copyOptions : undefined;
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
+            resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["directory"] = args ? args.directory : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
@@ -167,6 +168,8 @@ export class Stage extends pulumi.CustomResource {
             resourceInputs["url"] = args ? args.url : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["credentials"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Stage.__pulumiType, name, resourceInputs, opts);
     }
 }

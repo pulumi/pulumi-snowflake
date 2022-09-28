@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # format is database name | schema name | external table name
+ * format is database name | schema name | external table name
  * 
  * ```sh
  *  $ pulumi import snowflake:index/externalTable:ExternalTable example &#39;dbName|schemaName|externalTableName&#39;

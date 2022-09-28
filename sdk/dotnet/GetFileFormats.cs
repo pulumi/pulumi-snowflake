@@ -35,7 +35,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetFileFormatsResult> InvokeAsync(GetFileFormatsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFileFormatsResult>("snowflake:index/getFileFormats:getFileFormats", args ?? new GetFileFormatsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileFormatsResult>("snowflake:index/getFileFormats:getFileFormats", args ?? new GetFileFormatsArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -61,7 +61,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetFileFormatsResult> Invoke(GetFileFormatsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFileFormatsResult>("snowflake:index/getFileFormats:getFileFormats", args ?? new GetFileFormatsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFileFormatsResult>("snowflake:index/getFileFormats:getFileFormats", args ?? new GetFileFormatsInvokeArgs(), options.WithDefaults());
     }
 
 

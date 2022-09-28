@@ -9,31 +9,20 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSequencesSequence {
-    private final String comment;
+    private String comment;
     /**
      * @return The database from which to return the schemas from.
      * 
      */
-    private final String database;
-    private final String name;
+    private String database;
+    private String name;
     /**
      * @return The schema from which to return the sequences from.
      * 
      */
-    private final String schema;
+    private String schema;
 
-    @CustomType.Constructor
-    private GetSequencesSequence(
-        @CustomType.Parameter("comment") String comment,
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("schema") String schema) {
-        this.comment = comment;
-        this.database = database;
-        this.name = name;
-        this.schema = schema;
-    }
-
+    private GetSequencesSequence() {}
     public String comment() {
         return this.comment;
     }
@@ -62,17 +51,13 @@ public final class GetSequencesSequence {
     public static Builder builder(GetSequencesSequence defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String comment;
         private String database;
         private String name;
         private String schema;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSequencesSequence defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
@@ -81,23 +66,33 @@ public final class GetSequencesSequence {
     	      this.schema = defaults.schema;
         }
 
+        @CustomType.Setter
         public Builder comment(String comment) {
             this.comment = Objects.requireNonNull(comment);
             return this;
         }
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder schema(String schema) {
             this.schema = Objects.requireNonNull(schema);
             return this;
-        }        public GetSequencesSequence build() {
-            return new GetSequencesSequence(comment, database, name, schema);
+        }
+        public GetSequencesSequence build() {
+            final var o = new GetSequencesSequence();
+            o.comment = comment;
+            o.database = database;
+            o.name = name;
+            o.schema = schema;
+            return o;
         }
     }
 }

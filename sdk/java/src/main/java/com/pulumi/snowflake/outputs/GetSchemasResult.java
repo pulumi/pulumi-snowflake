@@ -15,28 +15,19 @@ public final class GetSchemasResult {
      * @return The database from which to return the schemas from.
      * 
      */
-    private final String database;
+    private String database;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The schemas in the database
      * 
      */
-    private final List<GetSchemasSchema> schemas;
+    private List<GetSchemasSchema> schemas;
 
-    @CustomType.Constructor
-    private GetSchemasResult(
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("schemas") List<GetSchemasSchema> schemas) {
-        this.database = database;
-        this.id = id;
-        this.schemas = schemas;
-    }
-
+    private GetSchemasResult() {}
     /**
      * @return The database from which to return the schemas from.
      * 
@@ -66,16 +57,12 @@ public final class GetSchemasResult {
     public static Builder builder(GetSchemasResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String database;
         private String id;
         private List<GetSchemasSchema> schemas;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSchemasResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.database = defaults.database;
@@ -83,22 +70,30 @@ public final class GetSchemasResult {
     	      this.schemas = defaults.schemas;
         }
 
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder schemas(List<GetSchemasSchema> schemas) {
             this.schemas = Objects.requireNonNull(schemas);
             return this;
         }
         public Builder schemas(GetSchemasSchema... schemas) {
             return schemas(List.of(schemas));
-        }        public GetSchemasResult build() {
-            return new GetSchemasResult(database, id, schemas);
+        }
+        public GetSchemasResult build() {
+            final var o = new GetSchemasResult();
+            o.database = database;
+            o.id = id;
+            o.schemas = schemas;
+            return o;
         }
     }
 }

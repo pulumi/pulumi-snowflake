@@ -13,21 +13,14 @@ public final class ExternalFunctionArg {
      * @return Argument name
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Argument type, e.g. VARCHAR
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ExternalFunctionArg(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") String type) {
-        this.name = name;
-        this.type = type;
-    }
-
+    private ExternalFunctionArg() {}
     /**
      * @return Argument name
      * 
@@ -50,30 +43,32 @@ public final class ExternalFunctionArg {
     public static Builder builder(ExternalFunctionArg defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ExternalFunctionArg defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ExternalFunctionArg build() {
-            return new ExternalFunctionArg(name, type);
+        }
+        public ExternalFunctionArg build() {
+            final var o = new ExternalFunctionArg();
+            o.name = name;
+            o.type = type;
+            return o;
         }
     }
 }

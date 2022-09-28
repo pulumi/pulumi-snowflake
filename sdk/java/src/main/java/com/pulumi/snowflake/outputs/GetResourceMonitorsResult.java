@@ -15,21 +15,14 @@ public final class GetResourceMonitorsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The resource monitors in the database
      * 
      */
-    private final List<GetResourceMonitorsResourceMonitor> resourceMonitors;
+    private List<GetResourceMonitorsResourceMonitor> resourceMonitors;
 
-    @CustomType.Constructor
-    private GetResourceMonitorsResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("resourceMonitors") List<GetResourceMonitorsResourceMonitor> resourceMonitors) {
-        this.id = id;
-        this.resourceMonitors = resourceMonitors;
-    }
-
+    private GetResourceMonitorsResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -52,33 +45,35 @@ public final class GetResourceMonitorsResult {
     public static Builder builder(GetResourceMonitorsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private List<GetResourceMonitorsResourceMonitor> resourceMonitors;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResourceMonitorsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.resourceMonitors = defaults.resourceMonitors;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceMonitors(List<GetResourceMonitorsResourceMonitor> resourceMonitors) {
             this.resourceMonitors = Objects.requireNonNull(resourceMonitors);
             return this;
         }
         public Builder resourceMonitors(GetResourceMonitorsResourceMonitor... resourceMonitors) {
             return resourceMonitors(List.of(resourceMonitors));
-        }        public GetResourceMonitorsResult build() {
-            return new GetResourceMonitorsResult(id, resourceMonitors);
+        }
+        public GetResourceMonitorsResult build() {
+            final var o = new GetResourceMonitorsResult();
+            o.id = id;
+            o.resourceMonitors = resourceMonitors;
+            return o;
         }
     }
 }

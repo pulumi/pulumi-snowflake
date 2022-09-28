@@ -15,35 +15,24 @@ public final class GetTablesResult {
      * @return The database from which to return the schemas from.
      * 
      */
-    private final String database;
+    private String database;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The schema from which to return the tables from.
      * 
      */
-    private final String schema;
+    private String schema;
     /**
      * @return The tables in the schema
      * 
      */
-    private final List<GetTablesTable> tables;
+    private List<GetTablesTable> tables;
 
-    @CustomType.Constructor
-    private GetTablesResult(
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("schema") String schema,
-        @CustomType.Parameter("tables") List<GetTablesTable> tables) {
-        this.database = database;
-        this.id = id;
-        this.schema = schema;
-        this.tables = tables;
-    }
-
+    private GetTablesResult() {}
     /**
      * @return The database from which to return the schemas from.
      * 
@@ -80,17 +69,13 @@ public final class GetTablesResult {
     public static Builder builder(GetTablesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String database;
         private String id;
         private String schema;
         private List<GetTablesTable> tables;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTablesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.database = defaults.database;
@@ -99,26 +84,36 @@ public final class GetTablesResult {
     	      this.tables = defaults.tables;
         }
 
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder schema(String schema) {
             this.schema = Objects.requireNonNull(schema);
             return this;
         }
+        @CustomType.Setter
         public Builder tables(List<GetTablesTable> tables) {
             this.tables = Objects.requireNonNull(tables);
             return this;
         }
         public Builder tables(GetTablesTable... tables) {
             return tables(List.of(tables));
-        }        public GetTablesResult build() {
-            return new GetTablesResult(database, id, schema, tables);
+        }
+        public GetTablesResult build() {
+            final var o = new GetTablesResult();
+            o.database = database;
+            o.id = id;
+            o.schema = schema;
+            o.tables = tables;
+            return o;
         }
     }
 }

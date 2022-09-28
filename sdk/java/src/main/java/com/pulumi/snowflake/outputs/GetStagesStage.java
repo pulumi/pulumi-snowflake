@@ -9,34 +9,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetStagesStage {
-    private final String comment;
+    private String comment;
     /**
      * @return The database from which to return the schemas from.
      * 
      */
-    private final String database;
-    private final String name;
+    private String database;
+    private String name;
     /**
      * @return The schema from which to return the stages from.
      * 
      */
-    private final String schema;
-    private final String storageIntegration;
+    private String schema;
+    private String storageIntegration;
 
-    @CustomType.Constructor
-    private GetStagesStage(
-        @CustomType.Parameter("comment") String comment,
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("schema") String schema,
-        @CustomType.Parameter("storageIntegration") String storageIntegration) {
-        this.comment = comment;
-        this.database = database;
-        this.name = name;
-        this.schema = schema;
-        this.storageIntegration = storageIntegration;
-    }
-
+    private GetStagesStage() {}
     public String comment() {
         return this.comment;
     }
@@ -68,18 +55,14 @@ public final class GetStagesStage {
     public static Builder builder(GetStagesStage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String comment;
         private String database;
         private String name;
         private String schema;
         private String storageIntegration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetStagesStage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
@@ -89,27 +72,39 @@ public final class GetStagesStage {
     	      this.storageIntegration = defaults.storageIntegration;
         }
 
+        @CustomType.Setter
         public Builder comment(String comment) {
             this.comment = Objects.requireNonNull(comment);
             return this;
         }
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder schema(String schema) {
             this.schema = Objects.requireNonNull(schema);
             return this;
         }
+        @CustomType.Setter
         public Builder storageIntegration(String storageIntegration) {
             this.storageIntegration = Objects.requireNonNull(storageIntegration);
             return this;
-        }        public GetStagesStage build() {
-            return new GetStagesStage(comment, database, name, schema, storageIntegration);
+        }
+        public GetStagesStage build() {
+            final var o = new GetStagesStage();
+            o.comment = comment;
+            o.database = database;
+            o.name = name;
+            o.schema = schema;
+            o.storageIntegration = storageIntegration;
+            return o;
         }
     }
 }

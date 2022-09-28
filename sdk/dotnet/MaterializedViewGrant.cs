@@ -44,7 +44,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// # format is database name | schema name | materialized view name | privilege | true/false for with_grant_option
+    /// format is database name | schema name | materialized view name | privilege | true/false for with_grant_option
     /// 
     /// ```sh
     ///  $ pulumi import snowflake:index/materializedViewGrant:MaterializedViewGrant example 'dbName|schemaName|materializedViewName|SELECT|false'

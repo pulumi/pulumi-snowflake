@@ -12,7 +12,7 @@ namespace Pulumi.Snowflake
     public static class GetSystemGetPrivateLinkConfig
     {
         public static Task<GetSystemGetPrivateLinkConfigResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSystemGetPrivateLinkConfigResult>("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", InvokeArgs.Empty, options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSystemGetPrivateLinkConfigResult>("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

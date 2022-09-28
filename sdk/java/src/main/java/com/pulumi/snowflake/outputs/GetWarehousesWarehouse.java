@@ -9,29 +9,14 @@ import java.util.Objects;
 
 @CustomType
 public final class GetWarehousesWarehouse {
-    private final String comment;
-    private final String name;
-    private final String scalingPolicy;
-    private final String size;
-    private final String state;
-    private final String type;
+    private String comment;
+    private String name;
+    private String scalingPolicy;
+    private String size;
+    private String state;
+    private String type;
 
-    @CustomType.Constructor
-    private GetWarehousesWarehouse(
-        @CustomType.Parameter("comment") String comment,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("scalingPolicy") String scalingPolicy,
-        @CustomType.Parameter("size") String size,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("type") String type) {
-        this.comment = comment;
-        this.name = name;
-        this.scalingPolicy = scalingPolicy;
-        this.size = size;
-        this.state = state;
-        this.type = type;
-    }
-
+    private GetWarehousesWarehouse() {}
     public String comment() {
         return this.comment;
     }
@@ -58,7 +43,7 @@ public final class GetWarehousesWarehouse {
     public static Builder builder(GetWarehousesWarehouse defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String comment;
         private String name;
@@ -66,11 +51,7 @@ public final class GetWarehousesWarehouse {
         private String size;
         private String state;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWarehousesWarehouse defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
@@ -81,31 +62,45 @@ public final class GetWarehousesWarehouse {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder comment(String comment) {
             this.comment = Objects.requireNonNull(comment);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder scalingPolicy(String scalingPolicy) {
             this.scalingPolicy = Objects.requireNonNull(scalingPolicy);
             return this;
         }
+        @CustomType.Setter
         public Builder size(String size) {
             this.size = Objects.requireNonNull(size);
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetWarehousesWarehouse build() {
-            return new GetWarehousesWarehouse(comment, name, scalingPolicy, size, state, type);
+        }
+        public GetWarehousesWarehouse build() {
+            final var o = new GetWarehousesWarehouse();
+            o.comment = comment;
+            o.name = name;
+            o.scalingPolicy = scalingPolicy;
+            o.size = size;
+            o.state = state;
+            o.type = type;
+            return o;
         }
     }
 }

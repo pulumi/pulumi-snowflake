@@ -69,7 +69,7 @@ import (
 //
 // ## Import
 //
-// # format is database name | schema name | task name
+// format is database name | schema name | task name
 //
 // ```sh
 //

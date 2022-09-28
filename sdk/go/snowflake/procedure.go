@@ -13,7 +13,7 @@ import (
 
 // ## Import
 //
-// # format is database name | schema name | stored procedure name | <list of arg types, separated with '-'>
+// format is database name | schema name | stored procedure name | <list of arg types, separated with '-'>
 //
 // ```sh
 //

@@ -220,7 +220,7 @@ class TagAssociation(pulumi.CustomResource):
 
         ## Import
 
-        # format is dbName.schemaName.tagName or dbName.schemaName.tagName
+        format is dbName.schemaName.tagName or dbName.schemaName.tagName
 
         ```sh
          $ pulumi import snowflake:index/tagAssociation:TagAssociation example 'dbName.schemaName.tagName'
@@ -266,7 +266,7 @@ class TagAssociation(pulumi.CustomResource):
 
         ## Import
 
-        # format is dbName.schemaName.tagName or dbName.schemaName.tagName
+        format is dbName.schemaName.tagName or dbName.schemaName.tagName
 
         ```sh
          $ pulumi import snowflake:index/tagAssociation:TagAssociation example 'dbName.schemaName.tagName'

@@ -38,7 +38,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCurrentAccountResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCurrentAccountResult>("snowflake:index/getCurrentAccount:getCurrentAccount", InvokeArgs.Empty, options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCurrentAccountResult>("snowflake:index/getCurrentAccount:getCurrentAccount", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

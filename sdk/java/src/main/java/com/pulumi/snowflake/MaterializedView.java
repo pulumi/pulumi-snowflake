@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # format is database name | schema name | view name
+ * format is database name | schema name | view name
  * 
  * ```sh
  *  $ pulumi import snowflake:index/materializedView:MaterializedView example &#39;dbName|schemaName|viewName&#39;

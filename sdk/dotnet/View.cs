@@ -35,7 +35,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// # format is database name | schema name | view name
+    /// format is database name | schema name | view name
     /// 
     /// ```sh
     ///  $ pulumi import snowflake:index/view:View example 'dbName|schemaName|viewName'

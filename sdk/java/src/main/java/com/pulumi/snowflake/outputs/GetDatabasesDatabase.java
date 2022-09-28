@@ -13,41 +13,18 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDatabasesDatabase {
-    private final String comment;
-    private final String createdOn;
-    private final Boolean isCurrent;
-    private final Boolean isDefault;
-    private final String name;
-    private final String options;
-    private final String origin;
-    private final String owner;
-    private final List<GetDatabasesDatabaseReplicationConfiguration> replicationConfigurations;
-    private final Integer retentionTime;
+    private String comment;
+    private String createdOn;
+    private Boolean isCurrent;
+    private Boolean isDefault;
+    private String name;
+    private String options;
+    private String origin;
+    private String owner;
+    private List<GetDatabasesDatabaseReplicationConfiguration> replicationConfigurations;
+    private Integer retentionTime;
 
-    @CustomType.Constructor
-    private GetDatabasesDatabase(
-        @CustomType.Parameter("comment") String comment,
-        @CustomType.Parameter("createdOn") String createdOn,
-        @CustomType.Parameter("isCurrent") Boolean isCurrent,
-        @CustomType.Parameter("isDefault") Boolean isDefault,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("options") String options,
-        @CustomType.Parameter("origin") String origin,
-        @CustomType.Parameter("owner") String owner,
-        @CustomType.Parameter("replicationConfigurations") List<GetDatabasesDatabaseReplicationConfiguration> replicationConfigurations,
-        @CustomType.Parameter("retentionTime") Integer retentionTime) {
-        this.comment = comment;
-        this.createdOn = createdOn;
-        this.isCurrent = isCurrent;
-        this.isDefault = isDefault;
-        this.name = name;
-        this.options = options;
-        this.origin = origin;
-        this.owner = owner;
-        this.replicationConfigurations = replicationConfigurations;
-        this.retentionTime = retentionTime;
-    }
-
+    private GetDatabasesDatabase() {}
     public String comment() {
         return this.comment;
     }
@@ -86,7 +63,7 @@ public final class GetDatabasesDatabase {
     public static Builder builder(GetDatabasesDatabase defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String comment;
         private String createdOn;
@@ -98,11 +75,7 @@ public final class GetDatabasesDatabase {
         private String owner;
         private List<GetDatabasesDatabaseReplicationConfiguration> replicationConfigurations;
         private Integer retentionTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDatabasesDatabase defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
@@ -117,38 +90,47 @@ public final class GetDatabasesDatabase {
     	      this.retentionTime = defaults.retentionTime;
         }
 
+        @CustomType.Setter
         public Builder comment(String comment) {
             this.comment = Objects.requireNonNull(comment);
             return this;
         }
+        @CustomType.Setter
         public Builder createdOn(String createdOn) {
             this.createdOn = Objects.requireNonNull(createdOn);
             return this;
         }
+        @CustomType.Setter
         public Builder isCurrent(Boolean isCurrent) {
             this.isCurrent = Objects.requireNonNull(isCurrent);
             return this;
         }
+        @CustomType.Setter
         public Builder isDefault(Boolean isDefault) {
             this.isDefault = Objects.requireNonNull(isDefault);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder options(String options) {
             this.options = Objects.requireNonNull(options);
             return this;
         }
+        @CustomType.Setter
         public Builder origin(String origin) {
             this.origin = Objects.requireNonNull(origin);
             return this;
         }
+        @CustomType.Setter
         public Builder owner(String owner) {
             this.owner = Objects.requireNonNull(owner);
             return this;
         }
+        @CustomType.Setter
         public Builder replicationConfigurations(List<GetDatabasesDatabaseReplicationConfiguration> replicationConfigurations) {
             this.replicationConfigurations = Objects.requireNonNull(replicationConfigurations);
             return this;
@@ -156,11 +138,24 @@ public final class GetDatabasesDatabase {
         public Builder replicationConfigurations(GetDatabasesDatabaseReplicationConfiguration... replicationConfigurations) {
             return replicationConfigurations(List.of(replicationConfigurations));
         }
+        @CustomType.Setter
         public Builder retentionTime(Integer retentionTime) {
             this.retentionTime = Objects.requireNonNull(retentionTime);
             return this;
-        }        public GetDatabasesDatabase build() {
-            return new GetDatabasesDatabase(comment, createdOn, isCurrent, isDefault, name, options, origin, owner, replicationConfigurations, retentionTime);
+        }
+        public GetDatabasesDatabase build() {
+            final var o = new GetDatabasesDatabase();
+            o.comment = comment;
+            o.createdOn = createdOn;
+            o.isCurrent = isCurrent;
+            o.isDefault = isDefault;
+            o.name = name;
+            o.options = options;
+            o.origin = origin;
+            o.owner = owner;
+            o.replicationConfigurations = replicationConfigurations;
+            o.retentionTime = retentionTime;
+            return o;
         }
     }
 }

@@ -13,28 +13,19 @@ public final class ExternalTableColumn {
      * @return String that specifies the expression for the column. When queried, the column returns results derived from this expression.
      * 
      */
-    private final String as;
+    private String as;
     /**
      * @return Column name
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Column type, e.g. VARIANT
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ExternalTableColumn(
-        @CustomType.Parameter("as") String as,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") String type) {
-        this.as = as;
-        this.name = name;
-        this.type = type;
-    }
-
+    private ExternalTableColumn() {}
     /**
      * @return String that specifies the expression for the column. When queried, the column returns results derived from this expression.
      * 
@@ -64,16 +55,12 @@ public final class ExternalTableColumn {
     public static Builder builder(ExternalTableColumn defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String as;
         private String name;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ExternalTableColumn defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.as = defaults.as;
@@ -81,19 +68,27 @@ public final class ExternalTableColumn {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder as(String as) {
             this.as = Objects.requireNonNull(as);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ExternalTableColumn build() {
-            return new ExternalTableColumn(as, name, type);
+        }
+        public ExternalTableColumn build() {
+            final var o = new ExternalTableColumn();
+            o.as = as;
+            o.name = name;
+            o.type = type;
+            return o;
         }
     }
 }

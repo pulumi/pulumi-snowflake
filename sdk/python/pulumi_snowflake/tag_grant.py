@@ -282,7 +282,7 @@ class TagGrant(pulumi.CustomResource):
 
         ## Import
 
-        # format is database name | schema name | tag name | privilege | roles | true/false for with_grant_option
+        format is database name | schema name | tag name | privilege | roles | true/false for with_grant_option
 
         ```sh
          $ pulumi import snowflake:index/tagGrant:TagGrant example 'dbName|schemaName|tagName|APPLY|ROLE1,ROLE2|false'
@@ -322,7 +322,7 @@ class TagGrant(pulumi.CustomResource):
 
         ## Import
 
-        # format is database name | schema name | tag name | privilege | roles | true/false for with_grant_option
+        format is database name | schema name | tag name | privilege | roles | true/false for with_grant_option
 
         ```sh
          $ pulumi import snowflake:index/tagGrant:TagGrant example 'dbName|schemaName|tagName|APPLY|ROLE1,ROLE2|false'

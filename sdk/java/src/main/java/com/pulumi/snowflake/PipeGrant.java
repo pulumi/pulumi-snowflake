@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # format is database name | schema name | pipe name | privilege | true/false for with_grant_option
+ * format is database name | schema name | pipe name | privilege | true/false for with_grant_option
  * 
  * ```sh
  *  $ pulumi import snowflake:index/pipeGrant:PipeGrant example &#39;dbName|schemaName|pipeName|OPERATE|false&#39;

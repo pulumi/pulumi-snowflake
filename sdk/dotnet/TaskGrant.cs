@@ -39,7 +39,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// # format is database name | schema name | task name | privilege | true/false for with_grant_option
+    /// format is database name | schema name | task name | privilege | true/false for with_grant_option
     /// 
     /// ```sh
     ///  $ pulumi import snowflake:index/taskGrant:TaskGrant example 'dbName|schemaName|taskName|OPERATE|false'

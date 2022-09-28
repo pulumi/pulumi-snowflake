@@ -63,7 +63,7 @@ import (
 //
 // ## Import
 //
-// # format is database name | schema name | procedure signature | privilege | true/false for with_grant_option
+// format is database name | schema name | procedure signature | privilege | true/false for with_grant_option
 //
 // ```sh
 //

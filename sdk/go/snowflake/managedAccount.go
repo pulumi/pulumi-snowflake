@@ -56,6 +56,13 @@ func NewManagedAccount(ctx *pulumi.Context,
 	if args.AdminPassword == nil {
 		return nil, errors.New("invalid value for required argument 'AdminPassword'")
 	}
+	if args.AdminPassword != nil {
+		args.AdminPassword = pulumi.ToSecret(args.AdminPassword).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"adminPassword",
+	})
+	opts = append(opts, secrets)
 	var resource ManagedAccount
 	err := ctx.RegisterResource("snowflake:index/managedAccount:ManagedAccount", name, args, &resource, opts...)
 	if err != nil {

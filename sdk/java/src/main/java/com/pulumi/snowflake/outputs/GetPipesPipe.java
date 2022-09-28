@@ -9,34 +9,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPipesPipe {
-    private final String comment;
+    private String comment;
     /**
      * @return The database from which to return the schemas from.
      * 
      */
-    private final String database;
-    private final String integration;
-    private final String name;
+    private String database;
+    private String integration;
+    private String name;
     /**
      * @return The schema from which to return the pipes from.
      * 
      */
-    private final String schema;
+    private String schema;
 
-    @CustomType.Constructor
-    private GetPipesPipe(
-        @CustomType.Parameter("comment") String comment,
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("integration") String integration,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("schema") String schema) {
-        this.comment = comment;
-        this.database = database;
-        this.integration = integration;
-        this.name = name;
-        this.schema = schema;
-    }
-
+    private GetPipesPipe() {}
     public String comment() {
         return this.comment;
     }
@@ -68,18 +55,14 @@ public final class GetPipesPipe {
     public static Builder builder(GetPipesPipe defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String comment;
         private String database;
         private String integration;
         private String name;
         private String schema;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPipesPipe defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
@@ -89,27 +72,39 @@ public final class GetPipesPipe {
     	      this.schema = defaults.schema;
         }
 
+        @CustomType.Setter
         public Builder comment(String comment) {
             this.comment = Objects.requireNonNull(comment);
             return this;
         }
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder integration(String integration) {
             this.integration = Objects.requireNonNull(integration);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder schema(String schema) {
             this.schema = Objects.requireNonNull(schema);
             return this;
-        }        public GetPipesPipe build() {
-            return new GetPipesPipe(comment, database, integration, name, schema);
+        }
+        public GetPipesPipe build() {
+            final var o = new GetPipesPipe();
+            o.comment = comment;
+            o.database = database;
+            o.integration = integration;
+            o.name = name;
+            o.schema = schema;
+            return o;
         }
     }
 }

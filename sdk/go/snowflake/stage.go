@@ -56,7 +56,7 @@ import (
 //
 // ## Import
 //
-// # format is database name | schema name | stage name
+// format is database name | schema name | stage name
 //
 // ```sh
 //
@@ -109,6 +109,13 @@ func NewStage(ctx *pulumi.Context,
 	if args.Schema == nil {
 		return nil, errors.New("invalid value for required argument 'Schema'")
 	}
+	if args.Credentials != nil {
+		args.Credentials = pulumi.ToSecret(args.Credentials).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"credentials",
+	})
+	opts = append(opts, secrets)
 	var resource Stage
 	err := ctx.RegisterResource("snowflake:index/stage:Stage", name, args, &resource, opts...)
 	if err != nil {

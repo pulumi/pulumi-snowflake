@@ -35,7 +35,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetExternalTablesResult> InvokeAsync(GetExternalTablesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExternalTablesResult>("snowflake:index/getExternalTables:getExternalTables", args ?? new GetExternalTablesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetExternalTablesResult>("snowflake:index/getExternalTables:getExternalTables", args ?? new GetExternalTablesArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -61,7 +61,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetExternalTablesResult> Invoke(GetExternalTablesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExternalTablesResult>("snowflake:index/getExternalTables:getExternalTables", args ?? new GetExternalTablesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetExternalTablesResult>("snowflake:index/getExternalTables:getExternalTables", args ?? new GetExternalTablesInvokeArgs(), options.WithDefaults());
     }
 
 

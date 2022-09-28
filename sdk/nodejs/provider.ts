@@ -124,22 +124,24 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["account"] = args ? args.account : undefined;
             resourceInputs["browserAuth"] = pulumi.output(args ? args.browserAuth : undefined).apply(JSON.stringify);
             resourceInputs["host"] = args ? args.host : undefined;
-            resourceInputs["oauthAccessToken"] = args ? args.oauthAccessToken : undefined;
-            resourceInputs["oauthClientId"] = args ? args.oauthClientId : undefined;
-            resourceInputs["oauthClientSecret"] = args ? args.oauthClientSecret : undefined;
-            resourceInputs["oauthEndpoint"] = args ? args.oauthEndpoint : undefined;
-            resourceInputs["oauthRedirectUrl"] = args ? args.oauthRedirectUrl : undefined;
-            resourceInputs["oauthRefreshToken"] = args ? args.oauthRefreshToken : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
-            resourceInputs["privateKeyPassphrase"] = args ? args.privateKeyPassphrase : undefined;
-            resourceInputs["privateKeyPath"] = args ? args.privateKeyPath : undefined;
+            resourceInputs["oauthAccessToken"] = args?.oauthAccessToken ? pulumi.secret(args.oauthAccessToken) : undefined;
+            resourceInputs["oauthClientId"] = args?.oauthClientId ? pulumi.secret(args.oauthClientId) : undefined;
+            resourceInputs["oauthClientSecret"] = args?.oauthClientSecret ? pulumi.secret(args.oauthClientSecret) : undefined;
+            resourceInputs["oauthEndpoint"] = args?.oauthEndpoint ? pulumi.secret(args.oauthEndpoint) : undefined;
+            resourceInputs["oauthRedirectUrl"] = args?.oauthRedirectUrl ? pulumi.secret(args.oauthRedirectUrl) : undefined;
+            resourceInputs["oauthRefreshToken"] = args?.oauthRefreshToken ? pulumi.secret(args.oauthRefreshToken) : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
+            resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
+            resourceInputs["privateKeyPassphrase"] = args?.privateKeyPassphrase ? pulumi.secret(args.privateKeyPassphrase) : undefined;
+            resourceInputs["privateKeyPath"] = args?.privateKeyPath ? pulumi.secret(args.privateKeyPath) : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
             resourceInputs["warehouse"] = args ? args.warehouse : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["oauthAccessToken", "oauthClientId", "oauthClientSecret", "oauthEndpoint", "oauthRedirectUrl", "oauthRefreshToken", "password", "privateKey", "privateKeyPassphrase", "privateKeyPath"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }

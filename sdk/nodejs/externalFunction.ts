@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -34,7 +35,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * # format is database name | schema name | external function name | <list of function arg types, separated with '-'>
+ * format is database name | schema name | external function name | <list of function arg types, separated with '-'>
  *
  * ```sh
  *  $ pulumi import snowflake:index/externalFunction:ExternalFunction example 'dbName|schemaName|externalFunctionName|varchar-varchar-varchar'

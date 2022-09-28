@@ -143,6 +143,19 @@ namespace Pulumi.Snowflake
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "oauthAccessToken",
+                    "oauthClientId",
+                    "oauthClientSecret",
+                    "oauthEndpoint",
+                    "oauthRedirectUrl",
+                    "oauthRefreshToken",
+                    "password",
+                    "privateKey",
+                    "privateKeyPassphrase",
+                    "privateKeyPath",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -171,37 +184,90 @@ namespace Pulumi.Snowflake
         [Input("host")]
         public Input<string>? Host { get; set; }
 
+        [Input("oauthAccessToken")]
+        private Input<string>? _oauthAccessToken;
+
         /// <summary>
         /// Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
         /// `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
         /// variable.
         /// </summary>
-        [Input("oauthAccessToken")]
-        public Input<string>? OauthAccessToken { get; set; }
+        public Input<string>? OauthAccessToken
+        {
+            get => _oauthAccessToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oauthAccessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("oauthClientId")]
+        private Input<string>? _oauthClientId;
 
         /// <summary>
         /// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
         /// </summary>
-        [Input("oauthClientId")]
-        public Input<string>? OauthClientId { get; set; }
+        public Input<string>? OauthClientId
+        {
+            get => _oauthClientId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oauthClientId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("oauthClientSecret")]
+        private Input<string>? _oauthClientSecret;
 
         /// <summary>
         /// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
         /// </summary>
-        [Input("oauthClientSecret")]
-        public Input<string>? OauthClientSecret { get; set; }
+        public Input<string>? OauthClientSecret
+        {
+            get => _oauthClientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oauthClientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("oauthEndpoint")]
+        private Input<string>? _oauthEndpoint;
 
         /// <summary>
         /// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
         /// </summary>
-        [Input("oauthEndpoint")]
-        public Input<string>? OauthEndpoint { get; set; }
+        public Input<string>? OauthEndpoint
+        {
+            get => _oauthEndpoint;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oauthEndpoint = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("oauthRedirectUrl")]
+        private Input<string>? _oauthRedirectUrl;
 
         /// <summary>
         /// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
         /// </summary>
-        [Input("oauthRedirectUrl")]
-        public Input<string>? OauthRedirectUrl { get; set; }
+        public Input<string>? OauthRedirectUrl
+        {
+            get => _oauthRedirectUrl;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oauthRedirectUrl = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("oauthRefreshToken")]
+        private Input<string>? _oauthRefreshToken;
 
         /// <summary>
         /// Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
@@ -209,36 +275,83 @@ namespace Pulumi.Snowflake
         /// `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
         /// variable.
         /// </summary>
-        [Input("oauthRefreshToken")]
-        public Input<string>? OauthRefreshToken { get; set; }
+        public Input<string>? OauthRefreshToken
+        {
+            get => _oauthRefreshToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oauthRefreshToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("password")]
+        private Input<string>? _password;
 
         /// <summary>
         /// Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from
         /// `SNOWFLAKE_PASSWORD` environment variable.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("privateKey")]
+        private Input<string>? _privateKey;
 
         /// <summary>
         /// Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
         /// `SNOWFLAKE_PRIVATE_KEY` environment variable.
         /// </summary>
-        [Input("privateKey")]
-        public Input<string>? PrivateKey { get; set; }
+        public Input<string>? PrivateKey
+        {
+            get => _privateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("privateKeyPassphrase")]
+        private Input<string>? _privateKeyPassphrase;
 
         /// <summary>
         /// Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
         /// des-ede3-cbc
         /// </summary>
-        [Input("privateKeyPassphrase")]
-        public Input<string>? PrivateKeyPassphrase { get; set; }
+        public Input<string>? PrivateKeyPassphrase
+        {
+            get => _privateKeyPassphrase;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKeyPassphrase = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("privateKeyPath")]
+        private Input<string>? _privateKeyPath;
 
         /// <summary>
         /// Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
         /// `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
         /// </summary>
-        [Input("privateKeyPath")]
-        public Input<string>? PrivateKeyPath { get; set; }
+        public Input<string>? PrivateKeyPath
+        {
+            get => _privateKeyPath;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKeyPath = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the

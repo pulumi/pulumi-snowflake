@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # format is database name | schema name | sequence name | privilege | true/false for with_grant_option
+ * format is database name | schema name | sequence name | privilege | true/false for with_grant_option
  * 
  * ```sh
  *  $ pulumi import snowflake:index/sequenceGrant:SequenceGrant example &#39;dbName|schemaName|sequenceName|USAGE|false&#39;

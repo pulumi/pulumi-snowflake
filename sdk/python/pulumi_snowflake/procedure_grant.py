@@ -437,7 +437,7 @@ class ProcedureGrant(pulumi.CustomResource):
 
         ## Import
 
-        # format is database name | schema name | procedure signature | privilege | true/false for with_grant_option
+        format is database name | schema name | procedure signature | privilege | true/false for with_grant_option
 
         ```sh
          $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'dbName|schemaName|procedureName(ARG1 ARG1TYPE, ARG2 ARG2TYPE):RETURNTYPE|USAGE|false'
@@ -501,7 +501,7 @@ class ProcedureGrant(pulumi.CustomResource):
 
         ## Import
 
-        # format is database name | schema name | procedure signature | privilege | true/false for with_grant_option
+        format is database name | schema name | procedure signature | privilege | true/false for with_grant_option
 
         ```sh
          $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'dbName|schemaName|procedureName(ARG1 ARG1TYPE, ARG2 ARG2TYPE):RETURNTYPE|USAGE|false'

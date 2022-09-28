@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # format is database name | schema name | stream name | privilege | true/false for with_grant_option
+ * format is database name | schema name | stream name | privilege | true/false for with_grant_option
  * 
  * ```sh
  *  $ pulumi import snowflake:index/streamGrant:StreamGrant example &#39;dbName|schemaName|streamName|SELECT|false&#39;
