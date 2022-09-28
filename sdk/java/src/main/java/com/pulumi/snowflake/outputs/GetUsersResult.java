@@ -15,28 +15,19 @@ public final class GetUsersResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
      * 
      */
-    private final String pattern;
+    private String pattern;
     /**
      * @return The users in the database
      * 
      */
-    private final List<GetUsersUser> users;
+    private List<GetUsersUser> users;
 
-    @CustomType.Constructor
-    private GetUsersResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("pattern") String pattern,
-        @CustomType.Parameter("users") List<GetUsersUser> users) {
-        this.id = id;
-        this.pattern = pattern;
-        this.users = users;
-    }
-
+    private GetUsersResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -66,16 +57,12 @@ public final class GetUsersResult {
     public static Builder builder(GetUsersResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String pattern;
         private List<GetUsersUser> users;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUsersResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -83,22 +70,30 @@ public final class GetUsersResult {
     	      this.users = defaults.users;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder pattern(String pattern) {
             this.pattern = Objects.requireNonNull(pattern);
             return this;
         }
+        @CustomType.Setter
         public Builder users(List<GetUsersUser> users) {
             this.users = Objects.requireNonNull(users);
             return this;
         }
         public Builder users(GetUsersUser... users) {
             return users(List.of(users));
-        }        public GetUsersResult build() {
-            return new GetUsersResult(id, pattern, users);
+        }
+        public GetUsersResult build() {
+            final var o = new GetUsersResult();
+            o.id = id;
+            o.pattern = pattern;
+            o.users = users;
+            return o;
         }
     }
 }

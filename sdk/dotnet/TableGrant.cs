@@ -42,7 +42,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// # format is database name | schema name | table name | privilege | true/false for with_grant_option
+    /// format is database name | schema name | table name | privilege | true/false for with_grant_option
     /// 
     /// ```sh
     ///  $ pulumi import snowflake:index/tableGrant:TableGrant example 'databaseName|schemaName|tableName|MODIFY|true'

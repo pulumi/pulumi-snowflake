@@ -445,7 +445,7 @@ class Table(pulumi.CustomResource):
 
         ## Import
 
-        # format is database name | schema name | table name
+        format is database name | schema name | table name
 
         ```sh
          $ pulumi import snowflake:index/table:Table example 'databaseName|schemaName|tableName'
@@ -531,7 +531,7 @@ class Table(pulumi.CustomResource):
 
         ## Import
 
-        # format is database name | schema name | table name
+        format is database name | schema name | table name
 
         ```sh
          $ pulumi import snowflake:index/table:Table example 'databaseName|schemaName|tableName'

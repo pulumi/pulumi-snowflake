@@ -15,35 +15,24 @@ public final class GetExternalFunctionsResult {
      * @return The database from which to return the schemas from.
      * 
      */
-    private final String database;
+    private String database;
     /**
      * @return The external functions in the schema
      * 
      */
-    private final List<GetExternalFunctionsExternalFunction> externalFunctions;
+    private List<GetExternalFunctionsExternalFunction> externalFunctions;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The schema from which to return the external functions from.
      * 
      */
-    private final String schema;
+    private String schema;
 
-    @CustomType.Constructor
-    private GetExternalFunctionsResult(
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("externalFunctions") List<GetExternalFunctionsExternalFunction> externalFunctions,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("schema") String schema) {
-        this.database = database;
-        this.externalFunctions = externalFunctions;
-        this.id = id;
-        this.schema = schema;
-    }
-
+    private GetExternalFunctionsResult() {}
     /**
      * @return The database from which to return the schemas from.
      * 
@@ -80,17 +69,13 @@ public final class GetExternalFunctionsResult {
     public static Builder builder(GetExternalFunctionsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String database;
         private List<GetExternalFunctionsExternalFunction> externalFunctions;
         private String id;
         private String schema;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetExternalFunctionsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.database = defaults.database;
@@ -99,10 +84,12 @@ public final class GetExternalFunctionsResult {
     	      this.schema = defaults.schema;
         }
 
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder externalFunctions(List<GetExternalFunctionsExternalFunction> externalFunctions) {
             this.externalFunctions = Objects.requireNonNull(externalFunctions);
             return this;
@@ -110,15 +97,23 @@ public final class GetExternalFunctionsResult {
         public Builder externalFunctions(GetExternalFunctionsExternalFunction... externalFunctions) {
             return externalFunctions(List.of(externalFunctions));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder schema(String schema) {
             this.schema = Objects.requireNonNull(schema);
             return this;
-        }        public GetExternalFunctionsResult build() {
-            return new GetExternalFunctionsResult(database, externalFunctions, id, schema);
+        }
+        public GetExternalFunctionsResult build() {
+            final var o = new GetExternalFunctionsResult();
+            o.database = database;
+            o.externalFunctions = externalFunctions;
+            o.id = id;
+            o.schema = schema;
+            return o;
         }
     }
 }

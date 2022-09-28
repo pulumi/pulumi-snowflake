@@ -99,7 +99,7 @@ import (
 //
 // ## Import
 //
-// # format is database name | schema name | table name
+// format is database name | schema name | table name
 //
 // ```sh
 //

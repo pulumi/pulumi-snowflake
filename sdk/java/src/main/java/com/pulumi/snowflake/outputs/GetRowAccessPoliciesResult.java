@@ -15,35 +15,24 @@ public final class GetRowAccessPoliciesResult {
      * @return The database from which to return the schemas from.
      * 
      */
-    private final String database;
+    private String database;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The row access policy in the schema
      * 
      */
-    private final List<GetRowAccessPoliciesRowAccessPolicy> rowAccessPolicies;
+    private List<GetRowAccessPoliciesRowAccessPolicy> rowAccessPolicies;
     /**
      * @return The schema from which to return the row access policyfrom.
      * 
      */
-    private final String schema;
+    private String schema;
 
-    @CustomType.Constructor
-    private GetRowAccessPoliciesResult(
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("rowAccessPolicies") List<GetRowAccessPoliciesRowAccessPolicy> rowAccessPolicies,
-        @CustomType.Parameter("schema") String schema) {
-        this.database = database;
-        this.id = id;
-        this.rowAccessPolicies = rowAccessPolicies;
-        this.schema = schema;
-    }
-
+    private GetRowAccessPoliciesResult() {}
     /**
      * @return The database from which to return the schemas from.
      * 
@@ -80,17 +69,13 @@ public final class GetRowAccessPoliciesResult {
     public static Builder builder(GetRowAccessPoliciesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String database;
         private String id;
         private List<GetRowAccessPoliciesRowAccessPolicy> rowAccessPolicies;
         private String schema;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRowAccessPoliciesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.database = defaults.database;
@@ -99,14 +84,17 @@ public final class GetRowAccessPoliciesResult {
     	      this.schema = defaults.schema;
         }
 
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder rowAccessPolicies(List<GetRowAccessPoliciesRowAccessPolicy> rowAccessPolicies) {
             this.rowAccessPolicies = Objects.requireNonNull(rowAccessPolicies);
             return this;
@@ -114,11 +102,18 @@ public final class GetRowAccessPoliciesResult {
         public Builder rowAccessPolicies(GetRowAccessPoliciesRowAccessPolicy... rowAccessPolicies) {
             return rowAccessPolicies(List.of(rowAccessPolicies));
         }
+        @CustomType.Setter
         public Builder schema(String schema) {
             this.schema = Objects.requireNonNull(schema);
             return this;
-        }        public GetRowAccessPoliciesResult build() {
-            return new GetRowAccessPoliciesResult(database, id, rowAccessPolicies, schema);
+        }
+        public GetRowAccessPoliciesResult build() {
+            final var o = new GetRowAccessPoliciesResult();
+            o.database = database;
+            o.id = id;
+            o.rowAccessPolicies = rowAccessPolicies;
+            o.schema = schema;
+            return o;
         }
     }
 }

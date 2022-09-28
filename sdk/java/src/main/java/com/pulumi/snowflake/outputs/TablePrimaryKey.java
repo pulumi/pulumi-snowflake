@@ -16,21 +16,14 @@ public final class TablePrimaryKey {
      * @return Columns to use in primary key
      * 
      */
-    private final List<String> keys;
+    private List<String> keys;
     /**
      * @return Name of constraint
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
 
-    @CustomType.Constructor
-    private TablePrimaryKey(
-        @CustomType.Parameter("keys") List<String> keys,
-        @CustomType.Parameter("name") @Nullable String name) {
-        this.keys = keys;
-        this.name = name;
-    }
-
+    private TablePrimaryKey() {}
     /**
      * @return Columns to use in primary key
      * 
@@ -53,21 +46,18 @@ public final class TablePrimaryKey {
     public static Builder builder(TablePrimaryKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> keys;
         private @Nullable String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TablePrimaryKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keys = defaults.keys;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder keys(List<String> keys) {
             this.keys = Objects.requireNonNull(keys);
             return this;
@@ -75,11 +65,16 @@ public final class TablePrimaryKey {
         public Builder keys(String... keys) {
             return keys(List.of(keys));
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
-        }        public TablePrimaryKey build() {
-            return new TablePrimaryKey(keys, name);
+        }
+        public TablePrimaryKey build() {
+            final var o = new TablePrimaryKey();
+            o.keys = keys;
+            o.name = name;
+            return o;
         }
     }
 }

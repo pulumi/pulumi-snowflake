@@ -11,49 +11,26 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDatabaseResult {
-    private final String comment;
-    private final String createdOn;
+    private String comment;
+    private String createdOn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final Boolean isCurrent;
-    private final Boolean isDefault;
+    private String id;
+    private Boolean isCurrent;
+    private Boolean isDefault;
     /**
      * @return The database from which to return its metadata.
      * 
      */
-    private final String name;
-    private final String options;
-    private final String origin;
-    private final String owner;
-    private final Integer retentionTime;
+    private String name;
+    private String options;
+    private String origin;
+    private String owner;
+    private Integer retentionTime;
 
-    @CustomType.Constructor
-    private GetDatabaseResult(
-        @CustomType.Parameter("comment") String comment,
-        @CustomType.Parameter("createdOn") String createdOn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("isCurrent") Boolean isCurrent,
-        @CustomType.Parameter("isDefault") Boolean isDefault,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("options") String options,
-        @CustomType.Parameter("origin") String origin,
-        @CustomType.Parameter("owner") String owner,
-        @CustomType.Parameter("retentionTime") Integer retentionTime) {
-        this.comment = comment;
-        this.createdOn = createdOn;
-        this.id = id;
-        this.isCurrent = isCurrent;
-        this.isDefault = isDefault;
-        this.name = name;
-        this.options = options;
-        this.origin = origin;
-        this.owner = owner;
-        this.retentionTime = retentionTime;
-    }
-
+    private GetDatabaseResult() {}
     public String comment() {
         return this.comment;
     }
@@ -100,7 +77,7 @@ public final class GetDatabaseResult {
     public static Builder builder(GetDatabaseResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String comment;
         private String createdOn;
@@ -112,11 +89,7 @@ public final class GetDatabaseResult {
         private String origin;
         private String owner;
         private Integer retentionTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDatabaseResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
@@ -131,47 +104,69 @@ public final class GetDatabaseResult {
     	      this.retentionTime = defaults.retentionTime;
         }
 
+        @CustomType.Setter
         public Builder comment(String comment) {
             this.comment = Objects.requireNonNull(comment);
             return this;
         }
+        @CustomType.Setter
         public Builder createdOn(String createdOn) {
             this.createdOn = Objects.requireNonNull(createdOn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder isCurrent(Boolean isCurrent) {
             this.isCurrent = Objects.requireNonNull(isCurrent);
             return this;
         }
+        @CustomType.Setter
         public Builder isDefault(Boolean isDefault) {
             this.isDefault = Objects.requireNonNull(isDefault);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder options(String options) {
             this.options = Objects.requireNonNull(options);
             return this;
         }
+        @CustomType.Setter
         public Builder origin(String origin) {
             this.origin = Objects.requireNonNull(origin);
             return this;
         }
+        @CustomType.Setter
         public Builder owner(String owner) {
             this.owner = Objects.requireNonNull(owner);
             return this;
         }
+        @CustomType.Setter
         public Builder retentionTime(Integer retentionTime) {
             this.retentionTime = Objects.requireNonNull(retentionTime);
             return this;
-        }        public GetDatabaseResult build() {
-            return new GetDatabaseResult(comment, createdOn, id, isCurrent, isDefault, name, options, origin, owner, retentionTime);
+        }
+        public GetDatabaseResult build() {
+            final var o = new GetDatabaseResult();
+            o.comment = comment;
+            o.createdOn = createdOn;
+            o.id = id;
+            o.isCurrent = isCurrent;
+            o.isDefault = isDefault;
+            o.name = name;
+            o.options = options;
+            o.origin = origin;
+            o.owner = owner;
+            o.retentionTime = retentionTime;
+            return o;
         }
     }
 }

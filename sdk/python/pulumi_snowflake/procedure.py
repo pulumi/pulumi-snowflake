@@ -397,7 +397,7 @@ class Procedure(pulumi.CustomResource):
         """
         ## Import
 
-        # format is database name | schema name | stored procedure name | <list of arg types, separated with '-'>
+        format is database name | schema name | stored procedure name | <list of arg types, separated with '-'>
 
         ```sh
          $ pulumi import snowflake:index/procedure:Procedure example 'dbName|schemaName|procedureName|varchar-varchar-varchar'
@@ -426,7 +426,7 @@ class Procedure(pulumi.CustomResource):
         """
         ## Import
 
-        # format is database name | schema name | stored procedure name | <list of arg types, separated with '-'>
+        format is database name | schema name | stored procedure name | <list of arg types, separated with '-'>
 
         ```sh
          $ pulumi import snowflake:index/procedure:Procedure example 'dbName|schemaName|procedureName|varchar-varchar-varchar'

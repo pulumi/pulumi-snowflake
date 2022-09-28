@@ -12,7 +12,7 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Import
     /// 
-    /// # format is database name | schema name | function name | &lt;list of arg types, separated with '-'&gt;
+    /// format is database name | schema name | function name | &lt;list of arg types, separated with '-'&gt;
     /// 
     /// ```sh
     ///  $ pulumi import snowflake:index/function:Function example 'dbName|schemaName|functionName|varchar-varchar-varchar'

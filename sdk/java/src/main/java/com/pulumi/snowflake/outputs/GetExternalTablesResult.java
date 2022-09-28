@@ -15,35 +15,24 @@ public final class GetExternalTablesResult {
      * @return The database from which to return the schemas from.
      * 
      */
-    private final String database;
+    private String database;
     /**
      * @return The external tables in the schema
      * 
      */
-    private final List<GetExternalTablesExternalTable> externalTables;
+    private List<GetExternalTablesExternalTable> externalTables;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The schema from which to return the external tables from.
      * 
      */
-    private final String schema;
+    private String schema;
 
-    @CustomType.Constructor
-    private GetExternalTablesResult(
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("externalTables") List<GetExternalTablesExternalTable> externalTables,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("schema") String schema) {
-        this.database = database;
-        this.externalTables = externalTables;
-        this.id = id;
-        this.schema = schema;
-    }
-
+    private GetExternalTablesResult() {}
     /**
      * @return The database from which to return the schemas from.
      * 
@@ -80,17 +69,13 @@ public final class GetExternalTablesResult {
     public static Builder builder(GetExternalTablesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String database;
         private List<GetExternalTablesExternalTable> externalTables;
         private String id;
         private String schema;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetExternalTablesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.database = defaults.database;
@@ -99,10 +84,12 @@ public final class GetExternalTablesResult {
     	      this.schema = defaults.schema;
         }
 
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder externalTables(List<GetExternalTablesExternalTable> externalTables) {
             this.externalTables = Objects.requireNonNull(externalTables);
             return this;
@@ -110,15 +97,23 @@ public final class GetExternalTablesResult {
         public Builder externalTables(GetExternalTablesExternalTable... externalTables) {
             return externalTables(List.of(externalTables));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder schema(String schema) {
             this.schema = Objects.requireNonNull(schema);
             return this;
-        }        public GetExternalTablesResult build() {
-            return new GetExternalTablesResult(database, externalTables, id, schema);
+        }
+        public GetExternalTablesResult build() {
+            final var o = new GetExternalTablesResult();
+            o.database = database;
+            o.externalTables = externalTables;
+            o.id = id;
+            o.schema = schema;
+            return o;
         }
     }
 }

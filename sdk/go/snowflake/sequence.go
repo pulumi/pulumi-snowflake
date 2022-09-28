@@ -50,7 +50,7 @@ import (
 //
 // ## Import
 //
-// # format is database name | schema name | sequence name
+// format is database name | schema name | sequence name
 //
 // ```sh
 //

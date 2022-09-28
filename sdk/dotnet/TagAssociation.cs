@@ -51,7 +51,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// # format is dbName.schemaName.tagName or dbName.schemaName.tagName
+    /// format is dbName.schemaName.tagName or dbName.schemaName.tagName
     /// 
     /// ```sh
     ///  $ pulumi import snowflake:index/tagAssociation:TagAssociation example 'dbName.schemaName.tagName'

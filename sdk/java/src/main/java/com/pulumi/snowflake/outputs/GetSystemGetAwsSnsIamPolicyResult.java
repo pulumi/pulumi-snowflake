@@ -13,28 +13,19 @@ public final class GetSystemGetAwsSnsIamPolicyResult {
      * @return Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
      * 
      */
-    private final String awsSnsTopicArn;
+    private String awsSnsTopicArn;
     /**
      * @return IAM policy for Snowflake’s SQS queue to subscribe to this topic
      * 
      */
-    private final String awsSnsTopicPolicyJson;
+    private String awsSnsTopicPolicyJson;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetSystemGetAwsSnsIamPolicyResult(
-        @CustomType.Parameter("awsSnsTopicArn") String awsSnsTopicArn,
-        @CustomType.Parameter("awsSnsTopicPolicyJson") String awsSnsTopicPolicyJson,
-        @CustomType.Parameter("id") String id) {
-        this.awsSnsTopicArn = awsSnsTopicArn;
-        this.awsSnsTopicPolicyJson = awsSnsTopicPolicyJson;
-        this.id = id;
-    }
-
+    private GetSystemGetAwsSnsIamPolicyResult() {}
     /**
      * @return Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
      * 
@@ -64,16 +55,12 @@ public final class GetSystemGetAwsSnsIamPolicyResult {
     public static Builder builder(GetSystemGetAwsSnsIamPolicyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String awsSnsTopicArn;
         private String awsSnsTopicPolicyJson;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSystemGetAwsSnsIamPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.awsSnsTopicArn = defaults.awsSnsTopicArn;
@@ -81,19 +68,27 @@ public final class GetSystemGetAwsSnsIamPolicyResult {
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder awsSnsTopicArn(String awsSnsTopicArn) {
             this.awsSnsTopicArn = Objects.requireNonNull(awsSnsTopicArn);
             return this;
         }
+        @CustomType.Setter
         public Builder awsSnsTopicPolicyJson(String awsSnsTopicPolicyJson) {
             this.awsSnsTopicPolicyJson = Objects.requireNonNull(awsSnsTopicPolicyJson);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetSystemGetAwsSnsIamPolicyResult build() {
-            return new GetSystemGetAwsSnsIamPolicyResult(awsSnsTopicArn, awsSnsTopicPolicyJson, id);
+        }
+        public GetSystemGetAwsSnsIamPolicyResult build() {
+            final var o = new GetSystemGetAwsSnsIamPolicyResult();
+            o.awsSnsTopicArn = awsSnsTopicArn;
+            o.awsSnsTopicPolicyJson = awsSnsTopicPolicyJson;
+            o.id = id;
+            return o;
         }
     }
 }

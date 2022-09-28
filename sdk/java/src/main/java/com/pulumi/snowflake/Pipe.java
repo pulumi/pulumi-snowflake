@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # format is database name | schema name | pipe name
+ * format is database name | schema name | pipe name
  * 
  * ```sh
  *  $ pulumi import snowflake:index/pipe:Pipe example &#39;dbName|schemaName|pipeName&#39;

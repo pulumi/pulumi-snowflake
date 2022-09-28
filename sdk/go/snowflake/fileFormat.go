@@ -41,7 +41,7 @@ import (
 //
 // ## Import
 //
-// # format is database name | schema name | file format name
+// format is database name | schema name | file format name
 //
 // ```sh
 //

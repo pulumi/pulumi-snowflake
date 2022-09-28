@@ -33,7 +33,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// # format is database name | schema name | policy name
+    /// format is database name | schema name | policy name
     /// 
     /// ```sh
     ///  $ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example 'dbName|schemaName|policyName'

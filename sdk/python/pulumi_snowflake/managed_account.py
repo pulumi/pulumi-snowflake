@@ -338,7 +338,7 @@ class ManagedAccount(pulumi.CustomResource):
             __props__.__dict__["admin_name"] = admin_name
             if admin_password is None and not opts.urn:
                 raise TypeError("Missing required property 'admin_password'")
-            __props__.__dict__["admin_password"] = admin_password
+            __props__.__dict__["admin_password"] = None if admin_password is None else pulumi.Output.secret(admin_password)
             __props__.__dict__["comment"] = comment
             __props__.__dict__["name"] = name
             __props__.__dict__["type"] = type
@@ -347,6 +347,8 @@ class ManagedAccount(pulumi.CustomResource):
             __props__.__dict__["locator"] = None
             __props__.__dict__["region"] = None
             __props__.__dict__["url"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["adminPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ManagedAccount, __self__).__init__(
             'snowflake:index/managedAccount:ManagedAccount',
             resource_name,

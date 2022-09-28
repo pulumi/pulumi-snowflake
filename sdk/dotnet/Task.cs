@@ -60,7 +60,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// # format is database name | schema name | task name
+    /// format is database name | schema name | task name
     /// 
     /// ```sh
     ///  $ pulumi import snowflake:index/task:Task example 'dbName|schemaName|taskName'

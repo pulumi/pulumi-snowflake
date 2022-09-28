@@ -14,28 +14,19 @@ public final class GetSystemGetSnowflakePlatformInfoResult {
      * @return Snowflake AWS Virtual Private Cloud IDs
      * 
      */
-    private final List<String> awsVpcIds;
+    private List<String> awsVpcIds;
     /**
      * @return Snowflake Azure Virtual Network Subnet IDs
      * 
      */
-    private final List<String> azureVnetSubnetIds;
+    private List<String> azureVnetSubnetIds;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetSystemGetSnowflakePlatformInfoResult(
-        @CustomType.Parameter("awsVpcIds") List<String> awsVpcIds,
-        @CustomType.Parameter("azureVnetSubnetIds") List<String> azureVnetSubnetIds,
-        @CustomType.Parameter("id") String id) {
-        this.awsVpcIds = awsVpcIds;
-        this.azureVnetSubnetIds = azureVnetSubnetIds;
-        this.id = id;
-    }
-
+    private GetSystemGetSnowflakePlatformInfoResult() {}
     /**
      * @return Snowflake AWS Virtual Private Cloud IDs
      * 
@@ -65,16 +56,12 @@ public final class GetSystemGetSnowflakePlatformInfoResult {
     public static Builder builder(GetSystemGetSnowflakePlatformInfoResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> awsVpcIds;
         private List<String> azureVnetSubnetIds;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSystemGetSnowflakePlatformInfoResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.awsVpcIds = defaults.awsVpcIds;
@@ -82,6 +69,7 @@ public final class GetSystemGetSnowflakePlatformInfoResult {
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder awsVpcIds(List<String> awsVpcIds) {
             this.awsVpcIds = Objects.requireNonNull(awsVpcIds);
             return this;
@@ -89,6 +77,7 @@ public final class GetSystemGetSnowflakePlatformInfoResult {
         public Builder awsVpcIds(String... awsVpcIds) {
             return awsVpcIds(List.of(awsVpcIds));
         }
+        @CustomType.Setter
         public Builder azureVnetSubnetIds(List<String> azureVnetSubnetIds) {
             this.azureVnetSubnetIds = Objects.requireNonNull(azureVnetSubnetIds);
             return this;
@@ -96,11 +85,17 @@ public final class GetSystemGetSnowflakePlatformInfoResult {
         public Builder azureVnetSubnetIds(String... azureVnetSubnetIds) {
             return azureVnetSubnetIds(List.of(azureVnetSubnetIds));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetSystemGetSnowflakePlatformInfoResult build() {
-            return new GetSystemGetSnowflakePlatformInfoResult(awsVpcIds, azureVnetSubnetIds, id);
+        }
+        public GetSystemGetSnowflakePlatformInfoResult build() {
+            final var o = new GetSystemGetSnowflakePlatformInfoResult();
+            o.awsVpcIds = awsVpcIds;
+            o.azureVnetSubnetIds = azureVnetSubnetIds;
+            o.id = id;
+            return o;
         }
     }
 }

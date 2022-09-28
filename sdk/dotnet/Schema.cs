@@ -33,7 +33,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// # format is dbName | schemaName
+    /// format is dbName | schemaName
     /// 
     /// ```sh
     ///  $ pulumi import snowflake:index/schema:Schema example 'dbName|schemaName'

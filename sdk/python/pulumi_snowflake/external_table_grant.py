@@ -359,7 +359,7 @@ class ExternalTableGrant(pulumi.CustomResource):
 
         ## Import
 
-        # format is database name | schema name | external table name | privilege | true/false for with_grant_option
+        format is database name | schema name | external table name | privilege | true/false for with_grant_option
 
         ```sh
          $ pulumi import snowflake:index/externalTableGrant:ExternalTableGrant example 'dbName|schemaName|externalTableName|SELECT|false'
@@ -410,7 +410,7 @@ class ExternalTableGrant(pulumi.CustomResource):
 
         ## Import
 
-        # format is database name | schema name | external table name | privilege | true/false for with_grant_option
+        format is database name | schema name | external table name | privilege | true/false for with_grant_option
 
         ```sh
          $ pulumi import snowflake:index/externalTableGrant:ExternalTableGrant example 'dbName|schemaName|externalTableName|SELECT|false'

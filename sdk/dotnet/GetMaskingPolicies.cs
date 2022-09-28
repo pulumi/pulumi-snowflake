@@ -35,7 +35,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetMaskingPoliciesResult> InvokeAsync(GetMaskingPoliciesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMaskingPoliciesResult>("snowflake:index/getMaskingPolicies:getMaskingPolicies", args ?? new GetMaskingPoliciesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMaskingPoliciesResult>("snowflake:index/getMaskingPolicies:getMaskingPolicies", args ?? new GetMaskingPoliciesArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -61,7 +61,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetMaskingPoliciesResult> Invoke(GetMaskingPoliciesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMaskingPoliciesResult>("snowflake:index/getMaskingPolicies:getMaskingPolicies", args ?? new GetMaskingPoliciesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMaskingPoliciesResult>("snowflake:index/getMaskingPolicies:getMaskingPolicies", args ?? new GetMaskingPoliciesInvokeArgs(), options.WithDefaults());
     }
 
 

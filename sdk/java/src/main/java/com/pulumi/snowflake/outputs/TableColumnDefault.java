@@ -11,20 +11,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TableColumnDefault {
-    private final @Nullable String constant;
-    private final @Nullable String expression;
-    private final @Nullable String sequence;
+    private @Nullable String constant;
+    private @Nullable String expression;
+    private @Nullable String sequence;
 
-    @CustomType.Constructor
-    private TableColumnDefault(
-        @CustomType.Parameter("constant") @Nullable String constant,
-        @CustomType.Parameter("expression") @Nullable String expression,
-        @CustomType.Parameter("sequence") @Nullable String sequence) {
-        this.constant = constant;
-        this.expression = expression;
-        this.sequence = sequence;
-    }
-
+    private TableColumnDefault() {}
     public Optional<String> constant() {
         return Optional.ofNullable(this.constant);
     }
@@ -42,16 +33,12 @@ public final class TableColumnDefault {
     public static Builder builder(TableColumnDefault defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String constant;
         private @Nullable String expression;
         private @Nullable String sequence;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TableColumnDefault defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.constant = defaults.constant;
@@ -59,19 +46,27 @@ public final class TableColumnDefault {
     	      this.sequence = defaults.sequence;
         }
 
+        @CustomType.Setter
         public Builder constant(@Nullable String constant) {
             this.constant = constant;
             return this;
         }
+        @CustomType.Setter
         public Builder expression(@Nullable String expression) {
             this.expression = expression;
             return this;
         }
+        @CustomType.Setter
         public Builder sequence(@Nullable String sequence) {
             this.sequence = sequence;
             return this;
-        }        public TableColumnDefault build() {
-            return new TableColumnDefault(constant, expression, sequence);
+        }
+        public TableColumnDefault build() {
+            final var o = new TableColumnDefault();
+            o.constant = constant;
+            o.expression = expression;
+            o.sequence = sequence;
+            return o;
         }
     }
 }

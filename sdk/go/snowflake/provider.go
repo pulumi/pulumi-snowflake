@@ -79,6 +79,49 @@ func NewProvider(ctx *pulumi.Context,
 	if args.Username == nil {
 		return nil, errors.New("invalid value for required argument 'Username'")
 	}
+	if args.OauthAccessToken != nil {
+		args.OauthAccessToken = pulumi.ToSecret(args.OauthAccessToken).(pulumi.StringPtrOutput)
+	}
+	if args.OauthClientId != nil {
+		args.OauthClientId = pulumi.ToSecret(args.OauthClientId).(pulumi.StringPtrOutput)
+	}
+	if args.OauthClientSecret != nil {
+		args.OauthClientSecret = pulumi.ToSecret(args.OauthClientSecret).(pulumi.StringPtrOutput)
+	}
+	if args.OauthEndpoint != nil {
+		args.OauthEndpoint = pulumi.ToSecret(args.OauthEndpoint).(pulumi.StringPtrOutput)
+	}
+	if args.OauthRedirectUrl != nil {
+		args.OauthRedirectUrl = pulumi.ToSecret(args.OauthRedirectUrl).(pulumi.StringPtrOutput)
+	}
+	if args.OauthRefreshToken != nil {
+		args.OauthRefreshToken = pulumi.ToSecret(args.OauthRefreshToken).(pulumi.StringPtrOutput)
+	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrOutput)
+	}
+	if args.PrivateKey != nil {
+		args.PrivateKey = pulumi.ToSecret(args.PrivateKey).(pulumi.StringPtrOutput)
+	}
+	if args.PrivateKeyPassphrase != nil {
+		args.PrivateKeyPassphrase = pulumi.ToSecret(args.PrivateKeyPassphrase).(pulumi.StringPtrOutput)
+	}
+	if args.PrivateKeyPath != nil {
+		args.PrivateKeyPath = pulumi.ToSecret(args.PrivateKeyPath).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"oauthAccessToken",
+		"oauthClientId",
+		"oauthClientSecret",
+		"oauthEndpoint",
+		"oauthRedirectUrl",
+		"oauthRefreshToken",
+		"password",
+		"privateKey",
+		"privateKeyPassphrase",
+		"privateKeyPath",
+	})
+	opts = append(opts, secrets)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:snowflake", name, args, &resource, opts...)
 	if err != nil {

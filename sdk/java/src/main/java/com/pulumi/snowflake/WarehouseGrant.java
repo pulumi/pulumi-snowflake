@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # format is warehouse name | | | privilege | true/false for with_grant_option
+ * format is warehouse name | | | privilege | true/false for with_grant_option
  * 
  * ```sh
  *  $ pulumi import snowflake:index/warehouseGrant:WarehouseGrant example &#39;warehouseName|||MODIFY|true&#39;

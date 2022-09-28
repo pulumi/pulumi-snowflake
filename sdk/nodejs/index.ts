@@ -5,94 +5,439 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
-export * from "./accountGrant";
-export * from "./apiIntegration";
-export * from "./database";
-export * from "./databaseGrant";
-export * from "./externalFunction";
-export * from "./externalOauthIntegration";
-export * from "./externalTable";
-export * from "./externalTableGrant";
-export * from "./fileFormat";
-export * from "./fileFormatGrant";
-export * from "./function";
-export * from "./functionGrant";
-export * from "./getCurrentAccount";
-export * from "./getDatabase";
-export * from "./getDatabases";
-export * from "./getExternalFunctions";
-export * from "./getExternalTables";
-export * from "./getFileFormats";
-export * from "./getFunctions";
-export * from "./getMaskingPolicies";
-export * from "./getMaterializedViews";
-export * from "./getPipes";
-export * from "./getProcedures";
-export * from "./getResourceMonitors";
-export * from "./getRole";
-export * from "./getRowAccessPolicies";
-export * from "./getSchemas";
-export * from "./getSequences";
-export * from "./getStages";
-export * from "./getStorageIntegrations";
-export * from "./getStreams";
-export * from "./getSystemGenerateScimAccessToken";
-export * from "./getSystemGetAwsSnsIamPolicy";
-export * from "./getSystemGetPrivateLinkConfig";
-export * from "./getSystemGetSnowflakePlatformInfo";
-export * from "./getTables";
-export * from "./getTasks";
-export * from "./getUsers";
-export * from "./getViews";
-export * from "./getWarehouses";
-export * from "./integrationGrant";
-export * from "./managedAccount";
-export * from "./maskingPolicy";
-export * from "./maskingPolicyGrant";
-export * from "./materializedView";
-export * from "./materializedViewGrant";
-export * from "./networkPolicy";
-export * from "./networkPolicyAttachment";
-export * from "./notificationIntegration";
-export * from "./oauthIntegration";
-export * from "./pipe";
-export * from "./pipeGrant";
-export * from "./procedure";
-export * from "./procedureGrant";
-export * from "./provider";
-export * from "./resourceMonitor";
-export * from "./resourceMonitorGrant";
-export * from "./role";
-export * from "./roleGrants";
-export * from "./roleOwnershipGrant";
-export * from "./rowAccessPolicy";
-export * from "./rowAccessPolicyGrant";
-export * from "./samlIntegration";
-export * from "./schema";
-export * from "./schemaGrant";
-export * from "./scimIntegration";
-export * from "./sequence";
-export * from "./sequenceGrant";
-export * from "./share";
-export * from "./stage";
-export * from "./stageGrant";
-export * from "./storageIntegration";
-export * from "./stream";
-export * from "./streamGrant";
-export * from "./table";
-export * from "./tableGrant";
-export * from "./tag";
-export * from "./tagAssociation";
-export * from "./tagGrant";
-export * from "./task";
-export * from "./taskGrant";
-export * from "./user";
-export * from "./userOwnershipGrant";
-export * from "./userPublicKeys";
-export * from "./view";
-export * from "./viewGrant";
-export * from "./warehouse";
-export * from "./warehouseGrant";
+export { AccountGrantArgs, AccountGrantState } from "./accountGrant";
+export type AccountGrant = import("./accountGrant").AccountGrant;
+export const AccountGrant: typeof import("./accountGrant").AccountGrant = null as any;
+
+export { ApiIntegrationArgs, ApiIntegrationState } from "./apiIntegration";
+export type ApiIntegration = import("./apiIntegration").ApiIntegration;
+export const ApiIntegration: typeof import("./apiIntegration").ApiIntegration = null as any;
+
+export { DatabaseArgs, DatabaseState } from "./database";
+export type Database = import("./database").Database;
+export const Database: typeof import("./database").Database = null as any;
+
+export { DatabaseGrantArgs, DatabaseGrantState } from "./databaseGrant";
+export type DatabaseGrant = import("./databaseGrant").DatabaseGrant;
+export const DatabaseGrant: typeof import("./databaseGrant").DatabaseGrant = null as any;
+
+export { ExternalFunctionArgs, ExternalFunctionState } from "./externalFunction";
+export type ExternalFunction = import("./externalFunction").ExternalFunction;
+export const ExternalFunction: typeof import("./externalFunction").ExternalFunction = null as any;
+
+export { ExternalOauthIntegrationArgs, ExternalOauthIntegrationState } from "./externalOauthIntegration";
+export type ExternalOauthIntegration = import("./externalOauthIntegration").ExternalOauthIntegration;
+export const ExternalOauthIntegration: typeof import("./externalOauthIntegration").ExternalOauthIntegration = null as any;
+
+export { ExternalTableArgs, ExternalTableState } from "./externalTable";
+export type ExternalTable = import("./externalTable").ExternalTable;
+export const ExternalTable: typeof import("./externalTable").ExternalTable = null as any;
+
+export { ExternalTableGrantArgs, ExternalTableGrantState } from "./externalTableGrant";
+export type ExternalTableGrant = import("./externalTableGrant").ExternalTableGrant;
+export const ExternalTableGrant: typeof import("./externalTableGrant").ExternalTableGrant = null as any;
+
+export { FileFormatArgs, FileFormatState } from "./fileFormat";
+export type FileFormat = import("./fileFormat").FileFormat;
+export const FileFormat: typeof import("./fileFormat").FileFormat = null as any;
+
+export { FileFormatGrantArgs, FileFormatGrantState } from "./fileFormatGrant";
+export type FileFormatGrant = import("./fileFormatGrant").FileFormatGrant;
+export const FileFormatGrant: typeof import("./fileFormatGrant").FileFormatGrant = null as any;
+
+export { FunctionArgs, FunctionState } from "./function";
+export type Function = import("./function").Function;
+export const Function: typeof import("./function").Function = null as any;
+
+export { FunctionGrantArgs, FunctionGrantState } from "./functionGrant";
+export type FunctionGrant = import("./functionGrant").FunctionGrant;
+export const FunctionGrant: typeof import("./functionGrant").FunctionGrant = null as any;
+
+export { GetCurrentAccountResult } from "./getCurrentAccount";
+export const getCurrentAccount: typeof import("./getCurrentAccount").getCurrentAccount = null as any;
+
+export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
+export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
+export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
+
+export { GetDatabasesResult } from "./getDatabases";
+export const getDatabases: typeof import("./getDatabases").getDatabases = null as any;
+
+export { GetExternalFunctionsArgs, GetExternalFunctionsResult, GetExternalFunctionsOutputArgs } from "./getExternalFunctions";
+export const getExternalFunctions: typeof import("./getExternalFunctions").getExternalFunctions = null as any;
+export const getExternalFunctionsOutput: typeof import("./getExternalFunctions").getExternalFunctionsOutput = null as any;
+
+export { GetExternalTablesArgs, GetExternalTablesResult, GetExternalTablesOutputArgs } from "./getExternalTables";
+export const getExternalTables: typeof import("./getExternalTables").getExternalTables = null as any;
+export const getExternalTablesOutput: typeof import("./getExternalTables").getExternalTablesOutput = null as any;
+
+export { GetFileFormatsArgs, GetFileFormatsResult, GetFileFormatsOutputArgs } from "./getFileFormats";
+export const getFileFormats: typeof import("./getFileFormats").getFileFormats = null as any;
+export const getFileFormatsOutput: typeof import("./getFileFormats").getFileFormatsOutput = null as any;
+
+export { GetFunctionsArgs, GetFunctionsResult, GetFunctionsOutputArgs } from "./getFunctions";
+export const getFunctions: typeof import("./getFunctions").getFunctions = null as any;
+export const getFunctionsOutput: typeof import("./getFunctions").getFunctionsOutput = null as any;
+
+export { GetMaskingPoliciesArgs, GetMaskingPoliciesResult, GetMaskingPoliciesOutputArgs } from "./getMaskingPolicies";
+export const getMaskingPolicies: typeof import("./getMaskingPolicies").getMaskingPolicies = null as any;
+export const getMaskingPoliciesOutput: typeof import("./getMaskingPolicies").getMaskingPoliciesOutput = null as any;
+
+export { GetMaterializedViewsArgs, GetMaterializedViewsResult, GetMaterializedViewsOutputArgs } from "./getMaterializedViews";
+export const getMaterializedViews: typeof import("./getMaterializedViews").getMaterializedViews = null as any;
+export const getMaterializedViewsOutput: typeof import("./getMaterializedViews").getMaterializedViewsOutput = null as any;
+
+export { GetPipesArgs, GetPipesResult, GetPipesOutputArgs } from "./getPipes";
+export const getPipes: typeof import("./getPipes").getPipes = null as any;
+export const getPipesOutput: typeof import("./getPipes").getPipesOutput = null as any;
+
+export { GetProceduresArgs, GetProceduresResult, GetProceduresOutputArgs } from "./getProcedures";
+export const getProcedures: typeof import("./getProcedures").getProcedures = null as any;
+export const getProceduresOutput: typeof import("./getProcedures").getProceduresOutput = null as any;
+
+export { GetResourceMonitorsResult } from "./getResourceMonitors";
+export const getResourceMonitors: typeof import("./getResourceMonitors").getResourceMonitors = null as any;
+
+export { GetRoleArgs, GetRoleResult, GetRoleOutputArgs } from "./getRole";
+export const getRole: typeof import("./getRole").getRole = null as any;
+export const getRoleOutput: typeof import("./getRole").getRoleOutput = null as any;
+
+export { GetRowAccessPoliciesArgs, GetRowAccessPoliciesResult, GetRowAccessPoliciesOutputArgs } from "./getRowAccessPolicies";
+export const getRowAccessPolicies: typeof import("./getRowAccessPolicies").getRowAccessPolicies = null as any;
+export const getRowAccessPoliciesOutput: typeof import("./getRowAccessPolicies").getRowAccessPoliciesOutput = null as any;
+
+export { GetSchemasArgs, GetSchemasResult, GetSchemasOutputArgs } from "./getSchemas";
+export const getSchemas: typeof import("./getSchemas").getSchemas = null as any;
+export const getSchemasOutput: typeof import("./getSchemas").getSchemasOutput = null as any;
+
+export { GetSequencesArgs, GetSequencesResult, GetSequencesOutputArgs } from "./getSequences";
+export const getSequences: typeof import("./getSequences").getSequences = null as any;
+export const getSequencesOutput: typeof import("./getSequences").getSequencesOutput = null as any;
+
+export { GetStagesArgs, GetStagesResult, GetStagesOutputArgs } from "./getStages";
+export const getStages: typeof import("./getStages").getStages = null as any;
+export const getStagesOutput: typeof import("./getStages").getStagesOutput = null as any;
+
+export { GetStorageIntegrationsResult } from "./getStorageIntegrations";
+export const getStorageIntegrations: typeof import("./getStorageIntegrations").getStorageIntegrations = null as any;
+
+export { GetStreamsArgs, GetStreamsResult, GetStreamsOutputArgs } from "./getStreams";
+export const getStreams: typeof import("./getStreams").getStreams = null as any;
+export const getStreamsOutput: typeof import("./getStreams").getStreamsOutput = null as any;
+
+export { GetSystemGenerateScimAccessTokenArgs, GetSystemGenerateScimAccessTokenResult, GetSystemGenerateScimAccessTokenOutputArgs } from "./getSystemGenerateScimAccessToken";
+export const getSystemGenerateScimAccessToken: typeof import("./getSystemGenerateScimAccessToken").getSystemGenerateScimAccessToken = null as any;
+export const getSystemGenerateScimAccessTokenOutput: typeof import("./getSystemGenerateScimAccessToken").getSystemGenerateScimAccessTokenOutput = null as any;
+
+export { GetSystemGetAwsSnsIamPolicyArgs, GetSystemGetAwsSnsIamPolicyResult, GetSystemGetAwsSnsIamPolicyOutputArgs } from "./getSystemGetAwsSnsIamPolicy";
+export const getSystemGetAwsSnsIamPolicy: typeof import("./getSystemGetAwsSnsIamPolicy").getSystemGetAwsSnsIamPolicy = null as any;
+export const getSystemGetAwsSnsIamPolicyOutput: typeof import("./getSystemGetAwsSnsIamPolicy").getSystemGetAwsSnsIamPolicyOutput = null as any;
+
+export { GetSystemGetPrivateLinkConfigResult } from "./getSystemGetPrivateLinkConfig";
+export const getSystemGetPrivateLinkConfig: typeof import("./getSystemGetPrivateLinkConfig").getSystemGetPrivateLinkConfig = null as any;
+
+export { GetSystemGetSnowflakePlatformInfoResult } from "./getSystemGetSnowflakePlatformInfo";
+export const getSystemGetSnowflakePlatformInfo: typeof import("./getSystemGetSnowflakePlatformInfo").getSystemGetSnowflakePlatformInfo = null as any;
+
+export { GetTablesArgs, GetTablesResult, GetTablesOutputArgs } from "./getTables";
+export const getTables: typeof import("./getTables").getTables = null as any;
+export const getTablesOutput: typeof import("./getTables").getTablesOutput = null as any;
+
+export { GetTasksArgs, GetTasksResult, GetTasksOutputArgs } from "./getTasks";
+export const getTasks: typeof import("./getTasks").getTasks = null as any;
+export const getTasksOutput: typeof import("./getTasks").getTasksOutput = null as any;
+
+export { GetUsersArgs, GetUsersResult, GetUsersOutputArgs } from "./getUsers";
+export const getUsers: typeof import("./getUsers").getUsers = null as any;
+export const getUsersOutput: typeof import("./getUsers").getUsersOutput = null as any;
+
+export { GetViewsArgs, GetViewsResult, GetViewsOutputArgs } from "./getViews";
+export const getViews: typeof import("./getViews").getViews = null as any;
+export const getViewsOutput: typeof import("./getViews").getViewsOutput = null as any;
+
+export { GetWarehousesResult } from "./getWarehouses";
+export const getWarehouses: typeof import("./getWarehouses").getWarehouses = null as any;
+
+export { IntegrationGrantArgs, IntegrationGrantState } from "./integrationGrant";
+export type IntegrationGrant = import("./integrationGrant").IntegrationGrant;
+export const IntegrationGrant: typeof import("./integrationGrant").IntegrationGrant = null as any;
+
+export { ManagedAccountArgs, ManagedAccountState } from "./managedAccount";
+export type ManagedAccount = import("./managedAccount").ManagedAccount;
+export const ManagedAccount: typeof import("./managedAccount").ManagedAccount = null as any;
+
+export { MaskingPolicyArgs, MaskingPolicyState } from "./maskingPolicy";
+export type MaskingPolicy = import("./maskingPolicy").MaskingPolicy;
+export const MaskingPolicy: typeof import("./maskingPolicy").MaskingPolicy = null as any;
+
+export { MaskingPolicyGrantArgs, MaskingPolicyGrantState } from "./maskingPolicyGrant";
+export type MaskingPolicyGrant = import("./maskingPolicyGrant").MaskingPolicyGrant;
+export const MaskingPolicyGrant: typeof import("./maskingPolicyGrant").MaskingPolicyGrant = null as any;
+
+export { MaterializedViewArgs, MaterializedViewState } from "./materializedView";
+export type MaterializedView = import("./materializedView").MaterializedView;
+export const MaterializedView: typeof import("./materializedView").MaterializedView = null as any;
+
+export { MaterializedViewGrantArgs, MaterializedViewGrantState } from "./materializedViewGrant";
+export type MaterializedViewGrant = import("./materializedViewGrant").MaterializedViewGrant;
+export const MaterializedViewGrant: typeof import("./materializedViewGrant").MaterializedViewGrant = null as any;
+
+export { NetworkPolicyArgs, NetworkPolicyState } from "./networkPolicy";
+export type NetworkPolicy = import("./networkPolicy").NetworkPolicy;
+export const NetworkPolicy: typeof import("./networkPolicy").NetworkPolicy = null as any;
+
+export { NetworkPolicyAttachmentArgs, NetworkPolicyAttachmentState } from "./networkPolicyAttachment";
+export type NetworkPolicyAttachment = import("./networkPolicyAttachment").NetworkPolicyAttachment;
+export const NetworkPolicyAttachment: typeof import("./networkPolicyAttachment").NetworkPolicyAttachment = null as any;
+
+export { NotificationIntegrationArgs, NotificationIntegrationState } from "./notificationIntegration";
+export type NotificationIntegration = import("./notificationIntegration").NotificationIntegration;
+export const NotificationIntegration: typeof import("./notificationIntegration").NotificationIntegration = null as any;
+
+export { OauthIntegrationArgs, OauthIntegrationState } from "./oauthIntegration";
+export type OauthIntegration = import("./oauthIntegration").OauthIntegration;
+export const OauthIntegration: typeof import("./oauthIntegration").OauthIntegration = null as any;
+
+export { PipeArgs, PipeState } from "./pipe";
+export type Pipe = import("./pipe").Pipe;
+export const Pipe: typeof import("./pipe").Pipe = null as any;
+
+export { PipeGrantArgs, PipeGrantState } from "./pipeGrant";
+export type PipeGrant = import("./pipeGrant").PipeGrant;
+export const PipeGrant: typeof import("./pipeGrant").PipeGrant = null as any;
+
+export { ProcedureArgs, ProcedureState } from "./procedure";
+export type Procedure = import("./procedure").Procedure;
+export const Procedure: typeof import("./procedure").Procedure = null as any;
+
+export { ProcedureGrantArgs, ProcedureGrantState } from "./procedureGrant";
+export type ProcedureGrant = import("./procedureGrant").ProcedureGrant;
+export const ProcedureGrant: typeof import("./procedureGrant").ProcedureGrant = null as any;
+
+export { ProviderArgs } from "./provider";
+export type Provider = import("./provider").Provider;
+export const Provider: typeof import("./provider").Provider = null as any;
+
+export { ResourceMonitorArgs, ResourceMonitorState } from "./resourceMonitor";
+export type ResourceMonitor = import("./resourceMonitor").ResourceMonitor;
+export const ResourceMonitor: typeof import("./resourceMonitor").ResourceMonitor = null as any;
+
+export { ResourceMonitorGrantArgs, ResourceMonitorGrantState } from "./resourceMonitorGrant";
+export type ResourceMonitorGrant = import("./resourceMonitorGrant").ResourceMonitorGrant;
+export const ResourceMonitorGrant: typeof import("./resourceMonitorGrant").ResourceMonitorGrant = null as any;
+
+export { RoleArgs, RoleState } from "./role";
+export type Role = import("./role").Role;
+export const Role: typeof import("./role").Role = null as any;
+
+export { RoleGrantsArgs, RoleGrantsState } from "./roleGrants";
+export type RoleGrants = import("./roleGrants").RoleGrants;
+export const RoleGrants: typeof import("./roleGrants").RoleGrants = null as any;
+
+export { RoleOwnershipGrantArgs, RoleOwnershipGrantState } from "./roleOwnershipGrant";
+export type RoleOwnershipGrant = import("./roleOwnershipGrant").RoleOwnershipGrant;
+export const RoleOwnershipGrant: typeof import("./roleOwnershipGrant").RoleOwnershipGrant = null as any;
+
+export { RowAccessPolicyArgs, RowAccessPolicyState } from "./rowAccessPolicy";
+export type RowAccessPolicy = import("./rowAccessPolicy").RowAccessPolicy;
+export const RowAccessPolicy: typeof import("./rowAccessPolicy").RowAccessPolicy = null as any;
+
+export { RowAccessPolicyGrantArgs, RowAccessPolicyGrantState } from "./rowAccessPolicyGrant";
+export type RowAccessPolicyGrant = import("./rowAccessPolicyGrant").RowAccessPolicyGrant;
+export const RowAccessPolicyGrant: typeof import("./rowAccessPolicyGrant").RowAccessPolicyGrant = null as any;
+
+export { SamlIntegrationArgs, SamlIntegrationState } from "./samlIntegration";
+export type SamlIntegration = import("./samlIntegration").SamlIntegration;
+export const SamlIntegration: typeof import("./samlIntegration").SamlIntegration = null as any;
+
+export { SchemaArgs, SchemaState } from "./schema";
+export type Schema = import("./schema").Schema;
+export const Schema: typeof import("./schema").Schema = null as any;
+
+export { SchemaGrantArgs, SchemaGrantState } from "./schemaGrant";
+export type SchemaGrant = import("./schemaGrant").SchemaGrant;
+export const SchemaGrant: typeof import("./schemaGrant").SchemaGrant = null as any;
+
+export { ScimIntegrationArgs, ScimIntegrationState } from "./scimIntegration";
+export type ScimIntegration = import("./scimIntegration").ScimIntegration;
+export const ScimIntegration: typeof import("./scimIntegration").ScimIntegration = null as any;
+
+export { SequenceArgs, SequenceState } from "./sequence";
+export type Sequence = import("./sequence").Sequence;
+export const Sequence: typeof import("./sequence").Sequence = null as any;
+
+export { SequenceGrantArgs, SequenceGrantState } from "./sequenceGrant";
+export type SequenceGrant = import("./sequenceGrant").SequenceGrant;
+export const SequenceGrant: typeof import("./sequenceGrant").SequenceGrant = null as any;
+
+export { ShareArgs, ShareState } from "./share";
+export type Share = import("./share").Share;
+export const Share: typeof import("./share").Share = null as any;
+
+export { StageArgs, StageState } from "./stage";
+export type Stage = import("./stage").Stage;
+export const Stage: typeof import("./stage").Stage = null as any;
+
+export { StageGrantArgs, StageGrantState } from "./stageGrant";
+export type StageGrant = import("./stageGrant").StageGrant;
+export const StageGrant: typeof import("./stageGrant").StageGrant = null as any;
+
+export { StorageIntegrationArgs, StorageIntegrationState } from "./storageIntegration";
+export type StorageIntegration = import("./storageIntegration").StorageIntegration;
+export const StorageIntegration: typeof import("./storageIntegration").StorageIntegration = null as any;
+
+export { StreamArgs, StreamState } from "./stream";
+export type Stream = import("./stream").Stream;
+export const Stream: typeof import("./stream").Stream = null as any;
+
+export { StreamGrantArgs, StreamGrantState } from "./streamGrant";
+export type StreamGrant = import("./streamGrant").StreamGrant;
+export const StreamGrant: typeof import("./streamGrant").StreamGrant = null as any;
+
+export { TableArgs, TableState } from "./table";
+export type Table = import("./table").Table;
+export const Table: typeof import("./table").Table = null as any;
+
+export { TableGrantArgs, TableGrantState } from "./tableGrant";
+export type TableGrant = import("./tableGrant").TableGrant;
+export const TableGrant: typeof import("./tableGrant").TableGrant = null as any;
+
+export { TagArgs, TagState } from "./tag";
+export type Tag = import("./tag").Tag;
+export const Tag: typeof import("./tag").Tag = null as any;
+
+export { TagAssociationArgs, TagAssociationState } from "./tagAssociation";
+export type TagAssociation = import("./tagAssociation").TagAssociation;
+export const TagAssociation: typeof import("./tagAssociation").TagAssociation = null as any;
+
+export { TagGrantArgs, TagGrantState } from "./tagGrant";
+export type TagGrant = import("./tagGrant").TagGrant;
+export const TagGrant: typeof import("./tagGrant").TagGrant = null as any;
+
+export { TaskArgs, TaskState } from "./task";
+export type Task = import("./task").Task;
+export const Task: typeof import("./task").Task = null as any;
+
+export { TaskGrantArgs, TaskGrantState } from "./taskGrant";
+export type TaskGrant = import("./taskGrant").TaskGrant;
+export const TaskGrant: typeof import("./taskGrant").TaskGrant = null as any;
+
+export { UserArgs, UserState } from "./user";
+export type User = import("./user").User;
+export const User: typeof import("./user").User = null as any;
+
+export { UserOwnershipGrantArgs, UserOwnershipGrantState } from "./userOwnershipGrant";
+export type UserOwnershipGrant = import("./userOwnershipGrant").UserOwnershipGrant;
+export const UserOwnershipGrant: typeof import("./userOwnershipGrant").UserOwnershipGrant = null as any;
+
+export { UserPublicKeysArgs, UserPublicKeysState } from "./userPublicKeys";
+export type UserPublicKeys = import("./userPublicKeys").UserPublicKeys;
+export const UserPublicKeys: typeof import("./userPublicKeys").UserPublicKeys = null as any;
+
+export { ViewArgs, ViewState } from "./view";
+export type View = import("./view").View;
+export const View: typeof import("./view").View = null as any;
+
+export { ViewGrantArgs, ViewGrantState } from "./viewGrant";
+export type ViewGrant = import("./viewGrant").ViewGrant;
+export const ViewGrant: typeof import("./viewGrant").ViewGrant = null as any;
+
+export { WarehouseArgs, WarehouseState } from "./warehouse";
+export type Warehouse = import("./warehouse").Warehouse;
+export const Warehouse: typeof import("./warehouse").Warehouse = null as any;
+
+export { WarehouseGrantArgs, WarehouseGrantState } from "./warehouseGrant";
+export type WarehouseGrant = import("./warehouseGrant").WarehouseGrant;
+export const WarehouseGrant: typeof import("./warehouseGrant").WarehouseGrant = null as any;
+
+utilities.lazyLoad(exports, ["AccountGrant"], () => require("./accountGrant"));
+utilities.lazyLoad(exports, ["ApiIntegration"], () => require("./apiIntegration"));
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+utilities.lazyLoad(exports, ["DatabaseGrant"], () => require("./databaseGrant"));
+utilities.lazyLoad(exports, ["ExternalFunction"], () => require("./externalFunction"));
+utilities.lazyLoad(exports, ["ExternalOauthIntegration"], () => require("./externalOauthIntegration"));
+utilities.lazyLoad(exports, ["ExternalTable"], () => require("./externalTable"));
+utilities.lazyLoad(exports, ["ExternalTableGrant"], () => require("./externalTableGrant"));
+utilities.lazyLoad(exports, ["FileFormat"], () => require("./fileFormat"));
+utilities.lazyLoad(exports, ["FileFormatGrant"], () => require("./fileFormatGrant"));
+utilities.lazyLoad(exports, ["Function"], () => require("./function"));
+utilities.lazyLoad(exports, ["FunctionGrant"], () => require("./functionGrant"));
+utilities.lazyLoad(exports, ["getCurrentAccount"], () => require("./getCurrentAccount"));
+utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
+utilities.lazyLoad(exports, ["getDatabases"], () => require("./getDatabases"));
+utilities.lazyLoad(exports, ["getExternalFunctions","getExternalFunctionsOutput"], () => require("./getExternalFunctions"));
+utilities.lazyLoad(exports, ["getExternalTables","getExternalTablesOutput"], () => require("./getExternalTables"));
+utilities.lazyLoad(exports, ["getFileFormats","getFileFormatsOutput"], () => require("./getFileFormats"));
+utilities.lazyLoad(exports, ["getFunctions","getFunctionsOutput"], () => require("./getFunctions"));
+utilities.lazyLoad(exports, ["getMaskingPolicies","getMaskingPoliciesOutput"], () => require("./getMaskingPolicies"));
+utilities.lazyLoad(exports, ["getMaterializedViews","getMaterializedViewsOutput"], () => require("./getMaterializedViews"));
+utilities.lazyLoad(exports, ["getPipes","getPipesOutput"], () => require("./getPipes"));
+utilities.lazyLoad(exports, ["getProcedures","getProceduresOutput"], () => require("./getProcedures"));
+utilities.lazyLoad(exports, ["getResourceMonitors"], () => require("./getResourceMonitors"));
+utilities.lazyLoad(exports, ["getRole","getRoleOutput"], () => require("./getRole"));
+utilities.lazyLoad(exports, ["getRowAccessPolicies","getRowAccessPoliciesOutput"], () => require("./getRowAccessPolicies"));
+utilities.lazyLoad(exports, ["getSchemas","getSchemasOutput"], () => require("./getSchemas"));
+utilities.lazyLoad(exports, ["getSequences","getSequencesOutput"], () => require("./getSequences"));
+utilities.lazyLoad(exports, ["getStages","getStagesOutput"], () => require("./getStages"));
+utilities.lazyLoad(exports, ["getStorageIntegrations"], () => require("./getStorageIntegrations"));
+utilities.lazyLoad(exports, ["getStreams","getStreamsOutput"], () => require("./getStreams"));
+utilities.lazyLoad(exports, ["getSystemGenerateScimAccessToken","getSystemGenerateScimAccessTokenOutput"], () => require("./getSystemGenerateScimAccessToken"));
+utilities.lazyLoad(exports, ["getSystemGetAwsSnsIamPolicy","getSystemGetAwsSnsIamPolicyOutput"], () => require("./getSystemGetAwsSnsIamPolicy"));
+utilities.lazyLoad(exports, ["getSystemGetPrivateLinkConfig"], () => require("./getSystemGetPrivateLinkConfig"));
+utilities.lazyLoad(exports, ["getSystemGetSnowflakePlatformInfo"], () => require("./getSystemGetSnowflakePlatformInfo"));
+utilities.lazyLoad(exports, ["getTables","getTablesOutput"], () => require("./getTables"));
+utilities.lazyLoad(exports, ["getTasks","getTasksOutput"], () => require("./getTasks"));
+utilities.lazyLoad(exports, ["getUsers","getUsersOutput"], () => require("./getUsers"));
+utilities.lazyLoad(exports, ["getViews","getViewsOutput"], () => require("./getViews"));
+utilities.lazyLoad(exports, ["getWarehouses"], () => require("./getWarehouses"));
+utilities.lazyLoad(exports, ["IntegrationGrant"], () => require("./integrationGrant"));
+utilities.lazyLoad(exports, ["ManagedAccount"], () => require("./managedAccount"));
+utilities.lazyLoad(exports, ["MaskingPolicy"], () => require("./maskingPolicy"));
+utilities.lazyLoad(exports, ["MaskingPolicyGrant"], () => require("./maskingPolicyGrant"));
+utilities.lazyLoad(exports, ["MaterializedView"], () => require("./materializedView"));
+utilities.lazyLoad(exports, ["MaterializedViewGrant"], () => require("./materializedViewGrant"));
+utilities.lazyLoad(exports, ["NetworkPolicy"], () => require("./networkPolicy"));
+utilities.lazyLoad(exports, ["NetworkPolicyAttachment"], () => require("./networkPolicyAttachment"));
+utilities.lazyLoad(exports, ["NotificationIntegration"], () => require("./notificationIntegration"));
+utilities.lazyLoad(exports, ["OauthIntegration"], () => require("./oauthIntegration"));
+utilities.lazyLoad(exports, ["Pipe"], () => require("./pipe"));
+utilities.lazyLoad(exports, ["PipeGrant"], () => require("./pipeGrant"));
+utilities.lazyLoad(exports, ["Procedure"], () => require("./procedure"));
+utilities.lazyLoad(exports, ["ProcedureGrant"], () => require("./procedureGrant"));
+utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+utilities.lazyLoad(exports, ["ResourceMonitor"], () => require("./resourceMonitor"));
+utilities.lazyLoad(exports, ["ResourceMonitorGrant"], () => require("./resourceMonitorGrant"));
+utilities.lazyLoad(exports, ["Role"], () => require("./role"));
+utilities.lazyLoad(exports, ["RoleGrants"], () => require("./roleGrants"));
+utilities.lazyLoad(exports, ["RoleOwnershipGrant"], () => require("./roleOwnershipGrant"));
+utilities.lazyLoad(exports, ["RowAccessPolicy"], () => require("./rowAccessPolicy"));
+utilities.lazyLoad(exports, ["RowAccessPolicyGrant"], () => require("./rowAccessPolicyGrant"));
+utilities.lazyLoad(exports, ["SamlIntegration"], () => require("./samlIntegration"));
+utilities.lazyLoad(exports, ["Schema"], () => require("./schema"));
+utilities.lazyLoad(exports, ["SchemaGrant"], () => require("./schemaGrant"));
+utilities.lazyLoad(exports, ["ScimIntegration"], () => require("./scimIntegration"));
+utilities.lazyLoad(exports, ["Sequence"], () => require("./sequence"));
+utilities.lazyLoad(exports, ["SequenceGrant"], () => require("./sequenceGrant"));
+utilities.lazyLoad(exports, ["Share"], () => require("./share"));
+utilities.lazyLoad(exports, ["Stage"], () => require("./stage"));
+utilities.lazyLoad(exports, ["StageGrant"], () => require("./stageGrant"));
+utilities.lazyLoad(exports, ["StorageIntegration"], () => require("./storageIntegration"));
+utilities.lazyLoad(exports, ["Stream"], () => require("./stream"));
+utilities.lazyLoad(exports, ["StreamGrant"], () => require("./streamGrant"));
+utilities.lazyLoad(exports, ["Table"], () => require("./table"));
+utilities.lazyLoad(exports, ["TableGrant"], () => require("./tableGrant"));
+utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
+utilities.lazyLoad(exports, ["TagAssociation"], () => require("./tagAssociation"));
+utilities.lazyLoad(exports, ["TagGrant"], () => require("./tagGrant"));
+utilities.lazyLoad(exports, ["Task"], () => require("./task"));
+utilities.lazyLoad(exports, ["TaskGrant"], () => require("./taskGrant"));
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
+utilities.lazyLoad(exports, ["UserOwnershipGrant"], () => require("./userOwnershipGrant"));
+utilities.lazyLoad(exports, ["UserPublicKeys"], () => require("./userPublicKeys"));
+utilities.lazyLoad(exports, ["View"], () => require("./view"));
+utilities.lazyLoad(exports, ["ViewGrant"], () => require("./viewGrant"));
+utilities.lazyLoad(exports, ["Warehouse"], () => require("./warehouse"));
+utilities.lazyLoad(exports, ["WarehouseGrant"], () => require("./warehouseGrant"));
 
 // Export sub-modules:
 import * as config from "./config";
@@ -102,67 +447,6 @@ export {
     config,
     types,
 };
-
-// Import resources to register:
-import { AccountGrant } from "./accountGrant";
-import { ApiIntegration } from "./apiIntegration";
-import { Database } from "./database";
-import { DatabaseGrant } from "./databaseGrant";
-import { ExternalFunction } from "./externalFunction";
-import { ExternalOauthIntegration } from "./externalOauthIntegration";
-import { ExternalTable } from "./externalTable";
-import { ExternalTableGrant } from "./externalTableGrant";
-import { FileFormat } from "./fileFormat";
-import { FileFormatGrant } from "./fileFormatGrant";
-import { Function } from "./function";
-import { FunctionGrant } from "./functionGrant";
-import { IntegrationGrant } from "./integrationGrant";
-import { ManagedAccount } from "./managedAccount";
-import { MaskingPolicy } from "./maskingPolicy";
-import { MaskingPolicyGrant } from "./maskingPolicyGrant";
-import { MaterializedView } from "./materializedView";
-import { MaterializedViewGrant } from "./materializedViewGrant";
-import { NetworkPolicy } from "./networkPolicy";
-import { NetworkPolicyAttachment } from "./networkPolicyAttachment";
-import { NotificationIntegration } from "./notificationIntegration";
-import { OauthIntegration } from "./oauthIntegration";
-import { Pipe } from "./pipe";
-import { PipeGrant } from "./pipeGrant";
-import { Procedure } from "./procedure";
-import { ProcedureGrant } from "./procedureGrant";
-import { ResourceMonitor } from "./resourceMonitor";
-import { ResourceMonitorGrant } from "./resourceMonitorGrant";
-import { Role } from "./role";
-import { RoleGrants } from "./roleGrants";
-import { RoleOwnershipGrant } from "./roleOwnershipGrant";
-import { RowAccessPolicy } from "./rowAccessPolicy";
-import { RowAccessPolicyGrant } from "./rowAccessPolicyGrant";
-import { SamlIntegration } from "./samlIntegration";
-import { Schema } from "./schema";
-import { SchemaGrant } from "./schemaGrant";
-import { ScimIntegration } from "./scimIntegration";
-import { Sequence } from "./sequence";
-import { SequenceGrant } from "./sequenceGrant";
-import { Share } from "./share";
-import { Stage } from "./stage";
-import { StageGrant } from "./stageGrant";
-import { StorageIntegration } from "./storageIntegration";
-import { Stream } from "./stream";
-import { StreamGrant } from "./streamGrant";
-import { Table } from "./table";
-import { TableGrant } from "./tableGrant";
-import { Tag } from "./tag";
-import { TagAssociation } from "./tagAssociation";
-import { TagGrant } from "./tagGrant";
-import { Task } from "./task";
-import { TaskGrant } from "./taskGrant";
-import { User } from "./user";
-import { UserOwnershipGrant } from "./userOwnershipGrant";
-import { UserPublicKeys } from "./userPublicKeys";
-import { View } from "./view";
-import { ViewGrant } from "./viewGrant";
-import { Warehouse } from "./warehouse";
-import { WarehouseGrant } from "./warehouseGrant";
 
 const _module = {
     version: utilities.getVersion(),
@@ -350,9 +634,6 @@ pulumi.runtime.registerResourceModule("snowflake", "index/view", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/viewGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/warehouse", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/warehouseGrant", _module)
-
-import { Provider } from "./provider";
-
 pulumi.runtime.registerResourcePackage("snowflake", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

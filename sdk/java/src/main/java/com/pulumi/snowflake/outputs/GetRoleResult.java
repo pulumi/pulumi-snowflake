@@ -13,28 +13,19 @@ public final class GetRoleResult {
      * @return The comment on the role
      * 
      */
-    private final String comment;
+    private String comment;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The role for which to return metadata.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private GetRoleResult(
-        @CustomType.Parameter("comment") String comment,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name) {
-        this.comment = comment;
-        this.id = id;
-        this.name = name;
-    }
-
+    private GetRoleResult() {}
     /**
      * @return The comment on the role
      * 
@@ -64,16 +55,12 @@ public final class GetRoleResult {
     public static Builder builder(GetRoleResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String comment;
         private String id;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRoleResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
@@ -81,19 +68,27 @@ public final class GetRoleResult {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder comment(String comment) {
             this.comment = Objects.requireNonNull(comment);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetRoleResult build() {
-            return new GetRoleResult(comment, id, name);
+        }
+        public GetRoleResult build() {
+            final var o = new GetRoleResult();
+            o.comment = comment;
+            o.id = id;
+            o.name = name;
+            return o;
         }
     }
 }

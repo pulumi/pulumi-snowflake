@@ -539,7 +539,7 @@ class ExternalTable(pulumi.CustomResource):
 
         ## Import
 
-        # format is database name | schema name | external table name
+        format is database name | schema name | external table name
 
         ```sh
          $ pulumi import snowflake:index/externalTable:ExternalTable example 'dbName|schemaName|externalTableName'
@@ -593,7 +593,7 @@ class ExternalTable(pulumi.CustomResource):
 
         ## Import
 
-        # format is database name | schema name | external table name
+        format is database name | schema name | external table name
 
         ```sh
          $ pulumi import snowflake:index/externalTable:ExternalTable example 'dbName|schemaName|externalTableName'

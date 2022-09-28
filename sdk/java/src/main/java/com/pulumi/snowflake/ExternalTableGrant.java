@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # format is database name | schema name | external table name | privilege | true/false for with_grant_option
+ * format is database name | schema name | external table name | privilege | true/false for with_grant_option
  * 
  * ```sh
  *  $ pulumi import snowflake:index/externalTableGrant:ExternalTableGrant example &#39;dbName|schemaName|externalTableName|SELECT|false&#39;

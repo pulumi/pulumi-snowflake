@@ -13,28 +13,19 @@ public final class GetSystemGenerateScimAccessTokenResult {
      * @return SCIM Access Token
      * 
      */
-    private final String accessToken;
+    private String accessToken;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return SCIM Integration Name
      * 
      */
-    private final String integrationName;
+    private String integrationName;
 
-    @CustomType.Constructor
-    private GetSystemGenerateScimAccessTokenResult(
-        @CustomType.Parameter("accessToken") String accessToken,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("integrationName") String integrationName) {
-        this.accessToken = accessToken;
-        this.id = id;
-        this.integrationName = integrationName;
-    }
-
+    private GetSystemGenerateScimAccessTokenResult() {}
     /**
      * @return SCIM Access Token
      * 
@@ -64,16 +55,12 @@ public final class GetSystemGenerateScimAccessTokenResult {
     public static Builder builder(GetSystemGenerateScimAccessTokenResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accessToken;
         private String id;
         private String integrationName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSystemGenerateScimAccessTokenResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessToken = defaults.accessToken;
@@ -81,19 +68,27 @@ public final class GetSystemGenerateScimAccessTokenResult {
     	      this.integrationName = defaults.integrationName;
         }
 
+        @CustomType.Setter
         public Builder accessToken(String accessToken) {
             this.accessToken = Objects.requireNonNull(accessToken);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder integrationName(String integrationName) {
             this.integrationName = Objects.requireNonNull(integrationName);
             return this;
-        }        public GetSystemGenerateScimAccessTokenResult build() {
-            return new GetSystemGenerateScimAccessTokenResult(accessToken, id, integrationName);
+        }
+        public GetSystemGenerateScimAccessTokenResult build() {
+            final var o = new GetSystemGenerateScimAccessTokenResult();
+            o.accessToken = accessToken;
+            o.id = id;
+            o.integrationName = integrationName;
+            return o;
         }
     }
 }

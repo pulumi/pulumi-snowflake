@@ -28,7 +28,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * # format is database name | | | privilege | true/false for with_grant_option
+ * format is database name | | | privilege | true/false for with_grant_option
  *
  * ```sh
  *  $ pulumi import snowflake:index/databaseGrant:DatabaseGrant example 'databaseName|||USAGE|false'

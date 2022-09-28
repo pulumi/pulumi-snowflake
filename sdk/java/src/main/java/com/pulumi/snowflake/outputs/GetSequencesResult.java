@@ -15,35 +15,24 @@ public final class GetSequencesResult {
      * @return The database from which to return the schemas from.
      * 
      */
-    private final String database;
+    private String database;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The schema from which to return the sequences from.
      * 
      */
-    private final String schema;
+    private String schema;
     /**
      * @return The sequences in the schema
      * 
      */
-    private final List<GetSequencesSequence> sequences;
+    private List<GetSequencesSequence> sequences;
 
-    @CustomType.Constructor
-    private GetSequencesResult(
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("schema") String schema,
-        @CustomType.Parameter("sequences") List<GetSequencesSequence> sequences) {
-        this.database = database;
-        this.id = id;
-        this.schema = schema;
-        this.sequences = sequences;
-    }
-
+    private GetSequencesResult() {}
     /**
      * @return The database from which to return the schemas from.
      * 
@@ -80,17 +69,13 @@ public final class GetSequencesResult {
     public static Builder builder(GetSequencesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String database;
         private String id;
         private String schema;
         private List<GetSequencesSequence> sequences;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSequencesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.database = defaults.database;
@@ -99,26 +84,36 @@ public final class GetSequencesResult {
     	      this.sequences = defaults.sequences;
         }
 
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder schema(String schema) {
             this.schema = Objects.requireNonNull(schema);
             return this;
         }
+        @CustomType.Setter
         public Builder sequences(List<GetSequencesSequence> sequences) {
             this.sequences = Objects.requireNonNull(sequences);
             return this;
         }
         public Builder sequences(GetSequencesSequence... sequences) {
             return sequences(List.of(sequences));
-        }        public GetSequencesResult build() {
-            return new GetSequencesResult(database, id, schema, sequences);
+        }
+        public GetSequencesResult build() {
+            final var o = new GetSequencesResult();
+            o.database = database;
+            o.id = id;
+            o.schema = schema;
+            o.sequences = sequences;
+            return o;
         }
     }
 }

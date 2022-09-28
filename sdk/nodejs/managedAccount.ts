@@ -129,7 +129,7 @@ export class ManagedAccount extends pulumi.CustomResource {
                 throw new Error("Missing required property 'adminPassword'");
             }
             resourceInputs["adminName"] = args ? args.adminName : undefined;
-            resourceInputs["adminPassword"] = args ? args.adminPassword : undefined;
+            resourceInputs["adminPassword"] = args?.adminPassword ? pulumi.secret(args.adminPassword) : undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -140,6 +140,8 @@ export class ManagedAccount extends pulumi.CustomResource {
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["adminPassword"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ManagedAccount.__pulumiType, name, resourceInputs, opts);
     }
 }

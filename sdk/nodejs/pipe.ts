@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * # format is database name | schema name | pipe name
+ * format is database name | schema name | pipe name
  *
  * ```sh
  *  $ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'

@@ -30,7 +30,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * # format is database name | schema name | | privilege | true/false for with_grant_option
+ * format is database name | schema name | | privilege | true/false for with_grant_option
  *
  * ```sh
  *  $ pulumi import snowflake:index/schemaGrant:SchemaGrant example 'databaseName|schemaName||MONITOR|false'

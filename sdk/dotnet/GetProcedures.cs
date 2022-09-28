@@ -35,7 +35,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetProceduresResult> InvokeAsync(GetProceduresArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProceduresResult>("snowflake:index/getProcedures:getProcedures", args ?? new GetProceduresArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProceduresResult>("snowflake:index/getProcedures:getProcedures", args ?? new GetProceduresArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -61,7 +61,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetProceduresResult> Invoke(GetProceduresInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProceduresResult>("snowflake:index/getProcedures:getProcedures", args ?? new GetProceduresInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProceduresResult>("snowflake:index/getProcedures:getProcedures", args ?? new GetProceduresInvokeArgs(), options.WithDefaults());
     }
 
 

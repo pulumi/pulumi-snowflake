@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # format is database name | schema name | file format name
+ * format is database name | schema name | file format name
  * 
  * ```sh
  *  $ pulumi import snowflake:index/fileFormat:FileFormat example &#39;dbName|schemaName|fileFormatName&#39;

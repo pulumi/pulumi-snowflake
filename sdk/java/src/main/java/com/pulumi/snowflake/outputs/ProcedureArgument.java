@@ -13,21 +13,14 @@ public final class ProcedureArgument {
      * @return The argument name
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The argument type
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ProcedureArgument(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") String type) {
-        this.name = name;
-        this.type = type;
-    }
-
+    private ProcedureArgument() {}
     /**
      * @return The argument name
      * 
@@ -50,30 +43,32 @@ public final class ProcedureArgument {
     public static Builder builder(ProcedureArgument defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProcedureArgument defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ProcedureArgument build() {
-            return new ProcedureArgument(name, type);
+        }
+        public ProcedureArgument build() {
+            final var o = new ProcedureArgument();
+            o.name = name;
+            o.type = type;
+            return o;
         }
     }
 }

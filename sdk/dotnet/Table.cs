@@ -98,7 +98,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// # format is database name | schema name | table name
+    /// format is database name | schema name | table name
     /// 
     /// ```sh
     ///  $ pulumi import snowflake:index/table:Table example 'databaseName|schemaName|tableName'

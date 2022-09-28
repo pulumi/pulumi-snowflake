@@ -11,17 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDatabasesDatabaseReplicationConfiguration {
-    private final List<String> accounts;
-    private final Boolean ignoreEditionCheck;
+    private List<String> accounts;
+    private Boolean ignoreEditionCheck;
 
-    @CustomType.Constructor
-    private GetDatabasesDatabaseReplicationConfiguration(
-        @CustomType.Parameter("accounts") List<String> accounts,
-        @CustomType.Parameter("ignoreEditionCheck") Boolean ignoreEditionCheck) {
-        this.accounts = accounts;
-        this.ignoreEditionCheck = ignoreEditionCheck;
-    }
-
+    private GetDatabasesDatabaseReplicationConfiguration() {}
     public List<String> accounts() {
         return this.accounts;
     }
@@ -36,21 +29,18 @@ public final class GetDatabasesDatabaseReplicationConfiguration {
     public static Builder builder(GetDatabasesDatabaseReplicationConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> accounts;
         private Boolean ignoreEditionCheck;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDatabasesDatabaseReplicationConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accounts = defaults.accounts;
     	      this.ignoreEditionCheck = defaults.ignoreEditionCheck;
         }
 
+        @CustomType.Setter
         public Builder accounts(List<String> accounts) {
             this.accounts = Objects.requireNonNull(accounts);
             return this;
@@ -58,11 +48,16 @@ public final class GetDatabasesDatabaseReplicationConfiguration {
         public Builder accounts(String... accounts) {
             return accounts(List.of(accounts));
         }
+        @CustomType.Setter
         public Builder ignoreEditionCheck(Boolean ignoreEditionCheck) {
             this.ignoreEditionCheck = Objects.requireNonNull(ignoreEditionCheck);
             return this;
-        }        public GetDatabasesDatabaseReplicationConfiguration build() {
-            return new GetDatabasesDatabaseReplicationConfiguration(accounts, ignoreEditionCheck);
+        }
+        public GetDatabasesDatabaseReplicationConfiguration build() {
+            final var o = new GetDatabasesDatabaseReplicationConfiguration();
+            o.accounts = accounts;
+            o.ignoreEditionCheck = ignoreEditionCheck;
+            return o;
         }
     }
 }

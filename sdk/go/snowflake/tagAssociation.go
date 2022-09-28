@@ -64,7 +64,7 @@ import (
 //
 // ## Import
 //
-// # format is dbName.schemaName.tagName or dbName.schemaName.tagName
+// format is dbName.schemaName.tagName or dbName.schemaName.tagName
 //
 // ```sh
 //

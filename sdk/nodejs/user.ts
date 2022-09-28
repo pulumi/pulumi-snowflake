@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -179,13 +180,15 @@ export class User extends pulumi.CustomResource {
             resourceInputs["loginName"] = args ? args.loginName : undefined;
             resourceInputs["mustChangePassword"] = args ? args.mustChangePassword : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["rsaPublicKey"] = args ? args.rsaPublicKey : undefined;
             resourceInputs["rsaPublicKey2"] = args ? args.rsaPublicKey2 : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["hasRsaPublicKey"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(User.__pulumiType, name, resourceInputs, opts);
     }
 }

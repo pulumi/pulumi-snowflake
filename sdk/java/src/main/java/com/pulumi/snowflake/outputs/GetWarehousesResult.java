@@ -15,21 +15,14 @@ public final class GetWarehousesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The warehouses in the database
      * 
      */
-    private final List<GetWarehousesWarehouse> warehouses;
+    private List<GetWarehousesWarehouse> warehouses;
 
-    @CustomType.Constructor
-    private GetWarehousesResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("warehouses") List<GetWarehousesWarehouse> warehouses) {
-        this.id = id;
-        this.warehouses = warehouses;
-    }
-
+    private GetWarehousesResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -52,33 +45,35 @@ public final class GetWarehousesResult {
     public static Builder builder(GetWarehousesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private List<GetWarehousesWarehouse> warehouses;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWarehousesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.warehouses = defaults.warehouses;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder warehouses(List<GetWarehousesWarehouse> warehouses) {
             this.warehouses = Objects.requireNonNull(warehouses);
             return this;
         }
         public Builder warehouses(GetWarehousesWarehouse... warehouses) {
             return warehouses(List.of(warehouses));
-        }        public GetWarehousesResult build() {
-            return new GetWarehousesResult(id, warehouses);
+        }
+        public GetWarehousesResult build() {
+            final var o = new GetWarehousesResult();
+            o.id = id;
+            o.warehouses = warehouses;
+            return o;
         }
     }
 }

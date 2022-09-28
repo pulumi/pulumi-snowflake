@@ -18,49 +18,34 @@ public final class TableColumn {
      * @return Column comment
      * 
      */
-    private final @Nullable String comment;
+    private @Nullable String comment;
     /**
      * @return Defines the column default value; note due to limitations of Snowflake&#39;s ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
      * 
      */
-    private final @Nullable TableColumnDefault default_;
+    private @Nullable TableColumnDefault default_;
     /**
      * @return Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
      * 
      */
-    private final @Nullable TableColumnIdentity identity;
+    private @Nullable TableColumnIdentity identity;
     /**
      * @return Column name
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
      * 
      */
-    private final @Nullable Boolean nullable;
+    private @Nullable Boolean nullable;
     /**
      * @return Column type, e.g. VARIANT
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private TableColumn(
-        @CustomType.Parameter("comment") @Nullable String comment,
-        @CustomType.Parameter("default") @Nullable TableColumnDefault default_,
-        @CustomType.Parameter("identity") @Nullable TableColumnIdentity identity,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nullable") @Nullable Boolean nullable,
-        @CustomType.Parameter("type") String type) {
-        this.comment = comment;
-        this.default_ = default_;
-        this.identity = identity;
-        this.name = name;
-        this.nullable = nullable;
-        this.type = type;
-    }
-
+    private TableColumn() {}
     /**
      * @return Column comment
      * 
@@ -111,7 +96,7 @@ public final class TableColumn {
     public static Builder builder(TableColumn defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String comment;
         private @Nullable TableColumnDefault default_;
@@ -119,11 +104,7 @@ public final class TableColumn {
         private String name;
         private @Nullable Boolean nullable;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TableColumn defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
@@ -134,31 +115,45 @@ public final class TableColumn {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder comment(@Nullable String comment) {
             this.comment = comment;
             return this;
         }
+        @CustomType.Setter("default")
         public Builder default_(@Nullable TableColumnDefault default_) {
             this.default_ = default_;
             return this;
         }
+        @CustomType.Setter
         public Builder identity(@Nullable TableColumnIdentity identity) {
             this.identity = identity;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nullable(@Nullable Boolean nullable) {
             this.nullable = nullable;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public TableColumn build() {
-            return new TableColumn(comment, default_, identity, name, nullable, type);
+        }
+        public TableColumn build() {
+            final var o = new TableColumn();
+            o.comment = comment;
+            o.default_ = default_;
+            o.identity = identity;
+            o.name = name;
+            o.nullable = nullable;
+            o.type = type;
+            return o;
         }
     }
 }

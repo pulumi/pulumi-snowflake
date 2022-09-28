@@ -36,7 +36,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// # format is database name | schema name | policy name
+    /// format is database name | schema name | policy name
     /// 
     /// ```sh
     ///  $ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example 'dbName|schemaName|policyName'

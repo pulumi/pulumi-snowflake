@@ -9,24 +9,15 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSchemasSchema {
-    private final String comment;
+    private String comment;
     /**
      * @return The database from which to return the schemas from.
      * 
      */
-    private final String database;
-    private final String name;
+    private String database;
+    private String name;
 
-    @CustomType.Constructor
-    private GetSchemasSchema(
-        @CustomType.Parameter("comment") String comment,
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("name") String name) {
-        this.comment = comment;
-        this.database = database;
-        this.name = name;
-    }
-
+    private GetSchemasSchema() {}
     public String comment() {
         return this.comment;
     }
@@ -48,16 +39,12 @@ public final class GetSchemasSchema {
     public static Builder builder(GetSchemasSchema defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String comment;
         private String database;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSchemasSchema defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
@@ -65,19 +52,27 @@ public final class GetSchemasSchema {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder comment(String comment) {
             this.comment = Objects.requireNonNull(comment);
             return this;
         }
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetSchemasSchema build() {
-            return new GetSchemasSchema(comment, database, name);
+        }
+        public GetSchemasSchema build() {
+            final var o = new GetSchemasSchema();
+            o.comment = comment;
+            o.database = database;
+            o.name = name;
+            return o;
         }
     }
 }

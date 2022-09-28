@@ -9,34 +9,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFileFormatsFileFormat {
-    private final String comment;
+    private String comment;
     /**
      * @return The database from which to return the schemas from.
      * 
      */
-    private final String database;
-    private final String formatType;
-    private final String name;
+    private String database;
+    private String formatType;
+    private String name;
     /**
      * @return The schema from which to return the file formats from.
      * 
      */
-    private final String schema;
+    private String schema;
 
-    @CustomType.Constructor
-    private GetFileFormatsFileFormat(
-        @CustomType.Parameter("comment") String comment,
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("formatType") String formatType,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("schema") String schema) {
-        this.comment = comment;
-        this.database = database;
-        this.formatType = formatType;
-        this.name = name;
-        this.schema = schema;
-    }
-
+    private GetFileFormatsFileFormat() {}
     public String comment() {
         return this.comment;
     }
@@ -68,18 +55,14 @@ public final class GetFileFormatsFileFormat {
     public static Builder builder(GetFileFormatsFileFormat defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String comment;
         private String database;
         private String formatType;
         private String name;
         private String schema;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFileFormatsFileFormat defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
@@ -89,27 +72,39 @@ public final class GetFileFormatsFileFormat {
     	      this.schema = defaults.schema;
         }
 
+        @CustomType.Setter
         public Builder comment(String comment) {
             this.comment = Objects.requireNonNull(comment);
             return this;
         }
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder formatType(String formatType) {
             this.formatType = Objects.requireNonNull(formatType);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder schema(String schema) {
             this.schema = Objects.requireNonNull(schema);
             return this;
-        }        public GetFileFormatsFileFormat build() {
-            return new GetFileFormatsFileFormat(comment, database, formatType, name, schema);
+        }
+        public GetFileFormatsFileFormat build() {
+            final var o = new GetFileFormatsFileFormat();
+            o.comment = comment;
+            o.database = database;
+            o.formatType = formatType;
+            o.name = name;
+            o.schema = schema;
+            return o;
         }
     }
 }

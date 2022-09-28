@@ -58,7 +58,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// # format is database name | schema name | function signature | privilege | true/false for with_grant_option
+    /// format is database name | schema name | function signature | privilege | true/false for with_grant_option
     /// 
     /// ```sh
     ///  $ pulumi import snowflake:index/functionGrant:FunctionGrant example 'dbName|schemaName|functionName(ARG1 ARG1TYPE, ARG2 ARG2TYPE):RETURNTYPE|USAGE|false'

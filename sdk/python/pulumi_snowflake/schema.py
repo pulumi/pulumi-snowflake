@@ -288,7 +288,7 @@ class Schema(pulumi.CustomResource):
 
         ## Import
 
-        # format is dbName | schemaName
+        format is dbName | schemaName
 
         ```sh
          $ pulumi import snowflake:index/schema:Schema example 'dbName|schemaName'
@@ -327,7 +327,7 @@ class Schema(pulumi.CustomResource):
 
         ## Import
 
-        # format is dbName | schemaName
+        format is dbName | schemaName
 
         ```sh
          $ pulumi import snowflake:index/schema:Schema example 'dbName|schemaName'

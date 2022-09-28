@@ -44,7 +44,7 @@ import (
 //
 // ## Import
 //
-// # format is warehouse name | | | privilege | true/false for with_grant_option
+// format is warehouse name | | | privilege | true/false for with_grant_option
 //
 // ```sh
 //

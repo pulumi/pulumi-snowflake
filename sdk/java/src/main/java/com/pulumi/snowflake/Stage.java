@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * # format is database name | schema name | stage name
+ * format is database name | schema name | stage name
  * 
  * ```sh
  *  $ pulumi import snowflake:index/stage:Stage example &#39;dbName|schemaName|stageName&#39;
@@ -288,6 +288,9 @@ public class Stage extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "credentials"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

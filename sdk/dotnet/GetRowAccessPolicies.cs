@@ -35,7 +35,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRowAccessPoliciesResult> InvokeAsync(GetRowAccessPoliciesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRowAccessPoliciesResult>("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", args ?? new GetRowAccessPoliciesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRowAccessPoliciesResult>("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", args ?? new GetRowAccessPoliciesArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -61,7 +61,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetRowAccessPoliciesResult> Invoke(GetRowAccessPoliciesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRowAccessPoliciesResult>("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", args ?? new GetRowAccessPoliciesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRowAccessPoliciesResult>("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", args ?? new GetRowAccessPoliciesInvokeArgs(), options.WithDefaults());
     }
 
 

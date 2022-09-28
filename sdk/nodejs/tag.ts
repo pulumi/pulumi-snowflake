@@ -25,7 +25,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * # format is database name | schema name | tag name
+ * format is database name | schema name | tag name
  *
  * ```sh
  *  $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'

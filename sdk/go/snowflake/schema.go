@@ -43,7 +43,7 @@ import (
 //
 // ## Import
 //
-// # format is dbName | schemaName
+// format is dbName | schemaName
 //
 // ```sh
 //

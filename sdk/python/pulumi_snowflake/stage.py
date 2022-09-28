@@ -507,7 +507,7 @@ class Stage(pulumi.CustomResource):
 
         ## Import
 
-        # format is database name | schema name | stage name
+        format is database name | schema name | stage name
 
         ```sh
          $ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'
@@ -556,7 +556,7 @@ class Stage(pulumi.CustomResource):
 
         ## Import
 
-        # format is database name | schema name | stage name
+        format is database name | schema name | stage name
 
         ```sh
          $ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'
@@ -603,7 +603,7 @@ class Stage(pulumi.CustomResource):
             __props__.__dict__["aws_external_id"] = aws_external_id
             __props__.__dict__["comment"] = comment
             __props__.__dict__["copy_options"] = copy_options
-            __props__.__dict__["credentials"] = credentials
+            __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
@@ -621,6 +621,8 @@ class Stage(pulumi.CustomResource):
                 pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
             __props__.__dict__["tags"] = tags
             __props__.__dict__["url"] = url
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["credentials"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Stage, __self__).__init__(
             'snowflake:index/stage:Stage',
             resource_name,

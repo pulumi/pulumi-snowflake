@@ -321,7 +321,7 @@ class SequenceGrant(pulumi.CustomResource):
 
         ## Import
 
-        # format is database name | schema name | sequence name | privilege | true/false for with_grant_option
+        format is database name | schema name | sequence name | privilege | true/false for with_grant_option
 
         ```sh
          $ pulumi import snowflake:index/sequenceGrant:SequenceGrant example 'dbName|schemaName|sequenceName|USAGE|false'
@@ -367,7 +367,7 @@ class SequenceGrant(pulumi.CustomResource):
 
         ## Import
 
-        # format is database name | schema name | sequence name | privilege | true/false for with_grant_option
+        format is database name | schema name | sequence name | privilege | true/false for with_grant_option
 
         ```sh
          $ pulumi import snowflake:index/sequenceGrant:SequenceGrant example 'dbName|schemaName|sequenceName|USAGE|false'

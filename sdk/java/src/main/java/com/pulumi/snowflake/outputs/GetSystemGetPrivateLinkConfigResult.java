@@ -13,49 +13,34 @@ public final class GetSystemGetPrivateLinkConfigResult {
      * @return The name of your Snowflake account.
      * 
      */
-    private final String accountName;
+    private String accountName;
     /**
      * @return The URL used to connect to Snowflake through AWS PrivateLink or Azure Private Link.
      * 
      */
-    private final String accountUrl;
+    private String accountUrl;
     /**
      * @return The AWS VPCE ID for your account.
      * 
      */
-    private final String awsVpceId;
+    private String awsVpceId;
     /**
      * @return The Azure Private Link Service ID for your account.
      * 
      */
-    private final String azurePlsId;
+    private String azurePlsId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
      * 
      */
-    private final String ocspUrl;
+    private String ocspUrl;
 
-    @CustomType.Constructor
-    private GetSystemGetPrivateLinkConfigResult(
-        @CustomType.Parameter("accountName") String accountName,
-        @CustomType.Parameter("accountUrl") String accountUrl,
-        @CustomType.Parameter("awsVpceId") String awsVpceId,
-        @CustomType.Parameter("azurePlsId") String azurePlsId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ocspUrl") String ocspUrl) {
-        this.accountName = accountName;
-        this.accountUrl = accountUrl;
-        this.awsVpceId = awsVpceId;
-        this.azurePlsId = azurePlsId;
-        this.id = id;
-        this.ocspUrl = ocspUrl;
-    }
-
+    private GetSystemGetPrivateLinkConfigResult() {}
     /**
      * @return The name of your Snowflake account.
      * 
@@ -106,7 +91,7 @@ public final class GetSystemGetPrivateLinkConfigResult {
     public static Builder builder(GetSystemGetPrivateLinkConfigResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accountName;
         private String accountUrl;
@@ -114,11 +99,7 @@ public final class GetSystemGetPrivateLinkConfigResult {
         private String azurePlsId;
         private String id;
         private String ocspUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSystemGetPrivateLinkConfigResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountName = defaults.accountName;
@@ -129,31 +110,45 @@ public final class GetSystemGetPrivateLinkConfigResult {
     	      this.ocspUrl = defaults.ocspUrl;
         }
 
+        @CustomType.Setter
         public Builder accountName(String accountName) {
             this.accountName = Objects.requireNonNull(accountName);
             return this;
         }
+        @CustomType.Setter
         public Builder accountUrl(String accountUrl) {
             this.accountUrl = Objects.requireNonNull(accountUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder awsVpceId(String awsVpceId) {
             this.awsVpceId = Objects.requireNonNull(awsVpceId);
             return this;
         }
+        @CustomType.Setter
         public Builder azurePlsId(String azurePlsId) {
             this.azurePlsId = Objects.requireNonNull(azurePlsId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ocspUrl(String ocspUrl) {
             this.ocspUrl = Objects.requireNonNull(ocspUrl);
             return this;
-        }        public GetSystemGetPrivateLinkConfigResult build() {
-            return new GetSystemGetPrivateLinkConfigResult(accountName, accountUrl, awsVpceId, azurePlsId, id, ocspUrl);
+        }
+        public GetSystemGetPrivateLinkConfigResult build() {
+            final var o = new GetSystemGetPrivateLinkConfigResult();
+            o.accountName = accountName;
+            o.accountUrl = accountUrl;
+            o.awsVpceId = awsVpceId;
+            o.azurePlsId = azurePlsId;
+            o.id = id;
+            o.ocspUrl = ocspUrl;
+            return o;
         }
     }
 }

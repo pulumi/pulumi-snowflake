@@ -15,35 +15,24 @@ public final class GetMaterializedViewsResult {
      * @return The database from which to return the schemas from.
      * 
      */
-    private final String database;
+    private String database;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The views in the schema
      * 
      */
-    private final List<GetMaterializedViewsMaterializedView> materializedViews;
+    private List<GetMaterializedViewsMaterializedView> materializedViews;
     /**
      * @return The schema from which to return the views from.
      * 
      */
-    private final String schema;
+    private String schema;
 
-    @CustomType.Constructor
-    private GetMaterializedViewsResult(
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("materializedViews") List<GetMaterializedViewsMaterializedView> materializedViews,
-        @CustomType.Parameter("schema") String schema) {
-        this.database = database;
-        this.id = id;
-        this.materializedViews = materializedViews;
-        this.schema = schema;
-    }
-
+    private GetMaterializedViewsResult() {}
     /**
      * @return The database from which to return the schemas from.
      * 
@@ -80,17 +69,13 @@ public final class GetMaterializedViewsResult {
     public static Builder builder(GetMaterializedViewsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String database;
         private String id;
         private List<GetMaterializedViewsMaterializedView> materializedViews;
         private String schema;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetMaterializedViewsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.database = defaults.database;
@@ -99,14 +84,17 @@ public final class GetMaterializedViewsResult {
     	      this.schema = defaults.schema;
         }
 
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder materializedViews(List<GetMaterializedViewsMaterializedView> materializedViews) {
             this.materializedViews = Objects.requireNonNull(materializedViews);
             return this;
@@ -114,11 +102,18 @@ public final class GetMaterializedViewsResult {
         public Builder materializedViews(GetMaterializedViewsMaterializedView... materializedViews) {
             return materializedViews(List.of(materializedViews));
         }
+        @CustomType.Setter
         public Builder schema(String schema) {
             this.schema = Objects.requireNonNull(schema);
             return this;
-        }        public GetMaterializedViewsResult build() {
-            return new GetMaterializedViewsResult(database, id, materializedViews, schema);
+        }
+        public GetMaterializedViewsResult build() {
+            final var o = new GetMaterializedViewsResult();
+            o.database = database;
+            o.id = id;
+            o.materializedViews = materializedViews;
+            o.schema = schema;
+            return o;
         }
     }
 }

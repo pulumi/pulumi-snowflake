@@ -15,35 +15,24 @@ public final class GetStreamsResult {
      * @return The database from which to return the streams from.
      * 
      */
-    private final String database;
+    private String database;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The schema from which to return the streams from.
      * 
      */
-    private final String schema;
+    private String schema;
     /**
      * @return The streams in the schema
      * 
      */
-    private final List<GetStreamsStream> streams;
+    private List<GetStreamsStream> streams;
 
-    @CustomType.Constructor
-    private GetStreamsResult(
-        @CustomType.Parameter("database") String database,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("schema") String schema,
-        @CustomType.Parameter("streams") List<GetStreamsStream> streams) {
-        this.database = database;
-        this.id = id;
-        this.schema = schema;
-        this.streams = streams;
-    }
-
+    private GetStreamsResult() {}
     /**
      * @return The database from which to return the streams from.
      * 
@@ -80,17 +69,13 @@ public final class GetStreamsResult {
     public static Builder builder(GetStreamsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String database;
         private String id;
         private String schema;
         private List<GetStreamsStream> streams;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetStreamsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.database = defaults.database;
@@ -99,26 +84,36 @@ public final class GetStreamsResult {
     	      this.streams = defaults.streams;
         }
 
+        @CustomType.Setter
         public Builder database(String database) {
             this.database = Objects.requireNonNull(database);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder schema(String schema) {
             this.schema = Objects.requireNonNull(schema);
             return this;
         }
+        @CustomType.Setter
         public Builder streams(List<GetStreamsStream> streams) {
             this.streams = Objects.requireNonNull(streams);
             return this;
         }
         public Builder streams(GetStreamsStream... streams) {
             return streams(List.of(streams));
-        }        public GetStreamsResult build() {
-            return new GetStreamsResult(database, id, schema, streams);
+        }
+        public GetStreamsResult build() {
+            final var o = new GetStreamsResult();
+            o.database = database;
+            o.id = id;
+            o.schema = schema;
+            o.streams = streams;
+            return o;
         }
     }
 }

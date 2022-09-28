@@ -31,7 +31,7 @@ namespace Pulumi.Snowflake
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDatabasesResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabasesResult>("snowflake:index/getDatabases:getDatabases", InvokeArgs.Empty, options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabasesResult>("snowflake:index/getDatabases:getDatabases", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

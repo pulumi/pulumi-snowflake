@@ -2,13 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
  * ## Import
  *
- * # format is database name | schema name | stored procedure name | <list of arg types, separated with '-'>
+ * format is database name | schema name | stored procedure name | <list of arg types, separated with '-'>
  *
  * ```sh
  *  $ pulumi import snowflake:index/procedure:Procedure example 'dbName|schemaName|procedureName|varchar-varchar-varchar'

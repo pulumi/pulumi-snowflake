@@ -44,7 +44,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// # format is database name | schema name | stage name
+    /// format is database name | schema name | stage name
     /// 
     /// ```sh
     ///  $ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'
@@ -154,6 +154,10 @@ namespace Pulumi.Snowflake
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "credentials",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -192,11 +196,21 @@ namespace Pulumi.Snowflake
         [Input("copyOptions")]
         public Input<string>? CopyOptions { get; set; }
 
+        [Input("credentials")]
+        private Input<string>? _credentials;
+
         /// <summary>
         /// Specifies the credentials for the stage.
         /// </summary>
-        [Input("credentials")]
-        public Input<string>? Credentials { get; set; }
+        public Input<string>? Credentials
+        {
+            get => _credentials;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _credentials = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The database in which to create the stage.
@@ -285,11 +299,21 @@ namespace Pulumi.Snowflake
         [Input("copyOptions")]
         public Input<string>? CopyOptions { get; set; }
 
+        [Input("credentials")]
+        private Input<string>? _credentials;
+
         /// <summary>
         /// Specifies the credentials for the stage.
         /// </summary>
-        [Input("credentials")]
-        public Input<string>? Credentials { get; set; }
+        public Input<string>? Credentials
+        {
+            get => _credentials;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _credentials = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The database in which to create the stage.
