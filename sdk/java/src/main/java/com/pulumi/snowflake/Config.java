@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 
@@ -88,6 +89,14 @@ public final class Config {
         return Codegen.stringProp("password").config(config).get();
     }
 /**
+ * Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`
+ * environment variable.
+ * 
+ */
+    public Optional<Integer> port() {
+        return Codegen.integerProp("port").config(config).get();
+    }
+/**
  * Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
  * `SNOWFLAKE_PRIVATE_KEY` environment variable.
  * 
@@ -110,6 +119,13 @@ public final class Config {
  */
     public Optional<String> privateKeyPath() {
         return Codegen.stringProp("privateKeyPath").config(config).get();
+    }
+/**
+ * Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
+ * 
+ */
+    public Optional<String> protocol() {
+        return Codegen.stringProp("protocol").config(config).get();
     }
 /**
  * [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
@@ -135,7 +151,7 @@ public final class Config {
         return Codegen.stringProp("username").config(config).require();
     }
 /**
- * Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+ * Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
  * 
  */
     public Optional<String> warehouse() {

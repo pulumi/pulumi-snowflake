@@ -97,6 +97,10 @@
                 "description": "Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from\n`SNOWFLAKE_PASSWORD` environment variable.\n",
                 "secret": true
             },
+            "port": {
+                "type": "integer",
+                "description": "Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`\nenvironment variable.\n"
+            },
             "privateKey": {
                 "type": "string",
                 "description": "Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from\n`SNOWFLAKE_PRIVATE_KEY` environment variable.\n",
@@ -112,6 +116,10 @@
                 "description": "Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or\n`password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.\n",
                 "secret": true
             },
+            "protocol": {
+                "type": "string",
+                "description": "Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.\n"
+            },
             "region": {
                 "type": "string",
                 "description": "[Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the\n`SNOWFLAKE_REGION` environment variable.\n"
@@ -126,7 +134,7 @@
             },
             "warehouse": {
                 "type": "string",
-                "description": "Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.\n"
+                "description": "Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.\n"
             }
         },
         "defaults": [
@@ -2337,6 +2345,10 @@
                 "description": "Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from\n`SNOWFLAKE_PASSWORD` environment variable.\n",
                 "secret": true
             },
+            "port": {
+                "type": "integer",
+                "description": "Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`\nenvironment variable.\n"
+            },
             "privateKey": {
                 "type": "string",
                 "description": "Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from\n`SNOWFLAKE_PRIVATE_KEY` environment variable.\n",
@@ -2352,6 +2364,10 @@
                 "description": "Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or\n`password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.\n",
                 "secret": true
             },
+            "protocol": {
+                "type": "string",
+                "description": "Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.\n"
+            },
             "region": {
                 "type": "string",
                 "description": "[Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the\n`SNOWFLAKE_REGION` environment variable.\n"
@@ -2366,7 +2382,7 @@
             },
             "warehouse": {
                 "type": "string",
-                "description": "Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.\n"
+                "description": "Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.\n"
             }
         },
         "required": [
@@ -2422,6 +2438,10 @@
                 "description": "Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from\n`SNOWFLAKE_PASSWORD` environment variable.\n",
                 "secret": true
             },
+            "port": {
+                "type": "integer",
+                "description": "Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`\nenvironment variable.\n"
+            },
             "privateKey": {
                 "type": "string",
                 "description": "Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from\n`SNOWFLAKE_PRIVATE_KEY` environment variable.\n",
@@ -2437,6 +2457,10 @@
                 "description": "Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or\n`password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.\n",
                 "secret": true
             },
+            "protocol": {
+                "type": "string",
+                "description": "Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.\n"
+            },
             "region": {
                 "type": "string",
                 "description": "[Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the\n`SNOWFLAKE_REGION` environment variable.\n"
@@ -2451,7 +2475,7 @@
             },
             "warehouse": {
                 "type": "string",
-                "description": "Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.\n"
+                "description": "Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.\n"
             }
         },
         "requiredInputs": [
@@ -3515,7 +3539,7 @@
             }
         },
         "snowflake:index/externalTable:ExternalTable": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst externalTable = new snowflake.ExternalTable(\"external_table\", {\n    columns: [\n        {\n            name: \"id\",\n            type: \"int\",\n        },\n        {\n            name: \"data\",\n            type: \"text\",\n        },\n    ],\n    comment: \"External table\",\n    database: \"db\",\n    schema: \"schema\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nexternal_table = snowflake.ExternalTable(\"externalTable\",\n    columns=[\n        snowflake.ExternalTableColumnArgs(\n            name=\"id\",\n            type=\"int\",\n        ),\n        snowflake.ExternalTableColumnArgs(\n            name=\"data\",\n            type=\"text\",\n        ),\n    ],\n    comment=\"External table\",\n    database=\"db\",\n    schema=\"schema\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var externalTable = new Snowflake.ExternalTable(\"externalTable\", new()\n    {\n        Columns = new[]\n        {\n            new Snowflake.Inputs.ExternalTableColumnArgs\n            {\n                Name = \"id\",\n                Type = \"int\",\n            },\n            new Snowflake.Inputs.ExternalTableColumnArgs\n            {\n                Name = \"data\",\n                Type = \"text\",\n            },\n        },\n        Comment = \"External table\",\n        Database = \"db\",\n        Schema = \"schema\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewExternalTable(ctx, \"externalTable\", \u0026snowflake.ExternalTableArgs{\n\t\t\tColumns: ExternalTableColumnArray{\n\t\t\t\t\u0026ExternalTableColumnArgs{\n\t\t\t\t\tName: pulumi.String(\"id\"),\n\t\t\t\t\tType: pulumi.String(\"int\"),\n\t\t\t\t},\n\t\t\t\t\u0026ExternalTableColumnArgs{\n\t\t\t\t\tName: pulumi.String(\"data\"),\n\t\t\t\t\tType: pulumi.String(\"text\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tComment:  pulumi.String(\"External table\"),\n\t\t\tDatabase: pulumi.String(\"db\"),\n\t\t\tSchema:   pulumi.String(\"schema\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.ExternalTable;\nimport com.pulumi.snowflake.ExternalTableArgs;\nimport com.pulumi.snowflake.inputs.ExternalTableColumnArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var externalTable = new ExternalTable(\"externalTable\", ExternalTableArgs.builder()        \n            .columns(            \n                ExternalTableColumnArgs.builder()\n                    .name(\"id\")\n                    .type(\"int\")\n                    .build(),\n                ExternalTableColumnArgs.builder()\n                    .name(\"data\")\n                    .type(\"text\")\n                    .build())\n            .comment(\"External table\")\n            .database(\"db\")\n            .schema(\"schema\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  externalTable:\n    type: snowflake:ExternalTable\n    properties:\n      columns:\n        - name: id\n          type: int\n        - name: data\n          type: text\n      comment: External table\n      database: db\n      schema: schema\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nformat is database name | schema name | external table name\n\n```sh\n $ pulumi import snowflake:index/externalTable:ExternalTable example 'dbName|schemaName|externalTableName'\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst externalTable = new snowflake.ExternalTable(\"external_table\", {\n    columns: [\n        {\n            name: \"id\",\n            type: \"int\",\n        },\n        {\n            name: \"data\",\n            type: \"text\",\n        },\n    ],\n    comment: \"External table\",\n    database: \"db\",\n    fileFormat: \"TYPE = CSV FIELD_DELIMITER = '|'\",\n    schema: \"schema\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nexternal_table = snowflake.ExternalTable(\"externalTable\",\n    columns=[\n        snowflake.ExternalTableColumnArgs(\n            name=\"id\",\n            type=\"int\",\n        ),\n        snowflake.ExternalTableColumnArgs(\n            name=\"data\",\n            type=\"text\",\n        ),\n    ],\n    comment=\"External table\",\n    database=\"db\",\n    file_format=\"TYPE = CSV FIELD_DELIMITER = '|'\",\n    schema=\"schema\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var externalTable = new Snowflake.ExternalTable(\"externalTable\", new()\n    {\n        Columns = new[]\n        {\n            new Snowflake.Inputs.ExternalTableColumnArgs\n            {\n                Name = \"id\",\n                Type = \"int\",\n            },\n            new Snowflake.Inputs.ExternalTableColumnArgs\n            {\n                Name = \"data\",\n                Type = \"text\",\n            },\n        },\n        Comment = \"External table\",\n        Database = \"db\",\n        FileFormat = \"TYPE = CSV FIELD_DELIMITER = '|'\",\n        Schema = \"schema\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewExternalTable(ctx, \"externalTable\", \u0026snowflake.ExternalTableArgs{\n\t\t\tColumns: ExternalTableColumnArray{\n\t\t\t\t\u0026ExternalTableColumnArgs{\n\t\t\t\t\tName: pulumi.String(\"id\"),\n\t\t\t\t\tType: pulumi.String(\"int\"),\n\t\t\t\t},\n\t\t\t\t\u0026ExternalTableColumnArgs{\n\t\t\t\t\tName: pulumi.String(\"data\"),\n\t\t\t\t\tType: pulumi.String(\"text\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tComment:    pulumi.String(\"External table\"),\n\t\t\tDatabase:   pulumi.String(\"db\"),\n\t\t\tFileFormat: pulumi.String(\"TYPE = CSV FIELD_DELIMITER = '|'\"),\n\t\t\tSchema:     pulumi.String(\"schema\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.ExternalTable;\nimport com.pulumi.snowflake.ExternalTableArgs;\nimport com.pulumi.snowflake.inputs.ExternalTableColumnArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var externalTable = new ExternalTable(\"externalTable\", ExternalTableArgs.builder()        \n            .columns(            \n                ExternalTableColumnArgs.builder()\n                    .name(\"id\")\n                    .type(\"int\")\n                    .build(),\n                ExternalTableColumnArgs.builder()\n                    .name(\"data\")\n                    .type(\"text\")\n                    .build())\n            .comment(\"External table\")\n            .database(\"db\")\n            .fileFormat(\"TYPE = CSV FIELD_DELIMITER = '|'\")\n            .schema(\"schema\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  externalTable:\n    type: snowflake:ExternalTable\n    properties:\n      columns:\n        - name: id\n          type: int\n        - name: data\n          type: text\n      comment: External table\n      database: db\n      fileFormat: TYPE = CSV FIELD_DELIMITER = '|'\n      schema: schema\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nformat is database name | schema name | external table name\n\n```sh\n $ pulumi import snowflake:index/externalTable:ExternalTable example 'dbName|schemaName|externalTableName'\n```\n\n ",
             "properties": {
                 "autoRefresh": {
                     "type": "boolean",
@@ -10155,6 +10179,55 @@
                 "type": "object"
             }
         },
+        "snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation": {
+            "description": "\n\n## Import\n\nformat is tag database name | tag schema name | tag name | masking policy database | masking policy schema | masking policy name\n\n```sh\n $ pulumi import snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation example 'tag_db|tag_schema|tag_name|mp_db|mp_schema|mp_name'\n```\n\n ",
+            "properties": {
+                "maskingPolicyId": {
+                    "type": "string",
+                    "description": "The the resource id of the masking policy\n"
+                },
+                "tagId": {
+                    "type": "string",
+                    "description": "Specifies the identifier for the tag. Note: format must follow: \"databaseName\".\"schemaName\".\"tagName\" or \"databaseName.schemaName.tagName\" or \"databaseName|schemaName.tagName\" (snowflake_tag.tag.id)\n"
+                }
+            },
+            "required": [
+                "maskingPolicyId",
+                "tagId"
+            ],
+            "inputProperties": {
+                "maskingPolicyId": {
+                    "type": "string",
+                    "description": "The the resource id of the masking policy\n",
+                    "willReplaceOnChanges": true
+                },
+                "tagId": {
+                    "type": "string",
+                    "description": "Specifies the identifier for the tag. Note: format must follow: \"databaseName\".\"schemaName\".\"tagName\" or \"databaseName.schemaName.tagName\" or \"databaseName|schemaName.tagName\" (snowflake_tag.tag.id)\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "maskingPolicyId",
+                "tagId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering TagMaskingPolicyAssociation resources.\n",
+                "properties": {
+                    "maskingPolicyId": {
+                        "type": "string",
+                        "description": "The the resource id of the masking policy\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tagId": {
+                        "type": "string",
+                        "description": "Specifies the identifier for the tag. Note: format must follow: \"databaseName\".\"schemaName\".\"tagName\" or \"databaseName.schemaName.tagName\" or \"databaseName|schemaName.tagName\" (snowflake_tag.tag.id)\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "snowflake:index/task:Task": {
             "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst task = new snowflake.Task(\"task\", {\n    comment: \"my task\",\n    database: \"db\",\n    schema: \"schema\",\n    warehouse: \"warehouse\",\n    schedule: \"10 MINUTE\",\n    sqlStatement: \"select * from foo;\",\n    sessionParameters: {\n        foo: \"bar\",\n    },\n    userTaskTimeoutMs: 10000,\n    after: \"preceding_task\",\n    when: \"foo AND bar\",\n    enabled: true,\n});\nconst serverlessTask = new snowflake.Task(\"serverlessTask\", {\n    comment: \"my serverless task\",\n    database: \"db\",\n    schema: \"schema\",\n    schedule: \"10 MINUTE\",\n    sqlStatement: \"select * from foo;\",\n    sessionParameters: {\n        foo: \"bar\",\n    },\n    userTaskTimeoutMs: 10000,\n    userTaskManagedInitialWarehouseSize: \"XSMALL\",\n    after: \"preceding_task\",\n    when: \"foo AND bar\",\n    enabled: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ntask = snowflake.Task(\"task\",\n    comment=\"my task\",\n    database=\"db\",\n    schema=\"schema\",\n    warehouse=\"warehouse\",\n    schedule=\"10 MINUTE\",\n    sql_statement=\"select * from foo;\",\n    session_parameters={\n        \"foo\": \"bar\",\n    },\n    user_task_timeout_ms=10000,\n    after=\"preceding_task\",\n    when=\"foo AND bar\",\n    enabled=True)\nserverless_task = snowflake.Task(\"serverlessTask\",\n    comment=\"my serverless task\",\n    database=\"db\",\n    schema=\"schema\",\n    schedule=\"10 MINUTE\",\n    sql_statement=\"select * from foo;\",\n    session_parameters={\n        \"foo\": \"bar\",\n    },\n    user_task_timeout_ms=10000,\n    user_task_managed_initial_warehouse_size=\"XSMALL\",\n    after=\"preceding_task\",\n    when=\"foo AND bar\",\n    enabled=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var task = new Snowflake.Task(\"task\", new()\n    {\n        Comment = \"my task\",\n        Database = \"db\",\n        Schema = \"schema\",\n        Warehouse = \"warehouse\",\n        Schedule = \"10 MINUTE\",\n        SqlStatement = \"select * from foo;\",\n        SessionParameters = \n        {\n            { \"foo\", \"bar\" },\n        },\n        UserTaskTimeoutMs = 10000,\n        After = \"preceding_task\",\n        When = \"foo AND bar\",\n        Enabled = true,\n    });\n\n    var serverlessTask = new Snowflake.Task(\"serverlessTask\", new()\n    {\n        Comment = \"my serverless task\",\n        Database = \"db\",\n        Schema = \"schema\",\n        Schedule = \"10 MINUTE\",\n        SqlStatement = \"select * from foo;\",\n        SessionParameters = \n        {\n            { \"foo\", \"bar\" },\n        },\n        UserTaskTimeoutMs = 10000,\n        UserTaskManagedInitialWarehouseSize = \"XSMALL\",\n        After = \"preceding_task\",\n        When = \"foo AND bar\",\n        Enabled = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewTask(ctx, \"task\", \u0026snowflake.TaskArgs{\n\t\t\tComment:      pulumi.String(\"my task\"),\n\t\t\tDatabase:     pulumi.String(\"db\"),\n\t\t\tSchema:       pulumi.String(\"schema\"),\n\t\t\tWarehouse:    pulumi.String(\"warehouse\"),\n\t\t\tSchedule:     pulumi.String(\"10 MINUTE\"),\n\t\t\tSqlStatement: pulumi.String(\"select * from foo;\"),\n\t\t\tSessionParameters: pulumi.StringMap{\n\t\t\t\t\"foo\": pulumi.String(\"bar\"),\n\t\t\t},\n\t\t\tUserTaskTimeoutMs: pulumi.Int(10000),\n\t\t\tAfter:             pulumi.String(\"preceding_task\"),\n\t\t\tWhen:              pulumi.String(\"foo AND bar\"),\n\t\t\tEnabled:           pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewTask(ctx, \"serverlessTask\", \u0026snowflake.TaskArgs{\n\t\t\tComment:      pulumi.String(\"my serverless task\"),\n\t\t\tDatabase:     pulumi.String(\"db\"),\n\t\t\tSchema:       pulumi.String(\"schema\"),\n\t\t\tSchedule:     pulumi.String(\"10 MINUTE\"),\n\t\t\tSqlStatement: pulumi.String(\"select * from foo;\"),\n\t\t\tSessionParameters: pulumi.StringMap{\n\t\t\t\t\"foo\": pulumi.String(\"bar\"),\n\t\t\t},\n\t\t\tUserTaskTimeoutMs:                   pulumi.Int(10000),\n\t\t\tUserTaskManagedInitialWarehouseSize: pulumi.String(\"XSMALL\"),\n\t\t\tAfter:                               pulumi.String(\"preceding_task\"),\n\t\t\tWhen:                                pulumi.String(\"foo AND bar\"),\n\t\t\tEnabled:                             pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Task;\nimport com.pulumi.snowflake.TaskArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var task = new Task(\"task\", TaskArgs.builder()        \n            .comment(\"my task\")\n            .database(\"db\")\n            .schema(\"schema\")\n            .warehouse(\"warehouse\")\n            .schedule(\"10 MINUTE\")\n            .sqlStatement(\"select * from foo;\")\n            .sessionParameters(Map.of(\"foo\", \"bar\"))\n            .userTaskTimeoutMs(10000)\n            .after(\"preceding_task\")\n            .when(\"foo AND bar\")\n            .enabled(true)\n            .build());\n\n        var serverlessTask = new Task(\"serverlessTask\", TaskArgs.builder()        \n            .comment(\"my serverless task\")\n            .database(\"db\")\n            .schema(\"schema\")\n            .schedule(\"10 MINUTE\")\n            .sqlStatement(\"select * from foo;\")\n            .sessionParameters(Map.of(\"foo\", \"bar\"))\n            .userTaskTimeoutMs(10000)\n            .userTaskManagedInitialWarehouseSize(\"XSMALL\")\n            .after(\"preceding_task\")\n            .when(\"foo AND bar\")\n            .enabled(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  task:\n    type: snowflake:Task\n    properties:\n      comment: my task\n      database: db\n      schema: schema\n      warehouse: warehouse\n      schedule: 10 MINUTE\n      sqlStatement: select * from foo;\n      sessionParameters:\n        foo: bar\n      userTaskTimeoutMs: 10000\n      after: preceding_task\n      when: foo AND bar\n      enabled: true\n  serverlessTask:\n    type: snowflake:Task\n    properties:\n      comment: my serverless task\n      database: db\n      schema: schema\n      schedule: 10 MINUTE\n      sqlStatement: select * from foo;\n      sessionParameters:\n        foo: bar\n      userTaskTimeoutMs: 10000\n      userTaskManagedInitialWarehouseSize: XSMALL\n      after: preceding_task\n      when: foo AND bar\n      enabled: true\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nformat is database name | schema name | task name\n\n```sh\n $ pulumi import snowflake:index/task:Task example 'dbName|schemaName|taskName'\n```\n\n ",
             "properties": {
@@ -10750,6 +10823,102 @@
                         },
                         "description": "Definitions of a tag to associate with the resource.\n",
                         "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "snowflake:index/userGrant:UserGrant": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.UserGrant(\"grant\", {\n    privilege: \"MONITOR\",\n    roles: [\"role1\"],\n    userName: \"user\",\n    withGrantOption: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ngrant = snowflake.UserGrant(\"grant\",\n    privilege=\"MONITOR\",\n    roles=[\"role1\"],\n    user_name=\"user\",\n    with_grant_option=False)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var grant = new Snowflake.UserGrant(\"grant\", new()\n    {\n        Privilege = \"MONITOR\",\n        Roles = new[]\n        {\n            \"role1\",\n        },\n        UserName = \"user\",\n        WithGrantOption = false,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewUserGrant(ctx, \"grant\", \u0026snowflake.UserGrantArgs{\n\t\t\tPrivilege: pulumi.String(\"MONITOR\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"role1\"),\n\t\t\t},\n\t\t\tUserName:        pulumi.String(\"user\"),\n\t\t\tWithGrantOption: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.UserGrant;\nimport com.pulumi.snowflake.UserGrantArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var grant = new UserGrant(\"grant\", UserGrantArgs.builder()        \n            .privilege(\"MONITOR\")\n            .roles(\"role1\")\n            .userName(\"user\")\n            .withGrantOption(false)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  grant:\n    type: snowflake:UserGrant\n    properties:\n      privilege: MONITOR\n      roles:\n        - role1\n      userName: user\n      withGrantOption: false\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nformat is user name | | | privilege | true/false for with_grant_option\n\n```sh\n $ pulumi import snowflake:index/userGrant:UserGrant example 'userName|||MONITOR|true'\n```\n\n ",
+            "properties": {
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
+                "privilege": {
+                    "type": "string",
+                    "description": "The privilege to grant on the user.\n"
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Grants privilege to these roles.\n"
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "The name of the user on which to grant privileges.\n"
+                },
+                "withGrantOption": {
+                    "type": "boolean",
+                    "description": "When this is set to true, allows the recipient role to grant the privileges to other roles.\n"
+                }
+            },
+            "required": [
+                "privilege",
+                "userName"
+            ],
+            "inputProperties": {
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
+                "privilege": {
+                    "type": "string",
+                    "description": "The privilege to grant on the user.\n",
+                    "willReplaceOnChanges": true
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Grants privilege to these roles.\n"
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "The name of the user on which to grant privileges.\n",
+                    "willReplaceOnChanges": true
+                },
+                "withGrantOption": {
+                    "type": "boolean",
+                    "description": "When this is set to true, allows the recipient role to grant the privileges to other roles.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "privilege",
+                "userName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering UserGrant resources.\n",
+                "properties": {
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                    },
+                    "privilege": {
+                        "type": "string",
+                        "description": "The privilege to grant on the user.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Grants privilege to these roles.\n"
+                    },
+                    "userName": {
+                        "type": "string",
+                        "description": "The name of the user on which to grant privileges.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "withGrantOption": {
+                        "type": "boolean",
+                        "description": "When this is set to true, allows the recipient role to grant the privileges to other roles.\n",
+                        "willReplaceOnChanges": true
                     }
                 },
                 "type": "object"

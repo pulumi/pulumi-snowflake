@@ -84,9 +84,11 @@ from .table_grant import *
 from .tag import *
 from .tag_association import *
 from .tag_grant import *
+from .tag_masking_policy_association import *
 from .task import *
 from .task_grant import *
 from .user import *
+from .user_grant import *
 from .user_ownership_grant import *
 from .user_public_keys import *
 from .view import *
@@ -508,6 +510,14 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/tagMaskingPolicyAssociation",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation": "TagMaskingPolicyAssociation"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/task",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -528,6 +538,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/user:User": "User"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/userGrant",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/userGrant:UserGrant": "UserGrant"
   }
  },
  {

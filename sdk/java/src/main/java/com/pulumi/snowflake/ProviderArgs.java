@@ -6,6 +6,7 @@ package com.pulumi.snowflake;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -179,6 +180,23 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`
+     * environment variable.
+     * 
+     */
+    @Import(name="port", json=true)
+    private @Nullable Output<Integer> port;
+
+    /**
+     * @return Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`
+     * environment variable.
+     * 
+     */
+    public Optional<Output<Integer>> port() {
+        return Optional.ofNullable(this.port);
+    }
+
+    /**
      * Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
      * `SNOWFLAKE_PRIVATE_KEY` environment variable.
      * 
@@ -227,6 +245,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> privateKeyPath() {
         return Optional.ofNullable(this.privateKeyPath);
+    }
+
+    /**
+     * Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
+     * 
+     */
+    @Import(name="protocol")
+    private @Nullable Output<String> protocol;
+
+    /**
+     * @return Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
+     * 
+     */
+    public Optional<Output<String>> protocol() {
+        return Optional.ofNullable(this.protocol);
     }
 
     /**
@@ -279,14 +312,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+     * Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
      * 
      */
     @Import(name="warehouse")
     private @Nullable Output<String> warehouse;
 
     /**
-     * @return Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+     * @return Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
      * 
      */
     public Optional<Output<String>> warehouse() {
@@ -306,9 +339,11 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.oauthRedirectUrl = $.oauthRedirectUrl;
         this.oauthRefreshToken = $.oauthRefreshToken;
         this.password = $.password;
+        this.port = $.port;
         this.privateKey = $.privateKey;
         this.privateKeyPassphrase = $.privateKeyPassphrase;
         this.privateKeyPath = $.privateKeyPath;
+        this.protocol = $.protocol;
         this.region = $.region;
         this.role = $.role;
         this.username = $.username;
@@ -556,6 +591,29 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param port Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`
+         * environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder port(@Nullable Output<Integer> port) {
+            $.port = port;
+            return this;
+        }
+
+        /**
+         * @param port Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`
+         * environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder port(Integer port) {
+            return port(Output.of(port));
+        }
+
+        /**
          * @param privateKey Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
          * `SNOWFLAKE_PRIVATE_KEY` environment variable.
          * 
@@ -622,6 +680,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder privateKeyPath(String privateKeyPath) {
             return privateKeyPath(Output.of(privateKeyPath));
+        }
+
+        /**
+         * @param protocol Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protocol(@Nullable Output<String> protocol) {
+            $.protocol = protocol;
+            return this;
+        }
+
+        /**
+         * @param protocol Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protocol(String protocol) {
+            return protocol(Output.of(protocol));
         }
 
         /**
@@ -692,7 +771,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param warehouse Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+         * @param warehouse Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
          * 
          * @return builder
          * 
@@ -703,7 +782,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param warehouse Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+         * @param warehouse Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
          * 
          * @return builder
          * 

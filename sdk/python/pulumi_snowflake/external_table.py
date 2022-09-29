@@ -534,6 +534,7 @@ class ExternalTable(pulumi.CustomResource):
             ],
             comment="External table",
             database="db",
+            file_format="TYPE = CSV FIELD_DELIMITER = '|'",
             schema="schema")
         ```
 
@@ -588,6 +589,7 @@ class ExternalTable(pulumi.CustomResource):
             ],
             comment="External table",
             database="db",
+            file_format="TYPE = CSV FIELD_DELIMITER = '|'",
             schema="schema")
         ```
 

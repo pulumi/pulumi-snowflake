@@ -314,6 +314,10 @@ export { TagGrantArgs, TagGrantState } from "./tagGrant";
 export type TagGrant = import("./tagGrant").TagGrant;
 export const TagGrant: typeof import("./tagGrant").TagGrant = null as any;
 
+export { TagMaskingPolicyAssociationArgs, TagMaskingPolicyAssociationState } from "./tagMaskingPolicyAssociation";
+export type TagMaskingPolicyAssociation = import("./tagMaskingPolicyAssociation").TagMaskingPolicyAssociation;
+export const TagMaskingPolicyAssociation: typeof import("./tagMaskingPolicyAssociation").TagMaskingPolicyAssociation = null as any;
+
 export { TaskArgs, TaskState } from "./task";
 export type Task = import("./task").Task;
 export const Task: typeof import("./task").Task = null as any;
@@ -325,6 +329,10 @@ export const TaskGrant: typeof import("./taskGrant").TaskGrant = null as any;
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
+
+export { UserGrantArgs, UserGrantState } from "./userGrant";
+export type UserGrant = import("./userGrant").UserGrant;
+export const UserGrant: typeof import("./userGrant").UserGrant = null as any;
 
 export { UserOwnershipGrantArgs, UserOwnershipGrantState } from "./userOwnershipGrant";
 export type UserOwnershipGrant = import("./userOwnershipGrant").UserOwnershipGrant;
@@ -429,9 +437,11 @@ utilities.lazyLoad(exports, ["TableGrant"], () => require("./tableGrant"));
 utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
 utilities.lazyLoad(exports, ["TagAssociation"], () => require("./tagAssociation"));
 utilities.lazyLoad(exports, ["TagGrant"], () => require("./tagGrant"));
+utilities.lazyLoad(exports, ["TagMaskingPolicyAssociation"], () => require("./tagMaskingPolicyAssociation"));
 utilities.lazyLoad(exports, ["Task"], () => require("./task"));
 utilities.lazyLoad(exports, ["TaskGrant"], () => require("./taskGrant"));
 utilities.lazyLoad(exports, ["User"], () => require("./user"));
+utilities.lazyLoad(exports, ["UserGrant"], () => require("./userGrant"));
 utilities.lazyLoad(exports, ["UserOwnershipGrant"], () => require("./userOwnershipGrant"));
 utilities.lazyLoad(exports, ["UserPublicKeys"], () => require("./userPublicKeys"));
 utilities.lazyLoad(exports, ["View"], () => require("./view"));
@@ -552,12 +562,16 @@ const _module = {
                 return new TagAssociation(name, <any>undefined, { urn })
             case "snowflake:index/tagGrant:TagGrant":
                 return new TagGrant(name, <any>undefined, { urn })
+            case "snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation":
+                return new TagMaskingPolicyAssociation(name, <any>undefined, { urn })
             case "snowflake:index/task:Task":
                 return new Task(name, <any>undefined, { urn })
             case "snowflake:index/taskGrant:TaskGrant":
                 return new TaskGrant(name, <any>undefined, { urn })
             case "snowflake:index/user:User":
                 return new User(name, <any>undefined, { urn })
+            case "snowflake:index/userGrant:UserGrant":
+                return new UserGrant(name, <any>undefined, { urn })
             case "snowflake:index/userOwnershipGrant:UserOwnershipGrant":
                 return new UserOwnershipGrant(name, <any>undefined, { urn })
             case "snowflake:index/userPublicKeys:UserPublicKeys":
@@ -625,9 +639,11 @@ pulumi.runtime.registerResourceModule("snowflake", "index/tableGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tag", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tagAssociation", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tagGrant", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/tagMaskingPolicyAssociation", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/task", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/taskGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/user", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/userGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/userOwnershipGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/userPublicKeys", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/view", _module)

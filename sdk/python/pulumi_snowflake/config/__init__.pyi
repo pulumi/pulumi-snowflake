@@ -65,6 +65,12 @@ Password for username+password auth. Cannot be used with `browser_auth` or `priv
 `SNOWFLAKE_PASSWORD` environment variable.
 """
 
+port: Optional[int]
+"""
+Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`
+environment variable.
+"""
+
 privateKey: Optional[str]
 """
 Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
@@ -81,6 +87,11 @@ privateKeyPath: Optional[str]
 """
 Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
 `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+"""
+
+protocol: Optional[str]
+"""
+Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
 """
 
 region: Optional[str]
@@ -102,6 +113,6 @@ Username for username+password authentication. Can come from the `SNOWFLAKE_USER
 
 warehouse: Optional[str]
 """
-Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
 """
 

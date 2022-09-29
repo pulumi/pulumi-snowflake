@@ -36,6 +36,7 @@ namespace Pulumi.Snowflake
     ///         },
     ///         Comment = "External table",
     ///         Database = "db",
+    ///         FileFormat = "TYPE = CSV FIELD_DELIMITER = '|'",
     ///         Schema = "schema",
     ///     });
     /// 

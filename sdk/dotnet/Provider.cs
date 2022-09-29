@@ -100,6 +100,12 @@ namespace Pulumi.Snowflake
         public Output<string?> PrivateKeyPath { get; private set; } = null!;
 
         /// <summary>
+        /// Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
+        /// </summary>
+        [Output("protocol")]
+        public Output<string?> Protocol { get; private set; } = null!;
+
+        /// <summary>
         /// [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
         /// `SNOWFLAKE_REGION` environment variable.
         /// </summary>
@@ -120,7 +126,7 @@ namespace Pulumi.Snowflake
         public Output<string> Username { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+        /// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
         /// </summary>
         [Output("warehouse")]
         public Output<string?> Warehouse { get; private set; } = null!;
@@ -302,6 +308,13 @@ namespace Pulumi.Snowflake
             }
         }
 
+        /// <summary>
+        /// Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`
+        /// environment variable.
+        /// </summary>
+        [Input("port", json: true)]
+        public Input<int>? Port { get; set; }
+
         [Input("privateKey")]
         private Input<string>? _privateKey;
 
@@ -354,6 +367,12 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
+        /// Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
+        /// </summary>
+        [Input("protocol")]
+        public Input<string>? Protocol { get; set; }
+
+        /// <summary>
         /// [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
         /// `SNOWFLAKE_REGION` environment variable.
         /// </summary>
@@ -374,7 +393,7 @@ namespace Pulumi.Snowflake
         public Input<string> Username { get; set; } = null!;
 
         /// <summary>
-        /// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+        /// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
         /// </summary>
         [Input("warehouse")]
         public Input<string>? Warehouse { get; set; }
