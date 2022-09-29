@@ -120,12 +120,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TagAssociation{}
 	case "snowflake:index/tagGrant:TagGrant":
 		r = &TagGrant{}
+	case "snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation":
+		r = &TagMaskingPolicyAssociation{}
 	case "snowflake:index/task:Task":
 		r = &Task{}
 	case "snowflake:index/taskGrant:TaskGrant":
 		r = &TaskGrant{}
 	case "snowflake:index/user:User":
 		r = &User{}
+	case "snowflake:index/userGrant:UserGrant":
+		r = &UserGrant{}
 	case "snowflake:index/userOwnershipGrant:UserOwnershipGrant":
 		r = &UserOwnershipGrant{}
 	case "snowflake:index/userPublicKeys:UserPublicKeys":
@@ -418,6 +422,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/tagMaskingPolicyAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/task",
 		&module{version},
 	)
@@ -429,6 +438,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/user",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/userGrant",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

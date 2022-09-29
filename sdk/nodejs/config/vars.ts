@@ -124,6 +124,18 @@ Object.defineProperty(exports, "password", {
 });
 
 /**
+ * Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`
+ * environment variable.
+ */
+export declare const port: number | undefined;
+Object.defineProperty(exports, "port", {
+    get() {
+        return __config.getObject<number>("port");
+    },
+    enumerable: true,
+});
+
+/**
  * Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
  * `SNOWFLAKE_PRIVATE_KEY` environment variable.
  */
@@ -155,6 +167,17 @@ export declare const privateKeyPath: string | undefined;
 Object.defineProperty(exports, "privateKeyPath", {
     get() {
         return __config.get("privateKeyPath");
+    },
+    enumerable: true,
+});
+
+/**
+ * Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
+ */
+export declare const protocol: string | undefined;
+Object.defineProperty(exports, "protocol", {
+    get() {
+        return __config.get("protocol");
     },
     enumerable: true,
 });
@@ -195,7 +218,7 @@ Object.defineProperty(exports, "username", {
 });
 
 /**
- * Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+ * Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
  */
 export declare const warehouse: string | undefined;
 Object.defineProperty(exports, "warehouse", {

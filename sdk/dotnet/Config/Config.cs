@@ -138,6 +138,17 @@ namespace Pulumi.Snowflake
             set => _password.Set(value);
         }
 
+        private static readonly __Value<int?> _port = new __Value<int?>(() => __config.GetInt32("port"));
+        /// <summary>
+        /// Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`
+        /// environment variable.
+        /// </summary>
+        public static int? Port
+        {
+            get => _port.Get();
+            set => _port.Set(value);
+        }
+
         private static readonly __Value<string?> _privateKey = new __Value<string?>(() => __config.Get("privateKey"));
         /// <summary>
         /// Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
@@ -169,6 +180,16 @@ namespace Pulumi.Snowflake
         {
             get => _privateKeyPath.Get();
             set => _privateKeyPath.Set(value);
+        }
+
+        private static readonly __Value<string?> _protocol = new __Value<string?>(() => __config.Get("protocol"));
+        /// <summary>
+        /// Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
+        /// </summary>
+        public static string? Protocol
+        {
+            get => _protocol.Get();
+            set => _protocol.Set(value);
         }
 
         private static readonly __Value<string?> _region = new __Value<string?>(() => __config.Get("region"));
@@ -205,7 +226,7 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<string?> _warehouse = new __Value<string?>(() => __config.Get("warehouse"));
         /// <summary>
-        /// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+        /// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
         /// </summary>
         public static string? Warehouse
         {

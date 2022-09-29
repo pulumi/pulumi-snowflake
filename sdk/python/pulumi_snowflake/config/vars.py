@@ -92,6 +92,14 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('password')
 
     @property
+    def port(self) -> Optional[int]:
+        """
+        Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`
+        environment variable.
+        """
+        return __config__.get_int('port')
+
+    @property
     def private_key(self) -> Optional[str]:
         """
         Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
@@ -114,6 +122,13 @@ class _ExportableConfig(types.ModuleType):
         `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
         """
         return __config__.get('privateKeyPath')
+
+    @property
+    def protocol(self) -> Optional[str]:
+        """
+        Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
+        """
+        return __config__.get('protocol')
 
     @property
     def region(self) -> Optional[str]:
@@ -141,7 +156,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def warehouse(self) -> Optional[str]:
         """
-        Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+        Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
         """
         return __config__.get('warehouse')
 

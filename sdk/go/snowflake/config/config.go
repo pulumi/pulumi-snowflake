@@ -64,6 +64,12 @@ func GetPassword(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:password")
 }
 
+// Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`
+// environment variable.
+func GetPort(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "snowflake:port")
+}
+
 // Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
 // `SNOWFLAKE_PRIVATE_KEY` environment variable.
 func GetPrivateKey(ctx *pulumi.Context) string {
@@ -80,6 +86,11 @@ func GetPrivateKeyPassphrase(ctx *pulumi.Context) string {
 // `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
 func GetPrivateKeyPath(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:privateKeyPath")
+}
+
+// Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
+func GetProtocol(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:protocol")
 }
 
 // [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
@@ -99,7 +110,7 @@ func GetUsername(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:username")
 }
 
-// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
 func GetWarehouse(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:warehouse")
 }

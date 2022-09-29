@@ -83,6 +83,10 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly privateKeyPath!: pulumi.Output<string | undefined>;
     /**
+     * Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
+     */
+    public readonly protocol!: pulumi.Output<string | undefined>;
+    /**
      * [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
      * `SNOWFLAKE_REGION` environment variable.
      */
@@ -97,7 +101,7 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly username!: pulumi.Output<string>;
     /**
-     * Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+     * Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
      */
     public readonly warehouse!: pulumi.Output<string | undefined>;
 
@@ -131,9 +135,11 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["oauthRedirectUrl"] = args?.oauthRedirectUrl ? pulumi.secret(args.oauthRedirectUrl) : undefined;
             resourceInputs["oauthRefreshToken"] = args?.oauthRefreshToken ? pulumi.secret(args.oauthRefreshToken) : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
+            resourceInputs["port"] = pulumi.output(args ? args.port : undefined).apply(JSON.stringify);
             resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
             resourceInputs["privateKeyPassphrase"] = args?.privateKeyPassphrase ? pulumi.secret(args.privateKeyPassphrase) : undefined;
             resourceInputs["privateKeyPath"] = args?.privateKeyPath ? pulumi.secret(args.privateKeyPath) : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
@@ -197,6 +203,11 @@ export interface ProviderArgs {
      */
     password?: pulumi.Input<string>;
     /**
+     * Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`
+     * environment variable.
+     */
+    port?: pulumi.Input<number>;
+    /**
      * Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
      * `SNOWFLAKE_PRIVATE_KEY` environment variable.
      */
@@ -212,6 +223,10 @@ export interface ProviderArgs {
      */
     privateKeyPath?: pulumi.Input<string>;
     /**
+     * Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
+     */
+    protocol?: pulumi.Input<string>;
+    /**
      * [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
      * `SNOWFLAKE_REGION` environment variable.
      */
@@ -226,7 +241,7 @@ export interface ProviderArgs {
      */
     username: pulumi.Input<string>;
     /**
-     * Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+     * Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
      */
     warehouse?: pulumi.Input<string>;
 }

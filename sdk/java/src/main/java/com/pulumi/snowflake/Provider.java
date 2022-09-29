@@ -210,6 +210,20 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.privateKeyPath);
     }
     /**
+     * Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
+     * 
+     */
+    @Export(name="protocol", type=String.class, parameters={})
+    private Output</* @Nullable */ String> protocol;
+
+    /**
+     * @return Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
+     * 
+     */
+    public Output<Optional<String>> protocol() {
+        return Codegen.optional(this.protocol);
+    }
+    /**
      * [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
      * `SNOWFLAKE_REGION` environment variable.
      * 
@@ -256,14 +270,14 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return this.username;
     }
     /**
-     * Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+     * Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
      * 
      */
     @Export(name="warehouse", type=String.class, parameters={})
     private Output</* @Nullable */ String> warehouse;
 
     /**
-     * @return Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE enviornment variable.
+     * @return Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
      * 
      */
     public Output<Optional<String>> warehouse() {

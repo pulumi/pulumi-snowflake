@@ -36,9 +36,10 @@ import (
 //						Type: pulumi.String("text"),
 //					},
 //				},
-//				Comment:  pulumi.String("External table"),
-//				Database: pulumi.String("db"),
-//				Schema:   pulumi.String("schema"),
+//				Comment:    pulumi.String("External table"),
+//				Database:   pulumi.String("db"),
+//				FileFormat: pulumi.String("TYPE = CSV FIELD_DELIMITER = '|'"),
+//				Schema:     pulumi.String("schema"),
 //			})
 //			if err != nil {
 //				return err

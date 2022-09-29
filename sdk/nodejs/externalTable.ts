@@ -26,6 +26,7 @@ import * as utilities from "./utilities";
  *     ],
  *     comment: "External table",
  *     database: "db",
+ *     fileFormat: "TYPE = CSV FIELD_DELIMITER = '|'",
  *     schema: "schema",
  * });
  * ```

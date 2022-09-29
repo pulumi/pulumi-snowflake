@@ -54,6 +54,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .comment(&#34;External table&#34;)
  *             .database(&#34;db&#34;)
+ *             .fileFormat(&#34;TYPE = CSV FIELD_DELIMITER = &#39;|&#39;&#34;)
  *             .schema(&#34;schema&#34;)
  *             .build());
  * 
