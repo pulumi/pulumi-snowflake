@@ -5,6 +5,7 @@ go 1.18
 replace (
 	cloud.google.com/go/storage => cloud.google.com/go/storage v1.15.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220725190814-23001ad6ec03
+	github.com/mattn/go-ieproxy => github.com/mattn/go-ieproxy v0.0.9
 )
 
 require (
