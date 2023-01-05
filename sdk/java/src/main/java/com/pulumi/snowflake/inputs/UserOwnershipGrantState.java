@@ -46,6 +46,21 @@ public final class UserOwnershipGrantState extends com.pulumi.resources.Resource
     }
 
     /**
+     * The name of the role to revert ownership to on destroy.
+     * 
+     */
+    @Import(name="revertOwnershipToRoleName")
+    private @Nullable Output<String> revertOwnershipToRoleName;
+
+    /**
+     * @return The name of the role to revert ownership to on destroy.
+     * 
+     */
+    public Optional<Output<String>> revertOwnershipToRoleName() {
+        return Optional.ofNullable(this.revertOwnershipToRoleName);
+    }
+
+    /**
      * The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
      * 
      */
@@ -65,6 +80,7 @@ public final class UserOwnershipGrantState extends com.pulumi.resources.Resource
     private UserOwnershipGrantState(UserOwnershipGrantState $) {
         this.currentGrants = $.currentGrants;
         this.onUserName = $.onUserName;
+        this.revertOwnershipToRoleName = $.revertOwnershipToRoleName;
         this.toRoleName = $.toRoleName;
     }
 
@@ -126,6 +142,27 @@ public final class UserOwnershipGrantState extends com.pulumi.resources.Resource
          */
         public Builder onUserName(String onUserName) {
             return onUserName(Output.of(onUserName));
+        }
+
+        /**
+         * @param revertOwnershipToRoleName The name of the role to revert ownership to on destroy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder revertOwnershipToRoleName(@Nullable Output<String> revertOwnershipToRoleName) {
+            $.revertOwnershipToRoleName = revertOwnershipToRoleName;
+            return this;
+        }
+
+        /**
+         * @param revertOwnershipToRoleName The name of the role to revert ownership to on destroy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder revertOwnershipToRoleName(String revertOwnershipToRoleName) {
+            return revertOwnershipToRoleName(Output.of(revertOwnershipToRoleName));
         }
 
         /**

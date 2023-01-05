@@ -45,6 +45,20 @@ public class UserOwnershipGrant extends com.pulumi.resources.CustomResource {
         return this.onUserName;
     }
     /**
+     * The name of the role to revert ownership to on destroy.
+     * 
+     */
+    @Export(name="revertOwnershipToRoleName", type=String.class, parameters={})
+    private Output</* @Nullable */ String> revertOwnershipToRoleName;
+
+    /**
+     * @return The name of the role to revert ownership to on destroy.
+     * 
+     */
+    public Output<Optional<String>> revertOwnershipToRoleName() {
+        return Codegen.optional(this.revertOwnershipToRoleName);
+    }
+    /**
      * The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
      * 
      */

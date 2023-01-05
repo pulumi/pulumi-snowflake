@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  *     ],
  *     database: "my_test_db",
  *     returnBehavior: "IMMUTABLE",
- *     returnType: "varchar",
+ *     returnType: "variant",
  *     schema: "my_test_schema",
  *     urlOfProxyAndResource: "https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func",
  * });

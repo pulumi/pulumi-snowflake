@@ -12,9 +12,9 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const grant = new snowflake.StreamGrant("grant", {
- *     databaseName: "db",
+ *     databaseName: "database",
  *     onFuture: false,
- *     privilege: "select",
+ *     privilege: "SELECT",
  *     roles: [
  *         "role1",
  *         "role2",

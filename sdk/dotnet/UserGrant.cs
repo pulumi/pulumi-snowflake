@@ -25,6 +25,7 @@ namespace Pulumi.Snowflake
     ///         Roles = new[]
     ///         {
     ///             "role1",
+    ///             "role2",
     ///         },
     ///         UserName = "user",
     ///         WithGrantOption = false,

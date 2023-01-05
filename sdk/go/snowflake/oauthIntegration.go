@@ -67,6 +67,8 @@ type OauthIntegration struct {
 	OauthClient pulumi.StringOutput `pulumi:"oauthClient"`
 	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
 	OauthIssueRefreshTokens pulumi.BoolPtrOutput `pulumi:"oauthIssueRefreshTokens"`
+	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
+	OauthRedirectUri pulumi.StringPtrOutput `pulumi:"oauthRedirectUri"`
 	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity pulumi.IntPtrOutput `pulumi:"oauthRefreshTokenValidity"`
 	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
@@ -119,6 +121,8 @@ type oauthIntegrationState struct {
 	OauthClient *string `pulumi:"oauthClient"`
 	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
 	OauthIssueRefreshTokens *bool `pulumi:"oauthIssueRefreshTokens"`
+	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
+	OauthRedirectUri *string `pulumi:"oauthRedirectUri"`
 	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity *int `pulumi:"oauthRefreshTokenValidity"`
 	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
@@ -140,6 +144,8 @@ type OauthIntegrationState struct {
 	OauthClient pulumi.StringPtrInput
 	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
 	OauthIssueRefreshTokens pulumi.BoolPtrInput
+	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
+	OauthRedirectUri pulumi.StringPtrInput
 	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity pulumi.IntPtrInput
 	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
@@ -163,6 +169,8 @@ type oauthIntegrationArgs struct {
 	OauthClient string `pulumi:"oauthClient"`
 	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
 	OauthIssueRefreshTokens *bool `pulumi:"oauthIssueRefreshTokens"`
+	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
+	OauthRedirectUri *string `pulumi:"oauthRedirectUri"`
 	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity *int `pulumi:"oauthRefreshTokenValidity"`
 	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
@@ -183,6 +191,8 @@ type OauthIntegrationArgs struct {
 	OauthClient pulumi.StringInput
 	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
 	OauthIssueRefreshTokens pulumi.BoolPtrInput
+	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
+	OauthRedirectUri pulumi.StringPtrInput
 	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity pulumi.IntPtrInput
 	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
@@ -309,6 +319,11 @@ func (o OauthIntegrationOutput) OauthClient() pulumi.StringOutput {
 // Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
 func (o OauthIntegrationOutput) OauthIssueRefreshTokens() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OauthIntegration) pulumi.BoolPtrOutput { return v.OauthIssueRefreshTokens }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
+func (o OauthIntegrationOutput) OauthRedirectUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OauthIntegration) pulumi.StringPtrOutput { return v.OauthRedirectUri }).(pulumi.StringPtrOutput)
 }
 
 // Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.

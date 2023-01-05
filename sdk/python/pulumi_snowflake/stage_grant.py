@@ -300,6 +300,25 @@ class StageGrant(pulumi.CustomResource):
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        grant = snowflake.StageGrant("grant",
+            database_name="database",
+            on_future=False,
+            privilege="USAGE",
+            roles=[
+                "role1",
+                "role2",
+            ],
+            schema_name="schema",
+            stage_name="stage",
+            with_grant_option=False)
+        ```
+
         ## Import
 
         format is database name | schema name | stage name | privilege | true/false for with_grant_option
@@ -327,6 +346,25 @@ class StageGrant(pulumi.CustomResource):
                  args: StageGrantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        grant = snowflake.StageGrant("grant",
+            database_name="database",
+            on_future=False,
+            privilege="USAGE",
+            roles=[
+                "role1",
+                "role2",
+            ],
+            schema_name="schema",
+            stage_name="stage",
+            with_grant_option=False)
+        ```
+
         ## Import
 
         format is database name | schema name | stage name | privilege | true/false for with_grant_option

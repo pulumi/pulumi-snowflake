@@ -73,6 +73,12 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> ApiBlockedPrefixes { get; private set; } = null!;
 
         /// <summary>
+        /// The API key (also called a “subscription key”).
+        /// </summary>
+        [Output("apiKey")]
+        public Output<string?> ApiKey { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the HTTPS proxy service type.
         /// </summary>
         [Output("apiProvider")]
@@ -137,6 +143,10 @@ namespace Pulumi.Snowflake
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "apiKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -188,6 +198,22 @@ namespace Pulumi.Snowflake
         {
             get => _apiBlockedPrefixes ?? (_apiBlockedPrefixes = new InputList<string>());
             set => _apiBlockedPrefixes = value;
+        }
+
+        [Input("apiKey")]
+        private Input<string>? _apiKey;
+
+        /// <summary>
+        /// The API key (also called a “subscription key”).
+        /// </summary>
+        public Input<string>? ApiKey
+        {
+            get => _apiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
         }
 
         /// <summary>
@@ -268,6 +294,22 @@ namespace Pulumi.Snowflake
         {
             get => _apiBlockedPrefixes ?? (_apiBlockedPrefixes = new InputList<string>());
             set => _apiBlockedPrefixes = value;
+        }
+
+        [Input("apiKey")]
+        private Input<string>? _apiKey;
+
+        /// <summary>
+        /// The API key (also called a “subscription key”).
+        /// </summary>
+        public Input<string>? ApiKey
+        {
+            get => _apiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
         }
 
         /// <summary>

@@ -160,6 +160,20 @@ public class OauthIntegration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.oauthIssueRefreshTokens);
     }
     /**
+     * Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
+     * 
+     */
+    @Export(name="oauthRedirectUri", type=String.class, parameters={})
+    private Output</* @Nullable */ String> oauthRedirectUri;
+
+    /**
+     * @return Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
+     * 
+     */
+    public Output<Optional<String>> oauthRedirectUri() {
+        return Codegen.optional(this.oauthRedirectUri);
+    }
+    /**
      * Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
      * 
      */

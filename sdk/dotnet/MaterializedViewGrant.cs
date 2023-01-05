@@ -21,10 +21,10 @@ namespace Pulumi.Snowflake
     /// {
     ///     var grant = new Snowflake.MaterializedViewGrant("grant", new()
     ///     {
-    ///         DatabaseName = "db",
+    ///         DatabaseName = "database",
     ///         MaterializedViewName = "materialized_view",
     ///         OnFuture = false,
-    ///         Privilege = "select",
+    ///         Privilege = "SELECT",
     ///         Roles = new[]
     ///         {
     ///             "role1",

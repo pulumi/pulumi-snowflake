@@ -34,9 +34,9 @@ namespace Pulumi.Snowflake
     ///                 Type = "string",
     ///             },
     ///         },
-    ///         DatabaseName = "db",
+    ///         DatabaseName = "database",
     ///         OnFuture = false,
-    ///         Privilege = "select",
+    ///         Privilege = "SELECT",
     ///         ProcedureName = "procedure",
     ///         ReturnType = "string",
     ///         Roles = new[]

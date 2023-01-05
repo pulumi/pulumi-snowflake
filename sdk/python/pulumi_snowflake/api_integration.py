@@ -18,6 +18,7 @@ class ApiIntegrationArgs:
                  api_provider: pulumi.Input[str],
                  api_aws_role_arn: Optional[pulumi.Input[str]] = None,
                  api_blocked_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 api_key: Optional[pulumi.Input[str]] = None,
                  azure_ad_application_id: Optional[pulumi.Input[str]] = None,
                  azure_tenant_id: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -28,6 +29,7 @@ class ApiIntegrationArgs:
         :param pulumi.Input[str] api_provider: Specifies the HTTPS proxy service type.
         :param pulumi.Input[str] api_aws_role_arn: ARN of a cloud platform role.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_blocked_prefixes: Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
+        :param pulumi.Input[str] api_key: The API key (also called a “subscription key”).
         :param pulumi.Input[str] azure_ad_application_id: The 'Application (client) id' of the Azure AD app for your remote service.
         :param pulumi.Input[str] azure_tenant_id: Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
         :param pulumi.Input[bool] enabled: Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
@@ -39,6 +41,8 @@ class ApiIntegrationArgs:
             pulumi.set(__self__, "api_aws_role_arn", api_aws_role_arn)
         if api_blocked_prefixes is not None:
             pulumi.set(__self__, "api_blocked_prefixes", api_blocked_prefixes)
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
         if azure_ad_application_id is not None:
             pulumi.set(__self__, "azure_ad_application_id", azure_ad_application_id)
         if azure_tenant_id is not None:
@@ -97,6 +101,18 @@ class ApiIntegrationArgs:
         pulumi.set(self, "api_blocked_prefixes", value)
 
     @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The API key (also called a “subscription key”).
+        """
+        return pulumi.get(self, "api_key")
+
+    @api_key.setter
+    def api_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_key", value)
+
+    @property
     @pulumi.getter(name="azureAdApplicationId")
     def azure_ad_application_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -153,6 +169,7 @@ class _ApiIntegrationState:
                  api_aws_iam_user_arn: Optional[pulumi.Input[str]] = None,
                  api_aws_role_arn: Optional[pulumi.Input[str]] = None,
                  api_blocked_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 api_key: Optional[pulumi.Input[str]] = None,
                  api_provider: Optional[pulumi.Input[str]] = None,
                  azure_ad_application_id: Optional[pulumi.Input[str]] = None,
                  azure_consent_url: Optional[pulumi.Input[str]] = None,
@@ -168,6 +185,7 @@ class _ApiIntegrationState:
         :param pulumi.Input[str] api_aws_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
         :param pulumi.Input[str] api_aws_role_arn: ARN of a cloud platform role.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_blocked_prefixes: Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
+        :param pulumi.Input[str] api_key: The API key (also called a “subscription key”).
         :param pulumi.Input[str] api_provider: Specifies the HTTPS proxy service type.
         :param pulumi.Input[str] azure_ad_application_id: The 'Application (client) id' of the Azure AD app for your remote service.
         :param pulumi.Input[str] azure_tenant_id: Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
@@ -185,6 +203,8 @@ class _ApiIntegrationState:
             pulumi.set(__self__, "api_aws_role_arn", api_aws_role_arn)
         if api_blocked_prefixes is not None:
             pulumi.set(__self__, "api_blocked_prefixes", api_blocked_prefixes)
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
         if api_provider is not None:
             pulumi.set(__self__, "api_provider", api_provider)
         if azure_ad_application_id is not None:
@@ -261,6 +281,18 @@ class _ApiIntegrationState:
     @api_blocked_prefixes.setter
     def api_blocked_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "api_blocked_prefixes", value)
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The API key (also called a “subscription key”).
+        """
+        return pulumi.get(self, "api_key")
+
+    @api_key.setter
+    def api_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_key", value)
 
     @property
     @pulumi.getter(name="apiProvider")
@@ -361,6 +393,7 @@ class ApiIntegration(pulumi.CustomResource):
                  api_allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  api_aws_role_arn: Optional[pulumi.Input[str]] = None,
                  api_blocked_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 api_key: Optional[pulumi.Input[str]] = None,
                  api_provider: Optional[pulumi.Input[str]] = None,
                  azure_ad_application_id: Optional[pulumi.Input[str]] = None,
                  azure_tenant_id: Optional[pulumi.Input[str]] = None,
@@ -392,6 +425,7 @@ class ApiIntegration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_allowed_prefixes: Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
         :param pulumi.Input[str] api_aws_role_arn: ARN of a cloud platform role.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_blocked_prefixes: Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
+        :param pulumi.Input[str] api_key: The API key (also called a “subscription key”).
         :param pulumi.Input[str] api_provider: Specifies the HTTPS proxy service type.
         :param pulumi.Input[str] azure_ad_application_id: The 'Application (client) id' of the Azure AD app for your remote service.
         :param pulumi.Input[str] azure_tenant_id: Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
@@ -442,6 +476,7 @@ class ApiIntegration(pulumi.CustomResource):
                  api_allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  api_aws_role_arn: Optional[pulumi.Input[str]] = None,
                  api_blocked_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 api_key: Optional[pulumi.Input[str]] = None,
                  api_provider: Optional[pulumi.Input[str]] = None,
                  azure_ad_application_id: Optional[pulumi.Input[str]] = None,
                  azure_tenant_id: Optional[pulumi.Input[str]] = None,
@@ -461,6 +496,7 @@ class ApiIntegration(pulumi.CustomResource):
             __props__.__dict__["api_allowed_prefixes"] = api_allowed_prefixes
             __props__.__dict__["api_aws_role_arn"] = api_aws_role_arn
             __props__.__dict__["api_blocked_prefixes"] = api_blocked_prefixes
+            __props__.__dict__["api_key"] = None if api_key is None else pulumi.Output.secret(api_key)
             if api_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'api_provider'")
             __props__.__dict__["api_provider"] = api_provider
@@ -473,6 +509,8 @@ class ApiIntegration(pulumi.CustomResource):
             __props__.__dict__["azure_consent_url"] = None
             __props__.__dict__["azure_multi_tenant_app_name"] = None
             __props__.__dict__["created_on"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ApiIntegration, __self__).__init__(
             'snowflake:index/apiIntegration:ApiIntegration',
             resource_name,
@@ -488,6 +526,7 @@ class ApiIntegration(pulumi.CustomResource):
             api_aws_iam_user_arn: Optional[pulumi.Input[str]] = None,
             api_aws_role_arn: Optional[pulumi.Input[str]] = None,
             api_blocked_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            api_key: Optional[pulumi.Input[str]] = None,
             api_provider: Optional[pulumi.Input[str]] = None,
             azure_ad_application_id: Optional[pulumi.Input[str]] = None,
             azure_consent_url: Optional[pulumi.Input[str]] = None,
@@ -508,6 +547,7 @@ class ApiIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] api_aws_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
         :param pulumi.Input[str] api_aws_role_arn: ARN of a cloud platform role.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_blocked_prefixes: Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
+        :param pulumi.Input[str] api_key: The API key (also called a “subscription key”).
         :param pulumi.Input[str] api_provider: Specifies the HTTPS proxy service type.
         :param pulumi.Input[str] azure_ad_application_id: The 'Application (client) id' of the Azure AD app for your remote service.
         :param pulumi.Input[str] azure_tenant_id: Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
@@ -524,6 +564,7 @@ class ApiIntegration(pulumi.CustomResource):
         __props__.__dict__["api_aws_iam_user_arn"] = api_aws_iam_user_arn
         __props__.__dict__["api_aws_role_arn"] = api_aws_role_arn
         __props__.__dict__["api_blocked_prefixes"] = api_blocked_prefixes
+        __props__.__dict__["api_key"] = api_key
         __props__.__dict__["api_provider"] = api_provider
         __props__.__dict__["azure_ad_application_id"] = azure_ad_application_id
         __props__.__dict__["azure_consent_url"] = azure_consent_url
@@ -573,6 +614,14 @@ class ApiIntegration(pulumi.CustomResource):
         Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
         """
         return pulumi.get(self, "api_blocked_prefixes")
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The API key (also called a “subscription key”).
+        """
+        return pulumi.get(self, "api_key")
 
     @property
     @pulumi.getter(name="apiProvider")

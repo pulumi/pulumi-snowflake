@@ -26,7 +26,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewView(ctx, "view", &snowflake.ViewArgs{
-//				Database:  pulumi.String("db"),
+//				Database:  pulumi.String("database"),
 //				Schema:    pulumi.String("schema"),
 //				Comment:   pulumi.String("comment"),
 //				Statement: pulumi.String("select * from foo;\n"),

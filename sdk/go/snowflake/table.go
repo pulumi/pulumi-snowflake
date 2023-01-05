@@ -126,6 +126,8 @@ type Table struct {
 	// Name of the role that owns the table.
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// Definitions of primary key constraint to create on table
+	//
+	// Deprecated: Use snowflake_table_constraint instead
 	PrimaryKey TablePrimaryKeyPtrOutput `pulumi:"primaryKey"`
 	// The schema in which to create the table.
 	Schema pulumi.StringOutput `pulumi:"schema"`
@@ -190,6 +192,8 @@ type tableState struct {
 	// Name of the role that owns the table.
 	Owner *string `pulumi:"owner"`
 	// Definitions of primary key constraint to create on table
+	//
+	// Deprecated: Use snowflake_table_constraint instead
 	PrimaryKey *TablePrimaryKey `pulumi:"primaryKey"`
 	// The schema in which to create the table.
 	Schema *string `pulumi:"schema"`
@@ -217,6 +221,8 @@ type TableState struct {
 	// Name of the role that owns the table.
 	Owner pulumi.StringPtrInput
 	// Definitions of primary key constraint to create on table
+	//
+	// Deprecated: Use snowflake_table_constraint instead
 	PrimaryKey TablePrimaryKeyPtrInput
 	// The schema in which to create the table.
 	Schema pulumi.StringPtrInput
@@ -246,6 +252,8 @@ type tableArgs struct {
 	// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
 	Name *string `pulumi:"name"`
 	// Definitions of primary key constraint to create on table
+	//
+	// Deprecated: Use snowflake_table_constraint instead
 	PrimaryKey *TablePrimaryKey `pulumi:"primaryKey"`
 	// The schema in which to create the table.
 	Schema string `pulumi:"schema"`
@@ -272,6 +280,8 @@ type TableArgs struct {
 	// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
 	Name pulumi.StringPtrInput
 	// Definitions of primary key constraint to create on table
+	//
+	// Deprecated: Use snowflake_table_constraint instead
 	PrimaryKey TablePrimaryKeyPtrInput
 	// The schema in which to create the table.
 	Schema pulumi.StringInput
@@ -409,6 +419,8 @@ func (o TableOutput) Owner() pulumi.StringOutput {
 }
 
 // Definitions of primary key constraint to create on table
+//
+// Deprecated: Use snowflake_table_constraint instead
 func (o TableOutput) PrimaryKey() TablePrimaryKeyPtrOutput {
 	return o.ApplyT(func(v *Table) TablePrimaryKeyPtrOutput { return v.PrimaryKey }).(TablePrimaryKeyPtrOutput)
 }

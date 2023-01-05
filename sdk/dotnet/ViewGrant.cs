@@ -21,9 +21,9 @@ namespace Pulumi.Snowflake
     /// {
     ///     var grant = new Snowflake.ViewGrant("grant", new()
     ///     {
-    ///         DatabaseName = "db",
+    ///         DatabaseName = "database",
     ///         OnFuture = false,
-    ///         Privilege = "select",
+    ///         Privilege = "SELECT",
     ///         Roles = new[]
     ///         {
     ///             "role1",

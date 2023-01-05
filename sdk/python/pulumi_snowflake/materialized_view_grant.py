@@ -341,10 +341,10 @@ class MaterializedViewGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.MaterializedViewGrant("grant",
-            database_name="db",
+            database_name="database",
             materialized_view_name="materialized_view",
             on_future=False,
-            privilege="select",
+            privilege="SELECT",
             roles=[
                 "role1",
                 "role2",
@@ -392,10 +392,10 @@ class MaterializedViewGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.MaterializedViewGrant("grant",
-            database_name="db",
+            database_name="database",
             materialized_view_name="materialized_view",
             on_future=False,
-            privilege="select",
+            privilege="SELECT",
             roles=[
                 "role1",
                 "role2",

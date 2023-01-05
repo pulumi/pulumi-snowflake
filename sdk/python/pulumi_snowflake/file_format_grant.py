@@ -307,10 +307,10 @@ class FileFormatGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.FileFormatGrant("grant",
-            database_name="db",
+            database_name="database",
             file_format_name="file_format",
             on_future=False,
-            privilege="select",
+            privilege="SELECT",
             roles=[
                 "role1",
                 "role2",
@@ -353,10 +353,10 @@ class FileFormatGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.FileFormatGrant("grant",
-            database_name="db",
+            database_name="database",
             file_format_name="file_format",
             on_future=False,
-            privilege="select",
+            privilege="SELECT",
             roles=[
                 "role1",
                 "role2",

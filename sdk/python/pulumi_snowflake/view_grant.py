@@ -341,9 +341,9 @@ class ViewGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.ViewGrant("grant",
-            database_name="db",
+            database_name="database",
             on_future=False,
-            privilege="select",
+            privilege="SELECT",
             roles=[
                 "role1",
                 "role2",
@@ -392,9 +392,9 @@ class ViewGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.ViewGrant("grant",
-            database_name="db",
+            database_name="database",
             on_future=False,
-            privilege="select",
+            privilege="SELECT",
             roles=[
                 "role1",
                 "role2",

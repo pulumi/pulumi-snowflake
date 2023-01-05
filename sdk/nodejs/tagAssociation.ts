@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -21,12 +23,38 @@ import * as utilities from "./utilities";
  *         "engineering",
  *     ],
  * });
- * const association = new snowflake.TagAssociation("association", {
- *     objectName: database.name,
+ * const dbAssociation = new snowflake.TagAssociation("dbAssociation", {
+ *     objectIdentifiers: [{
+ *         name: database.name,
+ *     }],
  *     objectType: "DATABASE",
  *     tagId: tag.id,
  *     tagValue: "finance",
- *     skipValidation: true,
+ * });
+ * const test = new snowflake.Table("test", {
+ *     database: snowflake_database.test.name,
+ *     schema: snowflake_schema.test.name,
+ *     comment: "Terraform example table",
+ *     columns: [
+ *         {
+ *             name: "column1",
+ *             type: "VARIANT",
+ *         },
+ *         {
+ *             name: "column2",
+ *             type: "VARCHAR(16)",
+ *         },
+ *     ],
+ * });
+ * const tableAssociation = new snowflake.TagAssociation("tableAssociation", {
+ *     objectIdentifiers: [{
+ *         name: test.name,
+ *         database: snowflake_database.test.name,
+ *         schema: snowflake_schema.test.name,
+ *     }],
+ *     objectType: "TABLE",
+ *     tagId: snowflake_tag.test.id,
+ *     tagValue: "engineering",
  * });
  * ```
  *
@@ -69,13 +97,19 @@ export class TagAssociation extends pulumi.CustomResource {
     /**
      * Specifies the object identifier for the tag association.
      */
-    public readonly objectName!: pulumi.Output<string>;
+    public readonly objectIdentifiers!: pulumi.Output<outputs.TagAssociationObjectIdentifier[]>;
+    /**
+     * Specifies the object identifier for the tag association.
+     *
+     * @deprecated Use `object_identifier` instead
+     */
+    public readonly objectName!: pulumi.Output<string | undefined>;
     /**
      * Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
      */
     public readonly objectType!: pulumi.Output<string>;
     /**
-     * If true, skips validation of the tag association. It can take up to an hour for the SNOWFLAKE.TAG*REFERENCES table to update, and also requires ACCOUNT*ADMIN role to read from. https://docs.snowflake.com/en/sql-reference/account-usage/tag_references.html
+     * If true, skips validation of the tag association.
      */
     public readonly skipValidation!: pulumi.Output<boolean | undefined>;
     /**
@@ -100,6 +134,7 @@ export class TagAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TagAssociationState | undefined;
+            resourceInputs["objectIdentifiers"] = state ? state.objectIdentifiers : undefined;
             resourceInputs["objectName"] = state ? state.objectName : undefined;
             resourceInputs["objectType"] = state ? state.objectType : undefined;
             resourceInputs["skipValidation"] = state ? state.skipValidation : undefined;
@@ -107,8 +142,8 @@ export class TagAssociation extends pulumi.CustomResource {
             resourceInputs["tagValue"] = state ? state.tagValue : undefined;
         } else {
             const args = argsOrState as TagAssociationArgs | undefined;
-            if ((!args || args.objectName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'objectName'");
+            if ((!args || args.objectIdentifiers === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'objectIdentifiers'");
             }
             if ((!args || args.objectType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'objectType'");
@@ -119,6 +154,7 @@ export class TagAssociation extends pulumi.CustomResource {
             if ((!args || args.tagValue === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tagValue'");
             }
+            resourceInputs["objectIdentifiers"] = args ? args.objectIdentifiers : undefined;
             resourceInputs["objectName"] = args ? args.objectName : undefined;
             resourceInputs["objectType"] = args ? args.objectType : undefined;
             resourceInputs["skipValidation"] = args ? args.skipValidation : undefined;
@@ -137,13 +173,19 @@ export interface TagAssociationState {
     /**
      * Specifies the object identifier for the tag association.
      */
+    objectIdentifiers?: pulumi.Input<pulumi.Input<inputs.TagAssociationObjectIdentifier>[]>;
+    /**
+     * Specifies the object identifier for the tag association.
+     *
+     * @deprecated Use `object_identifier` instead
+     */
     objectName?: pulumi.Input<string>;
     /**
      * Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
      */
     objectType?: pulumi.Input<string>;
     /**
-     * If true, skips validation of the tag association. It can take up to an hour for the SNOWFLAKE.TAG*REFERENCES table to update, and also requires ACCOUNT*ADMIN role to read from. https://docs.snowflake.com/en/sql-reference/account-usage/tag_references.html
+     * If true, skips validation of the tag association.
      */
     skipValidation?: pulumi.Input<boolean>;
     /**
@@ -163,13 +205,19 @@ export interface TagAssociationArgs {
     /**
      * Specifies the object identifier for the tag association.
      */
-    objectName: pulumi.Input<string>;
+    objectIdentifiers: pulumi.Input<pulumi.Input<inputs.TagAssociationObjectIdentifier>[]>;
+    /**
+     * Specifies the object identifier for the tag association.
+     *
+     * @deprecated Use `object_identifier` instead
+     */
+    objectName?: pulumi.Input<string>;
     /**
      * Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
      */
     objectType: pulumi.Input<string>;
     /**
-     * If true, skips validation of the tag association. It can take up to an hour for the SNOWFLAKE.TAG*REFERENCES table to update, and also requires ACCOUNT*ADMIN role to read from. https://docs.snowflake.com/en/sql-reference/account-usage/tag_references.html
+     * If true, skips validation of the tag association.
      */
     skipValidation?: pulumi.Input<boolean>;
     /**

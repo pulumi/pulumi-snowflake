@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const warehouse = new snowflake.Warehouse("w", {
+ * const warehouse = new snowflake.Warehouse("warehouse", {
  *     comment: "foo",
  *     warehouseSize: "small",
  * });
@@ -63,6 +63,10 @@ export class Warehouse extends pulumi.CustomResource {
     public readonly autoSuspend!: pulumi.Output<number>;
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
+     * Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+     */
+    public readonly enableQueryAcceleration!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies whether the warehouse is created initially in the ‘Suspended’ state.
      */
     public readonly initiallySuspended!: pulumi.Output<boolean | undefined>;
@@ -82,6 +86,10 @@ export class Warehouse extends pulumi.CustomResource {
      * Identifier for the virtual warehouse; must be unique for your account.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+     */
+    public readonly queryAccelerationMaxScaleFactor!: pulumi.Output<number | undefined>;
     /**
      * Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
      */
@@ -112,6 +120,10 @@ export class Warehouse extends pulumi.CustomResource {
      * Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
      */
     public readonly warehouseSize!: pulumi.Output<string>;
+    /**
+     * Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+     */
+    public readonly warehouseType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Warehouse resource with the given unique name, arguments, and options.
@@ -129,11 +141,13 @@ export class Warehouse extends pulumi.CustomResource {
             resourceInputs["autoResume"] = state ? state.autoResume : undefined;
             resourceInputs["autoSuspend"] = state ? state.autoSuspend : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["enableQueryAcceleration"] = state ? state.enableQueryAcceleration : undefined;
             resourceInputs["initiallySuspended"] = state ? state.initiallySuspended : undefined;
             resourceInputs["maxClusterCount"] = state ? state.maxClusterCount : undefined;
             resourceInputs["maxConcurrencyLevel"] = state ? state.maxConcurrencyLevel : undefined;
             resourceInputs["minClusterCount"] = state ? state.minClusterCount : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["queryAccelerationMaxScaleFactor"] = state ? state.queryAccelerationMaxScaleFactor : undefined;
             resourceInputs["resourceMonitor"] = state ? state.resourceMonitor : undefined;
             resourceInputs["scalingPolicy"] = state ? state.scalingPolicy : undefined;
             resourceInputs["statementQueuedTimeoutInSeconds"] = state ? state.statementQueuedTimeoutInSeconds : undefined;
@@ -141,16 +155,19 @@ export class Warehouse extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["waitForProvisioning"] = state ? state.waitForProvisioning : undefined;
             resourceInputs["warehouseSize"] = state ? state.warehouseSize : undefined;
+            resourceInputs["warehouseType"] = state ? state.warehouseType : undefined;
         } else {
             const args = argsOrState as WarehouseArgs | undefined;
             resourceInputs["autoResume"] = args ? args.autoResume : undefined;
             resourceInputs["autoSuspend"] = args ? args.autoSuspend : undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["enableQueryAcceleration"] = args ? args.enableQueryAcceleration : undefined;
             resourceInputs["initiallySuspended"] = args ? args.initiallySuspended : undefined;
             resourceInputs["maxClusterCount"] = args ? args.maxClusterCount : undefined;
             resourceInputs["maxConcurrencyLevel"] = args ? args.maxConcurrencyLevel : undefined;
             resourceInputs["minClusterCount"] = args ? args.minClusterCount : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["queryAccelerationMaxScaleFactor"] = args ? args.queryAccelerationMaxScaleFactor : undefined;
             resourceInputs["resourceMonitor"] = args ? args.resourceMonitor : undefined;
             resourceInputs["scalingPolicy"] = args ? args.scalingPolicy : undefined;
             resourceInputs["statementQueuedTimeoutInSeconds"] = args ? args.statementQueuedTimeoutInSeconds : undefined;
@@ -158,6 +175,7 @@ export class Warehouse extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["waitForProvisioning"] = args ? args.waitForProvisioning : undefined;
             resourceInputs["warehouseSize"] = args ? args.warehouseSize : undefined;
+            resourceInputs["warehouseType"] = args ? args.warehouseType : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Warehouse.__pulumiType, name, resourceInputs, opts);
@@ -178,6 +196,10 @@ export interface WarehouseState {
     autoSuspend?: pulumi.Input<number>;
     comment?: pulumi.Input<string>;
     /**
+     * Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+     */
+    enableQueryAcceleration?: pulumi.Input<boolean>;
+    /**
      * Specifies whether the warehouse is created initially in the ‘Suspended’ state.
      */
     initiallySuspended?: pulumi.Input<boolean>;
@@ -197,6 +219,10 @@ export interface WarehouseState {
      * Identifier for the virtual warehouse; must be unique for your account.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+     */
+    queryAccelerationMaxScaleFactor?: pulumi.Input<number>;
     /**
      * Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
      */
@@ -227,6 +253,10 @@ export interface WarehouseState {
      * Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
      */
     warehouseSize?: pulumi.Input<string>;
+    /**
+     * Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+     */
+    warehouseType?: pulumi.Input<string>;
 }
 
 /**
@@ -243,6 +273,10 @@ export interface WarehouseArgs {
     autoSuspend?: pulumi.Input<number>;
     comment?: pulumi.Input<string>;
     /**
+     * Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+     */
+    enableQueryAcceleration?: pulumi.Input<boolean>;
+    /**
      * Specifies whether the warehouse is created initially in the ‘Suspended’ state.
      */
     initiallySuspended?: pulumi.Input<boolean>;
@@ -262,6 +296,10 @@ export interface WarehouseArgs {
      * Identifier for the virtual warehouse; must be unique for your account.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+     */
+    queryAccelerationMaxScaleFactor?: pulumi.Input<number>;
     /**
      * Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
      */
@@ -292,4 +330,8 @@ export interface WarehouseArgs {
      * Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
      */
     warehouseSize?: pulumi.Input<string>;
+    /**
+     * Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+     */
+    warehouseType?: pulumi.Input<string>;
 }

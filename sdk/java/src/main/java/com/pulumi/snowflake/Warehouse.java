@@ -94,6 +94,20 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
+     * Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+     * 
+     */
+    @Export(name="enableQueryAcceleration", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> enableQueryAcceleration;
+
+    /**
+     * @return Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+     * 
+     */
+    public Output<Optional<Boolean>> enableQueryAcceleration() {
+        return Codegen.optional(this.enableQueryAcceleration);
+    }
+    /**
      * Specifies whether the warehouse is created initially in the ‘Suspended’ state.
      * 
      */
@@ -162,6 +176,20 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+     * 
+     */
+    @Export(name="queryAccelerationMaxScaleFactor", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> queryAccelerationMaxScaleFactor;
+
+    /**
+     * @return Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+     * 
+     */
+    public Output<Optional<Integer>> queryAccelerationMaxScaleFactor() {
+        return Codegen.optional(this.queryAccelerationMaxScaleFactor);
     }
     /**
      * Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
@@ -264,6 +292,20 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
      */
     public Output<String> warehouseSize() {
         return this.warehouseSize;
+    }
+    /**
+     * Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+     * 
+     */
+    @Export(name="warehouseType", type=String.class, parameters={})
+    private Output</* @Nullable */ String> warehouseType;
+
+    /**
+     * @return Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+     * 
+     */
+    public Output<Optional<String>> warehouseType() {
+        return Codegen.optional(this.warehouseType);
     }
 
     /**

@@ -21,10 +21,10 @@ namespace Pulumi.Snowflake
     /// {
     ///     var grant = new Snowflake.ExternalTableGrant("grant", new()
     ///     {
-    ///         DatabaseName = "db",
+    ///         DatabaseName = "database",
     ///         ExternalTableName = "external_table",
     ///         OnFuture = false,
-    ///         Privilege = "select",
+    ///         Privilege = "SELECT",
     ///         Roles = new[]
     ///         {
     ///             "role1",

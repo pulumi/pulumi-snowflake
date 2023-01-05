@@ -25,9 +25,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewTask(ctx, "task", &snowflake.TaskArgs{
+//			task, err := snowflake.NewTask(ctx, "task", &snowflake.TaskArgs{
 //				Comment:      pulumi.String("my task"),
-//				Database:     pulumi.String("db"),
+//				Database:     pulumi.String("database"),
 //				Schema:       pulumi.String("schema"),
 //				Warehouse:    pulumi.String("warehouse"),
 //				Schedule:     pulumi.String("10 MINUTE"),
@@ -36,7 +36,7 @@ import (
 //					"foo": pulumi.String("bar"),
 //				},
 //				UserTaskTimeoutMs: pulumi.Int(10000),
-//				After:             pulumi.String("preceding_task"),
+//				Afters:            pulumi.StringArray("preceding_task"),
 //				When:              pulumi.String("foo AND bar"),
 //				Enabled:           pulumi.Bool(true),
 //			})
@@ -54,9 +54,22 @@ import (
 //				},
 //				UserTaskTimeoutMs:                   pulumi.Int(10000),
 //				UserTaskManagedInitialWarehouseSize: pulumi.String("XSMALL"),
-//				After:                               pulumi.String("preceding_task"),
-//				When:                                pulumi.String("foo AND bar"),
-//				Enabled:                             pulumi.Bool(true),
+//				Afters: pulumi.StringArray{
+//					task.Name,
+//				},
+//				When:    pulumi.String("foo AND bar"),
+//				Enabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewTask(ctx, "testTask", &snowflake.TaskArgs{
+//				Comment:                   pulumi.String("task with allow_overlapping_execution"),
+//				Database:                  pulumi.String("database"),
+//				Schema:                    pulumi.String("schema"),
+//				SqlStatement:              pulumi.String("select 1 as c;"),
+//				AllowOverlappingExecution: pulumi.Bool(true),
+//				Enabled:                   pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -79,8 +92,10 @@ import (
 type Task struct {
 	pulumi.CustomResourceState
 
-	// Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
-	After pulumi.StringPtrOutput `pulumi:"after"`
+	// Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
+	Afters pulumi.StringArrayOutput `pulumi:"afters"`
+	// By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
+	AllowOverlappingExecution pulumi.BoolPtrOutput `pulumi:"allowOverlappingExecution"`
 	// Specifies a comment for the task.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The database in which to create the task.
@@ -147,8 +162,10 @@ func GetTask(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Task resources.
 type taskState struct {
-	// Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
-	After *string `pulumi:"after"`
+	// Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
+	Afters []string `pulumi:"afters"`
+	// By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
+	AllowOverlappingExecution *bool `pulumi:"allowOverlappingExecution"`
 	// Specifies a comment for the task.
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the task.
@@ -178,8 +195,10 @@ type taskState struct {
 }
 
 type TaskState struct {
-	// Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
-	After pulumi.StringPtrInput
+	// Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
+	Afters pulumi.StringArrayInput
+	// By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
+	AllowOverlappingExecution pulumi.BoolPtrInput
 	// Specifies a comment for the task.
 	Comment pulumi.StringPtrInput
 	// The database in which to create the task.
@@ -213,8 +232,10 @@ func (TaskState) ElementType() reflect.Type {
 }
 
 type taskArgs struct {
-	// Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
-	After *string `pulumi:"after"`
+	// Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
+	Afters []string `pulumi:"afters"`
+	// By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
+	AllowOverlappingExecution *bool `pulumi:"allowOverlappingExecution"`
 	// Specifies a comment for the task.
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the task.
@@ -245,8 +266,10 @@ type taskArgs struct {
 
 // The set of arguments for constructing a Task resource.
 type TaskArgs struct {
-	// Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
-	After pulumi.StringPtrInput
+	// Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
+	Afters pulumi.StringArrayInput
+	// By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
+	AllowOverlappingExecution pulumi.BoolPtrInput
 	// Specifies a comment for the task.
 	Comment pulumi.StringPtrInput
 	// The database in which to create the task.
@@ -362,9 +385,14 @@ func (o TaskOutput) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 	return o
 }
 
-// Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
-func (o TaskOutput) After() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Task) pulumi.StringPtrOutput { return v.After }).(pulumi.StringPtrOutput)
+// Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
+func (o TaskOutput) Afters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringArrayOutput { return v.Afters }).(pulumi.StringArrayOutput)
+}
+
+// By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
+func (o TaskOutput) AllowOverlappingExecution() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Task) pulumi.BoolPtrOutput { return v.AllowOverlappingExecution }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies a comment for the task.

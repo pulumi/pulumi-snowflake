@@ -31,6 +31,10 @@ import (
 //				NotifyTriggers: pulumi.IntArray{
 //					pulumi.Int(40),
 //				},
+//				NotifyUsers: pulumi.StringArray{
+//					pulumi.String("USERONE"),
+//					pulumi.String("USERTWO"),
+//				},
 //				StartTimestamp: pulumi.String("2020-12-07 00:00"),
 //				SuspendImmediateTriggers: pulumi.IntArray{
 //					pulumi.Int(90),
@@ -68,6 +72,8 @@ type ResourceMonitor struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of percentage thresholds at which to send an alert to subscribed users.
 	NotifyTriggers pulumi.IntArrayOutput `pulumi:"notifyTriggers"`
+	// Specifies the list of users to receive email notifications on resource monitors.
+	NotifyUsers pulumi.StringArrayOutput `pulumi:"notifyUsers"`
 	// Specifies whether the resource monitor should be applied globally to your Snowflake account.
 	SetForAccount pulumi.BoolPtrOutput `pulumi:"setForAccount"`
 	// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
@@ -119,6 +125,8 @@ type resourceMonitorState struct {
 	Name *string `pulumi:"name"`
 	// A list of percentage thresholds at which to send an alert to subscribed users.
 	NotifyTriggers []int `pulumi:"notifyTriggers"`
+	// Specifies the list of users to receive email notifications on resource monitors.
+	NotifyUsers []string `pulumi:"notifyUsers"`
 	// Specifies whether the resource monitor should be applied globally to your Snowflake account.
 	SetForAccount *bool `pulumi:"setForAccount"`
 	// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
@@ -142,6 +150,8 @@ type ResourceMonitorState struct {
 	Name pulumi.StringPtrInput
 	// A list of percentage thresholds at which to send an alert to subscribed users.
 	NotifyTriggers pulumi.IntArrayInput
+	// Specifies the list of users to receive email notifications on resource monitors.
+	NotifyUsers pulumi.StringArrayInput
 	// Specifies whether the resource monitor should be applied globally to your Snowflake account.
 	SetForAccount pulumi.BoolPtrInput
 	// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
@@ -169,6 +179,8 @@ type resourceMonitorArgs struct {
 	Name *string `pulumi:"name"`
 	// A list of percentage thresholds at which to send an alert to subscribed users.
 	NotifyTriggers []int `pulumi:"notifyTriggers"`
+	// Specifies the list of users to receive email notifications on resource monitors.
+	NotifyUsers []string `pulumi:"notifyUsers"`
 	// Specifies whether the resource monitor should be applied globally to your Snowflake account.
 	SetForAccount *bool `pulumi:"setForAccount"`
 	// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
@@ -193,6 +205,8 @@ type ResourceMonitorArgs struct {
 	Name pulumi.StringPtrInput
 	// A list of percentage thresholds at which to send an alert to subscribed users.
 	NotifyTriggers pulumi.IntArrayInput
+	// Specifies the list of users to receive email notifications on resource monitors.
+	NotifyUsers pulumi.StringArrayInput
 	// Specifies whether the resource monitor should be applied globally to your Snowflake account.
 	SetForAccount pulumi.BoolPtrInput
 	// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
@@ -315,6 +329,11 @@ func (o ResourceMonitorOutput) Name() pulumi.StringOutput {
 // A list of percentage thresholds at which to send an alert to subscribed users.
 func (o ResourceMonitorOutput) NotifyTriggers() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ResourceMonitor) pulumi.IntArrayOutput { return v.NotifyTriggers }).(pulumi.IntArrayOutput)
+}
+
+// Specifies the list of users to receive email notifications on resource monitors.
+func (o ResourceMonitorOutput) NotifyUsers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResourceMonitor) pulumi.StringArrayOutput { return v.NotifyUsers }).(pulumi.StringArrayOutput)
 }
 
 // Specifies whether the resource monitor should be applied globally to your Snowflake account.

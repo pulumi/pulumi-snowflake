@@ -12,7 +12,7 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const grant = new snowflake.DatabaseGrant("grant", {
- *     databaseName: "db",
+ *     databaseName: "database",
  *     privilege: "USAGE",
  *     roles: [
  *         "role1",

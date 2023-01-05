@@ -12,7 +12,7 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const grant = new snowflake.StageGrant("grant", {
- *     databaseName: "db",
+ *     databaseName: "database",
  *     onFuture: false,
  *     privilege: "USAGE",
  *     roles: [
@@ -20,10 +20,6 @@ import * as utilities from "./utilities";
  *         "role2",
  *     ],
  *     schemaName: "schema",
- *     shares: [
- *         "share1",
- *         "share2",
- *     ],
  *     stageName: "stage",
  *     withGrantOption: false,
  * });

@@ -57,6 +57,21 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+     * 
+     */
+    @Import(name="enableQueryAcceleration")
+    private @Nullable Output<Boolean> enableQueryAcceleration;
+
+    /**
+     * @return Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+     * 
+     */
+    public Optional<Output<Boolean>> enableQueryAcceleration() {
+        return Optional.ofNullable(this.enableQueryAcceleration);
+    }
+
+    /**
      * Specifies whether the warehouse is created initially in the ‘Suspended’ state.
      * 
      */
@@ -129,6 +144,21 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+     * 
+     */
+    @Import(name="queryAccelerationMaxScaleFactor")
+    private @Nullable Output<Integer> queryAccelerationMaxScaleFactor;
+
+    /**
+     * @return Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+     * 
+     */
+    public Optional<Output<Integer>> queryAccelerationMaxScaleFactor() {
+        return Optional.ofNullable(this.queryAccelerationMaxScaleFactor);
     }
 
     /**
@@ -244,17 +274,34 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.warehouseSize);
     }
 
+    /**
+     * Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+     * 
+     */
+    @Import(name="warehouseType")
+    private @Nullable Output<String> warehouseType;
+
+    /**
+     * @return Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+     * 
+     */
+    public Optional<Output<String>> warehouseType() {
+        return Optional.ofNullable(this.warehouseType);
+    }
+
     private WarehouseState() {}
 
     private WarehouseState(WarehouseState $) {
         this.autoResume = $.autoResume;
         this.autoSuspend = $.autoSuspend;
         this.comment = $.comment;
+        this.enableQueryAcceleration = $.enableQueryAcceleration;
         this.initiallySuspended = $.initiallySuspended;
         this.maxClusterCount = $.maxClusterCount;
         this.maxConcurrencyLevel = $.maxConcurrencyLevel;
         this.minClusterCount = $.minClusterCount;
         this.name = $.name;
+        this.queryAccelerationMaxScaleFactor = $.queryAccelerationMaxScaleFactor;
         this.resourceMonitor = $.resourceMonitor;
         this.scalingPolicy = $.scalingPolicy;
         this.statementQueuedTimeoutInSeconds = $.statementQueuedTimeoutInSeconds;
@@ -262,6 +309,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         this.tags = $.tags;
         this.waitForProvisioning = $.waitForProvisioning;
         this.warehouseSize = $.warehouseSize;
+        this.warehouseType = $.warehouseType;
     }
 
     public static Builder builder() {
@@ -331,6 +379,27 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
 
         public Builder comment(String comment) {
             return comment(Output.of(comment));
+        }
+
+        /**
+         * @param enableQueryAcceleration Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableQueryAcceleration(@Nullable Output<Boolean> enableQueryAcceleration) {
+            $.enableQueryAcceleration = enableQueryAcceleration;
+            return this;
+        }
+
+        /**
+         * @param enableQueryAcceleration Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableQueryAcceleration(Boolean enableQueryAcceleration) {
+            return enableQueryAcceleration(Output.of(enableQueryAcceleration));
         }
 
         /**
@@ -436,6 +505,27 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param queryAccelerationMaxScaleFactor Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryAccelerationMaxScaleFactor(@Nullable Output<Integer> queryAccelerationMaxScaleFactor) {
+            $.queryAccelerationMaxScaleFactor = queryAccelerationMaxScaleFactor;
+            return this;
+        }
+
+        /**
+         * @param queryAccelerationMaxScaleFactor Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryAccelerationMaxScaleFactor(Integer queryAccelerationMaxScaleFactor) {
+            return queryAccelerationMaxScaleFactor(Output.of(queryAccelerationMaxScaleFactor));
         }
 
         /**
@@ -605,6 +695,27 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder warehouseSize(String warehouseSize) {
             return warehouseSize(Output.of(warehouseSize));
+        }
+
+        /**
+         * @param warehouseType Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warehouseType(@Nullable Output<String> warehouseType) {
+            $.warehouseType = warehouseType;
+            return this;
+        }
+
+        /**
+         * @param warehouseType Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warehouseType(String warehouseType) {
+            return warehouseType(Output.of(warehouseType));
         }
 
         public WarehouseState build() {

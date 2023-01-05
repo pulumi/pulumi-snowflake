@@ -53,6 +53,12 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+        /// </summary>
+        [Output("enableQueryAcceleration")]
+        public Output<bool?> EnableQueryAcceleration { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         /// </summary>
         [Output("initiallySuspended")]
@@ -81,6 +87,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+        /// </summary>
+        [Output("queryAccelerationMaxScaleFactor")]
+        public Output<int?> QueryAccelerationMaxScaleFactor { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
@@ -123,6 +135,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("warehouseSize")]
         public Output<string> WarehouseSize { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+        /// </summary>
+        [Output("warehouseType")]
+        public Output<string?> WarehouseType { get; private set; } = null!;
 
 
         /// <summary>
@@ -186,6 +204,12 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
+        /// Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+        /// </summary>
+        [Input("enableQueryAcceleration")]
+        public Input<bool>? EnableQueryAcceleration { get; set; }
+
+        /// <summary>
         /// Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         /// </summary>
         [Input("initiallySuspended")]
@@ -214,6 +238,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+        /// </summary>
+        [Input("queryAccelerationMaxScaleFactor")]
+        public Input<int>? QueryAccelerationMaxScaleFactor { get; set; }
 
         /// <summary>
         /// Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
@@ -264,6 +294,12 @@ namespace Pulumi.Snowflake
         [Input("warehouseSize")]
         public Input<string>? WarehouseSize { get; set; }
 
+        /// <summary>
+        /// Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+        /// </summary>
+        [Input("warehouseType")]
+        public Input<string>? WarehouseType { get; set; }
+
         public WarehouseArgs()
         {
         }
@@ -286,6 +322,12 @@ namespace Pulumi.Snowflake
 
         [Input("comment")]
         public Input<string>? Comment { get; set; }
+
+        /// <summary>
+        /// Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+        /// </summary>
+        [Input("enableQueryAcceleration")]
+        public Input<bool>? EnableQueryAcceleration { get; set; }
 
         /// <summary>
         /// Specifies whether the warehouse is created initially in the ‘Suspended’ state.
@@ -316,6 +358,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+        /// </summary>
+        [Input("queryAccelerationMaxScaleFactor")]
+        public Input<int>? QueryAccelerationMaxScaleFactor { get; set; }
 
         /// <summary>
         /// Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
@@ -365,6 +413,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("warehouseSize")]
         public Input<string>? WarehouseSize { get; set; }
+
+        /// <summary>
+        /// Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+        /// </summary>
+        [Input("warehouseType")]
+        public Input<string>? WarehouseType { get; set; }
 
         public WarehouseState()
         {

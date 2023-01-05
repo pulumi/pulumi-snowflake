@@ -36,8 +36,10 @@ class ProviderArgs:
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] account: The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
-        :param pulumi.Input[str] region: [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
-               `SNOWFLAKE_REGION` environment variable.
+        :param pulumi.Input[str] region: [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
+               format for the `account`
+               identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
+               in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
         :param pulumi.Input[str] username: Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
         :param pulumi.Input[bool] browser_auth: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
         :param pulumi.Input[str] host: Supports passing in a custom host value to the snowflake go driver for use with privatelink.
@@ -52,18 +54,18 @@ class ProviderArgs:
                `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
                `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
                variable.
-        :param pulumi.Input[str] password: Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from
+        :param pulumi.Input[str] password: Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
                `SNOWFLAKE_PASSWORD` environment variable.
         :param pulumi.Input[int] port: Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`
                environment variable.
-        :param pulumi.Input[str] private_key: Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
+        :param pulumi.Input[str] private_key: Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be sourced from
                `SNOWFLAKE_PRIVATE_KEY` environment variable.
         :param pulumi.Input[str] private_key_passphrase: Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
                des-ede3-cbc
         :param pulumi.Input[str] private_key_path: Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
-               `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+               `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
         :param pulumi.Input[str] protocol: Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
-        :param pulumi.Input[str] role: Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the
+        :param pulumi.Input[str] role: Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
                `SNOWFLAKE_ROLE` environment variable.
         :param pulumi.Input[str] warehouse: Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
         """
@@ -119,8 +121,10 @@ class ProviderArgs:
     @pulumi.getter
     def region(self) -> pulumi.Input[str]:
         """
-        [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
-        `SNOWFLAKE_REGION` environment variable.
+        [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
+        format for the `account`
+        identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
+        in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
         """
         return pulumi.get(self, "region")
 
@@ -245,7 +249,7 @@ class ProviderArgs:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from
+        Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
         `SNOWFLAKE_PASSWORD` environment variable.
         """
         return pulumi.get(self, "password")
@@ -271,7 +275,7 @@ class ProviderArgs:
     @pulumi.getter(name="privateKey")
     def private_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
+        Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be sourced from
         `SNOWFLAKE_PRIVATE_KEY` environment variable.
         """
         return pulumi.get(self, "private_key")
@@ -298,7 +302,7 @@ class ProviderArgs:
     def private_key_path(self) -> Optional[pulumi.Input[str]]:
         """
         Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
-        `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+        `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
         """
         return pulumi.get(self, "private_key_path")
 
@@ -322,7 +326,7 @@ class ProviderArgs:
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
         """
-        Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the
+        Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
         `SNOWFLAKE_ROLE` environment variable.
         """
         return pulumi.get(self, "role")
@@ -391,20 +395,22 @@ class Provider(pulumi.ProviderResource):
                `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
                `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
                variable.
-        :param pulumi.Input[str] password: Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from
+        :param pulumi.Input[str] password: Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
                `SNOWFLAKE_PASSWORD` environment variable.
         :param pulumi.Input[int] port: Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`
                environment variable.
-        :param pulumi.Input[str] private_key: Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
+        :param pulumi.Input[str] private_key: Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be sourced from
                `SNOWFLAKE_PRIVATE_KEY` environment variable.
         :param pulumi.Input[str] private_key_passphrase: Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
                des-ede3-cbc
         :param pulumi.Input[str] private_key_path: Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
-               `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+               `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
         :param pulumi.Input[str] protocol: Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
-        :param pulumi.Input[str] region: [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
-               `SNOWFLAKE_REGION` environment variable.
-        :param pulumi.Input[str] role: Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the
+        :param pulumi.Input[str] region: [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
+               format for the `account`
+               identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
+               in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
+        :param pulumi.Input[str] role: Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
                `SNOWFLAKE_ROLE` environment variable.
         :param pulumi.Input[str] username: Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
         :param pulumi.Input[str] warehouse: Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
@@ -570,7 +576,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def password(self) -> pulumi.Output[Optional[str]]:
         """
-        Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from
+        Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
         `SNOWFLAKE_PASSWORD` environment variable.
         """
         return pulumi.get(self, "password")
@@ -579,7 +585,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Output[Optional[str]]:
         """
-        Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
+        Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be sourced from
         `SNOWFLAKE_PRIVATE_KEY` environment variable.
         """
         return pulumi.get(self, "private_key")
@@ -598,7 +604,7 @@ class Provider(pulumi.ProviderResource):
     def private_key_path(self) -> pulumi.Output[Optional[str]]:
         """
         Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
-        `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+        `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
         """
         return pulumi.get(self, "private_key_path")
 
@@ -614,8 +620,10 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[str]:
         """
-        [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
-        `SNOWFLAKE_REGION` environment variable.
+        [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
+        format for the `account`
+        identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
+        in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
         """
         return pulumi.get(self, "region")
 
@@ -623,7 +631,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def role(self) -> pulumi.Output[Optional[str]]:
         """
-        Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the
+        Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
         `SNOWFLAKE_ROLE` environment variable.
         """
         return pulumi.get(self, "role")

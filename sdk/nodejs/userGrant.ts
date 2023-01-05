@@ -13,7 +13,10 @@ import * as utilities from "./utilities";
  *
  * const grant = new snowflake.UserGrant("grant", {
  *     privilege: "MONITOR",
- *     roles: ["role1"],
+ *     roles: [
+ *         "role1",
+ *         "role2",
+ *     ],
  *     userName: "user",
  *     withGrantOption: false,
  * });

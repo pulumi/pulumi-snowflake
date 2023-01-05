@@ -16,17 +16,21 @@ class UserOwnershipGrantArgs:
     def __init__(__self__, *,
                  on_user_name: pulumi.Input[str],
                  to_role_name: pulumi.Input[str],
-                 current_grants: Optional[pulumi.Input[str]] = None):
+                 current_grants: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a UserOwnershipGrant resource.
         :param pulumi.Input[str] on_user_name: The name of the user ownership is granted on.
         :param pulumi.Input[str] to_role_name: The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
         :param pulumi.Input[str] current_grants: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy.
         """
         pulumi.set(__self__, "on_user_name", on_user_name)
         pulumi.set(__self__, "to_role_name", to_role_name)
         if current_grants is not None:
             pulumi.set(__self__, "current_grants", current_grants)
+        if revert_ownership_to_role_name is not None:
+            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
 
     @property
     @pulumi.getter(name="onUserName")
@@ -64,23 +68,39 @@ class UserOwnershipGrantArgs:
     def current_grants(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "current_grants", value)
 
+    @property
+    @pulumi.getter(name="revertOwnershipToRoleName")
+    def revert_ownership_to_role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the role to revert ownership to on destroy.
+        """
+        return pulumi.get(self, "revert_ownership_to_role_name")
+
+    @revert_ownership_to_role_name.setter
+    def revert_ownership_to_role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revert_ownership_to_role_name", value)
+
 
 @pulumi.input_type
 class _UserOwnershipGrantState:
     def __init__(__self__, *,
                  current_grants: Optional[pulumi.Input[str]] = None,
                  on_user_name: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  to_role_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering UserOwnershipGrant resources.
         :param pulumi.Input[str] current_grants: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
         :param pulumi.Input[str] on_user_name: The name of the user ownership is granted on.
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy.
         :param pulumi.Input[str] to_role_name: The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
         """
         if current_grants is not None:
             pulumi.set(__self__, "current_grants", current_grants)
         if on_user_name is not None:
             pulumi.set(__self__, "on_user_name", on_user_name)
+        if revert_ownership_to_role_name is not None:
+            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
         if to_role_name is not None:
             pulumi.set(__self__, "to_role_name", to_role_name)
 
@@ -109,6 +129,18 @@ class _UserOwnershipGrantState:
         pulumi.set(self, "on_user_name", value)
 
     @property
+    @pulumi.getter(name="revertOwnershipToRoleName")
+    def revert_ownership_to_role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the role to revert ownership to on destroy.
+        """
+        return pulumi.get(self, "revert_ownership_to_role_name")
+
+    @revert_ownership_to_role_name.setter
+    def revert_ownership_to_role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revert_ownership_to_role_name", value)
+
+    @property
     @pulumi.getter(name="toRoleName")
     def to_role_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -128,6 +160,7 @@ class UserOwnershipGrant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  current_grants: Optional[pulumi.Input[str]] = None,
                  on_user_name: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  to_role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -136,6 +169,7 @@ class UserOwnershipGrant(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] current_grants: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
         :param pulumi.Input[str] on_user_name: The name of the user ownership is granted on.
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy.
         :param pulumi.Input[str] to_role_name: The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
         """
         ...
@@ -163,6 +197,7 @@ class UserOwnershipGrant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  current_grants: Optional[pulumi.Input[str]] = None,
                  on_user_name: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  to_role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -177,6 +212,7 @@ class UserOwnershipGrant(pulumi.CustomResource):
             if on_user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'on_user_name'")
             __props__.__dict__["on_user_name"] = on_user_name
+            __props__.__dict__["revert_ownership_to_role_name"] = revert_ownership_to_role_name
             if to_role_name is None and not opts.urn:
                 raise TypeError("Missing required property 'to_role_name'")
             __props__.__dict__["to_role_name"] = to_role_name
@@ -192,6 +228,7 @@ class UserOwnershipGrant(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             current_grants: Optional[pulumi.Input[str]] = None,
             on_user_name: Optional[pulumi.Input[str]] = None,
+            revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
             to_role_name: Optional[pulumi.Input[str]] = None) -> 'UserOwnershipGrant':
         """
         Get an existing UserOwnershipGrant resource's state with the given name, id, and optional extra
@@ -202,6 +239,7 @@ class UserOwnershipGrant(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] current_grants: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
         :param pulumi.Input[str] on_user_name: The name of the user ownership is granted on.
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy.
         :param pulumi.Input[str] to_role_name: The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -210,6 +248,7 @@ class UserOwnershipGrant(pulumi.CustomResource):
 
         __props__.__dict__["current_grants"] = current_grants
         __props__.__dict__["on_user_name"] = on_user_name
+        __props__.__dict__["revert_ownership_to_role_name"] = revert_ownership_to_role_name
         __props__.__dict__["to_role_name"] = to_role_name
         return UserOwnershipGrant(resource_name, opts=opts, __props__=__props__)
 
@@ -228,6 +267,14 @@ class UserOwnershipGrant(pulumi.CustomResource):
         The name of the user ownership is granted on.
         """
         return pulumi.get(self, "on_user_name")
+
+    @property
+    @pulumi.getter(name="revertOwnershipToRoleName")
+    def revert_ownership_to_role_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the role to revert ownership to on destroy.
+        """
+        return pulumi.get(self, "revert_ownership_to_role_name")
 
     @property
     @pulumi.getter(name="toRoleName")

@@ -26,14 +26,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation")
 public class TagMaskingPolicyAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The the resource id of the masking policy
+     * The resource id of the masking policy
      * 
      */
     @Export(name="maskingPolicyId", type=String.class, parameters={})
     private Output<String> maskingPolicyId;
 
     /**
-     * @return The the resource id of the masking policy
+     * @return The resource id of the masking policy
      * 
      */
     public Output<String> maskingPolicyId() {

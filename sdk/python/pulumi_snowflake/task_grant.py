@@ -307,9 +307,9 @@ class TaskGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.TaskGrant("grant",
-            database_name="db",
+            database_name="database",
             on_future=False,
-            privilege="operate",
+            privilege="OPERATE",
             roles=[
                 "role1",
                 "role2",
@@ -353,9 +353,9 @@ class TaskGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.TaskGrant("grant",
-            database_name="db",
+            database_name="database",
             on_future=False,
-            privilege="operate",
+            privilege="OPERATE",
             roles=[
                 "role1",
                 "role2",

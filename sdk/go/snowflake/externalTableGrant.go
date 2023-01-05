@@ -26,10 +26,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewExternalTableGrant(ctx, "grant", &snowflake.ExternalTableGrantArgs{
-//				DatabaseName:      pulumi.String("db"),
+//				DatabaseName:      pulumi.String("database"),
 //				ExternalTableName: pulumi.String("external_table"),
 //				OnFuture:          pulumi.Bool(false),
-//				Privilege:         pulumi.String("select"),
+//				Privilege:         pulumi.String("SELECT"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
 //					pulumi.String("role2"),

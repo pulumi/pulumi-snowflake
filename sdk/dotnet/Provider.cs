@@ -72,14 +72,14 @@ namespace Pulumi.Snowflake
         public Output<string?> OauthRefreshToken { get; private set; } = null!;
 
         /// <summary>
-        /// Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from
+        /// Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
         /// `SNOWFLAKE_PASSWORD` environment variable.
         /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
-        /// Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
+        /// Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be sourced from
         /// `SNOWFLAKE_PRIVATE_KEY` environment variable.
         /// </summary>
         [Output("privateKey")]
@@ -94,7 +94,7 @@ namespace Pulumi.Snowflake
 
         /// <summary>
         /// Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
-        /// `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+        /// `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
         /// </summary>
         [Output("privateKeyPath")]
         public Output<string?> PrivateKeyPath { get; private set; } = null!;
@@ -106,14 +106,16 @@ namespace Pulumi.Snowflake
         public Output<string?> Protocol { get; private set; } = null!;
 
         /// <summary>
-        /// [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
-        /// `SNOWFLAKE_REGION` environment variable.
+        /// [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
+        /// format for the `account`
+        /// identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
+        /// in the form of `&lt;cloud_region_id&gt;.&lt;cloud&gt;`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the
+        /// Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
         /// `SNOWFLAKE_ROLE` environment variable.
         /// </summary>
         [Output("role")]
@@ -295,7 +297,7 @@ namespace Pulumi.Snowflake
         private Input<string>? _password;
 
         /// <summary>
-        /// Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from
+        /// Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
         /// `SNOWFLAKE_PASSWORD` environment variable.
         /// </summary>
         public Input<string>? Password
@@ -319,7 +321,7 @@ namespace Pulumi.Snowflake
         private Input<string>? _privateKey;
 
         /// <summary>
-        /// Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
+        /// Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be sourced from
         /// `SNOWFLAKE_PRIVATE_KEY` environment variable.
         /// </summary>
         public Input<string>? PrivateKey
@@ -354,7 +356,7 @@ namespace Pulumi.Snowflake
 
         /// <summary>
         /// Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
-        /// `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+        /// `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
         /// </summary>
         public Input<string>? PrivateKeyPath
         {
@@ -373,14 +375,16 @@ namespace Pulumi.Snowflake
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
-        /// `SNOWFLAKE_REGION` environment variable.
+        /// [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
+        /// format for the `account`
+        /// identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
+        /// in the form of `&lt;cloud_region_id&gt;.&lt;cloud&gt;`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
         /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 
         /// <summary>
-        /// Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the
+        /// Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
         /// `SNOWFLAKE_ROLE` environment variable.
         /// </summary>
         [Input("role")]

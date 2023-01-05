@@ -28,7 +28,7 @@ import (
 //			_, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
 //				Comment:           pulumi.String("A schema."),
 //				DataRetentionDays: pulumi.Int(1),
-//				Database:          pulumi.String("db"),
+//				Database:          pulumi.String("database"),
 //				IsManaged:         pulumi.Bool(false),
 //				IsTransient:       pulumi.Bool(false),
 //			})

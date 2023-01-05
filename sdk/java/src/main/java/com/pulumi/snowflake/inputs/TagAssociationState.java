@@ -5,8 +5,10 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.snowflake.inputs.TagAssociationObjectIdentifierArgs;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,13 +22,36 @@ public final class TagAssociationState extends com.pulumi.resources.ResourceArgs
      * Specifies the object identifier for the tag association.
      * 
      */
+    @Import(name="objectIdentifiers")
+    private @Nullable Output<List<TagAssociationObjectIdentifierArgs>> objectIdentifiers;
+
+    /**
+     * @return Specifies the object identifier for the tag association.
+     * 
+     */
+    public Optional<Output<List<TagAssociationObjectIdentifierArgs>>> objectIdentifiers() {
+        return Optional.ofNullable(this.objectIdentifiers);
+    }
+
+    /**
+     * Specifies the object identifier for the tag association.
+     * 
+     * @deprecated
+     * Use `object_identifier` instead
+     * 
+     */
+    @Deprecated /* Use `object_identifier` instead */
     @Import(name="objectName")
     private @Nullable Output<String> objectName;
 
     /**
      * @return Specifies the object identifier for the tag association.
      * 
+     * @deprecated
+     * Use `object_identifier` instead
+     * 
      */
+    @Deprecated /* Use `object_identifier` instead */
     public Optional<Output<String>> objectName() {
         return Optional.ofNullable(this.objectName);
     }
@@ -47,14 +72,14 @@ public final class TagAssociationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * If true, skips validation of the tag association. It can take up to an hour for the SNOWFLAKE.TAG*REFERENCES table to update, and also requires ACCOUNT*ADMIN role to read from. https://docs.snowflake.com/en/sql-reference/account-usage/tag_references.html
+     * If true, skips validation of the tag association.
      * 
      */
     @Import(name="skipValidation")
     private @Nullable Output<Boolean> skipValidation;
 
     /**
-     * @return If true, skips validation of the tag association. It can take up to an hour for the SNOWFLAKE.TAG*REFERENCES table to update, and also requires ACCOUNT*ADMIN role to read from. https://docs.snowflake.com/en/sql-reference/account-usage/tag_references.html
+     * @return If true, skips validation of the tag association.
      * 
      */
     public Optional<Output<Boolean>> skipValidation() {
@@ -94,6 +119,7 @@ public final class TagAssociationState extends com.pulumi.resources.ResourceArgs
     private TagAssociationState() {}
 
     private TagAssociationState(TagAssociationState $) {
+        this.objectIdentifiers = $.objectIdentifiers;
         this.objectName = $.objectName;
         this.objectType = $.objectType;
         this.skipValidation = $.skipValidation;
@@ -120,11 +146,46 @@ public final class TagAssociationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param objectName Specifies the object identifier for the tag association.
+         * @param objectIdentifiers Specifies the object identifier for the tag association.
          * 
          * @return builder
          * 
          */
+        public Builder objectIdentifiers(@Nullable Output<List<TagAssociationObjectIdentifierArgs>> objectIdentifiers) {
+            $.objectIdentifiers = objectIdentifiers;
+            return this;
+        }
+
+        /**
+         * @param objectIdentifiers Specifies the object identifier for the tag association.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder objectIdentifiers(List<TagAssociationObjectIdentifierArgs> objectIdentifiers) {
+            return objectIdentifiers(Output.of(objectIdentifiers));
+        }
+
+        /**
+         * @param objectIdentifiers Specifies the object identifier for the tag association.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder objectIdentifiers(TagAssociationObjectIdentifierArgs... objectIdentifiers) {
+            return objectIdentifiers(List.of(objectIdentifiers));
+        }
+
+        /**
+         * @param objectName Specifies the object identifier for the tag association.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use `object_identifier` instead
+         * 
+         */
+        @Deprecated /* Use `object_identifier` instead */
         public Builder objectName(@Nullable Output<String> objectName) {
             $.objectName = objectName;
             return this;
@@ -135,7 +196,11 @@ public final class TagAssociationState extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `object_identifier` instead
+         * 
          */
+        @Deprecated /* Use `object_identifier` instead */
         public Builder objectName(String objectName) {
             return objectName(Output.of(objectName));
         }
@@ -162,7 +227,7 @@ public final class TagAssociationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param skipValidation If true, skips validation of the tag association. It can take up to an hour for the SNOWFLAKE.TAG*REFERENCES table to update, and also requires ACCOUNT*ADMIN role to read from. https://docs.snowflake.com/en/sql-reference/account-usage/tag_references.html
+         * @param skipValidation If true, skips validation of the tag association.
          * 
          * @return builder
          * 
@@ -173,7 +238,7 @@ public final class TagAssociationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param skipValidation If true, skips validation of the tag association. It can take up to an hour for the SNOWFLAKE.TAG*REFERENCES table to update, and also requires ACCOUNT*ADMIN role to read from. https://docs.snowflake.com/en/sql-reference/account-usage/tag_references.html
+         * @param skipValidation If true, skips validation of the tag association.
          * 
          * @return builder
          * 

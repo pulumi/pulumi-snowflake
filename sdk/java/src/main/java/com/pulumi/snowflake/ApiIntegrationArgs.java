@@ -63,6 +63,21 @@ public final class ApiIntegrationArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The API key (also called a “subscription key”).
+     * 
+     */
+    @Import(name="apiKey")
+    private @Nullable Output<String> apiKey;
+
+    /**
+     * @return The API key (also called a “subscription key”).
+     * 
+     */
+    public Optional<Output<String>> apiKey() {
+        return Optional.ofNullable(this.apiKey);
+    }
+
+    /**
      * Specifies the HTTPS proxy service type.
      * 
      */
@@ -143,6 +158,7 @@ public final class ApiIntegrationArgs extends com.pulumi.resources.ResourceArgs 
         this.apiAllowedPrefixes = $.apiAllowedPrefixes;
         this.apiAwsRoleArn = $.apiAwsRoleArn;
         this.apiBlockedPrefixes = $.apiBlockedPrefixes;
+        this.apiKey = $.apiKey;
         this.apiProvider = $.apiProvider;
         this.azureAdApplicationId = $.azureAdApplicationId;
         this.azureTenantId = $.azureTenantId;
@@ -249,6 +265,27 @@ public final class ApiIntegrationArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder apiBlockedPrefixes(String... apiBlockedPrefixes) {
             return apiBlockedPrefixes(List.of(apiBlockedPrefixes));
+        }
+
+        /**
+         * @param apiKey The API key (also called a “subscription key”).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKey(@Nullable Output<String> apiKey) {
+            $.apiKey = apiKey;
+            return this;
+        }
+
+        /**
+         * @param apiKey The API key (also called a “subscription key”).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKey(String apiKey) {
+            return apiKey(Output.of(apiKey));
         }
 
         /**

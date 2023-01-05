@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .database(&#34;my_test_db&#34;)
  *             .returnBehavior(&#34;IMMUTABLE&#34;)
- *             .returnType(&#34;varchar&#34;)
+ *             .returnType(&#34;variant&#34;)
  *             .schema(&#34;my_test_schema&#34;)
  *             .urlOfProxyAndResource(&#34;https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func&#34;)
  *             .build());

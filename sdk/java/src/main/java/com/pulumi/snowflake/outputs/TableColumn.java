@@ -30,6 +30,11 @@ public final class TableColumn {
      */
     private @Nullable TableColumnIdentity identity;
     /**
+     * @return Masking policy to apply on column
+     * 
+     */
+    private @Nullable String maskingPolicy;
+    /**
      * @return Column name
      * 
      */
@@ -68,6 +73,13 @@ public final class TableColumn {
         return Optional.ofNullable(this.identity);
     }
     /**
+     * @return Masking policy to apply on column
+     * 
+     */
+    public Optional<String> maskingPolicy() {
+        return Optional.ofNullable(this.maskingPolicy);
+    }
+    /**
      * @return Column name
      * 
      */
@@ -101,6 +113,7 @@ public final class TableColumn {
         private @Nullable String comment;
         private @Nullable TableColumnDefault default_;
         private @Nullable TableColumnIdentity identity;
+        private @Nullable String maskingPolicy;
         private String name;
         private @Nullable Boolean nullable;
         private String type;
@@ -110,6 +123,7 @@ public final class TableColumn {
     	      this.comment = defaults.comment;
     	      this.default_ = defaults.default_;
     	      this.identity = defaults.identity;
+    	      this.maskingPolicy = defaults.maskingPolicy;
     	      this.name = defaults.name;
     	      this.nullable = defaults.nullable;
     	      this.type = defaults.type;
@@ -128,6 +142,11 @@ public final class TableColumn {
         @CustomType.Setter
         public Builder identity(@Nullable TableColumnIdentity identity) {
             this.identity = identity;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder maskingPolicy(@Nullable String maskingPolicy) {
+            this.maskingPolicy = maskingPolicy;
             return this;
         }
         @CustomType.Setter
@@ -150,6 +169,7 @@ public final class TableColumn {
             o.comment = comment;
             o.default_ = default_;
             o.identity = identity;
+            o.maskingPolicy = maskingPolicy;
             o.name = name;
             o.nullable = nullable;
             o.type = type;

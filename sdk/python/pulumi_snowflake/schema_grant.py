@@ -312,7 +312,7 @@ class SchemaGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.SchemaGrant("grant",
-            database_name="db",
+            database_name="database",
             on_future=False,
             privilege="USAGE",
             roles=[
@@ -362,7 +362,7 @@ class SchemaGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.SchemaGrant("grant",
-            database_name="db",
+            database_name="database",
             on_future=False,
             privilege="USAGE",
             roles=[

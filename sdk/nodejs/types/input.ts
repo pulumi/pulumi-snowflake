@@ -85,6 +85,37 @@ export interface ExternalTableTag {
     value: pulumi.Input<string>;
 }
 
+export interface FailoverGroupFromReplica {
+    /**
+     * Identifier for the primary failover group in the source account.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of your Snowflake organization.
+     */
+    organizationName: pulumi.Input<string>;
+    /**
+     * Source account from which you are enabling replication and failover of the specified objects.
+     */
+    sourceAccountName: pulumi.Input<string>;
+}
+
+export interface FailoverGroupReplicationSchedule {
+    /**
+     * Specifies the cron expression for the replication schedule. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+     */
+    cron?: pulumi.Input<inputs.FailoverGroupReplicationScheduleCron>;
+    /**
+     * Specifies the interval in minutes for the replication schedule. The interval must be greater than 0 and less than 1440 (24 hours).
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface FailoverGroupReplicationScheduleCron {
+    expression: pulumi.Input<string>;
+    timeZone: pulumi.Input<string>;
+}
+
 export interface FunctionArgument {
     /**
      * The argument name
@@ -105,6 +136,134 @@ export interface FunctionGrantArgument {
      * The argument type
      */
     type: pulumi.Input<string>;
+}
+
+export interface GetGrantsFutureGrantsIn {
+    /**
+     * Lists all privileges on new (i.e. future) objects of a specified type in the database granted to a role.
+     */
+    database?: string;
+    /**
+     * Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+     */
+    schema?: inputs.GetGrantsFutureGrantsInSchema;
+}
+
+export interface GetGrantsFutureGrantsInArgs {
+    /**
+     * Lists all privileges on new (i.e. future) objects of a specified type in the database granted to a role.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+     */
+    schema?: pulumi.Input<inputs.GetGrantsFutureGrantsInSchemaArgs>;
+}
+
+export interface GetGrantsFutureGrantsInSchemaArgs {
+    databaseName?: pulumi.Input<string>;
+    schemaName: pulumi.Input<string>;
+}
+
+export interface GetGrantsFutureGrantsInSchema {
+    databaseName?: string;
+    schemaName: string;
+}
+
+export interface GetGrantsFutureGrantsToArgs {
+    /**
+     * Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
+     */
+    role: pulumi.Input<string>;
+}
+
+export interface GetGrantsFutureGrantsTo {
+    /**
+     * Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
+     */
+    role: string;
+}
+
+export interface GetGrantsGrantsOfArgs {
+    /**
+     * Lists all users and roles to which the role has been granted
+     */
+    role?: pulumi.Input<string>;
+    /**
+     * Lists all the accounts for the share and indicates the accounts that are using the share.
+     */
+    share?: pulumi.Input<string>;
+}
+
+export interface GetGrantsGrantsOf {
+    /**
+     * Lists all users and roles to which the role has been granted
+     */
+    role?: string;
+    /**
+     * Lists all the accounts for the share and indicates the accounts that are using the share.
+     */
+    share?: string;
+}
+
+export interface GetGrantsGrantsOn {
+    /**
+     * Object hierarchy to list privileges on. The only valid value is: ACCOUNT. Setting this attribute lists all the account-level (i.e. global) privileges that have been granted to roles.
+     */
+    account?: boolean;
+    /**
+     * Name of object to list privileges on
+     */
+    objectName?: string;
+    /**
+     * Type of object to list privileges on.
+     */
+    objectType?: string;
+}
+
+export interface GetGrantsGrantsOnArgs {
+    /**
+     * Object hierarchy to list privileges on. The only valid value is: ACCOUNT. Setting this attribute lists all the account-level (i.e. global) privileges that have been granted to roles.
+     */
+    account?: pulumi.Input<boolean>;
+    /**
+     * Name of object to list privileges on
+     */
+    objectName?: pulumi.Input<string>;
+    /**
+     * Type of object to list privileges on.
+     */
+    objectType?: pulumi.Input<string>;
+}
+
+export interface GetGrantsGrantsTo {
+    /**
+     * Lists all privileges and roles granted to the role
+     */
+    role?: string;
+    /**
+     * Lists all the privileges granted to the share
+     */
+    share?: string;
+    /**
+     * Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed
+     */
+    user?: string;
+}
+
+export interface GetGrantsGrantsToArgs {
+    /**
+     * Lists all privileges and roles granted to the role
+     */
+    role?: pulumi.Input<string>;
+    /**
+     * Lists all the privileges granted to the share
+     */
+    share?: pulumi.Input<string>;
+    /**
+     * Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed
+     */
+    user?: pulumi.Input<string>;
 }
 
 export interface MaterializedViewTag {
@@ -219,6 +378,10 @@ export interface TableColumn {
      */
     identity?: pulumi.Input<inputs.TableColumnIdentity>;
     /**
+     * Masking policy to apply on column
+     */
+    maskingPolicy?: pulumi.Input<string>;
+    /**
      * Column name
      */
     name: pulumi.Input<string>;
@@ -241,6 +404,36 @@ export interface TableColumnDefault {
 export interface TableColumnIdentity {
     startNum?: pulumi.Input<number>;
     stepNum?: pulumi.Input<number>;
+}
+
+export interface TableConstraintForeignKeyProperties {
+    /**
+     * The match type for the foreign key. Not applicable for primary/unique keys
+     */
+    match?: pulumi.Input<string>;
+    /**
+     * Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+     */
+    onDelete?: pulumi.Input<string>;
+    /**
+     * Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+     */
+    onUpdate?: pulumi.Input<string>;
+    /**
+     * The table and columns that the foreign key references. Not applicable for primary/unique keys
+     */
+    references?: pulumi.Input<inputs.TableConstraintForeignKeyPropertiesReferences>;
+}
+
+export interface TableConstraintForeignKeyPropertiesReferences {
+    /**
+     * Columns to use in constraint key
+     */
+    columns: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Idenfifier for table to create constraint on. Must be of the form Note: format must follow: "\n\n"."\n\n"."\n\n" or "\n\n.\n\n.\n\n" or "\n\n|\n\n.\n\n" (snowflake*table.my*table.id)
+     */
+    tableId: pulumi.Input<string>;
 }
 
 export interface TablePrimaryKey {
@@ -271,6 +464,21 @@ export interface TableTag {
      * Tag value, e.g. marketing_info.
      */
     value: pulumi.Input<string>;
+}
+
+export interface TagAssociationObjectIdentifier {
+    /**
+     * Name of the database that the object was created in.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Name of the object to associate the tag with.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the schema that the object was created in.
+     */
+    schema?: pulumi.Input<string>;
 }
 
 export interface UserTag {

@@ -73,6 +73,10 @@ export class MaskingPolicy extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Specifies the qualified identifier for the masking policy.
+     */
+    public /*out*/ readonly qualifiedName!: pulumi.Output<string>;
+    /**
      * Specifies the data type to return.
      */
     public readonly returnDataType!: pulumi.Output<string>;
@@ -102,6 +106,7 @@ export class MaskingPolicy extends pulumi.CustomResource {
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["maskingExpression"] = state ? state.maskingExpression : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["qualifiedName"] = state ? state.qualifiedName : undefined;
             resourceInputs["returnDataType"] = state ? state.returnDataType : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
             resourceInputs["valueDataType"] = state ? state.valueDataType : undefined;
@@ -129,6 +134,7 @@ export class MaskingPolicy extends pulumi.CustomResource {
             resourceInputs["returnDataType"] = args ? args.returnDataType : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["valueDataType"] = args ? args.valueDataType : undefined;
+            resourceInputs["qualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MaskingPolicy.__pulumiType, name, resourceInputs, opts);
@@ -155,6 +161,10 @@ export interface MaskingPolicyState {
      * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the qualified identifier for the masking policy.
+     */
+    qualifiedName?: pulumi.Input<string>;
     /**
      * Specifies the data type to return.
      */

@@ -12,10 +12,10 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const grant = new snowflake.ExternalTableGrant("grant", {
- *     databaseName: "db",
+ *     databaseName: "database",
  *     externalTableName: "external_table",
  *     onFuture: false,
- *     privilege: "select",
+ *     privilege: "SELECT",
  *     roles: [
  *         "role1",
  *         "role2",

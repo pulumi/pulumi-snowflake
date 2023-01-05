@@ -22,7 +22,7 @@ namespace Pulumi.Snowflake
     ///     var task = new Snowflake.Task("task", new()
     ///     {
     ///         Comment = "my task",
-    ///         Database = "db",
+    ///         Database = "database",
     ///         Schema = "schema",
     ///         Warehouse = "warehouse",
     ///         Schedule = "10 MINUTE",
@@ -32,7 +32,7 @@ namespace Pulumi.Snowflake
     ///             { "foo", "bar" },
     ///         },
     ///         UserTaskTimeoutMs = 10000,
-    ///         After = "preceding_task",
+    ///         Afters = "preceding_task",
     ///         When = "foo AND bar",
     ///         Enabled = true,
     ///     });
@@ -50,8 +50,21 @@ namespace Pulumi.Snowflake
     ///         },
     ///         UserTaskTimeoutMs = 10000,
     ///         UserTaskManagedInitialWarehouseSize = "XSMALL",
-    ///         After = "preceding_task",
+    ///         Afters = new[]
+    ///         {
+    ///             task.Name,
+    ///         },
     ///         When = "foo AND bar",
+    ///         Enabled = true,
+    ///     });
+    /// 
+    ///     var testTask = new Snowflake.Task("testTask", new()
+    ///     {
+    ///         Comment = "task with allow_overlapping_execution",
+    ///         Database = "database",
+    ///         Schema = "schema",
+    ///         SqlStatement = "select 1 as c;",
+    ///         AllowOverlappingExecution = true,
     ///         Enabled = true,
     ///     });
     /// 
@@ -70,10 +83,16 @@ namespace Pulumi.Snowflake
     public partial class Task : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+        /// Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
         /// </summary>
-        [Output("after")]
-        public Output<string?> After { get; private set; } = null!;
+        [Output("afters")]
+        public Output<ImmutableArray<string>> Afters { get; private set; } = null!;
+
+        /// <summary>
+        /// By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
+        /// </summary>
+        [Output("allowOverlappingExecution")]
+        public Output<bool?> AllowOverlappingExecution { get; private set; } = null!;
 
         /// <summary>
         /// Specifies a comment for the task.
@@ -199,11 +218,23 @@ namespace Pulumi.Snowflake
 
     public sealed class TaskArgs : global::Pulumi.ResourceArgs
     {
+        [Input("afters")]
+        private InputList<string>? _afters;
+
         /// <summary>
-        /// Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+        /// Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
         /// </summary>
-        [Input("after")]
-        public Input<string>? After { get; set; }
+        public InputList<string> Afters
+        {
+            get => _afters ?? (_afters = new InputList<string>());
+            set => _afters = value;
+        }
+
+        /// <summary>
+        /// By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
+        /// </summary>
+        [Input("allowOverlappingExecution")]
+        public Input<bool>? AllowOverlappingExecution { get; set; }
 
         /// <summary>
         /// Specifies a comment for the task.
@@ -297,11 +328,23 @@ namespace Pulumi.Snowflake
 
     public sealed class TaskState : global::Pulumi.ResourceArgs
     {
+        [Input("afters")]
+        private InputList<string>? _afters;
+
         /// <summary>
-        /// Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+        /// Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
         /// </summary>
-        [Input("after")]
-        public Input<string>? After { get; set; }
+        public InputList<string> Afters
+        {
+            get => _afters ?? (_afters = new InputList<string>());
+            set => _afters = value;
+        }
+
+        /// <summary>
+        /// By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
+        /// </summary>
+        [Input("allowOverlappingExecution")]
+        public Input<bool>? AllowOverlappingExecution { get; set; }
 
         /// <summary>
         /// Specifies a comment for the task.

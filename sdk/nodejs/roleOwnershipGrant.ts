@@ -41,6 +41,10 @@ export class RoleOwnershipGrant extends pulumi.CustomResource {
      */
     public readonly onRoleName!: pulumi.Output<string>;
     /**
+     * The name of the role to revert ownership to on destroy.
+     */
+    public readonly revertOwnershipToRoleName!: pulumi.Output<string | undefined>;
+    /**
      * The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
      */
     public readonly toRoleName!: pulumi.Output<string>;
@@ -60,6 +64,7 @@ export class RoleOwnershipGrant extends pulumi.CustomResource {
             const state = argsOrState as RoleOwnershipGrantState | undefined;
             resourceInputs["currentGrants"] = state ? state.currentGrants : undefined;
             resourceInputs["onRoleName"] = state ? state.onRoleName : undefined;
+            resourceInputs["revertOwnershipToRoleName"] = state ? state.revertOwnershipToRoleName : undefined;
             resourceInputs["toRoleName"] = state ? state.toRoleName : undefined;
         } else {
             const args = argsOrState as RoleOwnershipGrantArgs | undefined;
@@ -71,6 +76,7 @@ export class RoleOwnershipGrant extends pulumi.CustomResource {
             }
             resourceInputs["currentGrants"] = args ? args.currentGrants : undefined;
             resourceInputs["onRoleName"] = args ? args.onRoleName : undefined;
+            resourceInputs["revertOwnershipToRoleName"] = args ? args.revertOwnershipToRoleName : undefined;
             resourceInputs["toRoleName"] = args ? args.toRoleName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -91,6 +97,10 @@ export interface RoleOwnershipGrantState {
      */
     onRoleName?: pulumi.Input<string>;
     /**
+     * The name of the role to revert ownership to on destroy.
+     */
+    revertOwnershipToRoleName?: pulumi.Input<string>;
+    /**
      * The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
      */
     toRoleName?: pulumi.Input<string>;
@@ -108,6 +118,10 @@ export interface RoleOwnershipGrantArgs {
      * The name of the role ownership is granted on.
      */
     onRoleName: pulumi.Input<string>;
+    /**
+     * The name of the role to revert ownership to on destroy.
+     */
+    revertOwnershipToRoleName?: pulumi.Input<string>;
     /**
      * The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
      */

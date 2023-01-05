@@ -40,9 +40,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var grant = new TaskGrant(&#34;grant&#34;, TaskGrantArgs.builder()        
- *             .databaseName(&#34;db&#34;)
+ *             .databaseName(&#34;database&#34;)
  *             .onFuture(false)
- *             .privilege(&#34;operate&#34;)
+ *             .privilege(&#34;OPERATE&#34;)
  *             .roles(            
  *                 &#34;role1&#34;,
  *                 &#34;role2&#34;)

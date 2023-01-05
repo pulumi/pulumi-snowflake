@@ -63,7 +63,7 @@ export class AccountGrant extends pulumi.CustomResource {
      */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
-     * The privilege to grant on the account.
+     * The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html)
      */
     public readonly privilege!: pulumi.Output<string | undefined>;
     /**
@@ -114,7 +114,7 @@ export interface AccountGrantState {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * The privilege to grant on the account.
+     * The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html)
      */
     privilege?: pulumi.Input<string>;
     /**
@@ -137,7 +137,7 @@ export interface AccountGrantArgs {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * The privilege to grant on the account.
+     * The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html)
      */
     privilege?: pulumi.Input<string>;
     /**

@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *                     .name(&#34;b&#34;)
  *                     .type(&#34;string&#34;)
  *                     .build())
- *             .databaseName(&#34;db&#34;)
+ *             .databaseName(&#34;database&#34;)
  *             .functionName(&#34;function&#34;)
  *             .onFuture(false)
  *             .privilege(&#34;USAGE&#34;)

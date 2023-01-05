@@ -13,8 +13,11 @@ import * as utilities from "./utilities";
  *
  * const grant = new snowflake.WarehouseGrant("grant", {
  *     privilege: "MODIFY",
- *     roles: ["role1"],
- *     warehouseName: "wh",
+ *     roles: [
+ *         "role1",
+ *         "role2",
+ *     ],
+ *     warehouseName: "warehouse",
  *     withGrantOption: false,
  * });
  * ```

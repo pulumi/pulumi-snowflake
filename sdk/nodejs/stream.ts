@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * const stream = new snowflake.Stream("stream", {
  *     appendOnly: false,
  *     comment: "A stream.",
- *     database: "db",
+ *     database: "database",
  *     insertOnly: false,
  *     onTable: "table",
  *     owner: "role1",

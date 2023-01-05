@@ -67,6 +67,12 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the qualified identifier for the masking policy.
+        /// </summary>
+        [Output("qualifiedName")]
+        public Output<string> QualifiedName { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the data type to return.
         /// </summary>
         [Output("returnDataType")]
@@ -203,6 +209,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies the qualified identifier for the masking policy.
+        /// </summary>
+        [Input("qualifiedName")]
+        public Input<string>? QualifiedName { get; set; }
 
         /// <summary>
         /// Specifies the data type to return.

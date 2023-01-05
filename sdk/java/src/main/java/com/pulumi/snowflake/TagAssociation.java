@@ -10,8 +10,10 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.TagAssociationArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.TagAssociationState;
+import com.pulumi.snowflake.outputs.TagAssociationObjectIdentifier;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -30,6 +32,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.snowflake.TagArgs;
  * import com.pulumi.snowflake.TagAssociation;
  * import com.pulumi.snowflake.TagAssociationArgs;
+ * import com.pulumi.snowflake.inputs.TagAssociationObjectIdentifierArgs;
+ * import com.pulumi.snowflake.Table;
+ * import com.pulumi.snowflake.TableArgs;
+ * import com.pulumi.snowflake.inputs.TableColumnArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -57,12 +63,39 @@ import javax.annotation.Nullable;
  *                 &#34;engineering&#34;)
  *             .build());
  * 
- *         var association = new TagAssociation(&#34;association&#34;, TagAssociationArgs.builder()        
- *             .objectName(database.name())
+ *         var dbAssociation = new TagAssociation(&#34;dbAssociation&#34;, TagAssociationArgs.builder()        
+ *             .objectIdentifiers(TagAssociationObjectIdentifierArgs.builder()
+ *                 .name(database.name())
+ *                 .build())
  *             .objectType(&#34;DATABASE&#34;)
  *             .tagId(tag.id())
  *             .tagValue(&#34;finance&#34;)
- *             .skipValidation(true)
+ *             .build());
+ * 
+ *         var test = new Table(&#34;test&#34;, TableArgs.builder()        
+ *             .database(snowflake_database.test().name())
+ *             .schema(snowflake_schema.test().name())
+ *             .comment(&#34;Terraform example table&#34;)
+ *             .columns(            
+ *                 TableColumnArgs.builder()
+ *                     .name(&#34;column1&#34;)
+ *                     .type(&#34;VARIANT&#34;)
+ *                     .build(),
+ *                 TableColumnArgs.builder()
+ *                     .name(&#34;column2&#34;)
+ *                     .type(&#34;VARCHAR(16)&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *         var tableAssociation = new TagAssociation(&#34;tableAssociation&#34;, TagAssociationArgs.builder()        
+ *             .objectIdentifiers(TagAssociationObjectIdentifierArgs.builder()
+ *                 .name(test.name())
+ *                 .database(snowflake_database.test().name())
+ *                 .schema(snowflake_schema.test().name())
+ *                 .build())
+ *             .objectType(&#34;TABLE&#34;)
+ *             .tagId(snowflake_tag.test().id())
+ *             .tagValue(&#34;engineering&#34;)
  *             .build());
  * 
  *     }
@@ -84,15 +117,33 @@ public class TagAssociation extends com.pulumi.resources.CustomResource {
      * Specifies the object identifier for the tag association.
      * 
      */
-    @Export(name="objectName", type=String.class, parameters={})
-    private Output<String> objectName;
+    @Export(name="objectIdentifiers", type=List.class, parameters={TagAssociationObjectIdentifier.class})
+    private Output<List<TagAssociationObjectIdentifier>> objectIdentifiers;
 
     /**
      * @return Specifies the object identifier for the tag association.
      * 
      */
-    public Output<String> objectName() {
-        return this.objectName;
+    public Output<List<TagAssociationObjectIdentifier>> objectIdentifiers() {
+        return this.objectIdentifiers;
+    }
+    /**
+     * Specifies the object identifier for the tag association.
+     * 
+     * @deprecated
+     * Use `object_identifier` instead
+     * 
+     */
+    @Deprecated /* Use `object_identifier` instead */
+    @Export(name="objectName", type=String.class, parameters={})
+    private Output</* @Nullable */ String> objectName;
+
+    /**
+     * @return Specifies the object identifier for the tag association.
+     * 
+     */
+    public Output<Optional<String>> objectName() {
+        return Codegen.optional(this.objectName);
     }
     /**
      * Specifies the type of object to add a tag to. ex: &#39;ACCOUNT&#39;, &#39;COLUMN&#39;, &#39;DATABASE&#39;, etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
@@ -109,14 +160,14 @@ public class TagAssociation extends com.pulumi.resources.CustomResource {
         return this.objectType;
     }
     /**
-     * If true, skips validation of the tag association. It can take up to an hour for the SNOWFLAKE.TAG*REFERENCES table to update, and also requires ACCOUNT*ADMIN role to read from. https://docs.snowflake.com/en/sql-reference/account-usage/tag_references.html
+     * If true, skips validation of the tag association.
      * 
      */
     @Export(name="skipValidation", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> skipValidation;
 
     /**
-     * @return If true, skips validation of the tag association. It can take up to an hour for the SNOWFLAKE.TAG*REFERENCES table to update, and also requires ACCOUNT*ADMIN role to read from. https://docs.snowflake.com/en/sql-reference/account-usage/tag_references.html
+     * @return If true, skips validation of the tag association.
      * 
      */
     public Output<Optional<Boolean>> skipValidation() {

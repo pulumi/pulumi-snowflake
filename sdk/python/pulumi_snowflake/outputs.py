@@ -17,6 +17,9 @@ __all__ = [
     'ExternalFunctionHeader',
     'ExternalTableColumn',
     'ExternalTableTag',
+    'FailoverGroupFromReplica',
+    'FailoverGroupReplicationSchedule',
+    'FailoverGroupReplicationScheduleCron',
     'FunctionArgument',
     'FunctionGrantArgument',
     'MaterializedViewTag',
@@ -28,8 +31,11 @@ __all__ = [
     'TableColumn',
     'TableColumnDefault',
     'TableColumnIdentity',
+    'TableConstraintForeignKeyProperties',
+    'TableConstraintForeignKeyPropertiesReferences',
     'TablePrimaryKey',
     'TableTag',
+    'TagAssociationObjectIdentifier',
     'UserTag',
     'ViewTag',
     'WarehouseTag',
@@ -39,11 +45,19 @@ __all__ = [
     'GetExternalTablesExternalTableResult',
     'GetFileFormatsFileFormatResult',
     'GetFunctionsFunctionResult',
+    'GetGrantsFutureGrantsInResult',
+    'GetGrantsFutureGrantsInSchemaResult',
+    'GetGrantsFutureGrantsToResult',
+    'GetGrantsGrantResult',
+    'GetGrantsGrantsOfResult',
+    'GetGrantsGrantsOnResult',
+    'GetGrantsGrantsToResult',
     'GetMaskingPoliciesMaskingPolicyResult',
     'GetMaterializedViewsMaterializedViewResult',
     'GetPipesPipeResult',
     'GetProceduresProcedureResult',
     'GetResourceMonitorsResourceMonitorResult',
+    'GetRolesRoleResult',
     'GetRowAccessPoliciesRowAccessPolicyResult',
     'GetSchemasSchemaResult',
     'GetSequencesSequenceResult',
@@ -313,6 +327,132 @@ class ExternalTableTag(dict):
         Name of the schema that the tag was created in.
         """
         return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class FailoverGroupFromReplica(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "organizationName":
+            suggest = "organization_name"
+        elif key == "sourceAccountName":
+            suggest = "source_account_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FailoverGroupFromReplica. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FailoverGroupFromReplica.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FailoverGroupFromReplica.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 organization_name: str,
+                 source_account_name: str):
+        """
+        :param str name: Identifier for the primary failover group in the source account.
+        :param str organization_name: Name of your Snowflake organization.
+        :param str source_account_name: Source account from which you are enabling replication and failover of the specified objects.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "organization_name", organization_name)
+        pulumi.set(__self__, "source_account_name", source_account_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Identifier for the primary failover group in the source account.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="organizationName")
+    def organization_name(self) -> str:
+        """
+        Name of your Snowflake organization.
+        """
+        return pulumi.get(self, "organization_name")
+
+    @property
+    @pulumi.getter(name="sourceAccountName")
+    def source_account_name(self) -> str:
+        """
+        Source account from which you are enabling replication and failover of the specified objects.
+        """
+        return pulumi.get(self, "source_account_name")
+
+
+@pulumi.output_type
+class FailoverGroupReplicationSchedule(dict):
+    def __init__(__self__, *,
+                 cron: Optional['outputs.FailoverGroupReplicationScheduleCron'] = None,
+                 interval: Optional[int] = None):
+        """
+        :param 'FailoverGroupReplicationScheduleCronArgs' cron: Specifies the cron expression for the replication schedule. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+        :param int interval: Specifies the interval in minutes for the replication schedule. The interval must be greater than 0 and less than 1440 (24 hours).
+        """
+        if cron is not None:
+            pulumi.set(__self__, "cron", cron)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def cron(self) -> Optional['outputs.FailoverGroupReplicationScheduleCron']:
+        """
+        Specifies the cron expression for the replication schedule. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+        """
+        return pulumi.get(self, "cron")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        Specifies the interval in minutes for the replication schedule. The interval must be greater than 0 and less than 1440 (24 hours).
+        """
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class FailoverGroupReplicationScheduleCron(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FailoverGroupReplicationScheduleCron. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FailoverGroupReplicationScheduleCron.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FailoverGroupReplicationScheduleCron.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 expression: str,
+                 time_zone: str):
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> str:
+        return pulumi.get(self, "expression")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> str:
+        return pulumi.get(self, "time_zone")
 
 
 @pulumi.output_type
@@ -645,12 +785,30 @@ class StageTag(dict):
 
 @pulumi.output_type
 class TableColumn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maskingPolicy":
+            suggest = "masking_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableColumn.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  type: str,
                  comment: Optional[str] = None,
                  default: Optional['outputs.TableColumnDefault'] = None,
                  identity: Optional['outputs.TableColumnIdentity'] = None,
+                 masking_policy: Optional[str] = None,
                  nullable: Optional[bool] = None):
         """
         :param str name: Column name
@@ -658,6 +816,7 @@ class TableColumn(dict):
         :param str comment: Column comment
         :param 'TableColumnDefaultArgs' default: Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
         :param 'TableColumnIdentityArgs' identity: Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
+        :param str masking_policy: Masking policy to apply on column
         :param bool nullable: Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
         """
         pulumi.set(__self__, "name", name)
@@ -668,6 +827,8 @@ class TableColumn(dict):
             pulumi.set(__self__, "default", default)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if masking_policy is not None:
+            pulumi.set(__self__, "masking_policy", masking_policy)
         if nullable is not None:
             pulumi.set(__self__, "nullable", nullable)
 
@@ -710,6 +871,14 @@ class TableColumn(dict):
         Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="maskingPolicy")
+    def masking_policy(self) -> Optional[str]:
+        """
+        Masking policy to apply on column
+        """
+        return pulumi.get(self, "masking_policy")
 
     @property
     @pulumi.getter
@@ -787,6 +956,126 @@ class TableColumnIdentity(dict):
     @pulumi.getter(name="stepNum")
     def step_num(self) -> Optional[int]:
         return pulumi.get(self, "step_num")
+
+
+@pulumi.output_type
+class TableConstraintForeignKeyProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "onDelete":
+            suggest = "on_delete"
+        elif key == "onUpdate":
+            suggest = "on_update"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableConstraintForeignKeyProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableConstraintForeignKeyProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableConstraintForeignKeyProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match: Optional[str] = None,
+                 on_delete: Optional[str] = None,
+                 on_update: Optional[str] = None,
+                 references: Optional['outputs.TableConstraintForeignKeyPropertiesReferences'] = None):
+        """
+        :param str match: The match type for the foreign key. Not applicable for primary/unique keys
+        :param str on_delete: Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+        :param str on_update: Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+        :param 'TableConstraintForeignKeyPropertiesReferencesArgs' references: The table and columns that the foreign key references. Not applicable for primary/unique keys
+        """
+        if match is not None:
+            pulumi.set(__self__, "match", match)
+        if on_delete is not None:
+            pulumi.set(__self__, "on_delete", on_delete)
+        if on_update is not None:
+            pulumi.set(__self__, "on_update", on_update)
+        if references is not None:
+            pulumi.set(__self__, "references", references)
+
+    @property
+    @pulumi.getter
+    def match(self) -> Optional[str]:
+        """
+        The match type for the foreign key. Not applicable for primary/unique keys
+        """
+        return pulumi.get(self, "match")
+
+    @property
+    @pulumi.getter(name="onDelete")
+    def on_delete(self) -> Optional[str]:
+        """
+        Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+        """
+        return pulumi.get(self, "on_delete")
+
+    @property
+    @pulumi.getter(name="onUpdate")
+    def on_update(self) -> Optional[str]:
+        """
+        Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+        """
+        return pulumi.get(self, "on_update")
+
+    @property
+    @pulumi.getter
+    def references(self) -> Optional['outputs.TableConstraintForeignKeyPropertiesReferences']:
+        """
+        The table and columns that the foreign key references. Not applicable for primary/unique keys
+        """
+        return pulumi.get(self, "references")
+
+
+@pulumi.output_type
+class TableConstraintForeignKeyPropertiesReferences(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tableId":
+            suggest = "table_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableConstraintForeignKeyPropertiesReferences. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableConstraintForeignKeyPropertiesReferences.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableConstraintForeignKeyPropertiesReferences.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 columns: Sequence[str],
+                 table_id: str):
+        """
+        :param Sequence[str] columns: Columns to use in constraint key
+        :param str table_id: Idenfifier for table to create constraint on. Must be of the form Note: format must follow: "\\n\\n"."\\n\\n"."\\n\\n" or "\\n\\n.\\n\\n.\\n\\n" or "\\n\\n|\\n\\n.\\n\\n" (snowflake*table.my*table.id)
+        """
+        pulumi.set(__self__, "columns", columns)
+        pulumi.set(__self__, "table_id", table_id)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Sequence[str]:
+        """
+        Columns to use in constraint key
+        """
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter(name="tableId")
+    def table_id(self) -> str:
+        """
+        Idenfifier for table to create constraint on. Must be of the form Note: format must follow: "\\n\\n"."\\n\\n"."\\n\\n" or "\\n\\n.\\n\\n.\\n\\n" or "\\n\\n|\\n\\n.\\n\\n" (snowflake*table.my*table.id)
+        """
+        return pulumi.get(self, "table_id")
 
 
 @pulumi.output_type
@@ -868,6 +1157,48 @@ class TableTag(dict):
     def schema(self) -> Optional[str]:
         """
         Name of the schema that the tag was created in.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class TagAssociationObjectIdentifier(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param str name: Name of the object to associate the tag with.
+        :param str database: Name of the database that the object was created in.
+        :param str schema: Name of the schema that the object was created in.
+        """
+        pulumi.set(__self__, "name", name)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the object to associate the tag with.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Name of the database that the object was created in.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Name of the schema that the object was created in.
         """
         return pulumi.get(self, "schema")
 
@@ -1326,6 +1657,253 @@ class GetFunctionsFunctionResult(dict):
 
 
 @pulumi.output_type
+class GetGrantsFutureGrantsInResult(dict):
+    def __init__(__self__, *,
+                 database: Optional[str] = None,
+                 schema: Optional['outputs.GetGrantsFutureGrantsInSchemaResult'] = None):
+        """
+        :param str database: Lists all privileges on new (i.e. future) objects of a specified type in the database granted to a role.
+        :param 'GetGrantsFutureGrantsInSchemaArgs' schema: Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+        """
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Lists all privileges on new (i.e. future) objects of a specified type in the database granted to a role.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional['outputs.GetGrantsFutureGrantsInSchemaResult']:
+        """
+        Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetGrantsFutureGrantsInSchemaResult(dict):
+    def __init__(__self__, *,
+                 schema_name: str,
+                 database_name: Optional[str] = None):
+        pulumi.set(__self__, "schema_name", schema_name)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> str:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        return pulumi.get(self, "database_name")
+
+
+@pulumi.output_type
+class GetGrantsFutureGrantsToResult(dict):
+    def __init__(__self__, *,
+                 role: str):
+        """
+        :param str role: Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
+        """
+        pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter
+    def role(self) -> str:
+        """
+        Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
+        """
+        return pulumi.get(self, "role")
+
+
+@pulumi.output_type
+class GetGrantsGrantResult(dict):
+    def __init__(__self__, *,
+                 created_on: str,
+                 grant_option: bool,
+                 granted_by: str,
+                 granted_on: str,
+                 granted_to: str,
+                 grantee_name: str,
+                 name: str,
+                 privilege: str):
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "grant_option", grant_option)
+        pulumi.set(__self__, "granted_by", granted_by)
+        pulumi.set(__self__, "granted_on", granted_on)
+        pulumi.set(__self__, "granted_to", granted_to)
+        pulumi.set(__self__, "grantee_name", grantee_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "privilege", privilege)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="grantOption")
+    def grant_option(self) -> bool:
+        return pulumi.get(self, "grant_option")
+
+    @property
+    @pulumi.getter(name="grantedBy")
+    def granted_by(self) -> str:
+        return pulumi.get(self, "granted_by")
+
+    @property
+    @pulumi.getter(name="grantedOn")
+    def granted_on(self) -> str:
+        return pulumi.get(self, "granted_on")
+
+    @property
+    @pulumi.getter(name="grantedTo")
+    def granted_to(self) -> str:
+        return pulumi.get(self, "granted_to")
+
+    @property
+    @pulumi.getter(name="granteeName")
+    def grantee_name(self) -> str:
+        return pulumi.get(self, "grantee_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def privilege(self) -> str:
+        return pulumi.get(self, "privilege")
+
+
+@pulumi.output_type
+class GetGrantsGrantsOfResult(dict):
+    def __init__(__self__, *,
+                 role: Optional[str] = None,
+                 share: Optional[str] = None):
+        """
+        :param str role: Lists all users and roles to which the role has been granted
+        :param str share: Lists all the accounts for the share and indicates the accounts that are using the share.
+        """
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+        if share is not None:
+            pulumi.set(__self__, "share", share)
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[str]:
+        """
+        Lists all users and roles to which the role has been granted
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def share(self) -> Optional[str]:
+        """
+        Lists all the accounts for the share and indicates the accounts that are using the share.
+        """
+        return pulumi.get(self, "share")
+
+
+@pulumi.output_type
+class GetGrantsGrantsOnResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[bool] = None,
+                 object_name: Optional[str] = None,
+                 object_type: Optional[str] = None):
+        """
+        :param bool account: Object hierarchy to list privileges on. The only valid value is: ACCOUNT. Setting this attribute lists all the account-level (i.e. global) privileges that have been granted to roles.
+        :param str object_name: Name of object to list privileges on
+        :param str object_type: Type of object to list privileges on.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if object_name is not None:
+            pulumi.set(__self__, "object_name", object_name)
+        if object_type is not None:
+            pulumi.set(__self__, "object_type", object_type)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[bool]:
+        """
+        Object hierarchy to list privileges on. The only valid value is: ACCOUNT. Setting this attribute lists all the account-level (i.e. global) privileges that have been granted to roles.
+        """
+        return pulumi.get(self, "account")
+
+    @property
+    @pulumi.getter(name="objectName")
+    def object_name(self) -> Optional[str]:
+        """
+        Name of object to list privileges on
+        """
+        return pulumi.get(self, "object_name")
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> Optional[str]:
+        """
+        Type of object to list privileges on.
+        """
+        return pulumi.get(self, "object_type")
+
+
+@pulumi.output_type
+class GetGrantsGrantsToResult(dict):
+    def __init__(__self__, *,
+                 role: Optional[str] = None,
+                 share: Optional[str] = None,
+                 user: Optional[str] = None):
+        """
+        :param str role: Lists all privileges and roles granted to the role
+        :param str share: Lists all the privileges granted to the share
+        :param str user: Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed
+        """
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+        if share is not None:
+            pulumi.set(__self__, "share", share)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[str]:
+        """
+        Lists all privileges and roles granted to the role
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def share(self) -> Optional[str]:
+        """
+        Lists all the privileges granted to the share
+        """
+        return pulumi.get(self, "share")
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[str]:
+        """
+        Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed
+        """
+        return pulumi.get(self, "user")
+
+
+@pulumi.output_type
 class GetMaskingPoliciesMaskingPolicyResult(dict):
     def __init__(__self__, *,
                  comment: str,
@@ -1556,6 +2134,32 @@ class GetResourceMonitorsResourceMonitorResult(dict):
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetRolesRoleResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 name: str,
+                 owner: str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "owner", owner)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> str:
+        return pulumi.get(self, "owner")
 
 
 @pulumi.output_type

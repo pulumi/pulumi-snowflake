@@ -94,6 +94,21 @@ public final class ResourceMonitorState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Specifies the list of users to receive email notifications on resource monitors.
+     * 
+     */
+    @Import(name="notifyUsers")
+    private @Nullable Output<List<String>> notifyUsers;
+
+    /**
+     * @return Specifies the list of users to receive email notifications on resource monitors.
+     * 
+     */
+    public Optional<Output<List<String>>> notifyUsers() {
+        return Optional.ofNullable(this.notifyUsers);
+    }
+
+    /**
      * Specifies whether the resource monitor should be applied globally to your Snowflake account.
      * 
      */
@@ -176,6 +191,7 @@ public final class ResourceMonitorState extends com.pulumi.resources.ResourceArg
         this.frequency = $.frequency;
         this.name = $.name;
         this.notifyTriggers = $.notifyTriggers;
+        this.notifyUsers = $.notifyUsers;
         this.setForAccount = $.setForAccount;
         this.startTimestamp = $.startTimestamp;
         this.suspendImmediateTriggers = $.suspendImmediateTriggers;
@@ -314,6 +330,37 @@ public final class ResourceMonitorState extends com.pulumi.resources.ResourceArg
          */
         public Builder notifyTriggers(Integer... notifyTriggers) {
             return notifyTriggers(List.of(notifyTriggers));
+        }
+
+        /**
+         * @param notifyUsers Specifies the list of users to receive email notifications on resource monitors.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notifyUsers(@Nullable Output<List<String>> notifyUsers) {
+            $.notifyUsers = notifyUsers;
+            return this;
+        }
+
+        /**
+         * @param notifyUsers Specifies the list of users to receive email notifications on resource monitors.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notifyUsers(List<String> notifyUsers) {
+            return notifyUsers(Output.of(notifyUsers));
+        }
+
+        /**
+         * @param notifyUsers Specifies the list of users to receive email notifications on resource monitors.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notifyUsers(String... notifyUsers) {
+            return notifyUsers(List.of(notifyUsers));
         }
 
         /**

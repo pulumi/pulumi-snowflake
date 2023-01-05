@@ -29,6 +29,7 @@ import (
 //				Privilege: pulumi.String("MONITOR"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
+//					pulumi.String("role2"),
 //				},
 //				UserName:        pulumi.String("user"),
 //				WithGrantOption: pulumi.Bool(false),

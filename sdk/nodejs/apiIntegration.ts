@@ -74,6 +74,10 @@ export class ApiIntegration extends pulumi.CustomResource {
      */
     public readonly apiBlockedPrefixes!: pulumi.Output<string[] | undefined>;
     /**
+     * The API key (also called a “subscription key”).
+     */
+    public readonly apiKey!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the HTTPS proxy service type.
      */
     public readonly apiProvider!: pulumi.Output<string>;
@@ -118,6 +122,7 @@ export class ApiIntegration extends pulumi.CustomResource {
             resourceInputs["apiAwsIamUserArn"] = state ? state.apiAwsIamUserArn : undefined;
             resourceInputs["apiAwsRoleArn"] = state ? state.apiAwsRoleArn : undefined;
             resourceInputs["apiBlockedPrefixes"] = state ? state.apiBlockedPrefixes : undefined;
+            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
             resourceInputs["apiProvider"] = state ? state.apiProvider : undefined;
             resourceInputs["azureAdApplicationId"] = state ? state.azureAdApplicationId : undefined;
             resourceInputs["azureConsentUrl"] = state ? state.azureConsentUrl : undefined;
@@ -137,6 +142,7 @@ export class ApiIntegration extends pulumi.CustomResource {
             resourceInputs["apiAllowedPrefixes"] = args ? args.apiAllowedPrefixes : undefined;
             resourceInputs["apiAwsRoleArn"] = args ? args.apiAwsRoleArn : undefined;
             resourceInputs["apiBlockedPrefixes"] = args ? args.apiBlockedPrefixes : undefined;
+            resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
             resourceInputs["apiProvider"] = args ? args.apiProvider : undefined;
             resourceInputs["azureAdApplicationId"] = args ? args.azureAdApplicationId : undefined;
             resourceInputs["azureTenantId"] = args ? args.azureTenantId : undefined;
@@ -149,6 +155,8 @@ export class ApiIntegration extends pulumi.CustomResource {
             resourceInputs["createdOn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["apiKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ApiIntegration.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -177,6 +185,10 @@ export interface ApiIntegrationState {
      * Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
      */
     apiBlockedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The API key (also called a “subscription key”).
+     */
+    apiKey?: pulumi.Input<string>;
     /**
      * Specifies the HTTPS proxy service type.
      */
@@ -221,6 +233,10 @@ export interface ApiIntegrationArgs {
      * Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
      */
     apiBlockedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The API key (also called a “subscription key”).
+     */
+    apiKey?: pulumi.Input<string>;
     /**
      * Specifies the HTTPS proxy service type.
      */

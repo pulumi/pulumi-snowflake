@@ -36,9 +36,9 @@ import (
 //						Type: pulumi.String("string"),
 //					},
 //				},
-//				DatabaseName:  pulumi.String("db"),
+//				DatabaseName:  pulumi.String("database"),
 //				OnFuture:      pulumi.Bool(false),
-//				Privilege:     pulumi.String("select"),
+//				Privilege:     pulumi.String("SELECT"),
 //				ProcedureName: pulumi.String("procedure"),
 //				ReturnType:    pulumi.String("string"),
 //				Roles: pulumi.StringArray{

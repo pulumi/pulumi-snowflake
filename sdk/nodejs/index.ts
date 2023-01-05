@@ -37,6 +37,10 @@ export { ExternalTableGrantArgs, ExternalTableGrantState } from "./externalTable
 export type ExternalTableGrant = import("./externalTableGrant").ExternalTableGrant;
 export const ExternalTableGrant: typeof import("./externalTableGrant").ExternalTableGrant = null as any;
 
+export { FailoverGroupArgs, FailoverGroupState } from "./failoverGroup";
+export type FailoverGroup = import("./failoverGroup").FailoverGroup;
+export const FailoverGroup: typeof import("./failoverGroup").FailoverGroup = null as any;
+
 export { FileFormatArgs, FileFormatState } from "./fileFormat";
 export type FileFormat = import("./fileFormat").FileFormat;
 export const FileFormat: typeof import("./fileFormat").FileFormat = null as any;
@@ -79,6 +83,10 @@ export { GetFunctionsArgs, GetFunctionsResult, GetFunctionsOutputArgs } from "./
 export const getFunctions: typeof import("./getFunctions").getFunctions = null as any;
 export const getFunctionsOutput: typeof import("./getFunctions").getFunctionsOutput = null as any;
 
+export { GetGrantsArgs, GetGrantsResult, GetGrantsOutputArgs } from "./getGrants";
+export const getGrants: typeof import("./getGrants").getGrants = null as any;
+export const getGrantsOutput: typeof import("./getGrants").getGrantsOutput = null as any;
+
 export { GetMaskingPoliciesArgs, GetMaskingPoliciesResult, GetMaskingPoliciesOutputArgs } from "./getMaskingPolicies";
 export const getMaskingPolicies: typeof import("./getMaskingPolicies").getMaskingPolicies = null as any;
 export const getMaskingPoliciesOutput: typeof import("./getMaskingPolicies").getMaskingPoliciesOutput = null as any;
@@ -101,6 +109,10 @@ export const getResourceMonitors: typeof import("./getResourceMonitors").getReso
 export { GetRoleArgs, GetRoleResult, GetRoleOutputArgs } from "./getRole";
 export const getRole: typeof import("./getRole").getRole = null as any;
 export const getRoleOutput: typeof import("./getRole").getRoleOutput = null as any;
+
+export { GetRolesArgs, GetRolesResult, GetRolesOutputArgs } from "./getRoles";
+export const getRoles: typeof import("./getRoles").getRoles = null as any;
+export const getRolesOutput: typeof import("./getRoles").getRolesOutput = null as any;
 
 export { GetRowAccessPoliciesArgs, GetRowAccessPoliciesResult, GetRowAccessPoliciesOutputArgs } from "./getRowAccessPolicies";
 export const getRowAccessPolicies: typeof import("./getRowAccessPolicies").getRowAccessPolicies = null as any;
@@ -298,6 +310,10 @@ export { TableArgs, TableState } from "./table";
 export type Table = import("./table").Table;
 export const Table: typeof import("./table").Table = null as any;
 
+export { TableConstraintArgs, TableConstraintState } from "./tableConstraint";
+export type TableConstraint = import("./tableConstraint").TableConstraint;
+export const TableConstraint: typeof import("./tableConstraint").TableConstraint = null as any;
+
 export { TableGrantArgs, TableGrantState } from "./tableGrant";
 export type TableGrant = import("./tableGrant").TableGrant;
 export const TableGrant: typeof import("./tableGrant").TableGrant = null as any;
@@ -366,6 +382,7 @@ utilities.lazyLoad(exports, ["ExternalFunction"], () => require("./externalFunct
 utilities.lazyLoad(exports, ["ExternalOauthIntegration"], () => require("./externalOauthIntegration"));
 utilities.lazyLoad(exports, ["ExternalTable"], () => require("./externalTable"));
 utilities.lazyLoad(exports, ["ExternalTableGrant"], () => require("./externalTableGrant"));
+utilities.lazyLoad(exports, ["FailoverGroup"], () => require("./failoverGroup"));
 utilities.lazyLoad(exports, ["FileFormat"], () => require("./fileFormat"));
 utilities.lazyLoad(exports, ["FileFormatGrant"], () => require("./fileFormatGrant"));
 utilities.lazyLoad(exports, ["Function"], () => require("./function"));
@@ -377,12 +394,14 @@ utilities.lazyLoad(exports, ["getExternalFunctions","getExternalFunctionsOutput"
 utilities.lazyLoad(exports, ["getExternalTables","getExternalTablesOutput"], () => require("./getExternalTables"));
 utilities.lazyLoad(exports, ["getFileFormats","getFileFormatsOutput"], () => require("./getFileFormats"));
 utilities.lazyLoad(exports, ["getFunctions","getFunctionsOutput"], () => require("./getFunctions"));
+utilities.lazyLoad(exports, ["getGrants","getGrantsOutput"], () => require("./getGrants"));
 utilities.lazyLoad(exports, ["getMaskingPolicies","getMaskingPoliciesOutput"], () => require("./getMaskingPolicies"));
 utilities.lazyLoad(exports, ["getMaterializedViews","getMaterializedViewsOutput"], () => require("./getMaterializedViews"));
 utilities.lazyLoad(exports, ["getPipes","getPipesOutput"], () => require("./getPipes"));
 utilities.lazyLoad(exports, ["getProcedures","getProceduresOutput"], () => require("./getProcedures"));
 utilities.lazyLoad(exports, ["getResourceMonitors"], () => require("./getResourceMonitors"));
 utilities.lazyLoad(exports, ["getRole","getRoleOutput"], () => require("./getRole"));
+utilities.lazyLoad(exports, ["getRoles","getRolesOutput"], () => require("./getRoles"));
 utilities.lazyLoad(exports, ["getRowAccessPolicies","getRowAccessPoliciesOutput"], () => require("./getRowAccessPolicies"));
 utilities.lazyLoad(exports, ["getSchemas","getSchemasOutput"], () => require("./getSchemas"));
 utilities.lazyLoad(exports, ["getSequences","getSequencesOutput"], () => require("./getSequences"));
@@ -433,6 +452,7 @@ utilities.lazyLoad(exports, ["StorageIntegration"], () => require("./storageInte
 utilities.lazyLoad(exports, ["Stream"], () => require("./stream"));
 utilities.lazyLoad(exports, ["StreamGrant"], () => require("./streamGrant"));
 utilities.lazyLoad(exports, ["Table"], () => require("./table"));
+utilities.lazyLoad(exports, ["TableConstraint"], () => require("./tableConstraint"));
 utilities.lazyLoad(exports, ["TableGrant"], () => require("./tableGrant"));
 utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
 utilities.lazyLoad(exports, ["TagAssociation"], () => require("./tagAssociation"));
@@ -478,6 +498,8 @@ const _module = {
                 return new ExternalTable(name, <any>undefined, { urn })
             case "snowflake:index/externalTableGrant:ExternalTableGrant":
                 return new ExternalTableGrant(name, <any>undefined, { urn })
+            case "snowflake:index/failoverGroup:FailoverGroup":
+                return new FailoverGroup(name, <any>undefined, { urn })
             case "snowflake:index/fileFormat:FileFormat":
                 return new FileFormat(name, <any>undefined, { urn })
             case "snowflake:index/fileFormatGrant:FileFormatGrant":
@@ -554,6 +576,8 @@ const _module = {
                 return new StreamGrant(name, <any>undefined, { urn })
             case "snowflake:index/table:Table":
                 return new Table(name, <any>undefined, { urn })
+            case "snowflake:index/tableConstraint:TableConstraint":
+                return new TableConstraint(name, <any>undefined, { urn })
             case "snowflake:index/tableGrant:TableGrant":
                 return new TableGrant(name, <any>undefined, { urn })
             case "snowflake:index/tag:Tag":
@@ -597,6 +621,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/externalFunction", _mo
 pulumi.runtime.registerResourceModule("snowflake", "index/externalOauthIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalTable", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalTableGrant", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/failoverGroup", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/fileFormat", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/fileFormatGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/function", _module)
@@ -635,6 +660,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/storageIntegration", _
 pulumi.runtime.registerResourceModule("snowflake", "index/stream", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/streamGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/table", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/tableConstraint", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tableGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tag", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tagAssociation", _module)

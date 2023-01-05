@@ -210,8 +210,11 @@ class WarehouseGrant(pulumi.CustomResource):
 
         grant = snowflake.WarehouseGrant("grant",
             privilege="MODIFY",
-            roles=["role1"],
-            warehouse_name="wh",
+            roles=[
+                "role1",
+                "role2",
+            ],
+            warehouse_name="warehouse",
             with_grant_option=False)
         ```
 
@@ -247,8 +250,11 @@ class WarehouseGrant(pulumi.CustomResource):
 
         grant = snowflake.WarehouseGrant("grant",
             privilege="MODIFY",
-            roles=["role1"],
-            warehouse_name="wh",
+            roles=[
+                "role1",
+                "role2",
+            ],
+            warehouse_name="warehouse",
             with_grant_option=False)
         ```
 

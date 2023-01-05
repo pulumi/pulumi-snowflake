@@ -19,27 +19,32 @@ class WarehouseArgs:
                  auto_resume: Optional[pulumi.Input[bool]] = None,
                  auto_suspend: Optional[pulumi.Input[int]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
+                 enable_query_acceleration: Optional[pulumi.Input[bool]] = None,
                  initially_suspended: Optional[pulumi.Input[bool]] = None,
                  max_cluster_count: Optional[pulumi.Input[int]] = None,
                  max_concurrency_level: Optional[pulumi.Input[int]] = None,
                  min_cluster_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 query_acceleration_max_scale_factor: Optional[pulumi.Input[int]] = None,
                  resource_monitor: Optional[pulumi.Input[str]] = None,
                  scaling_policy: Optional[pulumi.Input[str]] = None,
                  statement_queued_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  statement_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseTagArgs']]]] = None,
                  wait_for_provisioning: Optional[pulumi.Input[bool]] = None,
-                 warehouse_size: Optional[pulumi.Input[str]] = None):
+                 warehouse_size: Optional[pulumi.Input[str]] = None,
+                 warehouse_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Warehouse resource.
         :param pulumi.Input[bool] auto_resume: Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it.
         :param pulumi.Input[int] auto_suspend: Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+        :param pulumi.Input[bool] enable_query_acceleration: Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
         :param pulumi.Input[bool] initially_suspended: Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         :param pulumi.Input[int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
         :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account.
+        :param pulumi.Input[int] query_acceleration_max_scale_factor: Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
         :param pulumi.Input[str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
         :param pulumi.Input[str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
         :param pulumi.Input[int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
@@ -47,6 +52,7 @@ class WarehouseArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WarehouseTagArgs']]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[bool] wait_for_provisioning: Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         :param pulumi.Input[str] warehouse_size: Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+        :param pulumi.Input[str] warehouse_type: Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
         """
         if auto_resume is not None:
             pulumi.set(__self__, "auto_resume", auto_resume)
@@ -54,6 +60,8 @@ class WarehouseArgs:
             pulumi.set(__self__, "auto_suspend", auto_suspend)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if enable_query_acceleration is not None:
+            pulumi.set(__self__, "enable_query_acceleration", enable_query_acceleration)
         if initially_suspended is not None:
             pulumi.set(__self__, "initially_suspended", initially_suspended)
         if max_cluster_count is not None:
@@ -64,6 +72,8 @@ class WarehouseArgs:
             pulumi.set(__self__, "min_cluster_count", min_cluster_count)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if query_acceleration_max_scale_factor is not None:
+            pulumi.set(__self__, "query_acceleration_max_scale_factor", query_acceleration_max_scale_factor)
         if resource_monitor is not None:
             pulumi.set(__self__, "resource_monitor", resource_monitor)
         if scaling_policy is not None:
@@ -81,6 +91,8 @@ class WarehouseArgs:
             pulumi.set(__self__, "wait_for_provisioning", wait_for_provisioning)
         if warehouse_size is not None:
             pulumi.set(__self__, "warehouse_size", warehouse_size)
+        if warehouse_type is not None:
+            pulumi.set(__self__, "warehouse_type", warehouse_type)
 
     @property
     @pulumi.getter(name="autoResume")
@@ -114,6 +126,18 @@ class WarehouseArgs:
     @comment.setter
     def comment(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="enableQueryAcceleration")
+    def enable_query_acceleration(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+        """
+        return pulumi.get(self, "enable_query_acceleration")
+
+    @enable_query_acceleration.setter
+    def enable_query_acceleration(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_query_acceleration", value)
 
     @property
     @pulumi.getter(name="initiallySuspended")
@@ -174,6 +198,18 @@ class WarehouseArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="queryAccelerationMaxScaleFactor")
+    def query_acceleration_max_scale_factor(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+        """
+        return pulumi.get(self, "query_acceleration_max_scale_factor")
+
+    @query_acceleration_max_scale_factor.setter
+    def query_acceleration_max_scale_factor(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "query_acceleration_max_scale_factor", value)
 
     @property
     @pulumi.getter(name="resourceMonitor")
@@ -258,6 +294,18 @@ class WarehouseArgs:
     @warehouse_size.setter
     def warehouse_size(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "warehouse_size", value)
+
+    @property
+    @pulumi.getter(name="warehouseType")
+    def warehouse_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+        """
+        return pulumi.get(self, "warehouse_type")
+
+    @warehouse_type.setter
+    def warehouse_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "warehouse_type", value)
 
 
 @pulumi.input_type
@@ -266,27 +314,32 @@ class _WarehouseState:
                  auto_resume: Optional[pulumi.Input[bool]] = None,
                  auto_suspend: Optional[pulumi.Input[int]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
+                 enable_query_acceleration: Optional[pulumi.Input[bool]] = None,
                  initially_suspended: Optional[pulumi.Input[bool]] = None,
                  max_cluster_count: Optional[pulumi.Input[int]] = None,
                  max_concurrency_level: Optional[pulumi.Input[int]] = None,
                  min_cluster_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 query_acceleration_max_scale_factor: Optional[pulumi.Input[int]] = None,
                  resource_monitor: Optional[pulumi.Input[str]] = None,
                  scaling_policy: Optional[pulumi.Input[str]] = None,
                  statement_queued_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  statement_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseTagArgs']]]] = None,
                  wait_for_provisioning: Optional[pulumi.Input[bool]] = None,
-                 warehouse_size: Optional[pulumi.Input[str]] = None):
+                 warehouse_size: Optional[pulumi.Input[str]] = None,
+                 warehouse_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Warehouse resources.
         :param pulumi.Input[bool] auto_resume: Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it.
         :param pulumi.Input[int] auto_suspend: Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+        :param pulumi.Input[bool] enable_query_acceleration: Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
         :param pulumi.Input[bool] initially_suspended: Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         :param pulumi.Input[int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
         :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account.
+        :param pulumi.Input[int] query_acceleration_max_scale_factor: Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
         :param pulumi.Input[str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
         :param pulumi.Input[str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
         :param pulumi.Input[int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
@@ -294,6 +347,7 @@ class _WarehouseState:
         :param pulumi.Input[Sequence[pulumi.Input['WarehouseTagArgs']]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[bool] wait_for_provisioning: Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         :param pulumi.Input[str] warehouse_size: Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+        :param pulumi.Input[str] warehouse_type: Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
         """
         if auto_resume is not None:
             pulumi.set(__self__, "auto_resume", auto_resume)
@@ -301,6 +355,8 @@ class _WarehouseState:
             pulumi.set(__self__, "auto_suspend", auto_suspend)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if enable_query_acceleration is not None:
+            pulumi.set(__self__, "enable_query_acceleration", enable_query_acceleration)
         if initially_suspended is not None:
             pulumi.set(__self__, "initially_suspended", initially_suspended)
         if max_cluster_count is not None:
@@ -311,6 +367,8 @@ class _WarehouseState:
             pulumi.set(__self__, "min_cluster_count", min_cluster_count)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if query_acceleration_max_scale_factor is not None:
+            pulumi.set(__self__, "query_acceleration_max_scale_factor", query_acceleration_max_scale_factor)
         if resource_monitor is not None:
             pulumi.set(__self__, "resource_monitor", resource_monitor)
         if scaling_policy is not None:
@@ -328,6 +386,8 @@ class _WarehouseState:
             pulumi.set(__self__, "wait_for_provisioning", wait_for_provisioning)
         if warehouse_size is not None:
             pulumi.set(__self__, "warehouse_size", warehouse_size)
+        if warehouse_type is not None:
+            pulumi.set(__self__, "warehouse_type", warehouse_type)
 
     @property
     @pulumi.getter(name="autoResume")
@@ -361,6 +421,18 @@ class _WarehouseState:
     @comment.setter
     def comment(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="enableQueryAcceleration")
+    def enable_query_acceleration(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+        """
+        return pulumi.get(self, "enable_query_acceleration")
+
+    @enable_query_acceleration.setter
+    def enable_query_acceleration(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_query_acceleration", value)
 
     @property
     @pulumi.getter(name="initiallySuspended")
@@ -421,6 +493,18 @@ class _WarehouseState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="queryAccelerationMaxScaleFactor")
+    def query_acceleration_max_scale_factor(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+        """
+        return pulumi.get(self, "query_acceleration_max_scale_factor")
+
+    @query_acceleration_max_scale_factor.setter
+    def query_acceleration_max_scale_factor(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "query_acceleration_max_scale_factor", value)
 
     @property
     @pulumi.getter(name="resourceMonitor")
@@ -505,6 +589,18 @@ class _WarehouseState:
     @warehouse_size.setter
     def warehouse_size(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "warehouse_size", value)
+
+    @property
+    @pulumi.getter(name="warehouseType")
+    def warehouse_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+        """
+        return pulumi.get(self, "warehouse_type")
+
+    @warehouse_type.setter
+    def warehouse_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "warehouse_type", value)
 
 
 class Warehouse(pulumi.CustomResource):
@@ -515,11 +611,13 @@ class Warehouse(pulumi.CustomResource):
                  auto_resume: Optional[pulumi.Input[bool]] = None,
                  auto_suspend: Optional[pulumi.Input[int]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
+                 enable_query_acceleration: Optional[pulumi.Input[bool]] = None,
                  initially_suspended: Optional[pulumi.Input[bool]] = None,
                  max_cluster_count: Optional[pulumi.Input[int]] = None,
                  max_concurrency_level: Optional[pulumi.Input[int]] = None,
                  min_cluster_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 query_acceleration_max_scale_factor: Optional[pulumi.Input[int]] = None,
                  resource_monitor: Optional[pulumi.Input[str]] = None,
                  scaling_policy: Optional[pulumi.Input[str]] = None,
                  statement_queued_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -527,6 +625,7 @@ class Warehouse(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WarehouseTagArgs']]]]] = None,
                  wait_for_provisioning: Optional[pulumi.Input[bool]] = None,
                  warehouse_size: Optional[pulumi.Input[str]] = None,
+                 warehouse_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -550,11 +649,13 @@ class Warehouse(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_resume: Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it.
         :param pulumi.Input[int] auto_suspend: Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+        :param pulumi.Input[bool] enable_query_acceleration: Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
         :param pulumi.Input[bool] initially_suspended: Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         :param pulumi.Input[int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
         :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account.
+        :param pulumi.Input[int] query_acceleration_max_scale_factor: Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
         :param pulumi.Input[str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
         :param pulumi.Input[str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
         :param pulumi.Input[int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
@@ -562,6 +663,7 @@ class Warehouse(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WarehouseTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[bool] wait_for_provisioning: Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         :param pulumi.Input[str] warehouse_size: Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+        :param pulumi.Input[str] warehouse_type: Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
         """
         ...
     @overload
@@ -605,11 +707,13 @@ class Warehouse(pulumi.CustomResource):
                  auto_resume: Optional[pulumi.Input[bool]] = None,
                  auto_suspend: Optional[pulumi.Input[int]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
+                 enable_query_acceleration: Optional[pulumi.Input[bool]] = None,
                  initially_suspended: Optional[pulumi.Input[bool]] = None,
                  max_cluster_count: Optional[pulumi.Input[int]] = None,
                  max_concurrency_level: Optional[pulumi.Input[int]] = None,
                  min_cluster_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 query_acceleration_max_scale_factor: Optional[pulumi.Input[int]] = None,
                  resource_monitor: Optional[pulumi.Input[str]] = None,
                  scaling_policy: Optional[pulumi.Input[str]] = None,
                  statement_queued_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -617,6 +721,7 @@ class Warehouse(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WarehouseTagArgs']]]]] = None,
                  wait_for_provisioning: Optional[pulumi.Input[bool]] = None,
                  warehouse_size: Optional[pulumi.Input[str]] = None,
+                 warehouse_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -629,11 +734,13 @@ class Warehouse(pulumi.CustomResource):
             __props__.__dict__["auto_resume"] = auto_resume
             __props__.__dict__["auto_suspend"] = auto_suspend
             __props__.__dict__["comment"] = comment
+            __props__.__dict__["enable_query_acceleration"] = enable_query_acceleration
             __props__.__dict__["initially_suspended"] = initially_suspended
             __props__.__dict__["max_cluster_count"] = max_cluster_count
             __props__.__dict__["max_concurrency_level"] = max_concurrency_level
             __props__.__dict__["min_cluster_count"] = min_cluster_count
             __props__.__dict__["name"] = name
+            __props__.__dict__["query_acceleration_max_scale_factor"] = query_acceleration_max_scale_factor
             __props__.__dict__["resource_monitor"] = resource_monitor
             __props__.__dict__["scaling_policy"] = scaling_policy
             __props__.__dict__["statement_queued_timeout_in_seconds"] = statement_queued_timeout_in_seconds
@@ -644,6 +751,7 @@ class Warehouse(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["wait_for_provisioning"] = wait_for_provisioning
             __props__.__dict__["warehouse_size"] = warehouse_size
+            __props__.__dict__["warehouse_type"] = warehouse_type
         super(Warehouse, __self__).__init__(
             'snowflake:index/warehouse:Warehouse',
             resource_name,
@@ -657,18 +765,21 @@ class Warehouse(pulumi.CustomResource):
             auto_resume: Optional[pulumi.Input[bool]] = None,
             auto_suspend: Optional[pulumi.Input[int]] = None,
             comment: Optional[pulumi.Input[str]] = None,
+            enable_query_acceleration: Optional[pulumi.Input[bool]] = None,
             initially_suspended: Optional[pulumi.Input[bool]] = None,
             max_cluster_count: Optional[pulumi.Input[int]] = None,
             max_concurrency_level: Optional[pulumi.Input[int]] = None,
             min_cluster_count: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            query_acceleration_max_scale_factor: Optional[pulumi.Input[int]] = None,
             resource_monitor: Optional[pulumi.Input[str]] = None,
             scaling_policy: Optional[pulumi.Input[str]] = None,
             statement_queued_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
             statement_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WarehouseTagArgs']]]]] = None,
             wait_for_provisioning: Optional[pulumi.Input[bool]] = None,
-            warehouse_size: Optional[pulumi.Input[str]] = None) -> 'Warehouse':
+            warehouse_size: Optional[pulumi.Input[str]] = None,
+            warehouse_type: Optional[pulumi.Input[str]] = None) -> 'Warehouse':
         """
         Get an existing Warehouse resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -678,11 +789,13 @@ class Warehouse(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_resume: Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it.
         :param pulumi.Input[int] auto_suspend: Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+        :param pulumi.Input[bool] enable_query_acceleration: Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
         :param pulumi.Input[bool] initially_suspended: Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         :param pulumi.Input[int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
         :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account.
+        :param pulumi.Input[int] query_acceleration_max_scale_factor: Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
         :param pulumi.Input[str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
         :param pulumi.Input[str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
         :param pulumi.Input[int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
@@ -690,6 +803,7 @@ class Warehouse(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WarehouseTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[bool] wait_for_provisioning: Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         :param pulumi.Input[str] warehouse_size: Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+        :param pulumi.Input[str] warehouse_type: Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -698,11 +812,13 @@ class Warehouse(pulumi.CustomResource):
         __props__.__dict__["auto_resume"] = auto_resume
         __props__.__dict__["auto_suspend"] = auto_suspend
         __props__.__dict__["comment"] = comment
+        __props__.__dict__["enable_query_acceleration"] = enable_query_acceleration
         __props__.__dict__["initially_suspended"] = initially_suspended
         __props__.__dict__["max_cluster_count"] = max_cluster_count
         __props__.__dict__["max_concurrency_level"] = max_concurrency_level
         __props__.__dict__["min_cluster_count"] = min_cluster_count
         __props__.__dict__["name"] = name
+        __props__.__dict__["query_acceleration_max_scale_factor"] = query_acceleration_max_scale_factor
         __props__.__dict__["resource_monitor"] = resource_monitor
         __props__.__dict__["scaling_policy"] = scaling_policy
         __props__.__dict__["statement_queued_timeout_in_seconds"] = statement_queued_timeout_in_seconds
@@ -710,6 +826,7 @@ class Warehouse(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["wait_for_provisioning"] = wait_for_provisioning
         __props__.__dict__["warehouse_size"] = warehouse_size
+        __props__.__dict__["warehouse_type"] = warehouse_type
         return Warehouse(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -732,6 +849,14 @@ class Warehouse(pulumi.CustomResource):
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="enableQueryAcceleration")
+    def enable_query_acceleration(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+        """
+        return pulumi.get(self, "enable_query_acceleration")
 
     @property
     @pulumi.getter(name="initiallySuspended")
@@ -772,6 +897,14 @@ class Warehouse(pulumi.CustomResource):
         Identifier for the virtual warehouse; must be unique for your account.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="queryAccelerationMaxScaleFactor")
+    def query_acceleration_max_scale_factor(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+        """
+        return pulumi.get(self, "query_acceleration_max_scale_factor")
 
     @property
     @pulumi.getter(name="resourceMonitor")
@@ -828,4 +961,12 @@ class Warehouse(pulumi.CustomResource):
         Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
         """
         return pulumi.get(self, "warehouse_size")
+
+    @property
+    @pulumi.getter(name="warehouseType")
+    def warehouse_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+        """
+        return pulumi.get(self, "warehouse_type")
 

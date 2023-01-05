@@ -53,6 +53,9 @@ class TableArgs:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if primary_key is not None:
+            warnings.warn("""Use snowflake_table_constraint instead""", DeprecationWarning)
+            pulumi.log.warn("""primary_key is deprecated: Use snowflake_table_constraint instead""")
+        if primary_key is not None:
             pulumi.set(__self__, "primary_key", primary_key)
         if tags is not None:
             warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
@@ -225,6 +228,9 @@ class _TableState:
             pulumi.set(__self__, "name", name)
         if owner is not None:
             pulumi.set(__self__, "owner", owner)
+        if primary_key is not None:
+            warnings.warn("""Use snowflake_table_constraint instead""", DeprecationWarning)
+            pulumi.log.warn("""primary_key is deprecated: Use snowflake_table_constraint instead""")
         if primary_key is not None:
             pulumi.set(__self__, "primary_key", primary_key)
         if schema is not None:
@@ -582,6 +588,9 @@ class Table(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
             __props__.__dict__["name"] = name
+            if primary_key is not None and not opts.urn:
+                warnings.warn("""Use snowflake_table_constraint instead""", DeprecationWarning)
+                pulumi.log.warn("""primary_key is deprecated: Use snowflake_table_constraint instead""")
             __props__.__dict__["primary_key"] = primary_key
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")

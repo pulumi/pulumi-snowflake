@@ -62,6 +62,8 @@ type ApiIntegration struct {
 	ApiAwsRoleArn pulumi.StringPtrOutput `pulumi:"apiAwsRoleArn"`
 	// Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
 	ApiBlockedPrefixes pulumi.StringArrayOutput `pulumi:"apiBlockedPrefixes"`
+	// The API key (also called a “subscription key”).
+	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
 	// Specifies the HTTPS proxy service type.
 	ApiProvider pulumi.StringOutput `pulumi:"apiProvider"`
 	// The 'Application (client) id' of the Azure AD app for your remote service.
@@ -91,6 +93,13 @@ func NewApiIntegration(ctx *pulumi.Context,
 	if args.ApiProvider == nil {
 		return nil, errors.New("invalid value for required argument 'ApiProvider'")
 	}
+	if args.ApiKey != nil {
+		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"apiKey",
+	})
+	opts = append(opts, secrets)
 	var resource ApiIntegration
 	err := ctx.RegisterResource("snowflake:index/apiIntegration:ApiIntegration", name, args, &resource, opts...)
 	if err != nil {
@@ -123,6 +132,8 @@ type apiIntegrationState struct {
 	ApiAwsRoleArn *string `pulumi:"apiAwsRoleArn"`
 	// Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
 	ApiBlockedPrefixes []string `pulumi:"apiBlockedPrefixes"`
+	// The API key (also called a “subscription key”).
+	ApiKey *string `pulumi:"apiKey"`
 	// Specifies the HTTPS proxy service type.
 	ApiProvider *string `pulumi:"apiProvider"`
 	// The 'Application (client) id' of the Azure AD app for your remote service.
@@ -150,6 +161,8 @@ type ApiIntegrationState struct {
 	ApiAwsRoleArn pulumi.StringPtrInput
 	// Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
 	ApiBlockedPrefixes pulumi.StringArrayInput
+	// The API key (also called a “subscription key”).
+	ApiKey pulumi.StringPtrInput
 	// Specifies the HTTPS proxy service type.
 	ApiProvider pulumi.StringPtrInput
 	// The 'Application (client) id' of the Azure AD app for your remote service.
@@ -177,6 +190,8 @@ type apiIntegrationArgs struct {
 	ApiAwsRoleArn *string `pulumi:"apiAwsRoleArn"`
 	// Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
 	ApiBlockedPrefixes []string `pulumi:"apiBlockedPrefixes"`
+	// The API key (also called a “subscription key”).
+	ApiKey *string `pulumi:"apiKey"`
 	// Specifies the HTTPS proxy service type.
 	ApiProvider string `pulumi:"apiProvider"`
 	// The 'Application (client) id' of the Azure AD app for your remote service.
@@ -197,6 +212,8 @@ type ApiIntegrationArgs struct {
 	ApiAwsRoleArn pulumi.StringPtrInput
 	// Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
 	ApiBlockedPrefixes pulumi.StringArrayInput
+	// The API key (also called a “subscription key”).
+	ApiKey pulumi.StringPtrInput
 	// Specifies the HTTPS proxy service type.
 	ApiProvider pulumi.StringInput
 	// The 'Application (client) id' of the Azure AD app for your remote service.
@@ -319,6 +336,11 @@ func (o ApiIntegrationOutput) ApiAwsRoleArn() pulumi.StringPtrOutput {
 // Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
 func (o ApiIntegrationOutput) ApiBlockedPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiIntegration) pulumi.StringArrayOutput { return v.ApiBlockedPrefixes }).(pulumi.StringArrayOutput)
+}
+
+// The API key (also called a “subscription key”).
+func (o ApiIntegrationOutput) ApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiIntegration) pulumi.StringPtrOutput { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the HTTPS proxy service type.

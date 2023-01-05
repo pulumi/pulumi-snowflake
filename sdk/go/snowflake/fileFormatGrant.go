@@ -26,10 +26,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewFileFormatGrant(ctx, "grant", &snowflake.FileFormatGrantArgs{
-//				DatabaseName:   pulumi.String("db"),
+//				DatabaseName:   pulumi.String("database"),
 //				FileFormatName: pulumi.String("file_format"),
 //				OnFuture:       pulumi.Bool(false),
-//				Privilege:      pulumi.String("select"),
+//				Privilege:      pulumi.String("SELECT"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
 //					pulumi.String("role2"),

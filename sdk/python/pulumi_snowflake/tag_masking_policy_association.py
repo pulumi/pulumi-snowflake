@@ -18,7 +18,7 @@ class TagMaskingPolicyAssociationArgs:
                  tag_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a TagMaskingPolicyAssociation resource.
-        :param pulumi.Input[str] masking_policy_id: The the resource id of the masking policy
+        :param pulumi.Input[str] masking_policy_id: The resource id of the masking policy
         :param pulumi.Input[str] tag_id: Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
         """
         pulumi.set(__self__, "masking_policy_id", masking_policy_id)
@@ -28,7 +28,7 @@ class TagMaskingPolicyAssociationArgs:
     @pulumi.getter(name="maskingPolicyId")
     def masking_policy_id(self) -> pulumi.Input[str]:
         """
-        The the resource id of the masking policy
+        The resource id of the masking policy
         """
         return pulumi.get(self, "masking_policy_id")
 
@@ -56,7 +56,7 @@ class _TagMaskingPolicyAssociationState:
                  tag_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TagMaskingPolicyAssociation resources.
-        :param pulumi.Input[str] masking_policy_id: The the resource id of the masking policy
+        :param pulumi.Input[str] masking_policy_id: The resource id of the masking policy
         :param pulumi.Input[str] tag_id: Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
         """
         if masking_policy_id is not None:
@@ -68,7 +68,7 @@ class _TagMaskingPolicyAssociationState:
     @pulumi.getter(name="maskingPolicyId")
     def masking_policy_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The the resource id of the masking policy
+        The resource id of the masking policy
         """
         return pulumi.get(self, "masking_policy_id")
 
@@ -108,7 +108,7 @@ class TagMaskingPolicyAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] masking_policy_id: The the resource id of the masking policy
+        :param pulumi.Input[str] masking_policy_id: The resource id of the masking policy
         :param pulumi.Input[str] tag_id: Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
         """
         ...
@@ -177,7 +177,7 @@ class TagMaskingPolicyAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] masking_policy_id: The the resource id of the masking policy
+        :param pulumi.Input[str] masking_policy_id: The resource id of the masking policy
         :param pulumi.Input[str] tag_id: Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -192,7 +192,7 @@ class TagMaskingPolicyAssociation(pulumi.CustomResource):
     @pulumi.getter(name="maskingPolicyId")
     def masking_policy_id(self) -> pulumi.Output[str]:
         """
-        The the resource id of the masking policy
+        The resource id of the masking policy
         """
         return pulumi.get(self, "masking_policy_id")
 

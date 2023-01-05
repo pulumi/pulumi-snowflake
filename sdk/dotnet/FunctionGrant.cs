@@ -34,7 +34,7 @@ namespace Pulumi.Snowflake
     ///                 Type = "string",
     ///             },
     ///         },
-    ///         DatabaseName = "db",
+    ///         DatabaseName = "database",
     ///         FunctionName = "function",
     ///         OnFuture = false,
     ///         Privilege = "USAGE",

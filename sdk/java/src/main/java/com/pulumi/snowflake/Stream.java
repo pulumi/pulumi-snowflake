@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *         var stream = new Stream(&#34;stream&#34;, StreamArgs.builder()        
  *             .appendOnly(false)
  *             .comment(&#34;A stream.&#34;)
- *             .database(&#34;db&#34;)
+ *             .database(&#34;database&#34;)
  *             .insertOnly(false)
  *             .onTable(&#34;table&#34;)
  *             .owner(&#34;role1&#34;)

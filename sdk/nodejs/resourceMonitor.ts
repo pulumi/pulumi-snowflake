@@ -16,6 +16,10 @@ import * as utilities from "./utilities";
  *     endTimestamp: "2021-12-07 00:00",
  *     frequency: "DAILY",
  *     notifyTriggers: [40],
+ *     notifyUsers: [
+ *         "USERONE",
+ *         "USERTWO",
+ *     ],
  *     startTimestamp: "2020-12-07 00:00",
  *     suspendImmediateTriggers: [90],
  *     suspendTriggers: [50],
@@ -77,6 +81,10 @@ export class ResourceMonitor extends pulumi.CustomResource {
      */
     public readonly notifyTriggers!: pulumi.Output<number[] | undefined>;
     /**
+     * Specifies the list of users to receive email notifications on resource monitors.
+     */
+    public readonly notifyUsers!: pulumi.Output<string[] | undefined>;
+    /**
      * Specifies whether the resource monitor should be applied globally to your Snowflake account.
      */
     public readonly setForAccount!: pulumi.Output<boolean | undefined>;
@@ -115,6 +123,7 @@ export class ResourceMonitor extends pulumi.CustomResource {
             resourceInputs["frequency"] = state ? state.frequency : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["notifyTriggers"] = state ? state.notifyTriggers : undefined;
+            resourceInputs["notifyUsers"] = state ? state.notifyUsers : undefined;
             resourceInputs["setForAccount"] = state ? state.setForAccount : undefined;
             resourceInputs["startTimestamp"] = state ? state.startTimestamp : undefined;
             resourceInputs["suspendImmediateTriggers"] = state ? state.suspendImmediateTriggers : undefined;
@@ -127,6 +136,7 @@ export class ResourceMonitor extends pulumi.CustomResource {
             resourceInputs["frequency"] = args ? args.frequency : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["notifyTriggers"] = args ? args.notifyTriggers : undefined;
+            resourceInputs["notifyUsers"] = args ? args.notifyUsers : undefined;
             resourceInputs["setForAccount"] = args ? args.setForAccount : undefined;
             resourceInputs["startTimestamp"] = args ? args.startTimestamp : undefined;
             resourceInputs["suspendImmediateTriggers"] = args ? args.suspendImmediateTriggers : undefined;
@@ -162,6 +172,10 @@ export interface ResourceMonitorState {
      * A list of percentage thresholds at which to send an alert to subscribed users.
      */
     notifyTriggers?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Specifies the list of users to receive email notifications on resource monitors.
+     */
+    notifyUsers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies whether the resource monitor should be applied globally to your Snowflake account.
      */
@@ -208,6 +222,10 @@ export interface ResourceMonitorArgs {
      * A list of percentage thresholds at which to send an alert to subscribed users.
      */
     notifyTriggers?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Specifies the list of users to receive email notifications on resource monitors.
+     */
+    notifyUsers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies whether the resource monitor should be applied globally to your Snowflake account.
      */

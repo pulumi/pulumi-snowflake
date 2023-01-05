@@ -26,7 +26,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewSchemaGrant(ctx, "grant", &snowflake.SchemaGrantArgs{
-//				DatabaseName: pulumi.String("db"),
+//				DatabaseName: pulumi.String("database"),
 //				OnFuture:     pulumi.Bool(false),
 //				Privilege:    pulumi.String("USAGE"),
 //				Roles: pulumi.StringArray{

@@ -37,13 +37,54 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var association = new Snowflake.TagAssociation("association", new()
+    ///     var dbAssociation = new Snowflake.TagAssociation("dbAssociation", new()
     ///     {
-    ///         ObjectName = database.Name,
+    ///         ObjectIdentifiers = new[]
+    ///         {
+    ///             new Snowflake.Inputs.TagAssociationObjectIdentifierArgs
+    ///             {
+    ///                 Name = database.Name,
+    ///             },
+    ///         },
     ///         ObjectType = "DATABASE",
     ///         TagId = tag.Id,
     ///         TagValue = "finance",
-    ///         SkipValidation = true,
+    ///     });
+    /// 
+    ///     var test = new Snowflake.Table("test", new()
+    ///     {
+    ///         Database = snowflake_database.Test.Name,
+    ///         Schema = snowflake_schema.Test.Name,
+    ///         Comment = "Terraform example table",
+    ///         Columns = new[]
+    ///         {
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "column1",
+    ///                 Type = "VARIANT",
+    ///             },
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "column2",
+    ///                 Type = "VARCHAR(16)",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var tableAssociation = new Snowflake.TagAssociation("tableAssociation", new()
+    ///     {
+    ///         ObjectIdentifiers = new[]
+    ///         {
+    ///             new Snowflake.Inputs.TagAssociationObjectIdentifierArgs
+    ///             {
+    ///                 Name = test.Name,
+    ///                 Database = snowflake_database.Test.Name,
+    ///                 Schema = snowflake_schema.Test.Name,
+    ///             },
+    ///         },
+    ///         ObjectType = "TABLE",
+    ///         TagId = snowflake_tag.Test.Id,
+    ///         TagValue = "engineering",
     ///     });
     /// 
     /// });
@@ -63,8 +104,14 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// Specifies the object identifier for the tag association.
         /// </summary>
+        [Output("objectIdentifiers")]
+        public Output<ImmutableArray<Outputs.TagAssociationObjectIdentifier>> ObjectIdentifiers { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the object identifier for the tag association.
+        /// </summary>
         [Output("objectName")]
-        public Output<string> ObjectName { get; private set; } = null!;
+        public Output<string?> ObjectName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
@@ -73,7 +120,7 @@ namespace Pulumi.Snowflake
         public Output<string> ObjectType { get; private set; } = null!;
 
         /// <summary>
-        /// If true, skips validation of the tag association. It can take up to an hour for the SNOWFLAKE.TAG*REFERENCES table to update, and also requires ACCOUNT*ADMIN role to read from. https://docs.snowflake.com/en/sql-reference/account-usage/tag_references.html
+        /// If true, skips validation of the tag association.
         /// </summary>
         [Output("skipValidation")]
         public Output<bool?> SkipValidation { get; private set; } = null!;
@@ -136,11 +183,23 @@ namespace Pulumi.Snowflake
 
     public sealed class TagAssociationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("objectIdentifiers", required: true)]
+        private InputList<Inputs.TagAssociationObjectIdentifierArgs>? _objectIdentifiers;
+
         /// <summary>
         /// Specifies the object identifier for the tag association.
         /// </summary>
-        [Input("objectName", required: true)]
-        public Input<string> ObjectName { get; set; } = null!;
+        public InputList<Inputs.TagAssociationObjectIdentifierArgs> ObjectIdentifiers
+        {
+            get => _objectIdentifiers ?? (_objectIdentifiers = new InputList<Inputs.TagAssociationObjectIdentifierArgs>());
+            set => _objectIdentifiers = value;
+        }
+
+        /// <summary>
+        /// Specifies the object identifier for the tag association.
+        /// </summary>
+        [Input("objectName")]
+        public Input<string>? ObjectName { get; set; }
 
         /// <summary>
         /// Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
@@ -149,7 +208,7 @@ namespace Pulumi.Snowflake
         public Input<string> ObjectType { get; set; } = null!;
 
         /// <summary>
-        /// If true, skips validation of the tag association. It can take up to an hour for the SNOWFLAKE.TAG*REFERENCES table to update, and also requires ACCOUNT*ADMIN role to read from. https://docs.snowflake.com/en/sql-reference/account-usage/tag_references.html
+        /// If true, skips validation of the tag association.
         /// </summary>
         [Input("skipValidation")]
         public Input<bool>? SkipValidation { get; set; }
@@ -174,6 +233,18 @@ namespace Pulumi.Snowflake
 
     public sealed class TagAssociationState : global::Pulumi.ResourceArgs
     {
+        [Input("objectIdentifiers")]
+        private InputList<Inputs.TagAssociationObjectIdentifierGetArgs>? _objectIdentifiers;
+
+        /// <summary>
+        /// Specifies the object identifier for the tag association.
+        /// </summary>
+        public InputList<Inputs.TagAssociationObjectIdentifierGetArgs> ObjectIdentifiers
+        {
+            get => _objectIdentifiers ?? (_objectIdentifiers = new InputList<Inputs.TagAssociationObjectIdentifierGetArgs>());
+            set => _objectIdentifiers = value;
+        }
+
         /// <summary>
         /// Specifies the object identifier for the tag association.
         /// </summary>
@@ -187,7 +258,7 @@ namespace Pulumi.Snowflake
         public Input<string>? ObjectType { get; set; }
 
         /// <summary>
-        /// If true, skips validation of the tag association. It can take up to an hour for the SNOWFLAKE.TAG*REFERENCES table to update, and also requires ACCOUNT*ADMIN role to read from. https://docs.snowflake.com/en/sql-reference/account-usage/tag_references.html
+        /// If true, skips validation of the tag association.
         /// </summary>
         [Input("skipValidation")]
         public Input<bool>? SkipValidation { get; set; }

@@ -236,7 +236,11 @@ public class Table extends com.pulumi.resources.CustomResource {
     /**
      * Definitions of primary key constraint to create on table
      * 
+     * @deprecated
+     * Use snowflake_table_constraint instead
+     * 
      */
+    @Deprecated /* Use snowflake_table_constraint instead */
     @Export(name="primaryKey", type=TablePrimaryKey.class, parameters={})
     private Output</* @Nullable */ TablePrimaryKey> primaryKey;
 

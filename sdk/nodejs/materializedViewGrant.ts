@@ -12,10 +12,10 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const grant = new snowflake.MaterializedViewGrant("grant", {
- *     databaseName: "db",
+ *     databaseName: "database",
  *     materializedViewName: "materialized_view",
  *     onFuture: false,
- *     privilege: "select",
+ *     privilege: "SELECT",
  *     roles: [
  *         "role1",
  *         "role2",

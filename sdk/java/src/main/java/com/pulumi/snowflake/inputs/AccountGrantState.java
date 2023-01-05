@@ -35,14 +35,14 @@ public final class AccountGrantState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The privilege to grant on the account.
+     * The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html)
      * 
      */
     @Import(name="privilege")
     private @Nullable Output<String> privilege;
 
     /**
-     * @return The privilege to grant on the account.
+     * @return The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html)
      * 
      */
     public Optional<Output<String>> privilege() {
@@ -130,7 +130,7 @@ public final class AccountGrantState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privilege The privilege to grant on the account.
+         * @param privilege The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html)
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class AccountGrantState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privilege The privilege to grant on the account.
+         * @param privilege The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html)
          * 
          * @return builder
          * 

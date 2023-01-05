@@ -76,6 +76,21 @@ public final class MaskingPolicyState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Specifies the qualified identifier for the masking policy.
+     * 
+     */
+    @Import(name="qualifiedName")
+    private @Nullable Output<String> qualifiedName;
+
+    /**
+     * @return Specifies the qualified identifier for the masking policy.
+     * 
+     */
+    public Optional<Output<String>> qualifiedName() {
+        return Optional.ofNullable(this.qualifiedName);
+    }
+
+    /**
      * Specifies the data type to return.
      * 
      */
@@ -127,6 +142,7 @@ public final class MaskingPolicyState extends com.pulumi.resources.ResourceArgs 
         this.database = $.database;
         this.maskingExpression = $.maskingExpression;
         this.name = $.name;
+        this.qualifiedName = $.qualifiedName;
         this.returnDataType = $.returnDataType;
         this.schema = $.schema;
         this.valueDataType = $.valueDataType;
@@ -232,6 +248,27 @@ public final class MaskingPolicyState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param qualifiedName Specifies the qualified identifier for the masking policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder qualifiedName(@Nullable Output<String> qualifiedName) {
+            $.qualifiedName = qualifiedName;
+            return this;
+        }
+
+        /**
+         * @param qualifiedName Specifies the qualified identifier for the masking policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder qualifiedName(String qualifiedName) {
+            return qualifiedName(Output.of(qualifiedName));
         }
 
         /**

@@ -418,9 +418,9 @@ class ProcedureGrant(pulumi.CustomResource):
                     type="string",
                 ),
             ],
-            database_name="db",
+            database_name="database",
             on_future=False,
-            privilege="select",
+            privilege="SELECT",
             procedure_name="procedure",
             return_type="string",
             roles=[
@@ -482,9 +482,9 @@ class ProcedureGrant(pulumi.CustomResource):
                     type="string",
                 ),
             ],
-            database_name="db",
+            database_name="database",
             on_future=False,
-            privilege="select",
+            privilege="SELECT",
             procedure_name="procedure",
             return_type="string",
             roles=[

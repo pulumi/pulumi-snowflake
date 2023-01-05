@@ -52,6 +52,8 @@ type Warehouse struct {
 	// Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
 	AutoSuspend pulumi.IntOutput       `pulumi:"autoSuspend"`
 	Comment     pulumi.StringPtrOutput `pulumi:"comment"`
+	// Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+	EnableQueryAcceleration pulumi.BoolPtrOutput `pulumi:"enableQueryAcceleration"`
 	// Specifies whether the warehouse is created initially in the ‘Suspended’ state.
 	InitiallySuspended pulumi.BoolPtrOutput `pulumi:"initiallySuspended"`
 	// Specifies the maximum number of server clusters for the warehouse.
@@ -62,6 +64,8 @@ type Warehouse struct {
 	MinClusterCount pulumi.IntOutput `pulumi:"minClusterCount"`
 	// Identifier for the virtual warehouse; must be unique for your account.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+	QueryAccelerationMaxScaleFactor pulumi.IntPtrOutput `pulumi:"queryAccelerationMaxScaleFactor"`
 	// Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
 	ResourceMonitor pulumi.StringOutput `pulumi:"resourceMonitor"`
 	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
@@ -78,6 +82,8 @@ type Warehouse struct {
 	WaitForProvisioning pulumi.BoolPtrOutput `pulumi:"waitForProvisioning"`
 	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
 	WarehouseSize pulumi.StringOutput `pulumi:"warehouseSize"`
+	// Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+	WarehouseType pulumi.StringPtrOutput `pulumi:"warehouseType"`
 }
 
 // NewWarehouse registers a new resource with the given unique name, arguments, and options.
@@ -114,6 +120,8 @@ type warehouseState struct {
 	// Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
 	AutoSuspend *int    `pulumi:"autoSuspend"`
 	Comment     *string `pulumi:"comment"`
+	// Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+	EnableQueryAcceleration *bool `pulumi:"enableQueryAcceleration"`
 	// Specifies whether the warehouse is created initially in the ‘Suspended’ state.
 	InitiallySuspended *bool `pulumi:"initiallySuspended"`
 	// Specifies the maximum number of server clusters for the warehouse.
@@ -124,6 +132,8 @@ type warehouseState struct {
 	MinClusterCount *int `pulumi:"minClusterCount"`
 	// Identifier for the virtual warehouse; must be unique for your account.
 	Name *string `pulumi:"name"`
+	// Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+	QueryAccelerationMaxScaleFactor *int `pulumi:"queryAccelerationMaxScaleFactor"`
 	// Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
 	ResourceMonitor *string `pulumi:"resourceMonitor"`
 	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
@@ -140,6 +150,8 @@ type warehouseState struct {
 	WaitForProvisioning *bool `pulumi:"waitForProvisioning"`
 	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
 	WarehouseSize *string `pulumi:"warehouseSize"`
+	// Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+	WarehouseType *string `pulumi:"warehouseType"`
 }
 
 type WarehouseState struct {
@@ -148,6 +160,8 @@ type WarehouseState struct {
 	// Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
 	AutoSuspend pulumi.IntPtrInput
 	Comment     pulumi.StringPtrInput
+	// Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+	EnableQueryAcceleration pulumi.BoolPtrInput
 	// Specifies whether the warehouse is created initially in the ‘Suspended’ state.
 	InitiallySuspended pulumi.BoolPtrInput
 	// Specifies the maximum number of server clusters for the warehouse.
@@ -158,6 +172,8 @@ type WarehouseState struct {
 	MinClusterCount pulumi.IntPtrInput
 	// Identifier for the virtual warehouse; must be unique for your account.
 	Name pulumi.StringPtrInput
+	// Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+	QueryAccelerationMaxScaleFactor pulumi.IntPtrInput
 	// Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
 	ResourceMonitor pulumi.StringPtrInput
 	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
@@ -174,6 +190,8 @@ type WarehouseState struct {
 	WaitForProvisioning pulumi.BoolPtrInput
 	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
 	WarehouseSize pulumi.StringPtrInput
+	// Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+	WarehouseType pulumi.StringPtrInput
 }
 
 func (WarehouseState) ElementType() reflect.Type {
@@ -186,6 +204,8 @@ type warehouseArgs struct {
 	// Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
 	AutoSuspend *int    `pulumi:"autoSuspend"`
 	Comment     *string `pulumi:"comment"`
+	// Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+	EnableQueryAcceleration *bool `pulumi:"enableQueryAcceleration"`
 	// Specifies whether the warehouse is created initially in the ‘Suspended’ state.
 	InitiallySuspended *bool `pulumi:"initiallySuspended"`
 	// Specifies the maximum number of server clusters for the warehouse.
@@ -196,6 +216,8 @@ type warehouseArgs struct {
 	MinClusterCount *int `pulumi:"minClusterCount"`
 	// Identifier for the virtual warehouse; must be unique for your account.
 	Name *string `pulumi:"name"`
+	// Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+	QueryAccelerationMaxScaleFactor *int `pulumi:"queryAccelerationMaxScaleFactor"`
 	// Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
 	ResourceMonitor *string `pulumi:"resourceMonitor"`
 	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
@@ -212,6 +234,8 @@ type warehouseArgs struct {
 	WaitForProvisioning *bool `pulumi:"waitForProvisioning"`
 	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
 	WarehouseSize *string `pulumi:"warehouseSize"`
+	// Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+	WarehouseType *string `pulumi:"warehouseType"`
 }
 
 // The set of arguments for constructing a Warehouse resource.
@@ -221,6 +245,8 @@ type WarehouseArgs struct {
 	// Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
 	AutoSuspend pulumi.IntPtrInput
 	Comment     pulumi.StringPtrInput
+	// Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+	EnableQueryAcceleration pulumi.BoolPtrInput
 	// Specifies whether the warehouse is created initially in the ‘Suspended’ state.
 	InitiallySuspended pulumi.BoolPtrInput
 	// Specifies the maximum number of server clusters for the warehouse.
@@ -231,6 +257,8 @@ type WarehouseArgs struct {
 	MinClusterCount pulumi.IntPtrInput
 	// Identifier for the virtual warehouse; must be unique for your account.
 	Name pulumi.StringPtrInput
+	// Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+	QueryAccelerationMaxScaleFactor pulumi.IntPtrInput
 	// Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
 	ResourceMonitor pulumi.StringPtrInput
 	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
@@ -247,6 +275,8 @@ type WarehouseArgs struct {
 	WaitForProvisioning pulumi.BoolPtrInput
 	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
 	WarehouseSize pulumi.StringPtrInput
+	// Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+	WarehouseType pulumi.StringPtrInput
 }
 
 func (WarehouseArgs) ElementType() reflect.Type {
@@ -350,6 +380,11 @@ func (o WarehouseOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Warehouse) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+func (o WarehouseOutput) EnableQueryAcceleration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Warehouse) pulumi.BoolPtrOutput { return v.EnableQueryAcceleration }).(pulumi.BoolPtrOutput)
+}
+
 // Specifies whether the warehouse is created initially in the ‘Suspended’ state.
 func (o WarehouseOutput) InitiallySuspended() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Warehouse) pulumi.BoolPtrOutput { return v.InitiallySuspended }).(pulumi.BoolPtrOutput)
@@ -373,6 +408,11 @@ func (o WarehouseOutput) MinClusterCount() pulumi.IntOutput {
 // Identifier for the virtual warehouse; must be unique for your account.
 func (o WarehouseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Warehouse) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+func (o WarehouseOutput) QueryAccelerationMaxScaleFactor() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Warehouse) pulumi.IntPtrOutput { return v.QueryAccelerationMaxScaleFactor }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
@@ -410,6 +450,11 @@ func (o WarehouseOutput) WaitForProvisioning() pulumi.BoolPtrOutput {
 // Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
 func (o WarehouseOutput) WarehouseSize() pulumi.StringOutput {
 	return o.ApplyT(func(v *Warehouse) pulumi.StringOutput { return v.WarehouseSize }).(pulumi.StringOutput)
+}
+
+// Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+func (o WarehouseOutput) WarehouseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Warehouse) pulumi.StringPtrOutput { return v.WarehouseType }).(pulumi.StringPtrOutput)
 }
 
 type WarehouseArrayOutput struct{ *pulumi.OutputState }

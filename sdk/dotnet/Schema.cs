@@ -23,7 +23,7 @@ namespace Pulumi.Snowflake
     ///     {
     ///         Comment = "A schema.",
     ///         DataRetentionDays = 1,
-    ///         Database = "db",
+    ///         Database = "database",
     ///         IsManaged = false,
     ///         IsTransient = false,
     ///     });

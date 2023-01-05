@@ -341,10 +341,10 @@ class ExternalTableGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.ExternalTableGrant("grant",
-            database_name="db",
+            database_name="database",
             external_table_name="external_table",
             on_future=False,
-            privilege="select",
+            privilege="SELECT",
             roles=[
                 "role1",
                 "role2",
@@ -392,10 +392,10 @@ class ExternalTableGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.ExternalTableGrant("grant",
-            database_name="db",
+            database_name="database",
             external_table_name="external_table",
             on_future=False,
-            privilege="select",
+            privilege="SELECT",
             roles=[
                 "role1",
                 "role2",
