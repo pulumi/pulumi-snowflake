@@ -133,6 +133,7 @@ class _MaskingPolicyState:
                  database: Optional[pulumi.Input[str]] = None,
                  masking_expression: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 qualified_name: Optional[pulumi.Input[str]] = None,
                  return_data_type: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  value_data_type: Optional[pulumi.Input[str]] = None):
@@ -142,6 +143,7 @@ class _MaskingPolicyState:
         :param pulumi.Input[str] database: The database in which to create the masking policy.
         :param pulumi.Input[str] masking_expression: Specifies the SQL expression that transforms the data.
         :param pulumi.Input[str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        :param pulumi.Input[str] qualified_name: Specifies the qualified identifier for the masking policy.
         :param pulumi.Input[str] return_data_type: Specifies the data type to return.
         :param pulumi.Input[str] schema: The schema in which to create the masking policy.
         :param pulumi.Input[str] value_data_type: Specifies the data type to mask.
@@ -154,6 +156,8 @@ class _MaskingPolicyState:
             pulumi.set(__self__, "masking_expression", masking_expression)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if qualified_name is not None:
+            pulumi.set(__self__, "qualified_name", qualified_name)
         if return_data_type is not None:
             pulumi.set(__self__, "return_data_type", return_data_type)
         if schema is not None:
@@ -208,6 +212,18 @@ class _MaskingPolicyState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="qualifiedName")
+    def qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the qualified identifier for the masking policy.
+        """
+        return pulumi.get(self, "qualified_name")
+
+    @qualified_name.setter
+    def qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "qualified_name", value)
 
     @property
     @pulumi.getter(name="returnDataType")
@@ -369,6 +385,7 @@ class MaskingPolicy(pulumi.CustomResource):
             if value_data_type is None and not opts.urn:
                 raise TypeError("Missing required property 'value_data_type'")
             __props__.__dict__["value_data_type"] = value_data_type
+            __props__.__dict__["qualified_name"] = None
         super(MaskingPolicy, __self__).__init__(
             'snowflake:index/maskingPolicy:MaskingPolicy',
             resource_name,
@@ -383,6 +400,7 @@ class MaskingPolicy(pulumi.CustomResource):
             database: Optional[pulumi.Input[str]] = None,
             masking_expression: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            qualified_name: Optional[pulumi.Input[str]] = None,
             return_data_type: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None,
             value_data_type: Optional[pulumi.Input[str]] = None) -> 'MaskingPolicy':
@@ -397,6 +415,7 @@ class MaskingPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] database: The database in which to create the masking policy.
         :param pulumi.Input[str] masking_expression: Specifies the SQL expression that transforms the data.
         :param pulumi.Input[str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        :param pulumi.Input[str] qualified_name: Specifies the qualified identifier for the masking policy.
         :param pulumi.Input[str] return_data_type: Specifies the data type to return.
         :param pulumi.Input[str] schema: The schema in which to create the masking policy.
         :param pulumi.Input[str] value_data_type: Specifies the data type to mask.
@@ -409,6 +428,7 @@ class MaskingPolicy(pulumi.CustomResource):
         __props__.__dict__["database"] = database
         __props__.__dict__["masking_expression"] = masking_expression
         __props__.__dict__["name"] = name
+        __props__.__dict__["qualified_name"] = qualified_name
         __props__.__dict__["return_data_type"] = return_data_type
         __props__.__dict__["schema"] = schema
         __props__.__dict__["value_data_type"] = value_data_type
@@ -445,6 +465,14 @@ class MaskingPolicy(pulumi.CustomResource):
         Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="qualifiedName")
+    def qualified_name(self) -> pulumi.Output[str]:
+        """
+        Specifies the qualified identifier for the masking policy.
+        """
+        return pulumi.get(self, "qualified_name")
 
     @property
     @pulumi.getter(name="returnDataType")

@@ -26,6 +26,10 @@ namespace Pulumi.Snowflake.Outputs
         /// </summary>
         public readonly Outputs.TableColumnIdentity? Identity;
         /// <summary>
+        /// Masking policy to apply on column
+        /// </summary>
+        public readonly string? MaskingPolicy;
+        /// <summary>
         /// Column name
         /// </summary>
         public readonly string Name;
@@ -46,6 +50,8 @@ namespace Pulumi.Snowflake.Outputs
 
             Outputs.TableColumnIdentity? identity,
 
+            string? maskingPolicy,
+
             string name,
 
             bool? nullable,
@@ -55,6 +61,7 @@ namespace Pulumi.Snowflake.Outputs
             Comment = comment;
             Default = @default;
             Identity = identity;
+            MaskingPolicy = maskingPolicy;
             Name = name;
             Nullable = nullable;
             Type = type;

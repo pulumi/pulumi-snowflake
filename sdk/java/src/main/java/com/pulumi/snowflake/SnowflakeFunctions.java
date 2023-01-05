@@ -19,6 +19,8 @@ import com.pulumi.snowflake.inputs.GetFileFormatsArgs;
 import com.pulumi.snowflake.inputs.GetFileFormatsPlainArgs;
 import com.pulumi.snowflake.inputs.GetFunctionsArgs;
 import com.pulumi.snowflake.inputs.GetFunctionsPlainArgs;
+import com.pulumi.snowflake.inputs.GetGrantsArgs;
+import com.pulumi.snowflake.inputs.GetGrantsPlainArgs;
 import com.pulumi.snowflake.inputs.GetMaskingPoliciesArgs;
 import com.pulumi.snowflake.inputs.GetMaskingPoliciesPlainArgs;
 import com.pulumi.snowflake.inputs.GetMaterializedViewsArgs;
@@ -29,6 +31,8 @@ import com.pulumi.snowflake.inputs.GetProceduresArgs;
 import com.pulumi.snowflake.inputs.GetProceduresPlainArgs;
 import com.pulumi.snowflake.inputs.GetRoleArgs;
 import com.pulumi.snowflake.inputs.GetRolePlainArgs;
+import com.pulumi.snowflake.inputs.GetRolesArgs;
+import com.pulumi.snowflake.inputs.GetRolesPlainArgs;
 import com.pulumi.snowflake.inputs.GetRowAccessPoliciesArgs;
 import com.pulumi.snowflake.inputs.GetRowAccessPoliciesPlainArgs;
 import com.pulumi.snowflake.inputs.GetSchemasArgs;
@@ -58,12 +62,14 @@ import com.pulumi.snowflake.outputs.GetExternalFunctionsResult;
 import com.pulumi.snowflake.outputs.GetExternalTablesResult;
 import com.pulumi.snowflake.outputs.GetFileFormatsResult;
 import com.pulumi.snowflake.outputs.GetFunctionsResult;
+import com.pulumi.snowflake.outputs.GetGrantsResult;
 import com.pulumi.snowflake.outputs.GetMaskingPoliciesResult;
 import com.pulumi.snowflake.outputs.GetMaterializedViewsResult;
 import com.pulumi.snowflake.outputs.GetPipesResult;
 import com.pulumi.snowflake.outputs.GetProceduresResult;
 import com.pulumi.snowflake.outputs.GetResourceMonitorsResult;
 import com.pulumi.snowflake.outputs.GetRoleResult;
+import com.pulumi.snowflake.outputs.GetRolesResult;
 import com.pulumi.snowflake.outputs.GetRowAccessPoliciesResult;
 import com.pulumi.snowflake.outputs.GetSchemasResult;
 import com.pulumi.snowflake.outputs.GetSequencesResult;
@@ -1233,6 +1239,504 @@ public final class SnowflakeFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetGrantsArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsOnArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInSchemaArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var grants = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .account(true)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants2 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName(&#34;\&#34;tst\&#34;&#34;)
+     *                 .objectType(&#34;DATABASE&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants3 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants4 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants5 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .database(&#34;\&#34;tst\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants6 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .schema(GetGrantsFutureGrantsInSchemaArgs.builder()
+     *                     .databaseName(&#34;\&#34;mydatabase\&#34;&#34;)
+     *                     .schemaName(&#34;\&#34;myschema\&#34;&#34;)
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants7 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
+     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetGrantsResult> getGrants() {
+        return getGrants(GetGrantsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetGrantsArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsOnArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInSchemaArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var grants = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .account(true)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants2 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName(&#34;\&#34;tst\&#34;&#34;)
+     *                 .objectType(&#34;DATABASE&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants3 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants4 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants5 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .database(&#34;\&#34;tst\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants6 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .schema(GetGrantsFutureGrantsInSchemaArgs.builder()
+     *                     .databaseName(&#34;\&#34;mydatabase\&#34;&#34;)
+     *                     .schemaName(&#34;\&#34;myschema\&#34;&#34;)
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants7 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
+     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetGrantsResult> getGrantsPlain() {
+        return getGrantsPlain(GetGrantsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetGrantsArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsOnArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInSchemaArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var grants = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .account(true)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants2 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName(&#34;\&#34;tst\&#34;&#34;)
+     *                 .objectType(&#34;DATABASE&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants3 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants4 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants5 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .database(&#34;\&#34;tst\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants6 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .schema(GetGrantsFutureGrantsInSchemaArgs.builder()
+     *                     .databaseName(&#34;\&#34;mydatabase\&#34;&#34;)
+     *                     .schemaName(&#34;\&#34;myschema\&#34;&#34;)
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants7 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
+     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetGrantsResult> getGrants(GetGrantsArgs args) {
+        return getGrants(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetGrantsArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsOnArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInSchemaArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var grants = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .account(true)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants2 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName(&#34;\&#34;tst\&#34;&#34;)
+     *                 .objectType(&#34;DATABASE&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants3 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants4 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants5 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .database(&#34;\&#34;tst\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants6 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .schema(GetGrantsFutureGrantsInSchemaArgs.builder()
+     *                     .databaseName(&#34;\&#34;mydatabase\&#34;&#34;)
+     *                     .schemaName(&#34;\&#34;myschema\&#34;&#34;)
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants7 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
+     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetGrantsResult> getGrantsPlain(GetGrantsPlainArgs args) {
+        return getGrantsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetGrantsArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsOnArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInSchemaArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var grants = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .account(true)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants2 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName(&#34;\&#34;tst\&#34;&#34;)
+     *                 .objectType(&#34;DATABASE&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants3 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants4 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants5 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .database(&#34;\&#34;tst\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants6 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .schema(GetGrantsFutureGrantsInSchemaArgs.builder()
+     *                     .databaseName(&#34;\&#34;mydatabase\&#34;&#34;)
+     *                     .schemaName(&#34;\&#34;myschema\&#34;&#34;)
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants7 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
+     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetGrantsResult> getGrants(GetGrantsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getGrants:getGrants", TypeShape.of(GetGrantsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetGrantsArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsOnArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInSchemaArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var grants = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .account(true)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants2 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName(&#34;\&#34;tst\&#34;&#34;)
+     *                 .objectType(&#34;DATABASE&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants3 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants4 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants5 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .database(&#34;\&#34;tst\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants6 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .schema(GetGrantsFutureGrantsInSchemaArgs.builder()
+     *                     .databaseName(&#34;\&#34;mydatabase\&#34;&#34;)
+     *                     .schemaName(&#34;\&#34;myschema\&#34;&#34;)
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         final var grants7 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
+     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetGrantsResult> getGrantsPlain(GetGrantsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getGrants:getGrants", TypeShape.of(GetGrantsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetMaskingPoliciesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2131,6 +2635,24 @@ public final class SnowflakeFunctions {
      */
     public static CompletableFuture<GetRoleResult> getRolePlain(GetRolePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getRole:getRole", TypeShape.of(GetRoleResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetRolesResult> getRoles() {
+        return getRoles(GetRolesArgs.Empty, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetRolesResult> getRolesPlain() {
+        return getRolesPlain(GetRolesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    public static Output<GetRolesResult> getRoles(GetRolesArgs args) {
+        return getRoles(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetRolesResult> getRolesPlain(GetRolesPlainArgs args) {
+        return getRolesPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetRolesResult> getRoles(GetRolesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getRoles:getRoles", TypeShape.of(GetRolesResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetRolesResult> getRolesPlain(GetRolesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getRoles:getRoles", TypeShape.of(GetRolesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * ## Example Usage

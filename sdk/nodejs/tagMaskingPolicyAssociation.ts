@@ -42,7 +42,7 @@ export class TagMaskingPolicyAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The the resource id of the masking policy
+     * The resource id of the masking policy
      */
     public readonly maskingPolicyId!: pulumi.Output<string>;
     /**
@@ -86,7 +86,7 @@ export class TagMaskingPolicyAssociation extends pulumi.CustomResource {
  */
 export interface TagMaskingPolicyAssociationState {
     /**
-     * The the resource id of the masking policy
+     * The resource id of the masking policy
      */
     maskingPolicyId?: pulumi.Input<string>;
     /**
@@ -100,7 +100,7 @@ export interface TagMaskingPolicyAssociationState {
  */
 export interface TagMaskingPolicyAssociationArgs {
     /**
-     * The the resource id of the masking policy
+     * The resource id of the masking policy
      */
     maskingPolicyId: pulumi.Input<string>;
     /**

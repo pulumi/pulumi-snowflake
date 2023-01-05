@@ -163,7 +163,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from
+     * Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
      * `SNOWFLAKE_PASSWORD` environment variable.
      * 
      */
@@ -171,7 +171,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> password;
 
     /**
-     * @return Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from
+     * @return Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
      * `SNOWFLAKE_PASSWORD` environment variable.
      * 
      */
@@ -197,7 +197,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
+     * Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be sourced from
      * `SNOWFLAKE_PRIVATE_KEY` environment variable.
      * 
      */
@@ -205,7 +205,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> privateKey;
 
     /**
-     * @return Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
+     * @return Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be sourced from
      * `SNOWFLAKE_PRIVATE_KEY` environment variable.
      * 
      */
@@ -232,7 +232,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
-     * `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+     * `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
      * 
      */
     @Import(name="privateKeyPath")
@@ -240,7 +240,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
-     * `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+     * `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
      * 
      */
     public Optional<Output<String>> privateKeyPath() {
@@ -263,16 +263,20 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
-     * `SNOWFLAKE_REGION` environment variable.
+     * [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
+     * format for the `account`
+     * identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
+     * in the form of `&lt;cloud_region_id&gt;.&lt;cloud&gt;`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
      * 
      */
     @Import(name="region", required=true)
     private Output<String> region;
 
     /**
-     * @return [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
-     * `SNOWFLAKE_REGION` environment variable.
+     * @return [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
+     * format for the `account`
+     * identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
+     * in the form of `&lt;cloud_region_id&gt;.&lt;cloud&gt;`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
      * 
      */
     public Output<String> region() {
@@ -280,7 +284,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the
+     * Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
      * `SNOWFLAKE_ROLE` environment variable.
      * 
      */
@@ -288,7 +292,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> role;
 
     /**
-     * @return Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the
+     * @return Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
      * `SNOWFLAKE_ROLE` environment variable.
      * 
      */
@@ -568,7 +572,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from
+         * @param password Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
          * `SNOWFLAKE_PASSWORD` environment variable.
          * 
          * @return builder
@@ -580,7 +584,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from
+         * @param password Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
          * `SNOWFLAKE_PASSWORD` environment variable.
          * 
          * @return builder
@@ -614,7 +618,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateKey Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
+         * @param privateKey Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be sourced from
          * `SNOWFLAKE_PRIVATE_KEY` environment variable.
          * 
          * @return builder
@@ -626,7 +630,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateKey Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
+         * @param privateKey Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be sourced from
          * `SNOWFLAKE_PRIVATE_KEY` environment variable.
          * 
          * @return builder
@@ -661,7 +665,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param privateKeyPath Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
-         * `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+         * `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
          * 
          * @return builder
          * 
@@ -673,7 +677,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param privateKeyPath Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
-         * `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+         * `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
          * 
          * @return builder
          * 
@@ -704,8 +708,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
-         * `SNOWFLAKE_REGION` environment variable.
+         * @param region [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
+         * format for the `account`
+         * identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
+         * in the form of `&lt;cloud_region_id&gt;.&lt;cloud&gt;`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
          * 
          * @return builder
          * 
@@ -716,8 +722,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
-         * `SNOWFLAKE_REGION` environment variable.
+         * @param region [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
+         * format for the `account`
+         * identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
+         * in the form of `&lt;cloud_region_id&gt;.&lt;cloud&gt;`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
          * 
          * @return builder
          * 
@@ -727,7 +735,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param role Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the
+         * @param role Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
          * `SNOWFLAKE_ROLE` environment variable.
          * 
          * @return builder
@@ -739,7 +747,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param role Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the
+         * @param role Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
          * `SNOWFLAKE_ROLE` environment variable.
          * 
          * @return builder

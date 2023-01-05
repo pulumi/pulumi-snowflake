@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -19,18 +20,33 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     public static final TaskArgs Empty = new TaskArgs();
 
     /**
-     * Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+     * Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
      * 
      */
-    @Import(name="after")
-    private @Nullable Output<String> after;
+    @Import(name="afters")
+    private @Nullable Output<List<String>> afters;
 
     /**
-     * @return Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+     * @return Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
      * 
      */
-    public Optional<Output<String>> after() {
-        return Optional.ofNullable(this.after);
+    public Optional<Output<List<String>>> afters() {
+        return Optional.ofNullable(this.afters);
+    }
+
+    /**
+     * By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
+     * 
+     */
+    @Import(name="allowOverlappingExecution")
+    private @Nullable Output<Boolean> allowOverlappingExecution;
+
+    /**
+     * @return By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
+     * 
+     */
+    public Optional<Output<Boolean>> allowOverlappingExecution() {
+        return Optional.ofNullable(this.allowOverlappingExecution);
     }
 
     /**
@@ -231,7 +247,8 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     private TaskArgs() {}
 
     private TaskArgs(TaskArgs $) {
-        this.after = $.after;
+        this.afters = $.afters;
+        this.allowOverlappingExecution = $.allowOverlappingExecution;
         this.comment = $.comment;
         this.database = $.database;
         this.enabled = $.enabled;
@@ -266,24 +283,55 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param after Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+         * @param afters Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
          * 
          * @return builder
          * 
          */
-        public Builder after(@Nullable Output<String> after) {
-            $.after = after;
+        public Builder afters(@Nullable Output<List<String>> afters) {
+            $.afters = afters;
             return this;
         }
 
         /**
-         * @param after Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+         * @param afters Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
          * 
          * @return builder
          * 
          */
-        public Builder after(String after) {
-            return after(Output.of(after));
+        public Builder afters(List<String> afters) {
+            return afters(Output.of(afters));
+        }
+
+        /**
+         * @param afters Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder afters(String... afters) {
+            return afters(List.of(afters));
+        }
+
+        /**
+         * @param allowOverlappingExecution By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowOverlappingExecution(@Nullable Output<Boolean> allowOverlappingExecution) {
+            $.allowOverlappingExecution = allowOverlappingExecution;
+            return this;
+        }
+
+        /**
+         * @param allowOverlappingExecution By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowOverlappingExecution(Boolean allowOverlappingExecution) {
+            return allowOverlappingExecution(Output.of(allowOverlappingExecution));
         }
 
         /**

@@ -28,6 +28,11 @@ namespace Pulumi.Snowflake
     ///         {
     ///             40,
     ///         },
+    ///         NotifyUsers = new[]
+    ///         {
+    ///             "USERONE",
+    ///             "USERTWO",
+    ///         },
     ///         StartTimestamp = "2020-12-07 00:00",
     ///         SuspendImmediateTriggers = new[]
     ///         {
@@ -80,6 +85,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("notifyTriggers")]
         public Output<ImmutableArray<int>> NotifyTriggers { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the list of users to receive email notifications on resource monitors.
+        /// </summary>
+        [Output("notifyUsers")]
+        public Output<ImmutableArray<string>> NotifyUsers { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the resource monitor should be applied globally to your Snowflake account.
@@ -193,6 +204,18 @@ namespace Pulumi.Snowflake
             set => _notifyTriggers = value;
         }
 
+        [Input("notifyUsers")]
+        private InputList<string>? _notifyUsers;
+
+        /// <summary>
+        /// Specifies the list of users to receive email notifications on resource monitors.
+        /// </summary>
+        public InputList<string> NotifyUsers
+        {
+            get => _notifyUsers ?? (_notifyUsers = new InputList<string>());
+            set => _notifyUsers = value;
+        }
+
         /// <summary>
         /// Specifies whether the resource monitor should be applied globally to your Snowflake account.
         /// </summary>
@@ -283,6 +306,18 @@ namespace Pulumi.Snowflake
         {
             get => _notifyTriggers ?? (_notifyTriggers = new InputList<int>());
             set => _notifyTriggers = value;
+        }
+
+        [Input("notifyUsers")]
+        private InputList<string>? _notifyUsers;
+
+        /// <summary>
+        /// Specifies the list of users to receive email notifications on resource monitors.
+        /// </summary>
+        public InputList<string> NotifyUsers
+        {
+            get => _notifyUsers ?? (_notifyUsers = new InputList<string>());
+            set => _notifyUsers = value;
         }
 
         /// <summary>

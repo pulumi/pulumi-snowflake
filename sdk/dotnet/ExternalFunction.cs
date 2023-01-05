@@ -37,7 +37,7 @@ namespace Pulumi.Snowflake
     ///         },
     ///         Database = "my_test_db",
     ///         ReturnBehavior = "IMMUTABLE",
-    ///         ReturnType = "varchar",
+    ///         ReturnType = "variant",
     ///         Schema = "my_test_schema",
     ///         UrlOfProxyAndResource = "https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func",
     ///     });

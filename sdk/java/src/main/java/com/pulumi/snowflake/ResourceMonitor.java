@@ -45,6 +45,9 @@ import javax.annotation.Nullable;
  *             .endTimestamp(&#34;2021-12-07 00:00&#34;)
  *             .frequency(&#34;DAILY&#34;)
  *             .notifyTriggers(40)
+ *             .notifyUsers(            
+ *                 &#34;USERONE&#34;,
+ *                 &#34;USERTWO&#34;)
  *             .startTimestamp(&#34;2020-12-07 00:00&#34;)
  *             .suspendImmediateTriggers(90)
  *             .suspendTriggers(50)
@@ -132,6 +135,20 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<Integer>>> notifyTriggers() {
         return Codegen.optional(this.notifyTriggers);
+    }
+    /**
+     * Specifies the list of users to receive email notifications on resource monitors.
+     * 
+     */
+    @Export(name="notifyUsers", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> notifyUsers;
+
+    /**
+     * @return Specifies the list of users to receive email notifications on resource monitors.
+     * 
+     */
+    public Output<Optional<List<String>>> notifyUsers() {
+        return Codegen.optional(this.notifyUsers);
     }
     /**
      * Specifies whether the resource monitor should be applied globally to your Snowflake account.

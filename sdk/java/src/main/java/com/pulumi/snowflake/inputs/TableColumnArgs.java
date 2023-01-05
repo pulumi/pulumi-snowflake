@@ -64,6 +64,21 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Masking policy to apply on column
+     * 
+     */
+    @Import(name="maskingPolicy")
+    private @Nullable Output<String> maskingPolicy;
+
+    /**
+     * @return Masking policy to apply on column
+     * 
+     */
+    public Optional<Output<String>> maskingPolicy() {
+        return Optional.ofNullable(this.maskingPolicy);
+    }
+
+    /**
      * Column name
      * 
      */
@@ -114,6 +129,7 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
         this.comment = $.comment;
         this.default_ = $.default_;
         this.identity = $.identity;
+        this.maskingPolicy = $.maskingPolicy;
         this.name = $.name;
         this.nullable = $.nullable;
         this.type = $.type;
@@ -198,6 +214,27 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder identity(TableColumnIdentityArgs identity) {
             return identity(Output.of(identity));
+        }
+
+        /**
+         * @param maskingPolicy Masking policy to apply on column
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maskingPolicy(@Nullable Output<String> maskingPolicy) {
+            $.maskingPolicy = maskingPolicy;
+            return this;
+        }
+
+        /**
+         * @param maskingPolicy Masking policy to apply on column
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maskingPolicy(String maskingPolicy) {
+            return maskingPolicy(Output.of(maskingPolicy));
         }
 
         /**

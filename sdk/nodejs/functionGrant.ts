@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  *             type: "string",
  *         },
  *     ],
- *     databaseName: "db",
+ *     databaseName: "database",
  *     functionName: "function",
  *     onFuture: false,
  *     privilege: "USAGE",

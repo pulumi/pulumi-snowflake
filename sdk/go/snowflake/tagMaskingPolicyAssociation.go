@@ -23,7 +23,7 @@ import (
 type TagMaskingPolicyAssociation struct {
 	pulumi.CustomResourceState
 
-	// The the resource id of the masking policy
+	// The resource id of the masking policy
 	MaskingPolicyId pulumi.StringOutput `pulumi:"maskingPolicyId"`
 	// Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
 	TagId pulumi.StringOutput `pulumi:"tagId"`
@@ -64,14 +64,14 @@ func GetTagMaskingPolicyAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TagMaskingPolicyAssociation resources.
 type tagMaskingPolicyAssociationState struct {
-	// The the resource id of the masking policy
+	// The resource id of the masking policy
 	MaskingPolicyId *string `pulumi:"maskingPolicyId"`
 	// Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
 	TagId *string `pulumi:"tagId"`
 }
 
 type TagMaskingPolicyAssociationState struct {
-	// The the resource id of the masking policy
+	// The resource id of the masking policy
 	MaskingPolicyId pulumi.StringPtrInput
 	// Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
 	TagId pulumi.StringPtrInput
@@ -82,7 +82,7 @@ func (TagMaskingPolicyAssociationState) ElementType() reflect.Type {
 }
 
 type tagMaskingPolicyAssociationArgs struct {
-	// The the resource id of the masking policy
+	// The resource id of the masking policy
 	MaskingPolicyId string `pulumi:"maskingPolicyId"`
 	// Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
 	TagId string `pulumi:"tagId"`
@@ -90,7 +90,7 @@ type tagMaskingPolicyAssociationArgs struct {
 
 // The set of arguments for constructing a TagMaskingPolicyAssociation resource.
 type TagMaskingPolicyAssociationArgs struct {
-	// The the resource id of the masking policy
+	// The resource id of the masking policy
 	MaskingPolicyId pulumi.StringInput
 	// Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
 	TagId pulumi.StringInput
@@ -183,7 +183,7 @@ func (o TagMaskingPolicyAssociationOutput) ToTagMaskingPolicyAssociationOutputWi
 	return o
 }
 
-// The the resource id of the masking policy
+// The resource id of the masking policy
 func (o TagMaskingPolicyAssociationOutput) MaskingPolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagMaskingPolicyAssociation) pulumi.StringOutput { return v.MaskingPolicyId }).(pulumi.StringOutput)
 }

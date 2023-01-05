@@ -26,9 +26,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewTaskGrant(ctx, "grant", &snowflake.TaskGrantArgs{
-//				DatabaseName: pulumi.String("db"),
+//				DatabaseName: pulumi.String("database"),
 //				OnFuture:     pulumi.Bool(false),
-//				Privilege:    pulumi.String("operate"),
+//				Privilege:    pulumi.String("OPERATE"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
 //					pulumi.String("role2"),

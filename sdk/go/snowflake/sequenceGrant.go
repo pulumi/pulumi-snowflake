@@ -26,9 +26,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewSequenceGrant(ctx, "grant", &snowflake.SequenceGrantArgs{
-//				DatabaseName: pulumi.String("db"),
+//				DatabaseName: pulumi.String("database"),
 //				OnFuture:     pulumi.Bool(false),
-//				Privilege:    pulumi.String("select"),
+//				Privilege:    pulumi.String("SELECT"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
 //					pulumi.String("role2"),

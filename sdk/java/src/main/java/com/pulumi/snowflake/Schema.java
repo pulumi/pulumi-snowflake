@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *         var schema = new Schema(&#34;schema&#34;, SchemaArgs.builder()        
  *             .comment(&#34;A schema.&#34;)
  *             .dataRetentionDays(1)
- *             .database(&#34;db&#34;)
+ *             .database(&#34;database&#34;)
  *             .isManaged(false)
  *             .isTransient(false)
  *             .build());

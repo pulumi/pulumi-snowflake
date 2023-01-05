@@ -24,9 +24,9 @@ import * as utilities from "./utilities";
  *             type: "string",
  *         },
  *     ],
- *     databaseName: "db",
+ *     databaseName: "database",
  *     onFuture: false,
- *     privilege: "select",
+ *     privilege: "SELECT",
  *     procedureName: "procedure",
  *     returnType: "string",
  *     roles: [

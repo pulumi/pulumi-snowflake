@@ -10,6 +10,33 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var grant = new Snowflake.StageGrant("grant", new()
+    ///     {
+    ///         DatabaseName = "database",
+    ///         OnFuture = false,
+    ///         Privilege = "USAGE",
+    ///         Roles = new[]
+    ///         {
+    ///             "role1",
+    ///             "role2",
+    ///         },
+    ///         SchemaName = "schema",
+    ///         StageName = "stage",
+    ///         WithGrantOption = false,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// format is database name | schema name | stage name | privilege | true/false for with_grant_option

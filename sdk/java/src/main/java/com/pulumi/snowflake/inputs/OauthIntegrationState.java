@@ -124,6 +124,21 @@ public final class OauthIntegrationState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
+     * 
+     */
+    @Import(name="oauthRedirectUri")
+    private @Nullable Output<String> oauthRedirectUri;
+
+    /**
+     * @return Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
+     * 
+     */
+    public Optional<Output<String>> oauthRedirectUri() {
+        return Optional.ofNullable(this.oauthRedirectUri);
+    }
+
+    /**
      * Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
      * 
      */
@@ -163,6 +178,7 @@ public final class OauthIntegrationState extends com.pulumi.resources.ResourceAr
         this.name = $.name;
         this.oauthClient = $.oauthClient;
         this.oauthIssueRefreshTokens = $.oauthIssueRefreshTokens;
+        this.oauthRedirectUri = $.oauthRedirectUri;
         this.oauthRefreshTokenValidity = $.oauthRefreshTokenValidity;
         this.oauthUseSecondaryRoles = $.oauthUseSecondaryRoles;
     }
@@ -340,6 +356,27 @@ public final class OauthIntegrationState extends com.pulumi.resources.ResourceAr
          */
         public Builder oauthIssueRefreshTokens(Boolean oauthIssueRefreshTokens) {
             return oauthIssueRefreshTokens(Output.of(oauthIssueRefreshTokens));
+        }
+
+        /**
+         * @param oauthRedirectUri Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oauthRedirectUri(@Nullable Output<String> oauthRedirectUri) {
+            $.oauthRedirectUri = oauthRedirectUri;
+            return this;
+        }
+
+        /**
+         * @param oauthRedirectUri Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oauthRedirectUri(String oauthRedirectUri) {
+            return oauthRedirectUri(Output.of(oauthRedirectUri));
         }
 
         /**

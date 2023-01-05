@@ -561,7 +561,7 @@ class ExternalFunction(pulumi.CustomResource):
             ],
             database="my_test_db",
             return_behavior="IMMUTABLE",
-            return_type="varchar",
+            return_type="variant",
             schema="my_test_schema",
             url_of_proxy_and_resource="https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func")
         ```
@@ -619,7 +619,7 @@ class ExternalFunction(pulumi.CustomResource):
             ],
             database="my_test_db",
             return_behavior="IMMUTABLE",
-            return_type="varchar",
+            return_type="variant",
             schema="my_test_schema",
             url_of_proxy_and_resource="https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func")
         ```

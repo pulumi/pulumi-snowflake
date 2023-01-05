@@ -52,7 +52,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> EnableMultipleGrants { get; private set; } = null!;
 
         /// <summary>
-        /// The privilege to grant on the account.
+        /// The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html)
         /// </summary>
         [Output("privilege")]
         public Output<string?> Privilege { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// The privilege to grant on the account.
+        /// The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html)
         /// </summary>
         [Input("privilege")]
         public Input<string>? Privilege { get; set; }
@@ -162,7 +162,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// The privilege to grant on the account.
+        /// The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html)
         /// </summary>
         [Input("privilege")]
         public Input<string>? Privilege { get; set; }

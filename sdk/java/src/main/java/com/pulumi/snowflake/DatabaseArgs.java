@@ -28,9 +28,17 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.comment);
     }
 
+    /**
+     * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding &amp; Using Time Travel.
+     * 
+     */
     @Import(name="dataRetentionTimeInDays")
     private @Nullable Output<Integer> dataRetentionTimeInDays;
 
+    /**
+     * @return Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding &amp; Using Time Travel.
+     * 
+     */
     public Optional<Output<Integer>> dataRetentionTimeInDays() {
         return Optional.ofNullable(this.dataRetentionTimeInDays);
     }
@@ -181,11 +189,23 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
             return comment(Output.of(comment));
         }
 
+        /**
+         * @param dataRetentionTimeInDays Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding &amp; Using Time Travel.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataRetentionTimeInDays(@Nullable Output<Integer> dataRetentionTimeInDays) {
             $.dataRetentionTimeInDays = dataRetentionTimeInDays;
             return this;
         }
 
+        /**
+         * @param dataRetentionTimeInDays Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding &amp; Using Time Travel.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataRetentionTimeInDays(Integer dataRetentionTimeInDays) {
             return dataRetentionTimeInDays(Output.of(dataRetentionTimeInDays));
         }

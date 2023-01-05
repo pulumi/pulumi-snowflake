@@ -112,7 +112,7 @@ Object.defineProperty(exports, "oauthRefreshToken", {
 });
 
 /**
- * Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be source from
+ * Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
  * `SNOWFLAKE_PASSWORD` environment variable.
  */
 export declare const password: string | undefined;
@@ -136,7 +136,7 @@ Object.defineProperty(exports, "port", {
 });
 
 /**
- * Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be source from
+ * Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be sourced from
  * `SNOWFLAKE_PRIVATE_KEY` environment variable.
  */
 export declare const privateKey: string | undefined;
@@ -161,7 +161,7 @@ Object.defineProperty(exports, "privateKeyPassphrase", {
 
 /**
  * Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
- * `password`. Can be source from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+ * `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
  */
 export declare const privateKeyPath: string | undefined;
 Object.defineProperty(exports, "privateKeyPath", {
@@ -183,8 +183,10 @@ Object.defineProperty(exports, "protocol", {
 });
 
 /**
- * [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Can be source from the
- * `SNOWFLAKE_REGION` environment variable.
+ * [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
+ * format for the `account`
+ * identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
+ * in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
  */
 export declare const region: string | undefined;
 Object.defineProperty(exports, "region", {
@@ -195,7 +197,7 @@ Object.defineProperty(exports, "region", {
 });
 
 /**
- * Snowflake role to use for operations. If left unset, default role for user will be used. Can come from the
+ * Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
  * `SNOWFLAKE_ROLE` environment variable.
  */
 export declare const role: string | undefined;

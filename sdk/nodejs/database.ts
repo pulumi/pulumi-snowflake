@@ -76,6 +76,9 @@ export class Database extends pulumi.CustomResource {
     }
 
     public readonly comment!: pulumi.Output<string | undefined>;
+    /**
+     * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
+     */
     public readonly dataRetentionTimeInDays!: pulumi.Output<number>;
     /**
      * Specify a database to create a clone from.
@@ -149,6 +152,9 @@ export class Database extends pulumi.CustomResource {
  */
 export interface DatabaseState {
     comment?: pulumi.Input<string>;
+    /**
+     * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
+     */
     dataRetentionTimeInDays?: pulumi.Input<number>;
     /**
      * Specify a database to create a clone from.
@@ -184,6 +190,9 @@ export interface DatabaseState {
  */
 export interface DatabaseArgs {
     comment?: pulumi.Input<string>;
+    /**
+     * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
+     */
     dataRetentionTimeInDays?: pulumi.Input<number>;
     /**
      * Specify a database to create a clone from.

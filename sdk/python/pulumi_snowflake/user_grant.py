@@ -209,7 +209,10 @@ class UserGrant(pulumi.CustomResource):
 
         grant = snowflake.UserGrant("grant",
             privilege="MONITOR",
-            roles=["role1"],
+            roles=[
+                "role1",
+                "role2",
+            ],
             user_name="user",
             with_grant_option=False)
         ```
@@ -246,7 +249,10 @@ class UserGrant(pulumi.CustomResource):
 
         grant = snowflake.UserGrant("grant",
             privilege="MONITOR",
-            roles=["role1"],
+            roles=[
+                "role1",
+                "role2",
+            ],
             user_name="user",
             with_grant_option=False)
         ```

@@ -12,10 +12,10 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const grant = new snowflake.FileFormatGrant("grant", {
- *     databaseName: "db",
+ *     databaseName: "database",
  *     fileFormatName: "file_format",
  *     onFuture: false,
- *     privilege: "select",
+ *     privilege: "SELECT",
  *     roles: [
  *         "role1",
  *         "role2",

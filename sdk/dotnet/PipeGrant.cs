@@ -21,10 +21,10 @@ namespace Pulumi.Snowflake
     /// {
     ///     var grant = new Snowflake.PipeGrant("grant", new()
     ///     {
-    ///         DatabaseName = "db",
+    ///         DatabaseName = "database",
     ///         OnFuture = false,
     ///         PipeName = "pipe",
-    ///         Privilege = "operate",
+    ///         Privilege = "OPERATE",
     ///         Roles = new[]
     ///         {
     ///             "role1",

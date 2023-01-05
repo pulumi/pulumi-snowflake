@@ -138,6 +138,8 @@ export class Table extends pulumi.CustomResource {
     public /*out*/ readonly owner!: pulumi.Output<string>;
     /**
      * Definitions of primary key constraint to create on table
+     *
+     * @deprecated Use snowflake_table_constraint instead
      */
     public readonly primaryKey!: pulumi.Output<outputs.TablePrimaryKey | undefined>;
     /**
@@ -241,6 +243,8 @@ export interface TableState {
     owner?: pulumi.Input<string>;
     /**
      * Definitions of primary key constraint to create on table
+     *
+     * @deprecated Use snowflake_table_constraint instead
      */
     primaryKey?: pulumi.Input<inputs.TablePrimaryKey>;
     /**
@@ -289,6 +293,8 @@ export interface TableArgs {
     name?: pulumi.Input<string>;
     /**
      * Definitions of primary key constraint to create on table
+     *
+     * @deprecated Use snowflake_table_constraint instead
      */
     primaryKey?: pulumi.Input<inputs.TablePrimaryKey>;
     /**

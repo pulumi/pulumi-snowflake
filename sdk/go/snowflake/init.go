@@ -36,6 +36,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ExternalTable{}
 	case "snowflake:index/externalTableGrant:ExternalTableGrant":
 		r = &ExternalTableGrant{}
+	case "snowflake:index/failoverGroup:FailoverGroup":
+		r = &FailoverGroup{}
 	case "snowflake:index/fileFormat:FileFormat":
 		r = &FileFormat{}
 	case "snowflake:index/fileFormatGrant:FileFormatGrant":
@@ -112,6 +114,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &StreamGrant{}
 	case "snowflake:index/table:Table":
 		r = &Table{}
+	case "snowflake:index/tableConstraint:TableConstraint":
+		r = &TableConstraint{}
 	case "snowflake:index/tableGrant:TableGrant":
 		r = &TableGrant{}
 	case "snowflake:index/tag:Tag":
@@ -208,6 +212,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/externalTableGrant",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/failoverGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -398,6 +407,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/table",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/tableConstraint",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

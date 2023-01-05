@@ -26,7 +26,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewRowAccessPolicyGrant(ctx, "grant", &snowflake.RowAccessPolicyGrantArgs{
-//				DatabaseName: pulumi.String("db"),
+//				DatabaseName: pulumi.String("database"),
 //				Privilege:    pulumi.String("APPLY"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),

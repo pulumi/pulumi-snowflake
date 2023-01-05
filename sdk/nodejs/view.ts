@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const view = new snowflake.View("view", {
- *     database: "db",
+ *     database: "database",
  *     schema: "schema",
  *     comment: "comment",
  *     statement: "select * from foo;\n",

@@ -8,43 +8,52 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['TagAssociationArgs', 'TagAssociation']
 
 @pulumi.input_type
 class TagAssociationArgs:
     def __init__(__self__, *,
-                 object_name: pulumi.Input[str],
+                 object_identifiers: pulumi.Input[Sequence[pulumi.Input['TagAssociationObjectIdentifierArgs']]],
                  object_type: pulumi.Input[str],
                  tag_id: pulumi.Input[str],
                  tag_value: pulumi.Input[str],
+                 object_name: Optional[pulumi.Input[str]] = None,
                  skip_validation: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a TagAssociation resource.
-        :param pulumi.Input[str] object_name: Specifies the object identifier for the tag association.
+        :param pulumi.Input[Sequence[pulumi.Input['TagAssociationObjectIdentifierArgs']]] object_identifiers: Specifies the object identifier for the tag association.
         :param pulumi.Input[str] object_type: Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
         :param pulumi.Input[str] tag_id: Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
         :param pulumi.Input[str] tag_value: Specifies the value of the tag, (e.g. 'finance' or 'engineering')
-        :param pulumi.Input[bool] skip_validation: If true, skips validation of the tag association. It can take up to an hour for the SNOWFLAKE.TAG*REFERENCES table to update, and also requires ACCOUNT*ADMIN role to read from. https://docs.snowflake.com/en/sql-reference/account-usage/tag_references.html
+        :param pulumi.Input[str] object_name: Specifies the object identifier for the tag association.
+        :param pulumi.Input[bool] skip_validation: If true, skips validation of the tag association.
         """
-        pulumi.set(__self__, "object_name", object_name)
+        pulumi.set(__self__, "object_identifiers", object_identifiers)
         pulumi.set(__self__, "object_type", object_type)
         pulumi.set(__self__, "tag_id", tag_id)
         pulumi.set(__self__, "tag_value", tag_value)
+        if object_name is not None:
+            warnings.warn("""Use `object_identifier` instead""", DeprecationWarning)
+            pulumi.log.warn("""object_name is deprecated: Use `object_identifier` instead""")
+        if object_name is not None:
+            pulumi.set(__self__, "object_name", object_name)
         if skip_validation is not None:
             pulumi.set(__self__, "skip_validation", skip_validation)
 
     @property
-    @pulumi.getter(name="objectName")
-    def object_name(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="objectIdentifiers")
+    def object_identifiers(self) -> pulumi.Input[Sequence[pulumi.Input['TagAssociationObjectIdentifierArgs']]]:
         """
         Specifies the object identifier for the tag association.
         """
-        return pulumi.get(self, "object_name")
+        return pulumi.get(self, "object_identifiers")
 
-    @object_name.setter
-    def object_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "object_name", value)
+    @object_identifiers.setter
+    def object_identifiers(self, value: pulumi.Input[Sequence[pulumi.Input['TagAssociationObjectIdentifierArgs']]]):
+        pulumi.set(self, "object_identifiers", value)
 
     @property
     @pulumi.getter(name="objectType")
@@ -83,10 +92,22 @@ class TagAssociationArgs:
         pulumi.set(self, "tag_value", value)
 
     @property
+    @pulumi.getter(name="objectName")
+    def object_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the object identifier for the tag association.
+        """
+        return pulumi.get(self, "object_name")
+
+    @object_name.setter
+    def object_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_name", value)
+
+    @property
     @pulumi.getter(name="skipValidation")
     def skip_validation(self) -> Optional[pulumi.Input[bool]]:
         """
-        If true, skips validation of the tag association. It can take up to an hour for the SNOWFLAKE.TAG*REFERENCES table to update, and also requires ACCOUNT*ADMIN role to read from. https://docs.snowflake.com/en/sql-reference/account-usage/tag_references.html
+        If true, skips validation of the tag association.
         """
         return pulumi.get(self, "skip_validation")
 
@@ -98,6 +119,7 @@ class TagAssociationArgs:
 @pulumi.input_type
 class _TagAssociationState:
     def __init__(__self__, *,
+                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input['TagAssociationObjectIdentifierArgs']]]] = None,
                  object_name: Optional[pulumi.Input[str]] = None,
                  object_type: Optional[pulumi.Input[str]] = None,
                  skip_validation: Optional[pulumi.Input[bool]] = None,
@@ -105,12 +127,18 @@ class _TagAssociationState:
                  tag_value: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TagAssociation resources.
+        :param pulumi.Input[Sequence[pulumi.Input['TagAssociationObjectIdentifierArgs']]] object_identifiers: Specifies the object identifier for the tag association.
         :param pulumi.Input[str] object_name: Specifies the object identifier for the tag association.
         :param pulumi.Input[str] object_type: Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
-        :param pulumi.Input[bool] skip_validation: If true, skips validation of the tag association. It can take up to an hour for the SNOWFLAKE.TAG*REFERENCES table to update, and also requires ACCOUNT*ADMIN role to read from. https://docs.snowflake.com/en/sql-reference/account-usage/tag_references.html
+        :param pulumi.Input[bool] skip_validation: If true, skips validation of the tag association.
         :param pulumi.Input[str] tag_id: Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
         :param pulumi.Input[str] tag_value: Specifies the value of the tag, (e.g. 'finance' or 'engineering')
         """
+        if object_identifiers is not None:
+            pulumi.set(__self__, "object_identifiers", object_identifiers)
+        if object_name is not None:
+            warnings.warn("""Use `object_identifier` instead""", DeprecationWarning)
+            pulumi.log.warn("""object_name is deprecated: Use `object_identifier` instead""")
         if object_name is not None:
             pulumi.set(__self__, "object_name", object_name)
         if object_type is not None:
@@ -121,6 +149,18 @@ class _TagAssociationState:
             pulumi.set(__self__, "tag_id", tag_id)
         if tag_value is not None:
             pulumi.set(__self__, "tag_value", tag_value)
+
+    @property
+    @pulumi.getter(name="objectIdentifiers")
+    def object_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TagAssociationObjectIdentifierArgs']]]]:
+        """
+        Specifies the object identifier for the tag association.
+        """
+        return pulumi.get(self, "object_identifiers")
+
+    @object_identifiers.setter
+    def object_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TagAssociationObjectIdentifierArgs']]]]):
+        pulumi.set(self, "object_identifiers", value)
 
     @property
     @pulumi.getter(name="objectName")
@@ -150,7 +190,7 @@ class _TagAssociationState:
     @pulumi.getter(name="skipValidation")
     def skip_validation(self) -> Optional[pulumi.Input[bool]]:
         """
-        If true, skips validation of the tag association. It can take up to an hour for the SNOWFLAKE.TAG*REFERENCES table to update, and also requires ACCOUNT*ADMIN role to read from. https://docs.snowflake.com/en/sql-reference/account-usage/tag_references.html
+        If true, skips validation of the tag association.
         """
         return pulumi.get(self, "skip_validation")
 
@@ -188,6 +228,7 @@ class TagAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationObjectIdentifierArgs']]]]] = None,
                  object_name: Optional[pulumi.Input[str]] = None,
                  object_type: Optional[pulumi.Input[str]] = None,
                  skip_validation: Optional[pulumi.Input[bool]] = None,
@@ -210,12 +251,36 @@ class TagAssociation(pulumi.CustomResource):
                 "finance",
                 "engineering",
             ])
-        association = snowflake.TagAssociation("association",
-            object_name=database.name,
+        db_association = snowflake.TagAssociation("dbAssociation",
+            object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
+                name=database.name,
+            )],
             object_type="DATABASE",
             tag_id=tag.id,
-            tag_value="finance",
-            skip_validation=True)
+            tag_value="finance")
+        test = snowflake.Table("test",
+            database=snowflake_database["test"]["name"],
+            schema=snowflake_schema["test"]["name"],
+            comment="Terraform example table",
+            columns=[
+                snowflake.TableColumnArgs(
+                    name="column1",
+                    type="VARIANT",
+                ),
+                snowflake.TableColumnArgs(
+                    name="column2",
+                    type="VARCHAR(16)",
+                ),
+            ])
+        table_association = snowflake.TagAssociation("tableAssociation",
+            object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
+                name=test.name,
+                database=snowflake_database["test"]["name"],
+                schema=snowflake_schema["test"]["name"],
+            )],
+            object_type="TABLE",
+            tag_id=snowflake_tag["test"]["id"],
+            tag_value="engineering")
         ```
 
         ## Import
@@ -228,9 +293,10 @@ class TagAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationObjectIdentifierArgs']]]] object_identifiers: Specifies the object identifier for the tag association.
         :param pulumi.Input[str] object_name: Specifies the object identifier for the tag association.
         :param pulumi.Input[str] object_type: Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
-        :param pulumi.Input[bool] skip_validation: If true, skips validation of the tag association. It can take up to an hour for the SNOWFLAKE.TAG*REFERENCES table to update, and also requires ACCOUNT*ADMIN role to read from. https://docs.snowflake.com/en/sql-reference/account-usage/tag_references.html
+        :param pulumi.Input[bool] skip_validation: If true, skips validation of the tag association.
         :param pulumi.Input[str] tag_id: Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
         :param pulumi.Input[str] tag_value: Specifies the value of the tag, (e.g. 'finance' or 'engineering')
         """
@@ -256,12 +322,36 @@ class TagAssociation(pulumi.CustomResource):
                 "finance",
                 "engineering",
             ])
-        association = snowflake.TagAssociation("association",
-            object_name=database.name,
+        db_association = snowflake.TagAssociation("dbAssociation",
+            object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
+                name=database.name,
+            )],
             object_type="DATABASE",
             tag_id=tag.id,
-            tag_value="finance",
-            skip_validation=True)
+            tag_value="finance")
+        test = snowflake.Table("test",
+            database=snowflake_database["test"]["name"],
+            schema=snowflake_schema["test"]["name"],
+            comment="Terraform example table",
+            columns=[
+                snowflake.TableColumnArgs(
+                    name="column1",
+                    type="VARIANT",
+                ),
+                snowflake.TableColumnArgs(
+                    name="column2",
+                    type="VARCHAR(16)",
+                ),
+            ])
+        table_association = snowflake.TagAssociation("tableAssociation",
+            object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
+                name=test.name,
+                database=snowflake_database["test"]["name"],
+                schema=snowflake_schema["test"]["name"],
+            )],
+            object_type="TABLE",
+            tag_id=snowflake_tag["test"]["id"],
+            tag_value="engineering")
         ```
 
         ## Import
@@ -287,6 +377,7 @@ class TagAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationObjectIdentifierArgs']]]]] = None,
                  object_name: Optional[pulumi.Input[str]] = None,
                  object_type: Optional[pulumi.Input[str]] = None,
                  skip_validation: Optional[pulumi.Input[bool]] = None,
@@ -301,8 +392,12 @@ class TagAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TagAssociationArgs.__new__(TagAssociationArgs)
 
-            if object_name is None and not opts.urn:
-                raise TypeError("Missing required property 'object_name'")
+            if object_identifiers is None and not opts.urn:
+                raise TypeError("Missing required property 'object_identifiers'")
+            __props__.__dict__["object_identifiers"] = object_identifiers
+            if object_name is not None and not opts.urn:
+                warnings.warn("""Use `object_identifier` instead""", DeprecationWarning)
+                pulumi.log.warn("""object_name is deprecated: Use `object_identifier` instead""")
             __props__.__dict__["object_name"] = object_name
             if object_type is None and not opts.urn:
                 raise TypeError("Missing required property 'object_type'")
@@ -324,6 +419,7 @@ class TagAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationObjectIdentifierArgs']]]]] = None,
             object_name: Optional[pulumi.Input[str]] = None,
             object_type: Optional[pulumi.Input[str]] = None,
             skip_validation: Optional[pulumi.Input[bool]] = None,
@@ -336,9 +432,10 @@ class TagAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationObjectIdentifierArgs']]]] object_identifiers: Specifies the object identifier for the tag association.
         :param pulumi.Input[str] object_name: Specifies the object identifier for the tag association.
         :param pulumi.Input[str] object_type: Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
-        :param pulumi.Input[bool] skip_validation: If true, skips validation of the tag association. It can take up to an hour for the SNOWFLAKE.TAG*REFERENCES table to update, and also requires ACCOUNT*ADMIN role to read from. https://docs.snowflake.com/en/sql-reference/account-usage/tag_references.html
+        :param pulumi.Input[bool] skip_validation: If true, skips validation of the tag association.
         :param pulumi.Input[str] tag_id: Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
         :param pulumi.Input[str] tag_value: Specifies the value of the tag, (e.g. 'finance' or 'engineering')
         """
@@ -346,6 +443,7 @@ class TagAssociation(pulumi.CustomResource):
 
         __props__ = _TagAssociationState.__new__(_TagAssociationState)
 
+        __props__.__dict__["object_identifiers"] = object_identifiers
         __props__.__dict__["object_name"] = object_name
         __props__.__dict__["object_type"] = object_type
         __props__.__dict__["skip_validation"] = skip_validation
@@ -354,8 +452,16 @@ class TagAssociation(pulumi.CustomResource):
         return TagAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="objectIdentifiers")
+    def object_identifiers(self) -> pulumi.Output[Sequence['outputs.TagAssociationObjectIdentifier']]:
+        """
+        Specifies the object identifier for the tag association.
+        """
+        return pulumi.get(self, "object_identifiers")
+
+    @property
     @pulumi.getter(name="objectName")
-    def object_name(self) -> pulumi.Output[str]:
+    def object_name(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the object identifier for the tag association.
         """
@@ -373,7 +479,7 @@ class TagAssociation(pulumi.CustomResource):
     @pulumi.getter(name="skipValidation")
     def skip_validation(self) -> pulumi.Output[Optional[bool]]:
         """
-        If true, skips validation of the tag association. It can take up to an hour for the SNOWFLAKE.TAG*REFERENCES table to update, and also requires ACCOUNT*ADMIN role to read from. https://docs.snowflake.com/en/sql-reference/account-usage/tag_references.html
+        If true, skips validation of the tag association.
         """
         return pulumi.get(self, "skip_validation")
 

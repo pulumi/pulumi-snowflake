@@ -39,7 +39,7 @@ import (
 //				},
 //				Database:              pulumi.String("my_test_db"),
 //				ReturnBehavior:        pulumi.String("IMMUTABLE"),
-//				ReturnType:            pulumi.String("varchar"),
+//				ReturnType:            pulumi.String("variant"),
 //				Schema:                pulumi.String("my_test_schema"),
 //				UrlOfProxyAndResource: pulumi.String("https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func"),
 //			})

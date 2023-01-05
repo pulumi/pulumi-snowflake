@@ -78,8 +78,9 @@ import (
 type Database struct {
 	pulumi.CustomResourceState
 
-	Comment                 pulumi.StringPtrOutput `pulumi:"comment"`
-	DataRetentionTimeInDays pulumi.IntOutput       `pulumi:"dataRetentionTimeInDays"`
+	Comment pulumi.StringPtrOutput `pulumi:"comment"`
+	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
+	DataRetentionTimeInDays pulumi.IntOutput `pulumi:"dataRetentionTimeInDays"`
 	// Specify a database to create a clone from.
 	FromDatabase pulumi.StringPtrOutput `pulumi:"fromDatabase"`
 	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
@@ -126,8 +127,9 @@ func GetDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Database resources.
 type databaseState struct {
-	Comment                 *string `pulumi:"comment"`
-	DataRetentionTimeInDays *int    `pulumi:"dataRetentionTimeInDays"`
+	Comment *string `pulumi:"comment"`
+	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
+	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
 	// Specify a database to create a clone from.
 	FromDatabase *string `pulumi:"fromDatabase"`
 	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
@@ -146,7 +148,8 @@ type databaseState struct {
 }
 
 type DatabaseState struct {
-	Comment                 pulumi.StringPtrInput
+	Comment pulumi.StringPtrInput
+	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// Specify a database to create a clone from.
 	FromDatabase pulumi.StringPtrInput
@@ -170,8 +173,9 @@ func (DatabaseState) ElementType() reflect.Type {
 }
 
 type databaseArgs struct {
-	Comment                 *string `pulumi:"comment"`
-	DataRetentionTimeInDays *int    `pulumi:"dataRetentionTimeInDays"`
+	Comment *string `pulumi:"comment"`
+	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
+	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
 	// Specify a database to create a clone from.
 	FromDatabase *string `pulumi:"fromDatabase"`
 	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
@@ -191,7 +195,8 @@ type databaseArgs struct {
 
 // The set of arguments for constructing a Database resource.
 type DatabaseArgs struct {
-	Comment                 pulumi.StringPtrInput
+	Comment pulumi.StringPtrInput
+	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// Specify a database to create a clone from.
 	FromDatabase pulumi.StringPtrInput
@@ -301,6 +306,7 @@ func (o DatabaseOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
 func (o DatabaseOutput) DataRetentionTimeInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *Database) pulumi.IntOutput { return v.DataRetentionTimeInDays }).(pulumi.IntOutput)
 }

@@ -18,6 +18,8 @@ type RoleOwnershipGrant struct {
 	CurrentGrants pulumi.StringPtrOutput `pulumi:"currentGrants"`
 	// The name of the role ownership is granted on.
 	OnRoleName pulumi.StringOutput `pulumi:"onRoleName"`
+	// The name of the role to revert ownership to on destroy.
+	RevertOwnershipToRoleName pulumi.StringPtrOutput `pulumi:"revertOwnershipToRoleName"`
 	// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
 	ToRoleName pulumi.StringOutput `pulumi:"toRoleName"`
 }
@@ -61,6 +63,8 @@ type roleOwnershipGrantState struct {
 	CurrentGrants *string `pulumi:"currentGrants"`
 	// The name of the role ownership is granted on.
 	OnRoleName *string `pulumi:"onRoleName"`
+	// The name of the role to revert ownership to on destroy.
+	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
 	// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
 	ToRoleName *string `pulumi:"toRoleName"`
 }
@@ -70,6 +74,8 @@ type RoleOwnershipGrantState struct {
 	CurrentGrants pulumi.StringPtrInput
 	// The name of the role ownership is granted on.
 	OnRoleName pulumi.StringPtrInput
+	// The name of the role to revert ownership to on destroy.
+	RevertOwnershipToRoleName pulumi.StringPtrInput
 	// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
 	ToRoleName pulumi.StringPtrInput
 }
@@ -83,6 +89,8 @@ type roleOwnershipGrantArgs struct {
 	CurrentGrants *string `pulumi:"currentGrants"`
 	// The name of the role ownership is granted on.
 	OnRoleName string `pulumi:"onRoleName"`
+	// The name of the role to revert ownership to on destroy.
+	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
 	// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
 	ToRoleName string `pulumi:"toRoleName"`
 }
@@ -93,6 +101,8 @@ type RoleOwnershipGrantArgs struct {
 	CurrentGrants pulumi.StringPtrInput
 	// The name of the role ownership is granted on.
 	OnRoleName pulumi.StringInput
+	// The name of the role to revert ownership to on destroy.
+	RevertOwnershipToRoleName pulumi.StringPtrInput
 	// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
 	ToRoleName pulumi.StringInput
 }
@@ -192,6 +202,11 @@ func (o RoleOwnershipGrantOutput) CurrentGrants() pulumi.StringPtrOutput {
 // The name of the role ownership is granted on.
 func (o RoleOwnershipGrantOutput) OnRoleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleOwnershipGrant) pulumi.StringOutput { return v.OnRoleName }).(pulumi.StringOutput)
+}
+
+// The name of the role to revert ownership to on destroy.
+func (o RoleOwnershipGrantOutput) RevertOwnershipToRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleOwnershipGrant) pulumi.StringPtrOutput { return v.RevertOwnershipToRoleName }).(pulumi.StringPtrOutput)
 }
 
 // The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.

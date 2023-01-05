@@ -83,6 +83,10 @@ export class OauthIntegration extends pulumi.CustomResource {
      */
     public readonly oauthIssueRefreshTokens!: pulumi.Output<boolean | undefined>;
     /**
+     * Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
+     */
+    public readonly oauthRedirectUri!: pulumi.Output<string | undefined>;
+    /**
      * Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
      */
     public readonly oauthRefreshTokenValidity!: pulumi.Output<number | undefined>;
@@ -111,6 +115,7 @@ export class OauthIntegration extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["oauthClient"] = state ? state.oauthClient : undefined;
             resourceInputs["oauthIssueRefreshTokens"] = state ? state.oauthIssueRefreshTokens : undefined;
+            resourceInputs["oauthRedirectUri"] = state ? state.oauthRedirectUri : undefined;
             resourceInputs["oauthRefreshTokenValidity"] = state ? state.oauthRefreshTokenValidity : undefined;
             resourceInputs["oauthUseSecondaryRoles"] = state ? state.oauthUseSecondaryRoles : undefined;
         } else {
@@ -124,6 +129,7 @@ export class OauthIntegration extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["oauthClient"] = args ? args.oauthClient : undefined;
             resourceInputs["oauthIssueRefreshTokens"] = args ? args.oauthIssueRefreshTokens : undefined;
+            resourceInputs["oauthRedirectUri"] = args ? args.oauthRedirectUri : undefined;
             resourceInputs["oauthRefreshTokenValidity"] = args ? args.oauthRefreshTokenValidity : undefined;
             resourceInputs["oauthUseSecondaryRoles"] = args ? args.oauthUseSecondaryRoles : undefined;
             resourceInputs["createdOn"] = undefined /*out*/;
@@ -166,6 +172,10 @@ export interface OauthIntegrationState {
      */
     oauthIssueRefreshTokens?: pulumi.Input<boolean>;
     /**
+     * Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
+     */
+    oauthRedirectUri?: pulumi.Input<string>;
+    /**
      * Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
      */
     oauthRefreshTokenValidity?: pulumi.Input<number>;
@@ -203,6 +213,10 @@ export interface OauthIntegrationArgs {
      * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
      */
     oauthIssueRefreshTokens?: pulumi.Input<boolean>;
+    /**
+     * Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
+     */
+    oauthRedirectUri?: pulumi.Input<string>;
     /**
      * Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
      */

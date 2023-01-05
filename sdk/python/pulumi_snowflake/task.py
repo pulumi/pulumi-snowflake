@@ -17,7 +17,8 @@ class TaskArgs:
                  database: pulumi.Input[str],
                  schema: pulumi.Input[str],
                  sql_statement: pulumi.Input[str],
-                 after: Optional[pulumi.Input[str]] = None,
+                 afters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allow_overlapping_execution: Optional[pulumi.Input[bool]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  error_integration: Optional[pulumi.Input[str]] = None,
@@ -33,7 +34,8 @@ class TaskArgs:
         :param pulumi.Input[str] database: The database in which to create the task.
         :param pulumi.Input[str] schema: The schema in which to create the task.
         :param pulumi.Input[str] sql_statement: Any single SQL statement, or a call to a stored procedure, executed when the task runs.
-        :param pulumi.Input[str] after: Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] afters: Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
+        :param pulumi.Input[bool] allow_overlapping_execution: By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
         :param pulumi.Input[str] comment: Specifies a comment for the task.
         :param pulumi.Input[bool] enabled: Specifies if the task should be started (enabled) after creation or should remain suspended (default).
         :param pulumi.Input[str] error_integration: Specifies the name of the notification integration used for error notifications.
@@ -48,8 +50,10 @@ class TaskArgs:
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "schema", schema)
         pulumi.set(__self__, "sql_statement", sql_statement)
-        if after is not None:
-            pulumi.set(__self__, "after", after)
+        if afters is not None:
+            pulumi.set(__self__, "afters", afters)
+        if allow_overlapping_execution is not None:
+            pulumi.set(__self__, "allow_overlapping_execution", allow_overlapping_execution)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if enabled is not None:
@@ -109,15 +113,27 @@ class TaskArgs:
 
     @property
     @pulumi.getter
-    def after(self) -> Optional[pulumi.Input[str]]:
+    def afters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+        Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
         """
-        return pulumi.get(self, "after")
+        return pulumi.get(self, "afters")
 
-    @after.setter
-    def after(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "after", value)
+    @afters.setter
+    def afters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "afters", value)
+
+    @property
+    @pulumi.getter(name="allowOverlappingExecution")
+    def allow_overlapping_execution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
+        """
+        return pulumi.get(self, "allow_overlapping_execution")
+
+    @allow_overlapping_execution.setter
+    def allow_overlapping_execution(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_overlapping_execution", value)
 
     @property
     @pulumi.getter
@@ -243,7 +259,8 @@ class TaskArgs:
 @pulumi.input_type
 class _TaskState:
     def __init__(__self__, *,
-                 after: Optional[pulumi.Input[str]] = None,
+                 afters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allow_overlapping_execution: Optional[pulumi.Input[bool]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -259,7 +276,8 @@ class _TaskState:
                  when: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Task resources.
-        :param pulumi.Input[str] after: Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] afters: Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
+        :param pulumi.Input[bool] allow_overlapping_execution: By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
         :param pulumi.Input[str] comment: Specifies a comment for the task.
         :param pulumi.Input[str] database: The database in which to create the task.
         :param pulumi.Input[bool] enabled: Specifies if the task should be started (enabled) after creation or should remain suspended (default).
@@ -274,8 +292,10 @@ class _TaskState:
         :param pulumi.Input[str] warehouse: The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)
         :param pulumi.Input[str] when: Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported.
         """
-        if after is not None:
-            pulumi.set(__self__, "after", after)
+        if afters is not None:
+            pulumi.set(__self__, "afters", afters)
+        if allow_overlapping_execution is not None:
+            pulumi.set(__self__, "allow_overlapping_execution", allow_overlapping_execution)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if database is not None:
@@ -305,15 +325,27 @@ class _TaskState:
 
     @property
     @pulumi.getter
-    def after(self) -> Optional[pulumi.Input[str]]:
+    def afters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+        Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
         """
-        return pulumi.get(self, "after")
+        return pulumi.get(self, "afters")
 
-    @after.setter
-    def after(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "after", value)
+    @afters.setter
+    def afters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "afters", value)
+
+    @property
+    @pulumi.getter(name="allowOverlappingExecution")
+    def allow_overlapping_execution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
+        """
+        return pulumi.get(self, "allow_overlapping_execution")
+
+    @allow_overlapping_execution.setter
+    def allow_overlapping_execution(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_overlapping_execution", value)
 
     @property
     @pulumi.getter
@@ -477,7 +509,8 @@ class Task(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 after: Optional[pulumi.Input[str]] = None,
+                 afters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allow_overlapping_execution: Optional[pulumi.Input[bool]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -501,7 +534,7 @@ class Task(pulumi.CustomResource):
 
         task = snowflake.Task("task",
             comment="my task",
-            database="db",
+            database="database",
             schema="schema",
             warehouse="warehouse",
             schedule="10 MINUTE",
@@ -510,7 +543,7 @@ class Task(pulumi.CustomResource):
                 "foo": "bar",
             },
             user_task_timeout_ms=10000,
-            after="preceding_task",
+            afters="preceding_task",
             when="foo AND bar",
             enabled=True)
         serverless_task = snowflake.Task("serverlessTask",
@@ -524,8 +557,15 @@ class Task(pulumi.CustomResource):
             },
             user_task_timeout_ms=10000,
             user_task_managed_initial_warehouse_size="XSMALL",
-            after="preceding_task",
+            afters=[task.name],
             when="foo AND bar",
+            enabled=True)
+        test_task = snowflake.Task("testTask",
+            comment="task with allow_overlapping_execution",
+            database="database",
+            schema="schema",
+            sql_statement="select 1 as c;",
+            allow_overlapping_execution=True,
             enabled=True)
         ```
 
@@ -539,7 +579,8 @@ class Task(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] after: Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] afters: Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
+        :param pulumi.Input[bool] allow_overlapping_execution: By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
         :param pulumi.Input[str] comment: Specifies a comment for the task.
         :param pulumi.Input[str] database: The database in which to create the task.
         :param pulumi.Input[bool] enabled: Specifies if the task should be started (enabled) after creation or should remain suspended (default).
@@ -569,7 +610,7 @@ class Task(pulumi.CustomResource):
 
         task = snowflake.Task("task",
             comment="my task",
-            database="db",
+            database="database",
             schema="schema",
             warehouse="warehouse",
             schedule="10 MINUTE",
@@ -578,7 +619,7 @@ class Task(pulumi.CustomResource):
                 "foo": "bar",
             },
             user_task_timeout_ms=10000,
-            after="preceding_task",
+            afters="preceding_task",
             when="foo AND bar",
             enabled=True)
         serverless_task = snowflake.Task("serverlessTask",
@@ -592,8 +633,15 @@ class Task(pulumi.CustomResource):
             },
             user_task_timeout_ms=10000,
             user_task_managed_initial_warehouse_size="XSMALL",
-            after="preceding_task",
+            afters=[task.name],
             when="foo AND bar",
+            enabled=True)
+        test_task = snowflake.Task("testTask",
+            comment="task with allow_overlapping_execution",
+            database="database",
+            schema="schema",
+            sql_statement="select 1 as c;",
+            allow_overlapping_execution=True,
             enabled=True)
         ```
 
@@ -620,7 +668,8 @@ class Task(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 after: Optional[pulumi.Input[str]] = None,
+                 afters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allow_overlapping_execution: Optional[pulumi.Input[bool]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -643,7 +692,8 @@ class Task(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TaskArgs.__new__(TaskArgs)
 
-            __props__.__dict__["after"] = after
+            __props__.__dict__["afters"] = afters
+            __props__.__dict__["allow_overlapping_execution"] = allow_overlapping_execution
             __props__.__dict__["comment"] = comment
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")
@@ -673,7 +723,8 @@ class Task(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            after: Optional[pulumi.Input[str]] = None,
+            afters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            allow_overlapping_execution: Optional[pulumi.Input[bool]] = None,
             comment: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
@@ -694,7 +745,8 @@ class Task(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] after: Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] afters: Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
+        :param pulumi.Input[bool] allow_overlapping_execution: By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
         :param pulumi.Input[str] comment: Specifies a comment for the task.
         :param pulumi.Input[str] database: The database in which to create the task.
         :param pulumi.Input[bool] enabled: Specifies if the task should be started (enabled) after creation or should remain suspended (default).
@@ -713,7 +765,8 @@ class Task(pulumi.CustomResource):
 
         __props__ = _TaskState.__new__(_TaskState)
 
-        __props__.__dict__["after"] = after
+        __props__.__dict__["afters"] = afters
+        __props__.__dict__["allow_overlapping_execution"] = allow_overlapping_execution
         __props__.__dict__["comment"] = comment
         __props__.__dict__["database"] = database
         __props__.__dict__["enabled"] = enabled
@@ -731,11 +784,19 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def after(self) -> pulumi.Output[Optional[str]]:
+    def afters(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+        Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
         """
-        return pulumi.get(self, "after")
+        return pulumi.get(self, "afters")
+
+    @property
+    @pulumi.getter(name="allowOverlappingExecution")
+    def allow_overlapping_execution(self) -> pulumi.Output[Optional[bool]]:
+        """
+        By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
+        """
+        return pulumi.get(self, "allow_overlapping_execution")
 
     @property
     @pulumi.getter

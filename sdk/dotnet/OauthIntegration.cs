@@ -86,6 +86,12 @@ namespace Pulumi.Snowflake
         public Output<bool?> OauthIssueRefreshTokens { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
+        /// </summary>
+        [Output("oauthRedirectUri")]
+        public Output<string?> OauthRedirectUri { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
         /// </summary>
         [Output("oauthRefreshTokenValidity")]
@@ -186,6 +192,12 @@ namespace Pulumi.Snowflake
         public Input<bool>? OauthIssueRefreshTokens { get; set; }
 
         /// <summary>
+        /// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
+        /// </summary>
+        [Input("oauthRedirectUri")]
+        public Input<string>? OauthRedirectUri { get; set; }
+
+        /// <summary>
         /// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
         /// </summary>
         [Input("oauthRefreshTokenValidity")]
@@ -252,6 +264,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("oauthIssueRefreshTokens")]
         public Input<bool>? OauthIssueRefreshTokens { get; set; }
+
+        /// <summary>
+        /// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
+        /// </summary>
+        [Input("oauthRedirectUri")]
+        public Input<string>? OauthRedirectUri { get; set; }
 
         /// <summary>
         /// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.

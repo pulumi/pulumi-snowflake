@@ -27,6 +27,7 @@ class DatabaseArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]]] = None):
         """
         The set of arguments for constructing a Database resource.
+        :param pulumi.Input[int] data_retention_time_in_days: Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
         :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\\n\\n"."\\n\\n"."\\n\\n". An example would be: "myorg1"."account1"."db1"
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share.
@@ -68,6 +69,9 @@ class DatabaseArgs:
     @property
     @pulumi.getter(name="dataRetentionTimeInDays")
     def data_retention_time_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
+        """
         return pulumi.get(self, "data_retention_time_in_days")
 
     @data_retention_time_in_days.setter
@@ -170,6 +174,7 @@ class _DatabaseState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering Database resources.
+        :param pulumi.Input[int] data_retention_time_in_days: Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
         :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\\n\\n"."\\n\\n"."\\n\\n". An example would be: "myorg1"."account1"."db1"
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share.
@@ -211,6 +216,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="dataRetentionTimeInDays")
     def data_retention_time_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
+        """
         return pulumi.get(self, "data_retention_time_in_days")
 
     @data_retention_time_in_days.setter
@@ -353,6 +361,7 @@ class Database(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] data_retention_time_in_days: Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
         :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\\n\\n"."\\n\\n"."\\n\\n". An example would be: "myorg1"."account1"."db1"
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share.
@@ -474,6 +483,7 @@ class Database(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] data_retention_time_in_days: Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
         :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\\n\\n"."\\n\\n"."\\n\\n". An example would be: "myorg1"."account1"."db1"
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share.
@@ -504,6 +514,9 @@ class Database(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dataRetentionTimeInDays")
     def data_retention_time_in_days(self) -> pulumi.Output[int]:
+        """
+        Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
+        """
         return pulumi.get(self, "data_retention_time_in_days")
 
     @property

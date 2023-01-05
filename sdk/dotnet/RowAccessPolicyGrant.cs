@@ -21,7 +21,7 @@ namespace Pulumi.Snowflake
     /// {
     ///     var grant = new Snowflake.RowAccessPolicyGrant("grant", new()
     ///     {
-    ///         DatabaseName = "db",
+    ///         DatabaseName = "database",
     ///         Privilege = "APPLY",
     ///         Roles = new[]
     ///         {

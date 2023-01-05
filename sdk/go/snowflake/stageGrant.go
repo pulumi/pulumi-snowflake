@@ -11,6 +11,41 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewStageGrant(ctx, "grant", &snowflake.StageGrantArgs{
+//				DatabaseName: pulumi.String("database"),
+//				OnFuture:     pulumi.Bool(false),
+//				Privilege:    pulumi.String("USAGE"),
+//				Roles: pulumi.StringArray{
+//					pulumi.String("role1"),
+//					pulumi.String("role2"),
+//				},
+//				SchemaName:      pulumi.String("schema"),
+//				StageName:       pulumi.String("stage"),
+//				WithGrantOption: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // format is database name | schema name | stage name | privilege | true/false for with_grant_option

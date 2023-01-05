@@ -14,14 +14,14 @@ public final class TagMaskingPolicyAssociationArgs extends com.pulumi.resources.
     public static final TagMaskingPolicyAssociationArgs Empty = new TagMaskingPolicyAssociationArgs();
 
     /**
-     * The the resource id of the masking policy
+     * The resource id of the masking policy
      * 
      */
     @Import(name="maskingPolicyId", required=true)
     private Output<String> maskingPolicyId;
 
     /**
-     * @return The the resource id of the masking policy
+     * @return The resource id of the masking policy
      * 
      */
     public Output<String> maskingPolicyId() {
@@ -69,7 +69,7 @@ public final class TagMaskingPolicyAssociationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param maskingPolicyId The the resource id of the masking policy
+         * @param maskingPolicyId The resource id of the masking policy
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class TagMaskingPolicyAssociationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param maskingPolicyId The the resource id of the masking policy
+         * @param maskingPolicyId The resource id of the masking policy
          * 
          * @return builder
          * 

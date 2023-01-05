@@ -21,10 +21,10 @@ namespace Pulumi.Snowflake
     /// {
     ///     var grant = new Snowflake.FileFormatGrant("grant", new()
     ///     {
-    ///         DatabaseName = "db",
+    ///         DatabaseName = "database",
     ///         FileFormatName = "file_format",
     ///         OnFuture = false,
-    ///         Privilege = "select",
+    ///         Privilege = "SELECT",
     ///         Roles = new[]
     ///         {
     ///             "role1",

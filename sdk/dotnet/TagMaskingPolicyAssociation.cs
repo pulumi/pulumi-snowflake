@@ -22,7 +22,7 @@ namespace Pulumi.Snowflake
     public partial class TagMaskingPolicyAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The the resource id of the masking policy
+        /// The resource id of the masking policy
         /// </summary>
         [Output("maskingPolicyId")]
         public Output<string> MaskingPolicyId { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.Snowflake
     public sealed class TagMaskingPolicyAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The the resource id of the masking policy
+        /// The resource id of the masking policy
         /// </summary>
         [Input("maskingPolicyId", required: true)]
         public Input<string> MaskingPolicyId { get; set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Snowflake
     public sealed class TagMaskingPolicyAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The the resource id of the masking policy
+        /// The resource id of the masking policy
         /// </summary>
         [Input("maskingPolicyId")]
         public Input<string>? MaskingPolicyId { get; set; }

@@ -84,6 +84,7 @@ func Provider() tfbridge.ProviderInfo {
 			"snowflake_external_function":              {Tok: makeResource(mainMod, "ExternalFunction")},
 			"snowflake_external_table":                 {Tok: makeResource(mainMod, "ExternalTable")},
 			"snowflake_external_table_grant":           {Tok: makeResource(mainMod, "ExternalTableGrant")},
+			"snowflake_failover_group":                 {Tok: makeResource(mainMod, "FailoverGroup")},
 			"snowflake_file_format":                    {Tok: makeResource(mainMod, "FileFormat")},
 			"snowflake_file_format_grant":              {Tok: makeResource(mainMod, "FileFormatGrant")},
 			"snowflake_function":                       {Tok: makeResource(mainMod, "Function")},
@@ -119,6 +120,7 @@ func Provider() tfbridge.ProviderInfo {
 			"snowflake_stream":                         {Tok: makeResource(mainMod, "Stream")},
 			"snowflake_stream_grant":                   {Tok: makeResource(mainMod, "StreamGrant")},
 			"snowflake_table":                          {Tok: makeResource(mainMod, "Table")},
+			"snowflake_table_constraint":               {Tok: makeResource(mainMod, "TableConstraint")},
 			"snowflake_table_grant":                    {Tok: makeResource(mainMod, "TableGrant")},
 			"snowflake_tag":                            {Tok: makeResource(mainMod, "Tag")},
 			"snowflake_task":                           {Tok: makeResource(mainMod, "Task")},
@@ -167,7 +169,9 @@ func Provider() tfbridge.ProviderInfo {
 			"snowflake_database":                           {Tok: makeDataSource(mainMod, "getDatabase")},
 			"snowflake_databases":                          {Tok: makeDataSource(mainMod, "getDatabases")},
 			"snowflake_role":                               {Tok: makeDataSource(mainMod, "getRole")},
+			"snowflake_roles":                              {Tok: makeDataSource(mainMod, "getRoles")},
 			"snowflake_users":                              {Tok: makeDataSource(mainMod, "getUsers")},
+			"snowflake_grants":                             {Tok: makeDataSource(mainMod, "getGrants")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

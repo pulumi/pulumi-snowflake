@@ -310,7 +310,7 @@ class View(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         view = snowflake.View("view",
-            database="db",
+            database="database",
             schema="schema",
             comment="comment",
             statement="select * from foo;\\n",
@@ -351,7 +351,7 @@ class View(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         view = snowflake.View("view",
-            database="db",
+            database="database",
             schema="schema",
             comment="comment",
             statement="select * from foo;\\n",

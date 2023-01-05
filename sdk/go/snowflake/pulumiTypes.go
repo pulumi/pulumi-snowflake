@@ -733,6 +733,485 @@ func (o ExternalTableTagArrayOutput) Index(i pulumi.IntInput) ExternalTableTagOu
 	}).(ExternalTableTagOutput)
 }
 
+type FailoverGroupFromReplica struct {
+	// Identifier for the primary failover group in the source account.
+	Name string `pulumi:"name"`
+	// Name of your Snowflake organization.
+	OrganizationName string `pulumi:"organizationName"`
+	// Source account from which you are enabling replication and failover of the specified objects.
+	SourceAccountName string `pulumi:"sourceAccountName"`
+}
+
+// FailoverGroupFromReplicaInput is an input type that accepts FailoverGroupFromReplicaArgs and FailoverGroupFromReplicaOutput values.
+// You can construct a concrete instance of `FailoverGroupFromReplicaInput` via:
+//
+//	FailoverGroupFromReplicaArgs{...}
+type FailoverGroupFromReplicaInput interface {
+	pulumi.Input
+
+	ToFailoverGroupFromReplicaOutput() FailoverGroupFromReplicaOutput
+	ToFailoverGroupFromReplicaOutputWithContext(context.Context) FailoverGroupFromReplicaOutput
+}
+
+type FailoverGroupFromReplicaArgs struct {
+	// Identifier for the primary failover group in the source account.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of your Snowflake organization.
+	OrganizationName pulumi.StringInput `pulumi:"organizationName"`
+	// Source account from which you are enabling replication and failover of the specified objects.
+	SourceAccountName pulumi.StringInput `pulumi:"sourceAccountName"`
+}
+
+func (FailoverGroupFromReplicaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverGroupFromReplica)(nil)).Elem()
+}
+
+func (i FailoverGroupFromReplicaArgs) ToFailoverGroupFromReplicaOutput() FailoverGroupFromReplicaOutput {
+	return i.ToFailoverGroupFromReplicaOutputWithContext(context.Background())
+}
+
+func (i FailoverGroupFromReplicaArgs) ToFailoverGroupFromReplicaOutputWithContext(ctx context.Context) FailoverGroupFromReplicaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupFromReplicaOutput)
+}
+
+func (i FailoverGroupFromReplicaArgs) ToFailoverGroupFromReplicaPtrOutput() FailoverGroupFromReplicaPtrOutput {
+	return i.ToFailoverGroupFromReplicaPtrOutputWithContext(context.Background())
+}
+
+func (i FailoverGroupFromReplicaArgs) ToFailoverGroupFromReplicaPtrOutputWithContext(ctx context.Context) FailoverGroupFromReplicaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupFromReplicaOutput).ToFailoverGroupFromReplicaPtrOutputWithContext(ctx)
+}
+
+// FailoverGroupFromReplicaPtrInput is an input type that accepts FailoverGroupFromReplicaArgs, FailoverGroupFromReplicaPtr and FailoverGroupFromReplicaPtrOutput values.
+// You can construct a concrete instance of `FailoverGroupFromReplicaPtrInput` via:
+//
+//	        FailoverGroupFromReplicaArgs{...}
+//
+//	or:
+//
+//	        nil
+type FailoverGroupFromReplicaPtrInput interface {
+	pulumi.Input
+
+	ToFailoverGroupFromReplicaPtrOutput() FailoverGroupFromReplicaPtrOutput
+	ToFailoverGroupFromReplicaPtrOutputWithContext(context.Context) FailoverGroupFromReplicaPtrOutput
+}
+
+type failoverGroupFromReplicaPtrType FailoverGroupFromReplicaArgs
+
+func FailoverGroupFromReplicaPtr(v *FailoverGroupFromReplicaArgs) FailoverGroupFromReplicaPtrInput {
+	return (*failoverGroupFromReplicaPtrType)(v)
+}
+
+func (*failoverGroupFromReplicaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FailoverGroupFromReplica)(nil)).Elem()
+}
+
+func (i *failoverGroupFromReplicaPtrType) ToFailoverGroupFromReplicaPtrOutput() FailoverGroupFromReplicaPtrOutput {
+	return i.ToFailoverGroupFromReplicaPtrOutputWithContext(context.Background())
+}
+
+func (i *failoverGroupFromReplicaPtrType) ToFailoverGroupFromReplicaPtrOutputWithContext(ctx context.Context) FailoverGroupFromReplicaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupFromReplicaPtrOutput)
+}
+
+type FailoverGroupFromReplicaOutput struct{ *pulumi.OutputState }
+
+func (FailoverGroupFromReplicaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverGroupFromReplica)(nil)).Elem()
+}
+
+func (o FailoverGroupFromReplicaOutput) ToFailoverGroupFromReplicaOutput() FailoverGroupFromReplicaOutput {
+	return o
+}
+
+func (o FailoverGroupFromReplicaOutput) ToFailoverGroupFromReplicaOutputWithContext(ctx context.Context) FailoverGroupFromReplicaOutput {
+	return o
+}
+
+func (o FailoverGroupFromReplicaOutput) ToFailoverGroupFromReplicaPtrOutput() FailoverGroupFromReplicaPtrOutput {
+	return o.ToFailoverGroupFromReplicaPtrOutputWithContext(context.Background())
+}
+
+func (o FailoverGroupFromReplicaOutput) ToFailoverGroupFromReplicaPtrOutputWithContext(ctx context.Context) FailoverGroupFromReplicaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FailoverGroupFromReplica) *FailoverGroupFromReplica {
+		return &v
+	}).(FailoverGroupFromReplicaPtrOutput)
+}
+
+// Identifier for the primary failover group in the source account.
+func (o FailoverGroupFromReplicaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FailoverGroupFromReplica) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of your Snowflake organization.
+func (o FailoverGroupFromReplicaOutput) OrganizationName() pulumi.StringOutput {
+	return o.ApplyT(func(v FailoverGroupFromReplica) string { return v.OrganizationName }).(pulumi.StringOutput)
+}
+
+// Source account from which you are enabling replication and failover of the specified objects.
+func (o FailoverGroupFromReplicaOutput) SourceAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v FailoverGroupFromReplica) string { return v.SourceAccountName }).(pulumi.StringOutput)
+}
+
+type FailoverGroupFromReplicaPtrOutput struct{ *pulumi.OutputState }
+
+func (FailoverGroupFromReplicaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FailoverGroupFromReplica)(nil)).Elem()
+}
+
+func (o FailoverGroupFromReplicaPtrOutput) ToFailoverGroupFromReplicaPtrOutput() FailoverGroupFromReplicaPtrOutput {
+	return o
+}
+
+func (o FailoverGroupFromReplicaPtrOutput) ToFailoverGroupFromReplicaPtrOutputWithContext(ctx context.Context) FailoverGroupFromReplicaPtrOutput {
+	return o
+}
+
+func (o FailoverGroupFromReplicaPtrOutput) Elem() FailoverGroupFromReplicaOutput {
+	return o.ApplyT(func(v *FailoverGroupFromReplica) FailoverGroupFromReplica {
+		if v != nil {
+			return *v
+		}
+		var ret FailoverGroupFromReplica
+		return ret
+	}).(FailoverGroupFromReplicaOutput)
+}
+
+// Identifier for the primary failover group in the source account.
+func (o FailoverGroupFromReplicaPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FailoverGroupFromReplica) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of your Snowflake organization.
+func (o FailoverGroupFromReplicaPtrOutput) OrganizationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FailoverGroupFromReplica) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OrganizationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Source account from which you are enabling replication and failover of the specified objects.
+func (o FailoverGroupFromReplicaPtrOutput) SourceAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FailoverGroupFromReplica) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceAccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+type FailoverGroupReplicationSchedule struct {
+	// Specifies the cron expression for the replication schedule. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+	Cron *FailoverGroupReplicationScheduleCron `pulumi:"cron"`
+	// Specifies the interval in minutes for the replication schedule. The interval must be greater than 0 and less than 1440 (24 hours).
+	Interval *int `pulumi:"interval"`
+}
+
+// FailoverGroupReplicationScheduleInput is an input type that accepts FailoverGroupReplicationScheduleArgs and FailoverGroupReplicationScheduleOutput values.
+// You can construct a concrete instance of `FailoverGroupReplicationScheduleInput` via:
+//
+//	FailoverGroupReplicationScheduleArgs{...}
+type FailoverGroupReplicationScheduleInput interface {
+	pulumi.Input
+
+	ToFailoverGroupReplicationScheduleOutput() FailoverGroupReplicationScheduleOutput
+	ToFailoverGroupReplicationScheduleOutputWithContext(context.Context) FailoverGroupReplicationScheduleOutput
+}
+
+type FailoverGroupReplicationScheduleArgs struct {
+	// Specifies the cron expression for the replication schedule. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+	Cron FailoverGroupReplicationScheduleCronPtrInput `pulumi:"cron"`
+	// Specifies the interval in minutes for the replication schedule. The interval must be greater than 0 and less than 1440 (24 hours).
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (FailoverGroupReplicationScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverGroupReplicationSchedule)(nil)).Elem()
+}
+
+func (i FailoverGroupReplicationScheduleArgs) ToFailoverGroupReplicationScheduleOutput() FailoverGroupReplicationScheduleOutput {
+	return i.ToFailoverGroupReplicationScheduleOutputWithContext(context.Background())
+}
+
+func (i FailoverGroupReplicationScheduleArgs) ToFailoverGroupReplicationScheduleOutputWithContext(ctx context.Context) FailoverGroupReplicationScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReplicationScheduleOutput)
+}
+
+func (i FailoverGroupReplicationScheduleArgs) ToFailoverGroupReplicationSchedulePtrOutput() FailoverGroupReplicationSchedulePtrOutput {
+	return i.ToFailoverGroupReplicationSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i FailoverGroupReplicationScheduleArgs) ToFailoverGroupReplicationSchedulePtrOutputWithContext(ctx context.Context) FailoverGroupReplicationSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReplicationScheduleOutput).ToFailoverGroupReplicationSchedulePtrOutputWithContext(ctx)
+}
+
+// FailoverGroupReplicationSchedulePtrInput is an input type that accepts FailoverGroupReplicationScheduleArgs, FailoverGroupReplicationSchedulePtr and FailoverGroupReplicationSchedulePtrOutput values.
+// You can construct a concrete instance of `FailoverGroupReplicationSchedulePtrInput` via:
+//
+//	        FailoverGroupReplicationScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type FailoverGroupReplicationSchedulePtrInput interface {
+	pulumi.Input
+
+	ToFailoverGroupReplicationSchedulePtrOutput() FailoverGroupReplicationSchedulePtrOutput
+	ToFailoverGroupReplicationSchedulePtrOutputWithContext(context.Context) FailoverGroupReplicationSchedulePtrOutput
+}
+
+type failoverGroupReplicationSchedulePtrType FailoverGroupReplicationScheduleArgs
+
+func FailoverGroupReplicationSchedulePtr(v *FailoverGroupReplicationScheduleArgs) FailoverGroupReplicationSchedulePtrInput {
+	return (*failoverGroupReplicationSchedulePtrType)(v)
+}
+
+func (*failoverGroupReplicationSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FailoverGroupReplicationSchedule)(nil)).Elem()
+}
+
+func (i *failoverGroupReplicationSchedulePtrType) ToFailoverGroupReplicationSchedulePtrOutput() FailoverGroupReplicationSchedulePtrOutput {
+	return i.ToFailoverGroupReplicationSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *failoverGroupReplicationSchedulePtrType) ToFailoverGroupReplicationSchedulePtrOutputWithContext(ctx context.Context) FailoverGroupReplicationSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReplicationSchedulePtrOutput)
+}
+
+type FailoverGroupReplicationScheduleOutput struct{ *pulumi.OutputState }
+
+func (FailoverGroupReplicationScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverGroupReplicationSchedule)(nil)).Elem()
+}
+
+func (o FailoverGroupReplicationScheduleOutput) ToFailoverGroupReplicationScheduleOutput() FailoverGroupReplicationScheduleOutput {
+	return o
+}
+
+func (o FailoverGroupReplicationScheduleOutput) ToFailoverGroupReplicationScheduleOutputWithContext(ctx context.Context) FailoverGroupReplicationScheduleOutput {
+	return o
+}
+
+func (o FailoverGroupReplicationScheduleOutput) ToFailoverGroupReplicationSchedulePtrOutput() FailoverGroupReplicationSchedulePtrOutput {
+	return o.ToFailoverGroupReplicationSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o FailoverGroupReplicationScheduleOutput) ToFailoverGroupReplicationSchedulePtrOutputWithContext(ctx context.Context) FailoverGroupReplicationSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FailoverGroupReplicationSchedule) *FailoverGroupReplicationSchedule {
+		return &v
+	}).(FailoverGroupReplicationSchedulePtrOutput)
+}
+
+// Specifies the cron expression for the replication schedule. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+func (o FailoverGroupReplicationScheduleOutput) Cron() FailoverGroupReplicationScheduleCronPtrOutput {
+	return o.ApplyT(func(v FailoverGroupReplicationSchedule) *FailoverGroupReplicationScheduleCron { return v.Cron }).(FailoverGroupReplicationScheduleCronPtrOutput)
+}
+
+// Specifies the interval in minutes for the replication schedule. The interval must be greater than 0 and less than 1440 (24 hours).
+func (o FailoverGroupReplicationScheduleOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FailoverGroupReplicationSchedule) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type FailoverGroupReplicationSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (FailoverGroupReplicationSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FailoverGroupReplicationSchedule)(nil)).Elem()
+}
+
+func (o FailoverGroupReplicationSchedulePtrOutput) ToFailoverGroupReplicationSchedulePtrOutput() FailoverGroupReplicationSchedulePtrOutput {
+	return o
+}
+
+func (o FailoverGroupReplicationSchedulePtrOutput) ToFailoverGroupReplicationSchedulePtrOutputWithContext(ctx context.Context) FailoverGroupReplicationSchedulePtrOutput {
+	return o
+}
+
+func (o FailoverGroupReplicationSchedulePtrOutput) Elem() FailoverGroupReplicationScheduleOutput {
+	return o.ApplyT(func(v *FailoverGroupReplicationSchedule) FailoverGroupReplicationSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret FailoverGroupReplicationSchedule
+		return ret
+	}).(FailoverGroupReplicationScheduleOutput)
+}
+
+// Specifies the cron expression for the replication schedule. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+func (o FailoverGroupReplicationSchedulePtrOutput) Cron() FailoverGroupReplicationScheduleCronPtrOutput {
+	return o.ApplyT(func(v *FailoverGroupReplicationSchedule) *FailoverGroupReplicationScheduleCron {
+		if v == nil {
+			return nil
+		}
+		return v.Cron
+	}).(FailoverGroupReplicationScheduleCronPtrOutput)
+}
+
+// Specifies the interval in minutes for the replication schedule. The interval must be greater than 0 and less than 1440 (24 hours).
+func (o FailoverGroupReplicationSchedulePtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FailoverGroupReplicationSchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+type FailoverGroupReplicationScheduleCron struct {
+	Expression string `pulumi:"expression"`
+	TimeZone   string `pulumi:"timeZone"`
+}
+
+// FailoverGroupReplicationScheduleCronInput is an input type that accepts FailoverGroupReplicationScheduleCronArgs and FailoverGroupReplicationScheduleCronOutput values.
+// You can construct a concrete instance of `FailoverGroupReplicationScheduleCronInput` via:
+//
+//	FailoverGroupReplicationScheduleCronArgs{...}
+type FailoverGroupReplicationScheduleCronInput interface {
+	pulumi.Input
+
+	ToFailoverGroupReplicationScheduleCronOutput() FailoverGroupReplicationScheduleCronOutput
+	ToFailoverGroupReplicationScheduleCronOutputWithContext(context.Context) FailoverGroupReplicationScheduleCronOutput
+}
+
+type FailoverGroupReplicationScheduleCronArgs struct {
+	Expression pulumi.StringInput `pulumi:"expression"`
+	TimeZone   pulumi.StringInput `pulumi:"timeZone"`
+}
+
+func (FailoverGroupReplicationScheduleCronArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverGroupReplicationScheduleCron)(nil)).Elem()
+}
+
+func (i FailoverGroupReplicationScheduleCronArgs) ToFailoverGroupReplicationScheduleCronOutput() FailoverGroupReplicationScheduleCronOutput {
+	return i.ToFailoverGroupReplicationScheduleCronOutputWithContext(context.Background())
+}
+
+func (i FailoverGroupReplicationScheduleCronArgs) ToFailoverGroupReplicationScheduleCronOutputWithContext(ctx context.Context) FailoverGroupReplicationScheduleCronOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReplicationScheduleCronOutput)
+}
+
+func (i FailoverGroupReplicationScheduleCronArgs) ToFailoverGroupReplicationScheduleCronPtrOutput() FailoverGroupReplicationScheduleCronPtrOutput {
+	return i.ToFailoverGroupReplicationScheduleCronPtrOutputWithContext(context.Background())
+}
+
+func (i FailoverGroupReplicationScheduleCronArgs) ToFailoverGroupReplicationScheduleCronPtrOutputWithContext(ctx context.Context) FailoverGroupReplicationScheduleCronPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReplicationScheduleCronOutput).ToFailoverGroupReplicationScheduleCronPtrOutputWithContext(ctx)
+}
+
+// FailoverGroupReplicationScheduleCronPtrInput is an input type that accepts FailoverGroupReplicationScheduleCronArgs, FailoverGroupReplicationScheduleCronPtr and FailoverGroupReplicationScheduleCronPtrOutput values.
+// You can construct a concrete instance of `FailoverGroupReplicationScheduleCronPtrInput` via:
+//
+//	        FailoverGroupReplicationScheduleCronArgs{...}
+//
+//	or:
+//
+//	        nil
+type FailoverGroupReplicationScheduleCronPtrInput interface {
+	pulumi.Input
+
+	ToFailoverGroupReplicationScheduleCronPtrOutput() FailoverGroupReplicationScheduleCronPtrOutput
+	ToFailoverGroupReplicationScheduleCronPtrOutputWithContext(context.Context) FailoverGroupReplicationScheduleCronPtrOutput
+}
+
+type failoverGroupReplicationScheduleCronPtrType FailoverGroupReplicationScheduleCronArgs
+
+func FailoverGroupReplicationScheduleCronPtr(v *FailoverGroupReplicationScheduleCronArgs) FailoverGroupReplicationScheduleCronPtrInput {
+	return (*failoverGroupReplicationScheduleCronPtrType)(v)
+}
+
+func (*failoverGroupReplicationScheduleCronPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FailoverGroupReplicationScheduleCron)(nil)).Elem()
+}
+
+func (i *failoverGroupReplicationScheduleCronPtrType) ToFailoverGroupReplicationScheduleCronPtrOutput() FailoverGroupReplicationScheduleCronPtrOutput {
+	return i.ToFailoverGroupReplicationScheduleCronPtrOutputWithContext(context.Background())
+}
+
+func (i *failoverGroupReplicationScheduleCronPtrType) ToFailoverGroupReplicationScheduleCronPtrOutputWithContext(ctx context.Context) FailoverGroupReplicationScheduleCronPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReplicationScheduleCronPtrOutput)
+}
+
+type FailoverGroupReplicationScheduleCronOutput struct{ *pulumi.OutputState }
+
+func (FailoverGroupReplicationScheduleCronOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverGroupReplicationScheduleCron)(nil)).Elem()
+}
+
+func (o FailoverGroupReplicationScheduleCronOutput) ToFailoverGroupReplicationScheduleCronOutput() FailoverGroupReplicationScheduleCronOutput {
+	return o
+}
+
+func (o FailoverGroupReplicationScheduleCronOutput) ToFailoverGroupReplicationScheduleCronOutputWithContext(ctx context.Context) FailoverGroupReplicationScheduleCronOutput {
+	return o
+}
+
+func (o FailoverGroupReplicationScheduleCronOutput) ToFailoverGroupReplicationScheduleCronPtrOutput() FailoverGroupReplicationScheduleCronPtrOutput {
+	return o.ToFailoverGroupReplicationScheduleCronPtrOutputWithContext(context.Background())
+}
+
+func (o FailoverGroupReplicationScheduleCronOutput) ToFailoverGroupReplicationScheduleCronPtrOutputWithContext(ctx context.Context) FailoverGroupReplicationScheduleCronPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FailoverGroupReplicationScheduleCron) *FailoverGroupReplicationScheduleCron {
+		return &v
+	}).(FailoverGroupReplicationScheduleCronPtrOutput)
+}
+
+func (o FailoverGroupReplicationScheduleCronOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v FailoverGroupReplicationScheduleCron) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+func (o FailoverGroupReplicationScheduleCronOutput) TimeZone() pulumi.StringOutput {
+	return o.ApplyT(func(v FailoverGroupReplicationScheduleCron) string { return v.TimeZone }).(pulumi.StringOutput)
+}
+
+type FailoverGroupReplicationScheduleCronPtrOutput struct{ *pulumi.OutputState }
+
+func (FailoverGroupReplicationScheduleCronPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FailoverGroupReplicationScheduleCron)(nil)).Elem()
+}
+
+func (o FailoverGroupReplicationScheduleCronPtrOutput) ToFailoverGroupReplicationScheduleCronPtrOutput() FailoverGroupReplicationScheduleCronPtrOutput {
+	return o
+}
+
+func (o FailoverGroupReplicationScheduleCronPtrOutput) ToFailoverGroupReplicationScheduleCronPtrOutputWithContext(ctx context.Context) FailoverGroupReplicationScheduleCronPtrOutput {
+	return o
+}
+
+func (o FailoverGroupReplicationScheduleCronPtrOutput) Elem() FailoverGroupReplicationScheduleCronOutput {
+	return o.ApplyT(func(v *FailoverGroupReplicationScheduleCron) FailoverGroupReplicationScheduleCron {
+		if v != nil {
+			return *v
+		}
+		var ret FailoverGroupReplicationScheduleCron
+		return ret
+	}).(FailoverGroupReplicationScheduleCronOutput)
+}
+
+func (o FailoverGroupReplicationScheduleCronPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FailoverGroupReplicationScheduleCron) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FailoverGroupReplicationScheduleCronPtrOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FailoverGroupReplicationScheduleCron) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeZone
+	}).(pulumi.StringPtrOutput)
+}
+
 type FunctionArgument struct {
 	// The argument name
 	Name string `pulumi:"name"`
@@ -1660,6 +2139,8 @@ type TableColumn struct {
 	Default *TableColumnDefault `pulumi:"default"`
 	// Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
 	Identity *TableColumnIdentity `pulumi:"identity"`
+	// Masking policy to apply on column
+	MaskingPolicy *string `pulumi:"maskingPolicy"`
 	// Column name
 	Name string `pulumi:"name"`
 	// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
@@ -1686,6 +2167,8 @@ type TableColumnArgs struct {
 	Default TableColumnDefaultPtrInput `pulumi:"default"`
 	// Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
 	Identity TableColumnIdentityPtrInput `pulumi:"identity"`
+	// Masking policy to apply on column
+	MaskingPolicy pulumi.StringPtrInput `pulumi:"maskingPolicy"`
 	// Column name
 	Name pulumi.StringInput `pulumi:"name"`
 	// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
@@ -1758,6 +2241,11 @@ func (o TableColumnOutput) Default() TableColumnDefaultPtrOutput {
 // Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
 func (o TableColumnOutput) Identity() TableColumnIdentityPtrOutput {
 	return o.ApplyT(func(v TableColumn) *TableColumnIdentity { return v.Identity }).(TableColumnIdentityPtrOutput)
+}
+
+// Masking policy to apply on column
+func (o TableColumnOutput) MaskingPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableColumn) *string { return v.MaskingPolicy }).(pulumi.StringPtrOutput)
 }
 
 // Column name
@@ -2106,6 +2594,358 @@ func (o TableColumnIdentityPtrOutput) StepNum() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type TableConstraintForeignKeyProperties struct {
+	// The match type for the foreign key. Not applicable for primary/unique keys
+	Match *string `pulumi:"match"`
+	// Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+	OnDelete *string `pulumi:"onDelete"`
+	// Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+	OnUpdate *string `pulumi:"onUpdate"`
+	// The table and columns that the foreign key references. Not applicable for primary/unique keys
+	References *TableConstraintForeignKeyPropertiesReferences `pulumi:"references"`
+}
+
+// TableConstraintForeignKeyPropertiesInput is an input type that accepts TableConstraintForeignKeyPropertiesArgs and TableConstraintForeignKeyPropertiesOutput values.
+// You can construct a concrete instance of `TableConstraintForeignKeyPropertiesInput` via:
+//
+//	TableConstraintForeignKeyPropertiesArgs{...}
+type TableConstraintForeignKeyPropertiesInput interface {
+	pulumi.Input
+
+	ToTableConstraintForeignKeyPropertiesOutput() TableConstraintForeignKeyPropertiesOutput
+	ToTableConstraintForeignKeyPropertiesOutputWithContext(context.Context) TableConstraintForeignKeyPropertiesOutput
+}
+
+type TableConstraintForeignKeyPropertiesArgs struct {
+	// The match type for the foreign key. Not applicable for primary/unique keys
+	Match pulumi.StringPtrInput `pulumi:"match"`
+	// Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+	OnDelete pulumi.StringPtrInput `pulumi:"onDelete"`
+	// Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+	OnUpdate pulumi.StringPtrInput `pulumi:"onUpdate"`
+	// The table and columns that the foreign key references. Not applicable for primary/unique keys
+	References TableConstraintForeignKeyPropertiesReferencesPtrInput `pulumi:"references"`
+}
+
+func (TableConstraintForeignKeyPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableConstraintForeignKeyProperties)(nil)).Elem()
+}
+
+func (i TableConstraintForeignKeyPropertiesArgs) ToTableConstraintForeignKeyPropertiesOutput() TableConstraintForeignKeyPropertiesOutput {
+	return i.ToTableConstraintForeignKeyPropertiesOutputWithContext(context.Background())
+}
+
+func (i TableConstraintForeignKeyPropertiesArgs) ToTableConstraintForeignKeyPropertiesOutputWithContext(ctx context.Context) TableConstraintForeignKeyPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableConstraintForeignKeyPropertiesOutput)
+}
+
+func (i TableConstraintForeignKeyPropertiesArgs) ToTableConstraintForeignKeyPropertiesPtrOutput() TableConstraintForeignKeyPropertiesPtrOutput {
+	return i.ToTableConstraintForeignKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i TableConstraintForeignKeyPropertiesArgs) ToTableConstraintForeignKeyPropertiesPtrOutputWithContext(ctx context.Context) TableConstraintForeignKeyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableConstraintForeignKeyPropertiesOutput).ToTableConstraintForeignKeyPropertiesPtrOutputWithContext(ctx)
+}
+
+// TableConstraintForeignKeyPropertiesPtrInput is an input type that accepts TableConstraintForeignKeyPropertiesArgs, TableConstraintForeignKeyPropertiesPtr and TableConstraintForeignKeyPropertiesPtrOutput values.
+// You can construct a concrete instance of `TableConstraintForeignKeyPropertiesPtrInput` via:
+//
+//	        TableConstraintForeignKeyPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableConstraintForeignKeyPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToTableConstraintForeignKeyPropertiesPtrOutput() TableConstraintForeignKeyPropertiesPtrOutput
+	ToTableConstraintForeignKeyPropertiesPtrOutputWithContext(context.Context) TableConstraintForeignKeyPropertiesPtrOutput
+}
+
+type tableConstraintForeignKeyPropertiesPtrType TableConstraintForeignKeyPropertiesArgs
+
+func TableConstraintForeignKeyPropertiesPtr(v *TableConstraintForeignKeyPropertiesArgs) TableConstraintForeignKeyPropertiesPtrInput {
+	return (*tableConstraintForeignKeyPropertiesPtrType)(v)
+}
+
+func (*tableConstraintForeignKeyPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableConstraintForeignKeyProperties)(nil)).Elem()
+}
+
+func (i *tableConstraintForeignKeyPropertiesPtrType) ToTableConstraintForeignKeyPropertiesPtrOutput() TableConstraintForeignKeyPropertiesPtrOutput {
+	return i.ToTableConstraintForeignKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *tableConstraintForeignKeyPropertiesPtrType) ToTableConstraintForeignKeyPropertiesPtrOutputWithContext(ctx context.Context) TableConstraintForeignKeyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableConstraintForeignKeyPropertiesPtrOutput)
+}
+
+type TableConstraintForeignKeyPropertiesOutput struct{ *pulumi.OutputState }
+
+func (TableConstraintForeignKeyPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableConstraintForeignKeyProperties)(nil)).Elem()
+}
+
+func (o TableConstraintForeignKeyPropertiesOutput) ToTableConstraintForeignKeyPropertiesOutput() TableConstraintForeignKeyPropertiesOutput {
+	return o
+}
+
+func (o TableConstraintForeignKeyPropertiesOutput) ToTableConstraintForeignKeyPropertiesOutputWithContext(ctx context.Context) TableConstraintForeignKeyPropertiesOutput {
+	return o
+}
+
+func (o TableConstraintForeignKeyPropertiesOutput) ToTableConstraintForeignKeyPropertiesPtrOutput() TableConstraintForeignKeyPropertiesPtrOutput {
+	return o.ToTableConstraintForeignKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o TableConstraintForeignKeyPropertiesOutput) ToTableConstraintForeignKeyPropertiesPtrOutputWithContext(ctx context.Context) TableConstraintForeignKeyPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableConstraintForeignKeyProperties) *TableConstraintForeignKeyProperties {
+		return &v
+	}).(TableConstraintForeignKeyPropertiesPtrOutput)
+}
+
+// The match type for the foreign key. Not applicable for primary/unique keys
+func (o TableConstraintForeignKeyPropertiesOutput) Match() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableConstraintForeignKeyProperties) *string { return v.Match }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+func (o TableConstraintForeignKeyPropertiesOutput) OnDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableConstraintForeignKeyProperties) *string { return v.OnDelete }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+func (o TableConstraintForeignKeyPropertiesOutput) OnUpdate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableConstraintForeignKeyProperties) *string { return v.OnUpdate }).(pulumi.StringPtrOutput)
+}
+
+// The table and columns that the foreign key references. Not applicable for primary/unique keys
+func (o TableConstraintForeignKeyPropertiesOutput) References() TableConstraintForeignKeyPropertiesReferencesPtrOutput {
+	return o.ApplyT(func(v TableConstraintForeignKeyProperties) *TableConstraintForeignKeyPropertiesReferences {
+		return v.References
+	}).(TableConstraintForeignKeyPropertiesReferencesPtrOutput)
+}
+
+type TableConstraintForeignKeyPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (TableConstraintForeignKeyPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableConstraintForeignKeyProperties)(nil)).Elem()
+}
+
+func (o TableConstraintForeignKeyPropertiesPtrOutput) ToTableConstraintForeignKeyPropertiesPtrOutput() TableConstraintForeignKeyPropertiesPtrOutput {
+	return o
+}
+
+func (o TableConstraintForeignKeyPropertiesPtrOutput) ToTableConstraintForeignKeyPropertiesPtrOutputWithContext(ctx context.Context) TableConstraintForeignKeyPropertiesPtrOutput {
+	return o
+}
+
+func (o TableConstraintForeignKeyPropertiesPtrOutput) Elem() TableConstraintForeignKeyPropertiesOutput {
+	return o.ApplyT(func(v *TableConstraintForeignKeyProperties) TableConstraintForeignKeyProperties {
+		if v != nil {
+			return *v
+		}
+		var ret TableConstraintForeignKeyProperties
+		return ret
+	}).(TableConstraintForeignKeyPropertiesOutput)
+}
+
+// The match type for the foreign key. Not applicable for primary/unique keys
+func (o TableConstraintForeignKeyPropertiesPtrOutput) Match() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableConstraintForeignKeyProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Match
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+func (o TableConstraintForeignKeyPropertiesPtrOutput) OnDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableConstraintForeignKeyProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OnDelete
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+func (o TableConstraintForeignKeyPropertiesPtrOutput) OnUpdate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableConstraintForeignKeyProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OnUpdate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The table and columns that the foreign key references. Not applicable for primary/unique keys
+func (o TableConstraintForeignKeyPropertiesPtrOutput) References() TableConstraintForeignKeyPropertiesReferencesPtrOutput {
+	return o.ApplyT(func(v *TableConstraintForeignKeyProperties) *TableConstraintForeignKeyPropertiesReferences {
+		if v == nil {
+			return nil
+		}
+		return v.References
+	}).(TableConstraintForeignKeyPropertiesReferencesPtrOutput)
+}
+
+type TableConstraintForeignKeyPropertiesReferences struct {
+	// Columns to use in constraint key
+	Columns []string `pulumi:"columns"`
+	// Idenfifier for table to create constraint on. Must be of the form Note: format must follow: "\n\n"."\n\n"."\n\n" or "\n\n.\n\n.\n\n" or "\n\n|\n\n.\n\n" (snowflake*table.my*table.id)
+	TableId string `pulumi:"tableId"`
+}
+
+// TableConstraintForeignKeyPropertiesReferencesInput is an input type that accepts TableConstraintForeignKeyPropertiesReferencesArgs and TableConstraintForeignKeyPropertiesReferencesOutput values.
+// You can construct a concrete instance of `TableConstraintForeignKeyPropertiesReferencesInput` via:
+//
+//	TableConstraintForeignKeyPropertiesReferencesArgs{...}
+type TableConstraintForeignKeyPropertiesReferencesInput interface {
+	pulumi.Input
+
+	ToTableConstraintForeignKeyPropertiesReferencesOutput() TableConstraintForeignKeyPropertiesReferencesOutput
+	ToTableConstraintForeignKeyPropertiesReferencesOutputWithContext(context.Context) TableConstraintForeignKeyPropertiesReferencesOutput
+}
+
+type TableConstraintForeignKeyPropertiesReferencesArgs struct {
+	// Columns to use in constraint key
+	Columns pulumi.StringArrayInput `pulumi:"columns"`
+	// Idenfifier for table to create constraint on. Must be of the form Note: format must follow: "\n\n"."\n\n"."\n\n" or "\n\n.\n\n.\n\n" or "\n\n|\n\n.\n\n" (snowflake*table.my*table.id)
+	TableId pulumi.StringInput `pulumi:"tableId"`
+}
+
+func (TableConstraintForeignKeyPropertiesReferencesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableConstraintForeignKeyPropertiesReferences)(nil)).Elem()
+}
+
+func (i TableConstraintForeignKeyPropertiesReferencesArgs) ToTableConstraintForeignKeyPropertiesReferencesOutput() TableConstraintForeignKeyPropertiesReferencesOutput {
+	return i.ToTableConstraintForeignKeyPropertiesReferencesOutputWithContext(context.Background())
+}
+
+func (i TableConstraintForeignKeyPropertiesReferencesArgs) ToTableConstraintForeignKeyPropertiesReferencesOutputWithContext(ctx context.Context) TableConstraintForeignKeyPropertiesReferencesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableConstraintForeignKeyPropertiesReferencesOutput)
+}
+
+func (i TableConstraintForeignKeyPropertiesReferencesArgs) ToTableConstraintForeignKeyPropertiesReferencesPtrOutput() TableConstraintForeignKeyPropertiesReferencesPtrOutput {
+	return i.ToTableConstraintForeignKeyPropertiesReferencesPtrOutputWithContext(context.Background())
+}
+
+func (i TableConstraintForeignKeyPropertiesReferencesArgs) ToTableConstraintForeignKeyPropertiesReferencesPtrOutputWithContext(ctx context.Context) TableConstraintForeignKeyPropertiesReferencesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableConstraintForeignKeyPropertiesReferencesOutput).ToTableConstraintForeignKeyPropertiesReferencesPtrOutputWithContext(ctx)
+}
+
+// TableConstraintForeignKeyPropertiesReferencesPtrInput is an input type that accepts TableConstraintForeignKeyPropertiesReferencesArgs, TableConstraintForeignKeyPropertiesReferencesPtr and TableConstraintForeignKeyPropertiesReferencesPtrOutput values.
+// You can construct a concrete instance of `TableConstraintForeignKeyPropertiesReferencesPtrInput` via:
+//
+//	        TableConstraintForeignKeyPropertiesReferencesArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableConstraintForeignKeyPropertiesReferencesPtrInput interface {
+	pulumi.Input
+
+	ToTableConstraintForeignKeyPropertiesReferencesPtrOutput() TableConstraintForeignKeyPropertiesReferencesPtrOutput
+	ToTableConstraintForeignKeyPropertiesReferencesPtrOutputWithContext(context.Context) TableConstraintForeignKeyPropertiesReferencesPtrOutput
+}
+
+type tableConstraintForeignKeyPropertiesReferencesPtrType TableConstraintForeignKeyPropertiesReferencesArgs
+
+func TableConstraintForeignKeyPropertiesReferencesPtr(v *TableConstraintForeignKeyPropertiesReferencesArgs) TableConstraintForeignKeyPropertiesReferencesPtrInput {
+	return (*tableConstraintForeignKeyPropertiesReferencesPtrType)(v)
+}
+
+func (*tableConstraintForeignKeyPropertiesReferencesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableConstraintForeignKeyPropertiesReferences)(nil)).Elem()
+}
+
+func (i *tableConstraintForeignKeyPropertiesReferencesPtrType) ToTableConstraintForeignKeyPropertiesReferencesPtrOutput() TableConstraintForeignKeyPropertiesReferencesPtrOutput {
+	return i.ToTableConstraintForeignKeyPropertiesReferencesPtrOutputWithContext(context.Background())
+}
+
+func (i *tableConstraintForeignKeyPropertiesReferencesPtrType) ToTableConstraintForeignKeyPropertiesReferencesPtrOutputWithContext(ctx context.Context) TableConstraintForeignKeyPropertiesReferencesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableConstraintForeignKeyPropertiesReferencesPtrOutput)
+}
+
+type TableConstraintForeignKeyPropertiesReferencesOutput struct{ *pulumi.OutputState }
+
+func (TableConstraintForeignKeyPropertiesReferencesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableConstraintForeignKeyPropertiesReferences)(nil)).Elem()
+}
+
+func (o TableConstraintForeignKeyPropertiesReferencesOutput) ToTableConstraintForeignKeyPropertiesReferencesOutput() TableConstraintForeignKeyPropertiesReferencesOutput {
+	return o
+}
+
+func (o TableConstraintForeignKeyPropertiesReferencesOutput) ToTableConstraintForeignKeyPropertiesReferencesOutputWithContext(ctx context.Context) TableConstraintForeignKeyPropertiesReferencesOutput {
+	return o
+}
+
+func (o TableConstraintForeignKeyPropertiesReferencesOutput) ToTableConstraintForeignKeyPropertiesReferencesPtrOutput() TableConstraintForeignKeyPropertiesReferencesPtrOutput {
+	return o.ToTableConstraintForeignKeyPropertiesReferencesPtrOutputWithContext(context.Background())
+}
+
+func (o TableConstraintForeignKeyPropertiesReferencesOutput) ToTableConstraintForeignKeyPropertiesReferencesPtrOutputWithContext(ctx context.Context) TableConstraintForeignKeyPropertiesReferencesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableConstraintForeignKeyPropertiesReferences) *TableConstraintForeignKeyPropertiesReferences {
+		return &v
+	}).(TableConstraintForeignKeyPropertiesReferencesPtrOutput)
+}
+
+// Columns to use in constraint key
+func (o TableConstraintForeignKeyPropertiesReferencesOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableConstraintForeignKeyPropertiesReferences) []string { return v.Columns }).(pulumi.StringArrayOutput)
+}
+
+// Idenfifier for table to create constraint on. Must be of the form Note: format must follow: "\n\n"."\n\n"."\n\n" or "\n\n.\n\n.\n\n" or "\n\n|\n\n.\n\n" (snowflake*table.my*table.id)
+func (o TableConstraintForeignKeyPropertiesReferencesOutput) TableId() pulumi.StringOutput {
+	return o.ApplyT(func(v TableConstraintForeignKeyPropertiesReferences) string { return v.TableId }).(pulumi.StringOutput)
+}
+
+type TableConstraintForeignKeyPropertiesReferencesPtrOutput struct{ *pulumi.OutputState }
+
+func (TableConstraintForeignKeyPropertiesReferencesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableConstraintForeignKeyPropertiesReferences)(nil)).Elem()
+}
+
+func (o TableConstraintForeignKeyPropertiesReferencesPtrOutput) ToTableConstraintForeignKeyPropertiesReferencesPtrOutput() TableConstraintForeignKeyPropertiesReferencesPtrOutput {
+	return o
+}
+
+func (o TableConstraintForeignKeyPropertiesReferencesPtrOutput) ToTableConstraintForeignKeyPropertiesReferencesPtrOutputWithContext(ctx context.Context) TableConstraintForeignKeyPropertiesReferencesPtrOutput {
+	return o
+}
+
+func (o TableConstraintForeignKeyPropertiesReferencesPtrOutput) Elem() TableConstraintForeignKeyPropertiesReferencesOutput {
+	return o.ApplyT(func(v *TableConstraintForeignKeyPropertiesReferences) TableConstraintForeignKeyPropertiesReferences {
+		if v != nil {
+			return *v
+		}
+		var ret TableConstraintForeignKeyPropertiesReferences
+		return ret
+	}).(TableConstraintForeignKeyPropertiesReferencesOutput)
+}
+
+// Columns to use in constraint key
+func (o TableConstraintForeignKeyPropertiesReferencesPtrOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TableConstraintForeignKeyPropertiesReferences) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Idenfifier for table to create constraint on. Must be of the form Note: format must follow: "\n\n"."\n\n"."\n\n" or "\n\n.\n\n.\n\n" or "\n\n|\n\n.\n\n" (snowflake*table.my*table.id)
+func (o TableConstraintForeignKeyPropertiesReferencesPtrOutput) TableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableConstraintForeignKeyPropertiesReferences) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableId
+	}).(pulumi.StringPtrOutput)
+}
+
 type TablePrimaryKey struct {
 	// Columns to use in primary key
 	Keys []string `pulumi:"keys"`
@@ -2384,6 +3224,121 @@ func (o TableTagArrayOutput) Index(i pulumi.IntInput) TableTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableTag {
 		return vs[0].([]TableTag)[vs[1].(int)]
 	}).(TableTagOutput)
+}
+
+type TagAssociationObjectIdentifier struct {
+	// Name of the database that the object was created in.
+	Database *string `pulumi:"database"`
+	// Name of the object to associate the tag with.
+	Name string `pulumi:"name"`
+	// Name of the schema that the object was created in.
+	Schema *string `pulumi:"schema"`
+}
+
+// TagAssociationObjectIdentifierInput is an input type that accepts TagAssociationObjectIdentifierArgs and TagAssociationObjectIdentifierOutput values.
+// You can construct a concrete instance of `TagAssociationObjectIdentifierInput` via:
+//
+//	TagAssociationObjectIdentifierArgs{...}
+type TagAssociationObjectIdentifierInput interface {
+	pulumi.Input
+
+	ToTagAssociationObjectIdentifierOutput() TagAssociationObjectIdentifierOutput
+	ToTagAssociationObjectIdentifierOutputWithContext(context.Context) TagAssociationObjectIdentifierOutput
+}
+
+type TagAssociationObjectIdentifierArgs struct {
+	// Name of the database that the object was created in.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// Name of the object to associate the tag with.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the schema that the object was created in.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+}
+
+func (TagAssociationObjectIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAssociationObjectIdentifier)(nil)).Elem()
+}
+
+func (i TagAssociationObjectIdentifierArgs) ToTagAssociationObjectIdentifierOutput() TagAssociationObjectIdentifierOutput {
+	return i.ToTagAssociationObjectIdentifierOutputWithContext(context.Background())
+}
+
+func (i TagAssociationObjectIdentifierArgs) ToTagAssociationObjectIdentifierOutputWithContext(ctx context.Context) TagAssociationObjectIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationObjectIdentifierOutput)
+}
+
+// TagAssociationObjectIdentifierArrayInput is an input type that accepts TagAssociationObjectIdentifierArray and TagAssociationObjectIdentifierArrayOutput values.
+// You can construct a concrete instance of `TagAssociationObjectIdentifierArrayInput` via:
+//
+//	TagAssociationObjectIdentifierArray{ TagAssociationObjectIdentifierArgs{...} }
+type TagAssociationObjectIdentifierArrayInput interface {
+	pulumi.Input
+
+	ToTagAssociationObjectIdentifierArrayOutput() TagAssociationObjectIdentifierArrayOutput
+	ToTagAssociationObjectIdentifierArrayOutputWithContext(context.Context) TagAssociationObjectIdentifierArrayOutput
+}
+
+type TagAssociationObjectIdentifierArray []TagAssociationObjectIdentifierInput
+
+func (TagAssociationObjectIdentifierArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagAssociationObjectIdentifier)(nil)).Elem()
+}
+
+func (i TagAssociationObjectIdentifierArray) ToTagAssociationObjectIdentifierArrayOutput() TagAssociationObjectIdentifierArrayOutput {
+	return i.ToTagAssociationObjectIdentifierArrayOutputWithContext(context.Background())
+}
+
+func (i TagAssociationObjectIdentifierArray) ToTagAssociationObjectIdentifierArrayOutputWithContext(ctx context.Context) TagAssociationObjectIdentifierArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationObjectIdentifierArrayOutput)
+}
+
+type TagAssociationObjectIdentifierOutput struct{ *pulumi.OutputState }
+
+func (TagAssociationObjectIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAssociationObjectIdentifier)(nil)).Elem()
+}
+
+func (o TagAssociationObjectIdentifierOutput) ToTagAssociationObjectIdentifierOutput() TagAssociationObjectIdentifierOutput {
+	return o
+}
+
+func (o TagAssociationObjectIdentifierOutput) ToTagAssociationObjectIdentifierOutputWithContext(ctx context.Context) TagAssociationObjectIdentifierOutput {
+	return o
+}
+
+// Name of the database that the object was created in.
+func (o TagAssociationObjectIdentifierOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TagAssociationObjectIdentifier) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// Name of the object to associate the tag with.
+func (o TagAssociationObjectIdentifierOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TagAssociationObjectIdentifier) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of the schema that the object was created in.
+func (o TagAssociationObjectIdentifierOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TagAssociationObjectIdentifier) *string { return v.Schema }).(pulumi.StringPtrOutput)
+}
+
+type TagAssociationObjectIdentifierArrayOutput struct{ *pulumi.OutputState }
+
+func (TagAssociationObjectIdentifierArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagAssociationObjectIdentifier)(nil)).Elem()
+}
+
+func (o TagAssociationObjectIdentifierArrayOutput) ToTagAssociationObjectIdentifierArrayOutput() TagAssociationObjectIdentifierArrayOutput {
+	return o
+}
+
+func (o TagAssociationObjectIdentifierArrayOutput) ToTagAssociationObjectIdentifierArrayOutputWithContext(ctx context.Context) TagAssociationObjectIdentifierArrayOutput {
+	return o
+}
+
+func (o TagAssociationObjectIdentifierArrayOutput) Index(i pulumi.IntInput) TagAssociationObjectIdentifierOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TagAssociationObjectIdentifier {
+		return vs[0].([]TagAssociationObjectIdentifier)[vs[1].(int)]
+	}).(TagAssociationObjectIdentifierOutput)
 }
 
 type UserTag struct {
@@ -3504,6 +4459,1089 @@ func (o GetFunctionsFunctionArrayOutput) Index(i pulumi.IntInput) GetFunctionsFu
 	}).(GetFunctionsFunctionOutput)
 }
 
+type GetGrantsFutureGrantsIn struct {
+	// Lists all privileges on new (i.e. future) objects of a specified type in the database granted to a role.
+	Database *string `pulumi:"database"`
+	// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+	Schema *GetGrantsFutureGrantsInSchema `pulumi:"schema"`
+}
+
+// GetGrantsFutureGrantsInInput is an input type that accepts GetGrantsFutureGrantsInArgs and GetGrantsFutureGrantsInOutput values.
+// You can construct a concrete instance of `GetGrantsFutureGrantsInInput` via:
+//
+//	GetGrantsFutureGrantsInArgs{...}
+type GetGrantsFutureGrantsInInput interface {
+	pulumi.Input
+
+	ToGetGrantsFutureGrantsInOutput() GetGrantsFutureGrantsInOutput
+	ToGetGrantsFutureGrantsInOutputWithContext(context.Context) GetGrantsFutureGrantsInOutput
+}
+
+type GetGrantsFutureGrantsInArgs struct {
+	// Lists all privileges on new (i.e. future) objects of a specified type in the database granted to a role.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+	Schema GetGrantsFutureGrantsInSchemaPtrInput `pulumi:"schema"`
+}
+
+func (GetGrantsFutureGrantsInArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGrantsFutureGrantsIn)(nil)).Elem()
+}
+
+func (i GetGrantsFutureGrantsInArgs) ToGetGrantsFutureGrantsInOutput() GetGrantsFutureGrantsInOutput {
+	return i.ToGetGrantsFutureGrantsInOutputWithContext(context.Background())
+}
+
+func (i GetGrantsFutureGrantsInArgs) ToGetGrantsFutureGrantsInOutputWithContext(ctx context.Context) GetGrantsFutureGrantsInOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsFutureGrantsInOutput)
+}
+
+func (i GetGrantsFutureGrantsInArgs) ToGetGrantsFutureGrantsInPtrOutput() GetGrantsFutureGrantsInPtrOutput {
+	return i.ToGetGrantsFutureGrantsInPtrOutputWithContext(context.Background())
+}
+
+func (i GetGrantsFutureGrantsInArgs) ToGetGrantsFutureGrantsInPtrOutputWithContext(ctx context.Context) GetGrantsFutureGrantsInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsFutureGrantsInOutput).ToGetGrantsFutureGrantsInPtrOutputWithContext(ctx)
+}
+
+// GetGrantsFutureGrantsInPtrInput is an input type that accepts GetGrantsFutureGrantsInArgs, GetGrantsFutureGrantsInPtr and GetGrantsFutureGrantsInPtrOutput values.
+// You can construct a concrete instance of `GetGrantsFutureGrantsInPtrInput` via:
+//
+//	        GetGrantsFutureGrantsInArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetGrantsFutureGrantsInPtrInput interface {
+	pulumi.Input
+
+	ToGetGrantsFutureGrantsInPtrOutput() GetGrantsFutureGrantsInPtrOutput
+	ToGetGrantsFutureGrantsInPtrOutputWithContext(context.Context) GetGrantsFutureGrantsInPtrOutput
+}
+
+type getGrantsFutureGrantsInPtrType GetGrantsFutureGrantsInArgs
+
+func GetGrantsFutureGrantsInPtr(v *GetGrantsFutureGrantsInArgs) GetGrantsFutureGrantsInPtrInput {
+	return (*getGrantsFutureGrantsInPtrType)(v)
+}
+
+func (*getGrantsFutureGrantsInPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGrantsFutureGrantsIn)(nil)).Elem()
+}
+
+func (i *getGrantsFutureGrantsInPtrType) ToGetGrantsFutureGrantsInPtrOutput() GetGrantsFutureGrantsInPtrOutput {
+	return i.ToGetGrantsFutureGrantsInPtrOutputWithContext(context.Background())
+}
+
+func (i *getGrantsFutureGrantsInPtrType) ToGetGrantsFutureGrantsInPtrOutputWithContext(ctx context.Context) GetGrantsFutureGrantsInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsFutureGrantsInPtrOutput)
+}
+
+type GetGrantsFutureGrantsInOutput struct{ *pulumi.OutputState }
+
+func (GetGrantsFutureGrantsInOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGrantsFutureGrantsIn)(nil)).Elem()
+}
+
+func (o GetGrantsFutureGrantsInOutput) ToGetGrantsFutureGrantsInOutput() GetGrantsFutureGrantsInOutput {
+	return o
+}
+
+func (o GetGrantsFutureGrantsInOutput) ToGetGrantsFutureGrantsInOutputWithContext(ctx context.Context) GetGrantsFutureGrantsInOutput {
+	return o
+}
+
+func (o GetGrantsFutureGrantsInOutput) ToGetGrantsFutureGrantsInPtrOutput() GetGrantsFutureGrantsInPtrOutput {
+	return o.ToGetGrantsFutureGrantsInPtrOutputWithContext(context.Background())
+}
+
+func (o GetGrantsFutureGrantsInOutput) ToGetGrantsFutureGrantsInPtrOutputWithContext(ctx context.Context) GetGrantsFutureGrantsInPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetGrantsFutureGrantsIn) *GetGrantsFutureGrantsIn {
+		return &v
+	}).(GetGrantsFutureGrantsInPtrOutput)
+}
+
+// Lists all privileges on new (i.e. future) objects of a specified type in the database granted to a role.
+func (o GetGrantsFutureGrantsInOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGrantsFutureGrantsIn) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+func (o GetGrantsFutureGrantsInOutput) Schema() GetGrantsFutureGrantsInSchemaPtrOutput {
+	return o.ApplyT(func(v GetGrantsFutureGrantsIn) *GetGrantsFutureGrantsInSchema { return v.Schema }).(GetGrantsFutureGrantsInSchemaPtrOutput)
+}
+
+type GetGrantsFutureGrantsInPtrOutput struct{ *pulumi.OutputState }
+
+func (GetGrantsFutureGrantsInPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGrantsFutureGrantsIn)(nil)).Elem()
+}
+
+func (o GetGrantsFutureGrantsInPtrOutput) ToGetGrantsFutureGrantsInPtrOutput() GetGrantsFutureGrantsInPtrOutput {
+	return o
+}
+
+func (o GetGrantsFutureGrantsInPtrOutput) ToGetGrantsFutureGrantsInPtrOutputWithContext(ctx context.Context) GetGrantsFutureGrantsInPtrOutput {
+	return o
+}
+
+func (o GetGrantsFutureGrantsInPtrOutput) Elem() GetGrantsFutureGrantsInOutput {
+	return o.ApplyT(func(v *GetGrantsFutureGrantsIn) GetGrantsFutureGrantsIn {
+		if v != nil {
+			return *v
+		}
+		var ret GetGrantsFutureGrantsIn
+		return ret
+	}).(GetGrantsFutureGrantsInOutput)
+}
+
+// Lists all privileges on new (i.e. future) objects of a specified type in the database granted to a role.
+func (o GetGrantsFutureGrantsInPtrOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGrantsFutureGrantsIn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Database
+	}).(pulumi.StringPtrOutput)
+}
+
+// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+func (o GetGrantsFutureGrantsInPtrOutput) Schema() GetGrantsFutureGrantsInSchemaPtrOutput {
+	return o.ApplyT(func(v *GetGrantsFutureGrantsIn) *GetGrantsFutureGrantsInSchema {
+		if v == nil {
+			return nil
+		}
+		return v.Schema
+	}).(GetGrantsFutureGrantsInSchemaPtrOutput)
+}
+
+type GetGrantsFutureGrantsInSchema struct {
+	DatabaseName *string `pulumi:"databaseName"`
+	SchemaName   string  `pulumi:"schemaName"`
+}
+
+// GetGrantsFutureGrantsInSchemaInput is an input type that accepts GetGrantsFutureGrantsInSchemaArgs and GetGrantsFutureGrantsInSchemaOutput values.
+// You can construct a concrete instance of `GetGrantsFutureGrantsInSchemaInput` via:
+//
+//	GetGrantsFutureGrantsInSchemaArgs{...}
+type GetGrantsFutureGrantsInSchemaInput interface {
+	pulumi.Input
+
+	ToGetGrantsFutureGrantsInSchemaOutput() GetGrantsFutureGrantsInSchemaOutput
+	ToGetGrantsFutureGrantsInSchemaOutputWithContext(context.Context) GetGrantsFutureGrantsInSchemaOutput
+}
+
+type GetGrantsFutureGrantsInSchemaArgs struct {
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	SchemaName   pulumi.StringInput    `pulumi:"schemaName"`
+}
+
+func (GetGrantsFutureGrantsInSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGrantsFutureGrantsInSchema)(nil)).Elem()
+}
+
+func (i GetGrantsFutureGrantsInSchemaArgs) ToGetGrantsFutureGrantsInSchemaOutput() GetGrantsFutureGrantsInSchemaOutput {
+	return i.ToGetGrantsFutureGrantsInSchemaOutputWithContext(context.Background())
+}
+
+func (i GetGrantsFutureGrantsInSchemaArgs) ToGetGrantsFutureGrantsInSchemaOutputWithContext(ctx context.Context) GetGrantsFutureGrantsInSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsFutureGrantsInSchemaOutput)
+}
+
+func (i GetGrantsFutureGrantsInSchemaArgs) ToGetGrantsFutureGrantsInSchemaPtrOutput() GetGrantsFutureGrantsInSchemaPtrOutput {
+	return i.ToGetGrantsFutureGrantsInSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i GetGrantsFutureGrantsInSchemaArgs) ToGetGrantsFutureGrantsInSchemaPtrOutputWithContext(ctx context.Context) GetGrantsFutureGrantsInSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsFutureGrantsInSchemaOutput).ToGetGrantsFutureGrantsInSchemaPtrOutputWithContext(ctx)
+}
+
+// GetGrantsFutureGrantsInSchemaPtrInput is an input type that accepts GetGrantsFutureGrantsInSchemaArgs, GetGrantsFutureGrantsInSchemaPtr and GetGrantsFutureGrantsInSchemaPtrOutput values.
+// You can construct a concrete instance of `GetGrantsFutureGrantsInSchemaPtrInput` via:
+//
+//	        GetGrantsFutureGrantsInSchemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetGrantsFutureGrantsInSchemaPtrInput interface {
+	pulumi.Input
+
+	ToGetGrantsFutureGrantsInSchemaPtrOutput() GetGrantsFutureGrantsInSchemaPtrOutput
+	ToGetGrantsFutureGrantsInSchemaPtrOutputWithContext(context.Context) GetGrantsFutureGrantsInSchemaPtrOutput
+}
+
+type getGrantsFutureGrantsInSchemaPtrType GetGrantsFutureGrantsInSchemaArgs
+
+func GetGrantsFutureGrantsInSchemaPtr(v *GetGrantsFutureGrantsInSchemaArgs) GetGrantsFutureGrantsInSchemaPtrInput {
+	return (*getGrantsFutureGrantsInSchemaPtrType)(v)
+}
+
+func (*getGrantsFutureGrantsInSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGrantsFutureGrantsInSchema)(nil)).Elem()
+}
+
+func (i *getGrantsFutureGrantsInSchemaPtrType) ToGetGrantsFutureGrantsInSchemaPtrOutput() GetGrantsFutureGrantsInSchemaPtrOutput {
+	return i.ToGetGrantsFutureGrantsInSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *getGrantsFutureGrantsInSchemaPtrType) ToGetGrantsFutureGrantsInSchemaPtrOutputWithContext(ctx context.Context) GetGrantsFutureGrantsInSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsFutureGrantsInSchemaPtrOutput)
+}
+
+type GetGrantsFutureGrantsInSchemaOutput struct{ *pulumi.OutputState }
+
+func (GetGrantsFutureGrantsInSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGrantsFutureGrantsInSchema)(nil)).Elem()
+}
+
+func (o GetGrantsFutureGrantsInSchemaOutput) ToGetGrantsFutureGrantsInSchemaOutput() GetGrantsFutureGrantsInSchemaOutput {
+	return o
+}
+
+func (o GetGrantsFutureGrantsInSchemaOutput) ToGetGrantsFutureGrantsInSchemaOutputWithContext(ctx context.Context) GetGrantsFutureGrantsInSchemaOutput {
+	return o
+}
+
+func (o GetGrantsFutureGrantsInSchemaOutput) ToGetGrantsFutureGrantsInSchemaPtrOutput() GetGrantsFutureGrantsInSchemaPtrOutput {
+	return o.ToGetGrantsFutureGrantsInSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o GetGrantsFutureGrantsInSchemaOutput) ToGetGrantsFutureGrantsInSchemaPtrOutputWithContext(ctx context.Context) GetGrantsFutureGrantsInSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetGrantsFutureGrantsInSchema) *GetGrantsFutureGrantsInSchema {
+		return &v
+	}).(GetGrantsFutureGrantsInSchemaPtrOutput)
+}
+
+func (o GetGrantsFutureGrantsInSchemaOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGrantsFutureGrantsInSchema) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o GetGrantsFutureGrantsInSchemaOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGrantsFutureGrantsInSchema) string { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+type GetGrantsFutureGrantsInSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (GetGrantsFutureGrantsInSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGrantsFutureGrantsInSchema)(nil)).Elem()
+}
+
+func (o GetGrantsFutureGrantsInSchemaPtrOutput) ToGetGrantsFutureGrantsInSchemaPtrOutput() GetGrantsFutureGrantsInSchemaPtrOutput {
+	return o
+}
+
+func (o GetGrantsFutureGrantsInSchemaPtrOutput) ToGetGrantsFutureGrantsInSchemaPtrOutputWithContext(ctx context.Context) GetGrantsFutureGrantsInSchemaPtrOutput {
+	return o
+}
+
+func (o GetGrantsFutureGrantsInSchemaPtrOutput) Elem() GetGrantsFutureGrantsInSchemaOutput {
+	return o.ApplyT(func(v *GetGrantsFutureGrantsInSchema) GetGrantsFutureGrantsInSchema {
+		if v != nil {
+			return *v
+		}
+		var ret GetGrantsFutureGrantsInSchema
+		return ret
+	}).(GetGrantsFutureGrantsInSchemaOutput)
+}
+
+func (o GetGrantsFutureGrantsInSchemaPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGrantsFutureGrantsInSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetGrantsFutureGrantsInSchemaPtrOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGrantsFutureGrantsInSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SchemaName
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetGrantsFutureGrantsTo struct {
+	// Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
+	Role string `pulumi:"role"`
+}
+
+// GetGrantsFutureGrantsToInput is an input type that accepts GetGrantsFutureGrantsToArgs and GetGrantsFutureGrantsToOutput values.
+// You can construct a concrete instance of `GetGrantsFutureGrantsToInput` via:
+//
+//	GetGrantsFutureGrantsToArgs{...}
+type GetGrantsFutureGrantsToInput interface {
+	pulumi.Input
+
+	ToGetGrantsFutureGrantsToOutput() GetGrantsFutureGrantsToOutput
+	ToGetGrantsFutureGrantsToOutputWithContext(context.Context) GetGrantsFutureGrantsToOutput
+}
+
+type GetGrantsFutureGrantsToArgs struct {
+	// Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
+	Role pulumi.StringInput `pulumi:"role"`
+}
+
+func (GetGrantsFutureGrantsToArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGrantsFutureGrantsTo)(nil)).Elem()
+}
+
+func (i GetGrantsFutureGrantsToArgs) ToGetGrantsFutureGrantsToOutput() GetGrantsFutureGrantsToOutput {
+	return i.ToGetGrantsFutureGrantsToOutputWithContext(context.Background())
+}
+
+func (i GetGrantsFutureGrantsToArgs) ToGetGrantsFutureGrantsToOutputWithContext(ctx context.Context) GetGrantsFutureGrantsToOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsFutureGrantsToOutput)
+}
+
+func (i GetGrantsFutureGrantsToArgs) ToGetGrantsFutureGrantsToPtrOutput() GetGrantsFutureGrantsToPtrOutput {
+	return i.ToGetGrantsFutureGrantsToPtrOutputWithContext(context.Background())
+}
+
+func (i GetGrantsFutureGrantsToArgs) ToGetGrantsFutureGrantsToPtrOutputWithContext(ctx context.Context) GetGrantsFutureGrantsToPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsFutureGrantsToOutput).ToGetGrantsFutureGrantsToPtrOutputWithContext(ctx)
+}
+
+// GetGrantsFutureGrantsToPtrInput is an input type that accepts GetGrantsFutureGrantsToArgs, GetGrantsFutureGrantsToPtr and GetGrantsFutureGrantsToPtrOutput values.
+// You can construct a concrete instance of `GetGrantsFutureGrantsToPtrInput` via:
+//
+//	        GetGrantsFutureGrantsToArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetGrantsFutureGrantsToPtrInput interface {
+	pulumi.Input
+
+	ToGetGrantsFutureGrantsToPtrOutput() GetGrantsFutureGrantsToPtrOutput
+	ToGetGrantsFutureGrantsToPtrOutputWithContext(context.Context) GetGrantsFutureGrantsToPtrOutput
+}
+
+type getGrantsFutureGrantsToPtrType GetGrantsFutureGrantsToArgs
+
+func GetGrantsFutureGrantsToPtr(v *GetGrantsFutureGrantsToArgs) GetGrantsFutureGrantsToPtrInput {
+	return (*getGrantsFutureGrantsToPtrType)(v)
+}
+
+func (*getGrantsFutureGrantsToPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGrantsFutureGrantsTo)(nil)).Elem()
+}
+
+func (i *getGrantsFutureGrantsToPtrType) ToGetGrantsFutureGrantsToPtrOutput() GetGrantsFutureGrantsToPtrOutput {
+	return i.ToGetGrantsFutureGrantsToPtrOutputWithContext(context.Background())
+}
+
+func (i *getGrantsFutureGrantsToPtrType) ToGetGrantsFutureGrantsToPtrOutputWithContext(ctx context.Context) GetGrantsFutureGrantsToPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsFutureGrantsToPtrOutput)
+}
+
+type GetGrantsFutureGrantsToOutput struct{ *pulumi.OutputState }
+
+func (GetGrantsFutureGrantsToOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGrantsFutureGrantsTo)(nil)).Elem()
+}
+
+func (o GetGrantsFutureGrantsToOutput) ToGetGrantsFutureGrantsToOutput() GetGrantsFutureGrantsToOutput {
+	return o
+}
+
+func (o GetGrantsFutureGrantsToOutput) ToGetGrantsFutureGrantsToOutputWithContext(ctx context.Context) GetGrantsFutureGrantsToOutput {
+	return o
+}
+
+func (o GetGrantsFutureGrantsToOutput) ToGetGrantsFutureGrantsToPtrOutput() GetGrantsFutureGrantsToPtrOutput {
+	return o.ToGetGrantsFutureGrantsToPtrOutputWithContext(context.Background())
+}
+
+func (o GetGrantsFutureGrantsToOutput) ToGetGrantsFutureGrantsToPtrOutputWithContext(ctx context.Context) GetGrantsFutureGrantsToPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetGrantsFutureGrantsTo) *GetGrantsFutureGrantsTo {
+		return &v
+	}).(GetGrantsFutureGrantsToPtrOutput)
+}
+
+// Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
+func (o GetGrantsFutureGrantsToOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGrantsFutureGrantsTo) string { return v.Role }).(pulumi.StringOutput)
+}
+
+type GetGrantsFutureGrantsToPtrOutput struct{ *pulumi.OutputState }
+
+func (GetGrantsFutureGrantsToPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGrantsFutureGrantsTo)(nil)).Elem()
+}
+
+func (o GetGrantsFutureGrantsToPtrOutput) ToGetGrantsFutureGrantsToPtrOutput() GetGrantsFutureGrantsToPtrOutput {
+	return o
+}
+
+func (o GetGrantsFutureGrantsToPtrOutput) ToGetGrantsFutureGrantsToPtrOutputWithContext(ctx context.Context) GetGrantsFutureGrantsToPtrOutput {
+	return o
+}
+
+func (o GetGrantsFutureGrantsToPtrOutput) Elem() GetGrantsFutureGrantsToOutput {
+	return o.ApplyT(func(v *GetGrantsFutureGrantsTo) GetGrantsFutureGrantsTo {
+		if v != nil {
+			return *v
+		}
+		var ret GetGrantsFutureGrantsTo
+		return ret
+	}).(GetGrantsFutureGrantsToOutput)
+}
+
+// Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
+func (o GetGrantsFutureGrantsToPtrOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGrantsFutureGrantsTo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Role
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetGrantsGrant struct {
+	CreatedOn   string `pulumi:"createdOn"`
+	GrantOption bool   `pulumi:"grantOption"`
+	GrantedBy   string `pulumi:"grantedBy"`
+	GrantedOn   string `pulumi:"grantedOn"`
+	GrantedTo   string `pulumi:"grantedTo"`
+	GranteeName string `pulumi:"granteeName"`
+	Name        string `pulumi:"name"`
+	Privilege   string `pulumi:"privilege"`
+}
+
+// GetGrantsGrantInput is an input type that accepts GetGrantsGrantArgs and GetGrantsGrantOutput values.
+// You can construct a concrete instance of `GetGrantsGrantInput` via:
+//
+//	GetGrantsGrantArgs{...}
+type GetGrantsGrantInput interface {
+	pulumi.Input
+
+	ToGetGrantsGrantOutput() GetGrantsGrantOutput
+	ToGetGrantsGrantOutputWithContext(context.Context) GetGrantsGrantOutput
+}
+
+type GetGrantsGrantArgs struct {
+	CreatedOn   pulumi.StringInput `pulumi:"createdOn"`
+	GrantOption pulumi.BoolInput   `pulumi:"grantOption"`
+	GrantedBy   pulumi.StringInput `pulumi:"grantedBy"`
+	GrantedOn   pulumi.StringInput `pulumi:"grantedOn"`
+	GrantedTo   pulumi.StringInput `pulumi:"grantedTo"`
+	GranteeName pulumi.StringInput `pulumi:"granteeName"`
+	Name        pulumi.StringInput `pulumi:"name"`
+	Privilege   pulumi.StringInput `pulumi:"privilege"`
+}
+
+func (GetGrantsGrantArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGrantsGrant)(nil)).Elem()
+}
+
+func (i GetGrantsGrantArgs) ToGetGrantsGrantOutput() GetGrantsGrantOutput {
+	return i.ToGetGrantsGrantOutputWithContext(context.Background())
+}
+
+func (i GetGrantsGrantArgs) ToGetGrantsGrantOutputWithContext(ctx context.Context) GetGrantsGrantOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsGrantOutput)
+}
+
+// GetGrantsGrantArrayInput is an input type that accepts GetGrantsGrantArray and GetGrantsGrantArrayOutput values.
+// You can construct a concrete instance of `GetGrantsGrantArrayInput` via:
+//
+//	GetGrantsGrantArray{ GetGrantsGrantArgs{...} }
+type GetGrantsGrantArrayInput interface {
+	pulumi.Input
+
+	ToGetGrantsGrantArrayOutput() GetGrantsGrantArrayOutput
+	ToGetGrantsGrantArrayOutputWithContext(context.Context) GetGrantsGrantArrayOutput
+}
+
+type GetGrantsGrantArray []GetGrantsGrantInput
+
+func (GetGrantsGrantArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGrantsGrant)(nil)).Elem()
+}
+
+func (i GetGrantsGrantArray) ToGetGrantsGrantArrayOutput() GetGrantsGrantArrayOutput {
+	return i.ToGetGrantsGrantArrayOutputWithContext(context.Background())
+}
+
+func (i GetGrantsGrantArray) ToGetGrantsGrantArrayOutputWithContext(ctx context.Context) GetGrantsGrantArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsGrantArrayOutput)
+}
+
+type GetGrantsGrantOutput struct{ *pulumi.OutputState }
+
+func (GetGrantsGrantOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGrantsGrant)(nil)).Elem()
+}
+
+func (o GetGrantsGrantOutput) ToGetGrantsGrantOutput() GetGrantsGrantOutput {
+	return o
+}
+
+func (o GetGrantsGrantOutput) ToGetGrantsGrantOutputWithContext(ctx context.Context) GetGrantsGrantOutput {
+	return o
+}
+
+func (o GetGrantsGrantOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGrantsGrant) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+func (o GetGrantsGrantOutput) GrantOption() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetGrantsGrant) bool { return v.GrantOption }).(pulumi.BoolOutput)
+}
+
+func (o GetGrantsGrantOutput) GrantedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGrantsGrant) string { return v.GrantedBy }).(pulumi.StringOutput)
+}
+
+func (o GetGrantsGrantOutput) GrantedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGrantsGrant) string { return v.GrantedOn }).(pulumi.StringOutput)
+}
+
+func (o GetGrantsGrantOutput) GrantedTo() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGrantsGrant) string { return v.GrantedTo }).(pulumi.StringOutput)
+}
+
+func (o GetGrantsGrantOutput) GranteeName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGrantsGrant) string { return v.GranteeName }).(pulumi.StringOutput)
+}
+
+func (o GetGrantsGrantOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGrantsGrant) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetGrantsGrantOutput) Privilege() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGrantsGrant) string { return v.Privilege }).(pulumi.StringOutput)
+}
+
+type GetGrantsGrantArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGrantsGrantArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGrantsGrant)(nil)).Elem()
+}
+
+func (o GetGrantsGrantArrayOutput) ToGetGrantsGrantArrayOutput() GetGrantsGrantArrayOutput {
+	return o
+}
+
+func (o GetGrantsGrantArrayOutput) ToGetGrantsGrantArrayOutputWithContext(ctx context.Context) GetGrantsGrantArrayOutput {
+	return o
+}
+
+func (o GetGrantsGrantArrayOutput) Index(i pulumi.IntInput) GetGrantsGrantOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGrantsGrant {
+		return vs[0].([]GetGrantsGrant)[vs[1].(int)]
+	}).(GetGrantsGrantOutput)
+}
+
+type GetGrantsGrantsOf struct {
+	// Lists all users and roles to which the role has been granted
+	Role *string `pulumi:"role"`
+	// Lists all the accounts for the share and indicates the accounts that are using the share.
+	Share *string `pulumi:"share"`
+}
+
+// GetGrantsGrantsOfInput is an input type that accepts GetGrantsGrantsOfArgs and GetGrantsGrantsOfOutput values.
+// You can construct a concrete instance of `GetGrantsGrantsOfInput` via:
+//
+//	GetGrantsGrantsOfArgs{...}
+type GetGrantsGrantsOfInput interface {
+	pulumi.Input
+
+	ToGetGrantsGrantsOfOutput() GetGrantsGrantsOfOutput
+	ToGetGrantsGrantsOfOutputWithContext(context.Context) GetGrantsGrantsOfOutput
+}
+
+type GetGrantsGrantsOfArgs struct {
+	// Lists all users and roles to which the role has been granted
+	Role pulumi.StringPtrInput `pulumi:"role"`
+	// Lists all the accounts for the share and indicates the accounts that are using the share.
+	Share pulumi.StringPtrInput `pulumi:"share"`
+}
+
+func (GetGrantsGrantsOfArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGrantsGrantsOf)(nil)).Elem()
+}
+
+func (i GetGrantsGrantsOfArgs) ToGetGrantsGrantsOfOutput() GetGrantsGrantsOfOutput {
+	return i.ToGetGrantsGrantsOfOutputWithContext(context.Background())
+}
+
+func (i GetGrantsGrantsOfArgs) ToGetGrantsGrantsOfOutputWithContext(ctx context.Context) GetGrantsGrantsOfOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsGrantsOfOutput)
+}
+
+func (i GetGrantsGrantsOfArgs) ToGetGrantsGrantsOfPtrOutput() GetGrantsGrantsOfPtrOutput {
+	return i.ToGetGrantsGrantsOfPtrOutputWithContext(context.Background())
+}
+
+func (i GetGrantsGrantsOfArgs) ToGetGrantsGrantsOfPtrOutputWithContext(ctx context.Context) GetGrantsGrantsOfPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsGrantsOfOutput).ToGetGrantsGrantsOfPtrOutputWithContext(ctx)
+}
+
+// GetGrantsGrantsOfPtrInput is an input type that accepts GetGrantsGrantsOfArgs, GetGrantsGrantsOfPtr and GetGrantsGrantsOfPtrOutput values.
+// You can construct a concrete instance of `GetGrantsGrantsOfPtrInput` via:
+//
+//	        GetGrantsGrantsOfArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetGrantsGrantsOfPtrInput interface {
+	pulumi.Input
+
+	ToGetGrantsGrantsOfPtrOutput() GetGrantsGrantsOfPtrOutput
+	ToGetGrantsGrantsOfPtrOutputWithContext(context.Context) GetGrantsGrantsOfPtrOutput
+}
+
+type getGrantsGrantsOfPtrType GetGrantsGrantsOfArgs
+
+func GetGrantsGrantsOfPtr(v *GetGrantsGrantsOfArgs) GetGrantsGrantsOfPtrInput {
+	return (*getGrantsGrantsOfPtrType)(v)
+}
+
+func (*getGrantsGrantsOfPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGrantsGrantsOf)(nil)).Elem()
+}
+
+func (i *getGrantsGrantsOfPtrType) ToGetGrantsGrantsOfPtrOutput() GetGrantsGrantsOfPtrOutput {
+	return i.ToGetGrantsGrantsOfPtrOutputWithContext(context.Background())
+}
+
+func (i *getGrantsGrantsOfPtrType) ToGetGrantsGrantsOfPtrOutputWithContext(ctx context.Context) GetGrantsGrantsOfPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsGrantsOfPtrOutput)
+}
+
+type GetGrantsGrantsOfOutput struct{ *pulumi.OutputState }
+
+func (GetGrantsGrantsOfOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGrantsGrantsOf)(nil)).Elem()
+}
+
+func (o GetGrantsGrantsOfOutput) ToGetGrantsGrantsOfOutput() GetGrantsGrantsOfOutput {
+	return o
+}
+
+func (o GetGrantsGrantsOfOutput) ToGetGrantsGrantsOfOutputWithContext(ctx context.Context) GetGrantsGrantsOfOutput {
+	return o
+}
+
+func (o GetGrantsGrantsOfOutput) ToGetGrantsGrantsOfPtrOutput() GetGrantsGrantsOfPtrOutput {
+	return o.ToGetGrantsGrantsOfPtrOutputWithContext(context.Background())
+}
+
+func (o GetGrantsGrantsOfOutput) ToGetGrantsGrantsOfPtrOutputWithContext(ctx context.Context) GetGrantsGrantsOfPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetGrantsGrantsOf) *GetGrantsGrantsOf {
+		return &v
+	}).(GetGrantsGrantsOfPtrOutput)
+}
+
+// Lists all users and roles to which the role has been granted
+func (o GetGrantsGrantsOfOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGrantsGrantsOf) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+// Lists all the accounts for the share and indicates the accounts that are using the share.
+func (o GetGrantsGrantsOfOutput) Share() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGrantsGrantsOf) *string { return v.Share }).(pulumi.StringPtrOutput)
+}
+
+type GetGrantsGrantsOfPtrOutput struct{ *pulumi.OutputState }
+
+func (GetGrantsGrantsOfPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGrantsGrantsOf)(nil)).Elem()
+}
+
+func (o GetGrantsGrantsOfPtrOutput) ToGetGrantsGrantsOfPtrOutput() GetGrantsGrantsOfPtrOutput {
+	return o
+}
+
+func (o GetGrantsGrantsOfPtrOutput) ToGetGrantsGrantsOfPtrOutputWithContext(ctx context.Context) GetGrantsGrantsOfPtrOutput {
+	return o
+}
+
+func (o GetGrantsGrantsOfPtrOutput) Elem() GetGrantsGrantsOfOutput {
+	return o.ApplyT(func(v *GetGrantsGrantsOf) GetGrantsGrantsOf {
+		if v != nil {
+			return *v
+		}
+		var ret GetGrantsGrantsOf
+		return ret
+	}).(GetGrantsGrantsOfOutput)
+}
+
+// Lists all users and roles to which the role has been granted
+func (o GetGrantsGrantsOfPtrOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGrantsGrantsOf) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Role
+	}).(pulumi.StringPtrOutput)
+}
+
+// Lists all the accounts for the share and indicates the accounts that are using the share.
+func (o GetGrantsGrantsOfPtrOutput) Share() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGrantsGrantsOf) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Share
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetGrantsGrantsOn struct {
+	// Object hierarchy to list privileges on. The only valid value is: ACCOUNT. Setting this attribute lists all the account-level (i.e. global) privileges that have been granted to roles.
+	Account *bool `pulumi:"account"`
+	// Name of object to list privileges on
+	ObjectName *string `pulumi:"objectName"`
+	// Type of object to list privileges on.
+	ObjectType *string `pulumi:"objectType"`
+}
+
+// GetGrantsGrantsOnInput is an input type that accepts GetGrantsGrantsOnArgs and GetGrantsGrantsOnOutput values.
+// You can construct a concrete instance of `GetGrantsGrantsOnInput` via:
+//
+//	GetGrantsGrantsOnArgs{...}
+type GetGrantsGrantsOnInput interface {
+	pulumi.Input
+
+	ToGetGrantsGrantsOnOutput() GetGrantsGrantsOnOutput
+	ToGetGrantsGrantsOnOutputWithContext(context.Context) GetGrantsGrantsOnOutput
+}
+
+type GetGrantsGrantsOnArgs struct {
+	// Object hierarchy to list privileges on. The only valid value is: ACCOUNT. Setting this attribute lists all the account-level (i.e. global) privileges that have been granted to roles.
+	Account pulumi.BoolPtrInput `pulumi:"account"`
+	// Name of object to list privileges on
+	ObjectName pulumi.StringPtrInput `pulumi:"objectName"`
+	// Type of object to list privileges on.
+	ObjectType pulumi.StringPtrInput `pulumi:"objectType"`
+}
+
+func (GetGrantsGrantsOnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGrantsGrantsOn)(nil)).Elem()
+}
+
+func (i GetGrantsGrantsOnArgs) ToGetGrantsGrantsOnOutput() GetGrantsGrantsOnOutput {
+	return i.ToGetGrantsGrantsOnOutputWithContext(context.Background())
+}
+
+func (i GetGrantsGrantsOnArgs) ToGetGrantsGrantsOnOutputWithContext(ctx context.Context) GetGrantsGrantsOnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsGrantsOnOutput)
+}
+
+func (i GetGrantsGrantsOnArgs) ToGetGrantsGrantsOnPtrOutput() GetGrantsGrantsOnPtrOutput {
+	return i.ToGetGrantsGrantsOnPtrOutputWithContext(context.Background())
+}
+
+func (i GetGrantsGrantsOnArgs) ToGetGrantsGrantsOnPtrOutputWithContext(ctx context.Context) GetGrantsGrantsOnPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsGrantsOnOutput).ToGetGrantsGrantsOnPtrOutputWithContext(ctx)
+}
+
+// GetGrantsGrantsOnPtrInput is an input type that accepts GetGrantsGrantsOnArgs, GetGrantsGrantsOnPtr and GetGrantsGrantsOnPtrOutput values.
+// You can construct a concrete instance of `GetGrantsGrantsOnPtrInput` via:
+//
+//	        GetGrantsGrantsOnArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetGrantsGrantsOnPtrInput interface {
+	pulumi.Input
+
+	ToGetGrantsGrantsOnPtrOutput() GetGrantsGrantsOnPtrOutput
+	ToGetGrantsGrantsOnPtrOutputWithContext(context.Context) GetGrantsGrantsOnPtrOutput
+}
+
+type getGrantsGrantsOnPtrType GetGrantsGrantsOnArgs
+
+func GetGrantsGrantsOnPtr(v *GetGrantsGrantsOnArgs) GetGrantsGrantsOnPtrInput {
+	return (*getGrantsGrantsOnPtrType)(v)
+}
+
+func (*getGrantsGrantsOnPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGrantsGrantsOn)(nil)).Elem()
+}
+
+func (i *getGrantsGrantsOnPtrType) ToGetGrantsGrantsOnPtrOutput() GetGrantsGrantsOnPtrOutput {
+	return i.ToGetGrantsGrantsOnPtrOutputWithContext(context.Background())
+}
+
+func (i *getGrantsGrantsOnPtrType) ToGetGrantsGrantsOnPtrOutputWithContext(ctx context.Context) GetGrantsGrantsOnPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsGrantsOnPtrOutput)
+}
+
+type GetGrantsGrantsOnOutput struct{ *pulumi.OutputState }
+
+func (GetGrantsGrantsOnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGrantsGrantsOn)(nil)).Elem()
+}
+
+func (o GetGrantsGrantsOnOutput) ToGetGrantsGrantsOnOutput() GetGrantsGrantsOnOutput {
+	return o
+}
+
+func (o GetGrantsGrantsOnOutput) ToGetGrantsGrantsOnOutputWithContext(ctx context.Context) GetGrantsGrantsOnOutput {
+	return o
+}
+
+func (o GetGrantsGrantsOnOutput) ToGetGrantsGrantsOnPtrOutput() GetGrantsGrantsOnPtrOutput {
+	return o.ToGetGrantsGrantsOnPtrOutputWithContext(context.Background())
+}
+
+func (o GetGrantsGrantsOnOutput) ToGetGrantsGrantsOnPtrOutputWithContext(ctx context.Context) GetGrantsGrantsOnPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetGrantsGrantsOn) *GetGrantsGrantsOn {
+		return &v
+	}).(GetGrantsGrantsOnPtrOutput)
+}
+
+// Object hierarchy to list privileges on. The only valid value is: ACCOUNT. Setting this attribute lists all the account-level (i.e. global) privileges that have been granted to roles.
+func (o GetGrantsGrantsOnOutput) Account() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetGrantsGrantsOn) *bool { return v.Account }).(pulumi.BoolPtrOutput)
+}
+
+// Name of object to list privileges on
+func (o GetGrantsGrantsOnOutput) ObjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGrantsGrantsOn) *string { return v.ObjectName }).(pulumi.StringPtrOutput)
+}
+
+// Type of object to list privileges on.
+func (o GetGrantsGrantsOnOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGrantsGrantsOn) *string { return v.ObjectType }).(pulumi.StringPtrOutput)
+}
+
+type GetGrantsGrantsOnPtrOutput struct{ *pulumi.OutputState }
+
+func (GetGrantsGrantsOnPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGrantsGrantsOn)(nil)).Elem()
+}
+
+func (o GetGrantsGrantsOnPtrOutput) ToGetGrantsGrantsOnPtrOutput() GetGrantsGrantsOnPtrOutput {
+	return o
+}
+
+func (o GetGrantsGrantsOnPtrOutput) ToGetGrantsGrantsOnPtrOutputWithContext(ctx context.Context) GetGrantsGrantsOnPtrOutput {
+	return o
+}
+
+func (o GetGrantsGrantsOnPtrOutput) Elem() GetGrantsGrantsOnOutput {
+	return o.ApplyT(func(v *GetGrantsGrantsOn) GetGrantsGrantsOn {
+		if v != nil {
+			return *v
+		}
+		var ret GetGrantsGrantsOn
+		return ret
+	}).(GetGrantsGrantsOnOutput)
+}
+
+// Object hierarchy to list privileges on. The only valid value is: ACCOUNT. Setting this attribute lists all the account-level (i.e. global) privileges that have been granted to roles.
+func (o GetGrantsGrantsOnPtrOutput) Account() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetGrantsGrantsOn) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Account
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Name of object to list privileges on
+func (o GetGrantsGrantsOnPtrOutput) ObjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGrantsGrantsOn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of object to list privileges on.
+func (o GetGrantsGrantsOnPtrOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGrantsGrantsOn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectType
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetGrantsGrantsTo struct {
+	// Lists all privileges and roles granted to the role
+	Role *string `pulumi:"role"`
+	// Lists all the privileges granted to the share
+	Share *string `pulumi:"share"`
+	// Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed
+	User *string `pulumi:"user"`
+}
+
+// GetGrantsGrantsToInput is an input type that accepts GetGrantsGrantsToArgs and GetGrantsGrantsToOutput values.
+// You can construct a concrete instance of `GetGrantsGrantsToInput` via:
+//
+//	GetGrantsGrantsToArgs{...}
+type GetGrantsGrantsToInput interface {
+	pulumi.Input
+
+	ToGetGrantsGrantsToOutput() GetGrantsGrantsToOutput
+	ToGetGrantsGrantsToOutputWithContext(context.Context) GetGrantsGrantsToOutput
+}
+
+type GetGrantsGrantsToArgs struct {
+	// Lists all privileges and roles granted to the role
+	Role pulumi.StringPtrInput `pulumi:"role"`
+	// Lists all the privileges granted to the share
+	Share pulumi.StringPtrInput `pulumi:"share"`
+	// Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed
+	User pulumi.StringPtrInput `pulumi:"user"`
+}
+
+func (GetGrantsGrantsToArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGrantsGrantsTo)(nil)).Elem()
+}
+
+func (i GetGrantsGrantsToArgs) ToGetGrantsGrantsToOutput() GetGrantsGrantsToOutput {
+	return i.ToGetGrantsGrantsToOutputWithContext(context.Background())
+}
+
+func (i GetGrantsGrantsToArgs) ToGetGrantsGrantsToOutputWithContext(ctx context.Context) GetGrantsGrantsToOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsGrantsToOutput)
+}
+
+func (i GetGrantsGrantsToArgs) ToGetGrantsGrantsToPtrOutput() GetGrantsGrantsToPtrOutput {
+	return i.ToGetGrantsGrantsToPtrOutputWithContext(context.Background())
+}
+
+func (i GetGrantsGrantsToArgs) ToGetGrantsGrantsToPtrOutputWithContext(ctx context.Context) GetGrantsGrantsToPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsGrantsToOutput).ToGetGrantsGrantsToPtrOutputWithContext(ctx)
+}
+
+// GetGrantsGrantsToPtrInput is an input type that accepts GetGrantsGrantsToArgs, GetGrantsGrantsToPtr and GetGrantsGrantsToPtrOutput values.
+// You can construct a concrete instance of `GetGrantsGrantsToPtrInput` via:
+//
+//	        GetGrantsGrantsToArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetGrantsGrantsToPtrInput interface {
+	pulumi.Input
+
+	ToGetGrantsGrantsToPtrOutput() GetGrantsGrantsToPtrOutput
+	ToGetGrantsGrantsToPtrOutputWithContext(context.Context) GetGrantsGrantsToPtrOutput
+}
+
+type getGrantsGrantsToPtrType GetGrantsGrantsToArgs
+
+func GetGrantsGrantsToPtr(v *GetGrantsGrantsToArgs) GetGrantsGrantsToPtrInput {
+	return (*getGrantsGrantsToPtrType)(v)
+}
+
+func (*getGrantsGrantsToPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGrantsGrantsTo)(nil)).Elem()
+}
+
+func (i *getGrantsGrantsToPtrType) ToGetGrantsGrantsToPtrOutput() GetGrantsGrantsToPtrOutput {
+	return i.ToGetGrantsGrantsToPtrOutputWithContext(context.Background())
+}
+
+func (i *getGrantsGrantsToPtrType) ToGetGrantsGrantsToPtrOutputWithContext(ctx context.Context) GetGrantsGrantsToPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsGrantsToPtrOutput)
+}
+
+type GetGrantsGrantsToOutput struct{ *pulumi.OutputState }
+
+func (GetGrantsGrantsToOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGrantsGrantsTo)(nil)).Elem()
+}
+
+func (o GetGrantsGrantsToOutput) ToGetGrantsGrantsToOutput() GetGrantsGrantsToOutput {
+	return o
+}
+
+func (o GetGrantsGrantsToOutput) ToGetGrantsGrantsToOutputWithContext(ctx context.Context) GetGrantsGrantsToOutput {
+	return o
+}
+
+func (o GetGrantsGrantsToOutput) ToGetGrantsGrantsToPtrOutput() GetGrantsGrantsToPtrOutput {
+	return o.ToGetGrantsGrantsToPtrOutputWithContext(context.Background())
+}
+
+func (o GetGrantsGrantsToOutput) ToGetGrantsGrantsToPtrOutputWithContext(ctx context.Context) GetGrantsGrantsToPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetGrantsGrantsTo) *GetGrantsGrantsTo {
+		return &v
+	}).(GetGrantsGrantsToPtrOutput)
+}
+
+// Lists all privileges and roles granted to the role
+func (o GetGrantsGrantsToOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGrantsGrantsTo) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+// Lists all the privileges granted to the share
+func (o GetGrantsGrantsToOutput) Share() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGrantsGrantsTo) *string { return v.Share }).(pulumi.StringPtrOutput)
+}
+
+// Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed
+func (o GetGrantsGrantsToOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGrantsGrantsTo) *string { return v.User }).(pulumi.StringPtrOutput)
+}
+
+type GetGrantsGrantsToPtrOutput struct{ *pulumi.OutputState }
+
+func (GetGrantsGrantsToPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGrantsGrantsTo)(nil)).Elem()
+}
+
+func (o GetGrantsGrantsToPtrOutput) ToGetGrantsGrantsToPtrOutput() GetGrantsGrantsToPtrOutput {
+	return o
+}
+
+func (o GetGrantsGrantsToPtrOutput) ToGetGrantsGrantsToPtrOutputWithContext(ctx context.Context) GetGrantsGrantsToPtrOutput {
+	return o
+}
+
+func (o GetGrantsGrantsToPtrOutput) Elem() GetGrantsGrantsToOutput {
+	return o.ApplyT(func(v *GetGrantsGrantsTo) GetGrantsGrantsTo {
+		if v != nil {
+			return *v
+		}
+		var ret GetGrantsGrantsTo
+		return ret
+	}).(GetGrantsGrantsToOutput)
+}
+
+// Lists all privileges and roles granted to the role
+func (o GetGrantsGrantsToPtrOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGrantsGrantsTo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Role
+	}).(pulumi.StringPtrOutput)
+}
+
+// Lists all the privileges granted to the share
+func (o GetGrantsGrantsToPtrOutput) Share() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGrantsGrantsTo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Share
+	}).(pulumi.StringPtrOutput)
+}
+
+// Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed
+func (o GetGrantsGrantsToPtrOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGrantsGrantsTo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.User
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetMaskingPoliciesMaskingPolicy struct {
 	Comment string `pulumi:"comment"`
 	// The database from which to return the schemas from.
@@ -4110,6 +6148,112 @@ func (o GetResourceMonitorsResourceMonitorArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetResourceMonitorsResourceMonitor {
 		return vs[0].([]GetResourceMonitorsResourceMonitor)[vs[1].(int)]
 	}).(GetResourceMonitorsResourceMonitorOutput)
+}
+
+type GetRolesRole struct {
+	Comment string `pulumi:"comment"`
+	Name    string `pulumi:"name"`
+	Owner   string `pulumi:"owner"`
+}
+
+// GetRolesRoleInput is an input type that accepts GetRolesRoleArgs and GetRolesRoleOutput values.
+// You can construct a concrete instance of `GetRolesRoleInput` via:
+//
+//	GetRolesRoleArgs{...}
+type GetRolesRoleInput interface {
+	pulumi.Input
+
+	ToGetRolesRoleOutput() GetRolesRoleOutput
+	ToGetRolesRoleOutputWithContext(context.Context) GetRolesRoleOutput
+}
+
+type GetRolesRoleArgs struct {
+	Comment pulumi.StringInput `pulumi:"comment"`
+	Name    pulumi.StringInput `pulumi:"name"`
+	Owner   pulumi.StringInput `pulumi:"owner"`
+}
+
+func (GetRolesRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRolesRole)(nil)).Elem()
+}
+
+func (i GetRolesRoleArgs) ToGetRolesRoleOutput() GetRolesRoleOutput {
+	return i.ToGetRolesRoleOutputWithContext(context.Background())
+}
+
+func (i GetRolesRoleArgs) ToGetRolesRoleOutputWithContext(ctx context.Context) GetRolesRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRolesRoleOutput)
+}
+
+// GetRolesRoleArrayInput is an input type that accepts GetRolesRoleArray and GetRolesRoleArrayOutput values.
+// You can construct a concrete instance of `GetRolesRoleArrayInput` via:
+//
+//	GetRolesRoleArray{ GetRolesRoleArgs{...} }
+type GetRolesRoleArrayInput interface {
+	pulumi.Input
+
+	ToGetRolesRoleArrayOutput() GetRolesRoleArrayOutput
+	ToGetRolesRoleArrayOutputWithContext(context.Context) GetRolesRoleArrayOutput
+}
+
+type GetRolesRoleArray []GetRolesRoleInput
+
+func (GetRolesRoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRolesRole)(nil)).Elem()
+}
+
+func (i GetRolesRoleArray) ToGetRolesRoleArrayOutput() GetRolesRoleArrayOutput {
+	return i.ToGetRolesRoleArrayOutputWithContext(context.Background())
+}
+
+func (i GetRolesRoleArray) ToGetRolesRoleArrayOutputWithContext(ctx context.Context) GetRolesRoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRolesRoleArrayOutput)
+}
+
+type GetRolesRoleOutput struct{ *pulumi.OutputState }
+
+func (GetRolesRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRolesRole)(nil)).Elem()
+}
+
+func (o GetRolesRoleOutput) ToGetRolesRoleOutput() GetRolesRoleOutput {
+	return o
+}
+
+func (o GetRolesRoleOutput) ToGetRolesRoleOutputWithContext(ctx context.Context) GetRolesRoleOutput {
+	return o
+}
+
+func (o GetRolesRoleOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRolesRole) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetRolesRoleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRolesRole) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetRolesRoleOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRolesRole) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+type GetRolesRoleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRolesRoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRolesRole)(nil)).Elem()
+}
+
+func (o GetRolesRoleArrayOutput) ToGetRolesRoleArrayOutput() GetRolesRoleArrayOutput {
+	return o
+}
+
+func (o GetRolesRoleArrayOutput) ToGetRolesRoleArrayOutputWithContext(ctx context.Context) GetRolesRoleArrayOutput {
+	return o
+}
+
+func (o GetRolesRoleArrayOutput) Index(i pulumi.IntInput) GetRolesRoleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRolesRole {
+		return vs[0].([]GetRolesRole)[vs[1].(int)]
+	}).(GetRolesRoleOutput)
 }
 
 type GetRowAccessPoliciesRowAccessPolicy struct {
@@ -5480,6 +7624,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalTableColumnArrayInput)(nil)).Elem(), ExternalTableColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalTableTagInput)(nil)).Elem(), ExternalTableTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalTableTagArrayInput)(nil)).Elem(), ExternalTableTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupFromReplicaInput)(nil)).Elem(), FailoverGroupFromReplicaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupFromReplicaPtrInput)(nil)).Elem(), FailoverGroupFromReplicaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReplicationScheduleInput)(nil)).Elem(), FailoverGroupReplicationScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReplicationSchedulePtrInput)(nil)).Elem(), FailoverGroupReplicationScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReplicationScheduleCronInput)(nil)).Elem(), FailoverGroupReplicationScheduleCronArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReplicationScheduleCronPtrInput)(nil)).Elem(), FailoverGroupReplicationScheduleCronArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArgumentInput)(nil)).Elem(), FunctionArgumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArgumentArrayInput)(nil)).Elem(), FunctionArgumentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionGrantArgumentInput)(nil)).Elem(), FunctionGrantArgumentArgs{})
@@ -5502,10 +7652,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableColumnDefaultPtrInput)(nil)).Elem(), TableColumnDefaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableColumnIdentityInput)(nil)).Elem(), TableColumnIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableColumnIdentityPtrInput)(nil)).Elem(), TableColumnIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableConstraintForeignKeyPropertiesInput)(nil)).Elem(), TableConstraintForeignKeyPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableConstraintForeignKeyPropertiesPtrInput)(nil)).Elem(), TableConstraintForeignKeyPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableConstraintForeignKeyPropertiesReferencesInput)(nil)).Elem(), TableConstraintForeignKeyPropertiesReferencesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableConstraintForeignKeyPropertiesReferencesPtrInput)(nil)).Elem(), TableConstraintForeignKeyPropertiesReferencesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePrimaryKeyInput)(nil)).Elem(), TablePrimaryKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePrimaryKeyPtrInput)(nil)).Elem(), TablePrimaryKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTagInput)(nil)).Elem(), TableTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTagArrayInput)(nil)).Elem(), TableTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationObjectIdentifierInput)(nil)).Elem(), TagAssociationObjectIdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationObjectIdentifierArrayInput)(nil)).Elem(), TagAssociationObjectIdentifierArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserTagInput)(nil)).Elem(), UserTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserTagArrayInput)(nil)).Elem(), UserTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewTagInput)(nil)).Elem(), ViewTagArgs{})
@@ -5524,6 +7680,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFileFormatsFileFormatArrayInput)(nil)).Elem(), GetFileFormatsFileFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionsFunctionInput)(nil)).Elem(), GetFunctionsFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionsFunctionArrayInput)(nil)).Elem(), GetFunctionsFunctionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsFutureGrantsInInput)(nil)).Elem(), GetGrantsFutureGrantsInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsFutureGrantsInPtrInput)(nil)).Elem(), GetGrantsFutureGrantsInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsFutureGrantsInSchemaInput)(nil)).Elem(), GetGrantsFutureGrantsInSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsFutureGrantsInSchemaPtrInput)(nil)).Elem(), GetGrantsFutureGrantsInSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsFutureGrantsToInput)(nil)).Elem(), GetGrantsFutureGrantsToArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsFutureGrantsToPtrInput)(nil)).Elem(), GetGrantsFutureGrantsToArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsGrantInput)(nil)).Elem(), GetGrantsGrantArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsGrantArrayInput)(nil)).Elem(), GetGrantsGrantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsGrantsOfInput)(nil)).Elem(), GetGrantsGrantsOfArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsGrantsOfPtrInput)(nil)).Elem(), GetGrantsGrantsOfArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsGrantsOnInput)(nil)).Elem(), GetGrantsGrantsOnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsGrantsOnPtrInput)(nil)).Elem(), GetGrantsGrantsOnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsGrantsToInput)(nil)).Elem(), GetGrantsGrantsToArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsGrantsToPtrInput)(nil)).Elem(), GetGrantsGrantsToArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMaskingPoliciesMaskingPolicyInput)(nil)).Elem(), GetMaskingPoliciesMaskingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMaskingPoliciesMaskingPolicyArrayInput)(nil)).Elem(), GetMaskingPoliciesMaskingPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMaterializedViewsMaterializedViewInput)(nil)).Elem(), GetMaterializedViewsMaterializedViewArgs{})
@@ -5534,6 +7704,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProceduresProcedureArrayInput)(nil)).Elem(), GetProceduresProcedureArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResourceMonitorsResourceMonitorInput)(nil)).Elem(), GetResourceMonitorsResourceMonitorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResourceMonitorsResourceMonitorArrayInput)(nil)).Elem(), GetResourceMonitorsResourceMonitorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRolesRoleInput)(nil)).Elem(), GetRolesRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRolesRoleArrayInput)(nil)).Elem(), GetRolesRoleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRowAccessPoliciesRowAccessPolicyInput)(nil)).Elem(), GetRowAccessPoliciesRowAccessPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRowAccessPoliciesRowAccessPolicyArrayInput)(nil)).Elem(), GetRowAccessPoliciesRowAccessPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemasSchemaInput)(nil)).Elem(), GetSchemasSchemaArgs{})
@@ -5568,6 +7740,12 @@ func init() {
 	pulumi.RegisterOutputType(ExternalTableColumnArrayOutput{})
 	pulumi.RegisterOutputType(ExternalTableTagOutput{})
 	pulumi.RegisterOutputType(ExternalTableTagArrayOutput{})
+	pulumi.RegisterOutputType(FailoverGroupFromReplicaOutput{})
+	pulumi.RegisterOutputType(FailoverGroupFromReplicaPtrOutput{})
+	pulumi.RegisterOutputType(FailoverGroupReplicationScheduleOutput{})
+	pulumi.RegisterOutputType(FailoverGroupReplicationSchedulePtrOutput{})
+	pulumi.RegisterOutputType(FailoverGroupReplicationScheduleCronOutput{})
+	pulumi.RegisterOutputType(FailoverGroupReplicationScheduleCronPtrOutput{})
 	pulumi.RegisterOutputType(FunctionArgumentOutput{})
 	pulumi.RegisterOutputType(FunctionArgumentArrayOutput{})
 	pulumi.RegisterOutputType(FunctionGrantArgumentOutput{})
@@ -5590,10 +7768,16 @@ func init() {
 	pulumi.RegisterOutputType(TableColumnDefaultPtrOutput{})
 	pulumi.RegisterOutputType(TableColumnIdentityOutput{})
 	pulumi.RegisterOutputType(TableColumnIdentityPtrOutput{})
+	pulumi.RegisterOutputType(TableConstraintForeignKeyPropertiesOutput{})
+	pulumi.RegisterOutputType(TableConstraintForeignKeyPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TableConstraintForeignKeyPropertiesReferencesOutput{})
+	pulumi.RegisterOutputType(TableConstraintForeignKeyPropertiesReferencesPtrOutput{})
 	pulumi.RegisterOutputType(TablePrimaryKeyOutput{})
 	pulumi.RegisterOutputType(TablePrimaryKeyPtrOutput{})
 	pulumi.RegisterOutputType(TableTagOutput{})
 	pulumi.RegisterOutputType(TableTagArrayOutput{})
+	pulumi.RegisterOutputType(TagAssociationObjectIdentifierOutput{})
+	pulumi.RegisterOutputType(TagAssociationObjectIdentifierArrayOutput{})
 	pulumi.RegisterOutputType(UserTagOutput{})
 	pulumi.RegisterOutputType(UserTagArrayOutput{})
 	pulumi.RegisterOutputType(ViewTagOutput{})
@@ -5612,6 +7796,20 @@ func init() {
 	pulumi.RegisterOutputType(GetFileFormatsFileFormatArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionsFunctionOutput{})
 	pulumi.RegisterOutputType(GetFunctionsFunctionArrayOutput{})
+	pulumi.RegisterOutputType(GetGrantsFutureGrantsInOutput{})
+	pulumi.RegisterOutputType(GetGrantsFutureGrantsInPtrOutput{})
+	pulumi.RegisterOutputType(GetGrantsFutureGrantsInSchemaOutput{})
+	pulumi.RegisterOutputType(GetGrantsFutureGrantsInSchemaPtrOutput{})
+	pulumi.RegisterOutputType(GetGrantsFutureGrantsToOutput{})
+	pulumi.RegisterOutputType(GetGrantsFutureGrantsToPtrOutput{})
+	pulumi.RegisterOutputType(GetGrantsGrantOutput{})
+	pulumi.RegisterOutputType(GetGrantsGrantArrayOutput{})
+	pulumi.RegisterOutputType(GetGrantsGrantsOfOutput{})
+	pulumi.RegisterOutputType(GetGrantsGrantsOfPtrOutput{})
+	pulumi.RegisterOutputType(GetGrantsGrantsOnOutput{})
+	pulumi.RegisterOutputType(GetGrantsGrantsOnPtrOutput{})
+	pulumi.RegisterOutputType(GetGrantsGrantsToOutput{})
+	pulumi.RegisterOutputType(GetGrantsGrantsToPtrOutput{})
 	pulumi.RegisterOutputType(GetMaskingPoliciesMaskingPolicyOutput{})
 	pulumi.RegisterOutputType(GetMaskingPoliciesMaskingPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetMaterializedViewsMaterializedViewOutput{})
@@ -5622,6 +7820,8 @@ func init() {
 	pulumi.RegisterOutputType(GetProceduresProcedureArrayOutput{})
 	pulumi.RegisterOutputType(GetResourceMonitorsResourceMonitorOutput{})
 	pulumi.RegisterOutputType(GetResourceMonitorsResourceMonitorArrayOutput{})
+	pulumi.RegisterOutputType(GetRolesRoleOutput{})
+	pulumi.RegisterOutputType(GetRolesRoleArrayOutput{})
 	pulumi.RegisterOutputType(GetRowAccessPoliciesRowAccessPolicyOutput{})
 	pulumi.RegisterOutputType(GetRowAccessPoliciesRowAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetSchemasSchemaOutput{})

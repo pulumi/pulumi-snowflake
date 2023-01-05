@@ -85,6 +85,37 @@ export interface ExternalTableTag {
     value: string;
 }
 
+export interface FailoverGroupFromReplica {
+    /**
+     * Identifier for the primary failover group in the source account.
+     */
+    name: string;
+    /**
+     * Name of your Snowflake organization.
+     */
+    organizationName: string;
+    /**
+     * Source account from which you are enabling replication and failover of the specified objects.
+     */
+    sourceAccountName: string;
+}
+
+export interface FailoverGroupReplicationSchedule {
+    /**
+     * Specifies the cron expression for the replication schedule. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+     */
+    cron?: outputs.FailoverGroupReplicationScheduleCron;
+    /**
+     * Specifies the interval in minutes for the replication schedule. The interval must be greater than 0 and less than 1440 (24 hours).
+     */
+    interval?: number;
+}
+
+export interface FailoverGroupReplicationScheduleCron {
+    expression: string;
+    timeZone: string;
+}
+
 export interface FunctionArgument {
     /**
      * The argument name
@@ -181,6 +212,81 @@ export interface GetFunctionsFunction {
     schema: string;
 }
 
+export interface GetGrantsFutureGrantsIn {
+    /**
+     * Lists all privileges on new (i.e. future) objects of a specified type in the database granted to a role.
+     */
+    database?: string;
+    /**
+     * Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+     */
+    schema?: outputs.GetGrantsFutureGrantsInSchema;
+}
+
+export interface GetGrantsFutureGrantsInSchema {
+    databaseName?: string;
+    schemaName: string;
+}
+
+export interface GetGrantsFutureGrantsTo {
+    /**
+     * Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
+     */
+    role: string;
+}
+
+export interface GetGrantsGrant {
+    createdOn: string;
+    grantOption: boolean;
+    grantedBy: string;
+    grantedOn: string;
+    grantedTo: string;
+    granteeName: string;
+    name: string;
+    privilege: string;
+}
+
+export interface GetGrantsGrantsOf {
+    /**
+     * Lists all users and roles to which the role has been granted
+     */
+    role?: string;
+    /**
+     * Lists all the accounts for the share and indicates the accounts that are using the share.
+     */
+    share?: string;
+}
+
+export interface GetGrantsGrantsOn {
+    /**
+     * Object hierarchy to list privileges on. The only valid value is: ACCOUNT. Setting this attribute lists all the account-level (i.e. global) privileges that have been granted to roles.
+     */
+    account?: boolean;
+    /**
+     * Name of object to list privileges on
+     */
+    objectName?: string;
+    /**
+     * Type of object to list privileges on.
+     */
+    objectType?: string;
+}
+
+export interface GetGrantsGrantsTo {
+    /**
+     * Lists all privileges and roles granted to the role
+     */
+    role?: string;
+    /**
+     * Lists all the privileges granted to the share
+     */
+    share?: string;
+    /**
+     * Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed
+     */
+    user?: string;
+}
+
 export interface GetMaskingPoliciesMaskingPolicy {
     comment: string;
     /**
@@ -242,6 +348,12 @@ export interface GetResourceMonitorsResourceMonitor {
     creditQuota: string;
     frequency: string;
     name: string;
+}
+
+export interface GetRolesRole {
+    comment: string;
+    name: string;
+    owner: string;
 }
 
 export interface GetRowAccessPoliciesRowAccessPolicy {
@@ -491,6 +603,10 @@ export interface TableColumn {
      */
     identity?: outputs.TableColumnIdentity;
     /**
+     * Masking policy to apply on column
+     */
+    maskingPolicy?: string;
+    /**
      * Column name
      */
     name: string;
@@ -513,6 +629,36 @@ export interface TableColumnDefault {
 export interface TableColumnIdentity {
     startNum?: number;
     stepNum?: number;
+}
+
+export interface TableConstraintForeignKeyProperties {
+    /**
+     * The match type for the foreign key. Not applicable for primary/unique keys
+     */
+    match?: string;
+    /**
+     * Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+     */
+    onDelete?: string;
+    /**
+     * Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+     */
+    onUpdate?: string;
+    /**
+     * The table and columns that the foreign key references. Not applicable for primary/unique keys
+     */
+    references?: outputs.TableConstraintForeignKeyPropertiesReferences;
+}
+
+export interface TableConstraintForeignKeyPropertiesReferences {
+    /**
+     * Columns to use in constraint key
+     */
+    columns: string[];
+    /**
+     * Idenfifier for table to create constraint on. Must be of the form Note: format must follow: "\n\n"."\n\n"."\n\n" or "\n\n.\n\n.\n\n" or "\n\n|\n\n.\n\n" (snowflake*table.my*table.id)
+     */
+    tableId: string;
 }
 
 export interface TablePrimaryKey {
@@ -543,6 +689,21 @@ export interface TableTag {
      * Tag value, e.g. marketing_info.
      */
     value: string;
+}
+
+export interface TagAssociationObjectIdentifier {
+    /**
+     * Name of the database that the object was created in.
+     */
+    database?: string;
+    /**
+     * Name of the object to associate the tag with.
+     */
+    name: string;
+    /**
+     * Name of the schema that the object was created in.
+     */
+    schema?: string;
 }
 
 export interface UserTag {

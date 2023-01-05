@@ -79,14 +79,14 @@ public class AccountGrant extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableMultipleGrants);
     }
     /**
-     * The privilege to grant on the account.
+     * The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html)
      * 
      */
     @Export(name="privilege", type=String.class, parameters={})
     private Output</* @Nullable */ String> privilege;
 
     /**
-     * @return The privilege to grant on the account.
+     * @return The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html)
      * 
      */
     public Output<Optional<String>> privilege() {

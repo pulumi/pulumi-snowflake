@@ -40,10 +40,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var grant = new PipeGrant(&#34;grant&#34;, PipeGrantArgs.builder()        
- *             .databaseName(&#34;db&#34;)
+ *             .databaseName(&#34;database&#34;)
  *             .onFuture(false)
  *             .pipeName(&#34;pipe&#34;)
- *             .privilege(&#34;operate&#34;)
+ *             .privilege(&#34;OPERATE&#34;)
  *             .roles(            
  *                 &#34;role1&#34;,
  *                 &#34;role2&#34;)

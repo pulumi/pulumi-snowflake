@@ -25,6 +25,12 @@ namespace Pulumi.Snowflake
         public Output<string> OnRoleName { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the role to revert ownership to on destroy.
+        /// </summary>
+        [Output("revertOwnershipToRoleName")]
+        public Output<string?> RevertOwnershipToRoleName { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
         /// </summary>
         [Output("toRoleName")]
@@ -89,6 +95,12 @@ namespace Pulumi.Snowflake
         public Input<string> OnRoleName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the role to revert ownership to on destroy.
+        /// </summary>
+        [Input("revertOwnershipToRoleName")]
+        public Input<string>? RevertOwnershipToRoleName { get; set; }
+
+        /// <summary>
         /// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
         /// </summary>
         [Input("toRoleName", required: true)]
@@ -113,6 +125,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("onRoleName")]
         public Input<string>? OnRoleName { get; set; }
+
+        /// <summary>
+        /// The name of the role to revert ownership to on destroy.
+        /// </summary>
+        [Input("revertOwnershipToRoleName")]
+        public Input<string>? RevertOwnershipToRoleName { get; set; }
 
         /// <summary>
         /// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.

@@ -281,7 +281,7 @@ class Schema(pulumi.CustomResource):
         schema = snowflake.Schema("schema",
             comment="A schema.",
             data_retention_days=1,
-            database="db",
+            database="database",
             is_managed=False,
             is_transient=False)
         ```
@@ -320,7 +320,7 @@ class Schema(pulumi.CustomResource):
         schema = snowflake.Schema("schema",
             comment="A schema.",
             data_retention_days=1,
-            database="db",
+            database="database",
             is_managed=False,
             is_transient=False)
         ```

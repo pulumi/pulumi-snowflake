@@ -307,9 +307,9 @@ class SequenceGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.SequenceGrant("grant",
-            database_name="db",
+            database_name="database",
             on_future=False,
-            privilege="select",
+            privilege="SELECT",
             roles=[
                 "role1",
                 "role2",
@@ -353,9 +353,9 @@ class SequenceGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.SequenceGrant("grant",
-            database_name="db",
+            database_name="database",
             on_future=False,
-            privilege="select",
+            privilege="SELECT",
             roles=[
                 "role1",
                 "role2",

@@ -40,7 +40,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var grant = new SchemaGrant(&#34;grant&#34;, SchemaGrantArgs.builder()        
- *             .databaseName(&#34;db&#34;)
+ *             .databaseName(&#34;database&#34;)
  *             .onFuture(false)
  *             .privilege(&#34;USAGE&#34;)
  *             .roles(            

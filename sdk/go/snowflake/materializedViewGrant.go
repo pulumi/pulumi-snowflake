@@ -26,10 +26,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewMaterializedViewGrant(ctx, "grant", &snowflake.MaterializedViewGrantArgs{
-//				DatabaseName:         pulumi.String("db"),
+//				DatabaseName:         pulumi.String("database"),
 //				MaterializedViewName: pulumi.String("materialized_view"),
 //				OnFuture:             pulumi.Bool(false),
-//				Privilege:            pulumi.String("select"),
+//				Privilege:            pulumi.String("SELECT"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
 //					pulumi.String("role2"),

@@ -20,6 +20,7 @@ class OauthIntegrationArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  oauth_issue_refresh_tokens: Optional[pulumi.Input[bool]] = None,
+                 oauth_redirect_uri: Optional[pulumi.Input[str]] = None,
                  oauth_refresh_token_validity: Optional[pulumi.Input[int]] = None,
                  oauth_use_secondary_roles: Optional[pulumi.Input[str]] = None):
         """
@@ -30,6 +31,7 @@ class OauthIntegrationArgs:
         :param pulumi.Input[bool] enabled: Specifies whether this OAuth integration is enabled or disabled.
         :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
         :param pulumi.Input[bool] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
+        :param pulumi.Input[str] oauth_redirect_uri: Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
         :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
         """
@@ -44,6 +46,8 @@ class OauthIntegrationArgs:
             pulumi.set(__self__, "name", name)
         if oauth_issue_refresh_tokens is not None:
             pulumi.set(__self__, "oauth_issue_refresh_tokens", oauth_issue_refresh_tokens)
+        if oauth_redirect_uri is not None:
+            pulumi.set(__self__, "oauth_redirect_uri", oauth_redirect_uri)
         if oauth_refresh_token_validity is not None:
             pulumi.set(__self__, "oauth_refresh_token_validity", oauth_refresh_token_validity)
         if oauth_use_secondary_roles is not None:
@@ -122,6 +126,18 @@ class OauthIntegrationArgs:
         pulumi.set(self, "oauth_issue_refresh_tokens", value)
 
     @property
+    @pulumi.getter(name="oauthRedirectUri")
+    def oauth_redirect_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
+        """
+        return pulumi.get(self, "oauth_redirect_uri")
+
+    @oauth_redirect_uri.setter
+    def oauth_redirect_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "oauth_redirect_uri", value)
+
+    @property
     @pulumi.getter(name="oauthRefreshTokenValidity")
     def oauth_refresh_token_validity(self) -> Optional[pulumi.Input[int]]:
         """
@@ -156,6 +172,7 @@ class _OauthIntegrationState:
                  name: Optional[pulumi.Input[str]] = None,
                  oauth_client: Optional[pulumi.Input[str]] = None,
                  oauth_issue_refresh_tokens: Optional[pulumi.Input[bool]] = None,
+                 oauth_redirect_uri: Optional[pulumi.Input[str]] = None,
                  oauth_refresh_token_validity: Optional[pulumi.Input[int]] = None,
                  oauth_use_secondary_roles: Optional[pulumi.Input[str]] = None):
         """
@@ -167,6 +184,7 @@ class _OauthIntegrationState:
         :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
         :param pulumi.Input[str] oauth_client: Specifies the OAuth client type.
         :param pulumi.Input[bool] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
+        :param pulumi.Input[str] oauth_redirect_uri: Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
         :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
         """
@@ -184,6 +202,8 @@ class _OauthIntegrationState:
             pulumi.set(__self__, "oauth_client", oauth_client)
         if oauth_issue_refresh_tokens is not None:
             pulumi.set(__self__, "oauth_issue_refresh_tokens", oauth_issue_refresh_tokens)
+        if oauth_redirect_uri is not None:
+            pulumi.set(__self__, "oauth_redirect_uri", oauth_redirect_uri)
         if oauth_refresh_token_validity is not None:
             pulumi.set(__self__, "oauth_refresh_token_validity", oauth_refresh_token_validity)
         if oauth_use_secondary_roles is not None:
@@ -274,6 +294,18 @@ class _OauthIntegrationState:
         pulumi.set(self, "oauth_issue_refresh_tokens", value)
 
     @property
+    @pulumi.getter(name="oauthRedirectUri")
+    def oauth_redirect_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
+        """
+        return pulumi.get(self, "oauth_redirect_uri")
+
+    @oauth_redirect_uri.setter
+    def oauth_redirect_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "oauth_redirect_uri", value)
+
+    @property
     @pulumi.getter(name="oauthRefreshTokenValidity")
     def oauth_refresh_token_validity(self) -> Optional[pulumi.Input[int]]:
         """
@@ -309,6 +341,7 @@ class OauthIntegration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  oauth_client: Optional[pulumi.Input[str]] = None,
                  oauth_issue_refresh_tokens: Optional[pulumi.Input[bool]] = None,
+                 oauth_redirect_uri: Optional[pulumi.Input[str]] = None,
                  oauth_refresh_token_validity: Optional[pulumi.Input[int]] = None,
                  oauth_use_secondary_roles: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -341,6 +374,7 @@ class OauthIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
         :param pulumi.Input[str] oauth_client: Specifies the OAuth client type.
         :param pulumi.Input[bool] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
+        :param pulumi.Input[str] oauth_redirect_uri: Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
         :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
         """
@@ -392,6 +426,7 @@ class OauthIntegration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  oauth_client: Optional[pulumi.Input[str]] = None,
                  oauth_issue_refresh_tokens: Optional[pulumi.Input[bool]] = None,
+                 oauth_redirect_uri: Optional[pulumi.Input[str]] = None,
                  oauth_refresh_token_validity: Optional[pulumi.Input[int]] = None,
                  oauth_use_secondary_roles: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -411,6 +446,7 @@ class OauthIntegration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'oauth_client'")
             __props__.__dict__["oauth_client"] = oauth_client
             __props__.__dict__["oauth_issue_refresh_tokens"] = oauth_issue_refresh_tokens
+            __props__.__dict__["oauth_redirect_uri"] = oauth_redirect_uri
             __props__.__dict__["oauth_refresh_token_validity"] = oauth_refresh_token_validity
             __props__.__dict__["oauth_use_secondary_roles"] = oauth_use_secondary_roles
             __props__.__dict__["created_on"] = None
@@ -431,6 +467,7 @@ class OauthIntegration(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             oauth_client: Optional[pulumi.Input[str]] = None,
             oauth_issue_refresh_tokens: Optional[pulumi.Input[bool]] = None,
+            oauth_redirect_uri: Optional[pulumi.Input[str]] = None,
             oauth_refresh_token_validity: Optional[pulumi.Input[int]] = None,
             oauth_use_secondary_roles: Optional[pulumi.Input[str]] = None) -> 'OauthIntegration':
         """
@@ -447,6 +484,7 @@ class OauthIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
         :param pulumi.Input[str] oauth_client: Specifies the OAuth client type.
         :param pulumi.Input[bool] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
+        :param pulumi.Input[str] oauth_redirect_uri: Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
         :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
         """
@@ -461,6 +499,7 @@ class OauthIntegration(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["oauth_client"] = oauth_client
         __props__.__dict__["oauth_issue_refresh_tokens"] = oauth_issue_refresh_tokens
+        __props__.__dict__["oauth_redirect_uri"] = oauth_redirect_uri
         __props__.__dict__["oauth_refresh_token_validity"] = oauth_refresh_token_validity
         __props__.__dict__["oauth_use_secondary_roles"] = oauth_use_secondary_roles
         return OauthIntegration(resource_name, opts=opts, __props__=__props__)
@@ -520,6 +559,14 @@ class OauthIntegration(pulumi.CustomResource):
         Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
         """
         return pulumi.get(self, "oauth_issue_refresh_tokens")
+
+    @property
+    @pulumi.getter(name="oauthRedirectUri")
+    def oauth_redirect_uri(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
+        """
+        return pulumi.get(self, "oauth_redirect_uri")
 
     @property
     @pulumi.getter(name="oauthRefreshTokenValidity")

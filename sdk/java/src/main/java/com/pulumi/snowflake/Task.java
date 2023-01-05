@@ -13,6 +13,7 @@ import com.pulumi.snowflake.inputs.TaskState;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -42,14 +43,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var task = new Task(&#34;task&#34;, TaskArgs.builder()        
  *             .comment(&#34;my task&#34;)
- *             .database(&#34;db&#34;)
+ *             .database(&#34;database&#34;)
  *             .schema(&#34;schema&#34;)
  *             .warehouse(&#34;warehouse&#34;)
  *             .schedule(&#34;10 MINUTE&#34;)
  *             .sqlStatement(&#34;select * from foo;&#34;)
  *             .sessionParameters(Map.of(&#34;foo&#34;, &#34;bar&#34;))
  *             .userTaskTimeoutMs(10000)
- *             .after(&#34;preceding_task&#34;)
+ *             .afters(&#34;preceding_task&#34;)
  *             .when(&#34;foo AND bar&#34;)
  *             .enabled(true)
  *             .build());
@@ -63,8 +64,17 @@ import javax.annotation.Nullable;
  *             .sessionParameters(Map.of(&#34;foo&#34;, &#34;bar&#34;))
  *             .userTaskTimeoutMs(10000)
  *             .userTaskManagedInitialWarehouseSize(&#34;XSMALL&#34;)
- *             .after(&#34;preceding_task&#34;)
+ *             .afters(task.name())
  *             .when(&#34;foo AND bar&#34;)
+ *             .enabled(true)
+ *             .build());
+ * 
+ *         var testTask = new Task(&#34;testTask&#34;, TaskArgs.builder()        
+ *             .comment(&#34;task with allow_overlapping_execution&#34;)
+ *             .database(&#34;database&#34;)
+ *             .schema(&#34;schema&#34;)
+ *             .sqlStatement(&#34;select 1 as c;&#34;)
+ *             .allowOverlappingExecution(true)
  *             .enabled(true)
  *             .build());
  * 
@@ -84,18 +94,32 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/task:Task")
 public class Task extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+     * Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
      * 
      */
-    @Export(name="after", type=String.class, parameters={})
-    private Output</* @Nullable */ String> after;
+    @Export(name="afters", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> afters;
 
     /**
-     * @return Specifies the predecessor task in the same database and schema of the current task. When a run of the predecessor task finishes successfully, it triggers this task (after a brief lag). (Conflict with schedule)
+     * @return Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
      * 
      */
-    public Output<Optional<String>> after() {
-        return Codegen.optional(this.after);
+    public Output<Optional<List<String>>> afters() {
+        return Codegen.optional(this.afters);
+    }
+    /**
+     * By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
+     * 
+     */
+    @Export(name="allowOverlappingExecution", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> allowOverlappingExecution;
+
+    /**
+     * @return By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
+     * 
+     */
+    public Output<Optional<Boolean>> allowOverlappingExecution() {
+        return Codegen.optional(this.allowOverlappingExecution);
     }
     /**
      * Specifies a comment for the task.

@@ -46,6 +46,21 @@ public final class RoleOwnershipGrantArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The name of the role to revert ownership to on destroy.
+     * 
+     */
+    @Import(name="revertOwnershipToRoleName")
+    private @Nullable Output<String> revertOwnershipToRoleName;
+
+    /**
+     * @return The name of the role to revert ownership to on destroy.
+     * 
+     */
+    public Optional<Output<String>> revertOwnershipToRoleName() {
+        return Optional.ofNullable(this.revertOwnershipToRoleName);
+    }
+
+    /**
      * The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
      * 
      */
@@ -65,6 +80,7 @@ public final class RoleOwnershipGrantArgs extends com.pulumi.resources.ResourceA
     private RoleOwnershipGrantArgs(RoleOwnershipGrantArgs $) {
         this.currentGrants = $.currentGrants;
         this.onRoleName = $.onRoleName;
+        this.revertOwnershipToRoleName = $.revertOwnershipToRoleName;
         this.toRoleName = $.toRoleName;
     }
 
@@ -126,6 +142,27 @@ public final class RoleOwnershipGrantArgs extends com.pulumi.resources.ResourceA
          */
         public Builder onRoleName(String onRoleName) {
             return onRoleName(Output.of(onRoleName));
+        }
+
+        /**
+         * @param revertOwnershipToRoleName The name of the role to revert ownership to on destroy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder revertOwnershipToRoleName(@Nullable Output<String> revertOwnershipToRoleName) {
+            $.revertOwnershipToRoleName = revertOwnershipToRoleName;
+            return this;
+        }
+
+        /**
+         * @param revertOwnershipToRoleName The name of the role to revert ownership to on destroy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder revertOwnershipToRoleName(String revertOwnershipToRoleName) {
+            return revertOwnershipToRoleName(Output.of(revertOwnershipToRoleName));
         }
 
         /**

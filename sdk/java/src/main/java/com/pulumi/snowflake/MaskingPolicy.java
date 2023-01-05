@@ -117,6 +117,20 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Specifies the qualified identifier for the masking policy.
+     * 
+     */
+    @Export(name="qualifiedName", type=String.class, parameters={})
+    private Output<String> qualifiedName;
+
+    /**
+     * @return Specifies the qualified identifier for the masking policy.
+     * 
+     */
+    public Output<String> qualifiedName() {
+        return this.qualifiedName;
+    }
+    /**
      * Specifies the data type to return.
      * 
      */

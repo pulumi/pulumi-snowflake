@@ -13,6 +13,7 @@ from .external_function import *
 from .external_oauth_integration import *
 from .external_table import *
 from .external_table_grant import *
+from .failover_group import *
 from .file_format import *
 from .file_format_grant import *
 from .function import *
@@ -24,12 +25,14 @@ from .get_external_functions import *
 from .get_external_tables import *
 from .get_file_formats import *
 from .get_functions import *
+from .get_grants import *
 from .get_masking_policies import *
 from .get_materialized_views import *
 from .get_pipes import *
 from .get_procedures import *
 from .get_resource_monitors import *
 from .get_role import *
+from .get_roles import *
 from .get_row_access_policies import *
 from .get_schemas import *
 from .get_sequences import *
@@ -80,6 +83,7 @@ from .storage_integration import *
 from .stream import *
 from .stream_grant import *
 from .table import *
+from .table_constraint import *
 from .table_grant import *
 from .tag import *
 from .tag_association import *
@@ -170,6 +174,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/externalTableGrant:ExternalTableGrant": "ExternalTableGrant"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/failoverGroup",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/failoverGroup:FailoverGroup": "FailoverGroup"
   }
  },
  {
@@ -474,6 +486,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/table:Table": "Table"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/tableConstraint",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/tableConstraint:TableConstraint": "TableConstraint"
   }
  },
  {

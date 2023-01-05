@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * const schema = new snowflake.Schema("schema", {
  *     comment: "A schema.",
  *     dataRetentionDays: 1,
- *     database: "db",
+ *     database: "database",
  *     isManaged: false,
  *     isTransient: false,
  * });

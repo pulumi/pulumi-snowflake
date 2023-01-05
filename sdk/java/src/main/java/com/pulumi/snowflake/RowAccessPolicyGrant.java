@@ -40,7 +40,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var grant = new RowAccessPolicyGrant(&#34;grant&#34;, RowAccessPolicyGrantArgs.builder()        
- *             .databaseName(&#34;db&#34;)
+ *             .databaseName(&#34;database&#34;)
  *             .privilege(&#34;APPLY&#34;)
  *             .roles(            
  *                 &#34;role1&#34;,
