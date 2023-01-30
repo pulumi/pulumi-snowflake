@@ -2,7 +2,10 @@ module github.com/pulumi/pulumi-snowflake/provider
 
 go 1.19
 
-replace github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220725190814-23001ad6ec03
+replace (
+	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220725190814-23001ad6ec03
+	github.com/mattn/go-ieproxy => github.com/mattn/go-ieproxy v0.0.1
+)
 
 require (
 	github.com/Snowflake-Labs/terraform-provider-snowflake v0.56.0
