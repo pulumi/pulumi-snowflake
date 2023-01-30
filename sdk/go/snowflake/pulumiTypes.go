@@ -1548,6 +1548,121 @@ func (o MaterializedViewTagArrayOutput) Index(i pulumi.IntInput) MaterializedVie
 	}).(MaterializedViewTagOutput)
 }
 
+type ObjectParameterObjectIdentifier struct {
+	// Name of the database that the object was created in.
+	Database *string `pulumi:"database"`
+	// Name of the object to set the parameter for.
+	Name string `pulumi:"name"`
+	// Name of the schema that the object was created in.
+	Schema *string `pulumi:"schema"`
+}
+
+// ObjectParameterObjectIdentifierInput is an input type that accepts ObjectParameterObjectIdentifierArgs and ObjectParameterObjectIdentifierOutput values.
+// You can construct a concrete instance of `ObjectParameterObjectIdentifierInput` via:
+//
+//	ObjectParameterObjectIdentifierArgs{...}
+type ObjectParameterObjectIdentifierInput interface {
+	pulumi.Input
+
+	ToObjectParameterObjectIdentifierOutput() ObjectParameterObjectIdentifierOutput
+	ToObjectParameterObjectIdentifierOutputWithContext(context.Context) ObjectParameterObjectIdentifierOutput
+}
+
+type ObjectParameterObjectIdentifierArgs struct {
+	// Name of the database that the object was created in.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// Name of the object to set the parameter for.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of the schema that the object was created in.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+}
+
+func (ObjectParameterObjectIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectParameterObjectIdentifier)(nil)).Elem()
+}
+
+func (i ObjectParameterObjectIdentifierArgs) ToObjectParameterObjectIdentifierOutput() ObjectParameterObjectIdentifierOutput {
+	return i.ToObjectParameterObjectIdentifierOutputWithContext(context.Background())
+}
+
+func (i ObjectParameterObjectIdentifierArgs) ToObjectParameterObjectIdentifierOutputWithContext(ctx context.Context) ObjectParameterObjectIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectParameterObjectIdentifierOutput)
+}
+
+// ObjectParameterObjectIdentifierArrayInput is an input type that accepts ObjectParameterObjectIdentifierArray and ObjectParameterObjectIdentifierArrayOutput values.
+// You can construct a concrete instance of `ObjectParameterObjectIdentifierArrayInput` via:
+//
+//	ObjectParameterObjectIdentifierArray{ ObjectParameterObjectIdentifierArgs{...} }
+type ObjectParameterObjectIdentifierArrayInput interface {
+	pulumi.Input
+
+	ToObjectParameterObjectIdentifierArrayOutput() ObjectParameterObjectIdentifierArrayOutput
+	ToObjectParameterObjectIdentifierArrayOutputWithContext(context.Context) ObjectParameterObjectIdentifierArrayOutput
+}
+
+type ObjectParameterObjectIdentifierArray []ObjectParameterObjectIdentifierInput
+
+func (ObjectParameterObjectIdentifierArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObjectParameterObjectIdentifier)(nil)).Elem()
+}
+
+func (i ObjectParameterObjectIdentifierArray) ToObjectParameterObjectIdentifierArrayOutput() ObjectParameterObjectIdentifierArrayOutput {
+	return i.ToObjectParameterObjectIdentifierArrayOutputWithContext(context.Background())
+}
+
+func (i ObjectParameterObjectIdentifierArray) ToObjectParameterObjectIdentifierArrayOutputWithContext(ctx context.Context) ObjectParameterObjectIdentifierArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectParameterObjectIdentifierArrayOutput)
+}
+
+type ObjectParameterObjectIdentifierOutput struct{ *pulumi.OutputState }
+
+func (ObjectParameterObjectIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectParameterObjectIdentifier)(nil)).Elem()
+}
+
+func (o ObjectParameterObjectIdentifierOutput) ToObjectParameterObjectIdentifierOutput() ObjectParameterObjectIdentifierOutput {
+	return o
+}
+
+func (o ObjectParameterObjectIdentifierOutput) ToObjectParameterObjectIdentifierOutputWithContext(ctx context.Context) ObjectParameterObjectIdentifierOutput {
+	return o
+}
+
+// Name of the database that the object was created in.
+func (o ObjectParameterObjectIdentifierOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObjectParameterObjectIdentifier) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// Name of the object to set the parameter for.
+func (o ObjectParameterObjectIdentifierOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ObjectParameterObjectIdentifier) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of the schema that the object was created in.
+func (o ObjectParameterObjectIdentifierOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObjectParameterObjectIdentifier) *string { return v.Schema }).(pulumi.StringPtrOutput)
+}
+
+type ObjectParameterObjectIdentifierArrayOutput struct{ *pulumi.OutputState }
+
+func (ObjectParameterObjectIdentifierArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObjectParameterObjectIdentifier)(nil)).Elem()
+}
+
+func (o ObjectParameterObjectIdentifierArrayOutput) ToObjectParameterObjectIdentifierArrayOutput() ObjectParameterObjectIdentifierArrayOutput {
+	return o
+}
+
+func (o ObjectParameterObjectIdentifierArrayOutput) ToObjectParameterObjectIdentifierArrayOutputWithContext(ctx context.Context) ObjectParameterObjectIdentifierArrayOutput {
+	return o
+}
+
+func (o ObjectParameterObjectIdentifierArrayOutput) Index(i pulumi.IntInput) ObjectParameterObjectIdentifierOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObjectParameterObjectIdentifier {
+		return vs[0].([]ObjectParameterObjectIdentifier)[vs[1].(int)]
+	}).(ObjectParameterObjectIdentifierOutput)
+}
+
 type ProcedureArgument struct {
 	// The argument name
 	Name string `pulumi:"name"`
@@ -5784,6 +5899,130 @@ func (o GetMaterializedViewsMaterializedViewArrayOutput) Index(i pulumi.IntInput
 	}).(GetMaterializedViewsMaterializedViewOutput)
 }
 
+type GetParametersParameter struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Type        string `pulumi:"type"`
+	Value       string `pulumi:"value"`
+}
+
+// GetParametersParameterInput is an input type that accepts GetParametersParameterArgs and GetParametersParameterOutput values.
+// You can construct a concrete instance of `GetParametersParameterInput` via:
+//
+//	GetParametersParameterArgs{...}
+type GetParametersParameterInput interface {
+	pulumi.Input
+
+	ToGetParametersParameterOutput() GetParametersParameterOutput
+	ToGetParametersParameterOutputWithContext(context.Context) GetParametersParameterOutput
+}
+
+type GetParametersParameterArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Type        pulumi.StringInput `pulumi:"type"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetParametersParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetParametersParameter)(nil)).Elem()
+}
+
+func (i GetParametersParameterArgs) ToGetParametersParameterOutput() GetParametersParameterOutput {
+	return i.ToGetParametersParameterOutputWithContext(context.Background())
+}
+
+func (i GetParametersParameterArgs) ToGetParametersParameterOutputWithContext(ctx context.Context) GetParametersParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetParametersParameterOutput)
+}
+
+// GetParametersParameterArrayInput is an input type that accepts GetParametersParameterArray and GetParametersParameterArrayOutput values.
+// You can construct a concrete instance of `GetParametersParameterArrayInput` via:
+//
+//	GetParametersParameterArray{ GetParametersParameterArgs{...} }
+type GetParametersParameterArrayInput interface {
+	pulumi.Input
+
+	ToGetParametersParameterArrayOutput() GetParametersParameterArrayOutput
+	ToGetParametersParameterArrayOutputWithContext(context.Context) GetParametersParameterArrayOutput
+}
+
+type GetParametersParameterArray []GetParametersParameterInput
+
+func (GetParametersParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetParametersParameter)(nil)).Elem()
+}
+
+func (i GetParametersParameterArray) ToGetParametersParameterArrayOutput() GetParametersParameterArrayOutput {
+	return i.ToGetParametersParameterArrayOutputWithContext(context.Background())
+}
+
+func (i GetParametersParameterArray) ToGetParametersParameterArrayOutputWithContext(ctx context.Context) GetParametersParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetParametersParameterArrayOutput)
+}
+
+type GetParametersParameterOutput struct{ *pulumi.OutputState }
+
+func (GetParametersParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetParametersParameter)(nil)).Elem()
+}
+
+func (o GetParametersParameterOutput) ToGetParametersParameterOutput() GetParametersParameterOutput {
+	return o
+}
+
+func (o GetParametersParameterOutput) ToGetParametersParameterOutputWithContext(ctx context.Context) GetParametersParameterOutput {
+	return o
+}
+
+func (o GetParametersParameterOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetParametersParameter) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetParametersParameterOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetParametersParameter) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetParametersParameterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetParametersParameter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetParametersParameterOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetParametersParameter) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetParametersParameterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetParametersParameter) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o GetParametersParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetParametersParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetParametersParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetParametersParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetParametersParameter)(nil)).Elem()
+}
+
+func (o GetParametersParameterArrayOutput) ToGetParametersParameterArrayOutput() GetParametersParameterArrayOutput {
+	return o
+}
+
+func (o GetParametersParameterArrayOutput) ToGetParametersParameterArrayOutputWithContext(ctx context.Context) GetParametersParameterArrayOutput {
+	return o
+}
+
+func (o GetParametersParameterArrayOutput) Index(i pulumi.IntInput) GetParametersParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetParametersParameter {
+		return vs[0].([]GetParametersParameter)[vs[1].(int)]
+	}).(GetParametersParameterOutput)
+}
+
 type GetPipesPipe struct {
 	Comment string `pulumi:"comment"`
 	// The database from which to return the schemas from.
@@ -7636,6 +7875,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionGrantArgumentArrayInput)(nil)).Elem(), FunctionGrantArgumentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewTagInput)(nil)).Elem(), MaterializedViewTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewTagArrayInput)(nil)).Elem(), MaterializedViewTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObjectParameterObjectIdentifierInput)(nil)).Elem(), ObjectParameterObjectIdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObjectParameterObjectIdentifierArrayInput)(nil)).Elem(), ObjectParameterObjectIdentifierArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureArgumentInput)(nil)).Elem(), ProcedureArgumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureArgumentArrayInput)(nil)).Elem(), ProcedureArgumentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureGrantArgumentInput)(nil)).Elem(), ProcedureGrantArgumentArgs{})
@@ -7698,6 +7939,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMaskingPoliciesMaskingPolicyArrayInput)(nil)).Elem(), GetMaskingPoliciesMaskingPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMaterializedViewsMaterializedViewInput)(nil)).Elem(), GetMaterializedViewsMaterializedViewArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMaterializedViewsMaterializedViewArrayInput)(nil)).Elem(), GetMaterializedViewsMaterializedViewArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetParametersParameterInput)(nil)).Elem(), GetParametersParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetParametersParameterArrayInput)(nil)).Elem(), GetParametersParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPipesPipeInput)(nil)).Elem(), GetPipesPipeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPipesPipeArrayInput)(nil)).Elem(), GetPipesPipeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProceduresProcedureInput)(nil)).Elem(), GetProceduresProcedureArgs{})
@@ -7752,6 +7995,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionGrantArgumentArrayOutput{})
 	pulumi.RegisterOutputType(MaterializedViewTagOutput{})
 	pulumi.RegisterOutputType(MaterializedViewTagArrayOutput{})
+	pulumi.RegisterOutputType(ObjectParameterObjectIdentifierOutput{})
+	pulumi.RegisterOutputType(ObjectParameterObjectIdentifierArrayOutput{})
 	pulumi.RegisterOutputType(ProcedureArgumentOutput{})
 	pulumi.RegisterOutputType(ProcedureArgumentArrayOutput{})
 	pulumi.RegisterOutputType(ProcedureGrantArgumentOutput{})
@@ -7814,6 +8059,8 @@ func init() {
 	pulumi.RegisterOutputType(GetMaskingPoliciesMaskingPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetMaterializedViewsMaterializedViewOutput{})
 	pulumi.RegisterOutputType(GetMaterializedViewsMaterializedViewArrayOutput{})
+	pulumi.RegisterOutputType(GetParametersParameterOutput{})
+	pulumi.RegisterOutputType(GetParametersParameterArrayOutput{})
 	pulumi.RegisterOutputType(GetPipesPipeOutput{})
 	pulumi.RegisterOutputType(GetPipesPipeArrayOutput{})
 	pulumi.RegisterOutputType(GetProceduresProcedureOutput{})

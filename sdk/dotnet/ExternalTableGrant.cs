@@ -185,7 +185,7 @@ namespace Pulumi.Snowflake
         [Input("privilege")]
         public Input<string>? Privilege { get; set; }
 
-        [Input("roles")]
+        [Input("roles", required: true)]
         private InputList<string>? _roles;
 
         /// <summary>

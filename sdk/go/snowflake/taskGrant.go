@@ -70,7 +70,7 @@ type TaskGrant struct {
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current or future tasks on which to grant privileges.
-	SchemaName pulumi.StringOutput `pulumi:"schemaName"`
+	SchemaName pulumi.StringPtrOutput `pulumi:"schemaName"`
 	// The name of the task on which to grant privileges immediately (only valid if onFuture is false).
 	TaskName pulumi.StringPtrOutput `pulumi:"taskName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -87,8 +87,8 @@ func NewTaskGrant(ctx *pulumi.Context,
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
-	if args.SchemaName == nil {
-		return nil, errors.New("invalid value for required argument 'SchemaName'")
+	if args.Roles == nil {
+		return nil, errors.New("invalid value for required argument 'Roles'")
 	}
 	var resource TaskGrant
 	err := ctx.RegisterResource("snowflake:index/taskGrant:TaskGrant", name, args, &resource, opts...)
@@ -168,7 +168,7 @@ type taskGrantArgs struct {
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future tasks on which to grant privileges.
-	SchemaName string `pulumi:"schemaName"`
+	SchemaName *string `pulumi:"schemaName"`
 	// The name of the task on which to grant privileges immediately (only valid if onFuture is false).
 	TaskName *string `pulumi:"taskName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -189,7 +189,7 @@ type TaskGrantArgs struct {
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future tasks on which to grant privileges.
-	SchemaName pulumi.StringInput
+	SchemaName pulumi.StringPtrInput
 	// The name of the task on which to grant privileges immediately (only valid if onFuture is false).
 	TaskName pulumi.StringPtrInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -310,8 +310,8 @@ func (o TaskGrantOutput) Roles() pulumi.StringArrayOutput {
 }
 
 // The name of the schema containing the current or future tasks on which to grant privileges.
-func (o TaskGrantOutput) SchemaName() pulumi.StringOutput {
-	return o.ApplyT(func(v *TaskGrant) pulumi.StringOutput { return v.SchemaName }).(pulumi.StringOutput)
+func (o TaskGrantOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskGrant) pulumi.StringPtrOutput { return v.SchemaName }).(pulumi.StringPtrOutput)
 }
 
 // The name of the task on which to grant privileges immediately (only valid if onFuture is false).

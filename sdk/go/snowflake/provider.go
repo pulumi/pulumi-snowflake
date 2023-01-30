@@ -84,34 +84,34 @@ func NewProvider(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Username'")
 	}
 	if args.OauthAccessToken != nil {
-		args.OauthAccessToken = pulumi.ToSecret(args.OauthAccessToken).(pulumi.StringPtrOutput)
+		args.OauthAccessToken = pulumi.ToSecret(args.OauthAccessToken).(pulumi.StringPtrInput)
 	}
 	if args.OauthClientId != nil {
-		args.OauthClientId = pulumi.ToSecret(args.OauthClientId).(pulumi.StringPtrOutput)
+		args.OauthClientId = pulumi.ToSecret(args.OauthClientId).(pulumi.StringPtrInput)
 	}
 	if args.OauthClientSecret != nil {
-		args.OauthClientSecret = pulumi.ToSecret(args.OauthClientSecret).(pulumi.StringPtrOutput)
+		args.OauthClientSecret = pulumi.ToSecret(args.OauthClientSecret).(pulumi.StringPtrInput)
 	}
 	if args.OauthEndpoint != nil {
-		args.OauthEndpoint = pulumi.ToSecret(args.OauthEndpoint).(pulumi.StringPtrOutput)
+		args.OauthEndpoint = pulumi.ToSecret(args.OauthEndpoint).(pulumi.StringPtrInput)
 	}
 	if args.OauthRedirectUrl != nil {
-		args.OauthRedirectUrl = pulumi.ToSecret(args.OauthRedirectUrl).(pulumi.StringPtrOutput)
+		args.OauthRedirectUrl = pulumi.ToSecret(args.OauthRedirectUrl).(pulumi.StringPtrInput)
 	}
 	if args.OauthRefreshToken != nil {
-		args.OauthRefreshToken = pulumi.ToSecret(args.OauthRefreshToken).(pulumi.StringPtrOutput)
+		args.OauthRefreshToken = pulumi.ToSecret(args.OauthRefreshToken).(pulumi.StringPtrInput)
 	}
 	if args.Password != nil {
-		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrOutput)
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
 	}
 	if args.PrivateKey != nil {
-		args.PrivateKey = pulumi.ToSecret(args.PrivateKey).(pulumi.StringPtrOutput)
+		args.PrivateKey = pulumi.ToSecret(args.PrivateKey).(pulumi.StringPtrInput)
 	}
 	if args.PrivateKeyPassphrase != nil {
-		args.PrivateKeyPassphrase = pulumi.ToSecret(args.PrivateKeyPassphrase).(pulumi.StringPtrOutput)
+		args.PrivateKeyPassphrase = pulumi.ToSecret(args.PrivateKeyPassphrase).(pulumi.StringPtrInput)
 	}
 	if args.PrivateKeyPath != nil {
-		args.PrivateKeyPath = pulumi.ToSecret(args.PrivateKeyPath).(pulumi.StringPtrOutput)
+		args.PrivateKeyPath = pulumi.ToSecret(args.PrivateKeyPath).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"oauthAccessToken",

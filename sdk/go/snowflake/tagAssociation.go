@@ -47,8 +47,8 @@ import (
 //				return err
 //			}
 //			_, err = snowflake.NewTagAssociation(ctx, "dbAssociation", &snowflake.TagAssociationArgs{
-//				ObjectIdentifiers: TagAssociationObjectIdentifierArray{
-//					&TagAssociationObjectIdentifierArgs{
+//				ObjectIdentifiers: snowflake.TagAssociationObjectIdentifierArray{
+//					&snowflake.TagAssociationObjectIdentifierArgs{
 //						Name: database.Name,
 //					},
 //				},
@@ -63,12 +63,12 @@ import (
 //				Database: pulumi.Any(snowflake_database.Test.Name),
 //				Schema:   pulumi.Any(snowflake_schema.Test.Name),
 //				Comment:  pulumi.String("Terraform example table"),
-//				Columns: TableColumnArray{
-//					&TableColumnArgs{
+//				Columns: snowflake.TableColumnArray{
+//					&snowflake.TableColumnArgs{
 //						Name: pulumi.String("column1"),
 //						Type: pulumi.String("VARIANT"),
 //					},
-//					&TableColumnArgs{
+//					&snowflake.TableColumnArgs{
 //						Name: pulumi.String("column2"),
 //						Type: pulumi.String("VARCHAR(16)"),
 //					},
@@ -78,8 +78,8 @@ import (
 //				return err
 //			}
 //			_, err = snowflake.NewTagAssociation(ctx, "tableAssociation", &snowflake.TagAssociationArgs{
-//				ObjectIdentifiers: TagAssociationObjectIdentifierArray{
-//					&TagAssociationObjectIdentifierArgs{
+//				ObjectIdentifiers: snowflake.TagAssociationObjectIdentifierArray{
+//					&snowflake.TagAssociationObjectIdentifierArgs{
 //						Name:     test.Name,
 //						Database: pulumi.Any(snowflake_database.Test.Name),
 //						Schema:   pulumi.Any(snowflake_schema.Test.Name),

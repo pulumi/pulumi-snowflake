@@ -32,8 +32,8 @@ namespace Pulumi.Snowflake
     ///         },
     ///         AllowedAccounts = new[]
     ///         {
-    ///             "&lt;account1&gt;",
-    ///             "&lt;account2&gt;",
+    ///             "&lt;org_name&gt;.&lt;target_account_name1&gt;",
+    ///             "&lt;org_name&gt;.&lt;target_account_name2&gt;",
     ///         },
     ///         AllowedDatabases = new[]
     ///         {

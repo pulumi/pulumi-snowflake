@@ -94,7 +94,7 @@ func NewApiIntegration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ApiProvider'")
 	}
 	if args.ApiKey != nil {
-		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringPtrOutput)
+		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"apiKey",

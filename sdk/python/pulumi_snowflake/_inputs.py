@@ -22,6 +22,7 @@ __all__ = [
     'FunctionArgumentArgs',
     'FunctionGrantArgumentArgs',
     'MaterializedViewTagArgs',
+    'ObjectParameterObjectIdentifierArgs',
     'ProcedureArgumentArgs',
     'ProcedureGrantArgumentArgs',
     'RoleTagArgs',
@@ -591,6 +592,60 @@ class MaterializedViewTagArgs:
     def schema(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the schema that the tag was created in.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema", value)
+
+
+@pulumi.input_type
+class ObjectParameterObjectIdentifierArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 database: Optional[pulumi.Input[str]] = None,
+                 schema: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Name of the object to set the parameter for.
+        :param pulumi.Input[str] database: Name of the database that the object was created in.
+        :param pulumi.Input[str] schema: Name of the schema that the object was created in.
+        """
+        pulumi.set(__self__, "name", name)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the object to set the parameter for.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the database that the object was created in.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the schema that the object was created in.
         """
         return pulumi.get(self, "schema")
 

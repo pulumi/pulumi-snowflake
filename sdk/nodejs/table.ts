@@ -122,6 +122,8 @@ export class Table extends pulumi.CustomResource {
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
      * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+     *
+     * @deprecated Use snowflake_object_parameter instead
      */
     public readonly dataRetentionDays!: pulumi.Output<number | undefined>;
     /**
@@ -227,6 +229,8 @@ export interface TableState {
     comment?: pulumi.Input<string>;
     /**
      * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+     *
+     * @deprecated Use snowflake_object_parameter instead
      */
     dataRetentionDays?: pulumi.Input<number>;
     /**
@@ -281,6 +285,8 @@ export interface TableArgs {
     comment?: pulumi.Input<string>;
     /**
      * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+     *
+     * @deprecated Use snowflake_object_parameter instead
      */
     dataRetentionDays?: pulumi.Input<number>;
     /**

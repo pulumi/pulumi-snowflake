@@ -25,6 +25,8 @@ import com.pulumi.snowflake.inputs.GetMaskingPoliciesArgs;
 import com.pulumi.snowflake.inputs.GetMaskingPoliciesPlainArgs;
 import com.pulumi.snowflake.inputs.GetMaterializedViewsArgs;
 import com.pulumi.snowflake.inputs.GetMaterializedViewsPlainArgs;
+import com.pulumi.snowflake.inputs.GetParametersArgs;
+import com.pulumi.snowflake.inputs.GetParametersPlainArgs;
 import com.pulumi.snowflake.inputs.GetPipesArgs;
 import com.pulumi.snowflake.inputs.GetPipesPlainArgs;
 import com.pulumi.snowflake.inputs.GetProceduresArgs;
@@ -56,6 +58,7 @@ import com.pulumi.snowflake.inputs.GetUsersPlainArgs;
 import com.pulumi.snowflake.inputs.GetViewsArgs;
 import com.pulumi.snowflake.inputs.GetViewsPlainArgs;
 import com.pulumi.snowflake.outputs.GetCurrentAccountResult;
+import com.pulumi.snowflake.outputs.GetCurrentRoleResult;
 import com.pulumi.snowflake.outputs.GetDatabaseResult;
 import com.pulumi.snowflake.outputs.GetDatabasesResult;
 import com.pulumi.snowflake.outputs.GetExternalFunctionsResult;
@@ -65,6 +68,7 @@ import com.pulumi.snowflake.outputs.GetFunctionsResult;
 import com.pulumi.snowflake.outputs.GetGrantsResult;
 import com.pulumi.snowflake.outputs.GetMaskingPoliciesResult;
 import com.pulumi.snowflake.outputs.GetMaterializedViewsResult;
+import com.pulumi.snowflake.outputs.GetParametersResult;
 import com.pulumi.snowflake.outputs.GetPipesResult;
 import com.pulumi.snowflake.outputs.GetProceduresResult;
 import com.pulumi.snowflake.outputs.GetResourceMonitorsResult;
@@ -321,6 +325,24 @@ public final class SnowflakeFunctions {
      */
     public static CompletableFuture<GetCurrentAccountResult> getCurrentAccountPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getCurrentAccount:getCurrentAccount", TypeShape.of(GetCurrentAccountResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetCurrentRoleResult> getCurrentRole() {
+        return getCurrentRole(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetCurrentRoleResult> getCurrentRolePlain() {
+        return getCurrentRolePlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    public static Output<GetCurrentRoleResult> getCurrentRole(InvokeArgs args) {
+        return getCurrentRole(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetCurrentRoleResult> getCurrentRolePlain(InvokeArgs args) {
+        return getCurrentRolePlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetCurrentRoleResult> getCurrentRole(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getCurrentRole:getCurrentRole", TypeShape.of(GetCurrentRoleResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetCurrentRoleResult> getCurrentRolePlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getCurrentRole:getCurrentRole", TypeShape.of(GetCurrentRoleResult.class), args, Utilities.withVersion(options));
     }
     /**
      * ## Example Usage
@@ -2015,6 +2037,306 @@ public final class SnowflakeFunctions {
      */
     public static CompletableFuture<GetMaterializedViewsResult> getMaterializedViewsPlain(GetMaterializedViewsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getMaterializedViews:getMaterializedViews", TypeShape.of(GetMaterializedViewsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.Database;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetParametersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var database = new Database(&#34;database&#34;);
+     * 
+     *         final var parameters = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType(&#34;OBJECT&#34;)
+     *             .objectType(&#34;DATABASE&#34;)
+     *             .objectName(database.name())
+     *             .build());
+     * 
+     *         final var p2 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType(&#34;ACCOUNT&#34;)
+     *             .pattern(&#34;%TIMESTAMP%&#34;)
+     *             .build());
+     * 
+     *         final var p3 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType(&#34;SESSION&#34;)
+     *             .pattern(&#34;ROWS_PER_RESULTSET&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetParametersResult> getParameters() {
+        return getParameters(GetParametersArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.Database;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetParametersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var database = new Database(&#34;database&#34;);
+     * 
+     *         final var parameters = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType(&#34;OBJECT&#34;)
+     *             .objectType(&#34;DATABASE&#34;)
+     *             .objectName(database.name())
+     *             .build());
+     * 
+     *         final var p2 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType(&#34;ACCOUNT&#34;)
+     *             .pattern(&#34;%TIMESTAMP%&#34;)
+     *             .build());
+     * 
+     *         final var p3 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType(&#34;SESSION&#34;)
+     *             .pattern(&#34;ROWS_PER_RESULTSET&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetParametersResult> getParametersPlain() {
+        return getParametersPlain(GetParametersPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.Database;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetParametersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var database = new Database(&#34;database&#34;);
+     * 
+     *         final var parameters = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType(&#34;OBJECT&#34;)
+     *             .objectType(&#34;DATABASE&#34;)
+     *             .objectName(database.name())
+     *             .build());
+     * 
+     *         final var p2 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType(&#34;ACCOUNT&#34;)
+     *             .pattern(&#34;%TIMESTAMP%&#34;)
+     *             .build());
+     * 
+     *         final var p3 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType(&#34;SESSION&#34;)
+     *             .pattern(&#34;ROWS_PER_RESULTSET&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetParametersResult> getParameters(GetParametersArgs args) {
+        return getParameters(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.Database;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetParametersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var database = new Database(&#34;database&#34;);
+     * 
+     *         final var parameters = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType(&#34;OBJECT&#34;)
+     *             .objectType(&#34;DATABASE&#34;)
+     *             .objectName(database.name())
+     *             .build());
+     * 
+     *         final var p2 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType(&#34;ACCOUNT&#34;)
+     *             .pattern(&#34;%TIMESTAMP%&#34;)
+     *             .build());
+     * 
+     *         final var p3 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType(&#34;SESSION&#34;)
+     *             .pattern(&#34;ROWS_PER_RESULTSET&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetParametersResult> getParametersPlain(GetParametersPlainArgs args) {
+        return getParametersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.Database;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetParametersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var database = new Database(&#34;database&#34;);
+     * 
+     *         final var parameters = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType(&#34;OBJECT&#34;)
+     *             .objectType(&#34;DATABASE&#34;)
+     *             .objectName(database.name())
+     *             .build());
+     * 
+     *         final var p2 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType(&#34;ACCOUNT&#34;)
+     *             .pattern(&#34;%TIMESTAMP%&#34;)
+     *             .build());
+     * 
+     *         final var p3 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType(&#34;SESSION&#34;)
+     *             .pattern(&#34;ROWS_PER_RESULTSET&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetParametersResult> getParameters(GetParametersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getParameters:getParameters", TypeShape.of(GetParametersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.Database;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetParametersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var database = new Database(&#34;database&#34;);
+     * 
+     *         final var parameters = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType(&#34;OBJECT&#34;)
+     *             .objectType(&#34;DATABASE&#34;)
+     *             .objectName(database.name())
+     *             .build());
+     * 
+     *         final var p2 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType(&#34;ACCOUNT&#34;)
+     *             .pattern(&#34;%TIMESTAMP%&#34;)
+     *             .build());
+     * 
+     *         final var p3 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType(&#34;SESSION&#34;)
+     *             .pattern(&#34;ROWS_PER_RESULTSET&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetParametersResult> getParametersPlain(GetParametersPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getParameters:getParameters", TypeShape.of(GetParametersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * ## Example Usage

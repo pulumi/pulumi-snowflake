@@ -5,11 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 export function getSystemGetAwsSnsIamPolicy(args: GetSystemGetAwsSnsIamPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemGetAwsSnsIamPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", {
         "awsSnsTopicArn": args.awsSnsTopicArn,
     }, opts);
@@ -42,9 +39,8 @@ export interface GetSystemGetAwsSnsIamPolicyResult {
      */
     readonly id: string;
 }
-
 export function getSystemGetAwsSnsIamPolicyOutput(args: GetSystemGetAwsSnsIamPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemGetAwsSnsIamPolicyResult> {
-    return pulumi.output(args).apply(a => getSystemGetAwsSnsIamPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getSystemGetAwsSnsIamPolicy(a, opts))
 }
 
 /**

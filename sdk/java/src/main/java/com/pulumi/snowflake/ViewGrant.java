@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.snowflake.ViewGrant;
  * import com.pulumi.snowflake.ViewGrantArgs;
+ * import com.pulumi.snowflake.SchemaGrant;
+ * import com.pulumi.snowflake.SchemaGrantArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -39,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var grant = new ViewGrant(&#34;grant&#34;, ViewGrantArgs.builder()        
+ *         var grantViewGrant = new ViewGrant(&#34;grantViewGrant&#34;, ViewGrantArgs.builder()        
  *             .databaseName(&#34;database&#34;)
  *             .onFuture(false)
  *             .privilege(&#34;SELECT&#34;)
@@ -52,6 +54,15 @@ import javax.annotation.Nullable;
  *                 &#34;share2&#34;)
  *             .viewName(&#34;view&#34;)
  *             .withGrantOption(false)
+ *             .build());
+ * 
+ *         var grantSchemaGrant = new SchemaGrant(&#34;grantSchemaGrant&#34;, SchemaGrantArgs.builder()        
+ *             .databaseName(&#34;database&#34;)
+ *             .privilege(&#34;USAGE&#34;)
+ *             .roles(            
+ *                 &#34;role1&#34;,
+ *                 &#34;role2&#34;)
+ *             .schemaName(&#34;schema&#34;)
  *             .build());
  * 
  *     }

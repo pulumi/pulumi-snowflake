@@ -23,6 +23,7 @@ __all__ = [
     'FunctionArgument',
     'FunctionGrantArgument',
     'MaterializedViewTag',
+    'ObjectParameterObjectIdentifier',
     'ProcedureArgument',
     'ProcedureGrantArgument',
     'RoleTag',
@@ -54,6 +55,7 @@ __all__ = [
     'GetGrantsGrantsToResult',
     'GetMaskingPoliciesMaskingPolicyResult',
     'GetMaterializedViewsMaterializedViewResult',
+    'GetParametersParameterResult',
     'GetPipesPipeResult',
     'GetProceduresProcedureResult',
     'GetResourceMonitorsResourceMonitorResult',
@@ -562,6 +564,48 @@ class MaterializedViewTag(dict):
     def schema(self) -> Optional[str]:
         """
         Name of the schema that the tag was created in.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class ObjectParameterObjectIdentifier(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param str name: Name of the object to set the parameter for.
+        :param str database: Name of the database that the object was created in.
+        :param str schema: Name of the schema that the object was created in.
+        """
+        pulumi.set(__self__, "name", name)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the object to set the parameter for.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Name of the database that the object was created in.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Name of the schema that the object was created in.
         """
         return pulumi.get(self, "schema")
 
@@ -1994,6 +2038,53 @@ class GetMaterializedViewsMaterializedViewResult(dict):
         The schema from which to return the views from.
         """
         return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetParametersParameterResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

@@ -24,7 +24,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetUsers(ctx, &GetUsersArgs{
+//			_, err := snowflake.GetUsers(ctx, &snowflake.GetUsersArgs{
 //				Pattern: "user1",
 //			}, nil)
 //			if err != nil {

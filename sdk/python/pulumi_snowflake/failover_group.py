@@ -348,8 +348,8 @@ class FailoverGroup(pulumi.CustomResource):
                 "ROLES",
             ],
             allowed_accounts=[
-                "<account1>",
-                "<account2>",
+                "<org_name>.<target_account_name1>",
+                "<org_name>.<target_account_name2>",
             ],
             allowed_databases=[db.name],
             allowed_integration_types=["SECURITY INTEGRATIONS"],
@@ -408,8 +408,8 @@ class FailoverGroup(pulumi.CustomResource):
                 "ROLES",
             ],
             allowed_accounts=[
-                "<account1>",
-                "<account2>",
+                "<org_name>.<target_account_name1>",
+                "<org_name>.<target_account_name2>",
             ],
             allowed_databases=[db.name],
             allowed_integration_types=["SECURITY INTEGRATIONS"],

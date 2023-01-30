@@ -24,7 +24,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetSystemGenerateScimAccessToken(ctx, &GetSystemGenerateScimAccessTokenArgs{
+//			_, err := snowflake.GetSystemGenerateScimAccessToken(ctx, &snowflake.GetSystemGenerateScimAccessTokenArgs{
 //				IntegrationName: "AAD_PROVISIONING",
 //			}, nil)
 //			if err != nil {

@@ -98,15 +98,15 @@ public final class ExternalTableGrantArgs extends com.pulumi.resources.ResourceA
      * Grants privilege to these roles.
      * 
      */
-    @Import(name="roles")
-    private @Nullable Output<List<String>> roles;
+    @Import(name="roles", required=true)
+    private Output<List<String>> roles;
 
     /**
      * @return Grants privilege to these roles.
      * 
      */
-    public Optional<Output<List<String>>> roles() {
-        return Optional.ofNullable(this.roles);
+    public Output<List<String>> roles() {
+        return this.roles;
     }
 
     /**
@@ -299,7 +299,7 @@ public final class ExternalTableGrantArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder roles(@Nullable Output<List<String>> roles) {
+        public Builder roles(Output<List<String>> roles) {
             $.roles = roles;
             return this;
         }
@@ -399,6 +399,7 @@ public final class ExternalTableGrantArgs extends com.pulumi.resources.ResourceA
 
         public ExternalTableGrantArgs build() {
             $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
+            $.roles = Objects.requireNonNull($.roles, "expected parameter 'roles' to be non-null");
             return $;
         }
     }

@@ -25,7 +25,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewViewGrant(ctx, "grant", &snowflake.ViewGrantArgs{
+//			_, err := snowflake.NewViewGrant(ctx, "grantViewGrant", &snowflake.ViewGrantArgs{
 //				DatabaseName: pulumi.String("database"),
 //				OnFuture:     pulumi.Bool(false),
 //				Privilege:    pulumi.String("SELECT"),
@@ -40,6 +40,18 @@ import (
 //				},
 //				ViewName:        pulumi.String("view"),
 //				WithGrantOption: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewSchemaGrant(ctx, "grantSchemaGrant", &snowflake.SchemaGrantArgs{
+//				DatabaseName: pulumi.String("database"),
+//				Privilege:    pulumi.String("USAGE"),
+//				Roles: pulumi.StringArray{
+//					pulumi.String("role1"),
+//					pulumi.String("role2"),
+//				},
+//				SchemaName: pulumi.String("schema"),
 //			})
 //			if err != nil {
 //				return err

@@ -27,12 +27,12 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewExternalFunction(ctx, "testExtFunc", &snowflake.ExternalFunctionArgs{
 //				ApiIntegration: pulumi.String("api_integration_name"),
-//				Args: ExternalFunctionArgArray{
-//					&ExternalFunctionArgArgs{
+//				Args: snowflake.ExternalFunctionArgArray{
+//					&snowflake.ExternalFunctionArgArgs{
 //						Name: pulumi.String("arg1"),
 //						Type: pulumi.String("varchar"),
 //					},
-//					&ExternalFunctionArgArgs{
+//					&snowflake.ExternalFunctionArgArgs{
 //						Name: pulumi.String("arg2"),
 //						Type: pulumi.String("varchar"),
 //					},

@@ -11,17 +11,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const scim = pulumi.output(snowflake.getSystemGenerateScimAccessToken({
+ * const scim = snowflake.getSystemGenerateScimAccessToken({
  *     integrationName: "AAD_PROVISIONING",
- * }));
+ * });
  * ```
  */
 export function getSystemGenerateScimAccessToken(args: GetSystemGenerateScimAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemGenerateScimAccessTokenResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", {
         "integrationName": args.integrationName,
     }, opts);
@@ -54,9 +51,20 @@ export interface GetSystemGenerateScimAccessTokenResult {
      */
     readonly integrationName: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const scim = snowflake.getSystemGenerateScimAccessToken({
+ *     integrationName: "AAD_PROVISIONING",
+ * });
+ * ```
+ */
 export function getSystemGenerateScimAccessTokenOutput(args: GetSystemGenerateScimAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemGenerateScimAccessTokenResult> {
-    return pulumi.output(args).apply(a => getSystemGenerateScimAccessToken(a, opts))
+    return pulumi.output(args).apply((a: any) => getSystemGenerateScimAccessToken(a, opts))
 }
 
 /**

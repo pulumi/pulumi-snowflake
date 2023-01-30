@@ -5,7 +5,9 @@
 from . import _utilities
 import typing
 # Export this package's modules as members:
+from .account import *
 from .account_grant import *
+from .account_parameter import *
 from .api_integration import *
 from .database import *
 from .database_grant import *
@@ -19,6 +21,7 @@ from .file_format_grant import *
 from .function import *
 from .function_grant import *
 from .get_current_account import *
+from .get_current_role import *
 from .get_database import *
 from .get_databases import *
 from .get_external_functions import *
@@ -28,6 +31,7 @@ from .get_functions import *
 from .get_grants import *
 from .get_masking_policies import *
 from .get_materialized_views import *
+from .get_parameters import *
 from .get_pipes import *
 from .get_procedures import *
 from .get_resource_monitors import *
@@ -58,6 +62,7 @@ from .network_policy import *
 from .network_policy_attachment import *
 from .notification_integration import *
 from .oauth_integration import *
+from .object_parameter import *
 from .pipe import *
 from .pipe_grant import *
 from .procedure import *
@@ -76,6 +81,7 @@ from .schema_grant import *
 from .scim_integration import *
 from .sequence import *
 from .sequence_grant import *
+from .session_parameter import *
 from .share import *
 from .stage import *
 from .stage_grant import *
@@ -114,10 +120,26 @@ _utilities.register(
 [
  {
   "pkg": "snowflake",
+  "mod": "index/account",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/account:Account": "Account"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/accountGrant",
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/accountGrant:AccountGrant": "AccountGrant"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/accountParameter",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/accountParameter:AccountParameter": "AccountParameter"
   }
  },
  {
@@ -298,6 +320,14 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/objectParameter",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/objectParameter:ObjectParameter": "ObjectParameter"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/pipe",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -430,6 +460,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/sequenceGrant:SequenceGrant": "SequenceGrant"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/sessionParameter",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/sessionParameter:SessionParameter": "SessionParameter"
   }
  },
  {

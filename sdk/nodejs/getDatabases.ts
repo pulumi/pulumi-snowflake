@@ -13,15 +13,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const thisDatabases = pulumi.output(snowflake.getDatabases());
+ * const this = snowflake.getDatabases({});
  * ```
  */
 export function getDatabases(opts?: pulumi.InvokeOptions): Promise<GetDatabasesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getDatabases:getDatabases", {
     }, opts);
 }

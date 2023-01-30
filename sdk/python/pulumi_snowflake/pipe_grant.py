@@ -15,27 +15,26 @@ __all__ = ['PipeGrantArgs', 'PipeGrant']
 class PipeGrantArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
-                 schema_name: pulumi.Input[str],
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  pipe_name: Optional[pulumi.Input[str]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 schema_name: Optional[pulumi.Input[str]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a PipeGrant resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future pipes on which to grant privileges.
-        :param pulumi.Input[str] schema_name: The name of the schema containing the current or future pipes on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
         :param pulumi.Input[str] pipe_name: The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future pipe.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
+        :param pulumi.Input[str] schema_name: The name of the schema containing the current or future pipes on which to grant privileges.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
         pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "schema_name", schema_name)
         if enable_multiple_grants is not None:
             pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
         if on_future is not None:
@@ -46,6 +45,8 @@ class PipeGrantArgs:
             pulumi.set(__self__, "privilege", privilege)
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
         if with_grant_option is not None:
             pulumi.set(__self__, "with_grant_option", with_grant_option)
 
@@ -60,18 +61,6 @@ class PipeGrantArgs:
     @database_name.setter
     def database_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "database_name", value)
-
-    @property
-    @pulumi.getter(name="schemaName")
-    def schema_name(self) -> pulumi.Input[str]:
-        """
-        The name of the schema containing the current or future pipes on which to grant privileges.
-        """
-        return pulumi.get(self, "schema_name")
-
-    @schema_name.setter
-    def schema_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "schema_name", value)
 
     @property
     @pulumi.getter(name="enableMultipleGrants")
@@ -133,6 +122,18 @@ class PipeGrantArgs:
     @roles.setter
     def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "roles", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the schema containing the current or future pipes on which to grant privileges.
+        """
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_name", value)
 
     @property
     @pulumi.getter(name="withGrantOption")
@@ -413,8 +414,6 @@ class PipeGrant(pulumi.CustomResource):
             __props__.__dict__["pipe_name"] = pipe_name
             __props__.__dict__["privilege"] = privilege
             __props__.__dict__["roles"] = roles
-            if schema_name is None and not opts.urn:
-                raise TypeError("Missing required property 'schema_name'")
             __props__.__dict__["schema_name"] = schema_name
             __props__.__dict__["with_grant_option"] = with_grant_option
         super(PipeGrant, __self__).__init__(
@@ -517,7 +516,7 @@ class PipeGrant(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="schemaName")
-    def schema_name(self) -> pulumi.Output[str]:
+    def schema_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the schema containing the current or future pipes on which to grant privileges.
         """

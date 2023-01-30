@@ -24,7 +24,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetMaskingPolicies(ctx, &GetMaskingPoliciesArgs{
+//			_, err := snowflake.GetMaskingPolicies(ctx, &snowflake.GetMaskingPoliciesArgs{
 //				Database: "MYDB",
 //				Schema:   "MYSCHEMA",
 //			}, nil)

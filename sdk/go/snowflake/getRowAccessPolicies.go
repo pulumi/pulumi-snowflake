@@ -24,7 +24,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetRowAccessPolicies(ctx, &GetRowAccessPoliciesArgs{
+//			_, err := snowflake.GetRowAccessPolicies(ctx, &snowflake.GetRowAccessPoliciesArgs{
 //				Database: "MYDB",
 //				Schema:   "MYSCHEMA",
 //			}, nil)

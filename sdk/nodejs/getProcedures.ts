@@ -13,18 +13,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const current = pulumi.output(snowflake.getProcedures({
+ * const current = snowflake.getProcedures({
  *     database: "MYDB",
  *     schema: "MYSCHEMA",
- * }));
+ * });
  * ```
  */
 export function getProcedures(args: GetProceduresArgs, opts?: pulumi.InvokeOptions): Promise<GetProceduresResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getProcedures:getProcedures", {
         "database": args.database,
         "schema": args.schema,
@@ -66,9 +63,21 @@ export interface GetProceduresResult {
      */
     readonly schema: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const current = snowflake.getProcedures({
+ *     database: "MYDB",
+ *     schema: "MYSCHEMA",
+ * });
+ * ```
+ */
 export function getProceduresOutput(args: GetProceduresOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProceduresResult> {
-    return pulumi.output(args).apply(a => getProcedures(a, opts))
+    return pulumi.output(args).apply((a: any) => getProcedures(a, opts))
 }
 
 /**

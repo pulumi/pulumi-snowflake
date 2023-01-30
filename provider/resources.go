@@ -203,6 +203,14 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
+	err := prov.ComputeDefaults(tfbridge.TokensSingleModule("snowflake_", mainMod,
+		func(module, name string) (string, error) {
+			return string(makeResource(module, name)), nil
+		}))
+	if err != nil {
+		panic(fmt.Errorf("fatal: %v", err))
+	}
+
 	prov.SetAutonaming(255, "-")
 
 	return prov

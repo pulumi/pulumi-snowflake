@@ -24,7 +24,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.LookupRole(ctx, &GetRoleArgs{
+//			_, err := snowflake.LookupRole(ctx, &snowflake.LookupRoleArgs{
 //				Name: "role1",
 //			}, nil)
 //			if err != nil {

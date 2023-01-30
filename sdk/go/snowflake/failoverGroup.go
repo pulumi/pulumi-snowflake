@@ -36,8 +36,8 @@ import (
 //					pulumi.String("ROLES"),
 //				},
 //				AllowedAccounts: pulumi.StringArray{
-//					pulumi.String("<account1>"),
-//					pulumi.String("<account2>"),
+//					pulumi.String("<org_name>.<target_account_name1>"),
+//					pulumi.String("<org_name>.<target_account_name2>"),
 //				},
 //				AllowedDatabases: pulumi.StringArray{
 //					db.Name,
@@ -45,8 +45,8 @@ import (
 //				AllowedIntegrationTypes: pulumi.StringArray{
 //					pulumi.String("SECURITY INTEGRATIONS"),
 //				},
-//				ReplicationSchedule: &FailoverGroupReplicationScheduleArgs{
-//					Cron: &FailoverGroupReplicationScheduleCronArgs{
+//				ReplicationSchedule: &snowflake.FailoverGroupReplicationScheduleArgs{
+//					Cron: &snowflake.FailoverGroupReplicationScheduleCronArgs{
 //						Expression: pulumi.String("0 0 10-20 * TUE,THU"),
 //						TimeZone:   pulumi.String("UTC"),
 //					},
@@ -60,7 +60,7 @@ import (
 //				return err
 //			}
 //			_, err = snowflake.NewFailoverGroup(ctx, "targetFailoverGroup", &snowflake.FailoverGroupArgs{
-//				FromReplica: &FailoverGroupFromReplicaArgs{
+//				FromReplica: &snowflake.FailoverGroupFromReplicaArgs{
 //					OrganizationName:  pulumi.String("..."),
 //					SourceAccountName: pulumi.String("..."),
 //					Name:              pulumi.Any(snowflake_failover_group.Fg.Name),

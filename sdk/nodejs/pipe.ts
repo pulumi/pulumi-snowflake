@@ -5,23 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const pipe = new snowflake.Pipe("pipe", {
- *     autoIngest: false,
- *     awsSnsTopicArn: "...",
- *     comment: "A pipe.",
- *     copyStatement: "copy into mytable from @mystage",
- *     database: "db",
- *     notificationChannel: "...",
- *     schema: "schema",
- * });
- * ```
- *
  * ## Import
  *
  * format is database name | schema name | pipe name

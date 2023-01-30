@@ -70,7 +70,7 @@ type StageGrant struct {
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current stage on which to grant privileges.
-	SchemaName pulumi.StringOutput `pulumi:"schemaName"`
+	SchemaName pulumi.StringPtrOutput `pulumi:"schemaName"`
 	// The name of the stage on which to grant privilege (only valid if onFuture is false).
 	StageName pulumi.StringPtrOutput `pulumi:"stageName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -87,8 +87,8 @@ func NewStageGrant(ctx *pulumi.Context,
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
-	if args.SchemaName == nil {
-		return nil, errors.New("invalid value for required argument 'SchemaName'")
+	if args.Roles == nil {
+		return nil, errors.New("invalid value for required argument 'Roles'")
 	}
 	var resource StageGrant
 	err := ctx.RegisterResource("snowflake:index/stageGrant:StageGrant", name, args, &resource, opts...)
@@ -168,7 +168,7 @@ type stageGrantArgs struct {
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current stage on which to grant privileges.
-	SchemaName string `pulumi:"schemaName"`
+	SchemaName *string `pulumi:"schemaName"`
 	// The name of the stage on which to grant privilege (only valid if onFuture is false).
 	StageName *string `pulumi:"stageName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -189,7 +189,7 @@ type StageGrantArgs struct {
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current stage on which to grant privileges.
-	SchemaName pulumi.StringInput
+	SchemaName pulumi.StringPtrInput
 	// The name of the stage on which to grant privilege (only valid if onFuture is false).
 	StageName pulumi.StringPtrInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -310,8 +310,8 @@ func (o StageGrantOutput) Roles() pulumi.StringArrayOutput {
 }
 
 // The name of the schema containing the current stage on which to grant privileges.
-func (o StageGrantOutput) SchemaName() pulumi.StringOutput {
-	return o.ApplyT(func(v *StageGrant) pulumi.StringOutput { return v.SchemaName }).(pulumi.StringOutput)
+func (o StageGrantOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StageGrant) pulumi.StringPtrOutput { return v.SchemaName }).(pulumi.StringPtrOutput)
 }
 
 // The name of the stage on which to grant privilege (only valid if onFuture is false).

@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const exampleFileFormat = new snowflake.FileFormat("example_file_format", {
+ * const exampleFileFormat = new snowflake.FileFormat("exampleFileFormat", {
  *     database: "EXAMPLE_DB",
  *     formatType: "CSV",
  *     schema: "EXAMPLE_SCHEMA",

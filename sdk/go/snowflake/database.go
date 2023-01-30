@@ -33,7 +33,7 @@ import (
 //			}
 //			_, err = snowflake.NewDatabase(ctx, "withReplication", &snowflake.DatabaseArgs{
 //				Comment: pulumi.String("test comment 2"),
-//				ReplicationConfiguration: &DatabaseReplicationConfigurationArgs{
+//				ReplicationConfiguration: &snowflake.DatabaseReplicationConfigurationArgs{
 //					Accounts: pulumi.StringArray{
 //						pulumi.String("test_account1"),
 //						pulumi.String("test_account_2"),

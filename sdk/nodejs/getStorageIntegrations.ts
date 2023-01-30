@@ -13,15 +13,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const current = pulumi.output(snowflake.getStorageIntegrations());
+ * const current = snowflake.getStorageIntegrations({});
  * ```
  */
 export function getStorageIntegrations(opts?: pulumi.InvokeOptions): Promise<GetStorageIntegrationsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getStorageIntegrations:getStorageIntegrations", {
     }, opts);
 }

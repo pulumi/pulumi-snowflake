@@ -17,7 +17,6 @@ import * as utilities from "./utilities";
  *     comment: "A notification integration.",
  *     direction: "OUTBOUND",
  *     enabled: true,
- *     // AZURE_STORAGE_QUEUE
  *     notificationProvider: "AZURE_STORAGE_QUEUE",
  *     type: "QUEUE",
  * });

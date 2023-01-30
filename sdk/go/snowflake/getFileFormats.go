@@ -24,7 +24,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetFileFormats(ctx, &GetFileFormatsArgs{
+//			_, err := snowflake.GetFileFormats(ctx, &snowflake.GetFileFormatsArgs{
 //				Database: "MYDB",
 //				Schema:   "MYSCHEMA",
 //			}, nil)

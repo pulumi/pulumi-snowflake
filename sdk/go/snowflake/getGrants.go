@@ -24,16 +24,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetGrants(ctx, &GetGrantsArgs{
-//				GrantsOn: GetGrantsGrantsOn{
+//			_, err := snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				GrantsOn: snowflake.GetGrantsGrantsOn{
 //					Account: pulumi.BoolRef(true),
 //				},
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.GetGrants(ctx, &GetGrantsArgs{
-//				GrantsOn: GetGrantsGrantsOn{
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				GrantsOn: snowflake.GetGrantsGrantsOn{
 //					ObjectName: pulumi.StringRef("\"tst\""),
 //					ObjectType: pulumi.StringRef("DATABASE"),
 //				},
@@ -41,33 +41,33 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.GetGrants(ctx, &GetGrantsArgs{
-//				GrantsTo: GetGrantsGrantsTo{
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				GrantsTo: snowflake.GetGrantsGrantsTo{
 //					Role: pulumi.StringRef("ACCOUNTADMIN"),
 //				},
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.GetGrants(ctx, &GetGrantsArgs{
-//				GrantsOf: GetGrantsGrantsOf{
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				GrantsOf: snowflake.GetGrantsGrantsOf{
 //					Role: pulumi.StringRef("ACCOUNTADMIN"),
 //				},
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.GetGrants(ctx, &GetGrantsArgs{
-//				FutureGrantsIn: GetGrantsFutureGrantsIn{
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				FutureGrantsIn: snowflake.GetGrantsFutureGrantsIn{
 //					Database: pulumi.StringRef("\"tst\""),
 //				},
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.GetGrants(ctx, &GetGrantsArgs{
-//				FutureGrantsIn: GetGrantsFutureGrantsIn{
-//					Schema: GetGrantsFutureGrantsInSchema{
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				FutureGrantsIn: snowflake.GetGrantsFutureGrantsIn{
+//					Schema: snowflake.GetGrantsFutureGrantsInSchema{
 //						DatabaseName: pulumi.StringRef("\"mydatabase\""),
 //						SchemaName:   "\"myschema\"",
 //					},
@@ -76,8 +76,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.GetGrants(ctx, &GetGrantsArgs{
-//				FutureGrantsTo: GetGrantsFutureGrantsTo{
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				FutureGrantsTo: snowflake.GetGrantsFutureGrantsTo{
 //					Role: "ACCOUNTADMIN",
 //				},
 //			}, nil)

@@ -19,7 +19,7 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var grant = new Snowflake.ViewGrant("grant", new()
+    ///     var grantViewGrant = new Snowflake.ViewGrant("grantViewGrant", new()
     ///     {
     ///         DatabaseName = "database",
     ///         OnFuture = false,
@@ -37,6 +37,18 @@ namespace Pulumi.Snowflake
     ///         },
     ///         ViewName = "view",
     ///         WithGrantOption = false,
+    ///     });
+    /// 
+    ///     var grantSchemaGrant = new Snowflake.SchemaGrant("grantSchemaGrant", new()
+    ///     {
+    ///         DatabaseName = "database",
+    ///         Privilege = "USAGE",
+    ///         Roles = new[]
+    ///         {
+    ///             "role1",
+    ///             "role2",
+    ///         },
+    ///         SchemaName = "schema",
     ///     });
     /// 
     /// });

@@ -24,7 +24,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetTasks(ctx, &GetTasksArgs{
+//			_, err := snowflake.GetTasks(ctx, &snowflake.GetTasksArgs{
 //				Database: "MYDB",
 //				Schema:   "MYSCHEMA",
 //			}, nil)

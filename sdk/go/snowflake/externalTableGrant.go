@@ -93,6 +93,9 @@ func NewExternalTableGrant(ctx *pulumi.Context,
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
+	if args.Roles == nil {
+		return nil, errors.New("invalid value for required argument 'Roles'")
+	}
 	var resource ExternalTableGrant
 	err := ctx.RegisterResource("snowflake:index/externalTableGrant:ExternalTableGrant", name, args, &resource, opts...)
 	if err != nil {

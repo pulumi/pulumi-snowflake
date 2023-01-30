@@ -160,21 +160,14 @@ export interface GetGrantsFutureGrantsInArgs {
     schema?: pulumi.Input<inputs.GetGrantsFutureGrantsInSchemaArgs>;
 }
 
-export interface GetGrantsFutureGrantsInSchemaArgs {
-    databaseName?: pulumi.Input<string>;
-    schemaName: pulumi.Input<string>;
-}
-
 export interface GetGrantsFutureGrantsInSchema {
     databaseName?: string;
     schemaName: string;
 }
 
-export interface GetGrantsFutureGrantsToArgs {
-    /**
-     * Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
-     */
-    role: pulumi.Input<string>;
+export interface GetGrantsFutureGrantsInSchemaArgs {
+    databaseName?: pulumi.Input<string>;
+    schemaName: pulumi.Input<string>;
 }
 
 export interface GetGrantsFutureGrantsTo {
@@ -184,15 +177,11 @@ export interface GetGrantsFutureGrantsTo {
     role: string;
 }
 
-export interface GetGrantsGrantsOfArgs {
+export interface GetGrantsFutureGrantsToArgs {
     /**
-     * Lists all users and roles to which the role has been granted
+     * Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
      */
-    role?: pulumi.Input<string>;
-    /**
-     * Lists all the accounts for the share and indicates the accounts that are using the share.
-     */
-    share?: pulumi.Input<string>;
+    role: pulumi.Input<string>;
 }
 
 export interface GetGrantsGrantsOf {
@@ -204,6 +193,17 @@ export interface GetGrantsGrantsOf {
      * Lists all the accounts for the share and indicates the accounts that are using the share.
      */
     share?: string;
+}
+
+export interface GetGrantsGrantsOfArgs {
+    /**
+     * Lists all users and roles to which the role has been granted
+     */
+    role?: pulumi.Input<string>;
+    /**
+     * Lists all the accounts for the share and indicates the accounts that are using the share.
+     */
+    share?: pulumi.Input<string>;
 }
 
 export interface GetGrantsGrantsOn {
@@ -283,6 +283,21 @@ export interface MaterializedViewTag {
      * Tag value, e.g. marketing_info.
      */
     value: pulumi.Input<string>;
+}
+
+export interface ObjectParameterObjectIdentifier {
+    /**
+     * Name of the database that the object was created in.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Name of the object to set the parameter for.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the schema that the object was created in.
+     */
+    schema?: pulumi.Input<string>;
 }
 
 export interface ProcedureArgument {
@@ -537,4 +552,3 @@ export interface WarehouseTag {
      */
     value: pulumi.Input<string>;
 }
-
