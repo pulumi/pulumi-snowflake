@@ -13,18 +13,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const current = pulumi.output(snowflake.getFileFormats({
+ * const current = snowflake.getFileFormats({
  *     database: "MYDB",
  *     schema: "MYSCHEMA",
- * }));
+ * });
  * ```
  */
 export function getFileFormats(args: GetFileFormatsArgs, opts?: pulumi.InvokeOptions): Promise<GetFileFormatsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getFileFormats:getFileFormats", {
         "database": args.database,
         "schema": args.schema,
@@ -66,9 +63,21 @@ export interface GetFileFormatsResult {
      */
     readonly schema: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const current = snowflake.getFileFormats({
+ *     database: "MYDB",
+ *     schema: "MYSCHEMA",
+ * });
+ * ```
+ */
 export function getFileFormatsOutput(args: GetFileFormatsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileFormatsResult> {
-    return pulumi.output(args).apply(a => getFileFormats(a, opts))
+    return pulumi.output(args).apply((a: any) => getFileFormats(a, opts))
 }
 
 /**

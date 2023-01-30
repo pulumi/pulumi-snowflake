@@ -5,23 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const stream = new snowflake.Stream("stream", {
- *     appendOnly: false,
- *     comment: "A stream.",
- *     database: "database",
- *     insertOnly: false,
- *     onTable: "table",
- *     owner: "role1",
- *     schema: "schema",
- * });
- * ```
- *
  * ## Import
  *
  * format is database name | schema name | stream name

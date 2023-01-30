@@ -13,15 +13,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const current = pulumi.output(snowflake.getWarehouses());
+ * const current = snowflake.getWarehouses({});
  * ```
  */
 export function getWarehouses(opts?: pulumi.InvokeOptions): Promise<GetWarehousesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getWarehouses:getWarehouses", {
     }, opts);
 }

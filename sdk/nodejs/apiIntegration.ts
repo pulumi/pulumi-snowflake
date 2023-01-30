@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const apiIntegration = new snowflake.ApiIntegration("api_integration", {
+ * const apiIntegration = new snowflake.ApiIntegration("apiIntegration", {
  *     apiAllowedPrefixes: ["https://123456.execute-api.us-west-2.amazonaws.com/prod/"],
  *     apiAwsRoleArn: "arn:aws:iam::000000000001:/role/test",
  *     apiProvider: "aws_api_gateway",

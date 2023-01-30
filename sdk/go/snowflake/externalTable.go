@@ -26,12 +26,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewExternalTable(ctx, "externalTable", &snowflake.ExternalTableArgs{
-//				Columns: ExternalTableColumnArray{
-//					&ExternalTableColumnArgs{
+//				Columns: snowflake.ExternalTableColumnArray{
+//					&snowflake.ExternalTableColumnArgs{
 //						Name: pulumi.String("id"),
 //						Type: pulumi.String("int"),
 //					},
-//					&ExternalTableColumnArgs{
+//					&snowflake.ExternalTableColumnArgs{
 //						Name: pulumi.String("data"),
 //						Type: pulumi.String("text"),
 //					},

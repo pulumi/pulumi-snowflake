@@ -24,7 +24,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetSequences(ctx, &GetSequencesArgs{
+//			_, err := snowflake.GetSequences(ctx, &snowflake.GetSequencesArgs{
 //				Database: "MYDB",
 //				Schema:   "MYSCHEMA",
 //			}, nil)

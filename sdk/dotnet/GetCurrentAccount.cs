@@ -29,7 +29,7 @@ namespace Pulumi.Snowflake
         ///     var snowflakeAccountUrl = new Aws.Ssm.Parameter("snowflakeAccountUrl", new()
         ///     {
         ///         Type = "String",
-        ///         Value = @this.Apply(getCurrentAccountResult =&gt; getCurrentAccountResult).Apply(@this =&gt; @this.Apply(getCurrentAccountResult =&gt; getCurrentAccountResult.Url)),
+        ///         Value = @this.Apply(@this =&gt; @this.Apply(getCurrentAccountResult =&gt; getCurrentAccountResult.Url)),
         ///     });
         /// 
         /// });

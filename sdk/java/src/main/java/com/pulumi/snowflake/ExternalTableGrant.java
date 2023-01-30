@@ -146,14 +146,14 @@ public class ExternalTableGrant extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="roles", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> roles;
+    private Output<List<String>> roles;
 
     /**
      * @return Grants privilege to these roles.
      * 
      */
-    public Output<Optional<List<String>>> roles() {
-        return Codegen.optional(this.roles);
+    public Output<List<String>> roles() {
+        return this.roles;
     }
     /**
      * The name of the schema containing the current or future external tables on which to grant privileges.

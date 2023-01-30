@@ -13,18 +13,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const current = pulumi.output(snowflake.getMaterializedViews({
+ * const current = snowflake.getMaterializedViews({
  *     database: "MYDB",
  *     schema: "MYSCHEMA",
- * }));
+ * });
  * ```
  */
 export function getMaterializedViews(args: GetMaterializedViewsArgs, opts?: pulumi.InvokeOptions): Promise<GetMaterializedViewsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getMaterializedViews:getMaterializedViews", {
         "database": args.database,
         "schema": args.schema,
@@ -66,9 +63,21 @@ export interface GetMaterializedViewsResult {
      */
     readonly schema: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const current = snowflake.getMaterializedViews({
+ *     database: "MYDB",
+ *     schema: "MYSCHEMA",
+ * });
+ * ```
+ */
 export function getMaterializedViewsOutput(args: GetMaterializedViewsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaterializedViewsResult> {
-    return pulumi.output(args).apply(a => getMaterializedViews(a, opts))
+    return pulumi.output(args).apply((a: any) => getMaterializedViews(a, opts))
 }
 
 /**

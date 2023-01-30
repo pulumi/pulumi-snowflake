@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const exampleMaskingPolicy = new snowflake.MaskingPolicy("example_masking_policy", {
+ * const exampleMaskingPolicy = new snowflake.MaskingPolicy("exampleMaskingPolicy", {
  *     database: "EXAMPLE_DB",
  *     maskingExpression: "case when current_role() in ('ANALYST') then val else sha2(val, 512) end",
  *     returnDataType: "string",

@@ -13,18 +13,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const current = pulumi.output(snowflake.getExternalTables({
+ * const current = snowflake.getExternalTables({
  *     database: "MYDB",
  *     schema: "MYSCHEMA",
- * }));
+ * });
  * ```
  */
 export function getExternalTables(args: GetExternalTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetExternalTablesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getExternalTables:getExternalTables", {
         "database": args.database,
         "schema": args.schema,
@@ -66,9 +63,21 @@ export interface GetExternalTablesResult {
      */
     readonly schema: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const current = snowflake.getExternalTables({
+ *     database: "MYDB",
+ *     schema: "MYSCHEMA",
+ * });
+ * ```
+ */
 export function getExternalTablesOutput(args: GetExternalTablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExternalTablesResult> {
-    return pulumi.output(args).apply(a => getExternalTables(a, opts))
+    return pulumi.output(args).apply((a: any) => getExternalTables(a, opts))
 }
 
 /**

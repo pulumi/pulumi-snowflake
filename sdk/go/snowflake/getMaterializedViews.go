@@ -24,7 +24,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetMaterializedViews(ctx, &GetMaterializedViewsArgs{
+//			_, err := snowflake.GetMaterializedViews(ctx, &snowflake.GetMaterializedViewsArgs{
 //				Database: "MYDB",
 //				Schema:   "MYSCHEMA",
 //			}, nil)

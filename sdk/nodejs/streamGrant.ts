@@ -81,11 +81,11 @@ export class StreamGrant extends pulumi.CustomResource {
     /**
      * Grants privilege to these roles.
      */
-    public readonly roles!: pulumi.Output<string[] | undefined>;
+    public readonly roles!: pulumi.Output<string[]>;
     /**
      * The name of the schema containing the current or future streams on which to grant privileges.
      */
-    public readonly schemaName!: pulumi.Output<string>;
+    public readonly schemaName!: pulumi.Output<string | undefined>;
     /**
      * The name of the stream on which to grant privileges immediately (only valid if onFuture is false).
      */
@@ -121,8 +121,8 @@ export class StreamGrant extends pulumi.CustomResource {
             if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.schemaName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'schemaName'");
+            if ((!args || args.roles === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'roles'");
             }
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["enableMultipleGrants"] = args ? args.enableMultipleGrants : undefined;
@@ -201,11 +201,11 @@ export interface StreamGrantArgs {
     /**
      * Grants privilege to these roles.
      */
-    roles?: pulumi.Input<pulumi.Input<string>[]>;
+    roles: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the schema containing the current or future streams on which to grant privileges.
      */
-    schemaName: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
     /**
      * The name of the stream on which to grant privileges immediately (only valid if onFuture is false).
      */

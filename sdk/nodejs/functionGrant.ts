@@ -110,11 +110,11 @@ export class FunctionGrant extends pulumi.CustomResource {
     /**
      * Grants privilege to these roles.
      */
-    public readonly roles!: pulumi.Output<string[] | undefined>;
+    public readonly roles!: pulumi.Output<string[]>;
     /**
      * The name of the schema containing the current or future functions on which to grant privileges.
      */
-    public readonly schemaName!: pulumi.Output<string>;
+    public readonly schemaName!: pulumi.Output<string | undefined>;
     /**
      * Grants privilege to these shares (only valid if onFuture is false).
      */
@@ -153,8 +153,8 @@ export class FunctionGrant extends pulumi.CustomResource {
             if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.schemaName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'schemaName'");
+            if ((!args || args.roles === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'roles'");
             }
             resourceInputs["arguments"] = args ? args.arguments : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
@@ -260,11 +260,11 @@ export interface FunctionGrantArgs {
     /**
      * Grants privilege to these roles.
      */
-    roles?: pulumi.Input<pulumi.Input<string>[]>;
+    roles: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the schema containing the current or future functions on which to grant privileges.
      */
-    schemaName: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
     /**
      * Grants privilege to these shares (only valid if onFuture is false).
      */

@@ -57,7 +57,7 @@ func NewManagedAccount(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'AdminPassword'")
 	}
 	if args.AdminPassword != nil {
-		args.AdminPassword = pulumi.ToSecret(args.AdminPassword).(pulumi.StringOutput)
+		args.AdminPassword = pulumi.ToSecret(args.AdminPassword).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"adminPassword",

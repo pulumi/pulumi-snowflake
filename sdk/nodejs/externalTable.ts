@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const externalTable = new snowflake.ExternalTable("external_table", {
+ * const externalTable = new snowflake.ExternalTable("externalTable", {
  *     columns: [
  *         {
  *             name: "id",

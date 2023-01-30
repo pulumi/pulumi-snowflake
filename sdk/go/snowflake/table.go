@@ -48,40 +48,40 @@ import (
 //				},
 //				DataRetentionDays: schema.DataRetentionDays,
 //				ChangeTracking:    pulumi.Bool(false),
-//				Columns: TableColumnArray{
-//					&TableColumnArgs{
+//				Columns: snowflake.TableColumnArray{
+//					&snowflake.TableColumnArgs{
 //						Name:     pulumi.String("id"),
 //						Type:     pulumi.String("int"),
 //						Nullable: pulumi.Bool(true),
-//						Default: &TableColumnDefaultArgs{
+//						Default: &snowflake.TableColumnDefaultArgs{
 //							Sequence: sequence.FullyQualifiedName,
 //						},
 //					},
-//					&TableColumnArgs{
+//					&snowflake.TableColumnArgs{
 //						Name:     pulumi.String("identity"),
 //						Type:     pulumi.String("NUMBER(38,0)"),
 //						Nullable: pulumi.Bool(true),
-//						Identity: &TableColumnIdentityArgs{
+//						Identity: &snowflake.TableColumnIdentityArgs{
 //							StartNum: pulumi.Int(1),
 //							StepNum:  pulumi.Int(3),
 //						},
 //					},
-//					&TableColumnArgs{
+//					&snowflake.TableColumnArgs{
 //						Name:     pulumi.String("data"),
 //						Type:     pulumi.String("text"),
 //						Nullable: pulumi.Bool(false),
 //					},
-//					&TableColumnArgs{
+//					&snowflake.TableColumnArgs{
 //						Name: pulumi.String("DATE"),
 //						Type: pulumi.String("TIMESTAMP_NTZ(9)"),
 //					},
-//					&TableColumnArgs{
+//					&snowflake.TableColumnArgs{
 //						Name:    pulumi.String("extra"),
 //						Type:    pulumi.String("VARIANT"),
 //						Comment: pulumi.String("extra data"),
 //					},
 //				},
-//				PrimaryKey: &TablePrimaryKeyArgs{
+//				PrimaryKey: &snowflake.TablePrimaryKeyArgs{
 //					Name: pulumi.String("my_key"),
 //					Keys: pulumi.StringArray{
 //						pulumi.String("data"),
@@ -118,6 +118,8 @@ type Table struct {
 	// Specifies a comment for the table.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+	//
+	// Deprecated: Use snowflake_object_parameter instead
 	DataRetentionDays pulumi.IntPtrOutput `pulumi:"dataRetentionDays"`
 	// The database in which to create the table.
 	Database pulumi.StringOutput `pulumi:"database"`
@@ -184,6 +186,8 @@ type tableState struct {
 	// Specifies a comment for the table.
 	Comment *string `pulumi:"comment"`
 	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+	//
+	// Deprecated: Use snowflake_object_parameter instead
 	DataRetentionDays *int `pulumi:"dataRetentionDays"`
 	// The database in which to create the table.
 	Database *string `pulumi:"database"`
@@ -213,6 +217,8 @@ type TableState struct {
 	// Specifies a comment for the table.
 	Comment pulumi.StringPtrInput
 	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+	//
+	// Deprecated: Use snowflake_object_parameter instead
 	DataRetentionDays pulumi.IntPtrInput
 	// The database in which to create the table.
 	Database pulumi.StringPtrInput
@@ -246,6 +252,8 @@ type tableArgs struct {
 	// Specifies a comment for the table.
 	Comment *string `pulumi:"comment"`
 	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+	//
+	// Deprecated: Use snowflake_object_parameter instead
 	DataRetentionDays *int `pulumi:"dataRetentionDays"`
 	// The database in which to create the table.
 	Database string `pulumi:"database"`
@@ -274,6 +282,8 @@ type TableArgs struct {
 	// Specifies a comment for the table.
 	Comment pulumi.StringPtrInput
 	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+	//
+	// Deprecated: Use snowflake_object_parameter instead
 	DataRetentionDays pulumi.IntPtrInput
 	// The database in which to create the table.
 	Database pulumi.StringInput
@@ -399,6 +409,8 @@ func (o TableOutput) Comment() pulumi.StringPtrOutput {
 }
 
 // Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+//
+// Deprecated: Use snowflake_object_parameter instead
 func (o TableOutput) DataRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Table) pulumi.IntPtrOutput { return v.DataRetentionDays }).(pulumi.IntPtrOutput)
 }

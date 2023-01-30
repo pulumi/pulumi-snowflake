@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  *     comment: "test comment",
  *     dataRetentionTimeInDays: 3,
  * });
- * const withReplication = new snowflake.Database("with_replication", {
+ * const withReplication = new snowflake.Database("withReplication", {
  *     comment: "test comment 2",
  *     replicationConfiguration: {
  *         accounts: [
@@ -27,12 +27,12 @@ import * as utilities from "./utilities";
  *         ignoreEditionCheck: true,
  *     },
  * });
- * const fromReplica = new snowflake.Database("from_replica", {
+ * const fromReplica = new snowflake.Database("fromReplica", {
  *     comment: "test comment",
  *     dataRetentionTimeInDays: 3,
  *     fromReplica: "org1\".\"account1\".\"primary_db_name",
  * });
- * const fromShare = new snowflake.Database("from_share", {
+ * const fromShare = new snowflake.Database("fromShare", {
  *     comment: "test comment",
  *     fromShare: {
  *         provider: "org1\".\"account1",

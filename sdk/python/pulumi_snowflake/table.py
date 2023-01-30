@@ -49,6 +49,9 @@ class TableArgs:
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if data_retention_days is not None:
+            warnings.warn("""Use snowflake_object_parameter instead""", DeprecationWarning)
+            pulumi.log.warn("""data_retention_days is deprecated: Use snowflake_object_parameter instead""")
+        if data_retention_days is not None:
             pulumi.set(__self__, "data_retention_days", data_retention_days)
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -220,6 +223,9 @@ class _TableState:
             pulumi.set(__self__, "columns", columns)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if data_retention_days is not None:
+            warnings.warn("""Use snowflake_object_parameter instead""", DeprecationWarning)
+            pulumi.log.warn("""data_retention_days is deprecated: Use snowflake_object_parameter instead""")
         if data_retention_days is not None:
             pulumi.set(__self__, "data_retention_days", data_retention_days)
         if database is not None:
@@ -583,6 +589,9 @@ class Table(pulumi.CustomResource):
                 raise TypeError("Missing required property 'columns'")
             __props__.__dict__["columns"] = columns
             __props__.__dict__["comment"] = comment
+            if data_retention_days is not None and not opts.urn:
+                warnings.warn("""Use snowflake_object_parameter instead""", DeprecationWarning)
+                pulumi.log.warn("""data_retention_days is deprecated: Use snowflake_object_parameter instead""")
             __props__.__dict__["data_retention_days"] = data_retention_days
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")

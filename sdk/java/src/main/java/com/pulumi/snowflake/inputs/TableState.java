@@ -84,14 +84,22 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
      * 
+     * @deprecated
+     * Use snowflake_object_parameter instead
+     * 
      */
+    @Deprecated /* Use snowflake_object_parameter instead */
     @Import(name="dataRetentionDays")
     private @Nullable Output<Integer> dataRetentionDays;
 
     /**
      * @return Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
      * 
+     * @deprecated
+     * Use snowflake_object_parameter instead
+     * 
      */
+    @Deprecated /* Use snowflake_object_parameter instead */
     public Optional<Output<Integer>> dataRetentionDays() {
         return Optional.ofNullable(this.dataRetentionDays);
     }
@@ -345,7 +353,11 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use snowflake_object_parameter instead
+         * 
          */
+        @Deprecated /* Use snowflake_object_parameter instead */
         public Builder dataRetentionDays(@Nullable Output<Integer> dataRetentionDays) {
             $.dataRetentionDays = dataRetentionDays;
             return this;
@@ -356,7 +368,11 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use snowflake_object_parameter instead
+         * 
          */
+        @Deprecated /* Use snowflake_object_parameter instead */
         public Builder dataRetentionDays(Integer dataRetentionDays) {
             return dataRetentionDays(Output.of(dataRetentionDays));
         }

@@ -13,17 +13,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const current = pulumi.output(snowflake.getSchemas({
+ * const current = snowflake.getSchemas({
  *     database: "MYDB",
- * }));
+ * });
  * ```
  */
 export function getSchemas(args: GetSchemasArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemasResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getSchemas:getSchemas", {
         "database": args.database,
     }, opts);
@@ -56,9 +53,20 @@ export interface GetSchemasResult {
      */
     readonly schemas: outputs.GetSchemasSchema[];
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const current = snowflake.getSchemas({
+ *     database: "MYDB",
+ * });
+ * ```
+ */
 export function getSchemasOutput(args: GetSchemasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemasResult> {
-    return pulumi.output(args).apply(a => getSchemas(a, opts))
+    return pulumi.output(args).apply((a: any) => getSchemas(a, opts))
 }
 
 /**

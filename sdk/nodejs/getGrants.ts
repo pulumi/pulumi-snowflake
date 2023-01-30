@@ -13,61 +13,51 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * // list all grants on account
- * const grants = pulumi.output(snowflake.getGrants({
+ * const grants = snowflake.getGrants({
  *     grantsOn: {
  *         account: true,
  *     },
- * }));
- * // list all grants in database with name "tst"
- * const grants2 = pulumi.output(snowflake.getGrants({
+ * });
+ * const grants2 = snowflake.getGrants({
  *     grantsOn: {
  *         objectName: "\"tst\"",
  *         objectType: "DATABASE",
  *     },
- * }));
- * // list all grants to role with name "ACCOUNTADMIN"
- * const grants3 = pulumi.output(snowflake.getGrants({
+ * });
+ * const grants3 = snowflake.getGrants({
  *     grantsTo: {
  *         role: "ACCOUNTADMIN",
  *     },
- * }));
- * // list all grants of role with name "ACCOUNTADMIN"
- * const grants4 = pulumi.output(snowflake.getGrants({
+ * });
+ * const grants4 = snowflake.getGrants({
  *     grantsOf: {
  *         role: "ACCOUNTADMIN",
  *     },
- * }));
- * // list all grants in database with name "tst"
- * const grants5 = pulumi.output(snowflake.getGrants({
+ * });
+ * const grants5 = snowflake.getGrants({
  *     futureGrantsIn: {
  *         database: "\"tst\"",
  *     },
- * }));
- * // list all future grants in schema with name "mydatabase" and database with name "myschema"
- * const grants6 = pulumi.output(snowflake.getGrants({
+ * });
+ * const grants6 = snowflake.getGrants({
  *     futureGrantsIn: {
  *         schema: {
  *             databaseName: "\"mydatabase\"",
  *             schemaName: "\"myschema\"",
  *         },
  *     },
- * }));
- * // list all future grants to role with name "ACCOUNTADMIN"
- * const grants7 = pulumi.output(snowflake.getGrants({
+ * });
+ * const grants7 = snowflake.getGrants({
  *     futureGrantsTo: {
  *         role: "ACCOUNTADMIN",
  *     },
- * }));
+ * });
  * ```
  */
 export function getGrants(args?: GetGrantsArgs, opts?: pulumi.InvokeOptions): Promise<GetGrantsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getGrants:getGrants", {
         "futureGrantsIn": args.futureGrantsIn,
         "futureGrantsTo": args.futureGrantsTo,
@@ -136,9 +126,56 @@ export interface GetGrantsResult {
      */
     readonly id: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const grants = snowflake.getGrants({
+ *     grantsOn: {
+ *         account: true,
+ *     },
+ * });
+ * const grants2 = snowflake.getGrants({
+ *     grantsOn: {
+ *         objectName: "\"tst\"",
+ *         objectType: "DATABASE",
+ *     },
+ * });
+ * const grants3 = snowflake.getGrants({
+ *     grantsTo: {
+ *         role: "ACCOUNTADMIN",
+ *     },
+ * });
+ * const grants4 = snowflake.getGrants({
+ *     grantsOf: {
+ *         role: "ACCOUNTADMIN",
+ *     },
+ * });
+ * const grants5 = snowflake.getGrants({
+ *     futureGrantsIn: {
+ *         database: "\"tst\"",
+ *     },
+ * });
+ * const grants6 = snowflake.getGrants({
+ *     futureGrantsIn: {
+ *         schema: {
+ *             databaseName: "\"mydatabase\"",
+ *             schemaName: "\"myschema\"",
+ *         },
+ *     },
+ * });
+ * const grants7 = snowflake.getGrants({
+ *     futureGrantsTo: {
+ *         role: "ACCOUNTADMIN",
+ *     },
+ * });
+ * ```
+ */
 export function getGrantsOutput(args?: GetGrantsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGrantsResult> {
-    return pulumi.output(args).apply(a => getGrants(a, opts))
+    return pulumi.output(args).apply((a: any) => getGrants(a, opts))
 }
 
 /**

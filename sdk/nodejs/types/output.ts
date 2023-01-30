@@ -314,6 +314,15 @@ export interface GetMaterializedViewsMaterializedView {
     schema: string;
 }
 
+export interface GetParametersParameter {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    type: string;
+    value: string;
+}
+
 export interface GetPipesPipe {
     comment: string;
     /**
@@ -508,6 +517,21 @@ export interface MaterializedViewTag {
      * Tag value, e.g. marketing_info.
      */
     value: string;
+}
+
+export interface ObjectParameterObjectIdentifier {
+    /**
+     * Name of the database that the object was created in.
+     */
+    database?: string;
+    /**
+     * Name of the object to set the parameter for.
+     */
+    name: string;
+    /**
+     * Name of the schema that the object was created in.
+     */
+    schema?: string;
 }
 
 export interface ProcedureArgument {
@@ -762,3 +786,4 @@ export interface WarehouseTag {
      */
     value: string;
 }
+

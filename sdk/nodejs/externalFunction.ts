@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const testExtFunc = new snowflake.ExternalFunction("test_ext_func", {
+ * const testExtFunc = new snowflake.ExternalFunction("testExtFunc", {
  *     apiIntegration: "api_integration_name",
  *     args: [
  *         {

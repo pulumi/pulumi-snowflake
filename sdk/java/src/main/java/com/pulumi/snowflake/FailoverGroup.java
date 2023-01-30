@@ -56,8 +56,8 @@ import javax.annotation.Nullable;
  *                 &#34;INTEGRATIONS&#34;,
  *                 &#34;ROLES&#34;)
  *             .allowedAccounts(            
- *                 &#34;&lt;account1&gt;&#34;,
- *                 &#34;&lt;account2&gt;&#34;)
+ *                 &#34;&lt;org_name&gt;.&lt;target_account_name1&gt;&#34;,
+ *                 &#34;&lt;org_name&gt;.&lt;target_account_name2&gt;&#34;)
  *             .allowedDatabases(db.name())
  *             .allowedIntegrationTypes(&#34;SECURITY INTEGRATIONS&#34;)
  *             .replicationSchedule(FailoverGroupReplicationScheduleArgs.builder()

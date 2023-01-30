@@ -5,23 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const account = new snowflake.ManagedAccount("account", {
- *     adminName: "admin",
- *     adminPassword: "secret",
- *     cloud: "aws",
- *     comment: "A managed account.",
- *     locator: "managed-account",
- *     region: "us-west-2",
- *     type: "READER",
- * });
- * ```
- *
  * ## Import
  *
  * ```sh

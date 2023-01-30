@@ -340,7 +340,7 @@ class ViewGrant(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        grant = snowflake.ViewGrant("grant",
+        grant_view_grant = snowflake.ViewGrant("grantViewGrant",
             database_name="database",
             on_future=False,
             privilege="SELECT",
@@ -355,6 +355,14 @@ class ViewGrant(pulumi.CustomResource):
             ],
             view_name="view",
             with_grant_option=False)
+        grant_schema_grant = snowflake.SchemaGrant("grantSchemaGrant",
+            database_name="database",
+            privilege="USAGE",
+            roles=[
+                "role1",
+                "role2",
+            ],
+            schema_name="schema")
         ```
 
         ## Import
@@ -391,7 +399,7 @@ class ViewGrant(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        grant = snowflake.ViewGrant("grant",
+        grant_view_grant = snowflake.ViewGrant("grantViewGrant",
             database_name="database",
             on_future=False,
             privilege="SELECT",
@@ -406,6 +414,14 @@ class ViewGrant(pulumi.CustomResource):
             ],
             view_name="view",
             with_grant_option=False)
+        grant_schema_grant = snowflake.SchemaGrant("grantSchemaGrant",
+            database_name="database",
+            privilege="USAGE",
+            roles=[
+                "role1",
+                "role2",
+            ],
+            schema_name="schema")
         ```
 
         ## Import

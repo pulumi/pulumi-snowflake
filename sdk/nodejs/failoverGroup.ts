@@ -22,8 +22,8 @@ import * as utilities from "./utilities";
  *         "ROLES",
  *     ],
  *     allowedAccounts: [
- *         "<account1>",
- *         "<account2>",
+ *         "<org_name>.<target_account_name1>",
+ *         "<org_name>.<target_account_name2>",
  *     ],
  *     allowedDatabases: [db.name],
  *     allowedIntegrationTypes: ["SECURITY INTEGRATIONS"],

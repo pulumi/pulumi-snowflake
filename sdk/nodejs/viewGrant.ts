@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const grant = new snowflake.ViewGrant("grant", {
+ * const grantViewGrant = new snowflake.ViewGrant("grantViewGrant", {
  *     databaseName: "database",
  *     onFuture: false,
  *     privilege: "SELECT",
@@ -26,6 +26,15 @@ import * as utilities from "./utilities";
  *     ],
  *     viewName: "view",
  *     withGrantOption: false,
+ * });
+ * const grantSchemaGrant = new snowflake.SchemaGrant("grantSchemaGrant", {
+ *     databaseName: "database",
+ *     privilege: "USAGE",
+ *     roles: [
+ *         "role1",
+ *         "role2",
+ *     ],
+ *     schemaName: "schema",
  * });
  * ```
  *

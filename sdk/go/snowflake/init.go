@@ -20,8 +20,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "snowflake:index/account:Account":
+		r = &Account{}
 	case "snowflake:index/accountGrant:AccountGrant":
 		r = &AccountGrant{}
+	case "snowflake:index/accountParameter:AccountParameter":
+		r = &AccountParameter{}
 	case "snowflake:index/apiIntegration:ApiIntegration":
 		r = &ApiIntegration{}
 	case "snowflake:index/database:Database":
@@ -66,6 +70,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NotificationIntegration{}
 	case "snowflake:index/oauthIntegration:OauthIntegration":
 		r = &OauthIntegration{}
+	case "snowflake:index/objectParameter:ObjectParameter":
+		r = &ObjectParameter{}
 	case "snowflake:index/pipe:Pipe":
 		r = &Pipe{}
 	case "snowflake:index/pipeGrant:PipeGrant":
@@ -100,6 +106,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Sequence{}
 	case "snowflake:index/sequenceGrant:SequenceGrant":
 		r = &SequenceGrant{}
+	case "snowflake:index/sessionParameter:SessionParameter":
+		r = &SessionParameter{}
 	case "snowflake:index/share:Share":
 		r = &Share{}
 	case "snowflake:index/stage:Stage":
@@ -176,7 +184,17 @@ func init() {
 	version, _ := PkgVersion()
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/account",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/accountGrant",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/accountParameter",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -291,6 +309,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/objectParameter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/pipe",
 		&module{version},
 	)
@@ -372,6 +395,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/sequenceGrant",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/sessionParameter",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

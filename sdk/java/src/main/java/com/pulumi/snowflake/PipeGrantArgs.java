@@ -113,15 +113,15 @@ public final class PipeGrantArgs extends com.pulumi.resources.ResourceArgs {
      * The name of the schema containing the current or future pipes on which to grant privileges.
      * 
      */
-    @Import(name="schemaName", required=true)
-    private Output<String> schemaName;
+    @Import(name="schemaName")
+    private @Nullable Output<String> schemaName;
 
     /**
      * @return The name of the schema containing the current or future pipes on which to grant privileges.
      * 
      */
-    public Output<String> schemaName() {
-        return this.schemaName;
+    public Optional<Output<String>> schemaName() {
+        return Optional.ofNullable(this.schemaName);
     }
 
     /**
@@ -314,7 +314,7 @@ public final class PipeGrantArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder schemaName(Output<String> schemaName) {
+        public Builder schemaName(@Nullable Output<String> schemaName) {
             $.schemaName = schemaName;
             return this;
         }
@@ -352,7 +352,6 @@ public final class PipeGrantArgs extends com.pulumi.resources.ResourceArgs {
 
         public PipeGrantArgs build() {
             $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.schemaName = Objects.requireNonNull($.schemaName, "expected parameter 'schemaName' to be non-null");
             return $;
         }
     }

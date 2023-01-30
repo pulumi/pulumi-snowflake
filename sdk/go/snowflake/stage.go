@@ -110,7 +110,7 @@ func NewStage(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Schema'")
 	}
 	if args.Credentials != nil {
-		args.Credentials = pulumi.ToSecret(args.Credentials).(pulumi.StringPtrOutput)
+		args.Credentials = pulumi.ToSecret(args.Credentials).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"credentials",

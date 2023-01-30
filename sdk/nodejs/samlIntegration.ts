@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const samlIntegration = new snowflake.SamlIntegration("saml_integration", {
+ * const samlIntegration = new snowflake.SamlIntegration("samlIntegration", {
  *     enabled: true,
  *     saml2Issuer: "test_issuer",
  *     saml2Provider: "CUSTOM",

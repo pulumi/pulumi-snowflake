@@ -5,23 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const integration = new snowflake.StorageIntegration("integration", {
- *     comment: "A storage integration.",
- *     enabled: true,
- *     storageAwsExternalId: "...",
- *     storageAwsIamUserArn: "...",
- *     storageAwsRoleArn: "...",
- *     storageProvider: "S3",
- *     type: "EXTERNAL_STAGE",
- * });
- * ```
- *
  * ## Import
  *
  * ```sh

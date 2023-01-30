@@ -143,28 +143,28 @@ public class FileFormatGrant extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="roles", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> roles;
+    private Output<List<String>> roles;
 
     /**
      * @return Grants privilege to these roles.
      * 
      */
-    public Output<Optional<List<String>>> roles() {
-        return Codegen.optional(this.roles);
+    public Output<List<String>> roles() {
+        return this.roles;
     }
     /**
      * The name of the schema containing the current or future file formats on which to grant privileges.
      * 
      */
     @Export(name="schemaName", type=String.class, parameters={})
-    private Output<String> schemaName;
+    private Output</* @Nullable */ String> schemaName;
 
     /**
      * @return The name of the schema containing the current or future file formats on which to grant privileges.
      * 
      */
-    public Output<String> schemaName() {
-        return this.schemaName;
+    public Output<Optional<String>> schemaName() {
+        return Codegen.optional(this.schemaName);
     }
     /**
      * When this is set to true, allows the recipient role to grant the privileges to other roles.

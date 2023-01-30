@@ -70,7 +70,7 @@ type SequenceGrant struct {
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current or future sequences on which to grant privileges.
-	SchemaName pulumi.StringOutput `pulumi:"schemaName"`
+	SchemaName pulumi.StringPtrOutput `pulumi:"schemaName"`
 	// The name of the sequence on which to grant privileges immediately (only valid if onFuture is false).
 	SequenceName pulumi.StringPtrOutput `pulumi:"sequenceName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -87,8 +87,8 @@ func NewSequenceGrant(ctx *pulumi.Context,
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
-	if args.SchemaName == nil {
-		return nil, errors.New("invalid value for required argument 'SchemaName'")
+	if args.Roles == nil {
+		return nil, errors.New("invalid value for required argument 'Roles'")
 	}
 	var resource SequenceGrant
 	err := ctx.RegisterResource("snowflake:index/sequenceGrant:SequenceGrant", name, args, &resource, opts...)
@@ -168,7 +168,7 @@ type sequenceGrantArgs struct {
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future sequences on which to grant privileges.
-	SchemaName string `pulumi:"schemaName"`
+	SchemaName *string `pulumi:"schemaName"`
 	// The name of the sequence on which to grant privileges immediately (only valid if onFuture is false).
 	SequenceName *string `pulumi:"sequenceName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -189,7 +189,7 @@ type SequenceGrantArgs struct {
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future sequences on which to grant privileges.
-	SchemaName pulumi.StringInput
+	SchemaName pulumi.StringPtrInput
 	// The name of the sequence on which to grant privileges immediately (only valid if onFuture is false).
 	SequenceName pulumi.StringPtrInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -310,8 +310,8 @@ func (o SequenceGrantOutput) Roles() pulumi.StringArrayOutput {
 }
 
 // The name of the schema containing the current or future sequences on which to grant privileges.
-func (o SequenceGrantOutput) SchemaName() pulumi.StringOutput {
-	return o.ApplyT(func(v *SequenceGrant) pulumi.StringOutput { return v.SchemaName }).(pulumi.StringOutput)
+func (o SequenceGrantOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SequenceGrant) pulumi.StringPtrOutput { return v.SchemaName }).(pulumi.StringPtrOutput)
 }
 
 // The name of the sequence on which to grant privileges immediately (only valid if onFuture is false).

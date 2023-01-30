@@ -89,7 +89,7 @@ namespace Pulumi.Snowflake
         /// The name of the schema containing the current or future file formats on which to grant privileges.
         /// </summary>
         [Output("schemaName")]
-        public Output<string> SchemaName { get; private set; } = null!;
+        public Output<string?> SchemaName { get; private set; } = null!;
 
         /// <summary>
         /// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -174,7 +174,7 @@ namespace Pulumi.Snowflake
         [Input("privilege")]
         public Input<string>? Privilege { get; set; }
 
-        [Input("roles")]
+        [Input("roles", required: true)]
         private InputList<string>? _roles;
 
         /// <summary>
@@ -189,8 +189,8 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// The name of the schema containing the current or future file formats on which to grant privileges.
         /// </summary>
-        [Input("schemaName", required: true)]
-        public Input<string> SchemaName { get; set; } = null!;
+        [Input("schemaName")]
+        public Input<string>? SchemaName { get; set; }
 
         /// <summary>
         /// When this is set to true, allows the recipient role to grant the privileges to other roles.

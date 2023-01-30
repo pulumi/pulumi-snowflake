@@ -17,20 +17,20 @@ __all__ = ['ProcedureGrantArgs', 'ProcedureGrant']
 class ProcedureGrantArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
-                 schema_name: pulumi.Input[str],
+                 roles: pulumi.Input[Sequence[pulumi.Input[str]]],
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedureGrantArgumentArgs']]]] = None,
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  procedure_name: Optional[pulumi.Input[str]] = None,
                  return_type: Optional[pulumi.Input[str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 schema_name: Optional[pulumi.Input[str]] = None,
                  shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ProcedureGrant resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future procedures on which to grant privileges.
-        :param pulumi.Input[str] schema_name: The name of the schema containing the current or future procedures on which to grant privileges.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[Sequence[pulumi.Input['ProcedureGrantArgumentArgs']]] arguments: List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
@@ -38,12 +38,12 @@ class ProcedureGrantArgs:
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future procedure.
         :param pulumi.Input[str] procedure_name: The name of the procedure on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[str] return_type: The return type of the procedure (must be present if procedure_name is present)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
+        :param pulumi.Input[str] schema_name: The name of the schema containing the current or future procedures on which to grant privileges.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on_future is false).
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
         pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "schema_name", schema_name)
+        pulumi.set(__self__, "roles", roles)
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
         if enable_multiple_grants is not None:
@@ -56,8 +56,8 @@ class ProcedureGrantArgs:
             pulumi.set(__self__, "procedure_name", procedure_name)
         if return_type is not None:
             pulumi.set(__self__, "return_type", return_type)
-        if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
         if shares is not None:
             pulumi.set(__self__, "shares", shares)
         if with_grant_option is not None:
@@ -76,16 +76,16 @@ class ProcedureGrantArgs:
         pulumi.set(self, "database_name", value)
 
     @property
-    @pulumi.getter(name="schemaName")
-    def schema_name(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def roles(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The name of the schema containing the current or future procedures on which to grant privileges.
+        Grants privilege to these roles.
         """
-        return pulumi.get(self, "schema_name")
+        return pulumi.get(self, "roles")
 
-    @schema_name.setter
-    def schema_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "schema_name", value)
+    @roles.setter
+    def roles(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "roles", value)
 
     @property
     @pulumi.getter
@@ -161,16 +161,16 @@ class ProcedureGrantArgs:
         pulumi.set(self, "return_type", value)
 
     @property
-    @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Grants privilege to these roles.
+        The name of the schema containing the current or future procedures on which to grant privileges.
         """
-        return pulumi.get(self, "roles")
+        return pulumi.get(self, "schema_name")
 
-    @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "roles", value)
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_name", value)
 
     @property
     @pulumi.getter
@@ -551,9 +551,9 @@ class ProcedureGrant(pulumi.CustomResource):
             __props__.__dict__["privilege"] = privilege
             __props__.__dict__["procedure_name"] = procedure_name
             __props__.__dict__["return_type"] = return_type
+            if roles is None and not opts.urn:
+                raise TypeError("Missing required property 'roles'")
             __props__.__dict__["roles"] = roles
-            if schema_name is None and not opts.urn:
-                raise TypeError("Missing required property 'schema_name'")
             __props__.__dict__["schema_name"] = schema_name
             __props__.__dict__["shares"] = shares
             __props__.__dict__["with_grant_option"] = with_grant_option
@@ -674,7 +674,7 @@ class ProcedureGrant(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def roles(self) -> pulumi.Output[Sequence[str]]:
         """
         Grants privilege to these roles.
         """
@@ -682,7 +682,7 @@ class ProcedureGrant(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="schemaName")
-    def schema_name(self) -> pulumi.Output[str]:
+    def schema_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the schema containing the current or future procedures on which to grant privileges.
         """

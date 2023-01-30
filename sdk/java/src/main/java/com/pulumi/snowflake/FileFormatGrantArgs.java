@@ -98,30 +98,30 @@ public final class FileFormatGrantArgs extends com.pulumi.resources.ResourceArgs
      * Grants privilege to these roles.
      * 
      */
-    @Import(name="roles")
-    private @Nullable Output<List<String>> roles;
+    @Import(name="roles", required=true)
+    private Output<List<String>> roles;
 
     /**
      * @return Grants privilege to these roles.
      * 
      */
-    public Optional<Output<List<String>>> roles() {
-        return Optional.ofNullable(this.roles);
+    public Output<List<String>> roles() {
+        return this.roles;
     }
 
     /**
      * The name of the schema containing the current or future file formats on which to grant privileges.
      * 
      */
-    @Import(name="schemaName", required=true)
-    private Output<String> schemaName;
+    @Import(name="schemaName")
+    private @Nullable Output<String> schemaName;
 
     /**
      * @return The name of the schema containing the current or future file formats on which to grant privileges.
      * 
      */
-    public Output<String> schemaName() {
-        return this.schemaName;
+    public Optional<Output<String>> schemaName() {
+        return Optional.ofNullable(this.schemaName);
     }
 
     /**
@@ -283,7 +283,7 @@ public final class FileFormatGrantArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder roles(@Nullable Output<List<String>> roles) {
+        public Builder roles(Output<List<String>> roles) {
             $.roles = roles;
             return this;
         }
@@ -314,7 +314,7 @@ public final class FileFormatGrantArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder schemaName(Output<String> schemaName) {
+        public Builder schemaName(@Nullable Output<String> schemaName) {
             $.schemaName = schemaName;
             return this;
         }
@@ -352,7 +352,7 @@ public final class FileFormatGrantArgs extends com.pulumi.resources.ResourceArgs
 
         public FileFormatGrantArgs build() {
             $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.schemaName = Objects.requireNonNull($.schemaName, "expected parameter 'schemaName' to be non-null");
+            $.roles = Objects.requireNonNull($.roles, "expected parameter 'roles' to be non-null");
             return $;
         }
     }

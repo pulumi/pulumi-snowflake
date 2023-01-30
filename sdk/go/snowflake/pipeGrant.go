@@ -72,7 +72,7 @@ type PipeGrant struct {
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current or future pipes on which to grant privileges.
-	SchemaName pulumi.StringOutput `pulumi:"schemaName"`
+	SchemaName pulumi.StringPtrOutput `pulumi:"schemaName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrOutput `pulumi:"withGrantOption"`
 }
@@ -86,9 +86,6 @@ func NewPipeGrant(ctx *pulumi.Context,
 
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
-	}
-	if args.SchemaName == nil {
-		return nil, errors.New("invalid value for required argument 'SchemaName'")
 	}
 	var resource PipeGrant
 	err := ctx.RegisterResource("snowflake:index/pipeGrant:PipeGrant", name, args, &resource, opts...)
@@ -170,7 +167,7 @@ type pipeGrantArgs struct {
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future pipes on which to grant privileges.
-	SchemaName string `pulumi:"schemaName"`
+	SchemaName *string `pulumi:"schemaName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
 }
@@ -191,7 +188,7 @@ type PipeGrantArgs struct {
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future pipes on which to grant privileges.
-	SchemaName pulumi.StringInput
+	SchemaName pulumi.StringPtrInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
 }
@@ -315,8 +312,8 @@ func (o PipeGrantOutput) Roles() pulumi.StringArrayOutput {
 }
 
 // The name of the schema containing the current or future pipes on which to grant privileges.
-func (o PipeGrantOutput) SchemaName() pulumi.StringOutput {
-	return o.ApplyT(func(v *PipeGrant) pulumi.StringOutput { return v.SchemaName }).(pulumi.StringOutput)
+func (o PipeGrantOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipeGrant) pulumi.StringPtrOutput { return v.SchemaName }).(pulumi.StringPtrOutput)
 }
 
 // When this is set to true, allows the recipient role to grant the privileges to other roles.

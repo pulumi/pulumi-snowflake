@@ -38,18 +38,18 @@ import (
 //			table, err := snowflake.NewTable(ctx, "table", &snowflake.TableArgs{
 //				Database: database.Name,
 //				Schema:   schema.Name,
-//				Columns: TableColumnArray{
-//					&TableColumnArgs{
+//				Columns: snowflake.TableColumnArray{
+//					&snowflake.TableColumnArgs{
 //						Name:     pulumi.String("col1"),
 //						Type:     pulumi.String("text"),
 //						Nullable: pulumi.Bool(false),
 //					},
-//					&TableColumnArgs{
+//					&snowflake.TableColumnArgs{
 //						Name:     pulumi.String("col2"),
 //						Type:     pulumi.String("text"),
 //						Nullable: pulumi.Bool(false),
 //					},
-//					&TableColumnArgs{
+//					&snowflake.TableColumnArgs{
 //						Name:     pulumi.String("col3"),
 //						Type:     pulumi.String("text"),
 //						Nullable: pulumi.Bool(false),
@@ -62,13 +62,13 @@ import (
 //			fkT, err := snowflake.NewTable(ctx, "fkT", &snowflake.TableArgs{
 //				Database: database.Name,
 //				Schema:   schema.Name,
-//				Columns: TableColumnArray{
-//					&TableColumnArgs{
+//				Columns: snowflake.TableColumnArray{
+//					&snowflake.TableColumnArgs{
 //						Name:     pulumi.String("fk_col1"),
 //						Type:     pulumi.String("text"),
 //						Nullable: pulumi.Bool(false),
 //					},
-//					&TableColumnArgs{
+//					&snowflake.TableColumnArgs{
 //						Name:     pulumi.String("fk_col2"),
 //						Type:     pulumi.String("text"),
 //						Nullable: pulumi.Bool(false),
@@ -95,8 +95,8 @@ import (
 //				Columns: pulumi.StringArray{
 //					pulumi.String("col2"),
 //				},
-//				ForeignKeyProperties: &TableConstraintForeignKeyPropertiesArgs{
-//					References: &TableConstraintForeignKeyPropertiesReferencesArgs{
+//				ForeignKeyProperties: &snowflake.TableConstraintForeignKeyPropertiesArgs{
+//					References: &snowflake.TableConstraintForeignKeyPropertiesReferencesArgs{
 //						TableId: fkT.ID(),
 //						Columns: pulumi.StringArray{
 //							pulumi.String("fk_col1"),

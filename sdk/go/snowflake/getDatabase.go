@@ -24,7 +24,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.LookupDatabase(ctx, &GetDatabaseArgs{
+//			_, err := snowflake.LookupDatabase(ctx, &snowflake.LookupDatabaseArgs{
 //				Name: "DEMO_DB",
 //			}, nil)
 //			if err != nil {

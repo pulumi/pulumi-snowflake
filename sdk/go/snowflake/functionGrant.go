@@ -26,12 +26,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewFunctionGrant(ctx, "grant", &snowflake.FunctionGrantArgs{
-//				Arguments: FunctionGrantArgumentArray{
-//					&FunctionGrantArgumentArgs{
+//				Arguments: snowflake.FunctionGrantArgumentArray{
+//					&snowflake.FunctionGrantArgumentArgs{
 //						Name: pulumi.String("a"),
 //						Type: pulumi.String("array"),
 //					},
-//					&FunctionGrantArgumentArgs{
+//					&snowflake.FunctionGrantArgumentArgs{
 //						Name: pulumi.String("b"),
 //						Type: pulumi.String("string"),
 //					},
@@ -91,7 +91,7 @@ type FunctionGrant struct {
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current or future functions on which to grant privileges.
-	SchemaName pulumi.StringOutput `pulumi:"schemaName"`
+	SchemaName pulumi.StringPtrOutput `pulumi:"schemaName"`
 	// Grants privilege to these shares (only valid if onFuture is false).
 	Shares pulumi.StringArrayOutput `pulumi:"shares"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -108,8 +108,8 @@ func NewFunctionGrant(ctx *pulumi.Context,
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
-	if args.SchemaName == nil {
-		return nil, errors.New("invalid value for required argument 'SchemaName'")
+	if args.Roles == nil {
+		return nil, errors.New("invalid value for required argument 'Roles'")
 	}
 	var resource FunctionGrant
 	err := ctx.RegisterResource("snowflake:index/functionGrant:FunctionGrant", name, args, &resource, opts...)
@@ -207,7 +207,7 @@ type functionGrantArgs struct {
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future functions on which to grant privileges.
-	SchemaName string `pulumi:"schemaName"`
+	SchemaName *string `pulumi:"schemaName"`
 	// Grants privilege to these shares (only valid if onFuture is false).
 	Shares []string `pulumi:"shares"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -234,7 +234,7 @@ type FunctionGrantArgs struct {
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future functions on which to grant privileges.
-	SchemaName pulumi.StringInput
+	SchemaName pulumi.StringPtrInput
 	// Grants privilege to these shares (only valid if onFuture is false).
 	Shares pulumi.StringArrayInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -370,8 +370,8 @@ func (o FunctionGrantOutput) Roles() pulumi.StringArrayOutput {
 }
 
 // The name of the schema containing the current or future functions on which to grant privileges.
-func (o FunctionGrantOutput) SchemaName() pulumi.StringOutput {
-	return o.ApplyT(func(v *FunctionGrant) pulumi.StringOutput { return v.SchemaName }).(pulumi.StringOutput)
+func (o FunctionGrantOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionGrant) pulumi.StringPtrOutput { return v.SchemaName }).(pulumi.StringPtrOutput)
 }
 
 // Grants privilege to these shares (only valid if onFuture is false).

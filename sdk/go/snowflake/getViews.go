@@ -24,7 +24,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetViews(ctx, &GetViewsArgs{
+//			_, err := snowflake.GetViews(ctx, &snowflake.GetViewsArgs{
 //				Database: "MYDB",
 //				Schema:   "MYSCHEMA",
 //			}, nil)

@@ -28,7 +28,7 @@ import (
 //			}
 //			_, err = ssm.NewParameter(ctx, "snowflakeAccountUrl", &ssm.ParameterArgs{
 //				Type:  pulumi.String("String"),
-//				Value: pulumi.String(this.Url),
+//				Value: *pulumi.String(this.Url),
 //			})
 //			if err != nil {
 //				return err
