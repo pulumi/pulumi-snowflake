@@ -14,21 +14,14 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const grant = new snowflake.FunctionGrant("grant", {
- *     arguments: [
- *         {
- *             name: "a",
- *             type: "array",
- *         },
- *         {
- *             name: "b",
- *             type: "string",
- *         },
+ *     argumentDataTypes: [
+ *         "array",
+ *         "string",
  *     ],
  *     databaseName: "database",
  *     functionName: "function",
  *     onFuture: false,
  *     privilege: "USAGE",
- *     returnType: "string",
  *     roles: [
  *         "role1",
  *         "role2",
@@ -47,7 +40,7 @@ import * as utilities from "./utilities";
  * format is database name | schema name | function signature | privilege | true/false for with_grant_option
  *
  * ```sh
- *  $ pulumi import snowflake:index/functionGrant:FunctionGrant example 'dbName|schemaName|functionName(ARG1 ARG1TYPE, ARG2 ARG2TYPE):RETURNTYPE|USAGE|false'
+ *  $ pulumi import snowflake:index/functionGrant:FunctionGrant example 'dbName|schemaName|functionName(ARG1TYPE,ARG2TYPE)|USAGE|false'
  * ```
  */
 export class FunctionGrant extends pulumi.CustomResource {
@@ -79,7 +72,13 @@ export class FunctionGrant extends pulumi.CustomResource {
     }
 
     /**
+     * List of the argument data types for the function (must be present if function has arguments and functionName is present)
+     */
+    public readonly argumentDataTypes!: pulumi.Output<string[] | undefined>;
+    /**
      * List of the arguments for the function (must be present if function has arguments and functionName is present)
+     *
+     * @deprecated Use argument_data_types instead
      */
     public readonly arguments!: pulumi.Output<outputs.FunctionGrantArgument[] | undefined>;
     /**
@@ -105,6 +104,8 @@ export class FunctionGrant extends pulumi.CustomResource {
     public readonly privilege!: pulumi.Output<string | undefined>;
     /**
      * The return type of the function (must be present if functionName is present)
+     *
+     * @deprecated Not used anymore
      */
     public readonly returnType!: pulumi.Output<string | undefined>;
     /**
@@ -137,6 +138,7 @@ export class FunctionGrant extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FunctionGrantState | undefined;
+            resourceInputs["argumentDataTypes"] = state ? state.argumentDataTypes : undefined;
             resourceInputs["arguments"] = state ? state.arguments : undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
             resourceInputs["enableMultipleGrants"] = state ? state.enableMultipleGrants : undefined;
@@ -156,6 +158,7 @@ export class FunctionGrant extends pulumi.CustomResource {
             if ((!args || args.roles === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roles'");
             }
+            resourceInputs["argumentDataTypes"] = args ? args.argumentDataTypes : undefined;
             resourceInputs["arguments"] = args ? args.arguments : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["enableMultipleGrants"] = args ? args.enableMultipleGrants : undefined;
@@ -178,7 +181,13 @@ export class FunctionGrant extends pulumi.CustomResource {
  */
 export interface FunctionGrantState {
     /**
+     * List of the argument data types for the function (must be present if function has arguments and functionName is present)
+     */
+    argumentDataTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * List of the arguments for the function (must be present if function has arguments and functionName is present)
+     *
+     * @deprecated Use argument_data_types instead
      */
     arguments?: pulumi.Input<pulumi.Input<inputs.FunctionGrantArgument>[]>;
     /**
@@ -204,6 +213,8 @@ export interface FunctionGrantState {
     privilege?: pulumi.Input<string>;
     /**
      * The return type of the function (must be present if functionName is present)
+     *
+     * @deprecated Not used anymore
      */
     returnType?: pulumi.Input<string>;
     /**
@@ -229,7 +240,13 @@ export interface FunctionGrantState {
  */
 export interface FunctionGrantArgs {
     /**
+     * List of the argument data types for the function (must be present if function has arguments and functionName is present)
+     */
+    argumentDataTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * List of the arguments for the function (must be present if function has arguments and functionName is present)
+     *
+     * @deprecated Use argument_data_types instead
      */
     arguments?: pulumi.Input<pulumi.Input<inputs.FunctionGrantArgument>[]>;
     /**
@@ -255,6 +272,8 @@ export interface FunctionGrantArgs {
     privilege?: pulumi.Input<string>;
     /**
      * The return type of the function (must be present if functionName is present)
+     *
+     * @deprecated Not used anymore
      */
     returnType?: pulumi.Input<string>;
     /**

@@ -19,16 +19,39 @@ public final class ProcedureGrantArgs extends com.pulumi.resources.ResourceArgs 
     public static final ProcedureGrantArgs Empty = new ProcedureGrantArgs();
 
     /**
-     * List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
+     * List of the argument data types for the procedure (must be present if procedure has arguments and procedure_name is present)
      * 
      */
+    @Import(name="argumentDataTypes")
+    private @Nullable Output<List<String>> argumentDataTypes;
+
+    /**
+     * @return List of the argument data types for the procedure (must be present if procedure has arguments and procedure_name is present)
+     * 
+     */
+    public Optional<Output<List<String>>> argumentDataTypes() {
+        return Optional.ofNullable(this.argumentDataTypes);
+    }
+
+    /**
+     * List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
+     * 
+     * @deprecated
+     * use argument_data_types instead.
+     * 
+     */
+    @Deprecated /* use argument_data_types instead. */
     @Import(name="arguments")
     private @Nullable Output<List<ProcedureGrantArgumentArgs>> arguments;
 
     /**
      * @return List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
      * 
+     * @deprecated
+     * use argument_data_types instead.
+     * 
      */
+    @Deprecated /* use argument_data_types instead. */
     public Optional<Output<List<ProcedureGrantArgumentArgs>>> arguments() {
         return Optional.ofNullable(this.arguments);
     }
@@ -113,14 +136,22 @@ public final class ProcedureGrantArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The return type of the procedure (must be present if procedure_name is present)
      * 
+     * @deprecated
+     * return_type is no longer required. It will be removed in a future release.
+     * 
      */
+    @Deprecated /* return_type is no longer required. It will be removed in a future release. */
     @Import(name="returnType")
     private @Nullable Output<String> returnType;
 
     /**
      * @return The return type of the procedure (must be present if procedure_name is present)
      * 
+     * @deprecated
+     * return_type is no longer required. It will be removed in a future release.
+     * 
      */
+    @Deprecated /* return_type is no longer required. It will be removed in a future release. */
     public Optional<Output<String>> returnType() {
         return Optional.ofNullable(this.returnType);
     }
@@ -188,6 +219,7 @@ public final class ProcedureGrantArgs extends com.pulumi.resources.ResourceArgs 
     private ProcedureGrantArgs() {}
 
     private ProcedureGrantArgs(ProcedureGrantArgs $) {
+        this.argumentDataTypes = $.argumentDataTypes;
         this.arguments = $.arguments;
         this.databaseName = $.databaseName;
         this.enableMultipleGrants = $.enableMultipleGrants;
@@ -220,11 +252,46 @@ public final class ProcedureGrantArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arguments List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
+         * @param argumentDataTypes List of the argument data types for the procedure (must be present if procedure has arguments and procedure_name is present)
          * 
          * @return builder
          * 
          */
+        public Builder argumentDataTypes(@Nullable Output<List<String>> argumentDataTypes) {
+            $.argumentDataTypes = argumentDataTypes;
+            return this;
+        }
+
+        /**
+         * @param argumentDataTypes List of the argument data types for the procedure (must be present if procedure has arguments and procedure_name is present)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder argumentDataTypes(List<String> argumentDataTypes) {
+            return argumentDataTypes(Output.of(argumentDataTypes));
+        }
+
+        /**
+         * @param argumentDataTypes List of the argument data types for the procedure (must be present if procedure has arguments and procedure_name is present)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder argumentDataTypes(String... argumentDataTypes) {
+            return argumentDataTypes(List.of(argumentDataTypes));
+        }
+
+        /**
+         * @param arguments List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * use argument_data_types instead.
+         * 
+         */
+        @Deprecated /* use argument_data_types instead. */
         public Builder arguments(@Nullable Output<List<ProcedureGrantArgumentArgs>> arguments) {
             $.arguments = arguments;
             return this;
@@ -235,7 +302,11 @@ public final class ProcedureGrantArgs extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
+         * @deprecated
+         * use argument_data_types instead.
+         * 
          */
+        @Deprecated /* use argument_data_types instead. */
         public Builder arguments(List<ProcedureGrantArgumentArgs> arguments) {
             return arguments(Output.of(arguments));
         }
@@ -245,7 +316,11 @@ public final class ProcedureGrantArgs extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
+         * @deprecated
+         * use argument_data_types instead.
+         * 
          */
+        @Deprecated /* use argument_data_types instead. */
         public Builder arguments(ProcedureGrantArgumentArgs... arguments) {
             return arguments(List.of(arguments));
         }
@@ -362,7 +437,11 @@ public final class ProcedureGrantArgs extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
+         * @deprecated
+         * return_type is no longer required. It will be removed in a future release.
+         * 
          */
+        @Deprecated /* return_type is no longer required. It will be removed in a future release. */
         public Builder returnType(@Nullable Output<String> returnType) {
             $.returnType = returnType;
             return this;
@@ -373,7 +452,11 @@ public final class ProcedureGrantArgs extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
+         * @deprecated
+         * return_type is no longer required. It will be removed in a future release.
+         * 
          */
+        @Deprecated /* return_type is no longer required. It will be removed in a future release. */
         public Builder returnType(String returnType) {
             return returnType(Output.of(returnType));
         }

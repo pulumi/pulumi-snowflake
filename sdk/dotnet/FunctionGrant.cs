@@ -21,24 +21,15 @@ namespace Pulumi.Snowflake
     /// {
     ///     var grant = new Snowflake.FunctionGrant("grant", new()
     ///     {
-    ///         Arguments = new[]
+    ///         ArgumentDataTypes = new[]
     ///         {
-    ///             new Snowflake.Inputs.FunctionGrantArgumentArgs
-    ///             {
-    ///                 Name = "a",
-    ///                 Type = "array",
-    ///             },
-    ///             new Snowflake.Inputs.FunctionGrantArgumentArgs
-    ///             {
-    ///                 Name = "b",
-    ///                 Type = "string",
-    ///             },
+    ///             "array",
+    ///             "string",
     ///         },
     ///         DatabaseName = "database",
     ///         FunctionName = "function",
     ///         OnFuture = false,
     ///         Privilege = "USAGE",
-    ///         ReturnType = "string",
     ///         Roles = new[]
     ///         {
     ///             "role1",
@@ -61,12 +52,18 @@ namespace Pulumi.Snowflake
     /// format is database name | schema name | function signature | privilege | true/false for with_grant_option
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/functionGrant:FunctionGrant example 'dbName|schemaName|functionName(ARG1 ARG1TYPE, ARG2 ARG2TYPE):RETURNTYPE|USAGE|false'
+    ///  $ pulumi import snowflake:index/functionGrant:FunctionGrant example 'dbName|schemaName|functionName(ARG1TYPE,ARG2TYPE)|USAGE|false'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/functionGrant:FunctionGrant")]
     public partial class FunctionGrant : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// List of the argument data types for the function (must be present if function has arguments and function_name is present)
+        /// </summary>
+        [Output("argumentDataTypes")]
+        public Output<ImmutableArray<string>> ArgumentDataTypes { get; private set; } = null!;
+
         /// <summary>
         /// List of the arguments for the function (must be present if function has arguments and function_name is present)
         /// </summary>
@@ -180,12 +177,25 @@ namespace Pulumi.Snowflake
 
     public sealed class FunctionGrantArgs : global::Pulumi.ResourceArgs
     {
+        [Input("argumentDataTypes")]
+        private InputList<string>? _argumentDataTypes;
+
+        /// <summary>
+        /// List of the argument data types for the function (must be present if function has arguments and function_name is present)
+        /// </summary>
+        public InputList<string> ArgumentDataTypes
+        {
+            get => _argumentDataTypes ?? (_argumentDataTypes = new InputList<string>());
+            set => _argumentDataTypes = value;
+        }
+
         [Input("arguments")]
         private InputList<Inputs.FunctionGrantArgumentArgs>? _arguments;
 
         /// <summary>
         /// List of the arguments for the function (must be present if function has arguments and function_name is present)
         /// </summary>
+        [Obsolete(@"Use argument_data_types instead")]
         public InputList<Inputs.FunctionGrantArgumentArgs> Arguments
         {
             get => _arguments ?? (_arguments = new InputList<Inputs.FunctionGrantArgumentArgs>());
@@ -273,12 +283,25 @@ namespace Pulumi.Snowflake
 
     public sealed class FunctionGrantState : global::Pulumi.ResourceArgs
     {
+        [Input("argumentDataTypes")]
+        private InputList<string>? _argumentDataTypes;
+
+        /// <summary>
+        /// List of the argument data types for the function (must be present if function has arguments and function_name is present)
+        /// </summary>
+        public InputList<string> ArgumentDataTypes
+        {
+            get => _argumentDataTypes ?? (_argumentDataTypes = new InputList<string>());
+            set => _argumentDataTypes = value;
+        }
+
         [Input("arguments")]
         private InputList<Inputs.FunctionGrantArgumentGetArgs>? _arguments;
 
         /// <summary>
         /// List of the arguments for the function (must be present if function has arguments and function_name is present)
         /// </summary>
+        [Obsolete(@"Use argument_data_types instead")]
         public InputList<Inputs.FunctionGrantArgumentGetArgs> Arguments
         {
             get => _arguments ?? (_arguments = new InputList<Inputs.FunctionGrantArgumentGetArgs>());

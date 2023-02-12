@@ -21,24 +21,15 @@ namespace Pulumi.Snowflake
     /// {
     ///     var grant = new Snowflake.ProcedureGrant("grant", new()
     ///     {
-    ///         Arguments = new[]
+    ///         ArgumentDataTypes = new[]
     ///         {
-    ///             new Snowflake.Inputs.ProcedureGrantArgumentArgs
-    ///             {
-    ///                 Name = "a",
-    ///                 Type = "array",
-    ///             },
-    ///             new Snowflake.Inputs.ProcedureGrantArgumentArgs
-    ///             {
-    ///                 Name = "b",
-    ///                 Type = "string",
-    ///             },
+    ///             "array",
+    ///             "string",
     ///         },
     ///         DatabaseName = "database",
     ///         OnFuture = false,
     ///         Privilege = "SELECT",
     ///         ProcedureName = "procedure",
-    ///         ReturnType = "string",
     ///         Roles = new[]
     ///         {
     ///             "role1",
@@ -61,12 +52,18 @@ namespace Pulumi.Snowflake
     /// format is database name | schema name | procedure signature | privilege | true/false for with_grant_option
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'dbName|schemaName|procedureName(ARG1 ARG1TYPE, ARG2 ARG2TYPE):RETURNTYPE|USAGE|false'
+    ///  $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'dbName|schemaName|procedureName(ARG1TYPE,ARG2TYPE)|USAGE|false'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/procedureGrant:ProcedureGrant")]
     public partial class ProcedureGrant : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// List of the argument data types for the procedure (must be present if procedure has arguments and procedure_name is present)
+        /// </summary>
+        [Output("argumentDataTypes")]
+        public Output<ImmutableArray<string>> ArgumentDataTypes { get; private set; } = null!;
+
         /// <summary>
         /// List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
         /// </summary>
@@ -180,12 +177,25 @@ namespace Pulumi.Snowflake
 
     public sealed class ProcedureGrantArgs : global::Pulumi.ResourceArgs
     {
+        [Input("argumentDataTypes")]
+        private InputList<string>? _argumentDataTypes;
+
+        /// <summary>
+        /// List of the argument data types for the procedure (must be present if procedure has arguments and procedure_name is present)
+        /// </summary>
+        public InputList<string> ArgumentDataTypes
+        {
+            get => _argumentDataTypes ?? (_argumentDataTypes = new InputList<string>());
+            set => _argumentDataTypes = value;
+        }
+
         [Input("arguments")]
         private InputList<Inputs.ProcedureGrantArgumentArgs>? _arguments;
 
         /// <summary>
         /// List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
         /// </summary>
+        [Obsolete(@"use argument_data_types instead.")]
         public InputList<Inputs.ProcedureGrantArgumentArgs> Arguments
         {
             get => _arguments ?? (_arguments = new InputList<Inputs.ProcedureGrantArgumentArgs>());
@@ -273,12 +283,25 @@ namespace Pulumi.Snowflake
 
     public sealed class ProcedureGrantState : global::Pulumi.ResourceArgs
     {
+        [Input("argumentDataTypes")]
+        private InputList<string>? _argumentDataTypes;
+
+        /// <summary>
+        /// List of the argument data types for the procedure (must be present if procedure has arguments and procedure_name is present)
+        /// </summary>
+        public InputList<string> ArgumentDataTypes
+        {
+            get => _argumentDataTypes ?? (_argumentDataTypes = new InputList<string>());
+            set => _argumentDataTypes = value;
+        }
+
         [Input("arguments")]
         private InputList<Inputs.ProcedureGrantArgumentGetArgs>? _arguments;
 
         /// <summary>
         /// List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
         /// </summary>
+        [Obsolete(@"use argument_data_types instead.")]
         public InputList<Inputs.ProcedureGrantArgumentGetArgs> Arguments
         {
             get => _arguments ?? (_arguments = new InputList<Inputs.ProcedureGrantArgumentGetArgs>());
