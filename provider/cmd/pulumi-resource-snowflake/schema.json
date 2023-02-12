@@ -5838,14 +5838,22 @@
             }
         },
         "snowflake:index/functionGrant:FunctionGrant": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.FunctionGrant(\"grant\", {\n    arguments: [\n        {\n            name: \"a\",\n            type: \"array\",\n        },\n        {\n            name: \"b\",\n            type: \"string\",\n        },\n    ],\n    databaseName: \"database\",\n    functionName: \"function\",\n    onFuture: false,\n    privilege: \"USAGE\",\n    returnType: \"string\",\n    roles: [\n        \"role1\",\n        \"role2\",\n    ],\n    schemaName: \"schema\",\n    shares: [\n        \"share1\",\n        \"share2\",\n    ],\n    withGrantOption: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ngrant = snowflake.FunctionGrant(\"grant\",\n    arguments=[\n        snowflake.FunctionGrantArgumentArgs(\n            name=\"a\",\n            type=\"array\",\n        ),\n        snowflake.FunctionGrantArgumentArgs(\n            name=\"b\",\n            type=\"string\",\n        ),\n    ],\n    database_name=\"database\",\n    function_name=\"function\",\n    on_future=False,\n    privilege=\"USAGE\",\n    return_type=\"string\",\n    roles=[\n        \"role1\",\n        \"role2\",\n    ],\n    schema_name=\"schema\",\n    shares=[\n        \"share1\",\n        \"share2\",\n    ],\n    with_grant_option=False)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var grant = new Snowflake.FunctionGrant(\"grant\", new()\n    {\n        Arguments = new[]\n        {\n            new Snowflake.Inputs.FunctionGrantArgumentArgs\n            {\n                Name = \"a\",\n                Type = \"array\",\n            },\n            new Snowflake.Inputs.FunctionGrantArgumentArgs\n            {\n                Name = \"b\",\n                Type = \"string\",\n            },\n        },\n        DatabaseName = \"database\",\n        FunctionName = \"function\",\n        OnFuture = false,\n        Privilege = \"USAGE\",\n        ReturnType = \"string\",\n        Roles = new[]\n        {\n            \"role1\",\n            \"role2\",\n        },\n        SchemaName = \"schema\",\n        Shares = new[]\n        {\n            \"share1\",\n            \"share2\",\n        },\n        WithGrantOption = false,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewFunctionGrant(ctx, \"grant\", \u0026snowflake.FunctionGrantArgs{\n\t\t\tArguments: snowflake.FunctionGrantArgumentArray{\n\t\t\t\t\u0026snowflake.FunctionGrantArgumentArgs{\n\t\t\t\t\tName: pulumi.String(\"a\"),\n\t\t\t\t\tType: pulumi.String(\"array\"),\n\t\t\t\t},\n\t\t\t\t\u0026snowflake.FunctionGrantArgumentArgs{\n\t\t\t\t\tName: pulumi.String(\"b\"),\n\t\t\t\t\tType: pulumi.String(\"string\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tDatabaseName: pulumi.String(\"database\"),\n\t\t\tFunctionName: pulumi.String(\"function\"),\n\t\t\tOnFuture:     pulumi.Bool(false),\n\t\t\tPrivilege:    pulumi.String(\"USAGE\"),\n\t\t\tReturnType:   pulumi.String(\"string\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"role1\"),\n\t\t\t\tpulumi.String(\"role2\"),\n\t\t\t},\n\t\t\tSchemaName: pulumi.String(\"schema\"),\n\t\t\tShares: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"share1\"),\n\t\t\t\tpulumi.String(\"share2\"),\n\t\t\t},\n\t\t\tWithGrantOption: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.FunctionGrant;\nimport com.pulumi.snowflake.FunctionGrantArgs;\nimport com.pulumi.snowflake.inputs.FunctionGrantArgumentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var grant = new FunctionGrant(\"grant\", FunctionGrantArgs.builder()        \n            .arguments(            \n                FunctionGrantArgumentArgs.builder()\n                    .name(\"a\")\n                    .type(\"array\")\n                    .build(),\n                FunctionGrantArgumentArgs.builder()\n                    .name(\"b\")\n                    .type(\"string\")\n                    .build())\n            .databaseName(\"database\")\n            .functionName(\"function\")\n            .onFuture(false)\n            .privilege(\"USAGE\")\n            .returnType(\"string\")\n            .roles(            \n                \"role1\",\n                \"role2\")\n            .schemaName(\"schema\")\n            .shares(            \n                \"share1\",\n                \"share2\")\n            .withGrantOption(false)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  grant:\n    type: snowflake:FunctionGrant\n    properties:\n      arguments:\n        - name: a\n          type: array\n        - name: b\n          type: string\n      databaseName: database\n      functionName: function\n      onFuture: false\n      privilege: USAGE\n      returnType: string\n      roles:\n        - role1\n        - role2\n      schemaName: schema\n      shares:\n        - share1\n        - share2\n      withGrantOption: false\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nformat is database name | schema name | function signature | privilege | true/false for with_grant_option\n\n```sh\n $ pulumi import snowflake:index/functionGrant:FunctionGrant example 'dbName|schemaName|functionName(ARG1 ARG1TYPE, ARG2 ARG2TYPE):RETURNTYPE|USAGE|false'\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.FunctionGrant(\"grant\", {\n    argumentDataTypes: [\n        \"array\",\n        \"string\",\n    ],\n    databaseName: \"database\",\n    functionName: \"function\",\n    onFuture: false,\n    privilege: \"USAGE\",\n    roles: [\n        \"role1\",\n        \"role2\",\n    ],\n    schemaName: \"schema\",\n    shares: [\n        \"share1\",\n        \"share2\",\n    ],\n    withGrantOption: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ngrant = snowflake.FunctionGrant(\"grant\",\n    argument_data_types=[\n        \"array\",\n        \"string\",\n    ],\n    database_name=\"database\",\n    function_name=\"function\",\n    on_future=False,\n    privilege=\"USAGE\",\n    roles=[\n        \"role1\",\n        \"role2\",\n    ],\n    schema_name=\"schema\",\n    shares=[\n        \"share1\",\n        \"share2\",\n    ],\n    with_grant_option=False)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var grant = new Snowflake.FunctionGrant(\"grant\", new()\n    {\n        ArgumentDataTypes = new[]\n        {\n            \"array\",\n            \"string\",\n        },\n        DatabaseName = \"database\",\n        FunctionName = \"function\",\n        OnFuture = false,\n        Privilege = \"USAGE\",\n        Roles = new[]\n        {\n            \"role1\",\n            \"role2\",\n        },\n        SchemaName = \"schema\",\n        Shares = new[]\n        {\n            \"share1\",\n            \"share2\",\n        },\n        WithGrantOption = false,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewFunctionGrant(ctx, \"grant\", \u0026snowflake.FunctionGrantArgs{\n\t\t\tArgumentDataTypes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"array\"),\n\t\t\t\tpulumi.String(\"string\"),\n\t\t\t},\n\t\t\tDatabaseName: pulumi.String(\"database\"),\n\t\t\tFunctionName: pulumi.String(\"function\"),\n\t\t\tOnFuture:     pulumi.Bool(false),\n\t\t\tPrivilege:    pulumi.String(\"USAGE\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"role1\"),\n\t\t\t\tpulumi.String(\"role2\"),\n\t\t\t},\n\t\t\tSchemaName: pulumi.String(\"schema\"),\n\t\t\tShares: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"share1\"),\n\t\t\t\tpulumi.String(\"share2\"),\n\t\t\t},\n\t\t\tWithGrantOption: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.FunctionGrant;\nimport com.pulumi.snowflake.FunctionGrantArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var grant = new FunctionGrant(\"grant\", FunctionGrantArgs.builder()        \n            .argumentDataTypes(            \n                \"array\",\n                \"string\")\n            .databaseName(\"database\")\n            .functionName(\"function\")\n            .onFuture(false)\n            .privilege(\"USAGE\")\n            .roles(            \n                \"role1\",\n                \"role2\")\n            .schemaName(\"schema\")\n            .shares(            \n                \"share1\",\n                \"share2\")\n            .withGrantOption(false)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  grant:\n    type: snowflake:FunctionGrant\n    properties:\n      argumentDataTypes:\n        - array\n        - string\n      databaseName: database\n      functionName: function\n      onFuture: false\n      privilege: USAGE\n      roles:\n        - role1\n        - role2\n      schemaName: schema\n      shares:\n        - share1\n        - share2\n      withGrantOption: false\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nformat is database name | schema name | function signature | privilege | true/false for with_grant_option\n\n```sh\n $ pulumi import snowflake:index/functionGrant:FunctionGrant example 'dbName|schemaName|functionName(ARG1TYPE,ARG2TYPE)|USAGE|false'\n```\n\n ",
             "properties": {
+                "argumentDataTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of the argument data types for the function (must be present if function has arguments and function_name is present)\n"
+                },
                 "arguments": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/snowflake:index/FunctionGrantArgument:FunctionGrantArgument"
                     },
-                    "description": "List of the arguments for the function (must be present if function has arguments and function_name is present)\n"
+                    "description": "List of the arguments for the function (must be present if function has arguments and function_name is present)\n",
+                    "deprecationMessage": "Use argument_data_types instead"
                 },
                 "databaseName": {
                     "type": "string",
@@ -5869,7 +5877,8 @@
                 },
                 "returnType": {
                     "type": "string",
-                    "description": "The return type of the function (must be present if function_name is present)\n"
+                    "description": "The return type of the function (must be present if function_name is present)\n",
+                    "deprecationMessage": "Not used anymore"
                 },
                 "roles": {
                     "type": "array",
@@ -5899,12 +5908,21 @@
                 "roles"
             ],
             "inputProperties": {
+                "argumentDataTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of the argument data types for the function (must be present if function has arguments and function_name is present)\n",
+                    "willReplaceOnChanges": true
+                },
                 "arguments": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/snowflake:index/FunctionGrantArgument:FunctionGrantArgument"
                     },
                     "description": "List of the arguments for the function (must be present if function has arguments and function_name is present)\n",
+                    "deprecationMessage": "Use argument_data_types instead",
                     "willReplaceOnChanges": true
                 },
                 "databaseName": {
@@ -5935,6 +5953,7 @@
                 "returnType": {
                     "type": "string",
                     "description": "The return type of the function (must be present if function_name is present)\n",
+                    "deprecationMessage": "Not used anymore",
                     "willReplaceOnChanges": true
                 },
                 "roles": {
@@ -5969,12 +5988,21 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering FunctionGrant resources.\n",
                 "properties": {
+                    "argumentDataTypes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of the argument data types for the function (must be present if function has arguments and function_name is present)\n",
+                        "willReplaceOnChanges": true
+                    },
                     "arguments": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/snowflake:index/FunctionGrantArgument:FunctionGrantArgument"
                         },
                         "description": "List of the arguments for the function (must be present if function has arguments and function_name is present)\n",
+                        "deprecationMessage": "Use argument_data_types instead",
                         "willReplaceOnChanges": true
                     },
                     "databaseName": {
@@ -6005,6 +6033,7 @@
                     "returnType": {
                         "type": "string",
                         "description": "The return type of the function (must be present if function_name is present)\n",
+                        "deprecationMessage": "Not used anymore",
                         "willReplaceOnChanges": true
                     },
                     "roles": {
@@ -7938,14 +7967,22 @@
             }
         },
         "snowflake:index/procedureGrant:ProcedureGrant": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.ProcedureGrant(\"grant\", {\n    arguments: [\n        {\n            name: \"a\",\n            type: \"array\",\n        },\n        {\n            name: \"b\",\n            type: \"string\",\n        },\n    ],\n    databaseName: \"database\",\n    onFuture: false,\n    privilege: \"SELECT\",\n    procedureName: \"procedure\",\n    returnType: \"string\",\n    roles: [\n        \"role1\",\n        \"role2\",\n    ],\n    schemaName: \"schema\",\n    shares: [\n        \"share1\",\n        \"share2\",\n    ],\n    withGrantOption: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ngrant = snowflake.ProcedureGrant(\"grant\",\n    arguments=[\n        snowflake.ProcedureGrantArgumentArgs(\n            name=\"a\",\n            type=\"array\",\n        ),\n        snowflake.ProcedureGrantArgumentArgs(\n            name=\"b\",\n            type=\"string\",\n        ),\n    ],\n    database_name=\"database\",\n    on_future=False,\n    privilege=\"SELECT\",\n    procedure_name=\"procedure\",\n    return_type=\"string\",\n    roles=[\n        \"role1\",\n        \"role2\",\n    ],\n    schema_name=\"schema\",\n    shares=[\n        \"share1\",\n        \"share2\",\n    ],\n    with_grant_option=False)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var grant = new Snowflake.ProcedureGrant(\"grant\", new()\n    {\n        Arguments = new[]\n        {\n            new Snowflake.Inputs.ProcedureGrantArgumentArgs\n            {\n                Name = \"a\",\n                Type = \"array\",\n            },\n            new Snowflake.Inputs.ProcedureGrantArgumentArgs\n            {\n                Name = \"b\",\n                Type = \"string\",\n            },\n        },\n        DatabaseName = \"database\",\n        OnFuture = false,\n        Privilege = \"SELECT\",\n        ProcedureName = \"procedure\",\n        ReturnType = \"string\",\n        Roles = new[]\n        {\n            \"role1\",\n            \"role2\",\n        },\n        SchemaName = \"schema\",\n        Shares = new[]\n        {\n            \"share1\",\n            \"share2\",\n        },\n        WithGrantOption = false,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewProcedureGrant(ctx, \"grant\", \u0026snowflake.ProcedureGrantArgs{\n\t\t\tArguments: snowflake.ProcedureGrantArgumentArray{\n\t\t\t\t\u0026snowflake.ProcedureGrantArgumentArgs{\n\t\t\t\t\tName: pulumi.String(\"a\"),\n\t\t\t\t\tType: pulumi.String(\"array\"),\n\t\t\t\t},\n\t\t\t\t\u0026snowflake.ProcedureGrantArgumentArgs{\n\t\t\t\t\tName: pulumi.String(\"b\"),\n\t\t\t\t\tType: pulumi.String(\"string\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tDatabaseName:  pulumi.String(\"database\"),\n\t\t\tOnFuture:      pulumi.Bool(false),\n\t\t\tPrivilege:     pulumi.String(\"SELECT\"),\n\t\t\tProcedureName: pulumi.String(\"procedure\"),\n\t\t\tReturnType:    pulumi.String(\"string\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"role1\"),\n\t\t\t\tpulumi.String(\"role2\"),\n\t\t\t},\n\t\t\tSchemaName: pulumi.String(\"schema\"),\n\t\t\tShares: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"share1\"),\n\t\t\t\tpulumi.String(\"share2\"),\n\t\t\t},\n\t\t\tWithGrantOption: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.ProcedureGrant;\nimport com.pulumi.snowflake.ProcedureGrantArgs;\nimport com.pulumi.snowflake.inputs.ProcedureGrantArgumentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var grant = new ProcedureGrant(\"grant\", ProcedureGrantArgs.builder()        \n            .arguments(            \n                ProcedureGrantArgumentArgs.builder()\n                    .name(\"a\")\n                    .type(\"array\")\n                    .build(),\n                ProcedureGrantArgumentArgs.builder()\n                    .name(\"b\")\n                    .type(\"string\")\n                    .build())\n            .databaseName(\"database\")\n            .onFuture(false)\n            .privilege(\"SELECT\")\n            .procedureName(\"procedure\")\n            .returnType(\"string\")\n            .roles(            \n                \"role1\",\n                \"role2\")\n            .schemaName(\"schema\")\n            .shares(            \n                \"share1\",\n                \"share2\")\n            .withGrantOption(false)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  grant:\n    type: snowflake:ProcedureGrant\n    properties:\n      arguments:\n        - name: a\n          type: array\n        - name: b\n          type: string\n      databaseName: database\n      onFuture: false\n      privilege: SELECT\n      procedureName: procedure\n      returnType: string\n      roles:\n        - role1\n        - role2\n      schemaName: schema\n      shares:\n        - share1\n        - share2\n      withGrantOption: false\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nformat is database name | schema name | procedure signature | privilege | true/false for with_grant_option\n\n```sh\n $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'dbName|schemaName|procedureName(ARG1 ARG1TYPE, ARG2 ARG2TYPE):RETURNTYPE|USAGE|false'\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.ProcedureGrant(\"grant\", {\n    argumentDataTypes: [\n        \"array\",\n        \"string\",\n    ],\n    databaseName: \"database\",\n    onFuture: false,\n    privilege: \"SELECT\",\n    procedureName: \"procedure\",\n    roles: [\n        \"role1\",\n        \"role2\",\n    ],\n    schemaName: \"schema\",\n    shares: [\n        \"share1\",\n        \"share2\",\n    ],\n    withGrantOption: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ngrant = snowflake.ProcedureGrant(\"grant\",\n    argument_data_types=[\n        \"array\",\n        \"string\",\n    ],\n    database_name=\"database\",\n    on_future=False,\n    privilege=\"SELECT\",\n    procedure_name=\"procedure\",\n    roles=[\n        \"role1\",\n        \"role2\",\n    ],\n    schema_name=\"schema\",\n    shares=[\n        \"share1\",\n        \"share2\",\n    ],\n    with_grant_option=False)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var grant = new Snowflake.ProcedureGrant(\"grant\", new()\n    {\n        ArgumentDataTypes = new[]\n        {\n            \"array\",\n            \"string\",\n        },\n        DatabaseName = \"database\",\n        OnFuture = false,\n        Privilege = \"SELECT\",\n        ProcedureName = \"procedure\",\n        Roles = new[]\n        {\n            \"role1\",\n            \"role2\",\n        },\n        SchemaName = \"schema\",\n        Shares = new[]\n        {\n            \"share1\",\n            \"share2\",\n        },\n        WithGrantOption = false,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewProcedureGrant(ctx, \"grant\", \u0026snowflake.ProcedureGrantArgs{\n\t\t\tArgumentDataTypes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"array\"),\n\t\t\t\tpulumi.String(\"string\"),\n\t\t\t},\n\t\t\tDatabaseName:  pulumi.String(\"database\"),\n\t\t\tOnFuture:      pulumi.Bool(false),\n\t\t\tPrivilege:     pulumi.String(\"SELECT\"),\n\t\t\tProcedureName: pulumi.String(\"procedure\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"role1\"),\n\t\t\t\tpulumi.String(\"role2\"),\n\t\t\t},\n\t\t\tSchemaName: pulumi.String(\"schema\"),\n\t\t\tShares: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"share1\"),\n\t\t\t\tpulumi.String(\"share2\"),\n\t\t\t},\n\t\t\tWithGrantOption: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.ProcedureGrant;\nimport com.pulumi.snowflake.ProcedureGrantArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var grant = new ProcedureGrant(\"grant\", ProcedureGrantArgs.builder()        \n            .argumentDataTypes(            \n                \"array\",\n                \"string\")\n            .databaseName(\"database\")\n            .onFuture(false)\n            .privilege(\"SELECT\")\n            .procedureName(\"procedure\")\n            .roles(            \n                \"role1\",\n                \"role2\")\n            .schemaName(\"schema\")\n            .shares(            \n                \"share1\",\n                \"share2\")\n            .withGrantOption(false)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  grant:\n    type: snowflake:ProcedureGrant\n    properties:\n      argumentDataTypes:\n        - array\n        - string\n      databaseName: database\n      onFuture: false\n      privilege: SELECT\n      procedureName: procedure\n      roles:\n        - role1\n        - role2\n      schemaName: schema\n      shares:\n        - share1\n        - share2\n      withGrantOption: false\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nformat is database name | schema name | procedure signature | privilege | true/false for with_grant_option\n\n```sh\n $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'dbName|schemaName|procedureName(ARG1TYPE,ARG2TYPE)|USAGE|false'\n```\n\n ",
             "properties": {
+                "argumentDataTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of the argument data types for the procedure (must be present if procedure has arguments and procedure_name is present)\n"
+                },
                 "arguments": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/snowflake:index/ProcedureGrantArgument:ProcedureGrantArgument"
                     },
-                    "description": "List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)\n"
+                    "description": "List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)\n",
+                    "deprecationMessage": "use argument_data_types instead."
                 },
                 "databaseName": {
                     "type": "string",
@@ -7969,7 +8006,8 @@
                 },
                 "returnType": {
                     "type": "string",
-                    "description": "The return type of the procedure (must be present if procedure_name is present)\n"
+                    "description": "The return type of the procedure (must be present if procedure_name is present)\n",
+                    "deprecationMessage": "return_type is no longer required. It will be removed in a future release."
                 },
                 "roles": {
                     "type": "array",
@@ -7999,12 +8037,21 @@
                 "roles"
             ],
             "inputProperties": {
+                "argumentDataTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of the argument data types for the procedure (must be present if procedure has arguments and procedure_name is present)\n",
+                    "willReplaceOnChanges": true
+                },
                 "arguments": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/snowflake:index/ProcedureGrantArgument:ProcedureGrantArgument"
                     },
                     "description": "List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)\n",
+                    "deprecationMessage": "use argument_data_types instead.",
                     "willReplaceOnChanges": true
                 },
                 "databaseName": {
@@ -8035,6 +8082,7 @@
                 "returnType": {
                     "type": "string",
                     "description": "The return type of the procedure (must be present if procedure_name is present)\n",
+                    "deprecationMessage": "return_type is no longer required. It will be removed in a future release.",
                     "willReplaceOnChanges": true
                 },
                 "roles": {
@@ -8069,12 +8117,21 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering ProcedureGrant resources.\n",
                 "properties": {
+                    "argumentDataTypes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of the argument data types for the procedure (must be present if procedure has arguments and procedure_name is present)\n",
+                        "willReplaceOnChanges": true
+                    },
                     "arguments": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/snowflake:index/ProcedureGrantArgument:ProcedureGrantArgument"
                         },
                         "description": "List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)\n",
+                        "deprecationMessage": "use argument_data_types instead.",
                         "willReplaceOnChanges": true
                     },
                     "databaseName": {
@@ -8105,6 +8162,7 @@
                     "returnType": {
                         "type": "string",
                         "description": "The return type of the procedure (must be present if procedure_name is present)\n",
+                        "deprecationMessage": "return_type is no longer required. It will be removed in a future release.",
                         "willReplaceOnChanges": true
                     },
                     "roles": {
