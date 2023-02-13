@@ -27,7 +27,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.snowflake.FunctionGrant;
  * import com.pulumi.snowflake.FunctionGrantArgs;
- * import com.pulumi.snowflake.inputs.FunctionGrantArgumentArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -42,20 +41,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var grant = new FunctionGrant(&#34;grant&#34;, FunctionGrantArgs.builder()        
- *             .arguments(            
- *                 FunctionGrantArgumentArgs.builder()
- *                     .name(&#34;a&#34;)
- *                     .type(&#34;array&#34;)
- *                     .build(),
- *                 FunctionGrantArgumentArgs.builder()
- *                     .name(&#34;b&#34;)
- *                     .type(&#34;string&#34;)
- *                     .build())
+ *             .argumentDataTypes(            
+ *                 &#34;array&#34;,
+ *                 &#34;string&#34;)
  *             .databaseName(&#34;database&#34;)
  *             .functionName(&#34;function&#34;)
  *             .onFuture(false)
  *             .privilege(&#34;USAGE&#34;)
- *             .returnType(&#34;string&#34;)
  *             .roles(            
  *                 &#34;role1&#34;,
  *                 &#34;role2&#34;)
@@ -75,16 +67,34 @@ import javax.annotation.Nullable;
  * format is database name | schema name | function signature | privilege | true/false for with_grant_option
  * 
  * ```sh
- *  $ pulumi import snowflake:index/functionGrant:FunctionGrant example &#39;dbName|schemaName|functionName(ARG1 ARG1TYPE, ARG2 ARG2TYPE):RETURNTYPE|USAGE|false&#39;
+ *  $ pulumi import snowflake:index/functionGrant:FunctionGrant example &#39;dbName|schemaName|functionName(ARG1TYPE,ARG2TYPE)|USAGE|false&#39;
  * ```
  * 
  */
 @ResourceType(type="snowflake:index/functionGrant:FunctionGrant")
 public class FunctionGrant extends com.pulumi.resources.CustomResource {
     /**
-     * List of the arguments for the function (must be present if function has arguments and function_name is present)
+     * List of the argument data types for the function (must be present if function has arguments and function_name is present)
      * 
      */
+    @Export(name="argumentDataTypes", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> argumentDataTypes;
+
+    /**
+     * @return List of the argument data types for the function (must be present if function has arguments and function_name is present)
+     * 
+     */
+    public Output<Optional<List<String>>> argumentDataTypes() {
+        return Codegen.optional(this.argumentDataTypes);
+    }
+    /**
+     * List of the arguments for the function (must be present if function has arguments and function_name is present)
+     * 
+     * @deprecated
+     * Use argument_data_types instead
+     * 
+     */
+    @Deprecated /* Use argument_data_types instead */
     @Export(name="arguments", type=List.class, parameters={FunctionGrantArgument.class})
     private Output</* @Nullable */ List<FunctionGrantArgument>> arguments;
 
@@ -170,7 +180,11 @@ public class FunctionGrant extends com.pulumi.resources.CustomResource {
     /**
      * The return type of the function (must be present if function_name is present)
      * 
+     * @deprecated
+     * Not used anymore
+     * 
      */
+    @Deprecated /* Not used anymore */
     @Export(name="returnType", type=String.class, parameters={})
     private Output</* @Nullable */ String> returnType;
 

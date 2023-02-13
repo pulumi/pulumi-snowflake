@@ -26,21 +26,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewFunctionGrant(ctx, "grant", &snowflake.FunctionGrantArgs{
-//				Arguments: snowflake.FunctionGrantArgumentArray{
-//					&snowflake.FunctionGrantArgumentArgs{
-//						Name: pulumi.String("a"),
-//						Type: pulumi.String("array"),
-//					},
-//					&snowflake.FunctionGrantArgumentArgs{
-//						Name: pulumi.String("b"),
-//						Type: pulumi.String("string"),
-//					},
+//				ArgumentDataTypes: pulumi.StringArray{
+//					pulumi.String("array"),
+//					pulumi.String("string"),
 //				},
 //				DatabaseName: pulumi.String("database"),
 //				FunctionName: pulumi.String("function"),
 //				OnFuture:     pulumi.Bool(false),
 //				Privilege:    pulumi.String("USAGE"),
-//				ReturnType:   pulumi.String("string"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
 //					pulumi.String("role2"),
@@ -67,13 +60,17 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import snowflake:index/functionGrant:FunctionGrant example 'dbName|schemaName|functionName(ARG1 ARG1TYPE, ARG2 ARG2TYPE):RETURNTYPE|USAGE|false'
+//	$ pulumi import snowflake:index/functionGrant:FunctionGrant example 'dbName|schemaName|functionName(ARG1TYPE,ARG2TYPE)|USAGE|false'
 //
 // ```
 type FunctionGrant struct {
 	pulumi.CustomResourceState
 
+	// List of the argument data types for the function (must be present if function has arguments and functionName is present)
+	ArgumentDataTypes pulumi.StringArrayOutput `pulumi:"argumentDataTypes"`
 	// List of the arguments for the function (must be present if function has arguments and functionName is present)
+	//
+	// Deprecated: Use argument_data_types instead
 	Arguments FunctionGrantArgumentArrayOutput `pulumi:"arguments"`
 	// The name of the database containing the current or future functions on which to grant privileges.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
@@ -87,6 +84,8 @@ type FunctionGrant struct {
 	// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
 	// The return type of the function (must be present if functionName is present)
+	//
+	// Deprecated: Not used anymore
 	ReturnType pulumi.StringPtrOutput `pulumi:"returnType"`
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
@@ -133,7 +132,11 @@ func GetFunctionGrant(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FunctionGrant resources.
 type functionGrantState struct {
+	// List of the argument data types for the function (must be present if function has arguments and functionName is present)
+	ArgumentDataTypes []string `pulumi:"argumentDataTypes"`
 	// List of the arguments for the function (must be present if function has arguments and functionName is present)
+	//
+	// Deprecated: Use argument_data_types instead
 	Arguments []FunctionGrantArgument `pulumi:"arguments"`
 	// The name of the database containing the current or future functions on which to grant privileges.
 	DatabaseName *string `pulumi:"databaseName"`
@@ -147,6 +150,8 @@ type functionGrantState struct {
 	// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
 	Privilege *string `pulumi:"privilege"`
 	// The return type of the function (must be present if functionName is present)
+	//
+	// Deprecated: Not used anymore
 	ReturnType *string `pulumi:"returnType"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
@@ -159,7 +164,11 @@ type functionGrantState struct {
 }
 
 type FunctionGrantState struct {
+	// List of the argument data types for the function (must be present if function has arguments and functionName is present)
+	ArgumentDataTypes pulumi.StringArrayInput
 	// List of the arguments for the function (must be present if function has arguments and functionName is present)
+	//
+	// Deprecated: Use argument_data_types instead
 	Arguments FunctionGrantArgumentArrayInput
 	// The name of the database containing the current or future functions on which to grant privileges.
 	DatabaseName pulumi.StringPtrInput
@@ -173,6 +182,8 @@ type FunctionGrantState struct {
 	// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
 	Privilege pulumi.StringPtrInput
 	// The return type of the function (must be present if functionName is present)
+	//
+	// Deprecated: Not used anymore
 	ReturnType pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
@@ -189,7 +200,11 @@ func (FunctionGrantState) ElementType() reflect.Type {
 }
 
 type functionGrantArgs struct {
+	// List of the argument data types for the function (must be present if function has arguments and functionName is present)
+	ArgumentDataTypes []string `pulumi:"argumentDataTypes"`
 	// List of the arguments for the function (must be present if function has arguments and functionName is present)
+	//
+	// Deprecated: Use argument_data_types instead
 	Arguments []FunctionGrantArgument `pulumi:"arguments"`
 	// The name of the database containing the current or future functions on which to grant privileges.
 	DatabaseName string `pulumi:"databaseName"`
@@ -203,6 +218,8 @@ type functionGrantArgs struct {
 	// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
 	Privilege *string `pulumi:"privilege"`
 	// The return type of the function (must be present if functionName is present)
+	//
+	// Deprecated: Not used anymore
 	ReturnType *string `pulumi:"returnType"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
@@ -216,7 +233,11 @@ type functionGrantArgs struct {
 
 // The set of arguments for constructing a FunctionGrant resource.
 type FunctionGrantArgs struct {
+	// List of the argument data types for the function (must be present if function has arguments and functionName is present)
+	ArgumentDataTypes pulumi.StringArrayInput
 	// List of the arguments for the function (must be present if function has arguments and functionName is present)
+	//
+	// Deprecated: Use argument_data_types instead
 	Arguments FunctionGrantArgumentArrayInput
 	// The name of the database containing the current or future functions on which to grant privileges.
 	DatabaseName pulumi.StringInput
@@ -230,6 +251,8 @@ type FunctionGrantArgs struct {
 	// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
 	Privilege pulumi.StringPtrInput
 	// The return type of the function (must be present if functionName is present)
+	//
+	// Deprecated: Not used anymore
 	ReturnType pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
@@ -328,7 +351,14 @@ func (o FunctionGrantOutput) ToFunctionGrantOutputWithContext(ctx context.Contex
 	return o
 }
 
+// List of the argument data types for the function (must be present if function has arguments and functionName is present)
+func (o FunctionGrantOutput) ArgumentDataTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionGrant) pulumi.StringArrayOutput { return v.ArgumentDataTypes }).(pulumi.StringArrayOutput)
+}
+
 // List of the arguments for the function (must be present if function has arguments and functionName is present)
+//
+// Deprecated: Use argument_data_types instead
 func (o FunctionGrantOutput) Arguments() FunctionGrantArgumentArrayOutput {
 	return o.ApplyT(func(v *FunctionGrant) FunctionGrantArgumentArrayOutput { return v.Arguments }).(FunctionGrantArgumentArrayOutput)
 }
@@ -360,6 +390,8 @@ func (o FunctionGrantOutput) Privilege() pulumi.StringPtrOutput {
 }
 
 // The return type of the function (must be present if functionName is present)
+//
+// Deprecated: Not used anymore
 func (o FunctionGrantOutput) ReturnType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionGrant) pulumi.StringPtrOutput { return v.ReturnType }).(pulumi.StringPtrOutput)
 }

@@ -14,21 +14,14 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const grant = new snowflake.ProcedureGrant("grant", {
- *     arguments: [
- *         {
- *             name: "a",
- *             type: "array",
- *         },
- *         {
- *             name: "b",
- *             type: "string",
- *         },
+ *     argumentDataTypes: [
+ *         "array",
+ *         "string",
  *     ],
  *     databaseName: "database",
  *     onFuture: false,
  *     privilege: "SELECT",
  *     procedureName: "procedure",
- *     returnType: "string",
  *     roles: [
  *         "role1",
  *         "role2",
@@ -47,7 +40,7 @@ import * as utilities from "./utilities";
  * format is database name | schema name | procedure signature | privilege | true/false for with_grant_option
  *
  * ```sh
- *  $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'dbName|schemaName|procedureName(ARG1 ARG1TYPE, ARG2 ARG2TYPE):RETURNTYPE|USAGE|false'
+ *  $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'dbName|schemaName|procedureName(ARG1TYPE,ARG2TYPE)|USAGE|false'
  * ```
  */
 export class ProcedureGrant extends pulumi.CustomResource {
@@ -79,7 +72,13 @@ export class ProcedureGrant extends pulumi.CustomResource {
     }
 
     /**
+     * List of the argument data types for the procedure (must be present if procedure has arguments and procedureName is present)
+     */
+    public readonly argumentDataTypes!: pulumi.Output<string[] | undefined>;
+    /**
      * List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
+     *
+     * @deprecated use argument_data_types instead.
      */
     public readonly arguments!: pulumi.Output<outputs.ProcedureGrantArgument[] | undefined>;
     /**
@@ -105,6 +104,8 @@ export class ProcedureGrant extends pulumi.CustomResource {
     public readonly procedureName!: pulumi.Output<string | undefined>;
     /**
      * The return type of the procedure (must be present if procedureName is present)
+     *
+     * @deprecated return_type is no longer required. It will be removed in a future release.
      */
     public readonly returnType!: pulumi.Output<string | undefined>;
     /**
@@ -137,6 +138,7 @@ export class ProcedureGrant extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProcedureGrantState | undefined;
+            resourceInputs["argumentDataTypes"] = state ? state.argumentDataTypes : undefined;
             resourceInputs["arguments"] = state ? state.arguments : undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
             resourceInputs["enableMultipleGrants"] = state ? state.enableMultipleGrants : undefined;
@@ -156,6 +158,7 @@ export class ProcedureGrant extends pulumi.CustomResource {
             if ((!args || args.roles === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roles'");
             }
+            resourceInputs["argumentDataTypes"] = args ? args.argumentDataTypes : undefined;
             resourceInputs["arguments"] = args ? args.arguments : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["enableMultipleGrants"] = args ? args.enableMultipleGrants : undefined;
@@ -178,7 +181,13 @@ export class ProcedureGrant extends pulumi.CustomResource {
  */
 export interface ProcedureGrantState {
     /**
+     * List of the argument data types for the procedure (must be present if procedure has arguments and procedureName is present)
+     */
+    argumentDataTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
+     *
+     * @deprecated use argument_data_types instead.
      */
     arguments?: pulumi.Input<pulumi.Input<inputs.ProcedureGrantArgument>[]>;
     /**
@@ -204,6 +213,8 @@ export interface ProcedureGrantState {
     procedureName?: pulumi.Input<string>;
     /**
      * The return type of the procedure (must be present if procedureName is present)
+     *
+     * @deprecated return_type is no longer required. It will be removed in a future release.
      */
     returnType?: pulumi.Input<string>;
     /**
@@ -229,7 +240,13 @@ export interface ProcedureGrantState {
  */
 export interface ProcedureGrantArgs {
     /**
+     * List of the argument data types for the procedure (must be present if procedure has arguments and procedureName is present)
+     */
+    argumentDataTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
+     *
+     * @deprecated use argument_data_types instead.
      */
     arguments?: pulumi.Input<pulumi.Input<inputs.ProcedureGrantArgument>[]>;
     /**
@@ -255,6 +272,8 @@ export interface ProcedureGrantArgs {
     procedureName?: pulumi.Input<string>;
     /**
      * The return type of the procedure (must be present if procedureName is present)
+     *
+     * @deprecated return_type is no longer required. It will be removed in a future release.
      */
     returnType?: pulumi.Input<string>;
     /**

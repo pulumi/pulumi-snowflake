@@ -18,6 +18,7 @@ class ProcedureGrantArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  roles: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 argument_data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedureGrantArgumentArgs']]]] = None,
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
@@ -31,6 +32,7 @@ class ProcedureGrantArgs:
         The set of arguments for constructing a ProcedureGrant resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future procedures on which to grant privileges.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] argument_data_types: List of the argument data types for the procedure (must be present if procedure has arguments and procedure_name is present)
         :param pulumi.Input[Sequence[pulumi.Input['ProcedureGrantArgumentArgs']]] arguments: List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
@@ -44,6 +46,11 @@ class ProcedureGrantArgs:
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "roles", roles)
+        if argument_data_types is not None:
+            pulumi.set(__self__, "argument_data_types", argument_data_types)
+        if arguments is not None:
+            warnings.warn("""use argument_data_types instead.""", DeprecationWarning)
+            pulumi.log.warn("""arguments is deprecated: use argument_data_types instead.""")
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
         if enable_multiple_grants is not None:
@@ -54,6 +61,9 @@ class ProcedureGrantArgs:
             pulumi.set(__self__, "privilege", privilege)
         if procedure_name is not None:
             pulumi.set(__self__, "procedure_name", procedure_name)
+        if return_type is not None:
+            warnings.warn("""return_type is no longer required. It will be removed in a future release.""", DeprecationWarning)
+            pulumi.log.warn("""return_type is deprecated: return_type is no longer required. It will be removed in a future release.""")
         if return_type is not None:
             pulumi.set(__self__, "return_type", return_type)
         if schema_name is not None:
@@ -86,6 +96,18 @@ class ProcedureGrantArgs:
     @roles.setter
     def roles(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "roles", value)
+
+    @property
+    @pulumi.getter(name="argumentDataTypes")
+    def argument_data_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of the argument data types for the procedure (must be present if procedure has arguments and procedure_name is present)
+        """
+        return pulumi.get(self, "argument_data_types")
+
+    @argument_data_types.setter
+    def argument_data_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "argument_data_types", value)
 
     @property
     @pulumi.getter
@@ -200,6 +222,7 @@ class ProcedureGrantArgs:
 @pulumi.input_type
 class _ProcedureGrantState:
     def __init__(__self__, *,
+                 argument_data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedureGrantArgumentArgs']]]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
@@ -213,6 +236,7 @@ class _ProcedureGrantState:
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering ProcedureGrant resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] argument_data_types: List of the argument data types for the procedure (must be present if procedure has arguments and procedure_name is present)
         :param pulumi.Input[Sequence[pulumi.Input['ProcedureGrantArgumentArgs']]] arguments: List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
         :param pulumi.Input[str] database_name: The name of the database containing the current or future procedures on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -226,6 +250,11 @@ class _ProcedureGrantState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on_future is false).
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
+        if argument_data_types is not None:
+            pulumi.set(__self__, "argument_data_types", argument_data_types)
+        if arguments is not None:
+            warnings.warn("""use argument_data_types instead.""", DeprecationWarning)
+            pulumi.log.warn("""arguments is deprecated: use argument_data_types instead.""")
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
         if database_name is not None:
@@ -239,6 +268,9 @@ class _ProcedureGrantState:
         if procedure_name is not None:
             pulumi.set(__self__, "procedure_name", procedure_name)
         if return_type is not None:
+            warnings.warn("""return_type is no longer required. It will be removed in a future release.""", DeprecationWarning)
+            pulumi.log.warn("""return_type is deprecated: return_type is no longer required. It will be removed in a future release.""")
+        if return_type is not None:
             pulumi.set(__self__, "return_type", return_type)
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
@@ -248,6 +280,18 @@ class _ProcedureGrantState:
             pulumi.set(__self__, "shares", shares)
         if with_grant_option is not None:
             pulumi.set(__self__, "with_grant_option", with_grant_option)
+
+    @property
+    @pulumi.getter(name="argumentDataTypes")
+    def argument_data_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of the argument data types for the procedure (must be present if procedure has arguments and procedure_name is present)
+        """
+        return pulumi.get(self, "argument_data_types")
+
+    @argument_data_types.setter
+    def argument_data_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "argument_data_types", value)
 
     @property
     @pulumi.getter
@@ -388,6 +432,7 @@ class ProcedureGrant(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 argument_data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProcedureGrantArgumentArgs']]]]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
@@ -408,21 +453,14 @@ class ProcedureGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.ProcedureGrant("grant",
-            arguments=[
-                snowflake.ProcedureGrantArgumentArgs(
-                    name="a",
-                    type="array",
-                ),
-                snowflake.ProcedureGrantArgumentArgs(
-                    name="b",
-                    type="string",
-                ),
+            argument_data_types=[
+                "array",
+                "string",
             ],
             database_name="database",
             on_future=False,
             privilege="SELECT",
             procedure_name="procedure",
-            return_type="string",
             roles=[
                 "role1",
                 "role2",
@@ -440,11 +478,12 @@ class ProcedureGrant(pulumi.CustomResource):
         format is database name | schema name | procedure signature | privilege | true/false for with_grant_option
 
         ```sh
-         $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'dbName|schemaName|procedureName(ARG1 ARG1TYPE, ARG2 ARG2TYPE):RETURNTYPE|USAGE|false'
+         $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'dbName|schemaName|procedureName(ARG1TYPE,ARG2TYPE)|USAGE|false'
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] argument_data_types: List of the argument data types for the procedure (must be present if procedure has arguments and procedure_name is present)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProcedureGrantArgumentArgs']]]] arguments: List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
         :param pulumi.Input[str] database_name: The name of the database containing the current or future procedures on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -472,21 +511,14 @@ class ProcedureGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.ProcedureGrant("grant",
-            arguments=[
-                snowflake.ProcedureGrantArgumentArgs(
-                    name="a",
-                    type="array",
-                ),
-                snowflake.ProcedureGrantArgumentArgs(
-                    name="b",
-                    type="string",
-                ),
+            argument_data_types=[
+                "array",
+                "string",
             ],
             database_name="database",
             on_future=False,
             privilege="SELECT",
             procedure_name="procedure",
-            return_type="string",
             roles=[
                 "role1",
                 "role2",
@@ -504,7 +536,7 @@ class ProcedureGrant(pulumi.CustomResource):
         format is database name | schema name | procedure signature | privilege | true/false for with_grant_option
 
         ```sh
-         $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'dbName|schemaName|procedureName(ARG1 ARG1TYPE, ARG2 ARG2TYPE):RETURNTYPE|USAGE|false'
+         $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'dbName|schemaName|procedureName(ARG1TYPE,ARG2TYPE)|USAGE|false'
         ```
 
         :param str resource_name: The name of the resource.
@@ -522,6 +554,7 @@ class ProcedureGrant(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 argument_data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProcedureGrantArgumentArgs']]]]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
@@ -542,6 +575,10 @@ class ProcedureGrant(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProcedureGrantArgs.__new__(ProcedureGrantArgs)
 
+            __props__.__dict__["argument_data_types"] = argument_data_types
+            if arguments is not None and not opts.urn:
+                warnings.warn("""use argument_data_types instead.""", DeprecationWarning)
+                pulumi.log.warn("""arguments is deprecated: use argument_data_types instead.""")
             __props__.__dict__["arguments"] = arguments
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
@@ -550,6 +587,9 @@ class ProcedureGrant(pulumi.CustomResource):
             __props__.__dict__["on_future"] = on_future
             __props__.__dict__["privilege"] = privilege
             __props__.__dict__["procedure_name"] = procedure_name
+            if return_type is not None and not opts.urn:
+                warnings.warn("""return_type is no longer required. It will be removed in a future release.""", DeprecationWarning)
+                pulumi.log.warn("""return_type is deprecated: return_type is no longer required. It will be removed in a future release.""")
             __props__.__dict__["return_type"] = return_type
             if roles is None and not opts.urn:
                 raise TypeError("Missing required property 'roles'")
@@ -567,6 +607,7 @@ class ProcedureGrant(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            argument_data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             arguments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProcedureGrantArgumentArgs']]]]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
             enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
@@ -585,6 +626,7 @@ class ProcedureGrant(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] argument_data_types: List of the argument data types for the procedure (must be present if procedure has arguments and procedure_name is present)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProcedureGrantArgumentArgs']]]] arguments: List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
         :param pulumi.Input[str] database_name: The name of the database containing the current or future procedures on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -602,6 +644,7 @@ class ProcedureGrant(pulumi.CustomResource):
 
         __props__ = _ProcedureGrantState.__new__(_ProcedureGrantState)
 
+        __props__.__dict__["argument_data_types"] = argument_data_types
         __props__.__dict__["arguments"] = arguments
         __props__.__dict__["database_name"] = database_name
         __props__.__dict__["enable_multiple_grants"] = enable_multiple_grants
@@ -614,6 +657,14 @@ class ProcedureGrant(pulumi.CustomResource):
         __props__.__dict__["shares"] = shares
         __props__.__dict__["with_grant_option"] = with_grant_option
         return ProcedureGrant(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="argumentDataTypes")
+    def argument_data_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of the argument data types for the procedure (must be present if procedure has arguments and procedure_name is present)
+        """
+        return pulumi.get(self, "argument_data_types")
 
     @property
     @pulumi.getter

@@ -26,21 +26,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewProcedureGrant(ctx, "grant", &snowflake.ProcedureGrantArgs{
-//				Arguments: snowflake.ProcedureGrantArgumentArray{
-//					&snowflake.ProcedureGrantArgumentArgs{
-//						Name: pulumi.String("a"),
-//						Type: pulumi.String("array"),
-//					},
-//					&snowflake.ProcedureGrantArgumentArgs{
-//						Name: pulumi.String("b"),
-//						Type: pulumi.String("string"),
-//					},
+//				ArgumentDataTypes: pulumi.StringArray{
+//					pulumi.String("array"),
+//					pulumi.String("string"),
 //				},
 //				DatabaseName:  pulumi.String("database"),
 //				OnFuture:      pulumi.Bool(false),
 //				Privilege:     pulumi.String("SELECT"),
 //				ProcedureName: pulumi.String("procedure"),
-//				ReturnType:    pulumi.String("string"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
 //					pulumi.String("role2"),
@@ -67,13 +60,17 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'dbName|schemaName|procedureName(ARG1 ARG1TYPE, ARG2 ARG2TYPE):RETURNTYPE|USAGE|false'
+//	$ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'dbName|schemaName|procedureName(ARG1TYPE,ARG2TYPE)|USAGE|false'
 //
 // ```
 type ProcedureGrant struct {
 	pulumi.CustomResourceState
 
+	// List of the argument data types for the procedure (must be present if procedure has arguments and procedureName is present)
+	ArgumentDataTypes pulumi.StringArrayOutput `pulumi:"argumentDataTypes"`
 	// List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
+	//
+	// Deprecated: use argument_data_types instead.
 	Arguments ProcedureGrantArgumentArrayOutput `pulumi:"arguments"`
 	// The name of the database containing the current or future procedures on which to grant privileges.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
@@ -87,6 +84,8 @@ type ProcedureGrant struct {
 	// The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 	ProcedureName pulumi.StringPtrOutput `pulumi:"procedureName"`
 	// The return type of the procedure (must be present if procedureName is present)
+	//
+	// Deprecated: return_type is no longer required. It will be removed in a future release.
 	ReturnType pulumi.StringPtrOutput `pulumi:"returnType"`
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
@@ -133,7 +132,11 @@ func GetProcedureGrant(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProcedureGrant resources.
 type procedureGrantState struct {
+	// List of the argument data types for the procedure (must be present if procedure has arguments and procedureName is present)
+	ArgumentDataTypes []string `pulumi:"argumentDataTypes"`
 	// List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
+	//
+	// Deprecated: use argument_data_types instead.
 	Arguments []ProcedureGrantArgument `pulumi:"arguments"`
 	// The name of the database containing the current or future procedures on which to grant privileges.
 	DatabaseName *string `pulumi:"databaseName"`
@@ -147,6 +150,8 @@ type procedureGrantState struct {
 	// The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 	ProcedureName *string `pulumi:"procedureName"`
 	// The return type of the procedure (must be present if procedureName is present)
+	//
+	// Deprecated: return_type is no longer required. It will be removed in a future release.
 	ReturnType *string `pulumi:"returnType"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
@@ -159,7 +164,11 @@ type procedureGrantState struct {
 }
 
 type ProcedureGrantState struct {
+	// List of the argument data types for the procedure (must be present if procedure has arguments and procedureName is present)
+	ArgumentDataTypes pulumi.StringArrayInput
 	// List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
+	//
+	// Deprecated: use argument_data_types instead.
 	Arguments ProcedureGrantArgumentArrayInput
 	// The name of the database containing the current or future procedures on which to grant privileges.
 	DatabaseName pulumi.StringPtrInput
@@ -173,6 +182,8 @@ type ProcedureGrantState struct {
 	// The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 	ProcedureName pulumi.StringPtrInput
 	// The return type of the procedure (must be present if procedureName is present)
+	//
+	// Deprecated: return_type is no longer required. It will be removed in a future release.
 	ReturnType pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
@@ -189,7 +200,11 @@ func (ProcedureGrantState) ElementType() reflect.Type {
 }
 
 type procedureGrantArgs struct {
+	// List of the argument data types for the procedure (must be present if procedure has arguments and procedureName is present)
+	ArgumentDataTypes []string `pulumi:"argumentDataTypes"`
 	// List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
+	//
+	// Deprecated: use argument_data_types instead.
 	Arguments []ProcedureGrantArgument `pulumi:"arguments"`
 	// The name of the database containing the current or future procedures on which to grant privileges.
 	DatabaseName string `pulumi:"databaseName"`
@@ -203,6 +218,8 @@ type procedureGrantArgs struct {
 	// The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 	ProcedureName *string `pulumi:"procedureName"`
 	// The return type of the procedure (must be present if procedureName is present)
+	//
+	// Deprecated: return_type is no longer required. It will be removed in a future release.
 	ReturnType *string `pulumi:"returnType"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
@@ -216,7 +233,11 @@ type procedureGrantArgs struct {
 
 // The set of arguments for constructing a ProcedureGrant resource.
 type ProcedureGrantArgs struct {
+	// List of the argument data types for the procedure (must be present if procedure has arguments and procedureName is present)
+	ArgumentDataTypes pulumi.StringArrayInput
 	// List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
+	//
+	// Deprecated: use argument_data_types instead.
 	Arguments ProcedureGrantArgumentArrayInput
 	// The name of the database containing the current or future procedures on which to grant privileges.
 	DatabaseName pulumi.StringInput
@@ -230,6 +251,8 @@ type ProcedureGrantArgs struct {
 	// The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 	ProcedureName pulumi.StringPtrInput
 	// The return type of the procedure (must be present if procedureName is present)
+	//
+	// Deprecated: return_type is no longer required. It will be removed in a future release.
 	ReturnType pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
@@ -328,7 +351,14 @@ func (o ProcedureGrantOutput) ToProcedureGrantOutputWithContext(ctx context.Cont
 	return o
 }
 
+// List of the argument data types for the procedure (must be present if procedure has arguments and procedureName is present)
+func (o ProcedureGrantOutput) ArgumentDataTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProcedureGrant) pulumi.StringArrayOutput { return v.ArgumentDataTypes }).(pulumi.StringArrayOutput)
+}
+
 // List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
+//
+// Deprecated: use argument_data_types instead.
 func (o ProcedureGrantOutput) Arguments() ProcedureGrantArgumentArrayOutput {
 	return o.ApplyT(func(v *ProcedureGrant) ProcedureGrantArgumentArrayOutput { return v.Arguments }).(ProcedureGrantArgumentArrayOutput)
 }
@@ -360,6 +390,8 @@ func (o ProcedureGrantOutput) ProcedureName() pulumi.StringPtrOutput {
 }
 
 // The return type of the procedure (must be present if procedureName is present)
+//
+// Deprecated: return_type is no longer required. It will be removed in a future release.
 func (o ProcedureGrantOutput) ReturnType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProcedureGrant) pulumi.StringPtrOutput { return v.ReturnType }).(pulumi.StringPtrOutput)
 }
