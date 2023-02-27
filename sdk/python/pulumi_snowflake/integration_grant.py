@@ -220,10 +220,10 @@ class IntegrationGrant(pulumi.CustomResource):
 
         ## Import
 
-        format is integration name ||| privilege | true/false for with_grant_option
+        format is integration_name ❄️ privilege ❄️ with_grant_option ❄️ roles
 
         ```sh
-         $ pulumi import snowflake:index/integrationGrant:IntegrationGrant example 'intName|||USAGE|true'
+         $ pulumi import snowflake:index/integrationGrant:IntegrationGrant example 'MY_INTEGRATION❄️USAGE❄️false❄️role1,role2'
         ```
 
         :param str resource_name: The name of the resource.
@@ -260,10 +260,10 @@ class IntegrationGrant(pulumi.CustomResource):
 
         ## Import
 
-        format is integration name ||| privilege | true/false for with_grant_option
+        format is integration_name ❄️ privilege ❄️ with_grant_option ❄️ roles
 
         ```sh
-         $ pulumi import snowflake:index/integrationGrant:IntegrationGrant example 'intName|||USAGE|true'
+         $ pulumi import snowflake:index/integrationGrant:IntegrationGrant example 'MY_INTEGRATION❄️USAGE❄️false❄️role1,role2'
         ```
 
         :param str resource_name: The name of the resource.

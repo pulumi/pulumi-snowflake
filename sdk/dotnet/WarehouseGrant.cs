@@ -36,10 +36,10 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// format is warehouse name | | | privilege | true/false for with_grant_option
+    /// format is warehouse_name ❄️ privilege ❄️ with_grant_option ❄️ roles
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/warehouseGrant:WarehouseGrant example 'warehouseName|||MODIFY|true'
+    ///  $ pulumi import snowflake:index/warehouseGrant:WarehouseGrant example 'MY_WAREHOUSE❄️MODIFY❄️false❄️role1,role2'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/warehouseGrant:WarehouseGrant")]

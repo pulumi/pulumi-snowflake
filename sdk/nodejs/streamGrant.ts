@@ -27,10 +27,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * format is database name | schema name | stream name | privilege | true/false for with_grant_option
+ * format is database_name ❄️ schema_name ❄️ stream_name ❄️ privilege ❄️ with_grant_option ❄️ roles
  *
  * ```sh
- *  $ pulumi import snowflake:index/streamGrant:StreamGrant example 'dbName|schemaName|streamName|SELECT|false'
+ *  $ pulumi import snowflake:index/streamGrant:StreamGrant example 'MY_DATABASE❄️MY_SCHEMA❄️MY_OBJECT❄️SELECT❄️false❄️role1,role2'
  * ```
  */
 export class StreamGrant extends pulumi.CustomResource {

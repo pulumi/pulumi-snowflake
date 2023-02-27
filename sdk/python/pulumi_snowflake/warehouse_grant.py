@@ -220,10 +220,10 @@ class WarehouseGrant(pulumi.CustomResource):
 
         ## Import
 
-        format is warehouse name | | | privilege | true/false for with_grant_option
+        format is warehouse_name ❄️ privilege ❄️ with_grant_option ❄️ roles
 
         ```sh
-         $ pulumi import snowflake:index/warehouseGrant:WarehouseGrant example 'warehouseName|||MODIFY|true'
+         $ pulumi import snowflake:index/warehouseGrant:WarehouseGrant example 'MY_WAREHOUSE❄️MODIFY❄️false❄️role1,role2'
         ```
 
         :param str resource_name: The name of the resource.
@@ -260,10 +260,10 @@ class WarehouseGrant(pulumi.CustomResource):
 
         ## Import
 
-        format is warehouse name | | | privilege | true/false for with_grant_option
+        format is warehouse_name ❄️ privilege ❄️ with_grant_option ❄️ roles
 
         ```sh
-         $ pulumi import snowflake:index/warehouseGrant:WarehouseGrant example 'warehouseName|||MODIFY|true'
+         $ pulumi import snowflake:index/warehouseGrant:WarehouseGrant example 'MY_WAREHOUSE❄️MODIFY❄️false❄️role1,role2'
         ```
 
         :param str resource_name: The name of the resource.

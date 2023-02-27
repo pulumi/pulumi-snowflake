@@ -322,10 +322,12 @@ class PipeGrant(pulumi.CustomResource):
 
         ## Import
 
-        format is database name | schema name | pipe name | privilege | true/false for with_grant_option
+        format is database_name ❄️ schema_name ❄️ object_name
+
+        ❄️ privilege ❄️ with_grant_option ❄️ roles
 
         ```sh
-         $ pulumi import snowflake:index/pipeGrant:PipeGrant example 'dbName|schemaName|pipeName|OPERATE|false'
+         $ pulumi import snowflake:index/pipeGrant:PipeGrant example 'MY_DATABASE❄️MY_SCHEMA❄️MY_OBJECT_NAME❄️OPERATE❄️false❄️role1,role2'
         ```
 
         :param str resource_name: The name of the resource.
@@ -368,10 +370,12 @@ class PipeGrant(pulumi.CustomResource):
 
         ## Import
 
-        format is database name | schema name | pipe name | privilege | true/false for with_grant_option
+        format is database_name ❄️ schema_name ❄️ object_name
+
+        ❄️ privilege ❄️ with_grant_option ❄️ roles
 
         ```sh
-         $ pulumi import snowflake:index/pipeGrant:PipeGrant example 'dbName|schemaName|pipeName|OPERATE|false'
+         $ pulumi import snowflake:index/pipeGrant:PipeGrant example 'MY_DATABASE❄️MY_SCHEMA❄️MY_OBJECT_NAME❄️OPERATE❄️false❄️role1,role2'
         ```
 
         :param str resource_name: The name of the resource.

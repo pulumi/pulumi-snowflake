@@ -22,10 +22,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * format is database name | schema name | tag name | privilege | roles | true/false for with_grant_option
+ * format is database_name ❄️ schema_name ❄️ tag_name ❄️ privilege ❄️ with_grant_option ❄️ roles
  *
  * ```sh
- *  $ pulumi import snowflake:index/tagGrant:TagGrant example 'dbName|schemaName|tagName|APPLY|ROLE1,ROLE2|false'
+ *  $ pulumi import snowflake:index/tagGrant:TagGrant example 'MY_DATABASE❄️MY_SCHEMA❄️MY_OBJECT❄️APPLY❄️false❄️role1,role2'
  * ```
  */
 export class TagGrant extends pulumi.CustomResource {

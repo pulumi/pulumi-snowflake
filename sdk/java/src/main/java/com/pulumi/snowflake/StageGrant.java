@@ -57,10 +57,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * format is database name | schema name | stage name | privilege | true/false for with_grant_option
+ * format is database_name ❄️ schema_name ❄️ stage_name ❄️ privilege ❄️ with_grant_option ❄️ roles
  * 
  * ```sh
- *  $ pulumi import snowflake:index/stageGrant:StageGrant example &#39;databaseName|schemaName|stageName|USAGE|true&#39;
+ *  $ pulumi import snowflake:index/stageGrant:StageGrant example &#39;MY_DATABASE❄️MY_SCHEMA❄️MY_OBJECT❄️USAGE❄️false❄️role1,role2&#39;
  * ```
  * 
  */

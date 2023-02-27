@@ -43,11 +43,9 @@ import (
 //
 // ## Import
 //
-// format is account name | | | privilege | true/false for with_grant_option
-//
 // ```sh
 //
-//	$ pulumi import snowflake:index/accountGrant:AccountGrant example 'accountName|||USAGE|true'
+//	$ pulumi import snowflake:index/accountGrant:AccountGrant example 'privilege=MONITOR,roles=[role1,role2],with_grant_option=false'
 //
 // ```
 type AccountGrant struct {

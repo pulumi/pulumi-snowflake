@@ -59,10 +59,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * format is database name | schema name | | privilege | true/false for with_grant_option
+ * format is database_name ❄️ schema_name ❄️ privilege ❄️ with_grant_option ❄️ roles ❄️ shares
  * 
  * ```sh
- *  $ pulumi import snowflake:index/schemaGrant:SchemaGrant example &#39;databaseName|schemaName||MONITOR|false&#39;
+ *  $ pulumi import snowflake:index/schemaGrant:SchemaGrant example &#39;MY_DATABASE❄️MY_SCHEMA❄️MONITOR❄️false❄️role1,role2❄️share1,share2&#39;
  * ```
  * 
  */

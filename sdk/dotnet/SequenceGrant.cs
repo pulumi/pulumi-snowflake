@@ -39,10 +39,10 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// format is database name | schema name | sequence name | privilege | true/false for with_grant_option
+    /// format is database_name ❄️ schema_name ❄️ sequence_name ❄️ privilege ❄️ with_grant_option ❄️ roles
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/sequenceGrant:SequenceGrant example 'dbName|schemaName|sequenceName|USAGE|false'
+    ///  $ pulumi import snowflake:index/sequenceGrant:SequenceGrant example 'MY_DATABASE❄️MY_SCHEMA❄️MY_OBJECT❄️USAGE❄️false❄️role1,role2'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/sequenceGrant:SequenceGrant")]

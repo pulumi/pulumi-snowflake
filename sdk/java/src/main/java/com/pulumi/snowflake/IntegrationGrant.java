@@ -54,10 +54,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * format is integration name ||| privilege | true/false for with_grant_option
+ * format is integration_name ❄️ privilege ❄️ with_grant_option ❄️ roles
  * 
  * ```sh
- *  $ pulumi import snowflake:index/integrationGrant:IntegrationGrant example &#39;intName|||USAGE|true&#39;
+ *  $ pulumi import snowflake:index/integrationGrant:IntegrationGrant example &#39;MY_INTEGRATION❄️USAGE❄️false❄️role1,role2&#39;
  * ```
  * 
  */

@@ -36,10 +36,10 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// format is user name | | | privilege | true/false for with_grant_option
+    /// format is username ❄️ privilege ❄️ with_grant_option ❄️ roles
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/userGrant:UserGrant example 'userName|||MONITOR|true'
+    ///  $ pulumi import snowflake:index/userGrant:UserGrant example 'USERNAME❄️MONITOR❄️false❄️role1,role2'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/userGrant:UserGrant")]

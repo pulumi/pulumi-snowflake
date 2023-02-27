@@ -42,10 +42,10 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// format is database name | schema name | table name | privilege | true/false for with_grant_option
+    /// format is database_name ❄️ schema_name ❄️ table_name ❄️ privilege ❄️ with_grant_option ❄️ roles ❄️ shares
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/tableGrant:TableGrant example 'databaseName|schemaName|tableName|MODIFY|true'
+    ///  $ pulumi import snowflake:index/tableGrant:TableGrant example 'MY_DATABASE❄️MY_SCHEMA❄️MY_OBJECT❄️MODIFY❄️false❄️role1,role2❄️share1,share2'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/tableGrant:TableGrant")]

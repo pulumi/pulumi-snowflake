@@ -27,10 +27,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * format is database name | schema name | stage name | privilege | true/false for with_grant_option
+ * format is database_name ❄️ schema_name ❄️ stage_name ❄️ privilege ❄️ with_grant_option ❄️ roles
  *
  * ```sh
- *  $ pulumi import snowflake:index/stageGrant:StageGrant example 'databaseName|schemaName|stageName|USAGE|true'
+ *  $ pulumi import snowflake:index/stageGrant:StageGrant example 'MY_DATABASE❄️MY_SCHEMA❄️MY_OBJECT❄️USAGE❄️false❄️role1,role2'
  * ```
  */
 export class StageGrant extends pulumi.CustomResource {
