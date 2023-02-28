@@ -56,11 +56,11 @@ import (
 //
 // ## Import
 //
-// format is database name | schema name | function signature | privilege | true/false for with_grant_option
+// format is database_name ❄️ schema_name ❄️ object_name ❄️ argument_data_types ❄️ privilege ❄️ with_grant_option ❄️ roles ❄️ shares
 //
 // ```sh
 //
-//	$ pulumi import snowflake:index/functionGrant:FunctionGrant example 'dbName|schemaName|functionName(ARG1TYPE,ARG2TYPE)|USAGE|false'
+//	$ pulumi import snowflake:index/functionGrant:FunctionGrant example 'MY_DATABASE❄️MY_SCHEMA❄️MY_OBJECT_NAME❄️ARG1TYPE,ARG2TYPE❄️USAGE❄️false❄️role1,role2❄️share1,share2'
 //
 // ```
 type FunctionGrant struct {

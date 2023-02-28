@@ -190,8 +190,10 @@ class RoleGrants(pulumi.CustomResource):
 
         ## Import
 
+        format is role_name ❄️ roles ❄️ users
+
         ```sh
-         $ pulumi import snowflake:index/roleGrants:RoleGrants example rolename
+         $ pulumi import snowflake:index/roleGrants:RoleGrants example "role_name❄️role1,role2❄️user1,user2"
         ```
 
         :param str resource_name: The name of the resource.
@@ -230,8 +232,10 @@ class RoleGrants(pulumi.CustomResource):
 
         ## Import
 
+        format is role_name ❄️ roles ❄️ users
+
         ```sh
-         $ pulumi import snowflake:index/roleGrants:RoleGrants example rolename
+         $ pulumi import snowflake:index/roleGrants:RoleGrants example "role_name❄️role1,role2❄️user1,user2"
         ```
 
         :param str resource_name: The name of the resource.

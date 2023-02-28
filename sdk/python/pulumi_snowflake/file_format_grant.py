@@ -321,10 +321,10 @@ class FileFormatGrant(pulumi.CustomResource):
 
         ## Import
 
-        format is database name | schema name | file format name | privilege | true/false for with_grant_option
+        format is database_name ❄️ schema_name ❄️ object_name ❄️ privilege ❄️ with_grant_option ❄️ roles
 
         ```sh
-         $ pulumi import snowflake:index/fileFormatGrant:FileFormatGrant example 'dbName|schemaName|fileFormatName|USAGE|false'
+         $ pulumi import snowflake:index/fileFormatGrant:FileFormatGrant example 'MY_DATABASE❄️MY_SCHEMA❄️MY_OBJECT_NAME❄️USAGE❄️false❄️role1,role2'
         ```
 
         :param str resource_name: The name of the resource.
@@ -367,10 +367,10 @@ class FileFormatGrant(pulumi.CustomResource):
 
         ## Import
 
-        format is database name | schema name | file format name | privilege | true/false for with_grant_option
+        format is database_name ❄️ schema_name ❄️ object_name ❄️ privilege ❄️ with_grant_option ❄️ roles
 
         ```sh
-         $ pulumi import snowflake:index/fileFormatGrant:FileFormatGrant example 'dbName|schemaName|fileFormatName|USAGE|false'
+         $ pulumi import snowflake:index/fileFormatGrant:FileFormatGrant example 'MY_DATABASE❄️MY_SCHEMA❄️MY_OBJECT_NAME❄️USAGE❄️false❄️role1,role2'
         ```
 
         :param str resource_name: The name of the resource.

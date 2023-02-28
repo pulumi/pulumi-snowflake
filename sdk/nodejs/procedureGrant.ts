@@ -37,10 +37,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * format is database name | schema name | procedure signature | privilege | true/false for with_grant_option
+ * format is database_name ❄️ schema_name ❄️ object_name ❄️ argument_data_types ❄️ privilege ❄️ with_grant_option ❄️ roles ❄️ shares
  *
  * ```sh
- *  $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'dbName|schemaName|procedureName(ARG1TYPE,ARG2TYPE)|USAGE|false'
+ *  $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'MY_DATABASE❄️MY_SCHEMA❄️MY_OBJECT_NAME❄️ARG1TYPE,ARG2TYPE❄️USAGE❄️false❄️role1,role2❄️share1,share2'
  * ```
  */
 export class ProcedureGrant extends pulumi.CustomResource {

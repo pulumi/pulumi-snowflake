@@ -21,8 +21,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
+ * format is resource_monitor_name ❄️ privilege ❄️ with_grant_option ❄️ roles
+ *
  * ```sh
- *  $ pulumi import snowflake:index/resourceMonitorGrant:ResourceMonitorGrant example name
+ *  $ pulumi import snowflake:index/resourceMonitorGrant:ResourceMonitorGrant example 'MY_RESOURCE_MONITOR❄️MONITOR❄️false❄️role1,role2'
  * ```
  */
 export class ResourceMonitorGrant extends pulumi.CustomResource {

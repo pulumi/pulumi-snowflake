@@ -38,10 +38,10 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// format is database name | schema name | row access policy name | privilege | true/false for with_grant_option
+    /// format is database_name ❄️ schema_name ❄️ object_name ❄️ privilege ❄️ with_grant_option ❄️ roles
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant example 'dbName|schemaName|rowAccessPolicyName|SELECT|false'
+    ///  $ pulumi import snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant example 'MY_DATABASE❄️MY_SCHEMA❄️MY_OBJECT_NAME❄️SELECT❄️false❄️role1,role2'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant")]

@@ -71,8 +71,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * format is role_name ❄️ roles ❄️ users
+ * 
  * ```sh
- *  $ pulumi import snowflake:index/roleGrants:RoleGrants example rolename
+ *  $ pulumi import snowflake:index/roleGrants:RoleGrants example &#34;role_name❄️role1,role2❄️user1,user2&#34;
  * ```
  * 
  */
