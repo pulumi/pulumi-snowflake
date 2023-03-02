@@ -33,14 +33,14 @@ public final class ObjectParameterState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the object identifier for the object parameter.
+     * Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
      * 
      */
     @Import(name="objectIdentifiers")
     private @Nullable Output<List<ObjectParameterObjectIdentifierArgs>> objectIdentifiers;
 
     /**
-     * @return Specifies the object identifier for the object parameter.
+     * @return Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
      * 
      */
     public Optional<Output<List<ObjectParameterObjectIdentifierArgs>>> objectIdentifiers() {
@@ -48,14 +48,14 @@ public final class ObjectParameterState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types).
+     * Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
      * 
      */
     @Import(name="objectType")
     private @Nullable Output<String> objectType;
 
     /**
-     * @return Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types).
+     * @return Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
      * 
      */
     public Optional<Output<String>> objectType() {
@@ -126,7 +126,7 @@ public final class ObjectParameterState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param objectIdentifiers Specifies the object identifier for the object parameter.
+         * @param objectIdentifiers Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ObjectParameterState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param objectIdentifiers Specifies the object identifier for the object parameter.
+         * @param objectIdentifiers Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class ObjectParameterState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param objectIdentifiers Specifies the object identifier for the object parameter.
+         * @param objectIdentifiers Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class ObjectParameterState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param objectType Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types).
+         * @param objectType Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class ObjectParameterState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param objectType Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types).
+         * @param objectType Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
          * 
          * @return builder
          * 

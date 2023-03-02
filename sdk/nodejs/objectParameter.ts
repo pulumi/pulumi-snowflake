@@ -50,6 +50,11 @@ import * as utilities from "./utilities";
  *         name: table.name,
  *     }],
  * });
+ * // Setting object parameter at account level
+ * const o4 = new snowflake.ObjectParameter("o4", {
+ *     key: "DATA_RETENTION_TIME_IN_DAYS",
+ *     value: "89",
+ * });
  * ```
  *
  * ## Import
@@ -91,13 +96,13 @@ export class ObjectParameter extends pulumi.CustomResource {
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * Specifies the object identifier for the object parameter.
+     * Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
      */
-    public readonly objectIdentifiers!: pulumi.Output<outputs.ObjectParameterObjectIdentifier[]>;
+    public readonly objectIdentifiers!: pulumi.Output<outputs.ObjectParameterObjectIdentifier[] | undefined>;
     /**
-     * Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types).
+     * Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
      */
-    public readonly objectType!: pulumi.Output<string>;
+    public readonly objectType!: pulumi.Output<string | undefined>;
     /**
      * Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
      */
@@ -125,12 +130,6 @@ export class ObjectParameter extends pulumi.CustomResource {
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.objectIdentifiers === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'objectIdentifiers'");
-            }
-            if ((!args || args.objectType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'objectType'");
-            }
             if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
@@ -153,11 +152,11 @@ export interface ObjectParameterState {
      */
     key?: pulumi.Input<string>;
     /**
-     * Specifies the object identifier for the object parameter.
+     * Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
      */
     objectIdentifiers?: pulumi.Input<pulumi.Input<inputs.ObjectParameterObjectIdentifier>[]>;
     /**
-     * Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types).
+     * Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
      */
     objectType?: pulumi.Input<string>;
     /**
@@ -175,13 +174,13 @@ export interface ObjectParameterArgs {
      */
     key: pulumi.Input<string>;
     /**
-     * Specifies the object identifier for the object parameter.
+     * Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
      */
-    objectIdentifiers: pulumi.Input<pulumi.Input<inputs.ObjectParameterObjectIdentifier>[]>;
+    objectIdentifiers?: pulumi.Input<pulumi.Input<inputs.ObjectParameterObjectIdentifier>[]>;
     /**
-     * Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types).
+     * Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
      */
-    objectType: pulumi.Input<string>;
+    objectType?: pulumi.Input<string>;
     /**
      * Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
      */

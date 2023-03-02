@@ -90,6 +90,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			_, err = snowflake.NewObjectParameter(ctx, "o4", &snowflake.ObjectParameterArgs{
+//				Key:   pulumi.String("DATA_RETENTION_TIME_IN_DAYS"),
+//				Value: pulumi.String("89"),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -108,10 +115,10 @@ type ObjectParameter struct {
 
 	// Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
 	Key pulumi.StringOutput `pulumi:"key"`
-	// Specifies the object identifier for the object parameter.
+	// Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
 	ObjectIdentifiers ObjectParameterObjectIdentifierArrayOutput `pulumi:"objectIdentifiers"`
-	// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types).
-	ObjectType pulumi.StringOutput `pulumi:"objectType"`
+	// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
+	ObjectType pulumi.StringPtrOutput `pulumi:"objectType"`
 	// Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
 	Value pulumi.StringOutput `pulumi:"value"`
 }
@@ -125,12 +132,6 @@ func NewObjectParameter(ctx *pulumi.Context,
 
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
-	}
-	if args.ObjectIdentifiers == nil {
-		return nil, errors.New("invalid value for required argument 'ObjectIdentifiers'")
-	}
-	if args.ObjectType == nil {
-		return nil, errors.New("invalid value for required argument 'ObjectType'")
 	}
 	if args.Value == nil {
 		return nil, errors.New("invalid value for required argument 'Value'")
@@ -159,9 +160,9 @@ func GetObjectParameter(ctx *pulumi.Context,
 type objectParameterState struct {
 	// Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
 	Key *string `pulumi:"key"`
-	// Specifies the object identifier for the object parameter.
+	// Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
 	ObjectIdentifiers []ObjectParameterObjectIdentifier `pulumi:"objectIdentifiers"`
-	// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types).
+	// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
 	ObjectType *string `pulumi:"objectType"`
 	// Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
 	Value *string `pulumi:"value"`
@@ -170,9 +171,9 @@ type objectParameterState struct {
 type ObjectParameterState struct {
 	// Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
 	Key pulumi.StringPtrInput
-	// Specifies the object identifier for the object parameter.
+	// Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
 	ObjectIdentifiers ObjectParameterObjectIdentifierArrayInput
-	// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types).
+	// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
 	ObjectType pulumi.StringPtrInput
 	// Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
 	Value pulumi.StringPtrInput
@@ -185,10 +186,10 @@ func (ObjectParameterState) ElementType() reflect.Type {
 type objectParameterArgs struct {
 	// Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
 	Key string `pulumi:"key"`
-	// Specifies the object identifier for the object parameter.
+	// Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
 	ObjectIdentifiers []ObjectParameterObjectIdentifier `pulumi:"objectIdentifiers"`
-	// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types).
-	ObjectType string `pulumi:"objectType"`
+	// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
+	ObjectType *string `pulumi:"objectType"`
 	// Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
 	Value string `pulumi:"value"`
 }
@@ -197,10 +198,10 @@ type objectParameterArgs struct {
 type ObjectParameterArgs struct {
 	// Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
 	Key pulumi.StringInput
-	// Specifies the object identifier for the object parameter.
+	// Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
 	ObjectIdentifiers ObjectParameterObjectIdentifierArrayInput
-	// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types).
-	ObjectType pulumi.StringInput
+	// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
+	ObjectType pulumi.StringPtrInput
 	// Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
 	Value pulumi.StringInput
 }
@@ -297,14 +298,14 @@ func (o ObjectParameterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectParameter) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// Specifies the object identifier for the object parameter.
+// Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
 func (o ObjectParameterOutput) ObjectIdentifiers() ObjectParameterObjectIdentifierArrayOutput {
 	return o.ApplyT(func(v *ObjectParameter) ObjectParameterObjectIdentifierArrayOutput { return v.ObjectIdentifiers }).(ObjectParameterObjectIdentifierArrayOutput)
 }
 
-// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types).
-func (o ObjectParameterOutput) ObjectType() pulumi.StringOutput {
-	return o.ApplyT(func(v *ObjectParameter) pulumi.StringOutput { return v.ObjectType }).(pulumi.StringOutput)
+// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
+func (o ObjectParameterOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectParameter) pulumi.StringPtrOutput { return v.ObjectType }).(pulumi.StringPtrOutput)
 }
 
 // Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
