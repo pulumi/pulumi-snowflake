@@ -13,6 +13,7 @@ import com.pulumi.snowflake.inputs.ObjectParameterState;
 import com.pulumi.snowflake.outputs.ObjectParameterObjectIdentifier;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -90,6 +91,11 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         var o4 = new ObjectParameter(&#34;o4&#34;, ObjectParameterArgs.builder()        
+ *             .key(&#34;DATA_RETENTION_TIME_IN_DAYS&#34;)
+ *             .value(&#34;89&#34;)
+ *             .build());
+ * 
  *     }
  * }
  * ```
@@ -118,32 +124,32 @@ public class ObjectParameter extends com.pulumi.resources.CustomResource {
         return this.key;
     }
     /**
-     * Specifies the object identifier for the object parameter.
+     * Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
      * 
      */
     @Export(name="objectIdentifiers", type=List.class, parameters={ObjectParameterObjectIdentifier.class})
-    private Output<List<ObjectParameterObjectIdentifier>> objectIdentifiers;
+    private Output</* @Nullable */ List<ObjectParameterObjectIdentifier>> objectIdentifiers;
 
     /**
-     * @return Specifies the object identifier for the object parameter.
+     * @return Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
      * 
      */
-    public Output<List<ObjectParameterObjectIdentifier>> objectIdentifiers() {
-        return this.objectIdentifiers;
+    public Output<Optional<List<ObjectParameterObjectIdentifier>>> objectIdentifiers() {
+        return Codegen.optional(this.objectIdentifiers);
     }
     /**
-     * Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types).
+     * Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
      * 
      */
     @Export(name="objectType", type=String.class, parameters={})
-    private Output<String> objectType;
+    private Output</* @Nullable */ String> objectType;
 
     /**
-     * @return Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types).
+     * @return Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
      * 
      */
-    public Output<String> objectType() {
-        return this.objectType;
+    public Output<Optional<String>> objectType() {
+        return Codegen.optional(this.objectType);
     }
     /**
      * Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.

@@ -9,6 +9,8 @@ import com.pulumi.snowflake.inputs.ObjectParameterObjectIdentifierArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ObjectParameterArgs extends com.pulumi.resources.ResourceArgs {
@@ -31,33 +33,33 @@ public final class ObjectParameterArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the object identifier for the object parameter.
+     * Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
      * 
      */
-    @Import(name="objectIdentifiers", required=true)
-    private Output<List<ObjectParameterObjectIdentifierArgs>> objectIdentifiers;
+    @Import(name="objectIdentifiers")
+    private @Nullable Output<List<ObjectParameterObjectIdentifierArgs>> objectIdentifiers;
 
     /**
-     * @return Specifies the object identifier for the object parameter.
+     * @return Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
      * 
      */
-    public Output<List<ObjectParameterObjectIdentifierArgs>> objectIdentifiers() {
-        return this.objectIdentifiers;
+    public Optional<Output<List<ObjectParameterObjectIdentifierArgs>>> objectIdentifiers() {
+        return Optional.ofNullable(this.objectIdentifiers);
     }
 
     /**
-     * Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types).
+     * Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
      * 
      */
-    @Import(name="objectType", required=true)
-    private Output<String> objectType;
+    @Import(name="objectType")
+    private @Nullable Output<String> objectType;
 
     /**
-     * @return Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types).
+     * @return Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
      * 
      */
-    public Output<String> objectType() {
-        return this.objectType;
+    public Optional<Output<String>> objectType() {
+        return Optional.ofNullable(this.objectType);
     }
 
     /**
@@ -124,18 +126,18 @@ public final class ObjectParameterArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param objectIdentifiers Specifies the object identifier for the object parameter.
+         * @param objectIdentifiers Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
          * 
          * @return builder
          * 
          */
-        public Builder objectIdentifiers(Output<List<ObjectParameterObjectIdentifierArgs>> objectIdentifiers) {
+        public Builder objectIdentifiers(@Nullable Output<List<ObjectParameterObjectIdentifierArgs>> objectIdentifiers) {
             $.objectIdentifiers = objectIdentifiers;
             return this;
         }
 
         /**
-         * @param objectIdentifiers Specifies the object identifier for the object parameter.
+         * @param objectIdentifiers Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
          * 
          * @return builder
          * 
@@ -145,7 +147,7 @@ public final class ObjectParameterArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param objectIdentifiers Specifies the object identifier for the object parameter.
+         * @param objectIdentifiers Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
          * 
          * @return builder
          * 
@@ -155,18 +157,18 @@ public final class ObjectParameterArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param objectType Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types).
+         * @param objectType Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
          * 
          * @return builder
          * 
          */
-        public Builder objectType(Output<String> objectType) {
+        public Builder objectType(@Nullable Output<String> objectType) {
             $.objectType = objectType;
             return this;
         }
 
         /**
-         * @param objectType Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types).
+         * @param objectType Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
          * 
          * @return builder
          * 
@@ -198,8 +200,6 @@ public final class ObjectParameterArgs extends com.pulumi.resources.ResourceArgs
 
         public ObjectParameterArgs build() {
             $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.objectIdentifiers = Objects.requireNonNull($.objectIdentifiers, "expected parameter 'objectIdentifiers' to be non-null");
-            $.objectType = Objects.requireNonNull($.objectType, "expected parameter 'objectType' to be non-null");
             $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
             return $;
         }

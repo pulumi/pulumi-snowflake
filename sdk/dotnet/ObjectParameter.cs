@@ -85,6 +85,13 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
+    ///     // Setting object parameter at account level
+    ///     var o4 = new Snowflake.ObjectParameter("o4", new()
+    ///     {
+    ///         Key = "DATA_RETENTION_TIME_IN_DAYS",
+    ///         Value = "89",
+    ///     });
+    /// 
     /// });
     /// ```
     /// 
@@ -104,16 +111,16 @@ namespace Pulumi.Snowflake
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the object identifier for the object parameter.
+        /// Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
         /// </summary>
         [Output("objectIdentifiers")]
         public Output<ImmutableArray<Outputs.ObjectParameterObjectIdentifier>> ObjectIdentifiers { get; private set; } = null!;
 
         /// <summary>
-        /// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types).
+        /// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
         /// </summary>
         [Output("objectType")]
-        public Output<string> ObjectType { get; private set; } = null!;
+        public Output<string?> ObjectType { get; private set; } = null!;
 
         /// <summary>
         /// Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
@@ -173,11 +180,11 @@ namespace Pulumi.Snowflake
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        [Input("objectIdentifiers", required: true)]
+        [Input("objectIdentifiers")]
         private InputList<Inputs.ObjectParameterObjectIdentifierArgs>? _objectIdentifiers;
 
         /// <summary>
-        /// Specifies the object identifier for the object parameter.
+        /// Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
         /// </summary>
         public InputList<Inputs.ObjectParameterObjectIdentifierArgs> ObjectIdentifiers
         {
@@ -186,10 +193,10 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types).
+        /// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
         /// </summary>
-        [Input("objectType", required: true)]
-        public Input<string> ObjectType { get; set; } = null!;
+        [Input("objectType")]
+        public Input<string>? ObjectType { get; set; }
 
         /// <summary>
         /// Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
@@ -215,7 +222,7 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.ObjectParameterObjectIdentifierGetArgs>? _objectIdentifiers;
 
         /// <summary>
-        /// Specifies the object identifier for the object parameter.
+        /// Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
         /// </summary>
         public InputList<Inputs.ObjectParameterObjectIdentifierGetArgs> ObjectIdentifiers
         {
@@ -224,7 +231,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types).
+        /// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
         /// </summary>
         [Input("objectType")]
         public Input<string>? ObjectType { get; set; }
