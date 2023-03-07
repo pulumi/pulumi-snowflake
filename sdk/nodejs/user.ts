@@ -75,7 +75,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly defaultRole!: pulumi.Output<string>;
     /**
-     * Specifies the set of secondary roles that are active for the user’s session upon login.
+     * Specifies the set of secondary roles that are active for the user’s session upon login. Currently only ["ALL"] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
      */
     public readonly defaultSecondaryRoles!: pulumi.Output<string[] | undefined>;
     /**
@@ -207,7 +207,7 @@ export interface UserState {
      */
     defaultRole?: pulumi.Input<string>;
     /**
-     * Specifies the set of secondary roles that are active for the user’s session upon login.
+     * Specifies the set of secondary roles that are active for the user’s session upon login. Currently only ["ALL"] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
      */
     defaultSecondaryRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -281,7 +281,7 @@ export interface UserArgs {
      */
     defaultRole?: pulumi.Input<string>;
     /**
-     * Specifies the set of secondary roles that are active for the user’s session upon login.
+     * Specifies the set of secondary roles that are active for the user’s session upon login. Currently only ["ALL"] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
      */
     defaultSecondaryRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**

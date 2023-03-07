@@ -68,7 +68,7 @@ namespace Pulumi.Snowflake
         public Output<string> DefaultRole { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the set of secondary roles that are active for the user’s session upon login.
+        /// Specifies the set of secondary roles that are active for the user’s session upon login. Currently only ["ALL"] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
         /// </summary>
         [Output("defaultSecondaryRoles")]
         public Output<ImmutableArray<string>> DefaultSecondaryRoles { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _defaultSecondaryRoles;
 
         /// <summary>
-        /// Specifies the set of secondary roles that are active for the user’s session upon login.
+        /// Specifies the set of secondary roles that are active for the user’s session upon login. Currently only ["ALL"] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
         /// </summary>
         public InputList<string> DefaultSecondaryRoles
         {
@@ -350,7 +350,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _defaultSecondaryRoles;
 
         /// <summary>
-        /// Specifies the set of secondary roles that are active for the user’s session upon login.
+        /// Specifies the set of secondary roles that are active for the user’s session upon login. Currently only ["ALL"] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
         /// </summary>
         public InputList<string> DefaultSecondaryRoles
         {

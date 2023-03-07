@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -68,11 +68,11 @@ import (
 //
 // ## Import
 //
-// format is role_name ❄️ roles ❄️ users
+// format is role_name | roles | users
 //
 // ```sh
 //
-//	$ pulumi import snowflake:index/roleGrants:RoleGrants example "role_name❄️role1,role2❄️user1,user2"
+//	$ pulumi import snowflake:index/roleGrants:RoleGrants example "role_name|role1,role2|user1,user2"
 //
 // ```
 type RoleGrants struct {

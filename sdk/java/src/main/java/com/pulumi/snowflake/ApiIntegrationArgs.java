@@ -122,6 +122,13 @@ public final class ApiIntegrationArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.azureTenantId);
     }
 
+    @Import(name="comment")
+    private @Nullable Output<String> comment;
+
+    public Optional<Output<String>> comment() {
+        return Optional.ofNullable(this.comment);
+    }
+
     /**
      * Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
      * 
@@ -135,6 +142,21 @@ public final class ApiIntegrationArgs extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
+    }
+
+    /**
+     * The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+     * 
+     */
+    @Import(name="googleAudience")
+    private @Nullable Output<String> googleAudience;
+
+    /**
+     * @return The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+     * 
+     */
+    public Optional<Output<String>> googleAudience() {
+        return Optional.ofNullable(this.googleAudience);
     }
 
     /**
@@ -162,7 +184,9 @@ public final class ApiIntegrationArgs extends com.pulumi.resources.ResourceArgs 
         this.apiProvider = $.apiProvider;
         this.azureAdApplicationId = $.azureAdApplicationId;
         this.azureTenantId = $.azureTenantId;
+        this.comment = $.comment;
         this.enabled = $.enabled;
+        this.googleAudience = $.googleAudience;
         this.name = $.name;
     }
 
@@ -351,6 +375,15 @@ public final class ApiIntegrationArgs extends com.pulumi.resources.ResourceArgs 
             return azureTenantId(Output.of(azureTenantId));
         }
 
+        public Builder comment(@Nullable Output<String> comment) {
+            $.comment = comment;
+            return this;
+        }
+
+        public Builder comment(String comment) {
+            return comment(Output.of(comment));
+        }
+
         /**
          * @param enabled Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
          * 
@@ -370,6 +403,27 @@ public final class ApiIntegrationArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param googleAudience The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder googleAudience(@Nullable Output<String> googleAudience) {
+            $.googleAudience = googleAudience;
+            return this;
+        }
+
+        /**
+         * @param googleAudience The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder googleAudience(String googleAudience) {
+            return googleAudience(Output.of(googleAudience));
         }
 
         /**

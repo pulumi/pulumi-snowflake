@@ -166,6 +166,13 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.azureTenantId);
     }
 
+    @Import(name="comment")
+    private @Nullable Output<String> comment;
+
+    public Optional<Output<String>> comment() {
+        return Optional.ofNullable(this.comment);
+    }
+
     /**
      * Date and time when the API integration was created.
      * 
@@ -197,6 +204,21 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+     * 
+     */
+    @Import(name="googleAudience")
+    private @Nullable Output<String> googleAudience;
+
+    /**
+     * @return The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+     * 
+     */
+    public Optional<Output<String>> googleAudience() {
+        return Optional.ofNullable(this.googleAudience);
+    }
+
+    /**
      * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
      * 
      */
@@ -225,8 +247,10 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         this.azureConsentUrl = $.azureConsentUrl;
         this.azureMultiTenantAppName = $.azureMultiTenantAppName;
         this.azureTenantId = $.azureTenantId;
+        this.comment = $.comment;
         this.createdOn = $.createdOn;
         this.enabled = $.enabled;
+        this.googleAudience = $.googleAudience;
         this.name = $.name;
     }
 
@@ -475,6 +499,15 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
             return azureTenantId(Output.of(azureTenantId));
         }
 
+        public Builder comment(@Nullable Output<String> comment) {
+            $.comment = comment;
+            return this;
+        }
+
+        public Builder comment(String comment) {
+            return comment(Output.of(comment));
+        }
+
         /**
          * @param createdOn Date and time when the API integration was created.
          * 
@@ -515,6 +548,27 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param googleAudience The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder googleAudience(@Nullable Output<String> googleAudience) {
+            $.googleAudience = googleAudience;
+            return this;
+        }
+
+        /**
+         * @param googleAudience The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder googleAudience(String googleAudience) {
+            return googleAudience(Output.of(googleAudience));
         }
 
         /**

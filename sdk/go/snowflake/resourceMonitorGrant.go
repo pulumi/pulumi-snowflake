@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,11 +44,11 @@ import (
 //
 // ## Import
 //
-// format is resource_monitor_name ❄️ privilege ❄️ with_grant_option ❄️ roles
+// format is resource_monitor_name | privilege | with_grant_option | roles
 //
 // ```sh
 //
-//	$ pulumi import snowflake:index/resourceMonitorGrant:ResourceMonitorGrant example 'MY_RESOURCE_MONITOR❄️MONITOR❄️false❄️role1,role2'
+//	$ pulumi import snowflake:index/resourceMonitorGrant:ResourceMonitorGrant example 'MY_RESOURCE_MONITOR|MONITOR|false|role1,role2'
 //
 // ```
 type ResourceMonitorGrant struct {

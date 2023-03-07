@@ -53,10 +53,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * format is database_name ❄️ schema_name ❄️ tag_name ❄️ privilege ❄️ with_grant_option ❄️ roles
+ * format is database_name | schema_name | tag_name | privilege | with_grant_option | roles
  * 
  * ```sh
- *  $ pulumi import snowflake:index/tagGrant:TagGrant example &#39;MY_DATABASE❄️MY_SCHEMA❄️MY_OBJECT❄️APPLY❄️false❄️role1,role2&#39;
+ *  $ pulumi import snowflake:index/tagGrant:TagGrant example &#39;MY_DATABASE|MY_SCHEMA|MY_OBJECT|APPLY|false|role1,role2&#39;
  * ```
  * 
  */

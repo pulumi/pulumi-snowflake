@@ -17,8 +17,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -37,7 +35,7 @@ import (
 //			}, nil)
 //			_, err = snowflake.GetParameters(ctx, &snowflake.GetParametersArgs{
 //				ParameterType: pulumi.StringRef("ACCOUNT"),
-//				Pattern:       pulumi.StringRef(fmt.Sprintf("%vTIMESTAMP%v", "%", "%")),
+//				Pattern:       pulumi.StringRef("%TIMESTAMP%"),
 //			}, nil)
 //			if err != nil {
 //				return err

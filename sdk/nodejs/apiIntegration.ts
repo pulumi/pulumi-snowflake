@@ -11,11 +11,24 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const apiIntegration = new snowflake.ApiIntegration("apiIntegration", {
+ * const aws = new snowflake.ApiIntegration("aws", {
  *     apiAllowedPrefixes: ["https://123456.execute-api.us-west-2.amazonaws.com/prod/"],
  *     apiAwsRoleArn: "arn:aws:iam::000000000001:/role/test",
  *     apiProvider: "aws_api_gateway",
  *     enabled: true,
+ * });
+ * const azure = new snowflake.ApiIntegration("azure", {
+ *     apiAllowedPrefixes: ["https://apim-hello-world.azure-api.net/"],
+ *     apiProvider: "azure_api_management",
+ *     azureAdApplicationId: "11111111-1111-1111-1111-111111111111",
+ *     azureTenantId: "00000000-0000-0000-0000-000000000000",
+ *     enabled: true,
+ * });
+ * const gcp = new snowflake.ApiIntegration("gcp", {
+ *     apiAllowedPrefixes: ["https://gateway-id-123456.uc.gateway.dev/"],
+ *     apiProvider: "google_api_gateway",
+ *     enabled: true,
+ *     googleAudience: "api-gateway-id-123456.apigateway.gcp-project.cloud.goog",
  * });
  * ```
  *
@@ -91,6 +104,7 @@ export class ApiIntegration extends pulumi.CustomResource {
      * Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
      */
     public readonly azureTenantId!: pulumi.Output<string | undefined>;
+    public readonly comment!: pulumi.Output<string | undefined>;
     /**
      * Date and time when the API integration was created.
      */
@@ -99,6 +113,10 @@ export class ApiIntegration extends pulumi.CustomResource {
      * Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+     */
+    public readonly googleAudience!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
      */
@@ -128,8 +146,10 @@ export class ApiIntegration extends pulumi.CustomResource {
             resourceInputs["azureConsentUrl"] = state ? state.azureConsentUrl : undefined;
             resourceInputs["azureMultiTenantAppName"] = state ? state.azureMultiTenantAppName : undefined;
             resourceInputs["azureTenantId"] = state ? state.azureTenantId : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["createdOn"] = state ? state.createdOn : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["googleAudience"] = state ? state.googleAudience : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ApiIntegrationArgs | undefined;
@@ -146,7 +166,9 @@ export class ApiIntegration extends pulumi.CustomResource {
             resourceInputs["apiProvider"] = args ? args.apiProvider : undefined;
             resourceInputs["azureAdApplicationId"] = args ? args.azureAdApplicationId : undefined;
             resourceInputs["azureTenantId"] = args ? args.azureTenantId : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["googleAudience"] = args ? args.googleAudience : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["apiAwsExternalId"] = undefined /*out*/;
             resourceInputs["apiAwsIamUserArn"] = undefined /*out*/;
@@ -203,6 +225,7 @@ export interface ApiIntegrationState {
      * Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
      */
     azureTenantId?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
     /**
      * Date and time when the API integration was created.
      */
@@ -211,6 +234,10 @@ export interface ApiIntegrationState {
      * Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+     */
+    googleAudience?: pulumi.Input<string>;
     /**
      * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
      */
@@ -249,10 +276,15 @@ export interface ApiIntegrationArgs {
      * Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
      */
     azureTenantId?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
     /**
      * Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+     */
+    googleAudience?: pulumi.Input<string>;
     /**
      * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
      */

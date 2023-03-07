@@ -105,14 +105,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.defaultRole;
     }
     /**
-     * Specifies the set of secondary roles that are active for the user’s session upon login.
+     * Specifies the set of secondary roles that are active for the user’s session upon login. Currently only [&#34;ALL&#34;] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
      * 
      */
     @Export(name="defaultSecondaryRoles", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> defaultSecondaryRoles;
 
     /**
-     * @return Specifies the set of secondary roles that are active for the user’s session upon login.
+     * @return Specifies the set of secondary roles that are active for the user’s session upon login. Currently only [&#34;ALL&#34;] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
      * 
      */
     public Output<Optional<List<String>>> defaultSecondaryRoles() {

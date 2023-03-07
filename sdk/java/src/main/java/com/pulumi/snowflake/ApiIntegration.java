@@ -39,11 +39,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var apiIntegration = new ApiIntegration(&#34;apiIntegration&#34;, ApiIntegrationArgs.builder()        
+ *         var aws = new ApiIntegration(&#34;aws&#34;, ApiIntegrationArgs.builder()        
  *             .apiAllowedPrefixes(&#34;https://123456.execute-api.us-west-2.amazonaws.com/prod/&#34;)
  *             .apiAwsRoleArn(&#34;arn:aws:iam::000000000001:/role/test&#34;)
  *             .apiProvider(&#34;aws_api_gateway&#34;)
  *             .enabled(true)
+ *             .build());
+ * 
+ *         var azure = new ApiIntegration(&#34;azure&#34;, ApiIntegrationArgs.builder()        
+ *             .apiAllowedPrefixes(&#34;https://apim-hello-world.azure-api.net/&#34;)
+ *             .apiProvider(&#34;azure_api_management&#34;)
+ *             .azureAdApplicationId(&#34;11111111-1111-1111-1111-111111111111&#34;)
+ *             .azureTenantId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *             .enabled(true)
+ *             .build());
+ * 
+ *         var gcp = new ApiIntegration(&#34;gcp&#34;, ApiIntegrationArgs.builder()        
+ *             .apiAllowedPrefixes(&#34;https://gateway-id-123456.uc.gateway.dev/&#34;)
+ *             .apiProvider(&#34;google_api_gateway&#34;)
+ *             .enabled(true)
+ *             .googleAudience(&#34;api-gateway-id-123456.apigateway.gcp-project.cloud.goog&#34;)
  *             .build());
  * 
  *     }
@@ -197,6 +212,12 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> azureTenantId() {
         return Codegen.optional(this.azureTenantId);
     }
+    @Export(name="comment", type=String.class, parameters={})
+    private Output</* @Nullable */ String> comment;
+
+    public Output<Optional<String>> comment() {
+        return Codegen.optional(this.comment);
+    }
     /**
      * Date and time when the API integration was created.
      * 
@@ -224,6 +245,20 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
+    }
+    /**
+     * The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+     * 
+     */
+    @Export(name="googleAudience", type=String.class, parameters={})
+    private Output</* @Nullable */ String> googleAudience;
+
+    /**
+     * @return The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+     * 
+     */
+    public Output<Optional<String>> googleAudience() {
+        return Codegen.optional(this.googleAudience);
     }
     /**
      * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.

@@ -27,10 +27,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * format is database_name ❄️ schema_name ❄️ object_name ❄️ privilege ❄️ with_grant_option ❄️ roles
+ * format is database_name | schema_name | object_name | privilege | with_grant_option | roles
  *
  * ```sh
- *  $ pulumi import snowflake:index/fileFormatGrant:FileFormatGrant example 'MY_DATABASE❄️MY_SCHEMA❄️MY_OBJECT_NAME❄️USAGE❄️false❄️role1,role2'
+ *  $ pulumi import snowflake:index/fileFormatGrant:FileFormatGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|USAGE|false|role1,role2'
  * ```
  */
 export class FileFormatGrant extends pulumi.CustomResource {
