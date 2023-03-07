@@ -219,10 +219,10 @@ class UserGrant(pulumi.CustomResource):
 
         ## Import
 
-        format is username ❄️ privilege ❄️ with_grant_option ❄️ roles
+        format is username | privilege | with_grant_option |roles
 
         ```sh
-         $ pulumi import snowflake:index/userGrant:UserGrant example 'USERNAME❄️MONITOR❄️false❄️role1,role2'
+         $ pulumi import snowflake:index/userGrant:UserGrant example 'USERNAME|MONITOR|false|role1,role2'
         ```
 
         :param str resource_name: The name of the resource.
@@ -259,10 +259,10 @@ class UserGrant(pulumi.CustomResource):
 
         ## Import
 
-        format is username ❄️ privilege ❄️ with_grant_option ❄️ roles
+        format is username | privilege | with_grant_option |roles
 
         ```sh
-         $ pulumi import snowflake:index/userGrant:UserGrant example 'USERNAME❄️MONITOR❄️false❄️role1,role2'
+         $ pulumi import snowflake:index/userGrant:UserGrant example 'USERNAME|MONITOR|false|role1,role2'
         ```
 
         :param str resource_name: The name of the resource.

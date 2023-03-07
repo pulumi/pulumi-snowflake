@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,11 +45,11 @@ import (
 //
 // ## Import
 //
-// format is username ❄️ privilege ❄️ with_grant_option ❄️ roles
+// format is username | privilege | with_grant_option |roles
 //
 // ```sh
 //
-//	$ pulumi import snowflake:index/userGrant:UserGrant example 'USERNAME❄️MONITOR❄️false❄️role1,role2'
+//	$ pulumi import snowflake:index/userGrant:UserGrant example 'USERNAME|MONITOR|false|role1,role2'
 //
 // ```
 type UserGrant struct {

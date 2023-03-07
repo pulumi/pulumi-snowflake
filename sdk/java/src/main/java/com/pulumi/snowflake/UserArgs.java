@@ -56,14 +56,14 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the set of secondary roles that are active for the user’s session upon login.
+     * Specifies the set of secondary roles that are active for the user’s session upon login. Currently only [&#34;ALL&#34;] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
      * 
      */
     @Import(name="defaultSecondaryRoles")
     private @Nullable Output<List<String>> defaultSecondaryRoles;
 
     /**
-     * @return Specifies the set of secondary roles that are active for the user’s session upon login.
+     * @return Specifies the set of secondary roles that are active for the user’s session upon login. Currently only [&#34;ALL&#34;] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
      * 
      */
     public Optional<Output<List<String>>> defaultSecondaryRoles() {
@@ -357,7 +357,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultSecondaryRoles Specifies the set of secondary roles that are active for the user’s session upon login.
+         * @param defaultSecondaryRoles Specifies the set of secondary roles that are active for the user’s session upon login. Currently only [&#34;ALL&#34;] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultSecondaryRoles Specifies the set of secondary roles that are active for the user’s session upon login.
+         * @param defaultSecondaryRoles Specifies the set of secondary roles that are active for the user’s session upon login. Currently only [&#34;ALL&#34;] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultSecondaryRoles Specifies the set of secondary roles that are active for the user’s session upon login.
+         * @param defaultSecondaryRoles Specifies the set of secondary roles that are active for the user’s session upon login. Currently only [&#34;ALL&#34;] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
          * 
          * @return builder
          * 

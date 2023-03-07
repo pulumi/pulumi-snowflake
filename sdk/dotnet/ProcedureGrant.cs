@@ -49,10 +49,10 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// format is database_name ❄️ schema_name ❄️ object_name ❄️ argument_data_types ❄️ privilege ❄️ with_grant_option ❄️ roles ❄️ shares
+    /// format is database_name | schema_name | object_name | argument_data_types | privilege | with_grant_option | roles | shares
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'MY_DATABASE❄️MY_SCHEMA❄️MY_OBJECT_NAME❄️ARG1TYPE,ARG2TYPE❄️USAGE❄️false❄️role1,role2❄️share1,share2'
+    ///  $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|ARG1TYPE,ARG2TYPE|USAGE|false|role1,role2|share1,share2'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/procedureGrant:ProcedureGrant")]

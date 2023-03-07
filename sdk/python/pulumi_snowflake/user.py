@@ -37,7 +37,7 @@ class UserArgs:
         The set of arguments for constructing a User resource.
         :param pulumi.Input[str] default_namespace: Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login.
         :param pulumi.Input[str] default_role: Specifies the role that is active by default for the user’s session upon login.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_secondary_roles: Specifies the set of secondary roles that are active for the user’s session upon login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_secondary_roles: Specifies the set of secondary roles that are active for the user’s session upon login. Currently only ["ALL"] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
         :param pulumi.Input[str] default_warehouse: Specifies the virtual warehouse that is active by default for the user’s session upon login.
         :param pulumi.Input[str] display_name: Name displayed for the user in the Snowflake web interface.
         :param pulumi.Input[str] email: Email address for the user.
@@ -126,7 +126,7 @@ class UserArgs:
     @pulumi.getter(name="defaultSecondaryRoles")
     def default_secondary_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the set of secondary roles that are active for the user’s session upon login.
+        Specifies the set of secondary roles that are active for the user’s session upon login. Currently only ["ALL"] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
         """
         return pulumi.get(self, "default_secondary_roles")
 
@@ -313,7 +313,7 @@ class _UserState:
         Input properties used for looking up and filtering User resources.
         :param pulumi.Input[str] default_namespace: Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login.
         :param pulumi.Input[str] default_role: Specifies the role that is active by default for the user’s session upon login.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_secondary_roles: Specifies the set of secondary roles that are active for the user’s session upon login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_secondary_roles: Specifies the set of secondary roles that are active for the user’s session upon login. Currently only ["ALL"] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
         :param pulumi.Input[str] default_warehouse: Specifies the virtual warehouse that is active by default for the user’s session upon login.
         :param pulumi.Input[str] display_name: Name displayed for the user in the Snowflake web interface.
         :param pulumi.Input[str] email: Email address for the user.
@@ -405,7 +405,7 @@ class _UserState:
     @pulumi.getter(name="defaultSecondaryRoles")
     def default_secondary_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the set of secondary roles that are active for the user’s session upon login.
+        Specifies the set of secondary roles that are active for the user’s session upon login. Currently only ["ALL"] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
         """
         return pulumi.get(self, "default_secondary_roles")
 
@@ -636,7 +636,7 @@ class User(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_namespace: Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login.
         :param pulumi.Input[str] default_role: Specifies the role that is active by default for the user’s session upon login.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_secondary_roles: Specifies the set of secondary roles that are active for the user’s session upon login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_secondary_roles: Specifies the set of secondary roles that are active for the user’s session upon login. Currently only ["ALL"] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
         :param pulumi.Input[str] default_warehouse: Specifies the virtual warehouse that is active by default for the user’s session upon login.
         :param pulumi.Input[str] display_name: Name displayed for the user in the Snowflake web interface.
         :param pulumi.Input[str] email: Email address for the user.
@@ -787,7 +787,7 @@ class User(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_namespace: Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login.
         :param pulumi.Input[str] default_role: Specifies the role that is active by default for the user’s session upon login.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_secondary_roles: Specifies the set of secondary roles that are active for the user’s session upon login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_secondary_roles: Specifies the set of secondary roles that are active for the user’s session upon login. Currently only ["ALL"] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
         :param pulumi.Input[str] default_warehouse: Specifies the virtual warehouse that is active by default for the user’s session upon login.
         :param pulumi.Input[str] display_name: Name displayed for the user in the Snowflake web interface.
         :param pulumi.Input[str] email: Email address for the user.
@@ -851,7 +851,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="defaultSecondaryRoles")
     def default_secondary_roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Specifies the set of secondary roles that are active for the user’s session upon login.
+        Specifies the set of secondary roles that are active for the user’s session upon login. Currently only ["ALL"] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
         """
         return pulumi.get(self, "default_secondary_roles")
 

@@ -44,12 +44,10 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// format is database_name ❄️ schema_name ❄️ object_name
-    /// 
-    /// ❄️ privilege ❄️ with_grant_option ❄️ roles ❄️ shares
+    /// format is database_name | schema_name | object_name | privilege | with_grant_option | roles | shares
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/materializedViewGrant:MaterializedViewGrant example 'MY_DATABASE❄️MY_SCHEMA❄️MY_OBJECT_NAME❄️SELECT❄️false❄️role1,role2❄️share1,share2'
+    ///  $ pulumi import snowflake:index/materializedViewGrant:MaterializedViewGrant example 'MY_DATABASE|MY_SCHEMA❄️MY_OBJECT_NAME|SELECT|false|role1,role2|share1,share2'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/materializedViewGrant:MaterializedViewGrant")]

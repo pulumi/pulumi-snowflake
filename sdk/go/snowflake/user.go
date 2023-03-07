@@ -66,7 +66,7 @@ type User struct {
 	DefaultNamespace pulumi.StringPtrOutput `pulumi:"defaultNamespace"`
 	// Specifies the role that is active by default for the user’s session upon login.
 	DefaultRole pulumi.StringOutput `pulumi:"defaultRole"`
-	// Specifies the set of secondary roles that are active for the user’s session upon login.
+	// Specifies the set of secondary roles that are active for the user’s session upon login. Currently only ["ALL"] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
 	DefaultSecondaryRoles pulumi.StringArrayOutput `pulumi:"defaultSecondaryRoles"`
 	// Specifies the virtual warehouse that is active by default for the user’s session upon login.
 	DefaultWarehouse pulumi.StringPtrOutput `pulumi:"defaultWarehouse"`
@@ -140,7 +140,7 @@ type userState struct {
 	DefaultNamespace *string `pulumi:"defaultNamespace"`
 	// Specifies the role that is active by default for the user’s session upon login.
 	DefaultRole *string `pulumi:"defaultRole"`
-	// Specifies the set of secondary roles that are active for the user’s session upon login.
+	// Specifies the set of secondary roles that are active for the user’s session upon login. Currently only ["ALL"] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
 	DefaultSecondaryRoles []string `pulumi:"defaultSecondaryRoles"`
 	// Specifies the virtual warehouse that is active by default for the user’s session upon login.
 	DefaultWarehouse *string `pulumi:"defaultWarehouse"`
@@ -179,7 +179,7 @@ type UserState struct {
 	DefaultNamespace pulumi.StringPtrInput
 	// Specifies the role that is active by default for the user’s session upon login.
 	DefaultRole pulumi.StringPtrInput
-	// Specifies the set of secondary roles that are active for the user’s session upon login.
+	// Specifies the set of secondary roles that are active for the user’s session upon login. Currently only ["ALL"] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
 	DefaultSecondaryRoles pulumi.StringArrayInput
 	// Specifies the virtual warehouse that is active by default for the user’s session upon login.
 	DefaultWarehouse pulumi.StringPtrInput
@@ -222,7 +222,7 @@ type userArgs struct {
 	DefaultNamespace *string `pulumi:"defaultNamespace"`
 	// Specifies the role that is active by default for the user’s session upon login.
 	DefaultRole *string `pulumi:"defaultRole"`
-	// Specifies the set of secondary roles that are active for the user’s session upon login.
+	// Specifies the set of secondary roles that are active for the user’s session upon login. Currently only ["ALL"] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
 	DefaultSecondaryRoles []string `pulumi:"defaultSecondaryRoles"`
 	// Specifies the virtual warehouse that is active by default for the user’s session upon login.
 	DefaultWarehouse *string `pulumi:"defaultWarehouse"`
@@ -260,7 +260,7 @@ type UserArgs struct {
 	DefaultNamespace pulumi.StringPtrInput
 	// Specifies the role that is active by default for the user’s session upon login.
 	DefaultRole pulumi.StringPtrInput
-	// Specifies the set of secondary roles that are active for the user’s session upon login.
+	// Specifies the set of secondary roles that are active for the user’s session upon login. Currently only ["ALL"] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
 	DefaultSecondaryRoles pulumi.StringArrayInput
 	// Specifies the virtual warehouse that is active by default for the user’s session upon login.
 	DefaultWarehouse pulumi.StringPtrInput
@@ -392,7 +392,7 @@ func (o UserOutput) DefaultRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.DefaultRole }).(pulumi.StringOutput)
 }
 
-// Specifies the set of secondary roles that are active for the user’s session upon login.
+// Specifies the set of secondary roles that are active for the user’s session upon login. Currently only ["ALL"] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
 func (o UserOutput) DefaultSecondaryRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.DefaultSecondaryRoles }).(pulumi.StringArrayOutput)
 }

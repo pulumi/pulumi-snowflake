@@ -19,7 +19,7 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var apiIntegration = new Snowflake.ApiIntegration("apiIntegration", new()
+    ///     var aws = new Snowflake.ApiIntegration("aws", new()
     ///     {
     ///         ApiAllowedPrefixes = new[]
     ///         {
@@ -28,6 +28,29 @@ namespace Pulumi.Snowflake
     ///         ApiAwsRoleArn = "arn:aws:iam::000000000001:/role/test",
     ///         ApiProvider = "aws_api_gateway",
     ///         Enabled = true,
+    ///     });
+    /// 
+    ///     var azure = new Snowflake.ApiIntegration("azure", new()
+    ///     {
+    ///         ApiAllowedPrefixes = new[]
+    ///         {
+    ///             "https://apim-hello-world.azure-api.net/",
+    ///         },
+    ///         ApiProvider = "azure_api_management",
+    ///         AzureAdApplicationId = "11111111-1111-1111-1111-111111111111",
+    ///         AzureTenantId = "00000000-0000-0000-0000-000000000000",
+    ///         Enabled = true,
+    ///     });
+    /// 
+    ///     var gcp = new Snowflake.ApiIntegration("gcp", new()
+    ///     {
+    ///         ApiAllowedPrefixes = new[]
+    ///         {
+    ///             "https://gateway-id-123456.uc.gateway.dev/",
+    ///         },
+    ///         ApiProvider = "google_api_gateway",
+    ///         Enabled = true,
+    ///         GoogleAudience = "api-gateway-id-123456.apigateway.gcp-project.cloud.goog",
     ///     });
     /// 
     /// });
@@ -102,6 +125,9 @@ namespace Pulumi.Snowflake
         [Output("azureTenantId")]
         public Output<string?> AzureTenantId { get; private set; } = null!;
 
+        [Output("comment")]
+        public Output<string?> Comment { get; private set; } = null!;
+
         /// <summary>
         /// Date and time when the API integration was created.
         /// </summary>
@@ -113,6 +139,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+        /// </summary>
+        [Output("googleAudience")]
+        public Output<string?> GoogleAudience { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
@@ -234,11 +266,20 @@ namespace Pulumi.Snowflake
         [Input("azureTenantId")]
         public Input<string>? AzureTenantId { get; set; }
 
+        [Input("comment")]
+        public Input<string>? Comment { get; set; }
+
         /// <summary>
         /// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+        /// </summary>
+        [Input("googleAudience")]
+        public Input<string>? GoogleAudience { get; set; }
 
         /// <summary>
         /// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
@@ -336,6 +377,9 @@ namespace Pulumi.Snowflake
         [Input("azureTenantId")]
         public Input<string>? AzureTenantId { get; set; }
 
+        [Input("comment")]
+        public Input<string>? Comment { get; set; }
+
         /// <summary>
         /// Date and time when the API integration was created.
         /// </summary>
@@ -347,6 +391,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+        /// </summary>
+        [Input("googleAudience")]
+        public Input<string>? GoogleAudience { get; set; }
 
         /// <summary>
         /// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.

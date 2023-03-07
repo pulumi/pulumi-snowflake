@@ -39,10 +39,10 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// format is database_name ❄️ schema_name ❄️ stage_name ❄️ privilege ❄️ with_grant_option ❄️ roles
+    /// format is database_name | schema_name | stage_name | privilege | with_grant_option | roles
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/stageGrant:StageGrant example 'MY_DATABASE❄️MY_SCHEMA❄️MY_OBJECT❄️USAGE❄️false❄️role1,role2'
+    ///  $ pulumi import snowflake:index/stageGrant:StageGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|USAGE|false|role1,role2'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/stageGrant:StageGrant")]

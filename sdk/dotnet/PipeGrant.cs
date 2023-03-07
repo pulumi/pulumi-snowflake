@@ -39,12 +39,10 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// format is database_name ❄️ schema_name ❄️ object_name
-    /// 
-    /// ❄️ privilege ❄️ with_grant_option ❄️ roles
+    /// format is database_name | schema_name | object_name | privilege | with_grant_option | roles
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/pipeGrant:PipeGrant example 'MY_DATABASE❄️MY_SCHEMA❄️MY_OBJECT_NAME❄️OPERATE❄️false❄️role1,role2'
+    ///  $ pulumi import snowflake:index/pipeGrant:PipeGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|OPERATE|false|role1,role2'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/pipeGrant:PipeGrant")]

@@ -257,10 +257,10 @@ class DatabaseGrant(pulumi.CustomResource):
 
         ## Import
 
-        format is database_name ❄️ privilege ❄️ with_grant_option ❄️ roles ❄️ shares
+        format is database_name | privilege | with_grant_option | roles | shares
 
         ```sh
-         $ pulumi import snowflake:index/databaseGrant:DatabaseGrant example 'MY_DATABASE❄️USAGE❄️false❄️role1,role2❄️share1,share2'
+         $ pulumi import snowflake:index/databaseGrant:DatabaseGrant example 'MY_DATABASE|USAGE|false|role1,role2|share1,share2'
         ```
 
         :param str resource_name: The name of the resource.
@@ -302,10 +302,10 @@ class DatabaseGrant(pulumi.CustomResource):
 
         ## Import
 
-        format is database_name ❄️ privilege ❄️ with_grant_option ❄️ roles ❄️ shares
+        format is database_name | privilege | with_grant_option | roles | shares
 
         ```sh
-         $ pulumi import snowflake:index/databaseGrant:DatabaseGrant example 'MY_DATABASE❄️USAGE❄️false❄️role1,role2❄️share1,share2'
+         $ pulumi import snowflake:index/databaseGrant:DatabaseGrant example 'MY_DATABASE|USAGE|false|role1,role2|share1,share2'
         ```
 
         :param str resource_name: The name of the resource.

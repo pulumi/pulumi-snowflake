@@ -21,7 +21,7 @@ import * as utilities from "./utilities";
  * });
  * const p2 = snowflake.getParameters({
  *     parameterType: "ACCOUNT",
- *     pattern: `%TIMESTAMP%`,
+ *     pattern: "%TIMESTAMP%",
  * });
  * const p3 = snowflake.getParameters({
  *     parameterType: "SESSION",
@@ -107,7 +107,7 @@ export interface GetParametersResult {
  * });
  * const p2 = snowflake.getParameters({
  *     parameterType: "ACCOUNT",
- *     pattern: `%TIMESTAMP%`,
+ *     pattern: "%TIMESTAMP%",
  * });
  * const p3 = snowflake.getParameters({
  *     parameterType: "SESSION",

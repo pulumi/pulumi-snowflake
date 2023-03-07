@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,13 +25,36 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewApiIntegration(ctx, "apiIntegration", &snowflake.ApiIntegrationArgs{
+//			_, err := snowflake.NewApiIntegration(ctx, "aws", &snowflake.ApiIntegrationArgs{
 //				ApiAllowedPrefixes: pulumi.StringArray{
 //					pulumi.String("https://123456.execute-api.us-west-2.amazonaws.com/prod/"),
 //				},
 //				ApiAwsRoleArn: pulumi.String("arn:aws:iam::000000000001:/role/test"),
 //				ApiProvider:   pulumi.String("aws_api_gateway"),
 //				Enabled:       pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewApiIntegration(ctx, "azure", &snowflake.ApiIntegrationArgs{
+//				ApiAllowedPrefixes: pulumi.StringArray{
+//					pulumi.String("https://apim-hello-world.azure-api.net/"),
+//				},
+//				ApiProvider:          pulumi.String("azure_api_management"),
+//				AzureAdApplicationId: pulumi.String("11111111-1111-1111-1111-111111111111"),
+//				AzureTenantId:        pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				Enabled:              pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewApiIntegration(ctx, "gcp", &snowflake.ApiIntegrationArgs{
+//				ApiAllowedPrefixes: pulumi.StringArray{
+//					pulumi.String("https://gateway-id-123456.uc.gateway.dev/"),
+//				},
+//				ApiProvider:    pulumi.String("google_api_gateway"),
+//				Enabled:        pulumi.Bool(true),
+//				GoogleAudience: pulumi.String("api-gateway-id-123456.apigateway.gcp-project.cloud.goog"),
 //			})
 //			if err != nil {
 //				return err
@@ -72,10 +95,13 @@ type ApiIntegration struct {
 	AzureMultiTenantAppName pulumi.StringOutput    `pulumi:"azureMultiTenantAppName"`
 	// Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
 	AzureTenantId pulumi.StringPtrOutput `pulumi:"azureTenantId"`
+	Comment       pulumi.StringPtrOutput `pulumi:"comment"`
 	// Date and time when the API integration was created.
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
 	// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+	GoogleAudience pulumi.StringPtrOutput `pulumi:"googleAudience"`
 	// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
@@ -142,10 +168,13 @@ type apiIntegrationState struct {
 	AzureMultiTenantAppName *string `pulumi:"azureMultiTenantAppName"`
 	// Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
 	AzureTenantId *string `pulumi:"azureTenantId"`
+	Comment       *string `pulumi:"comment"`
 	// Date and time when the API integration was created.
 	CreatedOn *string `pulumi:"createdOn"`
 	// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
 	Enabled *bool `pulumi:"enabled"`
+	// The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+	GoogleAudience *string `pulumi:"googleAudience"`
 	// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
 	Name *string `pulumi:"name"`
 }
@@ -171,10 +200,13 @@ type ApiIntegrationState struct {
 	AzureMultiTenantAppName pulumi.StringPtrInput
 	// Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
 	AzureTenantId pulumi.StringPtrInput
+	Comment       pulumi.StringPtrInput
 	// Date and time when the API integration was created.
 	CreatedOn pulumi.StringPtrInput
 	// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
 	Enabled pulumi.BoolPtrInput
+	// The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+	GoogleAudience pulumi.StringPtrInput
 	// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
 	Name pulumi.StringPtrInput
 }
@@ -198,8 +230,11 @@ type apiIntegrationArgs struct {
 	AzureAdApplicationId *string `pulumi:"azureAdApplicationId"`
 	// Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
 	AzureTenantId *string `pulumi:"azureTenantId"`
+	Comment       *string `pulumi:"comment"`
 	// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
 	Enabled *bool `pulumi:"enabled"`
+	// The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+	GoogleAudience *string `pulumi:"googleAudience"`
 	// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
 	Name *string `pulumi:"name"`
 }
@@ -220,8 +255,11 @@ type ApiIntegrationArgs struct {
 	AzureAdApplicationId pulumi.StringPtrInput
 	// Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
 	AzureTenantId pulumi.StringPtrInput
+	Comment       pulumi.StringPtrInput
 	// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
 	Enabled pulumi.BoolPtrInput
+	// The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+	GoogleAudience pulumi.StringPtrInput
 	// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
 	Name pulumi.StringPtrInput
 }
@@ -366,6 +404,10 @@ func (o ApiIntegrationOutput) AzureTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiIntegration) pulumi.StringPtrOutput { return v.AzureTenantId }).(pulumi.StringPtrOutput)
 }
 
+func (o ApiIntegrationOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiIntegration) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
 // Date and time when the API integration was created.
 func (o ApiIntegrationOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiIntegration) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
@@ -374,6 +416,11 @@ func (o ApiIntegrationOutput) CreatedOn() pulumi.StringOutput {
 // Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
 func (o ApiIntegrationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApiIntegration) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+func (o ApiIntegrationOutput) GoogleAudience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiIntegration) pulumi.StringPtrOutput { return v.GoogleAudience }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.

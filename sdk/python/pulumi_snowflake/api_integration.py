@@ -21,7 +21,9 @@ class ApiIntegrationArgs:
                  api_key: Optional[pulumi.Input[str]] = None,
                  azure_ad_application_id: Optional[pulumi.Input[str]] = None,
                  azure_tenant_id: Optional[pulumi.Input[str]] = None,
+                 comment: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 google_audience: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ApiIntegration resource.
@@ -33,6 +35,7 @@ class ApiIntegrationArgs:
         :param pulumi.Input[str] azure_ad_application_id: The 'Application (client) id' of the Azure AD app for your remote service.
         :param pulumi.Input[str] azure_tenant_id: Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
         :param pulumi.Input[bool] enabled: Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        :param pulumi.Input[str] google_audience: The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
         :param pulumi.Input[str] name: Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
         """
         pulumi.set(__self__, "api_allowed_prefixes", api_allowed_prefixes)
@@ -47,8 +50,12 @@ class ApiIntegrationArgs:
             pulumi.set(__self__, "azure_ad_application_id", azure_ad_application_id)
         if azure_tenant_id is not None:
             pulumi.set(__self__, "azure_tenant_id", azure_tenant_id)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if google_audience is not None:
+            pulumi.set(__self__, "google_audience", google_audience)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -138,6 +145,15 @@ class ApiIntegrationArgs:
 
     @property
     @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
@@ -147,6 +163,18 @@ class ApiIntegrationArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="googleAudience")
+    def google_audience(self) -> Optional[pulumi.Input[str]]:
+        """
+        The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+        """
+        return pulumi.get(self, "google_audience")
+
+    @google_audience.setter
+    def google_audience(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "google_audience", value)
 
     @property
     @pulumi.getter
@@ -175,8 +203,10 @@ class _ApiIntegrationState:
                  azure_consent_url: Optional[pulumi.Input[str]] = None,
                  azure_multi_tenant_app_name: Optional[pulumi.Input[str]] = None,
                  azure_tenant_id: Optional[pulumi.Input[str]] = None,
+                 comment: Optional[pulumi.Input[str]] = None,
                  created_on: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 google_audience: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ApiIntegration resources.
@@ -191,6 +221,7 @@ class _ApiIntegrationState:
         :param pulumi.Input[str] azure_tenant_id: Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
         :param pulumi.Input[str] created_on: Date and time when the API integration was created.
         :param pulumi.Input[bool] enabled: Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        :param pulumi.Input[str] google_audience: The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
         :param pulumi.Input[str] name: Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
         """
         if api_allowed_prefixes is not None:
@@ -215,10 +246,14 @@ class _ApiIntegrationState:
             pulumi.set(__self__, "azure_multi_tenant_app_name", azure_multi_tenant_app_name)
         if azure_tenant_id is not None:
             pulumi.set(__self__, "azure_tenant_id", azure_tenant_id)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
         if created_on is not None:
             pulumi.set(__self__, "created_on", created_on)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if google_audience is not None:
+            pulumi.set(__self__, "google_audience", google_audience)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -349,6 +384,15 @@ class _ApiIntegrationState:
         pulumi.set(self, "azure_tenant_id", value)
 
     @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
     @pulumi.getter(name="createdOn")
     def created_on(self) -> Optional[pulumi.Input[str]]:
         """
@@ -371,6 +415,18 @@ class _ApiIntegrationState:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="googleAudience")
+    def google_audience(self) -> Optional[pulumi.Input[str]]:
+        """
+        The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+        """
+        return pulumi.get(self, "google_audience")
+
+    @google_audience.setter
+    def google_audience(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "google_audience", value)
 
     @property
     @pulumi.getter
@@ -397,7 +453,9 @@ class ApiIntegration(pulumi.CustomResource):
                  api_provider: Optional[pulumi.Input[str]] = None,
                  azure_ad_application_id: Optional[pulumi.Input[str]] = None,
                  azure_tenant_id: Optional[pulumi.Input[str]] = None,
+                 comment: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 google_audience: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -407,11 +465,22 @@ class ApiIntegration(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        api_integration = snowflake.ApiIntegration("apiIntegration",
+        aws = snowflake.ApiIntegration("aws",
             api_allowed_prefixes=["https://123456.execute-api.us-west-2.amazonaws.com/prod/"],
             api_aws_role_arn="arn:aws:iam::000000000001:/role/test",
             api_provider="aws_api_gateway",
             enabled=True)
+        azure = snowflake.ApiIntegration("azure",
+            api_allowed_prefixes=["https://apim-hello-world.azure-api.net/"],
+            api_provider="azure_api_management",
+            azure_ad_application_id="11111111-1111-1111-1111-111111111111",
+            azure_tenant_id="00000000-0000-0000-0000-000000000000",
+            enabled=True)
+        gcp = snowflake.ApiIntegration("gcp",
+            api_allowed_prefixes=["https://gateway-id-123456.uc.gateway.dev/"],
+            api_provider="google_api_gateway",
+            enabled=True,
+            google_audience="api-gateway-id-123456.apigateway.gcp-project.cloud.goog")
         ```
 
         ## Import
@@ -430,6 +499,7 @@ class ApiIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] azure_ad_application_id: The 'Application (client) id' of the Azure AD app for your remote service.
         :param pulumi.Input[str] azure_tenant_id: Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
         :param pulumi.Input[bool] enabled: Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        :param pulumi.Input[str] google_audience: The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
         :param pulumi.Input[str] name: Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
         """
         ...
@@ -445,11 +515,22 @@ class ApiIntegration(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        api_integration = snowflake.ApiIntegration("apiIntegration",
+        aws = snowflake.ApiIntegration("aws",
             api_allowed_prefixes=["https://123456.execute-api.us-west-2.amazonaws.com/prod/"],
             api_aws_role_arn="arn:aws:iam::000000000001:/role/test",
             api_provider="aws_api_gateway",
             enabled=True)
+        azure = snowflake.ApiIntegration("azure",
+            api_allowed_prefixes=["https://apim-hello-world.azure-api.net/"],
+            api_provider="azure_api_management",
+            azure_ad_application_id="11111111-1111-1111-1111-111111111111",
+            azure_tenant_id="00000000-0000-0000-0000-000000000000",
+            enabled=True)
+        gcp = snowflake.ApiIntegration("gcp",
+            api_allowed_prefixes=["https://gateway-id-123456.uc.gateway.dev/"],
+            api_provider="google_api_gateway",
+            enabled=True,
+            google_audience="api-gateway-id-123456.apigateway.gcp-project.cloud.goog")
         ```
 
         ## Import
@@ -480,7 +561,9 @@ class ApiIntegration(pulumi.CustomResource):
                  api_provider: Optional[pulumi.Input[str]] = None,
                  azure_ad_application_id: Optional[pulumi.Input[str]] = None,
                  azure_tenant_id: Optional[pulumi.Input[str]] = None,
+                 comment: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 google_audience: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -502,7 +585,9 @@ class ApiIntegration(pulumi.CustomResource):
             __props__.__dict__["api_provider"] = api_provider
             __props__.__dict__["azure_ad_application_id"] = azure_ad_application_id
             __props__.__dict__["azure_tenant_id"] = azure_tenant_id
+            __props__.__dict__["comment"] = comment
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["google_audience"] = google_audience
             __props__.__dict__["name"] = name
             __props__.__dict__["api_aws_external_id"] = None
             __props__.__dict__["api_aws_iam_user_arn"] = None
@@ -532,8 +617,10 @@ class ApiIntegration(pulumi.CustomResource):
             azure_consent_url: Optional[pulumi.Input[str]] = None,
             azure_multi_tenant_app_name: Optional[pulumi.Input[str]] = None,
             azure_tenant_id: Optional[pulumi.Input[str]] = None,
+            comment: Optional[pulumi.Input[str]] = None,
             created_on: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
+            google_audience: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'ApiIntegration':
         """
         Get an existing ApiIntegration resource's state with the given name, id, and optional extra
@@ -553,6 +640,7 @@ class ApiIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] azure_tenant_id: Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
         :param pulumi.Input[str] created_on: Date and time when the API integration was created.
         :param pulumi.Input[bool] enabled: Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        :param pulumi.Input[str] google_audience: The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
         :param pulumi.Input[str] name: Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -570,8 +658,10 @@ class ApiIntegration(pulumi.CustomResource):
         __props__.__dict__["azure_consent_url"] = azure_consent_url
         __props__.__dict__["azure_multi_tenant_app_name"] = azure_multi_tenant_app_name
         __props__.__dict__["azure_tenant_id"] = azure_tenant_id
+        __props__.__dict__["comment"] = comment
         __props__.__dict__["created_on"] = created_on
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["google_audience"] = google_audience
         __props__.__dict__["name"] = name
         return ApiIntegration(resource_name, opts=opts, __props__=__props__)
 
@@ -658,6 +748,11 @@ class ApiIntegration(pulumi.CustomResource):
         return pulumi.get(self, "azure_tenant_id")
 
     @property
+    @pulumi.getter
+    def comment(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "comment")
+
+    @property
     @pulumi.getter(name="createdOn")
     def created_on(self) -> pulumi.Output[str]:
         """
@@ -672,6 +767,14 @@ class ApiIntegration(pulumi.CustomResource):
         Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="googleAudience")
+    def google_audience(self) -> pulumi.Output[Optional[str]]:
+        """
+        The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+        """
+        return pulumi.get(self, "google_audience")
 
     @property
     @pulumi.getter
