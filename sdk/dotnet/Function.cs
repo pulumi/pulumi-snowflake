@@ -52,6 +52,12 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> Imports { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies that the function is secure.
+        /// </summary>
+        [Output("isSecure")]
+        public Output<bool?> IsSecure { get; private set; } = null!;
+
+        /// <summary>
         /// The language of the statement
         /// </summary>
         [Output("language")]
@@ -200,6 +206,12 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
+        /// Specifies that the function is secure.
+        /// </summary>
+        [Input("isSecure")]
+        public Input<bool>? IsSecure { get; set; }
+
+        /// <summary>
         /// The language of the statement
         /// </summary>
         [Input("language")]
@@ -314,6 +326,12 @@ namespace Pulumi.Snowflake
             get => _imports ?? (_imports = new InputList<string>());
             set => _imports = value;
         }
+
+        /// <summary>
+        /// Specifies that the function is secure.
+        /// </summary>
+        [Input("isSecure")]
+        public Input<bool>? IsSecure { get; set; }
 
         /// <summary>
         /// The language of the statement

@@ -65,6 +65,8 @@ type OauthIntegration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the OAuth client type.
 	OauthClient pulumi.StringOutput `pulumi:"oauthClient"`
+	// Specifies the type of client being registered. Snowflake supports both confidential and public clients.
+	OauthClientType pulumi.StringPtrOutput `pulumi:"oauthClientType"`
 	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
 	OauthIssueRefreshTokens pulumi.BoolPtrOutput `pulumi:"oauthIssueRefreshTokens"`
 	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
@@ -119,6 +121,8 @@ type oauthIntegrationState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the OAuth client type.
 	OauthClient *string `pulumi:"oauthClient"`
+	// Specifies the type of client being registered. Snowflake supports both confidential and public clients.
+	OauthClientType *string `pulumi:"oauthClientType"`
 	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
 	OauthIssueRefreshTokens *bool `pulumi:"oauthIssueRefreshTokens"`
 	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
@@ -142,6 +146,8 @@ type OauthIntegrationState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the OAuth client type.
 	OauthClient pulumi.StringPtrInput
+	// Specifies the type of client being registered. Snowflake supports both confidential and public clients.
+	OauthClientType pulumi.StringPtrInput
 	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
 	OauthIssueRefreshTokens pulumi.BoolPtrInput
 	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
@@ -167,6 +173,8 @@ type oauthIntegrationArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the OAuth client type.
 	OauthClient string `pulumi:"oauthClient"`
+	// Specifies the type of client being registered. Snowflake supports both confidential and public clients.
+	OauthClientType *string `pulumi:"oauthClientType"`
 	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
 	OauthIssueRefreshTokens *bool `pulumi:"oauthIssueRefreshTokens"`
 	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
@@ -189,6 +197,8 @@ type OauthIntegrationArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the OAuth client type.
 	OauthClient pulumi.StringInput
+	// Specifies the type of client being registered. Snowflake supports both confidential and public clients.
+	OauthClientType pulumi.StringPtrInput
 	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
 	OauthIssueRefreshTokens pulumi.BoolPtrInput
 	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
@@ -314,6 +324,11 @@ func (o OauthIntegrationOutput) Name() pulumi.StringOutput {
 // Specifies the OAuth client type.
 func (o OauthIntegrationOutput) OauthClient() pulumi.StringOutput {
 	return o.ApplyT(func(v *OauthIntegration) pulumi.StringOutput { return v.OauthClient }).(pulumi.StringOutput)
+}
+
+// Specifies the type of client being registered. Snowflake supports both confidential and public clients.
+func (o OauthIntegrationOutput) OauthClientType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OauthIntegration) pulumi.StringPtrOutput { return v.OauthClientType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.

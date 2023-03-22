@@ -135,6 +135,20 @@ public class Stream extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Name of the stage the stream will monitor.
+     * 
+     */
+    @Export(name="onStage", type=String.class, parameters={})
+    private Output</* @Nullable */ String> onStage;
+
+    /**
+     * @return Name of the stage the stream will monitor.
+     * 
+     */
+    public Output<Optional<String>> onStage() {
+        return Codegen.optional(this.onStage);
+    }
+    /**
      * Name of the table the stream will monitor.
      * 
      */

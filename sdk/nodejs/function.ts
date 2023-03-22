@@ -64,6 +64,10 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly imports!: pulumi.Output<string[] | undefined>;
     /**
+     * Specifies that the function is secure.
+     */
+    public readonly isSecure!: pulumi.Output<boolean | undefined>;
+    /**
      * The language of the statement
      */
     public readonly language!: pulumi.Output<string | undefined>;
@@ -122,6 +126,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["handler"] = state ? state.handler : undefined;
             resourceInputs["imports"] = state ? state.imports : undefined;
+            resourceInputs["isSecure"] = state ? state.isSecure : undefined;
             resourceInputs["language"] = state ? state.language : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nullInputBehavior"] = state ? state.nullInputBehavior : undefined;
@@ -151,6 +156,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["handler"] = args ? args.handler : undefined;
             resourceInputs["imports"] = args ? args.imports : undefined;
+            resourceInputs["isSecure"] = args ? args.isSecure : undefined;
             resourceInputs["language"] = args ? args.language : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nullInputBehavior"] = args ? args.nullInputBehavior : undefined;
@@ -191,6 +197,10 @@ export interface FunctionState {
      * Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
      */
     imports?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies that the function is secure.
+     */
+    isSecure?: pulumi.Input<boolean>;
     /**
      * The language of the statement
      */
@@ -257,6 +267,10 @@ export interface FunctionArgs {
      * Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
      */
     imports?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies that the function is secure.
+     */
+    isSecure?: pulumi.Input<boolean>;
     /**
      * The language of the statement
      */

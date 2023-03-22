@@ -52,6 +52,12 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Name of the stage the stream will monitor.
+        /// </summary>
+        [Output("onStage")]
+        public Output<string?> OnStage { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the table the stream will monitor.
         /// </summary>
         [Output("onTable")]
@@ -158,6 +164,12 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Name of the stage the stream will monitor.
+        /// </summary>
+        [Input("onStage")]
+        public Input<string>? OnStage { get; set; }
+
+        /// <summary>
         /// Name of the table the stream will monitor.
         /// </summary>
         [Input("onTable")]
@@ -218,6 +230,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Name of the stage the stream will monitor.
+        /// </summary>
+        [Input("onStage")]
+        public Input<string>? OnStage { get; set; }
 
         /// <summary>
         /// Name of the table the stream will monitor.

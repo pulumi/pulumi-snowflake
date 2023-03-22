@@ -80,6 +80,12 @@ namespace Pulumi.Snowflake
         public Output<string> OauthClient { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the type of client being registered. Snowflake supports both confidential and public clients.
+        /// </summary>
+        [Output("oauthClientType")]
+        public Output<string?> OauthClientType { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
         /// </summary>
         [Output("oauthIssueRefreshTokens")]
@@ -186,6 +192,12 @@ namespace Pulumi.Snowflake
         public Input<string> OauthClient { get; set; } = null!;
 
         /// <summary>
+        /// Specifies the type of client being registered. Snowflake supports both confidential and public clients.
+        /// </summary>
+        [Input("oauthClientType")]
+        public Input<string>? OauthClientType { get; set; }
+
+        /// <summary>
         /// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
         /// </summary>
         [Input("oauthIssueRefreshTokens")]
@@ -258,6 +270,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("oauthClient")]
         public Input<string>? OauthClient { get; set; }
+
+        /// <summary>
+        /// Specifies the type of client being registered. Snowflake supports both confidential and public clients.
+        /// </summary>
+        [Input("oauthClientType")]
+        public Input<string>? OauthClientType { get; set; }
 
         /// <summary>
         /// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.

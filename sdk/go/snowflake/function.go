@@ -33,6 +33,8 @@ type Function struct {
 	Handler pulumi.StringPtrOutput `pulumi:"handler"`
 	// Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
 	Imports pulumi.StringArrayOutput `pulumi:"imports"`
+	// Specifies that the function is secure.
+	IsSecure pulumi.BoolPtrOutput `pulumi:"isSecure"`
 	// The language of the statement
 	Language pulumi.StringPtrOutput `pulumi:"language"`
 	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
@@ -106,6 +108,8 @@ type functionState struct {
 	Handler *string `pulumi:"handler"`
 	// Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
 	Imports []string `pulumi:"imports"`
+	// Specifies that the function is secure.
+	IsSecure *bool `pulumi:"isSecure"`
 	// The language of the statement
 	Language *string `pulumi:"language"`
 	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
@@ -139,6 +143,8 @@ type FunctionState struct {
 	Handler pulumi.StringPtrInput
 	// Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
 	Imports pulumi.StringArrayInput
+	// Specifies that the function is secure.
+	IsSecure pulumi.BoolPtrInput
 	// The language of the statement
 	Language pulumi.StringPtrInput
 	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
@@ -176,6 +182,8 @@ type functionArgs struct {
 	Handler *string `pulumi:"handler"`
 	// Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
 	Imports []string `pulumi:"imports"`
+	// Specifies that the function is secure.
+	IsSecure *bool `pulumi:"isSecure"`
 	// The language of the statement
 	Language *string `pulumi:"language"`
 	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
@@ -210,6 +218,8 @@ type FunctionArgs struct {
 	Handler pulumi.StringPtrInput
 	// Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
 	Imports pulumi.StringArrayInput
+	// Specifies that the function is secure.
+	IsSecure pulumi.BoolPtrInput
 	// The language of the statement
 	Language pulumi.StringPtrInput
 	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
@@ -342,6 +352,11 @@ func (o FunctionOutput) Handler() pulumi.StringPtrOutput {
 // Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
 func (o FunctionOutput) Imports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringArrayOutput { return v.Imports }).(pulumi.StringArrayOutput)
+}
+
+// Specifies that the function is secure.
+func (o FunctionOutput) IsSecure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.BoolPtrOutput { return v.IsSecure }).(pulumi.BoolPtrOutput)
 }
 
 // The language of the statement

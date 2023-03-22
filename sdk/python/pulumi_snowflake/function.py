@@ -24,6 +24,7 @@ class FunctionArgs:
                  comment: Optional[pulumi.Input[str]] = None,
                  handler: Optional[pulumi.Input[str]] = None,
                  imports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 is_secure: Optional[pulumi.Input[bool]] = None,
                  language: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_input_behavior: Optional[pulumi.Input[str]] = None,
@@ -41,6 +42,7 @@ class FunctionArgs:
         :param pulumi.Input[str] comment: Specifies a comment for the function.
         :param pulumi.Input[str] handler: The handler method for Java / Python function.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
+        :param pulumi.Input[bool] is_secure: Specifies that the function is secure.
         :param pulumi.Input[str] language: The language of the statement
         :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
@@ -61,6 +63,8 @@ class FunctionArgs:
             pulumi.set(__self__, "handler", handler)
         if imports is not None:
             pulumi.set(__self__, "imports", imports)
+        if is_secure is not None:
+            pulumi.set(__self__, "is_secure", is_secure)
         if language is not None:
             pulumi.set(__self__, "language", language)
         if name is not None:
@@ -173,6 +177,18 @@ class FunctionArgs:
         pulumi.set(self, "imports", value)
 
     @property
+    @pulumi.getter(name="isSecure")
+    def is_secure(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies that the function is secure.
+        """
+        return pulumi.get(self, "is_secure")
+
+    @is_secure.setter
+    def is_secure(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_secure", value)
+
+    @property
     @pulumi.getter
     def language(self) -> Optional[pulumi.Input[str]]:
         """
@@ -265,6 +281,7 @@ class _FunctionState:
                  database: Optional[pulumi.Input[str]] = None,
                  handler: Optional[pulumi.Input[str]] = None,
                  imports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 is_secure: Optional[pulumi.Input[bool]] = None,
                  language: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_input_behavior: Optional[pulumi.Input[str]] = None,
@@ -282,6 +299,7 @@ class _FunctionState:
         :param pulumi.Input[str] database: The database in which to create the function. Don't use the | character.
         :param pulumi.Input[str] handler: The handler method for Java / Python function.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
+        :param pulumi.Input[bool] is_secure: Specifies that the function is secure.
         :param pulumi.Input[str] language: The language of the statement
         :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
@@ -303,6 +321,8 @@ class _FunctionState:
             pulumi.set(__self__, "handler", handler)
         if imports is not None:
             pulumi.set(__self__, "imports", imports)
+        if is_secure is not None:
+            pulumi.set(__self__, "is_secure", is_secure)
         if language is not None:
             pulumi.set(__self__, "language", language)
         if name is not None:
@@ -383,6 +403,18 @@ class _FunctionState:
     @imports.setter
     def imports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "imports", value)
+
+    @property
+    @pulumi.getter(name="isSecure")
+    def is_secure(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies that the function is secure.
+        """
+        return pulumi.get(self, "is_secure")
+
+    @is_secure.setter
+    def is_secure(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_secure", value)
 
     @property
     @pulumi.getter
@@ -515,6 +547,7 @@ class Function(pulumi.CustomResource):
                  database: Optional[pulumi.Input[str]] = None,
                  handler: Optional[pulumi.Input[str]] = None,
                  imports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 is_secure: Optional[pulumi.Input[bool]] = None,
                  language: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_input_behavior: Optional[pulumi.Input[str]] = None,
@@ -542,6 +575,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] database: The database in which to create the function. Don't use the | character.
         :param pulumi.Input[str] handler: The handler method for Java / Python function.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
+        :param pulumi.Input[bool] is_secure: Specifies that the function is secure.
         :param pulumi.Input[str] language: The language of the statement
         :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
@@ -588,6 +622,7 @@ class Function(pulumi.CustomResource):
                  database: Optional[pulumi.Input[str]] = None,
                  handler: Optional[pulumi.Input[str]] = None,
                  imports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 is_secure: Optional[pulumi.Input[bool]] = None,
                  language: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_input_behavior: Optional[pulumi.Input[str]] = None,
@@ -614,6 +649,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["database"] = database
             __props__.__dict__["handler"] = handler
             __props__.__dict__["imports"] = imports
+            __props__.__dict__["is_secure"] = is_secure
             __props__.__dict__["language"] = language
             __props__.__dict__["name"] = name
             __props__.__dict__["null_input_behavior"] = null_input_behavior
@@ -645,6 +681,7 @@ class Function(pulumi.CustomResource):
             database: Optional[pulumi.Input[str]] = None,
             handler: Optional[pulumi.Input[str]] = None,
             imports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            is_secure: Optional[pulumi.Input[bool]] = None,
             language: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             null_input_behavior: Optional[pulumi.Input[str]] = None,
@@ -667,6 +704,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] database: The database in which to create the function. Don't use the | character.
         :param pulumi.Input[str] handler: The handler method for Java / Python function.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
+        :param pulumi.Input[bool] is_secure: Specifies that the function is secure.
         :param pulumi.Input[str] language: The language of the statement
         :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
@@ -687,6 +725,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["database"] = database
         __props__.__dict__["handler"] = handler
         __props__.__dict__["imports"] = imports
+        __props__.__dict__["is_secure"] = is_secure
         __props__.__dict__["language"] = language
         __props__.__dict__["name"] = name
         __props__.__dict__["null_input_behavior"] = null_input_behavior
@@ -738,6 +777,14 @@ class Function(pulumi.CustomResource):
         Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
         """
         return pulumi.get(self, "imports")
+
+    @property
+    @pulumi.getter(name="isSecure")
+    def is_secure(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies that the function is secure.
+        """
+        return pulumi.get(self, "is_secure")
 
     @property
     @pulumi.getter

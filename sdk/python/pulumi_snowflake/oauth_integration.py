@@ -19,6 +19,7 @@ class OauthIntegrationArgs:
                  comment: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 oauth_client_type: Optional[pulumi.Input[str]] = None,
                  oauth_issue_refresh_tokens: Optional[pulumi.Input[bool]] = None,
                  oauth_redirect_uri: Optional[pulumi.Input[str]] = None,
                  oauth_refresh_token_validity: Optional[pulumi.Input[int]] = None,
@@ -30,6 +31,7 @@ class OauthIntegrationArgs:
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
         :param pulumi.Input[bool] enabled: Specifies whether this OAuth integration is enabled or disabled.
         :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        :param pulumi.Input[str] oauth_client_type: Specifies the type of client being registered. Snowflake supports both confidential and public clients.
         :param pulumi.Input[bool] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
         :param pulumi.Input[str] oauth_redirect_uri: Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
@@ -44,6 +46,8 @@ class OauthIntegrationArgs:
             pulumi.set(__self__, "enabled", enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if oauth_client_type is not None:
+            pulumi.set(__self__, "oauth_client_type", oauth_client_type)
         if oauth_issue_refresh_tokens is not None:
             pulumi.set(__self__, "oauth_issue_refresh_tokens", oauth_issue_refresh_tokens)
         if oauth_redirect_uri is not None:
@@ -114,6 +118,18 @@ class OauthIntegrationArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="oauthClientType")
+    def oauth_client_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of client being registered. Snowflake supports both confidential and public clients.
+        """
+        return pulumi.get(self, "oauth_client_type")
+
+    @oauth_client_type.setter
+    def oauth_client_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "oauth_client_type", value)
+
+    @property
     @pulumi.getter(name="oauthIssueRefreshTokens")
     def oauth_issue_refresh_tokens(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -171,6 +187,7 @@ class _OauthIntegrationState:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  oauth_client: Optional[pulumi.Input[str]] = None,
+                 oauth_client_type: Optional[pulumi.Input[str]] = None,
                  oauth_issue_refresh_tokens: Optional[pulumi.Input[bool]] = None,
                  oauth_redirect_uri: Optional[pulumi.Input[str]] = None,
                  oauth_refresh_token_validity: Optional[pulumi.Input[int]] = None,
@@ -183,6 +200,7 @@ class _OauthIntegrationState:
         :param pulumi.Input[bool] enabled: Specifies whether this OAuth integration is enabled or disabled.
         :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
         :param pulumi.Input[str] oauth_client: Specifies the OAuth client type.
+        :param pulumi.Input[str] oauth_client_type: Specifies the type of client being registered. Snowflake supports both confidential and public clients.
         :param pulumi.Input[bool] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
         :param pulumi.Input[str] oauth_redirect_uri: Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
@@ -200,6 +218,8 @@ class _OauthIntegrationState:
             pulumi.set(__self__, "name", name)
         if oauth_client is not None:
             pulumi.set(__self__, "oauth_client", oauth_client)
+        if oauth_client_type is not None:
+            pulumi.set(__self__, "oauth_client_type", oauth_client_type)
         if oauth_issue_refresh_tokens is not None:
             pulumi.set(__self__, "oauth_issue_refresh_tokens", oauth_issue_refresh_tokens)
         if oauth_redirect_uri is not None:
@@ -282,6 +302,18 @@ class _OauthIntegrationState:
         pulumi.set(self, "oauth_client", value)
 
     @property
+    @pulumi.getter(name="oauthClientType")
+    def oauth_client_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of client being registered. Snowflake supports both confidential and public clients.
+        """
+        return pulumi.get(self, "oauth_client_type")
+
+    @oauth_client_type.setter
+    def oauth_client_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "oauth_client_type", value)
+
+    @property
     @pulumi.getter(name="oauthIssueRefreshTokens")
     def oauth_issue_refresh_tokens(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -340,6 +372,7 @@ class OauthIntegration(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  oauth_client: Optional[pulumi.Input[str]] = None,
+                 oauth_client_type: Optional[pulumi.Input[str]] = None,
                  oauth_issue_refresh_tokens: Optional[pulumi.Input[bool]] = None,
                  oauth_redirect_uri: Optional[pulumi.Input[str]] = None,
                  oauth_refresh_token_validity: Optional[pulumi.Input[int]] = None,
@@ -373,6 +406,7 @@ class OauthIntegration(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Specifies whether this OAuth integration is enabled or disabled.
         :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
         :param pulumi.Input[str] oauth_client: Specifies the OAuth client type.
+        :param pulumi.Input[str] oauth_client_type: Specifies the type of client being registered. Snowflake supports both confidential and public clients.
         :param pulumi.Input[bool] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
         :param pulumi.Input[str] oauth_redirect_uri: Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
@@ -425,6 +459,7 @@ class OauthIntegration(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  oauth_client: Optional[pulumi.Input[str]] = None,
+                 oauth_client_type: Optional[pulumi.Input[str]] = None,
                  oauth_issue_refresh_tokens: Optional[pulumi.Input[bool]] = None,
                  oauth_redirect_uri: Optional[pulumi.Input[str]] = None,
                  oauth_refresh_token_validity: Optional[pulumi.Input[int]] = None,
@@ -445,6 +480,7 @@ class OauthIntegration(pulumi.CustomResource):
             if oauth_client is None and not opts.urn:
                 raise TypeError("Missing required property 'oauth_client'")
             __props__.__dict__["oauth_client"] = oauth_client
+            __props__.__dict__["oauth_client_type"] = oauth_client_type
             __props__.__dict__["oauth_issue_refresh_tokens"] = oauth_issue_refresh_tokens
             __props__.__dict__["oauth_redirect_uri"] = oauth_redirect_uri
             __props__.__dict__["oauth_refresh_token_validity"] = oauth_refresh_token_validity
@@ -466,6 +502,7 @@ class OauthIntegration(pulumi.CustomResource):
             enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             oauth_client: Optional[pulumi.Input[str]] = None,
+            oauth_client_type: Optional[pulumi.Input[str]] = None,
             oauth_issue_refresh_tokens: Optional[pulumi.Input[bool]] = None,
             oauth_redirect_uri: Optional[pulumi.Input[str]] = None,
             oauth_refresh_token_validity: Optional[pulumi.Input[int]] = None,
@@ -483,6 +520,7 @@ class OauthIntegration(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Specifies whether this OAuth integration is enabled or disabled.
         :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
         :param pulumi.Input[str] oauth_client: Specifies the OAuth client type.
+        :param pulumi.Input[str] oauth_client_type: Specifies the type of client being registered. Snowflake supports both confidential and public clients.
         :param pulumi.Input[bool] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
         :param pulumi.Input[str] oauth_redirect_uri: Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
@@ -498,6 +536,7 @@ class OauthIntegration(pulumi.CustomResource):
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["name"] = name
         __props__.__dict__["oauth_client"] = oauth_client
+        __props__.__dict__["oauth_client_type"] = oauth_client_type
         __props__.__dict__["oauth_issue_refresh_tokens"] = oauth_issue_refresh_tokens
         __props__.__dict__["oauth_redirect_uri"] = oauth_redirect_uri
         __props__.__dict__["oauth_refresh_token_validity"] = oauth_refresh_token_validity
@@ -551,6 +590,14 @@ class OauthIntegration(pulumi.CustomResource):
         Specifies the OAuth client type.
         """
         return pulumi.get(self, "oauth_client")
+
+    @property
+    @pulumi.getter(name="oauthClientType")
+    def oauth_client_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the type of client being registered. Snowflake supports both confidential and public clients.
+        """
+        return pulumi.get(self, "oauth_client_type")
 
     @property
     @pulumi.getter(name="oauthIssueRefreshTokens")

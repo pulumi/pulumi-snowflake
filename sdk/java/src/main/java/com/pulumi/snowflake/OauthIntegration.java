@@ -146,6 +146,20 @@ public class OauthIntegration extends com.pulumi.resources.CustomResource {
         return this.oauthClient;
     }
     /**
+     * Specifies the type of client being registered. Snowflake supports both confidential and public clients.
+     * 
+     */
+    @Export(name="oauthClientType", type=String.class, parameters={})
+    private Output</* @Nullable */ String> oauthClientType;
+
+    /**
+     * @return Specifies the type of client being registered. Snowflake supports both confidential and public clients.
+     * 
+     */
+    public Output<Optional<String>> oauthClientType() {
+        return Codegen.optional(this.oauthClientType);
+    }
+    /**
      * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
      * 
      */

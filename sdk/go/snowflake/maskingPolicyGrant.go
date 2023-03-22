@@ -11,6 +11,50 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewMaskingPolicyGrant(ctx, "example", &snowflake.MaskingPolicyGrantArgs{
+//				DatabaseName:         pulumi.String("EXAMPLE_DB_NAME"),
+//				EnableMultipleGrants: pulumi.Bool(true),
+//				MaskingPolicyName:    pulumi.String("EXAMPLE_MASKING_POLICY_NAME"),
+//				Privilege:            pulumi.String("APPLY"),
+//				Roles: pulumi.StringArray{
+//					pulumi.String("ROLE1_NAME"),
+//					pulumi.String("ROLE2_NAME"),
+//				},
+//				SchemaName:      pulumi.String("EXAMPLE_SCHEMA_NAME"),
+//				WithGrantOption: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// format is database name | schema name | masking policy name | privilege | true/false for with_grant_option
+//
+// ```sh
+//
+//	$ pulumi import snowflake:index/maskingPolicyGrant:MaskingPolicyGrant example 'dbName|schemaName|maskingPolicyName|USAGE|false'
+//
+// ```
 type MaskingPolicyGrant struct {
 	pulumi.CustomResourceState
 
