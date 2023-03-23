@@ -6,6 +6,7 @@ package com.pulumi.snowflake;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.snowflake.inputs.FunctionArgumentArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -90,6 +91,21 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<String>>> imports() {
         return Optional.ofNullable(this.imports);
+    }
+
+    /**
+     * Specifies that the function is secure.
+     * 
+     */
+    @Import(name="isSecure")
+    private @Nullable Output<Boolean> isSecure;
+
+    /**
+     * @return Specifies that the function is secure.
+     * 
+     */
+    public Optional<Output<Boolean>> isSecure() {
+        return Optional.ofNullable(this.isSecure);
     }
 
     /**
@@ -250,6 +266,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         this.database = $.database;
         this.handler = $.handler;
         this.imports = $.imports;
+        this.isSecure = $.isSecure;
         this.language = $.language;
         this.name = $.name;
         this.nullInputBehavior = $.nullInputBehavior;
@@ -403,6 +420,27 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder imports(String... imports) {
             return imports(List.of(imports));
+        }
+
+        /**
+         * @param isSecure Specifies that the function is secure.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isSecure(@Nullable Output<Boolean> isSecure) {
+            $.isSecure = isSecure;
+            return this;
+        }
+
+        /**
+         * @param isSecure Specifies that the function is secure.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isSecure(Boolean isSecure) {
+            return isSecure(Output.of(isSecure));
         }
 
         /**

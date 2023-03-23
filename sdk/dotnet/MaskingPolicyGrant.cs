@@ -9,6 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Snowflake.MaskingPolicyGrant("example", new()
+    ///     {
+    ///         DatabaseName = "EXAMPLE_DB_NAME",
+    ///         EnableMultipleGrants = true,
+    ///         MaskingPolicyName = "EXAMPLE_MASKING_POLICY_NAME",
+    ///         Privilege = "APPLY",
+    ///         Roles = new[]
+    ///         {
+    ///             "ROLE1_NAME",
+    ///             "ROLE2_NAME",
+    ///         },
+    ///         SchemaName = "EXAMPLE_SCHEMA_NAME",
+    ///         WithGrantOption = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// format is database name | schema name | masking policy name | privilege | true/false for with_grant_option
+    /// 
+    /// ```sh
+    ///  $ pulumi import snowflake:index/maskingPolicyGrant:MaskingPolicyGrant example 'dbName|schemaName|maskingPolicyName|USAGE|false'
+    /// ```
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/maskingPolicyGrant:MaskingPolicyGrant")]
     public partial class MaskingPolicyGrant : global::Pulumi.CustomResource
     {

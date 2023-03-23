@@ -109,6 +109,21 @@ public final class OauthIntegrationState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Specifies the type of client being registered. Snowflake supports both confidential and public clients.
+     * 
+     */
+    @Import(name="oauthClientType")
+    private @Nullable Output<String> oauthClientType;
+
+    /**
+     * @return Specifies the type of client being registered. Snowflake supports both confidential and public clients.
+     * 
+     */
+    public Optional<Output<String>> oauthClientType() {
+        return Optional.ofNullable(this.oauthClientType);
+    }
+
+    /**
      * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
      * 
      */
@@ -177,6 +192,7 @@ public final class OauthIntegrationState extends com.pulumi.resources.ResourceAr
         this.enabled = $.enabled;
         this.name = $.name;
         this.oauthClient = $.oauthClient;
+        this.oauthClientType = $.oauthClientType;
         this.oauthIssueRefreshTokens = $.oauthIssueRefreshTokens;
         this.oauthRedirectUri = $.oauthRedirectUri;
         this.oauthRefreshTokenValidity = $.oauthRefreshTokenValidity;
@@ -335,6 +351,27 @@ public final class OauthIntegrationState extends com.pulumi.resources.ResourceAr
          */
         public Builder oauthClient(String oauthClient) {
             return oauthClient(Output.of(oauthClient));
+        }
+
+        /**
+         * @param oauthClientType Specifies the type of client being registered. Snowflake supports both confidential and public clients.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oauthClientType(@Nullable Output<String> oauthClientType) {
+            $.oauthClientType = oauthClientType;
+            return this;
+        }
+
+        /**
+         * @param oauthClientType Specifies the type of client being registered. Snowflake supports both confidential and public clients.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oauthClientType(String oauthClientType) {
+            return oauthClientType(Output.of(oauthClientType));
         }
 
         /**

@@ -92,6 +92,21 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Name of the stage the stream will monitor.
+     * 
+     */
+    @Import(name="onStage")
+    private @Nullable Output<String> onStage;
+
+    /**
+     * @return Name of the stage the stream will monitor.
+     * 
+     */
+    public Optional<Output<String>> onStage() {
+        return Optional.ofNullable(this.onStage);
+    }
+
+    /**
      * Name of the table the stream will monitor.
      * 
      */
@@ -159,6 +174,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         this.database = $.database;
         this.insertOnly = $.insertOnly;
         this.name = $.name;
+        this.onStage = $.onStage;
         this.onTable = $.onTable;
         this.onView = $.onView;
         this.schema = $.schema;
@@ -286,6 +302,27 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param onStage Name of the stage the stream will monitor.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onStage(@Nullable Output<String> onStage) {
+            $.onStage = onStage;
+            return this;
+        }
+
+        /**
+         * @param onStage Name of the stage the stream will monitor.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onStage(String onStage) {
+            return onStage(Output.of(onStage));
         }
 
         /**

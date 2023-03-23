@@ -11,6 +11,7 @@ import com.pulumi.snowflake.FunctionArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.FunctionState;
 import com.pulumi.snowflake.outputs.FunctionArgument;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -83,6 +84,20 @@ import javax.annotation.Nullable;
  *             .runtimeVersion(&#34;3.8&#34;)
  *             .handler(&#34;add_py&#34;)
  *             .statement(&#34;def add_py(i): return i+1&#34;)
+ *             .build());
+ * 
+ *         var sqlTest = new Function(&#34;sqlTest&#34;, FunctionArgs.builder()        
+ *             .database(&#34;MY_DB&#34;)
+ *             .schema(&#34;MY_SCHEMA&#34;)
+ *             .arguments(FunctionArgumentArgs.builder()
+ *                 .name(&#34;arg1&#34;)
+ *                 .type(&#34;number&#34;)
+ *                 .build())
+ *             .comment(&#34;Example for SQL language&#34;)
+ *             .returnType(&#34;NUMBER(38,0)&#34;)
+ *             .nullInputBehavior(&#34;CALLED ON NULL INPUT&#34;)
+ *             .returnBehavior(&#34;VOLATILE&#34;)
+ *             .statement(&#34;select arg1 + 1&#34;)
  *             .build());
  * 
  *     }
@@ -169,6 +184,20 @@ public class Function extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> imports() {
         return Codegen.optional(this.imports);
+    }
+    /**
+     * Specifies that the function is secure.
+     * 
+     */
+    @Export(name="isSecure", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> isSecure;
+
+    /**
+     * @return Specifies that the function is secure.
+     * 
+     */
+    public Output<Optional<Boolean>> isSecure() {
+        return Codegen.optional(this.isSecure);
     }
     /**
      * The language of the statement

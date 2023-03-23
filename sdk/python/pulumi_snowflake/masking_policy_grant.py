@@ -266,7 +266,33 @@ class MaskingPolicyGrant(pulumi.CustomResource):
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a MaskingPolicyGrant resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        example = snowflake.MaskingPolicyGrant("example",
+            database_name="EXAMPLE_DB_NAME",
+            enable_multiple_grants=True,
+            masking_policy_name="EXAMPLE_MASKING_POLICY_NAME",
+            privilege="APPLY",
+            roles=[
+                "ROLE1_NAME",
+                "ROLE2_NAME",
+            ],
+            schema_name="EXAMPLE_SCHEMA_NAME",
+            with_grant_option=True)
+        ```
+
+        ## Import
+
+        format is database name | schema name | masking policy name | privilege | true/false for with_grant_option
+
+        ```sh
+         $ pulumi import snowflake:index/maskingPolicyGrant:MaskingPolicyGrant example 'dbName|schemaName|maskingPolicyName|USAGE|false'
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the masking policy on which to grant privileges.
@@ -285,7 +311,33 @@ class MaskingPolicyGrant(pulumi.CustomResource):
                  args: MaskingPolicyGrantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a MaskingPolicyGrant resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        example = snowflake.MaskingPolicyGrant("example",
+            database_name="EXAMPLE_DB_NAME",
+            enable_multiple_grants=True,
+            masking_policy_name="EXAMPLE_MASKING_POLICY_NAME",
+            privilege="APPLY",
+            roles=[
+                "ROLE1_NAME",
+                "ROLE2_NAME",
+            ],
+            schema_name="EXAMPLE_SCHEMA_NAME",
+            with_grant_option=True)
+        ```
+
+        ## Import
+
+        format is database name | schema name | masking policy name | privilege | true/false for with_grant_option
+
+        ```sh
+         $ pulumi import snowflake:index/maskingPolicyGrant:MaskingPolicyGrant example 'dbName|schemaName|maskingPolicyName|USAGE|false'
+        ```
+
         :param str resource_name: The name of the resource.
         :param MaskingPolicyGrantArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

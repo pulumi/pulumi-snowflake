@@ -79,6 +79,10 @@ export class OauthIntegration extends pulumi.CustomResource {
      */
     public readonly oauthClient!: pulumi.Output<string>;
     /**
+     * Specifies the type of client being registered. Snowflake supports both confidential and public clients.
+     */
+    public readonly oauthClientType!: pulumi.Output<string | undefined>;
+    /**
      * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
      */
     public readonly oauthIssueRefreshTokens!: pulumi.Output<boolean | undefined>;
@@ -114,6 +118,7 @@ export class OauthIntegration extends pulumi.CustomResource {
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["oauthClient"] = state ? state.oauthClient : undefined;
+            resourceInputs["oauthClientType"] = state ? state.oauthClientType : undefined;
             resourceInputs["oauthIssueRefreshTokens"] = state ? state.oauthIssueRefreshTokens : undefined;
             resourceInputs["oauthRedirectUri"] = state ? state.oauthRedirectUri : undefined;
             resourceInputs["oauthRefreshTokenValidity"] = state ? state.oauthRefreshTokenValidity : undefined;
@@ -128,6 +133,7 @@ export class OauthIntegration extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["oauthClient"] = args ? args.oauthClient : undefined;
+            resourceInputs["oauthClientType"] = args ? args.oauthClientType : undefined;
             resourceInputs["oauthIssueRefreshTokens"] = args ? args.oauthIssueRefreshTokens : undefined;
             resourceInputs["oauthRedirectUri"] = args ? args.oauthRedirectUri : undefined;
             resourceInputs["oauthRefreshTokenValidity"] = args ? args.oauthRefreshTokenValidity : undefined;
@@ -167,6 +173,10 @@ export interface OauthIntegrationState {
      * Specifies the OAuth client type.
      */
     oauthClient?: pulumi.Input<string>;
+    /**
+     * Specifies the type of client being registered. Snowflake supports both confidential and public clients.
+     */
+    oauthClientType?: pulumi.Input<string>;
     /**
      * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
      */
@@ -209,6 +219,10 @@ export interface OauthIntegrationArgs {
      * Specifies the OAuth client type.
      */
     oauthClient: pulumi.Input<string>;
+    /**
+     * Specifies the type of client being registered. Snowflake supports both confidential and public clients.
+     */
+    oauthClientType?: pulumi.Input<string>;
     /**
      * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
      */

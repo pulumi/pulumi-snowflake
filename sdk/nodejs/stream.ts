@@ -62,6 +62,10 @@ export class Stream extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Name of the stage the stream will monitor.
+     */
+    public readonly onStage!: pulumi.Output<string | undefined>;
+    /**
      * Name of the table the stream will monitor.
      */
     public readonly onTable!: pulumi.Output<string | undefined>;
@@ -100,6 +104,7 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["insertOnly"] = state ? state.insertOnly : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["onStage"] = state ? state.onStage : undefined;
             resourceInputs["onTable"] = state ? state.onTable : undefined;
             resourceInputs["onView"] = state ? state.onView : undefined;
             resourceInputs["owner"] = state ? state.owner : undefined;
@@ -118,6 +123,7 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["insertOnly"] = args ? args.insertOnly : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["onStage"] = args ? args.onStage : undefined;
             resourceInputs["onTable"] = args ? args.onTable : undefined;
             resourceInputs["onView"] = args ? args.onView : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
@@ -153,6 +159,10 @@ export interface StreamState {
      * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Name of the stage the stream will monitor.
+     */
+    onStage?: pulumi.Input<string>;
     /**
      * Name of the table the stream will monitor.
      */
@@ -199,6 +209,10 @@ export interface StreamArgs {
      * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Name of the stage the stream will monitor.
+     */
+    onStage?: pulumi.Input<string>;
     /**
      * Name of the table the stream will monitor.
      */

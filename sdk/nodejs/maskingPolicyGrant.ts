@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const example = new snowflake.MaskingPolicyGrant("example", {
+ *     databaseName: "EXAMPLE_DB_NAME",
+ *     enableMultipleGrants: true,
+ *     maskingPolicyName: "EXAMPLE_MASKING_POLICY_NAME",
+ *     privilege: "APPLY",
+ *     roles: [
+ *         "ROLE1_NAME",
+ *         "ROLE2_NAME",
+ *     ],
+ *     schemaName: "EXAMPLE_SCHEMA_NAME",
+ *     withGrantOption: true,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * format is database name | schema name | masking policy name | privilege | true/false for with_grant_option
+ *
+ * ```sh
+ *  $ pulumi import snowflake:index/maskingPolicyGrant:MaskingPolicyGrant example 'dbName|schemaName|maskingPolicyName|USAGE|false'
+ * ```
+ */
 export class MaskingPolicyGrant extends pulumi.CustomResource {
     /**
      * Get an existing MaskingPolicyGrant resource's state with the given name, ID, and optional extra
