@@ -15,21 +15,26 @@ import * as utilities from "./utilities";
  *     creditQuota: 100,
  *     endTimestamp: "2021-12-07 00:00",
  *     frequency: "DAILY",
- *     notifyTriggers: [40],
+ *     notifyTriggers: [
+ *         40,
+ *         50,
+ *     ],
  *     notifyUsers: [
  *         "USERONE",
  *         "USERTWO",
  *     ],
  *     startTimestamp: "2020-12-07 00:00",
- *     suspendImmediateTriggers: [90],
- *     suspendTriggers: [50],
+ *     suspendImmediateTriggers: 90,
+ *     suspendTriggers: 50,
  * });
  * ```
  *
  * ## Import
  *
+ * format is the resource monitor name
+ *
  * ```sh
- *  $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example
+ *  $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example 'resourceMonitorName'
  * ```
  */
 export class ResourceMonitor extends pulumi.CustomResource {
@@ -85,7 +90,7 @@ export class ResourceMonitor extends pulumi.CustomResource {
      */
     public readonly notifyUsers!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies whether the resource monitor should be applied globally to your Snowflake account.
+     * Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
      */
     public readonly setForAccount!: pulumi.Output<boolean | undefined>;
     /**
@@ -93,11 +98,23 @@ export class ResourceMonitor extends pulumi.CustomResource {
      */
     public readonly startTimestamp!: pulumi.Output<string>;
     /**
-     * A list of percentage thresholds at which to immediately suspend all warehouses.
+     * The number that represents the percentage threshold at which to immediately suspend all warehouses.
+     */
+    public readonly suspendImmediateTrigger!: pulumi.Output<number | undefined>;
+    /**
+     * A list of percentage thresholds at which to suspend all warehouses.
+     *
+     * @deprecated Use suspend_immediate_trigger instead
      */
     public readonly suspendImmediateTriggers!: pulumi.Output<number[] | undefined>;
     /**
+     * The number that represents the percentage threshold at which to suspend all warehouses.
+     */
+    public readonly suspendTrigger!: pulumi.Output<number | undefined>;
+    /**
      * A list of percentage thresholds at which to suspend all warehouses.
+     *
+     * @deprecated Use suspend_trigger instead
      */
     public readonly suspendTriggers!: pulumi.Output<number[] | undefined>;
     /**
@@ -126,7 +143,9 @@ export class ResourceMonitor extends pulumi.CustomResource {
             resourceInputs["notifyUsers"] = state ? state.notifyUsers : undefined;
             resourceInputs["setForAccount"] = state ? state.setForAccount : undefined;
             resourceInputs["startTimestamp"] = state ? state.startTimestamp : undefined;
+            resourceInputs["suspendImmediateTrigger"] = state ? state.suspendImmediateTrigger : undefined;
             resourceInputs["suspendImmediateTriggers"] = state ? state.suspendImmediateTriggers : undefined;
+            resourceInputs["suspendTrigger"] = state ? state.suspendTrigger : undefined;
             resourceInputs["suspendTriggers"] = state ? state.suspendTriggers : undefined;
             resourceInputs["warehouses"] = state ? state.warehouses : undefined;
         } else {
@@ -139,7 +158,9 @@ export class ResourceMonitor extends pulumi.CustomResource {
             resourceInputs["notifyUsers"] = args ? args.notifyUsers : undefined;
             resourceInputs["setForAccount"] = args ? args.setForAccount : undefined;
             resourceInputs["startTimestamp"] = args ? args.startTimestamp : undefined;
+            resourceInputs["suspendImmediateTrigger"] = args ? args.suspendImmediateTrigger : undefined;
             resourceInputs["suspendImmediateTriggers"] = args ? args.suspendImmediateTriggers : undefined;
+            resourceInputs["suspendTrigger"] = args ? args.suspendTrigger : undefined;
             resourceInputs["suspendTriggers"] = args ? args.suspendTriggers : undefined;
             resourceInputs["warehouses"] = args ? args.warehouses : undefined;
         }
@@ -177,7 +198,7 @@ export interface ResourceMonitorState {
      */
     notifyUsers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies whether the resource monitor should be applied globally to your Snowflake account.
+     * Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
      */
     setForAccount?: pulumi.Input<boolean>;
     /**
@@ -185,11 +206,23 @@ export interface ResourceMonitorState {
      */
     startTimestamp?: pulumi.Input<string>;
     /**
-     * A list of percentage thresholds at which to immediately suspend all warehouses.
+     * The number that represents the percentage threshold at which to immediately suspend all warehouses.
+     */
+    suspendImmediateTrigger?: pulumi.Input<number>;
+    /**
+     * A list of percentage thresholds at which to suspend all warehouses.
+     *
+     * @deprecated Use suspend_immediate_trigger instead
      */
     suspendImmediateTriggers?: pulumi.Input<pulumi.Input<number>[]>;
     /**
+     * The number that represents the percentage threshold at which to suspend all warehouses.
+     */
+    suspendTrigger?: pulumi.Input<number>;
+    /**
      * A list of percentage thresholds at which to suspend all warehouses.
+     *
+     * @deprecated Use suspend_trigger instead
      */
     suspendTriggers?: pulumi.Input<pulumi.Input<number>[]>;
     /**
@@ -227,7 +260,7 @@ export interface ResourceMonitorArgs {
      */
     notifyUsers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies whether the resource monitor should be applied globally to your Snowflake account.
+     * Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
      */
     setForAccount?: pulumi.Input<boolean>;
     /**
@@ -235,11 +268,23 @@ export interface ResourceMonitorArgs {
      */
     startTimestamp?: pulumi.Input<string>;
     /**
-     * A list of percentage thresholds at which to immediately suspend all warehouses.
+     * The number that represents the percentage threshold at which to immediately suspend all warehouses.
+     */
+    suspendImmediateTrigger?: pulumi.Input<number>;
+    /**
+     * A list of percentage thresholds at which to suspend all warehouses.
+     *
+     * @deprecated Use suspend_immediate_trigger instead
      */
     suspendImmediateTriggers?: pulumi.Input<pulumi.Input<number>[]>;
     /**
+     * The number that represents the percentage threshold at which to suspend all warehouses.
+     */
+    suspendTrigger?: pulumi.Input<number>;
+    /**
      * A list of percentage thresholds at which to suspend all warehouses.
+     *
+     * @deprecated Use suspend_trigger instead
      */
     suspendTriggers?: pulumi.Input<pulumi.Input<number>[]>;
     /**

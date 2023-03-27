@@ -40,9 +40,25 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The endpoint to connect to your Snowflake internal stage using AWS PrivateLink or Azure Private Link.
+        /// </summary>
+        public readonly string InternalStage;
+        /// <summary>
         /// The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
         /// </summary>
         public readonly string OcspUrl;
+        /// <summary>
+        /// The regionless URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
+        /// </summary>
+        public readonly string RegionlessAccountUrl;
+        /// <summary>
+        /// The URL for your organization to access Snowsight using Private Connectivity to the Snowflake Service.
+        /// </summary>
+        public readonly string RegionlessSnowsightUrl;
+        /// <summary>
+        /// The URL containing the cloud region to access Snowsight and the Snowflake Marketplace using Private Connectivity to the Snowflake Service.
+        /// </summary>
+        public readonly string SnowsightUrl;
 
         [OutputConstructor]
         private GetSystemGetPrivateLinkConfigResult(
@@ -56,14 +72,26 @@ namespace Pulumi.Snowflake
 
             string id,
 
-            string ocspUrl)
+            string internalStage,
+
+            string ocspUrl,
+
+            string regionlessAccountUrl,
+
+            string regionlessSnowsightUrl,
+
+            string snowsightUrl)
         {
             AccountName = accountName;
             AccountUrl = accountUrl;
             AwsVpceId = awsVpceId;
             AzurePlsId = azurePlsId;
             Id = id;
+            InternalStage = internalStage;
             OcspUrl = ocspUrl;
+            RegionlessAccountUrl = regionlessAccountUrl;
+            RegionlessSnowsightUrl = regionlessSnowsightUrl;
+            SnowsightUrl = snowsightUrl;
         }
     }
 }

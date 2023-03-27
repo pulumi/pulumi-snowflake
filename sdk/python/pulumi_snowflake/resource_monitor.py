@@ -22,7 +22,9 @@ class ResourceMonitorArgs:
                  notify_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  set_for_account: Optional[pulumi.Input[bool]] = None,
                  start_timestamp: Optional[pulumi.Input[str]] = None,
+                 suspend_immediate_trigger: Optional[pulumi.Input[int]] = None,
                  suspend_immediate_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 suspend_trigger: Optional[pulumi.Input[int]] = None,
                  suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  warehouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -33,9 +35,11 @@ class ResourceMonitorArgs:
         :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] notify_triggers: A list of percentage thresholds at which to send an alert to subscribed users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_users: Specifies the list of users to receive email notifications on resource monitors.
-        :param pulumi.Input[bool] set_for_account: Specifies whether the resource monitor should be applied globally to your Snowflake account.
+        :param pulumi.Input[bool] set_for_account: Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
         :param pulumi.Input[str] start_timestamp: The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_immediate_triggers: A list of percentage thresholds at which to immediately suspend all warehouses.
+        :param pulumi.Input[int] suspend_immediate_trigger: The number that represents the percentage threshold at which to immediately suspend all warehouses.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_immediate_triggers: A list of percentage thresholds at which to suspend all warehouses.
+        :param pulumi.Input[int] suspend_trigger: The number that represents the percentage threshold at which to suspend all warehouses.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_triggers: A list of percentage thresholds at which to suspend all warehouses.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] warehouses: A list of warehouses to apply the resource monitor to.
         """
@@ -55,8 +59,18 @@ class ResourceMonitorArgs:
             pulumi.set(__self__, "set_for_account", set_for_account)
         if start_timestamp is not None:
             pulumi.set(__self__, "start_timestamp", start_timestamp)
+        if suspend_immediate_trigger is not None:
+            pulumi.set(__self__, "suspend_immediate_trigger", suspend_immediate_trigger)
+        if suspend_immediate_triggers is not None:
+            warnings.warn("""Use suspend_immediate_trigger instead""", DeprecationWarning)
+            pulumi.log.warn("""suspend_immediate_triggers is deprecated: Use suspend_immediate_trigger instead""")
         if suspend_immediate_triggers is not None:
             pulumi.set(__self__, "suspend_immediate_triggers", suspend_immediate_triggers)
+        if suspend_trigger is not None:
+            pulumi.set(__self__, "suspend_trigger", suspend_trigger)
+        if suspend_triggers is not None:
+            warnings.warn("""Use suspend_trigger instead""", DeprecationWarning)
+            pulumi.log.warn("""suspend_triggers is deprecated: Use suspend_trigger instead""")
         if suspend_triggers is not None:
             pulumi.set(__self__, "suspend_triggers", suspend_triggers)
         if warehouses is not None:
@@ -138,7 +152,7 @@ class ResourceMonitorArgs:
     @pulumi.getter(name="setForAccount")
     def set_for_account(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether the resource monitor should be applied globally to your Snowflake account.
+        Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
         """
         return pulumi.get(self, "set_for_account")
 
@@ -159,16 +173,40 @@ class ResourceMonitorArgs:
         pulumi.set(self, "start_timestamp", value)
 
     @property
+    @pulumi.getter(name="suspendImmediateTrigger")
+    def suspend_immediate_trigger(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number that represents the percentage threshold at which to immediately suspend all warehouses.
+        """
+        return pulumi.get(self, "suspend_immediate_trigger")
+
+    @suspend_immediate_trigger.setter
+    def suspend_immediate_trigger(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "suspend_immediate_trigger", value)
+
+    @property
     @pulumi.getter(name="suspendImmediateTriggers")
     def suspend_immediate_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
-        A list of percentage thresholds at which to immediately suspend all warehouses.
+        A list of percentage thresholds at which to suspend all warehouses.
         """
         return pulumi.get(self, "suspend_immediate_triggers")
 
     @suspend_immediate_triggers.setter
     def suspend_immediate_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "suspend_immediate_triggers", value)
+
+    @property
+    @pulumi.getter(name="suspendTrigger")
+    def suspend_trigger(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number that represents the percentage threshold at which to suspend all warehouses.
+        """
+        return pulumi.get(self, "suspend_trigger")
+
+    @suspend_trigger.setter
+    def suspend_trigger(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "suspend_trigger", value)
 
     @property
     @pulumi.getter(name="suspendTriggers")
@@ -206,7 +244,9 @@ class _ResourceMonitorState:
                  notify_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  set_for_account: Optional[pulumi.Input[bool]] = None,
                  start_timestamp: Optional[pulumi.Input[str]] = None,
+                 suspend_immediate_trigger: Optional[pulumi.Input[int]] = None,
                  suspend_immediate_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 suspend_trigger: Optional[pulumi.Input[int]] = None,
                  suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  warehouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -217,9 +257,11 @@ class _ResourceMonitorState:
         :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] notify_triggers: A list of percentage thresholds at which to send an alert to subscribed users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_users: Specifies the list of users to receive email notifications on resource monitors.
-        :param pulumi.Input[bool] set_for_account: Specifies whether the resource monitor should be applied globally to your Snowflake account.
+        :param pulumi.Input[bool] set_for_account: Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
         :param pulumi.Input[str] start_timestamp: The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_immediate_triggers: A list of percentage thresholds at which to immediately suspend all warehouses.
+        :param pulumi.Input[int] suspend_immediate_trigger: The number that represents the percentage threshold at which to immediately suspend all warehouses.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_immediate_triggers: A list of percentage thresholds at which to suspend all warehouses.
+        :param pulumi.Input[int] suspend_trigger: The number that represents the percentage threshold at which to suspend all warehouses.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_triggers: A list of percentage thresholds at which to suspend all warehouses.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] warehouses: A list of warehouses to apply the resource monitor to.
         """
@@ -239,8 +281,18 @@ class _ResourceMonitorState:
             pulumi.set(__self__, "set_for_account", set_for_account)
         if start_timestamp is not None:
             pulumi.set(__self__, "start_timestamp", start_timestamp)
+        if suspend_immediate_trigger is not None:
+            pulumi.set(__self__, "suspend_immediate_trigger", suspend_immediate_trigger)
+        if suspend_immediate_triggers is not None:
+            warnings.warn("""Use suspend_immediate_trigger instead""", DeprecationWarning)
+            pulumi.log.warn("""suspend_immediate_triggers is deprecated: Use suspend_immediate_trigger instead""")
         if suspend_immediate_triggers is not None:
             pulumi.set(__self__, "suspend_immediate_triggers", suspend_immediate_triggers)
+        if suspend_trigger is not None:
+            pulumi.set(__self__, "suspend_trigger", suspend_trigger)
+        if suspend_triggers is not None:
+            warnings.warn("""Use suspend_trigger instead""", DeprecationWarning)
+            pulumi.log.warn("""suspend_triggers is deprecated: Use suspend_trigger instead""")
         if suspend_triggers is not None:
             pulumi.set(__self__, "suspend_triggers", suspend_triggers)
         if warehouses is not None:
@@ -322,7 +374,7 @@ class _ResourceMonitorState:
     @pulumi.getter(name="setForAccount")
     def set_for_account(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether the resource monitor should be applied globally to your Snowflake account.
+        Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
         """
         return pulumi.get(self, "set_for_account")
 
@@ -343,16 +395,40 @@ class _ResourceMonitorState:
         pulumi.set(self, "start_timestamp", value)
 
     @property
+    @pulumi.getter(name="suspendImmediateTrigger")
+    def suspend_immediate_trigger(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number that represents the percentage threshold at which to immediately suspend all warehouses.
+        """
+        return pulumi.get(self, "suspend_immediate_trigger")
+
+    @suspend_immediate_trigger.setter
+    def suspend_immediate_trigger(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "suspend_immediate_trigger", value)
+
+    @property
     @pulumi.getter(name="suspendImmediateTriggers")
     def suspend_immediate_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
-        A list of percentage thresholds at which to immediately suspend all warehouses.
+        A list of percentage thresholds at which to suspend all warehouses.
         """
         return pulumi.get(self, "suspend_immediate_triggers")
 
     @suspend_immediate_triggers.setter
     def suspend_immediate_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "suspend_immediate_triggers", value)
+
+    @property
+    @pulumi.getter(name="suspendTrigger")
+    def suspend_trigger(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number that represents the percentage threshold at which to suspend all warehouses.
+        """
+        return pulumi.get(self, "suspend_trigger")
+
+    @suspend_trigger.setter
+    def suspend_trigger(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "suspend_trigger", value)
 
     @property
     @pulumi.getter(name="suspendTriggers")
@@ -392,7 +468,9 @@ class ResourceMonitor(pulumi.CustomResource):
                  notify_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  set_for_account: Optional[pulumi.Input[bool]] = None,
                  start_timestamp: Optional[pulumi.Input[str]] = None,
+                 suspend_immediate_trigger: Optional[pulumi.Input[int]] = None,
                  suspend_immediate_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 suspend_trigger: Optional[pulumi.Input[int]] = None,
                  suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  warehouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -407,20 +485,25 @@ class ResourceMonitor(pulumi.CustomResource):
             credit_quota=100,
             end_timestamp="2021-12-07 00:00",
             frequency="DAILY",
-            notify_triggers=[40],
+            notify_triggers=[
+                40,
+                50,
+            ],
             notify_users=[
                 "USERONE",
                 "USERTWO",
             ],
             start_timestamp="2020-12-07 00:00",
-            suspend_immediate_triggers=[90],
-            suspend_triggers=[50])
+            suspend_immediate_triggers=90,
+            suspend_triggers=50)
         ```
 
         ## Import
 
+        format is the resource monitor name
+
         ```sh
-         $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example
+         $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example 'resourceMonitorName'
         ```
 
         :param str resource_name: The name of the resource.
@@ -431,9 +514,11 @@ class ResourceMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] notify_triggers: A list of percentage thresholds at which to send an alert to subscribed users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_users: Specifies the list of users to receive email notifications on resource monitors.
-        :param pulumi.Input[bool] set_for_account: Specifies whether the resource monitor should be applied globally to your Snowflake account.
+        :param pulumi.Input[bool] set_for_account: Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
         :param pulumi.Input[str] start_timestamp: The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_immediate_triggers: A list of percentage thresholds at which to immediately suspend all warehouses.
+        :param pulumi.Input[int] suspend_immediate_trigger: The number that represents the percentage threshold at which to immediately suspend all warehouses.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_immediate_triggers: A list of percentage thresholds at which to suspend all warehouses.
+        :param pulumi.Input[int] suspend_trigger: The number that represents the percentage threshold at which to suspend all warehouses.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_triggers: A list of percentage thresholds at which to suspend all warehouses.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] warehouses: A list of warehouses to apply the resource monitor to.
         """
@@ -454,20 +539,25 @@ class ResourceMonitor(pulumi.CustomResource):
             credit_quota=100,
             end_timestamp="2021-12-07 00:00",
             frequency="DAILY",
-            notify_triggers=[40],
+            notify_triggers=[
+                40,
+                50,
+            ],
             notify_users=[
                 "USERONE",
                 "USERTWO",
             ],
             start_timestamp="2020-12-07 00:00",
-            suspend_immediate_triggers=[90],
-            suspend_triggers=[50])
+            suspend_immediate_triggers=90,
+            suspend_triggers=50)
         ```
 
         ## Import
 
+        format is the resource monitor name
+
         ```sh
-         $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example
+         $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example 'resourceMonitorName'
         ```
 
         :param str resource_name: The name of the resource.
@@ -493,7 +583,9 @@ class ResourceMonitor(pulumi.CustomResource):
                  notify_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  set_for_account: Optional[pulumi.Input[bool]] = None,
                  start_timestamp: Optional[pulumi.Input[str]] = None,
+                 suspend_immediate_trigger: Optional[pulumi.Input[int]] = None,
                  suspend_immediate_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 suspend_trigger: Optional[pulumi.Input[int]] = None,
                  suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  warehouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -513,7 +605,15 @@ class ResourceMonitor(pulumi.CustomResource):
             __props__.__dict__["notify_users"] = notify_users
             __props__.__dict__["set_for_account"] = set_for_account
             __props__.__dict__["start_timestamp"] = start_timestamp
+            __props__.__dict__["suspend_immediate_trigger"] = suspend_immediate_trigger
+            if suspend_immediate_triggers is not None and not opts.urn:
+                warnings.warn("""Use suspend_immediate_trigger instead""", DeprecationWarning)
+                pulumi.log.warn("""suspend_immediate_triggers is deprecated: Use suspend_immediate_trigger instead""")
             __props__.__dict__["suspend_immediate_triggers"] = suspend_immediate_triggers
+            __props__.__dict__["suspend_trigger"] = suspend_trigger
+            if suspend_triggers is not None and not opts.urn:
+                warnings.warn("""Use suspend_trigger instead""", DeprecationWarning)
+                pulumi.log.warn("""suspend_triggers is deprecated: Use suspend_trigger instead""")
             __props__.__dict__["suspend_triggers"] = suspend_triggers
             __props__.__dict__["warehouses"] = warehouses
         super(ResourceMonitor, __self__).__init__(
@@ -534,7 +634,9 @@ class ResourceMonitor(pulumi.CustomResource):
             notify_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             set_for_account: Optional[pulumi.Input[bool]] = None,
             start_timestamp: Optional[pulumi.Input[str]] = None,
+            suspend_immediate_trigger: Optional[pulumi.Input[int]] = None,
             suspend_immediate_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+            suspend_trigger: Optional[pulumi.Input[int]] = None,
             suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
             warehouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'ResourceMonitor':
         """
@@ -550,9 +652,11 @@ class ResourceMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] notify_triggers: A list of percentage thresholds at which to send an alert to subscribed users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_users: Specifies the list of users to receive email notifications on resource monitors.
-        :param pulumi.Input[bool] set_for_account: Specifies whether the resource monitor should be applied globally to your Snowflake account.
+        :param pulumi.Input[bool] set_for_account: Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
         :param pulumi.Input[str] start_timestamp: The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_immediate_triggers: A list of percentage thresholds at which to immediately suspend all warehouses.
+        :param pulumi.Input[int] suspend_immediate_trigger: The number that represents the percentage threshold at which to immediately suspend all warehouses.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_immediate_triggers: A list of percentage thresholds at which to suspend all warehouses.
+        :param pulumi.Input[int] suspend_trigger: The number that represents the percentage threshold at which to suspend all warehouses.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_triggers: A list of percentage thresholds at which to suspend all warehouses.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] warehouses: A list of warehouses to apply the resource monitor to.
         """
@@ -568,7 +672,9 @@ class ResourceMonitor(pulumi.CustomResource):
         __props__.__dict__["notify_users"] = notify_users
         __props__.__dict__["set_for_account"] = set_for_account
         __props__.__dict__["start_timestamp"] = start_timestamp
+        __props__.__dict__["suspend_immediate_trigger"] = suspend_immediate_trigger
         __props__.__dict__["suspend_immediate_triggers"] = suspend_immediate_triggers
+        __props__.__dict__["suspend_trigger"] = suspend_trigger
         __props__.__dict__["suspend_triggers"] = suspend_triggers
         __props__.__dict__["warehouses"] = warehouses
         return ResourceMonitor(resource_name, opts=opts, __props__=__props__)
@@ -625,7 +731,7 @@ class ResourceMonitor(pulumi.CustomResource):
     @pulumi.getter(name="setForAccount")
     def set_for_account(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether the resource monitor should be applied globally to your Snowflake account.
+        Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
         """
         return pulumi.get(self, "set_for_account")
 
@@ -638,12 +744,28 @@ class ResourceMonitor(pulumi.CustomResource):
         return pulumi.get(self, "start_timestamp")
 
     @property
+    @pulumi.getter(name="suspendImmediateTrigger")
+    def suspend_immediate_trigger(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number that represents the percentage threshold at which to immediately suspend all warehouses.
+        """
+        return pulumi.get(self, "suspend_immediate_trigger")
+
+    @property
     @pulumi.getter(name="suspendImmediateTriggers")
     def suspend_immediate_triggers(self) -> pulumi.Output[Optional[Sequence[int]]]:
         """
-        A list of percentage thresholds at which to immediately suspend all warehouses.
+        A list of percentage thresholds at which to suspend all warehouses.
         """
         return pulumi.get(self, "suspend_immediate_triggers")
+
+    @property
+    @pulumi.getter(name="suspendTrigger")
+    def suspend_trigger(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number that represents the percentage threshold at which to suspend all warehouses.
+        """
+        return pulumi.get(self, "suspend_trigger")
 
     @property
     @pulumi.getter(name="suspendTriggers")

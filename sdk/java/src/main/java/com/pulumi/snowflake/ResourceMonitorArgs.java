@@ -109,14 +109,14 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies whether the resource monitor should be applied globally to your Snowflake account.
+     * Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
      * 
      */
     @Import(name="setForAccount")
     private @Nullable Output<Boolean> setForAccount;
 
     /**
-     * @return Specifies whether the resource monitor should be applied globally to your Snowflake account.
+     * @return Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
      * 
      */
     public Optional<Output<Boolean>> setForAccount() {
@@ -139,31 +139,77 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A list of percentage thresholds at which to immediately suspend all warehouses.
+     * The number that represents the percentage threshold at which to immediately suspend all warehouses.
      * 
      */
-    @Import(name="suspendImmediateTriggers")
-    private @Nullable Output<List<Integer>> suspendImmediateTriggers;
+    @Import(name="suspendImmediateTrigger")
+    private @Nullable Output<Integer> suspendImmediateTrigger;
 
     /**
-     * @return A list of percentage thresholds at which to immediately suspend all warehouses.
+     * @return The number that represents the percentage threshold at which to immediately suspend all warehouses.
      * 
      */
-    public Optional<Output<List<Integer>>> suspendImmediateTriggers() {
-        return Optional.ofNullable(this.suspendImmediateTriggers);
+    public Optional<Output<Integer>> suspendImmediateTrigger() {
+        return Optional.ofNullable(this.suspendImmediateTrigger);
     }
 
     /**
      * A list of percentage thresholds at which to suspend all warehouses.
      * 
+     * @deprecated
+     * Use suspend_immediate_trigger instead
+     * 
      */
+    @Deprecated /* Use suspend_immediate_trigger instead */
+    @Import(name="suspendImmediateTriggers")
+    private @Nullable Output<List<Integer>> suspendImmediateTriggers;
+
+    /**
+     * @return A list of percentage thresholds at which to suspend all warehouses.
+     * 
+     * @deprecated
+     * Use suspend_immediate_trigger instead
+     * 
+     */
+    @Deprecated /* Use suspend_immediate_trigger instead */
+    public Optional<Output<List<Integer>>> suspendImmediateTriggers() {
+        return Optional.ofNullable(this.suspendImmediateTriggers);
+    }
+
+    /**
+     * The number that represents the percentage threshold at which to suspend all warehouses.
+     * 
+     */
+    @Import(name="suspendTrigger")
+    private @Nullable Output<Integer> suspendTrigger;
+
+    /**
+     * @return The number that represents the percentage threshold at which to suspend all warehouses.
+     * 
+     */
+    public Optional<Output<Integer>> suspendTrigger() {
+        return Optional.ofNullable(this.suspendTrigger);
+    }
+
+    /**
+     * A list of percentage thresholds at which to suspend all warehouses.
+     * 
+     * @deprecated
+     * Use suspend_trigger instead
+     * 
+     */
+    @Deprecated /* Use suspend_trigger instead */
     @Import(name="suspendTriggers")
     private @Nullable Output<List<Integer>> suspendTriggers;
 
     /**
      * @return A list of percentage thresholds at which to suspend all warehouses.
      * 
+     * @deprecated
+     * Use suspend_trigger instead
+     * 
      */
+    @Deprecated /* Use suspend_trigger instead */
     public Optional<Output<List<Integer>>> suspendTriggers() {
         return Optional.ofNullable(this.suspendTriggers);
     }
@@ -194,7 +240,9 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         this.notifyUsers = $.notifyUsers;
         this.setForAccount = $.setForAccount;
         this.startTimestamp = $.startTimestamp;
+        this.suspendImmediateTrigger = $.suspendImmediateTrigger;
         this.suspendImmediateTriggers = $.suspendImmediateTriggers;
+        this.suspendTrigger = $.suspendTrigger;
         this.suspendTriggers = $.suspendTriggers;
         this.warehouses = $.warehouses;
     }
@@ -364,7 +412,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param setForAccount Specifies whether the resource monitor should be applied globally to your Snowflake account.
+         * @param setForAccount Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
          * 
          * @return builder
          * 
@@ -375,7 +423,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param setForAccount Specifies whether the resource monitor should be applied globally to your Snowflake account.
+         * @param setForAccount Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
          * 
          * @return builder
          * 
@@ -406,34 +454,88 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param suspendImmediateTriggers A list of percentage thresholds at which to immediately suspend all warehouses.
+         * @param suspendImmediateTrigger The number that represents the percentage threshold at which to immediately suspend all warehouses.
          * 
          * @return builder
          * 
          */
+        public Builder suspendImmediateTrigger(@Nullable Output<Integer> suspendImmediateTrigger) {
+            $.suspendImmediateTrigger = suspendImmediateTrigger;
+            return this;
+        }
+
+        /**
+         * @param suspendImmediateTrigger The number that represents the percentage threshold at which to immediately suspend all warehouses.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder suspendImmediateTrigger(Integer suspendImmediateTrigger) {
+            return suspendImmediateTrigger(Output.of(suspendImmediateTrigger));
+        }
+
+        /**
+         * @param suspendImmediateTriggers A list of percentage thresholds at which to suspend all warehouses.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use suspend_immediate_trigger instead
+         * 
+         */
+        @Deprecated /* Use suspend_immediate_trigger instead */
         public Builder suspendImmediateTriggers(@Nullable Output<List<Integer>> suspendImmediateTriggers) {
             $.suspendImmediateTriggers = suspendImmediateTriggers;
             return this;
         }
 
         /**
-         * @param suspendImmediateTriggers A list of percentage thresholds at which to immediately suspend all warehouses.
+         * @param suspendImmediateTriggers A list of percentage thresholds at which to suspend all warehouses.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use suspend_immediate_trigger instead
+         * 
          */
+        @Deprecated /* Use suspend_immediate_trigger instead */
         public Builder suspendImmediateTriggers(List<Integer> suspendImmediateTriggers) {
             return suspendImmediateTriggers(Output.of(suspendImmediateTriggers));
         }
 
         /**
-         * @param suspendImmediateTriggers A list of percentage thresholds at which to immediately suspend all warehouses.
+         * @param suspendImmediateTriggers A list of percentage thresholds at which to suspend all warehouses.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use suspend_immediate_trigger instead
+         * 
+         */
+        @Deprecated /* Use suspend_immediate_trigger instead */
+        public Builder suspendImmediateTriggers(Integer... suspendImmediateTriggers) {
+            return suspendImmediateTriggers(List.of(suspendImmediateTriggers));
+        }
+
+        /**
+         * @param suspendTrigger The number that represents the percentage threshold at which to suspend all warehouses.
          * 
          * @return builder
          * 
          */
-        public Builder suspendImmediateTriggers(Integer... suspendImmediateTriggers) {
-            return suspendImmediateTriggers(List.of(suspendImmediateTriggers));
+        public Builder suspendTrigger(@Nullable Output<Integer> suspendTrigger) {
+            $.suspendTrigger = suspendTrigger;
+            return this;
+        }
+
+        /**
+         * @param suspendTrigger The number that represents the percentage threshold at which to suspend all warehouses.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder suspendTrigger(Integer suspendTrigger) {
+            return suspendTrigger(Output.of(suspendTrigger));
         }
 
         /**
@@ -441,7 +543,11 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use suspend_trigger instead
+         * 
          */
+        @Deprecated /* Use suspend_trigger instead */
         public Builder suspendTriggers(@Nullable Output<List<Integer>> suspendTriggers) {
             $.suspendTriggers = suspendTriggers;
             return this;
@@ -452,7 +558,11 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use suspend_trigger instead
+         * 
          */
+        @Deprecated /* Use suspend_trigger instead */
         public Builder suspendTriggers(List<Integer> suspendTriggers) {
             return suspendTriggers(Output.of(suspendTriggers));
         }
@@ -462,7 +572,11 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use suspend_trigger instead
+         * 
          */
+        @Deprecated /* Use suspend_trigger instead */
         public Builder suspendTriggers(Integer... suspendTriggers) {
             return suspendTriggers(List.of(suspendTriggers));
         }

@@ -28,6 +28,14 @@ type GetSystemGetPrivateLinkConfigResult struct {
 	AzurePlsId string `pulumi:"azurePlsId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// The endpoint to connect to your Snowflake internal stage using AWS PrivateLink or Azure Private Link.
+	InternalStage string `pulumi:"internalStage"`
 	// The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
 	OcspUrl string `pulumi:"ocspUrl"`
+	// The regionless URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
+	RegionlessAccountUrl string `pulumi:"regionlessAccountUrl"`
+	// The URL for your organization to access Snowsight using Private Connectivity to the Snowflake Service.
+	RegionlessSnowsightUrl string `pulumi:"regionlessSnowsightUrl"`
+	// The URL containing the cloud region to access Snowsight and the Snowflake Marketplace using Private Connectivity to the Snowflake Service.
+	SnowsightUrl string `pulumi:"snowsightUrl"`
 }

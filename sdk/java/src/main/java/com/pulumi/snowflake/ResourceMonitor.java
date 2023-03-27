@@ -44,7 +44,9 @@ import javax.annotation.Nullable;
  *             .creditQuota(100)
  *             .endTimestamp(&#34;2021-12-07 00:00&#34;)
  *             .frequency(&#34;DAILY&#34;)
- *             .notifyTriggers(40)
+ *             .notifyTriggers(            
+ *                 40,
+ *                 50)
  *             .notifyUsers(            
  *                 &#34;USERONE&#34;,
  *                 &#34;USERTWO&#34;)
@@ -59,8 +61,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * format is the resource monitor name
+ * 
  * ```sh
- *  $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example
+ *  $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example &#39;resourceMonitorName&#39;
  * ```
  * 
  */
@@ -151,14 +155,14 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.notifyUsers);
     }
     /**
-     * Specifies whether the resource monitor should be applied globally to your Snowflake account.
+     * Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
      * 
      */
     @Export(name="setForAccount", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> setForAccount;
 
     /**
-     * @return Specifies whether the resource monitor should be applied globally to your Snowflake account.
+     * @return Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
      * 
      */
     public Output<Optional<Boolean>> setForAccount() {
@@ -179,23 +183,59 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
         return this.startTimestamp;
     }
     /**
-     * A list of percentage thresholds at which to immediately suspend all warehouses.
+     * The number that represents the percentage threshold at which to immediately suspend all warehouses.
      * 
      */
+    @Export(name="suspendImmediateTrigger", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> suspendImmediateTrigger;
+
+    /**
+     * @return The number that represents the percentage threshold at which to immediately suspend all warehouses.
+     * 
+     */
+    public Output<Optional<Integer>> suspendImmediateTrigger() {
+        return Codegen.optional(this.suspendImmediateTrigger);
+    }
+    /**
+     * A list of percentage thresholds at which to suspend all warehouses.
+     * 
+     * @deprecated
+     * Use suspend_immediate_trigger instead
+     * 
+     */
+    @Deprecated /* Use suspend_immediate_trigger instead */
     @Export(name="suspendImmediateTriggers", type=List.class, parameters={Integer.class})
     private Output</* @Nullable */ List<Integer>> suspendImmediateTriggers;
 
     /**
-     * @return A list of percentage thresholds at which to immediately suspend all warehouses.
+     * @return A list of percentage thresholds at which to suspend all warehouses.
      * 
      */
     public Output<Optional<List<Integer>>> suspendImmediateTriggers() {
         return Codegen.optional(this.suspendImmediateTriggers);
     }
     /**
-     * A list of percentage thresholds at which to suspend all warehouses.
+     * The number that represents the percentage threshold at which to suspend all warehouses.
      * 
      */
+    @Export(name="suspendTrigger", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> suspendTrigger;
+
+    /**
+     * @return The number that represents the percentage threshold at which to suspend all warehouses.
+     * 
+     */
+    public Output<Optional<Integer>> suspendTrigger() {
+        return Codegen.optional(this.suspendTrigger);
+    }
+    /**
+     * A list of percentage thresholds at which to suspend all warehouses.
+     * 
+     * @deprecated
+     * Use suspend_trigger instead
+     * 
+     */
+    @Deprecated /* Use suspend_trigger instead */
     @Export(name="suspendTriggers", type=List.class, parameters={Integer.class})
     private Output</* @Nullable */ List<Integer>> suspendTriggers;
 

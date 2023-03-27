@@ -60,6 +60,14 @@ export class Procedure extends pulumi.CustomResource {
      */
     public readonly executeAs!: pulumi.Output<string | undefined>;
     /**
+     * The handler method for Java / Python procedures.
+     */
+    public readonly handler!: pulumi.Output<string | undefined>;
+    /**
+     * Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
+     */
+    public readonly imports!: pulumi.Output<string[] | undefined>;
+    /**
      * Specifies the language of the stored procedure code.
      */
     public readonly language!: pulumi.Output<string | undefined>;
@@ -72,6 +80,10 @@ export class Procedure extends pulumi.CustomResource {
      */
     public readonly nullInputBehavior!: pulumi.Output<string | undefined>;
     /**
+     * List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
+     */
+    public readonly packages!: pulumi.Output<string[] | undefined>;
+    /**
      * Specifies the behavior of the function when returning results
      */
     public readonly returnBehavior!: pulumi.Output<string | undefined>;
@@ -80,11 +92,15 @@ export class Procedure extends pulumi.CustomResource {
      */
     public readonly returnType!: pulumi.Output<string>;
     /**
+     * Required for Python procedures. Specifies Python runtime version.
+     */
+    public readonly runtimeVersion!: pulumi.Output<string | undefined>;
+    /**
      * The schema in which to create the procedure. Don't use the | character.
      */
     public readonly schema!: pulumi.Output<string>;
     /**
-     * Specifies the javascript code used to create the procedure.
+     * Specifies the code used to create the procedure.
      */
     public readonly statement!: pulumi.Output<string>;
 
@@ -105,11 +121,15 @@ export class Procedure extends pulumi.CustomResource {
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["executeAs"] = state ? state.executeAs : undefined;
+            resourceInputs["handler"] = state ? state.handler : undefined;
+            resourceInputs["imports"] = state ? state.imports : undefined;
             resourceInputs["language"] = state ? state.language : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nullInputBehavior"] = state ? state.nullInputBehavior : undefined;
+            resourceInputs["packages"] = state ? state.packages : undefined;
             resourceInputs["returnBehavior"] = state ? state.returnBehavior : undefined;
             resourceInputs["returnType"] = state ? state.returnType : undefined;
+            resourceInputs["runtimeVersion"] = state ? state.runtimeVersion : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
             resourceInputs["statement"] = state ? state.statement : undefined;
         } else {
@@ -130,11 +150,15 @@ export class Procedure extends pulumi.CustomResource {
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["executeAs"] = args ? args.executeAs : undefined;
+            resourceInputs["handler"] = args ? args.handler : undefined;
+            resourceInputs["imports"] = args ? args.imports : undefined;
             resourceInputs["language"] = args ? args.language : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nullInputBehavior"] = args ? args.nullInputBehavior : undefined;
+            resourceInputs["packages"] = args ? args.packages : undefined;
             resourceInputs["returnBehavior"] = args ? args.returnBehavior : undefined;
             resourceInputs["returnType"] = args ? args.returnType : undefined;
+            resourceInputs["runtimeVersion"] = args ? args.runtimeVersion : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["statement"] = args ? args.statement : undefined;
         }
@@ -164,6 +188,14 @@ export interface ProcedureState {
      */
     executeAs?: pulumi.Input<string>;
     /**
+     * The handler method for Java / Python procedures.
+     */
+    handler?: pulumi.Input<string>;
+    /**
+     * Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
+     */
+    imports?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Specifies the language of the stored procedure code.
      */
     language?: pulumi.Input<string>;
@@ -176,6 +208,10 @@ export interface ProcedureState {
      */
     nullInputBehavior?: pulumi.Input<string>;
     /**
+     * List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
+     */
+    packages?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Specifies the behavior of the function when returning results
      */
     returnBehavior?: pulumi.Input<string>;
@@ -184,11 +220,15 @@ export interface ProcedureState {
      */
     returnType?: pulumi.Input<string>;
     /**
+     * Required for Python procedures. Specifies Python runtime version.
+     */
+    runtimeVersion?: pulumi.Input<string>;
+    /**
      * The schema in which to create the procedure. Don't use the | character.
      */
     schema?: pulumi.Input<string>;
     /**
-     * Specifies the javascript code used to create the procedure.
+     * Specifies the code used to create the procedure.
      */
     statement?: pulumi.Input<string>;
 }
@@ -214,6 +254,14 @@ export interface ProcedureArgs {
      */
     executeAs?: pulumi.Input<string>;
     /**
+     * The handler method for Java / Python procedures.
+     */
+    handler?: pulumi.Input<string>;
+    /**
+     * Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
+     */
+    imports?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Specifies the language of the stored procedure code.
      */
     language?: pulumi.Input<string>;
@@ -226,6 +274,10 @@ export interface ProcedureArgs {
      */
     nullInputBehavior?: pulumi.Input<string>;
     /**
+     * List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
+     */
+    packages?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Specifies the behavior of the function when returning results
      */
     returnBehavior?: pulumi.Input<string>;
@@ -234,11 +286,15 @@ export interface ProcedureArgs {
      */
     returnType: pulumi.Input<string>;
     /**
+     * Required for Python procedures. Specifies Python runtime version.
+     */
+    runtimeVersion?: pulumi.Input<string>;
+    /**
      * The schema in which to create the procedure. Don't use the | character.
      */
     schema: pulumi.Input<string>;
     /**
-     * Specifies the javascript code used to create the procedure.
+     * Specifies the code used to create the procedure.
      */
     statement: pulumi.Input<string>;
 }

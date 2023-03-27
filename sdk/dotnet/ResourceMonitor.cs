@@ -27,6 +27,7 @@ namespace Pulumi.Snowflake
     ///         NotifyTriggers = new[]
     ///         {
     ///             40,
+    ///             50,
     ///         },
     ///         NotifyUsers = new[]
     ///         {
@@ -34,14 +35,8 @@ namespace Pulumi.Snowflake
     ///             "USERTWO",
     ///         },
     ///         StartTimestamp = "2020-12-07 00:00",
-    ///         SuspendImmediateTriggers = new[]
-    ///         {
-    ///             90,
-    ///         },
-    ///         SuspendTriggers = new[]
-    ///         {
-    ///             50,
-    ///         },
+    ///         SuspendImmediateTriggers = 90,
+    ///         SuspendTriggers = 50,
     ///     });
     /// 
     /// });
@@ -49,8 +44,10 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
+    /// format is the resource monitor name
+    /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example
+    ///  $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example 'resourceMonitorName'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/resourceMonitor:ResourceMonitor")]
@@ -93,7 +90,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> NotifyUsers { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the resource monitor should be applied globally to your Snowflake account.
+        /// Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
         /// </summary>
         [Output("setForAccount")]
         public Output<bool?> SetForAccount { get; private set; } = null!;
@@ -105,10 +102,22 @@ namespace Pulumi.Snowflake
         public Output<string> StartTimestamp { get; private set; } = null!;
 
         /// <summary>
-        /// A list of percentage thresholds at which to immediately suspend all warehouses.
+        /// The number that represents the percentage threshold at which to immediately suspend all warehouses.
+        /// </summary>
+        [Output("suspendImmediateTrigger")]
+        public Output<int?> SuspendImmediateTrigger { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of percentage thresholds at which to suspend all warehouses.
         /// </summary>
         [Output("suspendImmediateTriggers")]
         public Output<ImmutableArray<int>> SuspendImmediateTriggers { get; private set; } = null!;
+
+        /// <summary>
+        /// The number that represents the percentage threshold at which to suspend all warehouses.
+        /// </summary>
+        [Output("suspendTrigger")]
+        public Output<int?> SuspendTrigger { get; private set; } = null!;
 
         /// <summary>
         /// A list of percentage thresholds at which to suspend all warehouses.
@@ -217,7 +226,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies whether the resource monitor should be applied globally to your Snowflake account.
+        /// Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
         /// </summary>
         [Input("setForAccount")]
         public Input<bool>? SetForAccount { get; set; }
@@ -228,17 +237,30 @@ namespace Pulumi.Snowflake
         [Input("startTimestamp")]
         public Input<string>? StartTimestamp { get; set; }
 
+        /// <summary>
+        /// The number that represents the percentage threshold at which to immediately suspend all warehouses.
+        /// </summary>
+        [Input("suspendImmediateTrigger")]
+        public Input<int>? SuspendImmediateTrigger { get; set; }
+
         [Input("suspendImmediateTriggers")]
         private InputList<int>? _suspendImmediateTriggers;
 
         /// <summary>
-        /// A list of percentage thresholds at which to immediately suspend all warehouses.
+        /// A list of percentage thresholds at which to suspend all warehouses.
         /// </summary>
+        [Obsolete(@"Use suspend_immediate_trigger instead")]
         public InputList<int> SuspendImmediateTriggers
         {
             get => _suspendImmediateTriggers ?? (_suspendImmediateTriggers = new InputList<int>());
             set => _suspendImmediateTriggers = value;
         }
+
+        /// <summary>
+        /// The number that represents the percentage threshold at which to suspend all warehouses.
+        /// </summary>
+        [Input("suspendTrigger")]
+        public Input<int>? SuspendTrigger { get; set; }
 
         [Input("suspendTriggers")]
         private InputList<int>? _suspendTriggers;
@@ -246,6 +268,7 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// A list of percentage thresholds at which to suspend all warehouses.
         /// </summary>
+        [Obsolete(@"Use suspend_trigger instead")]
         public InputList<int> SuspendTriggers
         {
             get => _suspendTriggers ?? (_suspendTriggers = new InputList<int>());
@@ -321,7 +344,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies whether the resource monitor should be applied globally to your Snowflake account.
+        /// Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
         /// </summary>
         [Input("setForAccount")]
         public Input<bool>? SetForAccount { get; set; }
@@ -332,17 +355,30 @@ namespace Pulumi.Snowflake
         [Input("startTimestamp")]
         public Input<string>? StartTimestamp { get; set; }
 
+        /// <summary>
+        /// The number that represents the percentage threshold at which to immediately suspend all warehouses.
+        /// </summary>
+        [Input("suspendImmediateTrigger")]
+        public Input<int>? SuspendImmediateTrigger { get; set; }
+
         [Input("suspendImmediateTriggers")]
         private InputList<int>? _suspendImmediateTriggers;
 
         /// <summary>
-        /// A list of percentage thresholds at which to immediately suspend all warehouses.
+        /// A list of percentage thresholds at which to suspend all warehouses.
         /// </summary>
+        [Obsolete(@"Use suspend_immediate_trigger instead")]
         public InputList<int> SuspendImmediateTriggers
         {
             get => _suspendImmediateTriggers ?? (_suspendImmediateTriggers = new InputList<int>());
             set => _suspendImmediateTriggers = value;
         }
+
+        /// <summary>
+        /// The number that represents the percentage threshold at which to suspend all warehouses.
+        /// </summary>
+        [Input("suspendTrigger")]
+        public Input<int>? SuspendTrigger { get; set; }
 
         [Input("suspendTriggers")]
         private InputList<int>? _suspendTriggers;
@@ -350,6 +386,7 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// A list of percentage thresholds at which to suspend all warehouses.
         /// </summary>
+        [Obsolete(@"Use suspend_trigger instead")]
         public InputList<int> SuspendTriggers
         {
             get => _suspendTriggers ?? (_suspendTriggers = new InputList<int>());

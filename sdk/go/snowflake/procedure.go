@@ -31,19 +31,27 @@ type Procedure struct {
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Sets execute context - see caller's rights and owner's rights
 	ExecuteAs pulumi.StringPtrOutput `pulumi:"executeAs"`
+	// The handler method for Java / Python procedures.
+	Handler pulumi.StringPtrOutput `pulumi:"handler"`
+	// Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
+	Imports pulumi.StringArrayOutput `pulumi:"imports"`
 	// Specifies the language of the stored procedure code.
 	Language pulumi.StringPtrOutput `pulumi:"language"`
 	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior pulumi.StringPtrOutput `pulumi:"nullInputBehavior"`
+	// List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
+	Packages pulumi.StringArrayOutput `pulumi:"packages"`
 	// Specifies the behavior of the function when returning results
 	ReturnBehavior pulumi.StringPtrOutput `pulumi:"returnBehavior"`
 	// The return type of the procedure
 	ReturnType pulumi.StringOutput `pulumi:"returnType"`
+	// Required for Python procedures. Specifies Python runtime version.
+	RuntimeVersion pulumi.StringPtrOutput `pulumi:"runtimeVersion"`
 	// The schema in which to create the procedure. Don't use the | character.
 	Schema pulumi.StringOutput `pulumi:"schema"`
-	// Specifies the javascript code used to create the procedure.
+	// Specifies the code used to create the procedure.
 	Statement pulumi.StringOutput `pulumi:"statement"`
 }
 
@@ -96,19 +104,27 @@ type procedureState struct {
 	Database *string `pulumi:"database"`
 	// Sets execute context - see caller's rights and owner's rights
 	ExecuteAs *string `pulumi:"executeAs"`
+	// The handler method for Java / Python procedures.
+	Handler *string `pulumi:"handler"`
+	// Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
+	Imports []string `pulumi:"imports"`
 	// Specifies the language of the stored procedure code.
 	Language *string `pulumi:"language"`
 	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
 	Name *string `pulumi:"name"`
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
+	// List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
+	Packages []string `pulumi:"packages"`
 	// Specifies the behavior of the function when returning results
 	ReturnBehavior *string `pulumi:"returnBehavior"`
 	// The return type of the procedure
 	ReturnType *string `pulumi:"returnType"`
+	// Required for Python procedures. Specifies Python runtime version.
+	RuntimeVersion *string `pulumi:"runtimeVersion"`
 	// The schema in which to create the procedure. Don't use the | character.
 	Schema *string `pulumi:"schema"`
-	// Specifies the javascript code used to create the procedure.
+	// Specifies the code used to create the procedure.
 	Statement *string `pulumi:"statement"`
 }
 
@@ -121,19 +137,27 @@ type ProcedureState struct {
 	Database pulumi.StringPtrInput
 	// Sets execute context - see caller's rights and owner's rights
 	ExecuteAs pulumi.StringPtrInput
+	// The handler method for Java / Python procedures.
+	Handler pulumi.StringPtrInput
+	// Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
+	Imports pulumi.StringArrayInput
 	// Specifies the language of the stored procedure code.
 	Language pulumi.StringPtrInput
 	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
 	Name pulumi.StringPtrInput
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior pulumi.StringPtrInput
+	// List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
+	Packages pulumi.StringArrayInput
 	// Specifies the behavior of the function when returning results
 	ReturnBehavior pulumi.StringPtrInput
 	// The return type of the procedure
 	ReturnType pulumi.StringPtrInput
+	// Required for Python procedures. Specifies Python runtime version.
+	RuntimeVersion pulumi.StringPtrInput
 	// The schema in which to create the procedure. Don't use the | character.
 	Schema pulumi.StringPtrInput
-	// Specifies the javascript code used to create the procedure.
+	// Specifies the code used to create the procedure.
 	Statement pulumi.StringPtrInput
 }
 
@@ -150,19 +174,27 @@ type procedureArgs struct {
 	Database string `pulumi:"database"`
 	// Sets execute context - see caller's rights and owner's rights
 	ExecuteAs *string `pulumi:"executeAs"`
+	// The handler method for Java / Python procedures.
+	Handler *string `pulumi:"handler"`
+	// Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
+	Imports []string `pulumi:"imports"`
 	// Specifies the language of the stored procedure code.
 	Language *string `pulumi:"language"`
 	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
 	Name *string `pulumi:"name"`
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
+	// List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
+	Packages []string `pulumi:"packages"`
 	// Specifies the behavior of the function when returning results
 	ReturnBehavior *string `pulumi:"returnBehavior"`
 	// The return type of the procedure
 	ReturnType string `pulumi:"returnType"`
+	// Required for Python procedures. Specifies Python runtime version.
+	RuntimeVersion *string `pulumi:"runtimeVersion"`
 	// The schema in which to create the procedure. Don't use the | character.
 	Schema string `pulumi:"schema"`
-	// Specifies the javascript code used to create the procedure.
+	// Specifies the code used to create the procedure.
 	Statement string `pulumi:"statement"`
 }
 
@@ -176,19 +208,27 @@ type ProcedureArgs struct {
 	Database pulumi.StringInput
 	// Sets execute context - see caller's rights and owner's rights
 	ExecuteAs pulumi.StringPtrInput
+	// The handler method for Java / Python procedures.
+	Handler pulumi.StringPtrInput
+	// Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
+	Imports pulumi.StringArrayInput
 	// Specifies the language of the stored procedure code.
 	Language pulumi.StringPtrInput
 	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
 	Name pulumi.StringPtrInput
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior pulumi.StringPtrInput
+	// List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
+	Packages pulumi.StringArrayInput
 	// Specifies the behavior of the function when returning results
 	ReturnBehavior pulumi.StringPtrInput
 	// The return type of the procedure
 	ReturnType pulumi.StringInput
+	// Required for Python procedures. Specifies Python runtime version.
+	RuntimeVersion pulumi.StringPtrInput
 	// The schema in which to create the procedure. Don't use the | character.
 	Schema pulumi.StringInput
-	// Specifies the javascript code used to create the procedure.
+	// Specifies the code used to create the procedure.
 	Statement pulumi.StringInput
 }
 
@@ -299,6 +339,16 @@ func (o ProcedureOutput) ExecuteAs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Procedure) pulumi.StringPtrOutput { return v.ExecuteAs }).(pulumi.StringPtrOutput)
 }
 
+// The handler method for Java / Python procedures.
+func (o ProcedureOutput) Handler() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Procedure) pulumi.StringPtrOutput { return v.Handler }).(pulumi.StringPtrOutput)
+}
+
+// Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
+func (o ProcedureOutput) Imports() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Procedure) pulumi.StringArrayOutput { return v.Imports }).(pulumi.StringArrayOutput)
+}
+
 // Specifies the language of the stored procedure code.
 func (o ProcedureOutput) Language() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Procedure) pulumi.StringPtrOutput { return v.Language }).(pulumi.StringPtrOutput)
@@ -314,6 +364,11 @@ func (o ProcedureOutput) NullInputBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Procedure) pulumi.StringPtrOutput { return v.NullInputBehavior }).(pulumi.StringPtrOutput)
 }
 
+// List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
+func (o ProcedureOutput) Packages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Procedure) pulumi.StringArrayOutput { return v.Packages }).(pulumi.StringArrayOutput)
+}
+
 // Specifies the behavior of the function when returning results
 func (o ProcedureOutput) ReturnBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Procedure) pulumi.StringPtrOutput { return v.ReturnBehavior }).(pulumi.StringPtrOutput)
@@ -324,12 +379,17 @@ func (o ProcedureOutput) ReturnType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Procedure) pulumi.StringOutput { return v.ReturnType }).(pulumi.StringOutput)
 }
 
+// Required for Python procedures. Specifies Python runtime version.
+func (o ProcedureOutput) RuntimeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Procedure) pulumi.StringPtrOutput { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
+}
+
 // The schema in which to create the procedure. Don't use the | character.
 func (o ProcedureOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *Procedure) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
 
-// Specifies the javascript code used to create the procedure.
+// Specifies the code used to create the procedure.
 func (o ProcedureOutput) Statement() pulumi.StringOutput {
 	return o.ApplyT(func(v *Procedure) pulumi.StringOutput { return v.Statement }).(pulumi.StringOutput)
 }
