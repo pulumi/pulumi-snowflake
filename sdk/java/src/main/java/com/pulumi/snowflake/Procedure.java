@@ -150,6 +150,34 @@ public class Procedure extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.executeAs);
     }
     /**
+     * The handler method for Java / Python procedures.
+     * 
+     */
+    @Export(name="handler", type=String.class, parameters={})
+    private Output</* @Nullable */ String> handler;
+
+    /**
+     * @return The handler method for Java / Python procedures.
+     * 
+     */
+    public Output<Optional<String>> handler() {
+        return Codegen.optional(this.handler);
+    }
+    /**
+     * Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
+     * 
+     */
+    @Export(name="imports", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> imports;
+
+    /**
+     * @return Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
+     * 
+     */
+    public Output<Optional<List<String>>> imports() {
+        return Codegen.optional(this.imports);
+    }
+    /**
      * Specifies the language of the stored procedure code.
      * 
      */
@@ -192,6 +220,20 @@ public class Procedure extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.nullInputBehavior);
     }
     /**
+     * List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: (&#39;numpy&#39;,&#39;pandas&#39;,&#39;xgboost==1.5.0&#39;).
+     * 
+     */
+    @Export(name="packages", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> packages;
+
+    /**
+     * @return List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: (&#39;numpy&#39;,&#39;pandas&#39;,&#39;xgboost==1.5.0&#39;).
+     * 
+     */
+    public Output<Optional<List<String>>> packages() {
+        return Codegen.optional(this.packages);
+    }
+    /**
      * Specifies the behavior of the function when returning results
      * 
      */
@@ -220,6 +262,20 @@ public class Procedure extends com.pulumi.resources.CustomResource {
         return this.returnType;
     }
     /**
+     * Required for Python procedures. Specifies Python runtime version.
+     * 
+     */
+    @Export(name="runtimeVersion", type=String.class, parameters={})
+    private Output</* @Nullable */ String> runtimeVersion;
+
+    /**
+     * @return Required for Python procedures. Specifies Python runtime version.
+     * 
+     */
+    public Output<Optional<String>> runtimeVersion() {
+        return Codegen.optional(this.runtimeVersion);
+    }
+    /**
      * The schema in which to create the procedure. Don&#39;t use the | character.
      * 
      */
@@ -234,14 +290,14 @@ public class Procedure extends com.pulumi.resources.CustomResource {
         return this.schema;
     }
     /**
-     * Specifies the javascript code used to create the procedure.
+     * Specifies the code used to create the procedure.
      * 
      */
     @Export(name="statement", type=String.class, parameters={})
     private Output<String> statement;
 
     /**
-     * @return Specifies the javascript code used to create the procedure.
+     * @return Specifies the code used to create the procedure.
      * 
      */
     public Output<String> statement() {

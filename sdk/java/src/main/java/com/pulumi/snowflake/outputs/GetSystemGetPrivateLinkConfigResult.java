@@ -35,10 +35,30 @@ public final class GetSystemGetPrivateLinkConfigResult {
      */
     private String id;
     /**
+     * @return The endpoint to connect to your Snowflake internal stage using AWS PrivateLink or Azure Private Link.
+     * 
+     */
+    private String internalStage;
+    /**
      * @return The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
      * 
      */
     private String ocspUrl;
+    /**
+     * @return The regionless URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
+     * 
+     */
+    private String regionlessAccountUrl;
+    /**
+     * @return The URL for your organization to access Snowsight using Private Connectivity to the Snowflake Service.
+     * 
+     */
+    private String regionlessSnowsightUrl;
+    /**
+     * @return The URL containing the cloud region to access Snowsight and the Snowflake Marketplace using Private Connectivity to the Snowflake Service.
+     * 
+     */
+    private String snowsightUrl;
 
     private GetSystemGetPrivateLinkConfigResult() {}
     /**
@@ -77,11 +97,39 @@ public final class GetSystemGetPrivateLinkConfigResult {
         return this.id;
     }
     /**
+     * @return The endpoint to connect to your Snowflake internal stage using AWS PrivateLink or Azure Private Link.
+     * 
+     */
+    public String internalStage() {
+        return this.internalStage;
+    }
+    /**
      * @return The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
      * 
      */
     public String ocspUrl() {
         return this.ocspUrl;
+    }
+    /**
+     * @return The regionless URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
+     * 
+     */
+    public String regionlessAccountUrl() {
+        return this.regionlessAccountUrl;
+    }
+    /**
+     * @return The URL for your organization to access Snowsight using Private Connectivity to the Snowflake Service.
+     * 
+     */
+    public String regionlessSnowsightUrl() {
+        return this.regionlessSnowsightUrl;
+    }
+    /**
+     * @return The URL containing the cloud region to access Snowsight and the Snowflake Marketplace using Private Connectivity to the Snowflake Service.
+     * 
+     */
+    public String snowsightUrl() {
+        return this.snowsightUrl;
     }
 
     public static Builder builder() {
@@ -98,7 +146,11 @@ public final class GetSystemGetPrivateLinkConfigResult {
         private String awsVpceId;
         private String azurePlsId;
         private String id;
+        private String internalStage;
         private String ocspUrl;
+        private String regionlessAccountUrl;
+        private String regionlessSnowsightUrl;
+        private String snowsightUrl;
         public Builder() {}
         public Builder(GetSystemGetPrivateLinkConfigResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -107,7 +159,11 @@ public final class GetSystemGetPrivateLinkConfigResult {
     	      this.awsVpceId = defaults.awsVpceId;
     	      this.azurePlsId = defaults.azurePlsId;
     	      this.id = defaults.id;
+    	      this.internalStage = defaults.internalStage;
     	      this.ocspUrl = defaults.ocspUrl;
+    	      this.regionlessAccountUrl = defaults.regionlessAccountUrl;
+    	      this.regionlessSnowsightUrl = defaults.regionlessSnowsightUrl;
+    	      this.snowsightUrl = defaults.snowsightUrl;
         }
 
         @CustomType.Setter
@@ -136,8 +192,28 @@ public final class GetSystemGetPrivateLinkConfigResult {
             return this;
         }
         @CustomType.Setter
+        public Builder internalStage(String internalStage) {
+            this.internalStage = Objects.requireNonNull(internalStage);
+            return this;
+        }
+        @CustomType.Setter
         public Builder ocspUrl(String ocspUrl) {
             this.ocspUrl = Objects.requireNonNull(ocspUrl);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder regionlessAccountUrl(String regionlessAccountUrl) {
+            this.regionlessAccountUrl = Objects.requireNonNull(regionlessAccountUrl);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder regionlessSnowsightUrl(String regionlessSnowsightUrl) {
+            this.regionlessSnowsightUrl = Objects.requireNonNull(regionlessSnowsightUrl);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder snowsightUrl(String snowsightUrl) {
+            this.snowsightUrl = Objects.requireNonNull(snowsightUrl);
             return this;
         }
         public GetSystemGetPrivateLinkConfigResult build() {
@@ -147,7 +223,11 @@ public final class GetSystemGetPrivateLinkConfigResult {
             o.awsVpceId = awsVpceId;
             o.azurePlsId = azurePlsId;
             o.id = id;
+            o.internalStage = internalStage;
             o.ocspUrl = ocspUrl;
+            o.regionlessAccountUrl = regionlessAccountUrl;
+            o.regionlessSnowsightUrl = regionlessSnowsightUrl;
+            o.snowsightUrl = snowsightUrl;
             return o;
         }
     }

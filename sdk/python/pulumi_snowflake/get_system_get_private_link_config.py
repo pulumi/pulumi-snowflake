@@ -20,7 +20,7 @@ class GetSystemGetPrivateLinkConfigResult:
     """
     A collection of values returned by getSystemGetPrivateLinkConfig.
     """
-    def __init__(__self__, account_name=None, account_url=None, aws_vpce_id=None, azure_pls_id=None, id=None, ocsp_url=None):
+    def __init__(__self__, account_name=None, account_url=None, aws_vpce_id=None, azure_pls_id=None, id=None, internal_stage=None, ocsp_url=None, regionless_account_url=None, regionless_snowsight_url=None, snowsight_url=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
@@ -36,9 +36,21 @@ class GetSystemGetPrivateLinkConfigResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if internal_stage and not isinstance(internal_stage, str):
+            raise TypeError("Expected argument 'internal_stage' to be a str")
+        pulumi.set(__self__, "internal_stage", internal_stage)
         if ocsp_url and not isinstance(ocsp_url, str):
             raise TypeError("Expected argument 'ocsp_url' to be a str")
         pulumi.set(__self__, "ocsp_url", ocsp_url)
+        if regionless_account_url and not isinstance(regionless_account_url, str):
+            raise TypeError("Expected argument 'regionless_account_url' to be a str")
+        pulumi.set(__self__, "regionless_account_url", regionless_account_url)
+        if regionless_snowsight_url and not isinstance(regionless_snowsight_url, str):
+            raise TypeError("Expected argument 'regionless_snowsight_url' to be a str")
+        pulumi.set(__self__, "regionless_snowsight_url", regionless_snowsight_url)
+        if snowsight_url and not isinstance(snowsight_url, str):
+            raise TypeError("Expected argument 'snowsight_url' to be a str")
+        pulumi.set(__self__, "snowsight_url", snowsight_url)
 
     @property
     @pulumi.getter(name="accountName")
@@ -81,12 +93,44 @@ class GetSystemGetPrivateLinkConfigResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="internalStage")
+    def internal_stage(self) -> str:
+        """
+        The endpoint to connect to your Snowflake internal stage using AWS PrivateLink or Azure Private Link.
+        """
+        return pulumi.get(self, "internal_stage")
+
+    @property
     @pulumi.getter(name="ocspUrl")
     def ocsp_url(self) -> str:
         """
         The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
         """
         return pulumi.get(self, "ocsp_url")
+
+    @property
+    @pulumi.getter(name="regionlessAccountUrl")
+    def regionless_account_url(self) -> str:
+        """
+        The regionless URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
+        """
+        return pulumi.get(self, "regionless_account_url")
+
+    @property
+    @pulumi.getter(name="regionlessSnowsightUrl")
+    def regionless_snowsight_url(self) -> str:
+        """
+        The URL for your organization to access Snowsight using Private Connectivity to the Snowflake Service.
+        """
+        return pulumi.get(self, "regionless_snowsight_url")
+
+    @property
+    @pulumi.getter(name="snowsightUrl")
+    def snowsight_url(self) -> str:
+        """
+        The URL containing the cloud region to access Snowsight and the Snowflake Marketplace using Private Connectivity to the Snowflake Service.
+        """
+        return pulumi.get(self, "snowsight_url")
 
 
 class AwaitableGetSystemGetPrivateLinkConfigResult(GetSystemGetPrivateLinkConfigResult):
@@ -100,7 +144,11 @@ class AwaitableGetSystemGetPrivateLinkConfigResult(GetSystemGetPrivateLinkConfig
             aws_vpce_id=self.aws_vpce_id,
             azure_pls_id=self.azure_pls_id,
             id=self.id,
-            ocsp_url=self.ocsp_url)
+            internal_stage=self.internal_stage,
+            ocsp_url=self.ocsp_url,
+            regionless_account_url=self.regionless_account_url,
+            regionless_snowsight_url=self.regionless_snowsight_url,
+            snowsight_url=self.snowsight_url)
 
 
 def get_system_get_private_link_config(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemGetPrivateLinkConfigResult:
@@ -117,4 +165,8 @@ def get_system_get_private_link_config(opts: Optional[pulumi.InvokeOptions] = No
         aws_vpce_id=__ret__.aws_vpce_id,
         azure_pls_id=__ret__.azure_pls_id,
         id=__ret__.id,
-        ocsp_url=__ret__.ocsp_url)
+        internal_stage=__ret__.internal_stage,
+        ocsp_url=__ret__.ocsp_url,
+        regionless_account_url=__ret__.regionless_account_url,
+        regionless_snowsight_url=__ret__.regionless_snowsight_url,
+        snowsight_url=__ret__.snowsight_url)

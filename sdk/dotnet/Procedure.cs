@@ -46,6 +46,18 @@ namespace Pulumi.Snowflake
         public Output<string?> ExecuteAs { get; private set; } = null!;
 
         /// <summary>
+        /// The handler method for Java / Python procedures.
+        /// </summary>
+        [Output("handler")]
+        public Output<string?> Handler { get; private set; } = null!;
+
+        /// <summary>
+        /// Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
+        /// </summary>
+        [Output("imports")]
+        public Output<ImmutableArray<string>> Imports { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the language of the stored procedure code.
         /// </summary>
         [Output("language")]
@@ -64,6 +76,12 @@ namespace Pulumi.Snowflake
         public Output<string?> NullInputBehavior { get; private set; } = null!;
 
         /// <summary>
+        /// List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
+        /// </summary>
+        [Output("packages")]
+        public Output<ImmutableArray<string>> Packages { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the behavior of the function when returning results
         /// </summary>
         [Output("returnBehavior")]
@@ -76,13 +94,19 @@ namespace Pulumi.Snowflake
         public Output<string> ReturnType { get; private set; } = null!;
 
         /// <summary>
+        /// Required for Python procedures. Specifies Python runtime version.
+        /// </summary>
+        [Output("runtimeVersion")]
+        public Output<string?> RuntimeVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The schema in which to create the procedure. Don't use the | character.
         /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the javascript code used to create the procedure.
+        /// Specifies the code used to create the procedure.
         /// </summary>
         [Output("statement")]
         public Output<string> Statement { get; private set; } = null!;
@@ -164,6 +188,24 @@ namespace Pulumi.Snowflake
         public Input<string>? ExecuteAs { get; set; }
 
         /// <summary>
+        /// The handler method for Java / Python procedures.
+        /// </summary>
+        [Input("handler")]
+        public Input<string>? Handler { get; set; }
+
+        [Input("imports")]
+        private InputList<string>? _imports;
+
+        /// <summary>
+        /// Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
+        /// </summary>
+        public InputList<string> Imports
+        {
+            get => _imports ?? (_imports = new InputList<string>());
+            set => _imports = value;
+        }
+
+        /// <summary>
         /// Specifies the language of the stored procedure code.
         /// </summary>
         [Input("language")]
@@ -181,6 +223,18 @@ namespace Pulumi.Snowflake
         [Input("nullInputBehavior")]
         public Input<string>? NullInputBehavior { get; set; }
 
+        [Input("packages")]
+        private InputList<string>? _packages;
+
+        /// <summary>
+        /// List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
+        /// </summary>
+        public InputList<string> Packages
+        {
+            get => _packages ?? (_packages = new InputList<string>());
+            set => _packages = value;
+        }
+
         /// <summary>
         /// Specifies the behavior of the function when returning results
         /// </summary>
@@ -194,13 +248,19 @@ namespace Pulumi.Snowflake
         public Input<string> ReturnType { get; set; } = null!;
 
         /// <summary>
+        /// Required for Python procedures. Specifies Python runtime version.
+        /// </summary>
+        [Input("runtimeVersion")]
+        public Input<string>? RuntimeVersion { get; set; }
+
+        /// <summary>
         /// The schema in which to create the procedure. Don't use the | character.
         /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the javascript code used to create the procedure.
+        /// Specifies the code used to create the procedure.
         /// </summary>
         [Input("statement", required: true)]
         public Input<string> Statement { get; set; } = null!;
@@ -244,6 +304,24 @@ namespace Pulumi.Snowflake
         public Input<string>? ExecuteAs { get; set; }
 
         /// <summary>
+        /// The handler method for Java / Python procedures.
+        /// </summary>
+        [Input("handler")]
+        public Input<string>? Handler { get; set; }
+
+        [Input("imports")]
+        private InputList<string>? _imports;
+
+        /// <summary>
+        /// Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
+        /// </summary>
+        public InputList<string> Imports
+        {
+            get => _imports ?? (_imports = new InputList<string>());
+            set => _imports = value;
+        }
+
+        /// <summary>
         /// Specifies the language of the stored procedure code.
         /// </summary>
         [Input("language")]
@@ -261,6 +339,18 @@ namespace Pulumi.Snowflake
         [Input("nullInputBehavior")]
         public Input<string>? NullInputBehavior { get; set; }
 
+        [Input("packages")]
+        private InputList<string>? _packages;
+
+        /// <summary>
+        /// List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
+        /// </summary>
+        public InputList<string> Packages
+        {
+            get => _packages ?? (_packages = new InputList<string>());
+            set => _packages = value;
+        }
+
         /// <summary>
         /// Specifies the behavior of the function when returning results
         /// </summary>
@@ -274,13 +364,19 @@ namespace Pulumi.Snowflake
         public Input<string>? ReturnType { get; set; }
 
         /// <summary>
+        /// Required for Python procedures. Specifies Python runtime version.
+        /// </summary>
+        [Input("runtimeVersion")]
+        public Input<string>? RuntimeVersion { get; set; }
+
+        /// <summary>
         /// The schema in which to create the procedure. Don't use the | character.
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
 
         /// <summary>
-        /// Specifies the javascript code used to create the procedure.
+        /// Specifies the code used to create the procedure.
         /// </summary>
         [Input("statement")]
         public Input<string>? Statement { get; set; }

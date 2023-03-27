@@ -7851,6 +7851,17 @@
                     "type": "string",
                     "description": "Sets execute context - see caller's rights and owner's rights\n"
                 },
+                "handler": {
+                    "type": "string",
+                    "description": "The handler method for Java / Python procedures.\n"
+                },
+                "imports": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.\n"
+                },
                 "language": {
                     "type": "string",
                     "description": "Specifies the language of the stored procedure code.\n"
@@ -7863,6 +7874,13 @@
                     "type": "string",
                     "description": "Specifies the behavior of the procedure when called with null inputs.\n"
                 },
+                "packages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').\n"
+                },
                 "returnBehavior": {
                     "type": "string",
                     "description": "Specifies the behavior of the function when returning results\n"
@@ -7871,13 +7889,17 @@
                     "type": "string",
                     "description": "The return type of the procedure\n"
                 },
+                "runtimeVersion": {
+                    "type": "string",
+                    "description": "Required for Python procedures. Specifies Python runtime version.\n"
+                },
                 "schema": {
                     "type": "string",
                     "description": "The schema in which to create the procedure. Don't use the | character.\n"
                 },
                 "statement": {
                     "type": "string",
-                    "description": "Specifies the javascript code used to create the procedure.\n"
+                    "description": "Specifies the code used to create the procedure.\n"
                 }
             },
             "required": [
@@ -7909,6 +7931,19 @@
                     "type": "string",
                     "description": "Sets execute context - see caller's rights and owner's rights\n"
                 },
+                "handler": {
+                    "type": "string",
+                    "description": "The handler method for Java / Python procedures.\n",
+                    "willReplaceOnChanges": true
+                },
+                "imports": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.\n",
+                    "willReplaceOnChanges": true
+                },
                 "language": {
                     "type": "string",
                     "description": "Specifies the language of the stored procedure code.\n"
@@ -7922,6 +7957,14 @@
                     "description": "Specifies the behavior of the procedure when called with null inputs.\n",
                     "willReplaceOnChanges": true
                 },
+                "packages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').\n",
+                    "willReplaceOnChanges": true
+                },
                 "returnBehavior": {
                     "type": "string",
                     "description": "Specifies the behavior of the function when returning results\n",
@@ -7932,6 +7975,11 @@
                     "description": "The return type of the procedure\n",
                     "willReplaceOnChanges": true
                 },
+                "runtimeVersion": {
+                    "type": "string",
+                    "description": "Required for Python procedures. Specifies Python runtime version.\n",
+                    "willReplaceOnChanges": true
+                },
                 "schema": {
                     "type": "string",
                     "description": "The schema in which to create the procedure. Don't use the | character.\n",
@@ -7939,7 +7987,7 @@
                 },
                 "statement": {
                     "type": "string",
-                    "description": "Specifies the javascript code used to create the procedure.\n",
+                    "description": "Specifies the code used to create the procedure.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -7973,6 +8021,19 @@
                         "type": "string",
                         "description": "Sets execute context - see caller's rights and owner's rights\n"
                     },
+                    "handler": {
+                        "type": "string",
+                        "description": "The handler method for Java / Python procedures.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "imports": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.\n",
+                        "willReplaceOnChanges": true
+                    },
                     "language": {
                         "type": "string",
                         "description": "Specifies the language of the stored procedure code.\n"
@@ -7986,6 +8047,14 @@
                         "description": "Specifies the behavior of the procedure when called with null inputs.\n",
                         "willReplaceOnChanges": true
                     },
+                    "packages": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').\n",
+                        "willReplaceOnChanges": true
+                    },
                     "returnBehavior": {
                         "type": "string",
                         "description": "Specifies the behavior of the function when returning results\n",
@@ -7996,6 +8065,11 @@
                         "description": "The return type of the procedure\n",
                         "willReplaceOnChanges": true
                     },
+                    "runtimeVersion": {
+                        "type": "string",
+                        "description": "Required for Python procedures. Specifies Python runtime version.\n",
+                        "willReplaceOnChanges": true
+                    },
                     "schema": {
                         "type": "string",
                         "description": "The schema in which to create the procedure. Don't use the | character.\n",
@@ -8003,7 +8077,7 @@
                     },
                     "statement": {
                         "type": "string",
-                        "description": "Specifies the javascript code used to create the procedure.\n",
+                        "description": "Specifies the code used to create the procedure.\n",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -8238,7 +8312,7 @@
             }
         },
         "snowflake:index/resourceMonitor:ResourceMonitor": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst monitor = new snowflake.ResourceMonitor(\"monitor\", {\n    creditQuota: 100,\n    endTimestamp: \"2021-12-07 00:00\",\n    frequency: \"DAILY\",\n    notifyTriggers: [40],\n    notifyUsers: [\n        \"USERONE\",\n        \"USERTWO\",\n    ],\n    startTimestamp: \"2020-12-07 00:00\",\n    suspendImmediateTriggers: [90],\n    suspendTriggers: [50],\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nmonitor = snowflake.ResourceMonitor(\"monitor\",\n    credit_quota=100,\n    end_timestamp=\"2021-12-07 00:00\",\n    frequency=\"DAILY\",\n    notify_triggers=[40],\n    notify_users=[\n        \"USERONE\",\n        \"USERTWO\",\n    ],\n    start_timestamp=\"2020-12-07 00:00\",\n    suspend_immediate_triggers=[90],\n    suspend_triggers=[50])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var monitor = new Snowflake.ResourceMonitor(\"monitor\", new()\n    {\n        CreditQuota = 100,\n        EndTimestamp = \"2021-12-07 00:00\",\n        Frequency = \"DAILY\",\n        NotifyTriggers = new[]\n        {\n            40,\n        },\n        NotifyUsers = new[]\n        {\n            \"USERONE\",\n            \"USERTWO\",\n        },\n        StartTimestamp = \"2020-12-07 00:00\",\n        SuspendImmediateTriggers = new[]\n        {\n            90,\n        },\n        SuspendTriggers = new[]\n        {\n            50,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewResourceMonitor(ctx, \"monitor\", \u0026snowflake.ResourceMonitorArgs{\n\t\t\tCreditQuota:  pulumi.Int(100),\n\t\t\tEndTimestamp: pulumi.String(\"2021-12-07 00:00\"),\n\t\t\tFrequency:    pulumi.String(\"DAILY\"),\n\t\t\tNotifyTriggers: pulumi.IntArray{\n\t\t\t\tpulumi.Int(40),\n\t\t\t},\n\t\t\tNotifyUsers: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"USERONE\"),\n\t\t\t\tpulumi.String(\"USERTWO\"),\n\t\t\t},\n\t\t\tStartTimestamp: pulumi.String(\"2020-12-07 00:00\"),\n\t\t\tSuspendImmediateTriggers: pulumi.IntArray{\n\t\t\t\tpulumi.Int(90),\n\t\t\t},\n\t\t\tSuspendTriggers: pulumi.IntArray{\n\t\t\t\tpulumi.Int(50),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.ResourceMonitor;\nimport com.pulumi.snowflake.ResourceMonitorArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var monitor = new ResourceMonitor(\"monitor\", ResourceMonitorArgs.builder()        \n            .creditQuota(100)\n            .endTimestamp(\"2021-12-07 00:00\")\n            .frequency(\"DAILY\")\n            .notifyTriggers(40)\n            .notifyUsers(            \n                \"USERONE\",\n                \"USERTWO\")\n            .startTimestamp(\"2020-12-07 00:00\")\n            .suspendImmediateTriggers(90)\n            .suspendTriggers(50)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  monitor:\n    type: snowflake:ResourceMonitor\n    properties:\n      creditQuota: 100\n      endTimestamp: 2021-12-07 00:00\n      frequency: DAILY\n      notifyTriggers:\n        - 40\n      notifyUsers:\n        - USERONE\n        - USERTWO\n      startTimestamp: 2020-12-07 00:00\n      suspendImmediateTriggers:\n        - 90\n      suspendTriggers:\n        - 50\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst monitor = new snowflake.ResourceMonitor(\"monitor\", {\n    creditQuota: 100,\n    endTimestamp: \"2021-12-07 00:00\",\n    frequency: \"DAILY\",\n    notifyTriggers: [\n        40,\n        50,\n    ],\n    notifyUsers: [\n        \"USERONE\",\n        \"USERTWO\",\n    ],\n    startTimestamp: \"2020-12-07 00:00\",\n    suspendImmediateTriggers: 90,\n    suspendTriggers: 50,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nmonitor = snowflake.ResourceMonitor(\"monitor\",\n    credit_quota=100,\n    end_timestamp=\"2021-12-07 00:00\",\n    frequency=\"DAILY\",\n    notify_triggers=[\n        40,\n        50,\n    ],\n    notify_users=[\n        \"USERONE\",\n        \"USERTWO\",\n    ],\n    start_timestamp=\"2020-12-07 00:00\",\n    suspend_immediate_triggers=90,\n    suspend_triggers=50)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var monitor = new Snowflake.ResourceMonitor(\"monitor\", new()\n    {\n        CreditQuota = 100,\n        EndTimestamp = \"2021-12-07 00:00\",\n        Frequency = \"DAILY\",\n        NotifyTriggers = new[]\n        {\n            40,\n            50,\n        },\n        NotifyUsers = new[]\n        {\n            \"USERONE\",\n            \"USERTWO\",\n        },\n        StartTimestamp = \"2020-12-07 00:00\",\n        SuspendImmediateTriggers = 90,\n        SuspendTriggers = 50,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewResourceMonitor(ctx, \"monitor\", \u0026snowflake.ResourceMonitorArgs{\n\t\t\tCreditQuota:  pulumi.Int(100),\n\t\t\tEndTimestamp: pulumi.String(\"2021-12-07 00:00\"),\n\t\t\tFrequency:    pulumi.String(\"DAILY\"),\n\t\t\tNotifyTriggers: pulumi.IntArray{\n\t\t\t\tpulumi.Int(40),\n\t\t\t\tpulumi.Int(50),\n\t\t\t},\n\t\t\tNotifyUsers: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"USERONE\"),\n\t\t\t\tpulumi.String(\"USERTWO\"),\n\t\t\t},\n\t\t\tStartTimestamp:           pulumi.String(\"2020-12-07 00:00\"),\n\t\t\tSuspendImmediateTriggers: pulumi.IntArray(90),\n\t\t\tSuspendTriggers:          pulumi.IntArray(50),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.ResourceMonitor;\nimport com.pulumi.snowflake.ResourceMonitorArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var monitor = new ResourceMonitor(\"monitor\", ResourceMonitorArgs.builder()        \n            .creditQuota(100)\n            .endTimestamp(\"2021-12-07 00:00\")\n            .frequency(\"DAILY\")\n            .notifyTriggers(            \n                40,\n                50)\n            .notifyUsers(            \n                \"USERONE\",\n                \"USERTWO\")\n            .startTimestamp(\"2020-12-07 00:00\")\n            .suspendImmediateTriggers(90)\n            .suspendTriggers(50)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  monitor:\n    type: snowflake:ResourceMonitor\n    properties:\n      creditQuota: 100\n      endTimestamp: 2021-12-07 00:00\n      frequency: DAILY\n      notifyTriggers:\n        - 40\n        - 50\n      notifyUsers:\n        - USERONE\n        - USERTWO\n      startTimestamp: 2020-12-07 00:00\n      suspendImmediateTriggers: 90\n      suspendTriggers: 50\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nformat is the resource monitor name\n\n```sh\n $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example 'resourceMonitorName'\n```\n\n ",
             "properties": {
                 "creditQuota": {
                     "type": "integer",
@@ -8272,25 +8346,35 @@
                 },
                 "setForAccount": {
                     "type": "boolean",
-                    "description": "Specifies whether the resource monitor should be applied globally to your Snowflake account.\n"
+                    "description": "Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).\n"
                 },
                 "startTimestamp": {
                     "type": "string",
                     "description": "The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.\n"
+                },
+                "suspendImmediateTrigger": {
+                    "type": "integer",
+                    "description": "The number that represents the percentage threshold at which to immediately suspend all warehouses.\n"
                 },
                 "suspendImmediateTriggers": {
                     "type": "array",
                     "items": {
                         "type": "integer"
                     },
-                    "description": "A list of percentage thresholds at which to immediately suspend all warehouses.\n"
+                    "description": "A list of percentage thresholds at which to suspend all warehouses.\n",
+                    "deprecationMessage": "Use suspend_immediate_trigger instead"
+                },
+                "suspendTrigger": {
+                    "type": "integer",
+                    "description": "The number that represents the percentage threshold at which to suspend all warehouses.\n"
                 },
                 "suspendTriggers": {
                     "type": "array",
                     "items": {
                         "type": "integer"
                     },
-                    "description": "A list of percentage thresholds at which to suspend all warehouses.\n"
+                    "description": "A list of percentage thresholds at which to suspend all warehouses.\n",
+                    "deprecationMessage": "Use suspend_trigger instead"
                 },
                 "warehouses": {
                     "type": "array",
@@ -8340,25 +8424,35 @@
                 },
                 "setForAccount": {
                     "type": "boolean",
-                    "description": "Specifies whether the resource monitor should be applied globally to your Snowflake account.\n"
+                    "description": "Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).\n"
                 },
                 "startTimestamp": {
                     "type": "string",
                     "description": "The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.\n"
+                },
+                "suspendImmediateTrigger": {
+                    "type": "integer",
+                    "description": "The number that represents the percentage threshold at which to immediately suspend all warehouses.\n"
                 },
                 "suspendImmediateTriggers": {
                     "type": "array",
                     "items": {
                         "type": "integer"
                     },
-                    "description": "A list of percentage thresholds at which to immediately suspend all warehouses.\n"
+                    "description": "A list of percentage thresholds at which to suspend all warehouses.\n",
+                    "deprecationMessage": "Use suspend_immediate_trigger instead"
+                },
+                "suspendTrigger": {
+                    "type": "integer",
+                    "description": "The number that represents the percentage threshold at which to suspend all warehouses.\n"
                 },
                 "suspendTriggers": {
                     "type": "array",
                     "items": {
                         "type": "integer"
                     },
-                    "description": "A list of percentage thresholds at which to suspend all warehouses.\n"
+                    "description": "A list of percentage thresholds at which to suspend all warehouses.\n",
+                    "deprecationMessage": "Use suspend_trigger instead"
                 },
                 "warehouses": {
                     "type": "array",
@@ -8404,25 +8498,35 @@
                     },
                     "setForAccount": {
                         "type": "boolean",
-                        "description": "Specifies whether the resource monitor should be applied globally to your Snowflake account.\n"
+                        "description": "Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).\n"
                     },
                     "startTimestamp": {
                         "type": "string",
                         "description": "The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.\n"
+                    },
+                    "suspendImmediateTrigger": {
+                        "type": "integer",
+                        "description": "The number that represents the percentage threshold at which to immediately suspend all warehouses.\n"
                     },
                     "suspendImmediateTriggers": {
                         "type": "array",
                         "items": {
                             "type": "integer"
                         },
-                        "description": "A list of percentage thresholds at which to immediately suspend all warehouses.\n"
+                        "description": "A list of percentage thresholds at which to suspend all warehouses.\n",
+                        "deprecationMessage": "Use suspend_immediate_trigger instead"
+                    },
+                    "suspendTrigger": {
+                        "type": "integer",
+                        "description": "The number that represents the percentage threshold at which to suspend all warehouses.\n"
                     },
                     "suspendTriggers": {
                         "type": "array",
                         "items": {
                             "type": "integer"
                         },
-                        "description": "A list of percentage thresholds at which to suspend all warehouses.\n"
+                        "description": "A list of percentage thresholds at which to suspend all warehouses.\n",
+                        "deprecationMessage": "Use suspend_trigger instead"
                     },
                     "warehouses": {
                         "type": "array",
@@ -14368,9 +14472,25 @@
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
                     },
+                    "internalStage": {
+                        "type": "string",
+                        "description": "The endpoint to connect to your Snowflake internal stage using AWS PrivateLink or Azure Private Link.\n"
+                    },
                     "ocspUrl": {
                         "type": "string",
                         "description": "The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.\n"
+                    },
+                    "regionlessAccountUrl": {
+                        "type": "string",
+                        "description": "The regionless URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.\n"
+                    },
+                    "regionlessSnowsightUrl": {
+                        "type": "string",
+                        "description": "The URL for your organization to access Snowsight using Private Connectivity to the Snowflake Service.\n"
+                    },
+                    "snowsightUrl": {
+                        "type": "string",
+                        "description": "The URL containing the cloud region to access Snowsight and the Snowflake Marketplace using Private Connectivity to the Snowflake Service.\n"
                     }
                 },
                 "type": "object",
@@ -14379,7 +14499,11 @@
                     "accountUrl",
                     "awsVpceId",
                     "azurePlsId",
+                    "internalStage",
                     "ocspUrl",
+                    "regionlessAccountUrl",
+                    "regionlessSnowsightUrl",
+                    "snowsightUrl",
                     "id"
                 ]
             }

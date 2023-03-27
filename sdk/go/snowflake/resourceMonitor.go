@@ -30,18 +30,15 @@ import (
 //				Frequency:    pulumi.String("DAILY"),
 //				NotifyTriggers: pulumi.IntArray{
 //					pulumi.Int(40),
+//					pulumi.Int(50),
 //				},
 //				NotifyUsers: pulumi.StringArray{
 //					pulumi.String("USERONE"),
 //					pulumi.String("USERTWO"),
 //				},
-//				StartTimestamp: pulumi.String("2020-12-07 00:00"),
-//				SuspendImmediateTriggers: pulumi.IntArray{
-//					pulumi.Int(90),
-//				},
-//				SuspendTriggers: pulumi.IntArray{
-//					pulumi.Int(50),
-//				},
+//				StartTimestamp:           pulumi.String("2020-12-07 00:00"),
+//				SuspendImmediateTriggers: pulumi.IntArray(90),
+//				SuspendTriggers:          pulumi.IntArray(50),
 //			})
 //			if err != nil {
 //				return err
@@ -54,9 +51,11 @@ import (
 //
 // ## Import
 //
+// format is the resource monitor name
+//
 // ```sh
 //
-//	$ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example
+//	$ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example 'resourceMonitorName'
 //
 // ```
 type ResourceMonitor struct {
@@ -74,13 +73,21 @@ type ResourceMonitor struct {
 	NotifyTriggers pulumi.IntArrayOutput `pulumi:"notifyTriggers"`
 	// Specifies the list of users to receive email notifications on resource monitors.
 	NotifyUsers pulumi.StringArrayOutput `pulumi:"notifyUsers"`
-	// Specifies whether the resource monitor should be applied globally to your Snowflake account.
+	// Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
 	SetForAccount pulumi.BoolPtrOutput `pulumi:"setForAccount"`
 	// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
 	StartTimestamp pulumi.StringOutput `pulumi:"startTimestamp"`
-	// A list of percentage thresholds at which to immediately suspend all warehouses.
-	SuspendImmediateTriggers pulumi.IntArrayOutput `pulumi:"suspendImmediateTriggers"`
+	// The number that represents the percentage threshold at which to immediately suspend all warehouses.
+	SuspendImmediateTrigger pulumi.IntPtrOutput `pulumi:"suspendImmediateTrigger"`
 	// A list of percentage thresholds at which to suspend all warehouses.
+	//
+	// Deprecated: Use suspend_immediate_trigger instead
+	SuspendImmediateTriggers pulumi.IntArrayOutput `pulumi:"suspendImmediateTriggers"`
+	// The number that represents the percentage threshold at which to suspend all warehouses.
+	SuspendTrigger pulumi.IntPtrOutput `pulumi:"suspendTrigger"`
+	// A list of percentage thresholds at which to suspend all warehouses.
+	//
+	// Deprecated: Use suspend_trigger instead
 	SuspendTriggers pulumi.IntArrayOutput `pulumi:"suspendTriggers"`
 	// A list of warehouses to apply the resource monitor to.
 	Warehouses pulumi.StringArrayOutput `pulumi:"warehouses"`
@@ -127,13 +134,21 @@ type resourceMonitorState struct {
 	NotifyTriggers []int `pulumi:"notifyTriggers"`
 	// Specifies the list of users to receive email notifications on resource monitors.
 	NotifyUsers []string `pulumi:"notifyUsers"`
-	// Specifies whether the resource monitor should be applied globally to your Snowflake account.
+	// Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
 	SetForAccount *bool `pulumi:"setForAccount"`
 	// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
 	StartTimestamp *string `pulumi:"startTimestamp"`
-	// A list of percentage thresholds at which to immediately suspend all warehouses.
-	SuspendImmediateTriggers []int `pulumi:"suspendImmediateTriggers"`
+	// The number that represents the percentage threshold at which to immediately suspend all warehouses.
+	SuspendImmediateTrigger *int `pulumi:"suspendImmediateTrigger"`
 	// A list of percentage thresholds at which to suspend all warehouses.
+	//
+	// Deprecated: Use suspend_immediate_trigger instead
+	SuspendImmediateTriggers []int `pulumi:"suspendImmediateTriggers"`
+	// The number that represents the percentage threshold at which to suspend all warehouses.
+	SuspendTrigger *int `pulumi:"suspendTrigger"`
+	// A list of percentage thresholds at which to suspend all warehouses.
+	//
+	// Deprecated: Use suspend_trigger instead
 	SuspendTriggers []int `pulumi:"suspendTriggers"`
 	// A list of warehouses to apply the resource monitor to.
 	Warehouses []string `pulumi:"warehouses"`
@@ -152,13 +167,21 @@ type ResourceMonitorState struct {
 	NotifyTriggers pulumi.IntArrayInput
 	// Specifies the list of users to receive email notifications on resource monitors.
 	NotifyUsers pulumi.StringArrayInput
-	// Specifies whether the resource monitor should be applied globally to your Snowflake account.
+	// Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
 	SetForAccount pulumi.BoolPtrInput
 	// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
 	StartTimestamp pulumi.StringPtrInput
-	// A list of percentage thresholds at which to immediately suspend all warehouses.
-	SuspendImmediateTriggers pulumi.IntArrayInput
+	// The number that represents the percentage threshold at which to immediately suspend all warehouses.
+	SuspendImmediateTrigger pulumi.IntPtrInput
 	// A list of percentage thresholds at which to suspend all warehouses.
+	//
+	// Deprecated: Use suspend_immediate_trigger instead
+	SuspendImmediateTriggers pulumi.IntArrayInput
+	// The number that represents the percentage threshold at which to suspend all warehouses.
+	SuspendTrigger pulumi.IntPtrInput
+	// A list of percentage thresholds at which to suspend all warehouses.
+	//
+	// Deprecated: Use suspend_trigger instead
 	SuspendTriggers pulumi.IntArrayInput
 	// A list of warehouses to apply the resource monitor to.
 	Warehouses pulumi.StringArrayInput
@@ -181,13 +204,21 @@ type resourceMonitorArgs struct {
 	NotifyTriggers []int `pulumi:"notifyTriggers"`
 	// Specifies the list of users to receive email notifications on resource monitors.
 	NotifyUsers []string `pulumi:"notifyUsers"`
-	// Specifies whether the resource monitor should be applied globally to your Snowflake account.
+	// Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
 	SetForAccount *bool `pulumi:"setForAccount"`
 	// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
 	StartTimestamp *string `pulumi:"startTimestamp"`
-	// A list of percentage thresholds at which to immediately suspend all warehouses.
-	SuspendImmediateTriggers []int `pulumi:"suspendImmediateTriggers"`
+	// The number that represents the percentage threshold at which to immediately suspend all warehouses.
+	SuspendImmediateTrigger *int `pulumi:"suspendImmediateTrigger"`
 	// A list of percentage thresholds at which to suspend all warehouses.
+	//
+	// Deprecated: Use suspend_immediate_trigger instead
+	SuspendImmediateTriggers []int `pulumi:"suspendImmediateTriggers"`
+	// The number that represents the percentage threshold at which to suspend all warehouses.
+	SuspendTrigger *int `pulumi:"suspendTrigger"`
+	// A list of percentage thresholds at which to suspend all warehouses.
+	//
+	// Deprecated: Use suspend_trigger instead
 	SuspendTriggers []int `pulumi:"suspendTriggers"`
 	// A list of warehouses to apply the resource monitor to.
 	Warehouses []string `pulumi:"warehouses"`
@@ -207,13 +238,21 @@ type ResourceMonitorArgs struct {
 	NotifyTriggers pulumi.IntArrayInput
 	// Specifies the list of users to receive email notifications on resource monitors.
 	NotifyUsers pulumi.StringArrayInput
-	// Specifies whether the resource monitor should be applied globally to your Snowflake account.
+	// Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
 	SetForAccount pulumi.BoolPtrInput
 	// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
 	StartTimestamp pulumi.StringPtrInput
-	// A list of percentage thresholds at which to immediately suspend all warehouses.
-	SuspendImmediateTriggers pulumi.IntArrayInput
+	// The number that represents the percentage threshold at which to immediately suspend all warehouses.
+	SuspendImmediateTrigger pulumi.IntPtrInput
 	// A list of percentage thresholds at which to suspend all warehouses.
+	//
+	// Deprecated: Use suspend_immediate_trigger instead
+	SuspendImmediateTriggers pulumi.IntArrayInput
+	// The number that represents the percentage threshold at which to suspend all warehouses.
+	SuspendTrigger pulumi.IntPtrInput
+	// A list of percentage thresholds at which to suspend all warehouses.
+	//
+	// Deprecated: Use suspend_trigger instead
 	SuspendTriggers pulumi.IntArrayInput
 	// A list of warehouses to apply the resource monitor to.
 	Warehouses pulumi.StringArrayInput
@@ -336,7 +375,7 @@ func (o ResourceMonitorOutput) NotifyUsers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceMonitor) pulumi.StringArrayOutput { return v.NotifyUsers }).(pulumi.StringArrayOutput)
 }
 
-// Specifies whether the resource monitor should be applied globally to your Snowflake account.
+// Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
 func (o ResourceMonitorOutput) SetForAccount() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResourceMonitor) pulumi.BoolPtrOutput { return v.SetForAccount }).(pulumi.BoolPtrOutput)
 }
@@ -346,12 +385,26 @@ func (o ResourceMonitorOutput) StartTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceMonitor) pulumi.StringOutput { return v.StartTimestamp }).(pulumi.StringOutput)
 }
 
-// A list of percentage thresholds at which to immediately suspend all warehouses.
+// The number that represents the percentage threshold at which to immediately suspend all warehouses.
+func (o ResourceMonitorOutput) SuspendImmediateTrigger() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResourceMonitor) pulumi.IntPtrOutput { return v.SuspendImmediateTrigger }).(pulumi.IntPtrOutput)
+}
+
+// A list of percentage thresholds at which to suspend all warehouses.
+//
+// Deprecated: Use suspend_immediate_trigger instead
 func (o ResourceMonitorOutput) SuspendImmediateTriggers() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ResourceMonitor) pulumi.IntArrayOutput { return v.SuspendImmediateTriggers }).(pulumi.IntArrayOutput)
 }
 
+// The number that represents the percentage threshold at which to suspend all warehouses.
+func (o ResourceMonitorOutput) SuspendTrigger() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResourceMonitor) pulumi.IntPtrOutput { return v.SuspendTrigger }).(pulumi.IntPtrOutput)
+}
+
 // A list of percentage thresholds at which to suspend all warehouses.
+//
+// Deprecated: Use suspend_trigger instead
 func (o ResourceMonitorOutput) SuspendTriggers() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ResourceMonitor) pulumi.IntArrayOutput { return v.SuspendTriggers }).(pulumi.IntArrayOutput)
 }

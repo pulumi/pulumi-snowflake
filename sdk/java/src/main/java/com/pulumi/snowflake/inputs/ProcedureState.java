@@ -78,6 +78,36 @@ public final class ProcedureState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The handler method for Java / Python procedures.
+     * 
+     */
+    @Import(name="handler")
+    private @Nullable Output<String> handler;
+
+    /**
+     * @return The handler method for Java / Python procedures.
+     * 
+     */
+    public Optional<Output<String>> handler() {
+        return Optional.ofNullable(this.handler);
+    }
+
+    /**
+     * Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
+     * 
+     */
+    @Import(name="imports")
+    private @Nullable Output<List<String>> imports;
+
+    /**
+     * @return Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
+     * 
+     */
+    public Optional<Output<List<String>>> imports() {
+        return Optional.ofNullable(this.imports);
+    }
+
+    /**
      * Specifies the language of the stored procedure code.
      * 
      */
@@ -123,6 +153,21 @@ public final class ProcedureState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: (&#39;numpy&#39;,&#39;pandas&#39;,&#39;xgboost==1.5.0&#39;).
+     * 
+     */
+    @Import(name="packages")
+    private @Nullable Output<List<String>> packages;
+
+    /**
+     * @return List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: (&#39;numpy&#39;,&#39;pandas&#39;,&#39;xgboost==1.5.0&#39;).
+     * 
+     */
+    public Optional<Output<List<String>>> packages() {
+        return Optional.ofNullable(this.packages);
+    }
+
+    /**
      * Specifies the behavior of the function when returning results
      * 
      */
@@ -153,6 +198,21 @@ public final class ProcedureState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Required for Python procedures. Specifies Python runtime version.
+     * 
+     */
+    @Import(name="runtimeVersion")
+    private @Nullable Output<String> runtimeVersion;
+
+    /**
+     * @return Required for Python procedures. Specifies Python runtime version.
+     * 
+     */
+    public Optional<Output<String>> runtimeVersion() {
+        return Optional.ofNullable(this.runtimeVersion);
+    }
+
+    /**
      * The schema in which to create the procedure. Don&#39;t use the | character.
      * 
      */
@@ -168,14 +228,14 @@ public final class ProcedureState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the javascript code used to create the procedure.
+     * Specifies the code used to create the procedure.
      * 
      */
     @Import(name="statement")
     private @Nullable Output<String> statement;
 
     /**
-     * @return Specifies the javascript code used to create the procedure.
+     * @return Specifies the code used to create the procedure.
      * 
      */
     public Optional<Output<String>> statement() {
@@ -189,11 +249,15 @@ public final class ProcedureState extends com.pulumi.resources.ResourceArgs {
         this.comment = $.comment;
         this.database = $.database;
         this.executeAs = $.executeAs;
+        this.handler = $.handler;
+        this.imports = $.imports;
         this.language = $.language;
         this.name = $.name;
         this.nullInputBehavior = $.nullInputBehavior;
+        this.packages = $.packages;
         this.returnBehavior = $.returnBehavior;
         this.returnType = $.returnType;
+        this.runtimeVersion = $.runtimeVersion;
         this.schema = $.schema;
         this.statement = $.statement;
     }
@@ -311,6 +375,58 @@ public final class ProcedureState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param handler The handler method for Java / Python procedures.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder handler(@Nullable Output<String> handler) {
+            $.handler = handler;
+            return this;
+        }
+
+        /**
+         * @param handler The handler method for Java / Python procedures.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder handler(String handler) {
+            return handler(Output.of(handler));
+        }
+
+        /**
+         * @param imports Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imports(@Nullable Output<List<String>> imports) {
+            $.imports = imports;
+            return this;
+        }
+
+        /**
+         * @param imports Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imports(List<String> imports) {
+            return imports(Output.of(imports));
+        }
+
+        /**
+         * @param imports Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imports(String... imports) {
+            return imports(List.of(imports));
+        }
+
+        /**
          * @param language Specifies the language of the stored procedure code.
          * 
          * @return builder
@@ -374,6 +490,37 @@ public final class ProcedureState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param packages List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: (&#39;numpy&#39;,&#39;pandas&#39;,&#39;xgboost==1.5.0&#39;).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder packages(@Nullable Output<List<String>> packages) {
+            $.packages = packages;
+            return this;
+        }
+
+        /**
+         * @param packages List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: (&#39;numpy&#39;,&#39;pandas&#39;,&#39;xgboost==1.5.0&#39;).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder packages(List<String> packages) {
+            return packages(Output.of(packages));
+        }
+
+        /**
+         * @param packages List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: (&#39;numpy&#39;,&#39;pandas&#39;,&#39;xgboost==1.5.0&#39;).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder packages(String... packages) {
+            return packages(List.of(packages));
+        }
+
+        /**
          * @param returnBehavior Specifies the behavior of the function when returning results
          * 
          * @return builder
@@ -416,6 +563,27 @@ public final class ProcedureState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param runtimeVersion Required for Python procedures. Specifies Python runtime version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runtimeVersion(@Nullable Output<String> runtimeVersion) {
+            $.runtimeVersion = runtimeVersion;
+            return this;
+        }
+
+        /**
+         * @param runtimeVersion Required for Python procedures. Specifies Python runtime version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runtimeVersion(String runtimeVersion) {
+            return runtimeVersion(Output.of(runtimeVersion));
+        }
+
+        /**
          * @param schema The schema in which to create the procedure. Don&#39;t use the | character.
          * 
          * @return builder
@@ -437,7 +605,7 @@ public final class ProcedureState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statement Specifies the javascript code used to create the procedure.
+         * @param statement Specifies the code used to create the procedure.
          * 
          * @return builder
          * 
@@ -448,7 +616,7 @@ public final class ProcedureState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statement Specifies the javascript code used to create the procedure.
+         * @param statement Specifies the code used to create the procedure.
          * 
          * @return builder
          * 
