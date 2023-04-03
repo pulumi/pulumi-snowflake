@@ -34,6 +34,21 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+     * 
+     */
+    @Import(name="copyGrants")
+    private @Nullable Output<Boolean> copyGrants;
+
+    /**
+     * @return Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+     * 
+     */
+    public Optional<Output<Boolean>> copyGrants() {
+        return Optional.ofNullable(this.copyGrants);
+    }
+
+    /**
      * The database in which to create the view. Don&#39;t use the | character.
      * 
      */
@@ -150,6 +165,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
 
     private ViewArgs(ViewArgs $) {
         this.comment = $.comment;
+        this.copyGrants = $.copyGrants;
         this.database = $.database;
         this.isSecure = $.isSecure;
         this.name = $.name;
@@ -196,6 +212,27 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
+        }
+
+        /**
+         * @param copyGrants Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder copyGrants(@Nullable Output<Boolean> copyGrants) {
+            $.copyGrants = copyGrants;
+            return this;
+        }
+
+        /**
+         * @param copyGrants Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder copyGrants(Boolean copyGrants) {
+            return copyGrants(Output.of(copyGrants));
         }
 
         /**

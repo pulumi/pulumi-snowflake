@@ -11,6 +11,7 @@ import com.pulumi.snowflake.ObjectParameterArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.ObjectParameterState;
 import com.pulumi.snowflake.outputs.ObjectParameterObjectIdentifier;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -94,6 +95,7 @@ import javax.annotation.Nullable;
  *         var o4 = new ObjectParameter(&#34;o4&#34;, ObjectParameterArgs.builder()        
  *             .key(&#34;DATA_RETENTION_TIME_IN_DAYS&#34;)
  *             .value(&#34;89&#34;)
+ *             .onAccount(true)
  *             .build());
  * 
  *     }
@@ -150,6 +152,20 @@ public class ObjectParameter extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> objectType() {
         return Codegen.optional(this.objectType);
+    }
+    /**
+     * If true, the object parameter will be set on the account level.
+     * 
+     */
+    @Export(name="onAccount", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> onAccount;
+
+    /**
+     * @return If true, the object parameter will be set on the account level.
+     * 
+     */
+    public Output<Optional<Boolean>> onAccount() {
+        return Codegen.optional(this.onAccount);
     }
     /**
      * Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.

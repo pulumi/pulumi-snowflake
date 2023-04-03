@@ -344,6 +344,12 @@ public class User extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
+                "displayName",
+                "email",
+                "firstName",
+                "lastName",
+                "loginName",
+                "name",
                 "password"
             ))
             .build();

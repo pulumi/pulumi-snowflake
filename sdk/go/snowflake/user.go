@@ -106,10 +106,34 @@ func NewUser(ctx *pulumi.Context,
 		args = &UserArgs{}
 	}
 
+	if args.DisplayName != nil {
+		args.DisplayName = pulumi.ToSecret(args.DisplayName).(pulumi.StringPtrInput)
+	}
+	if args.Email != nil {
+		args.Email = pulumi.ToSecret(args.Email).(pulumi.StringPtrInput)
+	}
+	if args.FirstName != nil {
+		args.FirstName = pulumi.ToSecret(args.FirstName).(pulumi.StringPtrInput)
+	}
+	if args.LastName != nil {
+		args.LastName = pulumi.ToSecret(args.LastName).(pulumi.StringPtrInput)
+	}
+	if args.LoginName != nil {
+		args.LoginName = pulumi.ToSecret(args.LoginName).(pulumi.StringPtrInput)
+	}
+	if args.Name != nil {
+		args.Name = pulumi.ToSecret(args.Name).(pulumi.StringPtrInput)
+	}
 	if args.Password != nil {
 		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"displayName",
+		"email",
+		"firstName",
+		"lastName",
+		"loginName",
+		"name",
 		"password",
 	})
 	opts = append(opts, secrets)

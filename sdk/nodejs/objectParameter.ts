@@ -54,6 +54,7 @@ import * as utilities from "./utilities";
  * const o4 = new snowflake.ObjectParameter("o4", {
  *     key: "DATA_RETENTION_TIME_IN_DAYS",
  *     value: "89",
+ *     onAccount: true,
  * });
  * ```
  *
@@ -104,6 +105,10 @@ export class ObjectParameter extends pulumi.CustomResource {
      */
     public readonly objectType!: pulumi.Output<string | undefined>;
     /**
+     * If true, the object parameter will be set on the account level.
+     */
+    public readonly onAccount!: pulumi.Output<boolean | undefined>;
+    /**
      * Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
      */
     public readonly value!: pulumi.Output<string>;
@@ -124,6 +129,7 @@ export class ObjectParameter extends pulumi.CustomResource {
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["objectIdentifiers"] = state ? state.objectIdentifiers : undefined;
             resourceInputs["objectType"] = state ? state.objectType : undefined;
+            resourceInputs["onAccount"] = state ? state.onAccount : undefined;
             resourceInputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as ObjectParameterArgs | undefined;
@@ -136,6 +142,7 @@ export class ObjectParameter extends pulumi.CustomResource {
             resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["objectIdentifiers"] = args ? args.objectIdentifiers : undefined;
             resourceInputs["objectType"] = args ? args.objectType : undefined;
+            resourceInputs["onAccount"] = args ? args.onAccount : undefined;
             resourceInputs["value"] = args ? args.value : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -160,6 +167,10 @@ export interface ObjectParameterState {
      */
     objectType?: pulumi.Input<string>;
     /**
+     * If true, the object parameter will be set on the account level.
+     */
+    onAccount?: pulumi.Input<boolean>;
+    /**
      * Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
      */
     value?: pulumi.Input<string>;
@@ -181,6 +192,10 @@ export interface ObjectParameterArgs {
      * Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
      */
     objectType?: pulumi.Input<string>;
+    /**
+     * If true, the object parameter will be set on the account level.
+     */
+    onAccount?: pulumi.Input<boolean>;
     /**
      * Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
      */

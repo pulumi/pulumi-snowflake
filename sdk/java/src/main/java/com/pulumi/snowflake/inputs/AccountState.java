@@ -122,6 +122,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+     * 
+     */
+    @Import(name="isOrgAdmin")
+    private @Nullable Output<Boolean> isOrgAdmin;
+
+    /**
+     * @return Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+     * 
+     */
+    public Optional<Output<Boolean>> isOrgAdmin() {
+        return Optional.ofNullable(this.isOrgAdmin);
+    }
+
+    /**
      * Last name of the initial administrative user of the account
      * 
      */
@@ -206,6 +221,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.edition = $.edition;
         this.email = $.email;
         this.firstName = $.firstName;
+        this.isOrgAdmin = $.isOrgAdmin;
         this.lastName = $.lastName;
         this.mustChangePassword = $.mustChangePassword;
         this.name = $.name;
@@ -376,6 +392,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder firstName(String firstName) {
             return firstName(Output.of(firstName));
+        }
+
+        /**
+         * @param isOrgAdmin Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isOrgAdmin(@Nullable Output<Boolean> isOrgAdmin) {
+            $.isOrgAdmin = isOrgAdmin;
+            return this;
+        }
+
+        /**
+         * @param isOrgAdmin Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isOrgAdmin(Boolean isOrgAdmin) {
+            return isOrgAdmin(Output.of(isOrgAdmin));
         }
 
         /**

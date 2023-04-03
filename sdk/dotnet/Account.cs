@@ -101,6 +101,12 @@ namespace Pulumi.Snowflake
         public Output<string?> FirstName { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+        /// </summary>
+        [Output("isOrgAdmin")]
+        public Output<bool> IsOrgAdmin { get; private set; } = null!;
+
+        /// <summary>
         /// Last name of the initial administrative user of the account
         /// </summary>
         [Output("lastName")]
@@ -157,6 +163,9 @@ namespace Pulumi.Snowflake
                 {
                     "adminPassword",
                     "adminRsaPublicKey",
+                    "email",
+                    "firstName",
+                    "lastName",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -231,23 +240,53 @@ namespace Pulumi.Snowflake
         [Input("edition", required: true)]
         public Input<string> Edition { get; set; } = null!;
 
+        [Input("email", required: true)]
+        private Input<string>? _email;
+
         /// <summary>
         /// Email address of the initial administrative user of the account. This email address is used to send any notifications about the account.
         /// </summary>
-        [Input("email", required: true)]
-        public Input<string> Email { get; set; } = null!;
+        public Input<string>? Email
+        {
+            get => _email;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _email = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("firstName")]
+        private Input<string>? _firstName;
 
         /// <summary>
         /// First name of the initial administrative user of the account
         /// </summary>
-        [Input("firstName")]
-        public Input<string>? FirstName { get; set; }
+        public Input<string>? FirstName
+        {
+            get => _firstName;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _firstName = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("lastName")]
+        private Input<string>? _lastName;
 
         /// <summary>
         /// Last name of the initial administrative user of the account
         /// </summary>
-        [Input("lastName")]
-        public Input<string>? LastName { get; set; }
+        public Input<string>? LastName
+        {
+            get => _lastName;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _lastName = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies whether the new user created to administer the account is forced to change their password upon first login into the account.
@@ -331,23 +370,59 @@ namespace Pulumi.Snowflake
         [Input("edition")]
         public Input<string>? Edition { get; set; }
 
+        [Input("email")]
+        private Input<string>? _email;
+
         /// <summary>
         /// Email address of the initial administrative user of the account. This email address is used to send any notifications about the account.
         /// </summary>
-        [Input("email")]
-        public Input<string>? Email { get; set; }
+        public Input<string>? Email
+        {
+            get => _email;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _email = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("firstName")]
+        private Input<string>? _firstName;
 
         /// <summary>
         /// First name of the initial administrative user of the account
         /// </summary>
-        [Input("firstName")]
-        public Input<string>? FirstName { get; set; }
+        public Input<string>? FirstName
+        {
+            get => _firstName;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _firstName = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+        /// </summary>
+        [Input("isOrgAdmin")]
+        public Input<bool>? IsOrgAdmin { get; set; }
+
+        [Input("lastName")]
+        private Input<string>? _lastName;
 
         /// <summary>
         /// Last name of the initial administrative user of the account
         /// </summary>
-        [Input("lastName")]
-        public Input<string>? LastName { get; set; }
+        public Input<string>? LastName
+        {
+            get => _lastName;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _lastName = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies whether the new user created to administer the account is forced to change their password upon first login into the account.

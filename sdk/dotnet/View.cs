@@ -51,6 +51,12 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
+        /// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+        /// </summary>
+        [Output("copyGrants")]
+        public Output<bool?> CopyGrants { get; private set; } = null!;
+
+        /// <summary>
         /// The database in which to create the view. Don't use the | character.
         /// </summary>
         [Output("database")]
@@ -145,6 +151,12 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
+        /// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+        /// </summary>
+        [Input("copyGrants")]
+        public Input<bool>? CopyGrants { get; set; }
+
+        /// <summary>
         /// The database in which to create the view. Don't use the | character.
         /// </summary>
         [Input("database", required: true)]
@@ -206,6 +218,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
+
+        /// <summary>
+        /// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+        /// </summary>
+        [Input("copyGrants")]
+        public Input<bool>? CopyGrants { get; set; }
 
         /// <summary>
         /// The database in which to create the view. Don't use the | character.

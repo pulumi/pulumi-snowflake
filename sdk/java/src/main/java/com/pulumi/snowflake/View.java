@@ -81,6 +81,20 @@ public class View extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
+     * Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+     * 
+     */
+    @Export(name="copyGrants", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> copyGrants;
+
+    /**
+     * @return Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+     * 
+     */
+    public Output<Optional<Boolean>> copyGrants() {
+        return Codegen.optional(this.copyGrants);
+    }
+    /**
      * The database in which to create the view. Don&#39;t use the | character.
      * 
      */

@@ -16,6 +16,7 @@ class TableGrantArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
+                 on_all: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -28,17 +29,20 @@ class TableGrantArgs:
         :param pulumi.Input[str] database_name: The name of the database containing the current or future tables on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
+        :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future tables on which to grant privileges.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on_future is unset).
-        :param pulumi.Input[str] table_name: The name of the table on which to grant privileges immediately (only valid if on_future is unset).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on*future or on*all is unset).
+        :param pulumi.Input[str] table_name: The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
         pulumi.set(__self__, "database_name", database_name)
         if enable_multiple_grants is not None:
             pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
+        if on_all is not None:
+            pulumi.set(__self__, "on_all", on_all)
         if on_future is not None:
             pulumi.set(__self__, "on_future", on_future)
         if privilege is not None:
@@ -80,6 +84,18 @@ class TableGrantArgs:
         pulumi.set(self, "enable_multiple_grants", value)
 
     @property
+    @pulumi.getter(name="onAll")
+    def on_all(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.
+        """
+        return pulumi.get(self, "on_all")
+
+    @on_all.setter
+    def on_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "on_all", value)
+
+    @property
     @pulumi.getter(name="onFuture")
     def on_future(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -131,7 +147,7 @@ class TableGrantArgs:
     @pulumi.getter
     def shares(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Grants privilege to these shares (only valid if on_future is unset).
+        Grants privilege to these shares (only valid if on*future or on*all is unset).
         """
         return pulumi.get(self, "shares")
 
@@ -143,7 +159,7 @@ class TableGrantArgs:
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the table on which to grant privileges immediately (only valid if on_future is unset).
+        The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).
         """
         return pulumi.get(self, "table_name")
 
@@ -169,6 +185,7 @@ class _TableGrantState:
     def __init__(__self__, *,
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
+                 on_all: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -181,18 +198,21 @@ class _TableGrantState:
         :param pulumi.Input[str] database_name: The name of the database containing the current or future tables on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
+        :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future tables on which to grant privileges.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on_future is unset).
-        :param pulumi.Input[str] table_name: The name of the table on which to grant privileges immediately (only valid if on_future is unset).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on*future or on*all is unset).
+        :param pulumi.Input[str] table_name: The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
         if enable_multiple_grants is not None:
             pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
+        if on_all is not None:
+            pulumi.set(__self__, "on_all", on_all)
         if on_future is not None:
             pulumi.set(__self__, "on_future", on_future)
         if privilege is not None:
@@ -234,6 +254,18 @@ class _TableGrantState:
         pulumi.set(self, "enable_multiple_grants", value)
 
     @property
+    @pulumi.getter(name="onAll")
+    def on_all(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.
+        """
+        return pulumi.get(self, "on_all")
+
+    @on_all.setter
+    def on_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "on_all", value)
+
+    @property
     @pulumi.getter(name="onFuture")
     def on_future(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -285,7 +317,7 @@ class _TableGrantState:
     @pulumi.getter
     def shares(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Grants privilege to these shares (only valid if on_future is unset).
+        Grants privilege to these shares (only valid if on*future or on*all is unset).
         """
         return pulumi.get(self, "shares")
 
@@ -297,7 +329,7 @@ class _TableGrantState:
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the table on which to grant privileges immediately (only valid if on_future is unset).
+        The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).
         """
         return pulumi.get(self, "table_name")
 
@@ -325,6 +357,7 @@ class TableGrant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
+                 on_all: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -364,12 +397,13 @@ class TableGrant(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: The name of the database containing the current or future tables on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
+        :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future tables on which to grant privileges.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on_future is unset).
-        :param pulumi.Input[str] table_name: The name of the table on which to grant privileges immediately (only valid if on_future is unset).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on*future or on*all is unset).
+        :param pulumi.Input[str] table_name: The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
         ...
@@ -421,6 +455,7 @@ class TableGrant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
+                 on_all: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -441,6 +476,7 @@ class TableGrant(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["enable_multiple_grants"] = enable_multiple_grants
+            __props__.__dict__["on_all"] = on_all
             __props__.__dict__["on_future"] = on_future
             __props__.__dict__["privilege"] = privilege
             __props__.__dict__["roles"] = roles
@@ -460,6 +496,7 @@ class TableGrant(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             database_name: Optional[pulumi.Input[str]] = None,
             enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
+            on_all: Optional[pulumi.Input[bool]] = None,
             on_future: Optional[pulumi.Input[bool]] = None,
             privilege: Optional[pulumi.Input[str]] = None,
             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -477,12 +514,13 @@ class TableGrant(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: The name of the database containing the current or future tables on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
+        :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future tables on which to grant privileges.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on_future is unset).
-        :param pulumi.Input[str] table_name: The name of the table on which to grant privileges immediately (only valid if on_future is unset).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on*future or on*all is unset).
+        :param pulumi.Input[str] table_name: The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -491,6 +529,7 @@ class TableGrant(pulumi.CustomResource):
 
         __props__.__dict__["database_name"] = database_name
         __props__.__dict__["enable_multiple_grants"] = enable_multiple_grants
+        __props__.__dict__["on_all"] = on_all
         __props__.__dict__["on_future"] = on_future
         __props__.__dict__["privilege"] = privilege
         __props__.__dict__["roles"] = roles
@@ -516,6 +555,14 @@ class TableGrant(pulumi.CustomResource):
         grants applied to roles and objects outside Terraform.
         """
         return pulumi.get(self, "enable_multiple_grants")
+
+    @property
+    @pulumi.getter(name="onAll")
+    def on_all(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.
+        """
+        return pulumi.get(self, "on_all")
 
     @property
     @pulumi.getter(name="onFuture")
@@ -553,7 +600,7 @@ class TableGrant(pulumi.CustomResource):
     @pulumi.getter
     def shares(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Grants privilege to these shares (only valid if on_future is unset).
+        Grants privilege to these shares (only valid if on*future or on*all is unset).
         """
         return pulumi.get(self, "shares")
 
@@ -561,7 +608,7 @@ class TableGrant(pulumi.CustomResource):
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the table on which to grant privileges immediately (only valid if on_future is unset).
+        The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).
         """
         return pulumi.get(self, "table_name")
 

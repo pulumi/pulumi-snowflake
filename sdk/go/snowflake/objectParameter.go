@@ -91,8 +91,9 @@ import (
 //				return err
 //			}
 //			_, err = snowflake.NewObjectParameter(ctx, "o4", &snowflake.ObjectParameterArgs{
-//				Key:   pulumi.String("DATA_RETENTION_TIME_IN_DAYS"),
-//				Value: pulumi.String("89"),
+//				Key:       pulumi.String("DATA_RETENTION_TIME_IN_DAYS"),
+//				Value:     pulumi.String("89"),
+//				OnAccount: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -119,6 +120,8 @@ type ObjectParameter struct {
 	ObjectIdentifiers ObjectParameterObjectIdentifierArrayOutput `pulumi:"objectIdentifiers"`
 	// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
 	ObjectType pulumi.StringPtrOutput `pulumi:"objectType"`
+	// If true, the object parameter will be set on the account level.
+	OnAccount pulumi.BoolPtrOutput `pulumi:"onAccount"`
 	// Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
 	Value pulumi.StringOutput `pulumi:"value"`
 }
@@ -164,6 +167,8 @@ type objectParameterState struct {
 	ObjectIdentifiers []ObjectParameterObjectIdentifier `pulumi:"objectIdentifiers"`
 	// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
 	ObjectType *string `pulumi:"objectType"`
+	// If true, the object parameter will be set on the account level.
+	OnAccount *bool `pulumi:"onAccount"`
 	// Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
 	Value *string `pulumi:"value"`
 }
@@ -175,6 +180,8 @@ type ObjectParameterState struct {
 	ObjectIdentifiers ObjectParameterObjectIdentifierArrayInput
 	// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
 	ObjectType pulumi.StringPtrInput
+	// If true, the object parameter will be set on the account level.
+	OnAccount pulumi.BoolPtrInput
 	// Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
 	Value pulumi.StringPtrInput
 }
@@ -190,6 +197,8 @@ type objectParameterArgs struct {
 	ObjectIdentifiers []ObjectParameterObjectIdentifier `pulumi:"objectIdentifiers"`
 	// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
 	ObjectType *string `pulumi:"objectType"`
+	// If true, the object parameter will be set on the account level.
+	OnAccount *bool `pulumi:"onAccount"`
 	// Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
 	Value string `pulumi:"value"`
 }
@@ -202,6 +211,8 @@ type ObjectParameterArgs struct {
 	ObjectIdentifiers ObjectParameterObjectIdentifierArrayInput
 	// Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
 	ObjectType pulumi.StringPtrInput
+	// If true, the object parameter will be set on the account level.
+	OnAccount pulumi.BoolPtrInput
 	// Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
 	Value pulumi.StringInput
 }
@@ -306,6 +317,11 @@ func (o ObjectParameterOutput) ObjectIdentifiers() ObjectParameterObjectIdentifi
 // Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
 func (o ObjectParameterOutput) ObjectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ObjectParameter) pulumi.StringPtrOutput { return v.ObjectType }).(pulumi.StringPtrOutput)
+}
+
+// If true, the object parameter will be set on the account level.
+func (o ObjectParameterOutput) OnAccount() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ObjectParameter) pulumi.BoolPtrOutput { return v.OnAccount }).(pulumi.BoolPtrOutput)
 }
 
 // Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.

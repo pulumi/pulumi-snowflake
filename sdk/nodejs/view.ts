@@ -64,6 +64,10 @@ export class View extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
+     * Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+     */
+    public readonly copyGrants!: pulumi.Output<boolean | undefined>;
+    /**
      * The database in which to create the view. Don't use the | character.
      */
     public readonly database!: pulumi.Output<string>;
@@ -108,6 +112,7 @@ export class View extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ViewState | undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["copyGrants"] = state ? state.copyGrants : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["isSecure"] = state ? state.isSecure : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -127,6 +132,7 @@ export class View extends pulumi.CustomResource {
                 throw new Error("Missing required property 'statement'");
             }
             resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["copyGrants"] = args ? args.copyGrants : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["isSecure"] = args ? args.isSecure : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -148,6 +154,10 @@ export interface ViewState {
      * Specifies a comment for the view.
      */
     comment?: pulumi.Input<string>;
+    /**
+     * Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+     */
+    copyGrants?: pulumi.Input<boolean>;
     /**
      * The database in which to create the view. Don't use the | character.
      */
@@ -188,6 +198,10 @@ export interface ViewArgs {
      * Specifies a comment for the view.
      */
     comment?: pulumi.Input<string>;
+    /**
+     * Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+     */
+    copyGrants?: pulumi.Input<boolean>;
     /**
      * The database in which to create the view. Don't use the | character.
      */

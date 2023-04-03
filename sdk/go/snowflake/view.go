@@ -56,6 +56,8 @@ type View struct {
 
 	// Specifies a comment for the view.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
+	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+	CopyGrants pulumi.BoolPtrOutput `pulumi:"copyGrants"`
 	// The database in which to create the view. Don't use the | character.
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Specifies that the view is secure.
@@ -114,6 +116,8 @@ func GetView(ctx *pulumi.Context,
 type viewState struct {
 	// Specifies a comment for the view.
 	Comment *string `pulumi:"comment"`
+	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+	CopyGrants *bool `pulumi:"copyGrants"`
 	// The database in which to create the view. Don't use the | character.
 	Database *string `pulumi:"database"`
 	// Specifies that the view is secure.
@@ -135,6 +139,8 @@ type viewState struct {
 type ViewState struct {
 	// Specifies a comment for the view.
 	Comment pulumi.StringPtrInput
+	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+	CopyGrants pulumi.BoolPtrInput
 	// The database in which to create the view. Don't use the | character.
 	Database pulumi.StringPtrInput
 	// Specifies that the view is secure.
@@ -160,6 +166,8 @@ func (ViewState) ElementType() reflect.Type {
 type viewArgs struct {
 	// Specifies a comment for the view.
 	Comment *string `pulumi:"comment"`
+	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+	CopyGrants *bool `pulumi:"copyGrants"`
 	// The database in which to create the view. Don't use the | character.
 	Database string `pulumi:"database"`
 	// Specifies that the view is secure.
@@ -182,6 +190,8 @@ type viewArgs struct {
 type ViewArgs struct {
 	// Specifies a comment for the view.
 	Comment pulumi.StringPtrInput
+	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+	CopyGrants pulumi.BoolPtrInput
 	// The database in which to create the view. Don't use the | character.
 	Database pulumi.StringInput
 	// Specifies that the view is secure.
@@ -290,6 +300,11 @@ func (o ViewOutput) ToViewOutputWithContext(ctx context.Context) ViewOutput {
 // Specifies a comment for the view.
 func (o ViewOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+func (o ViewOutput) CopyGrants() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *View) pulumi.BoolPtrOutput { return v.CopyGrants }).(pulumi.BoolPtrOutput)
 }
 
 // The database in which to create the view. Don't use the | character.
