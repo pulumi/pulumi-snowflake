@@ -3097,15 +3097,22 @@
                 },
                 "email": {
                     "type": "string",
-                    "description": "Email address of the initial administrative user of the account. This email address is used to send any notifications about the account.\n"
+                    "description": "Email address of the initial administrative user of the account. This email address is used to send any notifications about the account.\n",
+                    "secret": true
                 },
                 "firstName": {
                     "type": "string",
-                    "description": "First name of the initial administrative user of the account\n"
+                    "description": "First name of the initial administrative user of the account\n",
+                    "secret": true
+                },
+                "isOrgAdmin": {
+                    "type": "boolean",
+                    "description": "Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.\n"
                 },
                 "lastName": {
                     "type": "string",
-                    "description": "Last name of the initial administrative user of the account\n"
+                    "description": "Last name of the initial administrative user of the account\n",
+                    "secret": true
                 },
                 "mustChangePassword": {
                     "type": "boolean",
@@ -3128,6 +3135,7 @@
                 "adminName",
                 "edition",
                 "email",
+                "isOrgAdmin",
                 "name"
             ],
             "inputProperties": {
@@ -3161,16 +3169,19 @@
                 "email": {
                     "type": "string",
                     "description": "Email address of the initial administrative user of the account. This email address is used to send any notifications about the account.\n",
+                    "secret": true,
                     "willReplaceOnChanges": true
                 },
                 "firstName": {
                     "type": "string",
                     "description": "First name of the initial administrative user of the account\n",
+                    "secret": true,
                     "willReplaceOnChanges": true
                 },
                 "lastName": {
                     "type": "string",
                     "description": "Last name of the initial administrative user of the account\n",
+                    "secret": true,
                     "willReplaceOnChanges": true
                 },
                 "mustChangePassword": {
@@ -3231,16 +3242,23 @@
                     "email": {
                         "type": "string",
                         "description": "Email address of the initial administrative user of the account. This email address is used to send any notifications about the account.\n",
+                        "secret": true,
                         "willReplaceOnChanges": true
                     },
                     "firstName": {
                         "type": "string",
                         "description": "First name of the initial administrative user of the account\n",
+                        "secret": true,
                         "willReplaceOnChanges": true
+                    },
+                    "isOrgAdmin": {
+                        "type": "boolean",
+                        "description": "Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.\n"
                     },
                     "lastName": {
                         "type": "string",
                         "description": "Last name of the initial administrative user of the account\n",
+                        "secret": true,
                         "willReplaceOnChanges": true
                     },
                     "mustChangePassword": {
@@ -7450,7 +7468,7 @@
             }
         },
         "snowflake:index/objectParameter:ObjectParameter": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst database = new snowflake.Database(\"database\", {});\nconst objectParameter = new snowflake.ObjectParameter(\"objectParameter\", {\n    key: \"SUSPEND_TASK_AFTER_NUM_FAILURES\",\n    value: \"33\",\n    objectType: \"DATABASE\",\n    objectIdentifiers: [{\n        name: database.name,\n    }],\n});\nconst schema = new snowflake.Schema(\"schema\", {database: database.name});\nconst o2 = new snowflake.ObjectParameter(\"o2\", {\n    key: \"USER_TASK_TIMEOUT_MS\",\n    value: \"500\",\n    objectType: \"SCHEMA\",\n    objectIdentifiers: [{\n        database: database.name,\n        name: schema.name,\n    }],\n});\nconst table = new snowflake.Table(\"table\", {\n    database: database.name,\n    schema: schema.name,\n    columns: [{\n        name: \"id\",\n        type: \"NUMBER\",\n    }],\n});\nconst o3 = new snowflake.ObjectParameter(\"o3\", {\n    key: \"DATA_RETENTION_TIME_IN_DAYS\",\n    value: \"89\",\n    objectType: \"TABLE\",\n    objectIdentifiers: [{\n        database: database.name,\n        schema: schema.name,\n        name: table.name,\n    }],\n});\n// Setting object parameter at account level\nconst o4 = new snowflake.ObjectParameter(\"o4\", {\n    key: \"DATA_RETENTION_TIME_IN_DAYS\",\n    value: \"89\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ndatabase = snowflake.Database(\"database\")\nobject_parameter = snowflake.ObjectParameter(\"objectParameter\",\n    key=\"SUSPEND_TASK_AFTER_NUM_FAILURES\",\n    value=\"33\",\n    object_type=\"DATABASE\",\n    object_identifiers=[snowflake.ObjectParameterObjectIdentifierArgs(\n        name=database.name,\n    )])\nschema = snowflake.Schema(\"schema\", database=database.name)\no2 = snowflake.ObjectParameter(\"o2\",\n    key=\"USER_TASK_TIMEOUT_MS\",\n    value=\"500\",\n    object_type=\"SCHEMA\",\n    object_identifiers=[snowflake.ObjectParameterObjectIdentifierArgs(\n        database=database.name,\n        name=schema.name,\n    )])\ntable = snowflake.Table(\"table\",\n    database=database.name,\n    schema=schema.name,\n    columns=[snowflake.TableColumnArgs(\n        name=\"id\",\n        type=\"NUMBER\",\n    )])\no3 = snowflake.ObjectParameter(\"o3\",\n    key=\"DATA_RETENTION_TIME_IN_DAYS\",\n    value=\"89\",\n    object_type=\"TABLE\",\n    object_identifiers=[snowflake.ObjectParameterObjectIdentifierArgs(\n        database=database.name,\n        schema=schema.name,\n        name=table.name,\n    )])\n# Setting object parameter at account level\no4 = snowflake.ObjectParameter(\"o4\",\n    key=\"DATA_RETENTION_TIME_IN_DAYS\",\n    value=\"89\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var database = new Snowflake.Database(\"database\");\n\n    var objectParameter = new Snowflake.ObjectParameter(\"objectParameter\", new()\n    {\n        Key = \"SUSPEND_TASK_AFTER_NUM_FAILURES\",\n        Value = \"33\",\n        ObjectType = \"DATABASE\",\n        ObjectIdentifiers = new[]\n        {\n            new Snowflake.Inputs.ObjectParameterObjectIdentifierArgs\n            {\n                Name = database.Name,\n            },\n        },\n    });\n\n    var schema = new Snowflake.Schema(\"schema\", new()\n    {\n        Database = database.Name,\n    });\n\n    var o2 = new Snowflake.ObjectParameter(\"o2\", new()\n    {\n        Key = \"USER_TASK_TIMEOUT_MS\",\n        Value = \"500\",\n        ObjectType = \"SCHEMA\",\n        ObjectIdentifiers = new[]\n        {\n            new Snowflake.Inputs.ObjectParameterObjectIdentifierArgs\n            {\n                Database = database.Name,\n                Name = schema.Name,\n            },\n        },\n    });\n\n    var table = new Snowflake.Table(\"table\", new()\n    {\n        Database = database.Name,\n        Schema = schema.Name,\n        Columns = new[]\n        {\n            new Snowflake.Inputs.TableColumnArgs\n            {\n                Name = \"id\",\n                Type = \"NUMBER\",\n            },\n        },\n    });\n\n    var o3 = new Snowflake.ObjectParameter(\"o3\", new()\n    {\n        Key = \"DATA_RETENTION_TIME_IN_DAYS\",\n        Value = \"89\",\n        ObjectType = \"TABLE\",\n        ObjectIdentifiers = new[]\n        {\n            new Snowflake.Inputs.ObjectParameterObjectIdentifierArgs\n            {\n                Database = database.Name,\n                Schema = schema.Name,\n                Name = table.Name,\n            },\n        },\n    });\n\n    // Setting object parameter at account level\n    var o4 = new Snowflake.ObjectParameter(\"o4\", new()\n    {\n        Key = \"DATA_RETENTION_TIME_IN_DAYS\",\n        Value = \"89\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdatabase, err := snowflake.NewDatabase(ctx, \"database\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewObjectParameter(ctx, \"objectParameter\", \u0026snowflake.ObjectParameterArgs{\n\t\t\tKey:        pulumi.String(\"SUSPEND_TASK_AFTER_NUM_FAILURES\"),\n\t\t\tValue:      pulumi.String(\"33\"),\n\t\t\tObjectType: pulumi.String(\"DATABASE\"),\n\t\t\tObjectIdentifiers: snowflake.ObjectParameterObjectIdentifierArray{\n\t\t\t\t\u0026snowflake.ObjectParameterObjectIdentifierArgs{\n\t\t\t\t\tName: database.Name,\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tschema, err := snowflake.NewSchema(ctx, \"schema\", \u0026snowflake.SchemaArgs{\n\t\t\tDatabase: database.Name,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewObjectParameter(ctx, \"o2\", \u0026snowflake.ObjectParameterArgs{\n\t\t\tKey:        pulumi.String(\"USER_TASK_TIMEOUT_MS\"),\n\t\t\tValue:      pulumi.String(\"500\"),\n\t\t\tObjectType: pulumi.String(\"SCHEMA\"),\n\t\t\tObjectIdentifiers: snowflake.ObjectParameterObjectIdentifierArray{\n\t\t\t\t\u0026snowflake.ObjectParameterObjectIdentifierArgs{\n\t\t\t\t\tDatabase: database.Name,\n\t\t\t\t\tName:     schema.Name,\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttable, err := snowflake.NewTable(ctx, \"table\", \u0026snowflake.TableArgs{\n\t\t\tDatabase: database.Name,\n\t\t\tSchema:   schema.Name,\n\t\t\tColumns: snowflake.TableColumnArray{\n\t\t\t\t\u0026snowflake.TableColumnArgs{\n\t\t\t\t\tName: pulumi.String(\"id\"),\n\t\t\t\t\tType: pulumi.String(\"NUMBER\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewObjectParameter(ctx, \"o3\", \u0026snowflake.ObjectParameterArgs{\n\t\t\tKey:        pulumi.String(\"DATA_RETENTION_TIME_IN_DAYS\"),\n\t\t\tValue:      pulumi.String(\"89\"),\n\t\t\tObjectType: pulumi.String(\"TABLE\"),\n\t\t\tObjectIdentifiers: snowflake.ObjectParameterObjectIdentifierArray{\n\t\t\t\t\u0026snowflake.ObjectParameterObjectIdentifierArgs{\n\t\t\t\t\tDatabase: database.Name,\n\t\t\t\t\tSchema:   schema.Name,\n\t\t\t\t\tName:     table.Name,\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewObjectParameter(ctx, \"o4\", \u0026snowflake.ObjectParameterArgs{\n\t\t\tKey:   pulumi.String(\"DATA_RETENTION_TIME_IN_DAYS\"),\n\t\t\tValue: pulumi.String(\"89\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Database;\nimport com.pulumi.snowflake.ObjectParameter;\nimport com.pulumi.snowflake.ObjectParameterArgs;\nimport com.pulumi.snowflake.inputs.ObjectParameterObjectIdentifierArgs;\nimport com.pulumi.snowflake.Schema;\nimport com.pulumi.snowflake.SchemaArgs;\nimport com.pulumi.snowflake.Table;\nimport com.pulumi.snowflake.TableArgs;\nimport com.pulumi.snowflake.inputs.TableColumnArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var database = new Database(\"database\");\n\n        var objectParameter = new ObjectParameter(\"objectParameter\", ObjectParameterArgs.builder()        \n            .key(\"SUSPEND_TASK_AFTER_NUM_FAILURES\")\n            .value(\"33\")\n            .objectType(\"DATABASE\")\n            .objectIdentifiers(ObjectParameterObjectIdentifierArgs.builder()\n                .name(database.name())\n                .build())\n            .build());\n\n        var schema = new Schema(\"schema\", SchemaArgs.builder()        \n            .database(database.name())\n            .build());\n\n        var o2 = new ObjectParameter(\"o2\", ObjectParameterArgs.builder()        \n            .key(\"USER_TASK_TIMEOUT_MS\")\n            .value(\"500\")\n            .objectType(\"SCHEMA\")\n            .objectIdentifiers(ObjectParameterObjectIdentifierArgs.builder()\n                .database(database.name())\n                .name(schema.name())\n                .build())\n            .build());\n\n        var table = new Table(\"table\", TableArgs.builder()        \n            .database(database.name())\n            .schema(schema.name())\n            .columns(TableColumnArgs.builder()\n                .name(\"id\")\n                .type(\"NUMBER\")\n                .build())\n            .build());\n\n        var o3 = new ObjectParameter(\"o3\", ObjectParameterArgs.builder()        \n            .key(\"DATA_RETENTION_TIME_IN_DAYS\")\n            .value(\"89\")\n            .objectType(\"TABLE\")\n            .objectIdentifiers(ObjectParameterObjectIdentifierArgs.builder()\n                .database(database.name())\n                .schema(schema.name())\n                .name(table.name())\n                .build())\n            .build());\n\n        var o4 = new ObjectParameter(\"o4\", ObjectParameterArgs.builder()        \n            .key(\"DATA_RETENTION_TIME_IN_DAYS\")\n            .value(\"89\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  database:\n    type: snowflake:Database\n  objectParameter:\n    type: snowflake:ObjectParameter\n    properties:\n      key: SUSPEND_TASK_AFTER_NUM_FAILURES\n      value: '33'\n      objectType: DATABASE\n      objectIdentifiers:\n        - name: ${database.name}\n  schema:\n    type: snowflake:Schema\n    properties:\n      database: ${database.name}\n  o2:\n    type: snowflake:ObjectParameter\n    properties:\n      key: USER_TASK_TIMEOUT_MS\n      value: '500'\n      objectType: SCHEMA\n      objectIdentifiers:\n        - database: ${database.name}\n          name: ${schema.name}\n  table:\n    type: snowflake:Table\n    properties:\n      database: ${database.name}\n      schema: ${schema.name}\n      columns:\n        - name: id\n          type: NUMBER\n  o3:\n    type: snowflake:ObjectParameter\n    properties:\n      key: DATA_RETENTION_TIME_IN_DAYS\n      value: '89'\n      objectType: TABLE\n      objectIdentifiers:\n        - database: ${database.name}\n          schema: ${schema.name}\n          name: ${table.name}\n  # Setting object parameter at account level\n  o4:\n    type: snowflake:ObjectParameter\n    properties:\n      key: DATA_RETENTION_TIME_IN_DAYS\n      value: '89'\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/objectParameter:ObjectParameter s \u003ckey\u003e❄️\u003cobject_type\u003e❄️\u003cobject_identifier\u003e\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst database = new snowflake.Database(\"database\", {});\nconst objectParameter = new snowflake.ObjectParameter(\"objectParameter\", {\n    key: \"SUSPEND_TASK_AFTER_NUM_FAILURES\",\n    value: \"33\",\n    objectType: \"DATABASE\",\n    objectIdentifiers: [{\n        name: database.name,\n    }],\n});\nconst schema = new snowflake.Schema(\"schema\", {database: database.name});\nconst o2 = new snowflake.ObjectParameter(\"o2\", {\n    key: \"USER_TASK_TIMEOUT_MS\",\n    value: \"500\",\n    objectType: \"SCHEMA\",\n    objectIdentifiers: [{\n        database: database.name,\n        name: schema.name,\n    }],\n});\nconst table = new snowflake.Table(\"table\", {\n    database: database.name,\n    schema: schema.name,\n    columns: [{\n        name: \"id\",\n        type: \"NUMBER\",\n    }],\n});\nconst o3 = new snowflake.ObjectParameter(\"o3\", {\n    key: \"DATA_RETENTION_TIME_IN_DAYS\",\n    value: \"89\",\n    objectType: \"TABLE\",\n    objectIdentifiers: [{\n        database: database.name,\n        schema: schema.name,\n        name: table.name,\n    }],\n});\n// Setting object parameter at account level\nconst o4 = new snowflake.ObjectParameter(\"o4\", {\n    key: \"DATA_RETENTION_TIME_IN_DAYS\",\n    value: \"89\",\n    onAccount: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ndatabase = snowflake.Database(\"database\")\nobject_parameter = snowflake.ObjectParameter(\"objectParameter\",\n    key=\"SUSPEND_TASK_AFTER_NUM_FAILURES\",\n    value=\"33\",\n    object_type=\"DATABASE\",\n    object_identifiers=[snowflake.ObjectParameterObjectIdentifierArgs(\n        name=database.name,\n    )])\nschema = snowflake.Schema(\"schema\", database=database.name)\no2 = snowflake.ObjectParameter(\"o2\",\n    key=\"USER_TASK_TIMEOUT_MS\",\n    value=\"500\",\n    object_type=\"SCHEMA\",\n    object_identifiers=[snowflake.ObjectParameterObjectIdentifierArgs(\n        database=database.name,\n        name=schema.name,\n    )])\ntable = snowflake.Table(\"table\",\n    database=database.name,\n    schema=schema.name,\n    columns=[snowflake.TableColumnArgs(\n        name=\"id\",\n        type=\"NUMBER\",\n    )])\no3 = snowflake.ObjectParameter(\"o3\",\n    key=\"DATA_RETENTION_TIME_IN_DAYS\",\n    value=\"89\",\n    object_type=\"TABLE\",\n    object_identifiers=[snowflake.ObjectParameterObjectIdentifierArgs(\n        database=database.name,\n        schema=schema.name,\n        name=table.name,\n    )])\n# Setting object parameter at account level\no4 = snowflake.ObjectParameter(\"o4\",\n    key=\"DATA_RETENTION_TIME_IN_DAYS\",\n    value=\"89\",\n    on_account=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var database = new Snowflake.Database(\"database\");\n\n    var objectParameter = new Snowflake.ObjectParameter(\"objectParameter\", new()\n    {\n        Key = \"SUSPEND_TASK_AFTER_NUM_FAILURES\",\n        Value = \"33\",\n        ObjectType = \"DATABASE\",\n        ObjectIdentifiers = new[]\n        {\n            new Snowflake.Inputs.ObjectParameterObjectIdentifierArgs\n            {\n                Name = database.Name,\n            },\n        },\n    });\n\n    var schema = new Snowflake.Schema(\"schema\", new()\n    {\n        Database = database.Name,\n    });\n\n    var o2 = new Snowflake.ObjectParameter(\"o2\", new()\n    {\n        Key = \"USER_TASK_TIMEOUT_MS\",\n        Value = \"500\",\n        ObjectType = \"SCHEMA\",\n        ObjectIdentifiers = new[]\n        {\n            new Snowflake.Inputs.ObjectParameterObjectIdentifierArgs\n            {\n                Database = database.Name,\n                Name = schema.Name,\n            },\n        },\n    });\n\n    var table = new Snowflake.Table(\"table\", new()\n    {\n        Database = database.Name,\n        Schema = schema.Name,\n        Columns = new[]\n        {\n            new Snowflake.Inputs.TableColumnArgs\n            {\n                Name = \"id\",\n                Type = \"NUMBER\",\n            },\n        },\n    });\n\n    var o3 = new Snowflake.ObjectParameter(\"o3\", new()\n    {\n        Key = \"DATA_RETENTION_TIME_IN_DAYS\",\n        Value = \"89\",\n        ObjectType = \"TABLE\",\n        ObjectIdentifiers = new[]\n        {\n            new Snowflake.Inputs.ObjectParameterObjectIdentifierArgs\n            {\n                Database = database.Name,\n                Schema = schema.Name,\n                Name = table.Name,\n            },\n        },\n    });\n\n    // Setting object parameter at account level\n    var o4 = new Snowflake.ObjectParameter(\"o4\", new()\n    {\n        Key = \"DATA_RETENTION_TIME_IN_DAYS\",\n        Value = \"89\",\n        OnAccount = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdatabase, err := snowflake.NewDatabase(ctx, \"database\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewObjectParameter(ctx, \"objectParameter\", \u0026snowflake.ObjectParameterArgs{\n\t\t\tKey:        pulumi.String(\"SUSPEND_TASK_AFTER_NUM_FAILURES\"),\n\t\t\tValue:      pulumi.String(\"33\"),\n\t\t\tObjectType: pulumi.String(\"DATABASE\"),\n\t\t\tObjectIdentifiers: snowflake.ObjectParameterObjectIdentifierArray{\n\t\t\t\t\u0026snowflake.ObjectParameterObjectIdentifierArgs{\n\t\t\t\t\tName: database.Name,\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tschema, err := snowflake.NewSchema(ctx, \"schema\", \u0026snowflake.SchemaArgs{\n\t\t\tDatabase: database.Name,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewObjectParameter(ctx, \"o2\", \u0026snowflake.ObjectParameterArgs{\n\t\t\tKey:        pulumi.String(\"USER_TASK_TIMEOUT_MS\"),\n\t\t\tValue:      pulumi.String(\"500\"),\n\t\t\tObjectType: pulumi.String(\"SCHEMA\"),\n\t\t\tObjectIdentifiers: snowflake.ObjectParameterObjectIdentifierArray{\n\t\t\t\t\u0026snowflake.ObjectParameterObjectIdentifierArgs{\n\t\t\t\t\tDatabase: database.Name,\n\t\t\t\t\tName:     schema.Name,\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttable, err := snowflake.NewTable(ctx, \"table\", \u0026snowflake.TableArgs{\n\t\t\tDatabase: database.Name,\n\t\t\tSchema:   schema.Name,\n\t\t\tColumns: snowflake.TableColumnArray{\n\t\t\t\t\u0026snowflake.TableColumnArgs{\n\t\t\t\t\tName: pulumi.String(\"id\"),\n\t\t\t\t\tType: pulumi.String(\"NUMBER\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewObjectParameter(ctx, \"o3\", \u0026snowflake.ObjectParameterArgs{\n\t\t\tKey:        pulumi.String(\"DATA_RETENTION_TIME_IN_DAYS\"),\n\t\t\tValue:      pulumi.String(\"89\"),\n\t\t\tObjectType: pulumi.String(\"TABLE\"),\n\t\t\tObjectIdentifiers: snowflake.ObjectParameterObjectIdentifierArray{\n\t\t\t\t\u0026snowflake.ObjectParameterObjectIdentifierArgs{\n\t\t\t\t\tDatabase: database.Name,\n\t\t\t\t\tSchema:   schema.Name,\n\t\t\t\t\tName:     table.Name,\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewObjectParameter(ctx, \"o4\", \u0026snowflake.ObjectParameterArgs{\n\t\t\tKey:       pulumi.String(\"DATA_RETENTION_TIME_IN_DAYS\"),\n\t\t\tValue:     pulumi.String(\"89\"),\n\t\t\tOnAccount: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Database;\nimport com.pulumi.snowflake.ObjectParameter;\nimport com.pulumi.snowflake.ObjectParameterArgs;\nimport com.pulumi.snowflake.inputs.ObjectParameterObjectIdentifierArgs;\nimport com.pulumi.snowflake.Schema;\nimport com.pulumi.snowflake.SchemaArgs;\nimport com.pulumi.snowflake.Table;\nimport com.pulumi.snowflake.TableArgs;\nimport com.pulumi.snowflake.inputs.TableColumnArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var database = new Database(\"database\");\n\n        var objectParameter = new ObjectParameter(\"objectParameter\", ObjectParameterArgs.builder()        \n            .key(\"SUSPEND_TASK_AFTER_NUM_FAILURES\")\n            .value(\"33\")\n            .objectType(\"DATABASE\")\n            .objectIdentifiers(ObjectParameterObjectIdentifierArgs.builder()\n                .name(database.name())\n                .build())\n            .build());\n\n        var schema = new Schema(\"schema\", SchemaArgs.builder()        \n            .database(database.name())\n            .build());\n\n        var o2 = new ObjectParameter(\"o2\", ObjectParameterArgs.builder()        \n            .key(\"USER_TASK_TIMEOUT_MS\")\n            .value(\"500\")\n            .objectType(\"SCHEMA\")\n            .objectIdentifiers(ObjectParameterObjectIdentifierArgs.builder()\n                .database(database.name())\n                .name(schema.name())\n                .build())\n            .build());\n\n        var table = new Table(\"table\", TableArgs.builder()        \n            .database(database.name())\n            .schema(schema.name())\n            .columns(TableColumnArgs.builder()\n                .name(\"id\")\n                .type(\"NUMBER\")\n                .build())\n            .build());\n\n        var o3 = new ObjectParameter(\"o3\", ObjectParameterArgs.builder()        \n            .key(\"DATA_RETENTION_TIME_IN_DAYS\")\n            .value(\"89\")\n            .objectType(\"TABLE\")\n            .objectIdentifiers(ObjectParameterObjectIdentifierArgs.builder()\n                .database(database.name())\n                .schema(schema.name())\n                .name(table.name())\n                .build())\n            .build());\n\n        var o4 = new ObjectParameter(\"o4\", ObjectParameterArgs.builder()        \n            .key(\"DATA_RETENTION_TIME_IN_DAYS\")\n            .value(\"89\")\n            .onAccount(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  database:\n    type: snowflake:Database\n  objectParameter:\n    type: snowflake:ObjectParameter\n    properties:\n      key: SUSPEND_TASK_AFTER_NUM_FAILURES\n      value: '33'\n      objectType: DATABASE\n      objectIdentifiers:\n        - name: ${database.name}\n  schema:\n    type: snowflake:Schema\n    properties:\n      database: ${database.name}\n  o2:\n    type: snowflake:ObjectParameter\n    properties:\n      key: USER_TASK_TIMEOUT_MS\n      value: '500'\n      objectType: SCHEMA\n      objectIdentifiers:\n        - database: ${database.name}\n          name: ${schema.name}\n  table:\n    type: snowflake:Table\n    properties:\n      database: ${database.name}\n      schema: ${schema.name}\n      columns:\n        - name: id\n          type: NUMBER\n  o3:\n    type: snowflake:ObjectParameter\n    properties:\n      key: DATA_RETENTION_TIME_IN_DAYS\n      value: '89'\n      objectType: TABLE\n      objectIdentifiers:\n        - database: ${database.name}\n          schema: ${schema.name}\n          name: ${table.name}\n  # Setting object parameter at account level\n  o4:\n    type: snowflake:ObjectParameter\n    properties:\n      key: DATA_RETENTION_TIME_IN_DAYS\n      value: '89'\n      onAccount: true\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/objectParameter:ObjectParameter s \u003ckey\u003e❄️\u003cobject_type\u003e❄️\u003cobject_identifier\u003e\n```\n\n ",
             "properties": {
                 "key": {
                     "type": "string",
@@ -7466,6 +7484,10 @@
                 "objectType": {
                     "type": "string",
                     "description": "Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.\n"
+                },
+                "onAccount": {
+                    "type": "boolean",
+                    "description": "If true, the object parameter will be set on the account level.\n"
                 },
                 "value": {
                     "type": "string",
@@ -7493,6 +7515,10 @@
                     "type": "string",
                     "description": "Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.\n",
                     "willReplaceOnChanges": true
+                },
+                "onAccount": {
+                    "type": "boolean",
+                    "description": "If true, the object parameter will be set on the account level.\n"
                 },
                 "value": {
                     "type": "string",
@@ -7522,6 +7548,10 @@
                         "type": "string",
                         "description": "Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "onAccount": {
+                        "type": "boolean",
+                        "description": "If true, the object parameter will be set on the account level.\n"
                     },
                     "value": {
                         "type": "string",
@@ -9925,11 +9955,19 @@
             }
         },
         "snowflake:index/sessionParameter:SessionParameter": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst sessionParameter = new snowflake.SessionParameter(\"sessionParameter\", {\n    key: \"AUTOCOMMIT\",\n    value: \"false\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nsession_parameter = snowflake.SessionParameter(\"sessionParameter\",\n    key=\"AUTOCOMMIT\",\n    value=\"false\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var sessionParameter = new Snowflake.SessionParameter(\"sessionParameter\", new()\n    {\n        Key = \"AUTOCOMMIT\",\n        Value = \"false\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewSessionParameter(ctx, \"sessionParameter\", \u0026snowflake.SessionParameterArgs{\n\t\t\tKey:   pulumi.String(\"AUTOCOMMIT\"),\n\t\t\tValue: pulumi.String(\"false\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SessionParameter;\nimport com.pulumi.snowflake.SessionParameterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var sessionParameter = new SessionParameter(\"sessionParameter\", SessionParameterArgs.builder()        \n            .key(\"AUTOCOMMIT\")\n            .value(\"false\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  sessionParameter:\n    type: snowflake:SessionParameter\n    properties:\n      key: AUTOCOMMIT\n      value: 'false'\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/sessionParameter:SessionParameter s \u003cparameter_name\u003e\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst sessionParameter = new snowflake.SessionParameter(\"sessionParameter\", {\n    key: \"AUTOCOMMIT\",\n    user: \"TEST_USER\",\n    value: \"false\",\n});\nconst s2 = new snowflake.SessionParameter(\"s2\", {\n    key: \"BINARY_OUTPUT_FORMAT\",\n    onAccount: true,\n    value: \"BASE64\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nsession_parameter = snowflake.SessionParameter(\"sessionParameter\",\n    key=\"AUTOCOMMIT\",\n    user=\"TEST_USER\",\n    value=\"false\")\ns2 = snowflake.SessionParameter(\"s2\",\n    key=\"BINARY_OUTPUT_FORMAT\",\n    on_account=True,\n    value=\"BASE64\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var sessionParameter = new Snowflake.SessionParameter(\"sessionParameter\", new()\n    {\n        Key = \"AUTOCOMMIT\",\n        User = \"TEST_USER\",\n        Value = \"false\",\n    });\n\n    var s2 = new Snowflake.SessionParameter(\"s2\", new()\n    {\n        Key = \"BINARY_OUTPUT_FORMAT\",\n        OnAccount = true,\n        Value = \"BASE64\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewSessionParameter(ctx, \"sessionParameter\", \u0026snowflake.SessionParameterArgs{\n\t\t\tKey:   pulumi.String(\"AUTOCOMMIT\"),\n\t\t\tUser:  pulumi.String(\"TEST_USER\"),\n\t\t\tValue: pulumi.String(\"false\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewSessionParameter(ctx, \"s2\", \u0026snowflake.SessionParameterArgs{\n\t\t\tKey:       pulumi.String(\"BINARY_OUTPUT_FORMAT\"),\n\t\t\tOnAccount: pulumi.Bool(true),\n\t\t\tValue:     pulumi.String(\"BASE64\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SessionParameter;\nimport com.pulumi.snowflake.SessionParameterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var sessionParameter = new SessionParameter(\"sessionParameter\", SessionParameterArgs.builder()        \n            .key(\"AUTOCOMMIT\")\n            .user(\"TEST_USER\")\n            .value(\"false\")\n            .build());\n\n        var s2 = new SessionParameter(\"s2\", SessionParameterArgs.builder()        \n            .key(\"BINARY_OUTPUT_FORMAT\")\n            .onAccount(true)\n            .value(\"BASE64\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  sessionParameter:\n    type: snowflake:SessionParameter\n    properties:\n      key: AUTOCOMMIT\n      user: TEST_USER\n      value: 'false'\n  s2:\n    type: snowflake:SessionParameter\n    properties:\n      key: BINARY_OUTPUT_FORMAT\n      onAccount: true\n      value: BASE64\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/sessionParameter:SessionParameter s \u003cparameter_name\u003e\n```\n\n ",
             "properties": {
                 "key": {
                     "type": "string",
                     "description": "Name of session parameter. Valid values are those in [session parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#session-parameters).\n"
+                },
+                "onAccount": {
+                    "type": "boolean",
+                    "description": "If true, the session parameter will be set on the account level.\n"
+                },
+                "user": {
+                    "type": "string",
+                    "description": "The user to set the session parameter for. Required if on_account is false\n"
                 },
                 "value": {
                     "type": "string",
@@ -9945,6 +9983,14 @@
                     "type": "string",
                     "description": "Name of session parameter. Valid values are those in [session parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#session-parameters).\n",
                     "willReplaceOnChanges": true
+                },
+                "onAccount": {
+                    "type": "boolean",
+                    "description": "If true, the session parameter will be set on the account level.\n"
+                },
+                "user": {
+                    "type": "string",
+                    "description": "The user to set the session parameter for. Required if on_account is false\n"
                 },
                 "value": {
                     "type": "string",
@@ -9962,6 +10008,14 @@
                         "type": "string",
                         "description": "Name of session parameter. Valid values are those in [session parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#session-parameters).\n",
                         "willReplaceOnChanges": true
+                    },
+                    "onAccount": {
+                        "type": "boolean",
+                        "description": "If true, the session parameter will be set on the account level.\n"
+                    },
+                    "user": {
+                        "type": "string",
+                        "description": "The user to set the session parameter for. Required if on_account is false\n"
                     },
                     "value": {
                         "type": "string",
@@ -11292,6 +11346,10 @@
                     "type": "boolean",
                     "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
+                "onAll": {
+                    "type": "boolean",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.\n"
+                },
                 "onFuture": {
                     "type": "boolean",
                     "description": "When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.\n"
@@ -11316,11 +11374,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Grants privilege to these shares (only valid if on_future is unset).\n"
+                    "description": "Grants privilege to these shares (only valid if on*future or on*all is unset).\n"
                 },
                 "tableName": {
                     "type": "string",
-                    "description": "The name of the table on which to grant privileges immediately (only valid if on_future is unset).\n"
+                    "description": "The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).\n"
                 },
                 "withGrantOption": {
                     "type": "boolean",
@@ -11339,6 +11397,11 @@
                 "enableMultipleGrants": {
                     "type": "boolean",
                     "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
+                "onAll": {
+                    "type": "boolean",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.\n",
+                    "willReplaceOnChanges": true
                 },
                 "onFuture": {
                     "type": "boolean",
@@ -11367,11 +11430,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Grants privilege to these shares (only valid if on_future is unset).\n"
+                    "description": "Grants privilege to these shares (only valid if on*future or on*all is unset).\n"
                 },
                 "tableName": {
                     "type": "string",
-                    "description": "The name of the table on which to grant privileges immediately (only valid if on_future is unset).\n",
+                    "description": "The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).\n",
                     "willReplaceOnChanges": true
                 },
                 "withGrantOption": {
@@ -11394,6 +11457,11 @@
                     "enableMultipleGrants": {
                         "type": "boolean",
                         "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                    },
+                    "onAll": {
+                        "type": "boolean",
+                        "description": "When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.\n",
+                        "willReplaceOnChanges": true
                     },
                     "onFuture": {
                         "type": "boolean",
@@ -11422,11 +11490,11 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Grants privilege to these shares (only valid if on_future is unset).\n"
+                        "description": "Grants privilege to these shares (only valid if on*future or on*all is unset).\n"
                     },
                     "tableName": {
                         "type": "string",
-                        "description": "The name of the table on which to grant privileges immediately (only valid if on_future is unset).\n",
+                        "description": "The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).\n",
                         "willReplaceOnChanges": true
                     },
                     "withGrantOption": {
@@ -12227,15 +12295,18 @@
                 },
                 "displayName": {
                     "type": "string",
-                    "description": "Name displayed for the user in the Snowflake web interface.\n"
+                    "description": "Name displayed for the user in the Snowflake web interface.\n",
+                    "secret": true
                 },
                 "email": {
                     "type": "string",
-                    "description": "Email address for the user.\n"
+                    "description": "Email address for the user.\n",
+                    "secret": true
                 },
                 "firstName": {
                     "type": "string",
-                    "description": "First name of the user.\n"
+                    "description": "First name of the user.\n",
+                    "secret": true
                 },
                 "hasRsaPublicKey": {
                     "type": "boolean",
@@ -12243,11 +12314,13 @@
                 },
                 "lastName": {
                     "type": "string",
-                    "description": "Last name of the user.\n"
+                    "description": "Last name of the user.\n",
+                    "secret": true
                 },
                 "loginName": {
                     "type": "string",
-                    "description": "The name users use to log in. If not supplied, snowflake will use name instead.\n"
+                    "description": "The name users use to log in. If not supplied, snowflake will use name instead.\n",
+                    "secret": true
                 },
                 "mustChangePassword": {
                     "type": "boolean",
@@ -12255,7 +12328,8 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)\n"
+                    "description": "Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)\n",
+                    "secret": true
                 },
                 "password": {
                     "type": "string",
@@ -12315,23 +12389,28 @@
                 },
                 "displayName": {
                     "type": "string",
-                    "description": "Name displayed for the user in the Snowflake web interface.\n"
+                    "description": "Name displayed for the user in the Snowflake web interface.\n",
+                    "secret": true
                 },
                 "email": {
                     "type": "string",
-                    "description": "Email address for the user.\n"
+                    "description": "Email address for the user.\n",
+                    "secret": true
                 },
                 "firstName": {
                     "type": "string",
-                    "description": "First name of the user.\n"
+                    "description": "First name of the user.\n",
+                    "secret": true
                 },
                 "lastName": {
                     "type": "string",
-                    "description": "Last name of the user.\n"
+                    "description": "Last name of the user.\n",
+                    "secret": true
                 },
                 "loginName": {
                     "type": "string",
-                    "description": "The name users use to log in. If not supplied, snowflake will use name instead.\n"
+                    "description": "The name users use to log in. If not supplied, snowflake will use name instead.\n",
+                    "secret": true
                 },
                 "mustChangePassword": {
                     "type": "boolean",
@@ -12339,7 +12418,8 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)\n"
+                    "description": "Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)\n",
+                    "secret": true
                 },
                 "password": {
                     "type": "string",
@@ -12393,15 +12473,18 @@
                     },
                     "displayName": {
                         "type": "string",
-                        "description": "Name displayed for the user in the Snowflake web interface.\n"
+                        "description": "Name displayed for the user in the Snowflake web interface.\n",
+                        "secret": true
                     },
                     "email": {
                         "type": "string",
-                        "description": "Email address for the user.\n"
+                        "description": "Email address for the user.\n",
+                        "secret": true
                     },
                     "firstName": {
                         "type": "string",
-                        "description": "First name of the user.\n"
+                        "description": "First name of the user.\n",
+                        "secret": true
                     },
                     "hasRsaPublicKey": {
                         "type": "boolean",
@@ -12409,11 +12492,13 @@
                     },
                     "lastName": {
                         "type": "string",
-                        "description": "Last name of the user.\n"
+                        "description": "Last name of the user.\n",
+                        "secret": true
                     },
                     "loginName": {
                         "type": "string",
-                        "description": "The name users use to log in. If not supplied, snowflake will use name instead.\n"
+                        "description": "The name users use to log in. If not supplied, snowflake will use name instead.\n",
+                        "secret": true
                     },
                     "mustChangePassword": {
                         "type": "boolean",
@@ -12421,7 +12506,8 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)\n"
+                        "description": "Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)\n",
+                        "secret": true
                     },
                     "password": {
                         "type": "string",
@@ -12672,6 +12758,10 @@
                     "type": "string",
                     "description": "Specifies a comment for the view.\n"
                 },
+                "copyGrants": {
+                    "type": "boolean",
+                    "description": "Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.\n"
+                },
                 "database": {
                     "type": "string",
                     "description": "The database in which to create the view. Don't use the | character.\n"
@@ -12715,6 +12805,11 @@
                 "comment": {
                     "type": "string",
                     "description": "Specifies a comment for the view.\n"
+                },
+                "copyGrants": {
+                    "type": "boolean",
+                    "description": "Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.\n",
+                    "willReplaceOnChanges": true
                 },
                 "database": {
                     "type": "string",
@@ -12763,6 +12858,11 @@
                     "comment": {
                         "type": "string",
                         "description": "Specifies a comment for the view.\n"
+                    },
+                    "copyGrants": {
+                        "type": "boolean",
+                        "description": "Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.\n",
+                        "willReplaceOnChanges": true
                     },
                     "database": {
                         "type": "string",
@@ -13832,7 +13932,7 @@
             }
         },
         "snowflake:index/getParameters:getParameters": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst database = new snowflake.Database(\"database\", {});\nconst parameters = snowflake.getParametersOutput({\n    parameterType: \"OBJECT\",\n    objectType: \"DATABASE\",\n    objectName: database.name,\n});\nconst p2 = snowflake.getParameters({\n    parameterType: \"ACCOUNT\",\n    pattern: \"%TIMESTAMP%\",\n});\nconst p3 = snowflake.getParameters({\n    parameterType: \"SESSION\",\n    pattern: \"ROWS_PER_RESULTSET\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ndatabase = snowflake.Database(\"database\")\nparameters = snowflake.get_parameters_output(parameter_type=\"OBJECT\",\n    object_type=\"DATABASE\",\n    object_name=database.name)\np2 = snowflake.get_parameters(parameter_type=\"ACCOUNT\",\n    pattern=\"%TIMESTAMP%\")\np3 = snowflake.get_parameters(parameter_type=\"SESSION\",\n    pattern=\"ROWS_PER_RESULTSET\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var database = new Snowflake.Database(\"database\");\n\n    var parameters = Snowflake.GetParameters.Invoke(new()\n    {\n        ParameterType = \"OBJECT\",\n        ObjectType = \"DATABASE\",\n        ObjectName = database.Name,\n    });\n\n    var p2 = Snowflake.GetParameters.Invoke(new()\n    {\n        ParameterType = \"ACCOUNT\",\n        Pattern = \"%TIMESTAMP%\",\n    });\n\n    var p3 = Snowflake.GetParameters.Invoke(new()\n    {\n        ParameterType = \"SESSION\",\n        Pattern = \"ROWS_PER_RESULTSET\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdatabase, err := snowflake.NewDatabase(ctx, \"database\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_ = snowflake.GetParametersOutput(ctx, snowflake.GetParametersOutputArgs{\n\t\t\tParameterType: pulumi.String(\"OBJECT\"),\n\t\t\tObjectType:    pulumi.String(\"DATABASE\"),\n\t\t\tObjectName:    database.Name,\n\t\t}, nil)\n\t\t_, err = snowflake.GetParameters(ctx, \u0026snowflake.GetParametersArgs{\n\t\t\tParameterType: pulumi.StringRef(\"ACCOUNT\"),\n\t\t\tPattern:       pulumi.StringRef(\"%TIMESTAMP%\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetParameters(ctx, \u0026snowflake.GetParametersArgs{\n\t\t\tParameterType: pulumi.StringRef(\"SESSION\"),\n\t\t\tPattern:       pulumi.StringRef(\"ROWS_PER_RESULTSET\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Database;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.snowflake.inputs.GetParametersArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var database = new Database(\"database\");\n\n        final var parameters = SnowflakeFunctions.getParameters(GetParametersArgs.builder()\n            .parameterType(\"OBJECT\")\n            .objectType(\"DATABASE\")\n            .objectName(database.name())\n            .build());\n\n        final var p2 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()\n            .parameterType(\"ACCOUNT\")\n            .pattern(\"%TIMESTAMP%\")\n            .build());\n\n        final var p3 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()\n            .parameterType(\"SESSION\")\n            .pattern(\"ROWS_PER_RESULTSET\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  database:\n    type: snowflake:Database\nvariables:\n  parameters:\n    fn::invoke:\n      Function: snowflake:getParameters\n      Arguments:\n        parameterType: OBJECT\n        objectType: DATABASE\n        objectName: ${database.name}\n  p2:\n    fn::invoke:\n      Function: snowflake:getParameters\n      Arguments:\n        parameterType: ACCOUNT\n        pattern: '%TIMESTAMP%'\n  p3:\n    fn::invoke:\n      Function: snowflake:getParameters\n      Arguments:\n        parameterType: SESSION\n        pattern: ROWS_PER_RESULTSET\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst database = new snowflake.Database(\"database\", {});\nconst parameters = snowflake.getParametersOutput({\n    parameterType: \"OBJECT\",\n    objectType: \"DATABASE\",\n    objectName: database.name,\n});\nconst p2 = snowflake.getParameters({\n    parameterType: \"ACCOUNT\",\n    pattern: \"%TIMESTAMP%\",\n});\nconst p3 = snowflake.getParameters({\n    parameterType: \"SESSION\",\n    pattern: \"ROWS_PER_RESULTSET\",\n    user: \"TEST_USER\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ndatabase = snowflake.Database(\"database\")\nparameters = snowflake.get_parameters_output(parameter_type=\"OBJECT\",\n    object_type=\"DATABASE\",\n    object_name=database.name)\np2 = snowflake.get_parameters(parameter_type=\"ACCOUNT\",\n    pattern=\"%TIMESTAMP%\")\np3 = snowflake.get_parameters(parameter_type=\"SESSION\",\n    pattern=\"ROWS_PER_RESULTSET\",\n    user=\"TEST_USER\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var database = new Snowflake.Database(\"database\");\n\n    var parameters = Snowflake.GetParameters.Invoke(new()\n    {\n        ParameterType = \"OBJECT\",\n        ObjectType = \"DATABASE\",\n        ObjectName = database.Name,\n    });\n\n    var p2 = Snowflake.GetParameters.Invoke(new()\n    {\n        ParameterType = \"ACCOUNT\",\n        Pattern = \"%TIMESTAMP%\",\n    });\n\n    var p3 = Snowflake.GetParameters.Invoke(new()\n    {\n        ParameterType = \"SESSION\",\n        Pattern = \"ROWS_PER_RESULTSET\",\n        User = \"TEST_USER\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdatabase, err := snowflake.NewDatabase(ctx, \"database\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_ = snowflake.GetParametersOutput(ctx, snowflake.GetParametersOutputArgs{\n\t\t\tParameterType: pulumi.String(\"OBJECT\"),\n\t\t\tObjectType:    pulumi.String(\"DATABASE\"),\n\t\t\tObjectName:    database.Name,\n\t\t}, nil)\n\t\t_, err = snowflake.GetParameters(ctx, \u0026snowflake.GetParametersArgs{\n\t\t\tParameterType: pulumi.StringRef(\"ACCOUNT\"),\n\t\t\tPattern:       pulumi.StringRef(\"%TIMESTAMP%\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetParameters(ctx, \u0026snowflake.GetParametersArgs{\n\t\t\tParameterType: pulumi.StringRef(\"SESSION\"),\n\t\t\tPattern:       pulumi.StringRef(\"ROWS_PER_RESULTSET\"),\n\t\t\tUser:          pulumi.StringRef(\"TEST_USER\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Database;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.snowflake.inputs.GetParametersArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var database = new Database(\"database\");\n\n        final var parameters = SnowflakeFunctions.getParameters(GetParametersArgs.builder()\n            .parameterType(\"OBJECT\")\n            .objectType(\"DATABASE\")\n            .objectName(database.name())\n            .build());\n\n        final var p2 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()\n            .parameterType(\"ACCOUNT\")\n            .pattern(\"%TIMESTAMP%\")\n            .build());\n\n        final var p3 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()\n            .parameterType(\"SESSION\")\n            .pattern(\"ROWS_PER_RESULTSET\")\n            .user(\"TEST_USER\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  database:\n    type: snowflake:Database\nvariables:\n  parameters:\n    fn::invoke:\n      Function: snowflake:getParameters\n      Arguments:\n        parameterType: OBJECT\n        objectType: DATABASE\n        objectName: ${database.name}\n  p2:\n    fn::invoke:\n      Function: snowflake:getParameters\n      Arguments:\n        parameterType: ACCOUNT\n        pattern: '%TIMESTAMP%'\n  p3:\n    fn::invoke:\n      Function: snowflake:getParameters\n      Arguments:\n        parameterType: SESSION\n        pattern: ROWS_PER_RESULTSET\n        user: TEST_USER\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getParameters.\n",
                 "properties": {
@@ -13851,6 +13951,10 @@
                     "pattern": {
                         "type": "string",
                         "description": "Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)\n"
+                    },
+                    "user": {
+                        "type": "string",
+                        "description": "If parameter_type is set to \"SESSION\" then user is the name of the user to display session parameters for.\n"
                     }
                 },
                 "type": "object"
@@ -13884,6 +13988,10 @@
                     "pattern": {
                         "type": "string",
                         "description": "Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)\n"
+                    },
+                    "user": {
+                        "type": "string",
+                        "description": "If parameter_type is set to \"SESSION\" then user is the name of the user to display session parameters for.\n"
                     }
                 },
                 "type": "object",
