@@ -81,6 +81,8 @@ type Account struct {
 	Email pulumi.StringOutput `pulumi:"email"`
 	// First name of the initial administrative user of the account
 	FirstName pulumi.StringPtrOutput `pulumi:"firstName"`
+	// Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+	IsOrgAdmin pulumi.BoolOutput `pulumi:"isOrgAdmin"`
 	// Last name of the initial administrative user of the account
 	LastName pulumi.StringPtrOutput `pulumi:"lastName"`
 	// Specifies whether the new user created to administer the account is forced to change their password upon first login into the account.
@@ -115,9 +117,21 @@ func NewAccount(ctx *pulumi.Context,
 	if args.AdminRsaPublicKey != nil {
 		args.AdminRsaPublicKey = pulumi.ToSecret(args.AdminRsaPublicKey).(pulumi.StringPtrInput)
 	}
+	if args.Email != nil {
+		args.Email = pulumi.ToSecret(args.Email).(pulumi.StringInput)
+	}
+	if args.FirstName != nil {
+		args.FirstName = pulumi.ToSecret(args.FirstName).(pulumi.StringPtrInput)
+	}
+	if args.LastName != nil {
+		args.LastName = pulumi.ToSecret(args.LastName).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"adminPassword",
 		"adminRsaPublicKey",
+		"email",
+		"firstName",
+		"lastName",
 	})
 	opts = append(opts, secrets)
 	var resource Account
@@ -156,6 +170,8 @@ type accountState struct {
 	Email *string `pulumi:"email"`
 	// First name of the initial administrative user of the account
 	FirstName *string `pulumi:"firstName"`
+	// Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+	IsOrgAdmin *bool `pulumi:"isOrgAdmin"`
 	// Last name of the initial administrative user of the account
 	LastName *string `pulumi:"lastName"`
 	// Specifies whether the new user created to administer the account is forced to change their password upon first login into the account.
@@ -183,6 +199,8 @@ type AccountState struct {
 	Email pulumi.StringPtrInput
 	// First name of the initial administrative user of the account
 	FirstName pulumi.StringPtrInput
+	// Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+	IsOrgAdmin pulumi.BoolPtrInput
 	// Last name of the initial administrative user of the account
 	LastName pulumi.StringPtrInput
 	// Specifies whether the new user created to administer the account is forced to change their password upon first login into the account.
@@ -374,6 +392,11 @@ func (o AccountOutput) Email() pulumi.StringOutput {
 // First name of the initial administrative user of the account
 func (o AccountOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.FirstName }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+func (o AccountOutput) IsOrgAdmin() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.IsOrgAdmin }).(pulumi.BoolOutput)
 }
 
 // Last name of the initial administrative user of the account

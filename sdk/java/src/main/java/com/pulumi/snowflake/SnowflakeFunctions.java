@@ -2078,6 +2078,7 @@ public final class SnowflakeFunctions {
      *         final var p3 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
      *             .parameterType(&#34;SESSION&#34;)
      *             .pattern(&#34;ROWS_PER_RESULTSET&#34;)
+     *             .user(&#34;TEST_USER&#34;)
      *             .build());
      * 
      *     }
@@ -2128,6 +2129,7 @@ public final class SnowflakeFunctions {
      *         final var p3 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
      *             .parameterType(&#34;SESSION&#34;)
      *             .pattern(&#34;ROWS_PER_RESULTSET&#34;)
+     *             .user(&#34;TEST_USER&#34;)
      *             .build());
      * 
      *     }
@@ -2178,6 +2180,7 @@ public final class SnowflakeFunctions {
      *         final var p3 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
      *             .parameterType(&#34;SESSION&#34;)
      *             .pattern(&#34;ROWS_PER_RESULTSET&#34;)
+     *             .user(&#34;TEST_USER&#34;)
      *             .build());
      * 
      *     }
@@ -2228,6 +2231,7 @@ public final class SnowflakeFunctions {
      *         final var p3 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
      *             .parameterType(&#34;SESSION&#34;)
      *             .pattern(&#34;ROWS_PER_RESULTSET&#34;)
+     *             .user(&#34;TEST_USER&#34;)
      *             .build());
      * 
      *     }
@@ -2278,6 +2282,7 @@ public final class SnowflakeFunctions {
      *         final var p3 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
      *             .parameterType(&#34;SESSION&#34;)
      *             .pattern(&#34;ROWS_PER_RESULTSET&#34;)
+     *             .user(&#34;TEST_USER&#34;)
      *             .build());
      * 
      *     }
@@ -2328,6 +2333,7 @@ public final class SnowflakeFunctions {
      *         final var p3 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
      *             .parameterType(&#34;SESSION&#34;)
      *             .pattern(&#34;ROWS_PER_RESULTSET&#34;)
+     *             .user(&#34;TEST_USER&#34;)
      *             .build());
      * 
      *     }

@@ -27,7 +27,16 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewSessionParameter(ctx, "sessionParameter", &snowflake.SessionParameterArgs{
 //				Key:   pulumi.String("AUTOCOMMIT"),
+//				User:  pulumi.String("TEST_USER"),
 //				Value: pulumi.String("false"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewSessionParameter(ctx, "s2", &snowflake.SessionParameterArgs{
+//				Key:       pulumi.String("BINARY_OUTPUT_FORMAT"),
+//				OnAccount: pulumi.Bool(true),
+//				Value:     pulumi.String("BASE64"),
 //			})
 //			if err != nil {
 //				return err
@@ -50,6 +59,10 @@ type SessionParameter struct {
 
 	// Name of session parameter. Valid values are those in [session parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#session-parameters).
 	Key pulumi.StringOutput `pulumi:"key"`
+	// If true, the session parameter will be set on the account level.
+	OnAccount pulumi.BoolPtrOutput `pulumi:"onAccount"`
+	// The user to set the session parameter for. Required if onAccount is false
+	User pulumi.StringPtrOutput `pulumi:"user"`
 	// Value of session parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
 	Value pulumi.StringOutput `pulumi:"value"`
 }
@@ -91,6 +104,10 @@ func GetSessionParameter(ctx *pulumi.Context,
 type sessionParameterState struct {
 	// Name of session parameter. Valid values are those in [session parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#session-parameters).
 	Key *string `pulumi:"key"`
+	// If true, the session parameter will be set on the account level.
+	OnAccount *bool `pulumi:"onAccount"`
+	// The user to set the session parameter for. Required if onAccount is false
+	User *string `pulumi:"user"`
 	// Value of session parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
 	Value *string `pulumi:"value"`
 }
@@ -98,6 +115,10 @@ type sessionParameterState struct {
 type SessionParameterState struct {
 	// Name of session parameter. Valid values are those in [session parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#session-parameters).
 	Key pulumi.StringPtrInput
+	// If true, the session parameter will be set on the account level.
+	OnAccount pulumi.BoolPtrInput
+	// The user to set the session parameter for. Required if onAccount is false
+	User pulumi.StringPtrInput
 	// Value of session parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
 	Value pulumi.StringPtrInput
 }
@@ -109,6 +130,10 @@ func (SessionParameterState) ElementType() reflect.Type {
 type sessionParameterArgs struct {
 	// Name of session parameter. Valid values are those in [session parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#session-parameters).
 	Key string `pulumi:"key"`
+	// If true, the session parameter will be set on the account level.
+	OnAccount *bool `pulumi:"onAccount"`
+	// The user to set the session parameter for. Required if onAccount is false
+	User *string `pulumi:"user"`
 	// Value of session parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
 	Value string `pulumi:"value"`
 }
@@ -117,6 +142,10 @@ type sessionParameterArgs struct {
 type SessionParameterArgs struct {
 	// Name of session parameter. Valid values are those in [session parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#session-parameters).
 	Key pulumi.StringInput
+	// If true, the session parameter will be set on the account level.
+	OnAccount pulumi.BoolPtrInput
+	// The user to set the session parameter for. Required if onAccount is false
+	User pulumi.StringPtrInput
 	// Value of session parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
 	Value pulumi.StringInput
 }
@@ -211,6 +240,16 @@ func (o SessionParameterOutput) ToSessionParameterOutputWithContext(ctx context.
 // Name of session parameter. Valid values are those in [session parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#session-parameters).
 func (o SessionParameterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *SessionParameter) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+}
+
+// If true, the session parameter will be set on the account level.
+func (o SessionParameterOutput) OnAccount() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SessionParameter) pulumi.BoolPtrOutput { return v.OnAccount }).(pulumi.BoolPtrOutput)
+}
+
+// The user to set the session parameter for. Required if onAccount is false
+func (o SessionParameterOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SessionParameter) pulumi.StringPtrOutput { return v.User }).(pulumi.StringPtrOutput)
 }
 
 // Value of session parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.

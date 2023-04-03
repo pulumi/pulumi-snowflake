@@ -5,8 +5,11 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class SessionParameterArgs extends com.pulumi.resources.ResourceArgs {
@@ -29,6 +32,36 @@ public final class SessionParameterArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * If true, the session parameter will be set on the account level.
+     * 
+     */
+    @Import(name="onAccount")
+    private @Nullable Output<Boolean> onAccount;
+
+    /**
+     * @return If true, the session parameter will be set on the account level.
+     * 
+     */
+    public Optional<Output<Boolean>> onAccount() {
+        return Optional.ofNullable(this.onAccount);
+    }
+
+    /**
+     * The user to set the session parameter for. Required if on_account is false
+     * 
+     */
+    @Import(name="user")
+    private @Nullable Output<String> user;
+
+    /**
+     * @return The user to set the session parameter for. Required if on_account is false
+     * 
+     */
+    public Optional<Output<String>> user() {
+        return Optional.ofNullable(this.user);
+    }
+
+    /**
      * Value of session parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
      * 
      */
@@ -47,6 +80,8 @@ public final class SessionParameterArgs extends com.pulumi.resources.ResourceArg
 
     private SessionParameterArgs(SessionParameterArgs $) {
         this.key = $.key;
+        this.onAccount = $.onAccount;
+        this.user = $.user;
         this.value = $.value;
     }
 
@@ -87,6 +122,48 @@ public final class SessionParameterArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder key(String key) {
             return key(Output.of(key));
+        }
+
+        /**
+         * @param onAccount If true, the session parameter will be set on the account level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onAccount(@Nullable Output<Boolean> onAccount) {
+            $.onAccount = onAccount;
+            return this;
+        }
+
+        /**
+         * @param onAccount If true, the session parameter will be set on the account level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onAccount(Boolean onAccount) {
+            return onAccount(Output.of(onAccount));
+        }
+
+        /**
+         * @param user The user to set the session parameter for. Required if on_account is false
+         * 
+         * @return builder
+         * 
+         */
+        public Builder user(@Nullable Output<String> user) {
+            $.user = user;
+            return this;
+        }
+
+        /**
+         * @param user The user to set the session parameter for. Required if on_account is false
+         * 
+         * @return builder
+         * 
+         */
+        public Builder user(String user) {
+            return user(Output.of(user));
         }
 
         /**

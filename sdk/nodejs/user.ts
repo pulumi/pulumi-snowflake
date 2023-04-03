@@ -173,13 +173,13 @@ export class User extends pulumi.CustomResource {
             resourceInputs["defaultSecondaryRoles"] = args ? args.defaultSecondaryRoles : undefined;
             resourceInputs["defaultWarehouse"] = args ? args.defaultWarehouse : undefined;
             resourceInputs["disabled"] = args ? args.disabled : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["firstName"] = args ? args.firstName : undefined;
-            resourceInputs["lastName"] = args ? args.lastName : undefined;
-            resourceInputs["loginName"] = args ? args.loginName : undefined;
+            resourceInputs["displayName"] = args?.displayName ? pulumi.secret(args.displayName) : undefined;
+            resourceInputs["email"] = args?.email ? pulumi.secret(args.email) : undefined;
+            resourceInputs["firstName"] = args?.firstName ? pulumi.secret(args.firstName) : undefined;
+            resourceInputs["lastName"] = args?.lastName ? pulumi.secret(args.lastName) : undefined;
+            resourceInputs["loginName"] = args?.loginName ? pulumi.secret(args.loginName) : undefined;
             resourceInputs["mustChangePassword"] = args ? args.mustChangePassword : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["name"] = args?.name ? pulumi.secret(args.name) : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["rsaPublicKey"] = args ? args.rsaPublicKey : undefined;
             resourceInputs["rsaPublicKey2"] = args ? args.rsaPublicKey2 : undefined;
@@ -187,7 +187,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["hasRsaPublicKey"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["password"] };
+        const secretOpts = { additionalSecretOutputs: ["displayName", "email", "firstName", "lastName", "loginName", "name", "password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(User.__pulumiType, name, resourceInputs, opts);
     }

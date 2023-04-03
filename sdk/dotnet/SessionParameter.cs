@@ -22,7 +22,15 @@ namespace Pulumi.Snowflake
     ///     var sessionParameter = new Snowflake.SessionParameter("sessionParameter", new()
     ///     {
     ///         Key = "AUTOCOMMIT",
+    ///         User = "TEST_USER",
     ///         Value = "false",
+    ///     });
+    /// 
+    ///     var s2 = new Snowflake.SessionParameter("s2", new()
+    ///     {
+    ///         Key = "BINARY_OUTPUT_FORMAT",
+    ///         OnAccount = true,
+    ///         Value = "BASE64",
     ///     });
     /// 
     /// });
@@ -42,6 +50,18 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
+
+        /// <summary>
+        /// If true, the session parameter will be set on the account level.
+        /// </summary>
+        [Output("onAccount")]
+        public Output<bool?> OnAccount { get; private set; } = null!;
+
+        /// <summary>
+        /// The user to set the session parameter for. Required if on_account is false
+        /// </summary>
+        [Output("user")]
+        public Output<string?> User { get; private set; } = null!;
 
         /// <summary>
         /// Value of session parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
@@ -102,6 +122,18 @@ namespace Pulumi.Snowflake
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
+        /// If true, the session parameter will be set on the account level.
+        /// </summary>
+        [Input("onAccount")]
+        public Input<bool>? OnAccount { get; set; }
+
+        /// <summary>
+        /// The user to set the session parameter for. Required if on_account is false
+        /// </summary>
+        [Input("user")]
+        public Input<string>? User { get; set; }
+
+        /// <summary>
         /// Value of session parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
         /// </summary>
         [Input("value", required: true)]
@@ -120,6 +152,18 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
+
+        /// <summary>
+        /// If true, the session parameter will be set on the account level.
+        /// </summary>
+        [Input("onAccount")]
+        public Input<bool>? OnAccount { get; set; }
+
+        /// <summary>
+        /// The user to set the session parameter for. Required if on_account is false
+        /// </summary>
+        [Input("user")]
+        public Input<string>? User { get; set; }
 
         /// <summary>
         /// Value of session parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.

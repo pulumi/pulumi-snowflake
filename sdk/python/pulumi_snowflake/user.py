@@ -733,13 +733,13 @@ class User(pulumi.CustomResource):
             __props__.__dict__["default_secondary_roles"] = default_secondary_roles
             __props__.__dict__["default_warehouse"] = default_warehouse
             __props__.__dict__["disabled"] = disabled
-            __props__.__dict__["display_name"] = display_name
-            __props__.__dict__["email"] = email
-            __props__.__dict__["first_name"] = first_name
-            __props__.__dict__["last_name"] = last_name
-            __props__.__dict__["login_name"] = login_name
+            __props__.__dict__["display_name"] = None if display_name is None else pulumi.Output.secret(display_name)
+            __props__.__dict__["email"] = None if email is None else pulumi.Output.secret(email)
+            __props__.__dict__["first_name"] = None if first_name is None else pulumi.Output.secret(first_name)
+            __props__.__dict__["last_name"] = None if last_name is None else pulumi.Output.secret(last_name)
+            __props__.__dict__["login_name"] = None if login_name is None else pulumi.Output.secret(login_name)
             __props__.__dict__["must_change_password"] = must_change_password
-            __props__.__dict__["name"] = name
+            __props__.__dict__["name"] = None if name is None else pulumi.Output.secret(name)
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             __props__.__dict__["rsa_public_key"] = rsa_public_key
             __props__.__dict__["rsa_public_key2"] = rsa_public_key2
@@ -748,7 +748,7 @@ class User(pulumi.CustomResource):
                 pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
             __props__.__dict__["tags"] = tags
             __props__.__dict__["has_rsa_public_key"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["displayName", "email", "firstName", "lastName", "loginName", "name", "password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(User, __self__).__init__(
             'snowflake:index/user:User',

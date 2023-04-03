@@ -43,6 +43,7 @@ import (
 //			_, err = snowflake.GetParameters(ctx, &snowflake.GetParametersArgs{
 //				ParameterType: pulumi.StringRef("SESSION"),
 //				Pattern:       pulumi.StringRef("ROWS_PER_RESULTSET"),
+//				User:          pulumi.StringRef("TEST_USER"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -71,6 +72,8 @@ type GetParametersArgs struct {
 	ParameterType *string `pulumi:"parameterType"`
 	// Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)
 	Pattern *string `pulumi:"pattern"`
+	// If parameterType is set to "SESSION" then user is the name of the user to display session parameters for.
+	User *string `pulumi:"user"`
 }
 
 // A collection of values returned by getParameters.
@@ -87,6 +90,8 @@ type GetParametersResult struct {
 	Parameters []GetParametersParameter `pulumi:"parameters"`
 	// Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)
 	Pattern *string `pulumi:"pattern"`
+	// If parameterType is set to "SESSION" then user is the name of the user to display session parameters for.
+	User *string `pulumi:"user"`
 }
 
 func GetParametersOutput(ctx *pulumi.Context, args GetParametersOutputArgs, opts ...pulumi.InvokeOption) GetParametersResultOutput {
@@ -112,6 +117,8 @@ type GetParametersOutputArgs struct {
 	ParameterType pulumi.StringPtrInput `pulumi:"parameterType"`
 	// Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)
 	Pattern pulumi.StringPtrInput `pulumi:"pattern"`
+	// If parameterType is set to "SESSION" then user is the name of the user to display session parameters for.
+	User pulumi.StringPtrInput `pulumi:"user"`
 }
 
 func (GetParametersOutputArgs) ElementType() reflect.Type {
@@ -161,6 +168,11 @@ func (o GetParametersResultOutput) Parameters() GetParametersParameterArrayOutpu
 // Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)
 func (o GetParametersResultOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetParametersResult) *string { return v.Pattern }).(pulumi.StringPtrOutput)
+}
+
+// If parameterType is set to "SESSION" then user is the name of the user to display session parameters for.
+func (o GetParametersResultOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetParametersResult) *string { return v.User }).(pulumi.StringPtrOutput)
 }
 
 func init() {

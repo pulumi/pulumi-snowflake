@@ -22,7 +22,7 @@ class GetParametersResult:
     """
     A collection of values returned by getParameters.
     """
-    def __init__(__self__, id=None, object_name=None, object_type=None, parameter_type=None, parameters=None, pattern=None):
+    def __init__(__self__, id=None, object_name=None, object_type=None, parameter_type=None, parameters=None, pattern=None, user=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -41,6 +41,9 @@ class GetParametersResult:
         if pattern and not isinstance(pattern, str):
             raise TypeError("Expected argument 'pattern' to be a str")
         pulumi.set(__self__, "pattern", pattern)
+        if user and not isinstance(user, str):
+            raise TypeError("Expected argument 'user' to be a str")
+        pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter
@@ -90,6 +93,14 @@ class GetParametersResult:
         """
         return pulumi.get(self, "pattern")
 
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[str]:
+        """
+        If parameter_type is set to "SESSION" then user is the name of the user to display session parameters for.
+        """
+        return pulumi.get(self, "user")
+
 
 class AwaitableGetParametersResult(GetParametersResult):
     # pylint: disable=using-constant-test
@@ -102,13 +113,15 @@ class AwaitableGetParametersResult(GetParametersResult):
             object_type=self.object_type,
             parameter_type=self.parameter_type,
             parameters=self.parameters,
-            pattern=self.pattern)
+            pattern=self.pattern,
+            user=self.user)
 
 
 def get_parameters(object_name: Optional[str] = None,
                    object_type: Optional[str] = None,
                    parameter_type: Optional[str] = None,
                    pattern: Optional[str] = None,
+                   user: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetParametersResult:
     """
     ## Example Usage
@@ -124,7 +137,8 @@ def get_parameters(object_name: Optional[str] = None,
     p2 = snowflake.get_parameters(parameter_type="ACCOUNT",
         pattern="%TIMESTAMP%")
     p3 = snowflake.get_parameters(parameter_type="SESSION",
-        pattern="ROWS_PER_RESULTSET")
+        pattern="ROWS_PER_RESULTSET",
+        user="TEST_USER")
     ```
 
 
@@ -132,12 +146,14 @@ def get_parameters(object_name: Optional[str] = None,
     :param str object_type: If parameter*type is set to "OBJECT" then object*type is the type of object to display object parameters for. Valid values are any object supported by the IN clause of the [SHOW PARAMETERS](https://docs.snowflake.com/en/sql-reference/sql/show-parameters.html#parameters) statement, including: WAREHOUSE | DATABASE | SCHEMA | TASK | TABLE
     :param str parameter_type: The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
     :param str pattern: Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)
+    :param str user: If parameter_type is set to "SESSION" then user is the name of the user to display session parameters for.
     """
     __args__ = dict()
     __args__['objectName'] = object_name
     __args__['objectType'] = object_type
     __args__['parameterType'] = parameter_type
     __args__['pattern'] = pattern
+    __args__['user'] = user
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('snowflake:index/getParameters:getParameters', __args__, opts=opts, typ=GetParametersResult).value
 
@@ -147,7 +163,8 @@ def get_parameters(object_name: Optional[str] = None,
         object_type=__ret__.object_type,
         parameter_type=__ret__.parameter_type,
         parameters=__ret__.parameters,
-        pattern=__ret__.pattern)
+        pattern=__ret__.pattern,
+        user=__ret__.user)
 
 
 @_utilities.lift_output_func(get_parameters)
@@ -155,6 +172,7 @@ def get_parameters_output(object_name: Optional[pulumi.Input[Optional[str]]] = N
                           object_type: Optional[pulumi.Input[Optional[str]]] = None,
                           parameter_type: Optional[pulumi.Input[Optional[str]]] = None,
                           pattern: Optional[pulumi.Input[Optional[str]]] = None,
+                          user: Optional[pulumi.Input[Optional[str]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetParametersResult]:
     """
     ## Example Usage
@@ -170,7 +188,8 @@ def get_parameters_output(object_name: Optional[pulumi.Input[Optional[str]]] = N
     p2 = snowflake.get_parameters(parameter_type="ACCOUNT",
         pattern="%TIMESTAMP%")
     p3 = snowflake.get_parameters(parameter_type="SESSION",
-        pattern="ROWS_PER_RESULTSET")
+        pattern="ROWS_PER_RESULTSET",
+        user="TEST_USER")
     ```
 
 
@@ -178,5 +197,6 @@ def get_parameters_output(object_name: Optional[pulumi.Input[Optional[str]]] = N
     :param str object_type: If parameter*type is set to "OBJECT" then object*type is the type of object to display object parameters for. Valid values are any object supported by the IN clause of the [SHOW PARAMETERS](https://docs.snowflake.com/en/sql-reference/sql/show-parameters.html#parameters) statement, including: WAREHOUSE | DATABASE | SCHEMA | TASK | TABLE
     :param str parameter_type: The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
     :param str pattern: Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)
+    :param str user: If parameter_type is set to "SESSION" then user is the name of the user to display session parameters for.
     """
     ...

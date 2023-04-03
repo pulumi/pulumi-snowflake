@@ -42,6 +42,7 @@ namespace Pulumi.Snowflake
         ///     {
         ///         ParameterType = "SESSION",
         ///         Pattern = "ROWS_PER_RESULTSET",
+        ///         User = "TEST_USER",
         ///     });
         /// 
         /// });
@@ -83,6 +84,7 @@ namespace Pulumi.Snowflake
         ///     {
         ///         ParameterType = "SESSION",
         ///         Pattern = "ROWS_PER_RESULTSET",
+        ///         User = "TEST_USER",
         ///     });
         /// 
         /// });
@@ -121,6 +123,12 @@ namespace Pulumi.Snowflake
         [Input("pattern")]
         public string? Pattern { get; set; }
 
+        /// <summary>
+        /// If parameter_type is set to "SESSION" then user is the name of the user to display session parameters for.
+        /// </summary>
+        [Input("user")]
+        public string? User { get; set; }
+
         public GetParametersArgs()
         {
         }
@@ -152,6 +160,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }
+
+        /// <summary>
+        /// If parameter_type is set to "SESSION" then user is the name of the user to display session parameters for.
+        /// </summary>
+        [Input("user")]
+        public Input<string>? User { get; set; }
 
         public GetParametersInvokeArgs()
         {
@@ -187,6 +201,10 @@ namespace Pulumi.Snowflake
         /// Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)
         /// </summary>
         public readonly string? Pattern;
+        /// <summary>
+        /// If parameter_type is set to "SESSION" then user is the name of the user to display session parameters for.
+        /// </summary>
+        public readonly string? User;
 
         [OutputConstructor]
         private GetParametersResult(
@@ -200,7 +218,9 @@ namespace Pulumi.Snowflake
 
             ImmutableArray<Outputs.GetParametersParameterResult> parameters,
 
-            string? pattern)
+            string? pattern,
+
+            string? user)
         {
             Id = id;
             ObjectName = objectName;
@@ -208,6 +228,7 @@ namespace Pulumi.Snowflake
             ParameterType = parameterType;
             Parameters = parameters;
             Pattern = pattern;
+            User = user;
         }
     }
 }

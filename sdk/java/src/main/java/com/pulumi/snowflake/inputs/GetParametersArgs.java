@@ -75,6 +75,21 @@ public final class GetParametersArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.pattern);
     }
 
+    /**
+     * If parameter_type is set to &#34;SESSION&#34; then user is the name of the user to display session parameters for.
+     * 
+     */
+    @Import(name="user")
+    private @Nullable Output<String> user;
+
+    /**
+     * @return If parameter_type is set to &#34;SESSION&#34; then user is the name of the user to display session parameters for.
+     * 
+     */
+    public Optional<Output<String>> user() {
+        return Optional.ofNullable(this.user);
+    }
+
     private GetParametersArgs() {}
 
     private GetParametersArgs(GetParametersArgs $) {
@@ -82,6 +97,7 @@ public final class GetParametersArgs extends com.pulumi.resources.InvokeArgs {
         this.objectType = $.objectType;
         this.parameterType = $.parameterType;
         this.pattern = $.pattern;
+        this.user = $.user;
     }
 
     public static Builder builder() {
@@ -184,6 +200,27 @@ public final class GetParametersArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder pattern(String pattern) {
             return pattern(Output.of(pattern));
+        }
+
+        /**
+         * @param user If parameter_type is set to &#34;SESSION&#34; then user is the name of the user to display session parameters for.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder user(@Nullable Output<String> user) {
+            $.user = user;
+            return this;
+        }
+
+        /**
+         * @param user If parameter_type is set to &#34;SESSION&#34; then user is the name of the user to display session parameters for.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder user(String user) {
+            return user(Output.of(user));
         }
 
         public GetParametersArgs build() {

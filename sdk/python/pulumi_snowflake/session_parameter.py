@@ -15,14 +15,22 @@ __all__ = ['SessionParameterArgs', 'SessionParameter']
 class SessionParameterArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
+                 value: pulumi.Input[str],
+                 on_account: Optional[pulumi.Input[bool]] = None,
+                 user: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SessionParameter resource.
         :param pulumi.Input[str] key: Name of session parameter. Valid values are those in [session parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#session-parameters).
         :param pulumi.Input[str] value: Value of session parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
+        :param pulumi.Input[bool] on_account: If true, the session parameter will be set on the account level.
+        :param pulumi.Input[str] user: The user to set the session parameter for. Required if on_account is false
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
+        if on_account is not None:
+            pulumi.set(__self__, "on_account", on_account)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter
@@ -48,19 +56,51 @@ class SessionParameterArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+    @property
+    @pulumi.getter(name="onAccount")
+    def on_account(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, the session parameter will be set on the account level.
+        """
+        return pulumi.get(self, "on_account")
+
+    @on_account.setter
+    def on_account(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "on_account", value)
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user to set the session parameter for. Required if on_account is false
+        """
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user", value)
+
 
 @pulumi.input_type
 class _SessionParameterState:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
+                 on_account: Optional[pulumi.Input[bool]] = None,
+                 user: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SessionParameter resources.
         :param pulumi.Input[str] key: Name of session parameter. Valid values are those in [session parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#session-parameters).
+        :param pulumi.Input[bool] on_account: If true, the session parameter will be set on the account level.
+        :param pulumi.Input[str] user: The user to set the session parameter for. Required if on_account is false
         :param pulumi.Input[str] value: Value of session parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
+        if on_account is not None:
+            pulumi.set(__self__, "on_account", on_account)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -75,6 +115,30 @@ class _SessionParameterState:
     @key.setter
     def key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter(name="onAccount")
+    def on_account(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, the session parameter will be set on the account level.
+        """
+        return pulumi.get(self, "on_account")
+
+    @on_account.setter
+    def on_account(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "on_account", value)
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user to set the session parameter for. Required if on_account is false
+        """
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user", value)
 
     @property
     @pulumi.getter
@@ -95,6 +159,8 @@ class SessionParameter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key: Optional[pulumi.Input[str]] = None,
+                 on_account: Optional[pulumi.Input[bool]] = None,
+                 user: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -106,7 +172,12 @@ class SessionParameter(pulumi.CustomResource):
 
         session_parameter = snowflake.SessionParameter("sessionParameter",
             key="AUTOCOMMIT",
+            user="TEST_USER",
             value="false")
+        s2 = snowflake.SessionParameter("s2",
+            key="BINARY_OUTPUT_FORMAT",
+            on_account=True,
+            value="BASE64")
         ```
 
         ## Import
@@ -118,6 +189,8 @@ class SessionParameter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key: Name of session parameter. Valid values are those in [session parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#session-parameters).
+        :param pulumi.Input[bool] on_account: If true, the session parameter will be set on the account level.
+        :param pulumi.Input[str] user: The user to set the session parameter for. Required if on_account is false
         :param pulumi.Input[str] value: Value of session parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
         """
         ...
@@ -135,7 +208,12 @@ class SessionParameter(pulumi.CustomResource):
 
         session_parameter = snowflake.SessionParameter("sessionParameter",
             key="AUTOCOMMIT",
+            user="TEST_USER",
             value="false")
+        s2 = snowflake.SessionParameter("s2",
+            key="BINARY_OUTPUT_FORMAT",
+            on_account=True,
+            value="BASE64")
         ```
 
         ## Import
@@ -160,6 +238,8 @@ class SessionParameter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key: Optional[pulumi.Input[str]] = None,
+                 on_account: Optional[pulumi.Input[bool]] = None,
+                 user: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -173,6 +253,8 @@ class SessionParameter(pulumi.CustomResource):
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
             __props__.__dict__["key"] = key
+            __props__.__dict__["on_account"] = on_account
+            __props__.__dict__["user"] = user
             if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
             __props__.__dict__["value"] = value
@@ -187,6 +269,8 @@ class SessionParameter(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             key: Optional[pulumi.Input[str]] = None,
+            on_account: Optional[pulumi.Input[bool]] = None,
+            user: Optional[pulumi.Input[str]] = None,
             value: Optional[pulumi.Input[str]] = None) -> 'SessionParameter':
         """
         Get an existing SessionParameter resource's state with the given name, id, and optional extra
@@ -196,6 +280,8 @@ class SessionParameter(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key: Name of session parameter. Valid values are those in [session parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#session-parameters).
+        :param pulumi.Input[bool] on_account: If true, the session parameter will be set on the account level.
+        :param pulumi.Input[str] user: The user to set the session parameter for. Required if on_account is false
         :param pulumi.Input[str] value: Value of session parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -203,6 +289,8 @@ class SessionParameter(pulumi.CustomResource):
         __props__ = _SessionParameterState.__new__(_SessionParameterState)
 
         __props__.__dict__["key"] = key
+        __props__.__dict__["on_account"] = on_account
+        __props__.__dict__["user"] = user
         __props__.__dict__["value"] = value
         return SessionParameter(resource_name, opts=opts, __props__=__props__)
 
@@ -213,6 +301,22 @@ class SessionParameter(pulumi.CustomResource):
         Name of session parameter. Valid values are those in [session parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#session-parameters).
         """
         return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="onAccount")
+    def on_account(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If true, the session parameter will be set on the account level.
+        """
+        return pulumi.get(self, "on_account")
+
+    @property
+    @pulumi.getter
+    def user(self) -> pulumi.Output[Optional[str]]:
+        """
+        The user to set the session parameter for. Required if on_account is false
+        """
+        return pulumi.get(self, "user")
 
     @property
     @pulumi.getter

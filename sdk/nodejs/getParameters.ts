@@ -26,6 +26,7 @@ import * as utilities from "./utilities";
  * const p3 = snowflake.getParameters({
  *     parameterType: "SESSION",
  *     pattern: "ROWS_PER_RESULTSET",
+ *     user: "TEST_USER",
  * });
  * ```
  */
@@ -38,6 +39,7 @@ export function getParameters(args?: GetParametersArgs, opts?: pulumi.InvokeOpti
         "objectType": args.objectType,
         "parameterType": args.parameterType,
         "pattern": args.pattern,
+        "user": args.user,
     }, opts);
 }
 
@@ -61,6 +63,10 @@ export interface GetParametersArgs {
      * Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)
      */
     pattern?: string;
+    /**
+     * If parameterType is set to "SESSION" then user is the name of the user to display session parameters for.
+     */
+    user?: string;
 }
 
 /**
@@ -91,6 +97,10 @@ export interface GetParametersResult {
      * Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)
      */
     readonly pattern?: string;
+    /**
+     * If parameterType is set to "SESSION" then user is the name of the user to display session parameters for.
+     */
+    readonly user?: string;
 }
 /**
  * ## Example Usage
@@ -112,6 +122,7 @@ export interface GetParametersResult {
  * const p3 = snowflake.getParameters({
  *     parameterType: "SESSION",
  *     pattern: "ROWS_PER_RESULTSET",
+ *     user: "TEST_USER",
  * });
  * ```
  */
@@ -139,4 +150,8 @@ export interface GetParametersOutputArgs {
      * Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)
      */
     pattern?: pulumi.Input<string>;
+    /**
+     * If parameterType is set to "SESSION" then user is the name of the user to display session parameters for.
+     */
+    user?: pulumi.Input<string>;
 }

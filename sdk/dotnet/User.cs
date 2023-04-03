@@ -179,6 +179,12 @@ namespace Pulumi.Snowflake
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
+                    "displayName",
+                    "email",
+                    "firstName",
+                    "lastName",
+                    "loginName",
+                    "name",
                     "password",
                 },
             };
@@ -240,35 +246,85 @@ namespace Pulumi.Snowflake
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
+        [Input("displayName")]
+        private Input<string>? _displayName;
+
         /// <summary>
         /// Name displayed for the user in the Snowflake web interface.
         /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
+        public Input<string>? DisplayName
+        {
+            get => _displayName;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _displayName = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("email")]
+        private Input<string>? _email;
 
         /// <summary>
         /// Email address for the user.
         /// </summary>
-        [Input("email")]
-        public Input<string>? Email { get; set; }
+        public Input<string>? Email
+        {
+            get => _email;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _email = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("firstName")]
+        private Input<string>? _firstName;
 
         /// <summary>
         /// First name of the user.
         /// </summary>
-        [Input("firstName")]
-        public Input<string>? FirstName { get; set; }
+        public Input<string>? FirstName
+        {
+            get => _firstName;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _firstName = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("lastName")]
+        private Input<string>? _lastName;
 
         /// <summary>
         /// Last name of the user.
         /// </summary>
-        [Input("lastName")]
-        public Input<string>? LastName { get; set; }
+        public Input<string>? LastName
+        {
+            get => _lastName;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _lastName = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("loginName")]
+        private Input<string>? _loginName;
 
         /// <summary>
         /// The name users use to log in. If not supplied, snowflake will use name instead.
         /// </summary>
-        [Input("loginName")]
-        public Input<string>? LoginName { get; set; }
+        public Input<string>? LoginName
+        {
+            get => _loginName;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _loginName = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
@@ -276,11 +332,21 @@ namespace Pulumi.Snowflake
         [Input("mustChangePassword")]
         public Input<bool>? MustChangePassword { get; set; }
 
+        [Input("name")]
+        private Input<string>? _name;
+
         /// <summary>
         /// Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        public Input<string>? Name
+        {
+            get => _name;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _name = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("password")]
         private Input<string>? _password;
@@ -367,23 +433,53 @@ namespace Pulumi.Snowflake
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
+        [Input("displayName")]
+        private Input<string>? _displayName;
+
         /// <summary>
         /// Name displayed for the user in the Snowflake web interface.
         /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
+        public Input<string>? DisplayName
+        {
+            get => _displayName;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _displayName = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("email")]
+        private Input<string>? _email;
 
         /// <summary>
         /// Email address for the user.
         /// </summary>
-        [Input("email")]
-        public Input<string>? Email { get; set; }
+        public Input<string>? Email
+        {
+            get => _email;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _email = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("firstName")]
+        private Input<string>? _firstName;
 
         /// <summary>
         /// First name of the user.
         /// </summary>
-        [Input("firstName")]
-        public Input<string>? FirstName { get; set; }
+        public Input<string>? FirstName
+        {
+            get => _firstName;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _firstName = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Will be true if user as an RSA key set.
@@ -391,17 +487,37 @@ namespace Pulumi.Snowflake
         [Input("hasRsaPublicKey")]
         public Input<bool>? HasRsaPublicKey { get; set; }
 
+        [Input("lastName")]
+        private Input<string>? _lastName;
+
         /// <summary>
         /// Last name of the user.
         /// </summary>
-        [Input("lastName")]
-        public Input<string>? LastName { get; set; }
+        public Input<string>? LastName
+        {
+            get => _lastName;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _lastName = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("loginName")]
+        private Input<string>? _loginName;
 
         /// <summary>
         /// The name users use to log in. If not supplied, snowflake will use name instead.
         /// </summary>
-        [Input("loginName")]
-        public Input<string>? LoginName { get; set; }
+        public Input<string>? LoginName
+        {
+            get => _loginName;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _loginName = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
@@ -409,11 +525,21 @@ namespace Pulumi.Snowflake
         [Input("mustChangePassword")]
         public Input<bool>? MustChangePassword { get; set; }
 
+        [Input("name")]
+        private Input<string>? _name;
+
         /// <summary>
         /// Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        public Input<string>? Name
+        {
+            get => _name;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _name = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("password")]
         private Input<string>? _password;

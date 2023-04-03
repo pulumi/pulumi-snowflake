@@ -65,6 +65,12 @@ namespace Pulumi.Snowflake
         public Output<bool?> EnableMultipleGrants { get; private set; } = null!;
 
         /// <summary>
+        /// When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.
+        /// </summary>
+        [Output("onAll")]
+        public Output<bool?> OnAll { get; private set; } = null!;
+
+        /// <summary>
         /// When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
         /// </summary>
         [Output("onFuture")]
@@ -89,13 +95,13 @@ namespace Pulumi.Snowflake
         public Output<string?> SchemaName { get; private set; } = null!;
 
         /// <summary>
-        /// Grants privilege to these shares (only valid if on_future is unset).
+        /// Grants privilege to these shares (only valid if on*future or on*all is unset).
         /// </summary>
         [Output("shares")]
         public Output<ImmutableArray<string>> Shares { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the table on which to grant privileges immediately (only valid if on_future is unset).
+        /// The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).
         /// </summary>
         [Output("tableName")]
         public Output<string?> TableName { get; private set; } = null!;
@@ -166,6 +172,12 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
+        /// When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.
+        /// </summary>
+        [Input("onAll")]
+        public Input<bool>? OnAll { get; set; }
+
+        /// <summary>
         /// When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
         /// </summary>
         [Input("onFuture")]
@@ -199,7 +211,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _shares;
 
         /// <summary>
-        /// Grants privilege to these shares (only valid if on_future is unset).
+        /// Grants privilege to these shares (only valid if on*future or on*all is unset).
         /// </summary>
         public InputList<string> Shares
         {
@@ -208,7 +220,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// The name of the table on which to grant privileges immediately (only valid if on_future is unset).
+        /// The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).
         /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }
@@ -241,6 +253,12 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
+        /// When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.
+        /// </summary>
+        [Input("onAll")]
+        public Input<bool>? OnAll { get; set; }
+
+        /// <summary>
         /// When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
         /// </summary>
         [Input("onFuture")]
@@ -274,7 +292,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _shares;
 
         /// <summary>
-        /// Grants privilege to these shares (only valid if on_future is unset).
+        /// Grants privilege to these shares (only valid if on*future or on*all is unset).
         /// </summary>
         public InputList<string> Shares
         {
@@ -283,7 +301,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// The name of the table on which to grant privileges immediately (only valid if on_future is unset).
+        /// The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).
         /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }

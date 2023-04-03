@@ -178,6 +178,20 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.firstName);
     }
     /**
+     * Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+     * 
+     */
+    @Export(name="isOrgAdmin", type=Boolean.class, parameters={})
+    private Output<Boolean> isOrgAdmin;
+
+    /**
+     * @return Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+     * 
+     */
+    public Output<Boolean> isOrgAdmin() {
+        return this.isOrgAdmin;
+    }
+    /**
      * Last name of the initial administrative user of the account
      * 
      */
@@ -282,7 +296,10 @@ public class Account extends com.pulumi.resources.CustomResource {
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
                 "adminPassword",
-                "adminRsaPublicKey"
+                "adminRsaPublicKey",
+                "email",
+                "firstName",
+                "lastName"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

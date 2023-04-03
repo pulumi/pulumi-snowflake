@@ -96,6 +96,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly firstName!: pulumi.Output<string | undefined>;
     /**
+     * Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+     */
+    public /*out*/ readonly isOrgAdmin!: pulumi.Output<boolean>;
+    /**
      * Last name of the initial administrative user of the account
      */
     public readonly lastName!: pulumi.Output<string | undefined>;
@@ -136,6 +140,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["edition"] = state ? state.edition : undefined;
             resourceInputs["email"] = state ? state.email : undefined;
             resourceInputs["firstName"] = state ? state.firstName : undefined;
+            resourceInputs["isOrgAdmin"] = state ? state.isOrgAdmin : undefined;
             resourceInputs["lastName"] = state ? state.lastName : undefined;
             resourceInputs["mustChangePassword"] = state ? state.mustChangePassword : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -157,16 +162,17 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["adminRsaPublicKey"] = args?.adminRsaPublicKey ? pulumi.secret(args.adminRsaPublicKey) : undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["edition"] = args ? args.edition : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["firstName"] = args ? args.firstName : undefined;
-            resourceInputs["lastName"] = args ? args.lastName : undefined;
+            resourceInputs["email"] = args?.email ? pulumi.secret(args.email) : undefined;
+            resourceInputs["firstName"] = args?.firstName ? pulumi.secret(args.firstName) : undefined;
+            resourceInputs["lastName"] = args?.lastName ? pulumi.secret(args.lastName) : undefined;
             resourceInputs["mustChangePassword"] = args ? args.mustChangePassword : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["regionGroup"] = args ? args.regionGroup : undefined;
+            resourceInputs["isOrgAdmin"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["adminPassword", "adminRsaPublicKey"] };
+        const secretOpts = { additionalSecretOutputs: ["adminPassword", "adminRsaPublicKey", "email", "firstName", "lastName"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }
@@ -204,6 +210,10 @@ export interface AccountState {
      * First name of the initial administrative user of the account
      */
     firstName?: pulumi.Input<string>;
+    /**
+     * Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+     */
+    isOrgAdmin?: pulumi.Input<boolean>;
     /**
      * Last name of the initial administrative user of the account
      */

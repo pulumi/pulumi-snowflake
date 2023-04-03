@@ -10,7 +10,9 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.SessionParameterArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.SessionParameterState;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -38,7 +40,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var sessionParameter = new SessionParameter(&#34;sessionParameter&#34;, SessionParameterArgs.builder()        
  *             .key(&#34;AUTOCOMMIT&#34;)
+ *             .user(&#34;TEST_USER&#34;)
  *             .value(&#34;false&#34;)
+ *             .build());
+ * 
+ *         var s2 = new SessionParameter(&#34;s2&#34;, SessionParameterArgs.builder()        
+ *             .key(&#34;BINARY_OUTPUT_FORMAT&#34;)
+ *             .onAccount(true)
+ *             .value(&#34;BASE64&#34;)
  *             .build());
  * 
  *     }
@@ -67,6 +76,34 @@ public class SessionParameter extends com.pulumi.resources.CustomResource {
      */
     public Output<String> key() {
         return this.key;
+    }
+    /**
+     * If true, the session parameter will be set on the account level.
+     * 
+     */
+    @Export(name="onAccount", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> onAccount;
+
+    /**
+     * @return If true, the session parameter will be set on the account level.
+     * 
+     */
+    public Output<Optional<Boolean>> onAccount() {
+        return Codegen.optional(this.onAccount);
+    }
+    /**
+     * The user to set the session parameter for. Required if on_account is false
+     * 
+     */
+    @Export(name="user", type=String.class, parameters={})
+    private Output</* @Nullable */ String> user;
+
+    /**
+     * @return The user to set the session parameter for. Required if on_account is false
+     * 
+     */
+    public Output<Optional<String>> user() {
+        return Codegen.optional(this.user);
     }
     /**
      * Value of session parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.

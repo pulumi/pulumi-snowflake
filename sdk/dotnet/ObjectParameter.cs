@@ -90,6 +90,7 @@ namespace Pulumi.Snowflake
     ///     {
     ///         Key = "DATA_RETENTION_TIME_IN_DAYS",
     ///         Value = "89",
+    ///         OnAccount = true,
     ///     });
     /// 
     /// });
@@ -121,6 +122,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("objectType")]
         public Output<string?> ObjectType { get; private set; } = null!;
+
+        /// <summary>
+        /// If true, the object parameter will be set on the account level.
+        /// </summary>
+        [Output("onAccount")]
+        public Output<bool?> OnAccount { get; private set; } = null!;
 
         /// <summary>
         /// Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
@@ -199,6 +206,12 @@ namespace Pulumi.Snowflake
         public Input<string>? ObjectType { get; set; }
 
         /// <summary>
+        /// If true, the object parameter will be set on the account level.
+        /// </summary>
+        [Input("onAccount")]
+        public Input<bool>? OnAccount { get; set; }
+
+        /// <summary>
         /// Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
         /// </summary>
         [Input("value", required: true)]
@@ -235,6 +248,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("objectType")]
         public Input<string>? ObjectType { get; set; }
+
+        /// <summary>
+        /// If true, the object parameter will be set on the account level.
+        /// </summary>
+        [Input("onAccount")]
+        public Input<bool>? OnAccount { get; set; }
 
         /// <summary>
         /// Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.

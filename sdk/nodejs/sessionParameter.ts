@@ -13,7 +13,13 @@ import * as utilities from "./utilities";
  *
  * const sessionParameter = new snowflake.SessionParameter("sessionParameter", {
  *     key: "AUTOCOMMIT",
+ *     user: "TEST_USER",
  *     value: "false",
+ * });
+ * const s2 = new snowflake.SessionParameter("s2", {
+ *     key: "BINARY_OUTPUT_FORMAT",
+ *     onAccount: true,
+ *     value: "BASE64",
  * });
  * ```
  *
@@ -56,6 +62,14 @@ export class SessionParameter extends pulumi.CustomResource {
      */
     public readonly key!: pulumi.Output<string>;
     /**
+     * If true, the session parameter will be set on the account level.
+     */
+    public readonly onAccount!: pulumi.Output<boolean | undefined>;
+    /**
+     * The user to set the session parameter for. Required if onAccount is false
+     */
+    public readonly user!: pulumi.Output<string | undefined>;
+    /**
      * Value of session parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
      */
     public readonly value!: pulumi.Output<string>;
@@ -74,6 +88,8 @@ export class SessionParameter extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SessionParameterState | undefined;
             resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["onAccount"] = state ? state.onAccount : undefined;
+            resourceInputs["user"] = state ? state.user : undefined;
             resourceInputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as SessionParameterArgs | undefined;
@@ -84,6 +100,8 @@ export class SessionParameter extends pulumi.CustomResource {
                 throw new Error("Missing required property 'value'");
             }
             resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["onAccount"] = args ? args.onAccount : undefined;
+            resourceInputs["user"] = args ? args.user : undefined;
             resourceInputs["value"] = args ? args.value : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -100,6 +118,14 @@ export interface SessionParameterState {
      */
     key?: pulumi.Input<string>;
     /**
+     * If true, the session parameter will be set on the account level.
+     */
+    onAccount?: pulumi.Input<boolean>;
+    /**
+     * The user to set the session parameter for. Required if onAccount is false
+     */
+    user?: pulumi.Input<string>;
+    /**
      * Value of session parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
      */
     value?: pulumi.Input<string>;
@@ -113,6 +139,14 @@ export interface SessionParameterArgs {
      * Name of session parameter. Valid values are those in [session parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#session-parameters).
      */
     key: pulumi.Input<string>;
+    /**
+     * If true, the session parameter will be set on the account level.
+     */
+    onAccount?: pulumi.Input<boolean>;
+    /**
+     * The user to set the session parameter for. Required if onAccount is false
+     */
+    user?: pulumi.Input<string>;
     /**
      * Value of session parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
      */

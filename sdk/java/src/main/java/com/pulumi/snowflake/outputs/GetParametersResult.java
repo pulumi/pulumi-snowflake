@@ -43,6 +43,11 @@ public final class GetParametersResult {
      * 
      */
     private @Nullable String pattern;
+    /**
+     * @return If parameter_type is set to &#34;SESSION&#34; then user is the name of the user to display session parameters for.
+     * 
+     */
+    private @Nullable String user;
 
     private GetParametersResult() {}
     /**
@@ -87,6 +92,13 @@ public final class GetParametersResult {
     public Optional<String> pattern() {
         return Optional.ofNullable(this.pattern);
     }
+    /**
+     * @return If parameter_type is set to &#34;SESSION&#34; then user is the name of the user to display session parameters for.
+     * 
+     */
+    public Optional<String> user() {
+        return Optional.ofNullable(this.user);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -103,6 +115,7 @@ public final class GetParametersResult {
         private @Nullable String parameterType;
         private List<GetParametersParameter> parameters;
         private @Nullable String pattern;
+        private @Nullable String user;
         public Builder() {}
         public Builder(GetParametersResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -112,6 +125,7 @@ public final class GetParametersResult {
     	      this.parameterType = defaults.parameterType;
     	      this.parameters = defaults.parameters;
     	      this.pattern = defaults.pattern;
+    	      this.user = defaults.user;
         }
 
         @CustomType.Setter
@@ -147,6 +161,11 @@ public final class GetParametersResult {
             this.pattern = pattern;
             return this;
         }
+        @CustomType.Setter
+        public Builder user(@Nullable String user) {
+            this.user = user;
+            return this;
+        }
         public GetParametersResult build() {
             final var o = new GetParametersResult();
             o.id = id;
@@ -155,6 +174,7 @@ public final class GetParametersResult {
             o.parameterType = parameterType;
             o.parameters = parameters;
             o.pattern = pattern;
+            o.user = user;
             return o;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.snowflake;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.snowflake.inputs.ObjectParameterObjectIdentifierArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -63,6 +64,21 @@ public final class ObjectParameterArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * If true, the object parameter will be set on the account level.
+     * 
+     */
+    @Import(name="onAccount")
+    private @Nullable Output<Boolean> onAccount;
+
+    /**
+     * @return If true, the object parameter will be set on the account level.
+     * 
+     */
+    public Optional<Output<Boolean>> onAccount() {
+        return Optional.ofNullable(this.onAccount);
+    }
+
+    /**
      * Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
      * 
      */
@@ -83,6 +99,7 @@ public final class ObjectParameterArgs extends com.pulumi.resources.ResourceArgs
         this.key = $.key;
         this.objectIdentifiers = $.objectIdentifiers;
         this.objectType = $.objectType;
+        this.onAccount = $.onAccount;
         this.value = $.value;
     }
 
@@ -175,6 +192,27 @@ public final class ObjectParameterArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder objectType(String objectType) {
             return objectType(Output.of(objectType));
+        }
+
+        /**
+         * @param onAccount If true, the object parameter will be set on the account level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onAccount(@Nullable Output<Boolean> onAccount) {
+            $.onAccount = onAccount;
+            return this;
+        }
+
+        /**
+         * @param onAccount If true, the object parameter will be set on the account level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onAccount(Boolean onAccount) {
+            return onAccount(Output.of(onAccount));
         }
 
         /**
