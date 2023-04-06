@@ -17,85 +17,82 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			database, err := snowflake.NewDatabase(ctx, "database", nil)
-//			if err != nil {
-//				return err
-//			}
-//			schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
-//				Database: database.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tag, err := snowflake.NewTag(ctx, "tag", &snowflake.TagArgs{
-//				Database: database.Name,
-//				Schema:   schema.Name,
-//				AllowedValues: pulumi.StringArray{
-//					pulumi.String("finance"),
-//					pulumi.String("engineering"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewTagAssociation(ctx, "dbAssociation", &snowflake.TagAssociationArgs{
-//				ObjectIdentifiers: snowflake.TagAssociationObjectIdentifierArray{
-//					&snowflake.TagAssociationObjectIdentifierArgs{
-//						Name: database.Name,
-//					},
-//				},
-//				ObjectType: pulumi.String("DATABASE"),
-//				TagId:      tag.ID(),
-//				TagValue:   pulumi.String("finance"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			test, err := snowflake.NewTable(ctx, "test", &snowflake.TableArgs{
-//				Database: pulumi.Any(snowflake_database.Test.Name),
-//				Schema:   pulumi.Any(snowflake_schema.Test.Name),
-//				Comment:  pulumi.String("Terraform example table"),
-//				Columns: snowflake.TableColumnArray{
-//					&snowflake.TableColumnArgs{
-//						Name: pulumi.String("column1"),
-//						Type: pulumi.String("VARIANT"),
-//					},
-//					&snowflake.TableColumnArgs{
-//						Name: pulumi.String("column2"),
-//						Type: pulumi.String("VARCHAR(16)"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewTagAssociation(ctx, "tableAssociation", &snowflake.TagAssociationArgs{
-//				ObjectIdentifiers: snowflake.TagAssociationObjectIdentifierArray{
-//					&snowflake.TagAssociationObjectIdentifierArgs{
-//						Name:     test.Name,
-//						Database: pulumi.Any(snowflake_database.Test.Name),
-//						Schema:   pulumi.Any(snowflake_schema.Test.Name),
-//					},
-//				},
-//				ObjectType: pulumi.String("TABLE"),
-//				TagId:      pulumi.Any(snowflake_tag.Test.Id),
-//				TagValue:   pulumi.String("engineering"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		database, err := snowflake.NewDatabase(ctx, "database", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
+// 			Database: database.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		tag, err := snowflake.NewTag(ctx, "tag", &snowflake.TagArgs{
+// 			Database: database.Name,
+// 			Schema:   schema.Name,
+// 			AllowedValues: pulumi.StringArray{
+// 				pulumi.String("finance"),
+// 				pulumi.String("engineering"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewTagAssociation(ctx, "dbAssociation", &snowflake.TagAssociationArgs{
+// 			ObjectIdentifiers: snowflake.TagAssociationObjectIdentifierArray{
+// 				&snowflake.TagAssociationObjectIdentifierArgs{
+// 					Name: database.Name,
+// 				},
+// 			},
+// 			ObjectType: pulumi.String("DATABASE"),
+// 			TagId:      tag.ID(),
+// 			TagValue:   pulumi.String("finance"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		test, err := snowflake.NewTable(ctx, "test", &snowflake.TableArgs{
+// 			Database: pulumi.Any(snowflake_database.Test.Name),
+// 			Schema:   pulumi.Any(snowflake_schema.Test.Name),
+// 			Comment:  pulumi.String("Terraform example table"),
+// 			Columns: snowflake.TableColumnArray{
+// 				&snowflake.TableColumnArgs{
+// 					Name: pulumi.String("column1"),
+// 					Type: pulumi.String("VARIANT"),
+// 				},
+// 				&snowflake.TableColumnArgs{
+// 					Name: pulumi.String("column2"),
+// 					Type: pulumi.String("VARCHAR(16)"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewTagAssociation(ctx, "tableAssociation", &snowflake.TagAssociationArgs{
+// 			ObjectIdentifiers: snowflake.TagAssociationObjectIdentifierArray{
+// 				&snowflake.TagAssociationObjectIdentifierArgs{
+// 					Name:     test.Name,
+// 					Database: pulumi.Any(snowflake_database.Test.Name),
+// 					Schema:   pulumi.Any(snowflake_schema.Test.Name),
+// 				},
+// 			},
+// 			ObjectType: pulumi.String("TABLE"),
+// 			TagId:      pulumi.Any(snowflake_tag.Test.Id),
+// 			TagValue:   pulumi.String("engineering"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -103,9 +100,7 @@ import (
 // format is dbName.schemaName.tagName or dbName.schemaName.tagName
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/tagAssociation:TagAssociation example 'dbName.schemaName.tagName'
-//
+//  $ pulumi import snowflake:index/tagAssociation:TagAssociation example 'dbName.schemaName.tagName'
 // ```
 type TagAssociation struct {
 	pulumi.CustomResourceState
@@ -265,7 +260,7 @@ func (i *TagAssociation) ToTagAssociationOutputWithContext(ctx context.Context) 
 // TagAssociationArrayInput is an input type that accepts TagAssociationArray and TagAssociationArrayOutput values.
 // You can construct a concrete instance of `TagAssociationArrayInput` via:
 //
-//	TagAssociationArray{ TagAssociationArgs{...} }
+//          TagAssociationArray{ TagAssociationArgs{...} }
 type TagAssociationArrayInput interface {
 	pulumi.Input
 
@@ -290,7 +285,7 @@ func (i TagAssociationArray) ToTagAssociationArrayOutputWithContext(ctx context.
 // TagAssociationMapInput is an input type that accepts TagAssociationMap and TagAssociationMapOutput values.
 // You can construct a concrete instance of `TagAssociationMapInput` via:
 //
-//	TagAssociationMap{ "key": TagAssociationArgs{...} }
+//          TagAssociationMap{ "key": TagAssociationArgs{...} }
 type TagAssociationMapInput interface {
 	pulumi.Input
 

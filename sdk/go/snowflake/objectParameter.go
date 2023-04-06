@@ -17,99 +17,94 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			database, err := snowflake.NewDatabase(ctx, "database", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewObjectParameter(ctx, "objectParameter", &snowflake.ObjectParameterArgs{
-//				Key:        pulumi.String("SUSPEND_TASK_AFTER_NUM_FAILURES"),
-//				Value:      pulumi.String("33"),
-//				ObjectType: pulumi.String("DATABASE"),
-//				ObjectIdentifiers: snowflake.ObjectParameterObjectIdentifierArray{
-//					&snowflake.ObjectParameterObjectIdentifierArgs{
-//						Name: database.Name,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
-//				Database: database.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewObjectParameter(ctx, "o2", &snowflake.ObjectParameterArgs{
-//				Key:        pulumi.String("USER_TASK_TIMEOUT_MS"),
-//				Value:      pulumi.String("500"),
-//				ObjectType: pulumi.String("SCHEMA"),
-//				ObjectIdentifiers: snowflake.ObjectParameterObjectIdentifierArray{
-//					&snowflake.ObjectParameterObjectIdentifierArgs{
-//						Database: database.Name,
-//						Name:     schema.Name,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			table, err := snowflake.NewTable(ctx, "table", &snowflake.TableArgs{
-//				Database: database.Name,
-//				Schema:   schema.Name,
-//				Columns: snowflake.TableColumnArray{
-//					&snowflake.TableColumnArgs{
-//						Name: pulumi.String("id"),
-//						Type: pulumi.String("NUMBER"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewObjectParameter(ctx, "o3", &snowflake.ObjectParameterArgs{
-//				Key:        pulumi.String("DATA_RETENTION_TIME_IN_DAYS"),
-//				Value:      pulumi.String("89"),
-//				ObjectType: pulumi.String("TABLE"),
-//				ObjectIdentifiers: snowflake.ObjectParameterObjectIdentifierArray{
-//					&snowflake.ObjectParameterObjectIdentifierArgs{
-//						Database: database.Name,
-//						Schema:   schema.Name,
-//						Name:     table.Name,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewObjectParameter(ctx, "o4", &snowflake.ObjectParameterArgs{
-//				Key:       pulumi.String("DATA_RETENTION_TIME_IN_DAYS"),
-//				Value:     pulumi.String("89"),
-//				OnAccount: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		database, err := snowflake.NewDatabase(ctx, "database", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewObjectParameter(ctx, "objectParameter", &snowflake.ObjectParameterArgs{
+// 			Key:        pulumi.String("SUSPEND_TASK_AFTER_NUM_FAILURES"),
+// 			Value:      pulumi.String("33"),
+// 			ObjectType: pulumi.String("DATABASE"),
+// 			ObjectIdentifiers: snowflake.ObjectParameterObjectIdentifierArray{
+// 				&snowflake.ObjectParameterObjectIdentifierArgs{
+// 					Name: database.Name,
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
+// 			Database: database.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewObjectParameter(ctx, "o2", &snowflake.ObjectParameterArgs{
+// 			Key:        pulumi.String("USER_TASK_TIMEOUT_MS"),
+// 			Value:      pulumi.String("500"),
+// 			ObjectType: pulumi.String("SCHEMA"),
+// 			ObjectIdentifiers: snowflake.ObjectParameterObjectIdentifierArray{
+// 				&snowflake.ObjectParameterObjectIdentifierArgs{
+// 					Database: database.Name,
+// 					Name:     schema.Name,
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		table, err := snowflake.NewTable(ctx, "table", &snowflake.TableArgs{
+// 			Database: database.Name,
+// 			Schema:   schema.Name,
+// 			Columns: snowflake.TableColumnArray{
+// 				&snowflake.TableColumnArgs{
+// 					Name: pulumi.String("id"),
+// 					Type: pulumi.String("NUMBER"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewObjectParameter(ctx, "o3", &snowflake.ObjectParameterArgs{
+// 			Key:        pulumi.String("DATA_RETENTION_TIME_IN_DAYS"),
+// 			Value:      pulumi.String("89"),
+// 			ObjectType: pulumi.String("TABLE"),
+// 			ObjectIdentifiers: snowflake.ObjectParameterObjectIdentifierArray{
+// 				&snowflake.ObjectParameterObjectIdentifierArgs{
+// 					Database: database.Name,
+// 					Schema:   schema.Name,
+// 					Name:     table.Name,
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewObjectParameter(ctx, "o4", &snowflake.ObjectParameterArgs{
+// 			Key:       pulumi.String("DATA_RETENTION_TIME_IN_DAYS"),
+// 			Value:     pulumi.String("89"),
+// 			OnAccount: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/objectParameter:ObjectParameter s <key>❄️<object_type>❄️<object_identifier>
-//
+//  $ pulumi import snowflake:index/objectParameter:ObjectParameter s <key>❄️<object_type>❄️<object_identifier>
 // ```
 type ObjectParameter struct {
 	pulumi.CustomResourceState
@@ -243,7 +238,7 @@ func (i *ObjectParameter) ToObjectParameterOutputWithContext(ctx context.Context
 // ObjectParameterArrayInput is an input type that accepts ObjectParameterArray and ObjectParameterArrayOutput values.
 // You can construct a concrete instance of `ObjectParameterArrayInput` via:
 //
-//	ObjectParameterArray{ ObjectParameterArgs{...} }
+//          ObjectParameterArray{ ObjectParameterArgs{...} }
 type ObjectParameterArrayInput interface {
 	pulumi.Input
 
@@ -268,7 +263,7 @@ func (i ObjectParameterArray) ToObjectParameterArrayOutputWithContext(ctx contex
 // ObjectParameterMapInput is an input type that accepts ObjectParameterMap and ObjectParameterMapOutput values.
 // You can construct a concrete instance of `ObjectParameterMapInput` via:
 //
-//	ObjectParameterMap{ "key": ObjectParameterArgs{...} }
+//          ObjectParameterMap{ "key": ObjectParameterArgs{...} }
 type ObjectParameterMapInput interface {
 	pulumi.Input
 

@@ -28,14 +28,14 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * 
      */
     @Export(name="account", type=String.class, parameters={})
-    private Output<String> account;
+    private Output</* @Nullable */ String> account;
 
     /**
      * @return The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
      * 
      */
-    public Output<String> account() {
-        return this.account;
+    public Output<Optional<String>> account() {
+        return Codegen.optional(this.account);
     }
     /**
      * Supports passing in a custom host value to the snowflake go driver for use with privatelink.
@@ -231,7 +231,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * 
      */
     @Export(name="region", type=String.class, parameters={})
-    private Output<String> region;
+    private Output</* @Nullable */ String> region;
 
     /**
      * @return [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
@@ -240,8 +240,8 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * in the form of `&lt;cloud_region_id&gt;.&lt;cloud&gt;`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
      * 
      */
-    public Output<String> region() {
-        return this.region;
+    public Output<Optional<String>> region() {
+        return Codegen.optional(this.region);
     }
     /**
      * Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
@@ -264,14 +264,14 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * 
      */
     @Export(name="username", type=String.class, parameters={})
-    private Output<String> username;
+    private Output</* @Nullable */ String> username;
 
     /**
      * @return Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
      * 
      */
-    public Output<String> username() {
-        return this.username;
+    public Output<Optional<String>> username() {
+        return Codegen.optional(this.username);
     }
     /**
      * Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
@@ -300,7 +300,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Provider(String name, ProviderArgs args) {
+    public Provider(String name, @Nullable ProviderArgs args) {
         this(name, args, null);
     }
     /**
@@ -309,7 +309,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Provider(String name, ProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public Provider(String name, @Nullable ProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake", name, args == null ? ProviderArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

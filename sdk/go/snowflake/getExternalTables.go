@@ -16,25 +16,22 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetExternalTables(ctx, &snowflake.GetExternalTablesArgs{
-//				Database: "MYDB",
-//				Schema:   "MYSCHEMA",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.GetExternalTables(ctx, &snowflake.GetExternalTablesArgs{
+// 			Database: "MYDB",
+// 			Schema:   "MYSCHEMA",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 func GetExternalTables(ctx *pulumi.Context, args *GetExternalTablesArgs, opts ...pulumi.InvokeOption) (*GetExternalTablesResult, error) {
 	var rv GetExternalTablesResult

@@ -17,33 +17,30 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewStreamGrant(ctx, "grant", &snowflake.StreamGrantArgs{
-//				DatabaseName: pulumi.String("database"),
-//				OnFuture:     pulumi.Bool(false),
-//				Privilege:    pulumi.String("SELECT"),
-//				Roles: pulumi.StringArray{
-//					pulumi.String("role1"),
-//					pulumi.String("role2"),
-//				},
-//				SchemaName:      pulumi.String("schema"),
-//				StreamName:      pulumi.String("view"),
-//				WithGrantOption: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewStreamGrant(ctx, "grant", &snowflake.StreamGrantArgs{
+// 			DatabaseName: pulumi.String("database"),
+// 			OnFuture:     pulumi.Bool(false),
+// 			Privilege:    pulumi.String("SELECT"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("role1"),
+// 				pulumi.String("role2"),
+// 			},
+// 			SchemaName:      pulumi.String("schema"),
+// 			StreamName:      pulumi.String("view"),
+// 			WithGrantOption: pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -51,9 +48,7 @@ import (
 // format is database_name | schema_name | stream_name | privilege | with_grant_option | roles
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/streamGrant:StreamGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|SELECT|false|role1,role2'
-//
+//  $ pulumi import snowflake:index/streamGrant:StreamGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|SELECT|false|role1,role2'
 // ```
 type StreamGrant struct {
 	pulumi.CustomResourceState
@@ -222,7 +217,7 @@ func (i *StreamGrant) ToStreamGrantOutputWithContext(ctx context.Context) Stream
 // StreamGrantArrayInput is an input type that accepts StreamGrantArray and StreamGrantArrayOutput values.
 // You can construct a concrete instance of `StreamGrantArrayInput` via:
 //
-//	StreamGrantArray{ StreamGrantArgs{...} }
+//          StreamGrantArray{ StreamGrantArgs{...} }
 type StreamGrantArrayInput interface {
 	pulumi.Input
 
@@ -247,7 +242,7 @@ func (i StreamGrantArray) ToStreamGrantArrayOutputWithContext(ctx context.Contex
 // StreamGrantMapInput is an input type that accepts StreamGrantMap and StreamGrantMapOutput values.
 // You can construct a concrete instance of `StreamGrantMapInput` via:
 //
-//	StreamGrantMap{ "key": StreamGrantArgs{...} }
+//          StreamGrantMap{ "key": StreamGrantArgs{...} }
 type StreamGrantMapInput interface {
 	pulumi.Input
 

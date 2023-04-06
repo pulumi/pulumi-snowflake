@@ -16,9 +16,7 @@ import (
 // format is database name | schema name | function name | <list of arg types, separated with '-'>
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/function:Function example 'dbName|schemaName|functionName|varchar-varchar-varchar'
-//
+//  $ pulumi import snowflake:index/function:Function example 'dbName|schemaName|functionName|varchar-varchar-varchar'
 // ```
 type Function struct {
 	pulumi.CustomResourceState
@@ -268,7 +266,7 @@ func (i *Function) ToFunctionOutputWithContext(ctx context.Context) FunctionOutp
 // FunctionArrayInput is an input type that accepts FunctionArray and FunctionArrayOutput values.
 // You can construct a concrete instance of `FunctionArrayInput` via:
 //
-//	FunctionArray{ FunctionArgs{...} }
+//          FunctionArray{ FunctionArgs{...} }
 type FunctionArrayInput interface {
 	pulumi.Input
 
@@ -293,7 +291,7 @@ func (i FunctionArray) ToFunctionArrayOutputWithContext(ctx context.Context) Fun
 // FunctionMapInput is an input type that accepts FunctionMap and FunctionMapOutput values.
 // You can construct a concrete instance of `FunctionMapInput` via:
 //
-//	FunctionMap{ "key": FunctionArgs{...} }
+//          FunctionMap{ "key": FunctionArgs{...} }
 type FunctionMapInput interface {
 	pulumi.Input
 

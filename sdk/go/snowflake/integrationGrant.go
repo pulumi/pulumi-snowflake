@@ -17,30 +17,27 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewIntegrationGrant(ctx, "grant", &snowflake.IntegrationGrantArgs{
-//				IntegrationName: pulumi.String("integration"),
-//				Privilege:       pulumi.String("USAGE"),
-//				Roles: pulumi.StringArray{
-//					pulumi.String("role1"),
-//					pulumi.String("role2"),
-//				},
-//				WithGrantOption: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewIntegrationGrant(ctx, "grant", &snowflake.IntegrationGrantArgs{
+// 			IntegrationName: pulumi.String("integration"),
+// 			Privilege:       pulumi.String("USAGE"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("role1"),
+// 				pulumi.String("role2"),
+// 			},
+// 			WithGrantOption: pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -48,9 +45,7 @@ import (
 // format is integration_name | privilege | with_grant_option | roles
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/integrationGrant:IntegrationGrant example 'MY_INTEGRATION|USAGE|false|role1,role2'
-//
+//  $ pulumi import snowflake:index/integrationGrant:IntegrationGrant example 'MY_INTEGRATION|USAGE|false|role1,role2'
 // ```
 type IntegrationGrant struct {
 	pulumi.CustomResourceState
@@ -186,7 +181,7 @@ func (i *IntegrationGrant) ToIntegrationGrantOutputWithContext(ctx context.Conte
 // IntegrationGrantArrayInput is an input type that accepts IntegrationGrantArray and IntegrationGrantArrayOutput values.
 // You can construct a concrete instance of `IntegrationGrantArrayInput` via:
 //
-//	IntegrationGrantArray{ IntegrationGrantArgs{...} }
+//          IntegrationGrantArray{ IntegrationGrantArgs{...} }
 type IntegrationGrantArrayInput interface {
 	pulumi.Input
 
@@ -211,7 +206,7 @@ func (i IntegrationGrantArray) ToIntegrationGrantArrayOutputWithContext(ctx cont
 // IntegrationGrantMapInput is an input type that accepts IntegrationGrantMap and IntegrationGrantMapOutput values.
 // You can construct a concrete instance of `IntegrationGrantMapInput` via:
 //
-//	IntegrationGrantMap{ "key": IntegrationGrantArgs{...} }
+//          IntegrationGrantMap{ "key": IntegrationGrantArgs{...} }
 type IntegrationGrantMapInput interface {
 	pulumi.Input
 

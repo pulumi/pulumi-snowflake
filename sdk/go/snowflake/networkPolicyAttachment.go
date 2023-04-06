@@ -17,37 +17,32 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewNetworkPolicyAttachment(ctx, "attach", &snowflake.NetworkPolicyAttachmentArgs{
-//				NetworkPolicyName: pulumi.String("policy"),
-//				SetForAccount:     pulumi.Bool(false),
-//				Users: pulumi.StringArray{
-//					pulumi.String("user1"),
-//					pulumi.String("user2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewNetworkPolicyAttachment(ctx, "attach", &snowflake.NetworkPolicyAttachmentArgs{
+// 			NetworkPolicyName: pulumi.String("policy"),
+// 			SetForAccount:     pulumi.Bool(false),
+// 			Users: pulumi.StringArray{
+// 				pulumi.String("user1"),
+// 				pulumi.String("user2"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment example attachment_policyname
-//
+//  $ pulumi import snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment example attachment_policyname
 // ```
 type NetworkPolicyAttachment struct {
 	pulumi.CustomResourceState
@@ -183,7 +178,7 @@ func (i *NetworkPolicyAttachment) ToNetworkPolicyAttachmentOutputWithContext(ctx
 // NetworkPolicyAttachmentArrayInput is an input type that accepts NetworkPolicyAttachmentArray and NetworkPolicyAttachmentArrayOutput values.
 // You can construct a concrete instance of `NetworkPolicyAttachmentArrayInput` via:
 //
-//	NetworkPolicyAttachmentArray{ NetworkPolicyAttachmentArgs{...} }
+//          NetworkPolicyAttachmentArray{ NetworkPolicyAttachmentArgs{...} }
 type NetworkPolicyAttachmentArrayInput interface {
 	pulumi.Input
 
@@ -208,7 +203,7 @@ func (i NetworkPolicyAttachmentArray) ToNetworkPolicyAttachmentArrayOutputWithCo
 // NetworkPolicyAttachmentMapInput is an input type that accepts NetworkPolicyAttachmentMap and NetworkPolicyAttachmentMapOutput values.
 // You can construct a concrete instance of `NetworkPolicyAttachmentMapInput` via:
 //
-//	NetworkPolicyAttachmentMap{ "key": NetworkPolicyAttachmentArgs{...} }
+//          NetworkPolicyAttachmentMap{ "key": NetworkPolicyAttachmentArgs{...} }
 type NetworkPolicyAttachmentMapInput interface {
 	pulumi.Input
 

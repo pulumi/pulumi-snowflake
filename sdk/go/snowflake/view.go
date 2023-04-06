@@ -17,29 +17,26 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewView(ctx, "view", &snowflake.ViewArgs{
-//				Database:  pulumi.String("database"),
-//				Schema:    pulumi.String("schema"),
-//				Comment:   pulumi.String("comment"),
-//				Statement: pulumi.String("select * from foo;\n"),
-//				OrReplace: pulumi.Bool(false),
-//				IsSecure:  pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewView(ctx, "view", &snowflake.ViewArgs{
+// 			Database:  pulumi.String("database"),
+// 			Schema:    pulumi.String("schema"),
+// 			Comment:   pulumi.String("comment"),
+// 			Statement: pulumi.String("select * from foo;\n"),
+// 			OrReplace: pulumi.Bool(false),
+// 			IsSecure:  pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -47,9 +44,7 @@ import (
 // format is database name | schema name | view name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/view:View example 'dbName|schemaName|viewName'
-//
+//  $ pulumi import snowflake:index/view:View example 'dbName|schemaName|viewName'
 // ```
 type View struct {
 	pulumi.CustomResourceState
@@ -236,7 +231,7 @@ func (i *View) ToViewOutputWithContext(ctx context.Context) ViewOutput {
 // ViewArrayInput is an input type that accepts ViewArray and ViewArrayOutput values.
 // You can construct a concrete instance of `ViewArrayInput` via:
 //
-//	ViewArray{ ViewArgs{...} }
+//          ViewArray{ ViewArgs{...} }
 type ViewArrayInput interface {
 	pulumi.Input
 
@@ -261,7 +256,7 @@ func (i ViewArray) ToViewArrayOutputWithContext(ctx context.Context) ViewArrayOu
 // ViewMapInput is an input type that accepts ViewMap and ViewMapOutput values.
 // You can construct a concrete instance of `ViewMapInput` via:
 //
-//	ViewMap{ "key": ViewArgs{...} }
+//          ViewMap{ "key": ViewArgs{...} }
 type ViewMapInput interface {
 	pulumi.Input
 

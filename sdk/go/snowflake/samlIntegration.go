@@ -17,36 +17,31 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewSamlIntegration(ctx, "samlIntegration", &snowflake.SamlIntegrationArgs{
-//				Enabled:       pulumi.Bool(true),
-//				Saml2Issuer:   pulumi.String("test_issuer"),
-//				Saml2Provider: pulumi.String("CUSTOM"),
-//				Saml2SsoUrl:   pulumi.String("https://testsamlissuer.com"),
-//				Saml2X509Cert: pulumi.String("MIICYzCCAcygAwIBAgIBADANBgkqhkiG9w0BAQUFADAuMQswCQYDVQQGEwJVUzEMMAoGA1UEChMDSUJNMREwDwYDVQQLEwhMb2NhbCBDQTAeFw05OTEyMjIwNTAwMDBaFw0wMDEyMjMwNDU5NTlaMC4xCzAJBgNVBAYTAlVTMQwwCgYDVQQKEwNJQk0xETAPBgNVBAsTCExvY2FsIENBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD2bZEo7xGaX2/0GHkrNFZvlxBou9v1Jmt/PDiTMPve8r9FeJAQ0QdvFST/0JPQYD20rH0bimdDLgNdNynmyRoS2S/IInfpmf69iyc2G0TPyRvmHIiOZbdCd+YBHQi1adkj17NDcWj6S14tVurFX73zx0sNoMS79q3tuXKrDsxeuwIDAQABo4GQMIGNMEsGCVUdDwGG+EIBDQQ+EzxHZW5lcmF0ZWQgYnkgdGhlIFNlY3VyZVdheSBTZWN1cml0eSBTZXJ2ZXIgZm9yIE9TLzM5MCAoUkFDRikwDgYDVR0PAQH/BAQDAgAGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFJ3+ocRyCTJw067dLSwr/nalx6YMMA0GCSqGSIb3DQEBBQUAA4GBAMaQzt+zaj1GU77yzlr8iiMBXgdQrwsZZWJo5exnAucJAEYQZmOfyLiMD6oYq+ZnfvM0n8G/Y79q8nhwvuxpYOnRSAXFp6xSkrIOeZtJMY1h00LKp/JX3Ng1svZ2agE126JHsQ0bhzN5TKsYfbwfTwfjdWAGy6Vf1nYi/rO+ryMO"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewSamlIntegration(ctx, "samlIntegration", &snowflake.SamlIntegrationArgs{
+// 			Enabled:       pulumi.Bool(true),
+// 			Saml2Issuer:   pulumi.String("test_issuer"),
+// 			Saml2Provider: pulumi.String("CUSTOM"),
+// 			Saml2SsoUrl:   pulumi.String("https://testsamlissuer.com"),
+// 			Saml2X509Cert: pulumi.String("MIICYzCCAcygAwIBAgIBADANBgkqhkiG9w0BAQUFADAuMQswCQYDVQQGEwJVUzEMMAoGA1UEChMDSUJNMREwDwYDVQQLEwhMb2NhbCBDQTAeFw05OTEyMjIwNTAwMDBaFw0wMDEyMjMwNDU5NTlaMC4xCzAJBgNVBAYTAlVTMQwwCgYDVQQKEwNJQk0xETAPBgNVBAsTCExvY2FsIENBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD2bZEo7xGaX2/0GHkrNFZvlxBou9v1Jmt/PDiTMPve8r9FeJAQ0QdvFST/0JPQYD20rH0bimdDLgNdNynmyRoS2S/IInfpmf69iyc2G0TPyRvmHIiOZbdCd+YBHQi1adkj17NDcWj6S14tVurFX73zx0sNoMS79q3tuXKrDsxeuwIDAQABo4GQMIGNMEsGCVUdDwGG+EIBDQQ+EzxHZW5lcmF0ZWQgYnkgdGhlIFNlY3VyZVdheSBTZWN1cml0eSBTZXJ2ZXIgZm9yIE9TLzM5MCAoUkFDRikwDgYDVR0PAQH/BAQDAgAGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFJ3+ocRyCTJw067dLSwr/nalx6YMMA0GCSqGSIb3DQEBBQUAA4GBAMaQzt+zaj1GU77yzlr8iiMBXgdQrwsZZWJo5exnAucJAEYQZmOfyLiMD6oYq+ZnfvM0n8G/Y79q8nhwvuxpYOnRSAXFp6xSkrIOeZtJMY1h00LKp/JX3Ng1svZ2agE126JHsQ0bhzN5TKsYfbwfTwfjdWAGy6Vf1nYi/rO+ryMO"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/samlIntegration:SamlIntegration example name
-//
+//  $ pulumi import snowflake:index/samlIntegration:SamlIntegration example name
 // ```
 type SamlIntegration struct {
 	pulumi.CustomResourceState
@@ -304,7 +299,7 @@ func (i *SamlIntegration) ToSamlIntegrationOutputWithContext(ctx context.Context
 // SamlIntegrationArrayInput is an input type that accepts SamlIntegrationArray and SamlIntegrationArrayOutput values.
 // You can construct a concrete instance of `SamlIntegrationArrayInput` via:
 //
-//	SamlIntegrationArray{ SamlIntegrationArgs{...} }
+//          SamlIntegrationArray{ SamlIntegrationArgs{...} }
 type SamlIntegrationArrayInput interface {
 	pulumi.Input
 
@@ -329,7 +324,7 @@ func (i SamlIntegrationArray) ToSamlIntegrationArrayOutputWithContext(ctx contex
 // SamlIntegrationMapInput is an input type that accepts SamlIntegrationMap and SamlIntegrationMapOutput values.
 // You can construct a concrete instance of `SamlIntegrationMapInput` via:
 //
-//	SamlIntegrationMap{ "key": SamlIntegrationArgs{...} }
+//          SamlIntegrationMap{ "key": SamlIntegrationArgs{...} }
 type SamlIntegrationMapInput interface {
 	pulumi.Input
 

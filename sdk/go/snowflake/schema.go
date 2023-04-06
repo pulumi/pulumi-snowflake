@@ -17,28 +17,25 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
-//				Comment:           pulumi.String("A schema."),
-//				DataRetentionDays: pulumi.Int(1),
-//				Database:          pulumi.String("database"),
-//				IsManaged:         pulumi.Bool(false),
-//				IsTransient:       pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
+// 			Comment:           pulumi.String("A schema."),
+// 			DataRetentionDays: pulumi.Int(1),
+// 			Database:          pulumi.String("database"),
+// 			IsManaged:         pulumi.Bool(false),
+// 			IsTransient:       pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -46,9 +43,7 @@ import (
 // format is dbName | schemaName
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/schema:Schema example 'dbName|schemaName'
-//
+//  $ pulumi import snowflake:index/schema:Schema example 'dbName|schemaName'
 // ```
 type Schema struct {
 	pulumi.CustomResourceState
@@ -209,7 +204,7 @@ func (i *Schema) ToSchemaOutputWithContext(ctx context.Context) SchemaOutput {
 // SchemaArrayInput is an input type that accepts SchemaArray and SchemaArrayOutput values.
 // You can construct a concrete instance of `SchemaArrayInput` via:
 //
-//	SchemaArray{ SchemaArgs{...} }
+//          SchemaArray{ SchemaArgs{...} }
 type SchemaArrayInput interface {
 	pulumi.Input
 
@@ -234,7 +229,7 @@ func (i SchemaArray) ToSchemaArrayOutputWithContext(ctx context.Context) SchemaA
 // SchemaMapInput is an input type that accepts SchemaMap and SchemaMapOutput values.
 // You can construct a concrete instance of `SchemaMapInput` via:
 //
-//	SchemaMap{ "key": SchemaArgs{...} }
+//          SchemaMap{ "key": SchemaArgs{...} }
 type SchemaMapInput interface {
 	pulumi.Input
 

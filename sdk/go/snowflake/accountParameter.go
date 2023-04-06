@@ -17,40 +17,35 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewAccountParameter(ctx, "accountParameter", &snowflake.AccountParameterArgs{
-//				Key:   pulumi.String("ALLOW_ID_TOKEN"),
-//				Value: pulumi.String("true"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewAccountParameter(ctx, "p2", &snowflake.AccountParameterArgs{
-//				Key:   pulumi.String("CLIENT_ENCRYPTION_KEY_SIZE"),
-//				Value: pulumi.String("256"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewAccountParameter(ctx, "accountParameter", &snowflake.AccountParameterArgs{
+// 			Key:   pulumi.String("ALLOW_ID_TOKEN"),
+// 			Value: pulumi.String("true"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewAccountParameter(ctx, "p2", &snowflake.AccountParameterArgs{
+// 			Key:   pulumi.String("CLIENT_ENCRYPTION_KEY_SIZE"),
+// 			Value: pulumi.String("256"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/accountParameter:AccountParameter p <parameter_name>
-//
+//  $ pulumi import snowflake:index/accountParameter:AccountParameter p <parameter_name>
 // ```
 type AccountParameter struct {
 	pulumi.CustomResourceState
@@ -154,7 +149,7 @@ func (i *AccountParameter) ToAccountParameterOutputWithContext(ctx context.Conte
 // AccountParameterArrayInput is an input type that accepts AccountParameterArray and AccountParameterArrayOutput values.
 // You can construct a concrete instance of `AccountParameterArrayInput` via:
 //
-//	AccountParameterArray{ AccountParameterArgs{...} }
+//          AccountParameterArray{ AccountParameterArgs{...} }
 type AccountParameterArrayInput interface {
 	pulumi.Input
 
@@ -179,7 +174,7 @@ func (i AccountParameterArray) ToAccountParameterArrayOutputWithContext(ctx cont
 // AccountParameterMapInput is an input type that accepts AccountParameterMap and AccountParameterMapOutput values.
 // You can construct a concrete instance of `AccountParameterMapInput` via:
 //
-//	AccountParameterMap{ "key": AccountParameterArgs{...} }
+//          AccountParameterMap{ "key": AccountParameterArgs{...} }
 type AccountParameterMapInput interface {
 	pulumi.Input
 

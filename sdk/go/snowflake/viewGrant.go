@@ -17,49 +17,46 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewViewGrant(ctx, "grantViewGrant", &snowflake.ViewGrantArgs{
-//				DatabaseName: pulumi.String("database"),
-//				OnFuture:     pulumi.Bool(false),
-//				Privilege:    pulumi.String("SELECT"),
-//				Roles: pulumi.StringArray{
-//					pulumi.String("role1"),
-//					pulumi.String("role2"),
-//				},
-//				SchemaName: pulumi.String("schema"),
-//				Shares: pulumi.StringArray{
-//					pulumi.String("share1"),
-//					pulumi.String("share2"),
-//				},
-//				ViewName:        pulumi.String("view"),
-//				WithGrantOption: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewSchemaGrant(ctx, "grantSchemaGrant", &snowflake.SchemaGrantArgs{
-//				DatabaseName: pulumi.String("database"),
-//				Privilege:    pulumi.String("USAGE"),
-//				Roles: pulumi.StringArray{
-//					pulumi.String("role1"),
-//					pulumi.String("role2"),
-//				},
-//				SchemaName: pulumi.String("schema"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewViewGrant(ctx, "grantViewGrant", &snowflake.ViewGrantArgs{
+// 			DatabaseName: pulumi.String("database"),
+// 			OnFuture:     pulumi.Bool(false),
+// 			Privilege:    pulumi.String("SELECT"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("role1"),
+// 				pulumi.String("role2"),
+// 			},
+// 			SchemaName: pulumi.String("schema"),
+// 			Shares: pulumi.StringArray{
+// 				pulumi.String("share1"),
+// 				pulumi.String("share2"),
+// 			},
+// 			ViewName:        pulumi.String("view"),
+// 			WithGrantOption: pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewSchemaGrant(ctx, "grantSchemaGrant", &snowflake.SchemaGrantArgs{
+// 			DatabaseName: pulumi.String("database"),
+// 			Privilege:    pulumi.String("USAGE"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("role1"),
+// 				pulumi.String("role2"),
+// 			},
+// 			SchemaName: pulumi.String("schema"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -67,9 +64,7 @@ import (
 // format is database_name | schema_name | view_name | privilege | with_grant_option | roles | shares
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/viewGrant:ViewGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|USAGE|false|role1,role2|share1,share2'
-//
+//  $ pulumi import snowflake:index/viewGrant:ViewGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|USAGE|false|role1,role2|share1,share2'
 // ```
 type ViewGrant struct {
 	pulumi.CustomResourceState
@@ -245,7 +240,7 @@ func (i *ViewGrant) ToViewGrantOutputWithContext(ctx context.Context) ViewGrantO
 // ViewGrantArrayInput is an input type that accepts ViewGrantArray and ViewGrantArrayOutput values.
 // You can construct a concrete instance of `ViewGrantArrayInput` via:
 //
-//	ViewGrantArray{ ViewGrantArgs{...} }
+//          ViewGrantArray{ ViewGrantArgs{...} }
 type ViewGrantArrayInput interface {
 	pulumi.Input
 
@@ -270,7 +265,7 @@ func (i ViewGrantArray) ToViewGrantArrayOutputWithContext(ctx context.Context) V
 // ViewGrantMapInput is an input type that accepts ViewGrantMap and ViewGrantMapOutput values.
 // You can construct a concrete instance of `ViewGrantMapInput` via:
 //
-//	ViewGrantMap{ "key": ViewGrantArgs{...} }
+//          ViewGrantMap{ "key": ViewGrantArgs{...} }
 type ViewGrantMapInput interface {
 	pulumi.Input
 

@@ -17,35 +17,32 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewTableGrant(ctx, "grant", &snowflake.TableGrantArgs{
-//				DatabaseName: pulumi.String("database"),
-//				OnFuture:     pulumi.Bool(false),
-//				Privilege:    pulumi.String("SELECT"),
-//				Roles: pulumi.StringArray{
-//					pulumi.String("role1"),
-//				},
-//				SchemaName: pulumi.String("schema"),
-//				Shares: pulumi.StringArray{
-//					pulumi.String("share1"),
-//				},
-//				TableName:       pulumi.String("table"),
-//				WithGrantOption: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewTableGrant(ctx, "grant", &snowflake.TableGrantArgs{
+// 			DatabaseName: pulumi.String("database"),
+// 			OnFuture:     pulumi.Bool(false),
+// 			Privilege:    pulumi.String("SELECT"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("role1"),
+// 			},
+// 			SchemaName: pulumi.String("schema"),
+// 			Shares: pulumi.StringArray{
+// 				pulumi.String("share1"),
+// 			},
+// 			TableName:       pulumi.String("table"),
+// 			WithGrantOption: pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -53,9 +50,7 @@ import (
 // format is database_name | schema_name | table_name | privilege | with_grant_option | roles | shares
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/tableGrant:TableGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|MODIFY|false|role1,role2|share1,share2'
-//
+//  $ pulumi import snowflake:index/tableGrant:TableGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|MODIFY|false|role1,role2|share1,share2'
 // ```
 type TableGrant struct {
 	pulumi.CustomResourceState
@@ -241,7 +236,7 @@ func (i *TableGrant) ToTableGrantOutputWithContext(ctx context.Context) TableGra
 // TableGrantArrayInput is an input type that accepts TableGrantArray and TableGrantArrayOutput values.
 // You can construct a concrete instance of `TableGrantArrayInput` via:
 //
-//	TableGrantArray{ TableGrantArgs{...} }
+//          TableGrantArray{ TableGrantArgs{...} }
 type TableGrantArrayInput interface {
 	pulumi.Input
 
@@ -266,7 +261,7 @@ func (i TableGrantArray) ToTableGrantArrayOutputWithContext(ctx context.Context)
 // TableGrantMapInput is an input type that accepts TableGrantMap and TableGrantMapOutput values.
 // You can construct a concrete instance of `TableGrantMapInput` via:
 //
-//	TableGrantMap{ "key": TableGrantArgs{...} }
+//          TableGrantMap{ "key": TableGrantArgs{...} }
 type TableGrantMapInput interface {
 	pulumi.Input
 

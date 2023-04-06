@@ -16,38 +16,33 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewNotificationIntegration(ctx, "integration", &snowflake.NotificationIntegrationArgs{
-//				AzureStorageQueuePrimaryUri: pulumi.String("..."),
-//				AzureTenantId:               pulumi.String("..."),
-//				Comment:                     pulumi.String("A notification integration."),
-//				Direction:                   pulumi.String("OUTBOUND"),
-//				Enabled:                     pulumi.Bool(true),
-//				NotificationProvider:        pulumi.String("AZURE_STORAGE_QUEUE"),
-//				Type:                        pulumi.String("QUEUE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewNotificationIntegration(ctx, "integration", &snowflake.NotificationIntegrationArgs{
+// 			AzureStorageQueuePrimaryUri: pulumi.String("..."),
+// 			AzureTenantId:               pulumi.String("..."),
+// 			Comment:                     pulumi.String("A notification integration."),
+// 			Direction:                   pulumi.String("OUTBOUND"),
+// 			Enabled:                     pulumi.Bool(true),
+// 			NotificationProvider:        pulumi.String("AZURE_STORAGE_QUEUE"),
+// 			Type:                        pulumi.String("QUEUE"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name
-//
+//  $ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name
 // ```
 type NotificationIntegration struct {
 	pulumi.CustomResourceState
@@ -281,7 +276,7 @@ func (i *NotificationIntegration) ToNotificationIntegrationOutputWithContext(ctx
 // NotificationIntegrationArrayInput is an input type that accepts NotificationIntegrationArray and NotificationIntegrationArrayOutput values.
 // You can construct a concrete instance of `NotificationIntegrationArrayInput` via:
 //
-//	NotificationIntegrationArray{ NotificationIntegrationArgs{...} }
+//          NotificationIntegrationArray{ NotificationIntegrationArgs{...} }
 type NotificationIntegrationArrayInput interface {
 	pulumi.Input
 
@@ -306,7 +301,7 @@ func (i NotificationIntegrationArray) ToNotificationIntegrationArrayOutputWithCo
 // NotificationIntegrationMapInput is an input type that accepts NotificationIntegrationMap and NotificationIntegrationMapOutput values.
 // You can construct a concrete instance of `NotificationIntegrationMapInput` via:
 //
-//	NotificationIntegrationMap{ "key": NotificationIntegrationArgs{...} }
+//          NotificationIntegrationMap{ "key": NotificationIntegrationArgs{...} }
 type NotificationIntegrationMapInput interface {
 	pulumi.Input
 

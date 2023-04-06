@@ -17,84 +17,81 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
-//				Database:          pulumi.String("database"),
-//				DataRetentionDays: pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			sequence, err := snowflake.NewSequence(ctx, "sequence", &snowflake.SequenceArgs{
-//				Database: schema.Database,
-//				Schema:   schema.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewTable(ctx, "table", &snowflake.TableArgs{
-//				Database: schema.Database,
-//				Schema:   schema.Name,
-//				Comment:  pulumi.String("A table."),
-//				ClusterBies: pulumi.StringArray{
-//					pulumi.String("to_date(DATE)"),
-//				},
-//				DataRetentionDays: schema.DataRetentionDays,
-//				ChangeTracking:    pulumi.Bool(false),
-//				Columns: snowflake.TableColumnArray{
-//					&snowflake.TableColumnArgs{
-//						Name:     pulumi.String("id"),
-//						Type:     pulumi.String("int"),
-//						Nullable: pulumi.Bool(true),
-//						Default: &snowflake.TableColumnDefaultArgs{
-//							Sequence: sequence.FullyQualifiedName,
-//						},
-//					},
-//					&snowflake.TableColumnArgs{
-//						Name:     pulumi.String("identity"),
-//						Type:     pulumi.String("NUMBER(38,0)"),
-//						Nullable: pulumi.Bool(true),
-//						Identity: &snowflake.TableColumnIdentityArgs{
-//							StartNum: pulumi.Int(1),
-//							StepNum:  pulumi.Int(3),
-//						},
-//					},
-//					&snowflake.TableColumnArgs{
-//						Name:     pulumi.String("data"),
-//						Type:     pulumi.String("text"),
-//						Nullable: pulumi.Bool(false),
-//					},
-//					&snowflake.TableColumnArgs{
-//						Name: pulumi.String("DATE"),
-//						Type: pulumi.String("TIMESTAMP_NTZ(9)"),
-//					},
-//					&snowflake.TableColumnArgs{
-//						Name:    pulumi.String("extra"),
-//						Type:    pulumi.String("VARIANT"),
-//						Comment: pulumi.String("extra data"),
-//					},
-//				},
-//				PrimaryKey: &snowflake.TablePrimaryKeyArgs{
-//					Name: pulumi.String("my_key"),
-//					Keys: pulumi.StringArray{
-//						pulumi.String("data"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
+// 			Database:          pulumi.String("database"),
+// 			DataRetentionDays: pulumi.Int(1),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		sequence, err := snowflake.NewSequence(ctx, "sequence", &snowflake.SequenceArgs{
+// 			Database: schema.Database,
+// 			Schema:   schema.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewTable(ctx, "table", &snowflake.TableArgs{
+// 			Database: schema.Database,
+// 			Schema:   schema.Name,
+// 			Comment:  pulumi.String("A table."),
+// 			ClusterBies: pulumi.StringArray{
+// 				pulumi.String("to_date(DATE)"),
+// 			},
+// 			DataRetentionDays: schema.DataRetentionDays,
+// 			ChangeTracking:    pulumi.Bool(false),
+// 			Columns: snowflake.TableColumnArray{
+// 				&snowflake.TableColumnArgs{
+// 					Name:     pulumi.String("id"),
+// 					Type:     pulumi.String("int"),
+// 					Nullable: pulumi.Bool(true),
+// 					Default: &snowflake.TableColumnDefaultArgs{
+// 						Sequence: sequence.FullyQualifiedName,
+// 					},
+// 				},
+// 				&snowflake.TableColumnArgs{
+// 					Name:     pulumi.String("identity"),
+// 					Type:     pulumi.String("NUMBER(38,0)"),
+// 					Nullable: pulumi.Bool(true),
+// 					Identity: &snowflake.TableColumnIdentityArgs{
+// 						StartNum: pulumi.Int(1),
+// 						StepNum:  pulumi.Int(3),
+// 					},
+// 				},
+// 				&snowflake.TableColumnArgs{
+// 					Name:     pulumi.String("data"),
+// 					Type:     pulumi.String("text"),
+// 					Nullable: pulumi.Bool(false),
+// 				},
+// 				&snowflake.TableColumnArgs{
+// 					Name: pulumi.String("DATE"),
+// 					Type: pulumi.String("TIMESTAMP_NTZ(9)"),
+// 				},
+// 				&snowflake.TableColumnArgs{
+// 					Name:    pulumi.String("extra"),
+// 					Type:    pulumi.String("VARIANT"),
+// 					Comment: pulumi.String("extra data"),
+// 				},
+// 			},
+// 			PrimaryKey: &snowflake.TablePrimaryKeyArgs{
+// 				Name: pulumi.String("my_key"),
+// 				Keys: pulumi.StringArray{
+// 					pulumi.String("data"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -102,9 +99,7 @@ import (
 // format is database name | schema name | table name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/table:Table example 'databaseName|schemaName|tableName'
-//
+//  $ pulumi import snowflake:index/table:Table example 'databaseName|schemaName|tableName'
 // ```
 type Table struct {
 	pulumi.CustomResourceState
@@ -327,7 +322,7 @@ func (i *Table) ToTableOutputWithContext(ctx context.Context) TableOutput {
 // TableArrayInput is an input type that accepts TableArray and TableArrayOutput values.
 // You can construct a concrete instance of `TableArrayInput` via:
 //
-//	TableArray{ TableArgs{...} }
+//          TableArray{ TableArgs{...} }
 type TableArrayInput interface {
 	pulumi.Input
 
@@ -352,7 +347,7 @@ func (i TableArray) ToTableArrayOutputWithContext(ctx context.Context) TableArra
 // TableMapInput is an input type that accepts TableMap and TableMapOutput values.
 // You can construct a concrete instance of `TableMapInput` via:
 //
-//	TableMap{ "key": TableArgs{...} }
+//          TableMap{ "key": TableArgs{...} }
 type TableMapInput interface {
 	pulumi.Input
 

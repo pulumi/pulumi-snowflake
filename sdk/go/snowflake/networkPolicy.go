@@ -17,38 +17,33 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewNetworkPolicy(ctx, "policy", &snowflake.NetworkPolicyArgs{
-//				AllowedIpLists: pulumi.StringArray{
-//					pulumi.String("192.168.0.100/24"),
-//				},
-//				BlockedIpLists: pulumi.StringArray{
-//					pulumi.String("192.168.0.101"),
-//				},
-//				Comment: pulumi.String("A policy."),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewNetworkPolicy(ctx, "policy", &snowflake.NetworkPolicyArgs{
+// 			AllowedIpLists: pulumi.StringArray{
+// 				pulumi.String("192.168.0.100/24"),
+// 			},
+// 			BlockedIpLists: pulumi.StringArray{
+// 				pulumi.String("192.168.0.101"),
+// 			},
+// 			Comment: pulumi.String("A policy."),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/networkPolicy:NetworkPolicy example policyname
-//
+//  $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example policyname
 // ```
 type NetworkPolicy struct {
 	pulumi.CustomResourceState
@@ -169,7 +164,7 @@ func (i *NetworkPolicy) ToNetworkPolicyOutputWithContext(ctx context.Context) Ne
 // NetworkPolicyArrayInput is an input type that accepts NetworkPolicyArray and NetworkPolicyArrayOutput values.
 // You can construct a concrete instance of `NetworkPolicyArrayInput` via:
 //
-//	NetworkPolicyArray{ NetworkPolicyArgs{...} }
+//          NetworkPolicyArray{ NetworkPolicyArgs{...} }
 type NetworkPolicyArrayInput interface {
 	pulumi.Input
 
@@ -194,7 +189,7 @@ func (i NetworkPolicyArray) ToNetworkPolicyArrayOutputWithContext(ctx context.Co
 // NetworkPolicyMapInput is an input type that accepts NetworkPolicyMap and NetworkPolicyMapOutput values.
 // You can construct a concrete instance of `NetworkPolicyMapInput` via:
 //
-//	NetworkPolicyMap{ "key": NetworkPolicyArgs{...} }
+//          NetworkPolicyMap{ "key": NetworkPolicyArgs{...} }
 type NetworkPolicyMapInput interface {
 	pulumi.Input
 

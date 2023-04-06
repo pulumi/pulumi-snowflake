@@ -17,30 +17,27 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewRowAccessPolicy(ctx, "exampleRowAccessPolicy", &snowflake.RowAccessPolicyArgs{
-//				Database:            pulumi.String("EXAMPLE_DB"),
-//				RowAccessExpression: pulumi.String("case when current_role() in ('ANALYST') then true else false end"),
-//				Schema:              pulumi.String("EXAMPLE_SCHEMA"),
-//				Signature: pulumi.StringMap{
-//					"A": pulumi.String("VARCHAR"),
-//					"B": pulumi.String("VARCHAR"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewRowAccessPolicy(ctx, "exampleRowAccessPolicy", &snowflake.RowAccessPolicyArgs{
+// 			Database:            pulumi.String("EXAMPLE_DB"),
+// 			RowAccessExpression: pulumi.String("case when current_role() in ('ANALYST') then true else false end"),
+// 			Schema:              pulumi.String("EXAMPLE_SCHEMA"),
+// 			Signature: pulumi.StringMap{
+// 				"A": pulumi.String("VARCHAR"),
+// 				"B": pulumi.String("VARCHAR"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -48,9 +45,7 @@ import (
 // format is database name | schema name | policy name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example 'dbName|schemaName|policyName'
-//
+//  $ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example 'dbName|schemaName|policyName'
 // ```
 type RowAccessPolicy struct {
 	pulumi.CustomResourceState
@@ -200,7 +195,7 @@ func (i *RowAccessPolicy) ToRowAccessPolicyOutputWithContext(ctx context.Context
 // RowAccessPolicyArrayInput is an input type that accepts RowAccessPolicyArray and RowAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `RowAccessPolicyArrayInput` via:
 //
-//	RowAccessPolicyArray{ RowAccessPolicyArgs{...} }
+//          RowAccessPolicyArray{ RowAccessPolicyArgs{...} }
 type RowAccessPolicyArrayInput interface {
 	pulumi.Input
 
@@ -225,7 +220,7 @@ func (i RowAccessPolicyArray) ToRowAccessPolicyArrayOutputWithContext(ctx contex
 // RowAccessPolicyMapInput is an input type that accepts RowAccessPolicyMap and RowAccessPolicyMapOutput values.
 // You can construct a concrete instance of `RowAccessPolicyMapInput` via:
 //
-//	RowAccessPolicyMap{ "key": RowAccessPolicyArgs{...} }
+//          RowAccessPolicyMap{ "key": RowAccessPolicyArgs{...} }
 type RowAccessPolicyMapInput interface {
 	pulumi.Input
 

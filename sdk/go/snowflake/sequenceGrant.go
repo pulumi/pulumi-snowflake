@@ -17,33 +17,30 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewSequenceGrant(ctx, "grant", &snowflake.SequenceGrantArgs{
-//				DatabaseName: pulumi.String("database"),
-//				OnFuture:     pulumi.Bool(false),
-//				Privilege:    pulumi.String("SELECT"),
-//				Roles: pulumi.StringArray{
-//					pulumi.String("role1"),
-//					pulumi.String("role2"),
-//				},
-//				SchemaName:      pulumi.String("schema"),
-//				SequenceName:    pulumi.String("sequence"),
-//				WithGrantOption: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewSequenceGrant(ctx, "grant", &snowflake.SequenceGrantArgs{
+// 			DatabaseName: pulumi.String("database"),
+// 			OnFuture:     pulumi.Bool(false),
+// 			Privilege:    pulumi.String("SELECT"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("role1"),
+// 				pulumi.String("role2"),
+// 			},
+// 			SchemaName:      pulumi.String("schema"),
+// 			SequenceName:    pulumi.String("sequence"),
+// 			WithGrantOption: pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -51,9 +48,7 @@ import (
 // format is database_name | schema_name | sequence_name | privilege | with_grant_option | roles
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/sequenceGrant:SequenceGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|USAGE|false|role1,role2'
-//
+//  $ pulumi import snowflake:index/sequenceGrant:SequenceGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|USAGE|false|role1,role2'
 // ```
 type SequenceGrant struct {
 	pulumi.CustomResourceState
@@ -222,7 +217,7 @@ func (i *SequenceGrant) ToSequenceGrantOutputWithContext(ctx context.Context) Se
 // SequenceGrantArrayInput is an input type that accepts SequenceGrantArray and SequenceGrantArrayOutput values.
 // You can construct a concrete instance of `SequenceGrantArrayInput` via:
 //
-//	SequenceGrantArray{ SequenceGrantArgs{...} }
+//          SequenceGrantArray{ SequenceGrantArgs{...} }
 type SequenceGrantArrayInput interface {
 	pulumi.Input
 
@@ -247,7 +242,7 @@ func (i SequenceGrantArray) ToSequenceGrantArrayOutputWithContext(ctx context.Co
 // SequenceGrantMapInput is an input type that accepts SequenceGrantMap and SequenceGrantMapOutput values.
 // You can construct a concrete instance of `SequenceGrantMapInput` via:
 //
-//	SequenceGrantMap{ "key": SequenceGrantArgs{...} }
+//          SequenceGrantMap{ "key": SequenceGrantArgs{...} }
 type SequenceGrantMapInput interface {
 	pulumi.Input
 

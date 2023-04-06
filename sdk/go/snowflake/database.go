@@ -16,64 +16,59 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewDatabase(ctx, "simple", &snowflake.DatabaseArgs{
-//				Comment:                 pulumi.String("test comment"),
-//				DataRetentionTimeInDays: pulumi.Int(3),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewDatabase(ctx, "withReplication", &snowflake.DatabaseArgs{
-//				Comment: pulumi.String("test comment 2"),
-//				ReplicationConfiguration: &snowflake.DatabaseReplicationConfigurationArgs{
-//					Accounts: pulumi.StringArray{
-//						pulumi.String("test_account1"),
-//						pulumi.String("test_account_2"),
-//					},
-//					IgnoreEditionCheck: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewDatabase(ctx, "fromReplica", &snowflake.DatabaseArgs{
-//				Comment:                 pulumi.String("test comment"),
-//				DataRetentionTimeInDays: pulumi.Int(3),
-//				FromReplica:             pulumi.String("org1\".\"account1\".\"primary_db_name"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewDatabase(ctx, "fromShare", &snowflake.DatabaseArgs{
-//				Comment: pulumi.String("test comment"),
-//				FromShare: pulumi.StringMap{
-//					"provider": pulumi.String("org1\".\"account1"),
-//					"share":    pulumi.String("share1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewDatabase(ctx, "simple", &snowflake.DatabaseArgs{
+// 			Comment:                 pulumi.String("test comment"),
+// 			DataRetentionTimeInDays: pulumi.Int(3),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewDatabase(ctx, "withReplication", &snowflake.DatabaseArgs{
+// 			Comment: pulumi.String("test comment 2"),
+// 			ReplicationConfiguration: &snowflake.DatabaseReplicationConfigurationArgs{
+// 				Accounts: pulumi.StringArray{
+// 					pulumi.String("test_account1"),
+// 					pulumi.String("test_account_2"),
+// 				},
+// 				IgnoreEditionCheck: pulumi.Bool(true),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewDatabase(ctx, "fromReplica", &snowflake.DatabaseArgs{
+// 			Comment:                 pulumi.String("test comment"),
+// 			DataRetentionTimeInDays: pulumi.Int(3),
+// 			FromReplica:             pulumi.String("org1\".\"account1\".\"primary_db_name"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewDatabase(ctx, "fromShare", &snowflake.DatabaseArgs{
+// 			Comment: pulumi.String("test comment"),
+// 			FromShare: pulumi.StringMap{
+// 				"provider": pulumi.String("org1\".\"account1"),
+// 				"share":    pulumi.String("share1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/database:Database example name
-//
+//  $ pulumi import snowflake:index/database:Database example name
 // ```
 type Database struct {
 	pulumi.CustomResourceState
@@ -241,7 +236,7 @@ func (i *Database) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutp
 // DatabaseArrayInput is an input type that accepts DatabaseArray and DatabaseArrayOutput values.
 // You can construct a concrete instance of `DatabaseArrayInput` via:
 //
-//	DatabaseArray{ DatabaseArgs{...} }
+//          DatabaseArray{ DatabaseArgs{...} }
 type DatabaseArrayInput interface {
 	pulumi.Input
 
@@ -266,7 +261,7 @@ func (i DatabaseArray) ToDatabaseArrayOutputWithContext(ctx context.Context) Dat
 // DatabaseMapInput is an input type that accepts DatabaseMap and DatabaseMapOutput values.
 // You can construct a concrete instance of `DatabaseMapInput` via:
 //
-//	DatabaseMap{ "key": DatabaseArgs{...} }
+//          DatabaseMap{ "key": DatabaseArgs{...} }
 type DatabaseMapInput interface {
 	pulumi.Input
 

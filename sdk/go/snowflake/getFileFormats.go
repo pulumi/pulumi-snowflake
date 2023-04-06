@@ -16,25 +16,22 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetFileFormats(ctx, &snowflake.GetFileFormatsArgs{
-//				Database: "MYDB",
-//				Schema:   "MYSCHEMA",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.GetFileFormats(ctx, &snowflake.GetFileFormatsArgs{
+// 			Database: "MYDB",
+// 			Schema:   "MYSCHEMA",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 func GetFileFormats(ctx *pulumi.Context, args *GetFileFormatsArgs, opts ...pulumi.InvokeOption) (*GetFileFormatsResult, error) {
 	var rv GetFileFormatsResult

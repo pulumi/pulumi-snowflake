@@ -17,53 +17,50 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			role, err := snowflake.NewRole(ctx, "role", &snowflake.RoleArgs{
-//				Comment: pulumi.String("for testing"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			user, err := snowflake.NewUser(ctx, "user", &snowflake.UserArgs{
-//				Comment: pulumi.String("for testing"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			user2, err := snowflake.NewUser(ctx, "user2", &snowflake.UserArgs{
-//				Comment: pulumi.String("for testing"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			otherRole, err := snowflake.NewRole(ctx, "otherRole", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewRoleGrants(ctx, "grants", &snowflake.RoleGrantsArgs{
-//				RoleName: role.Name,
-//				Roles: pulumi.StringArray{
-//					otherRole.Name,
-//				},
-//				Users: pulumi.StringArray{
-//					user.Name,
-//					user2.Name,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		role, err := snowflake.NewRole(ctx, "role", &snowflake.RoleArgs{
+// 			Comment: pulumi.String("for testing"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		user, err := snowflake.NewUser(ctx, "user", &snowflake.UserArgs{
+// 			Comment: pulumi.String("for testing"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		user2, err := snowflake.NewUser(ctx, "user2", &snowflake.UserArgs{
+// 			Comment: pulumi.String("for testing"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		otherRole, err := snowflake.NewRole(ctx, "otherRole", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewRoleGrants(ctx, "grants", &snowflake.RoleGrantsArgs{
+// 			RoleName: role.Name,
+// 			Roles: pulumi.StringArray{
+// 				otherRole.Name,
+// 			},
+// 			Users: pulumi.StringArray{
+// 				user.Name,
+// 				user2.Name,
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -71,9 +68,7 @@ import (
 // format is role_name | roles | users
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/roleGrants:RoleGrants example "role_name|role1,role2|user1,user2"
-//
+//  $ pulumi import snowflake:index/roleGrants:RoleGrants example "role_name|role1,role2|user1,user2"
 // ```
 type RoleGrants struct {
 	pulumi.CustomResourceState
@@ -199,7 +194,7 @@ func (i *RoleGrants) ToRoleGrantsOutputWithContext(ctx context.Context) RoleGran
 // RoleGrantsArrayInput is an input type that accepts RoleGrantsArray and RoleGrantsArrayOutput values.
 // You can construct a concrete instance of `RoleGrantsArrayInput` via:
 //
-//	RoleGrantsArray{ RoleGrantsArgs{...} }
+//          RoleGrantsArray{ RoleGrantsArgs{...} }
 type RoleGrantsArrayInput interface {
 	pulumi.Input
 
@@ -224,7 +219,7 @@ func (i RoleGrantsArray) ToRoleGrantsArrayOutputWithContext(ctx context.Context)
 // RoleGrantsMapInput is an input type that accepts RoleGrantsMap and RoleGrantsMapOutput values.
 // You can construct a concrete instance of `RoleGrantsMapInput` via:
 //
-//	RoleGrantsMap{ "key": RoleGrantsArgs{...} }
+//          RoleGrantsMap{ "key": RoleGrantsArgs{...} }
 type RoleGrantsMapInput interface {
 	pulumi.Input
 

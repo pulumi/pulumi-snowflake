@@ -17,36 +17,33 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewSchemaGrant(ctx, "grant", &snowflake.SchemaGrantArgs{
-//				DatabaseName: pulumi.String("database"),
-//				OnFuture:     pulumi.Bool(false),
-//				Privilege:    pulumi.String("USAGE"),
-//				Roles: pulumi.StringArray{
-//					pulumi.String("role1"),
-//					pulumi.String("role2"),
-//				},
-//				SchemaName: pulumi.String("schema"),
-//				Shares: pulumi.StringArray{
-//					pulumi.String("share1"),
-//					pulumi.String("share2"),
-//				},
-//				WithGrantOption: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewSchemaGrant(ctx, "grant", &snowflake.SchemaGrantArgs{
+// 			DatabaseName: pulumi.String("database"),
+// 			OnFuture:     pulumi.Bool(false),
+// 			Privilege:    pulumi.String("USAGE"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("role1"),
+// 				pulumi.String("role2"),
+// 			},
+// 			SchemaName: pulumi.String("schema"),
+// 			Shares: pulumi.StringArray{
+// 				pulumi.String("share1"),
+// 				pulumi.String("share2"),
+// 			},
+// 			WithGrantOption: pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -54,9 +51,7 @@ import (
 // format is database_name | schema_name | privilege | with_grant_option | roles | shares
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/schemaGrant:SchemaGrant example 'MY_DATABASE|MY_SCHEMA|MONITOR|false|role1,role2|share1,share2'
-//
+//  $ pulumi import snowflake:index/schemaGrant:SchemaGrant example 'MY_DATABASE|MY_SCHEMA|MONITOR|false|role1,role2|share1,share2'
 // ```
 type SchemaGrant struct {
 	pulumi.CustomResourceState
@@ -227,7 +222,7 @@ func (i *SchemaGrant) ToSchemaGrantOutputWithContext(ctx context.Context) Schema
 // SchemaGrantArrayInput is an input type that accepts SchemaGrantArray and SchemaGrantArrayOutput values.
 // You can construct a concrete instance of `SchemaGrantArrayInput` via:
 //
-//	SchemaGrantArray{ SchemaGrantArgs{...} }
+//          SchemaGrantArray{ SchemaGrantArgs{...} }
 type SchemaGrantArrayInput interface {
 	pulumi.Input
 
@@ -252,7 +247,7 @@ func (i SchemaGrantArray) ToSchemaGrantArrayOutputWithContext(ctx context.Contex
 // SchemaGrantMapInput is an input type that accepts SchemaGrantMap and SchemaGrantMapOutput values.
 // You can construct a concrete instance of `SchemaGrantMapInput` via:
 //
-//	SchemaGrantMap{ "key": SchemaGrantArgs{...} }
+//          SchemaGrantMap{ "key": SchemaGrantArgs{...} }
 type SchemaGrantMapInput interface {
 	pulumi.Input
 

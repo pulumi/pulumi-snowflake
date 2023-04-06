@@ -16,37 +16,34 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewResourceMonitor(ctx, "monitor", &snowflake.ResourceMonitorArgs{
-//				CreditQuota:  pulumi.Int(100),
-//				EndTimestamp: pulumi.String("2021-12-07 00:00"),
-//				Frequency:    pulumi.String("DAILY"),
-//				NotifyTriggers: pulumi.IntArray{
-//					pulumi.Int(40),
-//					pulumi.Int(50),
-//				},
-//				NotifyUsers: pulumi.StringArray{
-//					pulumi.String("USERONE"),
-//					pulumi.String("USERTWO"),
-//				},
-//				StartTimestamp:           pulumi.String("2020-12-07 00:00"),
-//				SuspendImmediateTriggers: pulumi.IntArray(90),
-//				SuspendTriggers:          pulumi.IntArray(50),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewResourceMonitor(ctx, "monitor", &snowflake.ResourceMonitorArgs{
+// 			CreditQuota:  pulumi.Int(100),
+// 			EndTimestamp: pulumi.String("2021-12-07 00:00"),
+// 			Frequency:    pulumi.String("DAILY"),
+// 			NotifyTriggers: pulumi.IntArray{
+// 				pulumi.Int(40),
+// 				pulumi.Int(50),
+// 			},
+// 			NotifyUsers: pulumi.StringArray{
+// 				pulumi.String("USERONE"),
+// 				pulumi.String("USERTWO"),
+// 			},
+// 			StartTimestamp:           pulumi.String("2020-12-07 00:00"),
+// 			SuspendImmediateTriggers: pulumi.IntArray(90),
+// 			SuspendTriggers:          pulumi.IntArray(50),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -54,9 +51,7 @@ import (
 // format is the resource monitor name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example 'resourceMonitorName'
-//
+//  $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example 'resourceMonitorName'
 // ```
 type ResourceMonitor struct {
 	pulumi.CustomResourceState
@@ -284,7 +279,7 @@ func (i *ResourceMonitor) ToResourceMonitorOutputWithContext(ctx context.Context
 // ResourceMonitorArrayInput is an input type that accepts ResourceMonitorArray and ResourceMonitorArrayOutput values.
 // You can construct a concrete instance of `ResourceMonitorArrayInput` via:
 //
-//	ResourceMonitorArray{ ResourceMonitorArgs{...} }
+//          ResourceMonitorArray{ ResourceMonitorArgs{...} }
 type ResourceMonitorArrayInput interface {
 	pulumi.Input
 
@@ -309,7 +304,7 @@ func (i ResourceMonitorArray) ToResourceMonitorArrayOutputWithContext(ctx contex
 // ResourceMonitorMapInput is an input type that accepts ResourceMonitorMap and ResourceMonitorMapOutput values.
 // You can construct a concrete instance of `ResourceMonitorMapInput` via:
 //
-//	ResourceMonitorMap{ "key": ResourceMonitorArgs{...} }
+//          ResourceMonitorMap{ "key": ResourceMonitorArgs{...} }
 type ResourceMonitorMapInput interface {
 	pulumi.Input
 

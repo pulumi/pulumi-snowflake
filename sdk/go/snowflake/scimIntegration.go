@@ -17,34 +17,29 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewScimIntegration(ctx, "aad", &snowflake.ScimIntegrationArgs{
-//				NetworkPolicy:   pulumi.String("AAD_NETWORK_POLICY"),
-//				ProvisionerRole: pulumi.String("AAD_PROVISIONER"),
-//				ScimClient:      pulumi.String("AZURE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewScimIntegration(ctx, "aad", &snowflake.ScimIntegrationArgs{
+// 			NetworkPolicy:   pulumi.String("AAD_NETWORK_POLICY"),
+// 			ProvisionerRole: pulumi.String("AAD_PROVISIONER"),
+// 			ScimClient:      pulumi.String("AZURE"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/scimIntegration:ScimIntegration example name
-//
+//  $ pulumi import snowflake:index/scimIntegration:ScimIntegration example name
 // ```
 type ScimIntegration struct {
 	pulumi.CustomResourceState
@@ -174,7 +169,7 @@ func (i *ScimIntegration) ToScimIntegrationOutputWithContext(ctx context.Context
 // ScimIntegrationArrayInput is an input type that accepts ScimIntegrationArray and ScimIntegrationArrayOutput values.
 // You can construct a concrete instance of `ScimIntegrationArrayInput` via:
 //
-//	ScimIntegrationArray{ ScimIntegrationArgs{...} }
+//          ScimIntegrationArray{ ScimIntegrationArgs{...} }
 type ScimIntegrationArrayInput interface {
 	pulumi.Input
 
@@ -199,7 +194,7 @@ func (i ScimIntegrationArray) ToScimIntegrationArrayOutputWithContext(ctx contex
 // ScimIntegrationMapInput is an input type that accepts ScimIntegrationMap and ScimIntegrationMapOutput values.
 // You can construct a concrete instance of `ScimIntegrationMapInput` via:
 //
-//	ScimIntegrationMap{ "key": ScimIntegrationArgs{...} }
+//          ScimIntegrationMap{ "key": ScimIntegrationArgs{...} }
 type ScimIntegrationMapInput interface {
 	pulumi.Input
 

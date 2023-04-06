@@ -52,54 +52,109 @@
         "variables": {
             "account": {
                 "type": "string",
-                "description": "The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.\n"
+                "description": "The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_ACCOUNT"
+                    ]
+                }
             },
             "browserAuth": {
                 "type": "boolean",
-                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.\n"
+                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_USE_BROWSER_AUTH"
+                    ]
+                }
             },
             "host": {
                 "type": "string",
-                "description": "Supports passing in a custom host value to the snowflake go driver for use with privatelink.\n"
+                "description": "Supports passing in a custom host value to the snowflake go driver for use with privatelink.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_HOST"
+                    ]
+                }
             },
             "oauthAccessToken": {
                 "type": "string",
                 "description": "Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment\nvariable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_OAUTH_ACCESS_TOKEN"
+                    ]
+                },
                 "secret": true
             },
             "oauthClientId": {
                 "type": "string",
                 "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_OAUTH_CLIENT_ID"
+                    ]
+                },
                 "secret": true
             },
             "oauthClientSecret": {
                 "type": "string",
                 "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_OAUTH_CLIENT_SECRET"
+                    ]
+                },
                 "secret": true
             },
             "oauthEndpoint": {
                 "type": "string",
                 "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_OAUTH_ENDPOINT"
+                    ]
+                },
                 "secret": true
             },
             "oauthRedirectUrl": {
                 "type": "string",
                 "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_OAUTH_REDIRECT_URL"
+                    ]
+                },
                 "secret": true
             },
             "oauthRefreshToken": {
                 "type": "string",
                 "description": "Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with\n`oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment\nvariable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_OAUTH_REFRESH_TOKEN"
+                    ]
+                },
                 "secret": true
             },
             "password": {
                 "type": "string",
                 "description": "Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from\n`SNOWFLAKE_PASSWORD` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_PASSWORD"
+                    ]
+                },
                 "secret": true
             },
             "port": {
                 "type": "integer",
-                "description": "Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`\nenvironment variable.\n"
+                "description": "Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`\nenvironment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_PORT"
+                    ]
+                }
             },
             "privateKey": {
                 "type": "string",
@@ -109,32 +164,67 @@
             "privateKeyPassphrase": {
                 "type": "string",
                 "description": "Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and\ndes-ede3-cbc\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"
+                    ]
+                },
                 "secret": true
             },
             "privateKeyPath": {
                 "type": "string",
                 "description": "Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or\n`password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_PRIVATE_KEY_PATH"
+                    ]
+                },
                 "secret": true
             },
             "protocol": {
                 "type": "string",
-                "description": "Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.\n"
+                "description": "Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_PROTOCOL"
+                    ]
+                }
             },
             "region": {
                 "type": "string",
-                "description": "[Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy\nformat for the `account`\nidentifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)\nin the form of `\u003ccloud_region_id\u003e.\u003ccloud\u003e`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.\n"
+                "description": "[Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy\nformat for the `account`\nidentifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)\nin the form of `\u003ccloud_region_id\u003e.\u003ccloud\u003e`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_REGION"
+                    ]
+                }
             },
             "role": {
                 "type": "string",
-                "description": "Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the\n`SNOWFLAKE_ROLE` environment variable.\n"
+                "description": "Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the\n`SNOWFLAKE_ROLE` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_ROLE"
+                    ]
+                }
             },
             "username": {
                 "type": "string",
-                "description": "Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.\n"
+                "description": "Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_USER"
+                    ]
+                }
             },
             "warehouse": {
                 "type": "string",
-                "description": "Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.\n"
+                "description": "Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_WAREHOUSE"
+                    ]
+                }
             }
         },
         "defaults": [
@@ -2970,62 +3060,112 @@
                 "description": "Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.\n"
             }
         },
-        "required": [
-            "account",
-            "region",
-            "username"
-        ],
         "inputProperties": {
             "account": {
                 "type": "string",
-                "description": "The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.\n"
+                "description": "The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_ACCOUNT"
+                    ]
+                }
             },
             "browserAuth": {
                 "type": "boolean",
-                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.\n"
+                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_USE_BROWSER_AUTH"
+                    ]
+                }
             },
             "host": {
                 "type": "string",
-                "description": "Supports passing in a custom host value to the snowflake go driver for use with privatelink.\n"
+                "description": "Supports passing in a custom host value to the snowflake go driver for use with privatelink.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_HOST"
+                    ]
+                }
             },
             "oauthAccessToken": {
                 "type": "string",
                 "description": "Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment\nvariable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_OAUTH_ACCESS_TOKEN"
+                    ]
+                },
                 "secret": true
             },
             "oauthClientId": {
                 "type": "string",
                 "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_OAUTH_CLIENT_ID"
+                    ]
+                },
                 "secret": true
             },
             "oauthClientSecret": {
                 "type": "string",
                 "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_OAUTH_CLIENT_SECRET"
+                    ]
+                },
                 "secret": true
             },
             "oauthEndpoint": {
                 "type": "string",
                 "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_OAUTH_ENDPOINT"
+                    ]
+                },
                 "secret": true
             },
             "oauthRedirectUrl": {
                 "type": "string",
                 "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_OAUTH_REDIRECT_URL"
+                    ]
+                },
                 "secret": true
             },
             "oauthRefreshToken": {
                 "type": "string",
                 "description": "Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with\n`oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment\nvariable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_OAUTH_REFRESH_TOKEN"
+                    ]
+                },
                 "secret": true
             },
             "password": {
                 "type": "string",
                 "description": "Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from\n`SNOWFLAKE_PASSWORD` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_PASSWORD"
+                    ]
+                },
                 "secret": true
             },
             "port": {
                 "type": "integer",
-                "description": "Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`\nenvironment variable.\n"
+                "description": "Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`\nenvironment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_PORT"
+                    ]
+                }
             },
             "privateKey": {
                 "type": "string",
@@ -3035,39 +3175,69 @@
             "privateKeyPassphrase": {
                 "type": "string",
                 "description": "Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and\ndes-ede3-cbc\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"
+                    ]
+                },
                 "secret": true
             },
             "privateKeyPath": {
                 "type": "string",
                 "description": "Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or\n`password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_PRIVATE_KEY_PATH"
+                    ]
+                },
                 "secret": true
             },
             "protocol": {
                 "type": "string",
-                "description": "Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.\n"
+                "description": "Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_PROTOCOL"
+                    ]
+                }
             },
             "region": {
                 "type": "string",
-                "description": "[Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy\nformat for the `account`\nidentifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)\nin the form of `\u003ccloud_region_id\u003e.\u003ccloud\u003e`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.\n"
+                "description": "[Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy\nformat for the `account`\nidentifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)\nin the form of `\u003ccloud_region_id\u003e.\u003ccloud\u003e`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_REGION"
+                    ]
+                }
             },
             "role": {
                 "type": "string",
-                "description": "Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the\n`SNOWFLAKE_ROLE` environment variable.\n"
+                "description": "Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the\n`SNOWFLAKE_ROLE` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_ROLE"
+                    ]
+                }
             },
             "username": {
                 "type": "string",
-                "description": "Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.\n"
+                "description": "Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_USER"
+                    ]
+                }
             },
             "warehouse": {
                 "type": "string",
-                "description": "Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.\n"
+                "description": "Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "SNOWFLAKE_WAREHOUSE"
+                    ]
+                }
             }
-        },
-        "requiredInputs": [
-            "account",
-            "region",
-            "username"
-        ]
+        }
     },
     "resources": {
         "snowflake:index/account:Account": {
@@ -13409,7 +13579,7 @@
     },
     "functions": {
         "snowflake:index/getCurrentAccount:getCurrentAccount": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws from \"@pulumi/aws\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst this = snowflake.getCurrentAccount({});\nconst snowflakeAccountUrl = new aws.ssm.Parameter(\"snowflakeAccountUrl\", {\n    type: \"String\",\n    value: _this.then(_this =\u003e _this.url),\n});\n```\n```python\nimport pulumi\nimport pulumi_aws as aws\nimport pulumi_snowflake as snowflake\n\nthis = snowflake.get_current_account()\nsnowflake_account_url = aws.ssm.Parameter(\"snowflakeAccountUrl\",\n    type=\"String\",\n    value=this.url)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Aws = Pulumi.Aws;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var @this = Snowflake.GetCurrentAccount.Invoke();\n\n    var snowflakeAccountUrl = new Aws.Ssm.Parameter(\"snowflakeAccountUrl\", new()\n    {\n        Type = \"String\",\n        Value = @this.Apply(@this =\u003e @this.Apply(getCurrentAccountResult =\u003e getCurrentAccountResult.Url)),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ssm\"\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tthis, err := snowflake.GetCurrentAccount(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ssm.NewParameter(ctx, \"snowflakeAccountUrl\", \u0026ssm.ParameterArgs{\n\t\t\tType:  pulumi.String(\"String\"),\n\t\t\tValue: *pulumi.String(this.Url),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.aws.ssm.Parameter;\nimport com.pulumi.aws.ssm.ParameterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var this = SnowflakeFunctions.getCurrentAccount();\n\n        var snowflakeAccountUrl = new Parameter(\"snowflakeAccountUrl\", ParameterArgs.builder()        \n            .type(\"String\")\n            .value(this_.url())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  snowflakeAccountUrl:\n    type: aws:ssm:Parameter\n    properties:\n      type: String\n      value: ${this.url}\nvariables:\n  this:\n    fn::invoke:\n      Function: snowflake:getCurrentAccount\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws from \"@pulumi/aws\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst this = snowflake.getCurrentAccount({});\nconst snowflakeAccountUrl = new aws.ssm.Parameter(\"snowflakeAccountUrl\", {\n    type: \"String\",\n    value: _this.then(_this =\u003e _this.url),\n});\n```\n```python\nimport pulumi\nimport pulumi_aws as aws\nimport pulumi_snowflake as snowflake\n\nthis = snowflake.get_current_account()\nsnowflake_account_url = aws.ssm.Parameter(\"snowflakeAccountUrl\",\n    type=\"String\",\n    value=this.url)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Aws = Pulumi.Aws;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var @this = Snowflake.GetCurrentAccount.Invoke();\n\n    var snowflakeAccountUrl = new Aws.Ssm.Parameter(\"snowflakeAccountUrl\", new()\n    {\n        Type = \"String\",\n        Value = @this.Apply(@this =\u003e @this.Apply(getCurrentAccountResult =\u003e getCurrentAccountResult.Url)),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm\"\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tthis, err := snowflake.GetCurrentAccount(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ssm.NewParameter(ctx, \"snowflakeAccountUrl\", \u0026ssm.ParameterArgs{\n\t\t\tType:  pulumi.String(\"String\"),\n\t\t\tValue: *pulumi.String(this.Url),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.aws.ssm.Parameter;\nimport com.pulumi.aws.ssm.ParameterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var this = SnowflakeFunctions.getCurrentAccount();\n\n        var snowflakeAccountUrl = new Parameter(\"snowflakeAccountUrl\", ParameterArgs.builder()        \n            .type(\"String\")\n            .value(this_.url())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  snowflakeAccountUrl:\n    type: aws:ssm:Parameter\n    properties:\n      type: String\n      value: ${this.url}\nvariables:\n  this:\n    fn::invoke:\n      Function: snowflake:getCurrentAccount\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
             "outputs": {
                 "description": "A collection of values returned by getCurrentAccount.\n",
                 "properties": {

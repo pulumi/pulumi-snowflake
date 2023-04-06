@@ -17,30 +17,27 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewUserGrant(ctx, "grant", &snowflake.UserGrantArgs{
-//				Privilege: pulumi.String("MONITOR"),
-//				Roles: pulumi.StringArray{
-//					pulumi.String("role1"),
-//					pulumi.String("role2"),
-//				},
-//				UserName:        pulumi.String("user"),
-//				WithGrantOption: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewUserGrant(ctx, "grant", &snowflake.UserGrantArgs{
+// 			Privilege: pulumi.String("MONITOR"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("role1"),
+// 				pulumi.String("role2"),
+// 			},
+// 			UserName:        pulumi.String("user"),
+// 			WithGrantOption: pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -48,9 +45,7 @@ import (
 // format is username | privilege | with_grant_option |roles
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/userGrant:UserGrant example 'USERNAME|MONITOR|false|role1,role2'
-//
+//  $ pulumi import snowflake:index/userGrant:UserGrant example 'USERNAME|MONITOR|false|role1,role2'
 // ```
 type UserGrant struct {
 	pulumi.CustomResourceState
@@ -189,7 +184,7 @@ func (i *UserGrant) ToUserGrantOutputWithContext(ctx context.Context) UserGrantO
 // UserGrantArrayInput is an input type that accepts UserGrantArray and UserGrantArrayOutput values.
 // You can construct a concrete instance of `UserGrantArrayInput` via:
 //
-//	UserGrantArray{ UserGrantArgs{...} }
+//          UserGrantArray{ UserGrantArgs{...} }
 type UserGrantArrayInput interface {
 	pulumi.Input
 
@@ -214,7 +209,7 @@ func (i UserGrantArray) ToUserGrantArrayOutputWithContext(ctx context.Context) U
 // UserGrantMapInput is an input type that accepts UserGrantMap and UserGrantMapOutput values.
 // You can construct a concrete instance of `UserGrantMapInput` via:
 //
-//	UserGrantMap{ "key": UserGrantArgs{...} }
+//          UserGrantMap{ "key": UserGrantArgs{...} }
 type UserGrantMapInput interface {
 	pulumi.Input
 

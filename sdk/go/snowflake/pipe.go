@@ -16,9 +16,7 @@ import (
 // format is database name | schema name | pipe name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
-//
+//  $ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
 // ```
 type Pipe struct {
 	pulumi.CustomResourceState
@@ -207,7 +205,7 @@ func (i *Pipe) ToPipeOutputWithContext(ctx context.Context) PipeOutput {
 // PipeArrayInput is an input type that accepts PipeArray and PipeArrayOutput values.
 // You can construct a concrete instance of `PipeArrayInput` via:
 //
-//	PipeArray{ PipeArgs{...} }
+//          PipeArray{ PipeArgs{...} }
 type PipeArrayInput interface {
 	pulumi.Input
 
@@ -232,7 +230,7 @@ func (i PipeArray) ToPipeArrayOutputWithContext(ctx context.Context) PipeArrayOu
 // PipeMapInput is an input type that accepts PipeMap and PipeMapOutput values.
 // You can construct a concrete instance of `PipeMapInput` via:
 //
-//	PipeMap{ "key": PipeArgs{...} }
+//          PipeMap{ "key": PipeArgs{...} }
 type PipeMapInput interface {
 	pulumi.Input
 

@@ -13,30 +13,27 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ssm"
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			this, err := snowflake.GetCurrentAccount(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssm.NewParameter(ctx, "snowflakeAccountUrl", &ssm.ParameterArgs{
-//				Type:  pulumi.String("String"),
-//				Value: *pulumi.String(this.Url),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		this, err := snowflake.GetCurrentAccount(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ssm.NewParameter(ctx, "snowflakeAccountUrl", &ssm.ParameterArgs{
+// 			Type:  pulumi.String("String"),
+// 			Value: *pulumi.String(this.Url),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 func GetCurrentAccount(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCurrentAccountResult, error) {
 	var rv GetCurrentAccountResult

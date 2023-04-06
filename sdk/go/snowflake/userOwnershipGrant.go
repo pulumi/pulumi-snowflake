@@ -133,7 +133,7 @@ func (i *UserOwnershipGrant) ToUserOwnershipGrantOutputWithContext(ctx context.C
 // UserOwnershipGrantArrayInput is an input type that accepts UserOwnershipGrantArray and UserOwnershipGrantArrayOutput values.
 // You can construct a concrete instance of `UserOwnershipGrantArrayInput` via:
 //
-//	UserOwnershipGrantArray{ UserOwnershipGrantArgs{...} }
+//          UserOwnershipGrantArray{ UserOwnershipGrantArgs{...} }
 type UserOwnershipGrantArrayInput interface {
 	pulumi.Input
 
@@ -158,7 +158,7 @@ func (i UserOwnershipGrantArray) ToUserOwnershipGrantArrayOutputWithContext(ctx 
 // UserOwnershipGrantMapInput is an input type that accepts UserOwnershipGrantMap and UserOwnershipGrantMapOutput values.
 // You can construct a concrete instance of `UserOwnershipGrantMapInput` via:
 //
-//	UserOwnershipGrantMap{ "key": UserOwnershipGrantArgs{...} }
+//          UserOwnershipGrantMap{ "key": UserOwnershipGrantArgs{...} }
 type UserOwnershipGrantMapInput interface {
 	pulumi.Input
 

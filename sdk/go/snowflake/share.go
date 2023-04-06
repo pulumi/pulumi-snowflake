@@ -16,35 +16,30 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewShare(ctx, "test", &snowflake.ShareArgs{
-//				Accounts: pulumi.StringArray{
-//					pulumi.String("organizationName.accountName"),
-//				},
-//				Comment: pulumi.String("cool comment"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewShare(ctx, "test", &snowflake.ShareArgs{
+// 			Accounts: pulumi.StringArray{
+// 				pulumi.String("organizationName.accountName"),
+// 			},
+// 			Comment: pulumi.String("cool comment"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/share:Share example name
-//
+//  $ pulumi import snowflake:index/share:Share example name
 // ```
 type Share struct {
 	pulumi.CustomResourceState
@@ -152,7 +147,7 @@ func (i *Share) ToShareOutputWithContext(ctx context.Context) ShareOutput {
 // ShareArrayInput is an input type that accepts ShareArray and ShareArrayOutput values.
 // You can construct a concrete instance of `ShareArrayInput` via:
 //
-//	ShareArray{ ShareArgs{...} }
+//          ShareArray{ ShareArgs{...} }
 type ShareArrayInput interface {
 	pulumi.Input
 
@@ -177,7 +172,7 @@ func (i ShareArray) ToShareArrayOutputWithContext(ctx context.Context) ShareArra
 // ShareMapInput is an input type that accepts ShareMap and ShareMapOutput values.
 // You can construct a concrete instance of `ShareMapInput` via:
 //
-//	ShareMap{ "key": ShareArgs{...} }
+//          ShareMap{ "key": ShareArgs{...} }
 type ShareMapInput interface {
 	pulumi.Input
 

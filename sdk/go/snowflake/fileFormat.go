@@ -17,26 +17,23 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewFileFormat(ctx, "exampleFileFormat", &snowflake.FileFormatArgs{
-//				Database:   pulumi.String("EXAMPLE_DB"),
-//				FormatType: pulumi.String("CSV"),
-//				Schema:     pulumi.String("EXAMPLE_SCHEMA"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewFileFormat(ctx, "exampleFileFormat", &snowflake.FileFormatArgs{
+// 			Database:   pulumi.String("EXAMPLE_DB"),
+// 			FormatType: pulumi.String("CSV"),
+// 			Schema:     pulumi.String("EXAMPLE_SCHEMA"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -44,9 +41,7 @@ import (
 // format is database name | schema name | file format name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/fileFormat:FileFormat example 'dbName|schemaName|fileFormatName'
-//
+//  $ pulumi import snowflake:index/fileFormat:FileFormat example 'dbName|schemaName|fileFormatName'
 // ```
 type FileFormat struct {
 	pulumi.CustomResourceState
@@ -483,7 +478,7 @@ func (i *FileFormat) ToFileFormatOutputWithContext(ctx context.Context) FileForm
 // FileFormatArrayInput is an input type that accepts FileFormatArray and FileFormatArrayOutput values.
 // You can construct a concrete instance of `FileFormatArrayInput` via:
 //
-//	FileFormatArray{ FileFormatArgs{...} }
+//          FileFormatArray{ FileFormatArgs{...} }
 type FileFormatArrayInput interface {
 	pulumi.Input
 
@@ -508,7 +503,7 @@ func (i FileFormatArray) ToFileFormatArrayOutputWithContext(ctx context.Context)
 // FileFormatMapInput is an input type that accepts FileFormatMap and FileFormatMapOutput values.
 // You can construct a concrete instance of `FileFormatMapInput` via:
 //
-//	FileFormatMap{ "key": FileFormatArgs{...} }
+//          FileFormatMap{ "key": FileFormatArgs{...} }
 type FileFormatMapInput interface {
 	pulumi.Input
 

@@ -17,41 +17,38 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewFunctionGrant(ctx, "grant", &snowflake.FunctionGrantArgs{
-//				ArgumentDataTypes: pulumi.StringArray{
-//					pulumi.String("array"),
-//					pulumi.String("string"),
-//				},
-//				DatabaseName: pulumi.String("database"),
-//				FunctionName: pulumi.String("function"),
-//				OnFuture:     pulumi.Bool(false),
-//				Privilege:    pulumi.String("USAGE"),
-//				Roles: pulumi.StringArray{
-//					pulumi.String("role1"),
-//					pulumi.String("role2"),
-//				},
-//				SchemaName: pulumi.String("schema"),
-//				Shares: pulumi.StringArray{
-//					pulumi.String("share1"),
-//					pulumi.String("share2"),
-//				},
-//				WithGrantOption: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewFunctionGrant(ctx, "grant", &snowflake.FunctionGrantArgs{
+// 			ArgumentDataTypes: pulumi.StringArray{
+// 				pulumi.String("array"),
+// 				pulumi.String("string"),
+// 			},
+// 			DatabaseName: pulumi.String("database"),
+// 			FunctionName: pulumi.String("function"),
+// 			OnFuture:     pulumi.Bool(false),
+// 			Privilege:    pulumi.String("USAGE"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("role1"),
+// 				pulumi.String("role2"),
+// 			},
+// 			SchemaName: pulumi.String("schema"),
+// 			Shares: pulumi.StringArray{
+// 				pulumi.String("share1"),
+// 				pulumi.String("share2"),
+// 			},
+// 			WithGrantOption: pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -59,9 +56,7 @@ import (
 // format is database_name | schema_name | object_name | argument_data_types | privilege | with_grant_option | roles | shares
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/functionGrant:FunctionGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|ARG1TYPE,ARG2TYPE|USAGE|false|role1,role2|share1,share2'
-//
+//  $ pulumi import snowflake:index/functionGrant:FunctionGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|ARG1TYPE,ARG2TYPE|USAGE|false|role1,role2|share1,share2'
 // ```
 type FunctionGrant struct {
 	pulumi.CustomResourceState
@@ -290,7 +285,7 @@ func (i *FunctionGrant) ToFunctionGrantOutputWithContext(ctx context.Context) Fu
 // FunctionGrantArrayInput is an input type that accepts FunctionGrantArray and FunctionGrantArrayOutput values.
 // You can construct a concrete instance of `FunctionGrantArrayInput` via:
 //
-//	FunctionGrantArray{ FunctionGrantArgs{...} }
+//          FunctionGrantArray{ FunctionGrantArgs{...} }
 type FunctionGrantArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +310,7 @@ func (i FunctionGrantArray) ToFunctionGrantArrayOutputWithContext(ctx context.Co
 // FunctionGrantMapInput is an input type that accepts FunctionGrantMap and FunctionGrantMapOutput values.
 // You can construct a concrete instance of `FunctionGrantMapInput` via:
 //
-//	FunctionGrantMap{ "key": FunctionGrantArgs{...} }
+//          FunctionGrantMap{ "key": FunctionGrantArgs{...} }
 type FunctionGrantMapInput interface {
 	pulumi.Input
 

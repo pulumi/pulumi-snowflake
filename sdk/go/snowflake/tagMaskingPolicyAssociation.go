@@ -16,9 +16,7 @@ import (
 // format is tag database name | tag schema name | tag name | masking policy database | masking policy schema | masking policy name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation example 'tag_db|tag_schema|tag_name|mp_db|mp_schema|mp_name'
-//
+//  $ pulumi import snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation example 'tag_db|tag_schema|tag_name|mp_db|mp_schema|mp_name'
 // ```
 type TagMaskingPolicyAssociation struct {
 	pulumi.CustomResourceState
@@ -122,7 +120,7 @@ func (i *TagMaskingPolicyAssociation) ToTagMaskingPolicyAssociationOutputWithCon
 // TagMaskingPolicyAssociationArrayInput is an input type that accepts TagMaskingPolicyAssociationArray and TagMaskingPolicyAssociationArrayOutput values.
 // You can construct a concrete instance of `TagMaskingPolicyAssociationArrayInput` via:
 //
-//	TagMaskingPolicyAssociationArray{ TagMaskingPolicyAssociationArgs{...} }
+//          TagMaskingPolicyAssociationArray{ TagMaskingPolicyAssociationArgs{...} }
 type TagMaskingPolicyAssociationArrayInput interface {
 	pulumi.Input
 
@@ -147,7 +145,7 @@ func (i TagMaskingPolicyAssociationArray) ToTagMaskingPolicyAssociationArrayOutp
 // TagMaskingPolicyAssociationMapInput is an input type that accepts TagMaskingPolicyAssociationMap and TagMaskingPolicyAssociationMapOutput values.
 // You can construct a concrete instance of `TagMaskingPolicyAssociationMapInput` via:
 //
-//	TagMaskingPolicyAssociationMap{ "key": TagMaskingPolicyAssociationArgs{...} }
+//          TagMaskingPolicyAssociationMap{ "key": TagMaskingPolicyAssociationArgs{...} }
 type TagMaskingPolicyAssociationMapInput interface {
 	pulumi.Input
 

@@ -17,41 +17,38 @@ import (
 // package main
 //
 // import (
+// 	"fmt"
 //
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleStage, err := snowflake.NewStage(ctx, "exampleStage", &snowflake.StageArgs{
-//				Url:         pulumi.String("s3://com.example.bucket/prefix"),
-//				Database:    pulumi.String("EXAMPLE_DB"),
-//				Schema:      pulumi.String("EXAMPLE_SCHEMA"),
-//				Credentials: pulumi.String(fmt.Sprintf("AWS_KEY_ID='%v' AWS_SECRET_KEY='%v'", _var.Example_aws_key_id, _var.Example_aws_secret_key)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewStageGrant(ctx, "grantExampleStage", &snowflake.StageGrantArgs{
-//				DatabaseName: exampleStage.Database,
-//				SchemaName:   exampleStage.Schema,
-//				Roles: pulumi.StringArray{
-//					pulumi.String("LOADER"),
-//				},
-//				Privilege: pulumi.String("OWNERSHIP"),
-//				StageName: exampleStage.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleStage, err := snowflake.NewStage(ctx, "exampleStage", &snowflake.StageArgs{
+// 			Url:         pulumi.String("s3://com.example.bucket/prefix"),
+// 			Database:    pulumi.String("EXAMPLE_DB"),
+// 			Schema:      pulumi.String("EXAMPLE_SCHEMA"),
+// 			Credentials: pulumi.String(fmt.Sprintf("AWS_KEY_ID='%v' AWS_SECRET_KEY='%v'", _var.Example_aws_key_id, _var.Example_aws_secret_key)),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewStageGrant(ctx, "grantExampleStage", &snowflake.StageGrantArgs{
+// 			DatabaseName: exampleStage.Database,
+// 			SchemaName:   exampleStage.Schema,
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("LOADER"),
+// 			},
+// 			Privilege: pulumi.String("OWNERSHIP"),
+// 			StageName: exampleStage.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -59,9 +56,7 @@ import (
 // format is database name | schema name | stage name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'
-//
+//  $ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'
 // ```
 type Stage struct {
 	pulumi.CustomResourceState
@@ -292,7 +287,7 @@ func (i *Stage) ToStageOutputWithContext(ctx context.Context) StageOutput {
 // StageArrayInput is an input type that accepts StageArray and StageArrayOutput values.
 // You can construct a concrete instance of `StageArrayInput` via:
 //
-//	StageArray{ StageArgs{...} }
+//          StageArray{ StageArgs{...} }
 type StageArrayInput interface {
 	pulumi.Input
 
@@ -317,7 +312,7 @@ func (i StageArray) ToStageArrayOutputWithContext(ctx context.Context) StageArra
 // StageMapInput is an input type that accepts StageMap and StageMapOutput values.
 // You can construct a concrete instance of `StageMapInput` via:
 //
-//	StageMap{ "key": StageArgs{...} }
+//          StageMap{ "key": StageArgs{...} }
 type StageMapInput interface {
 	pulumi.Input
 

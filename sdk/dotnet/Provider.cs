@@ -22,7 +22,7 @@ namespace Pulumi.Snowflake
         /// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
         /// </summary>
         [Output("account")]
-        public Output<string> Account { get; private set; } = null!;
+        public Output<string?> Account { get; private set; } = null!;
 
         /// <summary>
         /// Supports passing in a custom host value to the snowflake go driver for use with privatelink.
@@ -112,7 +112,7 @@ namespace Pulumi.Snowflake
         /// in the form of `&lt;cloud_region_id&gt;.&lt;cloud&gt;`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
         /// </summary>
         [Output("region")]
-        public Output<string> Region { get; private set; } = null!;
+        public Output<string?> Region { get; private set; } = null!;
 
         /// <summary>
         /// Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
@@ -125,7 +125,7 @@ namespace Pulumi.Snowflake
         /// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
         /// </summary>
         [Output("username")]
-        public Output<string> Username { get; private set; } = null!;
+        public Output<string?> Username { get; private set; } = null!;
 
         /// <summary>
         /// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
@@ -141,7 +141,7 @@ namespace Pulumi.Snowflake
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Provider(string name, ProviderArgs args, CustomResourceOptions? options = null)
+        public Provider(string name, ProviderArgs? args = null, CustomResourceOptions? options = null)
             : base("snowflake", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -177,8 +177,8 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
         /// </summary>
-        [Input("account", required: true)]
-        public Input<string> Account { get; set; } = null!;
+        [Input("account")]
+        public Input<string>? Account { get; set; }
 
         /// <summary>
         /// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
@@ -380,8 +380,8 @@ namespace Pulumi.Snowflake
         /// identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
         /// in the form of `&lt;cloud_region_id&gt;.&lt;cloud&gt;`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
         /// </summary>
-        [Input("region", required: true)]
-        public Input<string> Region { get; set; } = null!;
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
@@ -393,8 +393,8 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
         /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
+        [Input("username")]
+        public Input<string>? Username { get; set; }
 
         /// <summary>
         /// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
@@ -404,6 +404,24 @@ namespace Pulumi.Snowflake
 
         public ProviderArgs()
         {
+            Account = Utilities.GetEnv("SNOWFLAKE_ACCOUNT");
+            BrowserAuth = Utilities.GetEnvBoolean("SNOWFLAKE_USE_BROWSER_AUTH");
+            Host = Utilities.GetEnv("SNOWFLAKE_HOST");
+            OauthAccessToken = Utilities.GetEnv("SNOWFLAKE_OAUTH_ACCESS_TOKEN");
+            OauthClientId = Utilities.GetEnv("SNOWFLAKE_OAUTH_CLIENT_ID");
+            OauthClientSecret = Utilities.GetEnv("SNOWFLAKE_OAUTH_CLIENT_SECRET");
+            OauthEndpoint = Utilities.GetEnv("SNOWFLAKE_OAUTH_ENDPOINT");
+            OauthRedirectUrl = Utilities.GetEnv("SNOWFLAKE_OAUTH_REDIRECT_URL");
+            OauthRefreshToken = Utilities.GetEnv("SNOWFLAKE_OAUTH_REFRESH_TOKEN");
+            Password = Utilities.GetEnv("SNOWFLAKE_PASSWORD");
+            Port = Utilities.GetEnvInt32("SNOWFLAKE_PORT");
+            PrivateKeyPassphrase = Utilities.GetEnv("SNOWFLAKE_PRIVATE_KEY_PASSPHRASE");
+            PrivateKeyPath = Utilities.GetEnv("SNOWFLAKE_PRIVATE_KEY_PATH");
+            Protocol = Utilities.GetEnv("SNOWFLAKE_PROTOCOL");
+            Region = Utilities.GetEnv("SNOWFLAKE_REGION");
+            Role = Utilities.GetEnv("SNOWFLAKE_ROLE");
+            Username = Utilities.GetEnv("SNOWFLAKE_USER");
+            Warehouse = Utilities.GetEnv("SNOWFLAKE_WAREHOUSE");
         }
         public static new ProviderArgs Empty => new ProviderArgs();
     }

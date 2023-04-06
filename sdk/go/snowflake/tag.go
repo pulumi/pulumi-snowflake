@@ -17,39 +17,36 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			database, err := snowflake.NewDatabase(ctx, "database", nil)
-//			if err != nil {
-//				return err
-//			}
-//			schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
-//				Database: database.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewTag(ctx, "tag", &snowflake.TagArgs{
-//				Database: database.Name,
-//				Schema:   schema.Name,
-//				AllowedValues: pulumi.StringArray{
-//					pulumi.String("finance"),
-//					pulumi.String("engineering"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		database, err := snowflake.NewDatabase(ctx, "database", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
+// 			Database: database.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewTag(ctx, "tag", &snowflake.TagArgs{
+// 			Database: database.Name,
+// 			Schema:   schema.Name,
+// 			AllowedValues: pulumi.StringArray{
+// 				pulumi.String("finance"),
+// 				pulumi.String("engineering"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -57,9 +54,7 @@ import (
 // format is database name | schema name | tag name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
-//
+//  $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
 // ```
 type Tag struct {
 	pulumi.CustomResourceState
@@ -193,7 +188,7 @@ func (i *Tag) ToTagOutputWithContext(ctx context.Context) TagOutput {
 // TagArrayInput is an input type that accepts TagArray and TagArrayOutput values.
 // You can construct a concrete instance of `TagArrayInput` via:
 //
-//	TagArray{ TagArgs{...} }
+//          TagArray{ TagArgs{...} }
 type TagArrayInput interface {
 	pulumi.Input
 
@@ -218,7 +213,7 @@ func (i TagArray) ToTagArrayOutputWithContext(ctx context.Context) TagArrayOutpu
 // TagMapInput is an input type that accepts TagMap and TagMapOutput values.
 // You can construct a concrete instance of `TagMapInput` via:
 //
-//	TagMap{ "key": TagArgs{...} }
+//          TagMap{ "key": TagArgs{...} }
 type TagMapInput interface {
 	pulumi.Input
 

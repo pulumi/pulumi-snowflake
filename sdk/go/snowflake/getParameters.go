@@ -16,42 +16,39 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			database, err := snowflake.NewDatabase(ctx, "database", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_ = snowflake.GetParametersOutput(ctx, snowflake.GetParametersOutputArgs{
-//				ParameterType: pulumi.String("OBJECT"),
-//				ObjectType:    pulumi.String("DATABASE"),
-//				ObjectName:    database.Name,
-//			}, nil)
-//			_, err = snowflake.GetParameters(ctx, &snowflake.GetParametersArgs{
-//				ParameterType: pulumi.StringRef("ACCOUNT"),
-//				Pattern:       pulumi.StringRef("%TIMESTAMP%"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.GetParameters(ctx, &snowflake.GetParametersArgs{
-//				ParameterType: pulumi.StringRef("SESSION"),
-//				Pattern:       pulumi.StringRef("ROWS_PER_RESULTSET"),
-//				User:          pulumi.StringRef("TEST_USER"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		database, err := snowflake.NewDatabase(ctx, "database", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_ = snowflake.GetParametersOutput(ctx, snowflake.GetParametersOutputArgs{
+// 			ParameterType: pulumi.String("OBJECT"),
+// 			ObjectType:    pulumi.String("DATABASE"),
+// 			ObjectName:    database.Name,
+// 		}, nil)
+// 		_, err = snowflake.GetParameters(ctx, &snowflake.GetParametersArgs{
+// 			ParameterType: pulumi.StringRef("ACCOUNT"),
+// 			Pattern:       pulumi.StringRef("%TIMESTAMP%"),
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.GetParameters(ctx, &snowflake.GetParametersArgs{
+// 			ParameterType: pulumi.StringRef("SESSION"),
+// 			Pattern:       pulumi.StringRef("ROWS_PER_RESULTSET"),
+// 			User:          pulumi.StringRef("TEST_USER"),
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 func GetParameters(ctx *pulumi.Context, args *GetParametersArgs, opts ...pulumi.InvokeOption) (*GetParametersResult, error) {
 	var rv GetParametersResult

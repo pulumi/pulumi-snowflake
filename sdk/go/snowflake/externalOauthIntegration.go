@@ -17,44 +17,39 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewExternalOauthIntegration(ctx, "azure", &snowflake.ExternalOauthIntegrationArgs{
-//				AudienceUrls: pulumi.StringArray{
-//					pulumi.String("https://analysis.windows.net/powerbi/connector/Snowflake"),
-//				},
-//				Enabled: pulumi.Bool(true),
-//				Issuer:  pulumi.String("https://sts.windows.net/00000000-0000-0000-0000-000000000000"),
-//				JwsKeysUrls: pulumi.StringArray{
-//					pulumi.String("https://login.windows.net/common/discovery/keys"),
-//				},
-//				SnowflakeUserMappingAttribute: pulumi.String("LOGIN_NAME"),
-//				TokenUserMappingClaims: pulumi.StringArray{
-//					pulumi.String("upn"),
-//				},
-//				Type: pulumi.String("AZURE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewExternalOauthIntegration(ctx, "azure", &snowflake.ExternalOauthIntegrationArgs{
+// 			AudienceUrls: pulumi.StringArray{
+// 				pulumi.String("https://analysis.windows.net/powerbi/connector/Snowflake"),
+// 			},
+// 			Enabled: pulumi.Bool(true),
+// 			Issuer:  pulumi.String("https://sts.windows.net/00000000-0000-0000-0000-000000000000"),
+// 			JwsKeysUrls: pulumi.StringArray{
+// 				pulumi.String("https://login.windows.net/common/discovery/keys"),
+// 			},
+// 			SnowflakeUserMappingAttribute: pulumi.String("LOGIN_NAME"),
+// 			TokenUserMappingClaims: pulumi.StringArray{
+// 				pulumi.String("upn"),
+// 			},
+// 			Type: pulumi.String("AZURE"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example name
-//
+//  $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example name
 // ```
 type ExternalOauthIntegration struct {
 	pulumi.CustomResourceState
@@ -303,7 +298,7 @@ func (i *ExternalOauthIntegration) ToExternalOauthIntegrationOutputWithContext(c
 // ExternalOauthIntegrationArrayInput is an input type that accepts ExternalOauthIntegrationArray and ExternalOauthIntegrationArrayOutput values.
 // You can construct a concrete instance of `ExternalOauthIntegrationArrayInput` via:
 //
-//	ExternalOauthIntegrationArray{ ExternalOauthIntegrationArgs{...} }
+//          ExternalOauthIntegrationArray{ ExternalOauthIntegrationArgs{...} }
 type ExternalOauthIntegrationArrayInput interface {
 	pulumi.Input
 
@@ -328,7 +323,7 @@ func (i ExternalOauthIntegrationArray) ToExternalOauthIntegrationArrayOutputWith
 // ExternalOauthIntegrationMapInput is an input type that accepts ExternalOauthIntegrationMap and ExternalOauthIntegrationMapOutput values.
 // You can construct a concrete instance of `ExternalOauthIntegrationMapInput` via:
 //
-//	ExternalOauthIntegrationMap{ "key": ExternalOauthIntegrationArgs{...} }
+//          ExternalOauthIntegrationMap{ "key": ExternalOauthIntegrationArgs{...} }
 type ExternalOauthIntegrationMapInput interface {
 	pulumi.Input
 

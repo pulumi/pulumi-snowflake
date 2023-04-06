@@ -17,37 +17,34 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewMaterializedViewGrant(ctx, "grant", &snowflake.MaterializedViewGrantArgs{
-//				DatabaseName:         pulumi.String("database"),
-//				MaterializedViewName: pulumi.String("materialized_view"),
-//				OnFuture:             pulumi.Bool(false),
-//				Privilege:            pulumi.String("SELECT"),
-//				Roles: pulumi.StringArray{
-//					pulumi.String("role1"),
-//					pulumi.String("role2"),
-//				},
-//				SchemaName: pulumi.String("schema"),
-//				Shares: pulumi.StringArray{
-//					pulumi.String("share1"),
-//					pulumi.String("share2"),
-//				},
-//				WithGrantOption: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewMaterializedViewGrant(ctx, "grant", &snowflake.MaterializedViewGrantArgs{
+// 			DatabaseName:         pulumi.String("database"),
+// 			MaterializedViewName: pulumi.String("materialized_view"),
+// 			OnFuture:             pulumi.Bool(false),
+// 			Privilege:            pulumi.String("SELECT"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("role1"),
+// 				pulumi.String("role2"),
+// 			},
+// 			SchemaName: pulumi.String("schema"),
+// 			Shares: pulumi.StringArray{
+// 				pulumi.String("share1"),
+// 				pulumi.String("share2"),
+// 			},
+// 			WithGrantOption: pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -55,9 +52,7 @@ import (
 // format is database_name | schema_name | object_name | privilege | with_grant_option | roles | shares
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/materializedViewGrant:MaterializedViewGrant example 'MY_DATABASE|MY_SCHEMA❄️MY_OBJECT_NAME|SELECT|false|role1,role2|share1,share2'
-//
+//  $ pulumi import snowflake:index/materializedViewGrant:MaterializedViewGrant example 'MY_DATABASE|MY_SCHEMA❄️MY_OBJECT_NAME|SELECT|false|role1,role2|share1,share2'
 // ```
 type MaterializedViewGrant struct {
 	pulumi.CustomResourceState
@@ -233,7 +228,7 @@ func (i *MaterializedViewGrant) ToMaterializedViewGrantOutputWithContext(ctx con
 // MaterializedViewGrantArrayInput is an input type that accepts MaterializedViewGrantArray and MaterializedViewGrantArrayOutput values.
 // You can construct a concrete instance of `MaterializedViewGrantArrayInput` via:
 //
-//	MaterializedViewGrantArray{ MaterializedViewGrantArgs{...} }
+//          MaterializedViewGrantArray{ MaterializedViewGrantArgs{...} }
 type MaterializedViewGrantArrayInput interface {
 	pulumi.Input
 
@@ -258,7 +253,7 @@ func (i MaterializedViewGrantArray) ToMaterializedViewGrantArrayOutputWithContex
 // MaterializedViewGrantMapInput is an input type that accepts MaterializedViewGrantMap and MaterializedViewGrantMapOutput values.
 // You can construct a concrete instance of `MaterializedViewGrantMapInput` via:
 //
-//	MaterializedViewGrantMap{ "key": MaterializedViewGrantArgs{...} }
+//          MaterializedViewGrantMap{ "key": MaterializedViewGrantArgs{...} }
 type MaterializedViewGrantMapInput interface {
 	pulumi.Input
 

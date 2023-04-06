@@ -17,41 +17,38 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewProcedureGrant(ctx, "grant", &snowflake.ProcedureGrantArgs{
-//				ArgumentDataTypes: pulumi.StringArray{
-//					pulumi.String("array"),
-//					pulumi.String("string"),
-//				},
-//				DatabaseName:  pulumi.String("database"),
-//				OnFuture:      pulumi.Bool(false),
-//				Privilege:     pulumi.String("SELECT"),
-//				ProcedureName: pulumi.String("procedure"),
-//				Roles: pulumi.StringArray{
-//					pulumi.String("role1"),
-//					pulumi.String("role2"),
-//				},
-//				SchemaName: pulumi.String("schema"),
-//				Shares: pulumi.StringArray{
-//					pulumi.String("share1"),
-//					pulumi.String("share2"),
-//				},
-//				WithGrantOption: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewProcedureGrant(ctx, "grant", &snowflake.ProcedureGrantArgs{
+// 			ArgumentDataTypes: pulumi.StringArray{
+// 				pulumi.String("array"),
+// 				pulumi.String("string"),
+// 			},
+// 			DatabaseName:  pulumi.String("database"),
+// 			OnFuture:      pulumi.Bool(false),
+// 			Privilege:     pulumi.String("SELECT"),
+// 			ProcedureName: pulumi.String("procedure"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("role1"),
+// 				pulumi.String("role2"),
+// 			},
+// 			SchemaName: pulumi.String("schema"),
+// 			Shares: pulumi.StringArray{
+// 				pulumi.String("share1"),
+// 				pulumi.String("share2"),
+// 			},
+// 			WithGrantOption: pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -59,9 +56,7 @@ import (
 // format is database_name | schema_name | object_name | argument_data_types | privilege | with_grant_option | roles | shares
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|ARG1TYPE,ARG2TYPE|USAGE|false|role1,role2|share1,share2'
-//
+//  $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|ARG1TYPE,ARG2TYPE|USAGE|false|role1,role2|share1,share2'
 // ```
 type ProcedureGrant struct {
 	pulumi.CustomResourceState
@@ -290,7 +285,7 @@ func (i *ProcedureGrant) ToProcedureGrantOutputWithContext(ctx context.Context) 
 // ProcedureGrantArrayInput is an input type that accepts ProcedureGrantArray and ProcedureGrantArrayOutput values.
 // You can construct a concrete instance of `ProcedureGrantArrayInput` via:
 //
-//	ProcedureGrantArray{ ProcedureGrantArgs{...} }
+//          ProcedureGrantArray{ ProcedureGrantArgs{...} }
 type ProcedureGrantArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +310,7 @@ func (i ProcedureGrantArray) ToProcedureGrantArrayOutputWithContext(ctx context.
 // ProcedureGrantMapInput is an input type that accepts ProcedureGrantMap and ProcedureGrantMapOutput values.
 // You can construct a concrete instance of `ProcedureGrantMapInput` via:
 //
-//	ProcedureGrantMap{ "key": ProcedureGrantArgs{...} }
+//          ProcedureGrantMap{ "key": ProcedureGrantArgs{...} }
 type ProcedureGrantMapInput interface {
 	pulumi.Input
 

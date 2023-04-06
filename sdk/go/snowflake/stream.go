@@ -16,9 +16,7 @@ import (
 // format is database name | schema name | stream name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/stream:Stream example 'dbName|schemaName|streamName'
-//
+//  $ pulumi import snowflake:index/stream:Stream example 'dbName|schemaName|streamName'
 // ```
 type Stream struct {
 	pulumi.CustomResourceState
@@ -208,7 +206,7 @@ func (i *Stream) ToStreamOutputWithContext(ctx context.Context) StreamOutput {
 // StreamArrayInput is an input type that accepts StreamArray and StreamArrayOutput values.
 // You can construct a concrete instance of `StreamArrayInput` via:
 //
-//	StreamArray{ StreamArgs{...} }
+//          StreamArray{ StreamArgs{...} }
 type StreamArrayInput interface {
 	pulumi.Input
 
@@ -233,7 +231,7 @@ func (i StreamArray) ToStreamArrayOutputWithContext(ctx context.Context) StreamA
 // StreamMapInput is an input type that accepts StreamMap and StreamMapOutput values.
 // You can construct a concrete instance of `StreamMapInput` via:
 //
-//	StreamMap{ "key": StreamArgs{...} }
+//          StreamMap{ "key": StreamArgs{...} }
 type StreamMapInput interface {
 	pulumi.Input
 

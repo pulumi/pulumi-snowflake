@@ -17,33 +17,30 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewFileFormatGrant(ctx, "grant", &snowflake.FileFormatGrantArgs{
-//				DatabaseName:   pulumi.String("database"),
-//				FileFormatName: pulumi.String("file_format"),
-//				OnFuture:       pulumi.Bool(false),
-//				Privilege:      pulumi.String("SELECT"),
-//				Roles: pulumi.StringArray{
-//					pulumi.String("role1"),
-//					pulumi.String("role2"),
-//				},
-//				SchemaName:      pulumi.String("schema"),
-//				WithGrantOption: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewFileFormatGrant(ctx, "grant", &snowflake.FileFormatGrantArgs{
+// 			DatabaseName:   pulumi.String("database"),
+// 			FileFormatName: pulumi.String("file_format"),
+// 			OnFuture:       pulumi.Bool(false),
+// 			Privilege:      pulumi.String("SELECT"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("role1"),
+// 				pulumi.String("role2"),
+// 			},
+// 			SchemaName:      pulumi.String("schema"),
+// 			WithGrantOption: pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -51,9 +48,7 @@ import (
 // format is database_name | schema_name | object_name | privilege | with_grant_option | roles
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/fileFormatGrant:FileFormatGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|USAGE|false|role1,role2'
-//
+//  $ pulumi import snowflake:index/fileFormatGrant:FileFormatGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|USAGE|false|role1,role2'
 // ```
 type FileFormatGrant struct {
 	pulumi.CustomResourceState
@@ -222,7 +217,7 @@ func (i *FileFormatGrant) ToFileFormatGrantOutputWithContext(ctx context.Context
 // FileFormatGrantArrayInput is an input type that accepts FileFormatGrantArray and FileFormatGrantArrayOutput values.
 // You can construct a concrete instance of `FileFormatGrantArrayInput` via:
 //
-//	FileFormatGrantArray{ FileFormatGrantArgs{...} }
+//          FileFormatGrantArray{ FileFormatGrantArgs{...} }
 type FileFormatGrantArrayInput interface {
 	pulumi.Input
 
@@ -247,7 +242,7 @@ func (i FileFormatGrantArray) ToFileFormatGrantArrayOutputWithContext(ctx contex
 // FileFormatGrantMapInput is an input type that accepts FileFormatGrantMap and FileFormatGrantMapOutput values.
 // You can construct a concrete instance of `FileFormatGrantMapInput` via:
 //
-//	FileFormatGrantMap{ "key": FileFormatGrantArgs{...} }
+//          FileFormatGrantMap{ "key": FileFormatGrantArgs{...} }
 type FileFormatGrantMapInput interface {
 	pulumi.Input
 

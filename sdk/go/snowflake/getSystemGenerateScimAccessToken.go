@@ -16,24 +16,21 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetSystemGenerateScimAccessToken(ctx, &snowflake.GetSystemGenerateScimAccessTokenArgs{
-//				IntegrationName: "AAD_PROVISIONING",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.GetSystemGenerateScimAccessToken(ctx, &snowflake.GetSystemGenerateScimAccessTokenArgs{
+// 			IntegrationName: "AAD_PROVISIONING",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 func GetSystemGenerateScimAccessToken(ctx *pulumi.Context, args *GetSystemGenerateScimAccessTokenArgs, opts ...pulumi.InvokeOption) (*GetSystemGenerateScimAccessTokenResult, error) {
 	var rv GetSystemGenerateScimAccessTokenResult

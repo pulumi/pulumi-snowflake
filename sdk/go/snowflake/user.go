@@ -16,47 +16,42 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewUser(ctx, "user", &snowflake.UserArgs{
-//				Comment:     pulumi.String("A user of snowflake."),
-//				DefaultRole: pulumi.String("role1"),
-//				DefaultSecondaryRoles: pulumi.StringArray{
-//					pulumi.String("ALL"),
-//				},
-//				DefaultWarehouse:   pulumi.String("warehouse"),
-//				Disabled:           pulumi.Bool(false),
-//				DisplayName:        pulumi.String("Snowflake User"),
-//				Email:              pulumi.String("user@snowflake.example"),
-//				FirstName:          pulumi.String("Snowflake"),
-//				LastName:           pulumi.String("User"),
-//				LoginName:          pulumi.String("snowflake_user"),
-//				MustChangePassword: pulumi.Bool(false),
-//				Password:           pulumi.String("secret"),
-//				RsaPublicKey:       pulumi.String("..."),
-//				RsaPublicKey2:      pulumi.String("..."),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewUser(ctx, "user", &snowflake.UserArgs{
+// 			Comment:     pulumi.String("A user of snowflake."),
+// 			DefaultRole: pulumi.String("role1"),
+// 			DefaultSecondaryRoles: pulumi.StringArray{
+// 				pulumi.String("ALL"),
+// 			},
+// 			DefaultWarehouse:   pulumi.String("warehouse"),
+// 			Disabled:           pulumi.Bool(false),
+// 			DisplayName:        pulumi.String("Snowflake User"),
+// 			Email:              pulumi.String("user@snowflake.example"),
+// 			FirstName:          pulumi.String("Snowflake"),
+// 			LastName:           pulumi.String("User"),
+// 			LoginName:          pulumi.String("snowflake_user"),
+// 			MustChangePassword: pulumi.Bool(false),
+// 			Password:           pulumi.String("secret"),
+// 			RsaPublicKey:       pulumi.String("..."),
+// 			RsaPublicKey2:      pulumi.String("..."),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/user:User example userName
-//
+//  $ pulumi import snowflake:index/user:User example userName
 // ```
 type User struct {
 	pulumi.CustomResourceState
@@ -341,7 +336,7 @@ func (i *User) ToUserOutputWithContext(ctx context.Context) UserOutput {
 // UserArrayInput is an input type that accepts UserArray and UserArrayOutput values.
 // You can construct a concrete instance of `UserArrayInput` via:
 //
-//	UserArray{ UserArgs{...} }
+//          UserArray{ UserArgs{...} }
 type UserArrayInput interface {
 	pulumi.Input
 
@@ -366,7 +361,7 @@ func (i UserArray) ToUserArrayOutputWithContext(ctx context.Context) UserArrayOu
 // UserMapInput is an input type that accepts UserMap and UserMapOutput values.
 // You can construct a concrete instance of `UserMapInput` via:
 //
-//	UserMap{ "key": UserArgs{...} }
+//          UserMap{ "key": UserArgs{...} }
 type UserMapInput interface {
 	pulumi.Input
 

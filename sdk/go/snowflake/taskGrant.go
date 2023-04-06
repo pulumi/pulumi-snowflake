@@ -17,33 +17,30 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewTaskGrant(ctx, "grant", &snowflake.TaskGrantArgs{
-//				DatabaseName: pulumi.String("database"),
-//				OnFuture:     pulumi.Bool(false),
-//				Privilege:    pulumi.String("OPERATE"),
-//				Roles: pulumi.StringArray{
-//					pulumi.String("role1"),
-//					pulumi.String("role2"),
-//				},
-//				SchemaName:      pulumi.String("schema"),
-//				TaskName:        pulumi.String("task"),
-//				WithGrantOption: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewTaskGrant(ctx, "grant", &snowflake.TaskGrantArgs{
+// 			DatabaseName: pulumi.String("database"),
+// 			OnFuture:     pulumi.Bool(false),
+// 			Privilege:    pulumi.String("OPERATE"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("role1"),
+// 				pulumi.String("role2"),
+// 			},
+// 			SchemaName:      pulumi.String("schema"),
+// 			TaskName:        pulumi.String("task"),
+// 			WithGrantOption: pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -51,9 +48,7 @@ import (
 // format is database_name ❄️ schema_name | task_name | privilege | with_grant_option | roles
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/taskGrant:TaskGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|OPERATE|false|role1,role2'
-//
+//  $ pulumi import snowflake:index/taskGrant:TaskGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|OPERATE|false|role1,role2'
 // ```
 type TaskGrant struct {
 	pulumi.CustomResourceState
@@ -222,7 +217,7 @@ func (i *TaskGrant) ToTaskGrantOutputWithContext(ctx context.Context) TaskGrantO
 // TaskGrantArrayInput is an input type that accepts TaskGrantArray and TaskGrantArrayOutput values.
 // You can construct a concrete instance of `TaskGrantArrayInput` via:
 //
-//	TaskGrantArray{ TaskGrantArgs{...} }
+//          TaskGrantArray{ TaskGrantArgs{...} }
 type TaskGrantArrayInput interface {
 	pulumi.Input
 
@@ -247,7 +242,7 @@ func (i TaskGrantArray) ToTaskGrantArrayOutputWithContext(ctx context.Context) T
 // TaskGrantMapInput is an input type that accepts TaskGrantMap and TaskGrantMapOutput values.
 // You can construct a concrete instance of `TaskGrantMapInput` via:
 //
-//	TaskGrantMap{ "key": TaskGrantArgs{...} }
+//          TaskGrantMap{ "key": TaskGrantArgs{...} }
 type TaskGrantMapInput interface {
 	pulumi.Input
 

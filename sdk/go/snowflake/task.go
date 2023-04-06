@@ -17,67 +17,64 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			task, err := snowflake.NewTask(ctx, "task", &snowflake.TaskArgs{
-//				Comment:      pulumi.String("my task"),
-//				Database:     pulumi.String("database"),
-//				Schema:       pulumi.String("schema"),
-//				Warehouse:    pulumi.String("warehouse"),
-//				Schedule:     pulumi.String("10 MINUTE"),
-//				SqlStatement: pulumi.String("select * from foo;"),
-//				SessionParameters: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//				UserTaskTimeoutMs: pulumi.Int(10000),
-//				Afters:            pulumi.StringArray("preceding_task"),
-//				When:              pulumi.String("foo AND bar"),
-//				Enabled:           pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewTask(ctx, "serverlessTask", &snowflake.TaskArgs{
-//				Comment:      pulumi.String("my serverless task"),
-//				Database:     pulumi.String("db"),
-//				Schema:       pulumi.String("schema"),
-//				Schedule:     pulumi.String("10 MINUTE"),
-//				SqlStatement: pulumi.String("select * from foo;"),
-//				SessionParameters: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//				UserTaskTimeoutMs:                   pulumi.Int(10000),
-//				UserTaskManagedInitialWarehouseSize: pulumi.String("XSMALL"),
-//				Afters: pulumi.StringArray{
-//					task.Name,
-//				},
-//				When:    pulumi.String("foo AND bar"),
-//				Enabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewTask(ctx, "testTask", &snowflake.TaskArgs{
-//				Comment:                   pulumi.String("task with allow_overlapping_execution"),
-//				Database:                  pulumi.String("database"),
-//				Schema:                    pulumi.String("schema"),
-//				SqlStatement:              pulumi.String("select 1 as c;"),
-//				AllowOverlappingExecution: pulumi.Bool(true),
-//				Enabled:                   pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		task, err := snowflake.NewTask(ctx, "task", &snowflake.TaskArgs{
+// 			Comment:      pulumi.String("my task"),
+// 			Database:     pulumi.String("database"),
+// 			Schema:       pulumi.String("schema"),
+// 			Warehouse:    pulumi.String("warehouse"),
+// 			Schedule:     pulumi.String("10 MINUTE"),
+// 			SqlStatement: pulumi.String("select * from foo;"),
+// 			SessionParameters: pulumi.StringMap{
+// 				"foo": pulumi.String("bar"),
+// 			},
+// 			UserTaskTimeoutMs: pulumi.Int(10000),
+// 			Afters:            pulumi.StringArray("preceding_task"),
+// 			When:              pulumi.String("foo AND bar"),
+// 			Enabled:           pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewTask(ctx, "serverlessTask", &snowflake.TaskArgs{
+// 			Comment:      pulumi.String("my serverless task"),
+// 			Database:     pulumi.String("db"),
+// 			Schema:       pulumi.String("schema"),
+// 			Schedule:     pulumi.String("10 MINUTE"),
+// 			SqlStatement: pulumi.String("select * from foo;"),
+// 			SessionParameters: pulumi.StringMap{
+// 				"foo": pulumi.String("bar"),
+// 			},
+// 			UserTaskTimeoutMs:                   pulumi.Int(10000),
+// 			UserTaskManagedInitialWarehouseSize: pulumi.String("XSMALL"),
+// 			Afters: pulumi.StringArray{
+// 				task.Name,
+// 			},
+// 			When:    pulumi.String("foo AND bar"),
+// 			Enabled: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewTask(ctx, "testTask", &snowflake.TaskArgs{
+// 			Comment:                   pulumi.String("task with allow_overlapping_execution"),
+// 			Database:                  pulumi.String("database"),
+// 			Schema:                    pulumi.String("schema"),
+// 			SqlStatement:              pulumi.String("select 1 as c;"),
+// 			AllowOverlappingExecution: pulumi.Bool(true),
+// 			Enabled:                   pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -85,9 +82,7 @@ import (
 // format is database name | schema name | task name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/task:Task example 'dbName|schemaName|taskName'
-//
+//  $ pulumi import snowflake:index/task:Task example 'dbName|schemaName|taskName'
 // ```
 type Task struct {
 	pulumi.CustomResourceState
@@ -324,7 +319,7 @@ func (i *Task) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 // TaskArrayInput is an input type that accepts TaskArray and TaskArrayOutput values.
 // You can construct a concrete instance of `TaskArrayInput` via:
 //
-//	TaskArray{ TaskArgs{...} }
+//          TaskArray{ TaskArgs{...} }
 type TaskArrayInput interface {
 	pulumi.Input
 
@@ -349,7 +344,7 @@ func (i TaskArray) ToTaskArrayOutputWithContext(ctx context.Context) TaskArrayOu
 // TaskMapInput is an input type that accepts TaskMap and TaskMapOutput values.
 // You can construct a concrete instance of `TaskMapInput` via:
 //
-//	TaskMap{ "key": TaskArgs{...} }
+//          TaskMap{ "key": TaskArgs{...} }
 type TaskMapInput interface {
 	pulumi.Input
 

@@ -17,30 +17,27 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewWarehouseGrant(ctx, "grant", &snowflake.WarehouseGrantArgs{
-//				Privilege: pulumi.String("MODIFY"),
-//				Roles: pulumi.StringArray{
-//					pulumi.String("role1"),
-//					pulumi.String("role2"),
-//				},
-//				WarehouseName:   pulumi.String("warehouse"),
-//				WithGrantOption: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewWarehouseGrant(ctx, "grant", &snowflake.WarehouseGrantArgs{
+// 			Privilege: pulumi.String("MODIFY"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("role1"),
+// 				pulumi.String("role2"),
+// 			},
+// 			WarehouseName:   pulumi.String("warehouse"),
+// 			WithGrantOption: pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -48,9 +45,7 @@ import (
 // format is warehouse_name | privilege | with_grant_option | roles
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/warehouseGrant:WarehouseGrant example 'MY_WAREHOUSE|MODIFY|false|role1,role2'
-//
+//  $ pulumi import snowflake:index/warehouseGrant:WarehouseGrant example 'MY_WAREHOUSE|MODIFY|false|role1,role2'
 // ```
 type WarehouseGrant struct {
 	pulumi.CustomResourceState
@@ -186,7 +181,7 @@ func (i *WarehouseGrant) ToWarehouseGrantOutputWithContext(ctx context.Context) 
 // WarehouseGrantArrayInput is an input type that accepts WarehouseGrantArray and WarehouseGrantArrayOutput values.
 // You can construct a concrete instance of `WarehouseGrantArrayInput` via:
 //
-//	WarehouseGrantArray{ WarehouseGrantArgs{...} }
+//          WarehouseGrantArray{ WarehouseGrantArgs{...} }
 type WarehouseGrantArrayInput interface {
 	pulumi.Input
 
@@ -211,7 +206,7 @@ func (i WarehouseGrantArray) ToWarehouseGrantArrayOutputWithContext(ctx context.
 // WarehouseGrantMapInput is an input type that accepts WarehouseGrantMap and WarehouseGrantMapOutput values.
 // You can construct a concrete instance of `WarehouseGrantMapInput` via:
 //
-//	WarehouseGrantMap{ "key": WarehouseGrantArgs{...} }
+//          WarehouseGrantMap{ "key": WarehouseGrantArgs{...} }
 type WarehouseGrantMapInput interface {
 	pulumi.Input
 

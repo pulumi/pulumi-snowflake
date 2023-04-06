@@ -17,28 +17,25 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewMaskingPolicy(ctx, "exampleMaskingPolicy", &snowflake.MaskingPolicyArgs{
-//				Database:          pulumi.String("EXAMPLE_DB"),
-//				MaskingExpression: pulumi.String("case when current_role() in ('ANALYST') then val else sha2(val, 512) end"),
-//				ReturnDataType:    pulumi.String("string"),
-//				Schema:            pulumi.String("EXAMPLE_SCHEMA"),
-//				ValueDataType:     pulumi.String("string"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewMaskingPolicy(ctx, "exampleMaskingPolicy", &snowflake.MaskingPolicyArgs{
+// 			Database:          pulumi.String("EXAMPLE_DB"),
+// 			MaskingExpression: pulumi.String("case when current_role() in ('ANALYST') then val else sha2(val, 512) end"),
+// 			ReturnDataType:    pulumi.String("string"),
+// 			Schema:            pulumi.String("EXAMPLE_SCHEMA"),
+// 			ValueDataType:     pulumi.String("string"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -46,9 +43,7 @@ import (
 // format is database name | schema name | policy name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example 'dbName|schemaName|policyName'
-//
+//  $ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example 'dbName|schemaName|policyName'
 // ```
 type MaskingPolicy struct {
 	pulumi.CustomResourceState
@@ -217,7 +212,7 @@ func (i *MaskingPolicy) ToMaskingPolicyOutputWithContext(ctx context.Context) Ma
 // MaskingPolicyArrayInput is an input type that accepts MaskingPolicyArray and MaskingPolicyArrayOutput values.
 // You can construct a concrete instance of `MaskingPolicyArrayInput` via:
 //
-//	MaskingPolicyArray{ MaskingPolicyArgs{...} }
+//          MaskingPolicyArray{ MaskingPolicyArgs{...} }
 type MaskingPolicyArrayInput interface {
 	pulumi.Input
 
@@ -242,7 +237,7 @@ func (i MaskingPolicyArray) ToMaskingPolicyArrayOutputWithContext(ctx context.Co
 // MaskingPolicyMapInput is an input type that accepts MaskingPolicyMap and MaskingPolicyMapOutput values.
 // You can construct a concrete instance of `MaskingPolicyMapInput` via:
 //
-//	MaskingPolicyMap{ "key": MaskingPolicyArgs{...} }
+//          MaskingPolicyMap{ "key": MaskingPolicyArgs{...} }
 type MaskingPolicyMapInput interface {
 	pulumi.Input
 

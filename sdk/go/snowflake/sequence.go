@@ -17,35 +17,32 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewDatabase(ctx, "database", nil)
-//			if err != nil {
-//				return err
-//			}
-//			testSchema, err := snowflake.NewSchema(ctx, "testSchema", &snowflake.SchemaArgs{
-//				Database: pulumi.Any(snowflake_database.Test_database.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewSequence(ctx, "testSequence", &snowflake.SequenceArgs{
-//				Database: pulumi.Any(snowflake_database.Test_database.Name),
-//				Schema:   testSchema.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewDatabase(ctx, "database", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testSchema, err := snowflake.NewSchema(ctx, "testSchema", &snowflake.SchemaArgs{
+// 			Database: pulumi.Any(snowflake_database.Test_database.Name),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewSequence(ctx, "testSequence", &snowflake.SequenceArgs{
+// 			Database: pulumi.Any(snowflake_database.Test_database.Name),
+// 			Schema:   testSchema.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -53,9 +50,7 @@ import (
 // format is database name | schema name | sequence name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/sequence:Sequence example 'dbName|schemaName|sequenceName'
-//
+//  $ pulumi import snowflake:index/sequence:Sequence example 'dbName|schemaName|sequenceName'
 // ```
 type Sequence struct {
 	pulumi.CustomResourceState
@@ -201,7 +196,7 @@ func (i *Sequence) ToSequenceOutputWithContext(ctx context.Context) SequenceOutp
 // SequenceArrayInput is an input type that accepts SequenceArray and SequenceArrayOutput values.
 // You can construct a concrete instance of `SequenceArrayInput` via:
 //
-//	SequenceArray{ SequenceArgs{...} }
+//          SequenceArray{ SequenceArgs{...} }
 type SequenceArrayInput interface {
 	pulumi.Input
 
@@ -226,7 +221,7 @@ func (i SequenceArray) ToSequenceArrayOutputWithContext(ctx context.Context) Seq
 // SequenceMapInput is an input type that accepts SequenceMap and SequenceMapOutput values.
 // You can construct a concrete instance of `SequenceMapInput` via:
 //
-//	SequenceMap{ "key": SequenceArgs{...} }
+//          SequenceMap{ "key": SequenceArgs{...} }
 type SequenceMapInput interface {
 	pulumi.Input
 

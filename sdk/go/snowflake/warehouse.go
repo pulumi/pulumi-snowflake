@@ -16,33 +16,28 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewWarehouse(ctx, "warehouse", &snowflake.WarehouseArgs{
-//				Comment:       pulumi.String("foo"),
-//				WarehouseSize: pulumi.String("small"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewWarehouse(ctx, "warehouse", &snowflake.WarehouseArgs{
+// 			Comment:       pulumi.String("foo"),
+// 			WarehouseSize: pulumi.String("small"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/warehouse:Warehouse example warehouseName
-//
+//  $ pulumi import snowflake:index/warehouse:Warehouse example warehouseName
 // ```
 type Warehouse struct {
 	pulumi.CustomResourceState
@@ -305,7 +300,7 @@ func (i *Warehouse) ToWarehouseOutputWithContext(ctx context.Context) WarehouseO
 // WarehouseArrayInput is an input type that accepts WarehouseArray and WarehouseArrayOutput values.
 // You can construct a concrete instance of `WarehouseArrayInput` via:
 //
-//	WarehouseArray{ WarehouseArgs{...} }
+//          WarehouseArray{ WarehouseArgs{...} }
 type WarehouseArrayInput interface {
 	pulumi.Input
 
@@ -330,7 +325,7 @@ func (i WarehouseArray) ToWarehouseArrayOutputWithContext(ctx context.Context) W
 // WarehouseMapInput is an input type that accepts WarehouseMap and WarehouseMapOutput values.
 // You can construct a concrete instance of `WarehouseMapInput` via:
 //
-//	WarehouseMap{ "key": WarehouseArgs{...} }
+//          WarehouseMap{ "key": WarehouseArgs{...} }
 type WarehouseMapInput interface {
 	pulumi.Input
 

@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +18,7 @@ type Provider struct {
 	pulumi.ProviderResourceState
 
 	// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
-	Account pulumi.StringOutput `pulumi:"account"`
+	Account pulumi.StringPtrOutput `pulumi:"account"`
 	// Supports passing in a custom host value to the snowflake go driver for use with privatelink.
 	Host pulumi.StringPtrOutput `pulumi:"host"`
 	// Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
@@ -57,12 +56,12 @@ type Provider struct {
 	// format for the `account`
 	// identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
 	// in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region pulumi.StringPtrOutput `pulumi:"region"`
 	// Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
 	// `SNOWFLAKE_ROLE` environment variable.
 	Role pulumi.StringPtrOutput `pulumi:"role"`
 	// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
-	Username pulumi.StringOutput `pulumi:"username"`
+	Username pulumi.StringPtrOutput `pulumi:"username"`
 	// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
 	Warehouse pulumi.StringPtrOutput `pulumi:"warehouse"`
 }
@@ -71,17 +70,62 @@ type Provider struct {
 func NewProvider(ctx *pulumi.Context,
 	name string, args *ProviderArgs, opts ...pulumi.ResourceOption) (*Provider, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ProviderArgs{}
 	}
 
 	if args.Account == nil {
-		return nil, errors.New("invalid value for required argument 'Account'")
+		args.Account = pulumi.StringPtr(getEnvOrDefault("", nil, "SNOWFLAKE_ACCOUNT").(string))
+	}
+	if args.BrowserAuth == nil {
+		args.BrowserAuth = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "SNOWFLAKE_USE_BROWSER_AUTH").(bool))
+	}
+	if args.Host == nil {
+		args.Host = pulumi.StringPtr(getEnvOrDefault("", nil, "SNOWFLAKE_HOST").(string))
+	}
+	if args.OauthAccessToken == nil {
+		args.OauthAccessToken = pulumi.StringPtr(getEnvOrDefault("", nil, "SNOWFLAKE_OAUTH_ACCESS_TOKEN").(string))
+	}
+	if args.OauthClientId == nil {
+		args.OauthClientId = pulumi.StringPtr(getEnvOrDefault("", nil, "SNOWFLAKE_OAUTH_CLIENT_ID").(string))
+	}
+	if args.OauthClientSecret == nil {
+		args.OauthClientSecret = pulumi.StringPtr(getEnvOrDefault("", nil, "SNOWFLAKE_OAUTH_CLIENT_SECRET").(string))
+	}
+	if args.OauthEndpoint == nil {
+		args.OauthEndpoint = pulumi.StringPtr(getEnvOrDefault("", nil, "SNOWFLAKE_OAUTH_ENDPOINT").(string))
+	}
+	if args.OauthRedirectUrl == nil {
+		args.OauthRedirectUrl = pulumi.StringPtr(getEnvOrDefault("", nil, "SNOWFLAKE_OAUTH_REDIRECT_URL").(string))
+	}
+	if args.OauthRefreshToken == nil {
+		args.OauthRefreshToken = pulumi.StringPtr(getEnvOrDefault("", nil, "SNOWFLAKE_OAUTH_REFRESH_TOKEN").(string))
+	}
+	if args.Password == nil {
+		args.Password = pulumi.StringPtr(getEnvOrDefault("", nil, "SNOWFLAKE_PASSWORD").(string))
+	}
+	if args.Port == nil {
+		args.Port = pulumi.IntPtr(getEnvOrDefault(0, parseEnvInt, "SNOWFLAKE_PORT").(int))
+	}
+	if args.PrivateKeyPassphrase == nil {
+		args.PrivateKeyPassphrase = pulumi.StringPtr(getEnvOrDefault("", nil, "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE").(string))
+	}
+	if args.PrivateKeyPath == nil {
+		args.PrivateKeyPath = pulumi.StringPtr(getEnvOrDefault("", nil, "SNOWFLAKE_PRIVATE_KEY_PATH").(string))
+	}
+	if args.Protocol == nil {
+		args.Protocol = pulumi.StringPtr(getEnvOrDefault("", nil, "SNOWFLAKE_PROTOCOL").(string))
 	}
 	if args.Region == nil {
-		return nil, errors.New("invalid value for required argument 'Region'")
+		args.Region = pulumi.StringPtr(getEnvOrDefault("", nil, "SNOWFLAKE_REGION").(string))
+	}
+	if args.Role == nil {
+		args.Role = pulumi.StringPtr(getEnvOrDefault("", nil, "SNOWFLAKE_ROLE").(string))
 	}
 	if args.Username == nil {
-		return nil, errors.New("invalid value for required argument 'Username'")
+		args.Username = pulumi.StringPtr(getEnvOrDefault("", nil, "SNOWFLAKE_USER").(string))
+	}
+	if args.Warehouse == nil {
+		args.Warehouse = pulumi.StringPtr(getEnvOrDefault("", nil, "SNOWFLAKE_WAREHOUSE").(string))
 	}
 	if args.OauthAccessToken != nil {
 		args.OauthAccessToken = pulumi.ToSecret(args.OauthAccessToken).(pulumi.StringPtrInput)
@@ -136,7 +180,7 @@ func NewProvider(ctx *pulumi.Context,
 
 type providerArgs struct {
 	// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
-	Account string `pulumi:"account"`
+	Account *string `pulumi:"account"`
 	// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
 	BrowserAuth *bool `pulumi:"browserAuth"`
 	// Supports passing in a custom host value to the snowflake go driver for use with privatelink.
@@ -179,12 +223,12 @@ type providerArgs struct {
 	// format for the `account`
 	// identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
 	// in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
-	Region string `pulumi:"region"`
+	Region *string `pulumi:"region"`
 	// Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
 	// `SNOWFLAKE_ROLE` environment variable.
 	Role *string `pulumi:"role"`
 	// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
-	Username string `pulumi:"username"`
+	Username *string `pulumi:"username"`
 	// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
 	Warehouse *string `pulumi:"warehouse"`
 }
@@ -192,7 +236,7 @@ type providerArgs struct {
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
 	// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
-	Account pulumi.StringInput
+	Account pulumi.StringPtrInput
 	// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
 	BrowserAuth pulumi.BoolPtrInput
 	// Supports passing in a custom host value to the snowflake go driver for use with privatelink.
@@ -235,12 +279,12 @@ type ProviderArgs struct {
 	// format for the `account`
 	// identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
 	// in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
-	Region pulumi.StringInput
+	Region pulumi.StringPtrInput
 	// Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
 	// `SNOWFLAKE_ROLE` environment variable.
 	Role pulumi.StringPtrInput
 	// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
-	Username pulumi.StringInput
+	Username pulumi.StringPtrInput
 	// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
 	Warehouse pulumi.StringPtrInput
 }
@@ -283,8 +327,8 @@ func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) Provide
 }
 
 // The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
-func (o ProviderOutput) Account() pulumi.StringOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringOutput { return v.Account }).(pulumi.StringOutput)
+func (o ProviderOutput) Account() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Account }).(pulumi.StringPtrOutput)
 }
 
 // Supports passing in a custom host value to the snowflake go driver for use with privatelink.
@@ -360,8 +404,8 @@ func (o ProviderOutput) Protocol() pulumi.StringPtrOutput {
 // format for the `account`
 // identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
 // in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
-func (o ProviderOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+func (o ProviderOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 // Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
@@ -371,8 +415,8 @@ func (o ProviderOutput) Role() pulumi.StringPtrOutput {
 }
 
 // Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
-func (o ProviderOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
+func (o ProviderOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 // Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.

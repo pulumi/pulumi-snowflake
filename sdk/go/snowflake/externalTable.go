@@ -17,37 +17,34 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewExternalTable(ctx, "externalTable", &snowflake.ExternalTableArgs{
-//				Columns: snowflake.ExternalTableColumnArray{
-//					&snowflake.ExternalTableColumnArgs{
-//						Name: pulumi.String("id"),
-//						Type: pulumi.String("int"),
-//					},
-//					&snowflake.ExternalTableColumnArgs{
-//						Name: pulumi.String("data"),
-//						Type: pulumi.String("text"),
-//					},
-//				},
-//				Comment:    pulumi.String("External table"),
-//				Database:   pulumi.String("db"),
-//				FileFormat: pulumi.String("TYPE = CSV FIELD_DELIMITER = '|'"),
-//				Schema:     pulumi.String("schema"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewExternalTable(ctx, "externalTable", &snowflake.ExternalTableArgs{
+// 			Columns: snowflake.ExternalTableColumnArray{
+// 				&snowflake.ExternalTableColumnArgs{
+// 					Name: pulumi.String("id"),
+// 					Type: pulumi.String("int"),
+// 				},
+// 				&snowflake.ExternalTableColumnArgs{
+// 					Name: pulumi.String("data"),
+// 					Type: pulumi.String("text"),
+// 				},
+// 			},
+// 			Comment:    pulumi.String("External table"),
+// 			Database:   pulumi.String("db"),
+// 			FileFormat: pulumi.String("TYPE = CSV FIELD_DELIMITER = '|'"),
+// 			Schema:     pulumi.String("schema"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -55,9 +52,7 @@ import (
 // format is database name | schema name | external table name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/externalTable:ExternalTable example 'dbName|schemaName|externalTableName'
-//
+//  $ pulumi import snowflake:index/externalTable:ExternalTable example 'dbName|schemaName|externalTableName'
 // ```
 type ExternalTable struct {
 	pulumi.CustomResourceState
@@ -306,7 +301,7 @@ func (i *ExternalTable) ToExternalTableOutputWithContext(ctx context.Context) Ex
 // ExternalTableArrayInput is an input type that accepts ExternalTableArray and ExternalTableArrayOutput values.
 // You can construct a concrete instance of `ExternalTableArrayInput` via:
 //
-//	ExternalTableArray{ ExternalTableArgs{...} }
+//          ExternalTableArray{ ExternalTableArgs{...} }
 type ExternalTableArrayInput interface {
 	pulumi.Input
 
@@ -331,7 +326,7 @@ func (i ExternalTableArray) ToExternalTableArrayOutputWithContext(ctx context.Co
 // ExternalTableMapInput is an input type that accepts ExternalTableMap and ExternalTableMapOutput values.
 // You can construct a concrete instance of `ExternalTableMapInput` via:
 //
-//	ExternalTableMap{ "key": ExternalTableArgs{...} }
+//          ExternalTableMap{ "key": ExternalTableArgs{...} }
 type ExternalTableMapInput interface {
 	pulumi.Input
 

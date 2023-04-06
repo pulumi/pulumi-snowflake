@@ -16,25 +16,22 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetFunctions(ctx, &snowflake.GetFunctionsArgs{
-//				Database: "MYDB",
-//				Schema:   "MYSCHEMA",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.GetFunctions(ctx, &snowflake.GetFunctionsArgs{
+// 			Database: "MYDB",
+// 			Schema:   "MYSCHEMA",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 func GetFunctions(ctx *pulumi.Context, args *GetFunctionsArgs, opts ...pulumi.InvokeOption) (*GetFunctionsResult, error) {
 	var rv GetFunctionsResult

@@ -16,71 +16,66 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			db, err := snowflake.NewDatabase(ctx, "db", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewFailoverGroup(ctx, "sourceFailoverGroup", &snowflake.FailoverGroupArgs{
-//				ObjectTypes: pulumi.StringArray{
-//					pulumi.String("WAREHOUSES"),
-//					pulumi.String("DATABASES"),
-//					pulumi.String("INTEGRATIONS"),
-//					pulumi.String("ROLES"),
-//				},
-//				AllowedAccounts: pulumi.StringArray{
-//					pulumi.String("<org_name>.<target_account_name1>"),
-//					pulumi.String("<org_name>.<target_account_name2>"),
-//				},
-//				AllowedDatabases: pulumi.StringArray{
-//					db.Name,
-//				},
-//				AllowedIntegrationTypes: pulumi.StringArray{
-//					pulumi.String("SECURITY INTEGRATIONS"),
-//				},
-//				ReplicationSchedule: &snowflake.FailoverGroupReplicationScheduleArgs{
-//					Cron: &snowflake.FailoverGroupReplicationScheduleCronArgs{
-//						Expression: pulumi.String("0 0 10-20 * TUE,THU"),
-//						TimeZone:   pulumi.String("UTC"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewProvider(ctx, "account2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewFailoverGroup(ctx, "targetFailoverGroup", &snowflake.FailoverGroupArgs{
-//				FromReplica: &snowflake.FailoverGroupFromReplicaArgs{
-//					OrganizationName:  pulumi.String("..."),
-//					SourceAccountName: pulumi.String("..."),
-//					Name:              pulumi.Any(snowflake_failover_group.Fg.Name),
-//				},
-//			}, pulumi.Provider(snowflake.Account2))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		db, err := snowflake.NewDatabase(ctx, "db", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewFailoverGroup(ctx, "sourceFailoverGroup", &snowflake.FailoverGroupArgs{
+// 			ObjectTypes: pulumi.StringArray{
+// 				pulumi.String("WAREHOUSES"),
+// 				pulumi.String("DATABASES"),
+// 				pulumi.String("INTEGRATIONS"),
+// 				pulumi.String("ROLES"),
+// 			},
+// 			AllowedAccounts: pulumi.StringArray{
+// 				pulumi.String("<org_name>.<target_account_name1>"),
+// 				pulumi.String("<org_name>.<target_account_name2>"),
+// 			},
+// 			AllowedDatabases: pulumi.StringArray{
+// 				db.Name,
+// 			},
+// 			AllowedIntegrationTypes: pulumi.StringArray{
+// 				pulumi.String("SECURITY INTEGRATIONS"),
+// 			},
+// 			ReplicationSchedule: &snowflake.FailoverGroupReplicationScheduleArgs{
+// 				Cron: &snowflake.FailoverGroupReplicationScheduleCronArgs{
+// 					Expression: pulumi.String("0 0 10-20 * TUE,THU"),
+// 					TimeZone:   pulumi.String("UTC"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewProvider(ctx, "account2", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewFailoverGroup(ctx, "targetFailoverGroup", &snowflake.FailoverGroupArgs{
+// 			FromReplica: &snowflake.FailoverGroupFromReplicaArgs{
+// 				OrganizationName:  pulumi.String("..."),
+// 				SourceAccountName: pulumi.String("..."),
+// 				Name:              pulumi.Any(snowflake_failover_group.Fg.Name),
+// 			},
+// 		}, pulumi.Provider(snowflake.Account2))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/failoverGroup:FailoverGroup example 'fg1'
-//
+//  $ pulumi import snowflake:index/failoverGroup:FailoverGroup example 'fg1'
 // ```
 type FailoverGroup struct {
 	pulumi.CustomResourceState
@@ -248,7 +243,7 @@ func (i *FailoverGroup) ToFailoverGroupOutputWithContext(ctx context.Context) Fa
 // FailoverGroupArrayInput is an input type that accepts FailoverGroupArray and FailoverGroupArrayOutput values.
 // You can construct a concrete instance of `FailoverGroupArrayInput` via:
 //
-//	FailoverGroupArray{ FailoverGroupArgs{...} }
+//          FailoverGroupArray{ FailoverGroupArgs{...} }
 type FailoverGroupArrayInput interface {
 	pulumi.Input
 
@@ -273,7 +268,7 @@ func (i FailoverGroupArray) ToFailoverGroupArrayOutputWithContext(ctx context.Co
 // FailoverGroupMapInput is an input type that accepts FailoverGroupMap and FailoverGroupMapOutput values.
 // You can construct a concrete instance of `FailoverGroupMapInput` via:
 //
-//	FailoverGroupMap{ "key": FailoverGroupArgs{...} }
+//          FailoverGroupMap{ "key": FailoverGroupArgs{...} }
 type FailoverGroupMapInput interface {
 	pulumi.Input
 

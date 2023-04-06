@@ -116,7 +116,7 @@ func (i *UserPublicKeys) ToUserPublicKeysOutputWithContext(ctx context.Context) 
 // UserPublicKeysArrayInput is an input type that accepts UserPublicKeysArray and UserPublicKeysArrayOutput values.
 // You can construct a concrete instance of `UserPublicKeysArrayInput` via:
 //
-//	UserPublicKeysArray{ UserPublicKeysArgs{...} }
+//          UserPublicKeysArray{ UserPublicKeysArgs{...} }
 type UserPublicKeysArrayInput interface {
 	pulumi.Input
 
@@ -141,7 +141,7 @@ func (i UserPublicKeysArray) ToUserPublicKeysArrayOutputWithContext(ctx context.
 // UserPublicKeysMapInput is an input type that accepts UserPublicKeysMap and UserPublicKeysMapOutput values.
 // You can construct a concrete instance of `UserPublicKeysMapInput` via:
 //
-//	UserPublicKeysMap{ "key": UserPublicKeysArgs{...} }
+//          UserPublicKeysMap{ "key": UserPublicKeysArgs{...} }
 type UserPublicKeysMapInput interface {
 	pulumi.Input
 

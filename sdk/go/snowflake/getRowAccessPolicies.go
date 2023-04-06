@@ -16,25 +16,22 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetRowAccessPolicies(ctx, &snowflake.GetRowAccessPoliciesArgs{
-//				Database: "MYDB",
-//				Schema:   "MYSCHEMA",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.GetRowAccessPolicies(ctx, &snowflake.GetRowAccessPoliciesArgs{
+// 			Database: "MYDB",
+// 			Schema:   "MYSCHEMA",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 func GetRowAccessPolicies(ctx *pulumi.Context, args *GetRowAccessPoliciesArgs, opts ...pulumi.InvokeOption) (*GetRowAccessPoliciesResult, error) {
 	var rv GetRowAccessPoliciesResult

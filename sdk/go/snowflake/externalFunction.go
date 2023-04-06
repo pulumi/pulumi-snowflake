@@ -17,39 +17,36 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewExternalFunction(ctx, "testExtFunc", &snowflake.ExternalFunctionArgs{
-//				ApiIntegration: pulumi.String("api_integration_name"),
-//				Args: snowflake.ExternalFunctionArgArray{
-//					&snowflake.ExternalFunctionArgArgs{
-//						Name: pulumi.String("arg1"),
-//						Type: pulumi.String("varchar"),
-//					},
-//					&snowflake.ExternalFunctionArgArgs{
-//						Name: pulumi.String("arg2"),
-//						Type: pulumi.String("varchar"),
-//					},
-//				},
-//				Database:              pulumi.String("my_test_db"),
-//				ReturnBehavior:        pulumi.String("IMMUTABLE"),
-//				ReturnType:            pulumi.String("variant"),
-//				Schema:                pulumi.String("my_test_schema"),
-//				UrlOfProxyAndResource: pulumi.String("https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewExternalFunction(ctx, "testExtFunc", &snowflake.ExternalFunctionArgs{
+// 			ApiIntegration: pulumi.String("api_integration_name"),
+// 			Args: snowflake.ExternalFunctionArgArray{
+// 				&snowflake.ExternalFunctionArgArgs{
+// 					Name: pulumi.String("arg1"),
+// 					Type: pulumi.String("varchar"),
+// 				},
+// 				&snowflake.ExternalFunctionArgArgs{
+// 					Name: pulumi.String("arg2"),
+// 					Type: pulumi.String("varchar"),
+// 				},
+// 			},
+// 			Database:              pulumi.String("my_test_db"),
+// 			ReturnBehavior:        pulumi.String("IMMUTABLE"),
+// 			ReturnType:            pulumi.String("variant"),
+// 			Schema:                pulumi.String("my_test_schema"),
+// 			UrlOfProxyAndResource: pulumi.String("https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -57,9 +54,7 @@ import (
 // format is database name | schema name | external function name | <list of function arg types, separated with '-'>
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/externalFunction:ExternalFunction example 'dbName|schemaName|externalFunctionName|varchar-varchar-varchar'
-//
+//  $ pulumi import snowflake:index/externalFunction:ExternalFunction example 'dbName|schemaName|externalFunctionName|varchar-varchar-varchar'
 // ```
 type ExternalFunction struct {
 	pulumi.CustomResourceState
@@ -311,7 +306,7 @@ func (i *ExternalFunction) ToExternalFunctionOutputWithContext(ctx context.Conte
 // ExternalFunctionArrayInput is an input type that accepts ExternalFunctionArray and ExternalFunctionArrayOutput values.
 // You can construct a concrete instance of `ExternalFunctionArrayInput` via:
 //
-//	ExternalFunctionArray{ ExternalFunctionArgs{...} }
+//          ExternalFunctionArray{ ExternalFunctionArgs{...} }
 type ExternalFunctionArrayInput interface {
 	pulumi.Input
 
@@ -336,7 +331,7 @@ func (i ExternalFunctionArray) ToExternalFunctionArrayOutputWithContext(ctx cont
 // ExternalFunctionMapInput is an input type that accepts ExternalFunctionMap and ExternalFunctionMapOutput values.
 // You can construct a concrete instance of `ExternalFunctionMapInput` via:
 //
-//	ExternalFunctionMap{ "key": ExternalFunctionArgs{...} }
+//          ExternalFunctionMap{ "key": ExternalFunctionArgs{...} }
 type ExternalFunctionMapInput interface {
 	pulumi.Input
 

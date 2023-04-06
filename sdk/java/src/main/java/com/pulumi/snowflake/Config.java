@@ -17,21 +17,21 @@ public final class Config {
  * 
  */
     public String account() {
-        return Codegen.stringProp("account").config(config).require();
+        return Codegen.stringProp("account").config(config).env("SNOWFLAKE_ACCOUNT").require();
     }
 /**
  * Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
  * 
  */
     public Optional<Boolean> browserAuth() {
-        return Codegen.booleanProp("browserAuth").config(config).get();
+        return Codegen.booleanProp("browserAuth").config(config).env("SNOWFLAKE_USE_BROWSER_AUTH").get();
     }
 /**
  * Supports passing in a custom host value to the snowflake go driver for use with privatelink.
  * 
  */
     public Optional<String> host() {
-        return Codegen.stringProp("host").config(config).get();
+        return Codegen.stringProp("host").config(config).env("SNOWFLAKE_HOST").get();
     }
 /**
  * Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
@@ -40,35 +40,35 @@ public final class Config {
  * 
  */
     public Optional<String> oauthAccessToken() {
-        return Codegen.stringProp("oauthAccessToken").config(config).get();
+        return Codegen.stringProp("oauthAccessToken").config(config).env("SNOWFLAKE_OAUTH_ACCESS_TOKEN").get();
     }
 /**
  * Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
  * 
  */
     public Optional<String> oauthClientId() {
-        return Codegen.stringProp("oauthClientId").config(config).get();
+        return Codegen.stringProp("oauthClientId").config(config).env("SNOWFLAKE_OAUTH_CLIENT_ID").get();
     }
 /**
  * Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
  * 
  */
     public Optional<String> oauthClientSecret() {
-        return Codegen.stringProp("oauthClientSecret").config(config).get();
+        return Codegen.stringProp("oauthClientSecret").config(config).env("SNOWFLAKE_OAUTH_CLIENT_SECRET").get();
     }
 /**
  * Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
  * 
  */
     public Optional<String> oauthEndpoint() {
-        return Codegen.stringProp("oauthEndpoint").config(config).get();
+        return Codegen.stringProp("oauthEndpoint").config(config).env("SNOWFLAKE_OAUTH_ENDPOINT").get();
     }
 /**
  * Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
  * 
  */
     public Optional<String> oauthRedirectUrl() {
-        return Codegen.stringProp("oauthRedirectUrl").config(config).get();
+        return Codegen.stringProp("oauthRedirectUrl").config(config).env("SNOWFLAKE_OAUTH_REDIRECT_URL").get();
     }
 /**
  * Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
@@ -78,7 +78,7 @@ public final class Config {
  * 
  */
     public Optional<String> oauthRefreshToken() {
-        return Codegen.stringProp("oauthRefreshToken").config(config).get();
+        return Codegen.stringProp("oauthRefreshToken").config(config).env("SNOWFLAKE_OAUTH_REFRESH_TOKEN").get();
     }
 /**
  * Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
@@ -86,7 +86,7 @@ public final class Config {
  * 
  */
     public Optional<String> password() {
-        return Codegen.stringProp("password").config(config).get();
+        return Codegen.stringProp("password").config(config).env("SNOWFLAKE_PASSWORD").get();
     }
 /**
  * Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`
@@ -94,7 +94,7 @@ public final class Config {
  * 
  */
     public Optional<Integer> port() {
-        return Codegen.integerProp("port").config(config).get();
+        return Codegen.integerProp("port").config(config).env("SNOWFLAKE_PORT").get();
     }
 /**
  * Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be sourced from
@@ -110,7 +110,7 @@ public final class Config {
  * 
  */
     public Optional<String> privateKeyPassphrase() {
-        return Codegen.stringProp("privateKeyPassphrase").config(config).get();
+        return Codegen.stringProp("privateKeyPassphrase").config(config).env("SNOWFLAKE_PRIVATE_KEY_PASSPHRASE").get();
     }
 /**
  * Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
@@ -118,14 +118,14 @@ public final class Config {
  * 
  */
     public Optional<String> privateKeyPath() {
-        return Codegen.stringProp("privateKeyPath").config(config).get();
+        return Codegen.stringProp("privateKeyPath").config(config).env("SNOWFLAKE_PRIVATE_KEY_PATH").get();
     }
 /**
  * Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
  * 
  */
     public Optional<String> protocol() {
-        return Codegen.stringProp("protocol").config(config).get();
+        return Codegen.stringProp("protocol").config(config).env("SNOWFLAKE_PROTOCOL").get();
     }
 /**
  * [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
@@ -135,7 +135,7 @@ public final class Config {
  * 
  */
     public String region() {
-        return Codegen.stringProp("region").config(config).require();
+        return Codegen.stringProp("region").config(config).env("SNOWFLAKE_REGION").require();
     }
 /**
  * Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
@@ -143,20 +143,20 @@ public final class Config {
  * 
  */
     public Optional<String> role() {
-        return Codegen.stringProp("role").config(config).get();
+        return Codegen.stringProp("role").config(config).env("SNOWFLAKE_ROLE").get();
     }
 /**
  * Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
  * 
  */
     public String username() {
-        return Codegen.stringProp("username").config(config).require();
+        return Codegen.stringProp("username").config(config).env("SNOWFLAKE_USER").require();
     }
 /**
  * Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
  * 
  */
     public Optional<String> warehouse() {
-        return Codegen.stringProp("warehouse").config(config).get();
+        return Codegen.stringProp("warehouse").config(config).env("SNOWFLAKE_WAREHOUSE").get();
     }
 }

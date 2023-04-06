@@ -17,42 +17,37 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewSessionParameter(ctx, "sessionParameter", &snowflake.SessionParameterArgs{
-//				Key:   pulumi.String("AUTOCOMMIT"),
-//				User:  pulumi.String("TEST_USER"),
-//				Value: pulumi.String("false"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewSessionParameter(ctx, "s2", &snowflake.SessionParameterArgs{
-//				Key:       pulumi.String("BINARY_OUTPUT_FORMAT"),
-//				OnAccount: pulumi.Bool(true),
-//				Value:     pulumi.String("BASE64"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewSessionParameter(ctx, "sessionParameter", &snowflake.SessionParameterArgs{
+// 			Key:   pulumi.String("AUTOCOMMIT"),
+// 			User:  pulumi.String("TEST_USER"),
+// 			Value: pulumi.String("false"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewSessionParameter(ctx, "s2", &snowflake.SessionParameterArgs{
+// 			Key:       pulumi.String("BINARY_OUTPUT_FORMAT"),
+// 			OnAccount: pulumi.Bool(true),
+// 			Value:     pulumi.String("BASE64"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/sessionParameter:SessionParameter s <parameter_name>
-//
+//  $ pulumi import snowflake:index/sessionParameter:SessionParameter s <parameter_name>
 // ```
 type SessionParameter struct {
 	pulumi.CustomResourceState
@@ -176,7 +171,7 @@ func (i *SessionParameter) ToSessionParameterOutputWithContext(ctx context.Conte
 // SessionParameterArrayInput is an input type that accepts SessionParameterArray and SessionParameterArrayOutput values.
 // You can construct a concrete instance of `SessionParameterArrayInput` via:
 //
-//	SessionParameterArray{ SessionParameterArgs{...} }
+//          SessionParameterArray{ SessionParameterArgs{...} }
 type SessionParameterArrayInput interface {
 	pulumi.Input
 
@@ -201,7 +196,7 @@ func (i SessionParameterArray) ToSessionParameterArrayOutputWithContext(ctx cont
 // SessionParameterMapInput is an input type that accepts SessionParameterMap and SessionParameterMapOutput values.
 // You can construct a concrete instance of `SessionParameterMapInput` via:
 //
-//	SessionParameterMap{ "key": SessionParameterArgs{...} }
+//          SessionParameterMap{ "key": SessionParameterArgs{...} }
 type SessionParameterMapInput interface {
 	pulumi.Input
 

@@ -17,123 +17,118 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			database, err := snowflake.NewDatabase(ctx, "database", nil)
-//			if err != nil {
-//				return err
-//			}
-//			schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
-//				Database: database.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			table, err := snowflake.NewTable(ctx, "table", &snowflake.TableArgs{
-//				Database: database.Name,
-//				Schema:   schema.Name,
-//				Columns: snowflake.TableColumnArray{
-//					&snowflake.TableColumnArgs{
-//						Name:     pulumi.String("col1"),
-//						Type:     pulumi.String("text"),
-//						Nullable: pulumi.Bool(false),
-//					},
-//					&snowflake.TableColumnArgs{
-//						Name:     pulumi.String("col2"),
-//						Type:     pulumi.String("text"),
-//						Nullable: pulumi.Bool(false),
-//					},
-//					&snowflake.TableColumnArgs{
-//						Name:     pulumi.String("col3"),
-//						Type:     pulumi.String("text"),
-//						Nullable: pulumi.Bool(false),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			fkT, err := snowflake.NewTable(ctx, "fkT", &snowflake.TableArgs{
-//				Database: database.Name,
-//				Schema:   schema.Name,
-//				Columns: snowflake.TableColumnArray{
-//					&snowflake.TableColumnArgs{
-//						Name:     pulumi.String("fk_col1"),
-//						Type:     pulumi.String("text"),
-//						Nullable: pulumi.Bool(false),
-//					},
-//					&snowflake.TableColumnArgs{
-//						Name:     pulumi.String("fk_col2"),
-//						Type:     pulumi.String("text"),
-//						Nullable: pulumi.Bool(false),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewTableConstraint(ctx, "primaryKey", &snowflake.TableConstraintArgs{
-//				Type:    pulumi.String("PRIMARY KEY"),
-//				TableId: table.ID(),
-//				Columns: pulumi.StringArray{
-//					pulumi.String("col1"),
-//				},
-//				Comment: pulumi.String("hello world"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewTableConstraint(ctx, "foreignKey", &snowflake.TableConstraintArgs{
-//				Type:    pulumi.String("FOREIGN KEY"),
-//				TableId: table.ID(),
-//				Columns: pulumi.StringArray{
-//					pulumi.String("col2"),
-//				},
-//				ForeignKeyProperties: &snowflake.TableConstraintForeignKeyPropertiesArgs{
-//					References: &snowflake.TableConstraintForeignKeyPropertiesReferencesArgs{
-//						TableId: fkT.ID(),
-//						Columns: pulumi.StringArray{
-//							pulumi.String("fk_col1"),
-//						},
-//					},
-//				},
-//				Enforced:   pulumi.Bool(false),
-//				Deferrable: pulumi.Bool(false),
-//				Initially:  pulumi.String("IMMEDIATE"),
-//				Comment:    pulumi.String("hello fk"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewTableConstraint(ctx, "unique", &snowflake.TableConstraintArgs{
-//				Type:    pulumi.String("UNIQUE"),
-//				TableId: table.ID(),
-//				Columns: pulumi.StringArray{
-//					pulumi.String("col3"),
-//				},
-//				Comment: pulumi.String("hello unique"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		database, err := snowflake.NewDatabase(ctx, "database", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
+// 			Database: database.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		table, err := snowflake.NewTable(ctx, "table", &snowflake.TableArgs{
+// 			Database: database.Name,
+// 			Schema:   schema.Name,
+// 			Columns: snowflake.TableColumnArray{
+// 				&snowflake.TableColumnArgs{
+// 					Name:     pulumi.String("col1"),
+// 					Type:     pulumi.String("text"),
+// 					Nullable: pulumi.Bool(false),
+// 				},
+// 				&snowflake.TableColumnArgs{
+// 					Name:     pulumi.String("col2"),
+// 					Type:     pulumi.String("text"),
+// 					Nullable: pulumi.Bool(false),
+// 				},
+// 				&snowflake.TableColumnArgs{
+// 					Name:     pulumi.String("col3"),
+// 					Type:     pulumi.String("text"),
+// 					Nullable: pulumi.Bool(false),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		fkT, err := snowflake.NewTable(ctx, "fkT", &snowflake.TableArgs{
+// 			Database: database.Name,
+// 			Schema:   schema.Name,
+// 			Columns: snowflake.TableColumnArray{
+// 				&snowflake.TableColumnArgs{
+// 					Name:     pulumi.String("fk_col1"),
+// 					Type:     pulumi.String("text"),
+// 					Nullable: pulumi.Bool(false),
+// 				},
+// 				&snowflake.TableColumnArgs{
+// 					Name:     pulumi.String("fk_col2"),
+// 					Type:     pulumi.String("text"),
+// 					Nullable: pulumi.Bool(false),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewTableConstraint(ctx, "primaryKey", &snowflake.TableConstraintArgs{
+// 			Type:    pulumi.String("PRIMARY KEY"),
+// 			TableId: table.ID(),
+// 			Columns: pulumi.StringArray{
+// 				pulumi.String("col1"),
+// 			},
+// 			Comment: pulumi.String("hello world"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewTableConstraint(ctx, "foreignKey", &snowflake.TableConstraintArgs{
+// 			Type:    pulumi.String("FOREIGN KEY"),
+// 			TableId: table.ID(),
+// 			Columns: pulumi.StringArray{
+// 				pulumi.String("col2"),
+// 			},
+// 			ForeignKeyProperties: &snowflake.TableConstraintForeignKeyPropertiesArgs{
+// 				References: &snowflake.TableConstraintForeignKeyPropertiesReferencesArgs{
+// 					TableId: fkT.ID(),
+// 					Columns: pulumi.StringArray{
+// 						pulumi.String("fk_col1"),
+// 					},
+// 				},
+// 			},
+// 			Enforced:   pulumi.Bool(false),
+// 			Deferrable: pulumi.Bool(false),
+// 			Initially:  pulumi.String("IMMEDIATE"),
+// 			Comment:    pulumi.String("hello fk"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewTableConstraint(ctx, "unique", &snowflake.TableConstraintArgs{
+// 			Type:    pulumi.String("UNIQUE"),
+// 			TableId: table.ID(),
+// 			Columns: pulumi.StringArray{
+// 				pulumi.String("col3"),
+// 			},
+// 			Comment: pulumi.String("hello unique"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️test|test|table'
-//
+//  $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️test|test|table'
 // ```
 type TableConstraint struct {
 	pulumi.CustomResourceState
@@ -340,7 +335,7 @@ func (i *TableConstraint) ToTableConstraintOutputWithContext(ctx context.Context
 // TableConstraintArrayInput is an input type that accepts TableConstraintArray and TableConstraintArrayOutput values.
 // You can construct a concrete instance of `TableConstraintArrayInput` via:
 //
-//	TableConstraintArray{ TableConstraintArgs{...} }
+//          TableConstraintArray{ TableConstraintArgs{...} }
 type TableConstraintArrayInput interface {
 	pulumi.Input
 
@@ -365,7 +360,7 @@ func (i TableConstraintArray) ToTableConstraintArrayOutputWithContext(ctx contex
 // TableConstraintMapInput is an input type that accepts TableConstraintMap and TableConstraintMapOutput values.
 // You can construct a concrete instance of `TableConstraintMapInput` via:
 //
-//	TableConstraintMap{ "key": TableConstraintArgs{...} }
+//          TableConstraintMap{ "key": TableConstraintArgs{...} }
 type TableConstraintMapInput interface {
 	pulumi.Input
 

@@ -17,33 +17,30 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewPipeGrant(ctx, "grant", &snowflake.PipeGrantArgs{
-//				DatabaseName: pulumi.String("database"),
-//				OnFuture:     pulumi.Bool(false),
-//				PipeName:     pulumi.String("pipe"),
-//				Privilege:    pulumi.String("OPERATE"),
-//				Roles: pulumi.StringArray{
-//					pulumi.String("role1"),
-//					pulumi.String("role2"),
-//				},
-//				SchemaName:      pulumi.String("schema"),
-//				WithGrantOption: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewPipeGrant(ctx, "grant", &snowflake.PipeGrantArgs{
+// 			DatabaseName: pulumi.String("database"),
+// 			OnFuture:     pulumi.Bool(false),
+// 			PipeName:     pulumi.String("pipe"),
+// 			Privilege:    pulumi.String("OPERATE"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("role1"),
+// 				pulumi.String("role2"),
+// 			},
+// 			SchemaName:      pulumi.String("schema"),
+// 			WithGrantOption: pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -51,9 +48,7 @@ import (
 // format is database_name | schema_name | object_name | privilege | with_grant_option | roles
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/pipeGrant:PipeGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|OPERATE|false|role1,role2'
-//
+//  $ pulumi import snowflake:index/pipeGrant:PipeGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|OPERATE|false|role1,role2'
 // ```
 type PipeGrant struct {
 	pulumi.CustomResourceState
@@ -219,7 +214,7 @@ func (i *PipeGrant) ToPipeGrantOutputWithContext(ctx context.Context) PipeGrantO
 // PipeGrantArrayInput is an input type that accepts PipeGrantArray and PipeGrantArrayOutput values.
 // You can construct a concrete instance of `PipeGrantArrayInput` via:
 //
-//	PipeGrantArray{ PipeGrantArgs{...} }
+//          PipeGrantArray{ PipeGrantArgs{...} }
 type PipeGrantArrayInput interface {
 	pulumi.Input
 
@@ -244,7 +239,7 @@ func (i PipeGrantArray) ToPipeGrantArrayOutputWithContext(ctx context.Context) P
 // PipeGrantMapInput is an input type that accepts PipeGrantMap and PipeGrantMapOutput values.
 // You can construct a concrete instance of `PipeGrantMapInput` via:
 //
-//	PipeGrantMap{ "key": PipeGrantArgs{...} }
+//          PipeGrantMap{ "key": PipeGrantArgs{...} }
 type PipeGrantMapInput interface {
 	pulumi.Input
 

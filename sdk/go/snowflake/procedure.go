@@ -16,9 +16,7 @@ import (
 // format is database name | schema name | stored procedure name | <list of arg types, separated with '-'>
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/procedure:Procedure example 'dbName|schemaName|procedureName|varchar-varchar-varchar'
-//
+//  $ pulumi import snowflake:index/procedure:Procedure example 'dbName|schemaName|procedureName|varchar-varchar-varchar'
 // ```
 type Procedure struct {
 	pulumi.CustomResourceState
@@ -258,7 +256,7 @@ func (i *Procedure) ToProcedureOutputWithContext(ctx context.Context) ProcedureO
 // ProcedureArrayInput is an input type that accepts ProcedureArray and ProcedureArrayOutput values.
 // You can construct a concrete instance of `ProcedureArrayInput` via:
 //
-//	ProcedureArray{ ProcedureArgs{...} }
+//          ProcedureArray{ ProcedureArgs{...} }
 type ProcedureArrayInput interface {
 	pulumi.Input
 
@@ -283,7 +281,7 @@ func (i ProcedureArray) ToProcedureArrayOutputWithContext(ctx context.Context) P
 // ProcedureMapInput is an input type that accepts ProcedureMap and ProcedureMapOutput values.
 // You can construct a concrete instance of `ProcedureMapInput` via:
 //
-//	ProcedureMap{ "key": ProcedureArgs{...} }
+//          ProcedureMap{ "key": ProcedureArgs{...} }
 type ProcedureMapInput interface {
 	pulumi.Input
 

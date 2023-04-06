@@ -17,29 +17,26 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewResourceMonitorGrant(ctx, "grant", &snowflake.ResourceMonitorGrantArgs{
-//				MonitorName: pulumi.String("monitor"),
-//				Privilege:   pulumi.String("MODIFY"),
-//				Roles: pulumi.StringArray{
-//					pulumi.String("role1"),
-//				},
-//				WithGrantOption: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewResourceMonitorGrant(ctx, "grant", &snowflake.ResourceMonitorGrantArgs{
+// 			MonitorName: pulumi.String("monitor"),
+// 			Privilege:   pulumi.String("MODIFY"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("role1"),
+// 			},
+// 			WithGrantOption: pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -47,9 +44,7 @@ import (
 // format is resource_monitor_name | privilege | with_grant_option | roles
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/resourceMonitorGrant:ResourceMonitorGrant example 'MY_RESOURCE_MONITOR|MONITOR|false|role1,role2'
-//
+//  $ pulumi import snowflake:index/resourceMonitorGrant:ResourceMonitorGrant example 'MY_RESOURCE_MONITOR|MONITOR|false|role1,role2'
 // ```
 type ResourceMonitorGrant struct {
 	pulumi.CustomResourceState
@@ -185,7 +180,7 @@ func (i *ResourceMonitorGrant) ToResourceMonitorGrantOutputWithContext(ctx conte
 // ResourceMonitorGrantArrayInput is an input type that accepts ResourceMonitorGrantArray and ResourceMonitorGrantArrayOutput values.
 // You can construct a concrete instance of `ResourceMonitorGrantArrayInput` via:
 //
-//	ResourceMonitorGrantArray{ ResourceMonitorGrantArgs{...} }
+//          ResourceMonitorGrantArray{ ResourceMonitorGrantArgs{...} }
 type ResourceMonitorGrantArrayInput interface {
 	pulumi.Input
 
@@ -210,7 +205,7 @@ func (i ResourceMonitorGrantArray) ToResourceMonitorGrantArrayOutputWithContext(
 // ResourceMonitorGrantMapInput is an input type that accepts ResourceMonitorGrantMap and ResourceMonitorGrantMapOutput values.
 // You can construct a concrete instance of `ResourceMonitorGrantMapInput` via:
 //
-//	ResourceMonitorGrantMap{ "key": ResourceMonitorGrantArgs{...} }
+//          ResourceMonitorGrantMap{ "key": ResourceMonitorGrantArgs{...} }
 type ResourceMonitorGrantMapInput interface {
 	pulumi.Input
 

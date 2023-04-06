@@ -16,78 +16,75 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
-//				GrantsOn: snowflake.GetGrantsGrantsOn{
-//					Account: pulumi.BoolRef(true),
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
-//				GrantsOn: snowflake.GetGrantsGrantsOn{
-//					ObjectName: pulumi.StringRef("\"tst\""),
-//					ObjectType: pulumi.StringRef("DATABASE"),
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
-//				GrantsTo: snowflake.GetGrantsGrantsTo{
-//					Role: pulumi.StringRef("ACCOUNTADMIN"),
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
-//				GrantsOf: snowflake.GetGrantsGrantsOf{
-//					Role: pulumi.StringRef("ACCOUNTADMIN"),
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
-//				FutureGrantsIn: snowflake.GetGrantsFutureGrantsIn{
-//					Database: pulumi.StringRef("\"tst\""),
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
-//				FutureGrantsIn: snowflake.GetGrantsFutureGrantsIn{
-//					Schema: snowflake.GetGrantsFutureGrantsInSchema{
-//						DatabaseName: pulumi.StringRef("\"mydatabase\""),
-//						SchemaName:   "\"myschema\"",
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
-//				FutureGrantsTo: snowflake.GetGrantsFutureGrantsTo{
-//					Role: "ACCOUNTADMIN",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+// 			GrantsOn: snowflake.GetGrantsGrantsOn{
+// 				Account: pulumi.BoolRef(true),
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+// 			GrantsOn: snowflake.GetGrantsGrantsOn{
+// 				ObjectName: pulumi.StringRef("\"tst\""),
+// 				ObjectType: pulumi.StringRef("DATABASE"),
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+// 			GrantsTo: snowflake.GetGrantsGrantsTo{
+// 				Role: pulumi.StringRef("ACCOUNTADMIN"),
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+// 			GrantsOf: snowflake.GetGrantsGrantsOf{
+// 				Role: pulumi.StringRef("ACCOUNTADMIN"),
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+// 			FutureGrantsIn: snowflake.GetGrantsFutureGrantsIn{
+// 				Database: pulumi.StringRef("\"tst\""),
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+// 			FutureGrantsIn: snowflake.GetGrantsFutureGrantsIn{
+// 				Schema: snowflake.GetGrantsFutureGrantsInSchema{
+// 					DatabaseName: pulumi.StringRef("\"mydatabase\""),
+// 					SchemaName:   "\"myschema\"",
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+// 			FutureGrantsTo: snowflake.GetGrantsFutureGrantsTo{
+// 				Role: "ACCOUNTADMIN",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 func GetGrants(ctx *pulumi.Context, args *GetGrantsArgs, opts ...pulumi.InvokeOption) (*GetGrantsResult, error) {
 	var rv GetGrantsResult

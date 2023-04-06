@@ -17,38 +17,33 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewOauthIntegration(ctx, "tableauDesktop", &snowflake.OauthIntegrationArgs{
-//				BlockedRolesLists: pulumi.StringArray{
-//					pulumi.String("SYSADMIN"),
-//				},
-//				Enabled:                   pulumi.Bool(true),
-//				OauthClient:               pulumi.String("TABLEAU_DESKTOP"),
-//				OauthIssueRefreshTokens:   pulumi.Bool(true),
-//				OauthRefreshTokenValidity: pulumi.Int(3600),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewOauthIntegration(ctx, "tableauDesktop", &snowflake.OauthIntegrationArgs{
+// 			BlockedRolesLists: pulumi.StringArray{
+// 				pulumi.String("SYSADMIN"),
+// 			},
+// 			Enabled:                   pulumi.Bool(true),
+// 			OauthClient:               pulumi.String("TABLEAU_DESKTOP"),
+// 			OauthIssueRefreshTokens:   pulumi.Bool(true),
+// 			OauthRefreshTokenValidity: pulumi.Int(3600),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/oauthIntegration:OauthIntegration example name
-//
+//  $ pulumi import snowflake:index/oauthIntegration:OauthIntegration example name
 // ```
 type OauthIntegration struct {
 	pulumi.CustomResourceState
@@ -235,7 +230,7 @@ func (i *OauthIntegration) ToOauthIntegrationOutputWithContext(ctx context.Conte
 // OauthIntegrationArrayInput is an input type that accepts OauthIntegrationArray and OauthIntegrationArrayOutput values.
 // You can construct a concrete instance of `OauthIntegrationArrayInput` via:
 //
-//	OauthIntegrationArray{ OauthIntegrationArgs{...} }
+//          OauthIntegrationArray{ OauthIntegrationArgs{...} }
 type OauthIntegrationArrayInput interface {
 	pulumi.Input
 
@@ -260,7 +255,7 @@ func (i OauthIntegrationArray) ToOauthIntegrationArrayOutputWithContext(ctx cont
 // OauthIntegrationMapInput is an input type that accepts OauthIntegrationMap and OauthIntegrationMapOutput values.
 // You can construct a concrete instance of `OauthIntegrationMapInput` via:
 //
-//	OauthIntegrationMap{ "key": OauthIntegrationArgs{...} }
+//          OauthIntegrationMap{ "key": OauthIntegrationArgs{...} }
 type OauthIntegrationMapInput interface {
 	pulumi.Input
 

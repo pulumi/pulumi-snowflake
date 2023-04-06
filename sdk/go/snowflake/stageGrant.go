@@ -17,33 +17,30 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewStageGrant(ctx, "grant", &snowflake.StageGrantArgs{
-//				DatabaseName: pulumi.String("database"),
-//				OnFuture:     pulumi.Bool(false),
-//				Privilege:    pulumi.String("USAGE"),
-//				Roles: pulumi.StringArray{
-//					pulumi.String("role1"),
-//					pulumi.String("role2"),
-//				},
-//				SchemaName:      pulumi.String("schema"),
-//				StageName:       pulumi.String("stage"),
-//				WithGrantOption: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewStageGrant(ctx, "grant", &snowflake.StageGrantArgs{
+// 			DatabaseName: pulumi.String("database"),
+// 			OnFuture:     pulumi.Bool(false),
+// 			Privilege:    pulumi.String("USAGE"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("role1"),
+// 				pulumi.String("role2"),
+// 			},
+// 			SchemaName:      pulumi.String("schema"),
+// 			StageName:       pulumi.String("stage"),
+// 			WithGrantOption: pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -51,9 +48,7 @@ import (
 // format is database_name | schema_name | stage_name | privilege | with_grant_option | roles
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/stageGrant:StageGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|USAGE|false|role1,role2'
-//
+//  $ pulumi import snowflake:index/stageGrant:StageGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|USAGE|false|role1,role2'
 // ```
 type StageGrant struct {
 	pulumi.CustomResourceState
@@ -222,7 +217,7 @@ func (i *StageGrant) ToStageGrantOutputWithContext(ctx context.Context) StageGra
 // StageGrantArrayInput is an input type that accepts StageGrantArray and StageGrantArrayOutput values.
 // You can construct a concrete instance of `StageGrantArrayInput` via:
 //
-//	StageGrantArray{ StageGrantArgs{...} }
+//          StageGrantArray{ StageGrantArgs{...} }
 type StageGrantArrayInput interface {
 	pulumi.Input
 
@@ -247,7 +242,7 @@ func (i StageGrantArray) ToStageGrantArrayOutputWithContext(ctx context.Context)
 // StageGrantMapInput is an input type that accepts StageGrantMap and StageGrantMapOutput values.
 // You can construct a concrete instance of `StageGrantMapInput` via:
 //
-//	StageGrantMap{ "key": StageGrantArgs{...} }
+//          StageGrantMap{ "key": StageGrantArgs{...} }
 type StageGrantMapInput interface {
 	pulumi.Input
 

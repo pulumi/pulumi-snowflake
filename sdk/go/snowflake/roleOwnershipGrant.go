@@ -133,7 +133,7 @@ func (i *RoleOwnershipGrant) ToRoleOwnershipGrantOutputWithContext(ctx context.C
 // RoleOwnershipGrantArrayInput is an input type that accepts RoleOwnershipGrantArray and RoleOwnershipGrantArrayOutput values.
 // You can construct a concrete instance of `RoleOwnershipGrantArrayInput` via:
 //
-//	RoleOwnershipGrantArray{ RoleOwnershipGrantArgs{...} }
+//          RoleOwnershipGrantArray{ RoleOwnershipGrantArgs{...} }
 type RoleOwnershipGrantArrayInput interface {
 	pulumi.Input
 
@@ -158,7 +158,7 @@ func (i RoleOwnershipGrantArray) ToRoleOwnershipGrantArrayOutputWithContext(ctx 
 // RoleOwnershipGrantMapInput is an input type that accepts RoleOwnershipGrantMap and RoleOwnershipGrantMapOutput values.
 // You can construct a concrete instance of `RoleOwnershipGrantMapInput` via:
 //
-//	RoleOwnershipGrantMap{ "key": RoleOwnershipGrantArgs{...} }
+//          RoleOwnershipGrantMap{ "key": RoleOwnershipGrantArgs{...} }
 type RoleOwnershipGrantMapInput interface {
 	pulumi.Input
 

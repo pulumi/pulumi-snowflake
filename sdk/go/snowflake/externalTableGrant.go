@@ -17,37 +17,34 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewExternalTableGrant(ctx, "grant", &snowflake.ExternalTableGrantArgs{
-//				DatabaseName:      pulumi.String("database"),
-//				ExternalTableName: pulumi.String("external_table"),
-//				OnFuture:          pulumi.Bool(false),
-//				Privilege:         pulumi.String("SELECT"),
-//				Roles: pulumi.StringArray{
-//					pulumi.String("role1"),
-//					pulumi.String("role2"),
-//				},
-//				SchemaName: pulumi.String("schema"),
-//				Shares: pulumi.StringArray{
-//					pulumi.String("share1"),
-//					pulumi.String("share2"),
-//				},
-//				WithGrantOption: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewExternalTableGrant(ctx, "grant", &snowflake.ExternalTableGrantArgs{
+// 			DatabaseName:      pulumi.String("database"),
+// 			ExternalTableName: pulumi.String("external_table"),
+// 			OnFuture:          pulumi.Bool(false),
+// 			Privilege:         pulumi.String("SELECT"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("role1"),
+// 				pulumi.String("role2"),
+// 			},
+// 			SchemaName: pulumi.String("schema"),
+// 			Shares: pulumi.StringArray{
+// 				pulumi.String("share1"),
+// 				pulumi.String("share2"),
+// 			},
+// 			WithGrantOption: pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -55,9 +52,7 @@ import (
 // format is database_name | schema_name | object_name | privilege | with_grant_option | roles | shares
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/externalTableGrant:ExternalTableGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|SELECT|false|role1,role2|share1,share2'
-//
+//  $ pulumi import snowflake:index/externalTableGrant:ExternalTableGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|SELECT|false|role1,role2|share1,share2'
 // ```
 type ExternalTableGrant struct {
 	pulumi.CustomResourceState
@@ -236,7 +231,7 @@ func (i *ExternalTableGrant) ToExternalTableGrantOutputWithContext(ctx context.C
 // ExternalTableGrantArrayInput is an input type that accepts ExternalTableGrantArray and ExternalTableGrantArrayOutput values.
 // You can construct a concrete instance of `ExternalTableGrantArrayInput` via:
 //
-//	ExternalTableGrantArray{ ExternalTableGrantArgs{...} }
+//          ExternalTableGrantArray{ ExternalTableGrantArgs{...} }
 type ExternalTableGrantArrayInput interface {
 	pulumi.Input
 
@@ -261,7 +256,7 @@ func (i ExternalTableGrantArray) ToExternalTableGrantArrayOutputWithContext(ctx 
 // ExternalTableGrantMapInput is an input type that accepts ExternalTableGrantMap and ExternalTableGrantMapOutput values.
 // You can construct a concrete instance of `ExternalTableGrantMapInput` via:
 //
-//	ExternalTableGrantMap{ "key": ExternalTableGrantArgs{...} }
+//          ExternalTableGrantMap{ "key": ExternalTableGrantArgs{...} }
 type ExternalTableGrantMapInput interface {
 	pulumi.Input
 

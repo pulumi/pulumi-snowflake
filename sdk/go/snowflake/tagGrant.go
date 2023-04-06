@@ -17,30 +17,27 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewTagGrant(ctx, "example", &snowflake.TagGrantArgs{
-//				DatabaseName: pulumi.String("database"),
-//				Privilege:    pulumi.String("OWNERSHIP"),
-//				Roles: pulumi.StringArray{
-//					pulumi.String("TEST_ROLE"),
-//				},
-//				SchemaName: pulumi.String("schema"),
-//				TagName:    pulumi.String("tag"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewTagGrant(ctx, "example", &snowflake.TagGrantArgs{
+// 			DatabaseName: pulumi.String("database"),
+// 			Privilege:    pulumi.String("OWNERSHIP"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("TEST_ROLE"),
+// 			},
+// 			SchemaName: pulumi.String("schema"),
+// 			TagName:    pulumi.String("tag"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -48,9 +45,7 @@ import (
 // format is database_name | schema_name | tag_name | privilege | with_grant_option | roles
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/tagGrant:TagGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|APPLY|false|role1,role2'
-//
+//  $ pulumi import snowflake:index/tagGrant:TagGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|APPLY|false|role1,role2'
 // ```
 type TagGrant struct {
 	pulumi.CustomResourceState
@@ -212,7 +207,7 @@ func (i *TagGrant) ToTagGrantOutputWithContext(ctx context.Context) TagGrantOutp
 // TagGrantArrayInput is an input type that accepts TagGrantArray and TagGrantArrayOutput values.
 // You can construct a concrete instance of `TagGrantArrayInput` via:
 //
-//	TagGrantArray{ TagGrantArgs{...} }
+//          TagGrantArray{ TagGrantArgs{...} }
 type TagGrantArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +232,7 @@ func (i TagGrantArray) ToTagGrantArrayOutputWithContext(ctx context.Context) Tag
 // TagGrantMapInput is an input type that accepts TagGrantMap and TagGrantMapOutput values.
 // You can construct a concrete instance of `TagGrantMapInput` via:
 //
-//	TagGrantMap{ "key": TagGrantArgs{...} }
+//          TagGrantMap{ "key": TagGrantArgs{...} }
 type TagGrantMapInput interface {
 	pulumi.Input
 

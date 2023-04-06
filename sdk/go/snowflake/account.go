@@ -13,9 +13,9 @@ import (
 
 // The account resource allows you to create and manage Snowflake accounts.
 //
-//	**WARNING** This resource cannot be destroyed!!! The only way to delete accounts is to go through [Snowflake Support](https://docs.snowflake.com/en/user-guide/organizations-manage-accounts.html#deleting-an-account)
+//     **WARNING** This resource cannot be destroyed!!! The only way to delete accounts is to go through [Snowflake Support](https://docs.snowflake.com/en/user-guide/organizations-manage-accounts.html#deleting-an-account)
 //
-//	**NOTE** ORGADMIN priviliges are required for this resource
+//     **NOTE** ORGADMIN priviliges are required for this resource
 //
 // ## Example Usage
 //
@@ -23,46 +23,41 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewProvider(ctx, "orgadmin", &snowflake.ProviderArgs{
-//				Role: pulumi.String("ORGADMIN"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewAccount(ctx, "ac1", &snowflake.AccountArgs{
-//				AdminName:          pulumi.String("John Doe"),
-//				AdminPassword:      pulumi.String("Abcd1234!"),
-//				Email:              pulumi.String("john.doe@snowflake.com"),
-//				FirstName:          pulumi.String("John"),
-//				LastName:           pulumi.String("Doe"),
-//				MustChangePassword: pulumi.Bool(true),
-//				Edition:            pulumi.String("STANDARD"),
-//				Comment:            pulumi.String("Snowflake Test Account"),
-//				Region:             pulumi.String("AWS_US_WEST_2"),
-//			}, pulumi.Provider(snowflake.Orgadmin))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewProvider(ctx, "orgadmin", &snowflake.ProviderArgs{
+// 			Role: pulumi.String("ORGADMIN"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewAccount(ctx, "ac1", &snowflake.AccountArgs{
+// 			AdminName:          pulumi.String("John Doe"),
+// 			AdminPassword:      pulumi.String("Abcd1234!"),
+// 			Email:              pulumi.String("john.doe@snowflake.com"),
+// 			FirstName:          pulumi.String("John"),
+// 			LastName:           pulumi.String("Doe"),
+// 			MustChangePassword: pulumi.Bool(true),
+// 			Edition:            pulumi.String("STANDARD"),
+// 			Comment:            pulumi.String("Snowflake Test Account"),
+// 			Region:             pulumi.String("AWS_US_WEST_2"),
+// 		}, pulumi.Provider(snowflake.Orgadmin))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/account:Account account <account_locator>
-//
+//  $ pulumi import snowflake:index/account:Account account <account_locator>
 // ```
 type Account struct {
 	pulumi.CustomResourceState
@@ -298,7 +293,7 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 // AccountArrayInput is an input type that accepts AccountArray and AccountArrayOutput values.
 // You can construct a concrete instance of `AccountArrayInput` via:
 //
-//	AccountArray{ AccountArgs{...} }
+//          AccountArray{ AccountArgs{...} }
 type AccountArrayInput interface {
 	pulumi.Input
 
@@ -323,7 +318,7 @@ func (i AccountArray) ToAccountArrayOutputWithContext(ctx context.Context) Accou
 // AccountMapInput is an input type that accepts AccountMap and AccountMapOutput values.
 // You can construct a concrete instance of `AccountMapInput` via:
 //
-//	AccountMap{ "key": AccountArgs{...} }
+//          AccountMap{ "key": AccountArgs{...} }
 type AccountMapInput interface {
 	pulumi.Input
 

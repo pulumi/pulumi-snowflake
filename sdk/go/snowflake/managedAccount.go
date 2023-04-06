@@ -14,9 +14,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/managedAccount:ManagedAccount example name
-//
+//  $ pulumi import snowflake:index/managedAccount:ManagedAccount example name
 // ```
 type ManagedAccount struct {
 	pulumi.CustomResourceState
@@ -187,7 +185,7 @@ func (i *ManagedAccount) ToManagedAccountOutputWithContext(ctx context.Context) 
 // ManagedAccountArrayInput is an input type that accepts ManagedAccountArray and ManagedAccountArrayOutput values.
 // You can construct a concrete instance of `ManagedAccountArrayInput` via:
 //
-//	ManagedAccountArray{ ManagedAccountArgs{...} }
+//          ManagedAccountArray{ ManagedAccountArgs{...} }
 type ManagedAccountArrayInput interface {
 	pulumi.Input
 
@@ -212,7 +210,7 @@ func (i ManagedAccountArray) ToManagedAccountArrayOutputWithContext(ctx context.
 // ManagedAccountMapInput is an input type that accepts ManagedAccountMap and ManagedAccountMapOutput values.
 // You can construct a concrete instance of `ManagedAccountMapInput` via:
 //
-//	ManagedAccountMap{ "key": ManagedAccountArgs{...} }
+//          ManagedAccountMap{ "key": ManagedAccountArgs{...} }
 type ManagedAccountMapInput interface {
 	pulumi.Input
 

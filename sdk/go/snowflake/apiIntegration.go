@@ -17,60 +17,55 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewApiIntegration(ctx, "aws", &snowflake.ApiIntegrationArgs{
-//				ApiAllowedPrefixes: pulumi.StringArray{
-//					pulumi.String("https://123456.execute-api.us-west-2.amazonaws.com/prod/"),
-//				},
-//				ApiAwsRoleArn: pulumi.String("arn:aws:iam::000000000001:/role/test"),
-//				ApiProvider:   pulumi.String("aws_api_gateway"),
-//				Enabled:       pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewApiIntegration(ctx, "azure", &snowflake.ApiIntegrationArgs{
-//				ApiAllowedPrefixes: pulumi.StringArray{
-//					pulumi.String("https://apim-hello-world.azure-api.net/"),
-//				},
-//				ApiProvider:          pulumi.String("azure_api_management"),
-//				AzureAdApplicationId: pulumi.String("11111111-1111-1111-1111-111111111111"),
-//				AzureTenantId:        pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				Enabled:              pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewApiIntegration(ctx, "gcp", &snowflake.ApiIntegrationArgs{
-//				ApiAllowedPrefixes: pulumi.StringArray{
-//					pulumi.String("https://gateway-id-123456.uc.gateway.dev/"),
-//				},
-//				ApiProvider:    pulumi.String("google_api_gateway"),
-//				Enabled:        pulumi.Bool(true),
-//				GoogleAudience: pulumi.String("api-gateway-id-123456.apigateway.gcp-project.cloud.goog"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewApiIntegration(ctx, "aws", &snowflake.ApiIntegrationArgs{
+// 			ApiAllowedPrefixes: pulumi.StringArray{
+// 				pulumi.String("https://123456.execute-api.us-west-2.amazonaws.com/prod/"),
+// 			},
+// 			ApiAwsRoleArn: pulumi.String("arn:aws:iam::000000000001:/role/test"),
+// 			ApiProvider:   pulumi.String("aws_api_gateway"),
+// 			Enabled:       pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewApiIntegration(ctx, "azure", &snowflake.ApiIntegrationArgs{
+// 			ApiAllowedPrefixes: pulumi.StringArray{
+// 				pulumi.String("https://apim-hello-world.azure-api.net/"),
+// 			},
+// 			ApiProvider:          pulumi.String("azure_api_management"),
+// 			AzureAdApplicationId: pulumi.String("11111111-1111-1111-1111-111111111111"),
+// 			AzureTenantId:        pulumi.String("00000000-0000-0000-0000-000000000000"),
+// 			Enabled:              pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = snowflake.NewApiIntegration(ctx, "gcp", &snowflake.ApiIntegrationArgs{
+// 			ApiAllowedPrefixes: pulumi.StringArray{
+// 				pulumi.String("https://gateway-id-123456.uc.gateway.dev/"),
+// 			},
+// 			ApiProvider:    pulumi.String("google_api_gateway"),
+// 			Enabled:        pulumi.Bool(true),
+// 			GoogleAudience: pulumi.String("api-gateway-id-123456.apigateway.gcp-project.cloud.goog"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/apiIntegration:ApiIntegration example name
-//
+//  $ pulumi import snowflake:index/apiIntegration:ApiIntegration example name
 // ```
 type ApiIntegration struct {
 	pulumi.CustomResourceState
@@ -290,7 +285,7 @@ func (i *ApiIntegration) ToApiIntegrationOutputWithContext(ctx context.Context) 
 // ApiIntegrationArrayInput is an input type that accepts ApiIntegrationArray and ApiIntegrationArrayOutput values.
 // You can construct a concrete instance of `ApiIntegrationArrayInput` via:
 //
-//	ApiIntegrationArray{ ApiIntegrationArgs{...} }
+//          ApiIntegrationArray{ ApiIntegrationArgs{...} }
 type ApiIntegrationArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +310,7 @@ func (i ApiIntegrationArray) ToApiIntegrationArrayOutputWithContext(ctx context.
 // ApiIntegrationMapInput is an input type that accepts ApiIntegrationMap and ApiIntegrationMapOutput values.
 // You can construct a concrete instance of `ApiIntegrationMapInput` via:
 //
-//	ApiIntegrationMap{ "key": ApiIntegrationArgs{...} }
+//          ApiIntegrationMap{ "key": ApiIntegrationArgs{...} }
 type ApiIntegrationMapInput interface {
 	pulumi.Input
 

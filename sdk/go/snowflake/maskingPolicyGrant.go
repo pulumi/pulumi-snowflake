@@ -17,33 +17,30 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewMaskingPolicyGrant(ctx, "example", &snowflake.MaskingPolicyGrantArgs{
-//				DatabaseName:         pulumi.String("EXAMPLE_DB_NAME"),
-//				EnableMultipleGrants: pulumi.Bool(true),
-//				MaskingPolicyName:    pulumi.String("EXAMPLE_MASKING_POLICY_NAME"),
-//				Privilege:            pulumi.String("APPLY"),
-//				Roles: pulumi.StringArray{
-//					pulumi.String("ROLE1_NAME"),
-//					pulumi.String("ROLE2_NAME"),
-//				},
-//				SchemaName:      pulumi.String("EXAMPLE_SCHEMA_NAME"),
-//				WithGrantOption: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewMaskingPolicyGrant(ctx, "example", &snowflake.MaskingPolicyGrantArgs{
+// 			DatabaseName:         pulumi.String("EXAMPLE_DB_NAME"),
+// 			EnableMultipleGrants: pulumi.Bool(true),
+// 			MaskingPolicyName:    pulumi.String("EXAMPLE_MASKING_POLICY_NAME"),
+// 			Privilege:            pulumi.String("APPLY"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("ROLE1_NAME"),
+// 				pulumi.String("ROLE2_NAME"),
+// 			},
+// 			SchemaName:      pulumi.String("EXAMPLE_SCHEMA_NAME"),
+// 			WithGrantOption: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -51,9 +48,7 @@ import (
 // format is database name | schema name | masking policy name | privilege | true/false for with_grant_option
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/maskingPolicyGrant:MaskingPolicyGrant example 'dbName|schemaName|maskingPolicyName|USAGE|false'
-//
+//  $ pulumi import snowflake:index/maskingPolicyGrant:MaskingPolicyGrant example 'dbName|schemaName|maskingPolicyName|USAGE|false'
 // ```
 type MaskingPolicyGrant struct {
 	pulumi.CustomResourceState
@@ -215,7 +210,7 @@ func (i *MaskingPolicyGrant) ToMaskingPolicyGrantOutputWithContext(ctx context.C
 // MaskingPolicyGrantArrayInput is an input type that accepts MaskingPolicyGrantArray and MaskingPolicyGrantArrayOutput values.
 // You can construct a concrete instance of `MaskingPolicyGrantArrayInput` via:
 //
-//	MaskingPolicyGrantArray{ MaskingPolicyGrantArgs{...} }
+//          MaskingPolicyGrantArray{ MaskingPolicyGrantArgs{...} }
 type MaskingPolicyGrantArrayInput interface {
 	pulumi.Input
 
@@ -240,7 +235,7 @@ func (i MaskingPolicyGrantArray) ToMaskingPolicyGrantArrayOutputWithContext(ctx 
 // MaskingPolicyGrantMapInput is an input type that accepts MaskingPolicyGrantMap and MaskingPolicyGrantMapOutput values.
 // You can construct a concrete instance of `MaskingPolicyGrantMapInput` via:
 //
-//	MaskingPolicyGrantMap{ "key": MaskingPolicyGrantArgs{...} }
+//          MaskingPolicyGrantMap{ "key": MaskingPolicyGrantArgs{...} }
 type MaskingPolicyGrantMapInput interface {
 	pulumi.Input
 

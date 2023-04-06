@@ -17,34 +17,31 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewDatabaseGrant(ctx, "grant", &snowflake.DatabaseGrantArgs{
-//				DatabaseName: pulumi.String("database"),
-//				Privilege:    pulumi.String("USAGE"),
-//				Roles: pulumi.StringArray{
-//					pulumi.String("role1"),
-//					pulumi.String("role2"),
-//				},
-//				Shares: pulumi.StringArray{
-//					pulumi.String("share1"),
-//					pulumi.String("share2"),
-//				},
-//				WithGrantOption: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := snowflake.NewDatabaseGrant(ctx, "grant", &snowflake.DatabaseGrantArgs{
+// 			DatabaseName: pulumi.String("database"),
+// 			Privilege:    pulumi.String("USAGE"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("role1"),
+// 				pulumi.String("role2"),
+// 			},
+// 			Shares: pulumi.StringArray{
+// 				pulumi.String("share1"),
+// 				pulumi.String("share2"),
+// 			},
+// 			WithGrantOption: pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 //
 // ## Import
@@ -52,9 +49,7 @@ import (
 // format is database_name | privilege | with_grant_option | roles | shares
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/databaseGrant:DatabaseGrant example 'MY_DATABASE|USAGE|false|role1,role2|share1,share2'
-//
+//  $ pulumi import snowflake:index/databaseGrant:DatabaseGrant example 'MY_DATABASE|USAGE|false|role1,role2|share1,share2'
 // ```
 type DatabaseGrant struct {
 	pulumi.CustomResourceState
@@ -200,7 +195,7 @@ func (i *DatabaseGrant) ToDatabaseGrantOutputWithContext(ctx context.Context) Da
 // DatabaseGrantArrayInput is an input type that accepts DatabaseGrantArray and DatabaseGrantArrayOutput values.
 // You can construct a concrete instance of `DatabaseGrantArrayInput` via:
 //
-//	DatabaseGrantArray{ DatabaseGrantArgs{...} }
+//          DatabaseGrantArray{ DatabaseGrantArgs{...} }
 type DatabaseGrantArrayInput interface {
 	pulumi.Input
 
@@ -225,7 +220,7 @@ func (i DatabaseGrantArray) ToDatabaseGrantArrayOutputWithContext(ctx context.Co
 // DatabaseGrantMapInput is an input type that accepts DatabaseGrantMap and DatabaseGrantMapOutput values.
 // You can construct a concrete instance of `DatabaseGrantMapInput` via:
 //
-//	DatabaseGrantMap{ "key": DatabaseGrantArgs{...} }
+//          DatabaseGrantMap{ "key": DatabaseGrantArgs{...} }
 type DatabaseGrantMapInput interface {
 	pulumi.Input
 
