@@ -64,7 +64,62 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:    "https://pulumi.io",
 		GitHubOrg:   "Snowflake-Labs",
 		Repository:  "https://github.com/pulumi/pulumi-snowflake",
-		Config:      map[string]*tfbridge.SchemaInfo{},
+		Config: map[string]*tfbridge.SchemaInfo{
+			"account": {
+				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_ACCOUNT"}},
+			},
+			"username": {
+				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_USER"}},
+			},
+			"password": {
+				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_PASSWORD"}},
+			},
+			"oauth_access_token": {
+				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_OAUTH_ACCESS_TOKEN"}},
+			},
+			"oauth_refresh_token": {
+				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_OAUTH_REFRESH_TOKEN"}},
+			},
+			"oauth_client_id": {
+				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_OAUTH_CLIENT_ID"}},
+			},
+			"oauth_client_secret": {
+				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_OAUTH_CLIENT_SECRET"}},
+			},
+			"oauth_endpoint": {
+				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_OAUTH_ENDPOINT"}},
+			},
+			"oauth_redirect_url": {
+				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_OAUTH_REDIRECT_URL"}},
+			},
+			"browser_auth": {
+				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_USE_BROWSER_AUTH"}},
+			},
+			"private_key_path": {
+				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_PRIVATE_KEY_PATH"}},
+			},
+			"private_key_passphrase": {
+				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"}},
+			},
+			"role": {
+				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_ROLE"}},
+			},
+			"region": {
+				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_REGION"}},
+			},
+			"host": {
+				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_HOST"}},
+			},
+			"port": {
+				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_PORT"}},
+			},
+			"protocol": {
+				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_PROTOCOL"}},
+			},
+			"warehouse": {
+				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_WAREHOUSE"}},
+			},
+		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// Because "privatelink" is translated to "PrivateLink", this must be manually mapped.
 			"snowflake_system_get_privatelink_config": {Tok: makeDataSource(mainMod, "getSystemGetPrivateLinkConfig")},
