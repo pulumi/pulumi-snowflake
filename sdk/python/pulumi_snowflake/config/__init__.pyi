@@ -24,6 +24,12 @@ host: Optional[str]
 Supports passing in a custom host value to the snowflake go driver for use with privatelink.
 """
 
+insecureMode: Optional[bool]
+"""
+If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
+default value for testing or emergency situations only.
+"""
+
 oauthAccessToken: Optional[str]
 """
 Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,

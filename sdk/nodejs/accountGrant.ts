@@ -23,8 +23,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
+ * format is privilege|with_grant_option|roles
+ *
  * ```sh
- *  $ pulumi import snowflake:index/accountGrant:AccountGrant example 'privilege=MONITOR,roles=[role1,role2],with_grant_option=false'
+ *  $ pulumi import snowflake:index/accountGrant:AccountGrant example "privilege|false|role1,role2"
  * ```
  */
 export class AccountGrant extends pulumi.CustomResource {

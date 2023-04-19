@@ -14,6 +14,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
@@ -49,10 +50,10 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// format is database_name | schema_name | object_name | argument_data_types | privilege | with_grant_option | roles | shares
+    /// format is database_name|schema_name|function_name|argument_data_types|privilege|with_grant_option|on_future|roles|shares
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/functionGrant:FunctionGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|ARG1TYPE,ARG2TYPE|USAGE|false|role1,role2|share1,share2'
+    ///  $ pulumi import snowflake:index/functionGrant:FunctionGrant example "MY_DATABASE|MY_SCHEMA|MY_FUNCTION|ARG1TYPE,ARG2TYPE|USAGE|false|false|role1,role2|share1,share2"
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/functionGrant:FunctionGrant")]
@@ -63,12 +64,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("argumentDataTypes")]
         public Output<ImmutableArray<string>> ArgumentDataTypes { get; private set; } = null!;
-
-        /// <summary>
-        /// List of the arguments for the function (must be present if function has arguments and function_name is present)
-        /// </summary>
-        [Output("arguments")]
-        public Output<ImmutableArray<Outputs.FunctionGrantArgument>> Arguments { get; private set; } = null!;
 
         /// <summary>
         /// The name of the database containing the current or future functions on which to grant privileges.
@@ -100,12 +95,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("privilege")]
         public Output<string?> Privilege { get; private set; } = null!;
-
-        /// <summary>
-        /// The return type of the function (must be present if function_name is present)
-        /// </summary>
-        [Output("returnType")]
-        public Output<string?> ReturnType { get; private set; } = null!;
 
         /// <summary>
         /// Grants privilege to these roles.
@@ -189,19 +178,6 @@ namespace Pulumi.Snowflake
             set => _argumentDataTypes = value;
         }
 
-        [Input("arguments")]
-        private InputList<Inputs.FunctionGrantArgumentArgs>? _arguments;
-
-        /// <summary>
-        /// List of the arguments for the function (must be present if function has arguments and function_name is present)
-        /// </summary>
-        [Obsolete(@"Use argument_data_types instead")]
-        public InputList<Inputs.FunctionGrantArgumentArgs> Arguments
-        {
-            get => _arguments ?? (_arguments = new InputList<Inputs.FunctionGrantArgumentArgs>());
-            set => _arguments = value;
-        }
-
         /// <summary>
         /// The name of the database containing the current or future functions on which to grant privileges.
         /// </summary>
@@ -232,12 +208,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("privilege")]
         public Input<string>? Privilege { get; set; }
-
-        /// <summary>
-        /// The return type of the function (must be present if function_name is present)
-        /// </summary>
-        [Input("returnType")]
-        public Input<string>? ReturnType { get; set; }
 
         [Input("roles", required: true)]
         private InputList<string>? _roles;
@@ -295,19 +265,6 @@ namespace Pulumi.Snowflake
             set => _argumentDataTypes = value;
         }
 
-        [Input("arguments")]
-        private InputList<Inputs.FunctionGrantArgumentGetArgs>? _arguments;
-
-        /// <summary>
-        /// List of the arguments for the function (must be present if function has arguments and function_name is present)
-        /// </summary>
-        [Obsolete(@"Use argument_data_types instead")]
-        public InputList<Inputs.FunctionGrantArgumentGetArgs> Arguments
-        {
-            get => _arguments ?? (_arguments = new InputList<Inputs.FunctionGrantArgumentGetArgs>());
-            set => _arguments = value;
-        }
-
         /// <summary>
         /// The name of the database containing the current or future functions on which to grant privileges.
         /// </summary>
@@ -338,12 +295,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("privilege")]
         public Input<string>? Privilege { get; set; }
-
-        /// <summary>
-        /// The return type of the function (must be present if function_name is present)
-        /// </summary>
-        [Input("returnType")]
-        public Input<string>? ReturnType { get; set; }
 
         [Input("roles")]
         private InputList<string>? _roles;

@@ -57,10 +57,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * format is database_name ❄️ schema_name | task_name | privilege | with_grant_option | roles
+ * format is database_name|schema_name|task_name|privilege|with_grant_option|on_future|roles&#34;
  * 
  * ```sh
- *  $ pulumi import snowflake:index/taskGrant:TaskGrant example &#39;MY_DATABASE|MY_SCHEMA|MY_OBJECT|OPERATE|false|role1,role2&#39;
+ *  $ pulumi import snowflake:index/taskGrant:TaskGrant example &#34;MY_DATABASE|MY_SCHEMA|MY_TASK|OPERATE|false|false|role1,role2&#34;
  * ```
  * 
  */

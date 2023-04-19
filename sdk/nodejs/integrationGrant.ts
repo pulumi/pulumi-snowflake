@@ -24,10 +24,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * format is integration_name | privilege | with_grant_option | roles
+ * format is integration_name|privilege|with_grant_option|roles
  *
  * ```sh
- *  $ pulumi import snowflake:index/integrationGrant:IntegrationGrant example 'MY_INTEGRATION|USAGE|false|role1,role2'
+ *  $ pulumi import snowflake:index/integrationGrant:IntegrationGrant example "MY_INTEGRATION|USAGE|false|role1,role2"
  * ```
  */
 export class IntegrationGrant extends pulumi.CustomResource {

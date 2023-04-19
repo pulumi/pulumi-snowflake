@@ -14,6 +14,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
@@ -28,7 +29,7 @@ namespace Pulumi.Snowflake
     ///         },
     ///         DatabaseName = "database",
     ///         OnFuture = false,
-    ///         Privilege = "SELECT",
+    ///         Privilege = "USAGE",
     ///         ProcedureName = "procedure",
     ///         Roles = new[]
     ///         {
@@ -49,10 +50,10 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// format is database_name | schema_name | object_name | argument_data_types | privilege | with_grant_option | roles | shares
+    /// format is database_name|schema_name|procedure_name|argument_data_types|privilege|with_grant_option|on_future|roles|shares
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|ARG1TYPE,ARG2TYPE|USAGE|false|role1,role2|share1,share2'
+    ///  $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example "MY_DATABASE|MY_SCHEMA|MY_PROCEDURE|ARG1TYPE,ARG2TYPE|USAGE|false|false|role1,role2|share1,share2"
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/procedureGrant:ProcedureGrant")]
@@ -63,12 +64,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("argumentDataTypes")]
         public Output<ImmutableArray<string>> ArgumentDataTypes { get; private set; } = null!;
-
-        /// <summary>
-        /// List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
-        /// </summary>
-        [Output("arguments")]
-        public Output<ImmutableArray<Outputs.ProcedureGrantArgument>> Arguments { get; private set; } = null!;
 
         /// <summary>
         /// The name of the database containing the current or future procedures on which to grant privileges.
@@ -100,12 +95,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("procedureName")]
         public Output<string?> ProcedureName { get; private set; } = null!;
-
-        /// <summary>
-        /// The return type of the procedure (must be present if procedure_name is present)
-        /// </summary>
-        [Output("returnType")]
-        public Output<string?> ReturnType { get; private set; } = null!;
 
         /// <summary>
         /// Grants privilege to these roles.
@@ -189,19 +178,6 @@ namespace Pulumi.Snowflake
             set => _argumentDataTypes = value;
         }
 
-        [Input("arguments")]
-        private InputList<Inputs.ProcedureGrantArgumentArgs>? _arguments;
-
-        /// <summary>
-        /// List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
-        /// </summary>
-        [Obsolete(@"use argument_data_types instead.")]
-        public InputList<Inputs.ProcedureGrantArgumentArgs> Arguments
-        {
-            get => _arguments ?? (_arguments = new InputList<Inputs.ProcedureGrantArgumentArgs>());
-            set => _arguments = value;
-        }
-
         /// <summary>
         /// The name of the database containing the current or future procedures on which to grant privileges.
         /// </summary>
@@ -232,12 +208,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("procedureName")]
         public Input<string>? ProcedureName { get; set; }
-
-        /// <summary>
-        /// The return type of the procedure (must be present if procedure_name is present)
-        /// </summary>
-        [Input("returnType")]
-        public Input<string>? ReturnType { get; set; }
 
         [Input("roles", required: true)]
         private InputList<string>? _roles;
@@ -295,19 +265,6 @@ namespace Pulumi.Snowflake
             set => _argumentDataTypes = value;
         }
 
-        [Input("arguments")]
-        private InputList<Inputs.ProcedureGrantArgumentGetArgs>? _arguments;
-
-        /// <summary>
-        /// List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
-        /// </summary>
-        [Obsolete(@"use argument_data_types instead.")]
-        public InputList<Inputs.ProcedureGrantArgumentGetArgs> Arguments
-        {
-            get => _arguments ?? (_arguments = new InputList<Inputs.ProcedureGrantArgumentGetArgs>());
-            set => _arguments = value;
-        }
-
         /// <summary>
         /// The name of the database containing the current or future procedures on which to grant privileges.
         /// </summary>
@@ -338,12 +295,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("procedureName")]
         public Input<string>? ProcedureName { get; set; }
-
-        /// <summary>
-        /// The return type of the procedure (must be present if procedure_name is present)
-        /// </summary>
-        [Input("returnType")]
-        public Input<string>? ReturnType { get; set; }
 
         [Input("roles")]
         private InputList<string>? _roles;

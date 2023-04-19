@@ -79,7 +79,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
      */
-    public readonly dataRetentionTimeInDays!: pulumi.Output<number>;
+    public readonly dataRetentionTimeInDays!: pulumi.Output<number | undefined>;
     /**
      * Specify a database to create a clone from.
      */

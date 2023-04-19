@@ -20,6 +20,11 @@ export type AccountParameter = import("./accountParameter").AccountParameter;
 export const AccountParameter: typeof import("./accountParameter").AccountParameter = null as any;
 utilities.lazyLoad(exports, ["AccountParameter"], () => require("./accountParameter"));
 
+export { AlertArgs, AlertState } from "./alert";
+export type Alert = import("./alert").Alert;
+export const Alert: typeof import("./alert").Alert = null as any;
+utilities.lazyLoad(exports, ["Alert"], () => require("./alert"));
+
 export { ApiIntegrationArgs, ApiIntegrationState } from "./apiIntegration";
 export type ApiIntegration = import("./apiIntegration").ApiIntegration;
 export const ApiIntegration: typeof import("./apiIntegration").ApiIntegration = null as any;
@@ -34,6 +39,11 @@ export { DatabaseGrantArgs, DatabaseGrantState } from "./databaseGrant";
 export type DatabaseGrant = import("./databaseGrant").DatabaseGrant;
 export const DatabaseGrant: typeof import("./databaseGrant").DatabaseGrant = null as any;
 utilities.lazyLoad(exports, ["DatabaseGrant"], () => require("./databaseGrant"));
+
+export { DatabaseRoleArgs, DatabaseRoleState } from "./databaseRole";
+export type DatabaseRole = import("./databaseRole").DatabaseRole;
+export const DatabaseRole: typeof import("./databaseRole").DatabaseRole = null as any;
+utilities.lazyLoad(exports, ["DatabaseRole"], () => require("./databaseRole"));
 
 export { ExternalFunctionArgs, ExternalFunctionState } from "./externalFunction";
 export type ExternalFunction = import("./externalFunction").ExternalFunction;
@@ -176,6 +186,11 @@ export const getSequences: typeof import("./getSequences").getSequences = null a
 export const getSequencesOutput: typeof import("./getSequences").getSequencesOutput = null as any;
 utilities.lazyLoad(exports, ["getSequences","getSequencesOutput"], () => require("./getSequences"));
 
+export { GetSharesArgs, GetSharesResult, GetSharesOutputArgs } from "./getShares";
+export const getShares: typeof import("./getShares").getShares = null as any;
+export const getSharesOutput: typeof import("./getShares").getSharesOutput = null as any;
+utilities.lazyLoad(exports, ["getShares","getSharesOutput"], () => require("./getShares"));
+
 export { GetStagesArgs, GetStagesResult, GetStagesOutputArgs } from "./getStages";
 export const getStages: typeof import("./getStages").getStages = null as any;
 export const getStagesOutput: typeof import("./getStages").getStagesOutput = null as any;
@@ -286,6 +301,11 @@ export { ObjectParameterArgs, ObjectParameterState } from "./objectParameter";
 export type ObjectParameter = import("./objectParameter").ObjectParameter;
 export const ObjectParameter: typeof import("./objectParameter").ObjectParameter = null as any;
 utilities.lazyLoad(exports, ["ObjectParameter"], () => require("./objectParameter"));
+
+export { PasswordPolicyArgs, PasswordPolicyState } from "./passwordPolicy";
+export type PasswordPolicy = import("./passwordPolicy").PasswordPolicy;
+export const PasswordPolicy: typeof import("./passwordPolicy").PasswordPolicy = null as any;
+utilities.lazyLoad(exports, ["PasswordPolicy"], () => require("./passwordPolicy"));
 
 export { PipeArgs, PipeState } from "./pipe";
 export type Pipe = import("./pipe").Pipe;
@@ -517,12 +537,16 @@ const _module = {
                 return new AccountGrant(name, <any>undefined, { urn })
             case "snowflake:index/accountParameter:AccountParameter":
                 return new AccountParameter(name, <any>undefined, { urn })
+            case "snowflake:index/alert:Alert":
+                return new Alert(name, <any>undefined, { urn })
             case "snowflake:index/apiIntegration:ApiIntegration":
                 return new ApiIntegration(name, <any>undefined, { urn })
             case "snowflake:index/database:Database":
                 return new Database(name, <any>undefined, { urn })
             case "snowflake:index/databaseGrant:DatabaseGrant":
                 return new DatabaseGrant(name, <any>undefined, { urn })
+            case "snowflake:index/databaseRole:DatabaseRole":
+                return new DatabaseRole(name, <any>undefined, { urn })
             case "snowflake:index/externalFunction:ExternalFunction":
                 return new ExternalFunction(name, <any>undefined, { urn })
             case "snowflake:index/externalOauthIntegration:ExternalOauthIntegration":
@@ -563,6 +587,8 @@ const _module = {
                 return new OauthIntegration(name, <any>undefined, { urn })
             case "snowflake:index/objectParameter:ObjectParameter":
                 return new ObjectParameter(name, <any>undefined, { urn })
+            case "snowflake:index/passwordPolicy:PasswordPolicy":
+                return new PasswordPolicy(name, <any>undefined, { urn })
             case "snowflake:index/pipe:Pipe":
                 return new Pipe(name, <any>undefined, { urn })
             case "snowflake:index/pipeGrant:PipeGrant":
@@ -653,9 +679,11 @@ const _module = {
 pulumi.runtime.registerResourceModule("snowflake", "index/account", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/accountGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/accountParameter", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/alert", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/apiIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/database", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/databaseGrant", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/databaseRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalFunction", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalOauthIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalTable", _module)
@@ -676,6 +704,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/networkPolicyAttachmen
 pulumi.runtime.registerResourceModule("snowflake", "index/notificationIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/oauthIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/objectParameter", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/passwordPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/pipe", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/pipeGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/procedure", _module)

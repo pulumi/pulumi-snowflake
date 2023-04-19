@@ -32,7 +32,7 @@ import (
 //				},
 //				DatabaseName:  pulumi.String("database"),
 //				OnFuture:      pulumi.Bool(false),
-//				Privilege:     pulumi.String("SELECT"),
+//				Privilege:     pulumi.String("USAGE"),
 //				ProcedureName: pulumi.String("procedure"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
@@ -56,11 +56,11 @@ import (
 //
 // ## Import
 //
-// format is database_name | schema_name | object_name | argument_data_types | privilege | with_grant_option | roles | shares
+// format is database_name|schema_name|procedure_name|argument_data_types|privilege|with_grant_option|on_future|roles|shares
 //
 // ```sh
 //
-//	$ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|ARG1TYPE,ARG2TYPE|USAGE|false|role1,role2|share1,share2'
+//	$ pulumi import snowflake:index/procedureGrant:ProcedureGrant example "MY_DATABASE|MY_SCHEMA|MY_PROCEDURE|ARG1TYPE,ARG2TYPE|USAGE|false|false|role1,role2|share1,share2"
 //
 // ```
 type ProcedureGrant struct {
@@ -68,10 +68,6 @@ type ProcedureGrant struct {
 
 	// List of the argument data types for the procedure (must be present if procedure has arguments and procedureName is present)
 	ArgumentDataTypes pulumi.StringArrayOutput `pulumi:"argumentDataTypes"`
-	// List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
-	//
-	// Deprecated: use argument_data_types instead.
-	Arguments ProcedureGrantArgumentArrayOutput `pulumi:"arguments"`
 	// The name of the database containing the current or future procedures on which to grant privileges.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -83,10 +79,6 @@ type ProcedureGrant struct {
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
 	// The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 	ProcedureName pulumi.StringPtrOutput `pulumi:"procedureName"`
-	// The return type of the procedure (must be present if procedureName is present)
-	//
-	// Deprecated: return_type is no longer required. It will be removed in a future release.
-	ReturnType pulumi.StringPtrOutput `pulumi:"returnType"`
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current or future procedures on which to grant privileges.
@@ -134,10 +126,6 @@ func GetProcedureGrant(ctx *pulumi.Context,
 type procedureGrantState struct {
 	// List of the argument data types for the procedure (must be present if procedure has arguments and procedureName is present)
 	ArgumentDataTypes []string `pulumi:"argumentDataTypes"`
-	// List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
-	//
-	// Deprecated: use argument_data_types instead.
-	Arguments []ProcedureGrantArgument `pulumi:"arguments"`
 	// The name of the database containing the current or future procedures on which to grant privileges.
 	DatabaseName *string `pulumi:"databaseName"`
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -149,10 +137,6 @@ type procedureGrantState struct {
 	Privilege *string `pulumi:"privilege"`
 	// The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 	ProcedureName *string `pulumi:"procedureName"`
-	// The return type of the procedure (must be present if procedureName is present)
-	//
-	// Deprecated: return_type is no longer required. It will be removed in a future release.
-	ReturnType *string `pulumi:"returnType"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future procedures on which to grant privileges.
@@ -166,10 +150,6 @@ type procedureGrantState struct {
 type ProcedureGrantState struct {
 	// List of the argument data types for the procedure (must be present if procedure has arguments and procedureName is present)
 	ArgumentDataTypes pulumi.StringArrayInput
-	// List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
-	//
-	// Deprecated: use argument_data_types instead.
-	Arguments ProcedureGrantArgumentArrayInput
 	// The name of the database containing the current or future procedures on which to grant privileges.
 	DatabaseName pulumi.StringPtrInput
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -181,10 +161,6 @@ type ProcedureGrantState struct {
 	Privilege pulumi.StringPtrInput
 	// The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 	ProcedureName pulumi.StringPtrInput
-	// The return type of the procedure (must be present if procedureName is present)
-	//
-	// Deprecated: return_type is no longer required. It will be removed in a future release.
-	ReturnType pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future procedures on which to grant privileges.
@@ -202,10 +178,6 @@ func (ProcedureGrantState) ElementType() reflect.Type {
 type procedureGrantArgs struct {
 	// List of the argument data types for the procedure (must be present if procedure has arguments and procedureName is present)
 	ArgumentDataTypes []string `pulumi:"argumentDataTypes"`
-	// List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
-	//
-	// Deprecated: use argument_data_types instead.
-	Arguments []ProcedureGrantArgument `pulumi:"arguments"`
 	// The name of the database containing the current or future procedures on which to grant privileges.
 	DatabaseName string `pulumi:"databaseName"`
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -217,10 +189,6 @@ type procedureGrantArgs struct {
 	Privilege *string `pulumi:"privilege"`
 	// The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 	ProcedureName *string `pulumi:"procedureName"`
-	// The return type of the procedure (must be present if procedureName is present)
-	//
-	// Deprecated: return_type is no longer required. It will be removed in a future release.
-	ReturnType *string `pulumi:"returnType"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future procedures on which to grant privileges.
@@ -235,10 +203,6 @@ type procedureGrantArgs struct {
 type ProcedureGrantArgs struct {
 	// List of the argument data types for the procedure (must be present if procedure has arguments and procedureName is present)
 	ArgumentDataTypes pulumi.StringArrayInput
-	// List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
-	//
-	// Deprecated: use argument_data_types instead.
-	Arguments ProcedureGrantArgumentArrayInput
 	// The name of the database containing the current or future procedures on which to grant privileges.
 	DatabaseName pulumi.StringInput
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -250,10 +214,6 @@ type ProcedureGrantArgs struct {
 	Privilege pulumi.StringPtrInput
 	// The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 	ProcedureName pulumi.StringPtrInput
-	// The return type of the procedure (must be present if procedureName is present)
-	//
-	// Deprecated: return_type is no longer required. It will be removed in a future release.
-	ReturnType pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future procedures on which to grant privileges.
@@ -356,13 +316,6 @@ func (o ProcedureGrantOutput) ArgumentDataTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ProcedureGrant) pulumi.StringArrayOutput { return v.ArgumentDataTypes }).(pulumi.StringArrayOutput)
 }
 
-// List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
-//
-// Deprecated: use argument_data_types instead.
-func (o ProcedureGrantOutput) Arguments() ProcedureGrantArgumentArrayOutput {
-	return o.ApplyT(func(v *ProcedureGrant) ProcedureGrantArgumentArrayOutput { return v.Arguments }).(ProcedureGrantArgumentArrayOutput)
-}
-
 // The name of the database containing the current or future procedures on which to grant privileges.
 func (o ProcedureGrantOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProcedureGrant) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
@@ -387,13 +340,6 @@ func (o ProcedureGrantOutput) Privilege() pulumi.StringPtrOutput {
 // The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 func (o ProcedureGrantOutput) ProcedureName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProcedureGrant) pulumi.StringPtrOutput { return v.ProcedureName }).(pulumi.StringPtrOutput)
-}
-
-// The return type of the procedure (must be present if procedureName is present)
-//
-// Deprecated: return_type is no longer required. It will be removed in a future release.
-func (o ProcedureGrantOutput) ReturnType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProcedureGrant) pulumi.StringPtrOutput { return v.ReturnType }).(pulumi.StringPtrOutput)
 }
 
 // Grants privilege to these roles.

@@ -14,6 +14,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
@@ -39,10 +40,10 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// format is database_name | schema_name | stage_name | privilege | with_grant_option | roles
+    /// format is database_name|schema_name|stage_name|privilege|with_grant_option|on_future|on_all|roles
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/stageGrant:StageGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|USAGE|false|role1,role2'
+    ///  $ pulumi import snowflake:index/stageGrant:StageGrant example "MY_DATABASE|MY_SCHEMA|MY_STAGE|USAGE|false|false|false|role1,role2"
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/stageGrant:StageGrant")]
@@ -62,7 +63,13 @@ namespace Pulumi.Snowflake
         public Output<bool?> EnableMultipleGrants { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+        /// </summary>
+        [Output("onAll")]
+        public Output<bool?> OnAll { get; private set; } = null!;
+
+        /// <summary>
+        /// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future. Cannot be used together with on_all.
         /// </summary>
         [Output("onFuture")]
         public Output<bool?> OnFuture { get; private set; } = null!;
@@ -86,7 +93,7 @@ namespace Pulumi.Snowflake
         public Output<string?> SchemaName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the stage on which to grant privilege (only valid if on_future is false).
+        /// The name of the stage on which to grant privilege (only valid if on*future and on*all are false).
         /// </summary>
         [Output("stageName")]
         public Output<string?> StageName { get; private set; } = null!;
@@ -157,7 +164,13 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+        /// </summary>
+        [Input("onAll")]
+        public Input<bool>? OnAll { get; set; }
+
+        /// <summary>
+        /// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future. Cannot be used together with on_all.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -187,7 +200,7 @@ namespace Pulumi.Snowflake
         public Input<string>? SchemaName { get; set; }
 
         /// <summary>
-        /// The name of the stage on which to grant privilege (only valid if on_future is false).
+        /// The name of the stage on which to grant privilege (only valid if on*future and on*all are false).
         /// </summary>
         [Input("stageName")]
         public Input<string>? StageName { get; set; }
@@ -220,7 +233,13 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+        /// </summary>
+        [Input("onAll")]
+        public Input<bool>? OnAll { get; set; }
+
+        /// <summary>
+        /// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future. Cannot be used together with on_all.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -250,7 +269,7 @@ namespace Pulumi.Snowflake
         public Input<string>? SchemaName { get; set; }
 
         /// <summary>
-        /// The name of the stage on which to grant privilege (only valid if on_future is false).
+        /// The name of the stage on which to grant privilege (only valid if on*future and on*all are false).
         /// </summary>
         [Input("stageName")]
         public Input<string>? StageName { get; set; }

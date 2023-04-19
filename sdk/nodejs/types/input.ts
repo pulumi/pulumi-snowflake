@@ -5,6 +5,22 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface AlertAlertSchedule {
+    /**
+     * Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+     */
+    cron?: pulumi.Input<inputs.AlertAlertScheduleCron>;
+    /**
+     * Specifies the interval in minutes for the alert schedule. The interval must be greater than 0 and less than 1440 (24 hours).
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface AlertAlertScheduleCron {
+    expression: pulumi.Input<string>;
+    timeZone: pulumi.Input<string>;
+}
+
 export interface DatabaseReplicationConfiguration {
     accounts: pulumi.Input<pulumi.Input<string>[]>;
     ignoreEditionCheck?: pulumi.Input<boolean>;
@@ -117,17 +133,6 @@ export interface FailoverGroupReplicationScheduleCron {
 }
 
 export interface FunctionArgument {
-    /**
-     * The argument name
-     */
-    name: pulumi.Input<string>;
-    /**
-     * The argument type
-     */
-    type: pulumi.Input<string>;
-}
-
-export interface FunctionGrantArgument {
     /**
      * The argument name
      */
@@ -301,17 +306,6 @@ export interface ObjectParameterObjectIdentifier {
 }
 
 export interface ProcedureArgument {
-    /**
-     * The argument name
-     */
-    name: pulumi.Input<string>;
-    /**
-     * The argument type
-     */
-    type: pulumi.Input<string>;
-}
-
-export interface ProcedureGrantArgument {
     /**
      * The argument name
      */

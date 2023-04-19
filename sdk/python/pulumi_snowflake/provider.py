@@ -17,6 +17,7 @@ class ProviderArgs:
                  account: Optional[pulumi.Input[str]] = None,
                  browser_auth: Optional[pulumi.Input[bool]] = None,
                  host: Optional[pulumi.Input[str]] = None,
+                 insecure_mode: Optional[pulumi.Input[bool]] = None,
                  oauth_access_token: Optional[pulumi.Input[str]] = None,
                  oauth_client_id: Optional[pulumi.Input[str]] = None,
                  oauth_client_secret: Optional[pulumi.Input[str]] = None,
@@ -38,6 +39,8 @@ class ProviderArgs:
         :param pulumi.Input[str] account: The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
         :param pulumi.Input[bool] browser_auth: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
         :param pulumi.Input[str] host: Supports passing in a custom host value to the snowflake go driver for use with privatelink.
+        :param pulumi.Input[bool] insecure_mode: If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
+               default value for testing or emergency situations only.
         :param pulumi.Input[str] oauth_access_token: Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
                `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
                variable.
@@ -81,6 +84,8 @@ class ProviderArgs:
             host = _utilities.get_env('SNOWFLAKE_HOST')
         if host is not None:
             pulumi.set(__self__, "host", host)
+        if insecure_mode is not None:
+            pulumi.set(__self__, "insecure_mode", insecure_mode)
         if oauth_access_token is None:
             oauth_access_token = _utilities.get_env('SNOWFLAKE_OAUTH_ACCESS_TOKEN')
         if oauth_access_token is not None:
@@ -179,6 +184,19 @@ class ProviderArgs:
     @host.setter
     def host(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter(name="insecureMode")
+    def insecure_mode(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
+        default value for testing or emergency situations only.
+        """
+        return pulumi.get(self, "insecure_mode")
+
+    @insecure_mode.setter
+    def insecure_mode(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "insecure_mode", value)
 
     @property
     @pulumi.getter(name="oauthAccessToken")
@@ -395,6 +413,7 @@ class Provider(pulumi.ProviderResource):
                  account: Optional[pulumi.Input[str]] = None,
                  browser_auth: Optional[pulumi.Input[bool]] = None,
                  host: Optional[pulumi.Input[str]] = None,
+                 insecure_mode: Optional[pulumi.Input[bool]] = None,
                  oauth_access_token: Optional[pulumi.Input[str]] = None,
                  oauth_client_id: Optional[pulumi.Input[str]] = None,
                  oauth_client_secret: Optional[pulumi.Input[str]] = None,
@@ -423,6 +442,8 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] account: The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
         :param pulumi.Input[bool] browser_auth: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
         :param pulumi.Input[str] host: Supports passing in a custom host value to the snowflake go driver for use with privatelink.
+        :param pulumi.Input[bool] insecure_mode: If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
+               default value for testing or emergency situations only.
         :param pulumi.Input[str] oauth_access_token: Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
                `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
                variable.
@@ -484,6 +505,7 @@ class Provider(pulumi.ProviderResource):
                  account: Optional[pulumi.Input[str]] = None,
                  browser_auth: Optional[pulumi.Input[bool]] = None,
                  host: Optional[pulumi.Input[str]] = None,
+                 insecure_mode: Optional[pulumi.Input[bool]] = None,
                  oauth_access_token: Optional[pulumi.Input[str]] = None,
                  oauth_client_id: Optional[pulumi.Input[str]] = None,
                  oauth_client_secret: Optional[pulumi.Input[str]] = None,
@@ -518,6 +540,7 @@ class Provider(pulumi.ProviderResource):
             if host is None:
                 host = _utilities.get_env('SNOWFLAKE_HOST')
             __props__.__dict__["host"] = host
+            __props__.__dict__["insecure_mode"] = pulumi.Output.from_input(insecure_mode).apply(pulumi.runtime.to_json) if insecure_mode is not None else None
             if oauth_access_token is None:
                 oauth_access_token = _utilities.get_env('SNOWFLAKE_OAUTH_ACCESS_TOKEN')
             __props__.__dict__["oauth_access_token"] = None if oauth_access_token is None else pulumi.Output.secret(oauth_access_token)

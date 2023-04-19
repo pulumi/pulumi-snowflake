@@ -10,6 +10,8 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
+    'AlertAlertScheduleArgs',
+    'AlertAlertScheduleCronArgs',
     'DatabaseReplicationConfigurationArgs',
     'DatabaseTagArgs',
     'ExternalFunctionArgArgs',
@@ -20,11 +22,9 @@ __all__ = [
     'FailoverGroupReplicationScheduleArgs',
     'FailoverGroupReplicationScheduleCronArgs',
     'FunctionArgumentArgs',
-    'FunctionGrantArgumentArgs',
     'MaterializedViewTagArgs',
     'ObjectParameterObjectIdentifierArgs',
     'ProcedureArgumentArgs',
-    'ProcedureGrantArgumentArgs',
     'RoleTagArgs',
     'SchemaTagArgs',
     'StageTagArgs',
@@ -46,6 +46,72 @@ __all__ = [
     'GetGrantsGrantsOnArgs',
     'GetGrantsGrantsToArgs',
 ]
+
+@pulumi.input_type
+class AlertAlertScheduleArgs:
+    def __init__(__self__, *,
+                 cron: Optional[pulumi.Input['AlertAlertScheduleCronArgs']] = None,
+                 interval: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input['AlertAlertScheduleCronArgs'] cron: Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+        :param pulumi.Input[int] interval: Specifies the interval in minutes for the alert schedule. The interval must be greater than 0 and less than 1440 (24 hours).
+        """
+        if cron is not None:
+            pulumi.set(__self__, "cron", cron)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def cron(self) -> Optional[pulumi.Input['AlertAlertScheduleCronArgs']]:
+        """
+        Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+        """
+        return pulumi.get(self, "cron")
+
+    @cron.setter
+    def cron(self, value: Optional[pulumi.Input['AlertAlertScheduleCronArgs']]):
+        pulumi.set(self, "cron", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the interval in minutes for the alert schedule. The interval must be greater than 0 and less than 1440 (24 hours).
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+
+@pulumi.input_type
+class AlertAlertScheduleCronArgs:
+    def __init__(__self__, *,
+                 expression: pulumi.Input[str],
+                 time_zone: pulumi.Input[str]):
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[str]):
+        pulumi.set(self, "expression", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time_zone", value)
+
 
 @pulumi.input_type
 class DatabaseReplicationConfigurationArgs:
@@ -495,43 +561,6 @@ class FunctionArgumentArgs:
 
 
 @pulumi.input_type
-class FunctionGrantArgumentArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 type: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] name: The argument name
-        :param pulumi.Input[str] type: The argument type
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The argument name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        The argument type
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
 class MaterializedViewTagArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -656,43 +685,6 @@ class ObjectParameterObjectIdentifierArgs:
 
 @pulumi.input_type
 class ProcedureArgumentArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 type: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] name: The argument name
-        :param pulumi.Input[str] type: The argument type
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The argument name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        The argument type
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class ProcedureGrantArgumentArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str]):

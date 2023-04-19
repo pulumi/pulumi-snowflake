@@ -68,7 +68,7 @@ import (
 //
 // ## Import
 //
-// format is role_name | roles | users
+// format is role_name|roles|users
 //
 // ```sh
 //

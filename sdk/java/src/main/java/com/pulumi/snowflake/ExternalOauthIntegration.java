@@ -17,6 +17,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * An External OAuth security integration allows a client to use a third-party authorization server to obtain the access tokens needed to interact with Snowflake.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -243,6 +245,20 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      */
     public Output<Optional<String>> scopeDelimiter() {
         return Codegen.optional(this.scopeDelimiter);
+    }
+    /**
+     * Specifies the access token claim to map the access token to an account role.
+     * 
+     */
+    @Export(name="scopeMappingAttribute", type=String.class, parameters={})
+    private Output</* @Nullable */ String> scopeMappingAttribute;
+
+    /**
+     * @return Specifies the access token claim to map the access token to an account role.
+     * 
+     */
+    public Output<Optional<String>> scopeMappingAttribute() {
+        return Codegen.optional(this.scopeMappingAttribute);
     }
     /**
      * Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.

@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -37,10 +35,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * format is database_name | schema_name | object_name | argument_data_types | privilege | with_grant_option | roles | shares
+ * format is database_name|schema_name|function_name|argument_data_types|privilege|with_grant_option|on_future|roles|shares
  *
  * ```sh
- *  $ pulumi import snowflake:index/functionGrant:FunctionGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|ARG1TYPE,ARG2TYPE|USAGE|false|role1,role2|share1,share2'
+ *  $ pulumi import snowflake:index/functionGrant:FunctionGrant example "MY_DATABASE|MY_SCHEMA|MY_FUNCTION|ARG1TYPE,ARG2TYPE|USAGE|false|false|role1,role2|share1,share2"
  * ```
  */
 export class FunctionGrant extends pulumi.CustomResource {
@@ -76,12 +74,6 @@ export class FunctionGrant extends pulumi.CustomResource {
      */
     public readonly argumentDataTypes!: pulumi.Output<string[] | undefined>;
     /**
-     * List of the arguments for the function (must be present if function has arguments and functionName is present)
-     *
-     * @deprecated Use argument_data_types instead
-     */
-    public readonly arguments!: pulumi.Output<outputs.FunctionGrantArgument[] | undefined>;
-    /**
      * The name of the database containing the current or future functions on which to grant privileges.
      */
     public readonly databaseName!: pulumi.Output<string>;
@@ -102,12 +94,6 @@ export class FunctionGrant extends pulumi.CustomResource {
      * The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
      */
     public readonly privilege!: pulumi.Output<string | undefined>;
-    /**
-     * The return type of the function (must be present if functionName is present)
-     *
-     * @deprecated Not used anymore
-     */
-    public readonly returnType!: pulumi.Output<string | undefined>;
     /**
      * Grants privilege to these roles.
      */
@@ -139,13 +125,11 @@ export class FunctionGrant extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as FunctionGrantState | undefined;
             resourceInputs["argumentDataTypes"] = state ? state.argumentDataTypes : undefined;
-            resourceInputs["arguments"] = state ? state.arguments : undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
             resourceInputs["enableMultipleGrants"] = state ? state.enableMultipleGrants : undefined;
             resourceInputs["functionName"] = state ? state.functionName : undefined;
             resourceInputs["onFuture"] = state ? state.onFuture : undefined;
             resourceInputs["privilege"] = state ? state.privilege : undefined;
-            resourceInputs["returnType"] = state ? state.returnType : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
             resourceInputs["schemaName"] = state ? state.schemaName : undefined;
             resourceInputs["shares"] = state ? state.shares : undefined;
@@ -159,13 +143,11 @@ export class FunctionGrant extends pulumi.CustomResource {
                 throw new Error("Missing required property 'roles'");
             }
             resourceInputs["argumentDataTypes"] = args ? args.argumentDataTypes : undefined;
-            resourceInputs["arguments"] = args ? args.arguments : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["enableMultipleGrants"] = args ? args.enableMultipleGrants : undefined;
             resourceInputs["functionName"] = args ? args.functionName : undefined;
             resourceInputs["onFuture"] = args ? args.onFuture : undefined;
             resourceInputs["privilege"] = args ? args.privilege : undefined;
-            resourceInputs["returnType"] = args ? args.returnType : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
             resourceInputs["schemaName"] = args ? args.schemaName : undefined;
             resourceInputs["shares"] = args ? args.shares : undefined;
@@ -184,12 +166,6 @@ export interface FunctionGrantState {
      * List of the argument data types for the function (must be present if function has arguments and functionName is present)
      */
     argumentDataTypes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of the arguments for the function (must be present if function has arguments and functionName is present)
-     *
-     * @deprecated Use argument_data_types instead
-     */
-    arguments?: pulumi.Input<pulumi.Input<inputs.FunctionGrantArgument>[]>;
     /**
      * The name of the database containing the current or future functions on which to grant privileges.
      */
@@ -211,12 +187,6 @@ export interface FunctionGrantState {
      * The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
      */
     privilege?: pulumi.Input<string>;
-    /**
-     * The return type of the function (must be present if functionName is present)
-     *
-     * @deprecated Not used anymore
-     */
-    returnType?: pulumi.Input<string>;
     /**
      * Grants privilege to these roles.
      */
@@ -244,12 +214,6 @@ export interface FunctionGrantArgs {
      */
     argumentDataTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of the arguments for the function (must be present if function has arguments and functionName is present)
-     *
-     * @deprecated Use argument_data_types instead
-     */
-    arguments?: pulumi.Input<pulumi.Input<inputs.FunctionGrantArgument>[]>;
-    /**
      * The name of the database containing the current or future functions on which to grant privileges.
      */
     databaseName: pulumi.Input<string>;
@@ -270,12 +234,6 @@ export interface FunctionGrantArgs {
      * The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
      */
     privilege?: pulumi.Input<string>;
-    /**
-     * The return type of the function (must be present if functionName is present)
-     *
-     * @deprecated Not used anymore
-     */
-    returnType?: pulumi.Input<string>;
     /**
      * Grants privilege to these roles.
      */

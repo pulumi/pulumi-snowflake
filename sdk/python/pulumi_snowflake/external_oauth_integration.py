@@ -28,7 +28,8 @@ class ExternalOauthIntegrationArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  rsa_public_key: Optional[pulumi.Input[str]] = None,
                  rsa_public_key2: Optional[pulumi.Input[str]] = None,
-                 scope_delimiter: Optional[pulumi.Input[str]] = None):
+                 scope_delimiter: Optional[pulumi.Input[str]] = None,
+                 scope_mapping_attribute: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ExternalOauthIntegration resource.
         :param pulumi.Input[bool] enabled: Specifies whether to initiate operation of the integration or suspend it.
@@ -46,6 +47,7 @@ class ExternalOauthIntegrationArgs:
         :param pulumi.Input[str] rsa_public_key: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
         :param pulumi.Input[str] rsa_public_key2: Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
         :param pulumi.Input[str] scope_delimiter: Specifies the scope delimiter in the authorization token.
+        :param pulumi.Input[str] scope_mapping_attribute: Specifies the access token claim to map the access token to an account role.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "issuer", issuer)
@@ -72,6 +74,8 @@ class ExternalOauthIntegrationArgs:
             pulumi.set(__self__, "rsa_public_key2", rsa_public_key2)
         if scope_delimiter is not None:
             pulumi.set(__self__, "scope_delimiter", scope_delimiter)
+        if scope_mapping_attribute is not None:
+            pulumi.set(__self__, "scope_mapping_attribute", scope_mapping_attribute)
 
     @property
     @pulumi.getter
@@ -253,6 +257,18 @@ class ExternalOauthIntegrationArgs:
     def scope_delimiter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "scope_delimiter", value)
 
+    @property
+    @pulumi.getter(name="scopeMappingAttribute")
+    def scope_mapping_attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the access token claim to map the access token to an account role.
+        """
+        return pulumi.get(self, "scope_mapping_attribute")
+
+    @scope_mapping_attribute.setter
+    def scope_mapping_attribute(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope_mapping_attribute", value)
+
 
 @pulumi.input_type
 class _ExternalOauthIntegrationState:
@@ -270,6 +286,7 @@ class _ExternalOauthIntegrationState:
                  rsa_public_key: Optional[pulumi.Input[str]] = None,
                  rsa_public_key2: Optional[pulumi.Input[str]] = None,
                  scope_delimiter: Optional[pulumi.Input[str]] = None,
+                 scope_mapping_attribute: Optional[pulumi.Input[str]] = None,
                  snowflake_user_mapping_attribute: Optional[pulumi.Input[str]] = None,
                  token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
@@ -288,6 +305,7 @@ class _ExternalOauthIntegrationState:
         :param pulumi.Input[str] rsa_public_key: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
         :param pulumi.Input[str] rsa_public_key2: Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
         :param pulumi.Input[str] scope_delimiter: Specifies the scope delimiter in the authorization token.
+        :param pulumi.Input[str] scope_mapping_attribute: Specifies the access token claim to map the access token to an account role.
         :param pulumi.Input[str] snowflake_user_mapping_attribute: Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] token_user_mapping_claims: Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
         :param pulumi.Input[str] type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
@@ -318,6 +336,8 @@ class _ExternalOauthIntegrationState:
             pulumi.set(__self__, "rsa_public_key2", rsa_public_key2)
         if scope_delimiter is not None:
             pulumi.set(__self__, "scope_delimiter", scope_delimiter)
+        if scope_mapping_attribute is not None:
+            pulumi.set(__self__, "scope_mapping_attribute", scope_mapping_attribute)
         if snowflake_user_mapping_attribute is not None:
             pulumi.set(__self__, "snowflake_user_mapping_attribute", snowflake_user_mapping_attribute)
         if token_user_mapping_claims is not None:
@@ -482,6 +502,18 @@ class _ExternalOauthIntegrationState:
         pulumi.set(self, "scope_delimiter", value)
 
     @property
+    @pulumi.getter(name="scopeMappingAttribute")
+    def scope_mapping_attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the access token claim to map the access token to an account role.
+        """
+        return pulumi.get(self, "scope_mapping_attribute")
+
+    @scope_mapping_attribute.setter
+    def scope_mapping_attribute(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope_mapping_attribute", value)
+
+    @property
     @pulumi.getter(name="snowflakeUserMappingAttribute")
     def snowflake_user_mapping_attribute(self) -> Optional[pulumi.Input[str]]:
         """
@@ -535,11 +567,14 @@ class ExternalOauthIntegration(pulumi.CustomResource):
                  rsa_public_key: Optional[pulumi.Input[str]] = None,
                  rsa_public_key2: Optional[pulumi.Input[str]] = None,
                  scope_delimiter: Optional[pulumi.Input[str]] = None,
+                 scope_mapping_attribute: Optional[pulumi.Input[str]] = None,
                  snowflake_user_mapping_attribute: Optional[pulumi.Input[str]] = None,
                  token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        An External OAuth security integration allows a client to use a third-party authorization server to obtain the access tokens needed to interact with Snowflake.
+
         ## Example Usage
 
         ```python
@@ -576,6 +611,7 @@ class ExternalOauthIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] rsa_public_key: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
         :param pulumi.Input[str] rsa_public_key2: Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
         :param pulumi.Input[str] scope_delimiter: Specifies the scope delimiter in the authorization token.
+        :param pulumi.Input[str] scope_mapping_attribute: Specifies the access token claim to map the access token to an account role.
         :param pulumi.Input[str] snowflake_user_mapping_attribute: Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] token_user_mapping_claims: Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
         :param pulumi.Input[str] type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
@@ -587,6 +623,8 @@ class ExternalOauthIntegration(pulumi.CustomResource):
                  args: ExternalOauthIntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        An External OAuth security integration allows a client to use a third-party authorization server to obtain the access tokens needed to interact with Snowflake.
+
         ## Example Usage
 
         ```python
@@ -636,6 +674,7 @@ class ExternalOauthIntegration(pulumi.CustomResource):
                  rsa_public_key: Optional[pulumi.Input[str]] = None,
                  rsa_public_key2: Optional[pulumi.Input[str]] = None,
                  scope_delimiter: Optional[pulumi.Input[str]] = None,
+                 scope_mapping_attribute: Optional[pulumi.Input[str]] = None,
                  snowflake_user_mapping_attribute: Optional[pulumi.Input[str]] = None,
                  token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -664,6 +703,7 @@ class ExternalOauthIntegration(pulumi.CustomResource):
             __props__.__dict__["rsa_public_key"] = rsa_public_key
             __props__.__dict__["rsa_public_key2"] = rsa_public_key2
             __props__.__dict__["scope_delimiter"] = scope_delimiter
+            __props__.__dict__["scope_mapping_attribute"] = scope_mapping_attribute
             if snowflake_user_mapping_attribute is None and not opts.urn:
                 raise TypeError("Missing required property 'snowflake_user_mapping_attribute'")
             __props__.__dict__["snowflake_user_mapping_attribute"] = snowflake_user_mapping_attribute
@@ -697,6 +737,7 @@ class ExternalOauthIntegration(pulumi.CustomResource):
             rsa_public_key: Optional[pulumi.Input[str]] = None,
             rsa_public_key2: Optional[pulumi.Input[str]] = None,
             scope_delimiter: Optional[pulumi.Input[str]] = None,
+            scope_mapping_attribute: Optional[pulumi.Input[str]] = None,
             snowflake_user_mapping_attribute: Optional[pulumi.Input[str]] = None,
             token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'ExternalOauthIntegration':
@@ -720,6 +761,7 @@ class ExternalOauthIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] rsa_public_key: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
         :param pulumi.Input[str] rsa_public_key2: Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
         :param pulumi.Input[str] scope_delimiter: Specifies the scope delimiter in the authorization token.
+        :param pulumi.Input[str] scope_mapping_attribute: Specifies the access token claim to map the access token to an account role.
         :param pulumi.Input[str] snowflake_user_mapping_attribute: Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] token_user_mapping_claims: Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
         :param pulumi.Input[str] type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
@@ -741,6 +783,7 @@ class ExternalOauthIntegration(pulumi.CustomResource):
         __props__.__dict__["rsa_public_key"] = rsa_public_key
         __props__.__dict__["rsa_public_key2"] = rsa_public_key2
         __props__.__dict__["scope_delimiter"] = scope_delimiter
+        __props__.__dict__["scope_mapping_attribute"] = scope_mapping_attribute
         __props__.__dict__["snowflake_user_mapping_attribute"] = snowflake_user_mapping_attribute
         __props__.__dict__["token_user_mapping_claims"] = token_user_mapping_claims
         __props__.__dict__["type"] = type
@@ -849,6 +892,14 @@ class ExternalOauthIntegration(pulumi.CustomResource):
         Specifies the scope delimiter in the authorization token.
         """
         return pulumi.get(self, "scope_delimiter")
+
+    @property
+    @pulumi.getter(name="scopeMappingAttribute")
+    def scope_mapping_attribute(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the access token claim to map the access token to an account role.
+        """
+        return pulumi.get(self, "scope_mapping_attribute")
 
     @property
     @pulumi.getter(name="snowflakeUserMappingAttribute")

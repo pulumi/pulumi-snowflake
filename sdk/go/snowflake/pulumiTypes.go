@@ -10,6 +10,310 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AlertAlertSchedule struct {
+	// Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+	Cron *AlertAlertScheduleCron `pulumi:"cron"`
+	// Specifies the interval in minutes for the alert schedule. The interval must be greater than 0 and less than 1440 (24 hours).
+	Interval *int `pulumi:"interval"`
+}
+
+// AlertAlertScheduleInput is an input type that accepts AlertAlertScheduleArgs and AlertAlertScheduleOutput values.
+// You can construct a concrete instance of `AlertAlertScheduleInput` via:
+//
+//	AlertAlertScheduleArgs{...}
+type AlertAlertScheduleInput interface {
+	pulumi.Input
+
+	ToAlertAlertScheduleOutput() AlertAlertScheduleOutput
+	ToAlertAlertScheduleOutputWithContext(context.Context) AlertAlertScheduleOutput
+}
+
+type AlertAlertScheduleArgs struct {
+	// Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+	Cron AlertAlertScheduleCronPtrInput `pulumi:"cron"`
+	// Specifies the interval in minutes for the alert schedule. The interval must be greater than 0 and less than 1440 (24 hours).
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (AlertAlertScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertAlertSchedule)(nil)).Elem()
+}
+
+func (i AlertAlertScheduleArgs) ToAlertAlertScheduleOutput() AlertAlertScheduleOutput {
+	return i.ToAlertAlertScheduleOutputWithContext(context.Background())
+}
+
+func (i AlertAlertScheduleArgs) ToAlertAlertScheduleOutputWithContext(ctx context.Context) AlertAlertScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertAlertScheduleOutput)
+}
+
+func (i AlertAlertScheduleArgs) ToAlertAlertSchedulePtrOutput() AlertAlertSchedulePtrOutput {
+	return i.ToAlertAlertSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i AlertAlertScheduleArgs) ToAlertAlertSchedulePtrOutputWithContext(ctx context.Context) AlertAlertSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertAlertScheduleOutput).ToAlertAlertSchedulePtrOutputWithContext(ctx)
+}
+
+// AlertAlertSchedulePtrInput is an input type that accepts AlertAlertScheduleArgs, AlertAlertSchedulePtr and AlertAlertSchedulePtrOutput values.
+// You can construct a concrete instance of `AlertAlertSchedulePtrInput` via:
+//
+//	        AlertAlertScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertAlertSchedulePtrInput interface {
+	pulumi.Input
+
+	ToAlertAlertSchedulePtrOutput() AlertAlertSchedulePtrOutput
+	ToAlertAlertSchedulePtrOutputWithContext(context.Context) AlertAlertSchedulePtrOutput
+}
+
+type alertAlertSchedulePtrType AlertAlertScheduleArgs
+
+func AlertAlertSchedulePtr(v *AlertAlertScheduleArgs) AlertAlertSchedulePtrInput {
+	return (*alertAlertSchedulePtrType)(v)
+}
+
+func (*alertAlertSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertAlertSchedule)(nil)).Elem()
+}
+
+func (i *alertAlertSchedulePtrType) ToAlertAlertSchedulePtrOutput() AlertAlertSchedulePtrOutput {
+	return i.ToAlertAlertSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *alertAlertSchedulePtrType) ToAlertAlertSchedulePtrOutputWithContext(ctx context.Context) AlertAlertSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertAlertSchedulePtrOutput)
+}
+
+type AlertAlertScheduleOutput struct{ *pulumi.OutputState }
+
+func (AlertAlertScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertAlertSchedule)(nil)).Elem()
+}
+
+func (o AlertAlertScheduleOutput) ToAlertAlertScheduleOutput() AlertAlertScheduleOutput {
+	return o
+}
+
+func (o AlertAlertScheduleOutput) ToAlertAlertScheduleOutputWithContext(ctx context.Context) AlertAlertScheduleOutput {
+	return o
+}
+
+func (o AlertAlertScheduleOutput) ToAlertAlertSchedulePtrOutput() AlertAlertSchedulePtrOutput {
+	return o.ToAlertAlertSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o AlertAlertScheduleOutput) ToAlertAlertSchedulePtrOutputWithContext(ctx context.Context) AlertAlertSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertAlertSchedule) *AlertAlertSchedule {
+		return &v
+	}).(AlertAlertSchedulePtrOutput)
+}
+
+// Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+func (o AlertAlertScheduleOutput) Cron() AlertAlertScheduleCronPtrOutput {
+	return o.ApplyT(func(v AlertAlertSchedule) *AlertAlertScheduleCron { return v.Cron }).(AlertAlertScheduleCronPtrOutput)
+}
+
+// Specifies the interval in minutes for the alert schedule. The interval must be greater than 0 and less than 1440 (24 hours).
+func (o AlertAlertScheduleOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AlertAlertSchedule) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type AlertAlertSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertAlertSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertAlertSchedule)(nil)).Elem()
+}
+
+func (o AlertAlertSchedulePtrOutput) ToAlertAlertSchedulePtrOutput() AlertAlertSchedulePtrOutput {
+	return o
+}
+
+func (o AlertAlertSchedulePtrOutput) ToAlertAlertSchedulePtrOutputWithContext(ctx context.Context) AlertAlertSchedulePtrOutput {
+	return o
+}
+
+func (o AlertAlertSchedulePtrOutput) Elem() AlertAlertScheduleOutput {
+	return o.ApplyT(func(v *AlertAlertSchedule) AlertAlertSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret AlertAlertSchedule
+		return ret
+	}).(AlertAlertScheduleOutput)
+}
+
+// Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+func (o AlertAlertSchedulePtrOutput) Cron() AlertAlertScheduleCronPtrOutput {
+	return o.ApplyT(func(v *AlertAlertSchedule) *AlertAlertScheduleCron {
+		if v == nil {
+			return nil
+		}
+		return v.Cron
+	}).(AlertAlertScheduleCronPtrOutput)
+}
+
+// Specifies the interval in minutes for the alert schedule. The interval must be greater than 0 and less than 1440 (24 hours).
+func (o AlertAlertSchedulePtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlertAlertSchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+type AlertAlertScheduleCron struct {
+	Expression string `pulumi:"expression"`
+	TimeZone   string `pulumi:"timeZone"`
+}
+
+// AlertAlertScheduleCronInput is an input type that accepts AlertAlertScheduleCronArgs and AlertAlertScheduleCronOutput values.
+// You can construct a concrete instance of `AlertAlertScheduleCronInput` via:
+//
+//	AlertAlertScheduleCronArgs{...}
+type AlertAlertScheduleCronInput interface {
+	pulumi.Input
+
+	ToAlertAlertScheduleCronOutput() AlertAlertScheduleCronOutput
+	ToAlertAlertScheduleCronOutputWithContext(context.Context) AlertAlertScheduleCronOutput
+}
+
+type AlertAlertScheduleCronArgs struct {
+	Expression pulumi.StringInput `pulumi:"expression"`
+	TimeZone   pulumi.StringInput `pulumi:"timeZone"`
+}
+
+func (AlertAlertScheduleCronArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertAlertScheduleCron)(nil)).Elem()
+}
+
+func (i AlertAlertScheduleCronArgs) ToAlertAlertScheduleCronOutput() AlertAlertScheduleCronOutput {
+	return i.ToAlertAlertScheduleCronOutputWithContext(context.Background())
+}
+
+func (i AlertAlertScheduleCronArgs) ToAlertAlertScheduleCronOutputWithContext(ctx context.Context) AlertAlertScheduleCronOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertAlertScheduleCronOutput)
+}
+
+func (i AlertAlertScheduleCronArgs) ToAlertAlertScheduleCronPtrOutput() AlertAlertScheduleCronPtrOutput {
+	return i.ToAlertAlertScheduleCronPtrOutputWithContext(context.Background())
+}
+
+func (i AlertAlertScheduleCronArgs) ToAlertAlertScheduleCronPtrOutputWithContext(ctx context.Context) AlertAlertScheduleCronPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertAlertScheduleCronOutput).ToAlertAlertScheduleCronPtrOutputWithContext(ctx)
+}
+
+// AlertAlertScheduleCronPtrInput is an input type that accepts AlertAlertScheduleCronArgs, AlertAlertScheduleCronPtr and AlertAlertScheduleCronPtrOutput values.
+// You can construct a concrete instance of `AlertAlertScheduleCronPtrInput` via:
+//
+//	        AlertAlertScheduleCronArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertAlertScheduleCronPtrInput interface {
+	pulumi.Input
+
+	ToAlertAlertScheduleCronPtrOutput() AlertAlertScheduleCronPtrOutput
+	ToAlertAlertScheduleCronPtrOutputWithContext(context.Context) AlertAlertScheduleCronPtrOutput
+}
+
+type alertAlertScheduleCronPtrType AlertAlertScheduleCronArgs
+
+func AlertAlertScheduleCronPtr(v *AlertAlertScheduleCronArgs) AlertAlertScheduleCronPtrInput {
+	return (*alertAlertScheduleCronPtrType)(v)
+}
+
+func (*alertAlertScheduleCronPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertAlertScheduleCron)(nil)).Elem()
+}
+
+func (i *alertAlertScheduleCronPtrType) ToAlertAlertScheduleCronPtrOutput() AlertAlertScheduleCronPtrOutput {
+	return i.ToAlertAlertScheduleCronPtrOutputWithContext(context.Background())
+}
+
+func (i *alertAlertScheduleCronPtrType) ToAlertAlertScheduleCronPtrOutputWithContext(ctx context.Context) AlertAlertScheduleCronPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertAlertScheduleCronPtrOutput)
+}
+
+type AlertAlertScheduleCronOutput struct{ *pulumi.OutputState }
+
+func (AlertAlertScheduleCronOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertAlertScheduleCron)(nil)).Elem()
+}
+
+func (o AlertAlertScheduleCronOutput) ToAlertAlertScheduleCronOutput() AlertAlertScheduleCronOutput {
+	return o
+}
+
+func (o AlertAlertScheduleCronOutput) ToAlertAlertScheduleCronOutputWithContext(ctx context.Context) AlertAlertScheduleCronOutput {
+	return o
+}
+
+func (o AlertAlertScheduleCronOutput) ToAlertAlertScheduleCronPtrOutput() AlertAlertScheduleCronPtrOutput {
+	return o.ToAlertAlertScheduleCronPtrOutputWithContext(context.Background())
+}
+
+func (o AlertAlertScheduleCronOutput) ToAlertAlertScheduleCronPtrOutputWithContext(ctx context.Context) AlertAlertScheduleCronPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertAlertScheduleCron) *AlertAlertScheduleCron {
+		return &v
+	}).(AlertAlertScheduleCronPtrOutput)
+}
+
+func (o AlertAlertScheduleCronOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertAlertScheduleCron) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+func (o AlertAlertScheduleCronOutput) TimeZone() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertAlertScheduleCron) string { return v.TimeZone }).(pulumi.StringOutput)
+}
+
+type AlertAlertScheduleCronPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertAlertScheduleCronPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertAlertScheduleCron)(nil)).Elem()
+}
+
+func (o AlertAlertScheduleCronPtrOutput) ToAlertAlertScheduleCronPtrOutput() AlertAlertScheduleCronPtrOutput {
+	return o
+}
+
+func (o AlertAlertScheduleCronPtrOutput) ToAlertAlertScheduleCronPtrOutputWithContext(ctx context.Context) AlertAlertScheduleCronPtrOutput {
+	return o
+}
+
+func (o AlertAlertScheduleCronPtrOutput) Elem() AlertAlertScheduleCronOutput {
+	return o.ApplyT(func(v *AlertAlertScheduleCron) AlertAlertScheduleCron {
+		if v != nil {
+			return *v
+		}
+		var ret AlertAlertScheduleCron
+		return ret
+	}).(AlertAlertScheduleCronOutput)
+}
+
+func (o AlertAlertScheduleCronPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertAlertScheduleCron) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AlertAlertScheduleCronPtrOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertAlertScheduleCron) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeZone
+	}).(pulumi.StringPtrOutput)
+}
+
 type DatabaseReplicationConfiguration struct {
 	Accounts           []string `pulumi:"accounts"`
 	IgnoreEditionCheck *bool    `pulumi:"ignoreEditionCheck"`
@@ -1318,112 +1622,6 @@ func (o FunctionArgumentArrayOutput) Index(i pulumi.IntInput) FunctionArgumentOu
 	}).(FunctionArgumentOutput)
 }
 
-type FunctionGrantArgument struct {
-	// The argument name
-	Name string `pulumi:"name"`
-	// The argument type
-	Type string `pulumi:"type"`
-}
-
-// FunctionGrantArgumentInput is an input type that accepts FunctionGrantArgumentArgs and FunctionGrantArgumentOutput values.
-// You can construct a concrete instance of `FunctionGrantArgumentInput` via:
-//
-//	FunctionGrantArgumentArgs{...}
-type FunctionGrantArgumentInput interface {
-	pulumi.Input
-
-	ToFunctionGrantArgumentOutput() FunctionGrantArgumentOutput
-	ToFunctionGrantArgumentOutputWithContext(context.Context) FunctionGrantArgumentOutput
-}
-
-type FunctionGrantArgumentArgs struct {
-	// The argument name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The argument type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (FunctionGrantArgumentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionGrantArgument)(nil)).Elem()
-}
-
-func (i FunctionGrantArgumentArgs) ToFunctionGrantArgumentOutput() FunctionGrantArgumentOutput {
-	return i.ToFunctionGrantArgumentOutputWithContext(context.Background())
-}
-
-func (i FunctionGrantArgumentArgs) ToFunctionGrantArgumentOutputWithContext(ctx context.Context) FunctionGrantArgumentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionGrantArgumentOutput)
-}
-
-// FunctionGrantArgumentArrayInput is an input type that accepts FunctionGrantArgumentArray and FunctionGrantArgumentArrayOutput values.
-// You can construct a concrete instance of `FunctionGrantArgumentArrayInput` via:
-//
-//	FunctionGrantArgumentArray{ FunctionGrantArgumentArgs{...} }
-type FunctionGrantArgumentArrayInput interface {
-	pulumi.Input
-
-	ToFunctionGrantArgumentArrayOutput() FunctionGrantArgumentArrayOutput
-	ToFunctionGrantArgumentArrayOutputWithContext(context.Context) FunctionGrantArgumentArrayOutput
-}
-
-type FunctionGrantArgumentArray []FunctionGrantArgumentInput
-
-func (FunctionGrantArgumentArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FunctionGrantArgument)(nil)).Elem()
-}
-
-func (i FunctionGrantArgumentArray) ToFunctionGrantArgumentArrayOutput() FunctionGrantArgumentArrayOutput {
-	return i.ToFunctionGrantArgumentArrayOutputWithContext(context.Background())
-}
-
-func (i FunctionGrantArgumentArray) ToFunctionGrantArgumentArrayOutputWithContext(ctx context.Context) FunctionGrantArgumentArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionGrantArgumentArrayOutput)
-}
-
-type FunctionGrantArgumentOutput struct{ *pulumi.OutputState }
-
-func (FunctionGrantArgumentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionGrantArgument)(nil)).Elem()
-}
-
-func (o FunctionGrantArgumentOutput) ToFunctionGrantArgumentOutput() FunctionGrantArgumentOutput {
-	return o
-}
-
-func (o FunctionGrantArgumentOutput) ToFunctionGrantArgumentOutputWithContext(ctx context.Context) FunctionGrantArgumentOutput {
-	return o
-}
-
-// The argument name
-func (o FunctionGrantArgumentOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v FunctionGrantArgument) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The argument type
-func (o FunctionGrantArgumentOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v FunctionGrantArgument) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type FunctionGrantArgumentArrayOutput struct{ *pulumi.OutputState }
-
-func (FunctionGrantArgumentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FunctionGrantArgument)(nil)).Elem()
-}
-
-func (o FunctionGrantArgumentArrayOutput) ToFunctionGrantArgumentArrayOutput() FunctionGrantArgumentArrayOutput {
-	return o
-}
-
-func (o FunctionGrantArgumentArrayOutput) ToFunctionGrantArgumentArrayOutputWithContext(ctx context.Context) FunctionGrantArgumentArrayOutput {
-	return o
-}
-
-func (o FunctionGrantArgumentArrayOutput) Index(i pulumi.IntInput) FunctionGrantArgumentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionGrantArgument {
-		return vs[0].([]FunctionGrantArgument)[vs[1].(int)]
-	}).(FunctionGrantArgumentOutput)
-}
-
 type MaterializedViewTag struct {
 	// Name of the database that the tag was created in.
 	Database *string `pulumi:"database"`
@@ -1767,112 +1965,6 @@ func (o ProcedureArgumentArrayOutput) Index(i pulumi.IntInput) ProcedureArgument
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureArgument {
 		return vs[0].([]ProcedureArgument)[vs[1].(int)]
 	}).(ProcedureArgumentOutput)
-}
-
-type ProcedureGrantArgument struct {
-	// The argument name
-	Name string `pulumi:"name"`
-	// The argument type
-	Type string `pulumi:"type"`
-}
-
-// ProcedureGrantArgumentInput is an input type that accepts ProcedureGrantArgumentArgs and ProcedureGrantArgumentOutput values.
-// You can construct a concrete instance of `ProcedureGrantArgumentInput` via:
-//
-//	ProcedureGrantArgumentArgs{...}
-type ProcedureGrantArgumentInput interface {
-	pulumi.Input
-
-	ToProcedureGrantArgumentOutput() ProcedureGrantArgumentOutput
-	ToProcedureGrantArgumentOutputWithContext(context.Context) ProcedureGrantArgumentOutput
-}
-
-type ProcedureGrantArgumentArgs struct {
-	// The argument name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The argument type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ProcedureGrantArgumentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureGrantArgument)(nil)).Elem()
-}
-
-func (i ProcedureGrantArgumentArgs) ToProcedureGrantArgumentOutput() ProcedureGrantArgumentOutput {
-	return i.ToProcedureGrantArgumentOutputWithContext(context.Background())
-}
-
-func (i ProcedureGrantArgumentArgs) ToProcedureGrantArgumentOutputWithContext(ctx context.Context) ProcedureGrantArgumentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureGrantArgumentOutput)
-}
-
-// ProcedureGrantArgumentArrayInput is an input type that accepts ProcedureGrantArgumentArray and ProcedureGrantArgumentArrayOutput values.
-// You can construct a concrete instance of `ProcedureGrantArgumentArrayInput` via:
-//
-//	ProcedureGrantArgumentArray{ ProcedureGrantArgumentArgs{...} }
-type ProcedureGrantArgumentArrayInput interface {
-	pulumi.Input
-
-	ToProcedureGrantArgumentArrayOutput() ProcedureGrantArgumentArrayOutput
-	ToProcedureGrantArgumentArrayOutputWithContext(context.Context) ProcedureGrantArgumentArrayOutput
-}
-
-type ProcedureGrantArgumentArray []ProcedureGrantArgumentInput
-
-func (ProcedureGrantArgumentArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureGrantArgument)(nil)).Elem()
-}
-
-func (i ProcedureGrantArgumentArray) ToProcedureGrantArgumentArrayOutput() ProcedureGrantArgumentArrayOutput {
-	return i.ToProcedureGrantArgumentArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureGrantArgumentArray) ToProcedureGrantArgumentArrayOutputWithContext(ctx context.Context) ProcedureGrantArgumentArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureGrantArgumentArrayOutput)
-}
-
-type ProcedureGrantArgumentOutput struct{ *pulumi.OutputState }
-
-func (ProcedureGrantArgumentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureGrantArgument)(nil)).Elem()
-}
-
-func (o ProcedureGrantArgumentOutput) ToProcedureGrantArgumentOutput() ProcedureGrantArgumentOutput {
-	return o
-}
-
-func (o ProcedureGrantArgumentOutput) ToProcedureGrantArgumentOutputWithContext(ctx context.Context) ProcedureGrantArgumentOutput {
-	return o
-}
-
-// The argument name
-func (o ProcedureGrantArgumentOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ProcedureGrantArgument) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The argument type
-func (o ProcedureGrantArgumentOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ProcedureGrantArgument) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type ProcedureGrantArgumentArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureGrantArgumentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureGrantArgument)(nil)).Elem()
-}
-
-func (o ProcedureGrantArgumentArrayOutput) ToProcedureGrantArgumentArrayOutput() ProcedureGrantArgumentArrayOutput {
-	return o
-}
-
-func (o ProcedureGrantArgumentArrayOutput) ToProcedureGrantArgumentArrayOutputWithContext(ctx context.Context) ProcedureGrantArgumentArrayOutput {
-	return o
-}
-
-func (o ProcedureGrantArgumentArrayOutput) Index(i pulumi.IntInput) ProcedureGrantArgumentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureGrantArgument {
-		return vs[0].([]ProcedureGrantArgument)[vs[1].(int)]
-	}).(ProcedureGrantArgumentOutput)
 }
 
 type RoleTag struct {
@@ -6840,6 +6932,124 @@ func (o GetSequencesSequenceArrayOutput) Index(i pulumi.IntInput) GetSequencesSe
 	}).(GetSequencesSequenceOutput)
 }
 
+type GetSharesShare struct {
+	Comment string `pulumi:"comment"`
+	Kind    string `pulumi:"kind"`
+	Name    string `pulumi:"name"`
+	Owner   string `pulumi:"owner"`
+	To      string `pulumi:"to"`
+}
+
+// GetSharesShareInput is an input type that accepts GetSharesShareArgs and GetSharesShareOutput values.
+// You can construct a concrete instance of `GetSharesShareInput` via:
+//
+//	GetSharesShareArgs{...}
+type GetSharesShareInput interface {
+	pulumi.Input
+
+	ToGetSharesShareOutput() GetSharesShareOutput
+	ToGetSharesShareOutputWithContext(context.Context) GetSharesShareOutput
+}
+
+type GetSharesShareArgs struct {
+	Comment pulumi.StringInput `pulumi:"comment"`
+	Kind    pulumi.StringInput `pulumi:"kind"`
+	Name    pulumi.StringInput `pulumi:"name"`
+	Owner   pulumi.StringInput `pulumi:"owner"`
+	To      pulumi.StringInput `pulumi:"to"`
+}
+
+func (GetSharesShareArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSharesShare)(nil)).Elem()
+}
+
+func (i GetSharesShareArgs) ToGetSharesShareOutput() GetSharesShareOutput {
+	return i.ToGetSharesShareOutputWithContext(context.Background())
+}
+
+func (i GetSharesShareArgs) ToGetSharesShareOutputWithContext(ctx context.Context) GetSharesShareOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSharesShareOutput)
+}
+
+// GetSharesShareArrayInput is an input type that accepts GetSharesShareArray and GetSharesShareArrayOutput values.
+// You can construct a concrete instance of `GetSharesShareArrayInput` via:
+//
+//	GetSharesShareArray{ GetSharesShareArgs{...} }
+type GetSharesShareArrayInput interface {
+	pulumi.Input
+
+	ToGetSharesShareArrayOutput() GetSharesShareArrayOutput
+	ToGetSharesShareArrayOutputWithContext(context.Context) GetSharesShareArrayOutput
+}
+
+type GetSharesShareArray []GetSharesShareInput
+
+func (GetSharesShareArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSharesShare)(nil)).Elem()
+}
+
+func (i GetSharesShareArray) ToGetSharesShareArrayOutput() GetSharesShareArrayOutput {
+	return i.ToGetSharesShareArrayOutputWithContext(context.Background())
+}
+
+func (i GetSharesShareArray) ToGetSharesShareArrayOutputWithContext(ctx context.Context) GetSharesShareArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSharesShareArrayOutput)
+}
+
+type GetSharesShareOutput struct{ *pulumi.OutputState }
+
+func (GetSharesShareOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSharesShare)(nil)).Elem()
+}
+
+func (o GetSharesShareOutput) ToGetSharesShareOutput() GetSharesShareOutput {
+	return o
+}
+
+func (o GetSharesShareOutput) ToGetSharesShareOutputWithContext(ctx context.Context) GetSharesShareOutput {
+	return o
+}
+
+func (o GetSharesShareOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSharesShare) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetSharesShareOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSharesShare) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+func (o GetSharesShareOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSharesShare) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetSharesShareOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSharesShare) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o GetSharesShareOutput) To() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSharesShare) string { return v.To }).(pulumi.StringOutput)
+}
+
+type GetSharesShareArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSharesShareArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSharesShare)(nil)).Elem()
+}
+
+func (o GetSharesShareArrayOutput) ToGetSharesShareArrayOutput() GetSharesShareArrayOutput {
+	return o
+}
+
+func (o GetSharesShareArrayOutput) ToGetSharesShareArrayOutputWithContext(ctx context.Context) GetSharesShareArrayOutput {
+	return o
+}
+
+func (o GetSharesShareArrayOutput) Index(i pulumi.IntInput) GetSharesShareOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSharesShare {
+		return vs[0].([]GetSharesShare)[vs[1].(int)]
+	}).(GetSharesShareOutput)
+}
+
 type GetStagesStage struct {
 	Comment string `pulumi:"comment"`
 	// The database from which to return the schemas from.
@@ -7851,6 +8061,10 @@ func (o GetWarehousesWarehouseArrayOutput) Index(i pulumi.IntInput) GetWarehouse
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertAlertScheduleInput)(nil)).Elem(), AlertAlertScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertAlertSchedulePtrInput)(nil)).Elem(), AlertAlertScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertAlertScheduleCronInput)(nil)).Elem(), AlertAlertScheduleCronArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertAlertScheduleCronPtrInput)(nil)).Elem(), AlertAlertScheduleCronArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseReplicationConfigurationInput)(nil)).Elem(), DatabaseReplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseReplicationConfigurationPtrInput)(nil)).Elem(), DatabaseReplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseTagInput)(nil)).Elem(), DatabaseTagArgs{})
@@ -7871,16 +8085,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReplicationScheduleCronPtrInput)(nil)).Elem(), FailoverGroupReplicationScheduleCronArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArgumentInput)(nil)).Elem(), FunctionArgumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArgumentArrayInput)(nil)).Elem(), FunctionArgumentArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FunctionGrantArgumentInput)(nil)).Elem(), FunctionGrantArgumentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FunctionGrantArgumentArrayInput)(nil)).Elem(), FunctionGrantArgumentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewTagInput)(nil)).Elem(), MaterializedViewTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewTagArrayInput)(nil)).Elem(), MaterializedViewTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectParameterObjectIdentifierInput)(nil)).Elem(), ObjectParameterObjectIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectParameterObjectIdentifierArrayInput)(nil)).Elem(), ObjectParameterObjectIdentifierArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureArgumentInput)(nil)).Elem(), ProcedureArgumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureArgumentArrayInput)(nil)).Elem(), ProcedureArgumentArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureGrantArgumentInput)(nil)).Elem(), ProcedureGrantArgumentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureGrantArgumentArrayInput)(nil)).Elem(), ProcedureGrantArgumentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleTagInput)(nil)).Elem(), RoleTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleTagArrayInput)(nil)).Elem(), RoleTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaTagInput)(nil)).Elem(), SchemaTagArgs{})
@@ -7955,6 +8165,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemasSchemaArrayInput)(nil)).Elem(), GetSchemasSchemaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSequencesSequenceInput)(nil)).Elem(), GetSequencesSequenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSequencesSequenceArrayInput)(nil)).Elem(), GetSequencesSequenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSharesShareInput)(nil)).Elem(), GetSharesShareArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSharesShareArrayInput)(nil)).Elem(), GetSharesShareArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStagesStageInput)(nil)).Elem(), GetStagesStageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStagesStageArrayInput)(nil)).Elem(), GetStagesStageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStorageIntegrationsStorageIntegrationInput)(nil)).Elem(), GetStorageIntegrationsStorageIntegrationArgs{})
@@ -7971,6 +8183,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetViewsViewArrayInput)(nil)).Elem(), GetViewsViewArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWarehousesWarehouseInput)(nil)).Elem(), GetWarehousesWarehouseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWarehousesWarehouseArrayInput)(nil)).Elem(), GetWarehousesWarehouseArray{})
+	pulumi.RegisterOutputType(AlertAlertScheduleOutput{})
+	pulumi.RegisterOutputType(AlertAlertSchedulePtrOutput{})
+	pulumi.RegisterOutputType(AlertAlertScheduleCronOutput{})
+	pulumi.RegisterOutputType(AlertAlertScheduleCronPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseReplicationConfigurationOutput{})
 	pulumi.RegisterOutputType(DatabaseReplicationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseTagOutput{})
@@ -7991,16 +8207,12 @@ func init() {
 	pulumi.RegisterOutputType(FailoverGroupReplicationScheduleCronPtrOutput{})
 	pulumi.RegisterOutputType(FunctionArgumentOutput{})
 	pulumi.RegisterOutputType(FunctionArgumentArrayOutput{})
-	pulumi.RegisterOutputType(FunctionGrantArgumentOutput{})
-	pulumi.RegisterOutputType(FunctionGrantArgumentArrayOutput{})
 	pulumi.RegisterOutputType(MaterializedViewTagOutput{})
 	pulumi.RegisterOutputType(MaterializedViewTagArrayOutput{})
 	pulumi.RegisterOutputType(ObjectParameterObjectIdentifierOutput{})
 	pulumi.RegisterOutputType(ObjectParameterObjectIdentifierArrayOutput{})
 	pulumi.RegisterOutputType(ProcedureArgumentOutput{})
 	pulumi.RegisterOutputType(ProcedureArgumentArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureGrantArgumentOutput{})
-	pulumi.RegisterOutputType(ProcedureGrantArgumentArrayOutput{})
 	pulumi.RegisterOutputType(RoleTagOutput{})
 	pulumi.RegisterOutputType(RoleTagArrayOutput{})
 	pulumi.RegisterOutputType(SchemaTagOutput{})
@@ -8075,6 +8287,8 @@ func init() {
 	pulumi.RegisterOutputType(GetSchemasSchemaArrayOutput{})
 	pulumi.RegisterOutputType(GetSequencesSequenceOutput{})
 	pulumi.RegisterOutputType(GetSequencesSequenceArrayOutput{})
+	pulumi.RegisterOutputType(GetSharesShareOutput{})
+	pulumi.RegisterOutputType(GetSharesShareArrayOutput{})
 	pulumi.RegisterOutputType(GetStagesStageOutput{})
 	pulumi.RegisterOutputType(GetStagesStageArrayOutput{})
 	pulumi.RegisterOutputType(GetStorageIntegrationsStorageIntegrationOutput{})

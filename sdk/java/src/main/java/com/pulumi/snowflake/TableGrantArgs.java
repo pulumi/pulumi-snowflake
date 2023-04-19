@@ -50,14 +50,14 @@ public final class TableGrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.
+     * When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
      * 
      */
     @Import(name="onAll")
     private @Nullable Output<Boolean> onAll;
 
     /**
-     * @return When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.
+     * @return When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
      * 
      */
     public Optional<Output<Boolean>> onAll() {
@@ -65,14 +65,14 @@ public final class TableGrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
+     * When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
      * 
      */
     @Import(name="onFuture")
     private @Nullable Output<Boolean> onFuture;
 
     /**
-     * @return When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
+     * @return When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
      * 
      */
     public Optional<Output<Boolean>> onFuture() {
@@ -125,14 +125,14 @@ public final class TableGrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Grants privilege to these shares (only valid if on*future or on*all is unset).
+     * Grants privilege to these shares (only valid if on*future or on*all are unset).
      * 
      */
     @Import(name="shares")
     private @Nullable Output<List<String>> shares;
 
     /**
-     * @return Grants privilege to these shares (only valid if on*future or on*all is unset).
+     * @return Grants privilege to these shares (only valid if on*future or on*all are unset).
      * 
      */
     public Optional<Output<List<String>>> shares() {
@@ -140,14 +140,14 @@ public final class TableGrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).
+     * The name of the table on which to grant privileges immediately (only valid if on*future or on*all are unset).
      * 
      */
     @Import(name="tableName")
     private @Nullable Output<String> tableName;
 
     /**
-     * @return The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).
+     * @return The name of the table on which to grant privileges immediately (only valid if on*future or on*all are unset).
      * 
      */
     public Optional<Output<String>> tableName() {
@@ -247,7 +247,7 @@ public final class TableGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onAll When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.
+         * @param onAll When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class TableGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onAll When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.
+         * @param onAll When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class TableGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onFuture When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
+         * @param onFuture When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class TableGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onFuture When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
+         * @param onFuture When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class TableGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param shares Grants privilege to these shares (only valid if on*future or on*all is unset).
+         * @param shares Grants privilege to these shares (only valid if on*future or on*all are unset).
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class TableGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param shares Grants privilege to these shares (only valid if on*future or on*all is unset).
+         * @param shares Grants privilege to these shares (only valid if on*future or on*all are unset).
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class TableGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param shares Grants privilege to these shares (only valid if on*future or on*all is unset).
+         * @param shares Grants privilege to these shares (only valid if on*future or on*all are unset).
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class TableGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tableName The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).
+         * @param tableName The name of the table on which to grant privileges immediately (only valid if on*future or on*all are unset).
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class TableGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tableName The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).
+         * @param tableName The name of the table on which to grant privileges immediately (only valid if on*future or on*all are unset).
          * 
          * @return builder
          * 

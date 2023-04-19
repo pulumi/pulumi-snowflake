@@ -10,10 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// An External OAuth security integration allows a client to use a third-party authorization server to obtain the access tokens needed to interact with Snowflake.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
@@ -128,6 +131,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("scopeDelimiter")]
         public Output<string?> ScopeDelimiter { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the access token claim to map the access token to an account role.
+        /// </summary>
+        [Output("scopeMappingAttribute")]
+        public Output<string?> ScopeMappingAttribute { get; private set; } = null!;
 
         /// <summary>
         /// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
@@ -290,6 +299,12 @@ namespace Pulumi.Snowflake
         public Input<string>? ScopeDelimiter { get; set; }
 
         /// <summary>
+        /// Specifies the access token claim to map the access token to an account role.
+        /// </summary>
+        [Input("scopeMappingAttribute")]
+        public Input<string>? ScopeMappingAttribute { get; set; }
+
+        /// <summary>
         /// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
         /// </summary>
         [Input("snowflakeUserMappingAttribute", required: true)]
@@ -422,6 +437,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("scopeDelimiter")]
         public Input<string>? ScopeDelimiter { get; set; }
+
+        /// <summary>
+        /// Specifies the access token claim to map the access token to an account role.
+        /// </summary>
+        [Input("scopeMappingAttribute")]
+        public Input<string>? ScopeMappingAttribute { get; set; }
 
         /// <summary>
         /// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.

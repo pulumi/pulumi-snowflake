@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -20,7 +18,7 @@ import * as utilities from "./utilities";
  *     ],
  *     databaseName: "database",
  *     onFuture: false,
- *     privilege: "SELECT",
+ *     privilege: "USAGE",
  *     procedureName: "procedure",
  *     roles: [
  *         "role1",
@@ -37,10 +35,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * format is database_name | schema_name | object_name | argument_data_types | privilege | with_grant_option | roles | shares
+ * format is database_name|schema_name|procedure_name|argument_data_types|privilege|with_grant_option|on_future|roles|shares
  *
  * ```sh
- *  $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|ARG1TYPE,ARG2TYPE|USAGE|false|role1,role2|share1,share2'
+ *  $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example "MY_DATABASE|MY_SCHEMA|MY_PROCEDURE|ARG1TYPE,ARG2TYPE|USAGE|false|false|role1,role2|share1,share2"
  * ```
  */
 export class ProcedureGrant extends pulumi.CustomResource {
@@ -76,12 +74,6 @@ export class ProcedureGrant extends pulumi.CustomResource {
      */
     public readonly argumentDataTypes!: pulumi.Output<string[] | undefined>;
     /**
-     * List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
-     *
-     * @deprecated use argument_data_types instead.
-     */
-    public readonly arguments!: pulumi.Output<outputs.ProcedureGrantArgument[] | undefined>;
-    /**
      * The name of the database containing the current or future procedures on which to grant privileges.
      */
     public readonly databaseName!: pulumi.Output<string>;
@@ -102,12 +94,6 @@ export class ProcedureGrant extends pulumi.CustomResource {
      * The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
      */
     public readonly procedureName!: pulumi.Output<string | undefined>;
-    /**
-     * The return type of the procedure (must be present if procedureName is present)
-     *
-     * @deprecated return_type is no longer required. It will be removed in a future release.
-     */
-    public readonly returnType!: pulumi.Output<string | undefined>;
     /**
      * Grants privilege to these roles.
      */
@@ -139,13 +125,11 @@ export class ProcedureGrant extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ProcedureGrantState | undefined;
             resourceInputs["argumentDataTypes"] = state ? state.argumentDataTypes : undefined;
-            resourceInputs["arguments"] = state ? state.arguments : undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
             resourceInputs["enableMultipleGrants"] = state ? state.enableMultipleGrants : undefined;
             resourceInputs["onFuture"] = state ? state.onFuture : undefined;
             resourceInputs["privilege"] = state ? state.privilege : undefined;
             resourceInputs["procedureName"] = state ? state.procedureName : undefined;
-            resourceInputs["returnType"] = state ? state.returnType : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
             resourceInputs["schemaName"] = state ? state.schemaName : undefined;
             resourceInputs["shares"] = state ? state.shares : undefined;
@@ -159,13 +143,11 @@ export class ProcedureGrant extends pulumi.CustomResource {
                 throw new Error("Missing required property 'roles'");
             }
             resourceInputs["argumentDataTypes"] = args ? args.argumentDataTypes : undefined;
-            resourceInputs["arguments"] = args ? args.arguments : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["enableMultipleGrants"] = args ? args.enableMultipleGrants : undefined;
             resourceInputs["onFuture"] = args ? args.onFuture : undefined;
             resourceInputs["privilege"] = args ? args.privilege : undefined;
             resourceInputs["procedureName"] = args ? args.procedureName : undefined;
-            resourceInputs["returnType"] = args ? args.returnType : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
             resourceInputs["schemaName"] = args ? args.schemaName : undefined;
             resourceInputs["shares"] = args ? args.shares : undefined;
@@ -184,12 +166,6 @@ export interface ProcedureGrantState {
      * List of the argument data types for the procedure (must be present if procedure has arguments and procedureName is present)
      */
     argumentDataTypes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
-     *
-     * @deprecated use argument_data_types instead.
-     */
-    arguments?: pulumi.Input<pulumi.Input<inputs.ProcedureGrantArgument>[]>;
     /**
      * The name of the database containing the current or future procedures on which to grant privileges.
      */
@@ -211,12 +187,6 @@ export interface ProcedureGrantState {
      * The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
      */
     procedureName?: pulumi.Input<string>;
-    /**
-     * The return type of the procedure (must be present if procedureName is present)
-     *
-     * @deprecated return_type is no longer required. It will be removed in a future release.
-     */
-    returnType?: pulumi.Input<string>;
     /**
      * Grants privilege to these roles.
      */
@@ -244,12 +214,6 @@ export interface ProcedureGrantArgs {
      */
     argumentDataTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of the arguments for the procedure (must be present if procedure has arguments and procedureName is present)
-     *
-     * @deprecated use argument_data_types instead.
-     */
-    arguments?: pulumi.Input<pulumi.Input<inputs.ProcedureGrantArgument>[]>;
-    /**
      * The name of the database containing the current or future procedures on which to grant privileges.
      */
     databaseName: pulumi.Input<string>;
@@ -270,12 +234,6 @@ export interface ProcedureGrantArgs {
      * The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
      */
     procedureName?: pulumi.Input<string>;
-    /**
-     * The return type of the procedure (must be present if procedureName is present)
-     *
-     * @deprecated return_type is no longer required. It will be removed in a future release.
-     */
-    returnType?: pulumi.Input<string>;
     /**
      * Grants privilege to these roles.
      */

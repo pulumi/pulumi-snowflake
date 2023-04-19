@@ -10,7 +10,6 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.FunctionGrantArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.FunctionGrantState;
-import com.pulumi.snowflake.outputs.FunctionGrantArgument;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -64,10 +63,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * format is database_name | schema_name | object_name | argument_data_types | privilege | with_grant_option | roles | shares
+ * format is database_name|schema_name|function_name|argument_data_types|privilege|with_grant_option|on_future|roles|shares
  * 
  * ```sh
- *  $ pulumi import snowflake:index/functionGrant:FunctionGrant example &#39;MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|ARG1TYPE,ARG2TYPE|USAGE|false|role1,role2|share1,share2&#39;
+ *  $ pulumi import snowflake:index/functionGrant:FunctionGrant example &#34;MY_DATABASE|MY_SCHEMA|MY_FUNCTION|ARG1TYPE,ARG2TYPE|USAGE|false|false|role1,role2|share1,share2&#34;
  * ```
  * 
  */
@@ -86,24 +85,6 @@ public class FunctionGrant extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> argumentDataTypes() {
         return Codegen.optional(this.argumentDataTypes);
-    }
-    /**
-     * List of the arguments for the function (must be present if function has arguments and function_name is present)
-     * 
-     * @deprecated
-     * Use argument_data_types instead
-     * 
-     */
-    @Deprecated /* Use argument_data_types instead */
-    @Export(name="arguments", type=List.class, parameters={FunctionGrantArgument.class})
-    private Output</* @Nullable */ List<FunctionGrantArgument>> arguments;
-
-    /**
-     * @return List of the arguments for the function (must be present if function has arguments and function_name is present)
-     * 
-     */
-    public Output<Optional<List<FunctionGrantArgument>>> arguments() {
-        return Codegen.optional(this.arguments);
     }
     /**
      * The name of the database containing the current or future functions on which to grant privileges.
@@ -176,24 +157,6 @@ public class FunctionGrant extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> privilege() {
         return Codegen.optional(this.privilege);
-    }
-    /**
-     * The return type of the function (must be present if function_name is present)
-     * 
-     * @deprecated
-     * Not used anymore
-     * 
-     */
-    @Deprecated /* Not used anymore */
-    @Export(name="returnType", type=String.class, parameters={})
-    private Output</* @Nullable */ String> returnType;
-
-    /**
-     * @return The return type of the function (must be present if function_name is present)
-     * 
-     */
-    public Output<Optional<String>> returnType() {
-        return Codegen.optional(this.returnType);
     }
     /**
      * Grants privilege to these roles.

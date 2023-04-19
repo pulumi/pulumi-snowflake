@@ -8,9 +8,11 @@ import typing
 from .account import *
 from .account_grant import *
 from .account_parameter import *
+from .alert import *
 from .api_integration import *
 from .database import *
 from .database_grant import *
+from .database_role import *
 from .external_function import *
 from .external_oauth_integration import *
 from .external_table import *
@@ -40,6 +42,7 @@ from .get_roles import *
 from .get_row_access_policies import *
 from .get_schemas import *
 from .get_sequences import *
+from .get_shares import *
 from .get_stages import *
 from .get_storage_integrations import *
 from .get_streams import *
@@ -63,6 +66,7 @@ from .network_policy_attachment import *
 from .notification_integration import *
 from .oauth_integration import *
 from .object_parameter import *
+from .password_policy import *
 from .pipe import *
 from .pipe_grant import *
 from .procedure import *
@@ -144,6 +148,14 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/alert",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/alert:Alert": "Alert"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/apiIntegration",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -164,6 +176,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/databaseGrant:DatabaseGrant": "DatabaseGrant"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/databaseRole",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/databaseRole:DatabaseRole": "DatabaseRole"
   }
  },
  {
@@ -324,6 +344,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/objectParameter:ObjectParameter": "ObjectParameter"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/passwordPolicy",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/passwordPolicy:PasswordPolicy": "PasswordPolicy"
   }
  },
  {

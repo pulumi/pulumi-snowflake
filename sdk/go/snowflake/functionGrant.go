@@ -56,11 +56,11 @@ import (
 //
 // ## Import
 //
-// format is database_name | schema_name | object_name | argument_data_types | privilege | with_grant_option | roles | shares
+// format is database_name|schema_name|function_name|argument_data_types|privilege|with_grant_option|on_future|roles|shares
 //
 // ```sh
 //
-//	$ pulumi import snowflake:index/functionGrant:FunctionGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|ARG1TYPE,ARG2TYPE|USAGE|false|role1,role2|share1,share2'
+//	$ pulumi import snowflake:index/functionGrant:FunctionGrant example "MY_DATABASE|MY_SCHEMA|MY_FUNCTION|ARG1TYPE,ARG2TYPE|USAGE|false|false|role1,role2|share1,share2"
 //
 // ```
 type FunctionGrant struct {
@@ -68,10 +68,6 @@ type FunctionGrant struct {
 
 	// List of the argument data types for the function (must be present if function has arguments and functionName is present)
 	ArgumentDataTypes pulumi.StringArrayOutput `pulumi:"argumentDataTypes"`
-	// List of the arguments for the function (must be present if function has arguments and functionName is present)
-	//
-	// Deprecated: Use argument_data_types instead
-	Arguments FunctionGrantArgumentArrayOutput `pulumi:"arguments"`
 	// The name of the database containing the current or future functions on which to grant privileges.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -83,10 +79,6 @@ type FunctionGrant struct {
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
 	// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
-	// The return type of the function (must be present if functionName is present)
-	//
-	// Deprecated: Not used anymore
-	ReturnType pulumi.StringPtrOutput `pulumi:"returnType"`
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current or future functions on which to grant privileges.
@@ -134,10 +126,6 @@ func GetFunctionGrant(ctx *pulumi.Context,
 type functionGrantState struct {
 	// List of the argument data types for the function (must be present if function has arguments and functionName is present)
 	ArgumentDataTypes []string `pulumi:"argumentDataTypes"`
-	// List of the arguments for the function (must be present if function has arguments and functionName is present)
-	//
-	// Deprecated: Use argument_data_types instead
-	Arguments []FunctionGrantArgument `pulumi:"arguments"`
 	// The name of the database containing the current or future functions on which to grant privileges.
 	DatabaseName *string `pulumi:"databaseName"`
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -149,10 +137,6 @@ type functionGrantState struct {
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
 	Privilege *string `pulumi:"privilege"`
-	// The return type of the function (must be present if functionName is present)
-	//
-	// Deprecated: Not used anymore
-	ReturnType *string `pulumi:"returnType"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future functions on which to grant privileges.
@@ -166,10 +150,6 @@ type functionGrantState struct {
 type FunctionGrantState struct {
 	// List of the argument data types for the function (must be present if function has arguments and functionName is present)
 	ArgumentDataTypes pulumi.StringArrayInput
-	// List of the arguments for the function (must be present if function has arguments and functionName is present)
-	//
-	// Deprecated: Use argument_data_types instead
-	Arguments FunctionGrantArgumentArrayInput
 	// The name of the database containing the current or future functions on which to grant privileges.
 	DatabaseName pulumi.StringPtrInput
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -181,10 +161,6 @@ type FunctionGrantState struct {
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
 	Privilege pulumi.StringPtrInput
-	// The return type of the function (must be present if functionName is present)
-	//
-	// Deprecated: Not used anymore
-	ReturnType pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future functions on which to grant privileges.
@@ -202,10 +178,6 @@ func (FunctionGrantState) ElementType() reflect.Type {
 type functionGrantArgs struct {
 	// List of the argument data types for the function (must be present if function has arguments and functionName is present)
 	ArgumentDataTypes []string `pulumi:"argumentDataTypes"`
-	// List of the arguments for the function (must be present if function has arguments and functionName is present)
-	//
-	// Deprecated: Use argument_data_types instead
-	Arguments []FunctionGrantArgument `pulumi:"arguments"`
 	// The name of the database containing the current or future functions on which to grant privileges.
 	DatabaseName string `pulumi:"databaseName"`
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -217,10 +189,6 @@ type functionGrantArgs struct {
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
 	Privilege *string `pulumi:"privilege"`
-	// The return type of the function (must be present if functionName is present)
-	//
-	// Deprecated: Not used anymore
-	ReturnType *string `pulumi:"returnType"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future functions on which to grant privileges.
@@ -235,10 +203,6 @@ type functionGrantArgs struct {
 type FunctionGrantArgs struct {
 	// List of the argument data types for the function (must be present if function has arguments and functionName is present)
 	ArgumentDataTypes pulumi.StringArrayInput
-	// List of the arguments for the function (must be present if function has arguments and functionName is present)
-	//
-	// Deprecated: Use argument_data_types instead
-	Arguments FunctionGrantArgumentArrayInput
 	// The name of the database containing the current or future functions on which to grant privileges.
 	DatabaseName pulumi.StringInput
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -250,10 +214,6 @@ type FunctionGrantArgs struct {
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
 	Privilege pulumi.StringPtrInput
-	// The return type of the function (must be present if functionName is present)
-	//
-	// Deprecated: Not used anymore
-	ReturnType pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future functions on which to grant privileges.
@@ -356,13 +316,6 @@ func (o FunctionGrantOutput) ArgumentDataTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FunctionGrant) pulumi.StringArrayOutput { return v.ArgumentDataTypes }).(pulumi.StringArrayOutput)
 }
 
-// List of the arguments for the function (must be present if function has arguments and functionName is present)
-//
-// Deprecated: Use argument_data_types instead
-func (o FunctionGrantOutput) Arguments() FunctionGrantArgumentArrayOutput {
-	return o.ApplyT(func(v *FunctionGrant) FunctionGrantArgumentArrayOutput { return v.Arguments }).(FunctionGrantArgumentArrayOutput)
-}
-
 // The name of the database containing the current or future functions on which to grant privileges.
 func (o FunctionGrantOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionGrant) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
@@ -387,13 +340,6 @@ func (o FunctionGrantOutput) OnFuture() pulumi.BoolPtrOutput {
 // The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
 func (o FunctionGrantOutput) Privilege() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
-}
-
-// The return type of the function (must be present if functionName is present)
-//
-// Deprecated: Not used anymore
-func (o FunctionGrantOutput) ReturnType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FunctionGrant) pulumi.StringPtrOutput { return v.ReturnType }).(pulumi.StringPtrOutput)
 }
 
 // Grants privilege to these roles.

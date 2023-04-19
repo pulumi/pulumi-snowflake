@@ -64,6 +64,23 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
+     * default value for testing or emergency situations only.
+     * 
+     */
+    @Import(name="insecureMode", json=true)
+    private @Nullable Output<Boolean> insecureMode;
+
+    /**
+     * @return If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
+     * default value for testing or emergency situations only.
+     * 
+     */
+    public Optional<Output<Boolean>> insecureMode() {
+        return Optional.ofNullable(this.insecureMode);
+    }
+
+    /**
      * Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
      * `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
      * variable.
@@ -337,6 +354,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.account = $.account;
         this.browserAuth = $.browserAuth;
         this.host = $.host;
+        this.insecureMode = $.insecureMode;
         this.oauthAccessToken = $.oauthAccessToken;
         this.oauthClientId = $.oauthClientId;
         this.oauthClientSecret = $.oauthClientSecret;
@@ -434,6 +452,29 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder host(String host) {
             return host(Output.of(host));
+        }
+
+        /**
+         * @param insecureMode If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
+         * default value for testing or emergency situations only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder insecureMode(@Nullable Output<Boolean> insecureMode) {
+            $.insecureMode = insecureMode;
+            return this;
+        }
+
+        /**
+         * @param insecureMode If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
+         * default value for testing or emergency situations only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder insecureMode(Boolean insecureMode) {
+            return insecureMode(Output.of(insecureMode));
         }
 
         /**

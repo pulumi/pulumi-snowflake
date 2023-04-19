@@ -56,10 +56,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * format is database_name | schema_name | table_name | privilege | with_grant_option | roles | shares
+ * format is database_name|schema_name|table_name|privilege|with_grant_option|on_future|on_all|roles|shares
  * 
  * ```sh
- *  $ pulumi import snowflake:index/tableGrant:TableGrant example &#39;MY_DATABASE|MY_SCHEMA|MY_OBJECT|MODIFY|false|role1,role2|share1,share2&#39;
+ *  $ pulumi import snowflake:index/tableGrant:TableGrant example &#34;MY_DATABASE|MY_SCHEMA|MY_TABLE|USAGE|false|false|false|role1,role2|share1,share2&#34;
  * ```
  * 
  */
@@ -96,28 +96,28 @@ public class TableGrant extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableMultipleGrants);
     }
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.
+     * When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
      * 
      */
     @Export(name="onAll", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> onAll;
 
     /**
-     * @return When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.
+     * @return When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
      * 
      */
     public Output<Optional<Boolean>> onAll() {
         return Codegen.optional(this.onAll);
     }
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
+     * When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
      * 
      */
     @Export(name="onFuture", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> onFuture;
 
     /**
-     * @return When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
+     * @return When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
      * 
      */
     public Output<Optional<Boolean>> onFuture() {
@@ -166,28 +166,28 @@ public class TableGrant extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.schemaName);
     }
     /**
-     * Grants privilege to these shares (only valid if on*future or on*all is unset).
+     * Grants privilege to these shares (only valid if on*future or on*all are unset).
      * 
      */
     @Export(name="shares", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> shares;
 
     /**
-     * @return Grants privilege to these shares (only valid if on*future or on*all is unset).
+     * @return Grants privilege to these shares (only valid if on*future or on*all are unset).
      * 
      */
     public Output<Optional<List<String>>> shares() {
         return Codegen.optional(this.shares);
     }
     /**
-     * The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).
+     * The name of the table on which to grant privileges immediately (only valid if on*future or on*all are unset).
      * 
      */
     @Export(name="tableName", type=String.class, parameters={})
     private Output</* @Nullable */ String> tableName;
 
     /**
-     * @return The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).
+     * @return The name of the table on which to grant privileges immediately (only valid if on*future or on*all are unset).
      * 
      */
     public Output<Optional<String>> tableName() {

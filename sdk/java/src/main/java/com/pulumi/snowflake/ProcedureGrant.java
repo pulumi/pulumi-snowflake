@@ -10,7 +10,6 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.ProcedureGrantArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.ProcedureGrantState;
-import com.pulumi.snowflake.outputs.ProcedureGrantArgument;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -46,7 +45,7 @@ import javax.annotation.Nullable;
  *                 &#34;string&#34;)
  *             .databaseName(&#34;database&#34;)
  *             .onFuture(false)
- *             .privilege(&#34;SELECT&#34;)
+ *             .privilege(&#34;USAGE&#34;)
  *             .procedureName(&#34;procedure&#34;)
  *             .roles(            
  *                 &#34;role1&#34;,
@@ -64,10 +63,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * format is database_name | schema_name | object_name | argument_data_types | privilege | with_grant_option | roles | shares
+ * format is database_name|schema_name|procedure_name|argument_data_types|privilege|with_grant_option|on_future|roles|shares
  * 
  * ```sh
- *  $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example &#39;MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|ARG1TYPE,ARG2TYPE|USAGE|false|role1,role2|share1,share2&#39;
+ *  $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example &#34;MY_DATABASE|MY_SCHEMA|MY_PROCEDURE|ARG1TYPE,ARG2TYPE|USAGE|false|false|role1,role2|share1,share2&#34;
  * ```
  * 
  */
@@ -86,24 +85,6 @@ public class ProcedureGrant extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> argumentDataTypes() {
         return Codegen.optional(this.argumentDataTypes);
-    }
-    /**
-     * List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
-     * 
-     * @deprecated
-     * use argument_data_types instead.
-     * 
-     */
-    @Deprecated /* use argument_data_types instead. */
-    @Export(name="arguments", type=List.class, parameters={ProcedureGrantArgument.class})
-    private Output</* @Nullable */ List<ProcedureGrantArgument>> arguments;
-
-    /**
-     * @return List of the arguments for the procedure (must be present if procedure has arguments and procedure_name is present)
-     * 
-     */
-    public Output<Optional<List<ProcedureGrantArgument>>> arguments() {
-        return Codegen.optional(this.arguments);
     }
     /**
      * The name of the database containing the current or future procedures on which to grant privileges.
@@ -176,24 +157,6 @@ public class ProcedureGrant extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> procedureName() {
         return Codegen.optional(this.procedureName);
-    }
-    /**
-     * The return type of the procedure (must be present if procedure_name is present)
-     * 
-     * @deprecated
-     * return_type is no longer required. It will be removed in a future release.
-     * 
-     */
-    @Deprecated /* return_type is no longer required. It will be removed in a future release. */
-    @Export(name="returnType", type=String.class, parameters={})
-    private Output</* @Nullable */ String> returnType;
-
-    /**
-     * @return The return type of the procedure (must be present if procedure_name is present)
-     * 
-     */
-    public Output<Optional<String>> returnType() {
-        return Codegen.optional(this.returnType);
     }
     /**
      * Grants privilege to these roles.

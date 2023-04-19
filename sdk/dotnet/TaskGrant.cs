@@ -14,6 +14,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
@@ -39,10 +40,10 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// format is database_name ❄️ schema_name | task_name | privilege | with_grant_option | roles
+    /// format is database_name|schema_name|task_name|privilege|with_grant_option|on_future|roles"
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/taskGrant:TaskGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|OPERATE|false|role1,role2'
+    ///  $ pulumi import snowflake:index/taskGrant:TaskGrant example "MY_DATABASE|MY_SCHEMA|MY_TASK|OPERATE|false|false|role1,role2"
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/taskGrant:TaskGrant")]

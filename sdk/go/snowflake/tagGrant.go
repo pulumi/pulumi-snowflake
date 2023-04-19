@@ -45,11 +45,11 @@ import (
 //
 // ## Import
 //
-// format is database_name | schema_name | tag_name | privilege | with_grant_option | roles
+// format is database|schema|tag|privilege|with_grant_option|roles
 //
 // ```sh
 //
-//	$ pulumi import snowflake:index/tagGrant:TagGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|APPLY|false|role1,role2'
+//	$ pulumi import snowflake:index/tagGrant:TagGrant example "MY_DATABASE|MY_SCHEMA|MY_TAG|USAGE|false|role1,role2"
 //
 // ```
 type TagGrant struct {

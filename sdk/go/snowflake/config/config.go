@@ -35,6 +35,12 @@ func GetHost(ctx *pulumi.Context) string {
 	return getEnvOrDefault("", nil, "SNOWFLAKE_HOST").(string)
 }
 
+// If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
+// default value for testing or emergency situations only.
+func GetInsecureMode(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "snowflake:insecureMode")
+}
+
 // Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
 // `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
 // variable.

@@ -62,6 +62,17 @@ namespace Pulumi.Snowflake
             set => _host.Set(value);
         }
 
+        private static readonly __Value<bool?> _insecureMode = new __Value<bool?>(() => __config.GetBoolean("insecureMode"));
+        /// <summary>
+        /// If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
+        /// default value for testing or emergency situations only.
+        /// </summary>
+        public static bool? InsecureMode
+        {
+            get => _insecureMode.Get();
+            set => _insecureMode.Set(value);
+        }
+
         private static readonly __Value<string?> _oauthAccessToken = new __Value<string?>(() => __config.Get("oauthAccessToken") ?? Utilities.GetEnv("SNOWFLAKE_OAUTH_ACCESS_TOKEN"));
         /// <summary>
         /// Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,

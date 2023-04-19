@@ -40,10 +40,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * format is database_name | schema_name | view_name | privilege | with_grant_option | roles | shares
+ * format is database_name|schema_name|view_name|privilege|with_grant_option|on_future|on_all|roles|shares
  *
  * ```sh
- *  $ pulumi import snowflake:index/viewGrant:ViewGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|USAGE|false|role1,role2|share1,share2'
+ *  $ pulumi import snowflake:index/viewGrant:ViewGrant example "MY_DATABASE|MY_SCHEMA|MY_VIEW|USAGE|false|false|false|role1,role2|share1,share2"
  * ```
  */
 export class ViewGrant extends pulumi.CustomResource {
@@ -84,7 +84,11 @@ export class ViewGrant extends pulumi.CustomResource {
      */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future.
+     * When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+     */
+    public readonly onAll!: pulumi.Output<boolean | undefined>;
+    /**
+     * When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
      */
     public readonly onFuture!: pulumi.Output<boolean | undefined>;
     /**
@@ -100,11 +104,11 @@ export class ViewGrant extends pulumi.CustomResource {
      */
     public readonly schemaName!: pulumi.Output<string | undefined>;
     /**
-     * Grants privilege to these shares (only valid if onFuture is unset).
+     * Grants privilege to these shares (only valid if on*future and on*all are unset).
      */
     public readonly shares!: pulumi.Output<string[] | undefined>;
     /**
-     * The name of the view on which to grant privileges immediately (only valid if onFuture is unset).
+     * The name of the view on which to grant privileges immediately (only valid if on*future and on*all are unset).
      */
     public readonly viewName!: pulumi.Output<string | undefined>;
     /**
@@ -127,6 +131,7 @@ export class ViewGrant extends pulumi.CustomResource {
             const state = argsOrState as ViewGrantState | undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
             resourceInputs["enableMultipleGrants"] = state ? state.enableMultipleGrants : undefined;
+            resourceInputs["onAll"] = state ? state.onAll : undefined;
             resourceInputs["onFuture"] = state ? state.onFuture : undefined;
             resourceInputs["privilege"] = state ? state.privilege : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
@@ -141,6 +146,7 @@ export class ViewGrant extends pulumi.CustomResource {
             }
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["enableMultipleGrants"] = args ? args.enableMultipleGrants : undefined;
+            resourceInputs["onAll"] = args ? args.onAll : undefined;
             resourceInputs["onFuture"] = args ? args.onFuture : undefined;
             resourceInputs["privilege"] = args ? args.privilege : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
@@ -168,7 +174,11 @@ export interface ViewGrantState {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future.
+     * When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+     */
+    onAll?: pulumi.Input<boolean>;
+    /**
+     * When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
@@ -184,11 +194,11 @@ export interface ViewGrantState {
      */
     schemaName?: pulumi.Input<string>;
     /**
-     * Grants privilege to these shares (only valid if onFuture is unset).
+     * Grants privilege to these shares (only valid if on*future and on*all are unset).
      */
     shares?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the view on which to grant privileges immediately (only valid if onFuture is unset).
+     * The name of the view on which to grant privileges immediately (only valid if on*future and on*all are unset).
      */
     viewName?: pulumi.Input<string>;
     /**
@@ -211,7 +221,11 @@ export interface ViewGrantArgs {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future.
+     * When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+     */
+    onAll?: pulumi.Input<boolean>;
+    /**
+     * When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
@@ -227,11 +241,11 @@ export interface ViewGrantArgs {
      */
     schemaName?: pulumi.Input<string>;
     /**
-     * Grants privilege to these shares (only valid if onFuture is unset).
+     * Grants privilege to these shares (only valid if on*future and on*all are unset).
      */
     shares?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the view on which to grant privileges immediately (only valid if onFuture is unset).
+     * The name of the view on which to grant privileges immediately (only valid if on*future and on*all are unset).
      */
     viewName?: pulumi.Input<string>;
     /**

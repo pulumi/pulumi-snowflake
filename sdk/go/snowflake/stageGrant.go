@@ -48,11 +48,11 @@ import (
 //
 // ## Import
 //
-// format is database_name | schema_name | stage_name | privilege | with_grant_option | roles
+// format is database_name|schema_name|stage_name|privilege|with_grant_option|on_future|on_all|roles
 //
 // ```sh
 //
-//	$ pulumi import snowflake:index/stageGrant:StageGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|USAGE|false|role1,role2'
+//	$ pulumi import snowflake:index/stageGrant:StageGrant example "MY_DATABASE|MY_SCHEMA|MY_STAGE|USAGE|false|false|false|role1,role2"
 //
 // ```
 type StageGrant struct {
@@ -63,7 +63,9 @@ type StageGrant struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
+	// When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+	OnAll pulumi.BoolPtrOutput `pulumi:"onAll"`
+	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
 	// The privilege to grant on the stage.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
@@ -71,7 +73,7 @@ type StageGrant struct {
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current stage on which to grant privileges.
 	SchemaName pulumi.StringPtrOutput `pulumi:"schemaName"`
-	// The name of the stage on which to grant privilege (only valid if onFuture is false).
+	// The name of the stage on which to grant privilege (only valid if on*future and on*all are false).
 	StageName pulumi.StringPtrOutput `pulumi:"stageName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrOutput `pulumi:"withGrantOption"`
@@ -117,7 +119,9 @@ type stageGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
+	// When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+	OnAll *bool `pulumi:"onAll"`
+	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the stage.
 	Privilege *string `pulumi:"privilege"`
@@ -125,7 +129,7 @@ type stageGrantState struct {
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current stage on which to grant privileges.
 	SchemaName *string `pulumi:"schemaName"`
-	// The name of the stage on which to grant privilege (only valid if onFuture is false).
+	// The name of the stage on which to grant privilege (only valid if on*future and on*all are false).
 	StageName *string `pulumi:"stageName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
@@ -137,7 +141,9 @@ type StageGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
+	// When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+	OnAll pulumi.BoolPtrInput
+	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the stage.
 	Privilege pulumi.StringPtrInput
@@ -145,7 +151,7 @@ type StageGrantState struct {
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current stage on which to grant privileges.
 	SchemaName pulumi.StringPtrInput
-	// The name of the stage on which to grant privilege (only valid if onFuture is false).
+	// The name of the stage on which to grant privilege (only valid if on*future and on*all are false).
 	StageName pulumi.StringPtrInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
@@ -161,7 +167,9 @@ type stageGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
+	// When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+	OnAll *bool `pulumi:"onAll"`
+	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the stage.
 	Privilege *string `pulumi:"privilege"`
@@ -169,7 +177,7 @@ type stageGrantArgs struct {
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current stage on which to grant privileges.
 	SchemaName *string `pulumi:"schemaName"`
-	// The name of the stage on which to grant privilege (only valid if onFuture is false).
+	// The name of the stage on which to grant privilege (only valid if on*future and on*all are false).
 	StageName *string `pulumi:"stageName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
@@ -182,7 +190,9 @@ type StageGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
+	// When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+	OnAll pulumi.BoolPtrInput
+	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the stage.
 	Privilege pulumi.StringPtrInput
@@ -190,7 +200,7 @@ type StageGrantArgs struct {
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current stage on which to grant privileges.
 	SchemaName pulumi.StringPtrInput
-	// The name of the stage on which to grant privilege (only valid if onFuture is false).
+	// The name of the stage on which to grant privilege (only valid if on*future and on*all are false).
 	StageName pulumi.StringPtrInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
@@ -294,7 +304,12 @@ func (o StageGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StageGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }
 
-// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
+// When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+func (o StageGrantOutput) OnAll() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StageGrant) pulumi.BoolPtrOutput { return v.OnAll }).(pulumi.BoolPtrOutput)
+}
+
+// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future. Cannot be used together with on_all.
 func (o StageGrantOutput) OnFuture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StageGrant) pulumi.BoolPtrOutput { return v.OnFuture }).(pulumi.BoolPtrOutput)
 }
@@ -314,7 +329,7 @@ func (o StageGrantOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StageGrant) pulumi.StringPtrOutput { return v.SchemaName }).(pulumi.StringPtrOutput)
 }
 
-// The name of the stage on which to grant privilege (only valid if onFuture is false).
+// The name of the stage on which to grant privilege (only valid if on*future and on*all are false).
 func (o StageGrantOutput) StageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StageGrant) pulumi.StringPtrOutput { return v.StageName }).(pulumi.StringPtrOutput)
 }

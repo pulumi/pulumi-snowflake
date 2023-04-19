@@ -14,6 +14,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
@@ -75,7 +76,7 @@ namespace Pulumi.Snowflake
         /// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding &amp; Using Time Travel.
         /// </summary>
         [Output("dataRetentionTimeInDays")]
-        public Output<int> DataRetentionTimeInDays { get; private set; } = null!;
+        public Output<int?> DataRetentionTimeInDays { get; private set; } = null!;
 
         /// <summary>
         /// Specify a database to create a clone from.

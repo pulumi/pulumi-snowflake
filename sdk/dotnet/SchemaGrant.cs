@@ -14,6 +14,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
@@ -43,10 +44,10 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// format is database_name | schema_name | privilege | with_grant_option | roles | shares
+    /// format is database_name|schema_name|privilege|with_grant_option|on_future|on_all|roles|shares
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/schemaGrant:SchemaGrant example 'MY_DATABASE|MY_SCHEMA|MONITOR|false|role1,role2|share1,share2'
+    ///  $ pulumi import snowflake:index/schemaGrant:SchemaGrant example "MY_DATABASE|MY_SCHEMA|USAGE|false|false|false|role1,role2|share1,share2"
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/schemaGrant:SchemaGrant")]
@@ -66,7 +67,13 @@ namespace Pulumi.Snowflake
         public Output<bool?> EnableMultipleGrants { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
+        /// When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+        /// </summary>
+        [Output("onAll")]
+        public Output<bool?> OnAll { get; private set; } = null!;
+
+        /// <summary>
+        /// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
         /// </summary>
         [Output("onFuture")]
         public Output<bool?> OnFuture { get; private set; } = null!;
@@ -91,7 +98,7 @@ namespace Pulumi.Snowflake
         public Output<string?> SchemaName { get; private set; } = null!;
 
         /// <summary>
-        /// Grants privilege to these shares (only valid if on_future is unset).
+        /// Grants privilege to these shares (only valid if on*future and on*all are unset).
         /// </summary>
         [Output("shares")]
         public Output<ImmutableArray<string>> Shares { get; private set; } = null!;
@@ -162,7 +169,13 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
+        /// When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+        /// </summary>
+        [Input("onAll")]
+        public Input<bool>? OnAll { get; set; }
+
+        /// <summary>
+        /// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -196,7 +209,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _shares;
 
         /// <summary>
-        /// Grants privilege to these shares (only valid if on_future is unset).
+        /// Grants privilege to these shares (only valid if on*future and on*all are unset).
         /// </summary>
         public InputList<string> Shares
         {
@@ -232,7 +245,13 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
+        /// When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+        /// </summary>
+        [Input("onAll")]
+        public Input<bool>? OnAll { get; set; }
+
+        /// <summary>
+        /// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -266,7 +285,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _shares;
 
         /// <summary>
-        /// Grants privilege to these shares (only valid if on_future is unset).
+        /// Grants privilege to these shares (only valid if on*future and on*all are unset).
         /// </summary>
         public InputList<string> Shares
         {

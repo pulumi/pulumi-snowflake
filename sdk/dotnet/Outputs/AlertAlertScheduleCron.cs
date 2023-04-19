@@ -11,25 +11,19 @@ namespace Pulumi.Snowflake.Outputs
 {
 
     [OutputType]
-    public sealed class ProcedureGrantArgument
+    public sealed class AlertAlertScheduleCron
     {
-        /// <summary>
-        /// The argument name
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The argument type
-        /// </summary>
-        public readonly string Type;
+        public readonly string Expression;
+        public readonly string TimeZone;
 
         [OutputConstructor]
-        private ProcedureGrantArgument(
-            string name,
+        private AlertAlertScheduleCron(
+            string expression,
 
-            string type)
+            string timeZone)
         {
-            Name = name;
-            Type = type;
+            Expression = expression;
+            TimeZone = timeZone;
         }
     }
 }

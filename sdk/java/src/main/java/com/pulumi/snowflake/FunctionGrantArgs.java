@@ -5,7 +5,6 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.snowflake.inputs.FunctionGrantArgumentArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -31,29 +30,6 @@ public final class FunctionGrantArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<String>>> argumentDataTypes() {
         return Optional.ofNullable(this.argumentDataTypes);
-    }
-
-    /**
-     * List of the arguments for the function (must be present if function has arguments and function_name is present)
-     * 
-     * @deprecated
-     * Use argument_data_types instead
-     * 
-     */
-    @Deprecated /* Use argument_data_types instead */
-    @Import(name="arguments")
-    private @Nullable Output<List<FunctionGrantArgumentArgs>> arguments;
-
-    /**
-     * @return List of the arguments for the function (must be present if function has arguments and function_name is present)
-     * 
-     * @deprecated
-     * Use argument_data_types instead
-     * 
-     */
-    @Deprecated /* Use argument_data_types instead */
-    public Optional<Output<List<FunctionGrantArgumentArgs>>> arguments() {
-        return Optional.ofNullable(this.arguments);
     }
 
     /**
@@ -134,29 +110,6 @@ public final class FunctionGrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The return type of the function (must be present if function_name is present)
-     * 
-     * @deprecated
-     * Not used anymore
-     * 
-     */
-    @Deprecated /* Not used anymore */
-    @Import(name="returnType")
-    private @Nullable Output<String> returnType;
-
-    /**
-     * @return The return type of the function (must be present if function_name is present)
-     * 
-     * @deprecated
-     * Not used anymore
-     * 
-     */
-    @Deprecated /* Not used anymore */
-    public Optional<Output<String>> returnType() {
-        return Optional.ofNullable(this.returnType);
-    }
-
-    /**
      * Grants privilege to these roles.
      * 
      */
@@ -220,13 +173,11 @@ public final class FunctionGrantArgs extends com.pulumi.resources.ResourceArgs {
 
     private FunctionGrantArgs(FunctionGrantArgs $) {
         this.argumentDataTypes = $.argumentDataTypes;
-        this.arguments = $.arguments;
         this.databaseName = $.databaseName;
         this.enableMultipleGrants = $.enableMultipleGrants;
         this.functionName = $.functionName;
         this.onFuture = $.onFuture;
         this.privilege = $.privilege;
-        this.returnType = $.returnType;
         this.roles = $.roles;
         this.schemaName = $.schemaName;
         this.shares = $.shares;
@@ -280,49 +231,6 @@ public final class FunctionGrantArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder argumentDataTypes(String... argumentDataTypes) {
             return argumentDataTypes(List.of(argumentDataTypes));
-        }
-
-        /**
-         * @param arguments List of the arguments for the function (must be present if function has arguments and function_name is present)
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use argument_data_types instead
-         * 
-         */
-        @Deprecated /* Use argument_data_types instead */
-        public Builder arguments(@Nullable Output<List<FunctionGrantArgumentArgs>> arguments) {
-            $.arguments = arguments;
-            return this;
-        }
-
-        /**
-         * @param arguments List of the arguments for the function (must be present if function has arguments and function_name is present)
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use argument_data_types instead
-         * 
-         */
-        @Deprecated /* Use argument_data_types instead */
-        public Builder arguments(List<FunctionGrantArgumentArgs> arguments) {
-            return arguments(Output.of(arguments));
-        }
-
-        /**
-         * @param arguments List of the arguments for the function (must be present if function has arguments and function_name is present)
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use argument_data_types instead
-         * 
-         */
-        @Deprecated /* Use argument_data_types instead */
-        public Builder arguments(FunctionGrantArgumentArgs... arguments) {
-            return arguments(List.of(arguments));
         }
 
         /**
@@ -430,35 +338,6 @@ public final class FunctionGrantArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder privilege(String privilege) {
             return privilege(Output.of(privilege));
-        }
-
-        /**
-         * @param returnType The return type of the function (must be present if function_name is present)
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Not used anymore
-         * 
-         */
-        @Deprecated /* Not used anymore */
-        public Builder returnType(@Nullable Output<String> returnType) {
-            $.returnType = returnType;
-            return this;
-        }
-
-        /**
-         * @param returnType The return type of the function (must be present if function_name is present)
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Not used anymore
-         * 
-         */
-        @Deprecated /* Not used anymore */
-        public Builder returnType(String returnType) {
-            return returnType(Output.of(returnType));
         }
 
         /**

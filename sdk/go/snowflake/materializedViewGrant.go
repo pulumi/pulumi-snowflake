@@ -52,11 +52,11 @@ import (
 //
 // ## Import
 //
-// format is database_name | schema_name | object_name | privilege | with_grant_option | roles | shares
+// format is database_name|schema_name|materialized_view_name|privilege|with_grant_option|on_future|on_all|roles|shares
 //
 // ```sh
 //
-//	$ pulumi import snowflake:index/materializedViewGrant:MaterializedViewGrant example 'MY_DATABASE|MY_SCHEMA❄️MY_OBJECT_NAME|SELECT|false|role1,role2|share1,share2'
+//	$ pulumi import snowflake:index/materializedViewGrant:MaterializedViewGrant example "MY_DATABASE|MY_SCHEMA|MY_MV_NAME|SELECT|false|false|role1,role2|share1,share2"
 //
 // ```
 type MaterializedViewGrant struct {
@@ -67,17 +67,19 @@ type MaterializedViewGrant struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
-	// The name of the materialized view on which to grant privileges immediately (only valid if onFuture is false).
+	// The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
 	MaterializedViewName pulumi.StringPtrOutput `pulumi:"materializedViewName"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+	OnAll pulumi.BoolPtrOutput `pulumi:"onAll"`
+	// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
-	// The privilege to grant on the current or future materialized view view.
+	// The privilege to grant on the current or future materialized view.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current or future materialized views on which to grant privileges.
 	SchemaName pulumi.StringPtrOutput `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if onFuture is false).
+	// Grants privilege to these shares (only valid if on*future and on*all are false).
 	Shares pulumi.StringArrayOutput `pulumi:"shares"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrOutput `pulumi:"withGrantOption"`
@@ -120,17 +122,19 @@ type materializedViewGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// The name of the materialized view on which to grant privileges immediately (only valid if onFuture is false).
+	// The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
 	MaterializedViewName *string `pulumi:"materializedViewName"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+	OnAll *bool `pulumi:"onAll"`
+	// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
 	OnFuture *bool `pulumi:"onFuture"`
-	// The privilege to grant on the current or future materialized view view.
+	// The privilege to grant on the current or future materialized view.
 	Privilege *string `pulumi:"privilege"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future materialized views on which to grant privileges.
 	SchemaName *string `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if onFuture is false).
+	// Grants privilege to these shares (only valid if on*future and on*all are false).
 	Shares []string `pulumi:"shares"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
@@ -142,17 +146,19 @@ type MaterializedViewGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// The name of the materialized view on which to grant privileges immediately (only valid if onFuture is false).
+	// The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
 	MaterializedViewName pulumi.StringPtrInput
-	// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+	OnAll pulumi.BoolPtrInput
+	// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
 	OnFuture pulumi.BoolPtrInput
-	// The privilege to grant on the current or future materialized view view.
+	// The privilege to grant on the current or future materialized view.
 	Privilege pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future materialized views on which to grant privileges.
 	SchemaName pulumi.StringPtrInput
-	// Grants privilege to these shares (only valid if onFuture is false).
+	// Grants privilege to these shares (only valid if on*future and on*all are false).
 	Shares pulumi.StringArrayInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
@@ -168,17 +174,19 @@ type materializedViewGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// The name of the materialized view on which to grant privileges immediately (only valid if onFuture is false).
+	// The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
 	MaterializedViewName *string `pulumi:"materializedViewName"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+	OnAll *bool `pulumi:"onAll"`
+	// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
 	OnFuture *bool `pulumi:"onFuture"`
-	// The privilege to grant on the current or future materialized view view.
+	// The privilege to grant on the current or future materialized view.
 	Privilege *string `pulumi:"privilege"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future materialized views on which to grant privileges.
 	SchemaName *string `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if onFuture is false).
+	// Grants privilege to these shares (only valid if on*future and on*all are false).
 	Shares []string `pulumi:"shares"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
@@ -191,17 +199,19 @@ type MaterializedViewGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// The name of the materialized view on which to grant privileges immediately (only valid if onFuture is false).
+	// The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
 	MaterializedViewName pulumi.StringPtrInput
-	// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+	OnAll pulumi.BoolPtrInput
+	// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
 	OnFuture pulumi.BoolPtrInput
-	// The privilege to grant on the current or future materialized view view.
+	// The privilege to grant on the current or future materialized view.
 	Privilege pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future materialized views on which to grant privileges.
 	SchemaName pulumi.StringPtrInput
-	// Grants privilege to these shares (only valid if onFuture is false).
+	// Grants privilege to these shares (only valid if on*future and on*all are false).
 	Shares pulumi.StringArrayInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
@@ -305,17 +315,22 @@ func (o MaterializedViewGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v *MaterializedViewGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the materialized view on which to grant privileges immediately (only valid if onFuture is false).
+// The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
 func (o MaterializedViewGrantOutput) MaterializedViewName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaterializedViewGrant) pulumi.StringPtrOutput { return v.MaterializedViewName }).(pulumi.StringPtrOutput)
 }
 
-// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+// When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+func (o MaterializedViewGrantOutput) OnAll() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MaterializedViewGrant) pulumi.BoolPtrOutput { return v.OnAll }).(pulumi.BoolPtrOutput)
+}
+
+// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
 func (o MaterializedViewGrantOutput) OnFuture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MaterializedViewGrant) pulumi.BoolPtrOutput { return v.OnFuture }).(pulumi.BoolPtrOutput)
 }
 
-// The privilege to grant on the current or future materialized view view.
+// The privilege to grant on the current or future materialized view.
 func (o MaterializedViewGrantOutput) Privilege() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaterializedViewGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
 }
@@ -330,7 +345,7 @@ func (o MaterializedViewGrantOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaterializedViewGrant) pulumi.StringPtrOutput { return v.SchemaName }).(pulumi.StringPtrOutput)
 }
 
-// Grants privilege to these shares (only valid if onFuture is false).
+// Grants privilege to these shares (only valid if on*future and on*all are false).
 func (o MaterializedViewGrantOutput) Shares() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MaterializedViewGrant) pulumi.StringArrayOutput { return v.Shares }).(pulumi.StringArrayOutput)
 }

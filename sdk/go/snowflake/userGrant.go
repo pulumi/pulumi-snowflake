@@ -45,11 +45,11 @@ import (
 //
 // ## Import
 //
-// format is username | privilege | with_grant_option |roles
+// format is user_name|privilege|with_grant_option|roles
 //
 // ```sh
 //
-//	$ pulumi import snowflake:index/userGrant:UserGrant example 'USERNAME|MONITOR|false|role1,role2'
+//	$ pulumi import snowflake:index/userGrant:UserGrant example "USERNAME|MONITOR|false|role1,role2"
 //
 // ```
 type UserGrant struct {

@@ -513,7 +513,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataRetentionTimeInDays")
-    def data_retention_time_in_days(self) -> pulumi.Output[int]:
+    def data_retention_time_in_days(self) -> pulumi.Output[Optional[int]]:
         """
         Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
         """

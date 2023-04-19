@@ -8,8 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
-from . import outputs
-from ._inputs import *
 
 __all__ = ['FunctionGrantArgs', 'FunctionGrant']
 
@@ -19,12 +17,10 @@ class FunctionGrantArgs:
                  database_name: pulumi.Input[str],
                  roles: pulumi.Input[Sequence[pulumi.Input[str]]],
                  argument_data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 arguments: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionGrantArgumentArgs']]]] = None,
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
-                 return_type: Optional[pulumi.Input[str]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
@@ -33,13 +29,11 @@ class FunctionGrantArgs:
         :param pulumi.Input[str] database_name: The name of the database containing the current or future functions on which to grant privileges.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] argument_data_types: List of the argument data types for the function (must be present if function has arguments and function_name is present)
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionGrantArgumentArgs']]] arguments: List of the arguments for the function (must be present if function has arguments and function_name is present)
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] function_name: The name of the function on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
-        :param pulumi.Input[str] return_type: The return type of the function (must be present if function_name is present)
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future functions on which to grant privileges.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on_future is false).
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -48,11 +42,6 @@ class FunctionGrantArgs:
         pulumi.set(__self__, "roles", roles)
         if argument_data_types is not None:
             pulumi.set(__self__, "argument_data_types", argument_data_types)
-        if arguments is not None:
-            warnings.warn("""Use argument_data_types instead""", DeprecationWarning)
-            pulumi.log.warn("""arguments is deprecated: Use argument_data_types instead""")
-        if arguments is not None:
-            pulumi.set(__self__, "arguments", arguments)
         if enable_multiple_grants is not None:
             pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
         if function_name is not None:
@@ -61,11 +50,6 @@ class FunctionGrantArgs:
             pulumi.set(__self__, "on_future", on_future)
         if privilege is not None:
             pulumi.set(__self__, "privilege", privilege)
-        if return_type is not None:
-            warnings.warn("""Not used anymore""", DeprecationWarning)
-            pulumi.log.warn("""return_type is deprecated: Not used anymore""")
-        if return_type is not None:
-            pulumi.set(__self__, "return_type", return_type)
         if schema_name is not None:
             pulumi.set(__self__, "schema_name", schema_name)
         if shares is not None:
@@ -108,18 +92,6 @@ class FunctionGrantArgs:
     @argument_data_types.setter
     def argument_data_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "argument_data_types", value)
-
-    @property
-    @pulumi.getter
-    def arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionGrantArgumentArgs']]]]:
-        """
-        List of the arguments for the function (must be present if function has arguments and function_name is present)
-        """
-        return pulumi.get(self, "arguments")
-
-    @arguments.setter
-    def arguments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionGrantArgumentArgs']]]]):
-        pulumi.set(self, "arguments", value)
 
     @property
     @pulumi.getter(name="enableMultipleGrants")
@@ -171,18 +143,6 @@ class FunctionGrantArgs:
         pulumi.set(self, "privilege", value)
 
     @property
-    @pulumi.getter(name="returnType")
-    def return_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The return type of the function (must be present if function_name is present)
-        """
-        return pulumi.get(self, "return_type")
-
-    @return_type.setter
-    def return_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "return_type", value)
-
-    @property
     @pulumi.getter(name="schemaName")
     def schema_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -223,13 +183,11 @@ class FunctionGrantArgs:
 class _FunctionGrantState:
     def __init__(__self__, *,
                  argument_data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 arguments: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionGrantArgumentArgs']]]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
-                 return_type: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -237,14 +195,12 @@ class _FunctionGrantState:
         """
         Input properties used for looking up and filtering FunctionGrant resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] argument_data_types: List of the argument data types for the function (must be present if function has arguments and function_name is present)
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionGrantArgumentArgs']]] arguments: List of the arguments for the function (must be present if function has arguments and function_name is present)
         :param pulumi.Input[str] database_name: The name of the database containing the current or future functions on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] function_name: The name of the function on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
-        :param pulumi.Input[str] return_type: The return type of the function (must be present if function_name is present)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future functions on which to grant privileges.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on_future is false).
@@ -252,11 +208,6 @@ class _FunctionGrantState:
         """
         if argument_data_types is not None:
             pulumi.set(__self__, "argument_data_types", argument_data_types)
-        if arguments is not None:
-            warnings.warn("""Use argument_data_types instead""", DeprecationWarning)
-            pulumi.log.warn("""arguments is deprecated: Use argument_data_types instead""")
-        if arguments is not None:
-            pulumi.set(__self__, "arguments", arguments)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
         if enable_multiple_grants is not None:
@@ -267,11 +218,6 @@ class _FunctionGrantState:
             pulumi.set(__self__, "on_future", on_future)
         if privilege is not None:
             pulumi.set(__self__, "privilege", privilege)
-        if return_type is not None:
-            warnings.warn("""Not used anymore""", DeprecationWarning)
-            pulumi.log.warn("""return_type is deprecated: Not used anymore""")
-        if return_type is not None:
-            pulumi.set(__self__, "return_type", return_type)
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
         if schema_name is not None:
@@ -292,18 +238,6 @@ class _FunctionGrantState:
     @argument_data_types.setter
     def argument_data_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "argument_data_types", value)
-
-    @property
-    @pulumi.getter
-    def arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionGrantArgumentArgs']]]]:
-        """
-        List of the arguments for the function (must be present if function has arguments and function_name is present)
-        """
-        return pulumi.get(self, "arguments")
-
-    @arguments.setter
-    def arguments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionGrantArgumentArgs']]]]):
-        pulumi.set(self, "arguments", value)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -367,18 +301,6 @@ class _FunctionGrantState:
         pulumi.set(self, "privilege", value)
 
     @property
-    @pulumi.getter(name="returnType")
-    def return_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The return type of the function (must be present if function_name is present)
-        """
-        return pulumi.get(self, "return_type")
-
-    @return_type.setter
-    def return_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "return_type", value)
-
-    @property
     @pulumi.getter
     def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -433,13 +355,11 @@ class FunctionGrant(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  argument_data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 arguments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionGrantArgumentArgs']]]]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
-                 return_type: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -475,23 +395,21 @@ class FunctionGrant(pulumi.CustomResource):
 
         ## Import
 
-        format is database_name | schema_name | object_name | argument_data_types | privilege | with_grant_option | roles | shares
+        format is database_name|schema_name|function_name|argument_data_types|privilege|with_grant_option|on_future|roles|shares
 
         ```sh
-         $ pulumi import snowflake:index/functionGrant:FunctionGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|ARG1TYPE,ARG2TYPE|USAGE|false|role1,role2|share1,share2'
+         $ pulumi import snowflake:index/functionGrant:FunctionGrant example "MY_DATABASE|MY_SCHEMA|MY_FUNCTION|ARG1TYPE,ARG2TYPE|USAGE|false|false|role1,role2|share1,share2"
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] argument_data_types: List of the argument data types for the function (must be present if function has arguments and function_name is present)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionGrantArgumentArgs']]]] arguments: List of the arguments for the function (must be present if function has arguments and function_name is present)
         :param pulumi.Input[str] database_name: The name of the database containing the current or future functions on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] function_name: The name of the function on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
-        :param pulumi.Input[str] return_type: The return type of the function (must be present if function_name is present)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future functions on which to grant privileges.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on_future is false).
@@ -533,10 +451,10 @@ class FunctionGrant(pulumi.CustomResource):
 
         ## Import
 
-        format is database_name | schema_name | object_name | argument_data_types | privilege | with_grant_option | roles | shares
+        format is database_name|schema_name|function_name|argument_data_types|privilege|with_grant_option|on_future|roles|shares
 
         ```sh
-         $ pulumi import snowflake:index/functionGrant:FunctionGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|ARG1TYPE,ARG2TYPE|USAGE|false|role1,role2|share1,share2'
+         $ pulumi import snowflake:index/functionGrant:FunctionGrant example "MY_DATABASE|MY_SCHEMA|MY_FUNCTION|ARG1TYPE,ARG2TYPE|USAGE|false|false|role1,role2|share1,share2"
         ```
 
         :param str resource_name: The name of the resource.
@@ -555,13 +473,11 @@ class FunctionGrant(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  argument_data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 arguments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionGrantArgumentArgs']]]]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
-                 return_type: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -576,10 +492,6 @@ class FunctionGrant(pulumi.CustomResource):
             __props__ = FunctionGrantArgs.__new__(FunctionGrantArgs)
 
             __props__.__dict__["argument_data_types"] = argument_data_types
-            if arguments is not None and not opts.urn:
-                warnings.warn("""Use argument_data_types instead""", DeprecationWarning)
-                pulumi.log.warn("""arguments is deprecated: Use argument_data_types instead""")
-            __props__.__dict__["arguments"] = arguments
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
@@ -587,10 +499,6 @@ class FunctionGrant(pulumi.CustomResource):
             __props__.__dict__["function_name"] = function_name
             __props__.__dict__["on_future"] = on_future
             __props__.__dict__["privilege"] = privilege
-            if return_type is not None and not opts.urn:
-                warnings.warn("""Not used anymore""", DeprecationWarning)
-                pulumi.log.warn("""return_type is deprecated: Not used anymore""")
-            __props__.__dict__["return_type"] = return_type
             if roles is None and not opts.urn:
                 raise TypeError("Missing required property 'roles'")
             __props__.__dict__["roles"] = roles
@@ -608,13 +516,11 @@ class FunctionGrant(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             argument_data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            arguments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionGrantArgumentArgs']]]]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
             enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
             function_name: Optional[pulumi.Input[str]] = None,
             on_future: Optional[pulumi.Input[bool]] = None,
             privilege: Optional[pulumi.Input[str]] = None,
-            return_type: Optional[pulumi.Input[str]] = None,
             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             schema_name: Optional[pulumi.Input[str]] = None,
             shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -627,14 +533,12 @@ class FunctionGrant(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] argument_data_types: List of the argument data types for the function (must be present if function has arguments and function_name is present)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionGrantArgumentArgs']]]] arguments: List of the arguments for the function (must be present if function has arguments and function_name is present)
         :param pulumi.Input[str] database_name: The name of the database containing the current or future functions on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] function_name: The name of the function on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
-        :param pulumi.Input[str] return_type: The return type of the function (must be present if function_name is present)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future functions on which to grant privileges.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on_future is false).
@@ -645,13 +549,11 @@ class FunctionGrant(pulumi.CustomResource):
         __props__ = _FunctionGrantState.__new__(_FunctionGrantState)
 
         __props__.__dict__["argument_data_types"] = argument_data_types
-        __props__.__dict__["arguments"] = arguments
         __props__.__dict__["database_name"] = database_name
         __props__.__dict__["enable_multiple_grants"] = enable_multiple_grants
         __props__.__dict__["function_name"] = function_name
         __props__.__dict__["on_future"] = on_future
         __props__.__dict__["privilege"] = privilege
-        __props__.__dict__["return_type"] = return_type
         __props__.__dict__["roles"] = roles
         __props__.__dict__["schema_name"] = schema_name
         __props__.__dict__["shares"] = shares
@@ -665,14 +567,6 @@ class FunctionGrant(pulumi.CustomResource):
         List of the argument data types for the function (must be present if function has arguments and function_name is present)
         """
         return pulumi.get(self, "argument_data_types")
-
-    @property
-    @pulumi.getter
-    def arguments(self) -> pulumi.Output[Optional[Sequence['outputs.FunctionGrantArgument']]]:
-        """
-        List of the arguments for the function (must be present if function has arguments and function_name is present)
-        """
-        return pulumi.get(self, "arguments")
 
     @property
     @pulumi.getter(name="databaseName")
@@ -714,14 +608,6 @@ class FunctionGrant(pulumi.CustomResource):
         The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
         """
         return pulumi.get(self, "privilege")
-
-    @property
-    @pulumi.getter(name="returnType")
-    def return_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The return type of the function (must be present if function_name is present)
-        """
-        return pulumi.get(self, "return_type")
 
     @property
     @pulumi.getter

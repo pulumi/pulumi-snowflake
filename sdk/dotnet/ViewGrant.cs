@@ -14,6 +14,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
@@ -56,10 +57,10 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// format is database_name | schema_name | view_name | privilege | with_grant_option | roles | shares
+    /// format is database_name|schema_name|view_name|privilege|with_grant_option|on_future|on_all|roles|shares
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/viewGrant:ViewGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|USAGE|false|role1,role2|share1,share2'
+    ///  $ pulumi import snowflake:index/viewGrant:ViewGrant example "MY_DATABASE|MY_SCHEMA|MY_VIEW|USAGE|false|false|false|role1,role2|share1,share2"
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/viewGrant:ViewGrant")]
@@ -79,7 +80,13 @@ namespace Pulumi.Snowflake
         public Output<bool?> EnableMultipleGrants { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+        /// </summary>
+        [Output("onAll")]
+        public Output<bool?> OnAll { get; private set; } = null!;
+
+        /// <summary>
+        /// When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
         /// </summary>
         [Output("onFuture")]
         public Output<bool?> OnFuture { get; private set; } = null!;
@@ -103,13 +110,13 @@ namespace Pulumi.Snowflake
         public Output<string?> SchemaName { get; private set; } = null!;
 
         /// <summary>
-        /// Grants privilege to these shares (only valid if on_future is unset).
+        /// Grants privilege to these shares (only valid if on*future and on*all are unset).
         /// </summary>
         [Output("shares")]
         public Output<ImmutableArray<string>> Shares { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the view on which to grant privileges immediately (only valid if on_future is unset).
+        /// The name of the view on which to grant privileges immediately (only valid if on*future and on*all are unset).
         /// </summary>
         [Output("viewName")]
         public Output<string?> ViewName { get; private set; } = null!;
@@ -180,7 +187,13 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+        /// </summary>
+        [Input("onAll")]
+        public Input<bool>? OnAll { get; set; }
+
+        /// <summary>
+        /// When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -213,7 +226,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _shares;
 
         /// <summary>
-        /// Grants privilege to these shares (only valid if on_future is unset).
+        /// Grants privilege to these shares (only valid if on*future and on*all are unset).
         /// </summary>
         public InputList<string> Shares
         {
@@ -222,7 +235,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// The name of the view on which to grant privileges immediately (only valid if on_future is unset).
+        /// The name of the view on which to grant privileges immediately (only valid if on*future and on*all are unset).
         /// </summary>
         [Input("viewName")]
         public Input<string>? ViewName { get; set; }
@@ -255,7 +268,13 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+        /// </summary>
+        [Input("onAll")]
+        public Input<bool>? OnAll { get; set; }
+
+        /// <summary>
+        /// When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
@@ -288,7 +307,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _shares;
 
         /// <summary>
-        /// Grants privilege to these shares (only valid if on_future is unset).
+        /// Grants privilege to these shares (only valid if on*future and on*all are unset).
         /// </summary>
         public InputList<string> Shares
         {
@@ -297,7 +316,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// The name of the view on which to grant privileges immediately (only valid if on_future is unset).
+        /// The name of the view on which to grant privileges immediately (only valid if on*future and on*all are unset).
         /// </summary>
         [Input("viewName")]
         public Input<string>? ViewName { get; set; }

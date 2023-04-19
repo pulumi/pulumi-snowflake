@@ -60,10 +60,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * format is database_name | schema_name | object_name | privilege | with_grant_option | roles | shares
+ * format is database_name|schema_name|materialized_view_name|privilege|with_grant_option|on_future|on_all|roles|shares
  * 
  * ```sh
- *  $ pulumi import snowflake:index/materializedViewGrant:MaterializedViewGrant example &#39;MY_DATABASE|MY_SCHEMA❄️MY_OBJECT_NAME|SELECT|false|role1,role2|share1,share2&#39;
+ *  $ pulumi import snowflake:index/materializedViewGrant:MaterializedViewGrant example &#34;MY_DATABASE|MY_SCHEMA|MY_MV_NAME|SELECT|false|false|role1,role2|share1,share2&#34;
  * ```
  * 
  */
@@ -100,42 +100,56 @@ public class MaterializedViewGrant extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableMultipleGrants);
     }
     /**
-     * The name of the materialized view on which to grant privileges immediately (only valid if on_future is false).
+     * The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
      * 
      */
     @Export(name="materializedViewName", type=String.class, parameters={})
     private Output</* @Nullable */ String> materializedViewName;
 
     /**
-     * @return The name of the materialized view on which to grant privileges immediately (only valid if on_future is false).
+     * @return The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
      * 
      */
     public Output<Optional<String>> materializedViewName() {
         return Codegen.optional(this.materializedViewName);
     }
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+     * 
+     */
+    @Export(name="onAll", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> onAll;
+
+    /**
+     * @return When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+     * 
+     */
+    public Output<Optional<Boolean>> onAll() {
+        return Codegen.optional(this.onAll);
+    }
+    /**
+     * When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
      * 
      */
     @Export(name="onFuture", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> onFuture;
 
     /**
-     * @return When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+     * @return When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
      * 
      */
     public Output<Optional<Boolean>> onFuture() {
         return Codegen.optional(this.onFuture);
     }
     /**
-     * The privilege to grant on the current or future materialized view view.
+     * The privilege to grant on the current or future materialized view.
      * 
      */
     @Export(name="privilege", type=String.class, parameters={})
     private Output</* @Nullable */ String> privilege;
 
     /**
-     * @return The privilege to grant on the current or future materialized view view.
+     * @return The privilege to grant on the current or future materialized view.
      * 
      */
     public Output<Optional<String>> privilege() {
@@ -170,14 +184,14 @@ public class MaterializedViewGrant extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.schemaName);
     }
     /**
-     * Grants privilege to these shares (only valid if on_future is false).
+     * Grants privilege to these shares (only valid if on*future and on*all are false).
      * 
      */
     @Export(name="shares", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> shares;
 
     /**
-     * @return Grants privilege to these shares (only valid if on_future is false).
+     * @return Grants privilege to these shares (only valid if on*future and on*all are false).
      * 
      */
     public Output<Optional<List<String>>> shares() {

@@ -41,6 +41,18 @@ Object.defineProperty(exports, "host", {
 });
 
 /**
+ * If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
+ * default value for testing or emergency situations only.
+ */
+export declare const insecureMode: boolean | undefined;
+Object.defineProperty(exports, "insecureMode", {
+    get() {
+        return __config.getObject<boolean>("insecureMode");
+    },
+    enumerable: true,
+});
+
+/**
  * Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
  * `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
  * variable.

@@ -59,10 +59,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * format is database_name | schema_name | privilege | with_grant_option | roles | shares
+ * format is database_name|schema_name|privilege|with_grant_option|on_future|on_all|roles|shares
  * 
  * ```sh
- *  $ pulumi import snowflake:index/schemaGrant:SchemaGrant example &#39;MY_DATABASE|MY_SCHEMA|MONITOR|false|role1,role2|share1,share2&#39;
+ *  $ pulumi import snowflake:index/schemaGrant:SchemaGrant example &#34;MY_DATABASE|MY_SCHEMA|USAGE|false|false|false|role1,role2|share1,share2&#34;
  * ```
  * 
  */
@@ -99,14 +99,28 @@ public class SchemaGrant extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableMultipleGrants);
     }
     /**
-     * When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
+     * When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+     * 
+     */
+    @Export(name="onAll", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> onAll;
+
+    /**
+     * @return When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+     * 
+     */
+    public Output<Optional<Boolean>> onAll() {
+        return Codegen.optional(this.onAll);
+    }
+    /**
+     * When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
      * 
      */
     @Export(name="onFuture", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> onFuture;
 
     /**
-     * @return When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future.
+     * @return When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
      * 
      */
     public Output<Optional<Boolean>> onFuture() {
@@ -157,14 +171,14 @@ public class SchemaGrant extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.schemaName);
     }
     /**
-     * Grants privilege to these shares (only valid if on_future is unset).
+     * Grants privilege to these shares (only valid if on*future and on*all are unset).
      * 
      */
     @Export(name="shares", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> shares;
 
     /**
-     * @return Grants privilege to these shares (only valid if on_future is unset).
+     * @return Grants privilege to these shares (only valid if on*future and on*all are unset).
      * 
      */
     public Output<Optional<List<String>>> shares() {

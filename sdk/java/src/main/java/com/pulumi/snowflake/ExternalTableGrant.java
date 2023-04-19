@@ -60,10 +60,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * format is database_name | schema_name | object_name | privilege | with_grant_option | roles | shares
+ * format is database|schema|external_table|privilege|with_grant_option|on_future|roles|shares
  * 
  * ```sh
- *  $ pulumi import snowflake:index/externalTableGrant:ExternalTableGrant example &#39;MY_DATABASE|MY_SCHEMA|MY_OBJECT_NAME|SELECT|false|role1,role2|share1,share2&#39;
+ *  $ pulumi import snowflake:index/externalTableGrant:ExternalTableGrant example &#34;MY_DATABASE|MY_SCHEMA|MY_TABLE_NAME|SELECT|false|false|role1,role2|share1,share2&#34;
  * ```
  * 
  */
