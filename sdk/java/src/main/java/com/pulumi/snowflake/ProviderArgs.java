@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -21,15 +22,15 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      * The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
      * 
      */
-    @Import(name="account", required=true)
-    private Output<String> account;
+    @Import(name="account")
+    private @Nullable Output<String> account;
 
     /**
      * @return The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
      * 
      */
-    public Output<String> account() {
-        return this.account;
+    public Optional<Output<String>> account() {
+        return Optional.ofNullable(this.account);
     }
 
     /**
@@ -269,8 +270,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      * in the form of `&lt;cloud_region_id&gt;.&lt;cloud&gt;`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
      * 
      */
-    @Import(name="region", required=true)
-    private Output<String> region;
+    @Import(name="region")
+    private @Nullable Output<String> region;
 
     /**
      * @return [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
@@ -279,8 +280,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      * in the form of `&lt;cloud_region_id&gt;.&lt;cloud&gt;`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
      * 
      */
-    public Output<String> region() {
-        return this.region;
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -304,15 +305,15 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      * Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
      * 
      */
-    @Import(name="username", required=true)
-    private Output<String> username;
+    @Import(name="username")
+    private @Nullable Output<String> username;
 
     /**
      * @return Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
      * 
      */
-    public Output<String> username() {
-        return this.username;
+    public Optional<Output<String>> username() {
+        return Optional.ofNullable(this.username);
     }
 
     /**
@@ -378,7 +379,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder account(Output<String> account) {
+        public Builder account(@Nullable Output<String> account) {
             $.account = account;
             return this;
         }
@@ -716,7 +717,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder region(Output<String> region) {
+        public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
@@ -763,7 +764,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder username(Output<String> username) {
+        public Builder username(@Nullable Output<String> username) {
             $.username = username;
             return this;
         }
@@ -800,9 +801,24 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProviderArgs build() {
-            $.account = Objects.requireNonNull($.account, "expected parameter 'account' to be non-null");
-            $.region = Objects.requireNonNull($.region, "expected parameter 'region' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            $.account = Codegen.stringProp("account").output().arg($.account).env("SNOWFLAKE_ACCOUNT").getNullable();
+            $.browserAuth = Codegen.booleanProp("browserAuth").output().arg($.browserAuth).env("SNOWFLAKE_USE_BROWSER_AUTH").getNullable();
+            $.host = Codegen.stringProp("host").output().arg($.host).env("SNOWFLAKE_HOST").getNullable();
+            $.oauthAccessToken = Codegen.stringProp("oauthAccessToken").secret().arg($.oauthAccessToken).env("SNOWFLAKE_OAUTH_ACCESS_TOKEN").getNullable();
+            $.oauthClientId = Codegen.stringProp("oauthClientId").secret().arg($.oauthClientId).env("SNOWFLAKE_OAUTH_CLIENT_ID").getNullable();
+            $.oauthClientSecret = Codegen.stringProp("oauthClientSecret").secret().arg($.oauthClientSecret).env("SNOWFLAKE_OAUTH_CLIENT_SECRET").getNullable();
+            $.oauthEndpoint = Codegen.stringProp("oauthEndpoint").secret().arg($.oauthEndpoint).env("SNOWFLAKE_OAUTH_ENDPOINT").getNullable();
+            $.oauthRedirectUrl = Codegen.stringProp("oauthRedirectUrl").secret().arg($.oauthRedirectUrl).env("SNOWFLAKE_OAUTH_REDIRECT_URL").getNullable();
+            $.oauthRefreshToken = Codegen.stringProp("oauthRefreshToken").secret().arg($.oauthRefreshToken).env("SNOWFLAKE_OAUTH_REFRESH_TOKEN").getNullable();
+            $.password = Codegen.stringProp("password").secret().arg($.password).env("SNOWFLAKE_PASSWORD").getNullable();
+            $.port = Codegen.integerProp("port").output().arg($.port).env("SNOWFLAKE_PORT").getNullable();
+            $.privateKeyPassphrase = Codegen.stringProp("privateKeyPassphrase").secret().arg($.privateKeyPassphrase).env("SNOWFLAKE_PRIVATE_KEY_PASSPHRASE").getNullable();
+            $.privateKeyPath = Codegen.stringProp("privateKeyPath").secret().arg($.privateKeyPath).env("SNOWFLAKE_PRIVATE_KEY_PATH").getNullable();
+            $.protocol = Codegen.stringProp("protocol").output().arg($.protocol).env("SNOWFLAKE_PROTOCOL").getNullable();
+            $.region = Codegen.stringProp("region").output().arg($.region).env("SNOWFLAKE_REGION").getNullable();
+            $.role = Codegen.stringProp("role").output().arg($.role).env("SNOWFLAKE_ROLE").getNullable();
+            $.username = Codegen.stringProp("username").output().arg($.username).env("SNOWFLAKE_USER").getNullable();
+            $.warehouse = Codegen.stringProp("warehouse").output().arg($.warehouse).env("SNOWFLAKE_WAREHOUSE").getNullable();
             return $;
         }
     }

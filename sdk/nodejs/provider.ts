@@ -28,7 +28,7 @@ export class Provider extends pulumi.ProviderResource {
     /**
      * The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
      */
-    public readonly account!: pulumi.Output<string>;
+    public readonly account!: pulumi.Output<string | undefined>;
     /**
      * Supports passing in a custom host value to the snowflake go driver for use with privatelink.
      */
@@ -92,7 +92,7 @@ export class Provider extends pulumi.ProviderResource {
      * identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
      * in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
      */
-    public readonly region!: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string | undefined>;
     /**
      * Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
      * `SNOWFLAKE_ROLE` environment variable.
@@ -101,7 +101,7 @@ export class Provider extends pulumi.ProviderResource {
     /**
      * Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
      */
-    public readonly username!: pulumi.Output<string>;
+    public readonly username!: pulumi.Output<string | undefined>;
     /**
      * Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
      */
@@ -114,38 +114,29 @@ export class Provider extends pulumi.ProviderResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            if ((!args || args.account === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'account'");
-            }
-            if ((!args || args.region === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'region'");
-            }
-            if ((!args || args.username === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'username'");
-            }
-            resourceInputs["account"] = args ? args.account : undefined;
-            resourceInputs["browserAuth"] = pulumi.output(args ? args.browserAuth : undefined).apply(JSON.stringify);
-            resourceInputs["host"] = args ? args.host : undefined;
-            resourceInputs["oauthAccessToken"] = args?.oauthAccessToken ? pulumi.secret(args.oauthAccessToken) : undefined;
-            resourceInputs["oauthClientId"] = args?.oauthClientId ? pulumi.secret(args.oauthClientId) : undefined;
-            resourceInputs["oauthClientSecret"] = args?.oauthClientSecret ? pulumi.secret(args.oauthClientSecret) : undefined;
-            resourceInputs["oauthEndpoint"] = args?.oauthEndpoint ? pulumi.secret(args.oauthEndpoint) : undefined;
-            resourceInputs["oauthRedirectUrl"] = args?.oauthRedirectUrl ? pulumi.secret(args.oauthRedirectUrl) : undefined;
-            resourceInputs["oauthRefreshToken"] = args?.oauthRefreshToken ? pulumi.secret(args.oauthRefreshToken) : undefined;
-            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["port"] = pulumi.output(args ? args.port : undefined).apply(JSON.stringify);
+            resourceInputs["account"] = (args ? args.account : undefined) ?? utilities.getEnv("SNOWFLAKE_ACCOUNT");
+            resourceInputs["browserAuth"] = pulumi.output((args ? args.browserAuth : undefined) ?? utilities.getEnvBoolean("SNOWFLAKE_USE_BROWSER_AUTH")).apply(JSON.stringify);
+            resourceInputs["host"] = (args ? args.host : undefined) ?? utilities.getEnv("SNOWFLAKE_HOST");
+            resourceInputs["oauthAccessToken"] = (args?.oauthAccessToken ? pulumi.secret(args.oauthAccessToken) : undefined) ?? utilities.getEnv("SNOWFLAKE_OAUTH_ACCESS_TOKEN");
+            resourceInputs["oauthClientId"] = (args?.oauthClientId ? pulumi.secret(args.oauthClientId) : undefined) ?? utilities.getEnv("SNOWFLAKE_OAUTH_CLIENT_ID");
+            resourceInputs["oauthClientSecret"] = (args?.oauthClientSecret ? pulumi.secret(args.oauthClientSecret) : undefined) ?? utilities.getEnv("SNOWFLAKE_OAUTH_CLIENT_SECRET");
+            resourceInputs["oauthEndpoint"] = (args?.oauthEndpoint ? pulumi.secret(args.oauthEndpoint) : undefined) ?? utilities.getEnv("SNOWFLAKE_OAUTH_ENDPOINT");
+            resourceInputs["oauthRedirectUrl"] = (args?.oauthRedirectUrl ? pulumi.secret(args.oauthRedirectUrl) : undefined) ?? utilities.getEnv("SNOWFLAKE_OAUTH_REDIRECT_URL");
+            resourceInputs["oauthRefreshToken"] = (args?.oauthRefreshToken ? pulumi.secret(args.oauthRefreshToken) : undefined) ?? utilities.getEnv("SNOWFLAKE_OAUTH_REFRESH_TOKEN");
+            resourceInputs["password"] = (args?.password ? pulumi.secret(args.password) : undefined) ?? utilities.getEnv("SNOWFLAKE_PASSWORD");
+            resourceInputs["port"] = pulumi.output((args ? args.port : undefined) ?? utilities.getEnvNumber("SNOWFLAKE_PORT")).apply(JSON.stringify);
             resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
-            resourceInputs["privateKeyPassphrase"] = args?.privateKeyPassphrase ? pulumi.secret(args.privateKeyPassphrase) : undefined;
-            resourceInputs["privateKeyPath"] = args?.privateKeyPath ? pulumi.secret(args.privateKeyPath) : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
-            resourceInputs["warehouse"] = args ? args.warehouse : undefined;
+            resourceInputs["privateKeyPassphrase"] = (args?.privateKeyPassphrase ? pulumi.secret(args.privateKeyPassphrase) : undefined) ?? utilities.getEnv("SNOWFLAKE_PRIVATE_KEY_PASSPHRASE");
+            resourceInputs["privateKeyPath"] = (args?.privateKeyPath ? pulumi.secret(args.privateKeyPath) : undefined) ?? utilities.getEnv("SNOWFLAKE_PRIVATE_KEY_PATH");
+            resourceInputs["protocol"] = (args ? args.protocol : undefined) ?? utilities.getEnv("SNOWFLAKE_PROTOCOL");
+            resourceInputs["region"] = (args ? args.region : undefined) ?? utilities.getEnv("SNOWFLAKE_REGION");
+            resourceInputs["role"] = (args ? args.role : undefined) ?? utilities.getEnv("SNOWFLAKE_ROLE");
+            resourceInputs["username"] = (args ? args.username : undefined) ?? utilities.getEnv("SNOWFLAKE_USER");
+            resourceInputs["warehouse"] = (args ? args.warehouse : undefined) ?? utilities.getEnv("SNOWFLAKE_WAREHOUSE");
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["oauthAccessToken", "oauthClientId", "oauthClientSecret", "oauthEndpoint", "oauthRedirectUrl", "oauthRefreshToken", "password", "privateKey", "privateKeyPassphrase", "privateKeyPath"] };
@@ -161,7 +152,7 @@ export interface ProviderArgs {
     /**
      * The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
      */
-    account: pulumi.Input<string>;
+    account?: pulumi.Input<string>;
     /**
      * Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
      */
@@ -234,7 +225,7 @@ export interface ProviderArgs {
      * identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
      * in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
      */
-    region: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
      * `SNOWFLAKE_ROLE` environment variable.
@@ -243,7 +234,7 @@ export interface ProviderArgs {
     /**
      * Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
      */
-    username: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
     /**
      * Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
      */

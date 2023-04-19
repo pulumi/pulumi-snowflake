@@ -14,9 +14,7 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
-                 account: pulumi.Input[str],
-                 region: pulumi.Input[str],
-                 username: pulumi.Input[str],
+                 account: Optional[pulumi.Input[str]] = None,
                  browser_auth: Optional[pulumi.Input[bool]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  oauth_access_token: Optional[pulumi.Input[str]] = None,
@@ -31,16 +29,13 @@ class ProviderArgs:
                  private_key_passphrase: Optional[pulumi.Input[str]] = None,
                  private_key_path: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
+                 region: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None,
                  warehouse: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] account: The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
-        :param pulumi.Input[str] region: [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
-               format for the `account`
-               identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
-               in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
-        :param pulumi.Input[str] username: Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
         :param pulumi.Input[bool] browser_auth: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
         :param pulumi.Input[str] host: Supports passing in a custom host value to the snowflake go driver for use with privatelink.
         :param pulumi.Input[str] oauth_access_token: Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
@@ -65,84 +60,101 @@ class ProviderArgs:
         :param pulumi.Input[str] private_key_path: Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
                `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
         :param pulumi.Input[str] protocol: Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
+        :param pulumi.Input[str] region: [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
+               format for the `account`
+               identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
+               in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
         :param pulumi.Input[str] role: Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
                `SNOWFLAKE_ROLE` environment variable.
+        :param pulumi.Input[str] username: Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
         :param pulumi.Input[str] warehouse: Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
         """
-        pulumi.set(__self__, "account", account)
-        pulumi.set(__self__, "region", region)
-        pulumi.set(__self__, "username", username)
+        if account is None:
+            account = _utilities.get_env('SNOWFLAKE_ACCOUNT')
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if browser_auth is None:
+            browser_auth = _utilities.get_env_bool('SNOWFLAKE_USE_BROWSER_AUTH')
         if browser_auth is not None:
             pulumi.set(__self__, "browser_auth", browser_auth)
+        if host is None:
+            host = _utilities.get_env('SNOWFLAKE_HOST')
         if host is not None:
             pulumi.set(__self__, "host", host)
+        if oauth_access_token is None:
+            oauth_access_token = _utilities.get_env('SNOWFLAKE_OAUTH_ACCESS_TOKEN')
         if oauth_access_token is not None:
             pulumi.set(__self__, "oauth_access_token", oauth_access_token)
+        if oauth_client_id is None:
+            oauth_client_id = _utilities.get_env('SNOWFLAKE_OAUTH_CLIENT_ID')
         if oauth_client_id is not None:
             pulumi.set(__self__, "oauth_client_id", oauth_client_id)
+        if oauth_client_secret is None:
+            oauth_client_secret = _utilities.get_env('SNOWFLAKE_OAUTH_CLIENT_SECRET')
         if oauth_client_secret is not None:
             pulumi.set(__self__, "oauth_client_secret", oauth_client_secret)
+        if oauth_endpoint is None:
+            oauth_endpoint = _utilities.get_env('SNOWFLAKE_OAUTH_ENDPOINT')
         if oauth_endpoint is not None:
             pulumi.set(__self__, "oauth_endpoint", oauth_endpoint)
+        if oauth_redirect_url is None:
+            oauth_redirect_url = _utilities.get_env('SNOWFLAKE_OAUTH_REDIRECT_URL')
         if oauth_redirect_url is not None:
             pulumi.set(__self__, "oauth_redirect_url", oauth_redirect_url)
+        if oauth_refresh_token is None:
+            oauth_refresh_token = _utilities.get_env('SNOWFLAKE_OAUTH_REFRESH_TOKEN')
         if oauth_refresh_token is not None:
             pulumi.set(__self__, "oauth_refresh_token", oauth_refresh_token)
+        if password is None:
+            password = _utilities.get_env('SNOWFLAKE_PASSWORD')
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if port is None:
+            port = _utilities.get_env_int('SNOWFLAKE_PORT')
         if port is not None:
             pulumi.set(__self__, "port", port)
         if private_key is not None:
             pulumi.set(__self__, "private_key", private_key)
+        if private_key_passphrase is None:
+            private_key_passphrase = _utilities.get_env('SNOWFLAKE_PRIVATE_KEY_PASSPHRASE')
         if private_key_passphrase is not None:
             pulumi.set(__self__, "private_key_passphrase", private_key_passphrase)
+        if private_key_path is None:
+            private_key_path = _utilities.get_env('SNOWFLAKE_PRIVATE_KEY_PATH')
         if private_key_path is not None:
             pulumi.set(__self__, "private_key_path", private_key_path)
+        if protocol is None:
+            protocol = _utilities.get_env('SNOWFLAKE_PROTOCOL')
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if region is None:
+            region = _utilities.get_env('SNOWFLAKE_REGION')
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if role is None:
+            role = _utilities.get_env('SNOWFLAKE_ROLE')
         if role is not None:
             pulumi.set(__self__, "role", role)
+        if username is None:
+            username = _utilities.get_env('SNOWFLAKE_USER')
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+        if warehouse is None:
+            warehouse = _utilities.get_env('SNOWFLAKE_WAREHOUSE')
         if warehouse is not None:
             pulumi.set(__self__, "warehouse", warehouse)
 
     @property
     @pulumi.getter
-    def account(self) -> pulumi.Input[str]:
+    def account(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
         """
         return pulumi.get(self, "account")
 
     @account.setter
-    def account(self, value: pulumi.Input[str]):
+    def account(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account", value)
-
-    @property
-    @pulumi.getter
-    def region(self) -> pulumi.Input[str]:
-        """
-        [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
-        format for the `account`
-        identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
-        in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
-        """
-        return pulumi.get(self, "region")
-
-    @region.setter
-    def region(self, value: pulumi.Input[str]):
-        pulumi.set(self, "region", value)
-
-    @property
-    @pulumi.getter
-    def username(self) -> pulumi.Input[str]:
-        """
-        Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
-        """
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: pulumi.Input[str]):
-        pulumi.set(self, "username", value)
 
     @property
     @pulumi.getter(name="browserAuth")
@@ -324,6 +336,21 @@ class ProviderArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
+        format for the `account`
+        identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
+        in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
         """
         Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
@@ -334,6 +361,18 @@ class ProviderArgs:
     @role.setter
     def role(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
 
     @property
     @pulumi.getter
@@ -419,7 +458,7 @@ class Provider(pulumi.ProviderResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProviderArgs,
+                 args: Optional[ProviderArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The provider type for the snowflake package. By default, resources use package-wide configuration
@@ -470,30 +509,60 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
-            if account is None and not opts.urn:
-                raise TypeError("Missing required property 'account'")
+            if account is None:
+                account = _utilities.get_env('SNOWFLAKE_ACCOUNT')
             __props__.__dict__["account"] = account
+            if browser_auth is None:
+                browser_auth = _utilities.get_env_bool('SNOWFLAKE_USE_BROWSER_AUTH')
             __props__.__dict__["browser_auth"] = pulumi.Output.from_input(browser_auth).apply(pulumi.runtime.to_json) if browser_auth is not None else None
+            if host is None:
+                host = _utilities.get_env('SNOWFLAKE_HOST')
             __props__.__dict__["host"] = host
+            if oauth_access_token is None:
+                oauth_access_token = _utilities.get_env('SNOWFLAKE_OAUTH_ACCESS_TOKEN')
             __props__.__dict__["oauth_access_token"] = None if oauth_access_token is None else pulumi.Output.secret(oauth_access_token)
+            if oauth_client_id is None:
+                oauth_client_id = _utilities.get_env('SNOWFLAKE_OAUTH_CLIENT_ID')
             __props__.__dict__["oauth_client_id"] = None if oauth_client_id is None else pulumi.Output.secret(oauth_client_id)
+            if oauth_client_secret is None:
+                oauth_client_secret = _utilities.get_env('SNOWFLAKE_OAUTH_CLIENT_SECRET')
             __props__.__dict__["oauth_client_secret"] = None if oauth_client_secret is None else pulumi.Output.secret(oauth_client_secret)
+            if oauth_endpoint is None:
+                oauth_endpoint = _utilities.get_env('SNOWFLAKE_OAUTH_ENDPOINT')
             __props__.__dict__["oauth_endpoint"] = None if oauth_endpoint is None else pulumi.Output.secret(oauth_endpoint)
+            if oauth_redirect_url is None:
+                oauth_redirect_url = _utilities.get_env('SNOWFLAKE_OAUTH_REDIRECT_URL')
             __props__.__dict__["oauth_redirect_url"] = None if oauth_redirect_url is None else pulumi.Output.secret(oauth_redirect_url)
+            if oauth_refresh_token is None:
+                oauth_refresh_token = _utilities.get_env('SNOWFLAKE_OAUTH_REFRESH_TOKEN')
             __props__.__dict__["oauth_refresh_token"] = None if oauth_refresh_token is None else pulumi.Output.secret(oauth_refresh_token)
+            if password is None:
+                password = _utilities.get_env('SNOWFLAKE_PASSWORD')
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
+            if port is None:
+                port = _utilities.get_env_int('SNOWFLAKE_PORT')
             __props__.__dict__["port"] = pulumi.Output.from_input(port).apply(pulumi.runtime.to_json) if port is not None else None
             __props__.__dict__["private_key"] = None if private_key is None else pulumi.Output.secret(private_key)
+            if private_key_passphrase is None:
+                private_key_passphrase = _utilities.get_env('SNOWFLAKE_PRIVATE_KEY_PASSPHRASE')
             __props__.__dict__["private_key_passphrase"] = None if private_key_passphrase is None else pulumi.Output.secret(private_key_passphrase)
+            if private_key_path is None:
+                private_key_path = _utilities.get_env('SNOWFLAKE_PRIVATE_KEY_PATH')
             __props__.__dict__["private_key_path"] = None if private_key_path is None else pulumi.Output.secret(private_key_path)
+            if protocol is None:
+                protocol = _utilities.get_env('SNOWFLAKE_PROTOCOL')
             __props__.__dict__["protocol"] = protocol
-            if region is None and not opts.urn:
-                raise TypeError("Missing required property 'region'")
+            if region is None:
+                region = _utilities.get_env('SNOWFLAKE_REGION')
             __props__.__dict__["region"] = region
+            if role is None:
+                role = _utilities.get_env('SNOWFLAKE_ROLE')
             __props__.__dict__["role"] = role
-            if username is None and not opts.urn:
-                raise TypeError("Missing required property 'username'")
+            if username is None:
+                username = _utilities.get_env('SNOWFLAKE_USER')
             __props__.__dict__["username"] = username
+            if warehouse is None:
+                warehouse = _utilities.get_env('SNOWFLAKE_WAREHOUSE')
             __props__.__dict__["warehouse"] = warehouse
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["oauthAccessToken", "oauthClientId", "oauthClientSecret", "oauthEndpoint", "oauthRedirectUrl", "oauthRefreshToken", "password", "privateKey", "privateKeyPassphrase", "privateKeyPath"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -505,7 +574,7 @@ class Provider(pulumi.ProviderResource):
 
     @property
     @pulumi.getter
-    def account(self) -> pulumi.Output[str]:
+    def account(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
         """
@@ -618,7 +687,7 @@ class Provider(pulumi.ProviderResource):
 
     @property
     @pulumi.getter
-    def region(self) -> pulumi.Output[str]:
+    def region(self) -> pulumi.Output[Optional[str]]:
         """
         [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
         format for the `account`
@@ -638,7 +707,7 @@ class Provider(pulumi.ProviderResource):
 
     @property
     @pulumi.getter
-    def username(self) -> pulumi.Output[str]:
+    def username(self) -> pulumi.Output[Optional[str]]:
         """
         Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
         """

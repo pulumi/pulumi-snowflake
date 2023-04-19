@@ -20,21 +20,21 @@ class _ExportableConfig(types.ModuleType):
         """
         The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
         """
-        return __config__.get('account')
+        return __config__.get('account') or _utilities.get_env('SNOWFLAKE_ACCOUNT')
 
     @property
     def browser_auth(self) -> Optional[bool]:
         """
         Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
         """
-        return __config__.get_bool('browserAuth')
+        return __config__.get_bool('browserAuth') or _utilities.get_env_bool('SNOWFLAKE_USE_BROWSER_AUTH')
 
     @property
     def host(self) -> Optional[str]:
         """
         Supports passing in a custom host value to the snowflake go driver for use with privatelink.
         """
-        return __config__.get('host')
+        return __config__.get('host') or _utilities.get_env('SNOWFLAKE_HOST')
 
     @property
     def oauth_access_token(self) -> Optional[str]:
@@ -43,35 +43,35 @@ class _ExportableConfig(types.ModuleType):
         `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
         variable.
         """
-        return __config__.get('oauthAccessToken')
+        return __config__.get('oauthAccessToken') or _utilities.get_env('SNOWFLAKE_OAUTH_ACCESS_TOKEN')
 
     @property
     def oauth_client_id(self) -> Optional[str]:
         """
         Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
         """
-        return __config__.get('oauthClientId')
+        return __config__.get('oauthClientId') or _utilities.get_env('SNOWFLAKE_OAUTH_CLIENT_ID')
 
     @property
     def oauth_client_secret(self) -> Optional[str]:
         """
         Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
         """
-        return __config__.get('oauthClientSecret')
+        return __config__.get('oauthClientSecret') or _utilities.get_env('SNOWFLAKE_OAUTH_CLIENT_SECRET')
 
     @property
     def oauth_endpoint(self) -> Optional[str]:
         """
         Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
         """
-        return __config__.get('oauthEndpoint')
+        return __config__.get('oauthEndpoint') or _utilities.get_env('SNOWFLAKE_OAUTH_ENDPOINT')
 
     @property
     def oauth_redirect_url(self) -> Optional[str]:
         """
         Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
         """
-        return __config__.get('oauthRedirectUrl')
+        return __config__.get('oauthRedirectUrl') or _utilities.get_env('SNOWFLAKE_OAUTH_REDIRECT_URL')
 
     @property
     def oauth_refresh_token(self) -> Optional[str]:
@@ -81,7 +81,7 @@ class _ExportableConfig(types.ModuleType):
         `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
         variable.
         """
-        return __config__.get('oauthRefreshToken')
+        return __config__.get('oauthRefreshToken') or _utilities.get_env('SNOWFLAKE_OAUTH_REFRESH_TOKEN')
 
     @property
     def password(self) -> Optional[str]:
@@ -89,7 +89,7 @@ class _ExportableConfig(types.ModuleType):
         Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
         `SNOWFLAKE_PASSWORD` environment variable.
         """
-        return __config__.get('password')
+        return __config__.get('password') or _utilities.get_env('SNOWFLAKE_PASSWORD')
 
     @property
     def port(self) -> Optional[int]:
@@ -97,7 +97,7 @@ class _ExportableConfig(types.ModuleType):
         Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`
         environment variable.
         """
-        return __config__.get_int('port')
+        return __config__.get_int('port') or _utilities.get_env_int('SNOWFLAKE_PORT')
 
     @property
     def private_key(self) -> Optional[str]:
@@ -113,7 +113,7 @@ class _ExportableConfig(types.ModuleType):
         Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
         des-ede3-cbc
         """
-        return __config__.get('privateKeyPassphrase')
+        return __config__.get('privateKeyPassphrase') or _utilities.get_env('SNOWFLAKE_PRIVATE_KEY_PASSPHRASE')
 
     @property
     def private_key_path(self) -> Optional[str]:
@@ -121,14 +121,14 @@ class _ExportableConfig(types.ModuleType):
         Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
         `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
         """
-        return __config__.get('privateKeyPath')
+        return __config__.get('privateKeyPath') or _utilities.get_env('SNOWFLAKE_PRIVATE_KEY_PATH')
 
     @property
     def protocol(self) -> Optional[str]:
         """
         Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
         """
-        return __config__.get('protocol')
+        return __config__.get('protocol') or _utilities.get_env('SNOWFLAKE_PROTOCOL')
 
     @property
     def region(self) -> Optional[str]:
@@ -138,7 +138,7 @@ class _ExportableConfig(types.ModuleType):
         identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
         in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
         """
-        return __config__.get('region')
+        return __config__.get('region') or _utilities.get_env('SNOWFLAKE_REGION')
 
     @property
     def role(self) -> Optional[str]:
@@ -146,19 +146,19 @@ class _ExportableConfig(types.ModuleType):
         Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
         `SNOWFLAKE_ROLE` environment variable.
         """
-        return __config__.get('role')
+        return __config__.get('role') or _utilities.get_env('SNOWFLAKE_ROLE')
 
     @property
     def username(self) -> Optional[str]:
         """
         Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
         """
-        return __config__.get('username')
+        return __config__.get('username') or _utilities.get_env('SNOWFLAKE_USER')
 
     @property
     def warehouse(self) -> Optional[str]:
         """
         Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
         """
-        return __config__.get('warehouse')
+        return __config__.get('warehouse') or _utilities.get_env('SNOWFLAKE_WAREHOUSE')
 
