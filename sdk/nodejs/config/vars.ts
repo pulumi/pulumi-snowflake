@@ -13,7 +13,7 @@ const __config = new pulumi.Config("snowflake");
 export declare const account: string | undefined;
 Object.defineProperty(exports, "account", {
     get() {
-        return __config.get("account");
+        return __config.get("account") ?? utilities.getEnv("SNOWFLAKE_ACCOUNT");
     },
     enumerable: true,
 });
@@ -24,7 +24,7 @@ Object.defineProperty(exports, "account", {
 export declare const browserAuth: boolean | undefined;
 Object.defineProperty(exports, "browserAuth", {
     get() {
-        return __config.getObject<boolean>("browserAuth");
+        return __config.getObject<boolean>("browserAuth") ?? utilities.getEnvBoolean("SNOWFLAKE_USE_BROWSER_AUTH");
     },
     enumerable: true,
 });
@@ -35,7 +35,7 @@ Object.defineProperty(exports, "browserAuth", {
 export declare const host: string | undefined;
 Object.defineProperty(exports, "host", {
     get() {
-        return __config.get("host");
+        return __config.get("host") ?? utilities.getEnv("SNOWFLAKE_HOST");
     },
     enumerable: true,
 });
@@ -48,7 +48,7 @@ Object.defineProperty(exports, "host", {
 export declare const oauthAccessToken: string | undefined;
 Object.defineProperty(exports, "oauthAccessToken", {
     get() {
-        return __config.get("oauthAccessToken");
+        return __config.get("oauthAccessToken") ?? utilities.getEnv("SNOWFLAKE_OAUTH_ACCESS_TOKEN");
     },
     enumerable: true,
 });
@@ -59,7 +59,7 @@ Object.defineProperty(exports, "oauthAccessToken", {
 export declare const oauthClientId: string | undefined;
 Object.defineProperty(exports, "oauthClientId", {
     get() {
-        return __config.get("oauthClientId");
+        return __config.get("oauthClientId") ?? utilities.getEnv("SNOWFLAKE_OAUTH_CLIENT_ID");
     },
     enumerable: true,
 });
@@ -70,7 +70,7 @@ Object.defineProperty(exports, "oauthClientId", {
 export declare const oauthClientSecret: string | undefined;
 Object.defineProperty(exports, "oauthClientSecret", {
     get() {
-        return __config.get("oauthClientSecret");
+        return __config.get("oauthClientSecret") ?? utilities.getEnv("SNOWFLAKE_OAUTH_CLIENT_SECRET");
     },
     enumerable: true,
 });
@@ -81,7 +81,7 @@ Object.defineProperty(exports, "oauthClientSecret", {
 export declare const oauthEndpoint: string | undefined;
 Object.defineProperty(exports, "oauthEndpoint", {
     get() {
-        return __config.get("oauthEndpoint");
+        return __config.get("oauthEndpoint") ?? utilities.getEnv("SNOWFLAKE_OAUTH_ENDPOINT");
     },
     enumerable: true,
 });
@@ -92,7 +92,7 @@ Object.defineProperty(exports, "oauthEndpoint", {
 export declare const oauthRedirectUrl: string | undefined;
 Object.defineProperty(exports, "oauthRedirectUrl", {
     get() {
-        return __config.get("oauthRedirectUrl");
+        return __config.get("oauthRedirectUrl") ?? utilities.getEnv("SNOWFLAKE_OAUTH_REDIRECT_URL");
     },
     enumerable: true,
 });
@@ -106,7 +106,7 @@ Object.defineProperty(exports, "oauthRedirectUrl", {
 export declare const oauthRefreshToken: string | undefined;
 Object.defineProperty(exports, "oauthRefreshToken", {
     get() {
-        return __config.get("oauthRefreshToken");
+        return __config.get("oauthRefreshToken") ?? utilities.getEnv("SNOWFLAKE_OAUTH_REFRESH_TOKEN");
     },
     enumerable: true,
 });
@@ -118,7 +118,7 @@ Object.defineProperty(exports, "oauthRefreshToken", {
 export declare const password: string | undefined;
 Object.defineProperty(exports, "password", {
     get() {
-        return __config.get("password");
+        return __config.get("password") ?? utilities.getEnv("SNOWFLAKE_PASSWORD");
     },
     enumerable: true,
 });
@@ -130,7 +130,7 @@ Object.defineProperty(exports, "password", {
 export declare const port: number | undefined;
 Object.defineProperty(exports, "port", {
     get() {
-        return __config.getObject<number>("port");
+        return __config.getObject<number>("port") ?? utilities.getEnvNumber("SNOWFLAKE_PORT");
     },
     enumerable: true,
 });
@@ -154,7 +154,7 @@ Object.defineProperty(exports, "privateKey", {
 export declare const privateKeyPassphrase: string | undefined;
 Object.defineProperty(exports, "privateKeyPassphrase", {
     get() {
-        return __config.get("privateKeyPassphrase");
+        return __config.get("privateKeyPassphrase") ?? utilities.getEnv("SNOWFLAKE_PRIVATE_KEY_PASSPHRASE");
     },
     enumerable: true,
 });
@@ -166,7 +166,7 @@ Object.defineProperty(exports, "privateKeyPassphrase", {
 export declare const privateKeyPath: string | undefined;
 Object.defineProperty(exports, "privateKeyPath", {
     get() {
-        return __config.get("privateKeyPath");
+        return __config.get("privateKeyPath") ?? utilities.getEnv("SNOWFLAKE_PRIVATE_KEY_PATH");
     },
     enumerable: true,
 });
@@ -177,7 +177,7 @@ Object.defineProperty(exports, "privateKeyPath", {
 export declare const protocol: string | undefined;
 Object.defineProperty(exports, "protocol", {
     get() {
-        return __config.get("protocol");
+        return __config.get("protocol") ?? utilities.getEnv("SNOWFLAKE_PROTOCOL");
     },
     enumerable: true,
 });
@@ -191,7 +191,7 @@ Object.defineProperty(exports, "protocol", {
 export declare const region: string | undefined;
 Object.defineProperty(exports, "region", {
     get() {
-        return __config.get("region");
+        return __config.get("region") ?? utilities.getEnv("SNOWFLAKE_REGION");
     },
     enumerable: true,
 });
@@ -203,7 +203,7 @@ Object.defineProperty(exports, "region", {
 export declare const role: string | undefined;
 Object.defineProperty(exports, "role", {
     get() {
-        return __config.get("role");
+        return __config.get("role") ?? utilities.getEnv("SNOWFLAKE_ROLE");
     },
     enumerable: true,
 });
@@ -214,7 +214,7 @@ Object.defineProperty(exports, "role", {
 export declare const username: string | undefined;
 Object.defineProperty(exports, "username", {
     get() {
-        return __config.get("username");
+        return __config.get("username") ?? utilities.getEnv("SNOWFLAKE_USER");
     },
     enumerable: true,
 });
@@ -225,7 +225,7 @@ Object.defineProperty(exports, "username", {
 export declare const warehouse: string | undefined;
 Object.defineProperty(exports, "warehouse", {
     get() {
-        return __config.get("warehouse");
+        return __config.get("warehouse") ?? utilities.getEnv("SNOWFLAKE_WAREHOUSE");
     },
     enumerable: true,
 });
