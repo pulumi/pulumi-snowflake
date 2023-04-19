@@ -11,25 +11,31 @@ namespace Pulumi.Snowflake.Outputs
 {
 
     [OutputType]
-    public sealed class FunctionGrantArgument
+    public sealed class GetSharesShareResult
     {
-        /// <summary>
-        /// The argument name
-        /// </summary>
+        public readonly string Comment;
+        public readonly string Kind;
         public readonly string Name;
-        /// <summary>
-        /// The argument type
-        /// </summary>
-        public readonly string Type;
+        public readonly string Owner;
+        public readonly string To;
 
         [OutputConstructor]
-        private FunctionGrantArgument(
+        private GetSharesShareResult(
+            string comment,
+
+            string kind,
+
             string name,
 
-            string type)
+            string owner,
+
+            string to)
         {
+            Comment = comment;
+            Kind = kind;
             Name = name;
-            Type = type;
+            Owner = owner;
+            To = to;
         }
     }
 }

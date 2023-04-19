@@ -54,10 +54,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * format is username | privilege | with_grant_option |roles
+ * format is user_name|privilege|with_grant_option|roles
  * 
  * ```sh
- *  $ pulumi import snowflake:index/userGrant:UserGrant example &#39;USERNAME|MONITOR|false|role1,role2&#39;
+ *  $ pulumi import snowflake:index/userGrant:UserGrant example &#34;USERNAME|MONITOR|false|role1,role2&#34;
  * ```
  * 
  */

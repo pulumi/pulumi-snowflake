@@ -50,14 +50,29 @@ public final class StageGrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
+     * When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+     * 
+     */
+    @Import(name="onAll")
+    private @Nullable Output<Boolean> onAll;
+
+    /**
+     * @return When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+     * 
+     */
+    public Optional<Output<Boolean>> onAll() {
+        return Optional.ofNullable(this.onAll);
+    }
+
+    /**
+     * When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future. Cannot be used together with on_all.
      * 
      */
     @Import(name="onFuture")
     private @Nullable Output<Boolean> onFuture;
 
     /**
-     * @return When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
+     * @return When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future. Cannot be used together with on_all.
      * 
      */
     public Optional<Output<Boolean>> onFuture() {
@@ -110,14 +125,14 @@ public final class StageGrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the stage on which to grant privilege (only valid if on_future is false).
+     * The name of the stage on which to grant privilege (only valid if on*future and on*all are false).
      * 
      */
     @Import(name="stageName")
     private @Nullable Output<String> stageName;
 
     /**
-     * @return The name of the stage on which to grant privilege (only valid if on_future is false).
+     * @return The name of the stage on which to grant privilege (only valid if on*future and on*all are false).
      * 
      */
     public Optional<Output<String>> stageName() {
@@ -144,6 +159,7 @@ public final class StageGrantArgs extends com.pulumi.resources.ResourceArgs {
     private StageGrantArgs(StageGrantArgs $) {
         this.databaseName = $.databaseName;
         this.enableMultipleGrants = $.enableMultipleGrants;
+        this.onAll = $.onAll;
         this.onFuture = $.onFuture;
         this.privilege = $.privilege;
         this.roles = $.roles;
@@ -215,7 +231,28 @@ public final class StageGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onFuture When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
+         * @param onAll When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onAll(@Nullable Output<Boolean> onAll) {
+            $.onAll = onAll;
+            return this;
+        }
+
+        /**
+         * @param onAll When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onAll(Boolean onAll) {
+            return onAll(Output.of(onAll));
+        }
+
+        /**
+         * @param onFuture When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future. Cannot be used together with on_all.
          * 
          * @return builder
          * 
@@ -226,7 +263,7 @@ public final class StageGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onFuture When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
+         * @param onFuture When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future. Cannot be used together with on_all.
          * 
          * @return builder
          * 
@@ -309,7 +346,7 @@ public final class StageGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stageName The name of the stage on which to grant privilege (only valid if on_future is false).
+         * @param stageName The name of the stage on which to grant privilege (only valid if on*future and on*all are false).
          * 
          * @return builder
          * 
@@ -320,7 +357,7 @@ public final class StageGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stageName The name of the stage on which to grant privilege (only valid if on_future is false).
+         * @param stageName The name of the stage on which to grant privilege (only valid if on*future and on*all are false).
          * 
          * @return builder
          * 

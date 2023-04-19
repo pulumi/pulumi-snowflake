@@ -34,6 +34,14 @@ public final class Config {
         return Codegen.stringProp("host").config(config).env("SNOWFLAKE_HOST").get();
     }
 /**
+ * If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
+ * default value for testing or emergency situations only.
+ * 
+ */
+    public Optional<Boolean> insecureMode() {
+        return Codegen.booleanProp("insecureMode").config(config).get();
+    }
+/**
  * Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
  * `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
  * variable.

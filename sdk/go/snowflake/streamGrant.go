@@ -48,11 +48,11 @@ import (
 //
 // ## Import
 //
-// format is database_name | schema_name | stream_name | privilege | with_grant_option | roles
+// format is database_name|schema_name|stream_name|privilege|with_grant_option|on_future|roles"
 //
 // ```sh
 //
-//	$ pulumi import snowflake:index/streamGrant:StreamGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|SELECT|false|role1,role2'
+//	$ pulumi import snowflake:index/streamGrant:StreamGrant example "MY_DATABASE|MY_SCHEMA|MY_STREAM|SELECT|false|false|role1,role2"
 //
 // ```
 type StreamGrant struct {

@@ -14,6 +14,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
@@ -135,6 +136,12 @@ namespace Pulumi.Snowflake
         [Output("gcpPubsubSubscriptionName")]
         public Output<string?> GcpPubsubSubscriptionName { get; private set; } = null!;
 
+        /// <summary>
+        /// The topic id that Snowflake will use to push notifications.
+        /// </summary>
+        [Output("gcpPubsubTopicName")]
+        public Output<string?> GcpPubsubTopicName { get; private set; } = null!;
+
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -253,6 +260,12 @@ namespace Pulumi.Snowflake
         [Input("gcpPubsubSubscriptionName")]
         public Input<string>? GcpPubsubSubscriptionName { get; set; }
 
+        /// <summary>
+        /// The topic id that Snowflake will use to push notifications.
+        /// </summary>
+        [Input("gcpPubsubTopicName")]
+        public Input<string>? GcpPubsubTopicName { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -368,6 +381,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("gcpPubsubSubscriptionName")]
         public Input<string>? GcpPubsubSubscriptionName { get; set; }
+
+        /// <summary>
+        /// The topic id that Snowflake will use to push notifications.
+        /// </summary>
+        [Input("gcpPubsubTopicName")]
+        public Input<string>? GcpPubsubTopicName { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }

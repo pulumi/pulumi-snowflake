@@ -27,10 +27,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * format is database name | schema name | masking policy name | privilege | true/false for with_grant_option
+ * format is database_name|schema_name|masking_policy_name|privilege|with_grant_option|roles
  *
  * ```sh
- *  $ pulumi import snowflake:index/maskingPolicyGrant:MaskingPolicyGrant example 'dbName|schemaName|maskingPolicyName|USAGE|false'
+ *  $ pulumi import snowflake:index/maskingPolicyGrant:MaskingPolicyGrant example "dbName|schemaName|maskingPolicyName|USAGE|false|role1,role2"
  * ```
  */
 export class MaskingPolicyGrant extends pulumi.CustomResource {

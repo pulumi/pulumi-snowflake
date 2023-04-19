@@ -11,6 +11,8 @@ from . import _utilities
 from . import outputs
 
 __all__ = [
+    'AlertAlertSchedule',
+    'AlertAlertScheduleCron',
     'DatabaseReplicationConfiguration',
     'DatabaseTag',
     'ExternalFunctionArg',
@@ -21,11 +23,9 @@ __all__ = [
     'FailoverGroupReplicationSchedule',
     'FailoverGroupReplicationScheduleCron',
     'FunctionArgument',
-    'FunctionGrantArgument',
     'MaterializedViewTag',
     'ObjectParameterObjectIdentifier',
     'ProcedureArgument',
-    'ProcedureGrantArgument',
     'RoleTag',
     'SchemaTag',
     'StageTag',
@@ -63,6 +63,7 @@ __all__ = [
     'GetRowAccessPoliciesRowAccessPolicyResult',
     'GetSchemasSchemaResult',
     'GetSequencesSequenceResult',
+    'GetSharesShareResult',
     'GetStagesStageResult',
     'GetStorageIntegrationsStorageIntegrationResult',
     'GetStreamsStreamResult',
@@ -72,6 +73,73 @@ __all__ = [
     'GetViewsViewResult',
     'GetWarehousesWarehouseResult',
 ]
+
+@pulumi.output_type
+class AlertAlertSchedule(dict):
+    def __init__(__self__, *,
+                 cron: Optional['outputs.AlertAlertScheduleCron'] = None,
+                 interval: Optional[int] = None):
+        """
+        :param 'AlertAlertScheduleCronArgs' cron: Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+        :param int interval: Specifies the interval in minutes for the alert schedule. The interval must be greater than 0 and less than 1440 (24 hours).
+        """
+        if cron is not None:
+            pulumi.set(__self__, "cron", cron)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def cron(self) -> Optional['outputs.AlertAlertScheduleCron']:
+        """
+        Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+        """
+        return pulumi.get(self, "cron")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        Specifies the interval in minutes for the alert schedule. The interval must be greater than 0 and less than 1440 (24 hours).
+        """
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class AlertAlertScheduleCron(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertAlertScheduleCron. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertAlertScheduleCron.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertAlertScheduleCron.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 expression: str,
+                 time_zone: str):
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> str:
+        return pulumi.get(self, "expression")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> str:
+        return pulumi.get(self, "time_zone")
+
 
 @pulumi.output_type
 class DatabaseReplicationConfiguration(dict):
@@ -487,35 +555,6 @@ class FunctionArgument(dict):
 
 
 @pulumi.output_type
-class FunctionGrantArgument(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 type: str):
-        """
-        :param str name: The argument name
-        :param str type: The argument type
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The argument name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The argument type
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
 class MaterializedViewTag(dict):
     def __init__(__self__, *,
                  name: str,
@@ -612,35 +651,6 @@ class ObjectParameterObjectIdentifier(dict):
 
 @pulumi.output_type
 class ProcedureArgument(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 type: str):
-        """
-        :param str name: The argument name
-        :param str type: The argument type
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The argument name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The argument type
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class ProcedureGrantArgument(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
@@ -2369,6 +2379,46 @@ class GetSequencesSequenceResult(dict):
         The schema from which to return the sequences from.
         """
         return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetSharesShareResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 kind: str,
+                 name: str,
+                 owner: str,
+                 to: str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter
+    def to(self) -> str:
+        return pulumi.get(self, "to")
 
 
 @pulumi.output_type

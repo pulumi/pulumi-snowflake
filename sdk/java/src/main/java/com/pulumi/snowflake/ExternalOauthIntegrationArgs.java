@@ -198,6 +198,21 @@ public final class ExternalOauthIntegrationArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * Specifies the access token claim to map the access token to an account role.
+     * 
+     */
+    @Import(name="scopeMappingAttribute")
+    private @Nullable Output<String> scopeMappingAttribute;
+
+    /**
+     * @return Specifies the access token claim to map the access token to an account role.
+     * 
+     */
+    public Optional<Output<String>> scopeMappingAttribute() {
+        return Optional.ofNullable(this.scopeMappingAttribute);
+    }
+
+    /**
      * Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
      * 
      */
@@ -257,6 +272,7 @@ public final class ExternalOauthIntegrationArgs extends com.pulumi.resources.Res
         this.rsaPublicKey = $.rsaPublicKey;
         this.rsaPublicKey2 = $.rsaPublicKey2;
         this.scopeDelimiter = $.scopeDelimiter;
+        this.scopeMappingAttribute = $.scopeMappingAttribute;
         this.snowflakeUserMappingAttribute = $.snowflakeUserMappingAttribute;
         this.tokenUserMappingClaims = $.tokenUserMappingClaims;
         this.type = $.type;
@@ -570,6 +586,27 @@ public final class ExternalOauthIntegrationArgs extends com.pulumi.resources.Res
          */
         public Builder scopeDelimiter(String scopeDelimiter) {
             return scopeDelimiter(Output.of(scopeDelimiter));
+        }
+
+        /**
+         * @param scopeMappingAttribute Specifies the access token claim to map the access token to an account role.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scopeMappingAttribute(@Nullable Output<String> scopeMappingAttribute) {
+            $.scopeMappingAttribute = scopeMappingAttribute;
+            return this;
+        }
+
+        /**
+         * @param scopeMappingAttribute Specifies the access token claim to map the access token to an account role.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scopeMappingAttribute(String scopeMappingAttribute) {
+            return scopeMappingAttribute(Output.of(scopeMappingAttribute));
         }
 
         /**

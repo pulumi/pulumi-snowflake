@@ -52,10 +52,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * format is resource_monitor_name | privilege | with_grant_option | roles
+ * format is monitor_name|privilege|with_grant_option|roles
  * 
  * ```sh
- *  $ pulumi import snowflake:index/resourceMonitorGrant:ResourceMonitorGrant example &#39;MY_RESOURCE_MONITOR|MONITOR|false|role1,role2&#39;
+ *  $ pulumi import snowflake:index/resourceMonitorGrant:ResourceMonitorGrant example &#34;MY_RESOURCE_MONITOR|MONITOR|false|role1,role2&#34;
  * ```
  * 
  */

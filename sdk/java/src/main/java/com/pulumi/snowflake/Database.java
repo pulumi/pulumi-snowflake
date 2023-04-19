@@ -97,14 +97,14 @@ public class Database extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dataRetentionTimeInDays", type=Integer.class, parameters={})
-    private Output<Integer> dataRetentionTimeInDays;
+    private Output</* @Nullable */ Integer> dataRetentionTimeInDays;
 
     /**
      * @return Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding &amp; Using Time Travel.
      * 
      */
-    public Output<Integer> dataRetentionTimeInDays() {
-        return this.dataRetentionTimeInDays;
+    public Output<Optional<Integer>> dataRetentionTimeInDays() {
+        return Codegen.optional(this.dataRetentionTimeInDays);
     }
     /**
      * Specify a database to create a clone from.

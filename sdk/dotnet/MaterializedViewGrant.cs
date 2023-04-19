@@ -14,6 +14,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
@@ -44,10 +45,10 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// format is database_name | schema_name | object_name | privilege | with_grant_option | roles | shares
+    /// format is database_name|schema_name|materialized_view_name|privilege|with_grant_option|on_future|on_all|roles|shares
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/materializedViewGrant:MaterializedViewGrant example 'MY_DATABASE|MY_SCHEMA❄️MY_OBJECT_NAME|SELECT|false|role1,role2|share1,share2'
+    ///  $ pulumi import snowflake:index/materializedViewGrant:MaterializedViewGrant example "MY_DATABASE|MY_SCHEMA|MY_MV_NAME|SELECT|false|false|role1,role2|share1,share2"
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/materializedViewGrant:MaterializedViewGrant")]
@@ -67,19 +68,25 @@ namespace Pulumi.Snowflake
         public Output<bool?> EnableMultipleGrants { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the materialized view on which to grant privileges immediately (only valid if on_future is false).
+        /// The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
         /// </summary>
         [Output("materializedViewName")]
         public Output<string?> MaterializedViewName { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+        /// </summary>
+        [Output("onAll")]
+        public Output<bool?> OnAll { get; private set; } = null!;
+
+        /// <summary>
+        /// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
         /// </summary>
         [Output("onFuture")]
         public Output<bool?> OnFuture { get; private set; } = null!;
 
         /// <summary>
-        /// The privilege to grant on the current or future materialized view view.
+        /// The privilege to grant on the current or future materialized view.
         /// </summary>
         [Output("privilege")]
         public Output<string?> Privilege { get; private set; } = null!;
@@ -97,7 +104,7 @@ namespace Pulumi.Snowflake
         public Output<string?> SchemaName { get; private set; } = null!;
 
         /// <summary>
-        /// Grants privilege to these shares (only valid if on_future is false).
+        /// Grants privilege to these shares (only valid if on*future and on*all are false).
         /// </summary>
         [Output("shares")]
         public Output<ImmutableArray<string>> Shares { get; private set; } = null!;
@@ -168,19 +175,25 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// The name of the materialized view on which to grant privileges immediately (only valid if on_future is false).
+        /// The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
         /// </summary>
         [Input("materializedViewName")]
         public Input<string>? MaterializedViewName { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+        /// </summary>
+        [Input("onAll")]
+        public Input<bool>? OnAll { get; set; }
+
+        /// <summary>
+        /// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
 
         /// <summary>
-        /// The privilege to grant on the current or future materialized view view.
+        /// The privilege to grant on the current or future materialized view.
         /// </summary>
         [Input("privilege")]
         public Input<string>? Privilege { get; set; }
@@ -207,7 +220,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _shares;
 
         /// <summary>
-        /// Grants privilege to these shares (only valid if on_future is false).
+        /// Grants privilege to these shares (only valid if on*future and on*all are false).
         /// </summary>
         public InputList<string> Shares
         {
@@ -243,19 +256,25 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// The name of the materialized view on which to grant privileges immediately (only valid if on_future is false).
+        /// The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
         /// </summary>
         [Input("materializedViewName")]
         public Input<string>? MaterializedViewName { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+        /// When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+        /// </summary>
+        [Input("onAll")]
+        public Input<bool>? OnAll { get; set; }
+
+        /// <summary>
+        /// When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
         /// </summary>
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
 
         /// <summary>
-        /// The privilege to grant on the current or future materialized view view.
+        /// The privilege to grant on the current or future materialized view.
         /// </summary>
         [Input("privilege")]
         public Input<string>? Privilege { get; set; }
@@ -282,7 +301,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _shares;
 
         /// <summary>
-        /// Grants privilege to these shares (only valid if on_future is false).
+        /// Grants privilege to these shares (only valid if on*future and on*all are false).
         /// </summary>
         public InputList<string> Shares
         {

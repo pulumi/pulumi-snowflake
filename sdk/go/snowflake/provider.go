@@ -185,6 +185,9 @@ type providerArgs struct {
 	BrowserAuth *bool `pulumi:"browserAuth"`
 	// Supports passing in a custom host value to the snowflake go driver for use with privatelink.
 	Host *string `pulumi:"host"`
+	// If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
+	// default value for testing or emergency situations only.
+	InsecureMode *bool `pulumi:"insecureMode"`
 	// Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
 	// `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
 	// variable.
@@ -241,6 +244,9 @@ type ProviderArgs struct {
 	BrowserAuth pulumi.BoolPtrInput
 	// Supports passing in a custom host value to the snowflake go driver for use with privatelink.
 	Host pulumi.StringPtrInput
+	// If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
+	// default value for testing or emergency situations only.
+	InsecureMode pulumi.BoolPtrInput
 	// Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
 	// `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
 	// variable.

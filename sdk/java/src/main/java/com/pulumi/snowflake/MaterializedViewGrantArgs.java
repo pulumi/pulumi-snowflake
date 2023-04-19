@@ -50,14 +50,14 @@ public final class MaterializedViewGrantArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name of the materialized view on which to grant privileges immediately (only valid if on_future is false).
+     * The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
      * 
      */
     @Import(name="materializedViewName")
     private @Nullable Output<String> materializedViewName;
 
     /**
-     * @return The name of the materialized view on which to grant privileges immediately (only valid if on_future is false).
+     * @return The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
      * 
      */
     public Optional<Output<String>> materializedViewName() {
@@ -65,14 +65,29 @@ public final class MaterializedViewGrantArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+     * 
+     */
+    @Import(name="onAll")
+    private @Nullable Output<Boolean> onAll;
+
+    /**
+     * @return When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+     * 
+     */
+    public Optional<Output<Boolean>> onAll() {
+        return Optional.ofNullable(this.onAll);
+    }
+
+    /**
+     * When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
      * 
      */
     @Import(name="onFuture")
     private @Nullable Output<Boolean> onFuture;
 
     /**
-     * @return When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+     * @return When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
      * 
      */
     public Optional<Output<Boolean>> onFuture() {
@@ -80,14 +95,14 @@ public final class MaterializedViewGrantArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The privilege to grant on the current or future materialized view view.
+     * The privilege to grant on the current or future materialized view.
      * 
      */
     @Import(name="privilege")
     private @Nullable Output<String> privilege;
 
     /**
-     * @return The privilege to grant on the current or future materialized view view.
+     * @return The privilege to grant on the current or future materialized view.
      * 
      */
     public Optional<Output<String>> privilege() {
@@ -125,14 +140,14 @@ public final class MaterializedViewGrantArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Grants privilege to these shares (only valid if on_future is false).
+     * Grants privilege to these shares (only valid if on*future and on*all are false).
      * 
      */
     @Import(name="shares")
     private @Nullable Output<List<String>> shares;
 
     /**
-     * @return Grants privilege to these shares (only valid if on_future is false).
+     * @return Grants privilege to these shares (only valid if on*future and on*all are false).
      * 
      */
     public Optional<Output<List<String>>> shares() {
@@ -160,6 +175,7 @@ public final class MaterializedViewGrantArgs extends com.pulumi.resources.Resour
         this.databaseName = $.databaseName;
         this.enableMultipleGrants = $.enableMultipleGrants;
         this.materializedViewName = $.materializedViewName;
+        this.onAll = $.onAll;
         this.onFuture = $.onFuture;
         this.privilege = $.privilege;
         this.roles = $.roles;
@@ -231,7 +247,7 @@ public final class MaterializedViewGrantArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param materializedViewName The name of the materialized view on which to grant privileges immediately (only valid if on_future is false).
+         * @param materializedViewName The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
          * 
          * @return builder
          * 
@@ -242,7 +258,7 @@ public final class MaterializedViewGrantArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param materializedViewName The name of the materialized view on which to grant privileges immediately (only valid if on_future is false).
+         * @param materializedViewName The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
          * 
          * @return builder
          * 
@@ -252,7 +268,28 @@ public final class MaterializedViewGrantArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param onFuture When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+         * @param onAll When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onAll(@Nullable Output<Boolean> onAll) {
+            $.onAll = onAll;
+            return this;
+        }
+
+        /**
+         * @param onAll When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onAll(Boolean onAll) {
+            return onAll(Output.of(onAll));
+        }
+
+        /**
+         * @param onFuture When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
          * 
          * @return builder
          * 
@@ -263,7 +300,7 @@ public final class MaterializedViewGrantArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param onFuture When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on_future.
+         * @param onFuture When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
          * 
          * @return builder
          * 
@@ -273,7 +310,7 @@ public final class MaterializedViewGrantArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param privilege The privilege to grant on the current or future materialized view view.
+         * @param privilege The privilege to grant on the current or future materialized view.
          * 
          * @return builder
          * 
@@ -284,7 +321,7 @@ public final class MaterializedViewGrantArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param privilege The privilege to grant on the current or future materialized view view.
+         * @param privilege The privilege to grant on the current or future materialized view.
          * 
          * @return builder
          * 
@@ -346,7 +383,7 @@ public final class MaterializedViewGrantArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param shares Grants privilege to these shares (only valid if on_future is false).
+         * @param shares Grants privilege to these shares (only valid if on*future and on*all are false).
          * 
          * @return builder
          * 
@@ -357,7 +394,7 @@ public final class MaterializedViewGrantArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param shares Grants privilege to these shares (only valid if on_future is false).
+         * @param shares Grants privilege to these shares (only valid if on*future and on*all are false).
          * 
          * @return builder
          * 
@@ -367,7 +404,7 @@ public final class MaterializedViewGrantArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param shares Grants privilege to these shares (only valid if on_future is false).
+         * @param shares Grants privilege to these shares (only valid if on*future and on*all are false).
          * 
          * @return builder
          * 

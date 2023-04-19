@@ -14,6 +14,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Snowflake = Pulumi.Snowflake;
     /// 
@@ -35,8 +36,10 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
+    /// format is privilege|with_grant_option|roles
+    /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/accountGrant:AccountGrant example 'privilege=MONITOR,roles=[role1,role2],with_grant_option=false'
+    ///  $ pulumi import snowflake:index/accountGrant:AccountGrant example "privilege|false|role1,role2"
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/accountGrant:AccountGrant")]

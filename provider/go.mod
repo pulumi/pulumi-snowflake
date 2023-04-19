@@ -9,9 +9,9 @@ replace (
 )
 
 require (
-	github.com/Snowflake-Labs/terraform-provider-snowflake v0.61.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.42.1
-	github.com/pulumi/pulumi/sdk/v3 v3.56.0
+	github.com/Snowflake-Labs/terraform-provider-snowflake v0.62.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.44.3
+	github.com/pulumi/pulumi/sdk/v3 v3.62.0
 )
 
 require (
@@ -36,6 +36,7 @@ require (
 	github.com/Azure/go-autorest/autorest/to v0.4.0 // indirect
 	github.com/AzureAD/microsoft-authentication-library-for-go v0.8.1 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
+	github.com/Masterminds/semver v1.5.0 // indirect
 	github.com/Masterminds/semver/v3 v3.2.0 // indirect
 	github.com/Masterminds/sprig/v3 v3.2.3 // indirect
 	github.com/Microsoft/go-winio v0.5.2 // indirect
@@ -115,7 +116,7 @@ require (
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-cty v1.4.1-0.20200414143053-d3edf31b6320 // indirect
-	github.com/hashicorp/go-getter v1.7.0 // indirect
+	github.com/hashicorp/go-getter v1.7.1 // indirect
 	github.com/hashicorp/go-hclog v1.4.0 // indirect
 	github.com/hashicorp/go-immutable-radix v1.3.1 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
@@ -190,14 +191,14 @@ require (
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/posener/complete v1.2.3 // indirect
-	github.com/pulumi/pulumi-java/pkg v0.8.0 // indirect
-	github.com/pulumi/pulumi-yaml v1.0.4 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.56.0 // indirect
+	github.com/pulumi/pulumi-java/pkg v0.9.0 // indirect
+	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.3 // indirect
+	github.com/pulumi/pulumi-yaml v1.1.0 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.62.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
 	github.com/rogpeppe/go-internal v1.9.0 // indirect
-	github.com/rs/xid v1.4.0 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
@@ -209,7 +210,7 @@ require (
 	github.com/sirupsen/logrus v1.9.0 // indirect
 	github.com/skeema/knownhosts v1.1.0 // indirect
 	github.com/snowflakedb/gosnowflake v1.6.19 // indirect
-	github.com/spf13/afero v1.9.2 // indirect
+	github.com/spf13/afero v1.9.5 // indirect
 	github.com/spf13/cast v1.5.0 // indirect
 	github.com/spf13/cobra v1.6.1 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect

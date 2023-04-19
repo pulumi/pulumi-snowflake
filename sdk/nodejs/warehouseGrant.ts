@@ -24,10 +24,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * format is warehouse_name | privilege | with_grant_option | roles
+ * format is warehouse_name|privilege|with_grant_option|roles
  *
  * ```sh
- *  $ pulumi import snowflake:index/warehouseGrant:WarehouseGrant example 'MY_WAREHOUSE|MODIFY|false|role1,role2'
+ *  $ pulumi import snowflake:index/warehouseGrant:WarehouseGrant example "MY_WAREHOUSE|MODIFY|false|role1,role2"
  * ```
  */
 export class WarehouseGrant extends pulumi.CustomResource {

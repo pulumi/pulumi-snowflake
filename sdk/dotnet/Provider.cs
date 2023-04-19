@@ -192,6 +192,13 @@ namespace Pulumi.Snowflake
         [Input("host")]
         public Input<string>? Host { get; set; }
 
+        /// <summary>
+        /// If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
+        /// default value for testing or emergency situations only.
+        /// </summary>
+        [Input("insecureMode", json: true)]
+        public Input<bool>? InsecureMode { get; set; }
+
         [Input("oauthAccessToken")]
         private Input<string>? _oauthAccessToken;
 

@@ -37,6 +37,14 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('host') or _utilities.get_env('SNOWFLAKE_HOST')
 
     @property
+    def insecure_mode(self) -> Optional[bool]:
+        """
+        If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
+        default value for testing or emergency situations only.
+        """
+        return __config__.get_bool('insecureMode')
+
+    @property
     def oauth_access_token(self) -> Optional[str]:
         """
         Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,

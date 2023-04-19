@@ -57,10 +57,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * format is database_name | schema_name | stage_name | privilege | with_grant_option | roles
+ * format is database_name|schema_name|stage_name|privilege|with_grant_option|on_future|on_all|roles
  * 
  * ```sh
- *  $ pulumi import snowflake:index/stageGrant:StageGrant example &#39;MY_DATABASE|MY_SCHEMA|MY_OBJECT|USAGE|false|role1,role2&#39;
+ *  $ pulumi import snowflake:index/stageGrant:StageGrant example &#34;MY_DATABASE|MY_SCHEMA|MY_STAGE|USAGE|false|false|false|role1,role2&#34;
  * ```
  * 
  */
@@ -97,14 +97,28 @@ public class StageGrant extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableMultipleGrants);
     }
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
+     * When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+     * 
+     */
+    @Export(name="onAll", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> onAll;
+
+    /**
+     * @return When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+     * 
+     */
+    public Output<Optional<Boolean>> onAll() {
+        return Codegen.optional(this.onAll);
+    }
+    /**
+     * When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future. Cannot be used together with on_all.
      * 
      */
     @Export(name="onFuture", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> onFuture;
 
     /**
-     * @return When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future.
+     * @return When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future. Cannot be used together with on_all.
      * 
      */
     public Output<Optional<Boolean>> onFuture() {
@@ -153,14 +167,14 @@ public class StageGrant extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.schemaName);
     }
     /**
-     * The name of the stage on which to grant privilege (only valid if on_future is false).
+     * The name of the stage on which to grant privilege (only valid if on*future and on*all are false).
      * 
      */
     @Export(name="stageName", type=String.class, parameters={})
     private Output</* @Nullable */ String> stageName;
 
     /**
-     * @return The name of the stage on which to grant privilege (only valid if on_future is false).
+     * @return The name of the stage on which to grant privilege (only valid if on*future and on*all are false).
      * 
      */
     public Output<Optional<String>> stageName() {

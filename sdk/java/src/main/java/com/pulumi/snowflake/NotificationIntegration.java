@@ -277,6 +277,20 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
     public Output<Optional<String>> gcpPubsubSubscriptionName() {
         return Codegen.optional(this.gcpPubsubSubscriptionName);
     }
+    /**
+     * The topic id that Snowflake will use to push notifications.
+     * 
+     */
+    @Export(name="gcpPubsubTopicName", type=String.class, parameters={})
+    private Output</* @Nullable */ String> gcpPubsubTopicName;
+
+    /**
+     * @return The topic id that Snowflake will use to push notifications.
+     * 
+     */
+    public Output<Optional<String>> gcpPubsubTopicName() {
+        return Codegen.optional(this.gcpPubsubTopicName);
+    }
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 

@@ -121,6 +121,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["account"] = (args ? args.account : undefined) ?? utilities.getEnv("SNOWFLAKE_ACCOUNT");
             resourceInputs["browserAuth"] = pulumi.output((args ? args.browserAuth : undefined) ?? utilities.getEnvBoolean("SNOWFLAKE_USE_BROWSER_AUTH")).apply(JSON.stringify);
             resourceInputs["host"] = (args ? args.host : undefined) ?? utilities.getEnv("SNOWFLAKE_HOST");
+            resourceInputs["insecureMode"] = pulumi.output(args ? args.insecureMode : undefined).apply(JSON.stringify);
             resourceInputs["oauthAccessToken"] = (args?.oauthAccessToken ? pulumi.secret(args.oauthAccessToken) : undefined) ?? utilities.getEnv("SNOWFLAKE_OAUTH_ACCESS_TOKEN");
             resourceInputs["oauthClientId"] = (args?.oauthClientId ? pulumi.secret(args.oauthClientId) : undefined) ?? utilities.getEnv("SNOWFLAKE_OAUTH_CLIENT_ID");
             resourceInputs["oauthClientSecret"] = (args?.oauthClientSecret ? pulumi.secret(args.oauthClientSecret) : undefined) ?? utilities.getEnv("SNOWFLAKE_OAUTH_CLIENT_SECRET");
@@ -161,6 +162,11 @@ export interface ProviderArgs {
      * Supports passing in a custom host value to the snowflake go driver for use with privatelink.
      */
     host?: pulumi.Input<string>;
+    /**
+     * If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
+     * default value for testing or emergency situations only.
+     */
+    insecureMode?: pulumi.Input<boolean>;
     /**
      * Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
      * `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment

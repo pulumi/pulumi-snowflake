@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * An External OAuth security integration allows a client to use a third-party authorization server to obtain the access tokens needed to interact with Snowflake.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -109,6 +111,10 @@ export class ExternalOauthIntegration extends pulumi.CustomResource {
      */
     public readonly scopeDelimiter!: pulumi.Output<string | undefined>;
     /**
+     * Specifies the access token claim to map the access token to an account role.
+     */
+    public readonly scopeMappingAttribute!: pulumi.Output<string | undefined>;
+    /**
      * Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
      */
     public readonly snowflakeUserMappingAttribute!: pulumi.Output<string>;
@@ -147,6 +153,7 @@ export class ExternalOauthIntegration extends pulumi.CustomResource {
             resourceInputs["rsaPublicKey"] = state ? state.rsaPublicKey : undefined;
             resourceInputs["rsaPublicKey2"] = state ? state.rsaPublicKey2 : undefined;
             resourceInputs["scopeDelimiter"] = state ? state.scopeDelimiter : undefined;
+            resourceInputs["scopeMappingAttribute"] = state ? state.scopeMappingAttribute : undefined;
             resourceInputs["snowflakeUserMappingAttribute"] = state ? state.snowflakeUserMappingAttribute : undefined;
             resourceInputs["tokenUserMappingClaims"] = state ? state.tokenUserMappingClaims : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
@@ -179,6 +186,7 @@ export class ExternalOauthIntegration extends pulumi.CustomResource {
             resourceInputs["rsaPublicKey"] = args ? args.rsaPublicKey : undefined;
             resourceInputs["rsaPublicKey2"] = args ? args.rsaPublicKey2 : undefined;
             resourceInputs["scopeDelimiter"] = args ? args.scopeDelimiter : undefined;
+            resourceInputs["scopeMappingAttribute"] = args ? args.scopeMappingAttribute : undefined;
             resourceInputs["snowflakeUserMappingAttribute"] = args ? args.snowflakeUserMappingAttribute : undefined;
             resourceInputs["tokenUserMappingClaims"] = args ? args.tokenUserMappingClaims : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -246,6 +254,10 @@ export interface ExternalOauthIntegrationState {
      */
     scopeDelimiter?: pulumi.Input<string>;
     /**
+     * Specifies the access token claim to map the access token to an account role.
+     */
+    scopeMappingAttribute?: pulumi.Input<string>;
+    /**
      * Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
      */
     snowflakeUserMappingAttribute?: pulumi.Input<string>;
@@ -311,6 +323,10 @@ export interface ExternalOauthIntegrationArgs {
      * Specifies the scope delimiter in the authorization token.
      */
     scopeDelimiter?: pulumi.Input<string>;
+    /**
+     * Specifies the access token claim to map the access token to an account role.
+     */
+    scopeMappingAttribute?: pulumi.Input<string>;
     /**
      * Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
      */

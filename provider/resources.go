@@ -16,6 +16,8 @@ package snowflake
 
 import (
 	"fmt"
+	// embed is used to store bridge-metadata.json in the compiled binary
+	_ "embed"
 	"path/filepath"
 	"unicode"
 
@@ -151,14 +153,19 @@ func Provider() tfbridge.ProviderInfo {
 			PackageReferences: map[string]string{
 				"Pulumi": "3.*",
 			},
-		},
+		}, MetadataInfo: tfbridge.NewProviderMetadata(metadata),
 	}
 
 	err := x.ComputeDefaults(&prov, x.TokensSingleModule("snowflake_",
 		mainMod, x.MakeStandardToken(mainPkg)))
-	contract.AssertNoError(err)
+	contract.AssertNoErrorf(err, "failed to apply auto token mapping")
+	err = x.AutoAliasing(&prov, prov.GetMetadata())
+	contract.AssertNoErrorf(err, "auto aliasing apply failed")
 
 	prov.SetAutonaming(255, "-")
 
 	return prov
 }
+
+//go:embed cmd/pulumi-resource-snowflake/bridge-metadata.json
+var metadata []byte

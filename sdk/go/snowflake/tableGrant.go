@@ -50,11 +50,11 @@ import (
 //
 // ## Import
 //
-// format is database_name | schema_name | table_name | privilege | with_grant_option | roles | shares
+// format is database_name|schema_name|table_name|privilege|with_grant_option|on_future|on_all|roles|shares
 //
 // ```sh
 //
-//	$ pulumi import snowflake:index/tableGrant:TableGrant example 'MY_DATABASE|MY_SCHEMA|MY_OBJECT|MODIFY|false|role1,role2|share1,share2'
+//	$ pulumi import snowflake:index/tableGrant:TableGrant example "MY_DATABASE|MY_SCHEMA|MY_TABLE|USAGE|false|false|false|role1,role2|share1,share2"
 //
 // ```
 type TableGrant struct {
@@ -65,9 +65,9 @@ type TableGrant struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.
+	// When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
 	OnAll pulumi.BoolPtrOutput `pulumi:"onAll"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
 	// The privilege to grant on the current or future table.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
@@ -75,9 +75,9 @@ type TableGrant struct {
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current or future tables on which to grant privileges.
 	SchemaName pulumi.StringPtrOutput `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if on*future or on*all is unset).
+	// Grants privilege to these shares (only valid if on*future or on*all are unset).
 	Shares pulumi.StringArrayOutput `pulumi:"shares"`
-	// The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).
+	// The name of the table on which to grant privileges immediately (only valid if on*future or on*all are unset).
 	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrOutput `pulumi:"withGrantOption"`
@@ -120,9 +120,9 @@ type tableGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.
+	// When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
 	OnAll *bool `pulumi:"onAll"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future table.
 	Privilege *string `pulumi:"privilege"`
@@ -130,9 +130,9 @@ type tableGrantState struct {
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future tables on which to grant privileges.
 	SchemaName *string `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if on*future or on*all is unset).
+	// Grants privilege to these shares (only valid if on*future or on*all are unset).
 	Shares []string `pulumi:"shares"`
-	// The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).
+	// The name of the table on which to grant privileges immediately (only valid if on*future or on*all are unset).
 	TableName *string `pulumi:"tableName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
@@ -144,9 +144,9 @@ type TableGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.
+	// When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
 	OnAll pulumi.BoolPtrInput
-	// When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future table.
 	Privilege pulumi.StringPtrInput
@@ -154,9 +154,9 @@ type TableGrantState struct {
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future tables on which to grant privileges.
 	SchemaName pulumi.StringPtrInput
-	// Grants privilege to these shares (only valid if on*future or on*all is unset).
+	// Grants privilege to these shares (only valid if on*future or on*all are unset).
 	Shares pulumi.StringArrayInput
-	// The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).
+	// The name of the table on which to grant privileges immediately (only valid if on*future or on*all are unset).
 	TableName pulumi.StringPtrInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
@@ -172,9 +172,9 @@ type tableGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.
+	// When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
 	OnAll *bool `pulumi:"onAll"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future table.
 	Privilege *string `pulumi:"privilege"`
@@ -182,9 +182,9 @@ type tableGrantArgs struct {
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future tables on which to grant privileges.
 	SchemaName *string `pulumi:"schemaName"`
-	// Grants privilege to these shares (only valid if on*future or on*all is unset).
+	// Grants privilege to these shares (only valid if on*future or on*all are unset).
 	Shares []string `pulumi:"shares"`
-	// The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).
+	// The name of the table on which to grant privileges immediately (only valid if on*future or on*all are unset).
 	TableName *string `pulumi:"tableName"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
@@ -197,9 +197,9 @@ type TableGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.
+	// When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
 	OnAll pulumi.BoolPtrInput
-	// When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
+	// When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future table.
 	Privilege pulumi.StringPtrInput
@@ -207,9 +207,9 @@ type TableGrantArgs struct {
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future tables on which to grant privileges.
 	SchemaName pulumi.StringPtrInput
-	// Grants privilege to these shares (only valid if on*future or on*all is unset).
+	// Grants privilege to these shares (only valid if on*future or on*all are unset).
 	Shares pulumi.StringArrayInput
-	// The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).
+	// The name of the table on which to grant privileges immediately (only valid if on*future or on*all are unset).
 	TableName pulumi.StringPtrInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
@@ -313,12 +313,12 @@ func (o TableGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }
 
-// When this is set to true and a schema*name is provided, apply this grant on all all tables in the given schema. When this is true and no schema*name is provided apply this grant on all all tables in the given database. The table*name and shares fields must be unset in order to use on*all.
+// When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
 func (o TableGrantOutput) OnAll() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableGrant) pulumi.BoolPtrOutput { return v.OnAll }).(pulumi.BoolPtrOutput)
 }
 
-// When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future.
+// When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
 func (o TableGrantOutput) OnFuture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableGrant) pulumi.BoolPtrOutput { return v.OnFuture }).(pulumi.BoolPtrOutput)
 }
@@ -338,12 +338,12 @@ func (o TableGrantOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableGrant) pulumi.StringPtrOutput { return v.SchemaName }).(pulumi.StringPtrOutput)
 }
 
-// Grants privilege to these shares (only valid if on*future or on*all is unset).
+// Grants privilege to these shares (only valid if on*future or on*all are unset).
 func (o TableGrantOutput) Shares() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TableGrant) pulumi.StringArrayOutput { return v.Shares }).(pulumi.StringArrayOutput)
 }
 
-// The name of the table on which to grant privileges immediately (only valid if on*future or on*all is unset).
+// The name of the table on which to grant privileges immediately (only valid if on*future or on*all are unset).
 func (o TableGrantOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableGrant) pulumi.StringPtrOutput { return v.TableName }).(pulumi.StringPtrOutput)
 }

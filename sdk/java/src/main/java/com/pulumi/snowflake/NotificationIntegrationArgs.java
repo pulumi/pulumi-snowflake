@@ -158,6 +158,21 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.gcpPubsubSubscriptionName);
     }
 
+    /**
+     * The topic id that Snowflake will use to push notifications.
+     * 
+     */
+    @Import(name="gcpPubsubTopicName")
+    private @Nullable Output<String> gcpPubsubTopicName;
+
+    /**
+     * @return The topic id that Snowflake will use to push notifications.
+     * 
+     */
+    public Optional<Output<String>> gcpPubsubTopicName() {
+        return Optional.ofNullable(this.gcpPubsubTopicName);
+    }
+
     @Import(name="name")
     private @Nullable Output<String> name;
 
@@ -208,6 +223,7 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
         this.direction = $.direction;
         this.enabled = $.enabled;
         this.gcpPubsubSubscriptionName = $.gcpPubsubSubscriptionName;
+        this.gcpPubsubTopicName = $.gcpPubsubTopicName;
         this.name = $.name;
         this.notificationProvider = $.notificationProvider;
         this.type = $.type;
@@ -427,6 +443,27 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
          */
         public Builder gcpPubsubSubscriptionName(String gcpPubsubSubscriptionName) {
             return gcpPubsubSubscriptionName(Output.of(gcpPubsubSubscriptionName));
+        }
+
+        /**
+         * @param gcpPubsubTopicName The topic id that Snowflake will use to push notifications.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gcpPubsubTopicName(@Nullable Output<String> gcpPubsubTopicName) {
+            $.gcpPubsubTopicName = gcpPubsubTopicName;
+            return this;
+        }
+
+        /**
+         * @param gcpPubsubTopicName The topic id that Snowflake will use to push notifications.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gcpPubsubTopicName(String gcpPubsubTopicName) {
+            return gcpPubsubTopicName(Output.of(gcpPubsubTopicName));
         }
 
         public Builder name(@Nullable Output<String> name) {

@@ -83,7 +83,9 @@ type NotificationIntegration struct {
 	GcpPubsubServiceAccount pulumi.StringOutput `pulumi:"gcpPubsubServiceAccount"`
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName pulumi.StringPtrOutput `pulumi:"gcpPubsubSubscriptionName"`
-	Name                      pulumi.StringOutput    `pulumi:"name"`
+	// The topic id that Snowflake will use to push notifications.
+	GcpPubsubTopicName pulumi.StringPtrOutput `pulumi:"gcpPubsubTopicName"`
+	Name               pulumi.StringOutput    `pulumi:"name"`
 	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
 	NotificationProvider pulumi.StringPtrOutput `pulumi:"notificationProvider"`
 	// A type of integration
@@ -150,7 +152,9 @@ type notificationIntegrationState struct {
 	GcpPubsubServiceAccount *string `pulumi:"gcpPubsubServiceAccount"`
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName *string `pulumi:"gcpPubsubSubscriptionName"`
-	Name                      *string `pulumi:"name"`
+	// The topic id that Snowflake will use to push notifications.
+	GcpPubsubTopicName *string `pulumi:"gcpPubsubTopicName"`
+	Name               *string `pulumi:"name"`
 	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
 	NotificationProvider *string `pulumi:"notificationProvider"`
 	// A type of integration
@@ -189,7 +193,9 @@ type NotificationIntegrationState struct {
 	GcpPubsubServiceAccount pulumi.StringPtrInput
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName pulumi.StringPtrInput
-	Name                      pulumi.StringPtrInput
+	// The topic id that Snowflake will use to push notifications.
+	GcpPubsubTopicName pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
 	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
 	NotificationProvider pulumi.StringPtrInput
 	// A type of integration
@@ -220,7 +226,9 @@ type notificationIntegrationArgs struct {
 	Enabled   *bool   `pulumi:"enabled"`
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName *string `pulumi:"gcpPubsubSubscriptionName"`
-	Name                      *string `pulumi:"name"`
+	// The topic id that Snowflake will use to push notifications.
+	GcpPubsubTopicName *string `pulumi:"gcpPubsubTopicName"`
+	Name               *string `pulumi:"name"`
 	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
 	NotificationProvider *string `pulumi:"notificationProvider"`
 	// A type of integration
@@ -248,7 +256,9 @@ type NotificationIntegrationArgs struct {
 	Enabled   pulumi.BoolPtrInput
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName pulumi.StringPtrInput
-	Name                      pulumi.StringPtrInput
+	// The topic id that Snowflake will use to push notifications.
+	GcpPubsubTopicName pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
 	// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
 	NotificationProvider pulumi.StringPtrInput
 	// A type of integration
@@ -419,6 +429,11 @@ func (o NotificationIntegrationOutput) GcpPubsubServiceAccount() pulumi.StringOu
 // The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 func (o NotificationIntegrationOutput) GcpPubsubSubscriptionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringPtrOutput { return v.GcpPubsubSubscriptionName }).(pulumi.StringPtrOutput)
+}
+
+// The topic id that Snowflake will use to push notifications.
+func (o NotificationIntegrationOutput) GcpPubsubTopicName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringPtrOutput { return v.GcpPubsubTopicName }).(pulumi.StringPtrOutput)
 }
 
 func (o NotificationIntegrationOutput) Name() pulumi.StringOutput {

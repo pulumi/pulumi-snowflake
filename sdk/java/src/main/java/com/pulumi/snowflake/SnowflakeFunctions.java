@@ -41,6 +41,8 @@ import com.pulumi.snowflake.inputs.GetSchemasArgs;
 import com.pulumi.snowflake.inputs.GetSchemasPlainArgs;
 import com.pulumi.snowflake.inputs.GetSequencesArgs;
 import com.pulumi.snowflake.inputs.GetSequencesPlainArgs;
+import com.pulumi.snowflake.inputs.GetSharesArgs;
+import com.pulumi.snowflake.inputs.GetSharesPlainArgs;
 import com.pulumi.snowflake.inputs.GetStagesArgs;
 import com.pulumi.snowflake.inputs.GetStagesPlainArgs;
 import com.pulumi.snowflake.inputs.GetStreamsArgs;
@@ -77,6 +79,7 @@ import com.pulumi.snowflake.outputs.GetRolesResult;
 import com.pulumi.snowflake.outputs.GetRowAccessPoliciesResult;
 import com.pulumi.snowflake.outputs.GetSchemasResult;
 import com.pulumi.snowflake.outputs.GetSequencesResult;
+import com.pulumi.snowflake.outputs.GetSharesResult;
 import com.pulumi.snowflake.outputs.GetStagesResult;
 import com.pulumi.snowflake.outputs.GetStorageIntegrationsResult;
 import com.pulumi.snowflake.outputs.GetStreamsResult;
@@ -3409,6 +3412,24 @@ public final class SnowflakeFunctions {
      */
     public static CompletableFuture<GetSequencesResult> getSequencesPlain(GetSequencesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSequences:getSequences", TypeShape.of(GetSequencesResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetSharesResult> getShares() {
+        return getShares(GetSharesArgs.Empty, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetSharesResult> getSharesPlain() {
+        return getSharesPlain(GetSharesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    public static Output<GetSharesResult> getShares(GetSharesArgs args) {
+        return getShares(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetSharesResult> getSharesPlain(GetSharesPlainArgs args) {
+        return getSharesPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetSharesResult> getShares(GetSharesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getShares:getShares", TypeShape.of(GetSharesResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetSharesResult> getSharesPlain(GetSharesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getShares:getShares", TypeShape.of(GetSharesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * ## Example Usage

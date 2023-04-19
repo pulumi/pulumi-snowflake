@@ -26,12 +26,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccountGrant{}
 	case "snowflake:index/accountParameter:AccountParameter":
 		r = &AccountParameter{}
+	case "snowflake:index/alert:Alert":
+		r = &Alert{}
 	case "snowflake:index/apiIntegration:ApiIntegration":
 		r = &ApiIntegration{}
 	case "snowflake:index/database:Database":
 		r = &Database{}
 	case "snowflake:index/databaseGrant:DatabaseGrant":
 		r = &DatabaseGrant{}
+	case "snowflake:index/databaseRole:DatabaseRole":
+		r = &DatabaseRole{}
 	case "snowflake:index/externalFunction:ExternalFunction":
 		r = &ExternalFunction{}
 	case "snowflake:index/externalOauthIntegration:ExternalOauthIntegration":
@@ -72,6 +76,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OauthIntegration{}
 	case "snowflake:index/objectParameter:ObjectParameter":
 		r = &ObjectParameter{}
+	case "snowflake:index/passwordPolicy:PasswordPolicy":
+		r = &PasswordPolicy{}
 	case "snowflake:index/pipe:Pipe":
 		r = &Pipe{}
 	case "snowflake:index/pipeGrant:PipeGrant":
@@ -199,6 +205,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/alert",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/apiIntegration",
 		&module{version},
 	)
@@ -210,6 +221,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/databaseGrant",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/databaseRole",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -310,6 +326,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/objectParameter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/passwordPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

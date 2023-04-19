@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// An External OAuth security integration allows a client to use a third-party authorization server to obtain the access tokens needed to interact with Snowflake.
+//
 // ## Example Usage
 //
 // ```go
@@ -85,6 +87,8 @@ type ExternalOauthIntegration struct {
 	RsaPublicKey2 pulumi.StringPtrOutput `pulumi:"rsaPublicKey2"`
 	// Specifies the scope delimiter in the authorization token.
 	ScopeDelimiter pulumi.StringPtrOutput `pulumi:"scopeDelimiter"`
+	// Specifies the access token claim to map the access token to an account role.
+	ScopeMappingAttribute pulumi.StringPtrOutput `pulumi:"scopeMappingAttribute"`
 	// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
 	SnowflakeUserMappingAttribute pulumi.StringOutput `pulumi:"snowflakeUserMappingAttribute"`
 	// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
@@ -163,6 +167,8 @@ type externalOauthIntegrationState struct {
 	RsaPublicKey2 *string `pulumi:"rsaPublicKey2"`
 	// Specifies the scope delimiter in the authorization token.
 	ScopeDelimiter *string `pulumi:"scopeDelimiter"`
+	// Specifies the access token claim to map the access token to an account role.
+	ScopeMappingAttribute *string `pulumi:"scopeMappingAttribute"`
 	// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
 	SnowflakeUserMappingAttribute *string `pulumi:"snowflakeUserMappingAttribute"`
 	// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
@@ -198,6 +204,8 @@ type ExternalOauthIntegrationState struct {
 	RsaPublicKey2 pulumi.StringPtrInput
 	// Specifies the scope delimiter in the authorization token.
 	ScopeDelimiter pulumi.StringPtrInput
+	// Specifies the access token claim to map the access token to an account role.
+	ScopeMappingAttribute pulumi.StringPtrInput
 	// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
 	SnowflakeUserMappingAttribute pulumi.StringPtrInput
 	// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
@@ -235,6 +243,8 @@ type externalOauthIntegrationArgs struct {
 	RsaPublicKey2 *string `pulumi:"rsaPublicKey2"`
 	// Specifies the scope delimiter in the authorization token.
 	ScopeDelimiter *string `pulumi:"scopeDelimiter"`
+	// Specifies the access token claim to map the access token to an account role.
+	ScopeMappingAttribute *string `pulumi:"scopeMappingAttribute"`
 	// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
 	SnowflakeUserMappingAttribute string `pulumi:"snowflakeUserMappingAttribute"`
 	// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
@@ -269,6 +279,8 @@ type ExternalOauthIntegrationArgs struct {
 	RsaPublicKey2 pulumi.StringPtrInput
 	// Specifies the scope delimiter in the authorization token.
 	ScopeDelimiter pulumi.StringPtrInput
+	// Specifies the access token claim to map the access token to an account role.
+	ScopeMappingAttribute pulumi.StringPtrInput
 	// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
 	SnowflakeUserMappingAttribute pulumi.StringInput
 	// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
@@ -427,6 +439,11 @@ func (o ExternalOauthIntegrationOutput) RsaPublicKey2() pulumi.StringPtrOutput {
 // Specifies the scope delimiter in the authorization token.
 func (o ExternalOauthIntegrationOutput) ScopeDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringPtrOutput { return v.ScopeDelimiter }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the access token claim to map the access token to an account role.
+func (o ExternalOauthIntegrationOutput) ScopeMappingAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringPtrOutput { return v.ScopeMappingAttribute }).(pulumi.StringPtrOutput)
 }
 
 // Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.

@@ -117,6 +117,10 @@ export class NotificationIntegration extends pulumi.CustomResource {
      * The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
      */
     public readonly gcpPubsubSubscriptionName!: pulumi.Output<string | undefined>;
+    /**
+     * The topic id that Snowflake will use to push notifications.
+     */
+    public readonly gcpPubsubTopicName!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
     /**
      * The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
@@ -156,6 +160,7 @@ export class NotificationIntegration extends pulumi.CustomResource {
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["gcpPubsubServiceAccount"] = state ? state.gcpPubsubServiceAccount : undefined;
             resourceInputs["gcpPubsubSubscriptionName"] = state ? state.gcpPubsubSubscriptionName : undefined;
+            resourceInputs["gcpPubsubTopicName"] = state ? state.gcpPubsubTopicName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["notificationProvider"] = state ? state.notificationProvider : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
@@ -171,6 +176,7 @@ export class NotificationIntegration extends pulumi.CustomResource {
             resourceInputs["direction"] = args ? args.direction : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["gcpPubsubSubscriptionName"] = args ? args.gcpPubsubSubscriptionName : undefined;
+            resourceInputs["gcpPubsubTopicName"] = args ? args.gcpPubsubTopicName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["notificationProvider"] = args ? args.notificationProvider : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -251,6 +257,10 @@ export interface NotificationIntegrationState {
      * The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
      */
     gcpPubsubSubscriptionName?: pulumi.Input<string>;
+    /**
+     * The topic id that Snowflake will use to push notifications.
+     */
+    gcpPubsubTopicName?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     /**
      * The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
@@ -303,6 +313,10 @@ export interface NotificationIntegrationArgs {
      * The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
      */
     gcpPubsubSubscriptionName?: pulumi.Input<string>;
+    /**
+     * The topic id that Snowflake will use to push notifications.
+     */
+    gcpPubsubTopicName?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     /**
      * The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
