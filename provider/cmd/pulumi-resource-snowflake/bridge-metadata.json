@@ -1,0 +1,1149 @@
+{
+    "auto-aliasing": {
+        "resources": {
+            "snowflake_account": {
+                "current": "snowflake:index/account:Account"
+            },
+            "snowflake_account_grant": {
+                "current": "snowflake:index/accountGrant:AccountGrant"
+            },
+            "snowflake_account_parameter": {
+                "current": "snowflake:index/accountParameter:AccountParameter"
+            },
+            "snowflake_alert": {
+                "current": "snowflake:index/alert:Alert"
+            },
+            "snowflake_api_integration": {
+                "current": "snowflake:index/apiIntegration:ApiIntegration"
+            },
+            "snowflake_database": {
+                "current": "snowflake:index/database:Database"
+            },
+            "snowflake_database_grant": {
+                "current": "snowflake:index/databaseGrant:DatabaseGrant"
+            },
+            "snowflake_database_role": {
+                "current": "snowflake:index/databaseRole:DatabaseRole"
+            },
+            "snowflake_external_function": {
+                "current": "snowflake:index/externalFunction:ExternalFunction"
+            },
+            "snowflake_external_oauth_integration": {
+                "current": "snowflake:index/externalOauthIntegration:ExternalOauthIntegration"
+            },
+            "snowflake_external_table": {
+                "current": "snowflake:index/externalTable:ExternalTable"
+            },
+            "snowflake_external_table_grant": {
+                "current": "snowflake:index/externalTableGrant:ExternalTableGrant"
+            },
+            "snowflake_failover_group": {
+                "current": "snowflake:index/failoverGroup:FailoverGroup"
+            },
+            "snowflake_file_format": {
+                "current": "snowflake:index/fileFormat:FileFormat"
+            },
+            "snowflake_file_format_grant": {
+                "current": "snowflake:index/fileFormatGrant:FileFormatGrant"
+            },
+            "snowflake_function": {
+                "current": "snowflake:index/function:Function"
+            },
+            "snowflake_function_grant": {
+                "current": "snowflake:index/functionGrant:FunctionGrant"
+            },
+            "snowflake_integration_grant": {
+                "current": "snowflake:index/integrationGrant:IntegrationGrant"
+            },
+            "snowflake_managed_account": {
+                "current": "snowflake:index/managedAccount:ManagedAccount"
+            },
+            "snowflake_masking_policy": {
+                "current": "snowflake:index/maskingPolicy:MaskingPolicy"
+            },
+            "snowflake_masking_policy_grant": {
+                "current": "snowflake:index/maskingPolicyGrant:MaskingPolicyGrant"
+            },
+            "snowflake_materialized_view": {
+                "current": "snowflake:index/materializedView:MaterializedView"
+            },
+            "snowflake_materialized_view_grant": {
+                "current": "snowflake:index/materializedViewGrant:MaterializedViewGrant"
+            },
+            "snowflake_network_policy": {
+                "current": "snowflake:index/networkPolicy:NetworkPolicy"
+            },
+            "snowflake_network_policy_attachment": {
+                "current": "snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment"
+            },
+            "snowflake_notification_integration": {
+                "current": "snowflake:index/notificationIntegration:NotificationIntegration"
+            },
+            "snowflake_oauth_integration": {
+                "current": "snowflake:index/oauthIntegration:OauthIntegration"
+            },
+            "snowflake_object_parameter": {
+                "current": "snowflake:index/objectParameter:ObjectParameter"
+            },
+            "snowflake_password_policy": {
+                "current": "snowflake:index/passwordPolicy:PasswordPolicy"
+            },
+            "snowflake_pipe": {
+                "current": "snowflake:index/pipe:Pipe"
+            },
+            "snowflake_pipe_grant": {
+                "current": "snowflake:index/pipeGrant:PipeGrant"
+            },
+            "snowflake_procedure": {
+                "current": "snowflake:index/procedure:Procedure"
+            },
+            "snowflake_procedure_grant": {
+                "current": "snowflake:index/procedureGrant:ProcedureGrant"
+            },
+            "snowflake_resource_monitor": {
+                "current": "snowflake:index/resourceMonitor:ResourceMonitor"
+            },
+            "snowflake_resource_monitor_grant": {
+                "current": "snowflake:index/resourceMonitorGrant:ResourceMonitorGrant"
+            },
+            "snowflake_role": {
+                "current": "snowflake:index/role:Role"
+            },
+            "snowflake_role_grants": {
+                "current": "snowflake:index/roleGrants:RoleGrants"
+            },
+            "snowflake_role_ownership_grant": {
+                "current": "snowflake:index/roleOwnershipGrant:RoleOwnershipGrant"
+            },
+            "snowflake_row_access_policy": {
+                "current": "snowflake:index/rowAccessPolicy:RowAccessPolicy"
+            },
+            "snowflake_row_access_policy_grant": {
+                "current": "snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant"
+            },
+            "snowflake_saml_integration": {
+                "current": "snowflake:index/samlIntegration:SamlIntegration"
+            },
+            "snowflake_schema": {
+                "current": "snowflake:index/schema:Schema"
+            },
+            "snowflake_schema_grant": {
+                "current": "snowflake:index/schemaGrant:SchemaGrant"
+            },
+            "snowflake_scim_integration": {
+                "current": "snowflake:index/scimIntegration:ScimIntegration"
+            },
+            "snowflake_sequence": {
+                "current": "snowflake:index/sequence:Sequence"
+            },
+            "snowflake_sequence_grant": {
+                "current": "snowflake:index/sequenceGrant:SequenceGrant"
+            },
+            "snowflake_session_parameter": {
+                "current": "snowflake:index/sessionParameter:SessionParameter"
+            },
+            "snowflake_share": {
+                "current": "snowflake:index/share:Share"
+            },
+            "snowflake_stage": {
+                "current": "snowflake:index/stage:Stage"
+            },
+            "snowflake_stage_grant": {
+                "current": "snowflake:index/stageGrant:StageGrant"
+            },
+            "snowflake_storage_integration": {
+                "current": "snowflake:index/storageIntegration:StorageIntegration"
+            },
+            "snowflake_stream": {
+                "current": "snowflake:index/stream:Stream"
+            },
+            "snowflake_stream_grant": {
+                "current": "snowflake:index/streamGrant:StreamGrant"
+            },
+            "snowflake_table": {
+                "current": "snowflake:index/table:Table"
+            },
+            "snowflake_table_constraint": {
+                "current": "snowflake:index/tableConstraint:TableConstraint"
+            },
+            "snowflake_table_grant": {
+                "current": "snowflake:index/tableGrant:TableGrant"
+            },
+            "snowflake_tag": {
+                "current": "snowflake:index/tag:Tag"
+            },
+            "snowflake_tag_association": {
+                "current": "snowflake:index/tagAssociation:TagAssociation"
+            },
+            "snowflake_tag_grant": {
+                "current": "snowflake:index/tagGrant:TagGrant"
+            },
+            "snowflake_tag_masking_policy_association": {
+                "current": "snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation"
+            },
+            "snowflake_task": {
+                "current": "snowflake:index/task:Task"
+            },
+            "snowflake_task_grant": {
+                "current": "snowflake:index/taskGrant:TaskGrant"
+            },
+            "snowflake_user": {
+                "current": "snowflake:index/user:User"
+            },
+            "snowflake_user_grant": {
+                "current": "snowflake:index/userGrant:UserGrant"
+            },
+            "snowflake_user_ownership_grant": {
+                "current": "snowflake:index/userOwnershipGrant:UserOwnershipGrant"
+            },
+            "snowflake_user_public_keys": {
+                "current": "snowflake:index/userPublicKeys:UserPublicKeys"
+            },
+            "snowflake_view": {
+                "current": "snowflake:index/view:View"
+            },
+            "snowflake_view_grant": {
+                "current": "snowflake:index/viewGrant:ViewGrant"
+            },
+            "snowflake_warehouse": {
+                "current": "snowflake:index/warehouse:Warehouse"
+            },
+            "snowflake_warehouse_grant": {
+                "current": "snowflake:index/warehouseGrant:WarehouseGrant"
+            }
+        },
+        "datasources": {
+            "snowflake_current_account": {
+                "current": "snowflake:index/getCurrentAccount:getCurrentAccount"
+            },
+            "snowflake_current_role": {
+                "current": "snowflake:index/getCurrentRole:getCurrentRole"
+            },
+            "snowflake_database": {
+                "current": "snowflake:index/getDatabase:getDatabase"
+            },
+            "snowflake_databases": {
+                "current": "snowflake:index/getDatabases:getDatabases"
+            },
+            "snowflake_external_functions": {
+                "current": "snowflake:index/getExternalFunctions:getExternalFunctions"
+            },
+            "snowflake_external_tables": {
+                "current": "snowflake:index/getExternalTables:getExternalTables"
+            },
+            "snowflake_file_formats": {
+                "current": "snowflake:index/getFileFormats:getFileFormats"
+            },
+            "snowflake_functions": {
+                "current": "snowflake:index/getFunctions:getFunctions"
+            },
+            "snowflake_grants": {
+                "current": "snowflake:index/getGrants:getGrants"
+            },
+            "snowflake_masking_policies": {
+                "current": "snowflake:index/getMaskingPolicies:getMaskingPolicies"
+            },
+            "snowflake_materialized_views": {
+                "current": "snowflake:index/getMaterializedViews:getMaterializedViews"
+            },
+            "snowflake_parameters": {
+                "current": "snowflake:index/getParameters:getParameters"
+            },
+            "snowflake_pipes": {
+                "current": "snowflake:index/getPipes:getPipes"
+            },
+            "snowflake_procedures": {
+                "current": "snowflake:index/getProcedures:getProcedures"
+            },
+            "snowflake_resource_monitors": {
+                "current": "snowflake:index/getResourceMonitors:getResourceMonitors"
+            },
+            "snowflake_role": {
+                "current": "snowflake:index/getRole:getRole"
+            },
+            "snowflake_roles": {
+                "current": "snowflake:index/getRoles:getRoles"
+            },
+            "snowflake_row_access_policies": {
+                "current": "snowflake:index/getRowAccessPolicies:getRowAccessPolicies"
+            },
+            "snowflake_schemas": {
+                "current": "snowflake:index/getSchemas:getSchemas"
+            },
+            "snowflake_sequences": {
+                "current": "snowflake:index/getSequences:getSequences"
+            },
+            "snowflake_shares": {
+                "current": "snowflake:index/getShares:getShares"
+            },
+            "snowflake_stages": {
+                "current": "snowflake:index/getStages:getStages"
+            },
+            "snowflake_storage_integrations": {
+                "current": "snowflake:index/getStorageIntegrations:getStorageIntegrations"
+            },
+            "snowflake_streams": {
+                "current": "snowflake:index/getStreams:getStreams"
+            },
+            "snowflake_system_generate_scim_access_token": {
+                "current": "snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken"
+            },
+            "snowflake_system_get_aws_sns_iam_policy": {
+                "current": "snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy"
+            },
+            "snowflake_system_get_privatelink_config": {
+                "current": "snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig"
+            },
+            "snowflake_system_get_snowflake_platform_info": {
+                "current": "snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo"
+            },
+            "snowflake_tables": {
+                "current": "snowflake:index/getTables:getTables"
+            },
+            "snowflake_tasks": {
+                "current": "snowflake:index/getTasks:getTasks"
+            },
+            "snowflake_users": {
+                "current": "snowflake:index/getUsers:getUsers"
+            },
+            "snowflake_views": {
+                "current": "snowflake:index/getViews:getViews"
+            },
+            "snowflake_warehouses": {
+                "current": "snowflake:index/getWarehouses:getWarehouses"
+            }
+        }
+    },
+    "renames": {
+        "resources": {
+            "snowflake:index/account:Account": "snowflake_account",
+            "snowflake:index/accountGrant:AccountGrant": "snowflake_account_grant",
+            "snowflake:index/accountParameter:AccountParameter": "snowflake_account_parameter",
+            "snowflake:index/alert:Alert": "snowflake_alert",
+            "snowflake:index/apiIntegration:ApiIntegration": "snowflake_api_integration",
+            "snowflake:index/database:Database": "snowflake_database",
+            "snowflake:index/databaseGrant:DatabaseGrant": "snowflake_database_grant",
+            "snowflake:index/databaseRole:DatabaseRole": "snowflake_database_role",
+            "snowflake:index/externalFunction:ExternalFunction": "snowflake_external_function",
+            "snowflake:index/externalOauthIntegration:ExternalOauthIntegration": "snowflake_external_oauth_integration",
+            "snowflake:index/externalTable:ExternalTable": "snowflake_external_table",
+            "snowflake:index/externalTableGrant:ExternalTableGrant": "snowflake_external_table_grant",
+            "snowflake:index/failoverGroup:FailoverGroup": "snowflake_failover_group",
+            "snowflake:index/fileFormat:FileFormat": "snowflake_file_format",
+            "snowflake:index/fileFormatGrant:FileFormatGrant": "snowflake_file_format_grant",
+            "snowflake:index/function:Function": "snowflake_function",
+            "snowflake:index/functionGrant:FunctionGrant": "snowflake_function_grant",
+            "snowflake:index/integrationGrant:IntegrationGrant": "snowflake_integration_grant",
+            "snowflake:index/managedAccount:ManagedAccount": "snowflake_managed_account",
+            "snowflake:index/maskingPolicy:MaskingPolicy": "snowflake_masking_policy",
+            "snowflake:index/maskingPolicyGrant:MaskingPolicyGrant": "snowflake_masking_policy_grant",
+            "snowflake:index/materializedView:MaterializedView": "snowflake_materialized_view",
+            "snowflake:index/materializedViewGrant:MaterializedViewGrant": "snowflake_materialized_view_grant",
+            "snowflake:index/networkPolicy:NetworkPolicy": "snowflake_network_policy",
+            "snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment": "snowflake_network_policy_attachment",
+            "snowflake:index/notificationIntegration:NotificationIntegration": "snowflake_notification_integration",
+            "snowflake:index/oauthIntegration:OauthIntegration": "snowflake_oauth_integration",
+            "snowflake:index/objectParameter:ObjectParameter": "snowflake_object_parameter",
+            "snowflake:index/passwordPolicy:PasswordPolicy": "snowflake_password_policy",
+            "snowflake:index/pipe:Pipe": "snowflake_pipe",
+            "snowflake:index/pipeGrant:PipeGrant": "snowflake_pipe_grant",
+            "snowflake:index/procedure:Procedure": "snowflake_procedure",
+            "snowflake:index/procedureGrant:ProcedureGrant": "snowflake_procedure_grant",
+            "snowflake:index/resourceMonitor:ResourceMonitor": "snowflake_resource_monitor",
+            "snowflake:index/resourceMonitorGrant:ResourceMonitorGrant": "snowflake_resource_monitor_grant",
+            "snowflake:index/role:Role": "snowflake_role",
+            "snowflake:index/roleGrants:RoleGrants": "snowflake_role_grants",
+            "snowflake:index/roleOwnershipGrant:RoleOwnershipGrant": "snowflake_role_ownership_grant",
+            "snowflake:index/rowAccessPolicy:RowAccessPolicy": "snowflake_row_access_policy",
+            "snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant": "snowflake_row_access_policy_grant",
+            "snowflake:index/samlIntegration:SamlIntegration": "snowflake_saml_integration",
+            "snowflake:index/schema:Schema": "snowflake_schema",
+            "snowflake:index/schemaGrant:SchemaGrant": "snowflake_schema_grant",
+            "snowflake:index/scimIntegration:ScimIntegration": "snowflake_scim_integration",
+            "snowflake:index/sequence:Sequence": "snowflake_sequence",
+            "snowflake:index/sequenceGrant:SequenceGrant": "snowflake_sequence_grant",
+            "snowflake:index/sessionParameter:SessionParameter": "snowflake_session_parameter",
+            "snowflake:index/share:Share": "snowflake_share",
+            "snowflake:index/stage:Stage": "snowflake_stage",
+            "snowflake:index/stageGrant:StageGrant": "snowflake_stage_grant",
+            "snowflake:index/storageIntegration:StorageIntegration": "snowflake_storage_integration",
+            "snowflake:index/stream:Stream": "snowflake_stream",
+            "snowflake:index/streamGrant:StreamGrant": "snowflake_stream_grant",
+            "snowflake:index/table:Table": "snowflake_table",
+            "snowflake:index/tableConstraint:TableConstraint": "snowflake_table_constraint",
+            "snowflake:index/tableGrant:TableGrant": "snowflake_table_grant",
+            "snowflake:index/tag:Tag": "snowflake_tag",
+            "snowflake:index/tagAssociation:TagAssociation": "snowflake_tag_association",
+            "snowflake:index/tagGrant:TagGrant": "snowflake_tag_grant",
+            "snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation": "snowflake_tag_masking_policy_association",
+            "snowflake:index/task:Task": "snowflake_task",
+            "snowflake:index/taskGrant:TaskGrant": "snowflake_task_grant",
+            "snowflake:index/user:User": "snowflake_user",
+            "snowflake:index/userGrant:UserGrant": "snowflake_user_grant",
+            "snowflake:index/userOwnershipGrant:UserOwnershipGrant": "snowflake_user_ownership_grant",
+            "snowflake:index/userPublicKeys:UserPublicKeys": "snowflake_user_public_keys",
+            "snowflake:index/view:View": "snowflake_view",
+            "snowflake:index/viewGrant:ViewGrant": "snowflake_view_grant",
+            "snowflake:index/warehouse:Warehouse": "snowflake_warehouse",
+            "snowflake:index/warehouseGrant:WarehouseGrant": "snowflake_warehouse_grant"
+        },
+        "functions": {
+            "snowflake:index/getCurrentAccount:getCurrentAccount": "snowflake_current_account",
+            "snowflake:index/getCurrentRole:getCurrentRole": "snowflake_current_role",
+            "snowflake:index/getDatabase:getDatabase": "snowflake_database",
+            "snowflake:index/getDatabases:getDatabases": "snowflake_databases",
+            "snowflake:index/getExternalFunctions:getExternalFunctions": "snowflake_external_functions",
+            "snowflake:index/getExternalTables:getExternalTables": "snowflake_external_tables",
+            "snowflake:index/getFileFormats:getFileFormats": "snowflake_file_formats",
+            "snowflake:index/getFunctions:getFunctions": "snowflake_functions",
+            "snowflake:index/getGrants:getGrants": "snowflake_grants",
+            "snowflake:index/getMaskingPolicies:getMaskingPolicies": "snowflake_masking_policies",
+            "snowflake:index/getMaterializedViews:getMaterializedViews": "snowflake_materialized_views",
+            "snowflake:index/getParameters:getParameters": "snowflake_parameters",
+            "snowflake:index/getPipes:getPipes": "snowflake_pipes",
+            "snowflake:index/getProcedures:getProcedures": "snowflake_procedures",
+            "snowflake:index/getResourceMonitors:getResourceMonitors": "snowflake_resource_monitors",
+            "snowflake:index/getRole:getRole": "snowflake_role",
+            "snowflake:index/getRoles:getRoles": "snowflake_roles",
+            "snowflake:index/getRowAccessPolicies:getRowAccessPolicies": "snowflake_row_access_policies",
+            "snowflake:index/getSchemas:getSchemas": "snowflake_schemas",
+            "snowflake:index/getSequences:getSequences": "snowflake_sequences",
+            "snowflake:index/getShares:getShares": "snowflake_shares",
+            "snowflake:index/getStages:getStages": "snowflake_stages",
+            "snowflake:index/getStorageIntegrations:getStorageIntegrations": "snowflake_storage_integrations",
+            "snowflake:index/getStreams:getStreams": "snowflake_streams",
+            "snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken": "snowflake_system_generate_scim_access_token",
+            "snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy": "snowflake_system_get_aws_sns_iam_policy",
+            "snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig": "snowflake_system_get_privatelink_config",
+            "snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo": "snowflake_system_get_snowflake_platform_info",
+            "snowflake:index/getTables:getTables": "snowflake_tables",
+            "snowflake:index/getTasks:getTasks": "snowflake_tasks",
+            "snowflake:index/getUsers:getUsers": "snowflake_users",
+            "snowflake:index/getViews:getViews": "snowflake_views",
+            "snowflake:index/getWarehouses:getWarehouses": "snowflake_warehouses"
+        },
+        "renamedProperties": {
+            "snowflake:index/AlertAlertScheduleCron:AlertAlertScheduleCron": {
+                "timeZone": "time_zone"
+            },
+            "snowflake:index/DatabaseReplicationConfiguration:DatabaseReplicationConfiguration": {
+                "ignoreEditionCheck": "ignore_edition_check"
+            },
+            "snowflake:index/FailoverGroupFromReplica:FailoverGroupFromReplica": {
+                "organizationName": "organization_name",
+                "sourceAccountName": "source_account_name"
+            },
+            "snowflake:index/FailoverGroupReplicationScheduleCron:FailoverGroupReplicationScheduleCron": {
+                "timeZone": "time_zone"
+            },
+            "snowflake:index/TableColumn:TableColumn": {
+                "maskingPolicy": "masking_policy"
+            },
+            "snowflake:index/TableColumnIdentity:TableColumnIdentity": {
+                "startNum": "start_num",
+                "stepNum": "step_num"
+            },
+            "snowflake:index/TableConstraintForeignKeyProperties:TableConstraintForeignKeyProperties": {
+                "onDelete": "on_delete",
+                "onUpdate": "on_update"
+            },
+            "snowflake:index/TableConstraintForeignKeyPropertiesReferences:TableConstraintForeignKeyPropertiesReferences": {
+                "tableId": "table_id"
+            },
+            "snowflake:index/account:Account": {
+                "adminName": "admin_name",
+                "adminPassword": "admin_password",
+                "adminRsaPublicKey": "admin_rsa_public_key",
+                "firstName": "first_name",
+                "isOrgAdmin": "is_org_admin",
+                "lastName": "last_name",
+                "mustChangePassword": "must_change_password",
+                "regionGroup": "region_group"
+            },
+            "snowflake:index/accountGrant:AccountGrant": {
+                "enableMultipleGrants": "enable_multiple_grants",
+                "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/alert:Alert": {
+                "alertSchedule": "alert_schedule"
+            },
+            "snowflake:index/apiIntegration:ApiIntegration": {
+                "apiAllowedPrefixes": "api_allowed_prefixes",
+                "apiAwsExternalId": "api_aws_external_id",
+                "apiAwsIamUserArn": "api_aws_iam_user_arn",
+                "apiAwsRoleArn": "api_aws_role_arn",
+                "apiBlockedPrefixes": "api_blocked_prefixes",
+                "apiKey": "api_key",
+                "apiProvider": "api_provider",
+                "azureAdApplicationId": "azure_ad_application_id",
+                "azureConsentUrl": "azure_consent_url",
+                "azureMultiTenantAppName": "azure_multi_tenant_app_name",
+                "azureTenantId": "azure_tenant_id",
+                "createdOn": "created_on",
+                "googleAudience": "google_audience"
+            },
+            "snowflake:index/database:Database": {
+                "dataRetentionTimeInDays": "data_retention_time_in_days",
+                "fromDatabase": "from_database",
+                "fromReplica": "from_replica",
+                "fromShare": "from_share",
+                "isTransient": "is_transient",
+                "replicationConfiguration": "replication_configuration",
+                "tags": "tag"
+            },
+            "snowflake:index/databaseGrant:DatabaseGrant": {
+                "databaseName": "database_name",
+                "enableMultipleGrants": "enable_multiple_grants",
+                "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/externalFunction:ExternalFunction": {
+                "apiIntegration": "api_integration",
+                "args": "arg",
+                "contextHeaders": "context_headers",
+                "createdOn": "created_on",
+                "headers": "header",
+                "maxBatchRows": "max_batch_rows",
+                "nullInputBehavior": "null_input_behavior",
+                "returnBehavior": "return_behavior",
+                "returnNullAllowed": "return_null_allowed",
+                "returnType": "return_type",
+                "urlOfProxyAndResource": "url_of_proxy_and_resource"
+            },
+            "snowflake:index/externalOauthIntegration:ExternalOauthIntegration": {
+                "allowedRoles": "allowed_roles",
+                "anyRoleMode": "any_role_mode",
+                "audienceUrls": "audience_urls",
+                "blockedRoles": "blocked_roles",
+                "createdOn": "created_on",
+                "jwsKeysUrls": "jws_keys_urls",
+                "rsaPublicKey": "rsa_public_key",
+                "rsaPublicKey2": "rsa_public_key_2",
+                "scopeDelimiter": "scope_delimiter",
+                "scopeMappingAttribute": "scope_mapping_attribute",
+                "snowflakeUserMappingAttribute": "snowflake_user_mapping_attribute",
+                "tokenUserMappingClaims": "token_user_mapping_claims"
+            },
+            "snowflake:index/externalTable:ExternalTable": {
+                "autoRefresh": "auto_refresh",
+                "awsSnsTopic": "aws_sns_topic",
+                "columns": "column",
+                "copyGrants": "copy_grants",
+                "fileFormat": "file_format",
+                "partitionBies": "partition_by",
+                "refreshOnCreate": "refresh_on_create",
+                "tags": "tag"
+            },
+            "snowflake:index/externalTableGrant:ExternalTableGrant": {
+                "databaseName": "database_name",
+                "enableMultipleGrants": "enable_multiple_grants",
+                "externalTableName": "external_table_name",
+                "onFuture": "on_future",
+                "schemaName": "schema_name",
+                "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/failoverGroup:FailoverGroup": {
+                "allowedAccounts": "allowed_accounts",
+                "allowedDatabases": "allowed_databases",
+                "allowedIntegrationTypes": "allowed_integration_types",
+                "allowedShares": "allowed_shares",
+                "fromReplica": "from_replica",
+                "ignoreEditionCheck": "ignore_edition_check",
+                "objectTypes": "object_types",
+                "replicationSchedule": "replication_schedule"
+            },
+            "snowflake:index/fileFormat:FileFormat": {
+                "allowDuplicate": "allow_duplicate",
+                "binaryAsText": "binary_as_text",
+                "binaryFormat": "binary_format",
+                "dateFormat": "date_format",
+                "disableAutoConvert": "disable_auto_convert",
+                "disableSnowflakeData": "disable_snowflake_data",
+                "emptyFieldAsNull": "empty_field_as_null",
+                "enableOctal": "enable_octal",
+                "errorOnColumnCountMismatch": "error_on_column_count_mismatch",
+                "escapeUnenclosedField": "escape_unenclosed_field",
+                "fieldDelimiter": "field_delimiter",
+                "fieldOptionallyEnclosedBy": "field_optionally_enclosed_by",
+                "fileExtension": "file_extension",
+                "formatType": "format_type",
+                "ignoreUtf8Errors": "ignore_utf8_errors",
+                "nullIfs": "null_if",
+                "preserveSpace": "preserve_space",
+                "recordDelimiter": "record_delimiter",
+                "replaceInvalidCharacters": "replace_invalid_characters",
+                "skipBlankLines": "skip_blank_lines",
+                "skipByteOrderMark": "skip_byte_order_mark",
+                "skipHeader": "skip_header",
+                "stripNullValues": "strip_null_values",
+                "stripOuterArray": "strip_outer_array",
+                "stripOuterElement": "strip_outer_element",
+                "timeFormat": "time_format",
+                "timestampFormat": "timestamp_format",
+                "trimSpace": "trim_space"
+            },
+            "snowflake:index/fileFormatGrant:FileFormatGrant": {
+                "databaseName": "database_name",
+                "enableMultipleGrants": "enable_multiple_grants",
+                "fileFormatName": "file_format_name",
+                "onFuture": "on_future",
+                "schemaName": "schema_name",
+                "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/function:Function": {
+                "isSecure": "is_secure",
+                "nullInputBehavior": "null_input_behavior",
+                "returnBehavior": "return_behavior",
+                "returnType": "return_type",
+                "runtimeVersion": "runtime_version",
+                "targetPath": "target_path"
+            },
+            "snowflake:index/functionGrant:FunctionGrant": {
+                "argumentDataTypes": "argument_data_types",
+                "databaseName": "database_name",
+                "enableMultipleGrants": "enable_multiple_grants",
+                "functionName": "function_name",
+                "onFuture": "on_future",
+                "schemaName": "schema_name",
+                "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/getDatabase:getDatabase": {
+                "createdOn": "created_on",
+                "isCurrent": "is_current",
+                "isDefault": "is_default",
+                "retentionTime": "retention_time"
+            },
+            "snowflake:index/getDatabasesDatabase:getDatabasesDatabase": {
+                "createdOn": "created_on",
+                "isCurrent": "is_current",
+                "isDefault": "is_default",
+                "replicationConfigurations": "replication_configuration",
+                "retentionTime": "retention_time"
+            },
+            "snowflake:index/getDatabasesDatabaseReplicationConfiguration:getDatabasesDatabaseReplicationConfiguration": {
+                "ignoreEditionCheck": "ignore_edition_check"
+            },
+            "snowflake:index/getExternalFunctions:getExternalFunctions": {
+                "externalFunctions": "external_functions"
+            },
+            "snowflake:index/getExternalTables:getExternalTables": {
+                "externalTables": "external_tables"
+            },
+            "snowflake:index/getFileFormats:getFileFormats": {
+                "fileFormats": "file_formats"
+            },
+            "snowflake:index/getFileFormatsFileFormat:getFileFormatsFileFormat": {
+                "formatType": "format_type"
+            },
+            "snowflake:index/getFunctionsFunction:getFunctionsFunction": {
+                "argumentTypes": "argument_types",
+                "returnType": "return_type"
+            },
+            "snowflake:index/getGrants:getGrants": {
+                "futureGrantsIn": "future_grants_in",
+                "futureGrantsTo": "future_grants_to",
+                "grantsOf": "grants_of",
+                "grantsOn": "grants_on",
+                "grantsTo": "grants_to"
+            },
+            "snowflake:index/getGrantsFutureGrantsInSchema:getGrantsFutureGrantsInSchema": {
+                "databaseName": "database_name",
+                "schemaName": "schema_name"
+            },
+            "snowflake:index/getGrantsGrant:getGrantsGrant": {
+                "createdOn": "created_on",
+                "grantOption": "grant_option",
+                "grantedBy": "granted_by",
+                "grantedOn": "granted_on",
+                "grantedTo": "granted_to",
+                "granteeName": "grantee_name"
+            },
+            "snowflake:index/getGrantsGrantsOn:getGrantsGrantsOn": {
+                "objectName": "object_name",
+                "objectType": "object_type"
+            },
+            "snowflake:index/getMaskingPolicies:getMaskingPolicies": {
+                "maskingPolicies": "masking_policies"
+            },
+            "snowflake:index/getMaterializedViews:getMaterializedViews": {
+                "materializedViews": "materialized_views"
+            },
+            "snowflake:index/getParameters:getParameters": {
+                "objectName": "object_name",
+                "objectType": "object_type",
+                "parameterType": "parameter_type"
+            },
+            "snowflake:index/getProceduresProcedure:getProceduresProcedure": {
+                "argumentTypes": "argument_types",
+                "returnType": "return_type"
+            },
+            "snowflake:index/getResourceMonitors:getResourceMonitors": {
+                "resourceMonitors": "resource_monitors"
+            },
+            "snowflake:index/getResourceMonitorsResourceMonitor:getResourceMonitorsResourceMonitor": {
+                "creditQuota": "credit_quota"
+            },
+            "snowflake:index/getRowAccessPolicies:getRowAccessPolicies": {
+                "rowAccessPolicies": "row_access_policies"
+            },
+            "snowflake:index/getStagesStage:getStagesStage": {
+                "storageIntegration": "storage_integration"
+            },
+            "snowflake:index/getStorageIntegrations:getStorageIntegrations": {
+                "storageIntegrations": "storage_integrations"
+            },
+            "snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken": {
+                "accessToken": "access_token",
+                "integrationName": "integration_name"
+            },
+            "snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy": {
+                "awsSnsTopicArn": "aws_sns_topic_arn",
+                "awsSnsTopicPolicyJson": "aws_sns_topic_policy_json"
+            },
+            "snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig": {
+                "accountName": "account_name",
+                "accountUrl": "account_url",
+                "awsVpceId": "aws_vpce_id",
+                "azurePlsId": "azure_pls_id",
+                "internalStage": "internal_stage",
+                "ocspUrl": "ocsp_url",
+                "regionlessAccountUrl": "regionless_account_url",
+                "regionlessSnowsightUrl": "regionless_snowsight_url",
+                "snowsightUrl": "snowsight_url"
+            },
+            "snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo": {
+                "awsVpcIds": "aws_vpc_ids",
+                "azureVnetSubnetIds": "azure_vnet_subnet_ids"
+            },
+            "snowflake:index/getUsersUser:getUsersUser": {
+                "defaultNamespace": "default_namespace",
+                "defaultRole": "default_role",
+                "defaultSecondaryRoles": "default_secondary_roles",
+                "defaultWarehouse": "default_warehouse",
+                "displayName": "display_name",
+                "firstName": "first_name",
+                "hasRsaPublicKey": "has_rsa_public_key",
+                "lastName": "last_name",
+                "loginName": "login_name"
+            },
+            "snowflake:index/getWarehousesWarehouse:getWarehousesWarehouse": {
+                "scalingPolicy": "scaling_policy"
+            },
+            "snowflake:index/integrationGrant:IntegrationGrant": {
+                "enableMultipleGrants": "enable_multiple_grants",
+                "integrationName": "integration_name",
+                "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/managedAccount:ManagedAccount": {
+                "adminName": "admin_name",
+                "adminPassword": "admin_password",
+                "createdOn": "created_on"
+            },
+            "snowflake:index/maskingPolicy:MaskingPolicy": {
+                "maskingExpression": "masking_expression",
+                "qualifiedName": "qualified_name",
+                "returnDataType": "return_data_type",
+                "valueDataType": "value_data_type"
+            },
+            "snowflake:index/maskingPolicyGrant:MaskingPolicyGrant": {
+                "databaseName": "database_name",
+                "enableMultipleGrants": "enable_multiple_grants",
+                "maskingPolicyName": "masking_policy_name",
+                "schemaName": "schema_name",
+                "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/materializedView:MaterializedView": {
+                "isSecure": "is_secure",
+                "orReplace": "or_replace",
+                "tags": "tag"
+            },
+            "snowflake:index/materializedViewGrant:MaterializedViewGrant": {
+                "databaseName": "database_name",
+                "enableMultipleGrants": "enable_multiple_grants",
+                "materializedViewName": "materialized_view_name",
+                "onAll": "on_all",
+                "onFuture": "on_future",
+                "schemaName": "schema_name",
+                "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/networkPolicy:NetworkPolicy": {
+                "allowedIpLists": "allowed_ip_list",
+                "blockedIpLists": "blocked_ip_list"
+            },
+            "snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment": {
+                "networkPolicyName": "network_policy_name",
+                "setForAccount": "set_for_account"
+            },
+            "snowflake:index/notificationIntegration:NotificationIntegration": {
+                "awsSnsExternalId": "aws_sns_external_id",
+                "awsSnsIamUserArn": "aws_sns_iam_user_arn",
+                "awsSnsRoleArn": "aws_sns_role_arn",
+                "awsSnsTopicArn": "aws_sns_topic_arn",
+                "awsSqsArn": "aws_sqs_arn",
+                "awsSqsExternalId": "aws_sqs_external_id",
+                "awsSqsIamUserArn": "aws_sqs_iam_user_arn",
+                "awsSqsRoleArn": "aws_sqs_role_arn",
+                "azureStorageQueuePrimaryUri": "azure_storage_queue_primary_uri",
+                "azureTenantId": "azure_tenant_id",
+                "createdOn": "created_on",
+                "gcpPubsubServiceAccount": "gcp_pubsub_service_account",
+                "gcpPubsubSubscriptionName": "gcp_pubsub_subscription_name",
+                "gcpPubsubTopicName": "gcp_pubsub_topic_name",
+                "notificationProvider": "notification_provider"
+            },
+            "snowflake:index/oauthIntegration:OauthIntegration": {
+                "blockedRolesLists": "blocked_roles_list",
+                "createdOn": "created_on",
+                "oauthClient": "oauth_client",
+                "oauthClientType": "oauth_client_type",
+                "oauthIssueRefreshTokens": "oauth_issue_refresh_tokens",
+                "oauthRedirectUri": "oauth_redirect_uri",
+                "oauthRefreshTokenValidity": "oauth_refresh_token_validity",
+                "oauthUseSecondaryRoles": "oauth_use_secondary_roles"
+            },
+            "snowflake:index/objectParameter:ObjectParameter": {
+                "objectIdentifiers": "object_identifier",
+                "objectType": "object_type",
+                "onAccount": "on_account"
+            },
+            "snowflake:index/passwordPolicy:PasswordPolicy": {
+                "ifNotExists": "if_not_exists",
+                "lockoutTimeMins": "lockout_time_mins",
+                "maxAgeDays": "max_age_days",
+                "maxLength": "max_length",
+                "maxRetries": "max_retries",
+                "minLength": "min_length",
+                "minLowerCaseChars": "min_lower_case_chars",
+                "minNumericChars": "min_numeric_chars",
+                "minSpecialChars": "min_special_chars",
+                "minUpperCaseChars": "min_upper_case_chars",
+                "orReplace": "or_replace"
+            },
+            "snowflake:index/pipe:Pipe": {
+                "autoIngest": "auto_ingest",
+                "awsSnsTopicArn": "aws_sns_topic_arn",
+                "copyStatement": "copy_statement",
+                "errorIntegration": "error_integration",
+                "notificationChannel": "notification_channel"
+            },
+            "snowflake:index/pipeGrant:PipeGrant": {
+                "databaseName": "database_name",
+                "enableMultipleGrants": "enable_multiple_grants",
+                "onFuture": "on_future",
+                "pipeName": "pipe_name",
+                "schemaName": "schema_name",
+                "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/procedure:Procedure": {
+                "executeAs": "execute_as",
+                "nullInputBehavior": "null_input_behavior",
+                "returnBehavior": "return_behavior",
+                "returnType": "return_type",
+                "runtimeVersion": "runtime_version"
+            },
+            "snowflake:index/procedureGrant:ProcedureGrant": {
+                "argumentDataTypes": "argument_data_types",
+                "databaseName": "database_name",
+                "enableMultipleGrants": "enable_multiple_grants",
+                "onFuture": "on_future",
+                "procedureName": "procedure_name",
+                "schemaName": "schema_name",
+                "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/resourceMonitor:ResourceMonitor": {
+                "creditQuota": "credit_quota",
+                "endTimestamp": "end_timestamp",
+                "notifyTriggers": "notify_triggers",
+                "notifyUsers": "notify_users",
+                "setForAccount": "set_for_account",
+                "startTimestamp": "start_timestamp",
+                "suspendImmediateTrigger": "suspend_immediate_trigger",
+                "suspendImmediateTriggers": "suspend_immediate_triggers",
+                "suspendTrigger": "suspend_trigger",
+                "suspendTriggers": "suspend_triggers"
+            },
+            "snowflake:index/resourceMonitorGrant:ResourceMonitorGrant": {
+                "enableMultipleGrants": "enable_multiple_grants",
+                "monitorName": "monitor_name",
+                "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/role:Role": {
+                "tags": "tag"
+            },
+            "snowflake:index/roleGrants:RoleGrants": {
+                "enableMultipleGrants": "enable_multiple_grants",
+                "roleName": "role_name"
+            },
+            "snowflake:index/roleOwnershipGrant:RoleOwnershipGrant": {
+                "currentGrants": "current_grants",
+                "onRoleName": "on_role_name",
+                "revertOwnershipToRoleName": "revert_ownership_to_role_name",
+                "toRoleName": "to_role_name"
+            },
+            "snowflake:index/rowAccessPolicy:RowAccessPolicy": {
+                "rowAccessExpression": "row_access_expression"
+            },
+            "snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant": {
+                "databaseName": "database_name",
+                "enableMultipleGrants": "enable_multiple_grants",
+                "rowAccessPolicyName": "row_access_policy_name",
+                "schemaName": "schema_name",
+                "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/samlIntegration:SamlIntegration": {
+                "createdOn": "created_on",
+                "saml2DigestMethodsUsed": "saml2_digest_methods_used",
+                "saml2EnableSpInitiated": "saml2_enable_sp_initiated",
+                "saml2ForceAuthn": "saml2_force_authn",
+                "saml2Issuer": "saml2_issuer",
+                "saml2PostLogoutRedirectUrl": "saml2_post_logout_redirect_url",
+                "saml2Provider": "saml2_provider",
+                "saml2RequestedNameidFormat": "saml2_requested_nameid_format",
+                "saml2SignRequest": "saml2_sign_request",
+                "saml2SignatureMethodsUsed": "saml2_signature_methods_used",
+                "saml2SnowflakeAcsUrl": "saml2_snowflake_acs_url",
+                "saml2SnowflakeIssuerUrl": "saml2_snowflake_issuer_url",
+                "saml2SnowflakeMetadata": "saml2_snowflake_metadata",
+                "saml2SnowflakeX509Cert": "saml2_snowflake_x509_cert",
+                "saml2SpInitiatedLoginPageLabel": "saml2_sp_initiated_login_page_label",
+                "saml2SsoUrl": "saml2_sso_url",
+                "saml2X509Cert": "saml2_x509_cert"
+            },
+            "snowflake:index/schema:Schema": {
+                "dataRetentionDays": "data_retention_days",
+                "isManaged": "is_managed",
+                "isTransient": "is_transient",
+                "tags": "tag"
+            },
+            "snowflake:index/schemaGrant:SchemaGrant": {
+                "databaseName": "database_name",
+                "enableMultipleGrants": "enable_multiple_grants",
+                "onAll": "on_all",
+                "onFuture": "on_future",
+                "schemaName": "schema_name",
+                "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/scimIntegration:ScimIntegration": {
+                "createdOn": "created_on",
+                "networkPolicy": "network_policy",
+                "provisionerRole": "provisioner_role",
+                "scimClient": "scim_client"
+            },
+            "snowflake:index/sequence:Sequence": {
+                "fullyQualifiedName": "fully_qualified_name",
+                "nextValue": "next_value"
+            },
+            "snowflake:index/sequenceGrant:SequenceGrant": {
+                "databaseName": "database_name",
+                "enableMultipleGrants": "enable_multiple_grants",
+                "onFuture": "on_future",
+                "schemaName": "schema_name",
+                "sequenceName": "sequence_name",
+                "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/sessionParameter:SessionParameter": {
+                "onAccount": "on_account"
+            },
+            "snowflake:index/stage:Stage": {
+                "awsExternalId": "aws_external_id",
+                "copyOptions": "copy_options",
+                "fileFormat": "file_format",
+                "snowflakeIamUser": "snowflake_iam_user",
+                "storageIntegration": "storage_integration",
+                "tags": "tag"
+            },
+            "snowflake:index/stageGrant:StageGrant": {
+                "databaseName": "database_name",
+                "enableMultipleGrants": "enable_multiple_grants",
+                "onAll": "on_all",
+                "onFuture": "on_future",
+                "schemaName": "schema_name",
+                "stageName": "stage_name",
+                "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/storageIntegration:StorageIntegration": {
+                "azureConsentUrl": "azure_consent_url",
+                "azureMultiTenantAppName": "azure_multi_tenant_app_name",
+                "azureTenantId": "azure_tenant_id",
+                "createdOn": "created_on",
+                "storageAllowedLocations": "storage_allowed_locations",
+                "storageAwsExternalId": "storage_aws_external_id",
+                "storageAwsIamUserArn": "storage_aws_iam_user_arn",
+                "storageAwsObjectAcl": "storage_aws_object_acl",
+                "storageAwsRoleArn": "storage_aws_role_arn",
+                "storageBlockedLocations": "storage_blocked_locations",
+                "storageGcpServiceAccount": "storage_gcp_service_account",
+                "storageProvider": "storage_provider"
+            },
+            "snowflake:index/stream:Stream": {
+                "appendOnly": "append_only",
+                "insertOnly": "insert_only",
+                "onStage": "on_stage",
+                "onTable": "on_table",
+                "onView": "on_view",
+                "showInitialRows": "show_initial_rows"
+            },
+            "snowflake:index/streamGrant:StreamGrant": {
+                "databaseName": "database_name",
+                "enableMultipleGrants": "enable_multiple_grants",
+                "onFuture": "on_future",
+                "schemaName": "schema_name",
+                "streamName": "stream_name",
+                "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/table:Table": {
+                "changeTracking": "change_tracking",
+                "clusterBies": "cluster_by",
+                "columns": "column",
+                "dataRetentionDays": "data_retention_days",
+                "primaryKey": "primary_key",
+                "tags": "tag"
+            },
+            "snowflake:index/tableConstraint:TableConstraint": {
+                "foreignKeyProperties": "foreign_key_properties",
+                "tableId": "table_id"
+            },
+            "snowflake:index/tableGrant:TableGrant": {
+                "databaseName": "database_name",
+                "enableMultipleGrants": "enable_multiple_grants",
+                "onAll": "on_all",
+                "onFuture": "on_future",
+                "schemaName": "schema_name",
+                "tableName": "table_name",
+                "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/tag:Tag": {
+                "allowedValues": "allowed_values"
+            },
+            "snowflake:index/tagAssociation:TagAssociation": {
+                "objectIdentifiers": "object_identifier",
+                "objectName": "object_name",
+                "objectType": "object_type",
+                "skipValidation": "skip_validation",
+                "tagId": "tag_id",
+                "tagValue": "tag_value"
+            },
+            "snowflake:index/tagGrant:TagGrant": {
+                "databaseName": "database_name",
+                "enableMultipleGrants": "enable_multiple_grants",
+                "schemaName": "schema_name",
+                "tagName": "tag_name",
+                "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation": {
+                "maskingPolicyId": "masking_policy_id",
+                "tagId": "tag_id"
+            },
+            "snowflake:index/task:Task": {
+                "afters": "after",
+                "allowOverlappingExecution": "allow_overlapping_execution",
+                "errorIntegration": "error_integration",
+                "sessionParameters": "session_parameters",
+                "sqlStatement": "sql_statement",
+                "userTaskManagedInitialWarehouseSize": "user_task_managed_initial_warehouse_size",
+                "userTaskTimeoutMs": "user_task_timeout_ms"
+            },
+            "snowflake:index/taskGrant:TaskGrant": {
+                "databaseName": "database_name",
+                "enableMultipleGrants": "enable_multiple_grants",
+                "onFuture": "on_future",
+                "schemaName": "schema_name",
+                "taskName": "task_name",
+                "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/user:User": {
+                "defaultNamespace": "default_namespace",
+                "defaultRole": "default_role",
+                "defaultSecondaryRoles": "default_secondary_roles",
+                "defaultWarehouse": "default_warehouse",
+                "displayName": "display_name",
+                "firstName": "first_name",
+                "hasRsaPublicKey": "has_rsa_public_key",
+                "lastName": "last_name",
+                "loginName": "login_name",
+                "mustChangePassword": "must_change_password",
+                "rsaPublicKey": "rsa_public_key",
+                "rsaPublicKey2": "rsa_public_key_2",
+                "tags": "tag"
+            },
+            "snowflake:index/userGrant:UserGrant": {
+                "enableMultipleGrants": "enable_multiple_grants",
+                "userName": "user_name",
+                "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/userOwnershipGrant:UserOwnershipGrant": {
+                "currentGrants": "current_grants",
+                "onUserName": "on_user_name",
+                "revertOwnershipToRoleName": "revert_ownership_to_role_name",
+                "toRoleName": "to_role_name"
+            },
+            "snowflake:index/userPublicKeys:UserPublicKeys": {
+                "rsaPublicKey": "rsa_public_key",
+                "rsaPublicKey2": "rsa_public_key_2"
+            },
+            "snowflake:index/view:View": {
+                "copyGrants": "copy_grants",
+                "isSecure": "is_secure",
+                "orReplace": "or_replace",
+                "tags": "tag"
+            },
+            "snowflake:index/viewGrant:ViewGrant": {
+                "databaseName": "database_name",
+                "enableMultipleGrants": "enable_multiple_grants",
+                "onAll": "on_all",
+                "onFuture": "on_future",
+                "schemaName": "schema_name",
+                "viewName": "view_name",
+                "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/warehouse:Warehouse": {
+                "autoResume": "auto_resume",
+                "autoSuspend": "auto_suspend",
+                "enableQueryAcceleration": "enable_query_acceleration",
+                "initiallySuspended": "initially_suspended",
+                "maxClusterCount": "max_cluster_count",
+                "maxConcurrencyLevel": "max_concurrency_level",
+                "minClusterCount": "min_cluster_count",
+                "queryAccelerationMaxScaleFactor": "query_acceleration_max_scale_factor",
+                "resourceMonitor": "resource_monitor",
+                "scalingPolicy": "scaling_policy",
+                "statementQueuedTimeoutInSeconds": "statement_queued_timeout_in_seconds",
+                "statementTimeoutInSeconds": "statement_timeout_in_seconds",
+                "tags": "tag",
+                "waitForProvisioning": "wait_for_provisioning",
+                "warehouseSize": "warehouse_size",
+                "warehouseType": "warehouse_type"
+            },
+            "snowflake:index/warehouseGrant:WarehouseGrant": {
+                "enableMultipleGrants": "enable_multiple_grants",
+                "warehouseName": "warehouse_name",
+                "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index:Provider": {
+                "browserAuth": "browser_auth",
+                "insecureMode": "insecure_mode",
+                "oauthAccessToken": "oauth_access_token",
+                "oauthClientId": "oauth_client_id",
+                "oauthClientSecret": "oauth_client_secret",
+                "oauthEndpoint": "oauth_endpoint",
+                "oauthRedirectUrl": "oauth_redirect_url",
+                "oauthRefreshToken": "oauth_refresh_token",
+                "privateKey": "private_key",
+                "privateKeyPassphrase": "private_key_passphrase",
+                "privateKeyPath": "private_key_path"
+            }
+        },
+        "renamedConfigProperties": {
+            "browserAuth": "browser_auth",
+            "insecureMode": "insecure_mode",
+            "oauthAccessToken": "oauth_access_token",
+            "oauthClientId": "oauth_client_id",
+            "oauthClientSecret": "oauth_client_secret",
+            "oauthEndpoint": "oauth_endpoint",
+            "oauthRedirectUrl": "oauth_redirect_url",
+            "oauthRefreshToken": "oauth_refresh_token",
+            "privateKey": "private_key",
+            "privateKeyPassphrase": "private_key_passphrase",
+            "privateKeyPath": "private_key_path"
+        }
+    }
+}
