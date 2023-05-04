@@ -23,7 +23,10 @@ namespace Pulumi.Snowflake
     ///     var alert = new Snowflake.Alert("alert", new()
     ///     {
     ///         Action = "select 1 as c",
-    ///         AlertSchedule = "10 MINUTE",
+    ///         AlertSchedule = new Snowflake.Inputs.AlertAlertScheduleArgs
+    ///         {
+    ///             Interval = 10,
+    ///         },
     ///         Comment = "my alert",
     ///         Condition = "select 1 as c",
     ///         Database = "database",

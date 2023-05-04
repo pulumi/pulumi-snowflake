@@ -173,6 +173,21 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Qualified name of the table.
+     * 
+     */
+    @Import(name="qualifiedName")
+    private @Nullable Output<String> qualifiedName;
+
+    /**
+     * @return Qualified name of the table.
+     * 
+     */
+    public Optional<Output<String>> qualifiedName() {
+        return Optional.ofNullable(this.qualifiedName);
+    }
+
+    /**
      * The schema in which to create the table.
      * 
      */
@@ -222,6 +237,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.owner = $.owner;
         this.primaryKey = $.primaryKey;
+        this.qualifiedName = $.qualifiedName;
         this.schema = $.schema;
         this.tags = $.tags;
     }
@@ -467,6 +483,27 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         @Deprecated /* Use snowflake_table_constraint instead */
         public Builder primaryKey(TablePrimaryKeyArgs primaryKey) {
             return primaryKey(Output.of(primaryKey));
+        }
+
+        /**
+         * @param qualifiedName Qualified name of the table.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder qualifiedName(@Nullable Output<String> qualifiedName) {
+            $.qualifiedName = qualifiedName;
+            return this;
+        }
+
+        /**
+         * @param qualifiedName Qualified name of the table.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder qualifiedName(String qualifiedName) {
+            return qualifiedName(Output.of(qualifiedName));
         }
 
         /**

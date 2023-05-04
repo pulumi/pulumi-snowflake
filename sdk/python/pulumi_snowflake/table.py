@@ -199,6 +199,7 @@ class _TableState:
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  primary_key: Optional[pulumi.Input['TablePrimaryKeyArgs']] = None,
+                 qualified_name: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None):
         """
@@ -212,6 +213,7 @@ class _TableState:
         :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input[str] owner: Name of the role that owns the table.
         :param pulumi.Input['TablePrimaryKeyArgs'] primary_key: Definitions of primary key constraint to create on table
+        :param pulumi.Input[str] qualified_name: Qualified name of the table.
         :param pulumi.Input[str] schema: The schema in which to create the table.
         :param pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
@@ -239,6 +241,8 @@ class _TableState:
             pulumi.log.warn("""primary_key is deprecated: Use snowflake_table_constraint instead""")
         if primary_key is not None:
             pulumi.set(__self__, "primary_key", primary_key)
+        if qualified_name is not None:
+            pulumi.set(__self__, "qualified_name", qualified_name)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
         if tags is not None:
@@ -354,6 +358,18 @@ class _TableState:
     @primary_key.setter
     def primary_key(self, value: Optional[pulumi.Input['TablePrimaryKeyArgs']]):
         pulumi.set(self, "primary_key", value)
+
+    @property
+    @pulumi.getter(name="qualifiedName")
+    def qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Qualified name of the table.
+        """
+        return pulumi.get(self, "qualified_name")
+
+    @qualified_name.setter
+    def qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "qualified_name", value)
 
     @property
     @pulumi.getter
@@ -609,6 +625,7 @@ class Table(pulumi.CustomResource):
                 pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
             __props__.__dict__["tags"] = tags
             __props__.__dict__["owner"] = None
+            __props__.__dict__["qualified_name"] = None
         super(Table, __self__).__init__(
             'snowflake:index/table:Table',
             resource_name,
@@ -628,6 +645,7 @@ class Table(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
             primary_key: Optional[pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']]] = None,
+            qualified_name: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]]] = None) -> 'Table':
         """
@@ -646,6 +664,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input[str] owner: Name of the role that owns the table.
         :param pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']] primary_key: Definitions of primary key constraint to create on table
+        :param pulumi.Input[str] qualified_name: Qualified name of the table.
         :param pulumi.Input[str] schema: The schema in which to create the table.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
@@ -662,6 +681,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["owner"] = owner
         __props__.__dict__["primary_key"] = primary_key
+        __props__.__dict__["qualified_name"] = qualified_name
         __props__.__dict__["schema"] = schema
         __props__.__dict__["tags"] = tags
         return Table(resource_name, opts=opts, __props__=__props__)
@@ -737,6 +757,14 @@ class Table(pulumi.CustomResource):
         Definitions of primary key constraint to create on table
         """
         return pulumi.get(self, "primary_key")
+
+    @property
+    @pulumi.getter(name="qualifiedName")
+    def qualified_name(self) -> pulumi.Output[str]:
+        """
+        Qualified name of the table.
+        """
+        return pulumi.get(self, "qualified_name")
 
     @property
     @pulumi.getter

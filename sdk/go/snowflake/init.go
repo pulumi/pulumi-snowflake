@@ -128,6 +128,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &StreamGrant{}
 	case "snowflake:index/table:Table":
 		r = &Table{}
+	case "snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication":
+		r = &TableColumnMaskingPolicyApplication{}
 	case "snowflake:index/tableConstraint:TableConstraint":
 		r = &TableConstraint{}
 	case "snowflake:index/tableGrant:TableGrant":
@@ -456,6 +458,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/table",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/tableColumnMaskingPolicyApplication",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -26,14 +26,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewAlert(ctx, "alert", &snowflake.AlertArgs{
-//				Action:        pulumi.String("select 1 as c"),
-//				AlertSchedule: "10 MINUTE",
-//				Comment:       pulumi.String("my alert"),
-//				Condition:     pulumi.String("select 1 as c"),
-//				Database:      pulumi.String("database"),
-//				Enabled:       pulumi.Bool(true),
-//				Schema:        pulumi.String("schema"),
-//				Warehouse:     pulumi.String("warehouse"),
+//				Action: pulumi.String("select 1 as c"),
+//				AlertSchedule: &snowflake.AlertAlertScheduleArgs{
+//					Interval: pulumi.Int(10),
+//				},
+//				Comment:   pulumi.String("my alert"),
+//				Condition: pulumi.String("select 1 as c"),
+//				Database:  pulumi.String("database"),
+//				Enabled:   pulumi.Bool(true),
+//				Schema:    pulumi.String("schema"),
+//				Warehouse: pulumi.String("warehouse"),
 //			})
 //			if err != nil {
 //				return err

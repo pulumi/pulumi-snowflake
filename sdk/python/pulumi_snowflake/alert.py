@@ -336,7 +336,9 @@ class Alert(pulumi.CustomResource):
 
         alert = snowflake.Alert("alert",
             action="select 1 as c",
-            alert_schedule="10 MINUTE",
+            alert_schedule=snowflake.AlertAlertScheduleArgs(
+                interval=10,
+            ),
             comment="my alert",
             condition="select 1 as c",
             database="database",
@@ -380,7 +382,9 @@ class Alert(pulumi.CustomResource):
 
         alert = snowflake.Alert("alert",
             action="select 1 as c",
-            alert_schedule="10 MINUTE",
+            alert_schedule=snowflake.AlertAlertScheduleArgs(
+                interval=10,
+            ),
             comment="my alert",
             condition="select 1 as c",
             database="database",

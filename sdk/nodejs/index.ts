@@ -437,6 +437,11 @@ export type Table = import("./table").Table;
 export const Table: typeof import("./table").Table = null as any;
 utilities.lazyLoad(exports, ["Table"], () => require("./table"));
 
+export { TableColumnMaskingPolicyApplicationArgs, TableColumnMaskingPolicyApplicationState } from "./tableColumnMaskingPolicyApplication";
+export type TableColumnMaskingPolicyApplication = import("./tableColumnMaskingPolicyApplication").TableColumnMaskingPolicyApplication;
+export const TableColumnMaskingPolicyApplication: typeof import("./tableColumnMaskingPolicyApplication").TableColumnMaskingPolicyApplication = null as any;
+utilities.lazyLoad(exports, ["TableColumnMaskingPolicyApplication"], () => require("./tableColumnMaskingPolicyApplication"));
+
 export { TableConstraintArgs, TableConstraintState } from "./tableConstraint";
 export type TableConstraint = import("./tableConstraint").TableConstraint;
 export const TableConstraint: typeof import("./tableConstraint").TableConstraint = null as any;
@@ -639,6 +644,8 @@ const _module = {
                 return new StreamGrant(name, <any>undefined, { urn })
             case "snowflake:index/table:Table":
                 return new Table(name, <any>undefined, { urn })
+            case "snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication":
+                return new TableColumnMaskingPolicyApplication(name, <any>undefined, { urn })
             case "snowflake:index/tableConstraint:TableConstraint":
                 return new TableConstraint(name, <any>undefined, { urn })
             case "snowflake:index/tableGrant:TableGrant":
@@ -730,6 +737,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/storageIntegration", _
 pulumi.runtime.registerResourceModule("snowflake", "index/stream", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/streamGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/table", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/tableColumnMaskingPolicyApplication", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tableConstraint", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tableGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tag", _module)

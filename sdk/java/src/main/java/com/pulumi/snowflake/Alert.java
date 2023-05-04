@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.snowflake.Alert;
  * import com.pulumi.snowflake.AlertArgs;
+ * import com.pulumi.snowflake.inputs.AlertAlertScheduleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -41,7 +42,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var alert = new Alert(&#34;alert&#34;, AlertArgs.builder()        
  *             .action(&#34;select 1 as c&#34;)
- *             .alertSchedule(&#34;10 MINUTE&#34;)
+ *             .alertSchedule(AlertAlertScheduleArgs.builder()
+ *                 .interval(10)
+ *                 .build())
  *             .comment(&#34;my alert&#34;)
  *             .condition(&#34;select 1 as c&#34;)
  *             .database(&#34;database&#34;)

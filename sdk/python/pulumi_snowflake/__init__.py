@@ -93,6 +93,7 @@ from .storage_integration import *
 from .stream import *
 from .stream_grant import *
 from .table import *
+from .table_column_masking_policy_application import *
 from .table_constraint import *
 from .table_grant import *
 from .tag import *
@@ -552,6 +553,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/table:Table": "Table"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/tableColumnMaskingPolicyApplication",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication": "TableColumnMaskingPolicyApplication"
   }
  },
  {
