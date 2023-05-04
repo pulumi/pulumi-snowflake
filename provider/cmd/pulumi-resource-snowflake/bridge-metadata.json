@@ -5,55 +5,217 @@
                 "current": "snowflake:index/account:Account"
             },
             "snowflake_account_grant": {
-                "current": "snowflake:index/accountGrant:AccountGrant"
+                "current": "snowflake:index/accountGrant:AccountGrant",
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_account_parameter": {
                 "current": "snowflake:index/accountParameter:AccountParameter"
             },
             "snowflake_alert": {
-                "current": "snowflake:index/alert:Alert"
+                "current": "snowflake:index/alert:Alert",
+                "fields": {
+                    "alert_schedule": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "cron": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "snowflake_api_integration": {
-                "current": "snowflake:index/apiIntegration:ApiIntegration"
+                "current": "snowflake:index/apiIntegration:ApiIntegration",
+                "fields": {
+                    "api_allowed_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "api_blocked_prefixes": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_database": {
-                "current": "snowflake:index/database:Database"
+                "current": "snowflake:index/database:Database",
+                "fields": {
+                    "replication_configuration": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "accounts": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "tag": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_database_grant": {
-                "current": "snowflake:index/databaseGrant:DatabaseGrant"
+                "current": "snowflake:index/databaseGrant:DatabaseGrant",
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    },
+                    "shares": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_database_role": {
                 "current": "snowflake:index/databaseRole:DatabaseRole"
             },
             "snowflake_external_function": {
-                "current": "snowflake:index/externalFunction:ExternalFunction"
+                "current": "snowflake:index/externalFunction:ExternalFunction",
+                "fields": {
+                    "arg": {
+                        "maxItemsOne": false
+                    },
+                    "context_headers": {
+                        "maxItemsOne": false
+                    },
+                    "header": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_external_oauth_integration": {
-                "current": "snowflake:index/externalOauthIntegration:ExternalOauthIntegration"
+                "current": "snowflake:index/externalOauthIntegration:ExternalOauthIntegration",
+                "fields": {
+                    "allowed_roles": {
+                        "maxItemsOne": false
+                    },
+                    "audience_urls": {
+                        "maxItemsOne": false
+                    },
+                    "blocked_roles": {
+                        "maxItemsOne": false
+                    },
+                    "jws_keys_urls": {
+                        "maxItemsOne": false
+                    },
+                    "token_user_mapping_claims": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_external_table": {
-                "current": "snowflake:index/externalTable:ExternalTable"
+                "current": "snowflake:index/externalTable:ExternalTable",
+                "fields": {
+                    "column": {
+                        "maxItemsOne": false
+                    },
+                    "partition_by": {
+                        "maxItemsOne": false
+                    },
+                    "tag": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_external_table_grant": {
-                "current": "snowflake:index/externalTableGrant:ExternalTableGrant"
+                "current": "snowflake:index/externalTableGrant:ExternalTableGrant",
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    },
+                    "shares": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_failover_group": {
-                "current": "snowflake:index/failoverGroup:FailoverGroup"
+                "current": "snowflake:index/failoverGroup:FailoverGroup",
+                "fields": {
+                    "allowed_accounts": {
+                        "maxItemsOne": false
+                    },
+                    "allowed_databases": {
+                        "maxItemsOne": false
+                    },
+                    "allowed_integration_types": {
+                        "maxItemsOne": false
+                    },
+                    "allowed_shares": {
+                        "maxItemsOne": false
+                    },
+                    "from_replica": {
+                        "maxItemsOne": true
+                    },
+                    "object_types": {
+                        "maxItemsOne": false
+                    },
+                    "replication_schedule": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "cron": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "snowflake_file_format": {
-                "current": "snowflake:index/fileFormat:FileFormat"
+                "current": "snowflake:index/fileFormat:FileFormat",
+                "fields": {
+                    "null_if": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_file_format_grant": {
-                "current": "snowflake:index/fileFormatGrant:FileFormatGrant"
+                "current": "snowflake:index/fileFormatGrant:FileFormatGrant",
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_function": {
-                "current": "snowflake:index/function:Function"
+                "current": "snowflake:index/function:Function",
+                "fields": {
+                    "arguments": {
+                        "maxItemsOne": false
+                    },
+                    "imports": {
+                        "maxItemsOne": false
+                    },
+                    "packages": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_function_grant": {
-                "current": "snowflake:index/functionGrant:FunctionGrant"
+                "current": "snowflake:index/functionGrant:FunctionGrant",
+                "fields": {
+                    "argument_data_types": {
+                        "maxItemsOne": false
+                    },
+                    "roles": {
+                        "maxItemsOne": false
+                    },
+                    "shares": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_integration_grant": {
-                "current": "snowflake:index/integrationGrant:IntegrationGrant"
+                "current": "snowflake:index/integrationGrant:IntegrationGrant",
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_managed_account": {
                 "current": "snowflake:index/managedAccount:ManagedAccount"
@@ -62,28 +224,69 @@
                 "current": "snowflake:index/maskingPolicy:MaskingPolicy"
             },
             "snowflake_masking_policy_grant": {
-                "current": "snowflake:index/maskingPolicyGrant:MaskingPolicyGrant"
+                "current": "snowflake:index/maskingPolicyGrant:MaskingPolicyGrant",
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_materialized_view": {
-                "current": "snowflake:index/materializedView:MaterializedView"
+                "current": "snowflake:index/materializedView:MaterializedView",
+                "fields": {
+                    "tag": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_materialized_view_grant": {
-                "current": "snowflake:index/materializedViewGrant:MaterializedViewGrant"
+                "current": "snowflake:index/materializedViewGrant:MaterializedViewGrant",
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    },
+                    "shares": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_network_policy": {
-                "current": "snowflake:index/networkPolicy:NetworkPolicy"
+                "current": "snowflake:index/networkPolicy:NetworkPolicy",
+                "fields": {
+                    "allowed_ip_list": {
+                        "maxItemsOne": false
+                    },
+                    "blocked_ip_list": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_network_policy_attachment": {
-                "current": "snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment"
+                "current": "snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment",
+                "fields": {
+                    "users": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_notification_integration": {
                 "current": "snowflake:index/notificationIntegration:NotificationIntegration"
             },
             "snowflake_oauth_integration": {
-                "current": "snowflake:index/oauthIntegration:OauthIntegration"
+                "current": "snowflake:index/oauthIntegration:OauthIntegration",
+                "fields": {
+                    "blocked_roles_list": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_object_parameter": {
-                "current": "snowflake:index/objectParameter:ObjectParameter"
+                "current": "snowflake:index/objectParameter:ObjectParameter",
+                "fields": {
+                    "object_identifier": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_password_policy": {
                 "current": "snowflake:index/passwordPolicy:PasswordPolicy"
@@ -92,25 +295,87 @@
                 "current": "snowflake:index/pipe:Pipe"
             },
             "snowflake_pipe_grant": {
-                "current": "snowflake:index/pipeGrant:PipeGrant"
+                "current": "snowflake:index/pipeGrant:PipeGrant",
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_procedure": {
-                "current": "snowflake:index/procedure:Procedure"
+                "current": "snowflake:index/procedure:Procedure",
+                "fields": {
+                    "arguments": {
+                        "maxItemsOne": false
+                    },
+                    "imports": {
+                        "maxItemsOne": false
+                    },
+                    "packages": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_procedure_grant": {
-                "current": "snowflake:index/procedureGrant:ProcedureGrant"
+                "current": "snowflake:index/procedureGrant:ProcedureGrant",
+                "fields": {
+                    "argument_data_types": {
+                        "maxItemsOne": false
+                    },
+                    "roles": {
+                        "maxItemsOne": false
+                    },
+                    "shares": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_resource_monitor": {
-                "current": "snowflake:index/resourceMonitor:ResourceMonitor"
+                "current": "snowflake:index/resourceMonitor:ResourceMonitor",
+                "fields": {
+                    "notify_triggers": {
+                        "maxItemsOne": false
+                    },
+                    "notify_users": {
+                        "maxItemsOne": false
+                    },
+                    "suspend_immediate_triggers": {
+                        "maxItemsOne": false
+                    },
+                    "suspend_triggers": {
+                        "maxItemsOne": false
+                    },
+                    "warehouses": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_resource_monitor_grant": {
-                "current": "snowflake:index/resourceMonitorGrant:ResourceMonitorGrant"
+                "current": "snowflake:index/resourceMonitorGrant:ResourceMonitorGrant",
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_role": {
-                "current": "snowflake:index/role:Role"
+                "current": "snowflake:index/role:Role",
+                "fields": {
+                    "tag": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_role_grants": {
-                "current": "snowflake:index/roleGrants:RoleGrants"
+                "current": "snowflake:index/roleGrants:RoleGrants",
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    },
+                    "users": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_role_ownership_grant": {
                 "current": "snowflake:index/roleOwnershipGrant:RoleOwnershipGrant"
@@ -119,16 +384,34 @@
                 "current": "snowflake:index/rowAccessPolicy:RowAccessPolicy"
             },
             "snowflake_row_access_policy_grant": {
-                "current": "snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant"
+                "current": "snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant",
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_saml_integration": {
                 "current": "snowflake:index/samlIntegration:SamlIntegration"
             },
             "snowflake_schema": {
-                "current": "snowflake:index/schema:Schema"
+                "current": "snowflake:index/schema:Schema",
+                "fields": {
+                    "tag": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_schema_grant": {
-                "current": "snowflake:index/schemaGrant:SchemaGrant"
+                "current": "snowflake:index/schemaGrant:SchemaGrant",
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    },
+                    "shares": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_scim_integration": {
                 "current": "snowflake:index/scimIntegration:ScimIntegration"
@@ -137,61 +420,196 @@
                 "current": "snowflake:index/sequence:Sequence"
             },
             "snowflake_sequence_grant": {
-                "current": "snowflake:index/sequenceGrant:SequenceGrant"
+                "current": "snowflake:index/sequenceGrant:SequenceGrant",
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_session_parameter": {
                 "current": "snowflake:index/sessionParameter:SessionParameter"
             },
             "snowflake_share": {
-                "current": "snowflake:index/share:Share"
+                "current": "snowflake:index/share:Share",
+                "fields": {
+                    "accounts": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_stage": {
-                "current": "snowflake:index/stage:Stage"
+                "current": "snowflake:index/stage:Stage",
+                "fields": {
+                    "tag": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_stage_grant": {
-                "current": "snowflake:index/stageGrant:StageGrant"
+                "current": "snowflake:index/stageGrant:StageGrant",
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_storage_integration": {
-                "current": "snowflake:index/storageIntegration:StorageIntegration"
+                "current": "snowflake:index/storageIntegration:StorageIntegration",
+                "fields": {
+                    "storage_allowed_locations": {
+                        "maxItemsOne": false
+                    },
+                    "storage_blocked_locations": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_stream": {
                 "current": "snowflake:index/stream:Stream"
             },
             "snowflake_stream_grant": {
-                "current": "snowflake:index/streamGrant:StreamGrant"
+                "current": "snowflake:index/streamGrant:StreamGrant",
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_table": {
-                "current": "snowflake:index/table:Table"
+                "current": "snowflake:index/table:Table",
+                "fields": {
+                    "cluster_by": {
+                        "maxItemsOne": false
+                    },
+                    "column": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "default": {
+                                    "maxItemsOne": true
+                                },
+                                "identity": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "primary_key": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "keys": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "tag": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_table_column_masking_policy_application": {
+                "current": "snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication"
             },
             "snowflake_table_constraint": {
-                "current": "snowflake:index/tableConstraint:TableConstraint"
+                "current": "snowflake:index/tableConstraint:TableConstraint",
+                "fields": {
+                    "columns": {
+                        "maxItemsOne": false
+                    },
+                    "foreign_key_properties": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "references": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "columns": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "snowflake_table_grant": {
-                "current": "snowflake:index/tableGrant:TableGrant"
+                "current": "snowflake:index/tableGrant:TableGrant",
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    },
+                    "shares": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_tag": {
-                "current": "snowflake:index/tag:Tag"
+                "current": "snowflake:index/tag:Tag",
+                "fields": {
+                    "allowed_values": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_tag_association": {
-                "current": "snowflake:index/tagAssociation:TagAssociation"
+                "current": "snowflake:index/tagAssociation:TagAssociation",
+                "fields": {
+                    "object_identifier": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_tag_grant": {
-                "current": "snowflake:index/tagGrant:TagGrant"
+                "current": "snowflake:index/tagGrant:TagGrant",
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_tag_masking_policy_association": {
                 "current": "snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation"
             },
             "snowflake_task": {
-                "current": "snowflake:index/task:Task"
+                "current": "snowflake:index/task:Task",
+                "fields": {
+                    "after": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_task_grant": {
-                "current": "snowflake:index/taskGrant:TaskGrant"
+                "current": "snowflake:index/taskGrant:TaskGrant",
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_user": {
-                "current": "snowflake:index/user:User"
+                "current": "snowflake:index/user:User",
+                "fields": {
+                    "default_secondary_roles": {
+                        "maxItemsOne": false
+                    },
+                    "tag": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_user_grant": {
-                "current": "snowflake:index/userGrant:UserGrant"
+                "current": "snowflake:index/userGrant:UserGrant",
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_user_ownership_grant": {
                 "current": "snowflake:index/userOwnershipGrant:UserOwnershipGrant"
@@ -200,16 +618,39 @@
                 "current": "snowflake:index/userPublicKeys:UserPublicKeys"
             },
             "snowflake_view": {
-                "current": "snowflake:index/view:View"
+                "current": "snowflake:index/view:View",
+                "fields": {
+                    "tag": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_view_grant": {
-                "current": "snowflake:index/viewGrant:ViewGrant"
+                "current": "snowflake:index/viewGrant:ViewGrant",
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    },
+                    "shares": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_warehouse": {
-                "current": "snowflake:index/warehouse:Warehouse"
+                "current": "snowflake:index/warehouse:Warehouse",
+                "fields": {
+                    "tag": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_warehouse_grant": {
-                "current": "snowflake:index/warehouseGrant:WarehouseGrant"
+                "current": "snowflake:index/warehouseGrant:WarehouseGrant",
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    }
+                }
             }
         },
         "datasources": {
@@ -370,6 +811,7 @@
             "snowflake:index/stream:Stream": "snowflake_stream",
             "snowflake:index/streamGrant:StreamGrant": "snowflake_stream_grant",
             "snowflake:index/table:Table": "snowflake_table",
+            "snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication": "snowflake_table_column_masking_policy_application",
             "snowflake:index/tableConstraint:TableConstraint": "snowflake_table_constraint",
             "snowflake:index/tableGrant:TableGrant": "snowflake_table_grant",
             "snowflake:index/tag:Tag": "snowflake_tag",
@@ -996,7 +1438,11 @@
                 "columns": "column",
                 "dataRetentionDays": "data_retention_days",
                 "primaryKey": "primary_key",
+                "qualifiedName": "qualified_name",
                 "tags": "tag"
+            },
+            "snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication": {
+                "maskingPolicy": "masking_policy"
             },
             "snowflake:index/tableConstraint:TableConstraint": {
                 "foreignKeyProperties": "foreign_key_properties",

@@ -2449,7 +2449,7 @@
             }
         },
         "snowflake:index/alert:Alert": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst alert = new snowflake.Alert(\"alert\", {\n    action: \"select 1 as c\",\n    alertSchedule: \"10 MINUTE\",\n    comment: \"my alert\",\n    condition: \"select 1 as c\",\n    database: \"database\",\n    enabled: true,\n    schema: \"schema\",\n    warehouse: \"warehouse\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nalert = snowflake.Alert(\"alert\",\n    action=\"select 1 as c\",\n    alert_schedule=\"10 MINUTE\",\n    comment=\"my alert\",\n    condition=\"select 1 as c\",\n    database=\"database\",\n    enabled=True,\n    schema=\"schema\",\n    warehouse=\"warehouse\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var alert = new Snowflake.Alert(\"alert\", new()\n    {\n        Action = \"select 1 as c\",\n        AlertSchedule = \"10 MINUTE\",\n        Comment = \"my alert\",\n        Condition = \"select 1 as c\",\n        Database = \"database\",\n        Enabled = true,\n        Schema = \"schema\",\n        Warehouse = \"warehouse\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewAlert(ctx, \"alert\", \u0026snowflake.AlertArgs{\n\t\t\tAction:        pulumi.String(\"select 1 as c\"),\n\t\t\tAlertSchedule: \"10 MINUTE\",\n\t\t\tComment:       pulumi.String(\"my alert\"),\n\t\t\tCondition:     pulumi.String(\"select 1 as c\"),\n\t\t\tDatabase:      pulumi.String(\"database\"),\n\t\t\tEnabled:       pulumi.Bool(true),\n\t\t\tSchema:        pulumi.String(\"schema\"),\n\t\t\tWarehouse:     pulumi.String(\"warehouse\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Alert;\nimport com.pulumi.snowflake.AlertArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var alert = new Alert(\"alert\", AlertArgs.builder()        \n            .action(\"select 1 as c\")\n            .alertSchedule(\"10 MINUTE\")\n            .comment(\"my alert\")\n            .condition(\"select 1 as c\")\n            .database(\"database\")\n            .enabled(true)\n            .schema(\"schema\")\n            .warehouse(\"warehouse\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  alert:\n    type: snowflake:Alert\n    properties:\n      action: select 1 as c\n      alertSchedule: 10 MINUTE\n      comment: my alert\n      condition: select 1 as c\n      database: database\n      enabled: true\n      schema: schema\n      warehouse: warehouse\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nformat is database name | schema name | alert name\n\n```sh\n $ pulumi import snowflake:index/alert:Alert example 'dbName|schemaName|alertName'\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst alert = new snowflake.Alert(\"alert\", {\n    action: \"select 1 as c\",\n    alertSchedule: {\n        interval: 10,\n    },\n    comment: \"my alert\",\n    condition: \"select 1 as c\",\n    database: \"database\",\n    enabled: true,\n    schema: \"schema\",\n    warehouse: \"warehouse\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nalert = snowflake.Alert(\"alert\",\n    action=\"select 1 as c\",\n    alert_schedule=snowflake.AlertAlertScheduleArgs(\n        interval=10,\n    ),\n    comment=\"my alert\",\n    condition=\"select 1 as c\",\n    database=\"database\",\n    enabled=True,\n    schema=\"schema\",\n    warehouse=\"warehouse\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var alert = new Snowflake.Alert(\"alert\", new()\n    {\n        Action = \"select 1 as c\",\n        AlertSchedule = new Snowflake.Inputs.AlertAlertScheduleArgs\n        {\n            Interval = 10,\n        },\n        Comment = \"my alert\",\n        Condition = \"select 1 as c\",\n        Database = \"database\",\n        Enabled = true,\n        Schema = \"schema\",\n        Warehouse = \"warehouse\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewAlert(ctx, \"alert\", \u0026snowflake.AlertArgs{\n\t\t\tAction: pulumi.String(\"select 1 as c\"),\n\t\t\tAlertSchedule: \u0026snowflake.AlertAlertScheduleArgs{\n\t\t\t\tInterval: pulumi.Int(10),\n\t\t\t},\n\t\t\tComment:   pulumi.String(\"my alert\"),\n\t\t\tCondition: pulumi.String(\"select 1 as c\"),\n\t\t\tDatabase:  pulumi.String(\"database\"),\n\t\t\tEnabled:   pulumi.Bool(true),\n\t\t\tSchema:    pulumi.String(\"schema\"),\n\t\t\tWarehouse: pulumi.String(\"warehouse\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Alert;\nimport com.pulumi.snowflake.AlertArgs;\nimport com.pulumi.snowflake.inputs.AlertAlertScheduleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var alert = new Alert(\"alert\", AlertArgs.builder()        \n            .action(\"select 1 as c\")\n            .alertSchedule(AlertAlertScheduleArgs.builder()\n                .interval(10)\n                .build())\n            .comment(\"my alert\")\n            .condition(\"select 1 as c\")\n            .database(\"database\")\n            .enabled(true)\n            .schema(\"schema\")\n            .warehouse(\"warehouse\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  alert:\n    type: snowflake:Alert\n    properties:\n      action: select 1 as c\n      alertSchedule:\n        interval: 10\n      comment: my alert\n      condition: select 1 as c\n      database: database\n      enabled: true\n      schema: schema\n      warehouse: warehouse\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nformat is database name | schema name | alert name\n\n```sh\n $ pulumi import snowflake:index/alert:Alert example 'dbName|schemaName|alertName'\n```\n\n ",
             "properties": {
                 "action": {
                     "type": "string",
@@ -10423,6 +10423,10 @@
                     "description": "Definitions of primary key constraint to create on table\n",
                     "deprecationMessage": "Use snowflake_table_constraint instead"
                 },
+                "qualifiedName": {
+                    "type": "string",
+                    "description": "Qualified name of the table.\n"
+                },
                 "schema": {
                     "type": "string",
                     "description": "The schema in which to create the table.\n"
@@ -10441,6 +10445,7 @@
                 "database",
                 "name",
                 "owner",
+                "qualifiedName",
                 "schema"
             ],
             "inputProperties": {
@@ -10552,6 +10557,10 @@
                         "description": "Definitions of primary key constraint to create on table\n",
                         "deprecationMessage": "Use snowflake_table_constraint instead"
                     },
+                    "qualifiedName": {
+                        "type": "string",
+                        "description": "Qualified name of the table.\n"
+                    },
                     "schema": {
                         "type": "string",
                         "description": "The schema in which to create the table.\n",
@@ -10564,6 +10573,70 @@
                         },
                         "description": "Definitions of a tag to associate with the resource.\n",
                         "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication": {
+            "properties": {
+                "column": {
+                    "type": "string",
+                    "description": "The column to apply the masking policy to.\n"
+                },
+                "maskingPolicy": {
+                    "type": "string",
+                    "description": "Fully qualified name (`database.schema.policyname`) of the policy to apply.\n"
+                },
+                "table": {
+                    "type": "string",
+                    "description": "The fully qualified name (`database.schema.table`) of the table to apply the masking policy to.\n"
+                }
+            },
+            "required": [
+                "column",
+                "maskingPolicy",
+                "table"
+            ],
+            "inputProperties": {
+                "column": {
+                    "type": "string",
+                    "description": "The column to apply the masking policy to.\n",
+                    "willReplaceOnChanges": true
+                },
+                "maskingPolicy": {
+                    "type": "string",
+                    "description": "Fully qualified name (`database.schema.policyname`) of the policy to apply.\n",
+                    "willReplaceOnChanges": true
+                },
+                "table": {
+                    "type": "string",
+                    "description": "The fully qualified name (`database.schema.table`) of the table to apply the masking policy to.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "column",
+                "maskingPolicy",
+                "table"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering TableColumnMaskingPolicyApplication resources.\n",
+                "properties": {
+                    "column": {
+                        "type": "string",
+                        "description": "The column to apply the masking policy to.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "maskingPolicy": {
+                        "type": "string",
+                        "description": "Fully qualified name (`database.schema.policyname`) of the policy to apply.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "table": {
+                        "type": "string",
+                        "description": "The fully qualified name (`database.schema.table`) of the table to apply the masking policy to.\n",
+                        "willReplaceOnChanges": true
                     }
                 },
                 "type": "object"
