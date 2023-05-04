@@ -131,6 +131,8 @@ type Table struct {
 	//
 	// Deprecated: Use snowflake_table_constraint instead
 	PrimaryKey TablePrimaryKeyPtrOutput `pulumi:"primaryKey"`
+	// Qualified name of the table.
+	QualifiedName pulumi.StringOutput `pulumi:"qualifiedName"`
 	// The schema in which to create the table.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Definitions of a tag to associate with the resource.
@@ -199,6 +201,8 @@ type tableState struct {
 	//
 	// Deprecated: Use snowflake_table_constraint instead
 	PrimaryKey *TablePrimaryKey `pulumi:"primaryKey"`
+	// Qualified name of the table.
+	QualifiedName *string `pulumi:"qualifiedName"`
 	// The schema in which to create the table.
 	Schema *string `pulumi:"schema"`
 	// Definitions of a tag to associate with the resource.
@@ -230,6 +234,8 @@ type TableState struct {
 	//
 	// Deprecated: Use snowflake_table_constraint instead
 	PrimaryKey TablePrimaryKeyPtrInput
+	// Qualified name of the table.
+	QualifiedName pulumi.StringPtrInput
 	// The schema in which to create the table.
 	Schema pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
@@ -435,6 +441,11 @@ func (o TableOutput) Owner() pulumi.StringOutput {
 // Deprecated: Use snowflake_table_constraint instead
 func (o TableOutput) PrimaryKey() TablePrimaryKeyPtrOutput {
 	return o.ApplyT(func(v *Table) TablePrimaryKeyPtrOutput { return v.PrimaryKey }).(TablePrimaryKeyPtrOutput)
+}
+
+// Qualified name of the table.
+func (o TableOutput) QualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.QualifiedName }).(pulumi.StringOutput)
 }
 
 // The schema in which to create the table.

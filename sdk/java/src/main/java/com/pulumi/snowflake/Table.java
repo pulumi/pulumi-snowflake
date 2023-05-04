@@ -256,6 +256,20 @@ public class Table extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.primaryKey);
     }
     /**
+     * Qualified name of the table.
+     * 
+     */
+    @Export(name="qualifiedName", type=String.class, parameters={})
+    private Output<String> qualifiedName;
+
+    /**
+     * @return Qualified name of the table.
+     * 
+     */
+    public Output<String> qualifiedName() {
+        return this.qualifiedName;
+    }
+    /**
      * The schema in which to create the table.
      * 
      */

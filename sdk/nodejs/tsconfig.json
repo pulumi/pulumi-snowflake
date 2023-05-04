@@ -104,6 +104,7 @@
         "stream.ts",
         "streamGrant.ts",
         "table.ts",
+        "tableColumnMaskingPolicyApplication.ts",
         "tableConstraint.ts",
         "tableGrant.ts",
         "tag.ts",

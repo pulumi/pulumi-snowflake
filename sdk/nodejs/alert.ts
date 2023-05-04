@@ -15,7 +15,9 @@ import * as utilities from "./utilities";
  *
  * const alert = new snowflake.Alert("alert", {
  *     action: "select 1 as c",
- *     alertSchedule: "10 MINUTE",
+ *     alertSchedule: {
+ *         interval: 10,
+ *     },
  *     comment: "my alert",
  *     condition: "select 1 as c",
  *     database: "database",

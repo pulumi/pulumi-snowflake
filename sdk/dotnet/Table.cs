@@ -163,6 +163,12 @@ namespace Pulumi.Snowflake
         public Output<Outputs.TablePrimaryKey?> PrimaryKey { get; private set; } = null!;
 
         /// <summary>
+        /// Qualified name of the table.
+        /// </summary>
+        [Output("qualifiedName")]
+        public Output<string> QualifiedName { get; private set; } = null!;
+
+        /// <summary>
         /// The schema in which to create the table.
         /// </summary>
         [Output("schema")]
@@ -372,6 +378,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("primaryKey")]
         public Input<Inputs.TablePrimaryKeyGetArgs>? PrimaryKey { get; set; }
+
+        /// <summary>
+        /// Qualified name of the table.
+        /// </summary>
+        [Input("qualifiedName")]
+        public Input<string>? QualifiedName { get; set; }
 
         /// <summary>
         /// The schema in which to create the table.

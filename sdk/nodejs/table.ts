@@ -145,6 +145,10 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly primaryKey!: pulumi.Output<outputs.TablePrimaryKey | undefined>;
     /**
+     * Qualified name of the table.
+     */
+    public /*out*/ readonly qualifiedName!: pulumi.Output<string>;
+    /**
      * The schema in which to create the table.
      */
     public readonly schema!: pulumi.Output<string>;
@@ -177,6 +181,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["owner"] = state ? state.owner : undefined;
             resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
+            resourceInputs["qualifiedName"] = state ? state.qualifiedName : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -201,6 +206,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["owner"] = undefined /*out*/;
+            resourceInputs["qualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Table.__pulumiType, name, resourceInputs, opts);
@@ -251,6 +257,10 @@ export interface TableState {
      * @deprecated Use snowflake_table_constraint instead
      */
     primaryKey?: pulumi.Input<inputs.TablePrimaryKey>;
+    /**
+     * Qualified name of the table.
+     */
+    qualifiedName?: pulumi.Input<string>;
     /**
      * The schema in which to create the table.
      */
