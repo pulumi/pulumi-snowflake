@@ -2,4 +2,5 @@
 
 ---
 upstream-provider-name: terraform-provider-snowflake
+pulumi-infer-version: true
 
