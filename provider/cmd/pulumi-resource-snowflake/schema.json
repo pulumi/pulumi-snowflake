@@ -52,7 +52,7 @@
         "variables": {
             "account": {
                 "type": "string",
-                "description": "The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.\n",
+                "description": "The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless\nusing profile.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_ACCOUNT"
@@ -185,6 +185,10 @@
                 },
                 "secret": true
             },
+            "profile": {
+                "type": "string",
+                "description": "Sets the profile to read from ~/.snowflake/config file.\n"
+            },
             "protocol": {
                 "type": "string",
                 "description": "Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.\n",
@@ -214,7 +218,7 @@
             },
             "username": {
                 "type": "string",
-                "description": "Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.\n",
+                "description": "Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless\nusing profile.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_USER"
@@ -232,9 +236,7 @@
             }
         },
         "defaults": [
-            "account",
-            "region",
-            "username"
+            "region"
         ]
     },
     "types": {
@@ -453,6 +455,37 @@
                 "type": {
                     "type": "string",
                     "description": "The argument type\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "type"
+            ]
+        },
+        "snowflake:index/MaskingPolicySignature:MaskingPolicySignature": {
+            "properties": {
+                "columns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/MaskingPolicySignatureColumn:MaskingPolicySignatureColumn"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "columns"
+            ]
+        },
+        "snowflake:index/MaskingPolicySignatureColumn:MaskingPolicySignatureColumn": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
                 }
             },
             "type": "object",
@@ -849,6 +882,30 @@
                 "name",
                 "value"
             ]
+        },
+        "snowflake:index/getDatabaseRolesDatabaseRole:getDatabaseRolesDatabaseRole": {
+            "properties": {
+                "comment": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "comment",
+                "name",
+                "owner"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "snowflake:index/getDatabasesDatabase:getDatabasesDatabase": {
             "properties": {
@@ -1840,7 +1897,7 @@
         "properties": {
             "account": {
                 "type": "string",
-                "description": "The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.\n"
+                "description": "The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless\nusing profile.\n"
             },
             "browserAuth": {
                 "type": "boolean",
@@ -1908,6 +1965,10 @@
                 "description": "Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or\n`password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.\n",
                 "secret": true
             },
+            "profile": {
+                "type": "string",
+                "description": "Sets the profile to read from ~/.snowflake/config file.\n"
+            },
             "protocol": {
                 "type": "string",
                 "description": "Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.\n"
@@ -1922,7 +1983,7 @@
             },
             "username": {
                 "type": "string",
-                "description": "Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.\n"
+                "description": "Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless\nusing profile.\n"
             },
             "warehouse": {
                 "type": "string",
@@ -1932,7 +1993,7 @@
         "inputProperties": {
             "account": {
                 "type": "string",
-                "description": "The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.\n",
+                "description": "The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless\nusing profile.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_ACCOUNT"
@@ -2065,6 +2126,10 @@
                 },
                 "secret": true
             },
+            "profile": {
+                "type": "string",
+                "description": "Sets the profile to read from ~/.snowflake/config file.\n"
+            },
             "protocol": {
                 "type": "string",
                 "description": "Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.\n",
@@ -2094,7 +2159,7 @@
             },
             "username": {
                 "type": "string",
-                "description": "Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.\n",
+                "description": "Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless\nusing profile.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_USER"
@@ -2808,7 +2873,7 @@
             }
         },
         "snowflake:index/database:Database": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst simple = new snowflake.Database(\"simple\", {\n    comment: \"test comment\",\n    dataRetentionTimeInDays: 3,\n});\nconst withReplication = new snowflake.Database(\"withReplication\", {\n    comment: \"test comment 2\",\n    replicationConfiguration: {\n        accounts: [\n            \"test_account1\",\n            \"test_account_2\",\n        ],\n        ignoreEditionCheck: true,\n    },\n});\nconst fromReplica = new snowflake.Database(\"fromReplica\", {\n    comment: \"test comment\",\n    dataRetentionTimeInDays: 3,\n    fromReplica: \"org1\\\".\\\"account1\\\".\\\"primary_db_name\",\n});\nconst fromShare = new snowflake.Database(\"fromShare\", {\n    comment: \"test comment\",\n    fromShare: {\n        provider: \"org1\\\".\\\"account1\",\n        share: \"share1\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nsimple = snowflake.Database(\"simple\",\n    comment=\"test comment\",\n    data_retention_time_in_days=3)\nwith_replication = snowflake.Database(\"withReplication\",\n    comment=\"test comment 2\",\n    replication_configuration=snowflake.DatabaseReplicationConfigurationArgs(\n        accounts=[\n            \"test_account1\",\n            \"test_account_2\",\n        ],\n        ignore_edition_check=True,\n    ))\nfrom_replica = snowflake.Database(\"fromReplica\",\n    comment=\"test comment\",\n    data_retention_time_in_days=3,\n    from_replica=\"org1\\\".\\\"account1\\\".\\\"primary_db_name\")\nfrom_share = snowflake.Database(\"fromShare\",\n    comment=\"test comment\",\n    from_share={\n        \"provider\": \"org1\\\".\\\"account1\",\n        \"share\": \"share1\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var simple = new Snowflake.Database(\"simple\", new()\n    {\n        Comment = \"test comment\",\n        DataRetentionTimeInDays = 3,\n    });\n\n    var withReplication = new Snowflake.Database(\"withReplication\", new()\n    {\n        Comment = \"test comment 2\",\n        ReplicationConfiguration = new Snowflake.Inputs.DatabaseReplicationConfigurationArgs\n        {\n            Accounts = new[]\n            {\n                \"test_account1\",\n                \"test_account_2\",\n            },\n            IgnoreEditionCheck = true,\n        },\n    });\n\n    var fromReplica = new Snowflake.Database(\"fromReplica\", new()\n    {\n        Comment = \"test comment\",\n        DataRetentionTimeInDays = 3,\n        FromReplica = \"org1\\\".\\\"account1\\\".\\\"primary_db_name\",\n    });\n\n    var fromShare = new Snowflake.Database(\"fromShare\", new()\n    {\n        Comment = \"test comment\",\n        FromShare = \n        {\n            { \"provider\", \"org1\\\".\\\"account1\" },\n            { \"share\", \"share1\" },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewDatabase(ctx, \"simple\", \u0026snowflake.DatabaseArgs{\n\t\t\tComment:                 pulumi.String(\"test comment\"),\n\t\t\tDataRetentionTimeInDays: pulumi.Int(3),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewDatabase(ctx, \"withReplication\", \u0026snowflake.DatabaseArgs{\n\t\t\tComment: pulumi.String(\"test comment 2\"),\n\t\t\tReplicationConfiguration: \u0026snowflake.DatabaseReplicationConfigurationArgs{\n\t\t\t\tAccounts: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"test_account1\"),\n\t\t\t\t\tpulumi.String(\"test_account_2\"),\n\t\t\t\t},\n\t\t\t\tIgnoreEditionCheck: pulumi.Bool(true),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewDatabase(ctx, \"fromReplica\", \u0026snowflake.DatabaseArgs{\n\t\t\tComment:                 pulumi.String(\"test comment\"),\n\t\t\tDataRetentionTimeInDays: pulumi.Int(3),\n\t\t\tFromReplica:             pulumi.String(\"org1\\\".\\\"account1\\\".\\\"primary_db_name\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewDatabase(ctx, \"fromShare\", \u0026snowflake.DatabaseArgs{\n\t\t\tComment: pulumi.String(\"test comment\"),\n\t\t\tFromShare: pulumi.StringMap{\n\t\t\t\t\"provider\": pulumi.String(\"org1\\\".\\\"account1\"),\n\t\t\t\t\"share\":    pulumi.String(\"share1\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Database;\nimport com.pulumi.snowflake.DatabaseArgs;\nimport com.pulumi.snowflake.inputs.DatabaseReplicationConfigurationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var simple = new Database(\"simple\", DatabaseArgs.builder()        \n            .comment(\"test comment\")\n            .dataRetentionTimeInDays(3)\n            .build());\n\n        var withReplication = new Database(\"withReplication\", DatabaseArgs.builder()        \n            .comment(\"test comment 2\")\n            .replicationConfiguration(DatabaseReplicationConfigurationArgs.builder()\n                .accounts(                \n                    \"test_account1\",\n                    \"test_account_2\")\n                .ignoreEditionCheck(true)\n                .build())\n            .build());\n\n        var fromReplica = new Database(\"fromReplica\", DatabaseArgs.builder()        \n            .comment(\"test comment\")\n            .dataRetentionTimeInDays(3)\n            .fromReplica(\"org1\\\".\\\"account1\\\".\\\"primary_db_name\")\n            .build());\n\n        var fromShare = new Database(\"fromShare\", DatabaseArgs.builder()        \n            .comment(\"test comment\")\n            .fromShare(Map.ofEntries(\n                Map.entry(\"provider\", \"org1\\\".\\\"account1\"),\n                Map.entry(\"share\", \"share1\")\n            ))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  simple:\n    type: snowflake:Database\n    properties:\n      comment: test comment\n      dataRetentionTimeInDays: 3\n  withReplication:\n    type: snowflake:Database\n    properties:\n      comment: test comment 2\n      replicationConfiguration:\n        accounts:\n          - test_account1\n          - test_account_2\n        ignoreEditionCheck: true\n  fromReplica:\n    type: snowflake:Database\n    properties:\n      comment: test comment\n      dataRetentionTimeInDays: 3\n      fromReplica: org1\".\"account1\".\"primary_db_name\n  fromShare:\n    type: snowflake:Database\n    properties:\n      comment: test comment\n      fromShare:\n        provider: org1\".\"account1\n        share: share1\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/database:Database example name\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst simple = new snowflake.Database(\"simple\", {\n    comment: \"test comment\",\n    dataRetentionTimeInDays: 3,\n});\nconst withReplication = new snowflake.Database(\"withReplication\", {\n    comment: \"test comment 2\",\n    replicationConfiguration: {\n        accounts: [\n            \"test_account1\",\n            \"test_account_2\",\n        ],\n        ignoreEditionCheck: true,\n    },\n});\nconst fromReplica = new snowflake.Database(\"fromReplica\", {\n    comment: \"test comment\",\n    dataRetentionTimeInDays: 3,\n    fromReplica: \"org1\\\".\\\"account1\\\".\\\"primary_db_name\",\n});\nconst fromShare = new snowflake.Database(\"fromShare\", {\n    comment: \"test comment\",\n    fromShare: {\n        provider: \"org1.account1\",\n        share: \"share1\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nsimple = snowflake.Database(\"simple\",\n    comment=\"test comment\",\n    data_retention_time_in_days=3)\nwith_replication = snowflake.Database(\"withReplication\",\n    comment=\"test comment 2\",\n    replication_configuration=snowflake.DatabaseReplicationConfigurationArgs(\n        accounts=[\n            \"test_account1\",\n            \"test_account_2\",\n        ],\n        ignore_edition_check=True,\n    ))\nfrom_replica = snowflake.Database(\"fromReplica\",\n    comment=\"test comment\",\n    data_retention_time_in_days=3,\n    from_replica=\"org1\\\".\\\"account1\\\".\\\"primary_db_name\")\nfrom_share = snowflake.Database(\"fromShare\",\n    comment=\"test comment\",\n    from_share={\n        \"provider\": \"org1.account1\",\n        \"share\": \"share1\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var simple = new Snowflake.Database(\"simple\", new()\n    {\n        Comment = \"test comment\",\n        DataRetentionTimeInDays = 3,\n    });\n\n    var withReplication = new Snowflake.Database(\"withReplication\", new()\n    {\n        Comment = \"test comment 2\",\n        ReplicationConfiguration = new Snowflake.Inputs.DatabaseReplicationConfigurationArgs\n        {\n            Accounts = new[]\n            {\n                \"test_account1\",\n                \"test_account_2\",\n            },\n            IgnoreEditionCheck = true,\n        },\n    });\n\n    var fromReplica = new Snowflake.Database(\"fromReplica\", new()\n    {\n        Comment = \"test comment\",\n        DataRetentionTimeInDays = 3,\n        FromReplica = \"org1\\\".\\\"account1\\\".\\\"primary_db_name\",\n    });\n\n    var fromShare = new Snowflake.Database(\"fromShare\", new()\n    {\n        Comment = \"test comment\",\n        FromShare = \n        {\n            { \"provider\", \"org1.account1\" },\n            { \"share\", \"share1\" },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewDatabase(ctx, \"simple\", \u0026snowflake.DatabaseArgs{\n\t\t\tComment:                 pulumi.String(\"test comment\"),\n\t\t\tDataRetentionTimeInDays: pulumi.Int(3),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewDatabase(ctx, \"withReplication\", \u0026snowflake.DatabaseArgs{\n\t\t\tComment: pulumi.String(\"test comment 2\"),\n\t\t\tReplicationConfiguration: \u0026snowflake.DatabaseReplicationConfigurationArgs{\n\t\t\t\tAccounts: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"test_account1\"),\n\t\t\t\t\tpulumi.String(\"test_account_2\"),\n\t\t\t\t},\n\t\t\t\tIgnoreEditionCheck: pulumi.Bool(true),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewDatabase(ctx, \"fromReplica\", \u0026snowflake.DatabaseArgs{\n\t\t\tComment:                 pulumi.String(\"test comment\"),\n\t\t\tDataRetentionTimeInDays: pulumi.Int(3),\n\t\t\tFromReplica:             pulumi.String(\"org1\\\".\\\"account1\\\".\\\"primary_db_name\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewDatabase(ctx, \"fromShare\", \u0026snowflake.DatabaseArgs{\n\t\t\tComment: pulumi.String(\"test comment\"),\n\t\t\tFromShare: pulumi.StringMap{\n\t\t\t\t\"provider\": pulumi.String(\"org1.account1\"),\n\t\t\t\t\"share\":    pulumi.String(\"share1\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Database;\nimport com.pulumi.snowflake.DatabaseArgs;\nimport com.pulumi.snowflake.inputs.DatabaseReplicationConfigurationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var simple = new Database(\"simple\", DatabaseArgs.builder()        \n            .comment(\"test comment\")\n            .dataRetentionTimeInDays(3)\n            .build());\n\n        var withReplication = new Database(\"withReplication\", DatabaseArgs.builder()        \n            .comment(\"test comment 2\")\n            .replicationConfiguration(DatabaseReplicationConfigurationArgs.builder()\n                .accounts(                \n                    \"test_account1\",\n                    \"test_account_2\")\n                .ignoreEditionCheck(true)\n                .build())\n            .build());\n\n        var fromReplica = new Database(\"fromReplica\", DatabaseArgs.builder()        \n            .comment(\"test comment\")\n            .dataRetentionTimeInDays(3)\n            .fromReplica(\"org1\\\".\\\"account1\\\".\\\"primary_db_name\")\n            .build());\n\n        var fromShare = new Database(\"fromShare\", DatabaseArgs.builder()        \n            .comment(\"test comment\")\n            .fromShare(Map.ofEntries(\n                Map.entry(\"provider\", \"org1.account1\"),\n                Map.entry(\"share\", \"share1\")\n            ))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  simple:\n    type: snowflake:Database\n    properties:\n      comment: test comment\n      dataRetentionTimeInDays: 3\n  withReplication:\n    type: snowflake:Database\n    properties:\n      comment: test comment 2\n      replicationConfiguration:\n        accounts:\n          - test_account1\n          - test_account_2\n        ignoreEditionCheck: true\n  fromReplica:\n    type: snowflake:Database\n    properties:\n      comment: test comment\n      dataRetentionTimeInDays: 3\n      fromReplica: org1\".\"account1\".\"primary_db_name\n  fromShare:\n    type: snowflake:Database\n    properties:\n      comment: test comment\n      fromShare:\n        provider: org1.account1\n        share: share1\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/database:Database example name\n```\n\n ",
             "properties": {
                 "comment": {
                     "type": "string"
@@ -3128,6 +3193,81 @@
                 "type": "object"
             }
         },
+        "snowflake:index/emailNotificationIntegration:EmailNotificationIntegration": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst emailInt = new snowflake.EmailNotificationIntegration(\"emailInt\", {\n    allowedRecipients: [\"john.doe@gmail.com\"],\n    comment: \"A notification integration.\",\n    enabled: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nemail_int = snowflake.EmailNotificationIntegration(\"emailInt\",\n    allowed_recipients=[\"john.doe@gmail.com\"],\n    comment=\"A notification integration.\",\n    enabled=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var emailInt = new Snowflake.EmailNotificationIntegration(\"emailInt\", new()\n    {\n        AllowedRecipients = new[]\n        {\n            \"john.doe@gmail.com\",\n        },\n        Comment = \"A notification integration.\",\n        Enabled = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewEmailNotificationIntegration(ctx, \"emailInt\", \u0026snowflake.EmailNotificationIntegrationArgs{\n\t\t\tAllowedRecipients: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"john.doe@gmail.com\"),\n\t\t\t},\n\t\t\tComment: pulumi.String(\"A notification integration.\"),\n\t\t\tEnabled: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.EmailNotificationIntegration;\nimport com.pulumi.snowflake.EmailNotificationIntegrationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var emailInt = new EmailNotificationIntegration(\"emailInt\", EmailNotificationIntegrationArgs.builder()        \n            .allowedRecipients(\"john.doe@gmail.com\")\n            .comment(\"A notification integration.\")\n            .enabled(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  emailInt:\n    type: snowflake:EmailNotificationIntegration\n    properties:\n      allowedRecipients:\n        - john.doe@gmail.com\n      comment: A notification integration.\n      enabled: true\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/emailNotificationIntegration:EmailNotificationIntegration example name\n```\n\n ",
+            "properties": {
+                "allowedRecipients": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of email addresses that should receive notifications.\n"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "A comment for the email integration.\n"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "allowedRecipients",
+                "enabled",
+                "name"
+            ],
+            "inputProperties": {
+                "allowedRecipients": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of email addresses that should receive notifications.\n"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "A comment for the email integration.\n"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "allowedRecipients",
+                "enabled"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EmailNotificationIntegration resources.\n",
+                "properties": {
+                    "allowedRecipients": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of email addresses that should receive notifications.\n"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "A comment for the email integration.\n"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "snowflake:index/externalFunction:ExternalFunction": {
             "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst testExtFunc = new snowflake.ExternalFunction(\"testExtFunc\", {\n    apiIntegration: \"api_integration_name\",\n    args: [\n        {\n            name: \"arg1\",\n            type: \"varchar\",\n        },\n        {\n            name: \"arg2\",\n            type: \"varchar\",\n        },\n    ],\n    database: \"my_test_db\",\n    returnBehavior: \"IMMUTABLE\",\n    returnType: \"variant\",\n    schema: \"my_test_schema\",\n    urlOfProxyAndResource: \"https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ntest_ext_func = snowflake.ExternalFunction(\"testExtFunc\",\n    api_integration=\"api_integration_name\",\n    args=[\n        snowflake.ExternalFunctionArgArgs(\n            name=\"arg1\",\n            type=\"varchar\",\n        ),\n        snowflake.ExternalFunctionArgArgs(\n            name=\"arg2\",\n            type=\"varchar\",\n        ),\n    ],\n    database=\"my_test_db\",\n    return_behavior=\"IMMUTABLE\",\n    return_type=\"variant\",\n    schema=\"my_test_schema\",\n    url_of_proxy_and_resource=\"https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var testExtFunc = new Snowflake.ExternalFunction(\"testExtFunc\", new()\n    {\n        ApiIntegration = \"api_integration_name\",\n        Args = new[]\n        {\n            new Snowflake.Inputs.ExternalFunctionArgArgs\n            {\n                Name = \"arg1\",\n                Type = \"varchar\",\n            },\n            new Snowflake.Inputs.ExternalFunctionArgArgs\n            {\n                Name = \"arg2\",\n                Type = \"varchar\",\n            },\n        },\n        Database = \"my_test_db\",\n        ReturnBehavior = \"IMMUTABLE\",\n        ReturnType = \"variant\",\n        Schema = \"my_test_schema\",\n        UrlOfProxyAndResource = \"https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewExternalFunction(ctx, \"testExtFunc\", \u0026snowflake.ExternalFunctionArgs{\n\t\t\tApiIntegration: pulumi.String(\"api_integration_name\"),\n\t\t\tArgs: snowflake.ExternalFunctionArgArray{\n\t\t\t\t\u0026snowflake.ExternalFunctionArgArgs{\n\t\t\t\t\tName: pulumi.String(\"arg1\"),\n\t\t\t\t\tType: pulumi.String(\"varchar\"),\n\t\t\t\t},\n\t\t\t\t\u0026snowflake.ExternalFunctionArgArgs{\n\t\t\t\t\tName: pulumi.String(\"arg2\"),\n\t\t\t\t\tType: pulumi.String(\"varchar\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tDatabase:              pulumi.String(\"my_test_db\"),\n\t\t\tReturnBehavior:        pulumi.String(\"IMMUTABLE\"),\n\t\t\tReturnType:            pulumi.String(\"variant\"),\n\t\t\tSchema:                pulumi.String(\"my_test_schema\"),\n\t\t\tUrlOfProxyAndResource: pulumi.String(\"https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.ExternalFunction;\nimport com.pulumi.snowflake.ExternalFunctionArgs;\nimport com.pulumi.snowflake.inputs.ExternalFunctionArgArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var testExtFunc = new ExternalFunction(\"testExtFunc\", ExternalFunctionArgs.builder()        \n            .apiIntegration(\"api_integration_name\")\n            .args(            \n                ExternalFunctionArgArgs.builder()\n                    .name(\"arg1\")\n                    .type(\"varchar\")\n                    .build(),\n                ExternalFunctionArgArgs.builder()\n                    .name(\"arg2\")\n                    .type(\"varchar\")\n                    .build())\n            .database(\"my_test_db\")\n            .returnBehavior(\"IMMUTABLE\")\n            .returnType(\"variant\")\n            .schema(\"my_test_schema\")\n            .urlOfProxyAndResource(\"https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  testExtFunc:\n    type: snowflake:ExternalFunction\n    properties:\n      apiIntegration: api_integration_name\n      args:\n        - name: arg1\n          type: varchar\n        - name: arg2\n          type: varchar\n      database: my_test_db\n      returnBehavior: IMMUTABLE\n      returnType: variant\n      schema: my_test_schema\n      urlOfProxyAndResource: https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nformat is database name | schema name | external function name | \u003clist of function arg types, separated with '-'\u003e\n\n```sh\n $ pulumi import snowflake:index/externalFunction:ExternalFunction example 'dbName|schemaName|externalFunctionName|varchar-varchar-varchar'\n```\n\n ",
             "properties": {
@@ -3183,6 +3323,14 @@
                 "nullInputBehavior": {
                     "type": "string",
                     "description": "Specifies the behavior of the external function when called with null inputs.\n"
+                },
+                "requestTranslator": {
+                    "type": "string",
+                    "description": "This specifies the name of the request translator function\n"
+                },
+                "responseTranslator": {
+                    "type": "string",
+                    "description": "This specifies the name of the response translator function.\n"
                 },
                 "returnBehavior": {
                     "type": "string",
@@ -3273,6 +3421,16 @@
                 "nullInputBehavior": {
                     "type": "string",
                     "description": "Specifies the behavior of the external function when called with null inputs.\n",
+                    "willReplaceOnChanges": true
+                },
+                "requestTranslator": {
+                    "type": "string",
+                    "description": "This specifies the name of the request translator function\n",
+                    "willReplaceOnChanges": true
+                },
+                "responseTranslator": {
+                    "type": "string",
+                    "description": "This specifies the name of the response translator function.\n",
                     "willReplaceOnChanges": true
                 },
                 "returnBehavior": {
@@ -3373,6 +3531,16 @@
                     "nullInputBehavior": {
                         "type": "string",
                         "description": "Specifies the behavior of the external function when called with null inputs.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "requestTranslator": {
+                        "type": "string",
+                        "description": "This specifies the name of the request translator function\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "responseTranslator": {
+                        "type": "string",
+                        "description": "This specifies the name of the response translator function.\n",
                         "willReplaceOnChanges": true
                     },
                     "returnBehavior": {
@@ -3956,9 +4124,13 @@
                     "type": "string",
                     "description": "The name of the external table on which to grant privileges immediately (only valid if on_future is false).\n"
                 },
+                "onAll": {
+                    "type": "boolean",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all external tables in the given schema. When this is true and no schema*name is provided apply this grant on all external tables in the given database. The external*table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.\n"
+                },
                 "onFuture": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.\n"
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.\n"
                 },
                 "privilege": {
                     "type": "string",
@@ -4007,9 +4179,14 @@
                     "description": "The name of the external table on which to grant privileges immediately (only valid if on_future is false).\n",
                     "willReplaceOnChanges": true
                 },
+                "onAll": {
+                    "type": "boolean",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all external tables in the given schema. When this is true and no schema*name is provided apply this grant on all external tables in the given database. The external*table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.\n",
+                    "willReplaceOnChanges": true
+                },
                 "onFuture": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.\n",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.\n",
                     "willReplaceOnChanges": true
                 },
                 "privilege": {
@@ -4064,9 +4241,14 @@
                         "description": "The name of the external table on which to grant privileges immediately (only valid if on_future is false).\n",
                         "willReplaceOnChanges": true
                     },
+                    "onAll": {
+                        "type": "boolean",
+                        "description": "When this is set to true and a schema*name is provided, apply this grant on all external tables in the given schema. When this is true and no schema*name is provided apply this grant on all external tables in the given database. The external*table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.\n",
+                        "willReplaceOnChanges": true
+                    },
                     "onFuture": {
                         "type": "boolean",
-                        "description": "When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.\n",
+                        "description": "When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.\n",
                         "willReplaceOnChanges": true
                     },
                     "privilege": {
@@ -4751,9 +4933,13 @@
                     "type": "string",
                     "description": "The name of the file format on which to grant privileges immediately (only valid if on_future is false).\n"
                 },
+                "onAll": {
+                    "type": "boolean",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all file formats in the given schema. When this is true and no schema*name is provided apply this grant on all file formats in the given database. The file*format*name field must be unset in order to use on*all. Cannot be used together with on*future.\n"
+                },
                 "onFuture": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.\n"
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on*future. Cannot be used together with on*all.\n"
                 },
                 "privilege": {
                     "type": "string",
@@ -4795,9 +4981,14 @@
                     "description": "The name of the file format on which to grant privileges immediately (only valid if on_future is false).\n",
                     "willReplaceOnChanges": true
                 },
+                "onAll": {
+                    "type": "boolean",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all file formats in the given schema. When this is true and no schema*name is provided apply this grant on all file formats in the given database. The file*format*name field must be unset in order to use on*all. Cannot be used together with on*future.\n",
+                    "willReplaceOnChanges": true
+                },
                 "onFuture": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.\n",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on*future. Cannot be used together with on*all.\n",
                     "willReplaceOnChanges": true
                 },
                 "privilege": {
@@ -4845,9 +5036,14 @@
                         "description": "The name of the file format on which to grant privileges immediately (only valid if on_future is false).\n",
                         "willReplaceOnChanges": true
                     },
+                    "onAll": {
+                        "type": "boolean",
+                        "description": "When this is set to true and a schema*name is provided, apply this grant on all file formats in the given schema. When this is true and no schema*name is provided apply this grant on all file formats in the given database. The file*format*name field must be unset in order to use on*all. Cannot be used together with on*future.\n",
+                        "willReplaceOnChanges": true
+                    },
                     "onFuture": {
                         "type": "boolean",
-                        "description": "When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.\n",
+                        "description": "When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on*future. Cannot be used together with on*all.\n",
                         "willReplaceOnChanges": true
                     },
                     "privilege": {
@@ -5169,9 +5365,13 @@
                     "type": "string",
                     "description": "The name of the function on which to grant privileges immediately (only valid if on_future is false).\n"
                 },
+                "onAll": {
+                    "type": "boolean",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all functions in the given schema. When this is true and no schema*name is provided apply this grant on all functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*all. Cannot be used together with on*future.\n"
+                },
                 "onFuture": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.\n"
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*future. Cannot be used together with on*all.\n"
                 },
                 "privilege": {
                     "type": "string",
@@ -5228,9 +5428,14 @@
                     "description": "The name of the function on which to grant privileges immediately (only valid if on_future is false).\n",
                     "willReplaceOnChanges": true
                 },
+                "onAll": {
+                    "type": "boolean",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all functions in the given schema. When this is true and no schema*name is provided apply this grant on all functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*all. Cannot be used together with on*future.\n",
+                    "willReplaceOnChanges": true
+                },
                 "onFuture": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.\n",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*future. Cannot be used together with on*all.\n",
                     "willReplaceOnChanges": true
                 },
                 "privilege": {
@@ -5293,9 +5498,14 @@
                         "description": "The name of the function on which to grant privileges immediately (only valid if on_future is false).\n",
                         "willReplaceOnChanges": true
                     },
+                    "onAll": {
+                        "type": "boolean",
+                        "description": "When this is set to true and a schema*name is provided, apply this grant on all functions in the given schema. When this is true and no schema*name is provided apply this grant on all functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*all. Cannot be used together with on*future.\n",
+                        "willReplaceOnChanges": true
+                    },
                     "onFuture": {
                         "type": "boolean",
-                        "description": "When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.\n",
+                        "description": "When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*future. Cannot be used together with on*all.\n",
                         "willReplaceOnChanges": true
                     },
                     "privilege": {
@@ -5568,7 +5778,7 @@
             }
         },
         "snowflake:index/maskingPolicy:MaskingPolicy": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst exampleMaskingPolicy = new snowflake.MaskingPolicy(\"exampleMaskingPolicy\", {\n    database: \"EXAMPLE_DB\",\n    maskingExpression: \"case when current_role() in ('ANALYST') then val else sha2(val, 512) end\",\n    returnDataType: \"string\",\n    schema: \"EXAMPLE_SCHEMA\",\n    valueDataType: \"string\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nexample_masking_policy = snowflake.MaskingPolicy(\"exampleMaskingPolicy\",\n    database=\"EXAMPLE_DB\",\n    masking_expression=\"case when current_role() in ('ANALYST') then val else sha2(val, 512) end\",\n    return_data_type=\"string\",\n    schema=\"EXAMPLE_SCHEMA\",\n    value_data_type=\"string\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleMaskingPolicy = new Snowflake.MaskingPolicy(\"exampleMaskingPolicy\", new()\n    {\n        Database = \"EXAMPLE_DB\",\n        MaskingExpression = \"case when current_role() in ('ANALYST') then val else sha2(val, 512) end\",\n        ReturnDataType = \"string\",\n        Schema = \"EXAMPLE_SCHEMA\",\n        ValueDataType = \"string\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewMaskingPolicy(ctx, \"exampleMaskingPolicy\", \u0026snowflake.MaskingPolicyArgs{\n\t\t\tDatabase:          pulumi.String(\"EXAMPLE_DB\"),\n\t\t\tMaskingExpression: pulumi.String(\"case when current_role() in ('ANALYST') then val else sha2(val, 512) end\"),\n\t\t\tReturnDataType:    pulumi.String(\"string\"),\n\t\t\tSchema:            pulumi.String(\"EXAMPLE_SCHEMA\"),\n\t\t\tValueDataType:     pulumi.String(\"string\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.MaskingPolicy;\nimport com.pulumi.snowflake.MaskingPolicyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleMaskingPolicy = new MaskingPolicy(\"exampleMaskingPolicy\", MaskingPolicyArgs.builder()        \n            .database(\"EXAMPLE_DB\")\n            .maskingExpression(\"case when current_role() in ('ANALYST') then val else sha2(val, 512) end\")\n            .returnDataType(\"string\")\n            .schema(\"EXAMPLE_SCHEMA\")\n            .valueDataType(\"string\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleMaskingPolicy:\n    type: snowflake:MaskingPolicy\n    properties:\n      database: EXAMPLE_DB\n      maskingExpression: case when current_role() in ('ANALYST') then val else sha2(val, 512) end\n      returnDataType: string\n      schema: EXAMPLE_SCHEMA\n      valueDataType: string\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nformat is database name | schema name | policy name\n\n```sh\n $ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example 'dbName|schemaName|policyName'\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst test = new snowflake.MaskingPolicy(\"test\", {\n    database: \"EXAMPLE_DB\",\n    maskingExpression: `  case \n    when current_role() in ('ROLE_A') then \n      val \n    when is_role_in_session( 'ROLE_B' ) then \n      'ABC123'\n    else\n      '******'\n  end\n\n`,\n    returnDataType: \"VARCHAR\",\n    schema: \"EXAMPLE_SCHEMA\",\n    signature: {\n        columns: [{\n            name: \"val\",\n            type: \"VARCHAR\",\n        }],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ntest = snowflake.MaskingPolicy(\"test\",\n    database=\"EXAMPLE_DB\",\n    masking_expression=\"\"\"  case \n    when current_role() in ('ROLE_A') then \n      val \n    when is_role_in_session( 'ROLE_B' ) then \n      'ABC123'\n    else\n      '******'\n  end\n\n\"\"\",\n    return_data_type=\"VARCHAR\",\n    schema=\"EXAMPLE_SCHEMA\",\n    signature=snowflake.MaskingPolicySignatureArgs(\n        columns=[snowflake.MaskingPolicySignatureColumnArgs(\n            name=\"val\",\n            type=\"VARCHAR\",\n        )],\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Snowflake.MaskingPolicy(\"test\", new()\n    {\n        Database = \"EXAMPLE_DB\",\n        MaskingExpression = @\"  case \n    when current_role() in ('ROLE_A') then \n      val \n    when is_role_in_session( 'ROLE_B' ) then \n      'ABC123'\n    else\n      '******'\n  end\n\n\",\n        ReturnDataType = \"VARCHAR\",\n        Schema = \"EXAMPLE_SCHEMA\",\n        Signature = new Snowflake.Inputs.MaskingPolicySignatureArgs\n        {\n            Columns = new[]\n            {\n                new Snowflake.Inputs.MaskingPolicySignatureColumnArgs\n                {\n                    Name = \"val\",\n                    Type = \"VARCHAR\",\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewMaskingPolicy(ctx, \"test\", \u0026snowflake.MaskingPolicyArgs{\n\t\t\tDatabase:          pulumi.String(\"EXAMPLE_DB\"),\n\t\t\tMaskingExpression: pulumi.String(\"  case \\n    when current_role() in ('ROLE_A') then \\n      val \\n    when is_role_in_session( 'ROLE_B' ) then \\n      'ABC123'\\n    else\\n      '******'\\n  end\\n\\n\"),\n\t\t\tReturnDataType:    pulumi.String(\"VARCHAR\"),\n\t\t\tSchema:            pulumi.String(\"EXAMPLE_SCHEMA\"),\n\t\t\tSignature: \u0026snowflake.MaskingPolicySignatureArgs{\n\t\t\t\tColumns: snowflake.MaskingPolicySignatureColumnArray{\n\t\t\t\t\t\u0026snowflake.MaskingPolicySignatureColumnArgs{\n\t\t\t\t\t\tName: pulumi.String(\"val\"),\n\t\t\t\t\t\tType: pulumi.String(\"VARCHAR\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.MaskingPolicy;\nimport com.pulumi.snowflake.MaskingPolicyArgs;\nimport com.pulumi.snowflake.inputs.MaskingPolicySignatureArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new MaskingPolicy(\"test\", MaskingPolicyArgs.builder()        \n            .database(\"EXAMPLE_DB\")\n            .maskingExpression(\"\"\"\n  case \n    when current_role() in ('ROLE_A') then \n      val \n    when is_role_in_session( 'ROLE_B' ) then \n      'ABC123'\n    else\n      '******'\n  end\n\n            \"\"\")\n            .returnDataType(\"VARCHAR\")\n            .schema(\"EXAMPLE_SCHEMA\")\n            .signature(MaskingPolicySignatureArgs.builder()\n                .columns(MaskingPolicySignatureColumnArgs.builder()\n                    .name(\"val\")\n                    .type(\"VARCHAR\")\n                    .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: snowflake:MaskingPolicy\n    properties:\n      database: EXAMPLE_DB\n      maskingExpression: \"  case \\n    when current_role() in ('ROLE_A') then \\n      val \\n    when is_role_in_session( 'ROLE_B' ) then \\n      'ABC123'\\n    else\\n      '******'\\n  end\\n\\n\"\n      returnDataType: VARCHAR\n      schema: EXAMPLE_SCHEMA\n      signature:\n        columns:\n          - name: val\n            type: VARCHAR\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nformat is database name | schema name | policy name\n\n```sh\n $ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example 'dbName|schemaName|policyName'\n```\n\n ",
             "properties": {
                 "comment": {
                     "type": "string",
@@ -5578,6 +5788,14 @@
                     "type": "string",
                     "description": "The database in which to create the masking policy.\n"
                 },
+                "exemptOtherPolicies": {
+                    "type": "boolean",
+                    "description": "Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.\n"
+                },
+                "ifNotExists": {
+                    "type": "boolean",
+                    "description": "Prevent overwriting a previous masking policy with the same name.\n"
+                },
                 "maskingExpression": {
                     "type": "string",
                     "description": "Specifies the SQL expression that transforms the data.\n"
@@ -5585,6 +5803,10 @@
                 "name": {
                     "type": "string",
                     "description": "Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.\n"
+                },
+                "orReplace": {
+                    "type": "boolean",
+                    "description": "Whether to override a previous masking policy with the same name.\n"
                 },
                 "qualifiedName": {
                     "type": "string",
@@ -5598,9 +5820,9 @@
                     "type": "string",
                     "description": "The schema in which to create the masking policy.\n"
                 },
-                "valueDataType": {
-                    "type": "string",
-                    "description": "Specifies the data type to mask.\n"
+                "signature": {
+                    "$ref": "#/types/snowflake:index/MaskingPolicySignature:MaskingPolicySignature",
+                    "description": "The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.\n"
                 }
             },
             "required": [
@@ -5610,7 +5832,7 @@
                 "qualifiedName",
                 "returnDataType",
                 "schema",
-                "valueDataType"
+                "signature"
             ],
             "inputProperties": {
                 "comment": {
@@ -5622,6 +5844,14 @@
                     "description": "The database in which to create the masking policy.\n",
                     "willReplaceOnChanges": true
                 },
+                "exemptOtherPolicies": {
+                    "type": "boolean",
+                    "description": "Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.\n"
+                },
+                "ifNotExists": {
+                    "type": "boolean",
+                    "description": "Prevent overwriting a previous masking policy with the same name.\n"
+                },
                 "maskingExpression": {
                     "type": "string",
                     "description": "Specifies the SQL expression that transforms the data.\n"
@@ -5630,6 +5860,10 @@
                     "type": "string",
                     "description": "Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.\n",
                     "willReplaceOnChanges": true
+                },
+                "orReplace": {
+                    "type": "boolean",
+                    "description": "Whether to override a previous masking policy with the same name.\n"
                 },
                 "returnDataType": {
                     "type": "string",
@@ -5641,10 +5875,9 @@
                     "description": "The schema in which to create the masking policy.\n",
                     "willReplaceOnChanges": true
                 },
-                "valueDataType": {
-                    "type": "string",
-                    "description": "Specifies the data type to mask.\n",
-                    "willReplaceOnChanges": true
+                "signature": {
+                    "$ref": "#/types/snowflake:index/MaskingPolicySignature:MaskingPolicySignature",
+                    "description": "The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.\n"
                 }
             },
             "requiredInputs": [
@@ -5652,7 +5885,7 @@
                 "maskingExpression",
                 "returnDataType",
                 "schema",
-                "valueDataType"
+                "signature"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering MaskingPolicy resources.\n",
@@ -5666,6 +5899,14 @@
                         "description": "The database in which to create the masking policy.\n",
                         "willReplaceOnChanges": true
                     },
+                    "exemptOtherPolicies": {
+                        "type": "boolean",
+                        "description": "Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.\n"
+                    },
+                    "ifNotExists": {
+                        "type": "boolean",
+                        "description": "Prevent overwriting a previous masking policy with the same name.\n"
+                    },
                     "maskingExpression": {
                         "type": "string",
                         "description": "Specifies the SQL expression that transforms the data.\n"
@@ -5674,6 +5915,10 @@
                         "type": "string",
                         "description": "Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "orReplace": {
+                        "type": "boolean",
+                        "description": "Whether to override a previous masking policy with the same name.\n"
                     },
                     "qualifiedName": {
                         "type": "string",
@@ -5689,10 +5934,9 @@
                         "description": "The schema in which to create the masking policy.\n",
                         "willReplaceOnChanges": true
                     },
-                    "valueDataType": {
-                        "type": "string",
-                        "description": "Specifies the data type to mask.\n",
-                        "willReplaceOnChanges": true
+                    "signature": {
+                        "$ref": "#/types/snowflake:index/MaskingPolicySignature:MaskingPolicySignature",
+                        "description": "The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.\n"
                     }
                 },
                 "type": "object"
@@ -5997,7 +6241,7 @@
                 },
                 "onAll": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.\n"
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.\n"
                 },
                 "onFuture": {
                     "type": "boolean",
@@ -6051,7 +6295,7 @@
                 },
                 "onAll": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.\n",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.\n",
                     "willReplaceOnChanges": true
                 },
                 "onFuture": {
@@ -6112,7 +6356,7 @@
                     },
                     "onAll": {
                         "type": "boolean",
-                        "description": "When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.\n",
+                        "description": "When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.\n",
                         "willReplaceOnChanges": true
                     },
                     "onFuture": {
@@ -6250,7 +6494,7 @@
                 },
                 "setForAccount": {
                     "type": "boolean",
-                    "description": "Specifies whether the network policy should be applied globally to your Snowflake account\u003cbr\u003e\u003cbr\u003e**Note:** The Snowflake\nuser running `terraform apply` must be on an IP address allowed by the network policy to set that policy globally on the\nSnowflake account.\u003cbr\u003e\u003cbr\u003eAdditionally, a Snowflake account can only have one network policy set globally at any given\ntime. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If\nmultiple network policy resources have `set_for_account: true`, the final policy set on the account will be\nnon-deterministic.\n"
+                    "description": "Specifies whether the network policy should be applied globally to your Snowflake account\\n\\n\\n\\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\\n\\n\\n\\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.\n"
                 },
                 "users": {
                     "type": "array",
@@ -6271,7 +6515,7 @@
                 },
                 "setForAccount": {
                     "type": "boolean",
-                    "description": "Specifies whether the network policy should be applied globally to your Snowflake account\u003cbr\u003e\u003cbr\u003e**Note:** The Snowflake\nuser running `terraform apply` must be on an IP address allowed by the network policy to set that policy globally on the\nSnowflake account.\u003cbr\u003e\u003cbr\u003eAdditionally, a Snowflake account can only have one network policy set globally at any given\ntime. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If\nmultiple network policy resources have `set_for_account: true`, the final policy set on the account will be\nnon-deterministic.\n"
+                    "description": "Specifies whether the network policy should be applied globally to your Snowflake account\\n\\n\\n\\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\\n\\n\\n\\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.\n"
                 },
                 "users": {
                     "type": "array",
@@ -6294,7 +6538,7 @@
                     },
                     "setForAccount": {
                         "type": "boolean",
-                        "description": "Specifies whether the network policy should be applied globally to your Snowflake account\u003cbr\u003e\u003cbr\u003e**Note:** The Snowflake\nuser running `terraform apply` must be on an IP address allowed by the network policy to set that policy globally on the\nSnowflake account.\u003cbr\u003e\u003cbr\u003eAdditionally, a Snowflake account can only have one network policy set globally at any given\ntime. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If\nmultiple network policy resources have `set_for_account: true`, the final policy set on the account will be\nnon-deterministic.\n"
+                        "description": "Specifies whether the network policy should be applied globally to your Snowflake account\\n\\n\\n\\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\\n\\n\\n\\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.\n"
                     },
                     "users": {
                         "type": "array",
@@ -6922,8 +7166,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Identifier for the password policy; must be unique for your account.\n",
-                    "willReplaceOnChanges": true
+                    "description": "Identifier for the password policy; must be unique for your account.\n"
                 },
                 "orReplace": {
                     "type": "boolean",
@@ -6993,8 +7236,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Identifier for the password policy; must be unique for your account.\n",
-                        "willReplaceOnChanges": true
+                        "description": "Identifier for the password policy; must be unique for your account.\n"
                     },
                     "orReplace": {
                         "type": "boolean",
@@ -7580,9 +7822,13 @@
                     "type": "boolean",
                     "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
+                "onAll": {
+                    "type": "boolean",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all procedures in the given schema. When this is true and no schema*name is provided apply this grant on all procedures in the given database. The procedure*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.\n"
+                },
                 "onFuture": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.\n"
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.\n"
                 },
                 "privilege": {
                     "type": "string",
@@ -7638,9 +7884,14 @@
                     "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n",
                     "willReplaceOnChanges": true
                 },
+                "onAll": {
+                    "type": "boolean",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all procedures in the given schema. When this is true and no schema*name is provided apply this grant on all procedures in the given database. The procedure*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.\n",
+                    "willReplaceOnChanges": true
+                },
                 "onFuture": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.\n",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.\n",
                     "willReplaceOnChanges": true
                 },
                 "privilege": {
@@ -7703,9 +7954,14 @@
                         "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n",
                         "willReplaceOnChanges": true
                     },
+                    "onAll": {
+                        "type": "boolean",
+                        "description": "When this is set to true and a schema*name is provided, apply this grant on all procedures in the given schema. When this is true and no schema*name is provided apply this grant on all procedures in the given database. The procedure*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.\n",
+                        "willReplaceOnChanges": true
+                    },
                     "onFuture": {
                         "type": "boolean",
-                        "description": "When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.\n",
+                        "description": "When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.\n",
                         "willReplaceOnChanges": true
                     },
                     "privilege": {
@@ -8902,7 +9158,7 @@
                 },
                 "onAll": {
                     "type": "boolean",
-                    "description": "When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.\n"
+                    "description": "When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.\n"
                 },
                 "onFuture": {
                     "type": "boolean",
@@ -8950,7 +9206,7 @@
                 },
                 "onAll": {
                     "type": "boolean",
-                    "description": "When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.\n",
+                    "description": "When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.\n",
                     "willReplaceOnChanges": true
                 },
                 "onFuture": {
@@ -9005,7 +9261,7 @@
                     },
                     "onAll": {
                         "type": "boolean",
-                        "description": "When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.\n",
+                        "description": "When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.\n",
                         "willReplaceOnChanges": true
                     },
                     "onFuture": {
@@ -9244,9 +9500,13 @@
                     "type": "boolean",
                     "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
+                "onAll": {
+                    "type": "boolean",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all sequences in the given schema. When this is true and no schema*name is provided apply this grant on all sequences in the given database. The sequence*name field must be unset in order to use on*all. Cannot be used together with on_future.\n"
+                },
                 "onFuture": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future.\n"
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future. Cannot be used together with on_all.\n"
                 },
                 "privilege": {
                     "type": "string",
@@ -9287,9 +9547,14 @@
                     "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n",
                     "willReplaceOnChanges": true
                 },
+                "onAll": {
+                    "type": "boolean",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all sequences in the given schema. When this is true and no schema*name is provided apply this grant on all sequences in the given database. The sequence*name field must be unset in order to use on*all. Cannot be used together with on_future.\n",
+                    "willReplaceOnChanges": true
+                },
                 "onFuture": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future.\n",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future. Cannot be used together with on_all.\n",
                     "willReplaceOnChanges": true
                 },
                 "privilege": {
@@ -9337,9 +9602,14 @@
                         "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n",
                         "willReplaceOnChanges": true
                     },
+                    "onAll": {
+                        "type": "boolean",
+                        "description": "When this is set to true and a schema*name is provided, apply this grant on all sequences in the given schema. When this is true and no schema*name is provided apply this grant on all sequences in the given database. The sequence*name field must be unset in order to use on*all. Cannot be used together with on_future.\n",
+                        "willReplaceOnChanges": true
+                    },
                     "onFuture": {
                         "type": "boolean",
-                        "description": "When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future.\n",
+                        "description": "When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future. Cannot be used together with on_all.\n",
                         "willReplaceOnChanges": true
                     },
                     "privilege": {
@@ -9729,7 +9999,7 @@
                 },
                 "onAll": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.\n"
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on_future.\n"
                 },
                 "onFuture": {
                     "type": "boolean",
@@ -9776,7 +10046,7 @@
                 },
                 "onAll": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.\n",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on_future.\n",
                     "willReplaceOnChanges": true
                 },
                 "onFuture": {
@@ -9831,7 +10101,7 @@
                     },
                     "onAll": {
                         "type": "boolean",
-                        "description": "When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.\n",
+                        "description": "When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on_future.\n",
                         "willReplaceOnChanges": true
                     },
                     "onFuture": {
@@ -10247,9 +10517,13 @@
                     "type": "boolean",
                     "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
+                "onAll": {
+                    "type": "boolean",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all streams in the given schema. When this is true and no schema*name is provided apply this grant on all streams in the given database. The stream*name field must be unset in order to use on*all. Cannot be used together with on_future.\n"
+                },
                 "onFuture": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future streams in the given schema. When this is true and no schema*name is provided apply this grant on all future streams in the given database. The stream*name field must be unset in order to use on*future.\n"
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future streams in the given schema. When this is true and no schema*name is provided apply this grant on all future streams in the given database. The stream*name field must be unset in order to use on*future. Cannot be used together with on_all.\n"
                 },
                 "privilege": {
                     "type": "string",
@@ -10290,9 +10564,14 @@
                     "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n",
                     "willReplaceOnChanges": true
                 },
+                "onAll": {
+                    "type": "boolean",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all streams in the given schema. When this is true and no schema*name is provided apply this grant on all streams in the given database. The stream*name field must be unset in order to use on*all. Cannot be used together with on_future.\n",
+                    "willReplaceOnChanges": true
+                },
                 "onFuture": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future streams in the given schema. When this is true and no schema*name is provided apply this grant on all future streams in the given database. The stream*name field must be unset in order to use on*future.\n",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future streams in the given schema. When this is true and no schema*name is provided apply this grant on all future streams in the given database. The stream*name field must be unset in order to use on*future. Cannot be used together with on_all.\n",
                     "willReplaceOnChanges": true
                 },
                 "privilege": {
@@ -10340,9 +10619,14 @@
                         "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n",
                         "willReplaceOnChanges": true
                     },
+                    "onAll": {
+                        "type": "boolean",
+                        "description": "When this is set to true and a schema*name is provided, apply this grant on all streams in the given schema. When this is true and no schema*name is provided apply this grant on all streams in the given database. The stream*name field must be unset in order to use on*all. Cannot be used together with on_future.\n",
+                        "willReplaceOnChanges": true
+                    },
                     "onFuture": {
                         "type": "boolean",
-                        "description": "When this is set to true and a schema*name is provided, apply this grant on all future streams in the given schema. When this is true and no schema*name is provided apply this grant on all future streams in the given database. The stream*name field must be unset in order to use on*future.\n",
+                        "description": "When this is set to true and a schema*name is provided, apply this grant on all future streams in the given schema. When this is true and no schema*name is provided apply this grant on all future streams in the given database. The stream*name field must be unset in order to use on*future. Cannot be used together with on_all.\n",
                         "willReplaceOnChanges": true
                     },
                     "privilege": {
@@ -10579,6 +10863,7 @@
             }
         },
         "snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication": {
+            "description": "Applies a masking policy to a table column.\n\nOnly one masking policy may be applied per table column, hence only one `snowflake.TableColumnMaskingPolicyApplication` resources may be present per table column.\nUsing two or more `snowflake.TableColumnMaskingPolicyApplication` resources for the same table column will result in the last one overriding any previously applied masking policies and unresolvable diffs in pulumi preview.\n\nWhen using this resource to manage a table column's masking policy make sure to ignore changes to the column's masking policy in the table definition, otherwise the two resources would conflict. See example below.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Provider;\nimport com.pulumi.snowflake.ProviderArgs;\nimport com.pulumi.snowflake.MaskingPolicy;\nimport com.pulumi.snowflake.MaskingPolicyArgs;\nimport com.pulumi.snowflake.Table;\nimport com.pulumi.snowflake.TableArgs;\nimport com.pulumi.snowflake.inputs.TableColumnArgs;\nimport com.pulumi.snowflake.TableColumnMaskingPolicyApplication;\nimport com.pulumi.snowflake.TableColumnMaskingPolicyApplicationArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var masking = new Provider(\"masking\", ProviderArgs.builder()        \n            .role(\"MASKING_ADMIN\")\n            .build());\n\n        var policy = new MaskingPolicy(\"policy\", MaskingPolicyArgs.builder()        \n            .database(\"EXAMPLE_DB\")\n            .schema(\"EXAMPLE_SCHEMA\")\n            .valueDataType(\"VARCHAR\")\n            .maskingExpression(\"case when current_role() in ('ANALYST') then val else sha2(val, 512) end\")\n            .returnDataType(\"VARCHAR\")\n            .build(), CustomResourceOptions.builder()\n                .provider(snowflake.masking())\n                .build());\n\n        var table = new Table(\"table\", TableArgs.builder()        \n            .database(\"EXAMPLE_DB\")\n            .schema(\"EXAMPLE_SCHEMA\")\n            .columns(TableColumnArgs.builder()\n                .name(\"secret\")\n                .type(\"VARCHAR(16777216)\")\n                .build())\n            .build());\n\n        var application = new TableColumnMaskingPolicyApplication(\"application\", TableColumnMaskingPolicyApplicationArgs.builder()        \n            .table(table.qualifiedName())\n            .column(\"secret\")\n            .maskingPolicy(policy.qualifiedName())\n            .build(), CustomResourceOptions.builder()\n                .provider(snowflake.masking())\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Alternative provider with masking_admin role\n  masking:\n    type: pulumi:providers:snowflake\n    properties:\n      role: MASKING_ADMIN\n  policy:\n    type: snowflake:MaskingPolicy\n    properties:\n      database: EXAMPLE_DB\n      schema: EXAMPLE_SCHEMA\n      valueDataType: VARCHAR\n      maskingExpression: case when current_role() in ('ANALYST') then val else sha2(val, 512) end\n      returnDataType: VARCHAR\n    options:\n      provider: ${snowflake.masking}\n  # Table is created by the default provider\n  table:\n    type: snowflake:Table\n    properties:\n      database: EXAMPLE_DB\n      schema: EXAMPLE_SCHEMA\n      columns:\n        - name: secret\n          type: VARCHAR(16777216)\n  application:\n    type: snowflake:TableColumnMaskingPolicyApplication\n    properties:\n      table: ${table.qualifiedName}\n      column: secret\n      maskingPolicy: ${policy.qualifiedName}\n    options:\n      provider: ${snowflake.masking}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "column": {
                     "type": "string",
@@ -10854,7 +11139,7 @@
                 },
                 "onAll": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.\n"
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.\n"
                 },
                 "onFuture": {
                     "type": "boolean",
@@ -10906,7 +11191,7 @@
                 },
                 "onAll": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.\n",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.\n",
                     "willReplaceOnChanges": true
                 },
                 "onFuture": {
@@ -10966,7 +11251,7 @@
                     },
                     "onAll": {
                         "type": "boolean",
-                        "description": "When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.\n",
+                        "description": "When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.\n",
                         "willReplaceOnChanges": true
                     },
                     "onFuture": {
@@ -11355,7 +11640,7 @@
             }
         },
         "snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation": {
-            "description": "\n\n## Import\n\nformat is tag database name | tag schema name | tag name | masking policy database | masking policy schema | masking policy name\n\n```sh\n $ pulumi import snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation example 'tag_db|tag_schema|tag_name|mp_db|mp_schema|mp_name'\n```\n\n ",
+            "description": "Attach a masking policy to a tag. Requires a current warehouse to be set. Either with SNOWFLAKE_WAREHOUSE env variable or in current session. If no warehouse is provided, a temporary warehouse will be created.\n\n\n## Import\n\nformat is tag database name | tag schema name | tag name | masking policy database | masking policy schema | masking policy name\n\n```sh\n $ pulumi import snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation example 'tag_db|tag_schema|tag_name|mp_db|mp_schema|mp_name'\n```\n\n ",
             "properties": {
                 "maskingPolicyId": {
                     "type": "string",
@@ -11642,9 +11927,13 @@
                     "type": "boolean",
                     "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
+                "onAll": {
+                    "type": "boolean",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all tasks in the given schema. When this is true and no schema*name is provided apply this grant on all tasks in the given database. The task*name field must be unset in order to use on*all. Cannot be used together with on_future.\n"
+                },
                 "onFuture": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.\n"
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future. Cannot be used together with on_all.\n"
                 },
                 "privilege": {
                     "type": "string",
@@ -11685,9 +11974,14 @@
                     "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n",
                     "willReplaceOnChanges": true
                 },
+                "onAll": {
+                    "type": "boolean",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all tasks in the given schema. When this is true and no schema*name is provided apply this grant on all tasks in the given database. The task*name field must be unset in order to use on*all. Cannot be used together with on_future.\n",
+                    "willReplaceOnChanges": true
+                },
                 "onFuture": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.\n",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future. Cannot be used together with on_all.\n",
                     "willReplaceOnChanges": true
                 },
                 "privilege": {
@@ -11735,9 +12029,14 @@
                         "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n",
                         "willReplaceOnChanges": true
                     },
+                    "onAll": {
+                        "type": "boolean",
+                        "description": "When this is set to true and a schema*name is provided, apply this grant on all tasks in the given schema. When this is true and no schema*name is provided apply this grant on all tasks in the given database. The task*name field must be unset in order to use on*all. Cannot be used together with on_future.\n",
+                        "willReplaceOnChanges": true
+                    },
                     "onFuture": {
                         "type": "boolean",
-                        "description": "When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future.\n",
+                        "description": "When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future. Cannot be used together with on_all.\n",
                         "willReplaceOnChanges": true
                     },
                     "privilege": {
@@ -12422,7 +12721,7 @@
                 },
                 "onAll": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.\n"
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.\n"
                 },
                 "onFuture": {
                     "type": "boolean",
@@ -12474,7 +12773,7 @@
                 },
                 "onAll": {
                     "type": "boolean",
-                    "description": "When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.\n",
+                    "description": "When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.\n",
                     "willReplaceOnChanges": true
                 },
                 "onFuture": {
@@ -12534,7 +12833,7 @@
                     },
                     "onAll": {
                         "type": "boolean",
-                        "description": "When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.\n",
+                        "description": "When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.\n",
                         "willReplaceOnChanges": true
                     },
                     "onFuture": {
@@ -13041,6 +13340,43 @@
                     "origin",
                     "owner",
                     "retentionTime",
+                    "id"
+                ]
+            }
+        },
+        "snowflake:index/getDatabaseRoles:getDatabaseRoles": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getDatabaseRoles.\n",
+                "properties": {
+                    "database": {
+                        "type": "string",
+                        "description": "The database from which to return the database roles from.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDatabaseRoles.\n",
+                "properties": {
+                    "database": {
+                        "type": "string",
+                        "description": "The database from which to return the database roles from.\n"
+                    },
+                    "databaseRoles": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/getDatabaseRolesDatabaseRole:getDatabaseRolesDatabaseRole"
+                        },
+                        "description": "Lists all the database roles in a specified database.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "databaseRoles",
                     "id"
                 ]
             }
