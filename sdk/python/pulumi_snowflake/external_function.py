@@ -30,6 +30,8 @@ class ExternalFunctionArgs:
                  max_batch_rows: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_input_behavior: Optional[pulumi.Input[str]] = None,
+                 request_translator: Optional[pulumi.Input[str]] = None,
+                 response_translator: Optional[pulumi.Input[str]] = None,
                  return_null_allowed: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ExternalFunction resource.
@@ -47,6 +49,8 @@ class ExternalFunctionArgs:
         :param pulumi.Input[int] max_batch_rows: This specifies the maximum number of rows in each batch sent to the proxy service.
         :param pulumi.Input[str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the external function when called with null inputs.
+        :param pulumi.Input[str] request_translator: This specifies the name of the request translator function
+        :param pulumi.Input[str] response_translator: This specifies the name of the response translator function.
         :param pulumi.Input[bool] return_null_allowed: Indicates whether the function can return NULL values or must return only NON-NULL values.
         """
         pulumi.set(__self__, "api_integration", api_integration)
@@ -71,6 +75,10 @@ class ExternalFunctionArgs:
             pulumi.set(__self__, "name", name)
         if null_input_behavior is not None:
             pulumi.set(__self__, "null_input_behavior", null_input_behavior)
+        if request_translator is not None:
+            pulumi.set(__self__, "request_translator", request_translator)
+        if response_translator is not None:
+            pulumi.set(__self__, "response_translator", response_translator)
         if return_null_allowed is not None:
             pulumi.set(__self__, "return_null_allowed", return_null_allowed)
 
@@ -243,6 +251,30 @@ class ExternalFunctionArgs:
         pulumi.set(self, "null_input_behavior", value)
 
     @property
+    @pulumi.getter(name="requestTranslator")
+    def request_translator(self) -> Optional[pulumi.Input[str]]:
+        """
+        This specifies the name of the request translator function
+        """
+        return pulumi.get(self, "request_translator")
+
+    @request_translator.setter
+    def request_translator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "request_translator", value)
+
+    @property
+    @pulumi.getter(name="responseTranslator")
+    def response_translator(self) -> Optional[pulumi.Input[str]]:
+        """
+        This specifies the name of the response translator function.
+        """
+        return pulumi.get(self, "response_translator")
+
+    @response_translator.setter
+    def response_translator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "response_translator", value)
+
+    @property
     @pulumi.getter(name="returnNullAllowed")
     def return_null_allowed(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -269,6 +301,8 @@ class _ExternalFunctionState:
                  max_batch_rows: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_input_behavior: Optional[pulumi.Input[str]] = None,
+                 request_translator: Optional[pulumi.Input[str]] = None,
+                 response_translator: Optional[pulumi.Input[str]] = None,
                  return_behavior: Optional[pulumi.Input[str]] = None,
                  return_null_allowed: Optional[pulumi.Input[bool]] = None,
                  return_type: Optional[pulumi.Input[str]] = None,
@@ -287,6 +321,8 @@ class _ExternalFunctionState:
         :param pulumi.Input[int] max_batch_rows: This specifies the maximum number of rows in each batch sent to the proxy service.
         :param pulumi.Input[str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the external function when called with null inputs.
+        :param pulumi.Input[str] request_translator: This specifies the name of the request translator function
+        :param pulumi.Input[str] response_translator: This specifies the name of the response translator function.
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
         :param pulumi.Input[bool] return_null_allowed: Indicates whether the function can return NULL values or must return only NON-NULL values.
         :param pulumi.Input[str] return_type: Specifies the data type returned by the external function.
@@ -315,6 +351,10 @@ class _ExternalFunctionState:
             pulumi.set(__self__, "name", name)
         if null_input_behavior is not None:
             pulumi.set(__self__, "null_input_behavior", null_input_behavior)
+        if request_translator is not None:
+            pulumi.set(__self__, "request_translator", request_translator)
+        if response_translator is not None:
+            pulumi.set(__self__, "response_translator", response_translator)
         if return_behavior is not None:
             pulumi.set(__self__, "return_behavior", return_behavior)
         if return_null_allowed is not None:
@@ -459,6 +499,30 @@ class _ExternalFunctionState:
         pulumi.set(self, "null_input_behavior", value)
 
     @property
+    @pulumi.getter(name="requestTranslator")
+    def request_translator(self) -> Optional[pulumi.Input[str]]:
+        """
+        This specifies the name of the request translator function
+        """
+        return pulumi.get(self, "request_translator")
+
+    @request_translator.setter
+    def request_translator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "request_translator", value)
+
+    @property
+    @pulumi.getter(name="responseTranslator")
+    def response_translator(self) -> Optional[pulumi.Input[str]]:
+        """
+        This specifies the name of the response translator function.
+        """
+        return pulumi.get(self, "response_translator")
+
+    @response_translator.setter
+    def response_translator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "response_translator", value)
+
+    @property
     @pulumi.getter(name="returnBehavior")
     def return_behavior(self) -> Optional[pulumi.Input[str]]:
         """
@@ -534,6 +598,8 @@ class ExternalFunction(pulumi.CustomResource):
                  max_batch_rows: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_input_behavior: Optional[pulumi.Input[str]] = None,
+                 request_translator: Optional[pulumi.Input[str]] = None,
+                 response_translator: Optional[pulumi.Input[str]] = None,
                  return_behavior: Optional[pulumi.Input[str]] = None,
                  return_null_allowed: Optional[pulumi.Input[bool]] = None,
                  return_type: Optional[pulumi.Input[str]] = None,
@@ -586,6 +652,8 @@ class ExternalFunction(pulumi.CustomResource):
         :param pulumi.Input[int] max_batch_rows: This specifies the maximum number of rows in each batch sent to the proxy service.
         :param pulumi.Input[str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the external function when called with null inputs.
+        :param pulumi.Input[str] request_translator: This specifies the name of the request translator function
+        :param pulumi.Input[str] response_translator: This specifies the name of the response translator function.
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
         :param pulumi.Input[bool] return_null_allowed: Indicates whether the function can return NULL values or must return only NON-NULL values.
         :param pulumi.Input[str] return_type: Specifies the data type returned by the external function.
@@ -657,6 +725,8 @@ class ExternalFunction(pulumi.CustomResource):
                  max_batch_rows: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_input_behavior: Optional[pulumi.Input[str]] = None,
+                 request_translator: Optional[pulumi.Input[str]] = None,
+                 response_translator: Optional[pulumi.Input[str]] = None,
                  return_behavior: Optional[pulumi.Input[str]] = None,
                  return_null_allowed: Optional[pulumi.Input[bool]] = None,
                  return_type: Optional[pulumi.Input[str]] = None,
@@ -685,6 +755,8 @@ class ExternalFunction(pulumi.CustomResource):
             __props__.__dict__["max_batch_rows"] = max_batch_rows
             __props__.__dict__["name"] = name
             __props__.__dict__["null_input_behavior"] = null_input_behavior
+            __props__.__dict__["request_translator"] = request_translator
+            __props__.__dict__["response_translator"] = response_translator
             if return_behavior is None and not opts.urn:
                 raise TypeError("Missing required property 'return_behavior'")
             __props__.__dict__["return_behavior"] = return_behavior
@@ -720,6 +792,8 @@ class ExternalFunction(pulumi.CustomResource):
             max_batch_rows: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             null_input_behavior: Optional[pulumi.Input[str]] = None,
+            request_translator: Optional[pulumi.Input[str]] = None,
+            response_translator: Optional[pulumi.Input[str]] = None,
             return_behavior: Optional[pulumi.Input[str]] = None,
             return_null_allowed: Optional[pulumi.Input[bool]] = None,
             return_type: Optional[pulumi.Input[str]] = None,
@@ -743,6 +817,8 @@ class ExternalFunction(pulumi.CustomResource):
         :param pulumi.Input[int] max_batch_rows: This specifies the maximum number of rows in each batch sent to the proxy service.
         :param pulumi.Input[str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the external function when called with null inputs.
+        :param pulumi.Input[str] request_translator: This specifies the name of the request translator function
+        :param pulumi.Input[str] response_translator: This specifies the name of the response translator function.
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
         :param pulumi.Input[bool] return_null_allowed: Indicates whether the function can return NULL values or must return only NON-NULL values.
         :param pulumi.Input[str] return_type: Specifies the data type returned by the external function.
@@ -764,6 +840,8 @@ class ExternalFunction(pulumi.CustomResource):
         __props__.__dict__["max_batch_rows"] = max_batch_rows
         __props__.__dict__["name"] = name
         __props__.__dict__["null_input_behavior"] = null_input_behavior
+        __props__.__dict__["request_translator"] = request_translator
+        __props__.__dict__["response_translator"] = response_translator
         __props__.__dict__["return_behavior"] = return_behavior
         __props__.__dict__["return_null_allowed"] = return_null_allowed
         __props__.__dict__["return_type"] = return_type
@@ -858,6 +936,22 @@ class ExternalFunction(pulumi.CustomResource):
         Specifies the behavior of the external function when called with null inputs.
         """
         return pulumi.get(self, "null_input_behavior")
+
+    @property
+    @pulumi.getter(name="requestTranslator")
+    def request_translator(self) -> pulumi.Output[Optional[str]]:
+        """
+        This specifies the name of the request translator function
+        """
+        return pulumi.get(self, "request_translator")
+
+    @property
+    @pulumi.getter(name="responseTranslator")
+    def response_translator(self) -> pulumi.Output[Optional[str]]:
+        """
+        This specifies the name of the response translator function.
+        """
+        return pulumi.get(self, "response_translator")
 
     @property
     @pulumi.getter(name="returnBehavior")

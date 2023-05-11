@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *         var fromShare = new Database(&#34;fromShare&#34;, DatabaseArgs.builder()        
  *             .comment(&#34;test comment&#34;)
  *             .fromShare(Map.ofEntries(
- *                 Map.entry(&#34;provider&#34;, &#34;org1\&#34;.\&#34;account1&#34;),
+ *                 Map.entry(&#34;provider&#34;, &#34;org1.account1&#34;),
  *                 Map.entry(&#34;share&#34;, &#34;share1&#34;)
  *             ))
  *             .build());

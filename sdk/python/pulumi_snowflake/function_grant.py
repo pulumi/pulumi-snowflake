@@ -19,6 +19,7 @@ class FunctionGrantArgs:
                  argument_data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
+                 on_all: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
@@ -32,7 +33,8 @@ class FunctionGrantArgs:
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] function_name: The name of the function on which to grant privileges immediately (only valid if on_future is false).
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
+        :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all functions in the given schema. When this is true and no schema*name is provided apply this grant on all functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future functions on which to grant privileges.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on_future is false).
@@ -46,6 +48,8 @@ class FunctionGrantArgs:
             pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
         if function_name is not None:
             pulumi.set(__self__, "function_name", function_name)
+        if on_all is not None:
+            pulumi.set(__self__, "on_all", on_all)
         if on_future is not None:
             pulumi.set(__self__, "on_future", on_future)
         if privilege is not None:
@@ -119,10 +123,22 @@ class FunctionGrantArgs:
         pulumi.set(self, "function_name", value)
 
     @property
+    @pulumi.getter(name="onAll")
+    def on_all(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When this is set to true and a schema*name is provided, apply this grant on all functions in the given schema. When this is true and no schema*name is provided apply this grant on all functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+        """
+        return pulumi.get(self, "on_all")
+
+    @on_all.setter
+    def on_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "on_all", value)
+
+    @property
     @pulumi.getter(name="onFuture")
     def on_future(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
+        When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
         """
         return pulumi.get(self, "on_future")
 
@@ -186,6 +202,7 @@ class _FunctionGrantState:
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
+                 on_all: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -199,7 +216,8 @@ class _FunctionGrantState:
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] function_name: The name of the function on which to grant privileges immediately (only valid if on_future is false).
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
+        :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all functions in the given schema. When this is true and no schema*name is provided apply this grant on all functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future functions on which to grant privileges.
@@ -214,6 +232,8 @@ class _FunctionGrantState:
             pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
         if function_name is not None:
             pulumi.set(__self__, "function_name", function_name)
+        if on_all is not None:
+            pulumi.set(__self__, "on_all", on_all)
         if on_future is not None:
             pulumi.set(__self__, "on_future", on_future)
         if privilege is not None:
@@ -277,10 +297,22 @@ class _FunctionGrantState:
         pulumi.set(self, "function_name", value)
 
     @property
+    @pulumi.getter(name="onAll")
+    def on_all(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When this is set to true and a schema*name is provided, apply this grant on all functions in the given schema. When this is true and no schema*name is provided apply this grant on all functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+        """
+        return pulumi.get(self, "on_all")
+
+    @on_all.setter
+    def on_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "on_all", value)
+
+    @property
     @pulumi.getter(name="onFuture")
     def on_future(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
+        When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
         """
         return pulumi.get(self, "on_future")
 
@@ -358,6 +390,7 @@ class FunctionGrant(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
+                 on_all: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -408,7 +441,8 @@ class FunctionGrant(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] function_name: The name of the function on which to grant privileges immediately (only valid if on_future is false).
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
+        :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all functions in the given schema. When this is true and no schema*name is provided apply this grant on all functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future functions on which to grant privileges.
@@ -476,6 +510,7 @@ class FunctionGrant(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
+                 on_all: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -497,6 +532,7 @@ class FunctionGrant(pulumi.CustomResource):
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["enable_multiple_grants"] = enable_multiple_grants
             __props__.__dict__["function_name"] = function_name
+            __props__.__dict__["on_all"] = on_all
             __props__.__dict__["on_future"] = on_future
             __props__.__dict__["privilege"] = privilege
             if roles is None and not opts.urn:
@@ -519,6 +555,7 @@ class FunctionGrant(pulumi.CustomResource):
             database_name: Optional[pulumi.Input[str]] = None,
             enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
             function_name: Optional[pulumi.Input[str]] = None,
+            on_all: Optional[pulumi.Input[bool]] = None,
             on_future: Optional[pulumi.Input[bool]] = None,
             privilege: Optional[pulumi.Input[str]] = None,
             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -537,7 +574,8 @@ class FunctionGrant(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] function_name: The name of the function on which to grant privileges immediately (only valid if on_future is false).
-        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
+        :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all functions in the given schema. When this is true and no schema*name is provided apply this grant on all functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+        :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future functions on which to grant privileges.
@@ -552,6 +590,7 @@ class FunctionGrant(pulumi.CustomResource):
         __props__.__dict__["database_name"] = database_name
         __props__.__dict__["enable_multiple_grants"] = enable_multiple_grants
         __props__.__dict__["function_name"] = function_name
+        __props__.__dict__["on_all"] = on_all
         __props__.__dict__["on_future"] = on_future
         __props__.__dict__["privilege"] = privilege
         __props__.__dict__["roles"] = roles
@@ -594,10 +633,18 @@ class FunctionGrant(pulumi.CustomResource):
         return pulumi.get(self, "function_name")
 
     @property
+    @pulumi.getter(name="onAll")
+    def on_all(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When this is set to true and a schema*name is provided, apply this grant on all functions in the given schema. When this is true and no schema*name is provided apply this grant on all functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+        """
+        return pulumi.get(self, "on_all")
+
+    @property
     @pulumi.getter(name="onFuture")
     def on_future(self) -> pulumi.Output[Optional[bool]]:
         """
-        When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
+        When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
         """
         return pulumi.get(self, "on_future")
 

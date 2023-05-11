@@ -71,7 +71,11 @@ export class SequenceGrant extends pulumi.CustomResource {
      */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future.
+     * When this is set to true and a schema*name is provided, apply this grant on all sequences in the given schema. When this is true and no schema*name is provided apply this grant on all sequences in the given database. The sequence*name field must be unset in order to use on*all. Cannot be used together with on_future.
+     */
+    public readonly onAll!: pulumi.Output<boolean | undefined>;
+    /**
+     * When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future. Cannot be used together with on_all.
      */
     public readonly onFuture!: pulumi.Output<boolean | undefined>;
     /**
@@ -110,6 +114,7 @@ export class SequenceGrant extends pulumi.CustomResource {
             const state = argsOrState as SequenceGrantState | undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
             resourceInputs["enableMultipleGrants"] = state ? state.enableMultipleGrants : undefined;
+            resourceInputs["onAll"] = state ? state.onAll : undefined;
             resourceInputs["onFuture"] = state ? state.onFuture : undefined;
             resourceInputs["privilege"] = state ? state.privilege : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
@@ -126,6 +131,7 @@ export class SequenceGrant extends pulumi.CustomResource {
             }
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["enableMultipleGrants"] = args ? args.enableMultipleGrants : undefined;
+            resourceInputs["onAll"] = args ? args.onAll : undefined;
             resourceInputs["onFuture"] = args ? args.onFuture : undefined;
             resourceInputs["privilege"] = args ? args.privilege : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
@@ -152,7 +158,11 @@ export interface SequenceGrantState {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future.
+     * When this is set to true and a schema*name is provided, apply this grant on all sequences in the given schema. When this is true and no schema*name is provided apply this grant on all sequences in the given database. The sequence*name field must be unset in order to use on*all. Cannot be used together with on_future.
+     */
+    onAll?: pulumi.Input<boolean>;
+    /**
+     * When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future. Cannot be used together with on_all.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
@@ -191,7 +201,11 @@ export interface SequenceGrantArgs {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future.
+     * When this is set to true and a schema*name is provided, apply this grant on all sequences in the given schema. When this is true and no schema*name is provided apply this grant on all sequences in the given database. The sequence*name field must be unset in order to use on*all. Cannot be used together with on_future.
+     */
+    onAll?: pulumi.Input<boolean>;
+    /**
+     * When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future. Cannot be used together with on_all.
      */
     onFuture?: pulumi.Input<boolean>;
     /**

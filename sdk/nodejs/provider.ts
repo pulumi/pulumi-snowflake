@@ -26,7 +26,8 @@ export class Provider extends pulumi.ProviderResource {
     }
 
     /**
-     * The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+     * The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+     * using profile.
      */
     public readonly account!: pulumi.Output<string | undefined>;
     /**
@@ -83,6 +84,10 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly privateKeyPath!: pulumi.Output<string | undefined>;
     /**
+     * Sets the profile to read from ~/.snowflake/config file.
+     */
+    public readonly profile!: pulumi.Output<string | undefined>;
+    /**
      * Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
      */
     public readonly protocol!: pulumi.Output<string | undefined>;
@@ -99,7 +104,8 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly role!: pulumi.Output<string | undefined>;
     /**
-     * Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+     * Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+     * using profile.
      */
     public readonly username!: pulumi.Output<string | undefined>;
     /**
@@ -133,6 +139,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
             resourceInputs["privateKeyPassphrase"] = (args?.privateKeyPassphrase ? pulumi.secret(args.privateKeyPassphrase) : undefined) ?? utilities.getEnv("SNOWFLAKE_PRIVATE_KEY_PASSPHRASE");
             resourceInputs["privateKeyPath"] = (args?.privateKeyPath ? pulumi.secret(args.privateKeyPath) : undefined) ?? utilities.getEnv("SNOWFLAKE_PRIVATE_KEY_PATH");
+            resourceInputs["profile"] = args ? args.profile : undefined;
             resourceInputs["protocol"] = (args ? args.protocol : undefined) ?? utilities.getEnv("SNOWFLAKE_PROTOCOL");
             resourceInputs["region"] = (args ? args.region : undefined) ?? utilities.getEnv("SNOWFLAKE_REGION");
             resourceInputs["role"] = (args ? args.role : undefined) ?? utilities.getEnv("SNOWFLAKE_ROLE");
@@ -151,7 +158,8 @@ export class Provider extends pulumi.ProviderResource {
  */
 export interface ProviderArgs {
     /**
-     * The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+     * The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+     * using profile.
      */
     account?: pulumi.Input<string>;
     /**
@@ -222,6 +230,10 @@ export interface ProviderArgs {
      */
     privateKeyPath?: pulumi.Input<string>;
     /**
+     * Sets the profile to read from ~/.snowflake/config file.
+     */
+    profile?: pulumi.Input<string>;
+    /**
      * Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
      */
     protocol?: pulumi.Input<string>;
@@ -238,7 +250,8 @@ export interface ProviderArgs {
      */
     role?: pulumi.Input<string>;
     /**
-     * Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+     * Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+     * using profile.
      */
     username?: pulumi.Input<string>;
     /**

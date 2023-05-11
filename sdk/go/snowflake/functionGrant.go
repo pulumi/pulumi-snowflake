@@ -75,7 +75,9 @@ type FunctionGrant struct {
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// The name of the function on which to grant privileges immediately (only valid if onFuture is false).
 	FunctionName pulumi.StringPtrOutput `pulumi:"functionName"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all functions in the given schema. When this is true and no schema*name is provided apply this grant on all functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+	OnAll pulumi.BoolPtrOutput `pulumi:"onAll"`
+	// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
 	// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
@@ -133,7 +135,9 @@ type functionGrantState struct {
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// The name of the function on which to grant privileges immediately (only valid if onFuture is false).
 	FunctionName *string `pulumi:"functionName"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all functions in the given schema. When this is true and no schema*name is provided apply this grant on all functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+	OnAll *bool `pulumi:"onAll"`
+	// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
 	Privilege *string `pulumi:"privilege"`
@@ -157,7 +161,9 @@ type FunctionGrantState struct {
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// The name of the function on which to grant privileges immediately (only valid if onFuture is false).
 	FunctionName pulumi.StringPtrInput
-	// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all functions in the given schema. When this is true and no schema*name is provided apply this grant on all functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+	OnAll pulumi.BoolPtrInput
+	// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
 	Privilege pulumi.StringPtrInput
@@ -185,7 +191,9 @@ type functionGrantArgs struct {
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// The name of the function on which to grant privileges immediately (only valid if onFuture is false).
 	FunctionName *string `pulumi:"functionName"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all functions in the given schema. When this is true and no schema*name is provided apply this grant on all functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+	OnAll *bool `pulumi:"onAll"`
+	// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
 	Privilege *string `pulumi:"privilege"`
@@ -210,7 +218,9 @@ type FunctionGrantArgs struct {
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// The name of the function on which to grant privileges immediately (only valid if onFuture is false).
 	FunctionName pulumi.StringPtrInput
-	// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all functions in the given schema. When this is true and no schema*name is provided apply this grant on all functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+	OnAll pulumi.BoolPtrInput
+	// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
 	Privilege pulumi.StringPtrInput
@@ -332,7 +342,12 @@ func (o FunctionGrantOutput) FunctionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionGrant) pulumi.StringPtrOutput { return v.FunctionName }).(pulumi.StringPtrOutput)
 }
 
-// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on_future.
+// When this is set to true and a schema*name is provided, apply this grant on all functions in the given schema. When this is true and no schema*name is provided apply this grant on all functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+func (o FunctionGrantOutput) OnAll() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FunctionGrant) pulumi.BoolPtrOutput { return v.OnAll }).(pulumi.BoolPtrOutput)
+}
+
+// When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
 func (o FunctionGrantOutput) OnFuture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FunctionGrant) pulumi.BoolPtrOutput { return v.OnFuture }).(pulumi.BoolPtrOutput)
 }

@@ -18,7 +18,8 @@ class _ExportableConfig(types.ModuleType):
     @property
     def account(self) -> Optional[str]:
         """
-        The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+        The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+        using profile.
         """
         return __config__.get('account') or _utilities.get_env('SNOWFLAKE_ACCOUNT')
 
@@ -132,6 +133,13 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('privateKeyPath') or _utilities.get_env('SNOWFLAKE_PRIVATE_KEY_PATH')
 
     @property
+    def profile(self) -> Optional[str]:
+        """
+        Sets the profile to read from ~/.snowflake/config file.
+        """
+        return __config__.get('profile')
+
+    @property
     def protocol(self) -> Optional[str]:
         """
         Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
@@ -159,7 +167,8 @@ class _ExportableConfig(types.ModuleType):
     @property
     def username(self) -> Optional[str]:
         """
-        Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+        Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+        using profile.
         """
         return __config__.get('username') or _utilities.get_env('SNOWFLAKE_USER')
 

@@ -69,7 +69,7 @@ export class TableGrant extends pulumi.CustomResource {
      */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+     * When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
      */
     public readonly onAll!: pulumi.Output<boolean | undefined>;
     /**
@@ -159,7 +159,7 @@ export interface TableGrantState {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+     * When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
      */
     onAll?: pulumi.Input<boolean>;
     /**
@@ -206,7 +206,7 @@ export interface TableGrantArgs {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+     * When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
      */
     onAll?: pulumi.Input<boolean>;
     /**

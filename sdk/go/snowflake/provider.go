@@ -17,7 +17,8 @@ import (
 type Provider struct {
 	pulumi.ProviderResourceState
 
-	// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+	// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+	// using profile.
 	Account pulumi.StringPtrOutput `pulumi:"account"`
 	// Supports passing in a custom host value to the snowflake go driver for use with privatelink.
 	Host pulumi.StringPtrOutput `pulumi:"host"`
@@ -50,6 +51,8 @@ type Provider struct {
 	// Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
 	// `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
 	PrivateKeyPath pulumi.StringPtrOutput `pulumi:"privateKeyPath"`
+	// Sets the profile to read from ~/.snowflake/config file.
+	Profile pulumi.StringPtrOutput `pulumi:"profile"`
 	// Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
 	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
 	// [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
@@ -60,7 +63,8 @@ type Provider struct {
 	// Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
 	// `SNOWFLAKE_ROLE` environment variable.
 	Role pulumi.StringPtrOutput `pulumi:"role"`
-	// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+	// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+	// using profile.
 	Username pulumi.StringPtrOutput `pulumi:"username"`
 	// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
 	Warehouse pulumi.StringPtrOutput `pulumi:"warehouse"`
@@ -179,7 +183,8 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+	// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+	// using profile.
 	Account *string `pulumi:"account"`
 	// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
 	BrowserAuth *bool `pulumi:"browserAuth"`
@@ -220,6 +225,8 @@ type providerArgs struct {
 	// Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
 	// `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
 	PrivateKeyPath *string `pulumi:"privateKeyPath"`
+	// Sets the profile to read from ~/.snowflake/config file.
+	Profile *string `pulumi:"profile"`
 	// Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
 	Protocol *string `pulumi:"protocol"`
 	// [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
@@ -230,7 +237,8 @@ type providerArgs struct {
 	// Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
 	// `SNOWFLAKE_ROLE` environment variable.
 	Role *string `pulumi:"role"`
-	// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+	// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+	// using profile.
 	Username *string `pulumi:"username"`
 	// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
 	Warehouse *string `pulumi:"warehouse"`
@@ -238,7 +246,8 @@ type providerArgs struct {
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+	// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+	// using profile.
 	Account pulumi.StringPtrInput
 	// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
 	BrowserAuth pulumi.BoolPtrInput
@@ -279,6 +288,8 @@ type ProviderArgs struct {
 	// Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
 	// `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
 	PrivateKeyPath pulumi.StringPtrInput
+	// Sets the profile to read from ~/.snowflake/config file.
+	Profile pulumi.StringPtrInput
 	// Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
 	Protocol pulumi.StringPtrInput
 	// [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
@@ -289,7 +300,8 @@ type ProviderArgs struct {
 	// Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
 	// `SNOWFLAKE_ROLE` environment variable.
 	Role pulumi.StringPtrInput
-	// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+	// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+	// using profile.
 	Username pulumi.StringPtrInput
 	// Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
 	Warehouse pulumi.StringPtrInput
@@ -332,7 +344,8 @@ func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) Provide
 	return o
 }
 
-// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+// using profile.
 func (o ProviderOutput) Account() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Account }).(pulumi.StringPtrOutput)
 }
@@ -401,6 +414,11 @@ func (o ProviderOutput) PrivateKeyPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.PrivateKeyPath }).(pulumi.StringPtrOutput)
 }
 
+// Sets the profile to read from ~/.snowflake/config file.
+func (o ProviderOutput) Profile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Profile }).(pulumi.StringPtrOutput)
+}
+
 // Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
 func (o ProviderOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Protocol }).(pulumi.StringPtrOutput)
@@ -420,7 +438,8 @@ func (o ProviderOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Role }).(pulumi.StringPtrOutput)
 }
 
-// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+// using profile.
 func (o ProviderOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
 }

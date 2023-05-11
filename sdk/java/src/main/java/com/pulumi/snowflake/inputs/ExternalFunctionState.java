@@ -186,6 +186,36 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * This specifies the name of the request translator function
+     * 
+     */
+    @Import(name="requestTranslator")
+    private @Nullable Output<String> requestTranslator;
+
+    /**
+     * @return This specifies the name of the request translator function
+     * 
+     */
+    public Optional<Output<String>> requestTranslator() {
+        return Optional.ofNullable(this.requestTranslator);
+    }
+
+    /**
+     * This specifies the name of the response translator function.
+     * 
+     */
+    @Import(name="responseTranslator")
+    private @Nullable Output<String> responseTranslator;
+
+    /**
+     * @return This specifies the name of the response translator function.
+     * 
+     */
+    public Optional<Output<String>> responseTranslator() {
+        return Optional.ofNullable(this.responseTranslator);
+    }
+
+    /**
      * Specifies the behavior of the function when returning results
      * 
      */
@@ -274,6 +304,8 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         this.maxBatchRows = $.maxBatchRows;
         this.name = $.name;
         this.nullInputBehavior = $.nullInputBehavior;
+        this.requestTranslator = $.requestTranslator;
+        this.responseTranslator = $.responseTranslator;
         this.returnBehavior = $.returnBehavior;
         this.returnNullAllowed = $.returnNullAllowed;
         this.returnType = $.returnType;
@@ -558,6 +590,48 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
          */
         public Builder nullInputBehavior(String nullInputBehavior) {
             return nullInputBehavior(Output.of(nullInputBehavior));
+        }
+
+        /**
+         * @param requestTranslator This specifies the name of the request translator function
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestTranslator(@Nullable Output<String> requestTranslator) {
+            $.requestTranslator = requestTranslator;
+            return this;
+        }
+
+        /**
+         * @param requestTranslator This specifies the name of the request translator function
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestTranslator(String requestTranslator) {
+            return requestTranslator(Output.of(requestTranslator));
+        }
+
+        /**
+         * @param responseTranslator This specifies the name of the response translator function.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder responseTranslator(@Nullable Output<String> responseTranslator) {
+            $.responseTranslator = responseTranslator;
+            return this;
+        }
+
+        /**
+         * @param responseTranslator This specifies the name of the response translator function.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder responseTranslator(String responseTranslator) {
+            return responseTranslator(Output.of(responseTranslator));
         }
 
         /**

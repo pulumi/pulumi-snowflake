@@ -66,7 +66,7 @@ type SchemaGrant struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
-	// When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+	// When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll pulumi.BoolPtrOutput `pulumi:"onAll"`
 	// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
@@ -120,7 +120,7 @@ type schemaGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+	// When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll *bool `pulumi:"onAll"`
 	// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture *bool `pulumi:"onFuture"`
@@ -143,7 +143,7 @@ type SchemaGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+	// When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll pulumi.BoolPtrInput
 	// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture pulumi.BoolPtrInput
@@ -170,7 +170,7 @@ type schemaGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+	// When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll *bool `pulumi:"onAll"`
 	// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture *bool `pulumi:"onFuture"`
@@ -194,7 +194,7 @@ type SchemaGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+	// When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll pulumi.BoolPtrInput
 	// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture pulumi.BoolPtrInput
@@ -309,7 +309,7 @@ func (o SchemaGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SchemaGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }
 
-// When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+// When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
 func (o SchemaGrantOutput) OnAll() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SchemaGrant) pulumi.BoolPtrOutput { return v.OnAll }).(pulumi.BoolPtrOutput)
 }

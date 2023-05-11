@@ -22,6 +22,8 @@ __all__ = [
     'FailoverGroupReplicationScheduleArgs',
     'FailoverGroupReplicationScheduleCronArgs',
     'FunctionArgumentArgs',
+    'MaskingPolicySignatureArgs',
+    'MaskingPolicySignatureColumnArgs',
     'MaterializedViewTagArgs',
     'ObjectParameterObjectIdentifierArgs',
     'ProcedureArgumentArgs',
@@ -553,6 +555,55 @@ class FunctionArgumentArgs:
         """
         The argument type
         """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class MaskingPolicySignatureArgs:
+    def __init__(__self__, *,
+                 columns: pulumi.Input[Sequence[pulumi.Input['MaskingPolicySignatureColumnArgs']]]):
+        pulumi.set(__self__, "columns", columns)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> pulumi.Input[Sequence[pulumi.Input['MaskingPolicySignatureColumnArgs']]]:
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: pulumi.Input[Sequence[pulumi.Input['MaskingPolicySignatureColumnArgs']]]):
+        pulumi.set(self, "columns", value)
+
+
+@pulumi.input_type
+class MaskingPolicySignatureColumnArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
         return pulumi.get(self, "type")
 
     @type.setter

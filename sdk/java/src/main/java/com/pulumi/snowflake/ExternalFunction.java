@@ -231,6 +231,34 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.nullInputBehavior);
     }
     /**
+     * This specifies the name of the request translator function
+     * 
+     */
+    @Export(name="requestTranslator", type=String.class, parameters={})
+    private Output</* @Nullable */ String> requestTranslator;
+
+    /**
+     * @return This specifies the name of the request translator function
+     * 
+     */
+    public Output<Optional<String>> requestTranslator() {
+        return Codegen.optional(this.requestTranslator);
+    }
+    /**
+     * This specifies the name of the response translator function.
+     * 
+     */
+    @Export(name="responseTranslator", type=String.class, parameters={})
+    private Output</* @Nullable */ String> responseTranslator;
+
+    /**
+     * @return This specifies the name of the response translator function.
+     * 
+     */
+    public Output<Optional<String>> responseTranslator() {
+        return Codegen.optional(this.responseTranslator);
+    }
+    /**
      * Specifies the behavior of the function when returning results
      * 
      */

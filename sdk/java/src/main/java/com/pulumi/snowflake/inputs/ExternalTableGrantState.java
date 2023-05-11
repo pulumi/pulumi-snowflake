@@ -65,14 +65,29 @@ public final class ExternalTableGrantState extends com.pulumi.resources.Resource
     }
 
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all external tables in the given schema. When this is true and no schema*name is provided apply this grant on all external tables in the given database. The external*table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+     * 
+     */
+    @Import(name="onAll")
+    private @Nullable Output<Boolean> onAll;
+
+    /**
+     * @return When this is set to true and a schema*name is provided, apply this grant on all external tables in the given schema. When this is true and no schema*name is provided apply this grant on all external tables in the given database. The external*table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+     * 
+     */
+    public Optional<Output<Boolean>> onAll() {
+        return Optional.ofNullable(this.onAll);
+    }
+
+    /**
+     * When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
      * 
      */
     @Import(name="onFuture")
     private @Nullable Output<Boolean> onFuture;
 
     /**
-     * @return When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
+     * @return When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
      * 
      */
     public Optional<Output<Boolean>> onFuture() {
@@ -160,6 +175,7 @@ public final class ExternalTableGrantState extends com.pulumi.resources.Resource
         this.databaseName = $.databaseName;
         this.enableMultipleGrants = $.enableMultipleGrants;
         this.externalTableName = $.externalTableName;
+        this.onAll = $.onAll;
         this.onFuture = $.onFuture;
         this.privilege = $.privilege;
         this.roles = $.roles;
@@ -252,7 +268,28 @@ public final class ExternalTableGrantState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param onFuture When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
+         * @param onAll When this is set to true and a schema*name is provided, apply this grant on all external tables in the given schema. When this is true and no schema*name is provided apply this grant on all external tables in the given database. The external*table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onAll(@Nullable Output<Boolean> onAll) {
+            $.onAll = onAll;
+            return this;
+        }
+
+        /**
+         * @param onAll When this is set to true and a schema*name is provided, apply this grant on all external tables in the given schema. When this is true and no schema*name is provided apply this grant on all external tables in the given database. The external*table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onAll(Boolean onAll) {
+            return onAll(Output.of(onAll));
+        }
+
+        /**
+         * @param onFuture When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
          * 
          * @return builder
          * 
@@ -263,7 +300,7 @@ public final class ExternalTableGrantState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param onFuture When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
+         * @param onFuture When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
          * 
          * @return builder
          * 

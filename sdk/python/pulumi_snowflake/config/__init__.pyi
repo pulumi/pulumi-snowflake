@@ -11,7 +11,8 @@ from .. import _utilities
 
 account: Optional[str]
 """
-The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+using profile.
 """
 
 browserAuth: Optional[bool]
@@ -95,6 +96,11 @@ Path to a private key for using keypair authentication. Cannot be used with `bro
 `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
 """
 
+profile: Optional[str]
+"""
+Sets the profile to read from ~/.snowflake/config file.
+"""
+
 protocol: Optional[str]
 """
 Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
@@ -116,7 +122,8 @@ Snowflake role to use for operations. If left unset, default role for user will 
 
 username: Optional[str]
 """
-Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+using profile.
 """
 
 warehouse: Optional[str]

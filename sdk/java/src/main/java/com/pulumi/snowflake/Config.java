@@ -13,11 +13,12 @@ public final class Config {
 
     private static final com.pulumi.Config config = com.pulumi.Config.of("snowflake");
 /**
- * The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+ * The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+ * using profile.
  * 
  */
-    public String account() {
-        return Codegen.stringProp("account").config(config).env("SNOWFLAKE_ACCOUNT").require();
+    public Optional<String> account() {
+        return Codegen.stringProp("account").config(config).env("SNOWFLAKE_ACCOUNT").get();
     }
 /**
  * Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
@@ -129,6 +130,13 @@ public final class Config {
         return Codegen.stringProp("privateKeyPath").config(config).env("SNOWFLAKE_PRIVATE_KEY_PATH").get();
     }
 /**
+ * Sets the profile to read from ~/.snowflake/config file.
+ * 
+ */
+    public Optional<String> profile() {
+        return Codegen.stringProp("profile").config(config).get();
+    }
+/**
  * Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
  * 
  */
@@ -154,11 +162,12 @@ public final class Config {
         return Codegen.stringProp("role").config(config).env("SNOWFLAKE_ROLE").get();
     }
 /**
- * Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+ * Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+ * using profile.
  * 
  */
-    public String username() {
-        return Codegen.stringProp("username").config(config).env("SNOWFLAKE_USER").require();
+    public Optional<String> username() {
+        return Codegen.stringProp("username").config(config).env("SNOWFLAKE_USER").get();
     }
 /**
  * Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.

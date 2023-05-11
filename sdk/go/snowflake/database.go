@@ -55,7 +55,7 @@ import (
 //			_, err = snowflake.NewDatabase(ctx, "fromShare", &snowflake.DatabaseArgs{
 //				Comment: pulumi.String("test comment"),
 //				FromShare: pulumi.StringMap{
-//					"provider": pulumi.String("org1\".\"account1"),
+//					"provider": pulumi.String("org1.account1"),
 //					"share":    pulumi.String("share1"),
 //				},
 //			})

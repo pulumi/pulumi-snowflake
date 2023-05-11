@@ -74,7 +74,7 @@ export class SchemaGrant extends pulumi.CustomResource {
      */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
-     * When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+     * When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
      */
     public readonly onAll!: pulumi.Output<boolean | undefined>;
     /**
@@ -159,7 +159,7 @@ export interface SchemaGrantState {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+     * When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
      */
     onAll?: pulumi.Input<boolean>;
     /**
@@ -203,7 +203,7 @@ export interface SchemaGrantArgs {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+     * When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
      */
     onAll?: pulumi.Input<boolean>;
     /**

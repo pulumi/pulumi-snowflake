@@ -79,7 +79,11 @@ export class ExternalTableGrant extends pulumi.CustomResource {
      */
     public readonly externalTableName!: pulumi.Output<string | undefined>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all external tables in the given schema. When this is true and no schema*name is provided apply this grant on all external tables in the given database. The external*table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+     */
+    public readonly onAll!: pulumi.Output<boolean | undefined>;
+    /**
+     * When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
      */
     public readonly onFuture!: pulumi.Output<boolean | undefined>;
     /**
@@ -119,6 +123,7 @@ export class ExternalTableGrant extends pulumi.CustomResource {
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
             resourceInputs["enableMultipleGrants"] = state ? state.enableMultipleGrants : undefined;
             resourceInputs["externalTableName"] = state ? state.externalTableName : undefined;
+            resourceInputs["onAll"] = state ? state.onAll : undefined;
             resourceInputs["onFuture"] = state ? state.onFuture : undefined;
             resourceInputs["privilege"] = state ? state.privilege : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
@@ -136,6 +141,7 @@ export class ExternalTableGrant extends pulumi.CustomResource {
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["enableMultipleGrants"] = args ? args.enableMultipleGrants : undefined;
             resourceInputs["externalTableName"] = args ? args.externalTableName : undefined;
+            resourceInputs["onAll"] = args ? args.onAll : undefined;
             resourceInputs["onFuture"] = args ? args.onFuture : undefined;
             resourceInputs["privilege"] = args ? args.privilege : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
@@ -166,7 +172,11 @@ export interface ExternalTableGrantState {
      */
     externalTableName?: pulumi.Input<string>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all external tables in the given schema. When this is true and no schema*name is provided apply this grant on all external tables in the given database. The external*table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+     */
+    onAll?: pulumi.Input<boolean>;
+    /**
+     * When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
@@ -209,7 +219,11 @@ export interface ExternalTableGrantArgs {
      */
     externalTableName?: pulumi.Input<string>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all external tables in the given schema. When this is true and no schema*name is provided apply this grant on all external tables in the given database. The external*table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+     */
+    onAll?: pulumi.Input<boolean>;
+    /**
+     * When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
      */
     onFuture?: pulumi.Input<boolean>;
     /**

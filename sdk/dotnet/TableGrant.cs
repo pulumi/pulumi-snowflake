@@ -66,7 +66,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> EnableMultipleGrants { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+        /// When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
         /// </summary>
         [Output("onAll")]
         public Output<bool?> OnAll { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+        /// When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
         /// </summary>
         [Input("onAll")]
         public Input<bool>? OnAll { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+        /// When this is set to true and a schema*name is provided, apply this grant on all tables in the given schema. When this is true and no schema*name is provided apply this grant on all tables in the given database. The table*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
         /// </summary>
         [Input("onAll")]
         public Input<bool>? OnAll { get; set; }

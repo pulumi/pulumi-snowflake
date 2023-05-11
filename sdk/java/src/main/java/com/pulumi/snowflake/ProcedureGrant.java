@@ -117,14 +117,28 @@ public class ProcedureGrant extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableMultipleGrants);
     }
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
+     * When this is set to true and a schema*name is provided, apply this grant on all procedures in the given schema. When this is true and no schema*name is provided apply this grant on all procedures in the given database. The procedure*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
+     * 
+     */
+    @Export(name="onAll", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> onAll;
+
+    /**
+     * @return When this is set to true and a schema*name is provided, apply this grant on all procedures in the given schema. When this is true and no schema*name is provided apply this grant on all procedures in the given database. The procedure*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
+     * 
+     */
+    public Output<Optional<Boolean>> onAll() {
+        return Codegen.optional(this.onAll);
+    }
+    /**
+     * When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
      * 
      */
     @Export(name="onFuture", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> onFuture;
 
     /**
-     * @return When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future.
+     * @return When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
      * 
      */
     public Output<Optional<Boolean>> onFuture() {

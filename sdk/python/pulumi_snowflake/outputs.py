@@ -23,6 +23,8 @@ __all__ = [
     'FailoverGroupReplicationSchedule',
     'FailoverGroupReplicationScheduleCron',
     'FunctionArgument',
+    'MaskingPolicySignature',
+    'MaskingPolicySignatureColumn',
     'MaterializedViewTag',
     'ObjectParameterObjectIdentifier',
     'ProcedureArgument',
@@ -40,6 +42,7 @@ __all__ = [
     'UserTag',
     'ViewTag',
     'WarehouseTag',
+    'GetDatabaseRolesDatabaseRoleResult',
     'GetDatabasesDatabaseResult',
     'GetDatabasesDatabaseReplicationConfigurationResult',
     'GetExternalFunctionsExternalFunctionResult',
@@ -551,6 +554,43 @@ class FunctionArgument(dict):
         """
         The argument type
         """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class MaskingPolicySignature(dict):
+    def __init__(__self__, *,
+                 columns: Sequence['outputs.MaskingPolicySignatureColumn']):
+        pulumi.set(__self__, "columns", columns)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Sequence['outputs.MaskingPolicySignatureColumn']:
+        return pulumi.get(self, "columns")
+
+
+@pulumi.output_type
+class MaskingPolicySignatureColumn(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        """
+        :param str name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         return pulumi.get(self, "type")
 
 
@@ -1414,6 +1454,32 @@ class WarehouseTag(dict):
         Name of the schema that the tag was created in.
         """
         return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetDatabaseRolesDatabaseRoleResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 name: str,
+                 owner: str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "owner", owner)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> str:
+        return pulumi.get(self, "owner")
 
 
 @pulumi.output_type

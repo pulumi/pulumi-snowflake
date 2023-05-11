@@ -99,14 +99,14 @@ public class SchemaGrant extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableMultipleGrants);
     }
     /**
-     * When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+     * When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
      * 
      */
     @Export(name="onAll", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> onAll;
 
     /**
-     * @return When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+     * @return When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
      * 
      */
     public Output<Optional<Boolean>> onAll() {

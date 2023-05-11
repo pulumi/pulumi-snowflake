@@ -63,7 +63,7 @@ type StageGrant struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+	// When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll pulumi.BoolPtrOutput `pulumi:"onAll"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
@@ -119,7 +119,7 @@ type stageGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+	// When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll *bool `pulumi:"onAll"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture *bool `pulumi:"onFuture"`
@@ -141,7 +141,7 @@ type StageGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+	// When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll pulumi.BoolPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture pulumi.BoolPtrInput
@@ -167,7 +167,7 @@ type stageGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+	// When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll *bool `pulumi:"onAll"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture *bool `pulumi:"onFuture"`
@@ -190,7 +190,7 @@ type StageGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+	// When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll pulumi.BoolPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all future stages in the given schema. When this is true and no schema*name is provided apply this grant on all future stages in the given database. The stage*name field must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture pulumi.BoolPtrInput
@@ -304,7 +304,7 @@ func (o StageGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StageGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }
 
-// When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+// When this is set to true and a schema*name is provided, apply this grant on all stages in the given schema. When this is true and no schema*name is provided apply this grant on all stages in the given database. The stage*name field must be unset in order to use on*all. Cannot be used together with on_future.
 func (o StageGrantOutput) OnAll() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StageGrant) pulumi.BoolPtrOutput { return v.OnAll }).(pulumi.BoolPtrOutput)
 }

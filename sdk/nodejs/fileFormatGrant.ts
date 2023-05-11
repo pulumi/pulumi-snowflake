@@ -75,7 +75,11 @@ export class FileFormatGrant extends pulumi.CustomResource {
      */
     public readonly fileFormatName!: pulumi.Output<string | undefined>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all file formats in the given schema. When this is true and no schema*name is provided apply this grant on all file formats in the given database. The file*format*name field must be unset in order to use on*all. Cannot be used together with on*future.
+     */
+    public readonly onAll!: pulumi.Output<boolean | undefined>;
+    /**
+     * When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on*future. Cannot be used together with on*all.
      */
     public readonly onFuture!: pulumi.Output<boolean | undefined>;
     /**
@@ -111,6 +115,7 @@ export class FileFormatGrant extends pulumi.CustomResource {
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
             resourceInputs["enableMultipleGrants"] = state ? state.enableMultipleGrants : undefined;
             resourceInputs["fileFormatName"] = state ? state.fileFormatName : undefined;
+            resourceInputs["onAll"] = state ? state.onAll : undefined;
             resourceInputs["onFuture"] = state ? state.onFuture : undefined;
             resourceInputs["privilege"] = state ? state.privilege : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
@@ -127,6 +132,7 @@ export class FileFormatGrant extends pulumi.CustomResource {
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["enableMultipleGrants"] = args ? args.enableMultipleGrants : undefined;
             resourceInputs["fileFormatName"] = args ? args.fileFormatName : undefined;
+            resourceInputs["onAll"] = args ? args.onAll : undefined;
             resourceInputs["onFuture"] = args ? args.onFuture : undefined;
             resourceInputs["privilege"] = args ? args.privilege : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
@@ -156,7 +162,11 @@ export interface FileFormatGrantState {
      */
     fileFormatName?: pulumi.Input<string>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all file formats in the given schema. When this is true and no schema*name is provided apply this grant on all file formats in the given database. The file*format*name field must be unset in order to use on*all. Cannot be used together with on*future.
+     */
+    onAll?: pulumi.Input<boolean>;
+    /**
+     * When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on*future. Cannot be used together with on*all.
      */
     onFuture?: pulumi.Input<boolean>;
     /**
@@ -195,7 +205,11 @@ export interface FileFormatGrantArgs {
      */
     fileFormatName?: pulumi.Input<string>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all file formats in the given schema. When this is true and no schema*name is provided apply this grant on all file formats in the given database. The file*format*name field must be unset in order to use on*all. Cannot be used together with on*future.
+     */
+    onAll?: pulumi.Input<boolean>;
+    /**
+     * When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on*future. Cannot be used together with on*all.
      */
     onFuture?: pulumi.Input<boolean>;
     /**

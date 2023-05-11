@@ -271,6 +271,18 @@ export interface GetGrantsGrantsToArgs {
     user?: pulumi.Input<string>;
 }
 
+export interface MaskingPolicySignature {
+    columns: pulumi.Input<pulumi.Input<inputs.MaskingPolicySignatureColumn>[]>;
+}
+
+export interface MaskingPolicySignatureColumn {
+    /**
+     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+     */
+    name: pulumi.Input<string>;
+    type: pulumi.Input<string>;
+}
+
 export interface MaterializedViewTag {
     /**
      * Name of the database that the tag was created in.

@@ -50,14 +50,14 @@ public final class SchemaGrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+     * When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
      * 
      */
     @Import(name="onAll")
     private @Nullable Output<Boolean> onAll;
 
     /**
-     * @return When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+     * @return When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
      * 
      */
     public Optional<Output<Boolean>> onAll() {
@@ -233,7 +233,7 @@ public final class SchemaGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onAll When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+         * @param onAll When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class SchemaGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onAll When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+         * @param onAll When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
          * 
          * @return builder
          * 
