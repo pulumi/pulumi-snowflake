@@ -19,7 +19,8 @@ namespace Pulumi.Snowflake
     public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
-        /// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+        /// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+        /// using profile.
         /// </summary>
         [Output("account")]
         public Output<string?> Account { get; private set; } = null!;
@@ -100,6 +101,12 @@ namespace Pulumi.Snowflake
         public Output<string?> PrivateKeyPath { get; private set; } = null!;
 
         /// <summary>
+        /// Sets the profile to read from ~/.snowflake/config file.
+        /// </summary>
+        [Output("profile")]
+        public Output<string?> Profile { get; private set; } = null!;
+
+        /// <summary>
         /// Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
         /// </summary>
         [Output("protocol")]
@@ -122,7 +129,8 @@ namespace Pulumi.Snowflake
         public Output<string?> Role { get; private set; } = null!;
 
         /// <summary>
-        /// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+        /// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+        /// using profile.
         /// </summary>
         [Output("username")]
         public Output<string?> Username { get; private set; } = null!;
@@ -175,7 +183,8 @@ namespace Pulumi.Snowflake
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+        /// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+        /// using profile.
         /// </summary>
         [Input("account")]
         public Input<string>? Account { get; set; }
@@ -376,6 +385,12 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
+        /// Sets the profile to read from ~/.snowflake/config file.
+        /// </summary>
+        [Input("profile")]
+        public Input<string>? Profile { get; set; }
+
+        /// <summary>
         /// Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
         /// </summary>
         [Input("protocol")]
@@ -398,7 +413,8 @@ namespace Pulumi.Snowflake
         public Input<string>? Role { get; set; }
 
         /// <summary>
-        /// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+        /// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+        /// using profile.
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }

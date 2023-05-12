@@ -5,6 +5,8 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.snowflake.inputs.MaskingPolicySignatureArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -46,6 +48,36 @@ public final class MaskingPolicyState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+     * 
+     */
+    @Import(name="exemptOtherPolicies")
+    private @Nullable Output<Boolean> exemptOtherPolicies;
+
+    /**
+     * @return Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+     * 
+     */
+    public Optional<Output<Boolean>> exemptOtherPolicies() {
+        return Optional.ofNullable(this.exemptOtherPolicies);
+    }
+
+    /**
+     * Prevent overwriting a previous masking policy with the same name.
+     * 
+     */
+    @Import(name="ifNotExists")
+    private @Nullable Output<Boolean> ifNotExists;
+
+    /**
+     * @return Prevent overwriting a previous masking policy with the same name.
+     * 
+     */
+    public Optional<Output<Boolean>> ifNotExists() {
+        return Optional.ofNullable(this.ifNotExists);
+    }
+
+    /**
      * Specifies the SQL expression that transforms the data.
      * 
      */
@@ -73,6 +105,21 @@ public final class MaskingPolicyState extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Whether to override a previous masking policy with the same name.
+     * 
+     */
+    @Import(name="orReplace")
+    private @Nullable Output<Boolean> orReplace;
+
+    /**
+     * @return Whether to override a previous masking policy with the same name.
+     * 
+     */
+    public Optional<Output<Boolean>> orReplace() {
+        return Optional.ofNullable(this.orReplace);
     }
 
     /**
@@ -121,18 +168,18 @@ public final class MaskingPolicyState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the data type to mask.
+     * The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
      * 
      */
-    @Import(name="valueDataType")
-    private @Nullable Output<String> valueDataType;
+    @Import(name="signature")
+    private @Nullable Output<MaskingPolicySignatureArgs> signature;
 
     /**
-     * @return Specifies the data type to mask.
+     * @return The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
      * 
      */
-    public Optional<Output<String>> valueDataType() {
-        return Optional.ofNullable(this.valueDataType);
+    public Optional<Output<MaskingPolicySignatureArgs>> signature() {
+        return Optional.ofNullable(this.signature);
     }
 
     private MaskingPolicyState() {}
@@ -140,12 +187,15 @@ public final class MaskingPolicyState extends com.pulumi.resources.ResourceArgs 
     private MaskingPolicyState(MaskingPolicyState $) {
         this.comment = $.comment;
         this.database = $.database;
+        this.exemptOtherPolicies = $.exemptOtherPolicies;
+        this.ifNotExists = $.ifNotExists;
         this.maskingExpression = $.maskingExpression;
         this.name = $.name;
+        this.orReplace = $.orReplace;
         this.qualifiedName = $.qualifiedName;
         this.returnDataType = $.returnDataType;
         this.schema = $.schema;
-        this.valueDataType = $.valueDataType;
+        this.signature = $.signature;
     }
 
     public static Builder builder() {
@@ -209,6 +259,48 @@ public final class MaskingPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param exemptOtherPolicies Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exemptOtherPolicies(@Nullable Output<Boolean> exemptOtherPolicies) {
+            $.exemptOtherPolicies = exemptOtherPolicies;
+            return this;
+        }
+
+        /**
+         * @param exemptOtherPolicies Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exemptOtherPolicies(Boolean exemptOtherPolicies) {
+            return exemptOtherPolicies(Output.of(exemptOtherPolicies));
+        }
+
+        /**
+         * @param ifNotExists Prevent overwriting a previous masking policy with the same name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ifNotExists(@Nullable Output<Boolean> ifNotExists) {
+            $.ifNotExists = ifNotExists;
+            return this;
+        }
+
+        /**
+         * @param ifNotExists Prevent overwriting a previous masking policy with the same name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ifNotExists(Boolean ifNotExists) {
+            return ifNotExists(Output.of(ifNotExists));
+        }
+
+        /**
          * @param maskingExpression Specifies the SQL expression that transforms the data.
          * 
          * @return builder
@@ -248,6 +340,27 @@ public final class MaskingPolicyState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param orReplace Whether to override a previous masking policy with the same name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder orReplace(@Nullable Output<Boolean> orReplace) {
+            $.orReplace = orReplace;
+            return this;
+        }
+
+        /**
+         * @param orReplace Whether to override a previous masking policy with the same name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder orReplace(Boolean orReplace) {
+            return orReplace(Output.of(orReplace));
         }
 
         /**
@@ -314,24 +427,24 @@ public final class MaskingPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param valueDataType Specifies the data type to mask.
+         * @param signature The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
          * 
          * @return builder
          * 
          */
-        public Builder valueDataType(@Nullable Output<String> valueDataType) {
-            $.valueDataType = valueDataType;
+        public Builder signature(@Nullable Output<MaskingPolicySignatureArgs> signature) {
+            $.signature = signature;
             return this;
         }
 
         /**
-         * @param valueDataType Specifies the data type to mask.
+         * @param signature The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
          * 
          * @return builder
          * 
          */
-        public Builder valueDataType(String valueDataType) {
-            return valueDataType(Output.of(valueDataType));
+        public Builder signature(MaskingPolicySignatureArgs signature) {
+            return signature(Output.of(signature));
         }
 
         public MaskingPolicyState build() {

@@ -30,7 +30,7 @@ class MaterializedViewGrantArgs:
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] materialized_view_name: The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
-        :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+        :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future materialized view.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
@@ -99,7 +99,7 @@ class MaterializedViewGrantArgs:
     @pulumi.getter(name="onAll")
     def on_all(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+        When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
         """
         return pulumi.get(self, "on_all")
 
@@ -199,7 +199,7 @@ class _MaterializedViewGrantState:
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] materialized_view_name: The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
-        :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+        :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future materialized view.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
@@ -269,7 +269,7 @@ class _MaterializedViewGrantState:
     @pulumi.getter(name="onAll")
     def on_all(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+        When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
         """
         return pulumi.get(self, "on_all")
 
@@ -404,7 +404,7 @@ class MaterializedViewGrant(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] materialized_view_name: The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
-        :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+        :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future materialized view.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
@@ -527,7 +527,7 @@ class MaterializedViewGrant(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] materialized_view_name: The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
-        :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+        :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all future materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future materialized view.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
@@ -580,7 +580,7 @@ class MaterializedViewGrant(pulumi.CustomResource):
     @pulumi.getter(name="onAll")
     def on_all(self) -> pulumi.Output[Optional[bool]]:
         """
-        When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+        When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
         """
         return pulumi.get(self, "on_all")
 

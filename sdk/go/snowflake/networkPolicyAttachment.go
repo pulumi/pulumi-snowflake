@@ -54,12 +54,7 @@ type NetworkPolicyAttachment struct {
 
 	// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
 	NetworkPolicyName pulumi.StringOutput `pulumi:"networkPolicyName"`
-	// Specifies whether the network policy should be applied globally to your Snowflake account<br><br>**Note:** The Snowflake
-	// user running `terraform apply` must be on an IP address allowed by the network policy to set that policy globally on the
-	// Snowflake account.<br><br>Additionally, a Snowflake account can only have one network policy set globally at any given
-	// time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If
-	// multiple network policy resources have `set_for_account: true`, the final policy set on the account will be
-	// non-deterministic.
+	// Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
 	SetForAccount pulumi.BoolPtrOutput `pulumi:"setForAccount"`
 	// Specifies which users the network policy should be attached to
 	Users pulumi.StringArrayOutput `pulumi:"users"`
@@ -99,12 +94,7 @@ func GetNetworkPolicyAttachment(ctx *pulumi.Context,
 type networkPolicyAttachmentState struct {
 	// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
 	NetworkPolicyName *string `pulumi:"networkPolicyName"`
-	// Specifies whether the network policy should be applied globally to your Snowflake account<br><br>**Note:** The Snowflake
-	// user running `terraform apply` must be on an IP address allowed by the network policy to set that policy globally on the
-	// Snowflake account.<br><br>Additionally, a Snowflake account can only have one network policy set globally at any given
-	// time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If
-	// multiple network policy resources have `set_for_account: true`, the final policy set on the account will be
-	// non-deterministic.
+	// Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
 	SetForAccount *bool `pulumi:"setForAccount"`
 	// Specifies which users the network policy should be attached to
 	Users []string `pulumi:"users"`
@@ -113,12 +103,7 @@ type networkPolicyAttachmentState struct {
 type NetworkPolicyAttachmentState struct {
 	// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
 	NetworkPolicyName pulumi.StringPtrInput
-	// Specifies whether the network policy should be applied globally to your Snowflake account<br><br>**Note:** The Snowflake
-	// user running `terraform apply` must be on an IP address allowed by the network policy to set that policy globally on the
-	// Snowflake account.<br><br>Additionally, a Snowflake account can only have one network policy set globally at any given
-	// time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If
-	// multiple network policy resources have `set_for_account: true`, the final policy set on the account will be
-	// non-deterministic.
+	// Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
 	SetForAccount pulumi.BoolPtrInput
 	// Specifies which users the network policy should be attached to
 	Users pulumi.StringArrayInput
@@ -131,12 +116,7 @@ func (NetworkPolicyAttachmentState) ElementType() reflect.Type {
 type networkPolicyAttachmentArgs struct {
 	// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
 	NetworkPolicyName string `pulumi:"networkPolicyName"`
-	// Specifies whether the network policy should be applied globally to your Snowflake account<br><br>**Note:** The Snowflake
-	// user running `terraform apply` must be on an IP address allowed by the network policy to set that policy globally on the
-	// Snowflake account.<br><br>Additionally, a Snowflake account can only have one network policy set globally at any given
-	// time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If
-	// multiple network policy resources have `set_for_account: true`, the final policy set on the account will be
-	// non-deterministic.
+	// Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
 	SetForAccount *bool `pulumi:"setForAccount"`
 	// Specifies which users the network policy should be attached to
 	Users []string `pulumi:"users"`
@@ -146,12 +126,7 @@ type networkPolicyAttachmentArgs struct {
 type NetworkPolicyAttachmentArgs struct {
 	// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
 	NetworkPolicyName pulumi.StringInput
-	// Specifies whether the network policy should be applied globally to your Snowflake account<br><br>**Note:** The Snowflake
-	// user running `terraform apply` must be on an IP address allowed by the network policy to set that policy globally on the
-	// Snowflake account.<br><br>Additionally, a Snowflake account can only have one network policy set globally at any given
-	// time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If
-	// multiple network policy resources have `set_for_account: true`, the final policy set on the account will be
-	// non-deterministic.
+	// Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
 	SetForAccount pulumi.BoolPtrInput
 	// Specifies which users the network policy should be attached to
 	Users pulumi.StringArrayInput
@@ -249,12 +224,7 @@ func (o NetworkPolicyAttachmentOutput) NetworkPolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPolicyAttachment) pulumi.StringOutput { return v.NetworkPolicyName }).(pulumi.StringOutput)
 }
 
-// Specifies whether the network policy should be applied globally to your Snowflake account<br><br>**Note:** The Snowflake
-// user running `terraform apply` must be on an IP address allowed by the network policy to set that policy globally on the
-// Snowflake account.<br><br>Additionally, a Snowflake account can only have one network policy set globally at any given
-// time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If
-// multiple network policy resources have `set_for_account: true`, the final policy set on the account will be
-// non-deterministic.
+// Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
 func (o NetworkPolicyAttachmentOutput) SetForAccount() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NetworkPolicyAttachment) pulumi.BoolPtrOutput { return v.SetForAccount }).(pulumi.BoolPtrOutput)
 }

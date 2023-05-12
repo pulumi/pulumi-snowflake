@@ -348,7 +348,7 @@ class Database(pulumi.CustomResource):
         from_share = snowflake.Database("fromShare",
             comment="test comment",
             from_share={
-                "provider": "org1\\".\\"account1",
+                "provider": "org1.account1",
                 "share": "share1",
             })
         ```
@@ -401,7 +401,7 @@ class Database(pulumi.CustomResource):
         from_share = snowflake.Database("fromShare",
             comment="test comment",
             from_share={
-                "provider": "org1\\".\\"account1",
+                "provider": "org1.account1",
                 "share": "share1",
             })
         ```

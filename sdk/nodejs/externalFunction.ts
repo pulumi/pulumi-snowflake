@@ -114,6 +114,14 @@ export class ExternalFunction extends pulumi.CustomResource {
      */
     public readonly nullInputBehavior!: pulumi.Output<string | undefined>;
     /**
+     * This specifies the name of the request translator function
+     */
+    public readonly requestTranslator!: pulumi.Output<string | undefined>;
+    /**
+     * This specifies the name of the response translator function.
+     */
+    public readonly responseTranslator!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the behavior of the function when returning results
      */
     public readonly returnBehavior!: pulumi.Output<string>;
@@ -158,6 +166,8 @@ export class ExternalFunction extends pulumi.CustomResource {
             resourceInputs["maxBatchRows"] = state ? state.maxBatchRows : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nullInputBehavior"] = state ? state.nullInputBehavior : undefined;
+            resourceInputs["requestTranslator"] = state ? state.requestTranslator : undefined;
+            resourceInputs["responseTranslator"] = state ? state.responseTranslator : undefined;
             resourceInputs["returnBehavior"] = state ? state.returnBehavior : undefined;
             resourceInputs["returnNullAllowed"] = state ? state.returnNullAllowed : undefined;
             resourceInputs["returnType"] = state ? state.returnType : undefined;
@@ -193,6 +203,8 @@ export class ExternalFunction extends pulumi.CustomResource {
             resourceInputs["maxBatchRows"] = args ? args.maxBatchRows : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nullInputBehavior"] = args ? args.nullInputBehavior : undefined;
+            resourceInputs["requestTranslator"] = args ? args.requestTranslator : undefined;
+            resourceInputs["responseTranslator"] = args ? args.responseTranslator : undefined;
             resourceInputs["returnBehavior"] = args ? args.returnBehavior : undefined;
             resourceInputs["returnNullAllowed"] = args ? args.returnNullAllowed : undefined;
             resourceInputs["returnType"] = args ? args.returnType : undefined;
@@ -253,6 +265,14 @@ export interface ExternalFunctionState {
      * Specifies the behavior of the external function when called with null inputs.
      */
     nullInputBehavior?: pulumi.Input<string>;
+    /**
+     * This specifies the name of the request translator function
+     */
+    requestTranslator?: pulumi.Input<string>;
+    /**
+     * This specifies the name of the response translator function.
+     */
+    responseTranslator?: pulumi.Input<string>;
     /**
      * Specifies the behavior of the function when returning results
      */
@@ -319,6 +339,14 @@ export interface ExternalFunctionArgs {
      * Specifies the behavior of the external function when called with null inputs.
      */
     nullInputBehavior?: pulumi.Input<string>;
+    /**
+     * This specifies the name of the request translator function
+     */
+    requestTranslator?: pulumi.Input<string>;
+    /**
+     * This specifies the name of the response translator function.
+     */
+    responseTranslator?: pulumi.Input<string>;
     /**
      * Specifies the behavior of the function when returning results
      */

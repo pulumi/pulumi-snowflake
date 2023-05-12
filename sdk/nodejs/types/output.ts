@@ -143,6 +143,12 @@ export interface FunctionArgument {
     type: string;
 }
 
+export interface GetDatabaseRolesDatabaseRole {
+    comment: string;
+    name: string;
+    owner: string;
+}
+
 export interface GetDatabasesDatabase {
     comment: string;
     createdOn: string;
@@ -510,6 +516,18 @@ export interface GetWarehousesWarehouse {
     scalingPolicy: string;
     size: string;
     state: string;
+    type: string;
+}
+
+export interface MaskingPolicySignature {
+    columns: outputs.MaskingPolicySignatureColumn[];
+}
+
+export interface MaskingPolicySignatureColumn {
+    /**
+     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+     */
+    name: string;
     type: string;
 }
 

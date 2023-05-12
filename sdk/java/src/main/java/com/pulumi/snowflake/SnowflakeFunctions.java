@@ -11,6 +11,8 @@ import com.pulumi.resources.InvokeArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.GetDatabaseArgs;
 import com.pulumi.snowflake.inputs.GetDatabasePlainArgs;
+import com.pulumi.snowflake.inputs.GetDatabaseRolesArgs;
+import com.pulumi.snowflake.inputs.GetDatabaseRolesPlainArgs;
 import com.pulumi.snowflake.inputs.GetExternalFunctionsArgs;
 import com.pulumi.snowflake.inputs.GetExternalFunctionsPlainArgs;
 import com.pulumi.snowflake.inputs.GetExternalTablesArgs;
@@ -62,6 +64,7 @@ import com.pulumi.snowflake.inputs.GetViewsPlainArgs;
 import com.pulumi.snowflake.outputs.GetCurrentAccountResult;
 import com.pulumi.snowflake.outputs.GetCurrentRoleResult;
 import com.pulumi.snowflake.outputs.GetDatabaseResult;
+import com.pulumi.snowflake.outputs.GetDatabaseRolesResult;
 import com.pulumi.snowflake.outputs.GetDatabasesResult;
 import com.pulumi.snowflake.outputs.GetExternalFunctionsResult;
 import com.pulumi.snowflake.outputs.GetExternalTablesResult;
@@ -486,6 +489,24 @@ public final class SnowflakeFunctions {
      */
     public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetDatabaseRolesResult> getDatabaseRoles() {
+        return getDatabaseRoles(GetDatabaseRolesArgs.Empty, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetDatabaseRolesResult> getDatabaseRolesPlain() {
+        return getDatabaseRolesPlain(GetDatabaseRolesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    public static Output<GetDatabaseRolesResult> getDatabaseRoles(GetDatabaseRolesArgs args) {
+        return getDatabaseRoles(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetDatabaseRolesResult> getDatabaseRolesPlain(GetDatabaseRolesPlainArgs args) {
+        return getDatabaseRolesPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetDatabaseRolesResult> getDatabaseRoles(GetDatabaseRolesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getDatabaseRoles:getDatabaseRoles", TypeShape.of(GetDatabaseRolesResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetDatabaseRolesResult> getDatabaseRolesPlain(GetDatabaseRolesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getDatabaseRoles:getDatabaseRoles", TypeShape.of(GetDatabaseRolesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * ## Example Usage

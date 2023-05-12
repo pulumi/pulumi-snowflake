@@ -20,13 +20,32 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleMaskingPolicy = new Snowflake.MaskingPolicy("exampleMaskingPolicy", new()
+    ///     var test = new Snowflake.MaskingPolicy("test", new()
     ///     {
     ///         Database = "EXAMPLE_DB",
-    ///         MaskingExpression = "case when current_role() in ('ANALYST') then val else sha2(val, 512) end",
-    ///         ReturnDataType = "string",
+    ///         MaskingExpression = @"  case 
+    ///     when current_role() in ('ROLE_A') then 
+    ///       val 
+    ///     when is_role_in_session( 'ROLE_B' ) then 
+    ///       'ABC123'
+    ///     else
+    ///       '******'
+    ///   end
+    /// 
+    /// ",
+    ///         ReturnDataType = "VARCHAR",
     ///         Schema = "EXAMPLE_SCHEMA",
-    ///         ValueDataType = "string",
+    ///         Signature = new Snowflake.Inputs.MaskingPolicySignatureArgs
+    ///         {
+    ///             Columns = new[]
+    ///             {
+    ///                 new Snowflake.Inputs.MaskingPolicySignatureColumnArgs
+    ///                 {
+    ///                     Name = "val",
+    ///                     Type = "VARCHAR",
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });
@@ -56,6 +75,18 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+        /// </summary>
+        [Output("exemptOtherPolicies")]
+        public Output<bool?> ExemptOtherPolicies { get; private set; } = null!;
+
+        /// <summary>
+        /// Prevent overwriting a previous masking policy with the same name.
+        /// </summary>
+        [Output("ifNotExists")]
+        public Output<bool?> IfNotExists { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the SQL expression that transforms the data.
         /// </summary>
         [Output("maskingExpression")]
@@ -66,6 +97,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to override a previous masking policy with the same name.
+        /// </summary>
+        [Output("orReplace")]
+        public Output<bool?> OrReplace { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the qualified identifier for the masking policy.
@@ -86,10 +123,10 @@ namespace Pulumi.Snowflake
         public Output<string> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the data type to mask.
+        /// The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
         /// </summary>
-        [Output("valueDataType")]
-        public Output<string> ValueDataType { get; private set; } = null!;
+        [Output("signature")]
+        public Output<Outputs.MaskingPolicySignature> Signature { get; private set; } = null!;
 
 
         /// <summary>
@@ -150,6 +187,18 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
+        /// Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+        /// </summary>
+        [Input("exemptOtherPolicies")]
+        public Input<bool>? ExemptOtherPolicies { get; set; }
+
+        /// <summary>
+        /// Prevent overwriting a previous masking policy with the same name.
+        /// </summary>
+        [Input("ifNotExists")]
+        public Input<bool>? IfNotExists { get; set; }
+
+        /// <summary>
         /// Specifies the SQL expression that transforms the data.
         /// </summary>
         [Input("maskingExpression", required: true)]
@@ -160,6 +209,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether to override a previous masking policy with the same name.
+        /// </summary>
+        [Input("orReplace")]
+        public Input<bool>? OrReplace { get; set; }
 
         /// <summary>
         /// Specifies the data type to return.
@@ -174,10 +229,10 @@ namespace Pulumi.Snowflake
         public Input<string> Schema { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the data type to mask.
+        /// The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
         /// </summary>
-        [Input("valueDataType", required: true)]
-        public Input<string> ValueDataType { get; set; } = null!;
+        [Input("signature", required: true)]
+        public Input<Inputs.MaskingPolicySignatureArgs> Signature { get; set; } = null!;
 
         public MaskingPolicyArgs()
         {
@@ -200,6 +255,18 @@ namespace Pulumi.Snowflake
         public Input<string>? Database { get; set; }
 
         /// <summary>
+        /// Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+        /// </summary>
+        [Input("exemptOtherPolicies")]
+        public Input<bool>? ExemptOtherPolicies { get; set; }
+
+        /// <summary>
+        /// Prevent overwriting a previous masking policy with the same name.
+        /// </summary>
+        [Input("ifNotExists")]
+        public Input<bool>? IfNotExists { get; set; }
+
+        /// <summary>
         /// Specifies the SQL expression that transforms the data.
         /// </summary>
         [Input("maskingExpression")]
@@ -210,6 +277,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether to override a previous masking policy with the same name.
+        /// </summary>
+        [Input("orReplace")]
+        public Input<bool>? OrReplace { get; set; }
 
         /// <summary>
         /// Specifies the qualified identifier for the masking policy.
@@ -230,10 +303,10 @@ namespace Pulumi.Snowflake
         public Input<string>? Schema { get; set; }
 
         /// <summary>
-        /// Specifies the data type to mask.
+        /// The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
         /// </summary>
-        [Input("valueDataType")]
-        public Input<string>? ValueDataType { get; set; }
+        [Input("signature")]
+        public Input<Inputs.MaskingPolicySignatureGetArgs>? Signature { get; set; }
 
         public MaskingPolicyState()
         {

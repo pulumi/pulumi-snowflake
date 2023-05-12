@@ -74,7 +74,7 @@ namespace Pulumi.Snowflake
         public Output<string?> MaterializedViewName { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+        /// When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
         /// </summary>
         [Output("onAll")]
         public Output<bool?> OnAll { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Snowflake
         public Input<string>? MaterializedViewName { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+        /// When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
         /// </summary>
         [Input("onAll")]
         public Input<bool>? OnAll { get; set; }
@@ -262,7 +262,7 @@ namespace Pulumi.Snowflake
         public Input<string>? MaterializedViewName { get; set; }
 
         /// <summary>
-        /// When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+        /// When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
         /// </summary>
         [Input("onAll")]
         public Input<bool>? OnAll { get; set; }

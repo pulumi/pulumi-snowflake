@@ -8,7 +8,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
 
-// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+// using profile.
 func GetAccount(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "snowflake:account")
 	if err == nil {
@@ -146,6 +147,11 @@ func GetPrivateKeyPath(ctx *pulumi.Context) string {
 	return getEnvOrDefault("", nil, "SNOWFLAKE_PRIVATE_KEY_PATH").(string)
 }
 
+// Sets the profile to read from ~/.snowflake/config file.
+func GetProfile(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:profile")
+}
+
 // Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
 func GetProtocol(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "snowflake:protocol")
@@ -177,7 +183,8 @@ func GetRole(ctx *pulumi.Context) string {
 	return getEnvOrDefault("", nil, "SNOWFLAKE_ROLE").(string)
 }
 
-// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+// using profile.
 func GetUsername(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "snowflake:username")
 	if err == nil {

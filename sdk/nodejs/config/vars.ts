@@ -8,7 +8,8 @@ declare var exports: any;
 const __config = new pulumi.Config("snowflake");
 
 /**
- * The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+ * The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+ * using profile.
  */
 export declare const account: string | undefined;
 Object.defineProperty(exports, "account", {
@@ -184,6 +185,17 @@ Object.defineProperty(exports, "privateKeyPath", {
 });
 
 /**
+ * Sets the profile to read from ~/.snowflake/config file.
+ */
+export declare const profile: string | undefined;
+Object.defineProperty(exports, "profile", {
+    get() {
+        return __config.get("profile");
+    },
+    enumerable: true,
+});
+
+/**
  * Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
  */
 export declare const protocol: string | undefined;
@@ -221,7 +233,8 @@ Object.defineProperty(exports, "role", {
 });
 
 /**
- * Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+ * Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+ * using profile.
  */
 export declare const username: string | undefined;
 Object.defineProperty(exports, "username", {

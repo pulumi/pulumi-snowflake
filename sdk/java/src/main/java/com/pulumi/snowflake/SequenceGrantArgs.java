@@ -50,14 +50,29 @@ public final class SequenceGrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future.
+     * When this is set to true and a schema*name is provided, apply this grant on all sequences in the given schema. When this is true and no schema*name is provided apply this grant on all sequences in the given database. The sequence*name field must be unset in order to use on*all. Cannot be used together with on_future.
+     * 
+     */
+    @Import(name="onAll")
+    private @Nullable Output<Boolean> onAll;
+
+    /**
+     * @return When this is set to true and a schema*name is provided, apply this grant on all sequences in the given schema. When this is true and no schema*name is provided apply this grant on all sequences in the given database. The sequence*name field must be unset in order to use on*all. Cannot be used together with on_future.
+     * 
+     */
+    public Optional<Output<Boolean>> onAll() {
+        return Optional.ofNullable(this.onAll);
+    }
+
+    /**
+     * When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future. Cannot be used together with on_all.
      * 
      */
     @Import(name="onFuture")
     private @Nullable Output<Boolean> onFuture;
 
     /**
-     * @return When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future.
+     * @return When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future. Cannot be used together with on_all.
      * 
      */
     public Optional<Output<Boolean>> onFuture() {
@@ -144,6 +159,7 @@ public final class SequenceGrantArgs extends com.pulumi.resources.ResourceArgs {
     private SequenceGrantArgs(SequenceGrantArgs $) {
         this.databaseName = $.databaseName;
         this.enableMultipleGrants = $.enableMultipleGrants;
+        this.onAll = $.onAll;
         this.onFuture = $.onFuture;
         this.privilege = $.privilege;
         this.roles = $.roles;
@@ -215,7 +231,28 @@ public final class SequenceGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onFuture When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future.
+         * @param onAll When this is set to true and a schema*name is provided, apply this grant on all sequences in the given schema. When this is true and no schema*name is provided apply this grant on all sequences in the given database. The sequence*name field must be unset in order to use on*all. Cannot be used together with on_future.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onAll(@Nullable Output<Boolean> onAll) {
+            $.onAll = onAll;
+            return this;
+        }
+
+        /**
+         * @param onAll When this is set to true and a schema*name is provided, apply this grant on all sequences in the given schema. When this is true and no schema*name is provided apply this grant on all sequences in the given database. The sequence*name field must be unset in order to use on*all. Cannot be used together with on_future.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onAll(Boolean onAll) {
+            return onAll(Output.of(onAll));
+        }
+
+        /**
+         * @param onFuture When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future. Cannot be used together with on_all.
          * 
          * @return builder
          * 
@@ -226,7 +263,7 @@ public final class SequenceGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onFuture When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future.
+         * @param onFuture When this is set to true and a schema*name is provided, apply this grant on all future sequences in the given schema. When this is true and no schema*name is provided apply this grant on all future sequences in the given database. The sequence*name field must be unset in order to use on*future. Cannot be used together with on_all.
          * 
          * @return builder
          * 

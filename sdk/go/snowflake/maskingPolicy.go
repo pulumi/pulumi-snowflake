@@ -25,12 +25,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewMaskingPolicy(ctx, "exampleMaskingPolicy", &snowflake.MaskingPolicyArgs{
+//			_, err := snowflake.NewMaskingPolicy(ctx, "test", &snowflake.MaskingPolicyArgs{
 //				Database:          pulumi.String("EXAMPLE_DB"),
-//				MaskingExpression: pulumi.String("case when current_role() in ('ANALYST') then val else sha2(val, 512) end"),
-//				ReturnDataType:    pulumi.String("string"),
+//				MaskingExpression: pulumi.String("  case \n    when current_role() in ('ROLE_A') then \n      val \n    when is_role_in_session( 'ROLE_B' ) then \n      'ABC123'\n    else\n      '******'\n  end\n\n"),
+//				ReturnDataType:    pulumi.String("VARCHAR"),
 //				Schema:            pulumi.String("EXAMPLE_SCHEMA"),
-//				ValueDataType:     pulumi.String("string"),
+//				Signature: &snowflake.MaskingPolicySignatureArgs{
+//					Columns: snowflake.MaskingPolicySignatureColumnArray{
+//						&snowflake.MaskingPolicySignatureColumnArgs{
+//							Name: pulumi.String("val"),
+//							Type: pulumi.String("VARCHAR"),
+//						},
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -57,18 +64,24 @@ type MaskingPolicy struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The database in which to create the masking policy.
 	Database pulumi.StringOutput `pulumi:"database"`
+	// Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+	ExemptOtherPolicies pulumi.BoolPtrOutput `pulumi:"exemptOtherPolicies"`
+	// Prevent overwriting a previous masking policy with the same name.
+	IfNotExists pulumi.BoolPtrOutput `pulumi:"ifNotExists"`
 	// Specifies the SQL expression that transforms the data.
 	MaskingExpression pulumi.StringOutput `pulumi:"maskingExpression"`
 	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether to override a previous masking policy with the same name.
+	OrReplace pulumi.BoolPtrOutput `pulumi:"orReplace"`
 	// Specifies the qualified identifier for the masking policy.
 	QualifiedName pulumi.StringOutput `pulumi:"qualifiedName"`
 	// Specifies the data type to return.
 	ReturnDataType pulumi.StringOutput `pulumi:"returnDataType"`
 	// The schema in which to create the masking policy.
 	Schema pulumi.StringOutput `pulumi:"schema"`
-	// Specifies the data type to mask.
-	ValueDataType pulumi.StringOutput `pulumi:"valueDataType"`
+	// The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
+	Signature MaskingPolicySignatureOutput `pulumi:"signature"`
 }
 
 // NewMaskingPolicy registers a new resource with the given unique name, arguments, and options.
@@ -90,8 +103,8 @@ func NewMaskingPolicy(ctx *pulumi.Context,
 	if args.Schema == nil {
 		return nil, errors.New("invalid value for required argument 'Schema'")
 	}
-	if args.ValueDataType == nil {
-		return nil, errors.New("invalid value for required argument 'ValueDataType'")
+	if args.Signature == nil {
+		return nil, errors.New("invalid value for required argument 'Signature'")
 	}
 	var resource MaskingPolicy
 	err := ctx.RegisterResource("snowflake:index/maskingPolicy:MaskingPolicy", name, args, &resource, opts...)
@@ -119,18 +132,24 @@ type maskingPolicyState struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the masking policy.
 	Database *string `pulumi:"database"`
+	// Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+	ExemptOtherPolicies *bool `pulumi:"exemptOtherPolicies"`
+	// Prevent overwriting a previous masking policy with the same name.
+	IfNotExists *bool `pulumi:"ifNotExists"`
 	// Specifies the SQL expression that transforms the data.
 	MaskingExpression *string `pulumi:"maskingExpression"`
 	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
 	Name *string `pulumi:"name"`
+	// Whether to override a previous masking policy with the same name.
+	OrReplace *bool `pulumi:"orReplace"`
 	// Specifies the qualified identifier for the masking policy.
 	QualifiedName *string `pulumi:"qualifiedName"`
 	// Specifies the data type to return.
 	ReturnDataType *string `pulumi:"returnDataType"`
 	// The schema in which to create the masking policy.
 	Schema *string `pulumi:"schema"`
-	// Specifies the data type to mask.
-	ValueDataType *string `pulumi:"valueDataType"`
+	// The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
+	Signature *MaskingPolicySignature `pulumi:"signature"`
 }
 
 type MaskingPolicyState struct {
@@ -138,18 +157,24 @@ type MaskingPolicyState struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the masking policy.
 	Database pulumi.StringPtrInput
+	// Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+	ExemptOtherPolicies pulumi.BoolPtrInput
+	// Prevent overwriting a previous masking policy with the same name.
+	IfNotExists pulumi.BoolPtrInput
 	// Specifies the SQL expression that transforms the data.
 	MaskingExpression pulumi.StringPtrInput
 	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
 	Name pulumi.StringPtrInput
+	// Whether to override a previous masking policy with the same name.
+	OrReplace pulumi.BoolPtrInput
 	// Specifies the qualified identifier for the masking policy.
 	QualifiedName pulumi.StringPtrInput
 	// Specifies the data type to return.
 	ReturnDataType pulumi.StringPtrInput
 	// The schema in which to create the masking policy.
 	Schema pulumi.StringPtrInput
-	// Specifies the data type to mask.
-	ValueDataType pulumi.StringPtrInput
+	// The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
+	Signature MaskingPolicySignaturePtrInput
 }
 
 func (MaskingPolicyState) ElementType() reflect.Type {
@@ -161,16 +186,22 @@ type maskingPolicyArgs struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the masking policy.
 	Database string `pulumi:"database"`
+	// Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+	ExemptOtherPolicies *bool `pulumi:"exemptOtherPolicies"`
+	// Prevent overwriting a previous masking policy with the same name.
+	IfNotExists *bool `pulumi:"ifNotExists"`
 	// Specifies the SQL expression that transforms the data.
 	MaskingExpression string `pulumi:"maskingExpression"`
 	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
 	Name *string `pulumi:"name"`
+	// Whether to override a previous masking policy with the same name.
+	OrReplace *bool `pulumi:"orReplace"`
 	// Specifies the data type to return.
 	ReturnDataType string `pulumi:"returnDataType"`
 	// The schema in which to create the masking policy.
 	Schema string `pulumi:"schema"`
-	// Specifies the data type to mask.
-	ValueDataType string `pulumi:"valueDataType"`
+	// The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
+	Signature MaskingPolicySignature `pulumi:"signature"`
 }
 
 // The set of arguments for constructing a MaskingPolicy resource.
@@ -179,16 +210,22 @@ type MaskingPolicyArgs struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the masking policy.
 	Database pulumi.StringInput
+	// Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+	ExemptOtherPolicies pulumi.BoolPtrInput
+	// Prevent overwriting a previous masking policy with the same name.
+	IfNotExists pulumi.BoolPtrInput
 	// Specifies the SQL expression that transforms the data.
 	MaskingExpression pulumi.StringInput
 	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
 	Name pulumi.StringPtrInput
+	// Whether to override a previous masking policy with the same name.
+	OrReplace pulumi.BoolPtrInput
 	// Specifies the data type to return.
 	ReturnDataType pulumi.StringInput
 	// The schema in which to create the masking policy.
 	Schema pulumi.StringInput
-	// Specifies the data type to mask.
-	ValueDataType pulumi.StringInput
+	// The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
+	Signature MaskingPolicySignatureInput
 }
 
 func (MaskingPolicyArgs) ElementType() reflect.Type {
@@ -288,6 +325,16 @@ func (o MaskingPolicyOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaskingPolicy) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
+// Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+func (o MaskingPolicyOutput) ExemptOtherPolicies() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MaskingPolicy) pulumi.BoolPtrOutput { return v.ExemptOtherPolicies }).(pulumi.BoolPtrOutput)
+}
+
+// Prevent overwriting a previous masking policy with the same name.
+func (o MaskingPolicyOutput) IfNotExists() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MaskingPolicy) pulumi.BoolPtrOutput { return v.IfNotExists }).(pulumi.BoolPtrOutput)
+}
+
 // Specifies the SQL expression that transforms the data.
 func (o MaskingPolicyOutput) MaskingExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaskingPolicy) pulumi.StringOutput { return v.MaskingExpression }).(pulumi.StringOutput)
@@ -296,6 +343,11 @@ func (o MaskingPolicyOutput) MaskingExpression() pulumi.StringOutput {
 // Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
 func (o MaskingPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaskingPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether to override a previous masking policy with the same name.
+func (o MaskingPolicyOutput) OrReplace() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MaskingPolicy) pulumi.BoolPtrOutput { return v.OrReplace }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the qualified identifier for the masking policy.
@@ -313,9 +365,9 @@ func (o MaskingPolicyOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaskingPolicy) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
 
-// Specifies the data type to mask.
-func (o MaskingPolicyOutput) ValueDataType() pulumi.StringOutput {
-	return o.ApplyT(func(v *MaskingPolicy) pulumi.StringOutput { return v.ValueDataType }).(pulumi.StringOutput)
+// The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
+func (o MaskingPolicyOutput) Signature() MaskingPolicySignatureOutput {
+	return o.ApplyT(func(v *MaskingPolicy) MaskingPolicySignatureOutput { return v.Signature }).(MaskingPolicySignatureOutput)
 }
 
 type MaskingPolicyArrayOutput struct{ *pulumi.OutputState }

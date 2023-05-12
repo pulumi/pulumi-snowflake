@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['MaskingPolicyArgs', 'MaskingPolicy']
 
@@ -18,28 +20,40 @@ class MaskingPolicyArgs:
                  masking_expression: pulumi.Input[str],
                  return_data_type: pulumi.Input[str],
                  schema: pulumi.Input[str],
-                 value_data_type: pulumi.Input[str],
+                 signature: pulumi.Input['MaskingPolicySignatureArgs'],
                  comment: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 exempt_other_policies: Optional[pulumi.Input[bool]] = None,
+                 if_not_exists: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 or_replace: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a MaskingPolicy resource.
         :param pulumi.Input[str] database: The database in which to create the masking policy.
         :param pulumi.Input[str] masking_expression: Specifies the SQL expression that transforms the data.
         :param pulumi.Input[str] return_data_type: Specifies the data type to return.
         :param pulumi.Input[str] schema: The schema in which to create the masking policy.
-        :param pulumi.Input[str] value_data_type: Specifies the data type to mask.
+        :param pulumi.Input['MaskingPolicySignatureArgs'] signature: The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
         :param pulumi.Input[str] comment: Specifies a comment for the masking policy.
+        :param pulumi.Input[bool] exempt_other_policies: Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+        :param pulumi.Input[bool] if_not_exists: Prevent overwriting a previous masking policy with the same name.
         :param pulumi.Input[str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        :param pulumi.Input[bool] or_replace: Whether to override a previous masking policy with the same name.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "masking_expression", masking_expression)
         pulumi.set(__self__, "return_data_type", return_data_type)
         pulumi.set(__self__, "schema", schema)
-        pulumi.set(__self__, "value_data_type", value_data_type)
+        pulumi.set(__self__, "signature", signature)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if exempt_other_policies is not None:
+            pulumi.set(__self__, "exempt_other_policies", exempt_other_policies)
+        if if_not_exists is not None:
+            pulumi.set(__self__, "if_not_exists", if_not_exists)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if or_replace is not None:
+            pulumi.set(__self__, "or_replace", or_replace)
 
     @property
     @pulumi.getter
@@ -90,16 +104,16 @@ class MaskingPolicyArgs:
         pulumi.set(self, "schema", value)
 
     @property
-    @pulumi.getter(name="valueDataType")
-    def value_data_type(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def signature(self) -> pulumi.Input['MaskingPolicySignatureArgs']:
         """
-        Specifies the data type to mask.
+        The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
         """
-        return pulumi.get(self, "value_data_type")
+        return pulumi.get(self, "signature")
 
-    @value_data_type.setter
-    def value_data_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value_data_type", value)
+    @signature.setter
+    def signature(self, value: pulumi.Input['MaskingPolicySignatureArgs']):
+        pulumi.set(self, "signature", value)
 
     @property
     @pulumi.getter
@@ -114,6 +128,30 @@ class MaskingPolicyArgs:
         pulumi.set(self, "comment", value)
 
     @property
+    @pulumi.getter(name="exemptOtherPolicies")
+    def exempt_other_policies(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+        """
+        return pulumi.get(self, "exempt_other_policies")
+
+    @exempt_other_policies.setter
+    def exempt_other_policies(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "exempt_other_policies", value)
+
+    @property
+    @pulumi.getter(name="ifNotExists")
+    def if_not_exists(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Prevent overwriting a previous masking policy with the same name.
+        """
+        return pulumi.get(self, "if_not_exists")
+
+    @if_not_exists.setter
+    def if_not_exists(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "if_not_exists", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -125,45 +163,69 @@ class MaskingPolicyArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="orReplace")
+    def or_replace(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to override a previous masking policy with the same name.
+        """
+        return pulumi.get(self, "or_replace")
+
+    @or_replace.setter
+    def or_replace(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "or_replace", value)
+
 
 @pulumi.input_type
 class _MaskingPolicyState:
     def __init__(__self__, *,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 exempt_other_policies: Optional[pulumi.Input[bool]] = None,
+                 if_not_exists: Optional[pulumi.Input[bool]] = None,
                  masking_expression: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 or_replace: Optional[pulumi.Input[bool]] = None,
                  qualified_name: Optional[pulumi.Input[str]] = None,
                  return_data_type: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
-                 value_data_type: Optional[pulumi.Input[str]] = None):
+                 signature: Optional[pulumi.Input['MaskingPolicySignatureArgs']] = None):
         """
         Input properties used for looking up and filtering MaskingPolicy resources.
         :param pulumi.Input[str] comment: Specifies a comment for the masking policy.
         :param pulumi.Input[str] database: The database in which to create the masking policy.
+        :param pulumi.Input[bool] exempt_other_policies: Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+        :param pulumi.Input[bool] if_not_exists: Prevent overwriting a previous masking policy with the same name.
         :param pulumi.Input[str] masking_expression: Specifies the SQL expression that transforms the data.
         :param pulumi.Input[str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        :param pulumi.Input[bool] or_replace: Whether to override a previous masking policy with the same name.
         :param pulumi.Input[str] qualified_name: Specifies the qualified identifier for the masking policy.
         :param pulumi.Input[str] return_data_type: Specifies the data type to return.
         :param pulumi.Input[str] schema: The schema in which to create the masking policy.
-        :param pulumi.Input[str] value_data_type: Specifies the data type to mask.
+        :param pulumi.Input['MaskingPolicySignatureArgs'] signature: The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if exempt_other_policies is not None:
+            pulumi.set(__self__, "exempt_other_policies", exempt_other_policies)
+        if if_not_exists is not None:
+            pulumi.set(__self__, "if_not_exists", if_not_exists)
         if masking_expression is not None:
             pulumi.set(__self__, "masking_expression", masking_expression)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if or_replace is not None:
+            pulumi.set(__self__, "or_replace", or_replace)
         if qualified_name is not None:
             pulumi.set(__self__, "qualified_name", qualified_name)
         if return_data_type is not None:
             pulumi.set(__self__, "return_data_type", return_data_type)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
-        if value_data_type is not None:
-            pulumi.set(__self__, "value_data_type", value_data_type)
+        if signature is not None:
+            pulumi.set(__self__, "signature", signature)
 
     @property
     @pulumi.getter
@@ -190,6 +252,30 @@ class _MaskingPolicyState:
         pulumi.set(self, "database", value)
 
     @property
+    @pulumi.getter(name="exemptOtherPolicies")
+    def exempt_other_policies(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+        """
+        return pulumi.get(self, "exempt_other_policies")
+
+    @exempt_other_policies.setter
+    def exempt_other_policies(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "exempt_other_policies", value)
+
+    @property
+    @pulumi.getter(name="ifNotExists")
+    def if_not_exists(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Prevent overwriting a previous masking policy with the same name.
+        """
+        return pulumi.get(self, "if_not_exists")
+
+    @if_not_exists.setter
+    def if_not_exists(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "if_not_exists", value)
+
+    @property
     @pulumi.getter(name="maskingExpression")
     def masking_expression(self) -> Optional[pulumi.Input[str]]:
         """
@@ -212,6 +298,18 @@ class _MaskingPolicyState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="orReplace")
+    def or_replace(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to override a previous masking policy with the same name.
+        """
+        return pulumi.get(self, "or_replace")
+
+    @or_replace.setter
+    def or_replace(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "or_replace", value)
 
     @property
     @pulumi.getter(name="qualifiedName")
@@ -250,16 +348,16 @@ class _MaskingPolicyState:
         pulumi.set(self, "schema", value)
 
     @property
-    @pulumi.getter(name="valueDataType")
-    def value_data_type(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter
+    def signature(self) -> Optional[pulumi.Input['MaskingPolicySignatureArgs']]:
         """
-        Specifies the data type to mask.
+        The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
         """
-        return pulumi.get(self, "value_data_type")
+        return pulumi.get(self, "signature")
 
-    @value_data_type.setter
-    def value_data_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value_data_type", value)
+    @signature.setter
+    def signature(self, value: Optional[pulumi.Input['MaskingPolicySignatureArgs']]):
+        pulumi.set(self, "signature", value)
 
 
 class MaskingPolicy(pulumi.CustomResource):
@@ -269,11 +367,14 @@ class MaskingPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 exempt_other_policies: Optional[pulumi.Input[bool]] = None,
+                 if_not_exists: Optional[pulumi.Input[bool]] = None,
                  masking_expression: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 or_replace: Optional[pulumi.Input[bool]] = None,
                  return_data_type: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
-                 value_data_type: Optional[pulumi.Input[str]] = None,
+                 signature: Optional[pulumi.Input[pulumi.InputType['MaskingPolicySignatureArgs']]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -282,12 +383,26 @@ class MaskingPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        example_masking_policy = snowflake.MaskingPolicy("exampleMaskingPolicy",
+        test = snowflake.MaskingPolicy("test",
             database="EXAMPLE_DB",
-            masking_expression="case when current_role() in ('ANALYST') then val else sha2(val, 512) end",
-            return_data_type="string",
+            masking_expression=\"\"\"  case 
+            when current_role() in ('ROLE_A') then 
+              val 
+            when is_role_in_session( 'ROLE_B' ) then 
+              'ABC123'
+            else
+              '******'
+          end
+
+        \"\"\",
+            return_data_type="VARCHAR",
             schema="EXAMPLE_SCHEMA",
-            value_data_type="string")
+            signature=snowflake.MaskingPolicySignatureArgs(
+                columns=[snowflake.MaskingPolicySignatureColumnArgs(
+                    name="val",
+                    type="VARCHAR",
+                )],
+            ))
         ```
 
         ## Import
@@ -302,11 +417,14 @@ class MaskingPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the masking policy.
         :param pulumi.Input[str] database: The database in which to create the masking policy.
+        :param pulumi.Input[bool] exempt_other_policies: Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+        :param pulumi.Input[bool] if_not_exists: Prevent overwriting a previous masking policy with the same name.
         :param pulumi.Input[str] masking_expression: Specifies the SQL expression that transforms the data.
         :param pulumi.Input[str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        :param pulumi.Input[bool] or_replace: Whether to override a previous masking policy with the same name.
         :param pulumi.Input[str] return_data_type: Specifies the data type to return.
         :param pulumi.Input[str] schema: The schema in which to create the masking policy.
-        :param pulumi.Input[str] value_data_type: Specifies the data type to mask.
+        :param pulumi.Input[pulumi.InputType['MaskingPolicySignatureArgs']] signature: The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
         """
         ...
     @overload
@@ -321,12 +439,26 @@ class MaskingPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        example_masking_policy = snowflake.MaskingPolicy("exampleMaskingPolicy",
+        test = snowflake.MaskingPolicy("test",
             database="EXAMPLE_DB",
-            masking_expression="case when current_role() in ('ANALYST') then val else sha2(val, 512) end",
-            return_data_type="string",
+            masking_expression=\"\"\"  case 
+            when current_role() in ('ROLE_A') then 
+              val 
+            when is_role_in_session( 'ROLE_B' ) then 
+              'ABC123'
+            else
+              '******'
+          end
+
+        \"\"\",
+            return_data_type="VARCHAR",
             schema="EXAMPLE_SCHEMA",
-            value_data_type="string")
+            signature=snowflake.MaskingPolicySignatureArgs(
+                columns=[snowflake.MaskingPolicySignatureColumnArgs(
+                    name="val",
+                    type="VARCHAR",
+                )],
+            ))
         ```
 
         ## Import
@@ -354,11 +486,14 @@ class MaskingPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 exempt_other_policies: Optional[pulumi.Input[bool]] = None,
+                 if_not_exists: Optional[pulumi.Input[bool]] = None,
                  masking_expression: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 or_replace: Optional[pulumi.Input[bool]] = None,
                  return_data_type: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
-                 value_data_type: Optional[pulumi.Input[str]] = None,
+                 signature: Optional[pulumi.Input[pulumi.InputType['MaskingPolicySignatureArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -372,19 +507,22 @@ class MaskingPolicy(pulumi.CustomResource):
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
+            __props__.__dict__["exempt_other_policies"] = exempt_other_policies
+            __props__.__dict__["if_not_exists"] = if_not_exists
             if masking_expression is None and not opts.urn:
                 raise TypeError("Missing required property 'masking_expression'")
             __props__.__dict__["masking_expression"] = masking_expression
             __props__.__dict__["name"] = name
+            __props__.__dict__["or_replace"] = or_replace
             if return_data_type is None and not opts.urn:
                 raise TypeError("Missing required property 'return_data_type'")
             __props__.__dict__["return_data_type"] = return_data_type
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
-            if value_data_type is None and not opts.urn:
-                raise TypeError("Missing required property 'value_data_type'")
-            __props__.__dict__["value_data_type"] = value_data_type
+            if signature is None and not opts.urn:
+                raise TypeError("Missing required property 'signature'")
+            __props__.__dict__["signature"] = signature
             __props__.__dict__["qualified_name"] = None
         super(MaskingPolicy, __self__).__init__(
             'snowflake:index/maskingPolicy:MaskingPolicy',
@@ -398,12 +536,15 @@ class MaskingPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
+            exempt_other_policies: Optional[pulumi.Input[bool]] = None,
+            if_not_exists: Optional[pulumi.Input[bool]] = None,
             masking_expression: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            or_replace: Optional[pulumi.Input[bool]] = None,
             qualified_name: Optional[pulumi.Input[str]] = None,
             return_data_type: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None,
-            value_data_type: Optional[pulumi.Input[str]] = None) -> 'MaskingPolicy':
+            signature: Optional[pulumi.Input[pulumi.InputType['MaskingPolicySignatureArgs']]] = None) -> 'MaskingPolicy':
         """
         Get an existing MaskingPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -413,12 +554,15 @@ class MaskingPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the masking policy.
         :param pulumi.Input[str] database: The database in which to create the masking policy.
+        :param pulumi.Input[bool] exempt_other_policies: Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+        :param pulumi.Input[bool] if_not_exists: Prevent overwriting a previous masking policy with the same name.
         :param pulumi.Input[str] masking_expression: Specifies the SQL expression that transforms the data.
         :param pulumi.Input[str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        :param pulumi.Input[bool] or_replace: Whether to override a previous masking policy with the same name.
         :param pulumi.Input[str] qualified_name: Specifies the qualified identifier for the masking policy.
         :param pulumi.Input[str] return_data_type: Specifies the data type to return.
         :param pulumi.Input[str] schema: The schema in which to create the masking policy.
-        :param pulumi.Input[str] value_data_type: Specifies the data type to mask.
+        :param pulumi.Input[pulumi.InputType['MaskingPolicySignatureArgs']] signature: The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -426,12 +570,15 @@ class MaskingPolicy(pulumi.CustomResource):
 
         __props__.__dict__["comment"] = comment
         __props__.__dict__["database"] = database
+        __props__.__dict__["exempt_other_policies"] = exempt_other_policies
+        __props__.__dict__["if_not_exists"] = if_not_exists
         __props__.__dict__["masking_expression"] = masking_expression
         __props__.__dict__["name"] = name
+        __props__.__dict__["or_replace"] = or_replace
         __props__.__dict__["qualified_name"] = qualified_name
         __props__.__dict__["return_data_type"] = return_data_type
         __props__.__dict__["schema"] = schema
-        __props__.__dict__["value_data_type"] = value_data_type
+        __props__.__dict__["signature"] = signature
         return MaskingPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -451,6 +598,22 @@ class MaskingPolicy(pulumi.CustomResource):
         return pulumi.get(self, "database")
 
     @property
+    @pulumi.getter(name="exemptOtherPolicies")
+    def exempt_other_policies(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+        """
+        return pulumi.get(self, "exempt_other_policies")
+
+    @property
+    @pulumi.getter(name="ifNotExists")
+    def if_not_exists(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Prevent overwriting a previous masking policy with the same name.
+        """
+        return pulumi.get(self, "if_not_exists")
+
+    @property
     @pulumi.getter(name="maskingExpression")
     def masking_expression(self) -> pulumi.Output[str]:
         """
@@ -465,6 +628,14 @@ class MaskingPolicy(pulumi.CustomResource):
         Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="orReplace")
+    def or_replace(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to override a previous masking policy with the same name.
+        """
+        return pulumi.get(self, "or_replace")
 
     @property
     @pulumi.getter(name="qualifiedName")
@@ -491,10 +662,10 @@ class MaskingPolicy(pulumi.CustomResource):
         return pulumi.get(self, "schema")
 
     @property
-    @pulumi.getter(name="valueDataType")
-    def value_data_type(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def signature(self) -> pulumi.Output['outputs.MaskingPolicySignature']:
         """
-        Specifies the data type to mask.
+        The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
         """
-        return pulumi.get(self, "value_data_type")
+        return pulumi.get(self, "signature")
 

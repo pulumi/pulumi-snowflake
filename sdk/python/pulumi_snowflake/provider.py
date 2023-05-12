@@ -29,6 +29,7 @@ class ProviderArgs:
                  private_key: Optional[pulumi.Input[str]] = None,
                  private_key_passphrase: Optional[pulumi.Input[str]] = None,
                  private_key_path: Optional[pulumi.Input[str]] = None,
+                 profile: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
@@ -36,7 +37,8 @@ class ProviderArgs:
                  warehouse: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
-        :param pulumi.Input[str] account: The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+        :param pulumi.Input[str] account: The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+               using profile.
         :param pulumi.Input[bool] browser_auth: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
         :param pulumi.Input[str] host: Supports passing in a custom host value to the snowflake go driver for use with privatelink.
         :param pulumi.Input[bool] insecure_mode: If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
@@ -62,6 +64,7 @@ class ProviderArgs:
                des-ede3-cbc
         :param pulumi.Input[str] private_key_path: Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
                `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+        :param pulumi.Input[str] profile: Sets the profile to read from ~/.snowflake/config file.
         :param pulumi.Input[str] protocol: Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
         :param pulumi.Input[str] region: [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
                format for the `account`
@@ -69,7 +72,8 @@ class ProviderArgs:
                in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
         :param pulumi.Input[str] role: Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
                `SNOWFLAKE_ROLE` environment variable.
-        :param pulumi.Input[str] username: Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+        :param pulumi.Input[str] username: Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+               using profile.
         :param pulumi.Input[str] warehouse: Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
         """
         if account is None:
@@ -128,6 +132,8 @@ class ProviderArgs:
             private_key_path = _utilities.get_env('SNOWFLAKE_PRIVATE_KEY_PATH')
         if private_key_path is not None:
             pulumi.set(__self__, "private_key_path", private_key_path)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
         if protocol is None:
             protocol = _utilities.get_env('SNOWFLAKE_PROTOCOL')
         if protocol is not None:
@@ -153,7 +159,8 @@ class ProviderArgs:
     @pulumi.getter
     def account(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+        The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+        using profile.
         """
         return pulumi.get(self, "account")
 
@@ -342,6 +349,18 @@ class ProviderArgs:
 
     @property
     @pulumi.getter
+    def profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the profile to read from ~/.snowflake/config file.
+        """
+        return pulumi.get(self, "profile")
+
+    @profile.setter
+    def profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "profile", value)
+
+    @property
+    @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
         Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
@@ -384,7 +403,8 @@ class ProviderArgs:
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
-        Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+        Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+        using profile.
         """
         return pulumi.get(self, "username")
 
@@ -425,6 +445,7 @@ class Provider(pulumi.ProviderResource):
                  private_key: Optional[pulumi.Input[str]] = None,
                  private_key_passphrase: Optional[pulumi.Input[str]] = None,
                  private_key_path: Optional[pulumi.Input[str]] = None,
+                 profile: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
@@ -439,7 +460,8 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account: The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+        :param pulumi.Input[str] account: The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+               using profile.
         :param pulumi.Input[bool] browser_auth: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
         :param pulumi.Input[str] host: Supports passing in a custom host value to the snowflake go driver for use with privatelink.
         :param pulumi.Input[bool] insecure_mode: If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
@@ -465,6 +487,7 @@ class Provider(pulumi.ProviderResource):
                des-ede3-cbc
         :param pulumi.Input[str] private_key_path: Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
                `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+        :param pulumi.Input[str] profile: Sets the profile to read from ~/.snowflake/config file.
         :param pulumi.Input[str] protocol: Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
         :param pulumi.Input[str] region: [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
                format for the `account`
@@ -472,7 +495,8 @@ class Provider(pulumi.ProviderResource):
                in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
         :param pulumi.Input[str] role: Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
                `SNOWFLAKE_ROLE` environment variable.
-        :param pulumi.Input[str] username: Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+        :param pulumi.Input[str] username: Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+               using profile.
         :param pulumi.Input[str] warehouse: Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
         """
         ...
@@ -517,6 +541,7 @@ class Provider(pulumi.ProviderResource):
                  private_key: Optional[pulumi.Input[str]] = None,
                  private_key_passphrase: Optional[pulumi.Input[str]] = None,
                  private_key_path: Optional[pulumi.Input[str]] = None,
+                 profile: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
@@ -572,6 +597,7 @@ class Provider(pulumi.ProviderResource):
             if private_key_path is None:
                 private_key_path = _utilities.get_env('SNOWFLAKE_PRIVATE_KEY_PATH')
             __props__.__dict__["private_key_path"] = None if private_key_path is None else pulumi.Output.secret(private_key_path)
+            __props__.__dict__["profile"] = profile
             if protocol is None:
                 protocol = _utilities.get_env('SNOWFLAKE_PROTOCOL')
             __props__.__dict__["protocol"] = protocol
@@ -599,7 +625,8 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def account(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+        The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+        using profile.
         """
         return pulumi.get(self, "account")
 
@@ -702,6 +729,14 @@ class Provider(pulumi.ProviderResource):
 
     @property
     @pulumi.getter
+    def profile(self) -> pulumi.Output[Optional[str]]:
+        """
+        Sets the profile to read from ~/.snowflake/config file.
+        """
+        return pulumi.get(self, "profile")
+
+    @property
+    @pulumi.getter
     def protocol(self) -> pulumi.Output[Optional[str]]:
         """
         Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
@@ -732,7 +767,8 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def username(self) -> pulumi.Output[Optional[str]]:
         """
-        Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+        Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+        using profile.
         """
         return pulumi.get(self, "username")
 

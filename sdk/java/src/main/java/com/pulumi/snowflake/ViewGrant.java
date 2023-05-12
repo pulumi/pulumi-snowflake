@@ -111,14 +111,14 @@ public class ViewGrant extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableMultipleGrants);
     }
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+     * When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
      * 
      */
     @Export(name="onAll", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> onAll;
 
     /**
-     * @return When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on*all=true option is not supported.
+     * @return When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
      * 
      */
     public Output<Optional<Boolean>> onAll() {

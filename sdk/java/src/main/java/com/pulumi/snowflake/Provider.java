@@ -24,14 +24,16 @@ import javax.annotation.Nullable;
 @ResourceType(type="pulumi:providers:snowflake")
 public class Provider extends com.pulumi.resources.ProviderResource {
     /**
-     * The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+     * The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+     * using profile.
      * 
      */
     @Export(name="account", type=String.class, parameters={})
     private Output</* @Nullable */ String> account;
 
     /**
-     * @return The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+     * @return The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+     * using profile.
      * 
      */
     public Output<Optional<String>> account() {
@@ -210,6 +212,20 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.privateKeyPath);
     }
     /**
+     * Sets the profile to read from ~/.snowflake/config file.
+     * 
+     */
+    @Export(name="profile", type=String.class, parameters={})
+    private Output</* @Nullable */ String> profile;
+
+    /**
+     * @return Sets the profile to read from ~/.snowflake/config file.
+     * 
+     */
+    public Output<Optional<String>> profile() {
+        return Codegen.optional(this.profile);
+    }
+    /**
      * Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
      * 
      */
@@ -260,14 +276,16 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.role);
     }
     /**
-     * Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+     * Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+     * using profile.
      * 
      */
     @Export(name="username", type=String.class, parameters={})
     private Output</* @Nullable */ String> username;
 
     /**
-     * @return Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+     * @return Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+     * using profile.
      * 
      */
     public Output<Optional<String>> username() {

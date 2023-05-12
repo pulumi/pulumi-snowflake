@@ -33,24 +33,14 @@ public final class NetworkPolicyAttachmentArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies whether the network policy should be applied globally to your Snowflake account&lt;br&gt;&lt;br&gt;**Note:** The Snowflake
-     * user running `terraform apply` must be on an IP address allowed by the network policy to set that policy globally on the
-     * Snowflake account.&lt;br&gt;&lt;br&gt;Additionally, a Snowflake account can only have one network policy set globally at any given
-     * time. This resource does not enforce one-policy-per-account, it is the user&#39;s responsibility to enforce this. If
-     * multiple network policy resources have `set_for_account: true`, the final policy set on the account will be
-     * non-deterministic.
+     * Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user&#39;s responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
      * 
      */
     @Import(name="setForAccount")
     private @Nullable Output<Boolean> setForAccount;
 
     /**
-     * @return Specifies whether the network policy should be applied globally to your Snowflake account&lt;br&gt;&lt;br&gt;**Note:** The Snowflake
-     * user running `terraform apply` must be on an IP address allowed by the network policy to set that policy globally on the
-     * Snowflake account.&lt;br&gt;&lt;br&gt;Additionally, a Snowflake account can only have one network policy set globally at any given
-     * time. This resource does not enforce one-policy-per-account, it is the user&#39;s responsibility to enforce this. If
-     * multiple network policy resources have `set_for_account: true`, the final policy set on the account will be
-     * non-deterministic.
+     * @return Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user&#39;s responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
      * 
      */
     public Optional<Output<Boolean>> setForAccount() {
@@ -120,12 +110,7 @@ public final class NetworkPolicyAttachmentArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param setForAccount Specifies whether the network policy should be applied globally to your Snowflake account&lt;br&gt;&lt;br&gt;**Note:** The Snowflake
-         * user running `terraform apply` must be on an IP address allowed by the network policy to set that policy globally on the
-         * Snowflake account.&lt;br&gt;&lt;br&gt;Additionally, a Snowflake account can only have one network policy set globally at any given
-         * time. This resource does not enforce one-policy-per-account, it is the user&#39;s responsibility to enforce this. If
-         * multiple network policy resources have `set_for_account: true`, the final policy set on the account will be
-         * non-deterministic.
+         * @param setForAccount Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user&#39;s responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
          * 
          * @return builder
          * 
@@ -136,12 +121,7 @@ public final class NetworkPolicyAttachmentArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param setForAccount Specifies whether the network policy should be applied globally to your Snowflake account&lt;br&gt;&lt;br&gt;**Note:** The Snowflake
-         * user running `terraform apply` must be on an IP address allowed by the network policy to set that policy globally on the
-         * Snowflake account.&lt;br&gt;&lt;br&gt;Additionally, a Snowflake account can only have one network policy set globally at any given
-         * time. This resource does not enforce one-policy-per-account, it is the user&#39;s responsibility to enforce this. If
-         * multiple network policy resources have `set_for_account: true`, the final policy set on the account will be
-         * non-deterministic.
+         * @param setForAccount Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user&#39;s responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
          * 
          * @return builder
          * 

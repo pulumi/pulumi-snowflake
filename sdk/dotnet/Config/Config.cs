@@ -34,7 +34,8 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<string?> _account = new __Value<string?>(() => __config.Get("account") ?? Utilities.GetEnv("SNOWFLAKE_ACCOUNT"));
         /// <summary>
-        /// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+        /// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+        /// using profile.
         /// </summary>
         public static string? Account
         {
@@ -193,6 +194,16 @@ namespace Pulumi.Snowflake
             set => _privateKeyPath.Set(value);
         }
 
+        private static readonly __Value<string?> _profile = new __Value<string?>(() => __config.Get("profile"));
+        /// <summary>
+        /// Sets the profile to read from ~/.snowflake/config file.
+        /// </summary>
+        public static string? Profile
+        {
+            get => _profile.Get();
+            set => _profile.Set(value);
+        }
+
         private static readonly __Value<string?> _protocol = new __Value<string?>(() => __config.Get("protocol") ?? Utilities.GetEnv("SNOWFLAKE_PROTOCOL"));
         /// <summary>
         /// Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
@@ -229,7 +240,8 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<string?> _username = new __Value<string?>(() => __config.Get("username") ?? Utilities.GetEnv("SNOWFLAKE_USER"));
         /// <summary>
-        /// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+        /// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+        /// using profile.
         /// </summary>
         public static string? Username
         {

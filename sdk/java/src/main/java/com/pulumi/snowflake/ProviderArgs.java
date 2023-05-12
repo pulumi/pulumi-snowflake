@@ -19,14 +19,16 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProviderArgs Empty = new ProviderArgs();
 
     /**
-     * The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+     * The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+     * using profile.
      * 
      */
     @Import(name="account")
     private @Nullable Output<String> account;
 
     /**
-     * @return The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+     * @return The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+     * using profile.
      * 
      */
     public Optional<Output<String>> account() {
@@ -266,6 +268,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Sets the profile to read from ~/.snowflake/config file.
+     * 
+     */
+    @Import(name="profile")
+    private @Nullable Output<String> profile;
+
+    /**
+     * @return Sets the profile to read from ~/.snowflake/config file.
+     * 
+     */
+    public Optional<Output<String>> profile() {
+        return Optional.ofNullable(this.profile);
+    }
+
+    /**
      * Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
      * 
      */
@@ -319,14 +336,16 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+     * Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+     * using profile.
      * 
      */
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
-     * @return Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+     * @return Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+     * using profile.
      * 
      */
     public Optional<Output<String>> username() {
@@ -366,6 +385,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.privateKey = $.privateKey;
         this.privateKeyPassphrase = $.privateKeyPassphrase;
         this.privateKeyPath = $.privateKeyPath;
+        this.profile = $.profile;
         this.protocol = $.protocol;
         this.region = $.region;
         this.role = $.role;
@@ -392,7 +412,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param account The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+         * @param account The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+         * using profile.
          * 
          * @return builder
          * 
@@ -403,7 +424,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param account The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable.
+         * @param account The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
+         * using profile.
          * 
          * @return builder
          * 
@@ -729,6 +751,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param profile Sets the profile to read from ~/.snowflake/config file.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder profile(@Nullable Output<String> profile) {
+            $.profile = profile;
+            return this;
+        }
+
+        /**
+         * @param profile Sets the profile to read from ~/.snowflake/config file.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder profile(String profile) {
+            return profile(Output.of(profile));
+        }
+
+        /**
          * @param protocol Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
          * 
          * @return builder
@@ -800,7 +843,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param username Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+         * @param username Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+         * using profile.
          * 
          * @return builder
          * 
@@ -811,7 +855,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param username Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable.
+         * @param username Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
+         * using profile.
          * 
          * @return builder
          * 

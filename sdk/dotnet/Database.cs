@@ -52,7 +52,7 @@ namespace Pulumi.Snowflake
     ///         Comment = "test comment",
     ///         FromShare = 
     ///         {
-    ///             { "provider", "org1\".\"account1" },
+    ///             { "provider", "org1.account1" },
     ///             { "share", "share1" },
     ///         },
     ///     });

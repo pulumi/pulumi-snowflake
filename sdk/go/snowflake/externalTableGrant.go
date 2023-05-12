@@ -69,7 +69,9 @@ type ExternalTableGrant struct {
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// The name of the external table on which to grant privileges immediately (only valid if onFuture is false).
 	ExternalTableName pulumi.StringPtrOutput `pulumi:"externalTableName"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all external tables in the given schema. When this is true and no schema*name is provided apply this grant on all external tables in the given database. The external*table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+	OnAll pulumi.BoolPtrOutput `pulumi:"onAll"`
+	// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
 	// The privilege to grant on the current or future external table.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
@@ -125,7 +127,9 @@ type externalTableGrantState struct {
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// The name of the external table on which to grant privileges immediately (only valid if onFuture is false).
 	ExternalTableName *string `pulumi:"externalTableName"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all external tables in the given schema. When this is true and no schema*name is provided apply this grant on all external tables in the given database. The external*table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+	OnAll *bool `pulumi:"onAll"`
+	// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future external table.
 	Privilege *string `pulumi:"privilege"`
@@ -147,7 +151,9 @@ type ExternalTableGrantState struct {
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// The name of the external table on which to grant privileges immediately (only valid if onFuture is false).
 	ExternalTableName pulumi.StringPtrInput
-	// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all external tables in the given schema. When this is true and no schema*name is provided apply this grant on all external tables in the given database. The external*table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+	OnAll pulumi.BoolPtrInput
+	// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future external table.
 	Privilege pulumi.StringPtrInput
@@ -173,7 +179,9 @@ type externalTableGrantArgs struct {
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// The name of the external table on which to grant privileges immediately (only valid if onFuture is false).
 	ExternalTableName *string `pulumi:"externalTableName"`
-	// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all external tables in the given schema. When this is true and no schema*name is provided apply this grant on all external tables in the given database. The external*table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+	OnAll *bool `pulumi:"onAll"`
+	// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
 	OnFuture *bool `pulumi:"onFuture"`
 	// The privilege to grant on the current or future external table.
 	Privilege *string `pulumi:"privilege"`
@@ -196,7 +204,9 @@ type ExternalTableGrantArgs struct {
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// The name of the external table on which to grant privileges immediately (only valid if onFuture is false).
 	ExternalTableName pulumi.StringPtrInput
-	// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
+	// When this is set to true and a schema*name is provided, apply this grant on all external tables in the given schema. When this is true and no schema*name is provided apply this grant on all external tables in the given database. The external*table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+	OnAll pulumi.BoolPtrInput
+	// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
 	OnFuture pulumi.BoolPtrInput
 	// The privilege to grant on the current or future external table.
 	Privilege pulumi.StringPtrInput
@@ -313,7 +323,12 @@ func (o ExternalTableGrantOutput) ExternalTableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExternalTableGrant) pulumi.StringPtrOutput { return v.ExternalTableName }).(pulumi.StringPtrOutput)
 }
 
-// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on_future.
+// When this is set to true and a schema*name is provided, apply this grant on all external tables in the given schema. When this is true and no schema*name is provided apply this grant on all external tables in the given database. The external*table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
+func (o ExternalTableGrantOutput) OnAll() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExternalTableGrant) pulumi.BoolPtrOutput { return v.OnAll }).(pulumi.BoolPtrOutput)
+}
+
+// When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
 func (o ExternalTableGrantOutput) OnFuture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ExternalTableGrant) pulumi.BoolPtrOutput { return v.OnFuture }).(pulumi.BoolPtrOutput)
 }

@@ -124,6 +124,18 @@ namespace Pulumi.Snowflake
         public Output<string?> NullInputBehavior { get; private set; } = null!;
 
         /// <summary>
+        /// This specifies the name of the request translator function
+        /// </summary>
+        [Output("requestTranslator")]
+        public Output<string?> RequestTranslator { get; private set; } = null!;
+
+        /// <summary>
+        /// This specifies the name of the response translator function.
+        /// </summary>
+        [Output("responseTranslator")]
+        public Output<string?> ResponseTranslator { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the behavior of the function when returning results
         /// </summary>
         [Output("returnBehavior")]
@@ -278,6 +290,18 @@ namespace Pulumi.Snowflake
         public Input<string>? NullInputBehavior { get; set; }
 
         /// <summary>
+        /// This specifies the name of the request translator function
+        /// </summary>
+        [Input("requestTranslator")]
+        public Input<string>? RequestTranslator { get; set; }
+
+        /// <summary>
+        /// This specifies the name of the response translator function.
+        /// </summary>
+        [Input("responseTranslator")]
+        public Input<string>? ResponseTranslator { get; set; }
+
+        /// <summary>
         /// Specifies the behavior of the function when returning results
         /// </summary>
         [Input("returnBehavior", required: true)]
@@ -398,6 +422,18 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("nullInputBehavior")]
         public Input<string>? NullInputBehavior { get; set; }
+
+        /// <summary>
+        /// This specifies the name of the request translator function
+        /// </summary>
+        [Input("requestTranslator")]
+        public Input<string>? RequestTranslator { get; set; }
+
+        /// <summary>
+        /// This specifies the name of the response translator function.
+        /// </summary>
+        [Input("responseTranslator")]
+        public Input<string>? ResponseTranslator { get; set; }
 
         /// <summary>
         /// Specifies the behavior of the function when returning results

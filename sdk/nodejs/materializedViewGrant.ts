@@ -79,7 +79,7 @@ export class MaterializedViewGrant extends pulumi.CustomResource {
      */
     public readonly materializedViewName!: pulumi.Output<string | undefined>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+     * When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
      */
     public readonly onAll!: pulumi.Output<boolean | undefined>;
     /**
@@ -169,7 +169,7 @@ export interface MaterializedViewGrantState {
      */
     materializedViewName?: pulumi.Input<string>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+     * When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
      */
     onAll?: pulumi.Input<boolean>;
     /**
@@ -216,7 +216,7 @@ export interface MaterializedViewGrantArgs {
      */
     materializedViewName?: pulumi.Input<string>;
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future. Importing the resource with the on_all=true option is not supported.
+     * When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
      */
     onAll?: pulumi.Input<boolean>;
     /**

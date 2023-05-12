@@ -86,6 +86,10 @@ type ExternalFunction struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the behavior of the external function when called with null inputs.
 	NullInputBehavior pulumi.StringPtrOutput `pulumi:"nullInputBehavior"`
+	// This specifies the name of the request translator function
+	RequestTranslator pulumi.StringPtrOutput `pulumi:"requestTranslator"`
+	// This specifies the name of the response translator function.
+	ResponseTranslator pulumi.StringPtrOutput `pulumi:"responseTranslator"`
 	// Specifies the behavior of the function when returning results
 	ReturnBehavior pulumi.StringOutput `pulumi:"returnBehavior"`
 	// Indicates whether the function can return NULL values or must return only NON-NULL values.
@@ -167,6 +171,10 @@ type externalFunctionState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the behavior of the external function when called with null inputs.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
+	// This specifies the name of the request translator function
+	RequestTranslator *string `pulumi:"requestTranslator"`
+	// This specifies the name of the response translator function.
+	ResponseTranslator *string `pulumi:"responseTranslator"`
 	// Specifies the behavior of the function when returning results
 	ReturnBehavior *string `pulumi:"returnBehavior"`
 	// Indicates whether the function can return NULL values or must return only NON-NULL values.
@@ -202,6 +210,10 @@ type ExternalFunctionState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the behavior of the external function when called with null inputs.
 	NullInputBehavior pulumi.StringPtrInput
+	// This specifies the name of the request translator function
+	RequestTranslator pulumi.StringPtrInput
+	// This specifies the name of the response translator function.
+	ResponseTranslator pulumi.StringPtrInput
 	// Specifies the behavior of the function when returning results
 	ReturnBehavior pulumi.StringPtrInput
 	// Indicates whether the function can return NULL values or must return only NON-NULL values.
@@ -239,6 +251,10 @@ type externalFunctionArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the behavior of the external function when called with null inputs.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
+	// This specifies the name of the request translator function
+	RequestTranslator *string `pulumi:"requestTranslator"`
+	// This specifies the name of the response translator function.
+	ResponseTranslator *string `pulumi:"responseTranslator"`
 	// Specifies the behavior of the function when returning results
 	ReturnBehavior string `pulumi:"returnBehavior"`
 	// Indicates whether the function can return NULL values or must return only NON-NULL values.
@@ -273,6 +289,10 @@ type ExternalFunctionArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the behavior of the external function when called with null inputs.
 	NullInputBehavior pulumi.StringPtrInput
+	// This specifies the name of the request translator function
+	RequestTranslator pulumi.StringPtrInput
+	// This specifies the name of the response translator function.
+	ResponseTranslator pulumi.StringPtrInput
 	// Specifies the behavior of the function when returning results
 	ReturnBehavior pulumi.StringInput
 	// Indicates whether the function can return NULL values or must return only NON-NULL values.
@@ -425,6 +445,16 @@ func (o ExternalFunctionOutput) Name() pulumi.StringOutput {
 // Specifies the behavior of the external function when called with null inputs.
 func (o ExternalFunctionOutput) NullInputBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExternalFunction) pulumi.StringPtrOutput { return v.NullInputBehavior }).(pulumi.StringPtrOutput)
+}
+
+// This specifies the name of the request translator function
+func (o ExternalFunctionOutput) RequestTranslator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExternalFunction) pulumi.StringPtrOutput { return v.RequestTranslator }).(pulumi.StringPtrOutput)
+}
+
+// This specifies the name of the response translator function.
+func (o ExternalFunctionOutput) ResponseTranslator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExternalFunction) pulumi.StringPtrOutput { return v.ResponseTranslator }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the behavior of the function when returning results

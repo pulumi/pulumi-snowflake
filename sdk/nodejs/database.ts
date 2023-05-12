@@ -35,7 +35,7 @@ import * as utilities from "./utilities";
  * const fromShare = new snowflake.Database("fromShare", {
  *     comment: "test comment",
  *     fromShare: {
- *         provider: "org1\".\"account1",
+ *         provider: "org1.account1",
  *         share: "share1",
  *     },
  * });

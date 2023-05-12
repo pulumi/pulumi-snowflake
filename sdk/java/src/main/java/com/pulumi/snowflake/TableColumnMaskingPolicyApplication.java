@@ -13,6 +13,81 @@ import com.pulumi.snowflake.inputs.TableColumnMaskingPolicyApplicationState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Applies a masking policy to a table column.
+ * 
+ * Only one masking policy may be applied per table column, hence only one `snowflake.TableColumnMaskingPolicyApplication` resources may be present per table column.
+ * Using two or more `snowflake.TableColumnMaskingPolicyApplication` resources for the same table column will result in the last one overriding any previously applied masking policies and unresolvable diffs in pulumi preview.
+ * 
+ * When using this resource to manage a table column&#39;s masking policy make sure to ignore changes to the column&#39;s masking policy in the table definition, otherwise the two resources would conflict. See example below.
+ * 
+ * ## Example Usage
+ * 
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.Provider;
+ * import com.pulumi.snowflake.ProviderArgs;
+ * import com.pulumi.snowflake.MaskingPolicy;
+ * import com.pulumi.snowflake.MaskingPolicyArgs;
+ * import com.pulumi.snowflake.Table;
+ * import com.pulumi.snowflake.TableArgs;
+ * import com.pulumi.snowflake.inputs.TableColumnArgs;
+ * import com.pulumi.snowflake.TableColumnMaskingPolicyApplication;
+ * import com.pulumi.snowflake.TableColumnMaskingPolicyApplicationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var masking = new Provider(&#34;masking&#34;, ProviderArgs.builder()        
+ *             .role(&#34;MASKING_ADMIN&#34;)
+ *             .build());
+ * 
+ *         var policy = new MaskingPolicy(&#34;policy&#34;, MaskingPolicyArgs.builder()        
+ *             .database(&#34;EXAMPLE_DB&#34;)
+ *             .schema(&#34;EXAMPLE_SCHEMA&#34;)
+ *             .valueDataType(&#34;VARCHAR&#34;)
+ *             .maskingExpression(&#34;case when current_role() in (&#39;ANALYST&#39;) then val else sha2(val, 512) end&#34;)
+ *             .returnDataType(&#34;VARCHAR&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .provider(snowflake.masking())
+ *                 .build());
+ * 
+ *         var table = new Table(&#34;table&#34;, TableArgs.builder()        
+ *             .database(&#34;EXAMPLE_DB&#34;)
+ *             .schema(&#34;EXAMPLE_SCHEMA&#34;)
+ *             .columns(TableColumnArgs.builder()
+ *                 .name(&#34;secret&#34;)
+ *                 .type(&#34;VARCHAR(16777216)&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var application = new TableColumnMaskingPolicyApplication(&#34;application&#34;, TableColumnMaskingPolicyApplicationArgs.builder()        
+ *             .table(table.qualifiedName())
+ *             .column(&#34;secret&#34;)
+ *             .maskingPolicy(policy.qualifiedName())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .provider(snowflake.masking())
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ */
 @ResourceType(type="snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication")
 public class TableColumnMaskingPolicyApplication extends com.pulumi.resources.CustomResource {
     /**

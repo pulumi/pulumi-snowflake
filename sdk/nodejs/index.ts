@@ -45,6 +45,11 @@ export type DatabaseRole = import("./databaseRole").DatabaseRole;
 export const DatabaseRole: typeof import("./databaseRole").DatabaseRole = null as any;
 utilities.lazyLoad(exports, ["DatabaseRole"], () => require("./databaseRole"));
 
+export { EmailNotificationIntegrationArgs, EmailNotificationIntegrationState } from "./emailNotificationIntegration";
+export type EmailNotificationIntegration = import("./emailNotificationIntegration").EmailNotificationIntegration;
+export const EmailNotificationIntegration: typeof import("./emailNotificationIntegration").EmailNotificationIntegration = null as any;
+utilities.lazyLoad(exports, ["EmailNotificationIntegration"], () => require("./emailNotificationIntegration"));
+
 export { ExternalFunctionArgs, ExternalFunctionState } from "./externalFunction";
 export type ExternalFunction = import("./externalFunction").ExternalFunction;
 export const ExternalFunction: typeof import("./externalFunction").ExternalFunction = null as any;
@@ -102,6 +107,11 @@ export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./get
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
+
+export { GetDatabaseRolesArgs, GetDatabaseRolesResult, GetDatabaseRolesOutputArgs } from "./getDatabaseRoles";
+export const getDatabaseRoles: typeof import("./getDatabaseRoles").getDatabaseRoles = null as any;
+export const getDatabaseRolesOutput: typeof import("./getDatabaseRoles").getDatabaseRolesOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseRoles","getDatabaseRolesOutput"], () => require("./getDatabaseRoles"));
 
 export { GetDatabasesResult } from "./getDatabases";
 export const getDatabases: typeof import("./getDatabases").getDatabases = null as any;
@@ -552,6 +562,8 @@ const _module = {
                 return new DatabaseGrant(name, <any>undefined, { urn })
             case "snowflake:index/databaseRole:DatabaseRole":
                 return new DatabaseRole(name, <any>undefined, { urn })
+            case "snowflake:index/emailNotificationIntegration:EmailNotificationIntegration":
+                return new EmailNotificationIntegration(name, <any>undefined, { urn })
             case "snowflake:index/externalFunction:ExternalFunction":
                 return new ExternalFunction(name, <any>undefined, { urn })
             case "snowflake:index/externalOauthIntegration:ExternalOauthIntegration":
@@ -691,6 +703,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/apiIntegration", _modu
 pulumi.runtime.registerResourceModule("snowflake", "index/database", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/databaseGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/databaseRole", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/emailNotificationIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalFunction", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalOauthIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalTable", _module)

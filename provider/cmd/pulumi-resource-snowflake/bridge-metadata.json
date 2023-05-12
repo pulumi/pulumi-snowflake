@@ -73,6 +73,14 @@
             "snowflake_database_role": {
                 "current": "snowflake:index/databaseRole:DatabaseRole"
             },
+            "snowflake_email_notification_integration": {
+                "current": "snowflake:index/emailNotificationIntegration:EmailNotificationIntegration",
+                "fields": {
+                    "allowed_recipients": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "snowflake_external_function": {
                 "current": "snowflake:index/externalFunction:ExternalFunction",
                 "fields": {
@@ -221,7 +229,19 @@
                 "current": "snowflake:index/managedAccount:ManagedAccount"
             },
             "snowflake_masking_policy": {
-                "current": "snowflake:index/maskingPolicy:MaskingPolicy"
+                "current": "snowflake:index/maskingPolicy:MaskingPolicy",
+                "fields": {
+                    "signature": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "column": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "snowflake_masking_policy_grant": {
                 "current": "snowflake:index/maskingPolicyGrant:MaskingPolicyGrant",
@@ -663,6 +683,9 @@
             "snowflake_database": {
                 "current": "snowflake:index/getDatabase:getDatabase"
             },
+            "snowflake_database_roles": {
+                "current": "snowflake:index/getDatabaseRoles:getDatabaseRoles"
+            },
             "snowflake_databases": {
                 "current": "snowflake:index/getDatabases:getDatabases"
             },
@@ -765,6 +788,7 @@
             "snowflake:index/database:Database": "snowflake_database",
             "snowflake:index/databaseGrant:DatabaseGrant": "snowflake_database_grant",
             "snowflake:index/databaseRole:DatabaseRole": "snowflake_database_role",
+            "snowflake:index/emailNotificationIntegration:EmailNotificationIntegration": "snowflake_email_notification_integration",
             "snowflake:index/externalFunction:ExternalFunction": "snowflake_external_function",
             "snowflake:index/externalOauthIntegration:ExternalOauthIntegration": "snowflake_external_oauth_integration",
             "snowflake:index/externalTable:ExternalTable": "snowflake_external_table",
@@ -833,6 +857,7 @@
             "snowflake:index/getCurrentAccount:getCurrentAccount": "snowflake_current_account",
             "snowflake:index/getCurrentRole:getCurrentRole": "snowflake_current_role",
             "snowflake:index/getDatabase:getDatabase": "snowflake_database",
+            "snowflake:index/getDatabaseRoles:getDatabaseRoles": "snowflake_database_roles",
             "snowflake:index/getDatabases:getDatabases": "snowflake_databases",
             "snowflake:index/getExternalFunctions:getExternalFunctions": "snowflake_external_functions",
             "snowflake:index/getExternalTables:getExternalTables": "snowflake_external_tables",
@@ -877,6 +902,9 @@
             },
             "snowflake:index/FailoverGroupReplicationScheduleCron:FailoverGroupReplicationScheduleCron": {
                 "timeZone": "time_zone"
+            },
+            "snowflake:index/MaskingPolicySignature:MaskingPolicySignature": {
+                "columns": "column"
             },
             "snowflake:index/TableColumn:TableColumn": {
                 "maskingPolicy": "masking_policy"
@@ -938,6 +966,9 @@
                 "enableMultipleGrants": "enable_multiple_grants",
                 "withGrantOption": "with_grant_option"
             },
+            "snowflake:index/emailNotificationIntegration:EmailNotificationIntegration": {
+                "allowedRecipients": "allowed_recipients"
+            },
             "snowflake:index/externalFunction:ExternalFunction": {
                 "apiIntegration": "api_integration",
                 "args": "arg",
@@ -946,6 +977,8 @@
                 "headers": "header",
                 "maxBatchRows": "max_batch_rows",
                 "nullInputBehavior": "null_input_behavior",
+                "requestTranslator": "request_translator",
+                "responseTranslator": "response_translator",
                 "returnBehavior": "return_behavior",
                 "returnNullAllowed": "return_null_allowed",
                 "returnType": "return_type",
@@ -979,6 +1012,7 @@
                 "databaseName": "database_name",
                 "enableMultipleGrants": "enable_multiple_grants",
                 "externalTableName": "external_table_name",
+                "onAll": "on_all",
                 "onFuture": "on_future",
                 "schemaName": "schema_name",
                 "withGrantOption": "with_grant_option"
@@ -1027,6 +1061,7 @@
                 "databaseName": "database_name",
                 "enableMultipleGrants": "enable_multiple_grants",
                 "fileFormatName": "file_format_name",
+                "onAll": "on_all",
                 "onFuture": "on_future",
                 "schemaName": "schema_name",
                 "withGrantOption": "with_grant_option"
@@ -1044,6 +1079,7 @@
                 "databaseName": "database_name",
                 "enableMultipleGrants": "enable_multiple_grants",
                 "functionName": "function_name",
+                "onAll": "on_all",
                 "onFuture": "on_future",
                 "schemaName": "schema_name",
                 "withGrantOption": "with_grant_option"
@@ -1053,6 +1089,9 @@
                 "isCurrent": "is_current",
                 "isDefault": "is_default",
                 "retentionTime": "retention_time"
+            },
+            "snowflake:index/getDatabaseRoles:getDatabaseRoles": {
+                "databaseRoles": "database_roles"
             },
             "snowflake:index/getDatabasesDatabase:getDatabasesDatabase": {
                 "createdOn": "created_on",
@@ -1181,10 +1220,12 @@
                 "createdOn": "created_on"
             },
             "snowflake:index/maskingPolicy:MaskingPolicy": {
+                "exemptOtherPolicies": "exempt_other_policies",
+                "ifNotExists": "if_not_exists",
                 "maskingExpression": "masking_expression",
+                "orReplace": "or_replace",
                 "qualifiedName": "qualified_name",
-                "returnDataType": "return_data_type",
-                "valueDataType": "value_data_type"
+                "returnDataType": "return_data_type"
             },
             "snowflake:index/maskingPolicyGrant:MaskingPolicyGrant": {
                 "databaseName": "database_name",
@@ -1286,6 +1327,7 @@
                 "argumentDataTypes": "argument_data_types",
                 "databaseName": "database_name",
                 "enableMultipleGrants": "enable_multiple_grants",
+                "onAll": "on_all",
                 "onFuture": "on_future",
                 "procedureName": "procedure_name",
                 "schemaName": "schema_name",
@@ -1377,6 +1419,7 @@
             "snowflake:index/sequenceGrant:SequenceGrant": {
                 "databaseName": "database_name",
                 "enableMultipleGrants": "enable_multiple_grants",
+                "onAll": "on_all",
                 "onFuture": "on_future",
                 "schemaName": "schema_name",
                 "sequenceName": "sequence_name",
@@ -1427,6 +1470,7 @@
             "snowflake:index/streamGrant:StreamGrant": {
                 "databaseName": "database_name",
                 "enableMultipleGrants": "enable_multiple_grants",
+                "onAll": "on_all",
                 "onFuture": "on_future",
                 "schemaName": "schema_name",
                 "streamName": "stream_name",
@@ -1491,6 +1535,7 @@
             "snowflake:index/taskGrant:TaskGrant": {
                 "databaseName": "database_name",
                 "enableMultipleGrants": "enable_multiple_grants",
+                "onAll": "on_all",
                 "onFuture": "on_future",
                 "schemaName": "schema_name",
                 "taskName": "task_name",

@@ -10,6 +10,8 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.MaskingPolicyArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.MaskingPolicyState;
+import com.pulumi.snowflake.outputs.MaskingPolicySignature;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -24,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.snowflake.MaskingPolicy;
  * import com.pulumi.snowflake.MaskingPolicyArgs;
+ * import com.pulumi.snowflake.inputs.MaskingPolicySignatureArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -37,12 +40,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleMaskingPolicy = new MaskingPolicy(&#34;exampleMaskingPolicy&#34;, MaskingPolicyArgs.builder()        
+ *         var test = new MaskingPolicy(&#34;test&#34;, MaskingPolicyArgs.builder()        
  *             .database(&#34;EXAMPLE_DB&#34;)
- *             .maskingExpression(&#34;case when current_role() in (&#39;ANALYST&#39;) then val else sha2(val, 512) end&#34;)
- *             .returnDataType(&#34;string&#34;)
+ *             .maskingExpression(&#34;&#34;&#34;
+ *   case 
+ *     when current_role() in (&#39;ROLE_A&#39;) then 
+ *       val 
+ *     when is_role_in_session( &#39;ROLE_B&#39; ) then 
+ *       &#39;ABC123&#39;
+ *     else
+ *       &#39;******&#39;
+ *   end
+ * 
+ *             &#34;&#34;&#34;)
+ *             .returnDataType(&#34;VARCHAR&#34;)
  *             .schema(&#34;EXAMPLE_SCHEMA&#34;)
- *             .valueDataType(&#34;string&#34;)
+ *             .signature(MaskingPolicySignatureArgs.builder()
+ *                 .columns(MaskingPolicySignatureColumnArgs.builder()
+ *                     .name(&#34;val&#34;)
+ *                     .type(&#34;VARCHAR&#34;)
+ *                     .build())
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -89,6 +107,34 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
+     * Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+     * 
+     */
+    @Export(name="exemptOtherPolicies", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> exemptOtherPolicies;
+
+    /**
+     * @return Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+     * 
+     */
+    public Output<Optional<Boolean>> exemptOtherPolicies() {
+        return Codegen.optional(this.exemptOtherPolicies);
+    }
+    /**
+     * Prevent overwriting a previous masking policy with the same name.
+     * 
+     */
+    @Export(name="ifNotExists", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> ifNotExists;
+
+    /**
+     * @return Prevent overwriting a previous masking policy with the same name.
+     * 
+     */
+    public Output<Optional<Boolean>> ifNotExists() {
+        return Codegen.optional(this.ifNotExists);
+    }
+    /**
      * Specifies the SQL expression that transforms the data.
      * 
      */
@@ -115,6 +161,20 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Whether to override a previous masking policy with the same name.
+     * 
+     */
+    @Export(name="orReplace", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> orReplace;
+
+    /**
+     * @return Whether to override a previous masking policy with the same name.
+     * 
+     */
+    public Output<Optional<Boolean>> orReplace() {
+        return Codegen.optional(this.orReplace);
     }
     /**
      * Specifies the qualified identifier for the masking policy.
@@ -159,18 +219,18 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
         return this.schema;
     }
     /**
-     * Specifies the data type to mask.
+     * The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
      * 
      */
-    @Export(name="valueDataType", type=String.class, parameters={})
-    private Output<String> valueDataType;
+    @Export(name="signature", type=MaskingPolicySignature.class, parameters={})
+    private Output<MaskingPolicySignature> signature;
 
     /**
-     * @return Specifies the data type to mask.
+     * @return The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
      * 
      */
-    public Output<String> valueDataType() {
-        return this.valueDataType;
+    public Output<MaskingPolicySignature> signature() {
+        return this.signature;
     }
 
     /**

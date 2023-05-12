@@ -111,14 +111,28 @@ public class FileFormatGrant extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.fileFormatName);
     }
     /**
-     * When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
+     * When this is set to true and a schema*name is provided, apply this grant on all file formats in the given schema. When this is true and no schema*name is provided apply this grant on all file formats in the given database. The file*format*name field must be unset in order to use on*all. Cannot be used together with on*future.
+     * 
+     */
+    @Export(name="onAll", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> onAll;
+
+    /**
+     * @return When this is set to true and a schema*name is provided, apply this grant on all file formats in the given schema. When this is true and no schema*name is provided apply this grant on all file formats in the given database. The file*format*name field must be unset in order to use on*all. Cannot be used together with on*future.
+     * 
+     */
+    public Output<Optional<Boolean>> onAll() {
+        return Codegen.optional(this.onAll);
+    }
+    /**
+     * When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on*future. Cannot be used together with on*all.
      * 
      */
     @Export(name="onFuture", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> onFuture;
 
     /**
-     * @return When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on_future.
+     * @return When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on*future. Cannot be used together with on*all.
      * 
      */
     public Output<Optional<Boolean>> onFuture() {

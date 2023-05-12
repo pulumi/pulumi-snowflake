@@ -1622,6 +1622,242 @@ func (o FunctionArgumentArrayOutput) Index(i pulumi.IntInput) FunctionArgumentOu
 	}).(FunctionArgumentOutput)
 }
 
+type MaskingPolicySignature struct {
+	Columns []MaskingPolicySignatureColumn `pulumi:"columns"`
+}
+
+// MaskingPolicySignatureInput is an input type that accepts MaskingPolicySignatureArgs and MaskingPolicySignatureOutput values.
+// You can construct a concrete instance of `MaskingPolicySignatureInput` via:
+//
+//	MaskingPolicySignatureArgs{...}
+type MaskingPolicySignatureInput interface {
+	pulumi.Input
+
+	ToMaskingPolicySignatureOutput() MaskingPolicySignatureOutput
+	ToMaskingPolicySignatureOutputWithContext(context.Context) MaskingPolicySignatureOutput
+}
+
+type MaskingPolicySignatureArgs struct {
+	Columns MaskingPolicySignatureColumnArrayInput `pulumi:"columns"`
+}
+
+func (MaskingPolicySignatureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaskingPolicySignature)(nil)).Elem()
+}
+
+func (i MaskingPolicySignatureArgs) ToMaskingPolicySignatureOutput() MaskingPolicySignatureOutput {
+	return i.ToMaskingPolicySignatureOutputWithContext(context.Background())
+}
+
+func (i MaskingPolicySignatureArgs) ToMaskingPolicySignatureOutputWithContext(ctx context.Context) MaskingPolicySignatureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaskingPolicySignatureOutput)
+}
+
+func (i MaskingPolicySignatureArgs) ToMaskingPolicySignaturePtrOutput() MaskingPolicySignaturePtrOutput {
+	return i.ToMaskingPolicySignaturePtrOutputWithContext(context.Background())
+}
+
+func (i MaskingPolicySignatureArgs) ToMaskingPolicySignaturePtrOutputWithContext(ctx context.Context) MaskingPolicySignaturePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaskingPolicySignatureOutput).ToMaskingPolicySignaturePtrOutputWithContext(ctx)
+}
+
+// MaskingPolicySignaturePtrInput is an input type that accepts MaskingPolicySignatureArgs, MaskingPolicySignaturePtr and MaskingPolicySignaturePtrOutput values.
+// You can construct a concrete instance of `MaskingPolicySignaturePtrInput` via:
+//
+//	        MaskingPolicySignatureArgs{...}
+//
+//	or:
+//
+//	        nil
+type MaskingPolicySignaturePtrInput interface {
+	pulumi.Input
+
+	ToMaskingPolicySignaturePtrOutput() MaskingPolicySignaturePtrOutput
+	ToMaskingPolicySignaturePtrOutputWithContext(context.Context) MaskingPolicySignaturePtrOutput
+}
+
+type maskingPolicySignaturePtrType MaskingPolicySignatureArgs
+
+func MaskingPolicySignaturePtr(v *MaskingPolicySignatureArgs) MaskingPolicySignaturePtrInput {
+	return (*maskingPolicySignaturePtrType)(v)
+}
+
+func (*maskingPolicySignaturePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaskingPolicySignature)(nil)).Elem()
+}
+
+func (i *maskingPolicySignaturePtrType) ToMaskingPolicySignaturePtrOutput() MaskingPolicySignaturePtrOutput {
+	return i.ToMaskingPolicySignaturePtrOutputWithContext(context.Background())
+}
+
+func (i *maskingPolicySignaturePtrType) ToMaskingPolicySignaturePtrOutputWithContext(ctx context.Context) MaskingPolicySignaturePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaskingPolicySignaturePtrOutput)
+}
+
+type MaskingPolicySignatureOutput struct{ *pulumi.OutputState }
+
+func (MaskingPolicySignatureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaskingPolicySignature)(nil)).Elem()
+}
+
+func (o MaskingPolicySignatureOutput) ToMaskingPolicySignatureOutput() MaskingPolicySignatureOutput {
+	return o
+}
+
+func (o MaskingPolicySignatureOutput) ToMaskingPolicySignatureOutputWithContext(ctx context.Context) MaskingPolicySignatureOutput {
+	return o
+}
+
+func (o MaskingPolicySignatureOutput) ToMaskingPolicySignaturePtrOutput() MaskingPolicySignaturePtrOutput {
+	return o.ToMaskingPolicySignaturePtrOutputWithContext(context.Background())
+}
+
+func (o MaskingPolicySignatureOutput) ToMaskingPolicySignaturePtrOutputWithContext(ctx context.Context) MaskingPolicySignaturePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaskingPolicySignature) *MaskingPolicySignature {
+		return &v
+	}).(MaskingPolicySignaturePtrOutput)
+}
+
+func (o MaskingPolicySignatureOutput) Columns() MaskingPolicySignatureColumnArrayOutput {
+	return o.ApplyT(func(v MaskingPolicySignature) []MaskingPolicySignatureColumn { return v.Columns }).(MaskingPolicySignatureColumnArrayOutput)
+}
+
+type MaskingPolicySignaturePtrOutput struct{ *pulumi.OutputState }
+
+func (MaskingPolicySignaturePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaskingPolicySignature)(nil)).Elem()
+}
+
+func (o MaskingPolicySignaturePtrOutput) ToMaskingPolicySignaturePtrOutput() MaskingPolicySignaturePtrOutput {
+	return o
+}
+
+func (o MaskingPolicySignaturePtrOutput) ToMaskingPolicySignaturePtrOutputWithContext(ctx context.Context) MaskingPolicySignaturePtrOutput {
+	return o
+}
+
+func (o MaskingPolicySignaturePtrOutput) Elem() MaskingPolicySignatureOutput {
+	return o.ApplyT(func(v *MaskingPolicySignature) MaskingPolicySignature {
+		if v != nil {
+			return *v
+		}
+		var ret MaskingPolicySignature
+		return ret
+	}).(MaskingPolicySignatureOutput)
+}
+
+func (o MaskingPolicySignaturePtrOutput) Columns() MaskingPolicySignatureColumnArrayOutput {
+	return o.ApplyT(func(v *MaskingPolicySignature) []MaskingPolicySignatureColumn {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(MaskingPolicySignatureColumnArrayOutput)
+}
+
+type MaskingPolicySignatureColumn struct {
+	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+	Name string `pulumi:"name"`
+	Type string `pulumi:"type"`
+}
+
+// MaskingPolicySignatureColumnInput is an input type that accepts MaskingPolicySignatureColumnArgs and MaskingPolicySignatureColumnOutput values.
+// You can construct a concrete instance of `MaskingPolicySignatureColumnInput` via:
+//
+//	MaskingPolicySignatureColumnArgs{...}
+type MaskingPolicySignatureColumnInput interface {
+	pulumi.Input
+
+	ToMaskingPolicySignatureColumnOutput() MaskingPolicySignatureColumnOutput
+	ToMaskingPolicySignatureColumnOutputWithContext(context.Context) MaskingPolicySignatureColumnOutput
+}
+
+type MaskingPolicySignatureColumnArgs struct {
+	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (MaskingPolicySignatureColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaskingPolicySignatureColumn)(nil)).Elem()
+}
+
+func (i MaskingPolicySignatureColumnArgs) ToMaskingPolicySignatureColumnOutput() MaskingPolicySignatureColumnOutput {
+	return i.ToMaskingPolicySignatureColumnOutputWithContext(context.Background())
+}
+
+func (i MaskingPolicySignatureColumnArgs) ToMaskingPolicySignatureColumnOutputWithContext(ctx context.Context) MaskingPolicySignatureColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaskingPolicySignatureColumnOutput)
+}
+
+// MaskingPolicySignatureColumnArrayInput is an input type that accepts MaskingPolicySignatureColumnArray and MaskingPolicySignatureColumnArrayOutput values.
+// You can construct a concrete instance of `MaskingPolicySignatureColumnArrayInput` via:
+//
+//	MaskingPolicySignatureColumnArray{ MaskingPolicySignatureColumnArgs{...} }
+type MaskingPolicySignatureColumnArrayInput interface {
+	pulumi.Input
+
+	ToMaskingPolicySignatureColumnArrayOutput() MaskingPolicySignatureColumnArrayOutput
+	ToMaskingPolicySignatureColumnArrayOutputWithContext(context.Context) MaskingPolicySignatureColumnArrayOutput
+}
+
+type MaskingPolicySignatureColumnArray []MaskingPolicySignatureColumnInput
+
+func (MaskingPolicySignatureColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MaskingPolicySignatureColumn)(nil)).Elem()
+}
+
+func (i MaskingPolicySignatureColumnArray) ToMaskingPolicySignatureColumnArrayOutput() MaskingPolicySignatureColumnArrayOutput {
+	return i.ToMaskingPolicySignatureColumnArrayOutputWithContext(context.Background())
+}
+
+func (i MaskingPolicySignatureColumnArray) ToMaskingPolicySignatureColumnArrayOutputWithContext(ctx context.Context) MaskingPolicySignatureColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaskingPolicySignatureColumnArrayOutput)
+}
+
+type MaskingPolicySignatureColumnOutput struct{ *pulumi.OutputState }
+
+func (MaskingPolicySignatureColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaskingPolicySignatureColumn)(nil)).Elem()
+}
+
+func (o MaskingPolicySignatureColumnOutput) ToMaskingPolicySignatureColumnOutput() MaskingPolicySignatureColumnOutput {
+	return o
+}
+
+func (o MaskingPolicySignatureColumnOutput) ToMaskingPolicySignatureColumnOutputWithContext(ctx context.Context) MaskingPolicySignatureColumnOutput {
+	return o
+}
+
+// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+func (o MaskingPolicySignatureColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MaskingPolicySignatureColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o MaskingPolicySignatureColumnOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v MaskingPolicySignatureColumn) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type MaskingPolicySignatureColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (MaskingPolicySignatureColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MaskingPolicySignatureColumn)(nil)).Elem()
+}
+
+func (o MaskingPolicySignatureColumnArrayOutput) ToMaskingPolicySignatureColumnArrayOutput() MaskingPolicySignatureColumnArrayOutput {
+	return o
+}
+
+func (o MaskingPolicySignatureColumnArrayOutput) ToMaskingPolicySignatureColumnArrayOutputWithContext(ctx context.Context) MaskingPolicySignatureColumnArrayOutput {
+	return o
+}
+
+func (o MaskingPolicySignatureColumnArrayOutput) Index(i pulumi.IntInput) MaskingPolicySignatureColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MaskingPolicySignatureColumn {
+		return vs[0].([]MaskingPolicySignatureColumn)[vs[1].(int)]
+	}).(MaskingPolicySignatureColumnOutput)
+}
+
 type MaterializedViewTag struct {
 	// Name of the database that the tag was created in.
 	Database *string `pulumi:"database"`
@@ -3918,6 +4154,112 @@ func (o WarehouseTagArrayOutput) Index(i pulumi.IntInput) WarehouseTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WarehouseTag {
 		return vs[0].([]WarehouseTag)[vs[1].(int)]
 	}).(WarehouseTagOutput)
+}
+
+type GetDatabaseRolesDatabaseRole struct {
+	Comment string `pulumi:"comment"`
+	Name    string `pulumi:"name"`
+	Owner   string `pulumi:"owner"`
+}
+
+// GetDatabaseRolesDatabaseRoleInput is an input type that accepts GetDatabaseRolesDatabaseRoleArgs and GetDatabaseRolesDatabaseRoleOutput values.
+// You can construct a concrete instance of `GetDatabaseRolesDatabaseRoleInput` via:
+//
+//	GetDatabaseRolesDatabaseRoleArgs{...}
+type GetDatabaseRolesDatabaseRoleInput interface {
+	pulumi.Input
+
+	ToGetDatabaseRolesDatabaseRoleOutput() GetDatabaseRolesDatabaseRoleOutput
+	ToGetDatabaseRolesDatabaseRoleOutputWithContext(context.Context) GetDatabaseRolesDatabaseRoleOutput
+}
+
+type GetDatabaseRolesDatabaseRoleArgs struct {
+	Comment pulumi.StringInput `pulumi:"comment"`
+	Name    pulumi.StringInput `pulumi:"name"`
+	Owner   pulumi.StringInput `pulumi:"owner"`
+}
+
+func (GetDatabaseRolesDatabaseRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabaseRolesDatabaseRole)(nil)).Elem()
+}
+
+func (i GetDatabaseRolesDatabaseRoleArgs) ToGetDatabaseRolesDatabaseRoleOutput() GetDatabaseRolesDatabaseRoleOutput {
+	return i.ToGetDatabaseRolesDatabaseRoleOutputWithContext(context.Background())
+}
+
+func (i GetDatabaseRolesDatabaseRoleArgs) ToGetDatabaseRolesDatabaseRoleOutputWithContext(ctx context.Context) GetDatabaseRolesDatabaseRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabaseRolesDatabaseRoleOutput)
+}
+
+// GetDatabaseRolesDatabaseRoleArrayInput is an input type that accepts GetDatabaseRolesDatabaseRoleArray and GetDatabaseRolesDatabaseRoleArrayOutput values.
+// You can construct a concrete instance of `GetDatabaseRolesDatabaseRoleArrayInput` via:
+//
+//	GetDatabaseRolesDatabaseRoleArray{ GetDatabaseRolesDatabaseRoleArgs{...} }
+type GetDatabaseRolesDatabaseRoleArrayInput interface {
+	pulumi.Input
+
+	ToGetDatabaseRolesDatabaseRoleArrayOutput() GetDatabaseRolesDatabaseRoleArrayOutput
+	ToGetDatabaseRolesDatabaseRoleArrayOutputWithContext(context.Context) GetDatabaseRolesDatabaseRoleArrayOutput
+}
+
+type GetDatabaseRolesDatabaseRoleArray []GetDatabaseRolesDatabaseRoleInput
+
+func (GetDatabaseRolesDatabaseRoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabaseRolesDatabaseRole)(nil)).Elem()
+}
+
+func (i GetDatabaseRolesDatabaseRoleArray) ToGetDatabaseRolesDatabaseRoleArrayOutput() GetDatabaseRolesDatabaseRoleArrayOutput {
+	return i.ToGetDatabaseRolesDatabaseRoleArrayOutputWithContext(context.Background())
+}
+
+func (i GetDatabaseRolesDatabaseRoleArray) ToGetDatabaseRolesDatabaseRoleArrayOutputWithContext(ctx context.Context) GetDatabaseRolesDatabaseRoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabaseRolesDatabaseRoleArrayOutput)
+}
+
+type GetDatabaseRolesDatabaseRoleOutput struct{ *pulumi.OutputState }
+
+func (GetDatabaseRolesDatabaseRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabaseRolesDatabaseRole)(nil)).Elem()
+}
+
+func (o GetDatabaseRolesDatabaseRoleOutput) ToGetDatabaseRolesDatabaseRoleOutput() GetDatabaseRolesDatabaseRoleOutput {
+	return o
+}
+
+func (o GetDatabaseRolesDatabaseRoleOutput) ToGetDatabaseRolesDatabaseRoleOutputWithContext(ctx context.Context) GetDatabaseRolesDatabaseRoleOutput {
+	return o
+}
+
+func (o GetDatabaseRolesDatabaseRoleOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabaseRolesDatabaseRole) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetDatabaseRolesDatabaseRoleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabaseRolesDatabaseRole) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetDatabaseRolesDatabaseRoleOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabaseRolesDatabaseRole) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+type GetDatabaseRolesDatabaseRoleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDatabaseRolesDatabaseRoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabaseRolesDatabaseRole)(nil)).Elem()
+}
+
+func (o GetDatabaseRolesDatabaseRoleArrayOutput) ToGetDatabaseRolesDatabaseRoleArrayOutput() GetDatabaseRolesDatabaseRoleArrayOutput {
+	return o
+}
+
+func (o GetDatabaseRolesDatabaseRoleArrayOutput) ToGetDatabaseRolesDatabaseRoleArrayOutputWithContext(ctx context.Context) GetDatabaseRolesDatabaseRoleArrayOutput {
+	return o
+}
+
+func (o GetDatabaseRolesDatabaseRoleArrayOutput) Index(i pulumi.IntInput) GetDatabaseRolesDatabaseRoleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabaseRolesDatabaseRole {
+		return vs[0].([]GetDatabaseRolesDatabaseRole)[vs[1].(int)]
+	}).(GetDatabaseRolesDatabaseRoleOutput)
 }
 
 type GetDatabasesDatabase struct {
@@ -8085,6 +8427,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReplicationScheduleCronPtrInput)(nil)).Elem(), FailoverGroupReplicationScheduleCronArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArgumentInput)(nil)).Elem(), FunctionArgumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArgumentArrayInput)(nil)).Elem(), FunctionArgumentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaskingPolicySignatureInput)(nil)).Elem(), MaskingPolicySignatureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaskingPolicySignaturePtrInput)(nil)).Elem(), MaskingPolicySignatureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaskingPolicySignatureColumnInput)(nil)).Elem(), MaskingPolicySignatureColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaskingPolicySignatureColumnArrayInput)(nil)).Elem(), MaskingPolicySignatureColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewTagInput)(nil)).Elem(), MaterializedViewTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaterializedViewTagArrayInput)(nil)).Elem(), MaterializedViewTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectParameterObjectIdentifierInput)(nil)).Elem(), ObjectParameterObjectIdentifierArgs{})
@@ -8119,6 +8465,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewTagArrayInput)(nil)).Elem(), ViewTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WarehouseTagInput)(nil)).Elem(), WarehouseTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WarehouseTagArrayInput)(nil)).Elem(), WarehouseTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabaseRolesDatabaseRoleInput)(nil)).Elem(), GetDatabaseRolesDatabaseRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabaseRolesDatabaseRoleArrayInput)(nil)).Elem(), GetDatabaseRolesDatabaseRoleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseInput)(nil)).Elem(), GetDatabasesDatabaseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseArrayInput)(nil)).Elem(), GetDatabasesDatabaseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseReplicationConfigurationInput)(nil)).Elem(), GetDatabasesDatabaseReplicationConfigurationArgs{})
@@ -8207,6 +8555,10 @@ func init() {
 	pulumi.RegisterOutputType(FailoverGroupReplicationScheduleCronPtrOutput{})
 	pulumi.RegisterOutputType(FunctionArgumentOutput{})
 	pulumi.RegisterOutputType(FunctionArgumentArrayOutput{})
+	pulumi.RegisterOutputType(MaskingPolicySignatureOutput{})
+	pulumi.RegisterOutputType(MaskingPolicySignaturePtrOutput{})
+	pulumi.RegisterOutputType(MaskingPolicySignatureColumnOutput{})
+	pulumi.RegisterOutputType(MaskingPolicySignatureColumnArrayOutput{})
 	pulumi.RegisterOutputType(MaterializedViewTagOutput{})
 	pulumi.RegisterOutputType(MaterializedViewTagArrayOutput{})
 	pulumi.RegisterOutputType(ObjectParameterObjectIdentifierOutput{})
@@ -8241,6 +8593,8 @@ func init() {
 	pulumi.RegisterOutputType(ViewTagArrayOutput{})
 	pulumi.RegisterOutputType(WarehouseTagOutput{})
 	pulumi.RegisterOutputType(WarehouseTagArrayOutput{})
+	pulumi.RegisterOutputType(GetDatabaseRolesDatabaseRoleOutput{})
+	pulumi.RegisterOutputType(GetDatabaseRolesDatabaseRoleArrayOutput{})
 	pulumi.RegisterOutputType(GetDatabasesDatabaseOutput{})
 	pulumi.RegisterOutputType(GetDatabasesDatabaseArrayOutput{})
 	pulumi.RegisterOutputType(GetDatabasesDatabaseReplicationConfigurationOutput{})

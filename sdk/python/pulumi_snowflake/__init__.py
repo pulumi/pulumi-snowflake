@@ -13,6 +13,7 @@ from .api_integration import *
 from .database import *
 from .database_grant import *
 from .database_role import *
+from .email_notification_integration import *
 from .external_function import *
 from .external_oauth_integration import *
 from .external_table import *
@@ -25,6 +26,7 @@ from .function_grant import *
 from .get_current_account import *
 from .get_current_role import *
 from .get_database import *
+from .get_database_roles import *
 from .get_databases import *
 from .get_external_functions import *
 from .get_external_tables import *
@@ -185,6 +187,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/databaseRole:DatabaseRole": "DatabaseRole"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/emailNotificationIntegration",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/emailNotificationIntegration:EmailNotificationIntegration": "EmailNotificationIntegration"
   }
  },
  {
