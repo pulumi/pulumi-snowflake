@@ -5,13 +5,17 @@ go 1.19
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20230327102345-3fa930f86570
 	github.com/mattn/go-ieproxy => github.com/mattn/go-ieproxy v0.0.1
+
+	// Using a pre-release version to adopt a codegen fix for pulumi/pulumi#12971 early; can be removed on next release.
+	github.com/pulumi/pulumi/pkg/v3 => github.com/pulumi/pulumi/pkg/v3 v3.67.2-0.20230522105734-c25b8483f913
+	github.com/pulumi/pulumi/sdk/v3 => github.com/pulumi/pulumi/sdk/v3 v3.68.1-0.20230522105734-c25b8483f913
 	gocloud.dev => gocloud.dev v0.29.0
 )
 
 require (
 	github.com/Snowflake-Labs/terraform-provider-snowflake v0.64.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.47.0
-	github.com/pulumi/pulumi/sdk/v3 v3.64.0
+	github.com/pulumi/pulumi/sdk/v3 v3.67.1
 )
 
 require (
@@ -79,7 +83,7 @@ require (
 	github.com/buger/jsonparser v1.1.1 // indirect
 	github.com/cenkalti/backoff/v3 v3.2.2 // indirect
 	github.com/cheggaaa/pb v1.0.29 // indirect
-	github.com/cloudflare/circl v1.1.0 // indirect
+	github.com/cloudflare/circl v1.3.3 // indirect
 	github.com/danieljoos/wincred v1.1.2 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/djherbis/times v1.5.0 // indirect
@@ -239,7 +243,7 @@ require (
 	gocloud.dev/secrets/hashivault v0.27.0 // indirect
 	golang.org/x/crypto v0.7.0 // indirect
 	golang.org/x/exp v0.0.0-20230315142452-642cacee5cc0 // indirect
-	golang.org/x/mod v0.9.0 // indirect
+	golang.org/x/mod v0.10.0 // indirect
 	golang.org/x/net v0.8.0 // indirect
 	golang.org/x/oauth2 v0.5.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
