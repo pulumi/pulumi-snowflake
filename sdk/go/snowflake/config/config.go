@@ -15,7 +15,11 @@ func GetAccount(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "SNOWFLAKE_ACCOUNT").(string)
+	var value string
+	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_ACCOUNT"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
@@ -24,7 +28,11 @@ func GetBrowserAuth(ctx *pulumi.Context) bool {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault(false, parseEnvBool, "SNOWFLAKE_USE_BROWSER_AUTH").(bool)
+	var value bool
+	if d := getEnvOrDefault(nil, parseEnvBool, "SNOWFLAKE_USE_BROWSER_AUTH"); d != nil {
+		value = d.(bool)
+	}
+	return value
 }
 
 // Supports passing in a custom host value to the snowflake go driver for use with privatelink.
@@ -33,7 +41,11 @@ func GetHost(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "SNOWFLAKE_HOST").(string)
+	var value string
+	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_HOST"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
@@ -50,7 +62,11 @@ func GetOauthAccessToken(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "SNOWFLAKE_OAUTH_ACCESS_TOKEN").(string)
+	var value string
+	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_ACCESS_TOKEN"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
@@ -59,7 +75,11 @@ func GetOauthClientId(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "SNOWFLAKE_OAUTH_CLIENT_ID").(string)
+	var value string
+	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_CLIENT_ID"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
@@ -68,7 +88,11 @@ func GetOauthClientSecret(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "SNOWFLAKE_OAUTH_CLIENT_SECRET").(string)
+	var value string
+	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_CLIENT_SECRET"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
@@ -77,7 +101,11 @@ func GetOauthEndpoint(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "SNOWFLAKE_OAUTH_ENDPOINT").(string)
+	var value string
+	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_ENDPOINT"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
@@ -86,7 +114,11 @@ func GetOauthRedirectUrl(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "SNOWFLAKE_OAUTH_REDIRECT_URL").(string)
+	var value string
+	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_REDIRECT_URL"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
@@ -98,7 +130,11 @@ func GetOauthRefreshToken(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "SNOWFLAKE_OAUTH_REFRESH_TOKEN").(string)
+	var value string
+	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_REFRESH_TOKEN"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
@@ -108,7 +144,11 @@ func GetPassword(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "SNOWFLAKE_PASSWORD").(string)
+	var value string
+	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_PASSWORD"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`
@@ -118,7 +158,11 @@ func GetPort(ctx *pulumi.Context) int {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault(0, parseEnvInt, "SNOWFLAKE_PORT").(int)
+	var value int
+	if d := getEnvOrDefault(nil, parseEnvInt, "SNOWFLAKE_PORT"); d != nil {
+		value = d.(int)
+	}
+	return value
 }
 
 // Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be sourced from
@@ -134,7 +178,11 @@ func GetPrivateKeyPassphrase(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE").(string)
+	var value string
+	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
@@ -144,7 +192,11 @@ func GetPrivateKeyPath(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "SNOWFLAKE_PRIVATE_KEY_PATH").(string)
+	var value string
+	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_PRIVATE_KEY_PATH"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // Sets the profile to read from ~/.snowflake/config file.
@@ -158,7 +210,11 @@ func GetProtocol(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "SNOWFLAKE_PROTOCOL").(string)
+	var value string
+	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_PROTOCOL"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
@@ -170,7 +226,11 @@ func GetRegion(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "SNOWFLAKE_REGION").(string)
+	var value string
+	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_REGION"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
@@ -180,7 +240,11 @@ func GetRole(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "SNOWFLAKE_ROLE").(string)
+	var value string
+	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_ROLE"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
@@ -190,7 +254,11 @@ func GetUsername(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "SNOWFLAKE_USER").(string)
+	var value string
+	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_USER"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
@@ -199,5 +267,9 @@ func GetWarehouse(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "SNOWFLAKE_WAREHOUSE").(string)
+	var value string
+	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_WAREHOUSE"); d != nil {
+		value = d.(string)
+	}
+	return value
 }

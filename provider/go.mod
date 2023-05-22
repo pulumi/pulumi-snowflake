@@ -7,8 +7,8 @@ replace (
 	github.com/mattn/go-ieproxy => github.com/mattn/go-ieproxy v0.0.1
 
 	// Using a pre-release version to adopt a codegen fix for pulumi/pulumi#12971 early; can be removed on next release.
-	github.com/pulumi/pulumi/pkg/v3 => github.com/pulumi/pulumi/pkg/v3 v3.67.2-0.20230522105734-c25b8483f913
-	github.com/pulumi/pulumi/sdk/v3 => github.com/pulumi/pulumi/sdk/v3 v3.68.1-0.20230522105734-c25b8483f913
+	github.com/pulumi/pulumi/pkg/v3 => github.com/pulumi/pulumi/pkg/v3 v3.67.2-0.20230519194146-439d2d01252d
+	github.com/pulumi/pulumi/sdk/v3 => github.com/pulumi/pulumi/sdk/v3 v3.68.1-0.20230519194146-439d2d01252d
 	gocloud.dev => gocloud.dev v0.29.0
 )
 

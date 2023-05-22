@@ -275,8 +275,8 @@ class TagAssociation(pulumi.CustomResource):
         table_association = snowflake.TagAssociation("tableAssociation",
             object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
                 name=test.name,
-                database=snowflake_database["test"]["name"],
-                schema=snowflake_schema["test"]["name"],
+                database=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                schema=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             object_type="TABLE",
             tag_id=snowflake_tag["test"]["id"],
@@ -346,8 +346,8 @@ class TagAssociation(pulumi.CustomResource):
         table_association = snowflake.TagAssociation("tableAssociation",
             object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
                 name=test.name,
-                database=snowflake_database["test"]["name"],
-                schema=snowflake_schema["test"]["name"],
+                database=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                schema=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             object_type="TABLE",
             tag_id=snowflake_tag["test"]["id"],
