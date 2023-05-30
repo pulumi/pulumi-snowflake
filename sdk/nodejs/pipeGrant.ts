@@ -79,9 +79,13 @@ export class PipeGrant extends pulumi.CustomResource {
      */
     public readonly pipeName!: pulumi.Output<string | undefined>;
     /**
-     * The privilege to grant on the current or future pipe.
+     * The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`
      */
     public readonly privilege!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     */
+    public readonly revertOwnershipToRoleName!: pulumi.Output<string | undefined>;
     /**
      * Grants privilege to these roles.
      */
@@ -113,6 +117,7 @@ export class PipeGrant extends pulumi.CustomResource {
             resourceInputs["onFuture"] = state ? state.onFuture : undefined;
             resourceInputs["pipeName"] = state ? state.pipeName : undefined;
             resourceInputs["privilege"] = state ? state.privilege : undefined;
+            resourceInputs["revertOwnershipToRoleName"] = state ? state.revertOwnershipToRoleName : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
             resourceInputs["schemaName"] = state ? state.schemaName : undefined;
             resourceInputs["withGrantOption"] = state ? state.withGrantOption : undefined;
@@ -126,6 +131,7 @@ export class PipeGrant extends pulumi.CustomResource {
             resourceInputs["onFuture"] = args ? args.onFuture : undefined;
             resourceInputs["pipeName"] = args ? args.pipeName : undefined;
             resourceInputs["privilege"] = args ? args.privilege : undefined;
+            resourceInputs["revertOwnershipToRoleName"] = args ? args.revertOwnershipToRoleName : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
             resourceInputs["schemaName"] = args ? args.schemaName : undefined;
             resourceInputs["withGrantOption"] = args ? args.withGrantOption : undefined;
@@ -157,9 +163,13 @@ export interface PipeGrantState {
      */
     pipeName?: pulumi.Input<string>;
     /**
-     * The privilege to grant on the current or future pipe.
+     * The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`
      */
     privilege?: pulumi.Input<string>;
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     */
+    revertOwnershipToRoleName?: pulumi.Input<string>;
     /**
      * Grants privilege to these roles.
      */
@@ -196,9 +206,13 @@ export interface PipeGrantArgs {
      */
     pipeName?: pulumi.Input<string>;
     /**
-     * The privilege to grant on the current or future pipe.
+     * The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`
      */
     privilege?: pulumi.Input<string>;
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     */
+    revertOwnershipToRoleName?: pulumi.Input<string>;
     /**
      * Grants privilege to these roles.
      */

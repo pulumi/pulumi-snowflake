@@ -59,7 +59,7 @@ namespace Pulumi.Snowflake
         public Output<string> MonitorName { get; private set; } = null!;
 
         /// <summary>
-        /// The privilege to grant on the resource monitor.
+        /// The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
         /// </summary>
         [Output("privilege")]
         public Output<string?> Privilege { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Snowflake
         public Input<string> MonitorName { get; set; } = null!;
 
         /// <summary>
-        /// The privilege to grant on the resource monitor.
+        /// The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
         /// </summary>
         [Input("privilege")]
         public Input<string>? Privilege { get; set; }
@@ -181,7 +181,7 @@ namespace Pulumi.Snowflake
         public Input<string>? MonitorName { get; set; }
 
         /// <summary>
-        /// The privilege to grant on the resource monitor.
+        /// The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
         /// </summary>
         [Input("privilege")]
         public Input<string>? Privilege { get; set; }

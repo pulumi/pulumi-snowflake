@@ -48,6 +48,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ExternalTableGrant{}
 	case "snowflake:index/failoverGroup:FailoverGroup":
 		r = &FailoverGroup{}
+	case "snowflake:index/failoverGroupGrant:FailoverGroupGrant":
+		r = &FailoverGroupGrant{}
 	case "snowflake:index/fileFormat:FileFormat":
 		r = &FileFormat{}
 	case "snowflake:index/fileFormatGrant:FileFormatGrant":
@@ -260,6 +262,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/failoverGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/failoverGroupGrant",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

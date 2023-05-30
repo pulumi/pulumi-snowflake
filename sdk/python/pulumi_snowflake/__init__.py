@@ -19,10 +19,13 @@ from .external_oauth_integration import *
 from .external_table import *
 from .external_table_grant import *
 from .failover_group import *
+from .failover_group_grant import *
 from .file_format import *
 from .file_format_grant import *
 from .function import *
 from .function_grant import *
+from .get_accounts import *
+from .get_alerts import *
 from .get_current_account import *
 from .get_current_role import *
 from .get_database import *
@@ -30,6 +33,7 @@ from .get_database_roles import *
 from .get_databases import *
 from .get_external_functions import *
 from .get_external_tables import *
+from .get_failover_groups import *
 from .get_file_formats import *
 from .get_functions import *
 from .get_grants import *
@@ -235,6 +239,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/failoverGroup:FailoverGroup": "FailoverGroup"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/failoverGroupGrant",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/failoverGroupGrant:FailoverGroupGrant": "FailoverGroupGrant"
   }
  },
  {

@@ -64,9 +64,13 @@ export class WarehouseGrant extends pulumi.CustomResource {
      */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
-     * The privilege to grant on the warehouse.
+     * The privilege to grant on the warehouse. To grant all privileges, use the value `ALL PRIVILEGES`.
      */
     public readonly privilege!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     */
+    public readonly revertOwnershipToRoleName!: pulumi.Output<string | undefined>;
     /**
      * Grants privilege to these roles.
      */
@@ -95,6 +99,7 @@ export class WarehouseGrant extends pulumi.CustomResource {
             const state = argsOrState as WarehouseGrantState | undefined;
             resourceInputs["enableMultipleGrants"] = state ? state.enableMultipleGrants : undefined;
             resourceInputs["privilege"] = state ? state.privilege : undefined;
+            resourceInputs["revertOwnershipToRoleName"] = state ? state.revertOwnershipToRoleName : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
             resourceInputs["warehouseName"] = state ? state.warehouseName : undefined;
             resourceInputs["withGrantOption"] = state ? state.withGrantOption : undefined;
@@ -105,6 +110,7 @@ export class WarehouseGrant extends pulumi.CustomResource {
             }
             resourceInputs["enableMultipleGrants"] = args ? args.enableMultipleGrants : undefined;
             resourceInputs["privilege"] = args ? args.privilege : undefined;
+            resourceInputs["revertOwnershipToRoleName"] = args ? args.revertOwnershipToRoleName : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
             resourceInputs["warehouseName"] = args ? args.warehouseName : undefined;
             resourceInputs["withGrantOption"] = args ? args.withGrantOption : undefined;
@@ -124,9 +130,13 @@ export interface WarehouseGrantState {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * The privilege to grant on the warehouse.
+     * The privilege to grant on the warehouse. To grant all privileges, use the value `ALL PRIVILEGES`.
      */
     privilege?: pulumi.Input<string>;
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     */
+    revertOwnershipToRoleName?: pulumi.Input<string>;
     /**
      * Grants privilege to these roles.
      */
@@ -151,9 +161,13 @@ export interface WarehouseGrantArgs {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * The privilege to grant on the warehouse.
+     * The privilege to grant on the warehouse. To grant all privileges, use the value `ALL PRIVILEGES`.
      */
     privilege?: pulumi.Input<string>;
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     */
+    revertOwnershipToRoleName?: pulumi.Input<string>;
     /**
      * Grants privilege to these roles.
      */

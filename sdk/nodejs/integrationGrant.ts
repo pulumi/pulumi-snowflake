@@ -68,9 +68,13 @@ export class IntegrationGrant extends pulumi.CustomResource {
      */
     public readonly integrationName!: pulumi.Output<string>;
     /**
-     * The privilege to grant on the integration.
+     * The privilege to grant on the integration. To grant all privileges, use the value `ALL PRIVILEGES`
      */
     public readonly privilege!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     */
+    public readonly revertOwnershipToRoleName!: pulumi.Output<string | undefined>;
     /**
      * Grants privilege to these roles.
      */
@@ -96,6 +100,7 @@ export class IntegrationGrant extends pulumi.CustomResource {
             resourceInputs["enableMultipleGrants"] = state ? state.enableMultipleGrants : undefined;
             resourceInputs["integrationName"] = state ? state.integrationName : undefined;
             resourceInputs["privilege"] = state ? state.privilege : undefined;
+            resourceInputs["revertOwnershipToRoleName"] = state ? state.revertOwnershipToRoleName : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
             resourceInputs["withGrantOption"] = state ? state.withGrantOption : undefined;
         } else {
@@ -106,6 +111,7 @@ export class IntegrationGrant extends pulumi.CustomResource {
             resourceInputs["enableMultipleGrants"] = args ? args.enableMultipleGrants : undefined;
             resourceInputs["integrationName"] = args ? args.integrationName : undefined;
             resourceInputs["privilege"] = args ? args.privilege : undefined;
+            resourceInputs["revertOwnershipToRoleName"] = args ? args.revertOwnershipToRoleName : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
             resourceInputs["withGrantOption"] = args ? args.withGrantOption : undefined;
         }
@@ -128,9 +134,13 @@ export interface IntegrationGrantState {
      */
     integrationName?: pulumi.Input<string>;
     /**
-     * The privilege to grant on the integration.
+     * The privilege to grant on the integration. To grant all privileges, use the value `ALL PRIVILEGES`
      */
     privilege?: pulumi.Input<string>;
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     */
+    revertOwnershipToRoleName?: pulumi.Input<string>;
     /**
      * Grants privilege to these roles.
      */
@@ -155,9 +165,13 @@ export interface IntegrationGrantArgs {
      */
     integrationName: pulumi.Input<string>;
     /**
-     * The privilege to grant on the integration.
+     * The privilege to grant on the integration. To grant all privileges, use the value `ALL PRIVILEGES`
      */
     privilege?: pulumi.Input<string>;
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     */
+    revertOwnershipToRoleName?: pulumi.Input<string>;
     /**
      * Grants privilege to these roles.
      */

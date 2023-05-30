@@ -72,9 +72,13 @@ export class DatabaseGrant extends pulumi.CustomResource {
      */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
-     * The privilege to grant on the database.
+     * The privilege to grant on the database. To grant all privileges, use the value `ALL PRIVILEGES`.
      */
     public readonly privilege!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     */
+    public readonly revertOwnershipToRoleName!: pulumi.Output<string | undefined>;
     /**
      * Grants privilege to these roles.
      */
@@ -104,6 +108,7 @@ export class DatabaseGrant extends pulumi.CustomResource {
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
             resourceInputs["enableMultipleGrants"] = state ? state.enableMultipleGrants : undefined;
             resourceInputs["privilege"] = state ? state.privilege : undefined;
+            resourceInputs["revertOwnershipToRoleName"] = state ? state.revertOwnershipToRoleName : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
             resourceInputs["shares"] = state ? state.shares : undefined;
             resourceInputs["withGrantOption"] = state ? state.withGrantOption : undefined;
@@ -115,6 +120,7 @@ export class DatabaseGrant extends pulumi.CustomResource {
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["enableMultipleGrants"] = args ? args.enableMultipleGrants : undefined;
             resourceInputs["privilege"] = args ? args.privilege : undefined;
+            resourceInputs["revertOwnershipToRoleName"] = args ? args.revertOwnershipToRoleName : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
             resourceInputs["shares"] = args ? args.shares : undefined;
             resourceInputs["withGrantOption"] = args ? args.withGrantOption : undefined;
@@ -138,9 +144,13 @@ export interface DatabaseGrantState {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * The privilege to grant on the database.
+     * The privilege to grant on the database. To grant all privileges, use the value `ALL PRIVILEGES`.
      */
     privilege?: pulumi.Input<string>;
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     */
+    revertOwnershipToRoleName?: pulumi.Input<string>;
     /**
      * Grants privilege to these roles.
      */
@@ -169,9 +179,13 @@ export interface DatabaseGrantArgs {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * The privilege to grant on the database.
+     * The privilege to grant on the database. To grant all privileges, use the value `ALL PRIVILEGES`.
      */
     privilege?: pulumi.Input<string>;
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     */
+    revertOwnershipToRoleName?: pulumi.Input<string>;
     /**
      * Grants privilege to these roles.
      */

@@ -17,7 +17,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string Kind;
         public readonly string Name;
         public readonly string Owner;
-        public readonly string To;
+        public readonly ImmutableArray<object> Tos;
 
         [OutputConstructor]
         private GetSharesShareResult(
@@ -29,13 +29,13 @@ namespace Pulumi.Snowflake.Outputs
 
             string owner,
 
-            string to)
+            ImmutableArray<object> tos)
         {
             Comment = comment;
             Kind = kind;
             Name = name;
             Owner = owner;
-            To = to;
+            Tos = tos;
         }
     }
 }

@@ -80,14 +80,14 @@ public class UserGrant extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableMultipleGrants);
     }
     /**
-     * The privilege to grant on the user.
+     * The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
      * 
      */
     @Export(name="privilege", type=String.class, parameters={})
     private Output<String> privilege;
 
     /**
-     * @return The privilege to grant on the user.
+     * @return The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
      * 
      */
     public Output<String> privilege() {

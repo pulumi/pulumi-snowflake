@@ -74,11 +74,9 @@ type Warehouse struct {
 	StatementQueuedTimeoutInSeconds pulumi.IntPtrOutput `pulumi:"statementQueuedTimeoutInSeconds"`
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
 	StatementTimeoutInSeconds pulumi.IntPtrOutput `pulumi:"statementTimeoutInSeconds"`
-	// Definitions of a tag to associate with the resource.
-	//
-	// Deprecated: Use the 'snowflake_tag_association' resource instead.
-	Tags WarehouseTagArrayOutput `pulumi:"tags"`
 	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
+	//
+	// Deprecated: This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.
 	WaitForProvisioning pulumi.BoolPtrOutput `pulumi:"waitForProvisioning"`
 	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
 	WarehouseSize pulumi.StringOutput `pulumi:"warehouseSize"`
@@ -142,11 +140,9 @@ type warehouseState struct {
 	StatementQueuedTimeoutInSeconds *int `pulumi:"statementQueuedTimeoutInSeconds"`
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
 	StatementTimeoutInSeconds *int `pulumi:"statementTimeoutInSeconds"`
-	// Definitions of a tag to associate with the resource.
-	//
-	// Deprecated: Use the 'snowflake_tag_association' resource instead.
-	Tags []WarehouseTag `pulumi:"tags"`
 	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
+	//
+	// Deprecated: This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.
 	WaitForProvisioning *bool `pulumi:"waitForProvisioning"`
 	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
 	WarehouseSize *string `pulumi:"warehouseSize"`
@@ -182,11 +178,9 @@ type WarehouseState struct {
 	StatementQueuedTimeoutInSeconds pulumi.IntPtrInput
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
 	StatementTimeoutInSeconds pulumi.IntPtrInput
-	// Definitions of a tag to associate with the resource.
-	//
-	// Deprecated: Use the 'snowflake_tag_association' resource instead.
-	Tags WarehouseTagArrayInput
 	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
+	//
+	// Deprecated: This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.
 	WaitForProvisioning pulumi.BoolPtrInput
 	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
 	WarehouseSize pulumi.StringPtrInput
@@ -226,11 +220,9 @@ type warehouseArgs struct {
 	StatementQueuedTimeoutInSeconds *int `pulumi:"statementQueuedTimeoutInSeconds"`
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
 	StatementTimeoutInSeconds *int `pulumi:"statementTimeoutInSeconds"`
-	// Definitions of a tag to associate with the resource.
-	//
-	// Deprecated: Use the 'snowflake_tag_association' resource instead.
-	Tags []WarehouseTag `pulumi:"tags"`
 	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
+	//
+	// Deprecated: This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.
 	WaitForProvisioning *bool `pulumi:"waitForProvisioning"`
 	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
 	WarehouseSize *string `pulumi:"warehouseSize"`
@@ -267,11 +259,9 @@ type WarehouseArgs struct {
 	StatementQueuedTimeoutInSeconds pulumi.IntPtrInput
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
 	StatementTimeoutInSeconds pulumi.IntPtrInput
-	// Definitions of a tag to associate with the resource.
-	//
-	// Deprecated: Use the 'snowflake_tag_association' resource instead.
-	Tags WarehouseTagArrayInput
 	// Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
+	//
+	// Deprecated: This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.
 	WaitForProvisioning pulumi.BoolPtrInput
 	// Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
 	WarehouseSize pulumi.StringPtrInput
@@ -435,14 +425,9 @@ func (o WarehouseOutput) StatementTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Warehouse) pulumi.IntPtrOutput { return v.StatementTimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Definitions of a tag to associate with the resource.
-//
-// Deprecated: Use the 'snowflake_tag_association' resource instead.
-func (o WarehouseOutput) Tags() WarehouseTagArrayOutput {
-	return o.ApplyT(func(v *Warehouse) WarehouseTagArrayOutput { return v.Tags }).(WarehouseTagArrayOutput)
-}
-
 // Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
+//
+// Deprecated: This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.
 func (o WarehouseOutput) WaitForProvisioning() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Warehouse) pulumi.BoolPtrOutput { return v.WaitForProvisioning }).(pulumi.BoolPtrOutput)
 }

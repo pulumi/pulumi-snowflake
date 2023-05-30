@@ -19,6 +19,7 @@ class TagGrantArgs:
                  tag_name: pulumi.Input[str],
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
         """
@@ -28,7 +29,8 @@ class TagGrantArgs:
         :param pulumi.Input[str] tag_name: The name of the tag on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
-        :param pulumi.Input[str] privilege: The privilege to grant on the tag.
+        :param pulumi.Input[str] privilege: The privilege to grant on the tag. To grant all privileges, use the value `ALL PRIVILEGES`.
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
@@ -39,6 +41,8 @@ class TagGrantArgs:
             pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
         if privilege is not None:
             pulumi.set(__self__, "privilege", privilege)
+        if revert_ownership_to_role_name is not None:
+            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
         if with_grant_option is not None:
@@ -97,13 +101,25 @@ class TagGrantArgs:
     @pulumi.getter
     def privilege(self) -> Optional[pulumi.Input[str]]:
         """
-        The privilege to grant on the tag.
+        The privilege to grant on the tag. To grant all privileges, use the value `ALL PRIVILEGES`.
         """
         return pulumi.get(self, "privilege")
 
     @privilege.setter
     def privilege(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "privilege", value)
+
+    @property
+    @pulumi.getter(name="revertOwnershipToRoleName")
+    def revert_ownership_to_role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+        """
+        return pulumi.get(self, "revert_ownership_to_role_name")
+
+    @revert_ownership_to_role_name.setter
+    def revert_ownership_to_role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revert_ownership_to_role_name", value)
 
     @property
     @pulumi.getter
@@ -136,6 +152,7 @@ class _TagGrantState:
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  tag_name: Optional[pulumi.Input[str]] = None,
@@ -145,7 +162,8 @@ class _TagGrantState:
         :param pulumi.Input[str] database_name: The name of the database containing the tag on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
-        :param pulumi.Input[str] privilege: The privilege to grant on the tag.
+        :param pulumi.Input[str] privilege: The privilege to grant on the tag. To grant all privileges, use the value `ALL PRIVILEGES`.
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the tag on which to grant privileges.
         :param pulumi.Input[str] tag_name: The name of the tag on which to grant privileges.
@@ -157,6 +175,8 @@ class _TagGrantState:
             pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
         if privilege is not None:
             pulumi.set(__self__, "privilege", privilege)
+        if revert_ownership_to_role_name is not None:
+            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
         if schema_name is not None:
@@ -195,13 +215,25 @@ class _TagGrantState:
     @pulumi.getter
     def privilege(self) -> Optional[pulumi.Input[str]]:
         """
-        The privilege to grant on the tag.
+        The privilege to grant on the tag. To grant all privileges, use the value `ALL PRIVILEGES`.
         """
         return pulumi.get(self, "privilege")
 
     @privilege.setter
     def privilege(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "privilege", value)
+
+    @property
+    @pulumi.getter(name="revertOwnershipToRoleName")
+    def revert_ownership_to_role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+        """
+        return pulumi.get(self, "revert_ownership_to_role_name")
+
+    @revert_ownership_to_role_name.setter
+    def revert_ownership_to_role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revert_ownership_to_role_name", value)
 
     @property
     @pulumi.getter
@@ -260,6 +292,7 @@ class TagGrant(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  tag_name: Optional[pulumi.Input[str]] = None,
@@ -293,7 +326,8 @@ class TagGrant(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: The name of the database containing the tag on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
-        :param pulumi.Input[str] privilege: The privilege to grant on the tag.
+        :param pulumi.Input[str] privilege: The privilege to grant on the tag. To grant all privileges, use the value `ALL PRIVILEGES`.
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the tag on which to grant privileges.
         :param pulumi.Input[str] tag_name: The name of the tag on which to grant privileges.
@@ -346,6 +380,7 @@ class TagGrant(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  tag_name: Optional[pulumi.Input[str]] = None,
@@ -364,6 +399,7 @@ class TagGrant(pulumi.CustomResource):
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["enable_multiple_grants"] = enable_multiple_grants
             __props__.__dict__["privilege"] = privilege
+            __props__.__dict__["revert_ownership_to_role_name"] = revert_ownership_to_role_name
             __props__.__dict__["roles"] = roles
             if schema_name is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_name'")
@@ -385,6 +421,7 @@ class TagGrant(pulumi.CustomResource):
             database_name: Optional[pulumi.Input[str]] = None,
             enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
             privilege: Optional[pulumi.Input[str]] = None,
+            revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             schema_name: Optional[pulumi.Input[str]] = None,
             tag_name: Optional[pulumi.Input[str]] = None,
@@ -399,7 +436,8 @@ class TagGrant(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: The name of the database containing the tag on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
-        :param pulumi.Input[str] privilege: The privilege to grant on the tag.
+        :param pulumi.Input[str] privilege: The privilege to grant on the tag. To grant all privileges, use the value `ALL PRIVILEGES`.
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the tag on which to grant privileges.
         :param pulumi.Input[str] tag_name: The name of the tag on which to grant privileges.
@@ -412,6 +450,7 @@ class TagGrant(pulumi.CustomResource):
         __props__.__dict__["database_name"] = database_name
         __props__.__dict__["enable_multiple_grants"] = enable_multiple_grants
         __props__.__dict__["privilege"] = privilege
+        __props__.__dict__["revert_ownership_to_role_name"] = revert_ownership_to_role_name
         __props__.__dict__["roles"] = roles
         __props__.__dict__["schema_name"] = schema_name
         __props__.__dict__["tag_name"] = tag_name
@@ -439,9 +478,17 @@ class TagGrant(pulumi.CustomResource):
     @pulumi.getter
     def privilege(self) -> pulumi.Output[Optional[str]]:
         """
-        The privilege to grant on the tag.
+        The privilege to grant on the tag. To grant all privileges, use the value `ALL PRIVILEGES`.
         """
         return pulumi.get(self, "privilege")
+
+    @property
+    @pulumi.getter(name="revertOwnershipToRoleName")
+    def revert_ownership_to_role_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+        """
+        return pulumi.get(self, "revert_ownership_to_role_name")
 
     @property
     @pulumi.getter

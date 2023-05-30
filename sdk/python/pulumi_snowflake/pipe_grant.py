@@ -19,6 +19,7 @@ class PipeGrantArgs:
                  on_future: Optional[pulumi.Input[bool]] = None,
                  pipe_name: Optional[pulumi.Input[str]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
@@ -29,7 +30,8 @@ class PipeGrantArgs:
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
         :param pulumi.Input[str] pipe_name: The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
-        :param pulumi.Input[str] privilege: The privilege to grant on the current or future pipe.
+        :param pulumi.Input[str] privilege: The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future pipes on which to grant privileges.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -43,6 +45,8 @@ class PipeGrantArgs:
             pulumi.set(__self__, "pipe_name", pipe_name)
         if privilege is not None:
             pulumi.set(__self__, "privilege", privilege)
+        if revert_ownership_to_role_name is not None:
+            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
         if schema_name is not None:
@@ -103,13 +107,25 @@ class PipeGrantArgs:
     @pulumi.getter
     def privilege(self) -> Optional[pulumi.Input[str]]:
         """
-        The privilege to grant on the current or future pipe.
+        The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`
         """
         return pulumi.get(self, "privilege")
 
     @privilege.setter
     def privilege(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "privilege", value)
+
+    @property
+    @pulumi.getter(name="revertOwnershipToRoleName")
+    def revert_ownership_to_role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+        """
+        return pulumi.get(self, "revert_ownership_to_role_name")
+
+    @revert_ownership_to_role_name.setter
+    def revert_ownership_to_role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revert_ownership_to_role_name", value)
 
     @property
     @pulumi.getter
@@ -156,6 +172,7 @@ class _PipeGrantState:
                  on_future: Optional[pulumi.Input[bool]] = None,
                  pipe_name: Optional[pulumi.Input[str]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
@@ -166,7 +183,8 @@ class _PipeGrantState:
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
         :param pulumi.Input[str] pipe_name: The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
-        :param pulumi.Input[str] privilege: The privilege to grant on the current or future pipe.
+        :param pulumi.Input[str] privilege: The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future pipes on which to grant privileges.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -181,6 +199,8 @@ class _PipeGrantState:
             pulumi.set(__self__, "pipe_name", pipe_name)
         if privilege is not None:
             pulumi.set(__self__, "privilege", privilege)
+        if revert_ownership_to_role_name is not None:
+            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
         if schema_name is not None:
@@ -241,13 +261,25 @@ class _PipeGrantState:
     @pulumi.getter
     def privilege(self) -> Optional[pulumi.Input[str]]:
         """
-        The privilege to grant on the current or future pipe.
+        The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`
         """
         return pulumi.get(self, "privilege")
 
     @privilege.setter
     def privilege(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "privilege", value)
+
+    @property
+    @pulumi.getter(name="revertOwnershipToRoleName")
+    def revert_ownership_to_role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+        """
+        return pulumi.get(self, "revert_ownership_to_role_name")
+
+    @revert_ownership_to_role_name.setter
+    def revert_ownership_to_role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revert_ownership_to_role_name", value)
 
     @property
     @pulumi.getter
@@ -296,6 +328,7 @@ class PipeGrant(pulumi.CustomResource):
                  on_future: Optional[pulumi.Input[bool]] = None,
                  pipe_name: Optional[pulumi.Input[str]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
@@ -335,7 +368,8 @@ class PipeGrant(pulumi.CustomResource):
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
         :param pulumi.Input[str] pipe_name: The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
-        :param pulumi.Input[str] privilege: The privilege to grant on the current or future pipe.
+        :param pulumi.Input[str] privilege: The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future pipes on which to grant privileges.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -394,6 +428,7 @@ class PipeGrant(pulumi.CustomResource):
                  on_future: Optional[pulumi.Input[bool]] = None,
                  pipe_name: Optional[pulumi.Input[str]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
@@ -413,6 +448,7 @@ class PipeGrant(pulumi.CustomResource):
             __props__.__dict__["on_future"] = on_future
             __props__.__dict__["pipe_name"] = pipe_name
             __props__.__dict__["privilege"] = privilege
+            __props__.__dict__["revert_ownership_to_role_name"] = revert_ownership_to_role_name
             __props__.__dict__["roles"] = roles
             __props__.__dict__["schema_name"] = schema_name
             __props__.__dict__["with_grant_option"] = with_grant_option
@@ -431,6 +467,7 @@ class PipeGrant(pulumi.CustomResource):
             on_future: Optional[pulumi.Input[bool]] = None,
             pipe_name: Optional[pulumi.Input[str]] = None,
             privilege: Optional[pulumi.Input[str]] = None,
+            revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             schema_name: Optional[pulumi.Input[str]] = None,
             with_grant_option: Optional[pulumi.Input[bool]] = None) -> 'PipeGrant':
@@ -446,7 +483,8 @@ class PipeGrant(pulumi.CustomResource):
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
         :param pulumi.Input[str] pipe_name: The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
-        :param pulumi.Input[str] privilege: The privilege to grant on the current or future pipe.
+        :param pulumi.Input[str] privilege: The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future pipes on which to grant privileges.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -460,6 +498,7 @@ class PipeGrant(pulumi.CustomResource):
         __props__.__dict__["on_future"] = on_future
         __props__.__dict__["pipe_name"] = pipe_name
         __props__.__dict__["privilege"] = privilege
+        __props__.__dict__["revert_ownership_to_role_name"] = revert_ownership_to_role_name
         __props__.__dict__["roles"] = roles
         __props__.__dict__["schema_name"] = schema_name
         __props__.__dict__["with_grant_option"] = with_grant_option
@@ -502,9 +541,17 @@ class PipeGrant(pulumi.CustomResource):
     @pulumi.getter
     def privilege(self) -> pulumi.Output[Optional[str]]:
         """
-        The privilege to grant on the current or future pipe.
+        The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`
         """
         return pulumi.get(self, "privilege")
+
+    @property
+    @pulumi.getter(name="revertOwnershipToRoleName")
+    def revert_ownership_to_role_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+        """
+        return pulumi.get(self, "revert_ownership_to_role_name")
 
     @property
     @pulumi.getter

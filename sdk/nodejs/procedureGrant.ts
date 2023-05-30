@@ -91,13 +91,17 @@ export class ProcedureGrant extends pulumi.CustomResource {
      */
     public readonly onFuture!: pulumi.Output<boolean | undefined>;
     /**
-     * The privilege to grant on the current or future procedure.
+     * The privilege to grant on the current or future procedure. To grant all privileges, use the value `ALL PRIVILEGES`
      */
     public readonly privilege!: pulumi.Output<string | undefined>;
     /**
      * The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
      */
     public readonly procedureName!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     */
+    public readonly revertOwnershipToRoleName!: pulumi.Output<string | undefined>;
     /**
      * Grants privilege to these roles.
      */
@@ -135,6 +139,7 @@ export class ProcedureGrant extends pulumi.CustomResource {
             resourceInputs["onFuture"] = state ? state.onFuture : undefined;
             resourceInputs["privilege"] = state ? state.privilege : undefined;
             resourceInputs["procedureName"] = state ? state.procedureName : undefined;
+            resourceInputs["revertOwnershipToRoleName"] = state ? state.revertOwnershipToRoleName : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
             resourceInputs["schemaName"] = state ? state.schemaName : undefined;
             resourceInputs["shares"] = state ? state.shares : undefined;
@@ -154,6 +159,7 @@ export class ProcedureGrant extends pulumi.CustomResource {
             resourceInputs["onFuture"] = args ? args.onFuture : undefined;
             resourceInputs["privilege"] = args ? args.privilege : undefined;
             resourceInputs["procedureName"] = args ? args.procedureName : undefined;
+            resourceInputs["revertOwnershipToRoleName"] = args ? args.revertOwnershipToRoleName : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
             resourceInputs["schemaName"] = args ? args.schemaName : undefined;
             resourceInputs["shares"] = args ? args.shares : undefined;
@@ -190,13 +196,17 @@ export interface ProcedureGrantState {
      */
     onFuture?: pulumi.Input<boolean>;
     /**
-     * The privilege to grant on the current or future procedure.
+     * The privilege to grant on the current or future procedure. To grant all privileges, use the value `ALL PRIVILEGES`
      */
     privilege?: pulumi.Input<string>;
     /**
      * The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
      */
     procedureName?: pulumi.Input<string>;
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     */
+    revertOwnershipToRoleName?: pulumi.Input<string>;
     /**
      * Grants privilege to these roles.
      */
@@ -241,13 +251,17 @@ export interface ProcedureGrantArgs {
      */
     onFuture?: pulumi.Input<boolean>;
     /**
-     * The privilege to grant on the current or future procedure.
+     * The privilege to grant on the current or future procedure. To grant all privileges, use the value `ALL PRIVILEGES`
      */
     privilege?: pulumi.Input<string>;
     /**
      * The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
      */
     procedureName?: pulumi.Input<string>;
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     */
+    revertOwnershipToRoleName?: pulumi.Input<string>;
     /**
      * Grants privilege to these roles.
      */

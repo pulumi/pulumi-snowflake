@@ -96,18 +96,32 @@ public class RowAccessPolicyGrant extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableMultipleGrants);
     }
     /**
-     * The privilege to grant on the row access policy.
+     * The privilege to grant on the row access policy. To grant all privileges, use the value `ALL PRIVILEGES`
      * 
      */
     @Export(name="privilege", type=String.class, parameters={})
     private Output</* @Nullable */ String> privilege;
 
     /**
-     * @return The privilege to grant on the row access policy.
+     * @return The privilege to grant on the row access policy. To grant all privileges, use the value `ALL PRIVILEGES`
      * 
      */
     public Output<Optional<String>> privilege() {
         return Codegen.optional(this.privilege);
+    }
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     * 
+     */
+    @Export(name="revertOwnershipToRoleName", type=String.class, parameters={})
+    private Output</* @Nullable */ String> revertOwnershipToRoleName;
+
+    /**
+     * @return The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     * 
+     */
+    public Output<Optional<String>> revertOwnershipToRoleName() {
+        return Codegen.optional(this.revertOwnershipToRoleName);
     }
     /**
      * Grants privilege to these roles.

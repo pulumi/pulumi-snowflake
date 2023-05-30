@@ -60,8 +60,10 @@ type IntegrationGrant struct {
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// Identifier for the integration; must be unique for your account.
 	IntegrationName pulumi.StringOutput `pulumi:"integrationName"`
-	// The privilege to grant on the integration.
+	// The privilege to grant on the integration. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrOutput `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -105,8 +107,10 @@ type integrationGrantState struct {
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// Identifier for the integration; must be unique for your account.
 	IntegrationName *string `pulumi:"integrationName"`
-	// The privilege to grant on the integration.
+	// The privilege to grant on the integration. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege *string `pulumi:"privilege"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -119,8 +123,10 @@ type IntegrationGrantState struct {
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// Identifier for the integration; must be unique for your account.
 	IntegrationName pulumi.StringPtrInput
-	// The privilege to grant on the integration.
+	// The privilege to grant on the integration. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege pulumi.StringPtrInput
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -137,8 +143,10 @@ type integrationGrantArgs struct {
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// Identifier for the integration; must be unique for your account.
 	IntegrationName string `pulumi:"integrationName"`
-	// The privilege to grant on the integration.
+	// The privilege to grant on the integration. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege *string `pulumi:"privilege"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -152,8 +160,10 @@ type IntegrationGrantArgs struct {
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// Identifier for the integration; must be unique for your account.
 	IntegrationName pulumi.StringInput
-	// The privilege to grant on the integration.
+	// The privilege to grant on the integration. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege pulumi.StringPtrInput
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -258,9 +268,14 @@ func (o IntegrationGrantOutput) IntegrationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationGrant) pulumi.StringOutput { return v.IntegrationName }).(pulumi.StringOutput)
 }
 
-// The privilege to grant on the integration.
+// The privilege to grant on the integration. To grant all privileges, use the value `ALL PRIVILEGES`
 func (o IntegrationGrantOutput) Privilege() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
+}
+
+// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+func (o IntegrationGrantOutput) RevertOwnershipToRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationGrant) pulumi.StringPtrOutput { return v.RevertOwnershipToRoleName }).(pulumi.StringPtrOutput)
 }
 
 // Grants privilege to these roles.

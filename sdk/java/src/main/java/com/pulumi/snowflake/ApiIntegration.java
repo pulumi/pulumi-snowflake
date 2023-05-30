@@ -145,6 +145,20 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.apiBlockedPrefixes);
     }
     /**
+     * The service account used for communication with the Google API Gateway.
+     * 
+     */
+    @Export(name="apiGcpServiceAccount", type=String.class, parameters={})
+    private Output<String> apiGcpServiceAccount;
+
+    /**
+     * @return The service account used for communication with the Google API Gateway.
+     * 
+     */
+    public Output<String> apiGcpServiceAccount() {
+        return this.apiGcpServiceAccount;
+    }
+    /**
      * The API key (also called a “subscription key”).
      * 
      */

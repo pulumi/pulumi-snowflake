@@ -58,7 +58,7 @@ type UserGrant struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
-	// The privilege to grant on the user.
+	// The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege pulumi.StringOutput `pulumi:"privilege"`
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
@@ -106,7 +106,7 @@ type userGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// The privilege to grant on the user.
+	// The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege *string `pulumi:"privilege"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
@@ -120,7 +120,7 @@ type UserGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// The privilege to grant on the user.
+	// The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
@@ -138,7 +138,7 @@ type userGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// The privilege to grant on the user.
+	// The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege string `pulumi:"privilege"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
@@ -153,7 +153,7 @@ type UserGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// The privilege to grant on the user.
+	// The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege pulumi.StringInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
@@ -256,7 +256,7 @@ func (o UserGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }
 
-// The privilege to grant on the user.
+// The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
 func (o UserGrantOutput) Privilege() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGrant) pulumi.StringOutput { return v.Privilege }).(pulumi.StringOutput)
 }

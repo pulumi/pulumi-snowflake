@@ -67,8 +67,10 @@ type PipeGrant struct {
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
 	// The name of the pipe on which to grant privileges immediately (only valid if onFuture is false).
 	PipeName pulumi.StringPtrOutput `pulumi:"pipeName"`
-	// The privilege to grant on the current or future pipe.
+	// The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrOutput `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current or future pipes on which to grant privileges.
@@ -118,8 +120,10 @@ type pipeGrantState struct {
 	OnFuture *bool `pulumi:"onFuture"`
 	// The name of the pipe on which to grant privileges immediately (only valid if onFuture is false).
 	PipeName *string `pulumi:"pipeName"`
-	// The privilege to grant on the current or future pipe.
+	// The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege *string `pulumi:"privilege"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future pipes on which to grant privileges.
@@ -138,8 +142,10 @@ type PipeGrantState struct {
 	OnFuture pulumi.BoolPtrInput
 	// The name of the pipe on which to grant privileges immediately (only valid if onFuture is false).
 	PipeName pulumi.StringPtrInput
-	// The privilege to grant on the current or future pipe.
+	// The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege pulumi.StringPtrInput
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future pipes on which to grant privileges.
@@ -162,8 +168,10 @@ type pipeGrantArgs struct {
 	OnFuture *bool `pulumi:"onFuture"`
 	// The name of the pipe on which to grant privileges immediately (only valid if onFuture is false).
 	PipeName *string `pulumi:"pipeName"`
-	// The privilege to grant on the current or future pipe.
+	// The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege *string `pulumi:"privilege"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future pipes on which to grant privileges.
@@ -183,8 +191,10 @@ type PipeGrantArgs struct {
 	OnFuture pulumi.BoolPtrInput
 	// The name of the pipe on which to grant privileges immediately (only valid if onFuture is false).
 	PipeName pulumi.StringPtrInput
-	// The privilege to grant on the current or future pipe.
+	// The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege pulumi.StringPtrInput
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future pipes on which to grant privileges.
@@ -301,9 +311,14 @@ func (o PipeGrantOutput) PipeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeGrant) pulumi.StringPtrOutput { return v.PipeName }).(pulumi.StringPtrOutput)
 }
 
-// The privilege to grant on the current or future pipe.
+// The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`
 func (o PipeGrantOutput) Privilege() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
+}
+
+// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+func (o PipeGrantOutput) RevertOwnershipToRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipeGrant) pulumi.StringPtrOutput { return v.RevertOwnershipToRoleName }).(pulumi.StringPtrOutput)
 }
 
 // Grants privilege to these roles.

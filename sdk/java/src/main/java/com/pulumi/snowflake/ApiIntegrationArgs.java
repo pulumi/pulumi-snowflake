@@ -63,6 +63,21 @@ public final class ApiIntegrationArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The service account used for communication with the Google API Gateway.
+     * 
+     */
+    @Import(name="apiGcpServiceAccount")
+    private @Nullable Output<String> apiGcpServiceAccount;
+
+    /**
+     * @return The service account used for communication with the Google API Gateway.
+     * 
+     */
+    public Optional<Output<String>> apiGcpServiceAccount() {
+        return Optional.ofNullable(this.apiGcpServiceAccount);
+    }
+
+    /**
      * The API key (also called a “subscription key”).
      * 
      */
@@ -180,6 +195,7 @@ public final class ApiIntegrationArgs extends com.pulumi.resources.ResourceArgs 
         this.apiAllowedPrefixes = $.apiAllowedPrefixes;
         this.apiAwsRoleArn = $.apiAwsRoleArn;
         this.apiBlockedPrefixes = $.apiBlockedPrefixes;
+        this.apiGcpServiceAccount = $.apiGcpServiceAccount;
         this.apiKey = $.apiKey;
         this.apiProvider = $.apiProvider;
         this.azureAdApplicationId = $.azureAdApplicationId;
@@ -289,6 +305,27 @@ public final class ApiIntegrationArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder apiBlockedPrefixes(String... apiBlockedPrefixes) {
             return apiBlockedPrefixes(List.of(apiBlockedPrefixes));
+        }
+
+        /**
+         * @param apiGcpServiceAccount The service account used for communication with the Google API Gateway.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiGcpServiceAccount(@Nullable Output<String> apiGcpServiceAccount) {
+            $.apiGcpServiceAccount = apiGcpServiceAccount;
+            return this;
+        }
+
+        /**
+         * @param apiGcpServiceAccount The service account used for communication with the Google API Gateway.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiGcpServiceAccount(String apiGcpServiceAccount) {
+            return apiGcpServiceAccount(Output.of(apiGcpServiceAccount));
         }
 
         /**

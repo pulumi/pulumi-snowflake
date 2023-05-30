@@ -41,12 +41,14 @@ __all__ = [
     'TagAssociationObjectIdentifier',
     'UserTag',
     'ViewTag',
-    'WarehouseTag',
+    'GetAccountsAccountResult',
+    'GetAlertsAlertResult',
     'GetDatabaseRolesDatabaseRoleResult',
     'GetDatabasesDatabaseResult',
     'GetDatabasesDatabaseReplicationConfigurationResult',
     'GetExternalFunctionsExternalFunctionResult',
     'GetExternalTablesExternalTableResult',
+    'GetFailoverGroupsFailoverGroupResult',
     'GetFileFormatsFileFormatResult',
     'GetFunctionsFunctionResult',
     'GetGrantsFutureGrantsInResult',
@@ -1404,56 +1406,174 @@ class ViewTag(dict):
 
 
 @pulumi.output_type
-class WarehouseTag(dict):
+class GetAccountsAccountResult(dict):
     def __init__(__self__, *,
+                 account_locator: str,
+                 account_locator_url: str,
+                 account_name: str,
+                 account_url: str,
+                 comment: str,
+                 consumption_billing_entity_name: str,
+                 created_on: str,
+                 edition: str,
+                 is_org_admin: bool,
+                 managed_accounts: int,
+                 marketplace_consumer_billing_entity_name: str,
+                 marketplace_provider_billing_entity_name: str,
+                 old_account_url: str,
+                 organization_name: str,
+                 region_group: str,
+                 snowflake_region: str):
+        pulumi.set(__self__, "account_locator", account_locator)
+        pulumi.set(__self__, "account_locator_url", account_locator_url)
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "account_url", account_url)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "consumption_billing_entity_name", consumption_billing_entity_name)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "edition", edition)
+        pulumi.set(__self__, "is_org_admin", is_org_admin)
+        pulumi.set(__self__, "managed_accounts", managed_accounts)
+        pulumi.set(__self__, "marketplace_consumer_billing_entity_name", marketplace_consumer_billing_entity_name)
+        pulumi.set(__self__, "marketplace_provider_billing_entity_name", marketplace_provider_billing_entity_name)
+        pulumi.set(__self__, "old_account_url", old_account_url)
+        pulumi.set(__self__, "organization_name", organization_name)
+        pulumi.set(__self__, "region_group", region_group)
+        pulumi.set(__self__, "snowflake_region", snowflake_region)
+
+    @property
+    @pulumi.getter(name="accountLocator")
+    def account_locator(self) -> str:
+        return pulumi.get(self, "account_locator")
+
+    @property
+    @pulumi.getter(name="accountLocatorUrl")
+    def account_locator_url(self) -> str:
+        return pulumi.get(self, "account_locator_url")
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="accountUrl")
+    def account_url(self) -> str:
+        return pulumi.get(self, "account_url")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="consumptionBillingEntityName")
+    def consumption_billing_entity_name(self) -> str:
+        return pulumi.get(self, "consumption_billing_entity_name")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def edition(self) -> str:
+        return pulumi.get(self, "edition")
+
+    @property
+    @pulumi.getter(name="isOrgAdmin")
+    def is_org_admin(self) -> bool:
+        return pulumi.get(self, "is_org_admin")
+
+    @property
+    @pulumi.getter(name="managedAccounts")
+    def managed_accounts(self) -> int:
+        return pulumi.get(self, "managed_accounts")
+
+    @property
+    @pulumi.getter(name="marketplaceConsumerBillingEntityName")
+    def marketplace_consumer_billing_entity_name(self) -> str:
+        return pulumi.get(self, "marketplace_consumer_billing_entity_name")
+
+    @property
+    @pulumi.getter(name="marketplaceProviderBillingEntityName")
+    def marketplace_provider_billing_entity_name(self) -> str:
+        return pulumi.get(self, "marketplace_provider_billing_entity_name")
+
+    @property
+    @pulumi.getter(name="oldAccountUrl")
+    def old_account_url(self) -> str:
+        return pulumi.get(self, "old_account_url")
+
+    @property
+    @pulumi.getter(name="organizationName")
+    def organization_name(self) -> str:
+        return pulumi.get(self, "organization_name")
+
+    @property
+    @pulumi.getter(name="regionGroup")
+    def region_group(self) -> str:
+        return pulumi.get(self, "region_group")
+
+    @property
+    @pulumi.getter(name="snowflakeRegion")
+    def snowflake_region(self) -> str:
+        return pulumi.get(self, "snowflake_region")
+
+
+@pulumi.output_type
+class GetAlertsAlertResult(dict):
+    def __init__(__self__, *,
+                 action: str,
+                 comment: str,
+                 condition: str,
+                 database_name: str,
                  name: str,
-                 value: str,
-                 database: Optional[str] = None,
-                 schema: Optional[str] = None):
-        """
-        :param str name: Tag name, e.g. department.
-        :param str value: Tag value, e.g. marketing_info.
-        :param str database: Name of the database that the tag was created in.
-        :param str schema: Name of the schema that the tag was created in.
-        """
+                 owner: str,
+                 schema_name: str):
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
-        if database is not None:
-            pulumi.set(__self__, "database", database)
-        if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def condition(self) -> str:
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def value(self) -> str:
-        """
-        Tag value, e.g. marketing_info.
-        """
-        return pulumi.get(self, "value")
+    def owner(self) -> str:
+        return pulumi.get(self, "owner")
 
     @property
-    @pulumi.getter
-    def database(self) -> Optional[str]:
-        """
-        Name of the database that the tag was created in.
-        """
-        return pulumi.get(self, "database")
-
-    @property
-    @pulumi.getter
-    def schema(self) -> Optional[str]:
-        """
-        Name of the schema that the tag was created in.
-        """
-        return pulumi.get(self, "schema")
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> str:
+        return pulumi.get(self, "schema_name")
 
 
 @pulumi.output_type
@@ -1667,6 +1787,130 @@ class GetExternalTablesExternalTableResult(dict):
         The schema from which to return the external tables from.
         """
         return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetFailoverGroupsFailoverGroupResult(dict):
+    def __init__(__self__, *,
+                 account_locator: str,
+                 account_name: str,
+                 allowed_accounts: Sequence[Any],
+                 allowed_integration_types: Sequence[Any],
+                 comment: str,
+                 created_on: str,
+                 is_primary: bool,
+                 next_scheduled_refresh: str,
+                 object_types: Sequence[Any],
+                 organization_name: str,
+                 owner: str,
+                 primary: str,
+                 region_group: str,
+                 replication_schedule: str,
+                 secondary_state: str,
+                 snowflake_region: str,
+                 type: str):
+        pulumi.set(__self__, "account_locator", account_locator)
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "allowed_accounts", allowed_accounts)
+        pulumi.set(__self__, "allowed_integration_types", allowed_integration_types)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "is_primary", is_primary)
+        pulumi.set(__self__, "next_scheduled_refresh", next_scheduled_refresh)
+        pulumi.set(__self__, "object_types", object_types)
+        pulumi.set(__self__, "organization_name", organization_name)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "primary", primary)
+        pulumi.set(__self__, "region_group", region_group)
+        pulumi.set(__self__, "replication_schedule", replication_schedule)
+        pulumi.set(__self__, "secondary_state", secondary_state)
+        pulumi.set(__self__, "snowflake_region", snowflake_region)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="accountLocator")
+    def account_locator(self) -> str:
+        return pulumi.get(self, "account_locator")
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="allowedAccounts")
+    def allowed_accounts(self) -> Sequence[Any]:
+        return pulumi.get(self, "allowed_accounts")
+
+    @property
+    @pulumi.getter(name="allowedIntegrationTypes")
+    def allowed_integration_types(self) -> Sequence[Any]:
+        return pulumi.get(self, "allowed_integration_types")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="isPrimary")
+    def is_primary(self) -> bool:
+        return pulumi.get(self, "is_primary")
+
+    @property
+    @pulumi.getter(name="nextScheduledRefresh")
+    def next_scheduled_refresh(self) -> str:
+        return pulumi.get(self, "next_scheduled_refresh")
+
+    @property
+    @pulumi.getter(name="objectTypes")
+    def object_types(self) -> Sequence[Any]:
+        return pulumi.get(self, "object_types")
+
+    @property
+    @pulumi.getter(name="organizationName")
+    def organization_name(self) -> str:
+        return pulumi.get(self, "organization_name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter
+    def primary(self) -> str:
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter(name="regionGroup")
+    def region_group(self) -> str:
+        return pulumi.get(self, "region_group")
+
+    @property
+    @pulumi.getter(name="replicationSchedule")
+    def replication_schedule(self) -> str:
+        return pulumi.get(self, "replication_schedule")
+
+    @property
+    @pulumi.getter(name="secondaryState")
+    def secondary_state(self) -> str:
+        return pulumi.get(self, "secondary_state")
+
+    @property
+    @pulumi.getter(name="snowflakeRegion")
+    def snowflake_region(self) -> str:
+        return pulumi.get(self, "snowflake_region")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -2454,12 +2698,12 @@ class GetSharesShareResult(dict):
                  kind: str,
                  name: str,
                  owner: str,
-                 to: str):
+                 tos: Sequence[Any]):
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "owner", owner)
-        pulumi.set(__self__, "to", to)
+        pulumi.set(__self__, "tos", tos)
 
     @property
     @pulumi.getter
@@ -2483,8 +2727,8 @@ class GetSharesShareResult(dict):
 
     @property
     @pulumi.getter
-    def to(self) -> str:
-        return pulumi.get(self, "to")
+    def tos(self) -> Sequence[Any]:
+        return pulumi.get(self, "tos")
 
 
 @pulumi.output_type

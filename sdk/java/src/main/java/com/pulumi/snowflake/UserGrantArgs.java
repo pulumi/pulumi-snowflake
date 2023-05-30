@@ -35,14 +35,14 @@ public final class UserGrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The privilege to grant on the user.
+     * The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
      * 
      */
     @Import(name="privilege", required=true)
     private Output<String> privilege;
 
     /**
-     * @return The privilege to grant on the user.
+     * @return The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
      * 
      */
     public Output<String> privilege() {
@@ -146,7 +146,7 @@ public final class UserGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privilege The privilege to grant on the user.
+         * @param privilege The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class UserGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privilege The privilege to grant on the user.
+         * @param privilege The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
          * 
          * @return builder
          * 

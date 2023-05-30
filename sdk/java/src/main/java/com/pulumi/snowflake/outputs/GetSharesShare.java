@@ -4,7 +4,9 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Object;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -13,7 +15,7 @@ public final class GetSharesShare {
     private String kind;
     private String name;
     private String owner;
-    private String to;
+    private List<Object> tos;
 
     private GetSharesShare() {}
     public String comment() {
@@ -28,8 +30,8 @@ public final class GetSharesShare {
     public String owner() {
         return this.owner;
     }
-    public String to() {
-        return this.to;
+    public List<Object> tos() {
+        return this.tos;
     }
 
     public static Builder builder() {
@@ -45,7 +47,7 @@ public final class GetSharesShare {
         private String kind;
         private String name;
         private String owner;
-        private String to;
+        private List<Object> tos;
         public Builder() {}
         public Builder(GetSharesShare defaults) {
     	      Objects.requireNonNull(defaults);
@@ -53,7 +55,7 @@ public final class GetSharesShare {
     	      this.kind = defaults.kind;
     	      this.name = defaults.name;
     	      this.owner = defaults.owner;
-    	      this.to = defaults.to;
+    	      this.tos = defaults.tos;
         }
 
         @CustomType.Setter
@@ -77,9 +79,12 @@ public final class GetSharesShare {
             return this;
         }
         @CustomType.Setter
-        public Builder to(String to) {
-            this.to = Objects.requireNonNull(to);
+        public Builder tos(List<Object> tos) {
+            this.tos = Objects.requireNonNull(tos);
             return this;
+        }
+        public Builder tos(Object... tos) {
+            return tos(List.of(tos));
         }
         public GetSharesShare build() {
             final var o = new GetSharesShare();
@@ -87,7 +92,7 @@ public final class GetSharesShare {
             o.kind = kind;
             o.name = name;
             o.owner = owner;
-            o.to = to;
+            o.tos = tos;
             return o;
         }
     }

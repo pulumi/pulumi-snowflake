@@ -75,9 +75,13 @@ export class MaskingPolicyGrant extends pulumi.CustomResource {
      */
     public readonly maskingPolicyName!: pulumi.Output<string>;
     /**
-     * The privilege to grant on the masking policy.
+     * The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`
      */
     public readonly privilege!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     */
+    public readonly revertOwnershipToRoleName!: pulumi.Output<string | undefined>;
     /**
      * Grants privilege to these roles.
      */
@@ -108,6 +112,7 @@ export class MaskingPolicyGrant extends pulumi.CustomResource {
             resourceInputs["enableMultipleGrants"] = state ? state.enableMultipleGrants : undefined;
             resourceInputs["maskingPolicyName"] = state ? state.maskingPolicyName : undefined;
             resourceInputs["privilege"] = state ? state.privilege : undefined;
+            resourceInputs["revertOwnershipToRoleName"] = state ? state.revertOwnershipToRoleName : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
             resourceInputs["schemaName"] = state ? state.schemaName : undefined;
             resourceInputs["withGrantOption"] = state ? state.withGrantOption : undefined;
@@ -126,6 +131,7 @@ export class MaskingPolicyGrant extends pulumi.CustomResource {
             resourceInputs["enableMultipleGrants"] = args ? args.enableMultipleGrants : undefined;
             resourceInputs["maskingPolicyName"] = args ? args.maskingPolicyName : undefined;
             resourceInputs["privilege"] = args ? args.privilege : undefined;
+            resourceInputs["revertOwnershipToRoleName"] = args ? args.revertOwnershipToRoleName : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
             resourceInputs["schemaName"] = args ? args.schemaName : undefined;
             resourceInputs["withGrantOption"] = args ? args.withGrantOption : undefined;
@@ -153,9 +159,13 @@ export interface MaskingPolicyGrantState {
      */
     maskingPolicyName?: pulumi.Input<string>;
     /**
-     * The privilege to grant on the masking policy.
+     * The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`
      */
     privilege?: pulumi.Input<string>;
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     */
+    revertOwnershipToRoleName?: pulumi.Input<string>;
     /**
      * Grants privilege to these roles.
      */
@@ -188,9 +198,13 @@ export interface MaskingPolicyGrantArgs {
      */
     maskingPolicyName: pulumi.Input<string>;
     /**
-     * The privilege to grant on the masking policy.
+     * The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`
      */
     privilege?: pulumi.Input<string>;
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     */
+    revertOwnershipToRoleName?: pulumi.Input<string>;
     /**
      * Grants privilege to these roles.
      */

@@ -18,6 +18,7 @@ class ApiIntegrationArgs:
                  api_provider: pulumi.Input[str],
                  api_aws_role_arn: Optional[pulumi.Input[str]] = None,
                  api_blocked_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 api_gcp_service_account: Optional[pulumi.Input[str]] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
                  azure_ad_application_id: Optional[pulumi.Input[str]] = None,
                  azure_tenant_id: Optional[pulumi.Input[str]] = None,
@@ -31,6 +32,7 @@ class ApiIntegrationArgs:
         :param pulumi.Input[str] api_provider: Specifies the HTTPS proxy service type.
         :param pulumi.Input[str] api_aws_role_arn: ARN of a cloud platform role.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_blocked_prefixes: Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
+        :param pulumi.Input[str] api_gcp_service_account: The service account used for communication with the Google API Gateway.
         :param pulumi.Input[str] api_key: The API key (also called a “subscription key”).
         :param pulumi.Input[str] azure_ad_application_id: The 'Application (client) id' of the Azure AD app for your remote service.
         :param pulumi.Input[str] azure_tenant_id: Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
@@ -44,6 +46,8 @@ class ApiIntegrationArgs:
             pulumi.set(__self__, "api_aws_role_arn", api_aws_role_arn)
         if api_blocked_prefixes is not None:
             pulumi.set(__self__, "api_blocked_prefixes", api_blocked_prefixes)
+        if api_gcp_service_account is not None:
+            pulumi.set(__self__, "api_gcp_service_account", api_gcp_service_account)
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
         if azure_ad_application_id is not None:
@@ -106,6 +110,18 @@ class ApiIntegrationArgs:
     @api_blocked_prefixes.setter
     def api_blocked_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "api_blocked_prefixes", value)
+
+    @property
+    @pulumi.getter(name="apiGcpServiceAccount")
+    def api_gcp_service_account(self) -> Optional[pulumi.Input[str]]:
+        """
+        The service account used for communication with the Google API Gateway.
+        """
+        return pulumi.get(self, "api_gcp_service_account")
+
+    @api_gcp_service_account.setter
+    def api_gcp_service_account(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_gcp_service_account", value)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -197,6 +213,7 @@ class _ApiIntegrationState:
                  api_aws_iam_user_arn: Optional[pulumi.Input[str]] = None,
                  api_aws_role_arn: Optional[pulumi.Input[str]] = None,
                  api_blocked_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 api_gcp_service_account: Optional[pulumi.Input[str]] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
                  api_provider: Optional[pulumi.Input[str]] = None,
                  azure_ad_application_id: Optional[pulumi.Input[str]] = None,
@@ -215,6 +232,7 @@ class _ApiIntegrationState:
         :param pulumi.Input[str] api_aws_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
         :param pulumi.Input[str] api_aws_role_arn: ARN of a cloud platform role.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_blocked_prefixes: Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
+        :param pulumi.Input[str] api_gcp_service_account: The service account used for communication with the Google API Gateway.
         :param pulumi.Input[str] api_key: The API key (also called a “subscription key”).
         :param pulumi.Input[str] api_provider: Specifies the HTTPS proxy service type.
         :param pulumi.Input[str] azure_ad_application_id: The 'Application (client) id' of the Azure AD app for your remote service.
@@ -234,6 +252,8 @@ class _ApiIntegrationState:
             pulumi.set(__self__, "api_aws_role_arn", api_aws_role_arn)
         if api_blocked_prefixes is not None:
             pulumi.set(__self__, "api_blocked_prefixes", api_blocked_prefixes)
+        if api_gcp_service_account is not None:
+            pulumi.set(__self__, "api_gcp_service_account", api_gcp_service_account)
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
         if api_provider is not None:
@@ -316,6 +336,18 @@ class _ApiIntegrationState:
     @api_blocked_prefixes.setter
     def api_blocked_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "api_blocked_prefixes", value)
+
+    @property
+    @pulumi.getter(name="apiGcpServiceAccount")
+    def api_gcp_service_account(self) -> Optional[pulumi.Input[str]]:
+        """
+        The service account used for communication with the Google API Gateway.
+        """
+        return pulumi.get(self, "api_gcp_service_account")
+
+    @api_gcp_service_account.setter
+    def api_gcp_service_account(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_gcp_service_account", value)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -449,6 +481,7 @@ class ApiIntegration(pulumi.CustomResource):
                  api_allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  api_aws_role_arn: Optional[pulumi.Input[str]] = None,
                  api_blocked_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 api_gcp_service_account: Optional[pulumi.Input[str]] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
                  api_provider: Optional[pulumi.Input[str]] = None,
                  azure_ad_application_id: Optional[pulumi.Input[str]] = None,
@@ -494,6 +527,7 @@ class ApiIntegration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_allowed_prefixes: Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
         :param pulumi.Input[str] api_aws_role_arn: ARN of a cloud platform role.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_blocked_prefixes: Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
+        :param pulumi.Input[str] api_gcp_service_account: The service account used for communication with the Google API Gateway.
         :param pulumi.Input[str] api_key: The API key (also called a “subscription key”).
         :param pulumi.Input[str] api_provider: Specifies the HTTPS proxy service type.
         :param pulumi.Input[str] azure_ad_application_id: The 'Application (client) id' of the Azure AD app for your remote service.
@@ -557,6 +591,7 @@ class ApiIntegration(pulumi.CustomResource):
                  api_allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  api_aws_role_arn: Optional[pulumi.Input[str]] = None,
                  api_blocked_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 api_gcp_service_account: Optional[pulumi.Input[str]] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
                  api_provider: Optional[pulumi.Input[str]] = None,
                  azure_ad_application_id: Optional[pulumi.Input[str]] = None,
@@ -579,6 +614,7 @@ class ApiIntegration(pulumi.CustomResource):
             __props__.__dict__["api_allowed_prefixes"] = api_allowed_prefixes
             __props__.__dict__["api_aws_role_arn"] = api_aws_role_arn
             __props__.__dict__["api_blocked_prefixes"] = api_blocked_prefixes
+            __props__.__dict__["api_gcp_service_account"] = api_gcp_service_account
             __props__.__dict__["api_key"] = None if api_key is None else pulumi.Output.secret(api_key)
             if api_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'api_provider'")
@@ -611,6 +647,7 @@ class ApiIntegration(pulumi.CustomResource):
             api_aws_iam_user_arn: Optional[pulumi.Input[str]] = None,
             api_aws_role_arn: Optional[pulumi.Input[str]] = None,
             api_blocked_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            api_gcp_service_account: Optional[pulumi.Input[str]] = None,
             api_key: Optional[pulumi.Input[str]] = None,
             api_provider: Optional[pulumi.Input[str]] = None,
             azure_ad_application_id: Optional[pulumi.Input[str]] = None,
@@ -634,6 +671,7 @@ class ApiIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] api_aws_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
         :param pulumi.Input[str] api_aws_role_arn: ARN of a cloud platform role.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_blocked_prefixes: Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
+        :param pulumi.Input[str] api_gcp_service_account: The service account used for communication with the Google API Gateway.
         :param pulumi.Input[str] api_key: The API key (also called a “subscription key”).
         :param pulumi.Input[str] api_provider: Specifies the HTTPS proxy service type.
         :param pulumi.Input[str] azure_ad_application_id: The 'Application (client) id' of the Azure AD app for your remote service.
@@ -652,6 +690,7 @@ class ApiIntegration(pulumi.CustomResource):
         __props__.__dict__["api_aws_iam_user_arn"] = api_aws_iam_user_arn
         __props__.__dict__["api_aws_role_arn"] = api_aws_role_arn
         __props__.__dict__["api_blocked_prefixes"] = api_blocked_prefixes
+        __props__.__dict__["api_gcp_service_account"] = api_gcp_service_account
         __props__.__dict__["api_key"] = api_key
         __props__.__dict__["api_provider"] = api_provider
         __props__.__dict__["azure_ad_application_id"] = azure_ad_application_id
@@ -704,6 +743,14 @@ class ApiIntegration(pulumi.CustomResource):
         Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
         """
         return pulumi.get(self, "api_blocked_prefixes")
+
+    @property
+    @pulumi.getter(name="apiGcpServiceAccount")
+    def api_gcp_service_account(self) -> pulumi.Output[str]:
+        """
+        The service account used for communication with the Google API Gateway.
+        """
+        return pulumi.get(self, "api_gcp_service_account")
 
     @property
     @pulumi.getter(name="apiKey")

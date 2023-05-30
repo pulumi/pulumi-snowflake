@@ -65,8 +65,10 @@ type MaskingPolicyGrant struct {
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// The name of the masking policy on which to grant privileges immediately.
 	MaskingPolicyName pulumi.StringOutput `pulumi:"maskingPolicyName"`
-	// The privilege to grant on the masking policy.
+	// The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrOutput `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the masking policy on which to grant privileges.
@@ -120,8 +122,10 @@ type maskingPolicyGrantState struct {
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// The name of the masking policy on which to grant privileges immediately.
 	MaskingPolicyName *string `pulumi:"maskingPolicyName"`
-	// The privilege to grant on the masking policy.
+	// The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege *string `pulumi:"privilege"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the masking policy on which to grant privileges.
@@ -138,8 +142,10 @@ type MaskingPolicyGrantState struct {
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// The name of the masking policy on which to grant privileges immediately.
 	MaskingPolicyName pulumi.StringPtrInput
-	// The privilege to grant on the masking policy.
+	// The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege pulumi.StringPtrInput
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the masking policy on which to grant privileges.
@@ -160,8 +166,10 @@ type maskingPolicyGrantArgs struct {
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// The name of the masking policy on which to grant privileges immediately.
 	MaskingPolicyName string `pulumi:"maskingPolicyName"`
-	// The privilege to grant on the masking policy.
+	// The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege *string `pulumi:"privilege"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the masking policy on which to grant privileges.
@@ -179,8 +187,10 @@ type MaskingPolicyGrantArgs struct {
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// The name of the masking policy on which to grant privileges immediately.
 	MaskingPolicyName pulumi.StringInput
-	// The privilege to grant on the masking policy.
+	// The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege pulumi.StringPtrInput
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the masking policy on which to grant privileges.
@@ -292,9 +302,14 @@ func (o MaskingPolicyGrantOutput) MaskingPolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaskingPolicyGrant) pulumi.StringOutput { return v.MaskingPolicyName }).(pulumi.StringOutput)
 }
 
-// The privilege to grant on the masking policy.
+// The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`
 func (o MaskingPolicyGrantOutput) Privilege() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaskingPolicyGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
+}
+
+// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+func (o MaskingPolicyGrantOutput) RevertOwnershipToRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaskingPolicyGrant) pulumi.StringPtrOutput { return v.RevertOwnershipToRoleName }).(pulumi.StringPtrOutput)
 }
 
 // Grants privilege to these roles.

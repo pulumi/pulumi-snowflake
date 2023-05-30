@@ -4032,128 +4032,318 @@ func (o ViewTagArrayOutput) Index(i pulumi.IntInput) ViewTagOutput {
 	}).(ViewTagOutput)
 }
 
-type WarehouseTag struct {
-	// Name of the database that the tag was created in.
-	Database *string `pulumi:"database"`
-	// Tag name, e.g. department.
-	Name string `pulumi:"name"`
-	// Name of the schema that the tag was created in.
-	Schema *string `pulumi:"schema"`
-	// Tag value, e.g. marketing_info.
-	Value string `pulumi:"value"`
+type GetAccountsAccount struct {
+	AccountLocator                       string `pulumi:"accountLocator"`
+	AccountLocatorUrl                    string `pulumi:"accountLocatorUrl"`
+	AccountName                          string `pulumi:"accountName"`
+	AccountUrl                           string `pulumi:"accountUrl"`
+	Comment                              string `pulumi:"comment"`
+	ConsumptionBillingEntityName         string `pulumi:"consumptionBillingEntityName"`
+	CreatedOn                            string `pulumi:"createdOn"`
+	Edition                              string `pulumi:"edition"`
+	IsOrgAdmin                           bool   `pulumi:"isOrgAdmin"`
+	ManagedAccounts                      int    `pulumi:"managedAccounts"`
+	MarketplaceConsumerBillingEntityName string `pulumi:"marketplaceConsumerBillingEntityName"`
+	MarketplaceProviderBillingEntityName string `pulumi:"marketplaceProviderBillingEntityName"`
+	OldAccountUrl                        string `pulumi:"oldAccountUrl"`
+	OrganizationName                     string `pulumi:"organizationName"`
+	RegionGroup                          string `pulumi:"regionGroup"`
+	SnowflakeRegion                      string `pulumi:"snowflakeRegion"`
 }
 
-// WarehouseTagInput is an input type that accepts WarehouseTagArgs and WarehouseTagOutput values.
-// You can construct a concrete instance of `WarehouseTagInput` via:
+// GetAccountsAccountInput is an input type that accepts GetAccountsAccountArgs and GetAccountsAccountOutput values.
+// You can construct a concrete instance of `GetAccountsAccountInput` via:
 //
-//	WarehouseTagArgs{...}
-type WarehouseTagInput interface {
+//	GetAccountsAccountArgs{...}
+type GetAccountsAccountInput interface {
 	pulumi.Input
 
-	ToWarehouseTagOutput() WarehouseTagOutput
-	ToWarehouseTagOutputWithContext(context.Context) WarehouseTagOutput
+	ToGetAccountsAccountOutput() GetAccountsAccountOutput
+	ToGetAccountsAccountOutputWithContext(context.Context) GetAccountsAccountOutput
 }
 
-type WarehouseTagArgs struct {
-	// Name of the database that the tag was created in.
-	Database pulumi.StringPtrInput `pulumi:"database"`
-	// Tag name, e.g. department.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Name of the schema that the tag was created in.
-	Schema pulumi.StringPtrInput `pulumi:"schema"`
-	// Tag value, e.g. marketing_info.
-	Value pulumi.StringInput `pulumi:"value"`
+type GetAccountsAccountArgs struct {
+	AccountLocator                       pulumi.StringInput `pulumi:"accountLocator"`
+	AccountLocatorUrl                    pulumi.StringInput `pulumi:"accountLocatorUrl"`
+	AccountName                          pulumi.StringInput `pulumi:"accountName"`
+	AccountUrl                           pulumi.StringInput `pulumi:"accountUrl"`
+	Comment                              pulumi.StringInput `pulumi:"comment"`
+	ConsumptionBillingEntityName         pulumi.StringInput `pulumi:"consumptionBillingEntityName"`
+	CreatedOn                            pulumi.StringInput `pulumi:"createdOn"`
+	Edition                              pulumi.StringInput `pulumi:"edition"`
+	IsOrgAdmin                           pulumi.BoolInput   `pulumi:"isOrgAdmin"`
+	ManagedAccounts                      pulumi.IntInput    `pulumi:"managedAccounts"`
+	MarketplaceConsumerBillingEntityName pulumi.StringInput `pulumi:"marketplaceConsumerBillingEntityName"`
+	MarketplaceProviderBillingEntityName pulumi.StringInput `pulumi:"marketplaceProviderBillingEntityName"`
+	OldAccountUrl                        pulumi.StringInput `pulumi:"oldAccountUrl"`
+	OrganizationName                     pulumi.StringInput `pulumi:"organizationName"`
+	RegionGroup                          pulumi.StringInput `pulumi:"regionGroup"`
+	SnowflakeRegion                      pulumi.StringInput `pulumi:"snowflakeRegion"`
 }
 
-func (WarehouseTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WarehouseTag)(nil)).Elem()
+func (GetAccountsAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccount)(nil)).Elem()
 }
 
-func (i WarehouseTagArgs) ToWarehouseTagOutput() WarehouseTagOutput {
-	return i.ToWarehouseTagOutputWithContext(context.Background())
+func (i GetAccountsAccountArgs) ToGetAccountsAccountOutput() GetAccountsAccountOutput {
+	return i.ToGetAccountsAccountOutputWithContext(context.Background())
 }
 
-func (i WarehouseTagArgs) ToWarehouseTagOutputWithContext(ctx context.Context) WarehouseTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WarehouseTagOutput)
+func (i GetAccountsAccountArgs) ToGetAccountsAccountOutputWithContext(ctx context.Context) GetAccountsAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountOutput)
 }
 
-// WarehouseTagArrayInput is an input type that accepts WarehouseTagArray and WarehouseTagArrayOutput values.
-// You can construct a concrete instance of `WarehouseTagArrayInput` via:
+// GetAccountsAccountArrayInput is an input type that accepts GetAccountsAccountArray and GetAccountsAccountArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountArrayInput` via:
 //
-//	WarehouseTagArray{ WarehouseTagArgs{...} }
-type WarehouseTagArrayInput interface {
+//	GetAccountsAccountArray{ GetAccountsAccountArgs{...} }
+type GetAccountsAccountArrayInput interface {
 	pulumi.Input
 
-	ToWarehouseTagArrayOutput() WarehouseTagArrayOutput
-	ToWarehouseTagArrayOutputWithContext(context.Context) WarehouseTagArrayOutput
+	ToGetAccountsAccountArrayOutput() GetAccountsAccountArrayOutput
+	ToGetAccountsAccountArrayOutputWithContext(context.Context) GetAccountsAccountArrayOutput
 }
 
-type WarehouseTagArray []WarehouseTagInput
+type GetAccountsAccountArray []GetAccountsAccountInput
 
-func (WarehouseTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WarehouseTag)(nil)).Elem()
+func (GetAccountsAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccount)(nil)).Elem()
 }
 
-func (i WarehouseTagArray) ToWarehouseTagArrayOutput() WarehouseTagArrayOutput {
-	return i.ToWarehouseTagArrayOutputWithContext(context.Background())
+func (i GetAccountsAccountArray) ToGetAccountsAccountArrayOutput() GetAccountsAccountArrayOutput {
+	return i.ToGetAccountsAccountArrayOutputWithContext(context.Background())
 }
 
-func (i WarehouseTagArray) ToWarehouseTagArrayOutputWithContext(ctx context.Context) WarehouseTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WarehouseTagArrayOutput)
+func (i GetAccountsAccountArray) ToGetAccountsAccountArrayOutputWithContext(ctx context.Context) GetAccountsAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountArrayOutput)
 }
 
-type WarehouseTagOutput struct{ *pulumi.OutputState }
+type GetAccountsAccountOutput struct{ *pulumi.OutputState }
 
-func (WarehouseTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WarehouseTag)(nil)).Elem()
+func (GetAccountsAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccount)(nil)).Elem()
 }
 
-func (o WarehouseTagOutput) ToWarehouseTagOutput() WarehouseTagOutput {
+func (o GetAccountsAccountOutput) ToGetAccountsAccountOutput() GetAccountsAccountOutput {
 	return o
 }
 
-func (o WarehouseTagOutput) ToWarehouseTagOutputWithContext(ctx context.Context) WarehouseTagOutput {
+func (o GetAccountsAccountOutput) ToGetAccountsAccountOutputWithContext(ctx context.Context) GetAccountsAccountOutput {
 	return o
 }
 
-// Name of the database that the tag was created in.
-func (o WarehouseTagOutput) Database() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WarehouseTag) *string { return v.Database }).(pulumi.StringPtrOutput)
+func (o GetAccountsAccountOutput) AccountLocator() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccount) string { return v.AccountLocator }).(pulumi.StringOutput)
 }
 
-// Tag name, e.g. department.
-func (o WarehouseTagOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WarehouseTag) string { return v.Name }).(pulumi.StringOutput)
+func (o GetAccountsAccountOutput) AccountLocatorUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccount) string { return v.AccountLocatorUrl }).(pulumi.StringOutput)
 }
 
-// Name of the schema that the tag was created in.
-func (o WarehouseTagOutput) Schema() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WarehouseTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
+func (o GetAccountsAccountOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccount) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
-// Tag value, e.g. marketing_info.
-func (o WarehouseTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v WarehouseTag) string { return v.Value }).(pulumi.StringOutput)
+func (o GetAccountsAccountOutput) AccountUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccount) string { return v.AccountUrl }).(pulumi.StringOutput)
 }
 
-type WarehouseTagArrayOutput struct{ *pulumi.OutputState }
-
-func (WarehouseTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WarehouseTag)(nil)).Elem()
+func (o GetAccountsAccountOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccount) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-func (o WarehouseTagArrayOutput) ToWarehouseTagArrayOutput() WarehouseTagArrayOutput {
+func (o GetAccountsAccountOutput) ConsumptionBillingEntityName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccount) string { return v.ConsumptionBillingEntityName }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccount) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountOutput) Edition() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccount) string { return v.Edition }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountOutput) IsOrgAdmin() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAccountsAccount) bool { return v.IsOrgAdmin }).(pulumi.BoolOutput)
+}
+
+func (o GetAccountsAccountOutput) ManagedAccounts() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAccountsAccount) int { return v.ManagedAccounts }).(pulumi.IntOutput)
+}
+
+func (o GetAccountsAccountOutput) MarketplaceConsumerBillingEntityName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccount) string { return v.MarketplaceConsumerBillingEntityName }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountOutput) MarketplaceProviderBillingEntityName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccount) string { return v.MarketplaceProviderBillingEntityName }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountOutput) OldAccountUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccount) string { return v.OldAccountUrl }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountOutput) OrganizationName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccount) string { return v.OrganizationName }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountOutput) RegionGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccount) string { return v.RegionGroup }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountOutput) SnowflakeRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccount) string { return v.SnowflakeRegion }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccount)(nil)).Elem()
+}
+
+func (o GetAccountsAccountArrayOutput) ToGetAccountsAccountArrayOutput() GetAccountsAccountArrayOutput {
 	return o
 }
 
-func (o WarehouseTagArrayOutput) ToWarehouseTagArrayOutputWithContext(ctx context.Context) WarehouseTagArrayOutput {
+func (o GetAccountsAccountArrayOutput) ToGetAccountsAccountArrayOutputWithContext(ctx context.Context) GetAccountsAccountArrayOutput {
 	return o
 }
 
-func (o WarehouseTagArrayOutput) Index(i pulumi.IntInput) WarehouseTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WarehouseTag {
-		return vs[0].([]WarehouseTag)[vs[1].(int)]
-	}).(WarehouseTagOutput)
+func (o GetAccountsAccountArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccount {
+		return vs[0].([]GetAccountsAccount)[vs[1].(int)]
+	}).(GetAccountsAccountOutput)
+}
+
+type GetAlertsAlert struct {
+	Action       string `pulumi:"action"`
+	Comment      string `pulumi:"comment"`
+	Condition    string `pulumi:"condition"`
+	DatabaseName string `pulumi:"databaseName"`
+	Name         string `pulumi:"name"`
+	Owner        string `pulumi:"owner"`
+	SchemaName   string `pulumi:"schemaName"`
+}
+
+// GetAlertsAlertInput is an input type that accepts GetAlertsAlertArgs and GetAlertsAlertOutput values.
+// You can construct a concrete instance of `GetAlertsAlertInput` via:
+//
+//	GetAlertsAlertArgs{...}
+type GetAlertsAlertInput interface {
+	pulumi.Input
+
+	ToGetAlertsAlertOutput() GetAlertsAlertOutput
+	ToGetAlertsAlertOutputWithContext(context.Context) GetAlertsAlertOutput
+}
+
+type GetAlertsAlertArgs struct {
+	Action       pulumi.StringInput `pulumi:"action"`
+	Comment      pulumi.StringInput `pulumi:"comment"`
+	Condition    pulumi.StringInput `pulumi:"condition"`
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	Name         pulumi.StringInput `pulumi:"name"`
+	Owner        pulumi.StringInput `pulumi:"owner"`
+	SchemaName   pulumi.StringInput `pulumi:"schemaName"`
+}
+
+func (GetAlertsAlertArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertsAlert)(nil)).Elem()
+}
+
+func (i GetAlertsAlertArgs) ToGetAlertsAlertOutput() GetAlertsAlertOutput {
+	return i.ToGetAlertsAlertOutputWithContext(context.Background())
+}
+
+func (i GetAlertsAlertArgs) ToGetAlertsAlertOutputWithContext(ctx context.Context) GetAlertsAlertOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertsAlertOutput)
+}
+
+// GetAlertsAlertArrayInput is an input type that accepts GetAlertsAlertArray and GetAlertsAlertArrayOutput values.
+// You can construct a concrete instance of `GetAlertsAlertArrayInput` via:
+//
+//	GetAlertsAlertArray{ GetAlertsAlertArgs{...} }
+type GetAlertsAlertArrayInput interface {
+	pulumi.Input
+
+	ToGetAlertsAlertArrayOutput() GetAlertsAlertArrayOutput
+	ToGetAlertsAlertArrayOutputWithContext(context.Context) GetAlertsAlertArrayOutput
+}
+
+type GetAlertsAlertArray []GetAlertsAlertInput
+
+func (GetAlertsAlertArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertsAlert)(nil)).Elem()
+}
+
+func (i GetAlertsAlertArray) ToGetAlertsAlertArrayOutput() GetAlertsAlertArrayOutput {
+	return i.ToGetAlertsAlertArrayOutputWithContext(context.Background())
+}
+
+func (i GetAlertsAlertArray) ToGetAlertsAlertArrayOutputWithContext(ctx context.Context) GetAlertsAlertArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertsAlertArrayOutput)
+}
+
+type GetAlertsAlertOutput struct{ *pulumi.OutputState }
+
+func (GetAlertsAlertOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertsAlert)(nil)).Elem()
+}
+
+func (o GetAlertsAlertOutput) ToGetAlertsAlertOutput() GetAlertsAlertOutput {
+	return o
+}
+
+func (o GetAlertsAlertOutput) ToGetAlertsAlertOutputWithContext(ctx context.Context) GetAlertsAlertOutput {
+	return o
+}
+
+func (o GetAlertsAlertOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertsAlert) string { return v.Action }).(pulumi.StringOutput)
+}
+
+func (o GetAlertsAlertOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertsAlert) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetAlertsAlertOutput) Condition() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertsAlert) string { return v.Condition }).(pulumi.StringOutput)
+}
+
+func (o GetAlertsAlertOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertsAlert) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o GetAlertsAlertOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertsAlert) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetAlertsAlertOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertsAlert) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o GetAlertsAlertOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertsAlert) string { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+type GetAlertsAlertArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAlertsAlertArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertsAlert)(nil)).Elem()
+}
+
+func (o GetAlertsAlertArrayOutput) ToGetAlertsAlertArrayOutput() GetAlertsAlertArrayOutput {
+	return o
+}
+
+func (o GetAlertsAlertArrayOutput) ToGetAlertsAlertArrayOutputWithContext(ctx context.Context) GetAlertsAlertArrayOutput {
+	return o
+}
+
+func (o GetAlertsAlertArrayOutput) Index(i pulumi.IntInput) GetAlertsAlertOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertsAlert {
+		return vs[0].([]GetAlertsAlert)[vs[1].(int)]
+	}).(GetAlertsAlertOutput)
 }
 
 type GetDatabaseRolesDatabaseRole struct {
@@ -4752,6 +4942,196 @@ func (o GetExternalTablesExternalTableArrayOutput) Index(i pulumi.IntInput) GetE
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetExternalTablesExternalTable {
 		return vs[0].([]GetExternalTablesExternalTable)[vs[1].(int)]
 	}).(GetExternalTablesExternalTableOutput)
+}
+
+type GetFailoverGroupsFailoverGroup struct {
+	AccountLocator          string        `pulumi:"accountLocator"`
+	AccountName             string        `pulumi:"accountName"`
+	AllowedAccounts         []interface{} `pulumi:"allowedAccounts"`
+	AllowedIntegrationTypes []interface{} `pulumi:"allowedIntegrationTypes"`
+	Comment                 string        `pulumi:"comment"`
+	CreatedOn               string        `pulumi:"createdOn"`
+	IsPrimary               bool          `pulumi:"isPrimary"`
+	NextScheduledRefresh    string        `pulumi:"nextScheduledRefresh"`
+	ObjectTypes             []interface{} `pulumi:"objectTypes"`
+	OrganizationName        string        `pulumi:"organizationName"`
+	Owner                   string        `pulumi:"owner"`
+	Primary                 string        `pulumi:"primary"`
+	RegionGroup             string        `pulumi:"regionGroup"`
+	ReplicationSchedule     string        `pulumi:"replicationSchedule"`
+	SecondaryState          string        `pulumi:"secondaryState"`
+	SnowflakeRegion         string        `pulumi:"snowflakeRegion"`
+	Type                    string        `pulumi:"type"`
+}
+
+// GetFailoverGroupsFailoverGroupInput is an input type that accepts GetFailoverGroupsFailoverGroupArgs and GetFailoverGroupsFailoverGroupOutput values.
+// You can construct a concrete instance of `GetFailoverGroupsFailoverGroupInput` via:
+//
+//	GetFailoverGroupsFailoverGroupArgs{...}
+type GetFailoverGroupsFailoverGroupInput interface {
+	pulumi.Input
+
+	ToGetFailoverGroupsFailoverGroupOutput() GetFailoverGroupsFailoverGroupOutput
+	ToGetFailoverGroupsFailoverGroupOutputWithContext(context.Context) GetFailoverGroupsFailoverGroupOutput
+}
+
+type GetFailoverGroupsFailoverGroupArgs struct {
+	AccountLocator          pulumi.StringInput `pulumi:"accountLocator"`
+	AccountName             pulumi.StringInput `pulumi:"accountName"`
+	AllowedAccounts         pulumi.ArrayInput  `pulumi:"allowedAccounts"`
+	AllowedIntegrationTypes pulumi.ArrayInput  `pulumi:"allowedIntegrationTypes"`
+	Comment                 pulumi.StringInput `pulumi:"comment"`
+	CreatedOn               pulumi.StringInput `pulumi:"createdOn"`
+	IsPrimary               pulumi.BoolInput   `pulumi:"isPrimary"`
+	NextScheduledRefresh    pulumi.StringInput `pulumi:"nextScheduledRefresh"`
+	ObjectTypes             pulumi.ArrayInput  `pulumi:"objectTypes"`
+	OrganizationName        pulumi.StringInput `pulumi:"organizationName"`
+	Owner                   pulumi.StringInput `pulumi:"owner"`
+	Primary                 pulumi.StringInput `pulumi:"primary"`
+	RegionGroup             pulumi.StringInput `pulumi:"regionGroup"`
+	ReplicationSchedule     pulumi.StringInput `pulumi:"replicationSchedule"`
+	SecondaryState          pulumi.StringInput `pulumi:"secondaryState"`
+	SnowflakeRegion         pulumi.StringInput `pulumi:"snowflakeRegion"`
+	Type                    pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetFailoverGroupsFailoverGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFailoverGroupsFailoverGroup)(nil)).Elem()
+}
+
+func (i GetFailoverGroupsFailoverGroupArgs) ToGetFailoverGroupsFailoverGroupOutput() GetFailoverGroupsFailoverGroupOutput {
+	return i.ToGetFailoverGroupsFailoverGroupOutputWithContext(context.Background())
+}
+
+func (i GetFailoverGroupsFailoverGroupArgs) ToGetFailoverGroupsFailoverGroupOutputWithContext(ctx context.Context) GetFailoverGroupsFailoverGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFailoverGroupsFailoverGroupOutput)
+}
+
+// GetFailoverGroupsFailoverGroupArrayInput is an input type that accepts GetFailoverGroupsFailoverGroupArray and GetFailoverGroupsFailoverGroupArrayOutput values.
+// You can construct a concrete instance of `GetFailoverGroupsFailoverGroupArrayInput` via:
+//
+//	GetFailoverGroupsFailoverGroupArray{ GetFailoverGroupsFailoverGroupArgs{...} }
+type GetFailoverGroupsFailoverGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetFailoverGroupsFailoverGroupArrayOutput() GetFailoverGroupsFailoverGroupArrayOutput
+	ToGetFailoverGroupsFailoverGroupArrayOutputWithContext(context.Context) GetFailoverGroupsFailoverGroupArrayOutput
+}
+
+type GetFailoverGroupsFailoverGroupArray []GetFailoverGroupsFailoverGroupInput
+
+func (GetFailoverGroupsFailoverGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFailoverGroupsFailoverGroup)(nil)).Elem()
+}
+
+func (i GetFailoverGroupsFailoverGroupArray) ToGetFailoverGroupsFailoverGroupArrayOutput() GetFailoverGroupsFailoverGroupArrayOutput {
+	return i.ToGetFailoverGroupsFailoverGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetFailoverGroupsFailoverGroupArray) ToGetFailoverGroupsFailoverGroupArrayOutputWithContext(ctx context.Context) GetFailoverGroupsFailoverGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFailoverGroupsFailoverGroupArrayOutput)
+}
+
+type GetFailoverGroupsFailoverGroupOutput struct{ *pulumi.OutputState }
+
+func (GetFailoverGroupsFailoverGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFailoverGroupsFailoverGroup)(nil)).Elem()
+}
+
+func (o GetFailoverGroupsFailoverGroupOutput) ToGetFailoverGroupsFailoverGroupOutput() GetFailoverGroupsFailoverGroupOutput {
+	return o
+}
+
+func (o GetFailoverGroupsFailoverGroupOutput) ToGetFailoverGroupsFailoverGroupOutputWithContext(ctx context.Context) GetFailoverGroupsFailoverGroupOutput {
+	return o
+}
+
+func (o GetFailoverGroupsFailoverGroupOutput) AccountLocator() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.AccountLocator }).(pulumi.StringOutput)
+}
+
+func (o GetFailoverGroupsFailoverGroupOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+func (o GetFailoverGroupsFailoverGroupOutput) AllowedAccounts() pulumi.ArrayOutput {
+	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) []interface{} { return v.AllowedAccounts }).(pulumi.ArrayOutput)
+}
+
+func (o GetFailoverGroupsFailoverGroupOutput) AllowedIntegrationTypes() pulumi.ArrayOutput {
+	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) []interface{} { return v.AllowedIntegrationTypes }).(pulumi.ArrayOutput)
+}
+
+func (o GetFailoverGroupsFailoverGroupOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetFailoverGroupsFailoverGroupOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+func (o GetFailoverGroupsFailoverGroupOutput) IsPrimary() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) bool { return v.IsPrimary }).(pulumi.BoolOutput)
+}
+
+func (o GetFailoverGroupsFailoverGroupOutput) NextScheduledRefresh() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.NextScheduledRefresh }).(pulumi.StringOutput)
+}
+
+func (o GetFailoverGroupsFailoverGroupOutput) ObjectTypes() pulumi.ArrayOutput {
+	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) []interface{} { return v.ObjectTypes }).(pulumi.ArrayOutput)
+}
+
+func (o GetFailoverGroupsFailoverGroupOutput) OrganizationName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.OrganizationName }).(pulumi.StringOutput)
+}
+
+func (o GetFailoverGroupsFailoverGroupOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o GetFailoverGroupsFailoverGroupOutput) Primary() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.Primary }).(pulumi.StringOutput)
+}
+
+func (o GetFailoverGroupsFailoverGroupOutput) RegionGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.RegionGroup }).(pulumi.StringOutput)
+}
+
+func (o GetFailoverGroupsFailoverGroupOutput) ReplicationSchedule() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.ReplicationSchedule }).(pulumi.StringOutput)
+}
+
+func (o GetFailoverGroupsFailoverGroupOutput) SecondaryState() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.SecondaryState }).(pulumi.StringOutput)
+}
+
+func (o GetFailoverGroupsFailoverGroupOutput) SnowflakeRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.SnowflakeRegion }).(pulumi.StringOutput)
+}
+
+func (o GetFailoverGroupsFailoverGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetFailoverGroupsFailoverGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFailoverGroupsFailoverGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFailoverGroupsFailoverGroup)(nil)).Elem()
+}
+
+func (o GetFailoverGroupsFailoverGroupArrayOutput) ToGetFailoverGroupsFailoverGroupArrayOutput() GetFailoverGroupsFailoverGroupArrayOutput {
+	return o
+}
+
+func (o GetFailoverGroupsFailoverGroupArrayOutput) ToGetFailoverGroupsFailoverGroupArrayOutputWithContext(ctx context.Context) GetFailoverGroupsFailoverGroupArrayOutput {
+	return o
+}
+
+func (o GetFailoverGroupsFailoverGroupArrayOutput) Index(i pulumi.IntInput) GetFailoverGroupsFailoverGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFailoverGroupsFailoverGroup {
+		return vs[0].([]GetFailoverGroupsFailoverGroup)[vs[1].(int)]
+	}).(GetFailoverGroupsFailoverGroupOutput)
 }
 
 type GetFileFormatsFileFormat struct {
@@ -7275,11 +7655,11 @@ func (o GetSequencesSequenceArrayOutput) Index(i pulumi.IntInput) GetSequencesSe
 }
 
 type GetSharesShare struct {
-	Comment string `pulumi:"comment"`
-	Kind    string `pulumi:"kind"`
-	Name    string `pulumi:"name"`
-	Owner   string `pulumi:"owner"`
-	To      string `pulumi:"to"`
+	Comment string        `pulumi:"comment"`
+	Kind    string        `pulumi:"kind"`
+	Name    string        `pulumi:"name"`
+	Owner   string        `pulumi:"owner"`
+	Tos     []interface{} `pulumi:"tos"`
 }
 
 // GetSharesShareInput is an input type that accepts GetSharesShareArgs and GetSharesShareOutput values.
@@ -7298,7 +7678,7 @@ type GetSharesShareArgs struct {
 	Kind    pulumi.StringInput `pulumi:"kind"`
 	Name    pulumi.StringInput `pulumi:"name"`
 	Owner   pulumi.StringInput `pulumi:"owner"`
-	To      pulumi.StringInput `pulumi:"to"`
+	Tos     pulumi.ArrayInput  `pulumi:"tos"`
 }
 
 func (GetSharesShareArgs) ElementType() reflect.Type {
@@ -7368,8 +7748,8 @@ func (o GetSharesShareOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSharesShare) string { return v.Owner }).(pulumi.StringOutput)
 }
 
-func (o GetSharesShareOutput) To() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSharesShare) string { return v.To }).(pulumi.StringOutput)
+func (o GetSharesShareOutput) Tos() pulumi.ArrayOutput {
+	return o.ApplyT(func(v GetSharesShare) []interface{} { return v.Tos }).(pulumi.ArrayOutput)
 }
 
 type GetSharesShareArrayOutput struct{ *pulumi.OutputState }
@@ -8463,8 +8843,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserTagArrayInput)(nil)).Elem(), UserTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewTagInput)(nil)).Elem(), ViewTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewTagArrayInput)(nil)).Elem(), ViewTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WarehouseTagInput)(nil)).Elem(), WarehouseTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WarehouseTagArrayInput)(nil)).Elem(), WarehouseTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountInput)(nil)).Elem(), GetAccountsAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountArrayInput)(nil)).Elem(), GetAccountsAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertsAlertInput)(nil)).Elem(), GetAlertsAlertArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertsAlertArrayInput)(nil)).Elem(), GetAlertsAlertArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabaseRolesDatabaseRoleInput)(nil)).Elem(), GetDatabaseRolesDatabaseRoleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabaseRolesDatabaseRoleArrayInput)(nil)).Elem(), GetDatabaseRolesDatabaseRoleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseInput)(nil)).Elem(), GetDatabasesDatabaseArgs{})
@@ -8475,6 +8857,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalFunctionsExternalFunctionArrayInput)(nil)).Elem(), GetExternalFunctionsExternalFunctionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalTablesExternalTableInput)(nil)).Elem(), GetExternalTablesExternalTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalTablesExternalTableArrayInput)(nil)).Elem(), GetExternalTablesExternalTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFailoverGroupsFailoverGroupInput)(nil)).Elem(), GetFailoverGroupsFailoverGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFailoverGroupsFailoverGroupArrayInput)(nil)).Elem(), GetFailoverGroupsFailoverGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFileFormatsFileFormatInput)(nil)).Elem(), GetFileFormatsFileFormatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFileFormatsFileFormatArrayInput)(nil)).Elem(), GetFileFormatsFileFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionsFunctionInput)(nil)).Elem(), GetFunctionsFunctionArgs{})
@@ -8591,8 +8975,10 @@ func init() {
 	pulumi.RegisterOutputType(UserTagArrayOutput{})
 	pulumi.RegisterOutputType(ViewTagOutput{})
 	pulumi.RegisterOutputType(ViewTagArrayOutput{})
-	pulumi.RegisterOutputType(WarehouseTagOutput{})
-	pulumi.RegisterOutputType(WarehouseTagArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountArrayOutput{})
+	pulumi.RegisterOutputType(GetAlertsAlertOutput{})
+	pulumi.RegisterOutputType(GetAlertsAlertArrayOutput{})
 	pulumi.RegisterOutputType(GetDatabaseRolesDatabaseRoleOutput{})
 	pulumi.RegisterOutputType(GetDatabaseRolesDatabaseRoleArrayOutput{})
 	pulumi.RegisterOutputType(GetDatabasesDatabaseOutput{})
@@ -8603,6 +8989,8 @@ func init() {
 	pulumi.RegisterOutputType(GetExternalFunctionsExternalFunctionArrayOutput{})
 	pulumi.RegisterOutputType(GetExternalTablesExternalTableOutput{})
 	pulumi.RegisterOutputType(GetExternalTablesExternalTableArrayOutput{})
+	pulumi.RegisterOutputType(GetFailoverGroupsFailoverGroupOutput{})
+	pulumi.RegisterOutputType(GetFailoverGroupsFailoverGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetFileFormatsFileFormatOutput{})
 	pulumi.RegisterOutputType(GetFileFormatsFileFormatArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionsFunctionOutput{})

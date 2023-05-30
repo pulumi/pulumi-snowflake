@@ -50,14 +50,14 @@ public final class ResourceMonitorGrantArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The privilege to grant on the resource monitor.
+     * The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
      * 
      */
     @Import(name="privilege")
     private @Nullable Output<String> privilege;
 
     /**
-     * @return The privilege to grant on the resource monitor.
+     * @return The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
      * 
      */
     public Optional<Output<String>> privilege() {
@@ -167,7 +167,7 @@ public final class ResourceMonitorGrantArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param privilege The privilege to grant on the resource monitor.
+         * @param privilege The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class ResourceMonitorGrantArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param privilege The privilege to grant on the resource monitor.
+         * @param privilege The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
          * 
          * @return builder
          * 

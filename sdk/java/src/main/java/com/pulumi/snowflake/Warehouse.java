@@ -10,11 +10,9 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.WarehouseArgs;
 import com.pulumi.snowflake.inputs.WarehouseState;
-import com.pulumi.snowflake.outputs.WarehouseTag;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -248,27 +246,13 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.statementTimeoutInSeconds);
     }
     /**
-     * Definitions of a tag to associate with the resource.
-     * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
-     * 
-     */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    @Export(name="tags", type=List.class, parameters={WarehouseTag.class})
-    private Output</* @Nullable */ List<WarehouseTag>> tags;
-
-    /**
-     * @return Definitions of a tag to associate with the resource.
-     * 
-     */
-    public Output<Optional<List<WarehouseTag>>> tags() {
-        return Codegen.optional(this.tags);
-    }
-    /**
      * Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
      * 
+     * @deprecated
+     * This field is deprecated and will be removed in the next major version of the provider. It doesn&#39;t do anything and should be removed from your configuration.
+     * 
      */
+    @Deprecated /* This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration. */
     @Export(name="waitForProvisioning", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> waitForProvisioning;
 

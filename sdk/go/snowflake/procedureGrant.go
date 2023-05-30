@@ -77,10 +77,12 @@ type ProcedureGrant struct {
 	OnAll pulumi.BoolPtrOutput `pulumi:"onAll"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
-	// The privilege to grant on the current or future procedure.
+	// The privilege to grant on the current or future procedure. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
 	// The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 	ProcedureName pulumi.StringPtrOutput `pulumi:"procedureName"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrOutput `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current or future procedures on which to grant privileges.
@@ -137,10 +139,12 @@ type procedureGrantState struct {
 	OnAll *bool `pulumi:"onAll"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture *bool `pulumi:"onFuture"`
-	// The privilege to grant on the current or future procedure.
+	// The privilege to grant on the current or future procedure. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege *string `pulumi:"privilege"`
 	// The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 	ProcedureName *string `pulumi:"procedureName"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future procedures on which to grant privileges.
@@ -163,10 +167,12 @@ type ProcedureGrantState struct {
 	OnAll pulumi.BoolPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture pulumi.BoolPtrInput
-	// The privilege to grant on the current or future procedure.
+	// The privilege to grant on the current or future procedure. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege pulumi.StringPtrInput
 	// The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 	ProcedureName pulumi.StringPtrInput
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future procedures on which to grant privileges.
@@ -193,10 +199,12 @@ type procedureGrantArgs struct {
 	OnAll *bool `pulumi:"onAll"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture *bool `pulumi:"onFuture"`
-	// The privilege to grant on the current or future procedure.
+	// The privilege to grant on the current or future procedure. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege *string `pulumi:"privilege"`
 	// The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 	ProcedureName *string `pulumi:"procedureName"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future procedures on which to grant privileges.
@@ -220,10 +228,12 @@ type ProcedureGrantArgs struct {
 	OnAll pulumi.BoolPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture pulumi.BoolPtrInput
-	// The privilege to grant on the current or future procedure.
+	// The privilege to grant on the current or future procedure. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege pulumi.StringPtrInput
 	// The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 	ProcedureName pulumi.StringPtrInput
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future procedures on which to grant privileges.
@@ -347,7 +357,7 @@ func (o ProcedureGrantOutput) OnFuture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ProcedureGrant) pulumi.BoolPtrOutput { return v.OnFuture }).(pulumi.BoolPtrOutput)
 }
 
-// The privilege to grant on the current or future procedure.
+// The privilege to grant on the current or future procedure. To grant all privileges, use the value `ALL PRIVILEGES`
 func (o ProcedureGrantOutput) Privilege() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProcedureGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
 }
@@ -355,6 +365,11 @@ func (o ProcedureGrantOutput) Privilege() pulumi.StringPtrOutput {
 // The name of the procedure on which to grant privileges immediately (only valid if onFuture is false).
 func (o ProcedureGrantOutput) ProcedureName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProcedureGrant) pulumi.StringPtrOutput { return v.ProcedureName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+func (o ProcedureGrantOutput) RevertOwnershipToRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcedureGrant) pulumi.StringPtrOutput { return v.RevertOwnershipToRoleName }).(pulumi.StringPtrOutput)
 }
 
 // Grants privilege to these roles.

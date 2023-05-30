@@ -87,6 +87,10 @@ export class ApiIntegration extends pulumi.CustomResource {
      */
     public readonly apiBlockedPrefixes!: pulumi.Output<string[] | undefined>;
     /**
+     * The service account used for communication with the Google API Gateway.
+     */
+    public readonly apiGcpServiceAccount!: pulumi.Output<string>;
+    /**
      * The API key (also called a “subscription key”).
      */
     public readonly apiKey!: pulumi.Output<string | undefined>;
@@ -140,6 +144,7 @@ export class ApiIntegration extends pulumi.CustomResource {
             resourceInputs["apiAwsIamUserArn"] = state ? state.apiAwsIamUserArn : undefined;
             resourceInputs["apiAwsRoleArn"] = state ? state.apiAwsRoleArn : undefined;
             resourceInputs["apiBlockedPrefixes"] = state ? state.apiBlockedPrefixes : undefined;
+            resourceInputs["apiGcpServiceAccount"] = state ? state.apiGcpServiceAccount : undefined;
             resourceInputs["apiKey"] = state ? state.apiKey : undefined;
             resourceInputs["apiProvider"] = state ? state.apiProvider : undefined;
             resourceInputs["azureAdApplicationId"] = state ? state.azureAdApplicationId : undefined;
@@ -162,6 +167,7 @@ export class ApiIntegration extends pulumi.CustomResource {
             resourceInputs["apiAllowedPrefixes"] = args ? args.apiAllowedPrefixes : undefined;
             resourceInputs["apiAwsRoleArn"] = args ? args.apiAwsRoleArn : undefined;
             resourceInputs["apiBlockedPrefixes"] = args ? args.apiBlockedPrefixes : undefined;
+            resourceInputs["apiGcpServiceAccount"] = args ? args.apiGcpServiceAccount : undefined;
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
             resourceInputs["apiProvider"] = args ? args.apiProvider : undefined;
             resourceInputs["azureAdApplicationId"] = args ? args.azureAdApplicationId : undefined;
@@ -207,6 +213,10 @@ export interface ApiIntegrationState {
      * Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
      */
     apiBlockedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The service account used for communication with the Google API Gateway.
+     */
+    apiGcpServiceAccount?: pulumi.Input<string>;
     /**
      * The API key (also called a “subscription key”).
      */
@@ -260,6 +270,10 @@ export interface ApiIntegrationArgs {
      * Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
      */
     apiBlockedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The service account used for communication with the Google API Gateway.
+     */
+    apiGcpServiceAccount?: pulumi.Input<string>;
     /**
      * The API key (also called a “subscription key”).
      */

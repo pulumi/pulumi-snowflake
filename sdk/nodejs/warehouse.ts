@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -107,13 +105,9 @@ export class Warehouse extends pulumi.CustomResource {
      */
     public readonly statementTimeoutInSeconds!: pulumi.Output<number | undefined>;
     /**
-     * Definitions of a tag to associate with the resource.
-     *
-     * @deprecated Use the 'snowflake_tag_association' resource instead.
-     */
-    public readonly tags!: pulumi.Output<outputs.WarehouseTag[] | undefined>;
-    /**
      * Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
+     *
+     * @deprecated This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.
      */
     public readonly waitForProvisioning!: pulumi.Output<boolean | undefined>;
     /**
@@ -152,7 +146,6 @@ export class Warehouse extends pulumi.CustomResource {
             resourceInputs["scalingPolicy"] = state ? state.scalingPolicy : undefined;
             resourceInputs["statementQueuedTimeoutInSeconds"] = state ? state.statementQueuedTimeoutInSeconds : undefined;
             resourceInputs["statementTimeoutInSeconds"] = state ? state.statementTimeoutInSeconds : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["waitForProvisioning"] = state ? state.waitForProvisioning : undefined;
             resourceInputs["warehouseSize"] = state ? state.warehouseSize : undefined;
             resourceInputs["warehouseType"] = state ? state.warehouseType : undefined;
@@ -172,7 +165,6 @@ export class Warehouse extends pulumi.CustomResource {
             resourceInputs["scalingPolicy"] = args ? args.scalingPolicy : undefined;
             resourceInputs["statementQueuedTimeoutInSeconds"] = args ? args.statementQueuedTimeoutInSeconds : undefined;
             resourceInputs["statementTimeoutInSeconds"] = args ? args.statementTimeoutInSeconds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["waitForProvisioning"] = args ? args.waitForProvisioning : undefined;
             resourceInputs["warehouseSize"] = args ? args.warehouseSize : undefined;
             resourceInputs["warehouseType"] = args ? args.warehouseType : undefined;
@@ -240,13 +232,9 @@ export interface WarehouseState {
      */
     statementTimeoutInSeconds?: pulumi.Input<number>;
     /**
-     * Definitions of a tag to associate with the resource.
-     *
-     * @deprecated Use the 'snowflake_tag_association' resource instead.
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.WarehouseTag>[]>;
-    /**
      * Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
+     *
+     * @deprecated This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.
      */
     waitForProvisioning?: pulumi.Input<boolean>;
     /**
@@ -317,13 +305,9 @@ export interface WarehouseArgs {
      */
     statementTimeoutInSeconds?: pulumi.Input<number>;
     /**
-     * Definitions of a tag to associate with the resource.
-     *
-     * @deprecated Use the 'snowflake_tag_association' resource instead.
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.WarehouseTag>[]>;
-    /**
      * Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
+     *
+     * @deprecated This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.
      */
     waitForProvisioning?: pulumi.Input<boolean>;
     /**

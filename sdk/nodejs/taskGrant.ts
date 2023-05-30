@@ -79,9 +79,13 @@ export class TaskGrant extends pulumi.CustomResource {
      */
     public readonly onFuture!: pulumi.Output<boolean | undefined>;
     /**
-     * The privilege to grant on the current or future task.
+     * The privilege to grant on the current or future task. To grant all privileges, use the value `ALL PRIVILEGES`.
      */
     public readonly privilege!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     */
+    public readonly revertOwnershipToRoleName!: pulumi.Output<string | undefined>;
     /**
      * Grants privilege to these roles.
      */
@@ -117,6 +121,7 @@ export class TaskGrant extends pulumi.CustomResource {
             resourceInputs["onAll"] = state ? state.onAll : undefined;
             resourceInputs["onFuture"] = state ? state.onFuture : undefined;
             resourceInputs["privilege"] = state ? state.privilege : undefined;
+            resourceInputs["revertOwnershipToRoleName"] = state ? state.revertOwnershipToRoleName : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
             resourceInputs["schemaName"] = state ? state.schemaName : undefined;
             resourceInputs["taskName"] = state ? state.taskName : undefined;
@@ -134,6 +139,7 @@ export class TaskGrant extends pulumi.CustomResource {
             resourceInputs["onAll"] = args ? args.onAll : undefined;
             resourceInputs["onFuture"] = args ? args.onFuture : undefined;
             resourceInputs["privilege"] = args ? args.privilege : undefined;
+            resourceInputs["revertOwnershipToRoleName"] = args ? args.revertOwnershipToRoleName : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
             resourceInputs["schemaName"] = args ? args.schemaName : undefined;
             resourceInputs["taskName"] = args ? args.taskName : undefined;
@@ -166,9 +172,13 @@ export interface TaskGrantState {
      */
     onFuture?: pulumi.Input<boolean>;
     /**
-     * The privilege to grant on the current or future task.
+     * The privilege to grant on the current or future task. To grant all privileges, use the value `ALL PRIVILEGES`.
      */
     privilege?: pulumi.Input<string>;
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     */
+    revertOwnershipToRoleName?: pulumi.Input<string>;
     /**
      * Grants privilege to these roles.
      */
@@ -209,9 +219,13 @@ export interface TaskGrantArgs {
      */
     onFuture?: pulumi.Input<boolean>;
     /**
-     * The privilege to grant on the current or future task.
+     * The privilege to grant on the current or future task. To grant all privileges, use the value `ALL PRIVILEGES`.
      */
     privilege?: pulumi.Input<string>;
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     */
+    revertOwnershipToRoleName?: pulumi.Input<string>;
     /**
      * Grants privilege to these roles.
      */

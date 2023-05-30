@@ -97,10 +97,16 @@ namespace Pulumi.Snowflake
         public Output<bool?> OnFuture { get; private set; } = null!;
 
         /// <summary>
-        /// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
+        /// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`. To grant all privileges, use the value `ALL PRIVILEGES`
         /// </summary>
         [Output("privilege")]
         public Output<string?> Privilege { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+        /// </summary>
+        [Output("revertOwnershipToRoleName")]
+        public Output<string?> RevertOwnershipToRoleName { get; private set; } = null!;
 
         /// <summary>
         /// Grants privilege to these roles.
@@ -216,10 +222,16 @@ namespace Pulumi.Snowflake
         public Input<bool>? OnFuture { get; set; }
 
         /// <summary>
-        /// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
+        /// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`. To grant all privileges, use the value `ALL PRIVILEGES`
         /// </summary>
         [Input("privilege")]
         public Input<string>? Privilege { get; set; }
+
+        /// <summary>
+        /// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+        /// </summary>
+        [Input("revertOwnershipToRoleName")]
+        public Input<string>? RevertOwnershipToRoleName { get; set; }
 
         [Input("roles", required: true)]
         private InputList<string>? _roles;
@@ -309,10 +321,16 @@ namespace Pulumi.Snowflake
         public Input<bool>? OnFuture { get; set; }
 
         /// <summary>
-        /// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.
+        /// The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`. To grant all privileges, use the value `ALL PRIVILEGES`
         /// </summary>
         [Input("privilege")]
         public Input<string>? Privilege { get; set; }
+
+        /// <summary>
+        /// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+        /// </summary>
+        [Input("revertOwnershipToRoleName")]
+        public Input<string>? RevertOwnershipToRoleName { get; set; }
 
         [Input("roles")]
         private InputList<string>? _roles;
