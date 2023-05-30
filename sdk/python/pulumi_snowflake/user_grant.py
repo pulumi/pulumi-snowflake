@@ -21,7 +21,7 @@ class UserGrantArgs:
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a UserGrant resource.
-        :param pulumi.Input[str] privilege: The privilege to grant on the user.
+        :param pulumi.Input[str] privilege: The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
         :param pulumi.Input[str] user_name: The name of the user on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
@@ -41,7 +41,7 @@ class UserGrantArgs:
     @pulumi.getter
     def privilege(self) -> pulumi.Input[str]:
         """
-        The privilege to grant on the user.
+        The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
         """
         return pulumi.get(self, "privilege")
 
@@ -111,7 +111,7 @@ class _UserGrantState:
         Input properties used for looking up and filtering UserGrant resources.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
-        :param pulumi.Input[str] privilege: The privilege to grant on the user.
+        :param pulumi.Input[str] privilege: The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] user_name: The name of the user on which to grant privileges.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -144,7 +144,7 @@ class _UserGrantState:
     @pulumi.getter
     def privilege(self) -> Optional[pulumi.Input[str]]:
         """
-        The privilege to grant on the user.
+        The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
         """
         return pulumi.get(self, "privilege")
 
@@ -229,7 +229,7 @@ class UserGrant(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
-        :param pulumi.Input[str] privilege: The privilege to grant on the user.
+        :param pulumi.Input[str] privilege: The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] user_name: The name of the user on which to grant privileges.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -327,7 +327,7 @@ class UserGrant(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
-        :param pulumi.Input[str] privilege: The privilege to grant on the user.
+        :param pulumi.Input[str] privilege: The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] user_name: The name of the user on which to grant privileges.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -356,7 +356,7 @@ class UserGrant(pulumi.CustomResource):
     @pulumi.getter
     def privilege(self) -> pulumi.Output[str]:
         """
-        The privilege to grant on the user.
+        The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
         """
         return pulumi.get(self, "privilege")
 

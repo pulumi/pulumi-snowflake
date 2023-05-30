@@ -18,7 +18,7 @@ public final class RoleGrantsArgs extends com.pulumi.resources.ResourceArgs {
     public static final RoleGrantsArgs Empty = new RoleGrantsArgs();
 
     /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+     * When this is set to false, multiple grants of the same type cannot be created. This will cause Terraform to revoke
      * grants applied to roles and objects outside Terraform.
      * 
      */
@@ -26,7 +26,7 @@ public final class RoleGrantsArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> enableMultipleGrants;
 
     /**
-     * @return When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+     * @return When this is set to false, multiple grants of the same type cannot be created. This will cause Terraform to revoke
      * grants applied to roles and objects outside Terraform.
      * 
      */
@@ -107,7 +107,7 @@ public final class RoleGrantsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableMultipleGrants When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+         * @param enableMultipleGrants When this is set to false, multiple grants of the same type cannot be created. This will cause Terraform to revoke
          * grants applied to roles and objects outside Terraform.
          * 
          * @return builder
@@ -119,7 +119,7 @@ public final class RoleGrantsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableMultipleGrants When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+         * @param enableMultipleGrants When this is set to false, multiple grants of the same type cannot be created. This will cause Terraform to revoke
          * grants applied to roles and objects outside Terraform.
          * 
          * @return builder

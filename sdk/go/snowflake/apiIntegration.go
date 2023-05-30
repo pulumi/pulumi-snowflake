@@ -85,6 +85,8 @@ type ApiIntegration struct {
 	ApiAwsRoleArn pulumi.StringPtrOutput `pulumi:"apiAwsRoleArn"`
 	// Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
 	ApiBlockedPrefixes pulumi.StringArrayOutput `pulumi:"apiBlockedPrefixes"`
+	// The service account used for communication with the Google API Gateway.
+	ApiGcpServiceAccount pulumi.StringOutput `pulumi:"apiGcpServiceAccount"`
 	// The API key (also called a “subscription key”).
 	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
 	// Specifies the HTTPS proxy service type.
@@ -158,6 +160,8 @@ type apiIntegrationState struct {
 	ApiAwsRoleArn *string `pulumi:"apiAwsRoleArn"`
 	// Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
 	ApiBlockedPrefixes []string `pulumi:"apiBlockedPrefixes"`
+	// The service account used for communication with the Google API Gateway.
+	ApiGcpServiceAccount *string `pulumi:"apiGcpServiceAccount"`
 	// The API key (also called a “subscription key”).
 	ApiKey *string `pulumi:"apiKey"`
 	// Specifies the HTTPS proxy service type.
@@ -190,6 +194,8 @@ type ApiIntegrationState struct {
 	ApiAwsRoleArn pulumi.StringPtrInput
 	// Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
 	ApiBlockedPrefixes pulumi.StringArrayInput
+	// The service account used for communication with the Google API Gateway.
+	ApiGcpServiceAccount pulumi.StringPtrInput
 	// The API key (also called a “subscription key”).
 	ApiKey pulumi.StringPtrInput
 	// Specifies the HTTPS proxy service type.
@@ -222,6 +228,8 @@ type apiIntegrationArgs struct {
 	ApiAwsRoleArn *string `pulumi:"apiAwsRoleArn"`
 	// Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
 	ApiBlockedPrefixes []string `pulumi:"apiBlockedPrefixes"`
+	// The service account used for communication with the Google API Gateway.
+	ApiGcpServiceAccount *string `pulumi:"apiGcpServiceAccount"`
 	// The API key (also called a “subscription key”).
 	ApiKey *string `pulumi:"apiKey"`
 	// Specifies the HTTPS proxy service type.
@@ -247,6 +255,8 @@ type ApiIntegrationArgs struct {
 	ApiAwsRoleArn pulumi.StringPtrInput
 	// Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
 	ApiBlockedPrefixes pulumi.StringArrayInput
+	// The service account used for communication with the Google API Gateway.
+	ApiGcpServiceAccount pulumi.StringPtrInput
 	// The API key (also called a “subscription key”).
 	ApiKey pulumi.StringPtrInput
 	// Specifies the HTTPS proxy service type.
@@ -374,6 +384,11 @@ func (o ApiIntegrationOutput) ApiAwsRoleArn() pulumi.StringPtrOutput {
 // Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
 func (o ApiIntegrationOutput) ApiBlockedPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiIntegration) pulumi.StringArrayOutput { return v.ApiBlockedPrefixes }).(pulumi.StringArrayOutput)
+}
+
+// The service account used for communication with the Google API Gateway.
+func (o ApiIntegrationOutput) ApiGcpServiceAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiIntegration) pulumi.StringOutput { return v.ApiGcpServiceAccount }).(pulumi.StringOutput)
 }
 
 // The API key (also called a “subscription key”).

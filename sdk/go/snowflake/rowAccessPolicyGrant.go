@@ -62,8 +62,10 @@ type RowAccessPolicyGrant struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
-	// The privilege to grant on the row access policy.
+	// The privilege to grant on the row access policy. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrOutput `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the row access policy on which to grant privileges immediately.
@@ -117,8 +119,10 @@ type rowAccessPolicyGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// The privilege to grant on the row access policy.
+	// The privilege to grant on the row access policy. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege *string `pulumi:"privilege"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the row access policy on which to grant privileges immediately.
@@ -135,8 +139,10 @@ type RowAccessPolicyGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// The privilege to grant on the row access policy.
+	// The privilege to grant on the row access policy. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege pulumi.StringPtrInput
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the row access policy on which to grant privileges immediately.
@@ -157,8 +163,10 @@ type rowAccessPolicyGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// The privilege to grant on the row access policy.
+	// The privilege to grant on the row access policy. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege *string `pulumi:"privilege"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the row access policy on which to grant privileges immediately.
@@ -176,8 +184,10 @@ type RowAccessPolicyGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// The privilege to grant on the row access policy.
+	// The privilege to grant on the row access policy. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege pulumi.StringPtrInput
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the row access policy on which to grant privileges immediately.
@@ -286,9 +296,14 @@ func (o RowAccessPolicyGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v *RowAccessPolicyGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }
 
-// The privilege to grant on the row access policy.
+// The privilege to grant on the row access policy. To grant all privileges, use the value `ALL PRIVILEGES`
 func (o RowAccessPolicyGrantOutput) Privilege() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RowAccessPolicyGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
+}
+
+// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+func (o RowAccessPolicyGrantOutput) RevertOwnershipToRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RowAccessPolicyGrant) pulumi.StringPtrOutput { return v.RevertOwnershipToRoleName }).(pulumi.StringPtrOutput)
 }
 
 // Grants privilege to these roles.

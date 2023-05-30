@@ -54,7 +54,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> EnableMultipleGrants { get; private set; } = null!;
 
         /// <summary>
-        /// The privilege to grant on the user.
+        /// The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
         /// </summary>
         [Output("privilege")]
         public Output<string> Privilege { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// The privilege to grant on the user.
+        /// The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
         /// </summary>
         [Input("privilege", required: true)]
         public Input<string> Privilege { get; set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableMultipleGrants { get; set; }
 
         /// <summary>
-        /// The privilege to grant on the user.
+        /// The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
         /// </summary>
         [Input("privilege")]
         public Input<string>? Privilege { get; set; }

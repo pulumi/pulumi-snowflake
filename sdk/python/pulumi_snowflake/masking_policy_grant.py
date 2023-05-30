@@ -19,6 +19,7 @@ class MaskingPolicyGrantArgs:
                  schema_name: pulumi.Input[str],
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
         """
@@ -28,7 +29,8 @@ class MaskingPolicyGrantArgs:
         :param pulumi.Input[str] schema_name: The name of the schema containing the masking policy on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
-        :param pulumi.Input[str] privilege: The privilege to grant on the masking policy.
+        :param pulumi.Input[str] privilege: The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
@@ -39,6 +41,8 @@ class MaskingPolicyGrantArgs:
             pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
         if privilege is not None:
             pulumi.set(__self__, "privilege", privilege)
+        if revert_ownership_to_role_name is not None:
+            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
         if with_grant_option is not None:
@@ -97,13 +101,25 @@ class MaskingPolicyGrantArgs:
     @pulumi.getter
     def privilege(self) -> Optional[pulumi.Input[str]]:
         """
-        The privilege to grant on the masking policy.
+        The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`
         """
         return pulumi.get(self, "privilege")
 
     @privilege.setter
     def privilege(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "privilege", value)
+
+    @property
+    @pulumi.getter(name="revertOwnershipToRoleName")
+    def revert_ownership_to_role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+        """
+        return pulumi.get(self, "revert_ownership_to_role_name")
+
+    @revert_ownership_to_role_name.setter
+    def revert_ownership_to_role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revert_ownership_to_role_name", value)
 
     @property
     @pulumi.getter
@@ -137,6 +153,7 @@ class _MaskingPolicyGrantState:
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  masking_policy_name: Optional[pulumi.Input[str]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
@@ -146,7 +163,8 @@ class _MaskingPolicyGrantState:
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] masking_policy_name: The name of the masking policy on which to grant privileges immediately.
-        :param pulumi.Input[str] privilege: The privilege to grant on the masking policy.
+        :param pulumi.Input[str] privilege: The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the masking policy on which to grant privileges.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -159,6 +177,8 @@ class _MaskingPolicyGrantState:
             pulumi.set(__self__, "masking_policy_name", masking_policy_name)
         if privilege is not None:
             pulumi.set(__self__, "privilege", privilege)
+        if revert_ownership_to_role_name is not None:
+            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
         if schema_name is not None:
@@ -207,13 +227,25 @@ class _MaskingPolicyGrantState:
     @pulumi.getter
     def privilege(self) -> Optional[pulumi.Input[str]]:
         """
-        The privilege to grant on the masking policy.
+        The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`
         """
         return pulumi.get(self, "privilege")
 
     @privilege.setter
     def privilege(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "privilege", value)
+
+    @property
+    @pulumi.getter(name="revertOwnershipToRoleName")
+    def revert_ownership_to_role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+        """
+        return pulumi.get(self, "revert_ownership_to_role_name")
+
+    @revert_ownership_to_role_name.setter
+    def revert_ownership_to_role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revert_ownership_to_role_name", value)
 
     @property
     @pulumi.getter
@@ -261,6 +293,7 @@ class MaskingPolicyGrant(pulumi.CustomResource):
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  masking_policy_name: Optional[pulumi.Input[str]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
@@ -299,7 +332,8 @@ class MaskingPolicyGrant(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] masking_policy_name: The name of the masking policy on which to grant privileges immediately.
-        :param pulumi.Input[str] privilege: The privilege to grant on the masking policy.
+        :param pulumi.Input[str] privilege: The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the masking policy on which to grant privileges.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -357,6 +391,7 @@ class MaskingPolicyGrant(pulumi.CustomResource):
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  masking_policy_name: Optional[pulumi.Input[str]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
@@ -377,6 +412,7 @@ class MaskingPolicyGrant(pulumi.CustomResource):
                 raise TypeError("Missing required property 'masking_policy_name'")
             __props__.__dict__["masking_policy_name"] = masking_policy_name
             __props__.__dict__["privilege"] = privilege
+            __props__.__dict__["revert_ownership_to_role_name"] = revert_ownership_to_role_name
             __props__.__dict__["roles"] = roles
             if schema_name is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_name'")
@@ -396,6 +432,7 @@ class MaskingPolicyGrant(pulumi.CustomResource):
             enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
             masking_policy_name: Optional[pulumi.Input[str]] = None,
             privilege: Optional[pulumi.Input[str]] = None,
+            revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             schema_name: Optional[pulumi.Input[str]] = None,
             with_grant_option: Optional[pulumi.Input[bool]] = None) -> 'MaskingPolicyGrant':
@@ -410,7 +447,8 @@ class MaskingPolicyGrant(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] masking_policy_name: The name of the masking policy on which to grant privileges immediately.
-        :param pulumi.Input[str] privilege: The privilege to grant on the masking policy.
+        :param pulumi.Input[str] privilege: The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema containing the masking policy on which to grant privileges.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -423,6 +461,7 @@ class MaskingPolicyGrant(pulumi.CustomResource):
         __props__.__dict__["enable_multiple_grants"] = enable_multiple_grants
         __props__.__dict__["masking_policy_name"] = masking_policy_name
         __props__.__dict__["privilege"] = privilege
+        __props__.__dict__["revert_ownership_to_role_name"] = revert_ownership_to_role_name
         __props__.__dict__["roles"] = roles
         __props__.__dict__["schema_name"] = schema_name
         __props__.__dict__["with_grant_option"] = with_grant_option
@@ -457,9 +496,17 @@ class MaskingPolicyGrant(pulumi.CustomResource):
     @pulumi.getter
     def privilege(self) -> pulumi.Output[Optional[str]]:
         """
-        The privilege to grant on the masking policy.
+        The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`
         """
         return pulumi.get(self, "privilege")
+
+    @property
+    @pulumi.getter(name="revertOwnershipToRoleName")
+    def revert_ownership_to_role_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+        """
+        return pulumi.get(self, "revert_ownership_to_role_name")
 
     @property
     @pulumi.getter

@@ -50,18 +50,33 @@ public final class RowAccessPolicyGrantArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The privilege to grant on the row access policy.
+     * The privilege to grant on the row access policy. To grant all privileges, use the value `ALL PRIVILEGES`
      * 
      */
     @Import(name="privilege")
     private @Nullable Output<String> privilege;
 
     /**
-     * @return The privilege to grant on the row access policy.
+     * @return The privilege to grant on the row access policy. To grant all privileges, use the value `ALL PRIVILEGES`
      * 
      */
     public Optional<Output<String>> privilege() {
         return Optional.ofNullable(this.privilege);
+    }
+
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     * 
+     */
+    @Import(name="revertOwnershipToRoleName")
+    private @Nullable Output<String> revertOwnershipToRoleName;
+
+    /**
+     * @return The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     * 
+     */
+    public Optional<Output<String>> revertOwnershipToRoleName() {
+        return Optional.ofNullable(this.revertOwnershipToRoleName);
     }
 
     /**
@@ -130,6 +145,7 @@ public final class RowAccessPolicyGrantArgs extends com.pulumi.resources.Resourc
         this.databaseName = $.databaseName;
         this.enableMultipleGrants = $.enableMultipleGrants;
         this.privilege = $.privilege;
+        this.revertOwnershipToRoleName = $.revertOwnershipToRoleName;
         this.roles = $.roles;
         this.rowAccessPolicyName = $.rowAccessPolicyName;
         this.schemaName = $.schemaName;
@@ -199,7 +215,7 @@ public final class RowAccessPolicyGrantArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param privilege The privilege to grant on the row access policy.
+         * @param privilege The privilege to grant on the row access policy. To grant all privileges, use the value `ALL PRIVILEGES`
          * 
          * @return builder
          * 
@@ -210,13 +226,34 @@ public final class RowAccessPolicyGrantArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param privilege The privilege to grant on the row access policy.
+         * @param privilege The privilege to grant on the row access policy. To grant all privileges, use the value `ALL PRIVILEGES`
          * 
          * @return builder
          * 
          */
         public Builder privilege(String privilege) {
             return privilege(Output.of(privilege));
+        }
+
+        /**
+         * @param revertOwnershipToRoleName The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder revertOwnershipToRoleName(@Nullable Output<String> revertOwnershipToRoleName) {
+            $.revertOwnershipToRoleName = revertOwnershipToRoleName;
+            return this;
+        }
+
+        /**
+         * @param revertOwnershipToRoleName The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder revertOwnershipToRoleName(String revertOwnershipToRoleName) {
+            return revertOwnershipToRoleName(Output.of(revertOwnershipToRoleName));
         }
 
         /**

@@ -19,6 +19,7 @@ class SchemaGrantArgs:
                  on_all: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -31,7 +32,8 @@ class SchemaGrantArgs:
         :param pulumi.Input[bool] on_all: When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
         :param pulumi.Input[bool] on_future: When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-               terraform is using is granted access.
+               terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema on which to grant privileges.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on*future and on*all are unset).
@@ -46,6 +48,8 @@ class SchemaGrantArgs:
             pulumi.set(__self__, "on_future", on_future)
         if privilege is not None:
             pulumi.set(__self__, "privilege", privilege)
+        if revert_ownership_to_role_name is not None:
+            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
         if schema_name is not None:
@@ -109,13 +113,25 @@ class SchemaGrantArgs:
     def privilege(self) -> Optional[pulumi.Input[str]]:
         """
         The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-        terraform is using is granted access.
+        terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
         """
         return pulumi.get(self, "privilege")
 
     @privilege.setter
     def privilege(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "privilege", value)
+
+    @property
+    @pulumi.getter(name="revertOwnershipToRoleName")
+    def revert_ownership_to_role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+        """
+        return pulumi.get(self, "revert_ownership_to_role_name")
+
+    @revert_ownership_to_role_name.setter
+    def revert_ownership_to_role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revert_ownership_to_role_name", value)
 
     @property
     @pulumi.getter
@@ -174,6 +190,7 @@ class _SchemaGrantState:
                  on_all: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -186,7 +203,8 @@ class _SchemaGrantState:
         :param pulumi.Input[bool] on_all: When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
         :param pulumi.Input[bool] on_future: When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-               terraform is using is granted access.
+               terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema on which to grant privileges.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on*future and on*all are unset).
@@ -202,6 +220,8 @@ class _SchemaGrantState:
             pulumi.set(__self__, "on_future", on_future)
         if privilege is not None:
             pulumi.set(__self__, "privilege", privilege)
+        if revert_ownership_to_role_name is not None:
+            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
         if schema_name is not None:
@@ -265,13 +285,25 @@ class _SchemaGrantState:
     def privilege(self) -> Optional[pulumi.Input[str]]:
         """
         The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-        terraform is using is granted access.
+        terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
         """
         return pulumi.get(self, "privilege")
 
     @privilege.setter
     def privilege(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "privilege", value)
+
+    @property
+    @pulumi.getter(name="revertOwnershipToRoleName")
+    def revert_ownership_to_role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+        """
+        return pulumi.get(self, "revert_ownership_to_role_name")
+
+    @revert_ownership_to_role_name.setter
+    def revert_ownership_to_role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revert_ownership_to_role_name", value)
 
     @property
     @pulumi.getter
@@ -332,6 +364,7 @@ class SchemaGrant(pulumi.CustomResource):
                  on_all: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -376,7 +409,8 @@ class SchemaGrant(pulumi.CustomResource):
         :param pulumi.Input[bool] on_all: When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
         :param pulumi.Input[bool] on_future: When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-               terraform is using is granted access.
+               terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema on which to grant privileges.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on*future and on*all are unset).
@@ -439,6 +473,7 @@ class SchemaGrant(pulumi.CustomResource):
                  on_all: Optional[pulumi.Input[bool]] = None,
                  on_future: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -459,6 +494,7 @@ class SchemaGrant(pulumi.CustomResource):
             __props__.__dict__["on_all"] = on_all
             __props__.__dict__["on_future"] = on_future
             __props__.__dict__["privilege"] = privilege
+            __props__.__dict__["revert_ownership_to_role_name"] = revert_ownership_to_role_name
             __props__.__dict__["roles"] = roles
             __props__.__dict__["schema_name"] = schema_name
             __props__.__dict__["shares"] = shares
@@ -478,6 +514,7 @@ class SchemaGrant(pulumi.CustomResource):
             on_all: Optional[pulumi.Input[bool]] = None,
             on_future: Optional[pulumi.Input[bool]] = None,
             privilege: Optional[pulumi.Input[str]] = None,
+            revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             schema_name: Optional[pulumi.Input[str]] = None,
             shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -495,7 +532,8 @@ class SchemaGrant(pulumi.CustomResource):
         :param pulumi.Input[bool] on_all: When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
         :param pulumi.Input[bool] on_future: When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-               terraform is using is granted access.
+               terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema on which to grant privileges.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on*future and on*all are unset).
@@ -510,6 +548,7 @@ class SchemaGrant(pulumi.CustomResource):
         __props__.__dict__["on_all"] = on_all
         __props__.__dict__["on_future"] = on_future
         __props__.__dict__["privilege"] = privilege
+        __props__.__dict__["revert_ownership_to_role_name"] = revert_ownership_to_role_name
         __props__.__dict__["roles"] = roles
         __props__.__dict__["schema_name"] = schema_name
         __props__.__dict__["shares"] = shares
@@ -554,9 +593,17 @@ class SchemaGrant(pulumi.CustomResource):
     def privilege(self) -> pulumi.Output[Optional[str]]:
         """
         The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-        terraform is using is granted access.
+        terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
         """
         return pulumi.get(self, "privilege")
+
+    @property
+    @pulumi.getter(name="revertOwnershipToRoleName")
+    def revert_ownership_to_role_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+        """
+        return pulumi.get(self, "revert_ownership_to_role_name")
 
     @property
     @pulumi.getter

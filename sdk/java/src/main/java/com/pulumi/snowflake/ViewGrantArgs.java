@@ -80,18 +80,33 @@ public final class ViewGrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The privilege to grant on the current or future view.
+     * The privilege to grant on the current or future view. To grant all privileges, use the value `ALL PRIVILEGES`.
      * 
      */
     @Import(name="privilege")
     private @Nullable Output<String> privilege;
 
     /**
-     * @return The privilege to grant on the current or future view.
+     * @return The privilege to grant on the current or future view. To grant all privileges, use the value `ALL PRIVILEGES`.
      * 
      */
     public Optional<Output<String>> privilege() {
         return Optional.ofNullable(this.privilege);
+    }
+
+    /**
+     * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     * 
+     */
+    @Import(name="revertOwnershipToRoleName")
+    private @Nullable Output<String> revertOwnershipToRoleName;
+
+    /**
+     * @return The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+     * 
+     */
+    public Optional<Output<String>> revertOwnershipToRoleName() {
+        return Optional.ofNullable(this.revertOwnershipToRoleName);
     }
 
     /**
@@ -177,6 +192,7 @@ public final class ViewGrantArgs extends com.pulumi.resources.ResourceArgs {
         this.onAll = $.onAll;
         this.onFuture = $.onFuture;
         this.privilege = $.privilege;
+        this.revertOwnershipToRoleName = $.revertOwnershipToRoleName;
         this.roles = $.roles;
         this.schemaName = $.schemaName;
         this.shares = $.shares;
@@ -289,7 +305,7 @@ public final class ViewGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privilege The privilege to grant on the current or future view.
+         * @param privilege The privilege to grant on the current or future view. To grant all privileges, use the value `ALL PRIVILEGES`.
          * 
          * @return builder
          * 
@@ -300,13 +316,34 @@ public final class ViewGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privilege The privilege to grant on the current or future view.
+         * @param privilege The privilege to grant on the current or future view. To grant all privileges, use the value `ALL PRIVILEGES`.
          * 
          * @return builder
          * 
          */
         public Builder privilege(String privilege) {
             return privilege(Output.of(privilege));
+        }
+
+        /**
+         * @param revertOwnershipToRoleName The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder revertOwnershipToRoleName(@Nullable Output<String> revertOwnershipToRoleName) {
+            $.revertOwnershipToRoleName = revertOwnershipToRoleName;
+            return this;
+        }
+
+        /**
+         * @param revertOwnershipToRoleName The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder revertOwnershipToRoleName(String revertOwnershipToRoleName) {
+            return revertOwnershipToRoleName(Output.of(revertOwnershipToRoleName));
         }
 
         /**

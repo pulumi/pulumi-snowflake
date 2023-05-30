@@ -9,6 +9,10 @@ import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.pulumi.snowflake.Utilities;
+import com.pulumi.snowflake.inputs.GetAccountsArgs;
+import com.pulumi.snowflake.inputs.GetAccountsPlainArgs;
+import com.pulumi.snowflake.inputs.GetAlertsArgs;
+import com.pulumi.snowflake.inputs.GetAlertsPlainArgs;
 import com.pulumi.snowflake.inputs.GetDatabaseArgs;
 import com.pulumi.snowflake.inputs.GetDatabasePlainArgs;
 import com.pulumi.snowflake.inputs.GetDatabaseRolesArgs;
@@ -17,6 +21,8 @@ import com.pulumi.snowflake.inputs.GetExternalFunctionsArgs;
 import com.pulumi.snowflake.inputs.GetExternalFunctionsPlainArgs;
 import com.pulumi.snowflake.inputs.GetExternalTablesArgs;
 import com.pulumi.snowflake.inputs.GetExternalTablesPlainArgs;
+import com.pulumi.snowflake.inputs.GetFailoverGroupsArgs;
+import com.pulumi.snowflake.inputs.GetFailoverGroupsPlainArgs;
 import com.pulumi.snowflake.inputs.GetFileFormatsArgs;
 import com.pulumi.snowflake.inputs.GetFileFormatsPlainArgs;
 import com.pulumi.snowflake.inputs.GetFunctionsArgs;
@@ -61,6 +67,8 @@ import com.pulumi.snowflake.inputs.GetUsersArgs;
 import com.pulumi.snowflake.inputs.GetUsersPlainArgs;
 import com.pulumi.snowflake.inputs.GetViewsArgs;
 import com.pulumi.snowflake.inputs.GetViewsPlainArgs;
+import com.pulumi.snowflake.outputs.GetAccountsResult;
+import com.pulumi.snowflake.outputs.GetAlertsResult;
 import com.pulumi.snowflake.outputs.GetCurrentAccountResult;
 import com.pulumi.snowflake.outputs.GetCurrentRoleResult;
 import com.pulumi.snowflake.outputs.GetDatabaseResult;
@@ -68,6 +76,7 @@ import com.pulumi.snowflake.outputs.GetDatabaseRolesResult;
 import com.pulumi.snowflake.outputs.GetDatabasesResult;
 import com.pulumi.snowflake.outputs.GetExternalFunctionsResult;
 import com.pulumi.snowflake.outputs.GetExternalTablesResult;
+import com.pulumi.snowflake.outputs.GetFailoverGroupsResult;
 import com.pulumi.snowflake.outputs.GetFileFormatsResult;
 import com.pulumi.snowflake.outputs.GetFunctionsResult;
 import com.pulumi.snowflake.outputs.GetGrantsResult;
@@ -98,6 +107,240 @@ import com.pulumi.snowflake.outputs.GetWarehousesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class SnowflakeFunctions {
+    public static Output<GetAccountsResult> getAccounts() {
+        return getAccounts(GetAccountsArgs.Empty, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetAccountsResult> getAccountsPlain() {
+        return getAccountsPlain(GetAccountsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    public static Output<GetAccountsResult> getAccounts(GetAccountsArgs args) {
+        return getAccounts(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetAccountsResult> getAccountsPlain(GetAccountsPlainArgs args) {
+        return getAccountsPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetAccountsResult> getAccounts(GetAccountsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getAccounts:getAccounts", TypeShape.of(GetAccountsResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetAccountsResult> getAccountsPlain(GetAccountsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getAccounts:getAccounts", TypeShape.of(GetAccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetAlertsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = SnowflakeFunctions.getAlerts(GetAlertsArgs.builder()
+     *             .database(&#34;MYDB&#34;)
+     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAlertsResult> getAlerts() {
+        return getAlerts(GetAlertsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetAlertsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = SnowflakeFunctions.getAlerts(GetAlertsArgs.builder()
+     *             .database(&#34;MYDB&#34;)
+     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAlertsResult> getAlertsPlain() {
+        return getAlertsPlain(GetAlertsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetAlertsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = SnowflakeFunctions.getAlerts(GetAlertsArgs.builder()
+     *             .database(&#34;MYDB&#34;)
+     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAlertsResult> getAlerts(GetAlertsArgs args) {
+        return getAlerts(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetAlertsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = SnowflakeFunctions.getAlerts(GetAlertsArgs.builder()
+     *             .database(&#34;MYDB&#34;)
+     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAlertsResult> getAlertsPlain(GetAlertsPlainArgs args) {
+        return getAlertsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetAlertsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = SnowflakeFunctions.getAlerts(GetAlertsArgs.builder()
+     *             .database(&#34;MYDB&#34;)
+     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAlertsResult> getAlerts(GetAlertsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getAlerts:getAlerts", TypeShape.of(GetAlertsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetAlertsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = SnowflakeFunctions.getAlerts(GetAlertsArgs.builder()
+     *             .database(&#34;MYDB&#34;)
+     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAlertsResult> getAlertsPlain(GetAlertsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getAlerts:getAlerts", TypeShape.of(GetAlertsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * ## Example Usage
      * ```java
@@ -987,6 +1230,24 @@ public final class SnowflakeFunctions {
      */
     public static CompletableFuture<GetExternalTablesResult> getExternalTablesPlain(GetExternalTablesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getExternalTables:getExternalTables", TypeShape.of(GetExternalTablesResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetFailoverGroupsResult> getFailoverGroups() {
+        return getFailoverGroups(GetFailoverGroupsArgs.Empty, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetFailoverGroupsResult> getFailoverGroupsPlain() {
+        return getFailoverGroupsPlain(GetFailoverGroupsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    public static Output<GetFailoverGroupsResult> getFailoverGroups(GetFailoverGroupsArgs args) {
+        return getFailoverGroups(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetFailoverGroupsResult> getFailoverGroupsPlain(GetFailoverGroupsPlainArgs args) {
+        return getFailoverGroupsPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetFailoverGroupsResult> getFailoverGroups(GetFailoverGroupsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getFailoverGroups:getFailoverGroups", TypeShape.of(GetFailoverGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetFailoverGroupsResult> getFailoverGroupsPlain(GetFailoverGroupsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getFailoverGroups:getFailoverGroups", TypeShape.of(GetFailoverGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * ## Example Usage

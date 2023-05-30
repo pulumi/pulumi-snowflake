@@ -97,6 +97,12 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> ApiBlockedPrefixes { get; private set; } = null!;
 
         /// <summary>
+        /// The service account used for communication with the Google API Gateway.
+        /// </summary>
+        [Output("apiGcpServiceAccount")]
+        public Output<string> ApiGcpServiceAccount { get; private set; } = null!;
+
+        /// <summary>
         /// The API key (also called a “subscription key”).
         /// </summary>
         [Output("apiKey")]
@@ -233,6 +239,12 @@ namespace Pulumi.Snowflake
             set => _apiBlockedPrefixes = value;
         }
 
+        /// <summary>
+        /// The service account used for communication with the Google API Gateway.
+        /// </summary>
+        [Input("apiGcpServiceAccount")]
+        public Input<string>? ApiGcpServiceAccount { get; set; }
+
         [Input("apiKey")]
         private Input<string>? _apiKey;
 
@@ -337,6 +349,12 @@ namespace Pulumi.Snowflake
             get => _apiBlockedPrefixes ?? (_apiBlockedPrefixes = new InputList<string>());
             set => _apiBlockedPrefixes = value;
         }
+
+        /// <summary>
+        /// The service account used for communication with the Google API Gateway.
+        /// </summary>
+        [Input("apiGcpServiceAccount")]
+        public Input<string>? ApiGcpServiceAccount { get; set; }
 
         [Input("apiKey")]
         private Input<string>? _apiKey;

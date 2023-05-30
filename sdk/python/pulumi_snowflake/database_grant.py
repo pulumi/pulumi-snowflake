@@ -17,6 +17,7 @@ class DatabaseGrantArgs:
                  database_name: pulumi.Input[str],
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
@@ -25,7 +26,8 @@ class DatabaseGrantArgs:
         :param pulumi.Input[str] database_name: The name of the database on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
-        :param pulumi.Input[str] privilege: The privilege to grant on the database.
+        :param pulumi.Input[str] privilege: The privilege to grant on the database. To grant all privileges, use the value `ALL PRIVILEGES`.
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -35,6 +37,8 @@ class DatabaseGrantArgs:
             pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
         if privilege is not None:
             pulumi.set(__self__, "privilege", privilege)
+        if revert_ownership_to_role_name is not None:
+            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
         if shares is not None:
@@ -71,13 +75,25 @@ class DatabaseGrantArgs:
     @pulumi.getter
     def privilege(self) -> Optional[pulumi.Input[str]]:
         """
-        The privilege to grant on the database.
+        The privilege to grant on the database. To grant all privileges, use the value `ALL PRIVILEGES`.
         """
         return pulumi.get(self, "privilege")
 
     @privilege.setter
     def privilege(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "privilege", value)
+
+    @property
+    @pulumi.getter(name="revertOwnershipToRoleName")
+    def revert_ownership_to_role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+        """
+        return pulumi.get(self, "revert_ownership_to_role_name")
+
+    @revert_ownership_to_role_name.setter
+    def revert_ownership_to_role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revert_ownership_to_role_name", value)
 
     @property
     @pulumi.getter
@@ -122,6 +138,7 @@ class _DatabaseGrantState:
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
@@ -130,7 +147,8 @@ class _DatabaseGrantState:
         :param pulumi.Input[str] database_name: The name of the database on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
-        :param pulumi.Input[str] privilege: The privilege to grant on the database.
+        :param pulumi.Input[str] privilege: The privilege to grant on the database. To grant all privileges, use the value `ALL PRIVILEGES`.
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -141,6 +159,8 @@ class _DatabaseGrantState:
             pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
         if privilege is not None:
             pulumi.set(__self__, "privilege", privilege)
+        if revert_ownership_to_role_name is not None:
+            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
         if shares is not None:
@@ -177,13 +197,25 @@ class _DatabaseGrantState:
     @pulumi.getter
     def privilege(self) -> Optional[pulumi.Input[str]]:
         """
-        The privilege to grant on the database.
+        The privilege to grant on the database. To grant all privileges, use the value `ALL PRIVILEGES`.
         """
         return pulumi.get(self, "privilege")
 
     @privilege.setter
     def privilege(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "privilege", value)
+
+    @property
+    @pulumi.getter(name="revertOwnershipToRoleName")
+    def revert_ownership_to_role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+        """
+        return pulumi.get(self, "revert_ownership_to_role_name")
+
+    @revert_ownership_to_role_name.setter
+    def revert_ownership_to_role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revert_ownership_to_role_name", value)
 
     @property
     @pulumi.getter
@@ -230,6 +262,7 @@ class DatabaseGrant(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
@@ -268,7 +301,8 @@ class DatabaseGrant(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: The name of the database on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
-        :param pulumi.Input[str] privilege: The privilege to grant on the database.
+        :param pulumi.Input[str] privilege: The privilege to grant on the database. To grant all privileges, use the value `ALL PRIVILEGES`.
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -326,6 +360,7 @@ class DatabaseGrant(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
                  privilege: Optional[pulumi.Input[str]] = None,
+                 revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
@@ -343,6 +378,7 @@ class DatabaseGrant(pulumi.CustomResource):
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["enable_multiple_grants"] = enable_multiple_grants
             __props__.__dict__["privilege"] = privilege
+            __props__.__dict__["revert_ownership_to_role_name"] = revert_ownership_to_role_name
             __props__.__dict__["roles"] = roles
             __props__.__dict__["shares"] = shares
             __props__.__dict__["with_grant_option"] = with_grant_option
@@ -359,6 +395,7 @@ class DatabaseGrant(pulumi.CustomResource):
             database_name: Optional[pulumi.Input[str]] = None,
             enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
             privilege: Optional[pulumi.Input[str]] = None,
+            revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             with_grant_option: Optional[pulumi.Input[bool]] = None) -> 'DatabaseGrant':
@@ -372,7 +409,8 @@ class DatabaseGrant(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: The name of the database on which to grant privileges.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
-        :param pulumi.Input[str] privilege: The privilege to grant on the database.
+        :param pulumi.Input[str] privilege: The privilege to grant on the database. To grant all privileges, use the value `ALL PRIVILEGES`.
+        :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -384,6 +422,7 @@ class DatabaseGrant(pulumi.CustomResource):
         __props__.__dict__["database_name"] = database_name
         __props__.__dict__["enable_multiple_grants"] = enable_multiple_grants
         __props__.__dict__["privilege"] = privilege
+        __props__.__dict__["revert_ownership_to_role_name"] = revert_ownership_to_role_name
         __props__.__dict__["roles"] = roles
         __props__.__dict__["shares"] = shares
         __props__.__dict__["with_grant_option"] = with_grant_option
@@ -410,9 +449,17 @@ class DatabaseGrant(pulumi.CustomResource):
     @pulumi.getter
     def privilege(self) -> pulumi.Output[Optional[str]]:
         """
-        The privilege to grant on the database.
+        The privilege to grant on the database. To grant all privileges, use the value `ALL PRIVILEGES`.
         """
         return pulumi.get(self, "privilege")
+
+    @property
+    @pulumi.getter(name="revertOwnershipToRoleName")
+    def revert_ownership_to_role_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+        """
+        return pulumi.get(self, "revert_ownership_to_role_name")
 
     @property
     @pulumi.getter

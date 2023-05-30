@@ -143,6 +143,35 @@ export interface FunctionArgument {
     type: string;
 }
 
+export interface GetAccountsAccount {
+    accountLocator: string;
+    accountLocatorUrl: string;
+    accountName: string;
+    accountUrl: string;
+    comment: string;
+    consumptionBillingEntityName: string;
+    createdOn: string;
+    edition: string;
+    isOrgAdmin: boolean;
+    managedAccounts: number;
+    marketplaceConsumerBillingEntityName: string;
+    marketplaceProviderBillingEntityName: string;
+    oldAccountUrl: string;
+    organizationName: string;
+    regionGroup: string;
+    snowflakeRegion: string;
+}
+
+export interface GetAlertsAlert {
+    action: string;
+    comment: string;
+    condition: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    schemaName: string;
+}
+
 export interface GetDatabaseRolesDatabaseRole {
     comment: string;
     name: string;
@@ -192,6 +221,26 @@ export interface GetExternalTablesExternalTable {
      * The schema from which to return the external tables from.
      */
     schema: string;
+}
+
+export interface GetFailoverGroupsFailoverGroup {
+    accountLocator: string;
+    accountName: string;
+    allowedAccounts: any[];
+    allowedIntegrationTypes: any[];
+    comment: string;
+    createdOn: string;
+    isPrimary: boolean;
+    nextScheduledRefresh: string;
+    objectTypes: any[];
+    organizationName: string;
+    owner: string;
+    primary: string;
+    regionGroup: string;
+    replicationSchedule: string;
+    secondaryState: string;
+    snowflakeRegion: string;
+    type: string;
 }
 
 export interface GetFileFormatsFileFormat {
@@ -416,7 +465,7 @@ export interface GetSharesShare {
     kind: string;
     name: string;
     owner: string;
-    to: string;
+    tos: any[];
 }
 
 export interface GetStagesStage {
@@ -770,25 +819,6 @@ export interface UserTag {
 }
 
 export interface ViewTag {
-    /**
-     * Name of the database that the tag was created in.
-     */
-    database?: string;
-    /**
-     * Tag name, e.g. department.
-     */
-    name: string;
-    /**
-     * Name of the schema that the tag was created in.
-     */
-    schema?: string;
-    /**
-     * Tag value, e.g. marketing_info.
-     */
-    value: string;
-}
-
-export interface WarehouseTag {
     /**
      * Name of the database that the tag was created in.
      */

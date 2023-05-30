@@ -5,11 +5,9 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.snowflake.inputs.WarehouseTagArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -222,39 +220,24 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Definitions of a tag to associate with the resource.
-     * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
-     * 
-     */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    @Import(name="tags")
-    private @Nullable Output<List<WarehouseTagArgs>> tags;
-
-    /**
-     * @return Definitions of a tag to associate with the resource.
-     * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
-     * 
-     */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    public Optional<Output<List<WarehouseTagArgs>>> tags() {
-        return Optional.ofNullable(this.tags);
-    }
-
-    /**
      * Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
      * 
+     * @deprecated
+     * This field is deprecated and will be removed in the next major version of the provider. It doesn&#39;t do anything and should be removed from your configuration.
+     * 
      */
+    @Deprecated /* This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration. */
     @Import(name="waitForProvisioning")
     private @Nullable Output<Boolean> waitForProvisioning;
 
     /**
      * @return Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
      * 
+     * @deprecated
+     * This field is deprecated and will be removed in the next major version of the provider. It doesn&#39;t do anything and should be removed from your configuration.
+     * 
      */
+    @Deprecated /* This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration. */
     public Optional<Output<Boolean>> waitForProvisioning() {
         return Optional.ofNullable(this.waitForProvisioning);
     }
@@ -306,7 +289,6 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         this.scalingPolicy = $.scalingPolicy;
         this.statementQueuedTimeoutInSeconds = $.statementQueuedTimeoutInSeconds;
         this.statementTimeoutInSeconds = $.statementTimeoutInSeconds;
-        this.tags = $.tags;
         this.waitForProvisioning = $.waitForProvisioning;
         this.warehouseSize = $.warehouseSize;
         this.warehouseType = $.warehouseType;
@@ -613,54 +595,15 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Definitions of a tag to associate with the resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
-         * 
-         */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-        public Builder tags(@Nullable Output<List<WarehouseTagArgs>> tags) {
-            $.tags = tags;
-            return this;
-        }
-
-        /**
-         * @param tags Definitions of a tag to associate with the resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
-         * 
-         */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-        public Builder tags(List<WarehouseTagArgs> tags) {
-            return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tags Definitions of a tag to associate with the resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
-         * 
-         */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-        public Builder tags(WarehouseTagArgs... tags) {
-            return tags(List.of(tags));
-        }
-
-        /**
          * @param waitForProvisioning Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field is deprecated and will be removed in the next major version of the provider. It doesn&#39;t do anything and should be removed from your configuration.
+         * 
          */
+        @Deprecated /* This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration. */
         public Builder waitForProvisioning(@Nullable Output<Boolean> waitForProvisioning) {
             $.waitForProvisioning = waitForProvisioning;
             return this;
@@ -671,7 +614,11 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field is deprecated and will be removed in the next major version of the provider. It doesn&#39;t do anything and should be removed from your configuration.
+         * 
          */
+        @Deprecated /* This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration. */
         public Builder waitForProvisioning(Boolean waitForProvisioning) {
             return waitForProvisioning(Output.of(waitForProvisioning));
         }

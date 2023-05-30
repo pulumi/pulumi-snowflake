@@ -24,7 +24,7 @@ class ResourceMonitorGrantArgs:
         :param pulumi.Input[str] monitor_name: Identifier for the resource monitor; must be unique for your account.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
-        :param pulumi.Input[str] privilege: The privilege to grant on the resource monitor.
+        :param pulumi.Input[str] privilege: The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
@@ -67,7 +67,7 @@ class ResourceMonitorGrantArgs:
     @pulumi.getter
     def privilege(self) -> Optional[pulumi.Input[str]]:
         """
-        The privilege to grant on the resource monitor.
+        The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
         """
         return pulumi.get(self, "privilege")
 
@@ -113,7 +113,7 @@ class _ResourceMonitorGrantState:
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] monitor_name: Identifier for the resource monitor; must be unique for your account.
-        :param pulumi.Input[str] privilege: The privilege to grant on the resource monitor.
+        :param pulumi.Input[str] privilege: The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
@@ -157,7 +157,7 @@ class _ResourceMonitorGrantState:
     @pulumi.getter
     def privilege(self) -> Optional[pulumi.Input[str]]:
         """
-        The privilege to grant on the resource monitor.
+        The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
         """
         return pulumi.get(self, "privilege")
 
@@ -228,7 +228,7 @@ class ResourceMonitorGrant(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] monitor_name: Identifier for the resource monitor; must be unique for your account.
-        :param pulumi.Input[str] privilege: The privilege to grant on the resource monitor.
+        :param pulumi.Input[str] privilege: The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
@@ -321,7 +321,7 @@ class ResourceMonitorGrant(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
                grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] monitor_name: Identifier for the resource monitor; must be unique for your account.
-        :param pulumi.Input[str] privilege: The privilege to grant on the resource monitor.
+        :param pulumi.Input[str] privilege: The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
@@ -357,7 +357,7 @@ class ResourceMonitorGrant(pulumi.CustomResource):
     @pulumi.getter
     def privilege(self) -> pulumi.Output[Optional[str]]:
         """
-        The privilege to grant on the resource monitor.
+        The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
         """
         return pulumi.get(self, "privilege")
 

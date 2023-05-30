@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/roleGrants:RoleGrants")
 public class RoleGrants extends com.pulumi.resources.CustomResource {
     /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+     * When this is set to false, multiple grants of the same type cannot be created. This will cause Terraform to revoke
      * grants applied to roles and objects outside Terraform.
      * 
      */
@@ -89,7 +89,7 @@ public class RoleGrants extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Boolean> enableMultipleGrants;
 
     /**
-     * @return When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
+     * @return When this is set to false, multiple grants of the same type cannot be created. This will cause Terraform to revoke
      * grants applied to roles and objects outside Terraform.
      * 
      */

@@ -60,8 +60,10 @@ type TagGrant struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
-	// The privilege to grant on the tag.
+	// The privilege to grant on the tag. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrOutput `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the tag on which to grant privileges.
@@ -115,8 +117,10 @@ type tagGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// The privilege to grant on the tag.
+	// The privilege to grant on the tag. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege *string `pulumi:"privilege"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the tag on which to grant privileges.
@@ -133,8 +137,10 @@ type TagGrantState struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// The privilege to grant on the tag.
+	// The privilege to grant on the tag. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege pulumi.StringPtrInput
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the tag on which to grant privileges.
@@ -155,8 +161,10 @@ type tagGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
-	// The privilege to grant on the tag.
+	// The privilege to grant on the tag. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege *string `pulumi:"privilege"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the tag on which to grant privileges.
@@ -174,8 +182,10 @@ type TagGrantArgs struct {
 	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
 	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
-	// The privilege to grant on the tag.
+	// The privilege to grant on the tag. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege pulumi.StringPtrInput
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the tag on which to grant privileges.
@@ -284,9 +294,14 @@ func (o TagGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TagGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }
 
-// The privilege to grant on the tag.
+// The privilege to grant on the tag. To grant all privileges, use the value `ALL PRIVILEGES`.
 func (o TagGrantOutput) Privilege() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TagGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
+}
+
+// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+func (o TagGrantOutput) RevertOwnershipToRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagGrant) pulumi.StringPtrOutput { return v.RevertOwnershipToRoleName }).(pulumi.StringPtrOutput)
 }
 
 // Grants privilege to these roles.

@@ -59,7 +59,7 @@ type ResourceMonitorGrant struct {
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// Identifier for the resource monitor; must be unique for your account.
 	MonitorName pulumi.StringOutput `pulumi:"monitorName"`
-	// The privilege to grant on the resource monitor.
+	// The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
@@ -104,7 +104,7 @@ type resourceMonitorGrantState struct {
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// Identifier for the resource monitor; must be unique for your account.
 	MonitorName *string `pulumi:"monitorName"`
-	// The privilege to grant on the resource monitor.
+	// The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege *string `pulumi:"privilege"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
@@ -118,7 +118,7 @@ type ResourceMonitorGrantState struct {
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// Identifier for the resource monitor; must be unique for your account.
 	MonitorName pulumi.StringPtrInput
-	// The privilege to grant on the resource monitor.
+	// The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
@@ -136,7 +136,7 @@ type resourceMonitorGrantArgs struct {
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// Identifier for the resource monitor; must be unique for your account.
 	MonitorName string `pulumi:"monitorName"`
-	// The privilege to grant on the resource monitor.
+	// The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege *string `pulumi:"privilege"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
@@ -151,7 +151,7 @@ type ResourceMonitorGrantArgs struct {
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// Identifier for the resource monitor; must be unique for your account.
 	MonitorName pulumi.StringInput
-	// The privilege to grant on the resource monitor.
+	// The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
@@ -257,7 +257,7 @@ func (o ResourceMonitorGrantOutput) MonitorName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceMonitorGrant) pulumi.StringOutput { return v.MonitorName }).(pulumi.StringOutput)
 }
 
-// The privilege to grant on the resource monitor.
+// The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
 func (o ResourceMonitorGrantOutput) Privilege() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceMonitorGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
 }

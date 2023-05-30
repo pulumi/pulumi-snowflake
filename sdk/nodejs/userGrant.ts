@@ -64,7 +64,7 @@ export class UserGrant extends pulumi.CustomResource {
      */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
-     * The privilege to grant on the user.
+     * The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
      */
     public readonly privilege!: pulumi.Output<string>;
     /**
@@ -127,7 +127,7 @@ export interface UserGrantState {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * The privilege to grant on the user.
+     * The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
      */
     privilege?: pulumi.Input<string>;
     /**
@@ -154,7 +154,7 @@ export interface UserGrantArgs {
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
-     * The privilege to grant on the user.
+     * The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
      */
     privilege: pulumi.Input<string>;
     /**

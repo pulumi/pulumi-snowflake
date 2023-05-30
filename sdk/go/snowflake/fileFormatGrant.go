@@ -69,8 +69,10 @@ type FileFormatGrant struct {
 	OnAll pulumi.BoolPtrOutput `pulumi:"onAll"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on*future. Cannot be used together with on*all.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
-	// The privilege to grant on the current or future file format.
+	// The privilege to grant on the current or future file format. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrOutput `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current or future file formats on which to grant privileges.
@@ -125,8 +127,10 @@ type fileFormatGrantState struct {
 	OnAll *bool `pulumi:"onAll"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on*future. Cannot be used together with on*all.
 	OnFuture *bool `pulumi:"onFuture"`
-	// The privilege to grant on the current or future file format.
+	// The privilege to grant on the current or future file format. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege *string `pulumi:"privilege"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future file formats on which to grant privileges.
@@ -147,8 +151,10 @@ type FileFormatGrantState struct {
 	OnAll pulumi.BoolPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on*future. Cannot be used together with on*all.
 	OnFuture pulumi.BoolPtrInput
-	// The privilege to grant on the current or future file format.
+	// The privilege to grant on the current or future file format. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege pulumi.StringPtrInput
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future file formats on which to grant privileges.
@@ -173,8 +179,10 @@ type fileFormatGrantArgs struct {
 	OnAll *bool `pulumi:"onAll"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on*future. Cannot be used together with on*all.
 	OnFuture *bool `pulumi:"onFuture"`
-	// The privilege to grant on the current or future file format.
+	// The privilege to grant on the current or future file format. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege *string `pulumi:"privilege"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future file formats on which to grant privileges.
@@ -196,8 +204,10 @@ type FileFormatGrantArgs struct {
 	OnAll pulumi.BoolPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all future file formats in the given schema. When this is true and no schema*name is provided apply this grant on all future file formats in the given database. The file*format*name field must be unset in order to use on*future. Cannot be used together with on*all.
 	OnFuture pulumi.BoolPtrInput
-	// The privilege to grant on the current or future file format.
+	// The privilege to grant on the current or future file format. To grant all privileges, use the value `ALL PRIVILEGES`
 	Privilege pulumi.StringPtrInput
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future file formats on which to grant privileges.
@@ -319,9 +329,14 @@ func (o FileFormatGrantOutput) OnFuture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FileFormatGrant) pulumi.BoolPtrOutput { return v.OnFuture }).(pulumi.BoolPtrOutput)
 }
 
-// The privilege to grant on the current or future file format.
+// The privilege to grant on the current or future file format. To grant all privileges, use the value `ALL PRIVILEGES`
 func (o FileFormatGrantOutput) Privilege() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileFormatGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
+}
+
+// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+func (o FileFormatGrantOutput) RevertOwnershipToRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileFormatGrant) pulumi.StringPtrOutput { return v.RevertOwnershipToRoleName }).(pulumi.StringPtrOutput)
 }
 
 // Grants privilege to these roles.

@@ -75,6 +75,11 @@ export type FailoverGroup = import("./failoverGroup").FailoverGroup;
 export const FailoverGroup: typeof import("./failoverGroup").FailoverGroup = null as any;
 utilities.lazyLoad(exports, ["FailoverGroup"], () => require("./failoverGroup"));
 
+export { FailoverGroupGrantArgs, FailoverGroupGrantState } from "./failoverGroupGrant";
+export type FailoverGroupGrant = import("./failoverGroupGrant").FailoverGroupGrant;
+export const FailoverGroupGrant: typeof import("./failoverGroupGrant").FailoverGroupGrant = null as any;
+utilities.lazyLoad(exports, ["FailoverGroupGrant"], () => require("./failoverGroupGrant"));
+
 export { FileFormatArgs, FileFormatState } from "./fileFormat";
 export type FileFormat = import("./fileFormat").FileFormat;
 export const FileFormat: typeof import("./fileFormat").FileFormat = null as any;
@@ -94,6 +99,16 @@ export { FunctionGrantArgs, FunctionGrantState } from "./functionGrant";
 export type FunctionGrant = import("./functionGrant").FunctionGrant;
 export const FunctionGrant: typeof import("./functionGrant").FunctionGrant = null as any;
 utilities.lazyLoad(exports, ["FunctionGrant"], () => require("./functionGrant"));
+
+export { GetAccountsArgs, GetAccountsResult, GetAccountsOutputArgs } from "./getAccounts";
+export const getAccounts: typeof import("./getAccounts").getAccounts = null as any;
+export const getAccountsOutput: typeof import("./getAccounts").getAccountsOutput = null as any;
+utilities.lazyLoad(exports, ["getAccounts","getAccountsOutput"], () => require("./getAccounts"));
+
+export { GetAlertsArgs, GetAlertsResult, GetAlertsOutputArgs } from "./getAlerts";
+export const getAlerts: typeof import("./getAlerts").getAlerts = null as any;
+export const getAlertsOutput: typeof import("./getAlerts").getAlertsOutput = null as any;
+utilities.lazyLoad(exports, ["getAlerts","getAlertsOutput"], () => require("./getAlerts"));
 
 export { GetCurrentAccountResult } from "./getCurrentAccount";
 export const getCurrentAccount: typeof import("./getCurrentAccount").getCurrentAccount = null as any;
@@ -126,6 +141,11 @@ export { GetExternalTablesArgs, GetExternalTablesResult, GetExternalTablesOutput
 export const getExternalTables: typeof import("./getExternalTables").getExternalTables = null as any;
 export const getExternalTablesOutput: typeof import("./getExternalTables").getExternalTablesOutput = null as any;
 utilities.lazyLoad(exports, ["getExternalTables","getExternalTablesOutput"], () => require("./getExternalTables"));
+
+export { GetFailoverGroupsArgs, GetFailoverGroupsResult, GetFailoverGroupsOutputArgs } from "./getFailoverGroups";
+export const getFailoverGroups: typeof import("./getFailoverGroups").getFailoverGroups = null as any;
+export const getFailoverGroupsOutput: typeof import("./getFailoverGroups").getFailoverGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getFailoverGroups","getFailoverGroupsOutput"], () => require("./getFailoverGroups"));
 
 export { GetFileFormatsArgs, GetFileFormatsResult, GetFileFormatsOutputArgs } from "./getFileFormats";
 export const getFileFormats: typeof import("./getFileFormats").getFileFormats = null as any;
@@ -574,6 +594,8 @@ const _module = {
                 return new ExternalTableGrant(name, <any>undefined, { urn })
             case "snowflake:index/failoverGroup:FailoverGroup":
                 return new FailoverGroup(name, <any>undefined, { urn })
+            case "snowflake:index/failoverGroupGrant:FailoverGroupGrant":
+                return new FailoverGroupGrant(name, <any>undefined, { urn })
             case "snowflake:index/fileFormat:FileFormat":
                 return new FileFormat(name, <any>undefined, { urn })
             case "snowflake:index/fileFormatGrant:FileFormatGrant":
@@ -709,6 +731,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/externalOauthIntegrati
 pulumi.runtime.registerResourceModule("snowflake", "index/externalTable", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalTableGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/failoverGroup", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/failoverGroupGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/fileFormat", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/fileFormatGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/function", _module)

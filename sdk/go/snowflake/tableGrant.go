@@ -69,8 +69,10 @@ type TableGrant struct {
 	OnAll pulumi.BoolPtrOutput `pulumi:"onAll"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
-	// The privilege to grant on the current or future table.
+	// The privilege to grant on the current or future table. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrOutput `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The name of the schema containing the current or future tables on which to grant privileges.
@@ -124,8 +126,10 @@ type tableGrantState struct {
 	OnAll *bool `pulumi:"onAll"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture *bool `pulumi:"onFuture"`
-	// The privilege to grant on the current or future table.
+	// The privilege to grant on the current or future table. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege *string `pulumi:"privilege"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future tables on which to grant privileges.
@@ -148,8 +152,10 @@ type TableGrantState struct {
 	OnAll pulumi.BoolPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture pulumi.BoolPtrInput
-	// The privilege to grant on the current or future table.
+	// The privilege to grant on the current or future table. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege pulumi.StringPtrInput
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future tables on which to grant privileges.
@@ -176,8 +182,10 @@ type tableGrantArgs struct {
 	OnAll *bool `pulumi:"onAll"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture *bool `pulumi:"onFuture"`
-	// The privilege to grant on the current or future table.
+	// The privilege to grant on the current or future table. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege *string `pulumi:"privilege"`
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
 	// Grants privilege to these roles.
 	Roles []string `pulumi:"roles"`
 	// The name of the schema containing the current or future tables on which to grant privileges.
@@ -201,8 +209,10 @@ type TableGrantArgs struct {
 	OnAll pulumi.BoolPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all future tables in the given schema. When this is true and no schema*name is provided apply this grant on all future tables in the given database. The table*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
 	OnFuture pulumi.BoolPtrInput
-	// The privilege to grant on the current or future table.
+	// The privilege to grant on the current or future table. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege pulumi.StringPtrInput
+	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+	RevertOwnershipToRoleName pulumi.StringPtrInput
 	// Grants privilege to these roles.
 	Roles pulumi.StringArrayInput
 	// The name of the schema containing the current or future tables on which to grant privileges.
@@ -323,9 +333,14 @@ func (o TableGrantOutput) OnFuture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableGrant) pulumi.BoolPtrOutput { return v.OnFuture }).(pulumi.BoolPtrOutput)
 }
 
-// The privilege to grant on the current or future table.
+// The privilege to grant on the current or future table. To grant all privileges, use the value `ALL PRIVILEGES`.
 func (o TableGrantOutput) Privilege() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
+}
+
+// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
+func (o TableGrantOutput) RevertOwnershipToRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableGrant) pulumi.StringPtrOutput { return v.RevertOwnershipToRoleName }).(pulumi.StringPtrOutput)
 }
 
 // Grants privilege to these roles.

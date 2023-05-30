@@ -92,14 +92,14 @@ public class ResourceMonitorGrant extends com.pulumi.resources.CustomResource {
         return this.monitorName;
     }
     /**
-     * The privilege to grant on the resource monitor.
+     * The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
      * 
      */
     @Export(name="privilege", type=String.class, parameters={})
     private Output</* @Nullable */ String> privilege;
 
     /**
-     * @return The privilege to grant on the resource monitor.
+     * @return The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
      * 
      */
     public Output<Optional<String>> privilege() {

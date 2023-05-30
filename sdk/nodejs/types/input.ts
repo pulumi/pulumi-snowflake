@@ -539,22 +539,3 @@ export interface ViewTag {
      */
     value: pulumi.Input<string>;
 }
-
-export interface WarehouseTag {
-    /**
-     * Name of the database that the tag was created in.
-     */
-    database?: pulumi.Input<string>;
-    /**
-     * Tag name, e.g. department.
-     */
-    name: pulumi.Input<string>;
-    /**
-     * Name of the schema that the tag was created in.
-     */
-    schema?: pulumi.Input<string>;
-    /**
-     * Tag value, e.g. marketing_info.
-     */
-    value: pulumi.Input<string>;
-}

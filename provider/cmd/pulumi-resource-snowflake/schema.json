@@ -858,30 +858,121 @@
                 "value"
             ]
         },
-        "snowflake:index/WarehouseTag:WarehouseTag": {
+        "snowflake:index/getAccountsAccount:getAccountsAccount": {
             "properties": {
-                "database": {
-                    "type": "string",
-                    "description": "Name of the database that the tag was created in.\n"
+                "accountLocator": {
+                    "type": "string"
                 },
-                "name": {
-                    "type": "string",
-                    "description": "Tag name, e.g. department.\n"
+                "accountLocatorUrl": {
+                    "type": "string"
                 },
-                "schema": {
-                    "type": "string",
-                    "description": "Name of the schema that the tag was created in.\n"
+                "accountName": {
+                    "type": "string"
                 },
-                "value": {
-                    "type": "string",
-                    "description": "Tag value, e.g. marketing_info.\n"
+                "accountUrl": {
+                    "type": "string"
+                },
+                "comment": {
+                    "type": "string"
+                },
+                "consumptionBillingEntityName": {
+                    "type": "string"
+                },
+                "createdOn": {
+                    "type": "string"
+                },
+                "edition": {
+                    "type": "string"
+                },
+                "isOrgAdmin": {
+                    "type": "boolean"
+                },
+                "managedAccounts": {
+                    "type": "integer"
+                },
+                "marketplaceConsumerBillingEntityName": {
+                    "type": "string"
+                },
+                "marketplaceProviderBillingEntityName": {
+                    "type": "string"
+                },
+                "oldAccountUrl": {
+                    "type": "string"
+                },
+                "organizationName": {
+                    "type": "string"
+                },
+                "regionGroup": {
+                    "type": "string"
+                },
+                "snowflakeRegion": {
+                    "type": "string"
                 }
             },
             "type": "object",
             "required": [
+                "accountLocator",
+                "accountLocatorUrl",
+                "accountName",
+                "accountUrl",
+                "comment",
+                "consumptionBillingEntityName",
+                "createdOn",
+                "edition",
+                "isOrgAdmin",
+                "managedAccounts",
+                "marketplaceConsumerBillingEntityName",
+                "marketplaceProviderBillingEntityName",
+                "oldAccountUrl",
+                "organizationName",
+                "regionGroup",
+                "snowflakeRegion"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getAlertsAlert:getAlertsAlert": {
+            "properties": {
+                "action": {
+                    "type": "string"
+                },
+                "comment": {
+                    "type": "string"
+                },
+                "condition": {
+                    "type": "string"
+                },
+                "databaseName": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "schemaName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "action",
+                "comment",
+                "condition",
+                "databaseName",
                 "name",
-                "value"
-            ]
+                "owner",
+                "schemaName"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "snowflake:index/getDatabaseRolesDatabaseRole:getDatabaseRolesDatabaseRole": {
             "properties": {
@@ -1042,6 +1133,95 @@
                 "database",
                 "name",
                 "schema"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getFailoverGroupsFailoverGroup:getFailoverGroupsFailoverGroup": {
+            "properties": {
+                "accountLocator": {
+                    "type": "string"
+                },
+                "accountName": {
+                    "type": "string"
+                },
+                "allowedAccounts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "allowedIntegrationTypes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "comment": {
+                    "type": "string"
+                },
+                "createdOn": {
+                    "type": "string"
+                },
+                "isPrimary": {
+                    "type": "boolean"
+                },
+                "nextScheduledRefresh": {
+                    "type": "string"
+                },
+                "objectTypes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "organizationName": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "primary": {
+                    "type": "string"
+                },
+                "regionGroup": {
+                    "type": "string"
+                },
+                "replicationSchedule": {
+                    "type": "string"
+                },
+                "secondaryState": {
+                    "type": "string"
+                },
+                "snowflakeRegion": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "accountLocator",
+                "accountName",
+                "allowedAccounts",
+                "allowedIntegrationTypes",
+                "comment",
+                "createdOn",
+                "isPrimary",
+                "nextScheduledRefresh",
+                "objectTypes",
+                "organizationName",
+                "owner",
+                "primary",
+                "regionGroup",
+                "replicationSchedule",
+                "secondaryState",
+                "snowflakeRegion",
+                "type"
             ],
             "language": {
                 "nodejs": {
@@ -1580,8 +1760,11 @@
                 "owner": {
                     "type": "string"
                 },
-                "to": {
-                    "type": "string"
+                "tos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "pulumi.json#/Any"
+                    }
                 }
             },
             "type": "object",
@@ -1590,7 +1773,7 @@
                 "kind",
                 "name",
                 "owner",
-                "to"
+                "tos"
             ],
             "language": {
                 "nodejs": {
@@ -2401,7 +2584,7 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html)\n"
+                    "description": "The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html). To grant all privileges, use the value `ALL PRIVILEGES`.\n"
                 },
                 "roles": {
                     "type": "array",
@@ -2422,7 +2605,7 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html)\n",
+                    "description": "The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html). To grant all privileges, use the value `ALL PRIVILEGES`.\n",
                     "willReplaceOnChanges": true
                 },
                 "roles": {
@@ -2447,7 +2630,7 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html)\n",
+                        "description": "The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html). To grant all privileges, use the value `ALL PRIVILEGES`.\n",
                         "willReplaceOnChanges": true
                     },
                     "roles": {
@@ -2686,6 +2869,10 @@
                     },
                     "description": "Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.\n"
                 },
+                "apiGcpServiceAccount": {
+                    "type": "string",
+                    "description": "The service account used for communication with the Google API Gateway.\n"
+                },
                 "apiKey": {
                     "type": "string",
                     "description": "The API key (also called a “subscription key”).\n",
@@ -2733,6 +2920,7 @@
                 "apiAllowedPrefixes",
                 "apiAwsExternalId",
                 "apiAwsIamUserArn",
+                "apiGcpServiceAccount",
                 "apiProvider",
                 "azureConsentUrl",
                 "azureMultiTenantAppName",
@@ -2757,6 +2945,10 @@
                         "type": "string"
                     },
                     "description": "Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.\n"
+                },
+                "apiGcpServiceAccount": {
+                    "type": "string",
+                    "description": "The service account used for communication with the Google API Gateway.\n"
                 },
                 "apiKey": {
                     "type": "string",
@@ -2824,6 +3016,10 @@
                             "type": "string"
                         },
                         "description": "Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.\n"
+                    },
+                    "apiGcpServiceAccount": {
+                        "type": "string",
+                        "description": "The service account used for communication with the Google API Gateway.\n"
                     },
                     "apiKey": {
                         "type": "string",
@@ -3032,7 +3228,11 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the database.\n"
+                    "description": "The privilege to grant on the database. To grant all privileges, use the value `ALL PRIVILEGES`.\n"
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -3068,8 +3268,12 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the database.\n",
+                    "description": "The privilege to grant on the database. To grant all privileges, use the value `ALL PRIVILEGES`.\n",
                     "willReplaceOnChanges": true
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -3108,8 +3312,12 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The privilege to grant on the database.\n",
+                        "description": "The privilege to grant on the database. To grant all privileges, use the value `ALL PRIVILEGES`.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "revertOwnershipToRoleName": {
+                        "type": "string",
+                        "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                     },
                     "roles": {
                         "type": "array",
@@ -4134,7 +4342,11 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future external table.\n"
+                    "description": "The privilege to grant on the current or future external table. To grant all privileges, use the value `ALL PRIVILEGES`\n"
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -4191,8 +4403,12 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future external table.\n",
+                    "description": "The privilege to grant on the current or future external table. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                     "willReplaceOnChanges": true
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -4253,8 +4469,12 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The privilege to grant on the current or future external table.\n",
+                        "description": "The privilege to grant on the current or future external table. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                         "willReplaceOnChanges": true
+                    },
+                    "revertOwnershipToRoleName": {
+                        "type": "string",
+                        "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                     },
                     "roles": {
                         "type": "array",
@@ -4452,6 +4672,113 @@
                     "replicationSchedule": {
                         "$ref": "#/types/snowflake:index/FailoverGroupReplicationSchedule:FailoverGroupReplicationSchedule",
                         "description": "Specifies the schedule for refreshing secondary failover groups.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "snowflake:index/failoverGroupGrant:FailoverGroupGrant": {
+            "properties": {
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                },
+                "failoverGroupName": {
+                    "type": "string",
+                    "description": "The name of the failover group on which to grant privileges.\n"
+                },
+                "privilege": {
+                    "type": "string",
+                    "description": "The privilege to grant on the failover group. To grant all privileges, use the value `ALL PRIVILEGES`\n"
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Grants privilege to these roles.\n"
+                },
+                "withGrantOption": {
+                    "type": "boolean",
+                    "description": "When this is set to true, allows the recipient role to grant the privileges to other roles.\n"
+                }
+            },
+            "required": [
+                "roles"
+            ],
+            "inputProperties": {
+                "enableMultipleGrants": {
+                    "type": "boolean",
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n",
+                    "willReplaceOnChanges": true
+                },
+                "failoverGroupName": {
+                    "type": "string",
+                    "description": "The name of the failover group on which to grant privileges.\n",
+                    "willReplaceOnChanges": true
+                },
+                "privilege": {
+                    "type": "string",
+                    "description": "The privilege to grant on the failover group. To grant all privileges, use the value `ALL PRIVILEGES`\n",
+                    "willReplaceOnChanges": true
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Grants privilege to these roles.\n"
+                },
+                "withGrantOption": {
+                    "type": "boolean",
+                    "description": "When this is set to true, allows the recipient role to grant the privileges to other roles.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "roles"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering FailoverGroupGrant resources.\n",
+                "properties": {
+                    "enableMultipleGrants": {
+                        "type": "boolean",
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "failoverGroupName": {
+                        "type": "string",
+                        "description": "The name of the failover group on which to grant privileges.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "privilege": {
+                        "type": "string",
+                        "description": "The privilege to grant on the failover group. To grant all privileges, use the value `ALL PRIVILEGES`\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "revertOwnershipToRoleName": {
+                        "type": "string",
+                        "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Grants privilege to these roles.\n"
+                    },
+                    "withGrantOption": {
+                        "type": "boolean",
+                        "description": "When this is set to true, allows the recipient role to grant the privileges to other roles.\n",
+                        "willReplaceOnChanges": true
                     }
                 },
                 "type": "object"
@@ -4943,7 +5270,11 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future file format.\n"
+                    "description": "The privilege to grant on the current or future file format. To grant all privileges, use the value `ALL PRIVILEGES`\n"
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -4993,8 +5324,12 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future file format.\n",
+                    "description": "The privilege to grant on the current or future file format. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                     "willReplaceOnChanges": true
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -5048,8 +5383,12 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The privilege to grant on the current or future file format.\n",
+                        "description": "The privilege to grant on the current or future file format. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                         "willReplaceOnChanges": true
+                    },
+                    "revertOwnershipToRoleName": {
+                        "type": "string",
+                        "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                     },
                     "roles": {
                         "type": "array",
@@ -5375,7 +5714,11 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.\n"
+                    "description": "The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`. To grant all privileges, use the value `ALL PRIVILEGES`\n"
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -5440,8 +5783,12 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.\n",
+                    "description": "The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                     "willReplaceOnChanges": true
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -5510,8 +5857,12 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`.\n",
+                        "description": "The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                         "willReplaceOnChanges": true
+                    },
+                    "revertOwnershipToRoleName": {
+                        "type": "string",
+                        "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                     },
                     "roles": {
                         "type": "array",
@@ -5554,7 +5905,11 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the integration.\n"
+                    "description": "The privilege to grant on the integration. To grant all privileges, use the value `ALL PRIVILEGES`\n"
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -5584,8 +5939,12 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the integration.\n",
+                    "description": "The privilege to grant on the integration. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                     "willReplaceOnChanges": true
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -5618,8 +5977,12 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The privilege to grant on the integration.\n",
+                        "description": "The privilege to grant on the integration. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                         "willReplaceOnChanges": true
+                    },
+                    "revertOwnershipToRoleName": {
+                        "type": "string",
+                        "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                     },
                     "roles": {
                         "type": "array",
@@ -5959,7 +6322,11 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the masking policy.\n"
+                    "description": "The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`\n"
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -6000,8 +6367,12 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the masking policy.\n",
+                    "description": "The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                     "willReplaceOnChanges": true
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -6046,8 +6417,12 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The privilege to grant on the masking policy.\n",
+                        "description": "The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                         "willReplaceOnChanges": true
+                    },
+                    "revertOwnershipToRoleName": {
+                        "type": "string",
+                        "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                     },
                     "roles": {
                         "type": "array",
@@ -6249,7 +6624,11 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future materialized view.\n"
+                    "description": "The privilege to grant on the current or future materialized view. To grant all privileges, use the value `ALL PRIVILEGES`\n"
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -6305,8 +6684,12 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future materialized view.\n",
+                    "description": "The privilege to grant on the current or future materialized view. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                     "willReplaceOnChanges": true
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -6366,8 +6749,12 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The privilege to grant on the current or future materialized view.\n",
+                        "description": "The privilege to grant on the current or future materialized view. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                         "willReplaceOnChanges": true
+                    },
+                    "revertOwnershipToRoleName": {
+                        "type": "string",
+                        "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                     },
                     "roles": {
                         "type": "array",
@@ -7434,7 +7821,11 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future pipe.\n"
+                    "description": "The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`\n"
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -7477,8 +7868,12 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future pipe.\n",
+                    "description": "The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                     "willReplaceOnChanges": true
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -7525,8 +7920,12 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The privilege to grant on the current or future pipe.\n",
+                        "description": "The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                         "willReplaceOnChanges": true
+                    },
+                    "revertOwnershipToRoleName": {
+                        "type": "string",
+                        "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                     },
                     "roles": {
                         "type": "array",
@@ -7832,11 +8231,15 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future procedure.\n"
+                    "description": "The privilege to grant on the current or future procedure. To grant all privileges, use the value `ALL PRIVILEGES`\n"
                 },
                 "procedureName": {
                     "type": "string",
                     "description": "The name of the procedure on which to grant privileges immediately (only valid if on_future is false).\n"
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -7896,13 +8299,17 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future procedure.\n",
+                    "description": "The privilege to grant on the current or future procedure. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                     "willReplaceOnChanges": true
                 },
                 "procedureName": {
                     "type": "string",
                     "description": "The name of the procedure on which to grant privileges immediately (only valid if on_future is false).\n",
                     "willReplaceOnChanges": true
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -7966,13 +8373,17 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The privilege to grant on the current or future procedure.\n",
+                        "description": "The privilege to grant on the current or future procedure. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                         "willReplaceOnChanges": true
                     },
                     "procedureName": {
                         "type": "string",
                         "description": "The name of the procedure on which to grant privileges immediately (only valid if on_future is false).\n",
                         "willReplaceOnChanges": true
+                    },
+                    "revertOwnershipToRoleName": {
+                        "type": "string",
+                        "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                     },
                     "roles": {
                         "type": "array",
@@ -8243,7 +8654,7 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the resource monitor.\n"
+                    "description": "The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -8273,7 +8684,7 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the resource monitor.\n",
+                    "description": "The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                     "willReplaceOnChanges": true
                 },
                 "roles": {
@@ -8307,7 +8718,7 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The privilege to grant on the resource monitor.\n",
+                        "description": "The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                         "willReplaceOnChanges": true
                     },
                     "roles": {
@@ -8389,7 +8800,7 @@
             "properties": {
                 "enableMultipleGrants": {
                     "type": "boolean",
-                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                    "description": "When this is set to false, multiple grants of the same type cannot be created. This will cause Terraform to revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
                 "roleName": {
                     "type": "string",
@@ -8416,7 +8827,7 @@
             "inputProperties": {
                 "enableMultipleGrants": {
                     "type": "boolean",
-                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                    "description": "When this is set to false, multiple grants of the same type cannot be created. This will cause Terraform to revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
                 "roleName": {
                     "type": "string",
@@ -8446,7 +8857,7 @@
                 "properties": {
                     "enableMultipleGrants": {
                         "type": "boolean",
-                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
+                        "description": "When this is set to false, multiple grants of the same type cannot be created. This will cause Terraform to revoke\ngrants applied to roles and objects outside Terraform.\n"
                     },
                     "roleName": {
                         "type": "string",
@@ -8667,7 +9078,11 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the row access policy.\n"
+                    "description": "The privilege to grant on the row access policy. To grant all privileges, use the value `ALL PRIVILEGES`\n"
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -8707,8 +9122,12 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the row access policy.\n",
+                    "description": "The privilege to grant on the row access policy. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                     "willReplaceOnChanges": true
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -8753,8 +9172,12 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The privilege to grant on the row access policy.\n",
+                        "description": "The privilege to grant on the row access policy. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                         "willReplaceOnChanges": true
+                    },
+                    "revertOwnershipToRoleName": {
+                        "type": "string",
+                        "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                     },
                     "roles": {
                         "type": "array",
@@ -9166,7 +9589,11 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future schema. Note that if \"OWNERSHIP\" is specified, ensure that the role that\nterraform is using is granted access.\n"
+                    "description": "The privilege to grant on the current or future schema. Note that if \"OWNERSHIP\" is specified, ensure that the role that\nterraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`\n"
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -9216,8 +9643,12 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future schema. Note that if \"OWNERSHIP\" is specified, ensure that the role that\nterraform is using is granted access.\n",
+                    "description": "The privilege to grant on the current or future schema. Note that if \"OWNERSHIP\" is specified, ensure that the role that\nterraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                     "willReplaceOnChanges": true
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -9271,8 +9702,12 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The privilege to grant on the current or future schema. Note that if \"OWNERSHIP\" is specified, ensure that the role that\nterraform is using is granted access.\n",
+                        "description": "The privilege to grant on the current or future schema. Note that if \"OWNERSHIP\" is specified, ensure that the role that\nterraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                         "willReplaceOnChanges": true
+                    },
+                    "revertOwnershipToRoleName": {
+                        "type": "string",
+                        "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                     },
                     "roles": {
                         "type": "array",
@@ -9510,7 +9945,11 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future sequence.\n"
+                    "description": "The privilege to grant on the current or future sequence. To grant all privileges, use the value `ALL PRIVILEGES`\n"
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -9559,8 +9998,12 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future sequence.\n",
+                    "description": "The privilege to grant on the current or future sequence. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                     "willReplaceOnChanges": true
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -9614,8 +10057,12 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The privilege to grant on the current or future sequence.\n",
+                        "description": "The privilege to grant on the current or future sequence. To grant all privileges, use the value `ALL PRIVILEGES`\n",
                         "willReplaceOnChanges": true
+                    },
+                    "revertOwnershipToRoleName": {
+                        "type": "string",
+                        "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                     },
                     "roles": {
                         "type": "array",
@@ -10007,7 +10454,11 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the stage.\n"
+                    "description": "The privilege to grant on the stage. To grant all privileges, use the value `ALL PRIVILEGES`.\n"
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -10056,8 +10507,12 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the stage.\n",
+                    "description": "The privilege to grant on the stage. To grant all privileges, use the value `ALL PRIVILEGES`.\n",
                     "willReplaceOnChanges": true
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -10111,8 +10566,12 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The privilege to grant on the stage.\n",
+                        "description": "The privilege to grant on the stage. To grant all privileges, use the value `ALL PRIVILEGES`.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "revertOwnershipToRoleName": {
+                        "type": "string",
+                        "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                     },
                     "roles": {
                         "type": "array",
@@ -10527,7 +10986,11 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future stream.\n"
+                    "description": "The privilege to grant on the current or future stream. To grant all privileges, use the value `ALL PRIVILEGES`.\n"
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -10576,8 +11039,12 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future stream.\n",
+                    "description": "The privilege to grant on the current or future stream. To grant all privileges, use the value `ALL PRIVILEGES`.\n",
                     "willReplaceOnChanges": true
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -10631,8 +11098,12 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The privilege to grant on the current or future stream.\n",
+                        "description": "The privilege to grant on the current or future stream. To grant all privileges, use the value `ALL PRIVILEGES`.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "revertOwnershipToRoleName": {
+                        "type": "string",
+                        "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                     },
                     "roles": {
                         "type": "array",
@@ -11147,7 +11618,11 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future table.\n"
+                    "description": "The privilege to grant on the current or future table. To grant all privileges, use the value `ALL PRIVILEGES`.\n"
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -11201,8 +11676,12 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future table.\n",
+                    "description": "The privilege to grant on the current or future table. To grant all privileges, use the value `ALL PRIVILEGES`.\n",
                     "willReplaceOnChanges": true
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -11261,8 +11740,12 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The privilege to grant on the current or future table.\n",
+                        "description": "The privilege to grant on the current or future table. To grant all privileges, use the value `ALL PRIVILEGES`.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "revertOwnershipToRoleName": {
+                        "type": "string",
+                        "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                     },
                     "roles": {
                         "type": "array",
@@ -11524,7 +12007,11 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the tag.\n"
+                    "description": "The privilege to grant on the tag. To grant all privileges, use the value `ALL PRIVILEGES`.\n"
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -11564,8 +12051,12 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the tag.\n",
+                    "description": "The privilege to grant on the tag. To grant all privileges, use the value `ALL PRIVILEGES`.\n",
                     "willReplaceOnChanges": true
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -11610,8 +12101,12 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The privilege to grant on the tag.\n",
+                        "description": "The privilege to grant on the tag. To grant all privileges, use the value `ALL PRIVILEGES`.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "revertOwnershipToRoleName": {
+                        "type": "string",
+                        "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                     },
                     "roles": {
                         "type": "array",
@@ -11937,7 +12432,11 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future task.\n"
+                    "description": "The privilege to grant on the current or future task. To grant all privileges, use the value `ALL PRIVILEGES`.\n"
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -11986,8 +12485,12 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future task.\n",
+                    "description": "The privilege to grant on the current or future task. To grant all privileges, use the value `ALL PRIVILEGES`.\n",
                     "willReplaceOnChanges": true
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -12041,8 +12544,12 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The privilege to grant on the current or future task.\n",
+                        "description": "The privilege to grant on the current or future task. To grant all privileges, use the value `ALL PRIVILEGES`.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "revertOwnershipToRoleName": {
+                        "type": "string",
+                        "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                     },
                     "roles": {
                         "type": "array",
@@ -12348,7 +12855,7 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the user.\n"
+                    "description": "The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.\n"
                 },
                 "roles": {
                     "type": "array",
@@ -12377,7 +12884,7 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the user.\n",
+                    "description": "The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.\n",
                     "willReplaceOnChanges": true
                 },
                 "roles": {
@@ -12411,7 +12918,7 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The privilege to grant on the user.\n",
+                        "description": "The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.\n",
                         "willReplaceOnChanges": true
                     },
                     "roles": {
@@ -12729,7 +13236,11 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future view.\n"
+                    "description": "The privilege to grant on the current or future view. To grant all privileges, use the value `ALL PRIVILEGES`.\n"
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -12783,8 +13294,12 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the current or future view.\n",
+                    "description": "The privilege to grant on the current or future view. To grant all privileges, use the value `ALL PRIVILEGES`.\n",
                     "willReplaceOnChanges": true
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -12843,8 +13358,12 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The privilege to grant on the current or future view.\n",
+                        "description": "The privilege to grant on the current or future view. To grant all privileges, use the value `ALL PRIVILEGES`.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "revertOwnershipToRoleName": {
+                        "type": "string",
+                        "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                     },
                     "roles": {
                         "type": "array",
@@ -12937,17 +13456,10 @@
                     "type": "integer",
                     "description": "Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system\n"
                 },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/snowflake:index/WarehouseTag:WarehouseTag"
-                    },
-                    "description": "Definitions of a tag to associate with the resource.\n",
-                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
-                },
                 "waitForProvisioning": {
                     "type": "boolean",
-                    "description": "Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.\n"
+                    "description": "Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.\n",
+                    "deprecationMessage": "This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration."
                 },
                 "warehouseSize": {
                     "type": "string",
@@ -13025,18 +13537,10 @@
                     "type": "integer",
                     "description": "Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system\n"
                 },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/snowflake:index/WarehouseTag:WarehouseTag"
-                    },
-                    "description": "Definitions of a tag to associate with the resource.\n",
-                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
-                },
                 "waitForProvisioning": {
                     "type": "boolean",
                     "description": "Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.\n",
-                    "willReplaceOnChanges": true
+                    "deprecationMessage": "This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration."
                 },
                 "warehouseSize": {
                     "type": "string",
@@ -13106,18 +13610,10 @@
                         "type": "integer",
                         "description": "Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system\n"
                     },
-                    "tags": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/types/snowflake:index/WarehouseTag:WarehouseTag"
-                        },
-                        "description": "Definitions of a tag to associate with the resource.\n",
-                        "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
-                    },
                     "waitForProvisioning": {
                         "type": "boolean",
                         "description": "Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.\n",
-                        "willReplaceOnChanges": true
+                        "deprecationMessage": "This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration."
                     },
                     "warehouseSize": {
                         "type": "string",
@@ -13140,7 +13636,11 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the warehouse.\n"
+                    "description": "The privilege to grant on the warehouse. To grant all privileges, use the value `ALL PRIVILEGES`.\n"
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -13168,8 +13668,12 @@
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege to grant on the warehouse.\n",
+                    "description": "The privilege to grant on the warehouse. To grant all privileges, use the value `ALL PRIVILEGES`.\n",
                     "willReplaceOnChanges": true
+                },
+                "revertOwnershipToRoleName": {
+                    "type": "string",
+                    "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                 },
                 "roles": {
                     "type": "array",
@@ -13201,8 +13705,12 @@
                     },
                     "privilege": {
                         "type": "string",
-                        "description": "The privilege to grant on the warehouse.\n",
+                        "description": "The privilege to grant on the warehouse. To grant all privileges, use the value `ALL PRIVILEGES`.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "revertOwnershipToRoleName": {
+                        "type": "string",
+                        "description": "The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`\n"
                     },
                     "roles": {
                         "type": "array",
@@ -13227,6 +13735,97 @@
         }
     },
     "functions": {
+        "snowflake:index/getAccounts:getAccounts": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getAccounts.\n",
+                "properties": {
+                    "pattern": {
+                        "type": "string",
+                        "description": "Specifies an account name pattern. If a pattern is specified, only accounts matching the pattern are returned.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getAccounts.\n",
+                "properties": {
+                    "accounts": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/getAccountsAccount:getAccountsAccount"
+                        },
+                        "description": "List of all the accounts available in the organization.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "pattern": {
+                        "type": "string",
+                        "description": "Specifies an account name pattern. If a pattern is specified, only accounts matching the pattern are returned.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "accounts",
+                    "id"
+                ]
+            }
+        },
+        "snowflake:index/getAlerts:getAlerts": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst current = snowflake.getAlerts({\n    database: \"MYDB\",\n    schema: \"MYSCHEMA\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ncurrent = snowflake.get_alerts(database=\"MYDB\",\n    schema=\"MYSCHEMA\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var current = Snowflake.GetAlerts.Invoke(new()\n    {\n        Database = \"MYDB\",\n        Schema = \"MYSCHEMA\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.GetAlerts(ctx, \u0026snowflake.GetAlertsArgs{\n\t\t\tDatabase: pulumi.StringRef(\"MYDB\"),\n\t\t\tSchema:   pulumi.StringRef(\"MYSCHEMA\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.snowflake.inputs.GetAlertsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var current = SnowflakeFunctions.getAlerts(GetAlertsArgs.builder()\n            .database(\"MYDB\")\n            .schema(\"MYSCHEMA\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  current:\n    fn::invoke:\n      Function: snowflake:getAlerts\n      Arguments:\n        database: MYDB\n        schema: MYSCHEMA\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getAlerts.\n",
+                "properties": {
+                    "database": {
+                        "type": "string",
+                        "description": "The database from which to return the alerts from.\n"
+                    },
+                    "pattern": {
+                        "type": "string",
+                        "description": "Filters the command output by object name.\n"
+                    },
+                    "schema": {
+                        "type": "string",
+                        "description": "The schema from which to return the alerts from.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getAlerts.\n",
+                "properties": {
+                    "alerts": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/getAlertsAlert:getAlertsAlert"
+                        },
+                        "description": "Lists alerts for the current/specified database or schema, or across the entire account.\n"
+                    },
+                    "database": {
+                        "type": "string",
+                        "description": "The database from which to return the alerts from.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "pattern": {
+                        "type": "string",
+                        "description": "Filters the command output by object name.\n"
+                    },
+                    "schema": {
+                        "type": "string",
+                        "description": "The schema from which to return the alerts from.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "alerts",
+                    "id"
+                ]
+            }
+        },
         "snowflake:index/getCurrentAccount:getCurrentAccount": {
             "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws from \"@pulumi/aws\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst this = snowflake.getCurrentAccount({});\nconst snowflakeAccountUrl = new aws.ssm.Parameter(\"snowflakeAccountUrl\", {\n    type: \"String\",\n    value: _this.then(_this =\u003e _this.url),\n});\n```\n```python\nimport pulumi\nimport pulumi_aws as aws\nimport pulumi_snowflake as snowflake\n\nthis = snowflake.get_current_account()\nsnowflake_account_url = aws.ssm.Parameter(\"snowflakeAccountUrl\",\n    type=\"String\",\n    value=this.url)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Aws = Pulumi.Aws;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var @this = Snowflake.GetCurrentAccount.Invoke();\n\n    var snowflakeAccountUrl = new Aws.Ssm.Parameter(\"snowflakeAccountUrl\", new()\n    {\n        Type = \"String\",\n        Value = @this.Apply(@this =\u003e @this.Apply(getCurrentAccountResult =\u003e getCurrentAccountResult.Url)),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ssm\"\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tthis, err := snowflake.GetCurrentAccount(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ssm.NewParameter(ctx, \"snowflakeAccountUrl\", \u0026ssm.ParameterArgs{\n\t\t\tType:  pulumi.String(\"String\"),\n\t\t\tValue: *pulumi.String(this.Url),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.aws.ssm.Parameter;\nimport com.pulumi.aws.ssm.ParameterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var this = SnowflakeFunctions.getCurrentAccount();\n\n        var snowflakeAccountUrl = new Parameter(\"snowflakeAccountUrl\", ParameterArgs.builder()        \n            .type(\"String\")\n            .value(this_.url())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  snowflakeAccountUrl:\n    type: aws:ssm:Parameter\n    properties:\n      type: String\n      value: ${this.url}\nvariables:\n  this:\n    fn::invoke:\n      Function: snowflake:getCurrentAccount\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
             "outputs": {
@@ -13505,6 +14104,43 @@
                     "database",
                     "externalTables",
                     "schema",
+                    "id"
+                ]
+            }
+        },
+        "snowflake:index/getFailoverGroups:getFailoverGroups": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getFailoverGroups.\n",
+                "properties": {
+                    "inAccount": {
+                        "type": "string",
+                        "description": "Specifies the identifier for the account\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getFailoverGroups.\n",
+                "properties": {
+                    "failoverGroups": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/getFailoverGroupsFailoverGroup:getFailoverGroupsFailoverGroup"
+                        },
+                        "description": "List of all the failover groups available in the system.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "inAccount": {
+                        "type": "string",
+                        "description": "Specifies the identifier for the account\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "failoverGroups",
                     "id"
                 ]
             }

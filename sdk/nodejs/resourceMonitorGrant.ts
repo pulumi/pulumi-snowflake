@@ -65,7 +65,7 @@ export class ResourceMonitorGrant extends pulumi.CustomResource {
      */
     public readonly monitorName!: pulumi.Output<string>;
     /**
-     * The privilege to grant on the resource monitor.
+     * The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
      */
     public readonly privilege!: pulumi.Output<string | undefined>;
     /**
@@ -125,7 +125,7 @@ export interface ResourceMonitorGrantState {
      */
     monitorName?: pulumi.Input<string>;
     /**
-     * The privilege to grant on the resource monitor.
+     * The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
      */
     privilege?: pulumi.Input<string>;
     /**
@@ -152,7 +152,7 @@ export interface ResourceMonitorGrantArgs {
      */
     monitorName: pulumi.Input<string>;
     /**
-     * The privilege to grant on the resource monitor.
+     * The privilege to grant on the resource monitor. To grant all privileges, use the value `ALL PRIVILEGES`
      */
     privilege?: pulumi.Input<string>;
     /**
