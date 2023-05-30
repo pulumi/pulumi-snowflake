@@ -173,6 +173,14 @@
                     }
                 }
             },
+            "snowflake_failover_group_grant": {
+                "current": "snowflake:index/failoverGroupGrant:FailoverGroupGrant",
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "snowflake_file_format": {
                 "current": "snowflake:index/fileFormat:FileFormat",
                 "fields": {
@@ -674,6 +682,12 @@
             }
         },
         "datasources": {
+            "snowflake_accounts": {
+                "current": "snowflake:index/getAccounts:getAccounts"
+            },
+            "snowflake_alerts": {
+                "current": "snowflake:index/getAlerts:getAlerts"
+            },
             "snowflake_current_account": {
                 "current": "snowflake:index/getCurrentAccount:getCurrentAccount"
             },
@@ -694,6 +708,9 @@
             },
             "snowflake_external_tables": {
                 "current": "snowflake:index/getExternalTables:getExternalTables"
+            },
+            "snowflake_failover_groups": {
+                "current": "snowflake:index/getFailoverGroups:getFailoverGroups"
             },
             "snowflake_file_formats": {
                 "current": "snowflake:index/getFileFormats:getFileFormats"
@@ -794,6 +811,7 @@
             "snowflake:index/externalTable:ExternalTable": "snowflake_external_table",
             "snowflake:index/externalTableGrant:ExternalTableGrant": "snowflake_external_table_grant",
             "snowflake:index/failoverGroup:FailoverGroup": "snowflake_failover_group",
+            "snowflake:index/failoverGroupGrant:FailoverGroupGrant": "snowflake_failover_group_grant",
             "snowflake:index/fileFormat:FileFormat": "snowflake_file_format",
             "snowflake:index/fileFormatGrant:FileFormatGrant": "snowflake_file_format_grant",
             "snowflake:index/function:Function": "snowflake_function",
@@ -854,6 +872,8 @@
             "snowflake:index/warehouseGrant:WarehouseGrant": "snowflake_warehouse_grant"
         },
         "functions": {
+            "snowflake:index/getAccounts:getAccounts": "snowflake_accounts",
+            "snowflake:index/getAlerts:getAlerts": "snowflake_alerts",
             "snowflake:index/getCurrentAccount:getCurrentAccount": "snowflake_current_account",
             "snowflake:index/getCurrentRole:getCurrentRole": "snowflake_current_role",
             "snowflake:index/getDatabase:getDatabase": "snowflake_database",
@@ -861,6 +881,7 @@
             "snowflake:index/getDatabases:getDatabases": "snowflake_databases",
             "snowflake:index/getExternalFunctions:getExternalFunctions": "snowflake_external_functions",
             "snowflake:index/getExternalTables:getExternalTables": "snowflake_external_tables",
+            "snowflake:index/getFailoverGroups:getFailoverGroups": "snowflake_failover_groups",
             "snowflake:index/getFileFormats:getFileFormats": "snowflake_file_formats",
             "snowflake:index/getFunctions:getFunctions": "snowflake_functions",
             "snowflake:index/getGrants:getGrants": "snowflake_grants",
@@ -943,6 +964,7 @@
                 "apiAwsIamUserArn": "api_aws_iam_user_arn",
                 "apiAwsRoleArn": "api_aws_role_arn",
                 "apiBlockedPrefixes": "api_blocked_prefixes",
+                "apiGcpServiceAccount": "api_gcp_service_account",
                 "apiKey": "api_key",
                 "apiProvider": "api_provider",
                 "azureAdApplicationId": "azure_ad_application_id",
@@ -964,6 +986,7 @@
             "snowflake:index/databaseGrant:DatabaseGrant": {
                 "databaseName": "database_name",
                 "enableMultipleGrants": "enable_multiple_grants",
+                "revertOwnershipToRoleName": "revert_ownership_to_role_name",
                 "withGrantOption": "with_grant_option"
             },
             "snowflake:index/emailNotificationIntegration:EmailNotificationIntegration": {
@@ -1014,6 +1037,7 @@
                 "externalTableName": "external_table_name",
                 "onAll": "on_all",
                 "onFuture": "on_future",
+                "revertOwnershipToRoleName": "revert_ownership_to_role_name",
                 "schemaName": "schema_name",
                 "withGrantOption": "with_grant_option"
             },
@@ -1026,6 +1050,12 @@
                 "ignoreEditionCheck": "ignore_edition_check",
                 "objectTypes": "object_types",
                 "replicationSchedule": "replication_schedule"
+            },
+            "snowflake:index/failoverGroupGrant:FailoverGroupGrant": {
+                "enableMultipleGrants": "enable_multiple_grants",
+                "failoverGroupName": "failover_group_name",
+                "revertOwnershipToRoleName": "revert_ownership_to_role_name",
+                "withGrantOption": "with_grant_option"
             },
             "snowflake:index/fileFormat:FileFormat": {
                 "allowDuplicate": "allow_duplicate",
@@ -1063,6 +1093,7 @@
                 "fileFormatName": "file_format_name",
                 "onAll": "on_all",
                 "onFuture": "on_future",
+                "revertOwnershipToRoleName": "revert_ownership_to_role_name",
                 "schemaName": "schema_name",
                 "withGrantOption": "with_grant_option"
             },
@@ -1081,8 +1112,29 @@
                 "functionName": "function_name",
                 "onAll": "on_all",
                 "onFuture": "on_future",
+                "revertOwnershipToRoleName": "revert_ownership_to_role_name",
                 "schemaName": "schema_name",
                 "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/getAccountsAccount:getAccountsAccount": {
+                "accountLocator": "account_locator",
+                "accountLocatorUrl": "account_locator_url",
+                "accountName": "account_name",
+                "accountUrl": "account_url",
+                "consumptionBillingEntityName": "consumption_billing_entity_name",
+                "createdOn": "created_on",
+                "isOrgAdmin": "is_org_admin",
+                "managedAccounts": "managed_accounts",
+                "marketplaceConsumerBillingEntityName": "marketplace_consumer_billing_entity_name",
+                "marketplaceProviderBillingEntityName": "marketplace_provider_billing_entity_name",
+                "oldAccountUrl": "old_account_url",
+                "organizationName": "organization_name",
+                "regionGroup": "region_group",
+                "snowflakeRegion": "snowflake_region"
+            },
+            "snowflake:index/getAlertsAlert:getAlertsAlert": {
+                "databaseName": "database_name",
+                "schemaName": "schema_name"
             },
             "snowflake:index/getDatabase:getDatabase": {
                 "createdOn": "created_on",
@@ -1108,6 +1160,25 @@
             },
             "snowflake:index/getExternalTables:getExternalTables": {
                 "externalTables": "external_tables"
+            },
+            "snowflake:index/getFailoverGroups:getFailoverGroups": {
+                "failoverGroups": "failover_groups",
+                "inAccount": "in_account"
+            },
+            "snowflake:index/getFailoverGroupsFailoverGroup:getFailoverGroupsFailoverGroup": {
+                "accountLocator": "account_locator",
+                "accountName": "account_name",
+                "allowedAccounts": "allowed_accounts",
+                "allowedIntegrationTypes": "allowed_integration_types",
+                "createdOn": "created_on",
+                "isPrimary": "is_primary",
+                "nextScheduledRefresh": "next_scheduled_refresh",
+                "objectTypes": "object_types",
+                "organizationName": "organization_name",
+                "regionGroup": "region_group",
+                "replicationSchedule": "replication_schedule",
+                "secondaryState": "secondary_state",
+                "snowflakeRegion": "snowflake_region"
             },
             "snowflake:index/getFileFormats:getFileFormats": {
                 "fileFormats": "file_formats"
@@ -1166,6 +1237,9 @@
             "snowflake:index/getRowAccessPolicies:getRowAccessPolicies": {
                 "rowAccessPolicies": "row_access_policies"
             },
+            "snowflake:index/getSharesShare:getSharesShare": {
+                "tos": "to"
+            },
             "snowflake:index/getStagesStage:getStagesStage": {
                 "storageIntegration": "storage_integration"
             },
@@ -1212,6 +1286,7 @@
             "snowflake:index/integrationGrant:IntegrationGrant": {
                 "enableMultipleGrants": "enable_multiple_grants",
                 "integrationName": "integration_name",
+                "revertOwnershipToRoleName": "revert_ownership_to_role_name",
                 "withGrantOption": "with_grant_option"
             },
             "snowflake:index/managedAccount:ManagedAccount": {
@@ -1231,6 +1306,7 @@
                 "databaseName": "database_name",
                 "enableMultipleGrants": "enable_multiple_grants",
                 "maskingPolicyName": "masking_policy_name",
+                "revertOwnershipToRoleName": "revert_ownership_to_role_name",
                 "schemaName": "schema_name",
                 "withGrantOption": "with_grant_option"
             },
@@ -1245,6 +1321,7 @@
                 "materializedViewName": "materialized_view_name",
                 "onAll": "on_all",
                 "onFuture": "on_future",
+                "revertOwnershipToRoleName": "revert_ownership_to_role_name",
                 "schemaName": "schema_name",
                 "withGrantOption": "with_grant_option"
             },
@@ -1313,6 +1390,7 @@
                 "enableMultipleGrants": "enable_multiple_grants",
                 "onFuture": "on_future",
                 "pipeName": "pipe_name",
+                "revertOwnershipToRoleName": "revert_ownership_to_role_name",
                 "schemaName": "schema_name",
                 "withGrantOption": "with_grant_option"
             },
@@ -1330,6 +1408,7 @@
                 "onAll": "on_all",
                 "onFuture": "on_future",
                 "procedureName": "procedure_name",
+                "revertOwnershipToRoleName": "revert_ownership_to_role_name",
                 "schemaName": "schema_name",
                 "withGrantOption": "with_grant_option"
             },
@@ -1369,6 +1448,7 @@
             "snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant": {
                 "databaseName": "database_name",
                 "enableMultipleGrants": "enable_multiple_grants",
+                "revertOwnershipToRoleName": "revert_ownership_to_role_name",
                 "rowAccessPolicyName": "row_access_policy_name",
                 "schemaName": "schema_name",
                 "withGrantOption": "with_grant_option"
@@ -1403,6 +1483,7 @@
                 "enableMultipleGrants": "enable_multiple_grants",
                 "onAll": "on_all",
                 "onFuture": "on_future",
+                "revertOwnershipToRoleName": "revert_ownership_to_role_name",
                 "schemaName": "schema_name",
                 "withGrantOption": "with_grant_option"
             },
@@ -1421,6 +1502,7 @@
                 "enableMultipleGrants": "enable_multiple_grants",
                 "onAll": "on_all",
                 "onFuture": "on_future",
+                "revertOwnershipToRoleName": "revert_ownership_to_role_name",
                 "schemaName": "schema_name",
                 "sequenceName": "sequence_name",
                 "withGrantOption": "with_grant_option"
@@ -1441,6 +1523,7 @@
                 "enableMultipleGrants": "enable_multiple_grants",
                 "onAll": "on_all",
                 "onFuture": "on_future",
+                "revertOwnershipToRoleName": "revert_ownership_to_role_name",
                 "schemaName": "schema_name",
                 "stageName": "stage_name",
                 "withGrantOption": "with_grant_option"
@@ -1472,6 +1555,7 @@
                 "enableMultipleGrants": "enable_multiple_grants",
                 "onAll": "on_all",
                 "onFuture": "on_future",
+                "revertOwnershipToRoleName": "revert_ownership_to_role_name",
                 "schemaName": "schema_name",
                 "streamName": "stream_name",
                 "withGrantOption": "with_grant_option"
@@ -1497,6 +1581,7 @@
                 "enableMultipleGrants": "enable_multiple_grants",
                 "onAll": "on_all",
                 "onFuture": "on_future",
+                "revertOwnershipToRoleName": "revert_ownership_to_role_name",
                 "schemaName": "schema_name",
                 "tableName": "table_name",
                 "withGrantOption": "with_grant_option"
@@ -1515,6 +1600,7 @@
             "snowflake:index/tagGrant:TagGrant": {
                 "databaseName": "database_name",
                 "enableMultipleGrants": "enable_multiple_grants",
+                "revertOwnershipToRoleName": "revert_ownership_to_role_name",
                 "schemaName": "schema_name",
                 "tagName": "tag_name",
                 "withGrantOption": "with_grant_option"
@@ -1537,6 +1623,7 @@
                 "enableMultipleGrants": "enable_multiple_grants",
                 "onAll": "on_all",
                 "onFuture": "on_future",
+                "revertOwnershipToRoleName": "revert_ownership_to_role_name",
                 "schemaName": "schema_name",
                 "taskName": "task_name",
                 "withGrantOption": "with_grant_option"
@@ -1582,6 +1669,7 @@
                 "enableMultipleGrants": "enable_multiple_grants",
                 "onAll": "on_all",
                 "onFuture": "on_future",
+                "revertOwnershipToRoleName": "revert_ownership_to_role_name",
                 "schemaName": "schema_name",
                 "viewName": "view_name",
                 "withGrantOption": "with_grant_option"
@@ -1599,13 +1687,13 @@
                 "scalingPolicy": "scaling_policy",
                 "statementQueuedTimeoutInSeconds": "statement_queued_timeout_in_seconds",
                 "statementTimeoutInSeconds": "statement_timeout_in_seconds",
-                "tags": "tag",
                 "waitForProvisioning": "wait_for_provisioning",
                 "warehouseSize": "warehouse_size",
                 "warehouseType": "warehouse_type"
             },
             "snowflake:index/warehouseGrant:WarehouseGrant": {
                 "enableMultipleGrants": "enable_multiple_grants",
+                "revertOwnershipToRoleName": "revert_ownership_to_role_name",
                 "warehouseName": "warehouse_name",
                 "withGrantOption": "with_grant_option"
             },
