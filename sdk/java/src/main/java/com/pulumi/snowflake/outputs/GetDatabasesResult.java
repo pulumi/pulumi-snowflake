@@ -5,9 +5,12 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.snowflake.outputs.GetDatabasesDatabase;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDatabasesResult {
@@ -17,10 +20,30 @@ public final class GetDatabasesResult {
      */
     private List<GetDatabasesDatabase> databases;
     /**
+     * @return Optionally includes dropped databases that have not yet been purged The output also includes an additional `dropped_on` column
+     * 
+     */
+    private @Nullable Boolean history;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Optionally filters the databases by a pattern
+     * 
+     */
+    private @Nullable String pattern;
+    /**
+     * @return Optionally filters the databases by a pattern
+     * 
+     */
+    private @Nullable String startsWith;
+    /**
+     * @return Optionally returns only the columns `created_on` and `name` in the results
+     * 
+     */
+    private @Nullable Boolean terse;
 
     private GetDatabasesResult() {}
     /**
@@ -31,11 +54,39 @@ public final class GetDatabasesResult {
         return this.databases;
     }
     /**
+     * @return Optionally includes dropped databases that have not yet been purged The output also includes an additional `dropped_on` column
+     * 
+     */
+    public Optional<Boolean> history() {
+        return Optional.ofNullable(this.history);
+    }
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return Optionally filters the databases by a pattern
+     * 
+     */
+    public Optional<String> pattern() {
+        return Optional.ofNullable(this.pattern);
+    }
+    /**
+     * @return Optionally filters the databases by a pattern
+     * 
+     */
+    public Optional<String> startsWith() {
+        return Optional.ofNullable(this.startsWith);
+    }
+    /**
+     * @return Optionally returns only the columns `created_on` and `name` in the results
+     * 
+     */
+    public Optional<Boolean> terse() {
+        return Optional.ofNullable(this.terse);
     }
 
     public static Builder builder() {
@@ -48,12 +99,20 @@ public final class GetDatabasesResult {
     @CustomType.Builder
     public static final class Builder {
         private List<GetDatabasesDatabase> databases;
+        private @Nullable Boolean history;
         private String id;
+        private @Nullable String pattern;
+        private @Nullable String startsWith;
+        private @Nullable Boolean terse;
         public Builder() {}
         public Builder(GetDatabasesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.databases = defaults.databases;
+    	      this.history = defaults.history;
     	      this.id = defaults.id;
+    	      this.pattern = defaults.pattern;
+    	      this.startsWith = defaults.startsWith;
+    	      this.terse = defaults.terse;
         }
 
         @CustomType.Setter
@@ -65,14 +124,38 @@ public final class GetDatabasesResult {
             return databases(List.of(databases));
         }
         @CustomType.Setter
+        public Builder history(@Nullable Boolean history) {
+            this.history = history;
+            return this;
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder pattern(@Nullable String pattern) {
+            this.pattern = pattern;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder startsWith(@Nullable String startsWith) {
+            this.startsWith = startsWith;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder terse(@Nullable Boolean terse) {
+            this.terse = terse;
             return this;
         }
         public GetDatabasesResult build() {
             final var o = new GetDatabasesResult();
             o.databases = databases;
+            o.history = history;
             o.id = id;
+            o.pattern = pattern;
+            o.startsWith = startsWith;
+            o.terse = terse;
             return o;
         }
     }

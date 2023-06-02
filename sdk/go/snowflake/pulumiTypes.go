@@ -462,130 +462,6 @@ func (o DatabaseReplicationConfigurationPtrOutput) IgnoreEditionCheck() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-type DatabaseTag struct {
-	// Name of the database that the tag was created in.
-	Database *string `pulumi:"database"`
-	// Tag name, e.g. department.
-	Name string `pulumi:"name"`
-	// Name of the schema that the tag was created in.
-	Schema *string `pulumi:"schema"`
-	// Tag value, e.g. marketing_info.
-	Value string `pulumi:"value"`
-}
-
-// DatabaseTagInput is an input type that accepts DatabaseTagArgs and DatabaseTagOutput values.
-// You can construct a concrete instance of `DatabaseTagInput` via:
-//
-//	DatabaseTagArgs{...}
-type DatabaseTagInput interface {
-	pulumi.Input
-
-	ToDatabaseTagOutput() DatabaseTagOutput
-	ToDatabaseTagOutputWithContext(context.Context) DatabaseTagOutput
-}
-
-type DatabaseTagArgs struct {
-	// Name of the database that the tag was created in.
-	Database pulumi.StringPtrInput `pulumi:"database"`
-	// Tag name, e.g. department.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Name of the schema that the tag was created in.
-	Schema pulumi.StringPtrInput `pulumi:"schema"`
-	// Tag value, e.g. marketing_info.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DatabaseTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseTag)(nil)).Elem()
-}
-
-func (i DatabaseTagArgs) ToDatabaseTagOutput() DatabaseTagOutput {
-	return i.ToDatabaseTagOutputWithContext(context.Background())
-}
-
-func (i DatabaseTagArgs) ToDatabaseTagOutputWithContext(ctx context.Context) DatabaseTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTagOutput)
-}
-
-// DatabaseTagArrayInput is an input type that accepts DatabaseTagArray and DatabaseTagArrayOutput values.
-// You can construct a concrete instance of `DatabaseTagArrayInput` via:
-//
-//	DatabaseTagArray{ DatabaseTagArgs{...} }
-type DatabaseTagArrayInput interface {
-	pulumi.Input
-
-	ToDatabaseTagArrayOutput() DatabaseTagArrayOutput
-	ToDatabaseTagArrayOutputWithContext(context.Context) DatabaseTagArrayOutput
-}
-
-type DatabaseTagArray []DatabaseTagInput
-
-func (DatabaseTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatabaseTag)(nil)).Elem()
-}
-
-func (i DatabaseTagArray) ToDatabaseTagArrayOutput() DatabaseTagArrayOutput {
-	return i.ToDatabaseTagArrayOutputWithContext(context.Background())
-}
-
-func (i DatabaseTagArray) ToDatabaseTagArrayOutputWithContext(ctx context.Context) DatabaseTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTagArrayOutput)
-}
-
-type DatabaseTagOutput struct{ *pulumi.OutputState }
-
-func (DatabaseTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseTag)(nil)).Elem()
-}
-
-func (o DatabaseTagOutput) ToDatabaseTagOutput() DatabaseTagOutput {
-	return o
-}
-
-func (o DatabaseTagOutput) ToDatabaseTagOutputWithContext(ctx context.Context) DatabaseTagOutput {
-	return o
-}
-
-// Name of the database that the tag was created in.
-func (o DatabaseTagOutput) Database() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseTag) *string { return v.Database }).(pulumi.StringPtrOutput)
-}
-
-// Tag name, e.g. department.
-func (o DatabaseTagOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseTag) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Name of the schema that the tag was created in.
-func (o DatabaseTagOutput) Schema() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
-}
-
-// Tag value, e.g. marketing_info.
-func (o DatabaseTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DatabaseTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DatabaseTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatabaseTag)(nil)).Elem()
-}
-
-func (o DatabaseTagArrayOutput) ToDatabaseTagArrayOutput() DatabaseTagArrayOutput {
-	return o
-}
-
-func (o DatabaseTagArrayOutput) ToDatabaseTagArrayOutputWithContext(ctx context.Context) DatabaseTagArrayOutput {
-	return o
-}
-
-func (o DatabaseTagArrayOutput) Index(i pulumi.IntInput) DatabaseTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseTag {
-		return vs[0].([]DatabaseTag)[vs[1].(int)]
-	}).(DatabaseTagOutput)
-}
-
 type ExternalFunctionArg struct {
 	// Argument name
 	Name string `pulumi:"name"`
@@ -8789,8 +8665,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertAlertScheduleCronPtrInput)(nil)).Elem(), AlertAlertScheduleCronArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseReplicationConfigurationInput)(nil)).Elem(), DatabaseReplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseReplicationConfigurationPtrInput)(nil)).Elem(), DatabaseReplicationConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseTagInput)(nil)).Elem(), DatabaseTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseTagArrayInput)(nil)).Elem(), DatabaseTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalFunctionArgInput)(nil)).Elem(), ExternalFunctionArgArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalFunctionArgArrayInput)(nil)).Elem(), ExternalFunctionArgArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalFunctionHeaderInput)(nil)).Elem(), ExternalFunctionHeaderArgs{})
@@ -8921,8 +8795,6 @@ func init() {
 	pulumi.RegisterOutputType(AlertAlertScheduleCronPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseReplicationConfigurationOutput{})
 	pulumi.RegisterOutputType(DatabaseReplicationConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DatabaseTagOutput{})
-	pulumi.RegisterOutputType(DatabaseTagArrayOutput{})
 	pulumi.RegisterOutputType(ExternalFunctionArgOutput{})
 	pulumi.RegisterOutputType(ExternalFunctionArgArrayOutput{})
 	pulumi.RegisterOutputType(ExternalFunctionHeaderOutput{})

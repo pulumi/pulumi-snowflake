@@ -6,11 +6,9 @@ package com.pulumi.snowflake;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.snowflake.inputs.DatabaseReplicationConfigurationArgs;
-import com.pulumi.snowflake.inputs.DatabaseTagArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -125,29 +123,6 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.replicationConfiguration);
     }
 
-    /**
-     * Definitions of a tag to associate with the resource.
-     * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
-     * 
-     */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    @Import(name="tags")
-    private @Nullable Output<List<DatabaseTagArgs>> tags;
-
-    /**
-     * @return Definitions of a tag to associate with the resource.
-     * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
-     * 
-     */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    public Optional<Output<List<DatabaseTagArgs>>> tags() {
-        return Optional.ofNullable(this.tags);
-    }
-
     private DatabaseArgs() {}
 
     private DatabaseArgs(DatabaseArgs $) {
@@ -159,7 +134,6 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         this.isTransient = $.isTransient;
         this.name = $.name;
         this.replicationConfiguration = $.replicationConfiguration;
-        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -322,49 +296,6 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder replicationConfiguration(DatabaseReplicationConfigurationArgs replicationConfiguration) {
             return replicationConfiguration(Output.of(replicationConfiguration));
-        }
-
-        /**
-         * @param tags Definitions of a tag to associate with the resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
-         * 
-         */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-        public Builder tags(@Nullable Output<List<DatabaseTagArgs>> tags) {
-            $.tags = tags;
-            return this;
-        }
-
-        /**
-         * @param tags Definitions of a tag to associate with the resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
-         * 
-         */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-        public Builder tags(List<DatabaseTagArgs> tags) {
-            return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tags Definitions of a tag to associate with the resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
-         * 
-         */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-        public Builder tags(DatabaseTagArgs... tags) {
-            return tags(List.of(tags));
         }
 
         public DatabaseArgs build() {
