@@ -285,31 +285,6 @@
                 "accounts"
             ]
         },
-        "snowflake:index/DatabaseTag:DatabaseTag": {
-            "properties": {
-                "database": {
-                    "type": "string",
-                    "description": "Name of the database that the tag was created in.\n"
-                },
-                "name": {
-                    "type": "string",
-                    "description": "Tag name, e.g. department.\n"
-                },
-                "schema": {
-                    "type": "string",
-                    "description": "Name of the schema that the tag was created in.\n"
-                },
-                "value": {
-                    "type": "string",
-                    "description": "Tag value, e.g. marketing_info.\n"
-                }
-            },
-            "type": "object",
-            "required": [
-                "name",
-                "value"
-            ]
-        },
         "snowflake:index/ExternalFunctionArg:ExternalFunctionArg": {
             "properties": {
                 "name": {
@@ -3103,14 +3078,6 @@
                 "replicationConfiguration": {
                     "$ref": "#/types/snowflake:index/DatabaseReplicationConfiguration:DatabaseReplicationConfiguration",
                     "description": "When set, specifies the configurations for database replication.\n"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/snowflake:index/DatabaseTag:DatabaseTag"
-                    },
-                    "description": "Definitions of a tag to associate with the resource.\n",
-                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                 }
             },
             "required": [
@@ -3153,14 +3120,6 @@
                 "replicationConfiguration": {
                     "$ref": "#/types/snowflake:index/DatabaseReplicationConfiguration:DatabaseReplicationConfiguration",
                     "description": "When set, specifies the configurations for database replication.\n"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/snowflake:index/DatabaseTag:DatabaseTag"
-                    },
-                    "description": "Definitions of a tag to associate with the resource.\n",
-                    "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                 }
             },
             "stateInputs": {
@@ -3202,14 +3161,6 @@
                     "replicationConfiguration": {
                         "$ref": "#/types/snowflake:index/DatabaseReplicationConfiguration:DatabaseReplicationConfiguration",
                         "description": "When set, specifies the configurations for database replication.\n"
-                    },
-                    "tags": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/types/snowflake:index/DatabaseTag:DatabaseTag"
-                        },
-                        "description": "Definitions of a tag to associate with the resource.\n",
-                        "deprecationMessage": "Use the 'snowflake_tag_association' resource instead."
                     }
                 },
                 "type": "object"
@@ -13981,7 +13932,29 @@
             }
         },
         "snowflake:index/getDatabases:getDatabases": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst this = snowflake.getDatabases({});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nthis = snowflake.get_databases()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var @this = Snowflake.GetDatabases.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.GetDatabases(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var this = SnowflakeFunctions.getDatabases();\n\n    }\n}\n```\n```yaml\nvariables:\n  this:\n    fn::invoke:\n      Function: snowflake:getDatabases\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst this = snowflake.getDatabases({});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nthis = snowflake.get_databases()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var @this = Snowflake.GetDatabases.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.GetDatabases(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.snowflake.inputs.GetDatabasesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var this = SnowflakeFunctions.getDatabases();\n\n    }\n}\n```\n```yaml\nvariables:\n  this:\n    fn::invoke:\n      Function: snowflake:getDatabases\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getDatabases.\n",
+                "properties": {
+                    "history": {
+                        "type": "boolean",
+                        "description": "Optionally includes dropped databases that have not yet been purged The output also includes an additional `dropped_on` column\n"
+                    },
+                    "pattern": {
+                        "type": "string",
+                        "description": "Optionally filters the databases by a pattern\n"
+                    },
+                    "startsWith": {
+                        "type": "string",
+                        "description": "Optionally filters the databases by a pattern\n"
+                    },
+                    "terse": {
+                        "type": "boolean",
+                        "description": "Optionally returns only the columns `created_on` and `name` in the results\n"
+                    }
+                },
+                "type": "object"
+            },
             "outputs": {
                 "description": "A collection of values returned by getDatabases.\n",
                 "properties": {
@@ -13992,9 +13965,25 @@
                         },
                         "description": "Snowflake databases\n"
                     },
+                    "history": {
+                        "type": "boolean",
+                        "description": "Optionally includes dropped databases that have not yet been purged The output also includes an additional `dropped_on` column\n"
+                    },
                     "id": {
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "pattern": {
+                        "type": "string",
+                        "description": "Optionally filters the databases by a pattern\n"
+                    },
+                    "startsWith": {
+                        "type": "string",
+                        "description": "Optionally filters the databases by a pattern\n"
+                    },
+                    "terse": {
+                        "type": "boolean",
+                        "description": "Optionally returns only the columns `created_on` and `name` in the results\n"
                     }
                 },
                 "type": "object",
