@@ -92,10 +92,6 @@ type Database struct {
 	Name        pulumi.StringOutput  `pulumi:"name"`
 	// When set, specifies the configurations for database replication.
 	ReplicationConfiguration DatabaseReplicationConfigurationPtrOutput `pulumi:"replicationConfiguration"`
-	// Definitions of a tag to associate with the resource.
-	//
-	// Deprecated: Use the 'snowflake_tag_association' resource instead.
-	Tags DatabaseTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDatabase registers a new resource with the given unique name, arguments, and options.
@@ -141,10 +137,6 @@ type databaseState struct {
 	Name        *string `pulumi:"name"`
 	// When set, specifies the configurations for database replication.
 	ReplicationConfiguration *DatabaseReplicationConfiguration `pulumi:"replicationConfiguration"`
-	// Definitions of a tag to associate with the resource.
-	//
-	// Deprecated: Use the 'snowflake_tag_association' resource instead.
-	Tags []DatabaseTag `pulumi:"tags"`
 }
 
 type DatabaseState struct {
@@ -162,10 +154,6 @@ type DatabaseState struct {
 	Name        pulumi.StringPtrInput
 	// When set, specifies the configurations for database replication.
 	ReplicationConfiguration DatabaseReplicationConfigurationPtrInput
-	// Definitions of a tag to associate with the resource.
-	//
-	// Deprecated: Use the 'snowflake_tag_association' resource instead.
-	Tags DatabaseTagArrayInput
 }
 
 func (DatabaseState) ElementType() reflect.Type {
@@ -187,10 +175,6 @@ type databaseArgs struct {
 	Name        *string `pulumi:"name"`
 	// When set, specifies the configurations for database replication.
 	ReplicationConfiguration *DatabaseReplicationConfiguration `pulumi:"replicationConfiguration"`
-	// Definitions of a tag to associate with the resource.
-	//
-	// Deprecated: Use the 'snowflake_tag_association' resource instead.
-	Tags []DatabaseTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Database resource.
@@ -209,10 +193,6 @@ type DatabaseArgs struct {
 	Name        pulumi.StringPtrInput
 	// When set, specifies the configurations for database replication.
 	ReplicationConfiguration DatabaseReplicationConfigurationPtrInput
-	// Definitions of a tag to associate with the resource.
-	//
-	// Deprecated: Use the 'snowflake_tag_association' resource instead.
-	Tags DatabaseTagArrayInput
 }
 
 func (DatabaseArgs) ElementType() reflect.Type {
@@ -338,13 +318,6 @@ func (o DatabaseOutput) Name() pulumi.StringOutput {
 // When set, specifies the configurations for database replication.
 func (o DatabaseOutput) ReplicationConfiguration() DatabaseReplicationConfigurationPtrOutput {
 	return o.ApplyT(func(v *Database) DatabaseReplicationConfigurationPtrOutput { return v.ReplicationConfiguration }).(DatabaseReplicationConfigurationPtrOutput)
-}
-
-// Definitions of a tag to associate with the resource.
-//
-// Deprecated: Use the 'snowflake_tag_association' resource instead.
-func (o DatabaseOutput) Tags() DatabaseTagArrayOutput {
-	return o.ApplyT(func(v *Database) DatabaseTagArrayOutput { return v.Tags }).(DatabaseTagArrayOutput)
 }
 
 type DatabaseArrayOutput struct{ *pulumi.OutputState }

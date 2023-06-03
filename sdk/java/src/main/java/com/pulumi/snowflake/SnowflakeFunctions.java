@@ -17,6 +17,8 @@ import com.pulumi.snowflake.inputs.GetDatabaseArgs;
 import com.pulumi.snowflake.inputs.GetDatabasePlainArgs;
 import com.pulumi.snowflake.inputs.GetDatabaseRolesArgs;
 import com.pulumi.snowflake.inputs.GetDatabaseRolesPlainArgs;
+import com.pulumi.snowflake.inputs.GetDatabasesArgs;
+import com.pulumi.snowflake.inputs.GetDatabasesPlainArgs;
 import com.pulumi.snowflake.inputs.GetExternalFunctionsArgs;
 import com.pulumi.snowflake.inputs.GetExternalFunctionsPlainArgs;
 import com.pulumi.snowflake.inputs.GetExternalTablesArgs;
@@ -760,6 +762,7 @@ public final class SnowflakeFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetDatabasesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -781,7 +784,7 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetDatabasesResult> getDatabases() {
-        return getDatabases(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getDatabases(GetDatabasesArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * ## Example Usage
@@ -792,6 +795,7 @@ public final class SnowflakeFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetDatabasesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -813,7 +817,7 @@ public final class SnowflakeFunctions {
      * 
      */
     public static CompletableFuture<GetDatabasesResult> getDatabasesPlain() {
-        return getDatabasesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getDatabasesPlain(GetDatabasesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * ## Example Usage
@@ -824,6 +828,7 @@ public final class SnowflakeFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetDatabasesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -844,7 +849,7 @@ public final class SnowflakeFunctions {
      * ```
      * 
      */
-    public static Output<GetDatabasesResult> getDatabases(InvokeArgs args) {
+    public static Output<GetDatabasesResult> getDatabases(GetDatabasesArgs args) {
         return getDatabases(args, InvokeOptions.Empty);
     }
     /**
@@ -856,6 +861,7 @@ public final class SnowflakeFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetDatabasesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -876,7 +882,7 @@ public final class SnowflakeFunctions {
      * ```
      * 
      */
-    public static CompletableFuture<GetDatabasesResult> getDatabasesPlain(InvokeArgs args) {
+    public static CompletableFuture<GetDatabasesResult> getDatabasesPlain(GetDatabasesPlainArgs args) {
         return getDatabasesPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -888,6 +894,7 @@ public final class SnowflakeFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetDatabasesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -908,7 +915,7 @@ public final class SnowflakeFunctions {
      * ```
      * 
      */
-    public static Output<GetDatabasesResult> getDatabases(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetDatabasesResult> getDatabases(GetDatabasesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getDatabases:getDatabases", TypeShape.of(GetDatabasesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -920,6 +927,7 @@ public final class SnowflakeFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetDatabasesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -940,7 +948,7 @@ public final class SnowflakeFunctions {
      * ```
      * 
      */
-    public static CompletableFuture<GetDatabasesResult> getDatabasesPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetDatabasesResult> getDatabasesPlain(GetDatabasesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getDatabases:getDatabases", TypeShape.of(GetDatabasesResult.class), args, Utilities.withVersion(options));
     }
     /**

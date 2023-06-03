@@ -111,12 +111,6 @@ namespace Pulumi.Snowflake
         [Output("replicationConfiguration")]
         public Output<Outputs.DatabaseReplicationConfiguration?> ReplicationConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Definitions of a tag to associate with the resource.
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableArray<Outputs.DatabaseTag>> Tags { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a Database resource with the given unique name, arguments, and options.
@@ -211,19 +205,6 @@ namespace Pulumi.Snowflake
         [Input("replicationConfiguration")]
         public Input<Inputs.DatabaseReplicationConfigurationArgs>? ReplicationConfiguration { get; set; }
 
-        [Input("tags")]
-        private InputList<Inputs.DatabaseTagArgs>? _tags;
-
-        /// <summary>
-        /// Definitions of a tag to associate with the resource.
-        /// </summary>
-        [Obsolete(@"Use the 'snowflake_tag_association' resource instead.")]
-        public InputList<Inputs.DatabaseTagArgs> Tags
-        {
-            get => _tags ?? (_tags = new InputList<Inputs.DatabaseTagArgs>());
-            set => _tags = value;
-        }
-
         public DatabaseArgs()
         {
         }
@@ -279,19 +260,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("replicationConfiguration")]
         public Input<Inputs.DatabaseReplicationConfigurationGetArgs>? ReplicationConfiguration { get; set; }
-
-        [Input("tags")]
-        private InputList<Inputs.DatabaseTagGetArgs>? _tags;
-
-        /// <summary>
-        /// Definitions of a tag to associate with the resource.
-        /// </summary>
-        [Obsolete(@"Use the 'snowflake_tag_association' resource instead.")]
-        public InputList<Inputs.DatabaseTagGetArgs> Tags
-        {
-            get => _tags ?? (_tags = new InputList<Inputs.DatabaseTagGetArgs>());
-            set => _tags = value;
-        }
 
         public DatabaseState()
         {

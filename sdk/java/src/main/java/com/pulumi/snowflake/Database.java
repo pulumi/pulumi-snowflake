@@ -11,11 +11,9 @@ import com.pulumi.snowflake.DatabaseArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.DatabaseState;
 import com.pulumi.snowflake.outputs.DatabaseReplicationConfiguration;
-import com.pulumi.snowflake.outputs.DatabaseTag;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -181,24 +179,6 @@ public class Database extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<DatabaseReplicationConfiguration>> replicationConfiguration() {
         return Codegen.optional(this.replicationConfiguration);
-    }
-    /**
-     * Definitions of a tag to associate with the resource.
-     * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
-     * 
-     */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    @Export(name="tags", type=List.class, parameters={DatabaseTag.class})
-    private Output</* @Nullable */ List<DatabaseTag>> tags;
-
-    /**
-     * @return Definitions of a tag to associate with the resource.
-     * 
-     */
-    public Output<Optional<List<DatabaseTag>>> tags() {
-        return Codegen.optional(this.tags);
     }
 
     /**
