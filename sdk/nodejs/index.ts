@@ -128,9 +128,10 @@ export const getDatabaseRoles: typeof import("./getDatabaseRoles").getDatabaseRo
 export const getDatabaseRolesOutput: typeof import("./getDatabaseRoles").getDatabaseRolesOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabaseRoles","getDatabaseRolesOutput"], () => require("./getDatabaseRoles"));
 
-export { GetDatabasesResult } from "./getDatabases";
+export { GetDatabasesArgs, GetDatabasesResult, GetDatabasesOutputArgs } from "./getDatabases";
 export const getDatabases: typeof import("./getDatabases").getDatabases = null as any;
-utilities.lazyLoad(exports, ["getDatabases"], () => require("./getDatabases"));
+export const getDatabasesOutput: typeof import("./getDatabases").getDatabasesOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabases","getDatabasesOutput"], () => require("./getDatabases"));
 
 export { GetExternalFunctionsArgs, GetExternalFunctionsResult, GetExternalFunctionsOutputArgs } from "./getExternalFunctions";
 export const getExternalFunctions: typeof import("./getExternalFunctions").getExternalFunctions = null as any;

@@ -4,6 +4,9 @@
 package snowflake
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,19 +33,117 @@ import (
 //	}
 //
 // ```
-func GetDatabases(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetDatabasesResult, error) {
+func GetDatabases(ctx *pulumi.Context, args *GetDatabasesArgs, opts ...pulumi.InvokeOption) (*GetDatabasesResult, error) {
 	var rv GetDatabasesResult
-	err := ctx.Invoke("snowflake:index/getDatabases:getDatabases", nil, &rv, opts...)
+	err := ctx.Invoke("snowflake:index/getDatabases:getDatabases", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
+// A collection of arguments for invoking getDatabases.
+type GetDatabasesArgs struct {
+	// Optionally includes dropped databases that have not yet been purged The output also includes an additional `droppedOn` column
+	History *bool `pulumi:"history"`
+	// Optionally filters the databases by a pattern
+	Pattern *string `pulumi:"pattern"`
+	// Optionally filters the databases by a pattern
+	StartsWith *string `pulumi:"startsWith"`
+	// Optionally returns only the columns `createdOn` and `name` in the results
+	Terse *bool `pulumi:"terse"`
+}
+
 // A collection of values returned by getDatabases.
 type GetDatabasesResult struct {
 	// Snowflake databases
 	Databases []GetDatabasesDatabase `pulumi:"databases"`
+	// Optionally includes dropped databases that have not yet been purged The output also includes an additional `droppedOn` column
+	History *bool `pulumi:"history"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// Optionally filters the databases by a pattern
+	Pattern *string `pulumi:"pattern"`
+	// Optionally filters the databases by a pattern
+	StartsWith *string `pulumi:"startsWith"`
+	// Optionally returns only the columns `createdOn` and `name` in the results
+	Terse *bool `pulumi:"terse"`
+}
+
+func GetDatabasesOutput(ctx *pulumi.Context, args GetDatabasesOutputArgs, opts ...pulumi.InvokeOption) GetDatabasesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetDatabasesResult, error) {
+			args := v.(GetDatabasesArgs)
+			r, err := GetDatabases(ctx, &args, opts...)
+			var s GetDatabasesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
+		}).(GetDatabasesResultOutput)
+}
+
+// A collection of arguments for invoking getDatabases.
+type GetDatabasesOutputArgs struct {
+	// Optionally includes dropped databases that have not yet been purged The output also includes an additional `droppedOn` column
+	History pulumi.BoolPtrInput `pulumi:"history"`
+	// Optionally filters the databases by a pattern
+	Pattern pulumi.StringPtrInput `pulumi:"pattern"`
+	// Optionally filters the databases by a pattern
+	StartsWith pulumi.StringPtrInput `pulumi:"startsWith"`
+	// Optionally returns only the columns `createdOn` and `name` in the results
+	Terse pulumi.BoolPtrInput `pulumi:"terse"`
+}
+
+func (GetDatabasesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getDatabases.
+type GetDatabasesResultOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesResult)(nil)).Elem()
+}
+
+func (o GetDatabasesResultOutput) ToGetDatabasesResultOutput() GetDatabasesResultOutput {
+	return o
+}
+
+func (o GetDatabasesResultOutput) ToGetDatabasesResultOutputWithContext(ctx context.Context) GetDatabasesResultOutput {
+	return o
+}
+
+// Snowflake databases
+func (o GetDatabasesResultOutput) Databases() GetDatabasesDatabaseArrayOutput {
+	return o.ApplyT(func(v GetDatabasesResult) []GetDatabasesDatabase { return v.Databases }).(GetDatabasesDatabaseArrayOutput)
+}
+
+// Optionally includes dropped databases that have not yet been purged The output also includes an additional `droppedOn` column
+func (o GetDatabasesResultOutput) History() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDatabasesResult) *bool { return v.History }).(pulumi.BoolPtrOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetDatabasesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Optionally filters the databases by a pattern
+func (o GetDatabasesResultOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDatabasesResult) *string { return v.Pattern }).(pulumi.StringPtrOutput)
+}
+
+// Optionally filters the databases by a pattern
+func (o GetDatabasesResultOutput) StartsWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDatabasesResult) *string { return v.StartsWith }).(pulumi.StringPtrOutput)
+}
+
+// Optionally returns only the columns `createdOn` and `name` in the results
+func (o GetDatabasesResultOutput) Terse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDatabasesResult) *bool { return v.Terse }).(pulumi.BoolPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetDatabasesResultOutput{})
 }

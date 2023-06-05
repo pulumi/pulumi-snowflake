@@ -980,8 +980,7 @@
                 "fromReplica": "from_replica",
                 "fromShare": "from_share",
                 "isTransient": "is_transient",
-                "replicationConfiguration": "replication_configuration",
-                "tags": "tag"
+                "replicationConfiguration": "replication_configuration"
             },
             "snowflake:index/databaseGrant:DatabaseGrant": {
                 "databaseName": "database_name",
@@ -1144,6 +1143,9 @@
             },
             "snowflake:index/getDatabaseRoles:getDatabaseRoles": {
                 "databaseRoles": "database_roles"
+            },
+            "snowflake:index/getDatabases:getDatabases": {
+                "startsWith": "starts_with"
             },
             "snowflake:index/getDatabasesDatabase:getDatabasesDatabase": {
                 "createdOn": "created_on",

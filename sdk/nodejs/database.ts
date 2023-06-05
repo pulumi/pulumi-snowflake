@@ -101,12 +101,6 @@ export class Database extends pulumi.CustomResource {
      * When set, specifies the configurations for database replication.
      */
     public readonly replicationConfiguration!: pulumi.Output<outputs.DatabaseReplicationConfiguration | undefined>;
-    /**
-     * Definitions of a tag to associate with the resource.
-     *
-     * @deprecated Use the 'snowflake_tag_association' resource instead.
-     */
-    public readonly tags!: pulumi.Output<outputs.DatabaseTag[] | undefined>;
 
     /**
      * Create a Database resource with the given unique name, arguments, and options.
@@ -129,7 +123,6 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["isTransient"] = state ? state.isTransient : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["replicationConfiguration"] = state ? state.replicationConfiguration : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DatabaseArgs | undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
@@ -140,7 +133,6 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["isTransient"] = args ? args.isTransient : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Database.__pulumiType, name, resourceInputs, opts);
@@ -177,12 +169,6 @@ export interface DatabaseState {
      * When set, specifies the configurations for database replication.
      */
     replicationConfiguration?: pulumi.Input<inputs.DatabaseReplicationConfiguration>;
-    /**
-     * Definitions of a tag to associate with the resource.
-     *
-     * @deprecated Use the 'snowflake_tag_association' resource instead.
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.DatabaseTag>[]>;
 }
 
 /**
@@ -215,10 +201,4 @@ export interface DatabaseArgs {
      * When set, specifies the configurations for database replication.
      */
     replicationConfiguration?: pulumi.Input<inputs.DatabaseReplicationConfiguration>;
-    /**
-     * Definitions of a tag to associate with the resource.
-     *
-     * @deprecated Use the 'snowflake_tag_association' resource instead.
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.DatabaseTag>[]>;
 }

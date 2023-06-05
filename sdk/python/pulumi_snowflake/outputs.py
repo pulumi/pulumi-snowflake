@@ -14,7 +14,6 @@ __all__ = [
     'AlertAlertSchedule',
     'AlertAlertScheduleCron',
     'DatabaseReplicationConfiguration',
-    'DatabaseTag',
     'ExternalFunctionArg',
     'ExternalFunctionHeader',
     'ExternalTableColumn',
@@ -181,59 +180,6 @@ class DatabaseReplicationConfiguration(dict):
     @pulumi.getter(name="ignoreEditionCheck")
     def ignore_edition_check(self) -> Optional[bool]:
         return pulumi.get(self, "ignore_edition_check")
-
-
-@pulumi.output_type
-class DatabaseTag(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 value: str,
-                 database: Optional[str] = None,
-                 schema: Optional[str] = None):
-        """
-        :param str name: Tag name, e.g. department.
-        :param str value: Tag value, e.g. marketing_info.
-        :param str database: Name of the database that the tag was created in.
-        :param str schema: Name of the schema that the tag was created in.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
-        if database is not None:
-            pulumi.set(__self__, "database", database)
-        if schema is not None:
-            pulumi.set(__self__, "schema", schema)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Tag name, e.g. department.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Tag value, e.g. marketing_info.
-        """
-        return pulumi.get(self, "value")
-
-    @property
-    @pulumi.getter
-    def database(self) -> Optional[str]:
-        """
-        Name of the database that the tag was created in.
-        """
-        return pulumi.get(self, "database")
-
-    @property
-    @pulumi.getter
-    def schema(self) -> Optional[str]:
-        """
-        Name of the schema that the tag was created in.
-        """
-        return pulumi.get(self, "schema")
 
 
 @pulumi.output_type
