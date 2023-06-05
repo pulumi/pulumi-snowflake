@@ -5,16 +5,12 @@ go 1.19
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20230327102345-3fa930f86570
 	github.com/mattn/go-ieproxy => github.com/mattn/go-ieproxy v0.0.1
-
-	// Using a pre-release version to adopt a codegen fix for pulumi/pulumi#12971 early; can be removed on next release.
-	github.com/pulumi/pulumi/pkg/v3 => github.com/pulumi/pulumi/pkg/v3 v3.67.2-0.20230519194146-439d2d01252d
-	github.com/pulumi/pulumi/sdk/v3 => github.com/pulumi/pulumi/sdk/v3 v3.68.1-0.20230519194146-439d2d01252d
 	gocloud.dev => gocloud.dev v0.29.0
 )
 
 require (
 	github.com/Snowflake-Labs/terraform-provider-snowflake v0.66.1
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.48.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.49.0
 	github.com/pulumi/pulumi/sdk/v3 v3.69.0
 )
 
@@ -39,6 +35,7 @@ require (
 	github.com/Azure/go-autorest v14.2.0+incompatible // indirect
 	github.com/Azure/go-autorest/autorest/to v0.4.0 // indirect
 	github.com/AzureAD/microsoft-authentication-library-for-go v0.8.1 // indirect
+	github.com/BurntSushi/toml v1.2.1 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
 	github.com/Masterminds/semver v1.5.0 // indirect
 	github.com/Masterminds/semver/v3 v3.2.0 // indirect
@@ -204,7 +201,7 @@ require (
 	github.com/pulumi/pulumi/pkg/v3 v3.69.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e // indirect
-	github.com/rivo/uniseg v0.2.0 // indirect
+	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.9.0 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
