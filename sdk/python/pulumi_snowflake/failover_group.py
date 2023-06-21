@@ -363,7 +363,7 @@ class FailoverGroup(pulumi.CustomResource):
         target_failover_group = snowflake.FailoverGroup("targetFailoverGroup", from_replica=snowflake.FailoverGroupFromReplicaArgs(
             organization_name="...",
             source_account_name="...",
-            name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            name=snowflake_failover_group["fg"]["name"],
         ),
         opts=pulumi.ResourceOptions(provider=snowflake["account2"]))
         ```
@@ -423,7 +423,7 @@ class FailoverGroup(pulumi.CustomResource):
         target_failover_group = snowflake.FailoverGroup("targetFailoverGroup", from_replica=snowflake.FailoverGroupFromReplicaArgs(
             organization_name="...",
             source_account_name="...",
-            name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            name=snowflake_failover_group["fg"]["name"],
         ),
         opts=pulumi.ResourceOptions(provider=snowflake["account2"]))
         ```
