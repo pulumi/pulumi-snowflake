@@ -2671,6 +2671,39 @@
                 "type": "object"
             }
         },
+        "snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment": {
+            "description": "Specifies the password policy to use for the current account. To set the password policy of a different account, use a provider alias.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst _default = new snowflake.PasswordPolicy(\"default\", {\n    database: \"prod\",\n    schema: \"security\",\n});\nconst attachment = new snowflake.AccountPasswordPolicyAttachment(\"attachment\", {passwordPolicy: _default.qualifiedName});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ndefault = snowflake.PasswordPolicy(\"default\",\n    database=\"prod\",\n    schema=\"security\")\nattachment = snowflake.AccountPasswordPolicyAttachment(\"attachment\", password_policy=default.qualified_name)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var @default = new Snowflake.PasswordPolicy(\"default\", new()\n    {\n        Database = \"prod\",\n        Schema = \"security\",\n    });\n\n    var attachment = new Snowflake.AccountPasswordPolicyAttachment(\"attachment\", new()\n    {\n        PasswordPolicy = @default.QualifiedName,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewPasswordPolicy(ctx, \"default\", \u0026snowflake.PasswordPolicyArgs{\n\t\t\tDatabase: pulumi.String(\"prod\"),\n\t\t\tSchema:   pulumi.String(\"security\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewAccountPasswordPolicyAttachment(ctx, \"attachment\", \u0026snowflake.AccountPasswordPolicyAttachmentArgs{\n\t\t\tPasswordPolicy: _default.QualifiedName,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.PasswordPolicy;\nimport com.pulumi.snowflake.PasswordPolicyArgs;\nimport com.pulumi.snowflake.AccountPasswordPolicyAttachment;\nimport com.pulumi.snowflake.AccountPasswordPolicyAttachmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var default_ = new PasswordPolicy(\"default\", PasswordPolicyArgs.builder()        \n            .database(\"prod\")\n            .schema(\"security\")\n            .build());\n\n        var attachment = new AccountPasswordPolicyAttachment(\"attachment\", AccountPasswordPolicyAttachmentArgs.builder()        \n            .passwordPolicy(default_.qualifiedName())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  default:\n    type: snowflake:PasswordPolicy\n    properties:\n      database: prod\n      schema: security\n  attachment:\n    type: snowflake:AccountPasswordPolicyAttachment\n    properties:\n      passwordPolicy: ${default.qualifiedName}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "passwordPolicy": {
+                    "type": "string",
+                    "description": "Qualified name (`\"db\".\"schema\".\"policy_name\"`) of the password policy to apply to the current account.\n"
+                }
+            },
+            "required": [
+                "passwordPolicy"
+            ],
+            "inputProperties": {
+                "passwordPolicy": {
+                    "type": "string",
+                    "description": "Qualified name (`\"db\".\"schema\".\"policy_name\"`) of the password policy to apply to the current account.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "passwordPolicy"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AccountPasswordPolicyAttachment resources.\n",
+                "properties": {
+                    "passwordPolicy": {
+                        "type": "string",
+                        "description": "Qualified name (`\"db\".\"schema\".\"policy_name\"`) of the password policy to apply to the current account.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "snowflake:index/alert:Alert": {
             "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst alert = new snowflake.Alert(\"alert\", {\n    action: \"select 1 as c\",\n    alertSchedule: {\n        interval: 10,\n    },\n    comment: \"my alert\",\n    condition: \"select 1 as c\",\n    database: \"database\",\n    enabled: true,\n    schema: \"schema\",\n    warehouse: \"warehouse\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nalert = snowflake.Alert(\"alert\",\n    action=\"select 1 as c\",\n    alert_schedule=snowflake.AlertAlertScheduleArgs(\n        interval=10,\n    ),\n    comment=\"my alert\",\n    condition=\"select 1 as c\",\n    database=\"database\",\n    enabled=True,\n    schema=\"schema\",\n    warehouse=\"warehouse\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var alert = new Snowflake.Alert(\"alert\", new()\n    {\n        Action = \"select 1 as c\",\n        AlertSchedule = new Snowflake.Inputs.AlertAlertScheduleArgs\n        {\n            Interval = 10,\n        },\n        Comment = \"my alert\",\n        Condition = \"select 1 as c\",\n        Database = \"database\",\n        Enabled = true,\n        Schema = \"schema\",\n        Warehouse = \"warehouse\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewAlert(ctx, \"alert\", \u0026snowflake.AlertArgs{\n\t\t\tAction: pulumi.String(\"select 1 as c\"),\n\t\t\tAlertSchedule: \u0026snowflake.AlertAlertScheduleArgs{\n\t\t\t\tInterval: pulumi.Int(10),\n\t\t\t},\n\t\t\tComment:   pulumi.String(\"my alert\"),\n\t\t\tCondition: pulumi.String(\"select 1 as c\"),\n\t\t\tDatabase:  pulumi.String(\"database\"),\n\t\t\tEnabled:   pulumi.Bool(true),\n\t\t\tSchema:    pulumi.String(\"schema\"),\n\t\t\tWarehouse: pulumi.String(\"warehouse\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Alert;\nimport com.pulumi.snowflake.AlertArgs;\nimport com.pulumi.snowflake.inputs.AlertAlertScheduleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var alert = new Alert(\"alert\", AlertArgs.builder()        \n            .action(\"select 1 as c\")\n            .alertSchedule(AlertAlertScheduleArgs.builder()\n                .interval(10)\n                .build())\n            .comment(\"my alert\")\n            .condition(\"select 1 as c\")\n            .database(\"database\")\n            .enabled(true)\n            .schema(\"schema\")\n            .warehouse(\"warehouse\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  alert:\n    type: snowflake:Alert\n    properties:\n      action: select 1 as c\n      alertSchedule:\n        interval: 10\n      comment: my alert\n      condition: select 1 as c\n      database: database\n      enabled: true\n      schema: schema\n      warehouse: warehouse\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nformat is database name | schema name | alert name\n\n```sh\n $ pulumi import snowflake:index/alert:Alert example 'dbName|schemaName|alertName'\n```\n\n ",
             "properties": {
@@ -7442,6 +7475,10 @@
                     "type": "boolean",
                     "description": "Whether to override a previous password policy with the same name.\n"
                 },
+                "qualifiedName": {
+                    "type": "string",
+                    "description": "The qualified name for the password policy.\n"
+                },
                 "schema": {
                     "type": "string",
                     "description": "The schema this password policy belongs to.\n"
@@ -7450,6 +7487,7 @@
             "required": [
                 "database",
                 "name",
+                "qualifiedName",
                 "schema"
             ],
             "inputProperties": {
@@ -7579,6 +7617,10 @@
                     "orReplace": {
                         "type": "boolean",
                         "description": "Whether to override a previous password policy with the same name.\n"
+                    },
+                    "qualifiedName": {
+                        "type": "string",
+                        "description": "The qualified name for the password policy.\n"
                     },
                     "schema": {
                         "type": "string",
@@ -8751,7 +8793,7 @@
             "properties": {
                 "enableMultipleGrants": {
                     "type": "boolean",
-                    "description": "When this is set to false, multiple grants of the same type cannot be created. This will cause Terraform to revoke\ngrants applied to roles and objects outside Terraform.\n"
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
                 "roleName": {
                     "type": "string",
@@ -8778,7 +8820,7 @@
             "inputProperties": {
                 "enableMultipleGrants": {
                     "type": "boolean",
-                    "description": "When this is set to false, multiple grants of the same type cannot be created. This will cause Terraform to revoke\ngrants applied to roles and objects outside Terraform.\n"
+                    "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                 },
                 "roleName": {
                     "type": "string",
@@ -8808,7 +8850,7 @@
                 "properties": {
                     "enableMultipleGrants": {
                         "type": "boolean",
-                        "description": "When this is set to false, multiple grants of the same type cannot be created. This will cause Terraform to revoke\ngrants applied to roles and objects outside Terraform.\n"
+                        "description": "When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke\ngrants applied to roles and objects outside Terraform.\n"
                     },
                     "roleName": {
                         "type": "string",
