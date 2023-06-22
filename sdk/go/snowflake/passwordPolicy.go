@@ -43,6 +43,8 @@ type PasswordPolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether to override a previous password policy with the same name.
 	OrReplace pulumi.BoolPtrOutput `pulumi:"orReplace"`
+	// The qualified name for the password policy.
+	QualifiedName pulumi.StringOutput `pulumi:"qualifiedName"`
 	// The schema this password policy belongs to.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 }
@@ -110,6 +112,8 @@ type passwordPolicyState struct {
 	Name *string `pulumi:"name"`
 	// Whether to override a previous password policy with the same name.
 	OrReplace *bool `pulumi:"orReplace"`
+	// The qualified name for the password policy.
+	QualifiedName *string `pulumi:"qualifiedName"`
 	// The schema this password policy belongs to.
 	Schema *string `pulumi:"schema"`
 }
@@ -143,6 +147,8 @@ type PasswordPolicyState struct {
 	Name pulumi.StringPtrInput
 	// Whether to override a previous password policy with the same name.
 	OrReplace pulumi.BoolPtrInput
+	// The qualified name for the password policy.
+	QualifiedName pulumi.StringPtrInput
 	// The schema this password policy belongs to.
 	Schema pulumi.StringPtrInput
 }
@@ -373,6 +379,11 @@ func (o PasswordPolicyOutput) Name() pulumi.StringOutput {
 // Whether to override a previous password policy with the same name.
 func (o PasswordPolicyOutput) OrReplace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PasswordPolicy) pulumi.BoolPtrOutput { return v.OrReplace }).(pulumi.BoolPtrOutput)
+}
+
+// The qualified name for the password policy.
+func (o PasswordPolicyOutput) QualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *PasswordPolicy) pulumi.StringOutput { return v.QualifiedName }).(pulumi.StringOutput)
 }
 
 // The schema this password policy belongs to.

@@ -219,6 +219,20 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.orReplace);
     }
     /**
+     * The qualified name for the password policy.
+     * 
+     */
+    @Export(name="qualifiedName", type=String.class, parameters={})
+    private Output<String> qualifiedName;
+
+    /**
+     * @return The qualified name for the password policy.
+     * 
+     */
+    public Output<String> qualifiedName() {
+        return this.qualifiedName;
+    }
+    /**
      * The schema this password policy belongs to.
      * 
      */

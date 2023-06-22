@@ -26,6 +26,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccountGrant{}
 	case "snowflake:index/accountParameter:AccountParameter":
 		r = &AccountParameter{}
+	case "snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment":
+		r = &AccountPasswordPolicyAttachment{}
 	case "snowflake:index/alert:Alert":
 		r = &Alert{}
 	case "snowflake:index/apiIntegration:ApiIntegration":
@@ -207,6 +209,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/accountParameter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/accountPasswordPolicyAttachment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

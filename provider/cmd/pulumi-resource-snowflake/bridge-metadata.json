@@ -15,6 +15,9 @@
             "snowflake_account_parameter": {
                 "current": "snowflake:index/accountParameter:AccountParameter"
             },
+            "snowflake_account_password_policy_attachment": {
+                "current": "snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment"
+            },
             "snowflake_alert": {
                 "current": "snowflake:index/alert:Alert",
                 "fields": {
@@ -800,6 +803,7 @@
             "snowflake:index/account:Account": "snowflake_account",
             "snowflake:index/accountGrant:AccountGrant": "snowflake_account_grant",
             "snowflake:index/accountParameter:AccountParameter": "snowflake_account_parameter",
+            "snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment": "snowflake_account_password_policy_attachment",
             "snowflake:index/alert:Alert": "snowflake_alert",
             "snowflake:index/apiIntegration:ApiIntegration": "snowflake_api_integration",
             "snowflake:index/database:Database": "snowflake_database",
@@ -954,6 +958,9 @@
             "snowflake:index/accountGrant:AccountGrant": {
                 "enableMultipleGrants": "enable_multiple_grants",
                 "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment": {
+                "passwordPolicy": "password_policy"
             },
             "snowflake:index/alert:Alert": {
                 "alertSchedule": "alert_schedule"
@@ -1378,7 +1385,8 @@
                 "minNumericChars": "min_numeric_chars",
                 "minSpecialChars": "min_special_chars",
                 "minUpperCaseChars": "min_upper_case_chars",
-                "orReplace": "or_replace"
+                "orReplace": "or_replace",
+                "qualifiedName": "qualified_name"
             },
             "snowflake:index/pipe:Pipe": {
                 "autoIngest": "auto_ingest",

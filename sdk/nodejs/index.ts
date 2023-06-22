@@ -20,6 +20,11 @@ export type AccountParameter = import("./accountParameter").AccountParameter;
 export const AccountParameter: typeof import("./accountParameter").AccountParameter = null as any;
 utilities.lazyLoad(exports, ["AccountParameter"], () => require("./accountParameter"));
 
+export { AccountPasswordPolicyAttachmentArgs, AccountPasswordPolicyAttachmentState } from "./accountPasswordPolicyAttachment";
+export type AccountPasswordPolicyAttachment = import("./accountPasswordPolicyAttachment").AccountPasswordPolicyAttachment;
+export const AccountPasswordPolicyAttachment: typeof import("./accountPasswordPolicyAttachment").AccountPasswordPolicyAttachment = null as any;
+utilities.lazyLoad(exports, ["AccountPasswordPolicyAttachment"], () => require("./accountPasswordPolicyAttachment"));
+
 export { AlertArgs, AlertState } from "./alert";
 export type Alert = import("./alert").Alert;
 export const Alert: typeof import("./alert").Alert = null as any;
@@ -573,6 +578,8 @@ const _module = {
                 return new AccountGrant(name, <any>undefined, { urn })
             case "snowflake:index/accountParameter:AccountParameter":
                 return new AccountParameter(name, <any>undefined, { urn })
+            case "snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment":
+                return new AccountPasswordPolicyAttachment(name, <any>undefined, { urn })
             case "snowflake:index/alert:Alert":
                 return new Alert(name, <any>undefined, { urn })
             case "snowflake:index/apiIntegration:ApiIntegration":
@@ -721,6 +728,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("snowflake", "index/account", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/accountGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/accountParameter", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/accountPasswordPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/alert", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/apiIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/database", _module)

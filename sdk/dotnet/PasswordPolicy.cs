@@ -100,6 +100,12 @@ namespace Pulumi.Snowflake
         public Output<bool?> OrReplace { get; private set; } = null!;
 
         /// <summary>
+        /// The qualified name for the password policy.
+        /// </summary>
+        [Output("qualifiedName")]
+        public Output<string> QualifiedName { get; private set; } = null!;
+
+        /// <summary>
         /// The schema this password policy belongs to.
         /// </summary>
         [Output("schema")]
@@ -332,6 +338,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("orReplace")]
         public Input<bool>? OrReplace { get; set; }
+
+        /// <summary>
+        /// The qualified name for the password policy.
+        /// </summary>
+        [Input("qualifiedName")]
+        public Input<string>? QualifiedName { get; set; }
 
         /// <summary>
         /// The schema this password policy belongs to.

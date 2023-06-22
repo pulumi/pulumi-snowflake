@@ -228,6 +228,21 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The qualified name for the password policy.
+     * 
+     */
+    @Import(name="qualifiedName")
+    private @Nullable Output<String> qualifiedName;
+
+    /**
+     * @return The qualified name for the password policy.
+     * 
+     */
+    public Optional<Output<String>> qualifiedName() {
+        return Optional.ofNullable(this.qualifiedName);
+    }
+
+    /**
      * The schema this password policy belongs to.
      * 
      */
@@ -259,6 +274,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         this.minUpperCaseChars = $.minUpperCaseChars;
         this.name = $.name;
         this.orReplace = $.orReplace;
+        this.qualifiedName = $.qualifiedName;
         this.schema = $.schema;
     }
 
@@ -572,6 +588,27 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
          */
         public Builder orReplace(Boolean orReplace) {
             return orReplace(Output.of(orReplace));
+        }
+
+        /**
+         * @param qualifiedName The qualified name for the password policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder qualifiedName(@Nullable Output<String> qualifiedName) {
+            $.qualifiedName = qualifiedName;
+            return this;
+        }
+
+        /**
+         * @param qualifiedName The qualified name for the password policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder qualifiedName(String qualifiedName) {
+            return qualifiedName(Output.of(qualifiedName));
         }
 
         /**

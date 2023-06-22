@@ -92,6 +92,10 @@ export class PasswordPolicy extends pulumi.CustomResource {
      */
     public readonly orReplace!: pulumi.Output<boolean | undefined>;
     /**
+     * The qualified name for the password policy.
+     */
+    public /*out*/ readonly qualifiedName!: pulumi.Output<string>;
+    /**
      * The schema this password policy belongs to.
      */
     public readonly schema!: pulumi.Output<string>;
@@ -123,6 +127,7 @@ export class PasswordPolicy extends pulumi.CustomResource {
             resourceInputs["minUpperCaseChars"] = state ? state.minUpperCaseChars : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["orReplace"] = state ? state.orReplace : undefined;
+            resourceInputs["qualifiedName"] = state ? state.qualifiedName : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
         } else {
             const args = argsOrState as PasswordPolicyArgs | undefined;
@@ -147,6 +152,7 @@ export class PasswordPolicy extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["orReplace"] = args ? args.orReplace : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["qualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PasswordPolicy.__pulumiType, name, resourceInputs, opts);
@@ -213,6 +219,10 @@ export interface PasswordPolicyState {
      * Whether to override a previous password policy with the same name.
      */
     orReplace?: pulumi.Input<boolean>;
+    /**
+     * The qualified name for the password policy.
+     */
+    qualifiedName?: pulumi.Input<string>;
     /**
      * The schema this password policy belongs to.
      */
