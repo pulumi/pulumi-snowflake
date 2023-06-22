@@ -8,6 +8,7 @@ import typing
 from .account import *
 from .account_grant import *
 from .account_parameter import *
+from .account_password_policy_attachment import *
 from .alert import *
 from .api_integration import *
 from .database import *
@@ -151,6 +152,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/accountParameter:AccountParameter": "AccountParameter"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/accountPasswordPolicyAttachment",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment": "AccountPasswordPolicyAttachment"
   }
  },
  {

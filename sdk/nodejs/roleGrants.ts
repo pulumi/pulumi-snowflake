@@ -62,7 +62,7 @@ export class RoleGrants extends pulumi.CustomResource {
     }
 
     /**
-     * When this is set to false, multiple grants of the same type cannot be created. This will cause Terraform to revoke
+     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
      * grants applied to roles and objects outside Terraform.
      */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
@@ -116,7 +116,7 @@ export class RoleGrants extends pulumi.CustomResource {
  */
 export interface RoleGrantsState {
     /**
-     * When this is set to false, multiple grants of the same type cannot be created. This will cause Terraform to revoke
+     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
      * grants applied to roles and objects outside Terraform.
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
@@ -139,7 +139,7 @@ export interface RoleGrantsState {
  */
 export interface RoleGrantsArgs {
     /**
-     * When this is set to false, multiple grants of the same type cannot be created. This will cause Terraform to revoke
+     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
      * grants applied to roles and objects outside Terraform.
      */
     enableMultipleGrants?: pulumi.Input<boolean>;
