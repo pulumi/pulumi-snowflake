@@ -37,6 +37,8 @@
             "disableUnionOutputTypes": true,
             "packageDescription": "A Pulumi package for creating and managing snowflake cloud resources.",
             "packageName": "",
+            "pluginName": "",
+            "pluginVersion": "",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/Snowflake-Labs/terraform-provider-snowflake)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-snowflake` repo](https://github.com/pulumi/pulumi-snowflake/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-snowflake` repo](https://github.com/Snowflake-Labs/terraform-provider-snowflake/issues).",
             "typescriptVersion": ""
         },
@@ -215,6 +217,13 @@
                         "SNOWFLAKE_ROLE"
                     ]
                 }
+            },
+            "sessionParams": {
+                "type": "object",
+                "additionalProperties": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "description": "Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)\n"
             },
             "username": {
                 "type": "string",
@@ -436,6 +445,108 @@
             "required": [
                 "name",
                 "type"
+            ]
+        },
+        "snowflake:index/GrantPrivilegesToRoleOnAccountObject:GrantPrivilegesToRoleOnAccountObject": {
+            "properties": {
+                "objectName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the object on which privileges will be granted.\n"
+                },
+                "objectType": {
+                    "type": "string",
+                    "description": "The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "objectName",
+                "objectType"
+            ]
+        },
+        "snowflake:index/GrantPrivilegesToRoleOnSchema:GrantPrivilegesToRoleOnSchema": {
+            "properties": {
+                "allSchemasInDatabase": {
+                    "type": "string",
+                    "description": "The fully qualified name of the database.\n",
+                    "willReplaceOnChanges": true
+                },
+                "futureSchemasInDatabase": {
+                    "type": "string",
+                    "description": "The fully qualified name of the database.\n",
+                    "willReplaceOnChanges": true
+                },
+                "schemaName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the schema.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object"
+        },
+        "snowflake:index/GrantPrivilegesToRoleOnSchemaObject:GrantPrivilegesToRoleOnSchemaObject": {
+            "properties": {
+                "all": {
+                    "$ref": "#/types/snowflake:index/GrantPrivilegesToRoleOnSchemaObjectAll:GrantPrivilegesToRoleOnSchemaObjectAll",
+                    "description": "Configures the privilege to be granted on all objects in eihter a database or schema.\n",
+                    "willReplaceOnChanges": true
+                },
+                "future": {
+                    "$ref": "#/types/snowflake:index/GrantPrivilegesToRoleOnSchemaObjectFuture:GrantPrivilegesToRoleOnSchemaObjectFuture",
+                    "description": "Configures the privilege to be granted on future objects in eihter a database or schema.\n",
+                    "willReplaceOnChanges": true
+                },
+                "objectName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the object on which privileges will be granted.\n",
+                    "willReplaceOnChanges": true
+                },
+                "objectType": {
+                    "type": "string",
+                    "description": "The object type of the schema object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object"
+        },
+        "snowflake:index/GrantPrivilegesToRoleOnSchemaObjectAll:GrantPrivilegesToRoleOnSchemaObjectAll": {
+            "properties": {
+                "inDatabase": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "inSchema": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "objectTypePlural": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "objectTypePlural"
+            ]
+        },
+        "snowflake:index/GrantPrivilegesToRoleOnSchemaObjectFuture:GrantPrivilegesToRoleOnSchemaObjectFuture": {
+            "properties": {
+                "inDatabase": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "inSchema": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "objectTypePlural": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "objectTypePlural"
             ]
         },
         "snowflake:index/MaskingPolicySignature:MaskingPolicySignature": {
@@ -2139,6 +2250,13 @@
                 "type": "string",
                 "description": "Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the\n`SNOWFLAKE_ROLE` environment variable.\n"
             },
+            "sessionParams": {
+                "type": "object",
+                "additionalProperties": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "description": "Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)\n"
+            },
             "username": {
                 "type": "string",
                 "description": "Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless\nusing profile.\n"
@@ -2314,6 +2432,13 @@
                         "SNOWFLAKE_ROLE"
                     ]
                 }
+            },
+            "sessionParams": {
+                "type": "object",
+                "additionalProperties": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "description": "Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)\n"
             },
             "username": {
                 "type": "string",
@@ -4916,10 +5041,22 @@
                 }
             },
             "required": [
+                "binaryFormat",
+                "compression",
                 "database",
+                "dateFormat",
+                "encoding",
+                "escape",
+                "escapeUnenclosedField",
+                "fieldDelimiter",
+                "fieldOptionallyEnclosedBy",
                 "formatType",
                 "name",
-                "schema"
+                "nullIfs",
+                "recordDelimiter",
+                "schema",
+                "timeFormat",
+                "timestampFormat"
             ],
             "inputProperties": {
                 "allowDuplicate": {
@@ -5876,6 +6013,142 @@
                 "type": "object"
             }
         },
+        "snowflake:index/grantPrivilegesToRole:GrantPrivilegesToRole": {
+            "description": "{{% examples %}}\n## Example Usage\n### global privileges\n##################################\n\n# list of privileges\nresource \"snowflake_grant_privileges_to_role\" \"g1\" {\n  privileges = [\"MODIFY\", \"USAGE\"]\n  role_name  = snowflake_role.r.name\n  on_account = true\n}\n\n# all privileges + grant option\nresource \"snowflake_grant_privileges_to_role\" \"g2\" {\n  role_name         = snowflake_role.r.name\n  on_account        = true\n  all_privileges    = true\n  with_grant_option = true\n}\n\n##################################\n### account object privileges\n##################################\n\n# list of privileges\nresource \"snowflake_grant_privileges_to_role\" \"g3\" {\n  privileges = [\"CREATE\", \"MONITOR\"]\n  role_name  = snowflake_role.r.name\n  on_account_object {\n    object_type = \"DATABASE\"\n    object_name = snowflake_database.d.name\n  }\n}\n\n# all privileges + grant option\nresource \"snowflake_grant_privileges_to_role\" \"g4\" {\n  role_name = snowflake_role.r.name\n  on_account_object {\n    object_type = \"DATABASE\"\n    object_name = snowflake_database.d.name\n  }\n  all_privileges    = true\n  with_grant_option = true\n}\n\n##################################\n### schema privileges\n##################################\n\n# list of privileges\nresource \"snowflake_grant_privileges_to_role\" \"g5\" {\n  privileges = [\"MODIFY\", \"CREATE TABLE\"]\n  role_name  = snowflake_role.r.name\n  on_schema {\n    schema_name = \"\\\"my_db\\\".\\\"my_schema\\\"\" # note this is a fully qualified name!\n  }\n}\n\n# all privileges + grant option\nresource \"snowflake_grant_privileges_to_role\" \"g6\" {\n  role_name = snowflake_role.r.name\n  on_schema {\n    schema_name = \"\\\"my_db\\\".\\\"my_schema\\\"\" # note this is a fully qualified name!\n  }\n  all_privileges    = true\n  with_grant_option = true\n}\n\n# all schemas in database\nresource \"snowflake_grant_privileges_to_role\" \"g7\" {\n  privileges = [\"MODIFY\", \"CREATE TABLE\"]\n  role_name  = snowflake_role.r.name\n  on_schema {\n    all_schemas_in_database = snowflake_database.d.name\n  }\n}\n\n# future schemas in database\nresource \"snowflake_grant_privileges_to_role\" \"g8\" {\n  privileges = [\"MODIFY\", \"CREATE TABLE\"]\n  role_name  = snowflake_role.r.name\n  on_schema {\n    future_schemas_in_database = snowflake_database.d.name\n  }\n}\n\n##################################\n{{% /examples %}}\n\n## Import\n\nformat is role_name (string) | privileges (comma-delimited string) | all_privileges (bool) |with_grant_option (bool) | on_account (bool) | on_account_object (bool) | on_schema (bool) | on_schema_object (bool) | all (bool) | future (bool) | object_type (string) | object_name (string) | object_type_plural (string) | in_schema (bool) | schema_name (string) | in_database (bool) | database_name (string)\n\n```sh\n $ pulumi import snowflake:index/grantPrivilegesToRole:GrantPrivilegesToRole \"test_role|MANAGE GRANTS,MONITOR USAGE|false|false|true|false|false|false|false|false||||false||false|\"\n```\n\n ",
+            "properties": {
+                "allPrivileges": {
+                    "type": "boolean",
+                    "description": "Grant all privileges on the account role.\n"
+                },
+                "onAccount": {
+                    "type": "boolean",
+                    "description": "If true, the privileges will be granted on the account.\n"
+                },
+                "onAccountObject": {
+                    "$ref": "#/types/snowflake:index/GrantPrivilegesToRoleOnAccountObject:GrantPrivilegesToRoleOnAccountObject",
+                    "description": "Specifies the account object on which privileges will be granted\n"
+                },
+                "onSchema": {
+                    "$ref": "#/types/snowflake:index/GrantPrivilegesToRoleOnSchema:GrantPrivilegesToRoleOnSchema",
+                    "description": "Specifies the schema on which privileges will be granted.\n"
+                },
+                "onSchemaObject": {
+                    "$ref": "#/types/snowflake:index/GrantPrivilegesToRoleOnSchemaObject:GrantPrivilegesToRoleOnSchemaObject",
+                    "description": "Specifies the schema object on which privileges will be granted.\n"
+                },
+                "privileges": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The privileges to grant on the account role.\n"
+                },
+                "roleName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the role to which privileges will be granted.\n"
+                },
+                "withGrantOption": {
+                    "type": "boolean",
+                    "description": "Specifies whether the grantee can grant the privileges to other users.\n"
+                }
+            },
+            "required": [
+                "roleName"
+            ],
+            "inputProperties": {
+                "allPrivileges": {
+                    "type": "boolean",
+                    "description": "Grant all privileges on the account role.\n"
+                },
+                "onAccount": {
+                    "type": "boolean",
+                    "description": "If true, the privileges will be granted on the account.\n",
+                    "willReplaceOnChanges": true
+                },
+                "onAccountObject": {
+                    "$ref": "#/types/snowflake:index/GrantPrivilegesToRoleOnAccountObject:GrantPrivilegesToRoleOnAccountObject",
+                    "description": "Specifies the account object on which privileges will be granted\n",
+                    "willReplaceOnChanges": true
+                },
+                "onSchema": {
+                    "$ref": "#/types/snowflake:index/GrantPrivilegesToRoleOnSchema:GrantPrivilegesToRoleOnSchema",
+                    "description": "Specifies the schema on which privileges will be granted.\n",
+                    "willReplaceOnChanges": true
+                },
+                "onSchemaObject": {
+                    "$ref": "#/types/snowflake:index/GrantPrivilegesToRoleOnSchemaObject:GrantPrivilegesToRoleOnSchemaObject",
+                    "description": "Specifies the schema object on which privileges will be granted.\n",
+                    "willReplaceOnChanges": true
+                },
+                "privileges": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The privileges to grant on the account role.\n"
+                },
+                "roleName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the role to which privileges will be granted.\n",
+                    "willReplaceOnChanges": true
+                },
+                "withGrantOption": {
+                    "type": "boolean",
+                    "description": "Specifies whether the grantee can grant the privileges to other users.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "roleName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering GrantPrivilegesToRole resources.\n",
+                "properties": {
+                    "allPrivileges": {
+                        "type": "boolean",
+                        "description": "Grant all privileges on the account role.\n"
+                    },
+                    "onAccount": {
+                        "type": "boolean",
+                        "description": "If true, the privileges will be granted on the account.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "onAccountObject": {
+                        "$ref": "#/types/snowflake:index/GrantPrivilegesToRoleOnAccountObject:GrantPrivilegesToRoleOnAccountObject",
+                        "description": "Specifies the account object on which privileges will be granted\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "onSchema": {
+                        "$ref": "#/types/snowflake:index/GrantPrivilegesToRoleOnSchema:GrantPrivilegesToRoleOnSchema",
+                        "description": "Specifies the schema on which privileges will be granted.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "onSchemaObject": {
+                        "$ref": "#/types/snowflake:index/GrantPrivilegesToRoleOnSchemaObject:GrantPrivilegesToRoleOnSchemaObject",
+                        "description": "Specifies the schema object on which privileges will be granted.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "privileges": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The privileges to grant on the account role.\n"
+                    },
+                    "roleName": {
+                        "type": "string",
+                        "description": "The fully qualified name of the role to which privileges will be granted.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "withGrantOption": {
+                        "type": "boolean",
+                        "description": "Specifies whether the grantee can grant the privileges to other users.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "snowflake:index/integrationGrant:IntegrationGrant": {
             "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grant = new snowflake.IntegrationGrant(\"grant\", {\n    integrationName: \"integration\",\n    privilege: \"USAGE\",\n    roles: [\n        \"role1\",\n        \"role2\",\n    ],\n    withGrantOption: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ngrant = snowflake.IntegrationGrant(\"grant\",\n    integration_name=\"integration\",\n    privilege=\"USAGE\",\n    roles=[\n        \"role1\",\n        \"role2\",\n    ],\n    with_grant_option=False)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var grant = new Snowflake.IntegrationGrant(\"grant\", new()\n    {\n        IntegrationName = \"integration\",\n        Privilege = \"USAGE\",\n        Roles = new[]\n        {\n            \"role1\",\n            \"role2\",\n        },\n        WithGrantOption = false,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewIntegrationGrant(ctx, \"grant\", \u0026snowflake.IntegrationGrantArgs{\n\t\t\tIntegrationName: pulumi.String(\"integration\"),\n\t\t\tPrivilege:       pulumi.String(\"USAGE\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"role1\"),\n\t\t\t\tpulumi.String(\"role2\"),\n\t\t\t},\n\t\t\tWithGrantOption: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.IntegrationGrant;\nimport com.pulumi.snowflake.IntegrationGrantArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var grant = new IntegrationGrant(\"grant\", IntegrationGrantArgs.builder()        \n            .integrationName(\"integration\")\n            .privilege(\"USAGE\")\n            .roles(            \n                \"role1\",\n                \"role2\")\n            .withGrantOption(false)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  grant:\n    type: snowflake:IntegrationGrant\n    properties:\n      integrationName: integration\n      privilege: USAGE\n      roles:\n        - role1\n        - role2\n      withGrantOption: false\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nformat is integration_name|privilege|with_grant_option|roles\n\n```sh\n $ pulumi import snowflake:index/integrationGrant:IntegrationGrant example \"MY_INTEGRATION|USAGE|false|role1,role2\"\n```\n\n ",
             "properties": {
@@ -6125,7 +6398,7 @@
             }
         },
         "snowflake:index/maskingPolicy:MaskingPolicy": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst test = new snowflake.MaskingPolicy(\"test\", {\n    database: \"EXAMPLE_DB\",\n    maskingExpression: `  case \n    when current_role() in ('ROLE_A') then \n      val \n    when is_role_in_session( 'ROLE_B' ) then \n      'ABC123'\n    else\n      '******'\n  end\n\n`,\n    returnDataType: \"VARCHAR\",\n    schema: \"EXAMPLE_SCHEMA\",\n    signature: {\n        columns: [{\n            name: \"val\",\n            type: \"VARCHAR\",\n        }],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ntest = snowflake.MaskingPolicy(\"test\",\n    database=\"EXAMPLE_DB\",\n    masking_expression=\"\"\"  case \n    when current_role() in ('ROLE_A') then \n      val \n    when is_role_in_session( 'ROLE_B' ) then \n      'ABC123'\n    else\n      '******'\n  end\n\n\"\"\",\n    return_data_type=\"VARCHAR\",\n    schema=\"EXAMPLE_SCHEMA\",\n    signature=snowflake.MaskingPolicySignatureArgs(\n        columns=[snowflake.MaskingPolicySignatureColumnArgs(\n            name=\"val\",\n            type=\"VARCHAR\",\n        )],\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Snowflake.MaskingPolicy(\"test\", new()\n    {\n        Database = \"EXAMPLE_DB\",\n        MaskingExpression = @\"  case \n    when current_role() in ('ROLE_A') then \n      val \n    when is_role_in_session( 'ROLE_B' ) then \n      'ABC123'\n    else\n      '******'\n  end\n\n\",\n        ReturnDataType = \"VARCHAR\",\n        Schema = \"EXAMPLE_SCHEMA\",\n        Signature = new Snowflake.Inputs.MaskingPolicySignatureArgs\n        {\n            Columns = new[]\n            {\n                new Snowflake.Inputs.MaskingPolicySignatureColumnArgs\n                {\n                    Name = \"val\",\n                    Type = \"VARCHAR\",\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewMaskingPolicy(ctx, \"test\", \u0026snowflake.MaskingPolicyArgs{\n\t\t\tDatabase:          pulumi.String(\"EXAMPLE_DB\"),\n\t\t\tMaskingExpression: pulumi.String(\"  case \\n    when current_role() in ('ROLE_A') then \\n      val \\n    when is_role_in_session( 'ROLE_B' ) then \\n      'ABC123'\\n    else\\n      '******'\\n  end\\n\\n\"),\n\t\t\tReturnDataType:    pulumi.String(\"VARCHAR\"),\n\t\t\tSchema:            pulumi.String(\"EXAMPLE_SCHEMA\"),\n\t\t\tSignature: \u0026snowflake.MaskingPolicySignatureArgs{\n\t\t\t\tColumns: snowflake.MaskingPolicySignatureColumnArray{\n\t\t\t\t\t\u0026snowflake.MaskingPolicySignatureColumnArgs{\n\t\t\t\t\t\tName: pulumi.String(\"val\"),\n\t\t\t\t\t\tType: pulumi.String(\"VARCHAR\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.MaskingPolicy;\nimport com.pulumi.snowflake.MaskingPolicyArgs;\nimport com.pulumi.snowflake.inputs.MaskingPolicySignatureArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new MaskingPolicy(\"test\", MaskingPolicyArgs.builder()        \n            .database(\"EXAMPLE_DB\")\n            .maskingExpression(\"\"\"\n  case \n    when current_role() in ('ROLE_A') then \n      val \n    when is_role_in_session( 'ROLE_B' ) then \n      'ABC123'\n    else\n      '******'\n  end\n\n            \"\"\")\n            .returnDataType(\"VARCHAR\")\n            .schema(\"EXAMPLE_SCHEMA\")\n            .signature(MaskingPolicySignatureArgs.builder()\n                .columns(MaskingPolicySignatureColumnArgs.builder()\n                    .name(\"val\")\n                    .type(\"VARCHAR\")\n                    .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: snowflake:MaskingPolicy\n    properties:\n      database: EXAMPLE_DB\n      maskingExpression: \"  case \\n    when current_role() in ('ROLE_A') then \\n      val \\n    when is_role_in_session( 'ROLE_B' ) then \\n      'ABC123'\\n    else\\n      '******'\\n  end\\n\\n\"\n      returnDataType: VARCHAR\n      schema: EXAMPLE_SCHEMA\n      signature:\n        columns:\n          - name: val\n            type: VARCHAR\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nformat is database name | schema name | policy name\n\n```sh\n $ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example 'dbName|schemaName|policyName'\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst test = new snowflake.MaskingPolicy(\"test\", {\n    database: \"EXAMPLE_DB\",\n    maskingExpression: `  case \n    when current_role() in ('ROLE_A') then \n      val \n    when is_role_in_session( 'ROLE_B' ) then \n      'ABC123'\n    else\n      '******'\n  end\n\n`,\n    returnDataType: \"VARCHAR\",\n    schema: \"EXAMPLE_SCHEMA\",\n    signature: {\n        columns: [{\n            name: \"val\",\n            type: \"VARCHAR\",\n        }],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ntest = snowflake.MaskingPolicy(\"test\",\n    database=\"EXAMPLE_DB\",\n    masking_expression=\"\"\"  case \n    when current_role() in ('ROLE_A') then \n      val \n    when is_role_in_session( 'ROLE_B' ) then \n      'ABC123'\n    else\n      '******'\n  end\n\n\"\"\",\n    return_data_type=\"VARCHAR\",\n    schema=\"EXAMPLE_SCHEMA\",\n    signature=snowflake.MaskingPolicySignatureArgs(\n        columns=[snowflake.MaskingPolicySignatureColumnArgs(\n            name=\"val\",\n            type=\"VARCHAR\",\n        )],\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Snowflake.MaskingPolicy(\"test\", new()\n    {\n        Database = \"EXAMPLE_DB\",\n        MaskingExpression = @\"  case \n    when current_role() in ('ROLE_A') then \n      val \n    when is_role_in_session( 'ROLE_B' ) then \n      'ABC123'\n    else\n      '******'\n  end\n\n\",\n        ReturnDataType = \"VARCHAR\",\n        Schema = \"EXAMPLE_SCHEMA\",\n        Signature = new Snowflake.Inputs.MaskingPolicySignatureArgs\n        {\n            Columns = new[]\n            {\n                new Snowflake.Inputs.MaskingPolicySignatureColumnArgs\n                {\n                    Name = \"val\",\n                    Type = \"VARCHAR\",\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewMaskingPolicy(ctx, \"test\", \u0026snowflake.MaskingPolicyArgs{\n\t\t\tDatabase: pulumi.String(\"EXAMPLE_DB\"),\n\t\t\tMaskingExpression: pulumi.String(`  case \n    when current_role() in ('ROLE_A') then \n      val \n    when is_role_in_session( 'ROLE_B' ) then \n      'ABC123'\n    else\n      '******'\n  end\n\n`),\n\t\t\tReturnDataType: pulumi.String(\"VARCHAR\"),\n\t\t\tSchema:         pulumi.String(\"EXAMPLE_SCHEMA\"),\n\t\t\tSignature: \u0026snowflake.MaskingPolicySignatureArgs{\n\t\t\t\tColumns: snowflake.MaskingPolicySignatureColumnArray{\n\t\t\t\t\t\u0026snowflake.MaskingPolicySignatureColumnArgs{\n\t\t\t\t\t\tName: pulumi.String(\"val\"),\n\t\t\t\t\t\tType: pulumi.String(\"VARCHAR\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.MaskingPolicy;\nimport com.pulumi.snowflake.MaskingPolicyArgs;\nimport com.pulumi.snowflake.inputs.MaskingPolicySignatureArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new MaskingPolicy(\"test\", MaskingPolicyArgs.builder()        \n            .database(\"EXAMPLE_DB\")\n            .maskingExpression(\"\"\"\n  case \n    when current_role() in ('ROLE_A') then \n      val \n    when is_role_in_session( 'ROLE_B' ) then \n      'ABC123'\n    else\n      '******'\n  end\n\n            \"\"\")\n            .returnDataType(\"VARCHAR\")\n            .schema(\"EXAMPLE_SCHEMA\")\n            .signature(MaskingPolicySignatureArgs.builder()\n                .columns(MaskingPolicySignatureColumnArgs.builder()\n                    .name(\"val\")\n                    .type(\"VARCHAR\")\n                    .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: snowflake:MaskingPolicy\n    properties:\n      database: EXAMPLE_DB\n      maskingExpression: \"  case \\n    when current_role() in ('ROLE_A') then \\n      val \\n    when is_role_in_session( 'ROLE_B' ) then \\n      'ABC123'\\n    else\\n      '******'\\n  end\\n\\n\"\n      returnDataType: VARCHAR\n      schema: EXAMPLE_SCHEMA\n      signature:\n        columns:\n          - name: val\n            type: VARCHAR\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nformat is database name | schema name | policy name\n\n```sh\n $ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example 'dbName|schemaName|policyName'\n```\n\n ",
             "properties": {
                 "comment": {
                     "type": "string",
@@ -13067,6 +13340,10 @@
                     "type": "boolean",
                     "description": "Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.\n"
                 },
+                "createdOn": {
+                    "type": "string",
+                    "description": "The timestamp at which the view was created.\n"
+                },
                 "database": {
                     "type": "string",
                     "description": "The database in which to create the view. Don't use the | character.\n"
@@ -13101,6 +13378,7 @@
                 }
             },
             "required": [
+                "createdOn",
                 "database",
                 "name",
                 "schema",
@@ -13113,8 +13391,7 @@
                 },
                 "copyGrants": {
                     "type": "boolean",
-                    "description": "Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.\n",
-                    "willReplaceOnChanges": true
+                    "description": "Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.\n"
                 },
                 "database": {
                     "type": "string",
@@ -13166,8 +13443,11 @@
                     },
                     "copyGrants": {
                         "type": "boolean",
-                        "description": "Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.\n",
-                        "willReplaceOnChanges": true
+                        "description": "Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.\n"
+                    },
+                    "createdOn": {
+                        "type": "string",
+                        "description": "The timestamp at which the view was created.\n"
                     },
                     "database": {
                         "type": "string",
