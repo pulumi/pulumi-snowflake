@@ -233,6 +233,17 @@ Object.defineProperty(exports, "role", {
 });
 
 /**
+ * Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
+ */
+export declare const sessionParams: {[key: string]: any} | undefined;
+Object.defineProperty(exports, "sessionParams", {
+    get() {
+        return __config.getObject<{[key: string]: any}>("sessionParams");
+    },
+    enumerable: true,
+});
+
+/**
  * Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
  * using profile.
  */

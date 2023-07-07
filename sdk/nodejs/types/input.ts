@@ -252,6 +252,63 @@ export interface GetGrantsGrantsToArgs {
     user?: pulumi.Input<string>;
 }
 
+export interface GrantPrivilegesToRoleOnAccountObject {
+    /**
+     * The fully qualified name of the object on which privileges will be granted.
+     */
+    objectName: pulumi.Input<string>;
+    /**
+     * The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP
+     */
+    objectType: pulumi.Input<string>;
+}
+
+export interface GrantPrivilegesToRoleOnSchema {
+    /**
+     * The fully qualified name of the database.
+     */
+    allSchemasInDatabase?: pulumi.Input<string>;
+    /**
+     * The fully qualified name of the database.
+     */
+    futureSchemasInDatabase?: pulumi.Input<string>;
+    /**
+     * The fully qualified name of the schema.
+     */
+    schemaName?: pulumi.Input<string>;
+}
+
+export interface GrantPrivilegesToRoleOnSchemaObject {
+    /**
+     * Configures the privilege to be granted on all objects in eihter a database or schema.
+     */
+    all?: pulumi.Input<inputs.GrantPrivilegesToRoleOnSchemaObjectAll>;
+    /**
+     * Configures the privilege to be granted on future objects in eihter a database or schema.
+     */
+    future?: pulumi.Input<inputs.GrantPrivilegesToRoleOnSchemaObjectFuture>;
+    /**
+     * The fully qualified name of the object on which privileges will be granted.
+     */
+    objectName?: pulumi.Input<string>;
+    /**
+     * The object type of the schema object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP
+     */
+    objectType?: pulumi.Input<string>;
+}
+
+export interface GrantPrivilegesToRoleOnSchemaObjectAll {
+    inDatabase?: pulumi.Input<string>;
+    inSchema?: pulumi.Input<string>;
+    objectTypePlural: pulumi.Input<string>;
+}
+
+export interface GrantPrivilegesToRoleOnSchemaObjectFuture {
+    inDatabase?: pulumi.Input<string>;
+    inSchema?: pulumi.Input<string>;
+    objectTypePlural: pulumi.Input<string>;
+}
+
 export interface MaskingPolicySignature {
     columns: pulumi.Input<pulumi.Input<inputs.MaskingPolicySignatureColumn>[]>;
 }

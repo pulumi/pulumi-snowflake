@@ -549,6 +549,63 @@ export interface GetWarehousesWarehouse {
     type: string;
 }
 
+export interface GrantPrivilegesToRoleOnAccountObject {
+    /**
+     * The fully qualified name of the object on which privileges will be granted.
+     */
+    objectName: string;
+    /**
+     * The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP
+     */
+    objectType: string;
+}
+
+export interface GrantPrivilegesToRoleOnSchema {
+    /**
+     * The fully qualified name of the database.
+     */
+    allSchemasInDatabase?: string;
+    /**
+     * The fully qualified name of the database.
+     */
+    futureSchemasInDatabase?: string;
+    /**
+     * The fully qualified name of the schema.
+     */
+    schemaName?: string;
+}
+
+export interface GrantPrivilegesToRoleOnSchemaObject {
+    /**
+     * Configures the privilege to be granted on all objects in eihter a database or schema.
+     */
+    all?: outputs.GrantPrivilegesToRoleOnSchemaObjectAll;
+    /**
+     * Configures the privilege to be granted on future objects in eihter a database or schema.
+     */
+    future?: outputs.GrantPrivilegesToRoleOnSchemaObjectFuture;
+    /**
+     * The fully qualified name of the object on which privileges will be granted.
+     */
+    objectName?: string;
+    /**
+     * The object type of the schema object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP
+     */
+    objectType?: string;
+}
+
+export interface GrantPrivilegesToRoleOnSchemaObjectAll {
+    inDatabase?: string;
+    inSchema?: string;
+    objectTypePlural: string;
+}
+
+export interface GrantPrivilegesToRoleOnSchemaObjectFuture {
+    inDatabase?: string;
+    inSchema?: string;
+    objectTypePlural: string;
+}
+
 export interface MaskingPolicySignature {
     columns: outputs.MaskingPolicySignatureColumn[];
 }

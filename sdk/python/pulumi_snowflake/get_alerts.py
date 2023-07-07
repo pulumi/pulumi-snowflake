@@ -121,11 +121,11 @@ def get_alerts(database: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getAlerts:getAlerts', __args__, opts=opts, typ=GetAlertsResult).value
 
     return AwaitableGetAlertsResult(
-        alerts=__ret__.alerts,
-        database=__ret__.database,
-        id=__ret__.id,
-        pattern=__ret__.pattern,
-        schema=__ret__.schema)
+        alerts=pulumi.get(__ret__, 'alerts'),
+        database=pulumi.get(__ret__, 'database'),
+        id=pulumi.get(__ret__, 'id'),
+        pattern=pulumi.get(__ret__, 'pattern'),
+        schema=pulumi.get(__ret__, 'schema'))
 
 
 @_utilities.lift_output_func(get_alerts)

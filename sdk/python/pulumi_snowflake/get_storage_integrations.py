@@ -72,5 +72,5 @@ def get_storage_integrations(opts: Optional[pulumi.InvokeOptions] = None) -> Awa
     __ret__ = pulumi.runtime.invoke('snowflake:index/getStorageIntegrations:getStorageIntegrations', __args__, opts=opts, typ=GetStorageIntegrationsResult).value
 
     return AwaitableGetStorageIntegrationsResult(
-        id=__ret__.id,
-        storage_integrations=__ret__.storage_integrations)
+        id=pulumi.get(__ret__, 'id'),
+        storage_integrations=pulumi.get(__ret__, 'storage_integrations'))

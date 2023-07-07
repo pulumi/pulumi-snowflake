@@ -106,10 +106,10 @@ def get_materialized_views(database: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getMaterializedViews:getMaterializedViews', __args__, opts=opts, typ=GetMaterializedViewsResult).value
 
     return AwaitableGetMaterializedViewsResult(
-        database=__ret__.database,
-        id=__ret__.id,
-        materialized_views=__ret__.materialized_views,
-        schema=__ret__.schema)
+        database=pulumi.get(__ret__, 'database'),
+        id=pulumi.get(__ret__, 'id'),
+        materialized_views=pulumi.get(__ret__, 'materialized_views'),
+        schema=pulumi.get(__ret__, 'schema'))
 
 
 @_utilities.lift_output_func(get_materialized_views)

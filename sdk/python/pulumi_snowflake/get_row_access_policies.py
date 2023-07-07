@@ -106,10 +106,10 @@ def get_row_access_policies(database: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getRowAccessPolicies:getRowAccessPolicies', __args__, opts=opts, typ=GetRowAccessPoliciesResult).value
 
     return AwaitableGetRowAccessPoliciesResult(
-        database=__ret__.database,
-        id=__ret__.id,
-        row_access_policies=__ret__.row_access_policies,
-        schema=__ret__.schema)
+        database=pulumi.get(__ret__, 'database'),
+        id=pulumi.get(__ret__, 'id'),
+        row_access_policies=pulumi.get(__ret__, 'row_access_policies'),
+        schema=pulumi.get(__ret__, 'schema'))
 
 
 @_utilities.lift_output_func(get_row_access_policies)

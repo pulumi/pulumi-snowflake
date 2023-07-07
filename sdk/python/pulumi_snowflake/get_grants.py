@@ -175,13 +175,13 @@ def get_grants(future_grants_in: Optional[pulumi.InputType['GetGrantsFutureGrant
     __ret__ = pulumi.runtime.invoke('snowflake:index/getGrants:getGrants', __args__, opts=opts, typ=GetGrantsResult).value
 
     return AwaitableGetGrantsResult(
-        future_grants_in=__ret__.future_grants_in,
-        future_grants_to=__ret__.future_grants_to,
-        grants=__ret__.grants,
-        grants_of=__ret__.grants_of,
-        grants_on=__ret__.grants_on,
-        grants_to=__ret__.grants_to,
-        id=__ret__.id)
+        future_grants_in=pulumi.get(__ret__, 'future_grants_in'),
+        future_grants_to=pulumi.get(__ret__, 'future_grants_to'),
+        grants=pulumi.get(__ret__, 'grants'),
+        grants_of=pulumi.get(__ret__, 'grants_of'),
+        grants_on=pulumi.get(__ret__, 'grants_on'),
+        grants_to=pulumi.get(__ret__, 'grants_to'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_grants)

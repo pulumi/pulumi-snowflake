@@ -72,5 +72,5 @@ def get_warehouses(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetW
     __ret__ = pulumi.runtime.invoke('snowflake:index/getWarehouses:getWarehouses', __args__, opts=opts, typ=GetWarehousesResult).value
 
     return AwaitableGetWarehousesResult(
-        id=__ret__.id,
-        warehouses=__ret__.warehouses)
+        id=pulumi.get(__ret__, 'id'),
+        warehouses=pulumi.get(__ret__, 'warehouses'))

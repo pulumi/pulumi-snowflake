@@ -259,6 +259,9 @@ class WarehouseArgs:
         """
         Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         """
+        warnings.warn("""This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.""", DeprecationWarning)
+        pulumi.log.warn("""wait_for_provisioning is deprecated: This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.""")
+
         return pulumi.get(self, "wait_for_provisioning")
 
     @wait_for_provisioning.setter
@@ -538,6 +541,9 @@ class _WarehouseState:
         """
         Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         """
+        warnings.warn("""This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.""", DeprecationWarning)
+        pulumi.log.warn("""wait_for_provisioning is deprecated: This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.""")
+
         return pulumi.get(self, "wait_for_provisioning")
 
     @wait_for_provisioning.setter
@@ -903,6 +909,9 @@ class Warehouse(pulumi.CustomResource):
         """
         Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         """
+        warnings.warn("""This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.""", DeprecationWarning)
+        pulumi.log.warn("""wait_for_provisioning is deprecated: This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.""")
+
         return pulumi.get(self, "wait_for_provisioning")
 
     @property

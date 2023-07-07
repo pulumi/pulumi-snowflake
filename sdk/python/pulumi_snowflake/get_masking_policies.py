@@ -106,10 +106,10 @@ def get_masking_policies(database: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getMaskingPolicies:getMaskingPolicies', __args__, opts=opts, typ=GetMaskingPoliciesResult).value
 
     return AwaitableGetMaskingPoliciesResult(
-        database=__ret__.database,
-        id=__ret__.id,
-        masking_policies=__ret__.masking_policies,
-        schema=__ret__.schema)
+        database=pulumi.get(__ret__, 'database'),
+        id=pulumi.get(__ret__, 'id'),
+        masking_policies=pulumi.get(__ret__, 'masking_policies'),
+        schema=pulumi.get(__ret__, 'schema'))
 
 
 @_utilities.lift_output_func(get_masking_policies)

@@ -1518,7 +1518,7 @@ class FileFormat(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="binaryFormat")
-    def binary_format(self) -> pulumi.Output[Optional[str]]:
+    def binary_format(self) -> pulumi.Output[str]:
         """
         Defines the encoding format for binary input or output.
         """
@@ -1534,7 +1534,7 @@ class FileFormat(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def compression(self) -> pulumi.Output[Optional[str]]:
+    def compression(self) -> pulumi.Output[str]:
         """
         Specifies the current compression algorithm for the data file.
         """
@@ -1550,7 +1550,7 @@ class FileFormat(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dateFormat")
-    def date_format(self) -> pulumi.Output[Optional[str]]:
+    def date_format(self) -> pulumi.Output[str]:
         """
         Defines the format of date values in the data files (data loading) or table (data unloading).
         """
@@ -1590,7 +1590,7 @@ class FileFormat(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encoding(self) -> pulumi.Output[Optional[str]]:
+    def encoding(self) -> pulumi.Output[str]:
         """
         String (constant) that specifies the character set of the source data when loading data into a table.
         """
@@ -1606,7 +1606,7 @@ class FileFormat(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def escape(self) -> pulumi.Output[Optional[str]]:
+    def escape(self) -> pulumi.Output[str]:
         """
         Single character string used as the escape character for field values.
         """
@@ -1614,7 +1614,7 @@ class FileFormat(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="escapeUnenclosedField")
-    def escape_unenclosed_field(self) -> pulumi.Output[Optional[str]]:
+    def escape_unenclosed_field(self) -> pulumi.Output[str]:
         """
         Single character string used as the escape character for unenclosed field values only.
         """
@@ -1622,7 +1622,7 @@ class FileFormat(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fieldDelimiter")
-    def field_delimiter(self) -> pulumi.Output[Optional[str]]:
+    def field_delimiter(self) -> pulumi.Output[str]:
         """
         Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
         """
@@ -1630,7 +1630,7 @@ class FileFormat(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fieldOptionallyEnclosedBy")
-    def field_optionally_enclosed_by(self) -> pulumi.Output[Optional[str]]:
+    def field_optionally_enclosed_by(self) -> pulumi.Output[str]:
         """
         Character used to enclose strings.
         """
@@ -1670,7 +1670,7 @@ class FileFormat(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nullIfs")
-    def null_ifs(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def null_ifs(self) -> pulumi.Output[Sequence[str]]:
         """
         String used to convert to and from SQL NULL.
         """
@@ -1686,7 +1686,7 @@ class FileFormat(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recordDelimiter")
-    def record_delimiter(self) -> pulumi.Output[Optional[str]]:
+    def record_delimiter(self) -> pulumi.Output[str]:
         """
         Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
         """
@@ -1758,7 +1758,7 @@ class FileFormat(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeFormat")
-    def time_format(self) -> pulumi.Output[Optional[str]]:
+    def time_format(self) -> pulumi.Output[str]:
         """
         Defines the format of time values in the data files (data loading) or table (data unloading).
         """
@@ -1766,7 +1766,7 @@ class FileFormat(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timestampFormat")
-    def timestamp_format(self) -> pulumi.Output[Optional[str]]:
+    def timestamp_format(self) -> pulumi.Output[str]:
         """
         Defines the format of timestamp values in the data files (data loading) or table (data unloading).
         """

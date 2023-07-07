@@ -165,6 +165,13 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('role') or _utilities.get_env('SNOWFLAKE_ROLE')
 
     @property
+    def session_params(self) -> Optional[str]:
+        """
+        Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
+        """
+        return __config__.get('sessionParams')
+
+    @property
     def username(self) -> Optional[str]:
         """
         Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless

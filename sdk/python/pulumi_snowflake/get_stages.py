@@ -106,10 +106,10 @@ def get_stages(database: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getStages:getStages', __args__, opts=opts, typ=GetStagesResult).value
 
     return AwaitableGetStagesResult(
-        database=__ret__.database,
-        id=__ret__.id,
-        schema=__ret__.schema,
-        stages=__ret__.stages)
+        database=pulumi.get(__ret__, 'database'),
+        id=pulumi.get(__ret__, 'id'),
+        schema=pulumi.get(__ret__, 'schema'),
+        stages=pulumi.get(__ret__, 'stages'))
 
 
 @_utilities.lift_output_func(get_stages)

@@ -90,9 +90,9 @@ def get_schemas(database: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getSchemas:getSchemas', __args__, opts=opts, typ=GetSchemasResult).value
 
     return AwaitableGetSchemasResult(
-        database=__ret__.database,
-        id=__ret__.id,
-        schemas=__ret__.schemas)
+        database=pulumi.get(__ret__, 'database'),
+        id=pulumi.get(__ret__, 'id'),
+        schemas=pulumi.get(__ret__, 'schemas'))
 
 
 @_utilities.lift_output_func(get_schemas)

@@ -26,10 +26,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewMaskingPolicy(ctx, "test", &snowflake.MaskingPolicyArgs{
-//				Database:          pulumi.String("EXAMPLE_DB"),
-//				MaskingExpression: pulumi.String("  case \n    when current_role() in ('ROLE_A') then \n      val \n    when is_role_in_session( 'ROLE_B' ) then \n      'ABC123'\n    else\n      '******'\n  end\n\n"),
-//				ReturnDataType:    pulumi.String("VARCHAR"),
-//				Schema:            pulumi.String("EXAMPLE_SCHEMA"),
+//				Database: pulumi.String("EXAMPLE_DB"),
+//				MaskingExpression: pulumi.String(`  case
+//	    when current_role() in ('ROLE_A') then
+//	      val
+//	    when is_role_in_session( 'ROLE_B' ) then
+//	      'ABC123'
+//	    else
+//	      '******'
+//	  end
+//
+// `),
+//
+//				ReturnDataType: pulumi.String("VARCHAR"),
+//				Schema:         pulumi.String("EXAMPLE_SCHEMA"),
 //				Signature: &snowflake.MaskingPolicySignatureArgs{
 //					Columns: snowflake.MaskingPolicySignatureColumnArray{
 //						&snowflake.MaskingPolicySignatureColumnArgs{

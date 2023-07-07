@@ -273,6 +273,8 @@ type providerArgs struct {
 	// Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
 	// `SNOWFLAKE_ROLE` environment variable.
 	Role *string `pulumi:"role"`
+	// Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
+	SessionParams map[string]interface{} `pulumi:"sessionParams"`
 	// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
 	// using profile.
 	Username *string `pulumi:"username"`
@@ -336,6 +338,8 @@ type ProviderArgs struct {
 	// Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
 	// `SNOWFLAKE_ROLE` environment variable.
 	Role pulumi.StringPtrInput
+	// Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
+	SessionParams pulumi.MapInput
 	// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
 	// using profile.
 	Username pulumi.StringPtrInput

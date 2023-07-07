@@ -106,10 +106,10 @@ def get_views(database: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getViews:getViews', __args__, opts=opts, typ=GetViewsResult).value
 
     return AwaitableGetViewsResult(
-        database=__ret__.database,
-        id=__ret__.id,
-        schema=__ret__.schema,
-        views=__ret__.views)
+        database=pulumi.get(__ret__, 'database'),
+        id=pulumi.get(__ret__, 'id'),
+        schema=pulumi.get(__ret__, 'schema'),
+        views=pulumi.get(__ret__, 'views'))
 
 
 @_utilities.lift_output_func(get_views)

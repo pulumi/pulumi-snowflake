@@ -238,6 +238,16 @@ namespace Pulumi.Snowflake
             set => _role.Set(value);
         }
 
+        private static readonly __Value<ImmutableDictionary<string, object>?> _sessionParams = new __Value<ImmutableDictionary<string, object>?>(() => __config.GetObject<ImmutableDictionary<string, object>>("sessionParams"));
+        /// <summary>
+        /// Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
+        /// </summary>
+        public static ImmutableDictionary<string, object>? SessionParams
+        {
+            get => _sessionParams.Get();
+            set => _sessionParams.Set(value);
+        }
+
         private static readonly __Value<string?> _username = new __Value<string?>(() => __config.Get("username") ?? Utilities.GetEnv("SNOWFLAKE_USER"));
         /// <summary>
         /// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless

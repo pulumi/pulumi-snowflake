@@ -82,9 +82,9 @@ def get_database_roles(database: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getDatabaseRoles:getDatabaseRoles', __args__, opts=opts, typ=GetDatabaseRolesResult).value
 
     return AwaitableGetDatabaseRolesResult(
-        database=__ret__.database,
-        database_roles=__ret__.database_roles,
-        id=__ret__.id)
+        database=pulumi.get(__ret__, 'database'),
+        database_roles=pulumi.get(__ret__, 'database_roles'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_database_roles)

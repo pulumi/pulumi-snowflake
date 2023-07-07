@@ -76,6 +76,6 @@ def get_system_get_snowflake_platform_info(opts: Optional[pulumi.InvokeOptions] 
     __ret__ = pulumi.runtime.invoke('snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo', __args__, opts=opts, typ=GetSystemGetSnowflakePlatformInfoResult).value
 
     return AwaitableGetSystemGetSnowflakePlatformInfoResult(
-        aws_vpc_ids=__ret__.aws_vpc_ids,
-        azure_vnet_subnet_ids=__ret__.azure_vnet_subnet_ids,
-        id=__ret__.id)
+        aws_vpc_ids=pulumi.get(__ret__, 'aws_vpc_ids'),
+        azure_vnet_subnet_ids=pulumi.get(__ret__, 'azure_vnet_subnet_ids'),
+        id=pulumi.get(__ret__, 'id'))

@@ -68,6 +68,10 @@ export class View extends pulumi.CustomResource {
      */
     public readonly copyGrants!: pulumi.Output<boolean | undefined>;
     /**
+     * The timestamp at which the view was created.
+     */
+    public /*out*/ readonly createdOn!: pulumi.Output<string>;
+    /**
      * The database in which to create the view. Don't use the | character.
      */
     public readonly database!: pulumi.Output<string>;
@@ -113,6 +117,7 @@ export class View extends pulumi.CustomResource {
             const state = argsOrState as ViewState | undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["copyGrants"] = state ? state.copyGrants : undefined;
+            resourceInputs["createdOn"] = state ? state.createdOn : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["isSecure"] = state ? state.isSecure : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -140,6 +145,7 @@ export class View extends pulumi.CustomResource {
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["statement"] = args ? args.statement : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["createdOn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(View.__pulumiType, name, resourceInputs, opts);
@@ -158,6 +164,10 @@ export interface ViewState {
      * Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
      */
     copyGrants?: pulumi.Input<boolean>;
+    /**
+     * The timestamp at which the view was created.
+     */
+    createdOn?: pulumi.Input<string>;
     /**
      * The database in which to create the view. Don't use the | character.
      */

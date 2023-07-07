@@ -82,9 +82,9 @@ def get_shares(pattern: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getShares:getShares', __args__, opts=opts, typ=GetSharesResult).value
 
     return AwaitableGetSharesResult(
-        id=__ret__.id,
-        pattern=__ret__.pattern,
-        shares=__ret__.shares)
+        id=pulumi.get(__ret__, 'id'),
+        pattern=pulumi.get(__ret__, 'pattern'),
+        shares=pulumi.get(__ret__, 'shares'))
 
 
 @_utilities.lift_output_func(get_shares)

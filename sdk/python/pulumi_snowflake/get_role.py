@@ -89,9 +89,9 @@ def get_role(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getRole:getRole', __args__, opts=opts, typ=GetRoleResult).value
 
     return AwaitableGetRoleResult(
-        comment=__ret__.comment,
-        id=__ret__.id,
-        name=__ret__.name)
+        comment=pulumi.get(__ret__, 'comment'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_role)

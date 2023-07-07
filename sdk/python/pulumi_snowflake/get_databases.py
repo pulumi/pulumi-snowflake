@@ -135,12 +135,12 @@ def get_databases(history: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getDatabases:getDatabases', __args__, opts=opts, typ=GetDatabasesResult).value
 
     return AwaitableGetDatabasesResult(
-        databases=__ret__.databases,
-        history=__ret__.history,
-        id=__ret__.id,
-        pattern=__ret__.pattern,
-        starts_with=__ret__.starts_with,
-        terse=__ret__.terse)
+        databases=pulumi.get(__ret__, 'databases'),
+        history=pulumi.get(__ret__, 'history'),
+        id=pulumi.get(__ret__, 'id'),
+        pattern=pulumi.get(__ret__, 'pattern'),
+        starts_with=pulumi.get(__ret__, 'starts_with'),
+        terse=pulumi.get(__ret__, 'terse'))
 
 
 @_utilities.lift_output_func(get_databases)

@@ -120,6 +120,11 @@ Snowflake role to use for operations. If left unset, default role for user will 
 `SNOWFLAKE_ROLE` environment variable.
 """
 
+sessionParams: Optional[str]
+"""
+Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
+"""
+
 username: Optional[str]
 """
 Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless

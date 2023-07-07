@@ -143,6 +143,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["protocol"] = (args ? args.protocol : undefined) ?? utilities.getEnv("SNOWFLAKE_PROTOCOL");
             resourceInputs["region"] = (args ? args.region : undefined) ?? utilities.getEnv("SNOWFLAKE_REGION");
             resourceInputs["role"] = (args ? args.role : undefined) ?? utilities.getEnv("SNOWFLAKE_ROLE");
+            resourceInputs["sessionParams"] = pulumi.output(args ? args.sessionParams : undefined).apply(JSON.stringify);
             resourceInputs["username"] = (args ? args.username : undefined) ?? utilities.getEnv("SNOWFLAKE_USER");
             resourceInputs["warehouse"] = (args ? args.warehouse : undefined) ?? utilities.getEnv("SNOWFLAKE_WAREHOUSE");
         }
@@ -249,6 +250,10 @@ export interface ProviderArgs {
      * `SNOWFLAKE_ROLE` environment variable.
      */
     role?: pulumi.Input<string>;
+    /**
+     * Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
+     */
+    sessionParams?: pulumi.Input<{[key: string]: any}>;
     /**
      * Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
      * using profile.
