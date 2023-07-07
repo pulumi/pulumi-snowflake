@@ -106,10 +106,10 @@ def get_streams(database: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getStreams:getStreams', __args__, opts=opts, typ=GetStreamsResult).value
 
     return AwaitableGetStreamsResult(
-        database=__ret__.database,
-        id=__ret__.id,
-        schema=__ret__.schema,
-        streams=__ret__.streams)
+        database=pulumi.get(__ret__, 'database'),
+        id=pulumi.get(__ret__, 'id'),
+        schema=pulumi.get(__ret__, 'schema'),
+        streams=pulumi.get(__ret__, 'streams'))
 
 
 @_utilities.lift_output_func(get_streams)

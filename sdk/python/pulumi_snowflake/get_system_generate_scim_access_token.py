@@ -89,9 +89,9 @@ def get_system_generate_scim_access_token(integration_name: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken', __args__, opts=opts, typ=GetSystemGenerateScimAccessTokenResult).value
 
     return AwaitableGetSystemGenerateScimAccessTokenResult(
-        access_token=__ret__.access_token,
-        id=__ret__.id,
-        integration_name=__ret__.integration_name)
+        access_token=pulumi.get(__ret__, 'access_token'),
+        id=pulumi.get(__ret__, 'id'),
+        integration_name=pulumi.get(__ret__, 'integration_name'))
 
 
 @_utilities.lift_output_func(get_system_generate_scim_access_token)

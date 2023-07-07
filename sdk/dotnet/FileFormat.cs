@@ -57,7 +57,7 @@ namespace Pulumi.Snowflake
         /// Defines the encoding format for binary input or output.
         /// </summary>
         [Output("binaryFormat")]
-        public Output<string?> BinaryFormat { get; private set; } = null!;
+        public Output<string> BinaryFormat { get; private set; } = null!;
 
         /// <summary>
         /// Specifies a comment for the file format.
@@ -69,7 +69,7 @@ namespace Pulumi.Snowflake
         /// Specifies the current compression algorithm for the data file.
         /// </summary>
         [Output("compression")]
-        public Output<string?> Compression { get; private set; } = null!;
+        public Output<string> Compression { get; private set; } = null!;
 
         /// <summary>
         /// The database in which to create the file format.
@@ -81,7 +81,7 @@ namespace Pulumi.Snowflake
         /// Defines the format of date values in the data files (data loading) or table (data unloading).
         /// </summary>
         [Output("dateFormat")]
-        public Output<string?> DateFormat { get; private set; } = null!;
+        public Output<string> DateFormat { get; private set; } = null!;
 
         /// <summary>
         /// Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
@@ -111,7 +111,7 @@ namespace Pulumi.Snowflake
         /// String (constant) that specifies the character set of the source data when loading data into a table.
         /// </summary>
         [Output("encoding")]
-        public Output<string?> Encoding { get; private set; } = null!;
+        public Output<string> Encoding { get; private set; } = null!;
 
         /// <summary>
         /// Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
@@ -123,25 +123,25 @@ namespace Pulumi.Snowflake
         /// Single character string used as the escape character for field values.
         /// </summary>
         [Output("escape")]
-        public Output<string?> Escape { get; private set; } = null!;
+        public Output<string> Escape { get; private set; } = null!;
 
         /// <summary>
         /// Single character string used as the escape character for unenclosed field values only.
         /// </summary>
         [Output("escapeUnenclosedField")]
-        public Output<string?> EscapeUnenclosedField { get; private set; } = null!;
+        public Output<string> EscapeUnenclosedField { get; private set; } = null!;
 
         /// <summary>
         /// Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
         /// </summary>
         [Output("fieldDelimiter")]
-        public Output<string?> FieldDelimiter { get; private set; } = null!;
+        public Output<string> FieldDelimiter { get; private set; } = null!;
 
         /// <summary>
         /// Character used to enclose strings.
         /// </summary>
         [Output("fieldOptionallyEnclosedBy")]
-        public Output<string?> FieldOptionallyEnclosedBy { get; private set; } = null!;
+        public Output<string> FieldOptionallyEnclosedBy { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the extension for files unloaded to a stage.
@@ -183,7 +183,7 @@ namespace Pulumi.Snowflake
         /// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
         /// </summary>
         [Output("recordDelimiter")]
-        public Output<string?> RecordDelimiter { get; private set; } = null!;
+        public Output<string> RecordDelimiter { get; private set; } = null!;
 
         /// <summary>
         /// Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�).
@@ -237,13 +237,13 @@ namespace Pulumi.Snowflake
         /// Defines the format of time values in the data files (data loading) or table (data unloading).
         /// </summary>
         [Output("timeFormat")]
-        public Output<string?> TimeFormat { get; private set; } = null!;
+        public Output<string> TimeFormat { get; private set; } = null!;
 
         /// <summary>
         /// Defines the format of timestamp values in the data files (data loading) or table (data unloading).
         /// </summary>
         [Output("timestampFormat")]
-        public Output<string?> TimestampFormat { get; private set; } = null!;
+        public Output<string> TimestampFormat { get; private set; } = null!;
 
         /// <summary>
         /// Boolean that specifies whether to remove white space from fields.

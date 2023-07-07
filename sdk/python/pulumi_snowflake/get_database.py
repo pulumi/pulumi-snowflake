@@ -149,16 +149,16 @@ def get_database(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getDatabase:getDatabase', __args__, opts=opts, typ=GetDatabaseResult).value
 
     return AwaitableGetDatabaseResult(
-        comment=__ret__.comment,
-        created_on=__ret__.created_on,
-        id=__ret__.id,
-        is_current=__ret__.is_current,
-        is_default=__ret__.is_default,
-        name=__ret__.name,
-        options=__ret__.options,
-        origin=__ret__.origin,
-        owner=__ret__.owner,
-        retention_time=__ret__.retention_time)
+        comment=pulumi.get(__ret__, 'comment'),
+        created_on=pulumi.get(__ret__, 'created_on'),
+        id=pulumi.get(__ret__, 'id'),
+        is_current=pulumi.get(__ret__, 'is_current'),
+        is_default=pulumi.get(__ret__, 'is_default'),
+        name=pulumi.get(__ret__, 'name'),
+        options=pulumi.get(__ret__, 'options'),
+        origin=pulumi.get(__ret__, 'origin'),
+        owner=pulumi.get(__ret__, 'owner'),
+        retention_time=pulumi.get(__ret__, 'retention_time'))
 
 
 @_utilities.lift_output_func(get_database)

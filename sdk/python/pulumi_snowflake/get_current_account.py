@@ -99,7 +99,7 @@ def get_current_account(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
     __ret__ = pulumi.runtime.invoke('snowflake:index/getCurrentAccount:getCurrentAccount', __args__, opts=opts, typ=GetCurrentAccountResult).value
 
     return AwaitableGetCurrentAccountResult(
-        account=__ret__.account,
-        id=__ret__.id,
-        region=__ret__.region,
-        url=__ret__.url)
+        account=pulumi.get(__ret__, 'account'),
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
+        url=pulumi.get(__ret__, 'url'))

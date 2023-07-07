@@ -58,6 +58,12 @@ namespace Pulumi.Snowflake
         public Output<bool?> CopyGrants { get; private set; } = null!;
 
         /// <summary>
+        /// The timestamp at which the view was created.
+        /// </summary>
+        [Output("createdOn")]
+        public Output<string> CreatedOn { get; private set; } = null!;
+
+        /// <summary>
         /// The database in which to create the view. Don't use the | character.
         /// </summary>
         [Output("database")]
@@ -225,6 +231,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("copyGrants")]
         public Input<bool>? CopyGrants { get; set; }
+
+        /// <summary>
+        /// The timestamp at which the view was created.
+        /// </summary>
+        [Input("createdOn")]
+        public Input<string>? CreatedOn { get; set; }
 
         /// <summary>
         /// The database in which to create the view. Don't use the | character.

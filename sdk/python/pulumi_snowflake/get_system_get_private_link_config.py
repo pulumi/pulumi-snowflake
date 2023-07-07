@@ -160,13 +160,13 @@ def get_system_get_private_link_config(opts: Optional[pulumi.InvokeOptions] = No
     __ret__ = pulumi.runtime.invoke('snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig', __args__, opts=opts, typ=GetSystemGetPrivateLinkConfigResult).value
 
     return AwaitableGetSystemGetPrivateLinkConfigResult(
-        account_name=__ret__.account_name,
-        account_url=__ret__.account_url,
-        aws_vpce_id=__ret__.aws_vpce_id,
-        azure_pls_id=__ret__.azure_pls_id,
-        id=__ret__.id,
-        internal_stage=__ret__.internal_stage,
-        ocsp_url=__ret__.ocsp_url,
-        regionless_account_url=__ret__.regionless_account_url,
-        regionless_snowsight_url=__ret__.regionless_snowsight_url,
-        snowsight_url=__ret__.snowsight_url)
+        account_name=pulumi.get(__ret__, 'account_name'),
+        account_url=pulumi.get(__ret__, 'account_url'),
+        aws_vpce_id=pulumi.get(__ret__, 'aws_vpce_id'),
+        azure_pls_id=pulumi.get(__ret__, 'azure_pls_id'),
+        id=pulumi.get(__ret__, 'id'),
+        internal_stage=pulumi.get(__ret__, 'internal_stage'),
+        ocsp_url=pulumi.get(__ret__, 'ocsp_url'),
+        regionless_account_url=pulumi.get(__ret__, 'regionless_account_url'),
+        regionless_snowsight_url=pulumi.get(__ret__, 'regionless_snowsight_url'),
+        snowsight_url=pulumi.get(__ret__, 'snowsight_url'))

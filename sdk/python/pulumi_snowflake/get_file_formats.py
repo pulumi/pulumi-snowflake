@@ -106,10 +106,10 @@ def get_file_formats(database: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getFileFormats:getFileFormats', __args__, opts=opts, typ=GetFileFormatsResult).value
 
     return AwaitableGetFileFormatsResult(
-        database=__ret__.database,
-        file_formats=__ret__.file_formats,
-        id=__ret__.id,
-        schema=__ret__.schema)
+        database=pulumi.get(__ret__, 'database'),
+        file_formats=pulumi.get(__ret__, 'file_formats'),
+        id=pulumi.get(__ret__, 'id'),
+        schema=pulumi.get(__ret__, 'schema'))
 
 
 @_utilities.lift_output_func(get_file_formats)

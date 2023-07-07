@@ -94,14 +94,14 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="binaryFormat", type=String.class, parameters={})
-    private Output</* @Nullable */ String> binaryFormat;
+    private Output<String> binaryFormat;
 
     /**
      * @return Defines the encoding format for binary input or output.
      * 
      */
-    public Output<Optional<String>> binaryFormat() {
-        return Codegen.optional(this.binaryFormat);
+    public Output<String> binaryFormat() {
+        return this.binaryFormat;
     }
     /**
      * Specifies a comment for the file format.
@@ -122,14 +122,14 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="compression", type=String.class, parameters={})
-    private Output</* @Nullable */ String> compression;
+    private Output<String> compression;
 
     /**
      * @return Specifies the current compression algorithm for the data file.
      * 
      */
-    public Output<Optional<String>> compression() {
-        return Codegen.optional(this.compression);
+    public Output<String> compression() {
+        return this.compression;
     }
     /**
      * The database in which to create the file format.
@@ -150,14 +150,14 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dateFormat", type=String.class, parameters={})
-    private Output</* @Nullable */ String> dateFormat;
+    private Output<String> dateFormat;
 
     /**
      * @return Defines the format of date values in the data files (data loading) or table (data unloading).
      * 
      */
-    public Output<Optional<String>> dateFormat() {
-        return Codegen.optional(this.dateFormat);
+    public Output<String> dateFormat() {
+        return this.dateFormat;
     }
     /**
      * Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
@@ -220,14 +220,14 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="encoding", type=String.class, parameters={})
-    private Output</* @Nullable */ String> encoding;
+    private Output<String> encoding;
 
     /**
      * @return String (constant) that specifies the character set of the source data when loading data into a table.
      * 
      */
-    public Output<Optional<String>> encoding() {
-        return Codegen.optional(this.encoding);
+    public Output<String> encoding() {
+        return this.encoding;
     }
     /**
      * Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
@@ -248,56 +248,56 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="escape", type=String.class, parameters={})
-    private Output</* @Nullable */ String> escape;
+    private Output<String> escape;
 
     /**
      * @return Single character string used as the escape character for field values.
      * 
      */
-    public Output<Optional<String>> escape() {
-        return Codegen.optional(this.escape);
+    public Output<String> escape() {
+        return this.escape;
     }
     /**
      * Single character string used as the escape character for unenclosed field values only.
      * 
      */
     @Export(name="escapeUnenclosedField", type=String.class, parameters={})
-    private Output</* @Nullable */ String> escapeUnenclosedField;
+    private Output<String> escapeUnenclosedField;
 
     /**
      * @return Single character string used as the escape character for unenclosed field values only.
      * 
      */
-    public Output<Optional<String>> escapeUnenclosedField() {
-        return Codegen.optional(this.escapeUnenclosedField);
+    public Output<String> escapeUnenclosedField() {
+        return this.escapeUnenclosedField;
     }
     /**
      * Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
      * 
      */
     @Export(name="fieldDelimiter", type=String.class, parameters={})
-    private Output</* @Nullable */ String> fieldDelimiter;
+    private Output<String> fieldDelimiter;
 
     /**
      * @return Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
      * 
      */
-    public Output<Optional<String>> fieldDelimiter() {
-        return Codegen.optional(this.fieldDelimiter);
+    public Output<String> fieldDelimiter() {
+        return this.fieldDelimiter;
     }
     /**
      * Character used to enclose strings.
      * 
      */
     @Export(name="fieldOptionallyEnclosedBy", type=String.class, parameters={})
-    private Output</* @Nullable */ String> fieldOptionallyEnclosedBy;
+    private Output<String> fieldOptionallyEnclosedBy;
 
     /**
      * @return Character used to enclose strings.
      * 
      */
-    public Output<Optional<String>> fieldOptionallyEnclosedBy() {
-        return Codegen.optional(this.fieldOptionallyEnclosedBy);
+    public Output<String> fieldOptionallyEnclosedBy() {
+        return this.fieldOptionallyEnclosedBy;
     }
     /**
      * Specifies the extension for files unloaded to a stage.
@@ -360,14 +360,14 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="nullIfs", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> nullIfs;
+    private Output<List<String>> nullIfs;
 
     /**
      * @return String used to convert to and from SQL NULL.
      * 
      */
-    public Output<Optional<List<String>>> nullIfs() {
-        return Codegen.optional(this.nullIfs);
+    public Output<List<String>> nullIfs() {
+        return this.nullIfs;
     }
     /**
      * Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
@@ -388,14 +388,14 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="recordDelimiter", type=String.class, parameters={})
-    private Output</* @Nullable */ String> recordDelimiter;
+    private Output<String> recordDelimiter;
 
     /**
      * @return Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
      * 
      */
-    public Output<Optional<String>> recordDelimiter() {
-        return Codegen.optional(this.recordDelimiter);
+    public Output<String> recordDelimiter() {
+        return this.recordDelimiter;
     }
     /**
      * Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�).
@@ -514,28 +514,28 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="timeFormat", type=String.class, parameters={})
-    private Output</* @Nullable */ String> timeFormat;
+    private Output<String> timeFormat;
 
     /**
      * @return Defines the format of time values in the data files (data loading) or table (data unloading).
      * 
      */
-    public Output<Optional<String>> timeFormat() {
-        return Codegen.optional(this.timeFormat);
+    public Output<String> timeFormat() {
+        return this.timeFormat;
     }
     /**
      * Defines the format of timestamp values in the data files (data loading) or table (data unloading).
      * 
      */
     @Export(name="timestampFormat", type=String.class, parameters={})
-    private Output</* @Nullable */ String> timestampFormat;
+    private Output<String> timestampFormat;
 
     /**
      * @return Defines the format of timestamp values in the data files (data loading) or table (data unloading).
      * 
      */
-    public Output<Optional<String>> timestampFormat() {
-        return Codegen.optional(this.timestampFormat);
+    public Output<String> timestampFormat() {
+        return this.timestampFormat;
     }
     /**
      * Boolean that specifies whether to remove white space from fields.

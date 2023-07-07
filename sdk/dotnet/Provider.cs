@@ -412,6 +412,18 @@ namespace Pulumi.Snowflake
         [Input("role")]
         public Input<string>? Role { get; set; }
 
+        [Input("sessionParams", json: true)]
+        private InputMap<object>? _sessionParams;
+
+        /// <summary>
+        /// Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
+        /// </summary>
+        public InputMap<object> SessionParams
+        {
+            get => _sessionParams ?? (_sessionParams = new InputMap<object>());
+            set => _sessionParams = value;
+        }
+
         /// <summary>
         /// Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
         /// using profile.

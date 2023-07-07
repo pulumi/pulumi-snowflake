@@ -49,6 +49,21 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The timestamp at which the view was created.
+     * 
+     */
+    @Import(name="createdOn")
+    private @Nullable Output<String> createdOn;
+
+    /**
+     * @return The timestamp at which the view was created.
+     * 
+     */
+    public Optional<Output<String>> createdOn() {
+        return Optional.ofNullable(this.createdOn);
+    }
+
+    /**
      * The database in which to create the view. Don&#39;t use the | character.
      * 
      */
@@ -166,6 +181,7 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
     private ViewState(ViewState $) {
         this.comment = $.comment;
         this.copyGrants = $.copyGrants;
+        this.createdOn = $.createdOn;
         this.database = $.database;
         this.isSecure = $.isSecure;
         this.name = $.name;
@@ -233,6 +249,27 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder copyGrants(Boolean copyGrants) {
             return copyGrants(Output.of(copyGrants));
+        }
+
+        /**
+         * @param createdOn The timestamp at which the view was created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder createdOn(@Nullable Output<String> createdOn) {
+            $.createdOn = createdOn;
+            return this;
+        }
+
+        /**
+         * @param createdOn The timestamp at which the view was created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder createdOn(String createdOn) {
+            return createdOn(Output.of(createdOn));
         }
 
         /**

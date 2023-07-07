@@ -90,9 +90,9 @@ def get_users(pattern: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult).value
 
     return AwaitableGetUsersResult(
-        id=__ret__.id,
-        pattern=__ret__.pattern,
-        users=__ret__.users)
+        id=pulumi.get(__ret__, 'id'),
+        pattern=pulumi.get(__ret__, 'pattern'),
+        users=pulumi.get(__ret__, 'users'))
 
 
 @_utilities.lift_output_func(get_users)

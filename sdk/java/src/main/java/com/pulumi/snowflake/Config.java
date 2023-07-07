@@ -3,10 +3,13 @@
 
 package com.pulumi.snowflake;
 
+import com.pulumi.core.TypeShape;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
+import java.lang.Object;
 import java.lang.String;
+import java.util.Map;
 import java.util.Optional;
 
 public final class Config {
@@ -160,6 +163,13 @@ public final class Config {
  */
     public Optional<String> role() {
         return Codegen.stringProp("role").config(config).env("SNOWFLAKE_ROLE").get();
+    }
+/**
+ * Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
+ * 
+ */
+    public Optional<Map<String,Object>> sessionParams() {
+        return Codegen.objectProp("sessionParams", TypeShape.<Map<String,Object>>builder(Map.class).addParameter(String.class).addParameter(Object.class).build()).config(config).get();
     }
 /**
  * Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless

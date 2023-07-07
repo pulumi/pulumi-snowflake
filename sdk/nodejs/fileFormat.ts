@@ -65,7 +65,7 @@ export class FileFormat extends pulumi.CustomResource {
     /**
      * Defines the encoding format for binary input or output.
      */
-    public readonly binaryFormat!: pulumi.Output<string | undefined>;
+    public readonly binaryFormat!: pulumi.Output<string>;
     /**
      * Specifies a comment for the file format.
      */
@@ -73,7 +73,7 @@ export class FileFormat extends pulumi.CustomResource {
     /**
      * Specifies the current compression algorithm for the data file.
      */
-    public readonly compression!: pulumi.Output<string | undefined>;
+    public readonly compression!: pulumi.Output<string>;
     /**
      * The database in which to create the file format.
      */
@@ -81,7 +81,7 @@ export class FileFormat extends pulumi.CustomResource {
     /**
      * Defines the format of date values in the data files (data loading) or table (data unloading).
      */
-    public readonly dateFormat!: pulumi.Output<string | undefined>;
+    public readonly dateFormat!: pulumi.Output<string>;
     /**
      * Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
      */
@@ -101,7 +101,7 @@ export class FileFormat extends pulumi.CustomResource {
     /**
      * String (constant) that specifies the character set of the source data when loading data into a table.
      */
-    public readonly encoding!: pulumi.Output<string | undefined>;
+    public readonly encoding!: pulumi.Output<string>;
     /**
      * Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
      */
@@ -109,19 +109,19 @@ export class FileFormat extends pulumi.CustomResource {
     /**
      * Single character string used as the escape character for field values.
      */
-    public readonly escape!: pulumi.Output<string | undefined>;
+    public readonly escape!: pulumi.Output<string>;
     /**
      * Single character string used as the escape character for unenclosed field values only.
      */
-    public readonly escapeUnenclosedField!: pulumi.Output<string | undefined>;
+    public readonly escapeUnenclosedField!: pulumi.Output<string>;
     /**
      * Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
      */
-    public readonly fieldDelimiter!: pulumi.Output<string | undefined>;
+    public readonly fieldDelimiter!: pulumi.Output<string>;
     /**
      * Character used to enclose strings.
      */
-    public readonly fieldOptionallyEnclosedBy!: pulumi.Output<string | undefined>;
+    public readonly fieldOptionallyEnclosedBy!: pulumi.Output<string>;
     /**
      * Specifies the extension for files unloaded to a stage.
      */
@@ -141,7 +141,7 @@ export class FileFormat extends pulumi.CustomResource {
     /**
      * String used to convert to and from SQL NULL.
      */
-    public readonly nullIfs!: pulumi.Output<string[] | undefined>;
+    public readonly nullIfs!: pulumi.Output<string[]>;
     /**
      * Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
      */
@@ -149,7 +149,7 @@ export class FileFormat extends pulumi.CustomResource {
     /**
      * Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
      */
-    public readonly recordDelimiter!: pulumi.Output<string | undefined>;
+    public readonly recordDelimiter!: pulumi.Output<string>;
     /**
      * Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�).
      */
@@ -185,11 +185,11 @@ export class FileFormat extends pulumi.CustomResource {
     /**
      * Defines the format of time values in the data files (data loading) or table (data unloading).
      */
-    public readonly timeFormat!: pulumi.Output<string | undefined>;
+    public readonly timeFormat!: pulumi.Output<string>;
     /**
      * Defines the format of timestamp values in the data files (data loading) or table (data unloading).
      */
-    public readonly timestampFormat!: pulumi.Output<string | undefined>;
+    public readonly timestampFormat!: pulumi.Output<string>;
     /**
      * Boolean that specifies whether to remove white space from fields.
      */

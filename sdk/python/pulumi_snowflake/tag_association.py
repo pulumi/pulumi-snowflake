@@ -97,6 +97,9 @@ class TagAssociationArgs:
         """
         Specifies the object identifier for the tag association.
         """
+        warnings.warn("""Use `object_identifier` instead""", DeprecationWarning)
+        pulumi.log.warn("""object_name is deprecated: Use `object_identifier` instead""")
+
         return pulumi.get(self, "object_name")
 
     @object_name.setter
@@ -168,6 +171,9 @@ class _TagAssociationState:
         """
         Specifies the object identifier for the tag association.
         """
+        warnings.warn("""Use `object_identifier` instead""", DeprecationWarning)
+        pulumi.log.warn("""object_name is deprecated: Use `object_identifier` instead""")
+
         return pulumi.get(self, "object_name")
 
     @object_name.setter
@@ -465,6 +471,9 @@ class TagAssociation(pulumi.CustomResource):
         """
         Specifies the object identifier for the tag association.
         """
+        warnings.warn("""Use `object_identifier` instead""", DeprecationWarning)
+        pulumi.log.warn("""object_name is deprecated: Use `object_identifier` instead""")
+
         return pulumi.get(self, "object_name")
 
     @property

@@ -144,6 +144,9 @@ class TableArgs:
         """
         Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
         """
+        warnings.warn("""Use snowflake_object_parameter instead""", DeprecationWarning)
+        pulumi.log.warn("""data_retention_days is deprecated: Use snowflake_object_parameter instead""")
+
         return pulumi.get(self, "data_retention_days")
 
     @data_retention_days.setter
@@ -168,6 +171,9 @@ class TableArgs:
         """
         Definitions of primary key constraint to create on table
         """
+        warnings.warn("""Use snowflake_table_constraint instead""", DeprecationWarning)
+        pulumi.log.warn("""primary_key is deprecated: Use snowflake_table_constraint instead""")
+
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
@@ -180,6 +186,9 @@ class TableArgs:
         """
         Definitions of a tag to associate with the resource.
         """
+        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
+
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -305,6 +314,9 @@ class _TableState:
         """
         Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
         """
+        warnings.warn("""Use snowflake_object_parameter instead""", DeprecationWarning)
+        pulumi.log.warn("""data_retention_days is deprecated: Use snowflake_object_parameter instead""")
+
         return pulumi.get(self, "data_retention_days")
 
     @data_retention_days.setter
@@ -353,6 +365,9 @@ class _TableState:
         """
         Definitions of primary key constraint to create on table
         """
+        warnings.warn("""Use snowflake_table_constraint instead""", DeprecationWarning)
+        pulumi.log.warn("""primary_key is deprecated: Use snowflake_table_constraint instead""")
+
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
@@ -389,6 +404,9 @@ class _TableState:
         """
         Definitions of a tag to associate with the resource.
         """
+        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
+
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -724,6 +742,9 @@ class Table(pulumi.CustomResource):
         """
         Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
         """
+        warnings.warn("""Use snowflake_object_parameter instead""", DeprecationWarning)
+        pulumi.log.warn("""data_retention_days is deprecated: Use snowflake_object_parameter instead""")
+
         return pulumi.get(self, "data_retention_days")
 
     @property
@@ -756,6 +777,9 @@ class Table(pulumi.CustomResource):
         """
         Definitions of primary key constraint to create on table
         """
+        warnings.warn("""Use snowflake_table_constraint instead""", DeprecationWarning)
+        pulumi.log.warn("""primary_key is deprecated: Use snowflake_table_constraint instead""")
+
         return pulumi.get(self, "primary_key")
 
     @property
@@ -780,5 +804,8 @@ class Table(pulumi.CustomResource):
         """
         Definitions of a tag to associate with the resource.
         """
+        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
+
         return pulumi.get(self, "tags")
 

@@ -81,9 +81,9 @@ def get_system_get_aws_sns_iam_policy(aws_sns_topic_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy', __args__, opts=opts, typ=GetSystemGetAwsSnsIamPolicyResult).value
 
     return AwaitableGetSystemGetAwsSnsIamPolicyResult(
-        aws_sns_topic_arn=__ret__.aws_sns_topic_arn,
-        aws_sns_topic_policy_json=__ret__.aws_sns_topic_policy_json,
-        id=__ret__.id)
+        aws_sns_topic_arn=pulumi.get(__ret__, 'aws_sns_topic_arn'),
+        aws_sns_topic_policy_json=pulumi.get(__ret__, 'aws_sns_topic_policy_json'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_system_get_aws_sns_iam_policy)

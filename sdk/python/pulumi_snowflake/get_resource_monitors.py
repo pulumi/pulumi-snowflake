@@ -72,5 +72,5 @@ def get_resource_monitors(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
     __ret__ = pulumi.runtime.invoke('snowflake:index/getResourceMonitors:getResourceMonitors', __args__, opts=opts, typ=GetResourceMonitorsResult).value
 
     return AwaitableGetResourceMonitorsResult(
-        id=__ret__.id,
-        resource_monitors=__ret__.resource_monitors)
+        id=pulumi.get(__ret__, 'id'),
+        resource_monitors=pulumi.get(__ret__, 'resource_monitors'))

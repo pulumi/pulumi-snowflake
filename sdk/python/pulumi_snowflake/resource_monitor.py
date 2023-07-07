@@ -190,6 +190,9 @@ class ResourceMonitorArgs:
         """
         A list of percentage thresholds at which to suspend all warehouses.
         """
+        warnings.warn("""Use suspend_immediate_trigger instead""", DeprecationWarning)
+        pulumi.log.warn("""suspend_immediate_triggers is deprecated: Use suspend_immediate_trigger instead""")
+
         return pulumi.get(self, "suspend_immediate_triggers")
 
     @suspend_immediate_triggers.setter
@@ -214,6 +217,9 @@ class ResourceMonitorArgs:
         """
         A list of percentage thresholds at which to suspend all warehouses.
         """
+        warnings.warn("""Use suspend_trigger instead""", DeprecationWarning)
+        pulumi.log.warn("""suspend_triggers is deprecated: Use suspend_trigger instead""")
+
         return pulumi.get(self, "suspend_triggers")
 
     @suspend_triggers.setter
@@ -412,6 +418,9 @@ class _ResourceMonitorState:
         """
         A list of percentage thresholds at which to suspend all warehouses.
         """
+        warnings.warn("""Use suspend_immediate_trigger instead""", DeprecationWarning)
+        pulumi.log.warn("""suspend_immediate_triggers is deprecated: Use suspend_immediate_trigger instead""")
+
         return pulumi.get(self, "suspend_immediate_triggers")
 
     @suspend_immediate_triggers.setter
@@ -436,6 +445,9 @@ class _ResourceMonitorState:
         """
         A list of percentage thresholds at which to suspend all warehouses.
         """
+        warnings.warn("""Use suspend_trigger instead""", DeprecationWarning)
+        pulumi.log.warn("""suspend_triggers is deprecated: Use suspend_trigger instead""")
+
         return pulumi.get(self, "suspend_triggers")
 
     @suspend_triggers.setter
@@ -757,6 +769,9 @@ class ResourceMonitor(pulumi.CustomResource):
         """
         A list of percentage thresholds at which to suspend all warehouses.
         """
+        warnings.warn("""Use suspend_immediate_trigger instead""", DeprecationWarning)
+        pulumi.log.warn("""suspend_immediate_triggers is deprecated: Use suspend_immediate_trigger instead""")
+
         return pulumi.get(self, "suspend_immediate_triggers")
 
     @property
@@ -773,6 +788,9 @@ class ResourceMonitor(pulumi.CustomResource):
         """
         A list of percentage thresholds at which to suspend all warehouses.
         """
+        warnings.warn("""Use suspend_trigger instead""", DeprecationWarning)
+        pulumi.log.warn("""suspend_triggers is deprecated: Use suspend_trigger instead""")
+
         return pulumi.get(self, "suspend_triggers")
 
     @property

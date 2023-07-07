@@ -82,9 +82,9 @@ def get_failover_groups(in_account: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getFailoverGroups:getFailoverGroups', __args__, opts=opts, typ=GetFailoverGroupsResult).value
 
     return AwaitableGetFailoverGroupsResult(
-        failover_groups=__ret__.failover_groups,
-        id=__ret__.id,
-        in_account=__ret__.in_account)
+        failover_groups=pulumi.get(__ret__, 'failover_groups'),
+        id=pulumi.get(__ret__, 'id'),
+        in_account=pulumi.get(__ret__, 'in_account'))
 
 
 @_utilities.lift_output_func(get_failover_groups)

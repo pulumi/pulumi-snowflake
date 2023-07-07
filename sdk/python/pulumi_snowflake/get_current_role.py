@@ -64,5 +64,5 @@ def get_current_role(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     __ret__ = pulumi.runtime.invoke('snowflake:index/getCurrentRole:getCurrentRole', __args__, opts=opts, typ=GetCurrentRoleResult).value
 
     return AwaitableGetCurrentRoleResult(
-        id=__ret__.id,
-        name=__ret__.name)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))

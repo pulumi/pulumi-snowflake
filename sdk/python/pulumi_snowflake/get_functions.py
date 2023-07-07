@@ -106,10 +106,10 @@ def get_functions(database: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getFunctions:getFunctions', __args__, opts=opts, typ=GetFunctionsResult).value
 
     return AwaitableGetFunctionsResult(
-        database=__ret__.database,
-        functions=__ret__.functions,
-        id=__ret__.id,
-        schema=__ret__.schema)
+        database=pulumi.get(__ret__, 'database'),
+        functions=pulumi.get(__ret__, 'functions'),
+        id=pulumi.get(__ret__, 'id'),
+        schema=pulumi.get(__ret__, 'schema'))
 
 
 @_utilities.lift_output_func(get_functions)

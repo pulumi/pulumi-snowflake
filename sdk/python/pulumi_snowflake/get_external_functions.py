@@ -106,10 +106,10 @@ def get_external_functions(database: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getExternalFunctions:getExternalFunctions', __args__, opts=opts, typ=GetExternalFunctionsResult).value
 
     return AwaitableGetExternalFunctionsResult(
-        database=__ret__.database,
-        external_functions=__ret__.external_functions,
-        id=__ret__.id,
-        schema=__ret__.schema)
+        database=pulumi.get(__ret__, 'database'),
+        external_functions=pulumi.get(__ret__, 'external_functions'),
+        id=pulumi.get(__ret__, 'id'),
+        schema=pulumi.get(__ret__, 'schema'))
 
 
 @_utilities.lift_output_func(get_external_functions)

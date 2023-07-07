@@ -158,13 +158,13 @@ def get_parameters(object_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getParameters:getParameters', __args__, opts=opts, typ=GetParametersResult).value
 
     return AwaitableGetParametersResult(
-        id=__ret__.id,
-        object_name=__ret__.object_name,
-        object_type=__ret__.object_type,
-        parameter_type=__ret__.parameter_type,
-        parameters=__ret__.parameters,
-        pattern=__ret__.pattern,
-        user=__ret__.user)
+        id=pulumi.get(__ret__, 'id'),
+        object_name=pulumi.get(__ret__, 'object_name'),
+        object_type=pulumi.get(__ret__, 'object_type'),
+        parameter_type=pulumi.get(__ret__, 'parameter_type'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        pattern=pulumi.get(__ret__, 'pattern'),
+        user=pulumi.get(__ret__, 'user'))
 
 
 @_utilities.lift_output_func(get_parameters)

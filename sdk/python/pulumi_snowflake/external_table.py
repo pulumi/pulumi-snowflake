@@ -236,6 +236,9 @@ class ExternalTableArgs:
         """
         Definitions of a tag to associate with the resource.
         """
+        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
+
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -487,6 +490,9 @@ class _ExternalTableState:
         """
         Definitions of a tag to associate with the resource.
         """
+        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
+
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -854,5 +860,8 @@ class ExternalTable(pulumi.CustomResource):
         """
         Definitions of a tag to associate with the resource.
         """
+        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
+
         return pulumi.get(self, "tags")
 

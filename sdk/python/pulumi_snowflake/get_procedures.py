@@ -106,10 +106,10 @@ def get_procedures(database: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getProcedures:getProcedures', __args__, opts=opts, typ=GetProceduresResult).value
 
     return AwaitableGetProceduresResult(
-        database=__ret__.database,
-        id=__ret__.id,
-        procedures=__ret__.procedures,
-        schema=__ret__.schema)
+        database=pulumi.get(__ret__, 'database'),
+        id=pulumi.get(__ret__, 'id'),
+        procedures=pulumi.get(__ret__, 'procedures'),
+        schema=pulumi.get(__ret__, 'schema'))
 
 
 @_utilities.lift_output_func(get_procedures)

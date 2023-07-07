@@ -247,6 +247,11 @@ func GetRole(ctx *pulumi.Context) string {
 	return value
 }
 
+// Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
+func GetSessionParams(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:sessionParams")
+}
+
 // Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
 // using profile.
 func GetUsername(ctx *pulumi.Context) string {

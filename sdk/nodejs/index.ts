@@ -283,6 +283,11 @@ export { GetWarehousesResult } from "./getWarehouses";
 export const getWarehouses: typeof import("./getWarehouses").getWarehouses = null as any;
 utilities.lazyLoad(exports, ["getWarehouses"], () => require("./getWarehouses"));
 
+export { GrantPrivilegesToRoleArgs, GrantPrivilegesToRoleState } from "./grantPrivilegesToRole";
+export type GrantPrivilegesToRole = import("./grantPrivilegesToRole").GrantPrivilegesToRole;
+export const GrantPrivilegesToRole: typeof import("./grantPrivilegesToRole").GrantPrivilegesToRole = null as any;
+utilities.lazyLoad(exports, ["GrantPrivilegesToRole"], () => require("./grantPrivilegesToRole"));
+
 export { IntegrationGrantArgs, IntegrationGrantState } from "./integrationGrant";
 export type IntegrationGrant = import("./integrationGrant").IntegrationGrant;
 export const IntegrationGrant: typeof import("./integrationGrant").IntegrationGrant = null as any;
@@ -612,6 +617,8 @@ const _module = {
                 return new Function(name, <any>undefined, { urn })
             case "snowflake:index/functionGrant:FunctionGrant":
                 return new FunctionGrant(name, <any>undefined, { urn })
+            case "snowflake:index/grantPrivilegesToRole:GrantPrivilegesToRole":
+                return new GrantPrivilegesToRole(name, <any>undefined, { urn })
             case "snowflake:index/integrationGrant:IntegrationGrant":
                 return new IntegrationGrant(name, <any>undefined, { urn })
             case "snowflake:index/managedAccount:ManagedAccount":
@@ -745,6 +752,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/fileFormat", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/fileFormatGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/function", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/functionGrant", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/integrationGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/managedAccount", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/maskingPolicy", _module)

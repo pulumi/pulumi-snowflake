@@ -158,6 +158,9 @@ class ViewArgs:
         """
         Definitions of a tag to associate with the resource.
         """
+        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
+
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -170,6 +173,7 @@ class _ViewState:
     def __init__(__self__, *,
                  comment: Optional[pulumi.Input[str]] = None,
                  copy_grants: Optional[pulumi.Input[bool]] = None,
+                 created_on: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  is_secure: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -181,6 +185,7 @@ class _ViewState:
         Input properties used for looking up and filtering View resources.
         :param pulumi.Input[str] comment: Specifies a comment for the view.
         :param pulumi.Input[bool] copy_grants: Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+        :param pulumi.Input[str] created_on: The timestamp at which the view was created.
         :param pulumi.Input[str] database: The database in which to create the view. Don't use the | character.
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure.
         :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
@@ -193,6 +198,8 @@ class _ViewState:
             pulumi.set(__self__, "comment", comment)
         if copy_grants is not None:
             pulumi.set(__self__, "copy_grants", copy_grants)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
         if database is not None:
             pulumi.set(__self__, "database", database)
         if is_secure is not None:
@@ -234,6 +241,18 @@ class _ViewState:
     @copy_grants.setter
     def copy_grants(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "copy_grants", value)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timestamp at which the view was created.
+        """
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_on", value)
 
     @property
     @pulumi.getter
@@ -313,6 +332,9 @@ class _ViewState:
         """
         Definitions of a tag to associate with the resource.
         """
+        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
+
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -452,6 +474,7 @@ class View(pulumi.CustomResource):
                 warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
                 pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["created_on"] = None
         super(View, __self__).__init__(
             'snowflake:index/view:View',
             resource_name,
@@ -464,6 +487,7 @@ class View(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: Optional[pulumi.Input[str]] = None,
             copy_grants: Optional[pulumi.Input[bool]] = None,
+            created_on: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
             is_secure: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -480,6 +504,7 @@ class View(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the view.
         :param pulumi.Input[bool] copy_grants: Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+        :param pulumi.Input[str] created_on: The timestamp at which the view was created.
         :param pulumi.Input[str] database: The database in which to create the view. Don't use the | character.
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure.
         :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
@@ -494,6 +519,7 @@ class View(pulumi.CustomResource):
 
         __props__.__dict__["comment"] = comment
         __props__.__dict__["copy_grants"] = copy_grants
+        __props__.__dict__["created_on"] = created_on
         __props__.__dict__["database"] = database
         __props__.__dict__["is_secure"] = is_secure
         __props__.__dict__["name"] = name
@@ -518,6 +544,14 @@ class View(pulumi.CustomResource):
         Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
         """
         return pulumi.get(self, "copy_grants")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Output[str]:
+        """
+        The timestamp at which the view was created.
+        """
+        return pulumi.get(self, "created_on")
 
     @property
     @pulumi.getter
@@ -573,5 +607,8 @@ class View(pulumi.CustomResource):
         """
         Definitions of a tag to associate with the resource.
         """
+        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
+
         return pulumi.get(self, "tags")
 

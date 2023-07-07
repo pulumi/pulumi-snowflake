@@ -106,10 +106,10 @@ def get_tasks(database: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getTasks:getTasks', __args__, opts=opts, typ=GetTasksResult).value
 
     return AwaitableGetTasksResult(
-        database=__ret__.database,
-        id=__ret__.id,
-        schema=__ret__.schema,
-        tasks=__ret__.tasks)
+        database=pulumi.get(__ret__, 'database'),
+        id=pulumi.get(__ret__, 'id'),
+        schema=pulumi.get(__ret__, 'schema'),
+        tasks=pulumi.get(__ret__, 'tasks'))
 
 
 @_utilities.lift_output_func(get_tasks)

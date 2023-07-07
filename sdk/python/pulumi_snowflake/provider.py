@@ -33,6 +33,7 @@ class ProviderArgs:
                  protocol: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
+                 session_params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  warehouse: Optional[pulumi.Input[str]] = None):
         """
@@ -72,6 +73,7 @@ class ProviderArgs:
                in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
         :param pulumi.Input[str] role: Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
                `SNOWFLAKE_ROLE` environment variable.
+        :param pulumi.Input[Mapping[str, Any]] session_params: Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
         :param pulumi.Input[str] username: Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
                using profile.
         :param pulumi.Input[str] warehouse: Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
@@ -146,6 +148,8 @@ class ProviderArgs:
             role = _utilities.get_env('SNOWFLAKE_ROLE')
         if role is not None:
             pulumi.set(__self__, "role", role)
+        if session_params is not None:
+            pulumi.set(__self__, "session_params", session_params)
         if username is None:
             username = _utilities.get_env('SNOWFLAKE_USER')
         if username is not None:
@@ -400,6 +404,18 @@ class ProviderArgs:
         pulumi.set(self, "role", value)
 
     @property
+    @pulumi.getter(name="sessionParams")
+    def session_params(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
+        """
+        return pulumi.get(self, "session_params")
+
+    @session_params.setter
+    def session_params(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "session_params", value)
+
+    @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
@@ -449,6 +465,7 @@ class Provider(pulumi.ProviderResource):
                  protocol: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
+                 session_params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  warehouse: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -495,6 +512,7 @@ class Provider(pulumi.ProviderResource):
                in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
         :param pulumi.Input[str] role: Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
                `SNOWFLAKE_ROLE` environment variable.
+        :param pulumi.Input[Mapping[str, Any]] session_params: Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
         :param pulumi.Input[str] username: Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
                using profile.
         :param pulumi.Input[str] warehouse: Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
@@ -545,6 +563,7 @@ class Provider(pulumi.ProviderResource):
                  protocol: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
+                 session_params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  warehouse: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -607,6 +626,7 @@ class Provider(pulumi.ProviderResource):
             if role is None:
                 role = _utilities.get_env('SNOWFLAKE_ROLE')
             __props__.__dict__["role"] = role
+            __props__.__dict__["session_params"] = pulumi.Output.from_input(session_params).apply(pulumi.runtime.to_json) if session_params is not None else None
             if username is None:
                 username = _utilities.get_env('SNOWFLAKE_USER')
             __props__.__dict__["username"] = username

@@ -106,10 +106,10 @@ def get_pipes(database: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getPipes:getPipes', __args__, opts=opts, typ=GetPipesResult).value
 
     return AwaitableGetPipesResult(
-        database=__ret__.database,
-        id=__ret__.id,
-        pipes=__ret__.pipes,
-        schema=__ret__.schema)
+        database=pulumi.get(__ret__, 'database'),
+        id=pulumi.get(__ret__, 'id'),
+        pipes=pulumi.get(__ret__, 'pipes'),
+        schema=pulumi.get(__ret__, 'schema'))
 
 
 @_utilities.lift_output_func(get_pipes)

@@ -106,10 +106,10 @@ def get_external_tables(database: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('snowflake:index/getExternalTables:getExternalTables', __args__, opts=opts, typ=GetExternalTablesResult).value
 
     return AwaitableGetExternalTablesResult(
-        database=__ret__.database,
-        external_tables=__ret__.external_tables,
-        id=__ret__.id,
-        schema=__ret__.schema)
+        database=pulumi.get(__ret__, 'database'),
+        external_tables=pulumi.get(__ret__, 'external_tables'),
+        id=pulumi.get(__ret__, 'id'),
+        schema=pulumi.get(__ret__, 'schema'))
 
 
 @_utilities.lift_output_func(get_external_tables)

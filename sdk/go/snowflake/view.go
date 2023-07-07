@@ -58,6 +58,8 @@ type View struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
 	CopyGrants pulumi.BoolPtrOutput `pulumi:"copyGrants"`
+	// The timestamp at which the view was created.
+	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
 	// The database in which to create the view. Don't use the | character.
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Specifies that the view is secure.
@@ -118,6 +120,8 @@ type viewState struct {
 	Comment *string `pulumi:"comment"`
 	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
 	CopyGrants *bool `pulumi:"copyGrants"`
+	// The timestamp at which the view was created.
+	CreatedOn *string `pulumi:"createdOn"`
 	// The database in which to create the view. Don't use the | character.
 	Database *string `pulumi:"database"`
 	// Specifies that the view is secure.
@@ -141,6 +145,8 @@ type ViewState struct {
 	Comment pulumi.StringPtrInput
 	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
 	CopyGrants pulumi.BoolPtrInput
+	// The timestamp at which the view was created.
+	CreatedOn pulumi.StringPtrInput
 	// The database in which to create the view. Don't use the | character.
 	Database pulumi.StringPtrInput
 	// Specifies that the view is secure.
@@ -305,6 +311,11 @@ func (o ViewOutput) Comment() pulumi.StringPtrOutput {
 // Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
 func (o ViewOutput) CopyGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.BoolPtrOutput { return v.CopyGrants }).(pulumi.BoolPtrOutput)
+}
+
+// The timestamp at which the view was created.
+func (o ViewOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
 // The database in which to create the view. Don't use the | character.

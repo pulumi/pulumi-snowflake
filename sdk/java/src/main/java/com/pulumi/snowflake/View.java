@@ -95,6 +95,20 @@ public class View extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.copyGrants);
     }
     /**
+     * The timestamp at which the view was created.
+     * 
+     */
+    @Export(name="createdOn", type=String.class, parameters={})
+    private Output<String> createdOn;
+
+    /**
+     * @return The timestamp at which the view was created.
+     * 
+     */
+    public Output<String> createdOn() {
+        return this.createdOn;
+    }
+    /**
      * The database in which to create the view. Don&#39;t use the | character.
      * 
      */
