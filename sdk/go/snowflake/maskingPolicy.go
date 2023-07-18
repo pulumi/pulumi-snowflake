@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -116,6 +117,7 @@ func NewMaskingPolicy(ctx *pulumi.Context,
 	if args.Signature == nil {
 		return nil, errors.New("invalid value for required argument 'Signature'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MaskingPolicy
 	err := ctx.RegisterResource("snowflake:index/maskingPolicy:MaskingPolicy", name, args, &resource, opts...)
 	if err != nil {

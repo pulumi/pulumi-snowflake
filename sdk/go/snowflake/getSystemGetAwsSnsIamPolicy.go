@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetSystemGetAwsSnsIamPolicy(ctx *pulumi.Context, args *GetSystemGetAwsSnsIamPolicyArgs, opts ...pulumi.InvokeOption) (*GetSystemGetAwsSnsIamPolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSystemGetAwsSnsIamPolicyResult
 	err := ctx.Invoke("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", args, &rv, opts...)
 	if err != nil {

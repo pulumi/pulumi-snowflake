@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,6 +74,7 @@ func NewNetworkPolicy(ctx *pulumi.Context,
 	if args.AllowedIpLists == nil {
 		return nil, errors.New("invalid value for required argument 'AllowedIpLists'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkPolicy
 	err := ctx.RegisterResource("snowflake:index/networkPolicy:NetworkPolicy", name, args, &resource, opts...)
 	if err != nil {

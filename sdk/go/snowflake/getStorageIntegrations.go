@@ -4,6 +4,7 @@
 package snowflake
 
 import (
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,6 +32,7 @@ import (
 //
 // ```
 func GetStorageIntegrations(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetStorageIntegrationsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetStorageIntegrationsResult
 	err := ctx.Invoke("snowflake:index/getStorageIntegrations:getStorageIntegrations", nil, &rv, opts...)
 	if err != nil {

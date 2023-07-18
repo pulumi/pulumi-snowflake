@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -127,6 +128,7 @@ func NewExternalFunction(ctx *pulumi.Context,
 	if args.UrlOfProxyAndResource == nil {
 		return nil, errors.New("invalid value for required argument 'UrlOfProxyAndResource'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ExternalFunction
 	err := ctx.RegisterResource("snowflake:index/externalFunction:ExternalFunction", name, args, &resource, opts...)
 	if err != nil {

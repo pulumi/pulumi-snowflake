@@ -4,9 +4,12 @@
 package config
 
 import (
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
+
+var _ = internal.GetEnvOrDefault
 
 // The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
 // using profile.
@@ -16,7 +19,7 @@ func GetAccount(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_ACCOUNT"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_ACCOUNT"); d != nil {
 		value = d.(string)
 	}
 	return value
@@ -29,7 +32,7 @@ func GetBrowserAuth(ctx *pulumi.Context) bool {
 		return v
 	}
 	var value bool
-	if d := getEnvOrDefault(nil, parseEnvBool, "SNOWFLAKE_USE_BROWSER_AUTH"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, internal.ParseEnvBool, "SNOWFLAKE_USE_BROWSER_AUTH"); d != nil {
 		value = d.(bool)
 	}
 	return value
@@ -42,7 +45,7 @@ func GetHost(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_HOST"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_HOST"); d != nil {
 		value = d.(string)
 	}
 	return value
@@ -63,7 +66,7 @@ func GetOauthAccessToken(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_ACCESS_TOKEN"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_ACCESS_TOKEN"); d != nil {
 		value = d.(string)
 	}
 	return value
@@ -76,7 +79,7 @@ func GetOauthClientId(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_CLIENT_ID"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_CLIENT_ID"); d != nil {
 		value = d.(string)
 	}
 	return value
@@ -89,7 +92,7 @@ func GetOauthClientSecret(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_CLIENT_SECRET"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_CLIENT_SECRET"); d != nil {
 		value = d.(string)
 	}
 	return value
@@ -102,7 +105,7 @@ func GetOauthEndpoint(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_ENDPOINT"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_ENDPOINT"); d != nil {
 		value = d.(string)
 	}
 	return value
@@ -115,7 +118,7 @@ func GetOauthRedirectUrl(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_REDIRECT_URL"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_REDIRECT_URL"); d != nil {
 		value = d.(string)
 	}
 	return value
@@ -131,7 +134,7 @@ func GetOauthRefreshToken(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_REFRESH_TOKEN"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_REFRESH_TOKEN"); d != nil {
 		value = d.(string)
 	}
 	return value
@@ -145,7 +148,7 @@ func GetPassword(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_PASSWORD"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_PASSWORD"); d != nil {
 		value = d.(string)
 	}
 	return value
@@ -159,7 +162,7 @@ func GetPort(ctx *pulumi.Context) int {
 		return v
 	}
 	var value int
-	if d := getEnvOrDefault(nil, parseEnvInt, "SNOWFLAKE_PORT"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, internal.ParseEnvInt, "SNOWFLAKE_PORT"); d != nil {
 		value = d.(int)
 	}
 	return value
@@ -179,7 +182,7 @@ func GetPrivateKeyPassphrase(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"); d != nil {
 		value = d.(string)
 	}
 	return value
@@ -193,7 +196,7 @@ func GetPrivateKeyPath(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_PRIVATE_KEY_PATH"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_PRIVATE_KEY_PATH"); d != nil {
 		value = d.(string)
 	}
 	return value
@@ -211,7 +214,7 @@ func GetProtocol(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_PROTOCOL"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_PROTOCOL"); d != nil {
 		value = d.(string)
 	}
 	return value
@@ -227,7 +230,7 @@ func GetRegion(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_REGION"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_REGION"); d != nil {
 		value = d.(string)
 	}
 	return value
@@ -241,7 +244,7 @@ func GetRole(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_ROLE"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_ROLE"); d != nil {
 		value = d.(string)
 	}
 	return value
@@ -260,7 +263,7 @@ func GetUsername(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_USER"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_USER"); d != nil {
 		value = d.(string)
 	}
 	return value
@@ -273,7 +276,7 @@ func GetWarehouse(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_WAREHOUSE"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_WAREHOUSE"); d != nil {
 		value = d.(string)
 	}
 	return value

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -91,6 +92,7 @@ func NewWarehouse(ctx *pulumi.Context,
 		args = &WarehouseArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Warehouse
 	err := ctx.RegisterResource("snowflake:index/warehouse:Warehouse", name, args, &resource, opts...)
 	if err != nil {

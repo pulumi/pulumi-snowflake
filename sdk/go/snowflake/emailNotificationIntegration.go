@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -72,6 +73,7 @@ func NewEmailNotificationIntegration(ctx *pulumi.Context,
 	if args.Enabled == nil {
 		return nil, errors.New("invalid value for required argument 'Enabled'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EmailNotificationIntegration
 	err := ctx.RegisterResource("snowflake:index/emailNotificationIntegration:EmailNotificationIntegration", name, args, &resource, opts...)
 	if err != nil {

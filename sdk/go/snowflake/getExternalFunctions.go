@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,6 +38,7 @@ import (
 //
 // ```
 func GetExternalFunctions(ctx *pulumi.Context, args *GetExternalFunctionsArgs, opts ...pulumi.InvokeOption) (*GetExternalFunctionsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetExternalFunctionsResult
 	err := ctx.Invoke("snowflake:index/getExternalFunctions:getExternalFunctions", args, &rv, opts...)
 	if err != nil {

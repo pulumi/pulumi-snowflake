@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -100,6 +101,7 @@ func NewResourceMonitor(ctx *pulumi.Context,
 		args = &ResourceMonitorArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceMonitor
 	err := ctx.RegisterResource("snowflake:index/resourceMonitor:ResourceMonitor", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,6 +37,7 @@ import (
 //
 // ```
 func GetSchemas(ctx *pulumi.Context, args *GetSchemasArgs, opts ...pulumi.InvokeOption) (*GetSchemasResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSchemasResult
 	err := ctx.Invoke("snowflake:index/getSchemas:getSchemas", args, &rv, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -71,6 +72,7 @@ func NewAccountGrant(ctx *pulumi.Context,
 		args = &AccountGrantArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccountGrant
 	err := ctx.RegisterResource("snowflake:index/accountGrant:AccountGrant", name, args, &resource, opts...)
 	if err != nil {

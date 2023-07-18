@@ -4,6 +4,7 @@
 package snowflake
 
 import (
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,6 +32,7 @@ import (
 //
 // ```
 func GetResourceMonitors(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetResourceMonitorsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetResourceMonitorsResult
 	err := ctx.Invoke("snowflake:index/getResourceMonitors:getResourceMonitors", nil, &rv, opts...)
 	if err != nil {

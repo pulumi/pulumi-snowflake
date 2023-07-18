@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,6 +29,7 @@ func NewUserPublicKeys(ctx *pulumi.Context,
 		args = &UserPublicKeysArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserPublicKeys
 	err := ctx.RegisterResource("snowflake:index/userPublicKeys:UserPublicKeys", name, args, &resource, opts...)
 	if err != nil {

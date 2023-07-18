@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -145,6 +146,7 @@ func NewTagAssociation(ctx *pulumi.Context,
 	if args.TagValue == nil {
 		return nil, errors.New("invalid value for required argument 'TagValue'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TagAssociation
 	err := ctx.RegisterResource("snowflake:index/tagAssociation:TagAssociation", name, args, &resource, opts...)
 	if err != nil {

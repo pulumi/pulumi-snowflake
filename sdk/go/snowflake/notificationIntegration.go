@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -99,6 +100,7 @@ func NewNotificationIntegration(ctx *pulumi.Context,
 		args = &NotificationIntegrationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NotificationIntegration
 	err := ctx.RegisterResource("snowflake:index/notificationIntegration:NotificationIntegration", name, args, &resource, opts...)
 	if err != nil {

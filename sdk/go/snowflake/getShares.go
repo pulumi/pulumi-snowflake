@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetShares(ctx *pulumi.Context, args *GetSharesArgs, opts ...pulumi.InvokeOption) (*GetSharesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSharesResult
 	err := ctx.Invoke("snowflake:index/getShares:getShares", args, &rv, opts...)
 	if err != nil {

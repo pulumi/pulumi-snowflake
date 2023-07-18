@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -86,6 +87,7 @@ func NewDatabaseGrant(ctx *pulumi.Context,
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DatabaseGrant
 	err := ctx.RegisterResource("snowflake:index/databaseGrant:DatabaseGrant", name, args, &resource, opts...)
 	if err != nil {

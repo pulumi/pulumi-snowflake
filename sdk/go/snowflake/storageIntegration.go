@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -61,6 +62,7 @@ func NewStorageIntegration(ctx *pulumi.Context,
 	if args.StorageProvider == nil {
 		return nil, errors.New("invalid value for required argument 'StorageProvider'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StorageIntegration
 	err := ctx.RegisterResource("snowflake:index/storageIntegration:StorageIntegration", name, args, &resource, opts...)
 	if err != nil {

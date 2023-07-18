@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -94,6 +95,7 @@ func NewView(ctx *pulumi.Context,
 	if args.Statement == nil {
 		return nil, errors.New("invalid value for required argument 'Statement'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource View
 	err := ctx.RegisterResource("snowflake:index/view:View", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -112,6 +113,7 @@ func NewFailoverGroup(ctx *pulumi.Context,
 		args = &FailoverGroupArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FailoverGroup
 	err := ctx.RegisterResource("snowflake:index/failoverGroup:FailoverGroup", name, args, &resource, opts...)
 	if err != nil {

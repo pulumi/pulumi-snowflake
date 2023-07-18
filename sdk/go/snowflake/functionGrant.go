@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -106,6 +107,7 @@ func NewFunctionGrant(ctx *pulumi.Context,
 	if args.Roles == nil {
 		return nil, errors.New("invalid value for required argument 'Roles'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FunctionGrant
 	err := ctx.RegisterResource("snowflake:index/functionGrant:FunctionGrant", name, args, &resource, opts...)
 	if err != nil {

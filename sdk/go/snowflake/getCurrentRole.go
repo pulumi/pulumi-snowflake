@@ -4,10 +4,12 @@
 package snowflake
 
 import (
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetCurrentRole(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCurrentRoleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCurrentRoleResult
 	err := ctx.Invoke("snowflake:index/getCurrentRole:getCurrentRole", nil, &rv, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -64,6 +65,7 @@ func NewShare(ctx *pulumi.Context,
 		args = &ShareArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Share
 	err := ctx.RegisterResource("snowflake:index/share:Share", name, args, &resource, opts...)
 	if err != nil {

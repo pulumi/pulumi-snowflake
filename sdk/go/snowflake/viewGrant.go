@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -109,6 +110,7 @@ func NewViewGrant(ctx *pulumi.Context,
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ViewGrant
 	err := ctx.RegisterResource("snowflake:index/viewGrant:ViewGrant", name, args, &resource, opts...)
 	if err != nil {

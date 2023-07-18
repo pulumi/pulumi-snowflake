@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -108,6 +109,7 @@ func NewSamlIntegration(ctx *pulumi.Context,
 	if args.Saml2X509Cert == nil {
 		return nil, errors.New("invalid value for required argument 'Saml2X509Cert'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SamlIntegration
 	err := ctx.RegisterResource("snowflake:index/samlIntegration:SamlIntegration", name, args, &resource, opts...)
 	if err != nil {

@@ -4,10 +4,12 @@
 package snowflake
 
 import (
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetSystemGetPrivateLinkConfig(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSystemGetPrivateLinkConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSystemGetPrivateLinkConfigResult
 	err := ctx.Invoke("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", nil, &rv, opts...)
 	if err != nil {
