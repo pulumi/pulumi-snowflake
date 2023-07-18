@@ -4,6 +4,7 @@
 package snowflake
 
 import (
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,6 +32,7 @@ import (
 //
 // ```
 func GetWarehouses(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetWarehousesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetWarehousesResult
 	err := ctx.Invoke("snowflake:index/getWarehouses:getWarehouses", nil, &rv, opts...)
 	if err != nil {

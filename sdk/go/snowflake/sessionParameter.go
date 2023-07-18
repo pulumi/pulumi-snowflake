@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -80,6 +81,7 @@ func NewSessionParameter(ctx *pulumi.Context,
 	if args.Value == nil {
 		return nil, errors.New("invalid value for required argument 'Value'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SessionParameter
 	err := ctx.RegisterResource("snowflake:index/sessionParameter:SessionParameter", name, args, &resource, opts...)
 	if err != nil {

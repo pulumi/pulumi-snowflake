@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -139,6 +140,7 @@ func NewObjectParameter(ctx *pulumi.Context,
 	if args.Value == nil {
 		return nil, errors.New("invalid value for required argument 'Value'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ObjectParameter
 	err := ctx.RegisterResource("snowflake:index/objectParameter:ObjectParameter", name, args, &resource, opts...)
 	if err != nil {

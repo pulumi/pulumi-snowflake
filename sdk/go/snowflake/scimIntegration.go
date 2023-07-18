@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -74,6 +75,7 @@ func NewScimIntegration(ctx *pulumi.Context,
 	if args.ScimClient == nil {
 		return nil, errors.New("invalid value for required argument 'ScimClient'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScimIntegration
 	err := ctx.RegisterResource("snowflake:index/scimIntegration:ScimIntegration", name, args, &resource, opts...)
 	if err != nil {

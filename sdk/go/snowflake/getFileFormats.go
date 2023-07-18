@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,6 +38,7 @@ import (
 //
 // ```
 func GetFileFormats(ctx *pulumi.Context, args *GetFileFormatsArgs, opts ...pulumi.InvokeOption) (*GetFileFormatsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFileFormatsResult
 	err := ctx.Invoke("snowflake:index/getFileFormats:getFileFormats", args, &rv, opts...)
 	if err != nil {

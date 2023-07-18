@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -90,6 +91,7 @@ import (
 //
 // ```
 func GetGrants(ctx *pulumi.Context, args *GetGrantsArgs, opts ...pulumi.InvokeOption) (*GetGrantsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetGrantsResult
 	err := ctx.Invoke("snowflake:index/getGrants:getGrants", args, &rv, opts...)
 	if err != nil {

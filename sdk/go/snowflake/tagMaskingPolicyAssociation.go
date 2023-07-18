@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,6 +45,7 @@ func NewTagMaskingPolicyAssociation(ctx *pulumi.Context,
 	if args.TagId == nil {
 		return nil, errors.New("invalid value for required argument 'TagId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TagMaskingPolicyAssociation
 	err := ctx.RegisterResource("snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation", name, args, &resource, opts...)
 	if err != nil {

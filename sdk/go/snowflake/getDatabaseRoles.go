@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetDatabaseRoles(ctx *pulumi.Context, args *GetDatabaseRolesArgs, opts ...pulumi.InvokeOption) (*GetDatabaseRolesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDatabaseRolesResult
 	err := ctx.Invoke("snowflake:index/getDatabaseRoles:getDatabaseRoles", args, &rv, opts...)
 	if err != nil {

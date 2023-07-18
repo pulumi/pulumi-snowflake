@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -119,6 +120,7 @@ func NewExternalOauthIntegration(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ExternalOauthIntegration
 	err := ctx.RegisterResource("snowflake:index/externalOauthIntegration:ExternalOauthIntegration", name, args, &resource, opts...)
 	if err != nil {

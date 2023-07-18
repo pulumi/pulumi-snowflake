@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -78,92 +79,92 @@ func NewProvider(ctx *pulumi.Context,
 	}
 
 	if args.Account == nil {
-		if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_ACCOUNT"); d != nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_ACCOUNT"); d != nil {
 			args.Account = pulumi.StringPtr(d.(string))
 		}
 	}
 	if args.BrowserAuth == nil {
-		if d := getEnvOrDefault(nil, parseEnvBool, "SNOWFLAKE_USE_BROWSER_AUTH"); d != nil {
+		if d := internal.GetEnvOrDefault(nil, internal.ParseEnvBool, "SNOWFLAKE_USE_BROWSER_AUTH"); d != nil {
 			args.BrowserAuth = pulumi.BoolPtr(d.(bool))
 		}
 	}
 	if args.Host == nil {
-		if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_HOST"); d != nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_HOST"); d != nil {
 			args.Host = pulumi.StringPtr(d.(string))
 		}
 	}
 	if args.OauthAccessToken == nil {
-		if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_ACCESS_TOKEN"); d != nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_ACCESS_TOKEN"); d != nil {
 			args.OauthAccessToken = pulumi.StringPtr(d.(string))
 		}
 	}
 	if args.OauthClientId == nil {
-		if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_CLIENT_ID"); d != nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_CLIENT_ID"); d != nil {
 			args.OauthClientId = pulumi.StringPtr(d.(string))
 		}
 	}
 	if args.OauthClientSecret == nil {
-		if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_CLIENT_SECRET"); d != nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_CLIENT_SECRET"); d != nil {
 			args.OauthClientSecret = pulumi.StringPtr(d.(string))
 		}
 	}
 	if args.OauthEndpoint == nil {
-		if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_ENDPOINT"); d != nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_ENDPOINT"); d != nil {
 			args.OauthEndpoint = pulumi.StringPtr(d.(string))
 		}
 	}
 	if args.OauthRedirectUrl == nil {
-		if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_REDIRECT_URL"); d != nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_REDIRECT_URL"); d != nil {
 			args.OauthRedirectUrl = pulumi.StringPtr(d.(string))
 		}
 	}
 	if args.OauthRefreshToken == nil {
-		if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_REFRESH_TOKEN"); d != nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_OAUTH_REFRESH_TOKEN"); d != nil {
 			args.OauthRefreshToken = pulumi.StringPtr(d.(string))
 		}
 	}
 	if args.Password == nil {
-		if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_PASSWORD"); d != nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_PASSWORD"); d != nil {
 			args.Password = pulumi.StringPtr(d.(string))
 		}
 	}
 	if args.Port == nil {
-		if d := getEnvOrDefault(nil, parseEnvInt, "SNOWFLAKE_PORT"); d != nil {
+		if d := internal.GetEnvOrDefault(nil, internal.ParseEnvInt, "SNOWFLAKE_PORT"); d != nil {
 			args.Port = pulumi.IntPtr(d.(int))
 		}
 	}
 	if args.PrivateKeyPassphrase == nil {
-		if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"); d != nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"); d != nil {
 			args.PrivateKeyPassphrase = pulumi.StringPtr(d.(string))
 		}
 	}
 	if args.PrivateKeyPath == nil {
-		if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_PRIVATE_KEY_PATH"); d != nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_PRIVATE_KEY_PATH"); d != nil {
 			args.PrivateKeyPath = pulumi.StringPtr(d.(string))
 		}
 	}
 	if args.Protocol == nil {
-		if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_PROTOCOL"); d != nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_PROTOCOL"); d != nil {
 			args.Protocol = pulumi.StringPtr(d.(string))
 		}
 	}
 	if args.Region == nil {
-		if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_REGION"); d != nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_REGION"); d != nil {
 			args.Region = pulumi.StringPtr(d.(string))
 		}
 	}
 	if args.Role == nil {
-		if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_ROLE"); d != nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_ROLE"); d != nil {
 			args.Role = pulumi.StringPtr(d.(string))
 		}
 	}
 	if args.Username == nil {
-		if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_USER"); d != nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_USER"); d != nil {
 			args.Username = pulumi.StringPtr(d.(string))
 		}
 	}
 	if args.Warehouse == nil {
-		if d := getEnvOrDefault(nil, nil, "SNOWFLAKE_WAREHOUSE"); d != nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SNOWFLAKE_WAREHOUSE"); d != nil {
 			args.Warehouse = pulumi.StringPtr(d.(string))
 		}
 	}
@@ -210,6 +211,7 @@ func NewProvider(ctx *pulumi.Context,
 		"privateKeyPath",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:snowflake", name, args, &resource, opts...)
 	if err != nil {

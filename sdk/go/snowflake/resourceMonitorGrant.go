@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -77,6 +78,7 @@ func NewResourceMonitorGrant(ctx *pulumi.Context,
 	if args.MonitorName == nil {
 		return nil, errors.New("invalid value for required argument 'MonitorName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceMonitorGrant
 	err := ctx.RegisterResource("snowflake:index/resourceMonitorGrant:ResourceMonitorGrant", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,6 +38,7 @@ import (
 //
 // ```
 func GetMaterializedViews(ctx *pulumi.Context, args *GetMaterializedViewsArgs, opts ...pulumi.InvokeOption) (*GetMaterializedViewsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetMaterializedViewsResult
 	err := ctx.Invoke("snowflake:index/getMaterializedViews:getMaterializedViews", args, &rv, opts...)
 	if err != nil {

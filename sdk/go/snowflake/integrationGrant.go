@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -80,6 +81,7 @@ func NewIntegrationGrant(ctx *pulumi.Context,
 	if args.IntegrationName == nil {
 		return nil, errors.New("invalid value for required argument 'IntegrationName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IntegrationGrant
 	err := ctx.RegisterResource("snowflake:index/integrationGrant:IntegrationGrant", name, args, &resource, opts...)
 	if err != nil {

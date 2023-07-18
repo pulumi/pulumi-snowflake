@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -116,6 +117,7 @@ func NewStage(ctx *pulumi.Context,
 		"credentials",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Stage
 	err := ctx.RegisterResource("snowflake:index/stage:Stage", name, args, &resource, opts...)
 	if err != nil {

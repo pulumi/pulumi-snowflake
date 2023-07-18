@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -88,6 +89,7 @@ func NewRowAccessPolicy(ctx *pulumi.Context,
 	if args.Signature == nil {
 		return nil, errors.New("invalid value for required argument 'Signature'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RowAccessPolicy
 	err := ctx.RegisterResource("snowflake:index/rowAccessPolicy:RowAccessPolicy", name, args, &resource, opts...)
 	if err != nil {

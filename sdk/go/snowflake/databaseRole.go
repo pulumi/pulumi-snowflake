@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,6 +33,7 @@ func NewDatabaseRole(ctx *pulumi.Context,
 	if args.Database == nil {
 		return nil, errors.New("invalid value for required argument 'Database'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DatabaseRole
 	err := ctx.RegisterResource("snowflake:index/databaseRole:DatabaseRole", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,6 +45,7 @@ func NewTableColumnMaskingPolicyApplication(ctx *pulumi.Context,
 	if args.Table == nil {
 		return nil, errors.New("invalid value for required argument 'Table'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TableColumnMaskingPolicyApplication
 	err := ctx.RegisterResource("snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication", name, args, &resource, opts...)
 	if err != nil {

@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetFailoverGroups(ctx *pulumi.Context, args *GetFailoverGroupsArgs, opts ...pulumi.InvokeOption) (*GetFailoverGroupsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFailoverGroupsResult
 	err := ctx.Invoke("snowflake:index/getFailoverGroups:getFailoverGroups", args, &rv, opts...)
 	if err != nil {

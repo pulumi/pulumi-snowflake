@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,6 +38,7 @@ func NewRoleOwnershipGrant(ctx *pulumi.Context,
 	if args.ToRoleName == nil {
 		return nil, errors.New("invalid value for required argument 'ToRoleName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RoleOwnershipGrant
 	err := ctx.RegisterResource("snowflake:index/roleOwnershipGrant:RoleOwnershipGrant", name, args, &resource, opts...)
 	if err != nil {

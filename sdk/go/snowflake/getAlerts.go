@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,6 +38,7 @@ import (
 //
 // ```
 func GetAlerts(ctx *pulumi.Context, args *GetAlertsArgs, opts ...pulumi.InvokeOption) (*GetAlertsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAlertsResult
 	err := ctx.Invoke("snowflake:index/getAlerts:getAlerts", args, &rv, opts...)
 	if err != nil {

@@ -4,10 +4,12 @@
 package snowflake
 
 import (
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetSystemGetSnowflakePlatformInfo(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSystemGetSnowflakePlatformInfoResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSystemGetSnowflakePlatformInfoResult
 	err := ctx.Invoke("snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo", nil, &rv, opts...)
 	if err != nil {

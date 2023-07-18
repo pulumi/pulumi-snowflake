@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -80,6 +81,7 @@ func NewWarehouseGrant(ctx *pulumi.Context,
 	if args.WarehouseName == nil {
 		return nil, errors.New("invalid value for required argument 'WarehouseName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WarehouseGrant
 	err := ctx.RegisterResource("snowflake:index/warehouseGrant:WarehouseGrant", name, args, &resource, opts...)
 	if err != nil {

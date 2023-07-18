@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -89,6 +90,7 @@ func NewTag(ctx *pulumi.Context,
 	if args.Schema == nil {
 		return nil, errors.New("invalid value for required argument 'Schema'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Tag
 	err := ctx.RegisterResource("snowflake:index/tag:Tag", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,6 +38,7 @@ import (
 //
 // ```
 func GetMaskingPolicies(ctx *pulumi.Context, args *GetMaskingPoliciesArgs, opts ...pulumi.InvokeOption) (*GetMaskingPoliciesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetMaskingPoliciesResult
 	err := ctx.Invoke("snowflake:index/getMaskingPolicies:getMaskingPolicies", args, &rv, opts...)
 	if err != nil {

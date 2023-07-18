@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -97,6 +98,7 @@ func NewMaterializedViewGrant(ctx *pulumi.Context,
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MaterializedViewGrant
 	err := ctx.RegisterResource("snowflake:index/materializedViewGrant:MaterializedViewGrant", name, args, &resource, opts...)
 	if err != nil {

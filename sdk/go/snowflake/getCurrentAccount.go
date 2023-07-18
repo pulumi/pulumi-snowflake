@@ -4,6 +4,7 @@
 package snowflake
 
 import (
+	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func GetCurrentAccount(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCurrentAccountResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCurrentAccountResult
 	err := ctx.Invoke("snowflake:index/getCurrentAccount:getCurrentAccount", nil, &rv, opts...)
 	if err != nil {
