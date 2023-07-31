@@ -503,7 +503,7 @@
                 },
                 "objectType": {
                     "type": "string",
-                    "description": "The object type of the schema object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP\n",
+                    "description": "The object type of the schema object on which privileges will be granted. Valid values are: ALERT | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -12897,8 +12897,7 @@
                 },
                 "loginName": {
                     "type": "string",
-                    "description": "The name users use to log in. If not supplied, snowflake will use name instead.\n",
-                    "secret": true
+                    "description": "The name users use to log in. If not supplied, snowflake will use name instead.\n"
                 },
                 "mustChangePassword": {
                     "type": "boolean",
@@ -12987,8 +12986,7 @@
                 },
                 "loginName": {
                     "type": "string",
-                    "description": "The name users use to log in. If not supplied, snowflake will use name instead.\n",
-                    "secret": true
+                    "description": "The name users use to log in. If not supplied, snowflake will use name instead.\n"
                 },
                 "mustChangePassword": {
                     "type": "boolean",
@@ -13075,8 +13073,7 @@
                     },
                     "loginName": {
                         "type": "string",
-                        "description": "The name users use to log in. If not supplied, snowflake will use name instead.\n",
-                        "secret": true
+                        "description": "The name users use to log in. If not supplied, snowflake will use name instead.\n"
                     },
                     "mustChangePassword": {
                         "type": "boolean",
