@@ -184,7 +184,6 @@ namespace Pulumi.Snowflake
                     "email",
                     "firstName",
                     "lastName",
-                    "loginName",
                     "name",
                     "password",
                 },
@@ -311,21 +310,11 @@ namespace Pulumi.Snowflake
             }
         }
 
-        [Input("loginName")]
-        private Input<string>? _loginName;
-
         /// <summary>
         /// The name users use to log in. If not supplied, snowflake will use name instead.
         /// </summary>
-        public Input<string>? LoginName
-        {
-            get => _loginName;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _loginName = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
+        [Input("loginName")]
+        public Input<string>? LoginName { get; set; }
 
         /// <summary>
         /// Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
@@ -504,21 +493,11 @@ namespace Pulumi.Snowflake
             }
         }
 
-        [Input("loginName")]
-        private Input<string>? _loginName;
-
         /// <summary>
         /// The name users use to log in. If not supplied, snowflake will use name instead.
         /// </summary>
-        public Input<string>? LoginName
-        {
-            get => _loginName;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _loginName = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
+        [Input("loginName")]
+        public Input<string>? LoginName { get; set; }
 
         /// <summary>
         /// Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.

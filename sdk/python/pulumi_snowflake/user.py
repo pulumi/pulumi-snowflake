@@ -743,7 +743,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["email"] = None if email is None else pulumi.Output.secret(email)
             __props__.__dict__["first_name"] = None if first_name is None else pulumi.Output.secret(first_name)
             __props__.__dict__["last_name"] = None if last_name is None else pulumi.Output.secret(last_name)
-            __props__.__dict__["login_name"] = None if login_name is None else pulumi.Output.secret(login_name)
+            __props__.__dict__["login_name"] = login_name
             __props__.__dict__["must_change_password"] = must_change_password
             __props__.__dict__["name"] = None if name is None else pulumi.Output.secret(name)
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
@@ -754,7 +754,7 @@ class User(pulumi.CustomResource):
                 pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
             __props__.__dict__["tags"] = tags
             __props__.__dict__["has_rsa_public_key"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["displayName", "email", "firstName", "lastName", "loginName", "name", "password"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["displayName", "email", "firstName", "lastName", "name", "password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(User, __self__).__init__(
             'snowflake:index/user:User',

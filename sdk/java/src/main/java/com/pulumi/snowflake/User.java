@@ -348,7 +348,6 @@ public class User extends com.pulumi.resources.CustomResource {
                 "email",
                 "firstName",
                 "lastName",
-                "loginName",
                 "name",
                 "password"
             ))
