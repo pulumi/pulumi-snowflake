@@ -177,7 +177,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["email"] = args?.email ? pulumi.secret(args.email) : undefined;
             resourceInputs["firstName"] = args?.firstName ? pulumi.secret(args.firstName) : undefined;
             resourceInputs["lastName"] = args?.lastName ? pulumi.secret(args.lastName) : undefined;
-            resourceInputs["loginName"] = args?.loginName ? pulumi.secret(args.loginName) : undefined;
+            resourceInputs["loginName"] = args ? args.loginName : undefined;
             resourceInputs["mustChangePassword"] = args ? args.mustChangePassword : undefined;
             resourceInputs["name"] = args?.name ? pulumi.secret(args.name) : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
@@ -187,7 +187,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["hasRsaPublicKey"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["displayName", "email", "firstName", "lastName", "loginName", "name", "password"] };
+        const secretOpts = { additionalSecretOutputs: ["displayName", "email", "firstName", "lastName", "name", "password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(User.__pulumiType, name, resourceInputs, opts);
     }

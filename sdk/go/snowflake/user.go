@@ -119,9 +119,6 @@ func NewUser(ctx *pulumi.Context,
 	if args.LastName != nil {
 		args.LastName = pulumi.ToSecret(args.LastName).(pulumi.StringPtrInput)
 	}
-	if args.LoginName != nil {
-		args.LoginName = pulumi.ToSecret(args.LoginName).(pulumi.StringPtrInput)
-	}
 	if args.Name != nil {
 		args.Name = pulumi.ToSecret(args.Name).(pulumi.StringPtrInput)
 	}
@@ -133,7 +130,6 @@ func NewUser(ctx *pulumi.Context,
 		"email",
 		"firstName",
 		"lastName",
-		"loginName",
 		"name",
 		"password",
 	})
