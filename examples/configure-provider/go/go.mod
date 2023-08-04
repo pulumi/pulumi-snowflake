@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-snowflake/examples/user/go
 
-go 1.19
+go 1.20
 
 require (
 	github.com/pulumi/pulumi-snowflake/sdk v0.25.0
