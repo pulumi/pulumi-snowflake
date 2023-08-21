@@ -24,13 +24,13 @@ func GetDatabaseRoles(ctx *pulumi.Context, args *GetDatabaseRolesArgs, opts ...p
 // A collection of arguments for invoking getDatabaseRoles.
 type GetDatabaseRolesArgs struct {
 	// The database from which to return the database roles from.
-	Database *string `pulumi:"database"`
+	Database string `pulumi:"database"`
 }
 
 // A collection of values returned by getDatabaseRoles.
 type GetDatabaseRolesResult struct {
 	// The database from which to return the database roles from.
-	Database *string `pulumi:"database"`
+	Database string `pulumi:"database"`
 	// Lists all the database roles in a specified database.
 	DatabaseRoles []GetDatabaseRolesDatabaseRole `pulumi:"databaseRoles"`
 	// The provider-assigned unique ID for this managed resource.
@@ -53,7 +53,7 @@ func GetDatabaseRolesOutput(ctx *pulumi.Context, args GetDatabaseRolesOutputArgs
 // A collection of arguments for invoking getDatabaseRoles.
 type GetDatabaseRolesOutputArgs struct {
 	// The database from which to return the database roles from.
-	Database pulumi.StringPtrInput `pulumi:"database"`
+	Database pulumi.StringInput `pulumi:"database"`
 }
 
 func (GetDatabaseRolesOutputArgs) ElementType() reflect.Type {
@@ -76,8 +76,8 @@ func (o GetDatabaseRolesResultOutput) ToGetDatabaseRolesResultOutputWithContext(
 }
 
 // The database from which to return the database roles from.
-func (o GetDatabaseRolesResultOutput) Database() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetDatabaseRolesResult) *string { return v.Database }).(pulumi.StringPtrOutput)
+func (o GetDatabaseRolesResultOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabaseRolesResult) string { return v.Database }).(pulumi.StringOutput)
 }
 
 // Lists all the database roles in a specified database.

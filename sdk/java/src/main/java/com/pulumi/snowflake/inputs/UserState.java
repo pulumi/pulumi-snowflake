@@ -5,7 +5,6 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.snowflake.inputs.UserTagArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -257,29 +256,6 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.rsaPublicKey2);
     }
 
-    /**
-     * Definitions of a tag to associate with the resource.
-     * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
-     * 
-     */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    @Import(name="tags")
-    private @Nullable Output<List<UserTagArgs>> tags;
-
-    /**
-     * @return Definitions of a tag to associate with the resource.
-     * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
-     * 
-     */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    public Optional<Output<List<UserTagArgs>>> tags() {
-        return Optional.ofNullable(this.tags);
-    }
-
     private UserState() {}
 
     private UserState(UserState $) {
@@ -300,7 +276,6 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         this.password = $.password;
         this.rsaPublicKey = $.rsaPublicKey;
         this.rsaPublicKey2 = $.rsaPublicKey2;
-        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -662,49 +637,6 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder rsaPublicKey2(String rsaPublicKey2) {
             return rsaPublicKey2(Output.of(rsaPublicKey2));
-        }
-
-        /**
-         * @param tags Definitions of a tag to associate with the resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
-         * 
-         */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-        public Builder tags(@Nullable Output<List<UserTagArgs>> tags) {
-            $.tags = tags;
-            return this;
-        }
-
-        /**
-         * @param tags Definitions of a tag to associate with the resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
-         * 
-         */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-        public Builder tags(List<UserTagArgs> tags) {
-            return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tags Definitions of a tag to associate with the resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
-         * 
-         */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-        public Builder tags(UserTagArgs... tags) {
-            return tags(List.of(tags));
         }
 
         public UserState build() {

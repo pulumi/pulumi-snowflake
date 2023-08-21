@@ -735,12 +735,6 @@ public final class SnowflakeFunctions {
     public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
     }
-    public static Output<GetDatabaseRolesResult> getDatabaseRoles() {
-        return getDatabaseRoles(GetDatabaseRolesArgs.Empty, InvokeOptions.Empty);
-    }
-    public static CompletableFuture<GetDatabaseRolesResult> getDatabaseRolesPlain() {
-        return getDatabaseRolesPlain(GetDatabaseRolesPlainArgs.Empty, InvokeOptions.Empty);
-    }
     public static Output<GetDatabaseRolesResult> getDatabaseRoles(GetDatabaseRolesArgs args) {
         return getDatabaseRoles(args, InvokeOptions.Empty);
     }

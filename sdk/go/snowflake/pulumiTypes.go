@@ -4516,130 +4516,6 @@ func (o TagAssociationObjectIdentifierArrayOutput) Index(i pulumi.IntInput) TagA
 	}).(TagAssociationObjectIdentifierOutput)
 }
 
-type UserTag struct {
-	// Name of the database that the tag was created in.
-	Database *string `pulumi:"database"`
-	// Tag name, e.g. department.
-	Name string `pulumi:"name"`
-	// Name of the schema that the tag was created in.
-	Schema *string `pulumi:"schema"`
-	// Tag value, e.g. marketing_info.
-	Value string `pulumi:"value"`
-}
-
-// UserTagInput is an input type that accepts UserTagArgs and UserTagOutput values.
-// You can construct a concrete instance of `UserTagInput` via:
-//
-//	UserTagArgs{...}
-type UserTagInput interface {
-	pulumi.Input
-
-	ToUserTagOutput() UserTagOutput
-	ToUserTagOutputWithContext(context.Context) UserTagOutput
-}
-
-type UserTagArgs struct {
-	// Name of the database that the tag was created in.
-	Database pulumi.StringPtrInput `pulumi:"database"`
-	// Tag name, e.g. department.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Name of the schema that the tag was created in.
-	Schema pulumi.StringPtrInput `pulumi:"schema"`
-	// Tag value, e.g. marketing_info.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (UserTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserTag)(nil)).Elem()
-}
-
-func (i UserTagArgs) ToUserTagOutput() UserTagOutput {
-	return i.ToUserTagOutputWithContext(context.Background())
-}
-
-func (i UserTagArgs) ToUserTagOutputWithContext(ctx context.Context) UserTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserTagOutput)
-}
-
-// UserTagArrayInput is an input type that accepts UserTagArray and UserTagArrayOutput values.
-// You can construct a concrete instance of `UserTagArrayInput` via:
-//
-//	UserTagArray{ UserTagArgs{...} }
-type UserTagArrayInput interface {
-	pulumi.Input
-
-	ToUserTagArrayOutput() UserTagArrayOutput
-	ToUserTagArrayOutputWithContext(context.Context) UserTagArrayOutput
-}
-
-type UserTagArray []UserTagInput
-
-func (UserTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserTag)(nil)).Elem()
-}
-
-func (i UserTagArray) ToUserTagArrayOutput() UserTagArrayOutput {
-	return i.ToUserTagArrayOutputWithContext(context.Background())
-}
-
-func (i UserTagArray) ToUserTagArrayOutputWithContext(ctx context.Context) UserTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserTagArrayOutput)
-}
-
-type UserTagOutput struct{ *pulumi.OutputState }
-
-func (UserTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserTag)(nil)).Elem()
-}
-
-func (o UserTagOutput) ToUserTagOutput() UserTagOutput {
-	return o
-}
-
-func (o UserTagOutput) ToUserTagOutputWithContext(ctx context.Context) UserTagOutput {
-	return o
-}
-
-// Name of the database that the tag was created in.
-func (o UserTagOutput) Database() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserTag) *string { return v.Database }).(pulumi.StringPtrOutput)
-}
-
-// Tag name, e.g. department.
-func (o UserTagOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v UserTag) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Name of the schema that the tag was created in.
-func (o UserTagOutput) Schema() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserTag) *string { return v.Schema }).(pulumi.StringPtrOutput)
-}
-
-// Tag value, e.g. marketing_info.
-func (o UserTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v UserTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type UserTagArrayOutput struct{ *pulumi.OutputState }
-
-func (UserTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserTag)(nil)).Elem()
-}
-
-func (o UserTagArrayOutput) ToUserTagArrayOutput() UserTagArrayOutput {
-	return o
-}
-
-func (o UserTagArrayOutput) ToUserTagArrayOutputWithContext(ctx context.Context) UserTagArrayOutput {
-	return o
-}
-
-func (o UserTagArrayOutput) Index(i pulumi.IntInput) UserTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserTag {
-		return vs[0].([]UserTag)[vs[1].(int)]
-	}).(UserTagOutput)
-}
-
 type ViewTag struct {
 	// Name of the database that the tag was created in.
 	Database *string `pulumi:"database"`
@@ -9579,8 +9455,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTagArrayInput)(nil)).Elem(), TableTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationObjectIdentifierInput)(nil)).Elem(), TagAssociationObjectIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagAssociationObjectIdentifierArrayInput)(nil)).Elem(), TagAssociationObjectIdentifierArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserTagInput)(nil)).Elem(), UserTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserTagArrayInput)(nil)).Elem(), UserTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewTagInput)(nil)).Elem(), ViewTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewTagArrayInput)(nil)).Elem(), ViewTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountInput)(nil)).Elem(), GetAccountsAccountArgs{})
@@ -9719,8 +9593,6 @@ func init() {
 	pulumi.RegisterOutputType(TableTagArrayOutput{})
 	pulumi.RegisterOutputType(TagAssociationObjectIdentifierOutput{})
 	pulumi.RegisterOutputType(TagAssociationObjectIdentifierArrayOutput{})
-	pulumi.RegisterOutputType(UserTagOutput{})
-	pulumi.RegisterOutputType(UserTagArrayOutput{})
 	pulumi.RegisterOutputType(ViewTagOutput{})
 	pulumi.RegisterOutputType(ViewTagArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountsAccountOutput{})

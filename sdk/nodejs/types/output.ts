@@ -837,25 +837,6 @@ export interface TagAssociationObjectIdentifier {
     schema?: string;
 }
 
-export interface UserTag {
-    /**
-     * Name of the database that the tag was created in.
-     */
-    database?: string;
-    /**
-     * Tag name, e.g. department.
-     */
-    name: string;
-    /**
-     * Name of the schema that the tag was created in.
-     */
-    schema?: string;
-    /**
-     * Tag value, e.g. marketing_info.
-     */
-    value: string;
-}
-
 export interface ViewTag {
     /**
      * Name of the database that the tag was created in.

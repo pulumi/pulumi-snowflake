@@ -6,8 +6,7 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-export function getDatabaseRoles(args?: GetDatabaseRolesArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseRolesResult> {
-    args = args || {};
+export function getDatabaseRoles(args: GetDatabaseRolesArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseRolesResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getDatabaseRoles:getDatabaseRoles", {
@@ -22,7 +21,7 @@ export interface GetDatabaseRolesArgs {
     /**
      * The database from which to return the database roles from.
      */
-    database?: string;
+    database: string;
 }
 
 /**
@@ -32,7 +31,7 @@ export interface GetDatabaseRolesResult {
     /**
      * The database from which to return the database roles from.
      */
-    readonly database?: string;
+    readonly database: string;
     /**
      * Lists all the database roles in a specified database.
      */
@@ -42,7 +41,7 @@ export interface GetDatabaseRolesResult {
      */
     readonly id: string;
 }
-export function getDatabaseRolesOutput(args?: GetDatabaseRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseRolesResult> {
+export function getDatabaseRolesOutput(args: GetDatabaseRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseRolesResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseRoles(a, opts))
 }
 
@@ -53,5 +52,5 @@ export interface GetDatabaseRolesOutputArgs {
     /**
      * The database from which to return the database roles from.
      */
-    database?: pulumi.Input<string>;
+    database: pulumi.Input<string>;
 }

@@ -7,8 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class GetDatabaseRolesArgs extends com.pulumi.resources.InvokeArgs {
@@ -19,15 +17,15 @@ public final class GetDatabaseRolesArgs extends com.pulumi.resources.InvokeArgs 
      * The database from which to return the database roles from.
      * 
      */
-    @Import(name="database")
-    private @Nullable Output<String> database;
+    @Import(name="database", required=true)
+    private Output<String> database;
 
     /**
      * @return The database from which to return the database roles from.
      * 
      */
-    public Optional<Output<String>> database() {
-        return Optional.ofNullable(this.database);
+    public Output<String> database() {
+        return this.database;
     }
 
     private GetDatabaseRolesArgs() {}
@@ -60,7 +58,7 @@ public final class GetDatabaseRolesArgs extends com.pulumi.resources.InvokeArgs 
          * @return builder
          * 
          */
-        public Builder database(@Nullable Output<String> database) {
+        public Builder database(Output<String> database) {
             $.database = database;
             return this;
         }
@@ -76,6 +74,7 @@ public final class GetDatabaseRolesArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         public GetDatabaseRolesArgs build() {
+            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
             return $;
         }
     }

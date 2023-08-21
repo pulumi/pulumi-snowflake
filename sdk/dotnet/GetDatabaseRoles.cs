@@ -11,10 +11,10 @@ namespace Pulumi.Snowflake
 {
     public static class GetDatabaseRoles
     {
-        public static Task<GetDatabaseRolesResult> InvokeAsync(GetDatabaseRolesArgs? args = null, InvokeOptions? options = null)
+        public static Task<GetDatabaseRolesResult> InvokeAsync(GetDatabaseRolesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseRolesResult>("snowflake:index/getDatabaseRoles:getDatabaseRoles", args ?? new GetDatabaseRolesArgs(), options.WithDefaults());
 
-        public static Output<GetDatabaseRolesResult> Invoke(GetDatabaseRolesInvokeArgs? args = null, InvokeOptions? options = null)
+        public static Output<GetDatabaseRolesResult> Invoke(GetDatabaseRolesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseRolesResult>("snowflake:index/getDatabaseRoles:getDatabaseRoles", args ?? new GetDatabaseRolesInvokeArgs(), options.WithDefaults());
     }
 
@@ -24,8 +24,8 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// The database from which to return the database roles from.
         /// </summary>
-        [Input("database")]
-        public string? Database { get; set; }
+        [Input("database", required: true)]
+        public string Database { get; set; } = null!;
 
         public GetDatabaseRolesArgs()
         {
@@ -38,8 +38,8 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// The database from which to return the database roles from.
         /// </summary>
-        [Input("database")]
-        public Input<string>? Database { get; set; }
+        [Input("database", required: true)]
+        public Input<string> Database { get; set; } = null!;
 
         public GetDatabaseRolesInvokeArgs()
         {
@@ -54,7 +54,7 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// The database from which to return the database roles from.
         /// </summary>
-        public readonly string? Database;
+        public readonly string Database;
         /// <summary>
         /// Lists all the database roles in a specified database.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.Snowflake
 
         [OutputConstructor]
         private GetDatabaseRolesResult(
-            string? database,
+            string database,
 
             ImmutableArray<Outputs.GetDatabaseRolesDatabaseRoleResult> databaseRoles,
 

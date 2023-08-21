@@ -6,8 +6,6 @@ package com.pulumi.snowflake.inputs;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class GetDatabaseRolesPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -18,15 +16,15 @@ public final class GetDatabaseRolesPlainArgs extends com.pulumi.resources.Invoke
      * The database from which to return the database roles from.
      * 
      */
-    @Import(name="database")
-    private @Nullable String database;
+    @Import(name="database", required=true)
+    private String database;
 
     /**
      * @return The database from which to return the database roles from.
      * 
      */
-    public Optional<String> database() {
-        return Optional.ofNullable(this.database);
+    public String database() {
+        return this.database;
     }
 
     private GetDatabaseRolesPlainArgs() {}
@@ -59,12 +57,13 @@ public final class GetDatabaseRolesPlainArgs extends com.pulumi.resources.Invoke
          * @return builder
          * 
          */
-        public Builder database(@Nullable String database) {
+        public Builder database(String database) {
             $.database = database;
             return this;
         }
 
         public GetDatabaseRolesPlainArgs build() {
+            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
             return $;
         }
     }

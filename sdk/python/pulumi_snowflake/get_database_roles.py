@@ -35,7 +35,7 @@ class GetDatabaseRolesResult:
 
     @property
     @pulumi.getter
-    def database(self) -> Optional[str]:
+    def database(self) -> str:
         """
         The database from which to return the database roles from.
         """
@@ -88,7 +88,7 @@ def get_database_roles(database: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_database_roles)
-def get_database_roles_output(database: Optional[pulumi.Input[Optional[str]]] = None,
+def get_database_roles_output(database: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseRolesResult]:
     """
     Use this data source to access information about an existing resource.
