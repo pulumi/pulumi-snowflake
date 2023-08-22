@@ -10,7 +10,6 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.UserArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.UserState;
-import com.pulumi.snowflake.outputs.UserTag;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -291,24 +290,6 @@ public class User extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> rsaPublicKey2() {
         return Codegen.optional(this.rsaPublicKey2);
-    }
-    /**
-     * Definitions of a tag to associate with the resource.
-     * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
-     * 
-     */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    @Export(name="tags", type=List.class, parameters={UserTag.class})
-    private Output</* @Nullable */ List<UserTag>> tags;
-
-    /**
-     * @return Definitions of a tag to associate with the resource.
-     * 
-     */
-    public Output<Optional<List<UserTag>>> tags() {
-        return Codegen.optional(this.tags);
     }
 
     /**

@@ -8,8 +8,6 @@ import com.pulumi.snowflake.outputs.GetDatabaseRolesDatabaseRole;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDatabaseRolesResult {
@@ -17,7 +15,7 @@ public final class GetDatabaseRolesResult {
      * @return The database from which to return the database roles from.
      * 
      */
-    private @Nullable String database;
+    private String database;
     /**
      * @return Lists all the database roles in a specified database.
      * 
@@ -34,8 +32,8 @@ public final class GetDatabaseRolesResult {
      * @return The database from which to return the database roles from.
      * 
      */
-    public Optional<String> database() {
-        return Optional.ofNullable(this.database);
+    public String database() {
+        return this.database;
     }
     /**
      * @return Lists all the database roles in a specified database.
@@ -61,7 +59,7 @@ public final class GetDatabaseRolesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String database;
+        private String database;
         private List<GetDatabaseRolesDatabaseRole> databaseRoles;
         private String id;
         public Builder() {}
@@ -73,8 +71,8 @@ public final class GetDatabaseRolesResult {
         }
 
         @CustomType.Setter
-        public Builder database(@Nullable String database) {
-            this.database = database;
+        public Builder database(String database) {
+            this.database = Objects.requireNonNull(database);
             return this;
         }
         @CustomType.Setter

@@ -42,7 +42,6 @@ __all__ = [
     'TablePrimaryKeyArgs',
     'TableTagArgs',
     'TagAssociationObjectIdentifierArgs',
-    'UserTagArgs',
     'ViewTagArgs',
     'GetGrantsFutureGrantsInArgs',
     'GetGrantsFutureGrantsInSchemaArgs',
@@ -1603,75 +1602,6 @@ class TagAssociationObjectIdentifierArgs:
     def schema(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the schema that the object was created in.
-        """
-        return pulumi.get(self, "schema")
-
-    @schema.setter
-    def schema(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "schema", value)
-
-
-@pulumi.input_type
-class UserTagArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 value: pulumi.Input[str],
-                 database: Optional[pulumi.Input[str]] = None,
-                 schema: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Tag name, e.g. department.
-        :param pulumi.Input[str] value: Tag value, e.g. marketing_info.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
-        if database is not None:
-            pulumi.set(__self__, "database", database)
-        if schema is not None:
-            pulumi.set(__self__, "schema", schema)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Tag name, e.g. department.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        Tag value, e.g. marketing_info.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-    @property
-    @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the database that the tag was created in.
-        """
-        return pulumi.get(self, "database")
-
-    @database.setter
-    def database(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "database", value)
-
-    @property
-    @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the schema that the tag was created in.
         """
         return pulumi.get(self, "schema")
 

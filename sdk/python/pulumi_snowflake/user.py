@@ -8,8 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
-from . import outputs
-from ._inputs import *
 
 __all__ = ['UserArgs', 'User']
 
@@ -31,8 +29,7 @@ class UserArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  rsa_public_key: Optional[pulumi.Input[str]] = None,
-                 rsa_public_key2: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None):
+                 rsa_public_key2: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a User resource.
         :param pulumi.Input[str] default_namespace: Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login.
@@ -49,7 +46,6 @@ class UserArgs:
         :param pulumi.Input[str] password: **WARNING:** this will put the password in the terraform state file. Use carefully.
         :param pulumi.Input[str] rsa_public_key: Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
         :param pulumi.Input[str] rsa_public_key2: Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
-        :param pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -83,11 +79,6 @@ class UserArgs:
             pulumi.set(__self__, "rsa_public_key", rsa_public_key)
         if rsa_public_key2 is not None:
             pulumi.set(__self__, "rsa_public_key2", rsa_public_key2)
-        if tags is not None:
-            warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -275,21 +266,6 @@ class UserArgs:
     def rsa_public_key2(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rsa_public_key2", value)
 
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]]:
-        """
-        Definitions of a tag to associate with the resource.
-        """
-        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
-
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]]):
-        pulumi.set(self, "tags", value)
-
 
 @pulumi.input_type
 class _UserState:
@@ -310,8 +286,7 @@ class _UserState:
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  rsa_public_key: Optional[pulumi.Input[str]] = None,
-                 rsa_public_key2: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None):
+                 rsa_public_key2: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering User resources.
         :param pulumi.Input[str] default_namespace: Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login.
@@ -329,7 +304,6 @@ class _UserState:
         :param pulumi.Input[str] password: **WARNING:** this will put the password in the terraform state file. Use carefully.
         :param pulumi.Input[str] rsa_public_key: Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
         :param pulumi.Input[str] rsa_public_key2: Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
-        :param pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -365,11 +339,6 @@ class _UserState:
             pulumi.set(__self__, "rsa_public_key", rsa_public_key)
         if rsa_public_key2 is not None:
             pulumi.set(__self__, "rsa_public_key2", rsa_public_key2)
-        if tags is not None:
-            warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -569,21 +538,6 @@ class _UserState:
     def rsa_public_key2(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rsa_public_key2", value)
 
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]]:
-        """
-        Definitions of a tag to associate with the resource.
-        """
-        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
-
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]]):
-        pulumi.set(self, "tags", value)
-
 
 class User(pulumi.CustomResource):
     @overload
@@ -606,7 +560,6 @@ class User(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  rsa_public_key: Optional[pulumi.Input[str]] = None,
                  rsa_public_key2: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserTagArgs']]]]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -654,7 +607,6 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] password: **WARNING:** this will put the password in the terraform state file. Use carefully.
         :param pulumi.Input[str] rsa_public_key: Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
         :param pulumi.Input[str] rsa_public_key2: Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         ...
     @overload
@@ -723,7 +675,6 @@ class User(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  rsa_public_key: Optional[pulumi.Input[str]] = None,
                  rsa_public_key2: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -749,10 +700,6 @@ class User(pulumi.CustomResource):
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             __props__.__dict__["rsa_public_key"] = rsa_public_key
             __props__.__dict__["rsa_public_key2"] = rsa_public_key2
-            if tags is not None and not opts.urn:
-                warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
-                pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
-            __props__.__dict__["tags"] = tags
             __props__.__dict__["has_rsa_public_key"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["displayName", "email", "firstName", "lastName", "name", "password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -782,8 +729,7 @@ class User(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
             rsa_public_key: Optional[pulumi.Input[str]] = None,
-            rsa_public_key2: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserTagArgs']]]]] = None) -> 'User':
+            rsa_public_key2: Optional[pulumi.Input[str]] = None) -> 'User':
         """
         Get an existing User resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -806,7 +752,6 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] password: **WARNING:** this will put the password in the terraform state file. Use carefully.
         :param pulumi.Input[str] rsa_public_key: Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
         :param pulumi.Input[str] rsa_public_key2: Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -829,7 +774,6 @@ class User(pulumi.CustomResource):
         __props__.__dict__["password"] = password
         __props__.__dict__["rsa_public_key"] = rsa_public_key
         __props__.__dict__["rsa_public_key2"] = rsa_public_key2
-        __props__.__dict__["tags"] = tags
         return User(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -961,15 +905,4 @@ class User(pulumi.CustomResource):
         Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         """
         return pulumi.get(self, "rsa_public_key2")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.UserTag']]]:
-        """
-        Definitions of a tag to associate with the resource.
-        """
-        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
-
-        return pulumi.get(self, "tags")
 

@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -127,12 +125,6 @@ export class User extends pulumi.CustomResource {
      * Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      */
     public readonly rsaPublicKey2!: pulumi.Output<string | undefined>;
-    /**
-     * Definitions of a tag to associate with the resource.
-     *
-     * @deprecated Use the 'snowflake_tag_association' resource instead.
-     */
-    public readonly tags!: pulumi.Output<outputs.UserTag[] | undefined>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -164,7 +156,6 @@ export class User extends pulumi.CustomResource {
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["rsaPublicKey"] = state ? state.rsaPublicKey : undefined;
             resourceInputs["rsaPublicKey2"] = state ? state.rsaPublicKey2 : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
@@ -183,7 +174,6 @@ export class User extends pulumi.CustomResource {
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["rsaPublicKey"] = args ? args.rsaPublicKey : undefined;
             resourceInputs["rsaPublicKey2"] = args ? args.rsaPublicKey2 : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["hasRsaPublicKey"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -259,12 +249,6 @@ export interface UserState {
      * Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      */
     rsaPublicKey2?: pulumi.Input<string>;
-    /**
-     * Definitions of a tag to associate with the resource.
-     *
-     * @deprecated Use the 'snowflake_tag_association' resource instead.
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.UserTag>[]>;
 }
 
 /**
@@ -329,10 +313,4 @@ export interface UserArgs {
      * Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      */
     rsaPublicKey2?: pulumi.Input<string>;
-    /**
-     * Definitions of a tag to associate with the resource.
-     *
-     * @deprecated Use the 'snowflake_tag_association' resource instead.
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.UserTag>[]>;
 }

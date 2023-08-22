@@ -1940,8 +1940,7 @@
                 "loginName": "login_name",
                 "mustChangePassword": "must_change_password",
                 "rsaPublicKey": "rsa_public_key",
-                "rsaPublicKey2": "rsa_public_key_2",
-                "tags": "tag"
+                "rsaPublicKey2": "rsa_public_key_2"
             },
             "snowflake:index/userGrant:UserGrant": {
                 "enableMultipleGrants": "enable_multiple_grants",
