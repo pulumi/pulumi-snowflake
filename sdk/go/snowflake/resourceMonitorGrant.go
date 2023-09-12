@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -184,6 +185,12 @@ func (i *ResourceMonitorGrant) ToResourceMonitorGrantOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceMonitorGrantOutput)
 }
 
+func (i *ResourceMonitorGrant) ToOutput(ctx context.Context) pulumix.Output[*ResourceMonitorGrant] {
+	return pulumix.Output[*ResourceMonitorGrant]{
+		OutputState: i.ToResourceMonitorGrantOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceMonitorGrantArrayInput is an input type that accepts ResourceMonitorGrantArray and ResourceMonitorGrantArrayOutput values.
 // You can construct a concrete instance of `ResourceMonitorGrantArrayInput` via:
 //
@@ -207,6 +214,12 @@ func (i ResourceMonitorGrantArray) ToResourceMonitorGrantArrayOutput() ResourceM
 
 func (i ResourceMonitorGrantArray) ToResourceMonitorGrantArrayOutputWithContext(ctx context.Context) ResourceMonitorGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceMonitorGrantArrayOutput)
+}
+
+func (i ResourceMonitorGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceMonitorGrant] {
+	return pulumix.Output[[]*ResourceMonitorGrant]{
+		OutputState: i.ToResourceMonitorGrantArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResourceMonitorGrantMapInput is an input type that accepts ResourceMonitorGrantMap and ResourceMonitorGrantMapOutput values.
@@ -234,6 +247,12 @@ func (i ResourceMonitorGrantMap) ToResourceMonitorGrantMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceMonitorGrantMapOutput)
 }
 
+func (i ResourceMonitorGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceMonitorGrant] {
+	return pulumix.Output[map[string]*ResourceMonitorGrant]{
+		OutputState: i.ToResourceMonitorGrantMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceMonitorGrantOutput struct{ *pulumi.OutputState }
 
 func (ResourceMonitorGrantOutput) ElementType() reflect.Type {
@@ -246,6 +265,12 @@ func (o ResourceMonitorGrantOutput) ToResourceMonitorGrantOutput() ResourceMonit
 
 func (o ResourceMonitorGrantOutput) ToResourceMonitorGrantOutputWithContext(ctx context.Context) ResourceMonitorGrantOutput {
 	return o
+}
+
+func (o ResourceMonitorGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceMonitorGrant] {
+	return pulumix.Output[*ResourceMonitorGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -288,6 +313,12 @@ func (o ResourceMonitorGrantArrayOutput) ToResourceMonitorGrantArrayOutputWithCo
 	return o
 }
 
+func (o ResourceMonitorGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceMonitorGrant] {
+	return pulumix.Output[[]*ResourceMonitorGrant]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResourceMonitorGrantArrayOutput) Index(i pulumi.IntInput) ResourceMonitorGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceMonitorGrant {
 		return vs[0].([]*ResourceMonitorGrant)[vs[1].(int)]
@@ -306,6 +337,12 @@ func (o ResourceMonitorGrantMapOutput) ToResourceMonitorGrantMapOutput() Resourc
 
 func (o ResourceMonitorGrantMapOutput) ToResourceMonitorGrantMapOutputWithContext(ctx context.Context) ResourceMonitorGrantMapOutput {
 	return o
+}
+
+func (o ResourceMonitorGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceMonitorGrant] {
+	return pulumix.Output[map[string]*ResourceMonitorGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceMonitorGrantMapOutput) MapIndex(k pulumi.StringInput) ResourceMonitorGrantOutput {

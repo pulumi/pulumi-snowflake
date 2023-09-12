@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -200,6 +201,12 @@ func (i *StorageIntegration) ToStorageIntegrationOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationOutput)
 }
 
+func (i *StorageIntegration) ToOutput(ctx context.Context) pulumix.Output[*StorageIntegration] {
+	return pulumix.Output[*StorageIntegration]{
+		OutputState: i.ToStorageIntegrationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StorageIntegrationArrayInput is an input type that accepts StorageIntegrationArray and StorageIntegrationArrayOutput values.
 // You can construct a concrete instance of `StorageIntegrationArrayInput` via:
 //
@@ -223,6 +230,12 @@ func (i StorageIntegrationArray) ToStorageIntegrationArrayOutput() StorageIntegr
 
 func (i StorageIntegrationArray) ToStorageIntegrationArrayOutputWithContext(ctx context.Context) StorageIntegrationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationArrayOutput)
+}
+
+func (i StorageIntegrationArray) ToOutput(ctx context.Context) pulumix.Output[[]*StorageIntegration] {
+	return pulumix.Output[[]*StorageIntegration]{
+		OutputState: i.ToStorageIntegrationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StorageIntegrationMapInput is an input type that accepts StorageIntegrationMap and StorageIntegrationMapOutput values.
@@ -250,6 +263,12 @@ func (i StorageIntegrationMap) ToStorageIntegrationMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationMapOutput)
 }
 
+func (i StorageIntegrationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StorageIntegration] {
+	return pulumix.Output[map[string]*StorageIntegration]{
+		OutputState: i.ToStorageIntegrationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StorageIntegrationOutput struct{ *pulumi.OutputState }
 
 func (StorageIntegrationOutput) ElementType() reflect.Type {
@@ -262,6 +281,12 @@ func (o StorageIntegrationOutput) ToStorageIntegrationOutput() StorageIntegratio
 
 func (o StorageIntegrationOutput) ToStorageIntegrationOutputWithContext(ctx context.Context) StorageIntegrationOutput {
 	return o
+}
+
+func (o StorageIntegrationOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageIntegration] {
+	return pulumix.Output[*StorageIntegration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The consent URL that is used to create an Azure Snowflake service principle inside your tenant.
@@ -351,6 +376,12 @@ func (o StorageIntegrationArrayOutput) ToStorageIntegrationArrayOutputWithContex
 	return o
 }
 
+func (o StorageIntegrationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StorageIntegration] {
+	return pulumix.Output[[]*StorageIntegration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StorageIntegrationArrayOutput) Index(i pulumi.IntInput) StorageIntegrationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StorageIntegration {
 		return vs[0].([]*StorageIntegration)[vs[1].(int)]
@@ -369,6 +400,12 @@ func (o StorageIntegrationMapOutput) ToStorageIntegrationMapOutput() StorageInte
 
 func (o StorageIntegrationMapOutput) ToStorageIntegrationMapOutputWithContext(ctx context.Context) StorageIntegrationMapOutput {
 	return o
+}
+
+func (o StorageIntegrationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StorageIntegration] {
+	return pulumix.Output[map[string]*StorageIntegration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StorageIntegrationMapOutput) MapIndex(k pulumi.StringInput) StorageIntegrationOutput {

@@ -24,3 +24,6 @@ export interface GetCurrentRoleResult {
      */
     readonly name: string;
 }
+export function getCurrentRoleOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCurrentRoleResult> {
+    return pulumi.output(getCurrentRole(opts))
+}

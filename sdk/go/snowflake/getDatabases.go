@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -114,6 +115,12 @@ func (o GetDatabasesResultOutput) ToGetDatabasesResultOutput() GetDatabasesResul
 
 func (o GetDatabasesResultOutput) ToGetDatabasesResultOutputWithContext(ctx context.Context) GetDatabasesResultOutput {
 	return o
+}
+
+func (o GetDatabasesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDatabasesResult] {
+	return pulumix.Output[GetDatabasesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Snowflake databases

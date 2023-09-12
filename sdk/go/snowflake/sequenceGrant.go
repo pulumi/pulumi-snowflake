@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -241,6 +242,12 @@ func (i *SequenceGrant) ToSequenceGrantOutputWithContext(ctx context.Context) Se
 	return pulumi.ToOutputWithContext(ctx, i).(SequenceGrantOutput)
 }
 
+func (i *SequenceGrant) ToOutput(ctx context.Context) pulumix.Output[*SequenceGrant] {
+	return pulumix.Output[*SequenceGrant]{
+		OutputState: i.ToSequenceGrantOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SequenceGrantArrayInput is an input type that accepts SequenceGrantArray and SequenceGrantArrayOutput values.
 // You can construct a concrete instance of `SequenceGrantArrayInput` via:
 //
@@ -264,6 +271,12 @@ func (i SequenceGrantArray) ToSequenceGrantArrayOutput() SequenceGrantArrayOutpu
 
 func (i SequenceGrantArray) ToSequenceGrantArrayOutputWithContext(ctx context.Context) SequenceGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SequenceGrantArrayOutput)
+}
+
+func (i SequenceGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*SequenceGrant] {
+	return pulumix.Output[[]*SequenceGrant]{
+		OutputState: i.ToSequenceGrantArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SequenceGrantMapInput is an input type that accepts SequenceGrantMap and SequenceGrantMapOutput values.
@@ -291,6 +304,12 @@ func (i SequenceGrantMap) ToSequenceGrantMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SequenceGrantMapOutput)
 }
 
+func (i SequenceGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SequenceGrant] {
+	return pulumix.Output[map[string]*SequenceGrant]{
+		OutputState: i.ToSequenceGrantMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SequenceGrantOutput struct{ *pulumi.OutputState }
 
 func (SequenceGrantOutput) ElementType() reflect.Type {
@@ -303,6 +322,12 @@ func (o SequenceGrantOutput) ToSequenceGrantOutput() SequenceGrantOutput {
 
 func (o SequenceGrantOutput) ToSequenceGrantOutputWithContext(ctx context.Context) SequenceGrantOutput {
 	return o
+}
+
+func (o SequenceGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*SequenceGrant] {
+	return pulumix.Output[*SequenceGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the database containing the current or future sequences on which to grant privileges.
@@ -370,6 +395,12 @@ func (o SequenceGrantArrayOutput) ToSequenceGrantArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o SequenceGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SequenceGrant] {
+	return pulumix.Output[[]*SequenceGrant]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SequenceGrantArrayOutput) Index(i pulumi.IntInput) SequenceGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SequenceGrant {
 		return vs[0].([]*SequenceGrant)[vs[1].(int)]
@@ -388,6 +419,12 @@ func (o SequenceGrantMapOutput) ToSequenceGrantMapOutput() SequenceGrantMapOutpu
 
 func (o SequenceGrantMapOutput) ToSequenceGrantMapOutputWithContext(ctx context.Context) SequenceGrantMapOutput {
 	return o
+}
+
+func (o SequenceGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SequenceGrant] {
+	return pulumix.Output[map[string]*SequenceGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SequenceGrantMapOutput) MapIndex(k pulumi.StringInput) SequenceGrantOutput {

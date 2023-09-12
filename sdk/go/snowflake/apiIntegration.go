@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -299,6 +300,12 @@ func (i *ApiIntegration) ToApiIntegrationOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ApiIntegrationOutput)
 }
 
+func (i *ApiIntegration) ToOutput(ctx context.Context) pulumix.Output[*ApiIntegration] {
+	return pulumix.Output[*ApiIntegration]{
+		OutputState: i.ToApiIntegrationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiIntegrationArrayInput is an input type that accepts ApiIntegrationArray and ApiIntegrationArrayOutput values.
 // You can construct a concrete instance of `ApiIntegrationArrayInput` via:
 //
@@ -322,6 +329,12 @@ func (i ApiIntegrationArray) ToApiIntegrationArrayOutput() ApiIntegrationArrayOu
 
 func (i ApiIntegrationArray) ToApiIntegrationArrayOutputWithContext(ctx context.Context) ApiIntegrationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiIntegrationArrayOutput)
+}
+
+func (i ApiIntegrationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApiIntegration] {
+	return pulumix.Output[[]*ApiIntegration]{
+		OutputState: i.ToApiIntegrationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ApiIntegrationMapInput is an input type that accepts ApiIntegrationMap and ApiIntegrationMapOutput values.
@@ -349,6 +362,12 @@ func (i ApiIntegrationMap) ToApiIntegrationMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ApiIntegrationMapOutput)
 }
 
+func (i ApiIntegrationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiIntegration] {
+	return pulumix.Output[map[string]*ApiIntegration]{
+		OutputState: i.ToApiIntegrationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiIntegrationOutput struct{ *pulumi.OutputState }
 
 func (ApiIntegrationOutput) ElementType() reflect.Type {
@@ -361,6 +380,12 @@ func (o ApiIntegrationOutput) ToApiIntegrationOutput() ApiIntegrationOutput {
 
 func (o ApiIntegrationOutput) ToApiIntegrationOutputWithContext(ctx context.Context) ApiIntegrationOutput {
 	return o
+}
+
+func (o ApiIntegrationOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiIntegration] {
+	return pulumix.Output[*ApiIntegration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
@@ -459,6 +484,12 @@ func (o ApiIntegrationArrayOutput) ToApiIntegrationArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o ApiIntegrationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApiIntegration] {
+	return pulumix.Output[[]*ApiIntegration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApiIntegrationArrayOutput) Index(i pulumi.IntInput) ApiIntegrationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApiIntegration {
 		return vs[0].([]*ApiIntegration)[vs[1].(int)]
@@ -477,6 +508,12 @@ func (o ApiIntegrationMapOutput) ToApiIntegrationMapOutput() ApiIntegrationMapOu
 
 func (o ApiIntegrationMapOutput) ToApiIntegrationMapOutputWithContext(ctx context.Context) ApiIntegrationMapOutput {
 	return o
+}
+
+func (o ApiIntegrationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiIntegration] {
+	return pulumix.Output[map[string]*ApiIntegration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiIntegrationMapOutput) MapIndex(k pulumi.StringInput) ApiIntegrationOutput {

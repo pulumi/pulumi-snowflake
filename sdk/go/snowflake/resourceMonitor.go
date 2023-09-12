@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -283,6 +284,12 @@ func (i *ResourceMonitor) ToResourceMonitorOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceMonitorOutput)
 }
 
+func (i *ResourceMonitor) ToOutput(ctx context.Context) pulumix.Output[*ResourceMonitor] {
+	return pulumix.Output[*ResourceMonitor]{
+		OutputState: i.ToResourceMonitorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceMonitorArrayInput is an input type that accepts ResourceMonitorArray and ResourceMonitorArrayOutput values.
 // You can construct a concrete instance of `ResourceMonitorArrayInput` via:
 //
@@ -306,6 +313,12 @@ func (i ResourceMonitorArray) ToResourceMonitorArrayOutput() ResourceMonitorArra
 
 func (i ResourceMonitorArray) ToResourceMonitorArrayOutputWithContext(ctx context.Context) ResourceMonitorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceMonitorArrayOutput)
+}
+
+func (i ResourceMonitorArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceMonitor] {
+	return pulumix.Output[[]*ResourceMonitor]{
+		OutputState: i.ToResourceMonitorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResourceMonitorMapInput is an input type that accepts ResourceMonitorMap and ResourceMonitorMapOutput values.
@@ -333,6 +346,12 @@ func (i ResourceMonitorMap) ToResourceMonitorMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceMonitorMapOutput)
 }
 
+func (i ResourceMonitorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceMonitor] {
+	return pulumix.Output[map[string]*ResourceMonitor]{
+		OutputState: i.ToResourceMonitorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceMonitorOutput struct{ *pulumi.OutputState }
 
 func (ResourceMonitorOutput) ElementType() reflect.Type {
@@ -345,6 +364,12 @@ func (o ResourceMonitorOutput) ToResourceMonitorOutput() ResourceMonitorOutput {
 
 func (o ResourceMonitorOutput) ToResourceMonitorOutputWithContext(ctx context.Context) ResourceMonitorOutput {
 	return o
+}
+
+func (o ResourceMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceMonitor] {
+	return pulumix.Output[*ResourceMonitor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of credits allocated monthly to the resource monitor.
@@ -430,6 +455,12 @@ func (o ResourceMonitorArrayOutput) ToResourceMonitorArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o ResourceMonitorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceMonitor] {
+	return pulumix.Output[[]*ResourceMonitor]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResourceMonitorArrayOutput) Index(i pulumi.IntInput) ResourceMonitorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceMonitor {
 		return vs[0].([]*ResourceMonitor)[vs[1].(int)]
@@ -448,6 +479,12 @@ func (o ResourceMonitorMapOutput) ToResourceMonitorMapOutput() ResourceMonitorMa
 
 func (o ResourceMonitorMapOutput) ToResourceMonitorMapOutputWithContext(ctx context.Context) ResourceMonitorMapOutput {
 	return o
+}
+
+func (o ResourceMonitorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceMonitor] {
+	return pulumix.Output[map[string]*ResourceMonitor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceMonitorMapOutput) MapIndex(k pulumi.StringInput) ResourceMonitorOutput {

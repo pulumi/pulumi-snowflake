@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -105,6 +106,12 @@ func (o GetStreamsResultOutput) ToGetStreamsResultOutput() GetStreamsResultOutpu
 
 func (o GetStreamsResultOutput) ToGetStreamsResultOutputWithContext(ctx context.Context) GetStreamsResultOutput {
 	return o
+}
+
+func (o GetStreamsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetStreamsResult] {
+	return pulumix.Output[GetStreamsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The database from which to return the streams from.

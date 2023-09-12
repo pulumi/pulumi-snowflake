@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Attach a masking policy to a tag. Requires a current warehouse to be set. Either with SNOWFLAKE_WAREHOUSE env variable or in current session. If no warehouse is provided, a temporary warehouse will be created.
@@ -123,6 +124,12 @@ func (i *TagMaskingPolicyAssociation) ToTagMaskingPolicyAssociationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(TagMaskingPolicyAssociationOutput)
 }
 
+func (i *TagMaskingPolicyAssociation) ToOutput(ctx context.Context) pulumix.Output[*TagMaskingPolicyAssociation] {
+	return pulumix.Output[*TagMaskingPolicyAssociation]{
+		OutputState: i.ToTagMaskingPolicyAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TagMaskingPolicyAssociationArrayInput is an input type that accepts TagMaskingPolicyAssociationArray and TagMaskingPolicyAssociationArrayOutput values.
 // You can construct a concrete instance of `TagMaskingPolicyAssociationArrayInput` via:
 //
@@ -146,6 +153,12 @@ func (i TagMaskingPolicyAssociationArray) ToTagMaskingPolicyAssociationArrayOutp
 
 func (i TagMaskingPolicyAssociationArray) ToTagMaskingPolicyAssociationArrayOutputWithContext(ctx context.Context) TagMaskingPolicyAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TagMaskingPolicyAssociationArrayOutput)
+}
+
+func (i TagMaskingPolicyAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*TagMaskingPolicyAssociation] {
+	return pulumix.Output[[]*TagMaskingPolicyAssociation]{
+		OutputState: i.ToTagMaskingPolicyAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TagMaskingPolicyAssociationMapInput is an input type that accepts TagMaskingPolicyAssociationMap and TagMaskingPolicyAssociationMapOutput values.
@@ -173,6 +186,12 @@ func (i TagMaskingPolicyAssociationMap) ToTagMaskingPolicyAssociationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TagMaskingPolicyAssociationMapOutput)
 }
 
+func (i TagMaskingPolicyAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TagMaskingPolicyAssociation] {
+	return pulumix.Output[map[string]*TagMaskingPolicyAssociation]{
+		OutputState: i.ToTagMaskingPolicyAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TagMaskingPolicyAssociationOutput struct{ *pulumi.OutputState }
 
 func (TagMaskingPolicyAssociationOutput) ElementType() reflect.Type {
@@ -185,6 +204,12 @@ func (o TagMaskingPolicyAssociationOutput) ToTagMaskingPolicyAssociationOutput()
 
 func (o TagMaskingPolicyAssociationOutput) ToTagMaskingPolicyAssociationOutputWithContext(ctx context.Context) TagMaskingPolicyAssociationOutput {
 	return o
+}
+
+func (o TagMaskingPolicyAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*TagMaskingPolicyAssociation] {
+	return pulumix.Output[*TagMaskingPolicyAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The resource id of the masking policy
@@ -211,6 +236,12 @@ func (o TagMaskingPolicyAssociationArrayOutput) ToTagMaskingPolicyAssociationArr
 	return o
 }
 
+func (o TagMaskingPolicyAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TagMaskingPolicyAssociation] {
+	return pulumix.Output[[]*TagMaskingPolicyAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TagMaskingPolicyAssociationArrayOutput) Index(i pulumi.IntInput) TagMaskingPolicyAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TagMaskingPolicyAssociation {
 		return vs[0].([]*TagMaskingPolicyAssociation)[vs[1].(int)]
@@ -229,6 +260,12 @@ func (o TagMaskingPolicyAssociationMapOutput) ToTagMaskingPolicyAssociationMapOu
 
 func (o TagMaskingPolicyAssociationMapOutput) ToTagMaskingPolicyAssociationMapOutputWithContext(ctx context.Context) TagMaskingPolicyAssociationMapOutput {
 	return o
+}
+
+func (o TagMaskingPolicyAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TagMaskingPolicyAssociation] {
+	return pulumix.Output[map[string]*TagMaskingPolicyAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TagMaskingPolicyAssociationMapOutput) MapIndex(k pulumi.StringInput) TagMaskingPolicyAssociationOutput {

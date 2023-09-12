@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -264,6 +265,12 @@ func (i *TagAssociation) ToTagAssociationOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationOutput)
 }
 
+func (i *TagAssociation) ToOutput(ctx context.Context) pulumix.Output[*TagAssociation] {
+	return pulumix.Output[*TagAssociation]{
+		OutputState: i.ToTagAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TagAssociationArrayInput is an input type that accepts TagAssociationArray and TagAssociationArrayOutput values.
 // You can construct a concrete instance of `TagAssociationArrayInput` via:
 //
@@ -287,6 +294,12 @@ func (i TagAssociationArray) ToTagAssociationArrayOutput() TagAssociationArrayOu
 
 func (i TagAssociationArray) ToTagAssociationArrayOutputWithContext(ctx context.Context) TagAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationArrayOutput)
+}
+
+func (i TagAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*TagAssociation] {
+	return pulumix.Output[[]*TagAssociation]{
+		OutputState: i.ToTagAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TagAssociationMapInput is an input type that accepts TagAssociationMap and TagAssociationMapOutput values.
@@ -314,6 +327,12 @@ func (i TagAssociationMap) ToTagAssociationMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationMapOutput)
 }
 
+func (i TagAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TagAssociation] {
+	return pulumix.Output[map[string]*TagAssociation]{
+		OutputState: i.ToTagAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TagAssociationOutput struct{ *pulumi.OutputState }
 
 func (TagAssociationOutput) ElementType() reflect.Type {
@@ -326,6 +345,12 @@ func (o TagAssociationOutput) ToTagAssociationOutput() TagAssociationOutput {
 
 func (o TagAssociationOutput) ToTagAssociationOutputWithContext(ctx context.Context) TagAssociationOutput {
 	return o
+}
+
+func (o TagAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*TagAssociation] {
+	return pulumix.Output[*TagAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the object identifier for the tag association.
@@ -374,6 +399,12 @@ func (o TagAssociationArrayOutput) ToTagAssociationArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o TagAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TagAssociation] {
+	return pulumix.Output[[]*TagAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TagAssociationArrayOutput) Index(i pulumi.IntInput) TagAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TagAssociation {
 		return vs[0].([]*TagAssociation)[vs[1].(int)]
@@ -392,6 +423,12 @@ func (o TagAssociationMapOutput) ToTagAssociationMapOutput() TagAssociationMapOu
 
 func (o TagAssociationMapOutput) ToTagAssociationMapOutputWithContext(ctx context.Context) TagAssociationMapOutput {
 	return o
+}
+
+func (o TagAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TagAssociation] {
+	return pulumix.Output[map[string]*TagAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TagAssociationMapOutput) MapIndex(k pulumi.StringInput) TagAssociationOutput {

@@ -36,3 +36,16 @@ export interface GetStorageIntegrationsResult {
      */
     readonly storageIntegrations: outputs.GetStorageIntegrationsStorageIntegration[];
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const current = snowflake.getStorageIntegrations({});
+ * ```
+ */
+export function getStorageIntegrationsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageIntegrationsResult> {
+    return pulumi.output(getStorageIntegrations(opts))
+}

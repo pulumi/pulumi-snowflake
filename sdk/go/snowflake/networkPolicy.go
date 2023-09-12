@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -168,6 +169,12 @@ func (i *NetworkPolicy) ToNetworkPolicyOutputWithContext(ctx context.Context) Ne
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPolicyOutput)
 }
 
+func (i *NetworkPolicy) ToOutput(ctx context.Context) pulumix.Output[*NetworkPolicy] {
+	return pulumix.Output[*NetworkPolicy]{
+		OutputState: i.ToNetworkPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkPolicyArrayInput is an input type that accepts NetworkPolicyArray and NetworkPolicyArrayOutput values.
 // You can construct a concrete instance of `NetworkPolicyArrayInput` via:
 //
@@ -191,6 +198,12 @@ func (i NetworkPolicyArray) ToNetworkPolicyArrayOutput() NetworkPolicyArrayOutpu
 
 func (i NetworkPolicyArray) ToNetworkPolicyArrayOutputWithContext(ctx context.Context) NetworkPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPolicyArrayOutput)
+}
+
+func (i NetworkPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkPolicy] {
+	return pulumix.Output[[]*NetworkPolicy]{
+		OutputState: i.ToNetworkPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkPolicyMapInput is an input type that accepts NetworkPolicyMap and NetworkPolicyMapOutput values.
@@ -218,6 +231,12 @@ func (i NetworkPolicyMap) ToNetworkPolicyMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPolicyMapOutput)
 }
 
+func (i NetworkPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkPolicy] {
+	return pulumix.Output[map[string]*NetworkPolicy]{
+		OutputState: i.ToNetworkPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkPolicyOutput struct{ *pulumi.OutputState }
 
 func (NetworkPolicyOutput) ElementType() reflect.Type {
@@ -230,6 +249,12 @@ func (o NetworkPolicyOutput) ToNetworkPolicyOutput() NetworkPolicyOutput {
 
 func (o NetworkPolicyOutput) ToNetworkPolicyOutputWithContext(ctx context.Context) NetworkPolicyOutput {
 	return o
+}
+
+func (o NetworkPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkPolicy] {
+	return pulumix.Output[*NetworkPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account
@@ -266,6 +291,12 @@ func (o NetworkPolicyArrayOutput) ToNetworkPolicyArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o NetworkPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkPolicy] {
+	return pulumix.Output[[]*NetworkPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkPolicyArrayOutput) Index(i pulumi.IntInput) NetworkPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkPolicy {
 		return vs[0].([]*NetworkPolicy)[vs[1].(int)]
@@ -284,6 +315,12 @@ func (o NetworkPolicyMapOutput) ToNetworkPolicyMapOutput() NetworkPolicyMapOutpu
 
 func (o NetworkPolicyMapOutput) ToNetworkPolicyMapOutputWithContext(ctx context.Context) NetworkPolicyMapOutput {
 	return o
+}
+
+func (o NetworkPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkPolicy] {
+	return pulumix.Output[map[string]*NetworkPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkPolicyMapOutput) MapIndex(k pulumi.StringInput) NetworkPolicyOutput {

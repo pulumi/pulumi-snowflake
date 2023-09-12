@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -170,6 +171,12 @@ func (i *AccountGrant) ToAccountGrantOutputWithContext(ctx context.Context) Acco
 	return pulumi.ToOutputWithContext(ctx, i).(AccountGrantOutput)
 }
 
+func (i *AccountGrant) ToOutput(ctx context.Context) pulumix.Output[*AccountGrant] {
+	return pulumix.Output[*AccountGrant]{
+		OutputState: i.ToAccountGrantOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AccountGrantArrayInput is an input type that accepts AccountGrantArray and AccountGrantArrayOutput values.
 // You can construct a concrete instance of `AccountGrantArrayInput` via:
 //
@@ -193,6 +200,12 @@ func (i AccountGrantArray) ToAccountGrantArrayOutput() AccountGrantArrayOutput {
 
 func (i AccountGrantArray) ToAccountGrantArrayOutputWithContext(ctx context.Context) AccountGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountGrantArrayOutput)
+}
+
+func (i AccountGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccountGrant] {
+	return pulumix.Output[[]*AccountGrant]{
+		OutputState: i.ToAccountGrantArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AccountGrantMapInput is an input type that accepts AccountGrantMap and AccountGrantMapOutput values.
@@ -220,6 +233,12 @@ func (i AccountGrantMap) ToAccountGrantMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AccountGrantMapOutput)
 }
 
+func (i AccountGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountGrant] {
+	return pulumix.Output[map[string]*AccountGrant]{
+		OutputState: i.ToAccountGrantMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccountGrantOutput struct{ *pulumi.OutputState }
 
 func (AccountGrantOutput) ElementType() reflect.Type {
@@ -232,6 +251,12 @@ func (o AccountGrantOutput) ToAccountGrantOutput() AccountGrantOutput {
 
 func (o AccountGrantOutput) ToAccountGrantOutputWithContext(ctx context.Context) AccountGrantOutput {
 	return o
+}
+
+func (o AccountGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountGrant] {
+	return pulumix.Output[*AccountGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -269,6 +294,12 @@ func (o AccountGrantArrayOutput) ToAccountGrantArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o AccountGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccountGrant] {
+	return pulumix.Output[[]*AccountGrant]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AccountGrantArrayOutput) Index(i pulumi.IntInput) AccountGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccountGrant {
 		return vs[0].([]*AccountGrant)[vs[1].(int)]
@@ -287,6 +318,12 @@ func (o AccountGrantMapOutput) ToAccountGrantMapOutput() AccountGrantMapOutput {
 
 func (o AccountGrantMapOutput) ToAccountGrantMapOutputWithContext(ctx context.Context) AccountGrantMapOutput {
 	return o
+}
+
+func (o AccountGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountGrant] {
+	return pulumix.Output[map[string]*AccountGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccountGrantMapOutput) MapIndex(k pulumi.StringInput) AccountGrantOutput {

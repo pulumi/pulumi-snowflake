@@ -117,11 +117,13 @@ utilities.lazyLoad(exports, ["getAlerts","getAlertsOutput"], () => require("./ge
 
 export { GetCurrentAccountResult } from "./getCurrentAccount";
 export const getCurrentAccount: typeof import("./getCurrentAccount").getCurrentAccount = null as any;
-utilities.lazyLoad(exports, ["getCurrentAccount"], () => require("./getCurrentAccount"));
+export const getCurrentAccountOutput: typeof import("./getCurrentAccount").getCurrentAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getCurrentAccount","getCurrentAccountOutput"], () => require("./getCurrentAccount"));
 
 export { GetCurrentRoleResult } from "./getCurrentRole";
 export const getCurrentRole: typeof import("./getCurrentRole").getCurrentRole = null as any;
-utilities.lazyLoad(exports, ["getCurrentRole"], () => require("./getCurrentRole"));
+export const getCurrentRoleOutput: typeof import("./getCurrentRole").getCurrentRoleOutput = null as any;
+utilities.lazyLoad(exports, ["getCurrentRole","getCurrentRoleOutput"], () => require("./getCurrentRole"));
 
 export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
@@ -195,7 +197,8 @@ utilities.lazyLoad(exports, ["getProcedures","getProceduresOutput"], () => requi
 
 export { GetResourceMonitorsResult } from "./getResourceMonitors";
 export const getResourceMonitors: typeof import("./getResourceMonitors").getResourceMonitors = null as any;
-utilities.lazyLoad(exports, ["getResourceMonitors"], () => require("./getResourceMonitors"));
+export const getResourceMonitorsOutput: typeof import("./getResourceMonitors").getResourceMonitorsOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceMonitors","getResourceMonitorsOutput"], () => require("./getResourceMonitors"));
 
 export { GetRoleArgs, GetRoleResult, GetRoleOutputArgs } from "./getRole";
 export const getRole: typeof import("./getRole").getRole = null as any;
@@ -234,7 +237,8 @@ utilities.lazyLoad(exports, ["getStages","getStagesOutput"], () => require("./ge
 
 export { GetStorageIntegrationsResult } from "./getStorageIntegrations";
 export const getStorageIntegrations: typeof import("./getStorageIntegrations").getStorageIntegrations = null as any;
-utilities.lazyLoad(exports, ["getStorageIntegrations"], () => require("./getStorageIntegrations"));
+export const getStorageIntegrationsOutput: typeof import("./getStorageIntegrations").getStorageIntegrationsOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageIntegrations","getStorageIntegrationsOutput"], () => require("./getStorageIntegrations"));
 
 export { GetStreamsArgs, GetStreamsResult, GetStreamsOutputArgs } from "./getStreams";
 export const getStreams: typeof import("./getStreams").getStreams = null as any;
@@ -253,11 +257,13 @@ utilities.lazyLoad(exports, ["getSystemGetAwsSnsIamPolicy","getSystemGetAwsSnsIa
 
 export { GetSystemGetPrivateLinkConfigResult } from "./getSystemGetPrivateLinkConfig";
 export const getSystemGetPrivateLinkConfig: typeof import("./getSystemGetPrivateLinkConfig").getSystemGetPrivateLinkConfig = null as any;
-utilities.lazyLoad(exports, ["getSystemGetPrivateLinkConfig"], () => require("./getSystemGetPrivateLinkConfig"));
+export const getSystemGetPrivateLinkConfigOutput: typeof import("./getSystemGetPrivateLinkConfig").getSystemGetPrivateLinkConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getSystemGetPrivateLinkConfig","getSystemGetPrivateLinkConfigOutput"], () => require("./getSystemGetPrivateLinkConfig"));
 
 export { GetSystemGetSnowflakePlatformInfoResult } from "./getSystemGetSnowflakePlatformInfo";
 export const getSystemGetSnowflakePlatformInfo: typeof import("./getSystemGetSnowflakePlatformInfo").getSystemGetSnowflakePlatformInfo = null as any;
-utilities.lazyLoad(exports, ["getSystemGetSnowflakePlatformInfo"], () => require("./getSystemGetSnowflakePlatformInfo"));
+export const getSystemGetSnowflakePlatformInfoOutput: typeof import("./getSystemGetSnowflakePlatformInfo").getSystemGetSnowflakePlatformInfoOutput = null as any;
+utilities.lazyLoad(exports, ["getSystemGetSnowflakePlatformInfo","getSystemGetSnowflakePlatformInfoOutput"], () => require("./getSystemGetSnowflakePlatformInfo"));
 
 export { GetTablesArgs, GetTablesResult, GetTablesOutputArgs } from "./getTables";
 export const getTables: typeof import("./getTables").getTables = null as any;
@@ -281,7 +287,8 @@ utilities.lazyLoad(exports, ["getViews","getViewsOutput"], () => require("./getV
 
 export { GetWarehousesResult } from "./getWarehouses";
 export const getWarehouses: typeof import("./getWarehouses").getWarehouses = null as any;
-utilities.lazyLoad(exports, ["getWarehouses"], () => require("./getWarehouses"));
+export const getWarehousesOutput: typeof import("./getWarehouses").getWarehousesOutput = null as any;
+utilities.lazyLoad(exports, ["getWarehouses","getWarehousesOutput"], () => require("./getWarehouses"));
 
 export { GrantPrivilegesToRoleArgs, GrantPrivilegesToRoleState } from "./grantPrivilegesToRole";
 export type GrantPrivilegesToRole = import("./grantPrivilegesToRole").GrantPrivilegesToRole;

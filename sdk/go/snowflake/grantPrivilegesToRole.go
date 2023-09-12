@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -273,6 +274,12 @@ func (i *GrantPrivilegesToRole) ToGrantPrivilegesToRoleOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(GrantPrivilegesToRoleOutput)
 }
 
+func (i *GrantPrivilegesToRole) ToOutput(ctx context.Context) pulumix.Output[*GrantPrivilegesToRole] {
+	return pulumix.Output[*GrantPrivilegesToRole]{
+		OutputState: i.ToGrantPrivilegesToRoleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GrantPrivilegesToRoleArrayInput is an input type that accepts GrantPrivilegesToRoleArray and GrantPrivilegesToRoleArrayOutput values.
 // You can construct a concrete instance of `GrantPrivilegesToRoleArrayInput` via:
 //
@@ -296,6 +303,12 @@ func (i GrantPrivilegesToRoleArray) ToGrantPrivilegesToRoleArrayOutput() GrantPr
 
 func (i GrantPrivilegesToRoleArray) ToGrantPrivilegesToRoleArrayOutputWithContext(ctx context.Context) GrantPrivilegesToRoleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GrantPrivilegesToRoleArrayOutput)
+}
+
+func (i GrantPrivilegesToRoleArray) ToOutput(ctx context.Context) pulumix.Output[[]*GrantPrivilegesToRole] {
+	return pulumix.Output[[]*GrantPrivilegesToRole]{
+		OutputState: i.ToGrantPrivilegesToRoleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GrantPrivilegesToRoleMapInput is an input type that accepts GrantPrivilegesToRoleMap and GrantPrivilegesToRoleMapOutput values.
@@ -323,6 +336,12 @@ func (i GrantPrivilegesToRoleMap) ToGrantPrivilegesToRoleMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GrantPrivilegesToRoleMapOutput)
 }
 
+func (i GrantPrivilegesToRoleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GrantPrivilegesToRole] {
+	return pulumix.Output[map[string]*GrantPrivilegesToRole]{
+		OutputState: i.ToGrantPrivilegesToRoleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GrantPrivilegesToRoleOutput struct{ *pulumi.OutputState }
 
 func (GrantPrivilegesToRoleOutput) ElementType() reflect.Type {
@@ -335,6 +354,12 @@ func (o GrantPrivilegesToRoleOutput) ToGrantPrivilegesToRoleOutput() GrantPrivil
 
 func (o GrantPrivilegesToRoleOutput) ToGrantPrivilegesToRoleOutputWithContext(ctx context.Context) GrantPrivilegesToRoleOutput {
 	return o
+}
+
+func (o GrantPrivilegesToRoleOutput) ToOutput(ctx context.Context) pulumix.Output[*GrantPrivilegesToRole] {
+	return pulumix.Output[*GrantPrivilegesToRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Grant all privileges on the account role.
@@ -391,6 +416,12 @@ func (o GrantPrivilegesToRoleArrayOutput) ToGrantPrivilegesToRoleArrayOutputWith
 	return o
 }
 
+func (o GrantPrivilegesToRoleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GrantPrivilegesToRole] {
+	return pulumix.Output[[]*GrantPrivilegesToRole]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GrantPrivilegesToRoleArrayOutput) Index(i pulumi.IntInput) GrantPrivilegesToRoleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GrantPrivilegesToRole {
 		return vs[0].([]*GrantPrivilegesToRole)[vs[1].(int)]
@@ -409,6 +440,12 @@ func (o GrantPrivilegesToRoleMapOutput) ToGrantPrivilegesToRoleMapOutput() Grant
 
 func (o GrantPrivilegesToRoleMapOutput) ToGrantPrivilegesToRoleMapOutputWithContext(ctx context.Context) GrantPrivilegesToRoleMapOutput {
 	return o
+}
+
+func (o GrantPrivilegesToRoleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GrantPrivilegesToRole] {
+	return pulumix.Output[map[string]*GrantPrivilegesToRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GrantPrivilegesToRoleMapOutput) MapIndex(k pulumi.StringInput) GrantPrivilegesToRoleOutput {

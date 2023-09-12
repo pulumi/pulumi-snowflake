@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -98,6 +99,12 @@ func (o GetSystemGenerateScimAccessTokenResultOutput) ToGetSystemGenerateScimAcc
 
 func (o GetSystemGenerateScimAccessTokenResultOutput) ToGetSystemGenerateScimAccessTokenResultOutputWithContext(ctx context.Context) GetSystemGenerateScimAccessTokenResultOutput {
 	return o
+}
+
+func (o GetSystemGenerateScimAccessTokenResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSystemGenerateScimAccessTokenResult] {
+	return pulumix.Output[GetSystemGenerateScimAccessTokenResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // SCIM Access Token

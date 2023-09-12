@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetRoles(ctx *pulumi.Context, args *GetRolesArgs, opts ...pulumi.InvokeOption) (*GetRolesResult, error) {
@@ -73,6 +74,12 @@ func (o GetRolesResultOutput) ToGetRolesResultOutput() GetRolesResultOutput {
 
 func (o GetRolesResultOutput) ToGetRolesResultOutputWithContext(ctx context.Context) GetRolesResultOutput {
 	return o
+}
+
+func (o GetRolesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRolesResult] {
+	return pulumix.Output[GetRolesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

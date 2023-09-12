@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -269,6 +270,12 @@ func (i *FunctionGrant) ToFunctionGrantOutputWithContext(ctx context.Context) Fu
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionGrantOutput)
 }
 
+func (i *FunctionGrant) ToOutput(ctx context.Context) pulumix.Output[*FunctionGrant] {
+	return pulumix.Output[*FunctionGrant]{
+		OutputState: i.ToFunctionGrantOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FunctionGrantArrayInput is an input type that accepts FunctionGrantArray and FunctionGrantArrayOutput values.
 // You can construct a concrete instance of `FunctionGrantArrayInput` via:
 //
@@ -292,6 +299,12 @@ func (i FunctionGrantArray) ToFunctionGrantArrayOutput() FunctionGrantArrayOutpu
 
 func (i FunctionGrantArray) ToFunctionGrantArrayOutputWithContext(ctx context.Context) FunctionGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionGrantArrayOutput)
+}
+
+func (i FunctionGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*FunctionGrant] {
+	return pulumix.Output[[]*FunctionGrant]{
+		OutputState: i.ToFunctionGrantArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FunctionGrantMapInput is an input type that accepts FunctionGrantMap and FunctionGrantMapOutput values.
@@ -319,6 +332,12 @@ func (i FunctionGrantMap) ToFunctionGrantMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionGrantMapOutput)
 }
 
+func (i FunctionGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FunctionGrant] {
+	return pulumix.Output[map[string]*FunctionGrant]{
+		OutputState: i.ToFunctionGrantMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FunctionGrantOutput struct{ *pulumi.OutputState }
 
 func (FunctionGrantOutput) ElementType() reflect.Type {
@@ -331,6 +350,12 @@ func (o FunctionGrantOutput) ToFunctionGrantOutput() FunctionGrantOutput {
 
 func (o FunctionGrantOutput) ToFunctionGrantOutputWithContext(ctx context.Context) FunctionGrantOutput {
 	return o
+}
+
+func (o FunctionGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionGrant] {
+	return pulumix.Output[*FunctionGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of the argument data types for the function (must be present if function has arguments and functionName is present)
@@ -408,6 +433,12 @@ func (o FunctionGrantArrayOutput) ToFunctionGrantArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o FunctionGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FunctionGrant] {
+	return pulumix.Output[[]*FunctionGrant]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FunctionGrantArrayOutput) Index(i pulumi.IntInput) FunctionGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FunctionGrant {
 		return vs[0].([]*FunctionGrant)[vs[1].(int)]
@@ -426,6 +457,12 @@ func (o FunctionGrantMapOutput) ToFunctionGrantMapOutput() FunctionGrantMapOutpu
 
 func (o FunctionGrantMapOutput) ToFunctionGrantMapOutputWithContext(ctx context.Context) FunctionGrantMapOutput {
 	return o
+}
+
+func (o FunctionGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FunctionGrant] {
+	return pulumix.Output[map[string]*FunctionGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FunctionGrantMapOutput) MapIndex(k pulumi.StringInput) FunctionGrantOutput {
