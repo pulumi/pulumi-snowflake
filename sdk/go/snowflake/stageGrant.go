@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -241,6 +242,12 @@ func (i *StageGrant) ToStageGrantOutputWithContext(ctx context.Context) StageGra
 	return pulumi.ToOutputWithContext(ctx, i).(StageGrantOutput)
 }
 
+func (i *StageGrant) ToOutput(ctx context.Context) pulumix.Output[*StageGrant] {
+	return pulumix.Output[*StageGrant]{
+		OutputState: i.ToStageGrantOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StageGrantArrayInput is an input type that accepts StageGrantArray and StageGrantArrayOutput values.
 // You can construct a concrete instance of `StageGrantArrayInput` via:
 //
@@ -264,6 +271,12 @@ func (i StageGrantArray) ToStageGrantArrayOutput() StageGrantArrayOutput {
 
 func (i StageGrantArray) ToStageGrantArrayOutputWithContext(ctx context.Context) StageGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StageGrantArrayOutput)
+}
+
+func (i StageGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*StageGrant] {
+	return pulumix.Output[[]*StageGrant]{
+		OutputState: i.ToStageGrantArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StageGrantMapInput is an input type that accepts StageGrantMap and StageGrantMapOutput values.
@@ -291,6 +304,12 @@ func (i StageGrantMap) ToStageGrantMapOutputWithContext(ctx context.Context) Sta
 	return pulumi.ToOutputWithContext(ctx, i).(StageGrantMapOutput)
 }
 
+func (i StageGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StageGrant] {
+	return pulumix.Output[map[string]*StageGrant]{
+		OutputState: i.ToStageGrantMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StageGrantOutput struct{ *pulumi.OutputState }
 
 func (StageGrantOutput) ElementType() reflect.Type {
@@ -303,6 +322,12 @@ func (o StageGrantOutput) ToStageGrantOutput() StageGrantOutput {
 
 func (o StageGrantOutput) ToStageGrantOutputWithContext(ctx context.Context) StageGrantOutput {
 	return o
+}
+
+func (o StageGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*StageGrant] {
+	return pulumix.Output[*StageGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the database containing the current stage on which to grant privileges.
@@ -370,6 +395,12 @@ func (o StageGrantArrayOutput) ToStageGrantArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o StageGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StageGrant] {
+	return pulumix.Output[[]*StageGrant]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StageGrantArrayOutput) Index(i pulumi.IntInput) StageGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StageGrant {
 		return vs[0].([]*StageGrant)[vs[1].(int)]
@@ -388,6 +419,12 @@ func (o StageGrantMapOutput) ToStageGrantMapOutput() StageGrantMapOutput {
 
 func (o StageGrantMapOutput) ToStageGrantMapOutputWithContext(ctx context.Context) StageGrantMapOutput {
 	return o
+}
+
+func (o StageGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StageGrant] {
+	return pulumix.Output[map[string]*StageGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StageGrantMapOutput) MapIndex(k pulumi.StringInput) StageGrantOutput {

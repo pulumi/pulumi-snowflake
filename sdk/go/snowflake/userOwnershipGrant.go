@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type UserOwnershipGrant struct {
@@ -132,6 +133,12 @@ func (i *UserOwnershipGrant) ToUserOwnershipGrantOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(UserOwnershipGrantOutput)
 }
 
+func (i *UserOwnershipGrant) ToOutput(ctx context.Context) pulumix.Output[*UserOwnershipGrant] {
+	return pulumix.Output[*UserOwnershipGrant]{
+		OutputState: i.ToUserOwnershipGrantOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserOwnershipGrantArrayInput is an input type that accepts UserOwnershipGrantArray and UserOwnershipGrantArrayOutput values.
 // You can construct a concrete instance of `UserOwnershipGrantArrayInput` via:
 //
@@ -155,6 +162,12 @@ func (i UserOwnershipGrantArray) ToUserOwnershipGrantArrayOutput() UserOwnership
 
 func (i UserOwnershipGrantArray) ToUserOwnershipGrantArrayOutputWithContext(ctx context.Context) UserOwnershipGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserOwnershipGrantArrayOutput)
+}
+
+func (i UserOwnershipGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserOwnershipGrant] {
+	return pulumix.Output[[]*UserOwnershipGrant]{
+		OutputState: i.ToUserOwnershipGrantArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // UserOwnershipGrantMapInput is an input type that accepts UserOwnershipGrantMap and UserOwnershipGrantMapOutput values.
@@ -182,6 +195,12 @@ func (i UserOwnershipGrantMap) ToUserOwnershipGrantMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(UserOwnershipGrantMapOutput)
 }
 
+func (i UserOwnershipGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserOwnershipGrant] {
+	return pulumix.Output[map[string]*UserOwnershipGrant]{
+		OutputState: i.ToUserOwnershipGrantMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserOwnershipGrantOutput struct{ *pulumi.OutputState }
 
 func (UserOwnershipGrantOutput) ElementType() reflect.Type {
@@ -194,6 +213,12 @@ func (o UserOwnershipGrantOutput) ToUserOwnershipGrantOutput() UserOwnershipGran
 
 func (o UserOwnershipGrantOutput) ToUserOwnershipGrantOutputWithContext(ctx context.Context) UserOwnershipGrantOutput {
 	return o
+}
+
+func (o UserOwnershipGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*UserOwnershipGrant] {
+	return pulumix.Output[*UserOwnershipGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
@@ -230,6 +255,12 @@ func (o UserOwnershipGrantArrayOutput) ToUserOwnershipGrantArrayOutputWithContex
 	return o
 }
 
+func (o UserOwnershipGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserOwnershipGrant] {
+	return pulumix.Output[[]*UserOwnershipGrant]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserOwnershipGrantArrayOutput) Index(i pulumi.IntInput) UserOwnershipGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserOwnershipGrant {
 		return vs[0].([]*UserOwnershipGrant)[vs[1].(int)]
@@ -248,6 +279,12 @@ func (o UserOwnershipGrantMapOutput) ToUserOwnershipGrantMapOutput() UserOwnersh
 
 func (o UserOwnershipGrantMapOutput) ToUserOwnershipGrantMapOutputWithContext(ctx context.Context) UserOwnershipGrantMapOutput {
 	return o
+}
+
+func (o UserOwnershipGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserOwnershipGrant] {
+	return pulumix.Output[map[string]*UserOwnershipGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserOwnershipGrantMapOutput) MapIndex(k pulumi.StringInput) UserOwnershipGrantOutput {

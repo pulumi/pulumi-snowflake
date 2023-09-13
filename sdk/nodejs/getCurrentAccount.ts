@@ -47,3 +47,21 @@ export interface GetCurrentAccountResult {
      */
     readonly url: string;
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const this = snowflake.getCurrentAccount({});
+ * const snowflakeAccountUrl = new aws.ssm.Parameter("snowflakeAccountUrl", {
+ *     type: "String",
+ *     value: _this.then(_this => _this.url),
+ * });
+ * ```
+ */
+export function getCurrentAccountOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCurrentAccountResult> {
+    return pulumi.output(getCurrentAccount(opts))
+}

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -105,6 +106,12 @@ func (o GetExternalTablesResultOutput) ToGetExternalTablesResultOutput() GetExte
 
 func (o GetExternalTablesResultOutput) ToGetExternalTablesResultOutputWithContext(ctx context.Context) GetExternalTablesResultOutput {
 	return o
+}
+
+func (o GetExternalTablesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetExternalTablesResult] {
+	return pulumix.Output[GetExternalTablesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The database from which to return the schemas from.

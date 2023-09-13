@@ -33,6 +33,29 @@ namespace Pulumi.Snowflake
         /// </summary>
         public static Task<GetResourceMonitorsResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceMonitorsResult>("snowflake:index/getResourceMonitors:getResourceMonitors", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Snowflake.GetResourceMonitors.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetResourceMonitorsResult> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceMonitorsResult>("snowflake:index/getResourceMonitors:getResourceMonitors", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

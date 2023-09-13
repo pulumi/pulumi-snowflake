@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -239,6 +240,12 @@ func (i *MaterializedView) ToMaterializedViewOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(MaterializedViewOutput)
 }
 
+func (i *MaterializedView) ToOutput(ctx context.Context) pulumix.Output[*MaterializedView] {
+	return pulumix.Output[*MaterializedView]{
+		OutputState: i.ToMaterializedViewOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MaterializedViewArrayInput is an input type that accepts MaterializedViewArray and MaterializedViewArrayOutput values.
 // You can construct a concrete instance of `MaterializedViewArrayInput` via:
 //
@@ -262,6 +269,12 @@ func (i MaterializedViewArray) ToMaterializedViewArrayOutput() MaterializedViewA
 
 func (i MaterializedViewArray) ToMaterializedViewArrayOutputWithContext(ctx context.Context) MaterializedViewArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MaterializedViewArrayOutput)
+}
+
+func (i MaterializedViewArray) ToOutput(ctx context.Context) pulumix.Output[[]*MaterializedView] {
+	return pulumix.Output[[]*MaterializedView]{
+		OutputState: i.ToMaterializedViewArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MaterializedViewMapInput is an input type that accepts MaterializedViewMap and MaterializedViewMapOutput values.
@@ -289,6 +302,12 @@ func (i MaterializedViewMap) ToMaterializedViewMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(MaterializedViewMapOutput)
 }
 
+func (i MaterializedViewMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MaterializedView] {
+	return pulumix.Output[map[string]*MaterializedView]{
+		OutputState: i.ToMaterializedViewMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MaterializedViewOutput struct{ *pulumi.OutputState }
 
 func (MaterializedViewOutput) ElementType() reflect.Type {
@@ -301,6 +320,12 @@ func (o MaterializedViewOutput) ToMaterializedViewOutput() MaterializedViewOutpu
 
 func (o MaterializedViewOutput) ToMaterializedViewOutputWithContext(ctx context.Context) MaterializedViewOutput {
 	return o
+}
+
+func (o MaterializedViewOutput) ToOutput(ctx context.Context) pulumix.Output[*MaterializedView] {
+	return pulumix.Output[*MaterializedView]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a comment for the view.
@@ -364,6 +389,12 @@ func (o MaterializedViewArrayOutput) ToMaterializedViewArrayOutputWithContext(ct
 	return o
 }
 
+func (o MaterializedViewArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MaterializedView] {
+	return pulumix.Output[[]*MaterializedView]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MaterializedViewArrayOutput) Index(i pulumi.IntInput) MaterializedViewOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MaterializedView {
 		return vs[0].([]*MaterializedView)[vs[1].(int)]
@@ -382,6 +413,12 @@ func (o MaterializedViewMapOutput) ToMaterializedViewMapOutput() MaterializedVie
 
 func (o MaterializedViewMapOutput) ToMaterializedViewMapOutputWithContext(ctx context.Context) MaterializedViewMapOutput {
 	return o
+}
+
+func (o MaterializedViewMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MaterializedView] {
+	return pulumix.Output[map[string]*MaterializedView]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MaterializedViewMapOutput) MapIndex(k pulumi.StringInput) MaterializedViewOutput {

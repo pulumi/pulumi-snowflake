@@ -33,6 +33,29 @@ namespace Pulumi.Snowflake
         /// </summary>
         public static Task<GetStorageIntegrationsResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageIntegrationsResult>("snowflake:index/getStorageIntegrations:getStorageIntegrations", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Snowflake.GetStorageIntegrations.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetStorageIntegrationsResult> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageIntegrationsResult>("snowflake:index/getStorageIntegrations:getStorageIntegrations", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

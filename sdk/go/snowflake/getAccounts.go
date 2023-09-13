@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetAccounts(ctx *pulumi.Context, args *GetAccountsArgs, opts ...pulumi.InvokeOption) (*GetAccountsResult, error) {
@@ -73,6 +74,12 @@ func (o GetAccountsResultOutput) ToGetAccountsResultOutput() GetAccountsResultOu
 
 func (o GetAccountsResultOutput) ToGetAccountsResultOutputWithContext(ctx context.Context) GetAccountsResultOutput {
 	return o
+}
+
+func (o GetAccountsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccountsResult] {
+	return pulumix.Output[GetAccountsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of all the accounts available in the organization.

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -246,6 +247,12 @@ func (i *SchemaGrant) ToSchemaGrantOutputWithContext(ctx context.Context) Schema
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaGrantOutput)
 }
 
+func (i *SchemaGrant) ToOutput(ctx context.Context) pulumix.Output[*SchemaGrant] {
+	return pulumix.Output[*SchemaGrant]{
+		OutputState: i.ToSchemaGrantOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SchemaGrantArrayInput is an input type that accepts SchemaGrantArray and SchemaGrantArrayOutput values.
 // You can construct a concrete instance of `SchemaGrantArrayInput` via:
 //
@@ -269,6 +276,12 @@ func (i SchemaGrantArray) ToSchemaGrantArrayOutput() SchemaGrantArrayOutput {
 
 func (i SchemaGrantArray) ToSchemaGrantArrayOutputWithContext(ctx context.Context) SchemaGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaGrantArrayOutput)
+}
+
+func (i SchemaGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*SchemaGrant] {
+	return pulumix.Output[[]*SchemaGrant]{
+		OutputState: i.ToSchemaGrantArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SchemaGrantMapInput is an input type that accepts SchemaGrantMap and SchemaGrantMapOutput values.
@@ -296,6 +309,12 @@ func (i SchemaGrantMap) ToSchemaGrantMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaGrantMapOutput)
 }
 
+func (i SchemaGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SchemaGrant] {
+	return pulumix.Output[map[string]*SchemaGrant]{
+		OutputState: i.ToSchemaGrantMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SchemaGrantOutput struct{ *pulumi.OutputState }
 
 func (SchemaGrantOutput) ElementType() reflect.Type {
@@ -308,6 +327,12 @@ func (o SchemaGrantOutput) ToSchemaGrantOutput() SchemaGrantOutput {
 
 func (o SchemaGrantOutput) ToSchemaGrantOutputWithContext(ctx context.Context) SchemaGrantOutput {
 	return o
+}
+
+func (o SchemaGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaGrant] {
+	return pulumix.Output[*SchemaGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the database containing the schema on which to grant privileges.
@@ -376,6 +401,12 @@ func (o SchemaGrantArrayOutput) ToSchemaGrantArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o SchemaGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SchemaGrant] {
+	return pulumix.Output[[]*SchemaGrant]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SchemaGrantArrayOutput) Index(i pulumi.IntInput) SchemaGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SchemaGrant {
 		return vs[0].([]*SchemaGrant)[vs[1].(int)]
@@ -394,6 +425,12 @@ func (o SchemaGrantMapOutput) ToSchemaGrantMapOutput() SchemaGrantMapOutput {
 
 func (o SchemaGrantMapOutput) ToSchemaGrantMapOutputWithContext(ctx context.Context) SchemaGrantMapOutput {
 	return o
+}
+
+func (o SchemaGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SchemaGrant] {
+	return pulumix.Output[map[string]*SchemaGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaGrantMapOutput) MapIndex(k pulumi.StringInput) SchemaGrantOutput {

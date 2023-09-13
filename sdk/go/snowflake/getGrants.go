@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -176,6 +177,12 @@ func (o GetGrantsResultOutput) ToGetGrantsResultOutput() GetGrantsResultOutput {
 
 func (o GetGrantsResultOutput) ToGetGrantsResultOutputWithContext(ctx context.Context) GetGrantsResultOutput {
 	return o
+}
+
+func (o GetGrantsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetGrantsResult] {
+	return pulumix.Output[GetGrantsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Lists all privileges on new (i.e. future) objects

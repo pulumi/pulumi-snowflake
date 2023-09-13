@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -264,6 +265,12 @@ func (i *ViewGrant) ToViewGrantOutputWithContext(ctx context.Context) ViewGrantO
 	return pulumi.ToOutputWithContext(ctx, i).(ViewGrantOutput)
 }
 
+func (i *ViewGrant) ToOutput(ctx context.Context) pulumix.Output[*ViewGrant] {
+	return pulumix.Output[*ViewGrant]{
+		OutputState: i.ToViewGrantOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ViewGrantArrayInput is an input type that accepts ViewGrantArray and ViewGrantArrayOutput values.
 // You can construct a concrete instance of `ViewGrantArrayInput` via:
 //
@@ -287,6 +294,12 @@ func (i ViewGrantArray) ToViewGrantArrayOutput() ViewGrantArrayOutput {
 
 func (i ViewGrantArray) ToViewGrantArrayOutputWithContext(ctx context.Context) ViewGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ViewGrantArrayOutput)
+}
+
+func (i ViewGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*ViewGrant] {
+	return pulumix.Output[[]*ViewGrant]{
+		OutputState: i.ToViewGrantArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ViewGrantMapInput is an input type that accepts ViewGrantMap and ViewGrantMapOutput values.
@@ -314,6 +327,12 @@ func (i ViewGrantMap) ToViewGrantMapOutputWithContext(ctx context.Context) ViewG
 	return pulumi.ToOutputWithContext(ctx, i).(ViewGrantMapOutput)
 }
 
+func (i ViewGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ViewGrant] {
+	return pulumix.Output[map[string]*ViewGrant]{
+		OutputState: i.ToViewGrantMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ViewGrantOutput struct{ *pulumi.OutputState }
 
 func (ViewGrantOutput) ElementType() reflect.Type {
@@ -326,6 +345,12 @@ func (o ViewGrantOutput) ToViewGrantOutput() ViewGrantOutput {
 
 func (o ViewGrantOutput) ToViewGrantOutputWithContext(ctx context.Context) ViewGrantOutput {
 	return o
+}
+
+func (o ViewGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*ViewGrant] {
+	return pulumix.Output[*ViewGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the database containing the current or future views on which to grant privileges.
@@ -398,6 +423,12 @@ func (o ViewGrantArrayOutput) ToViewGrantArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ViewGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ViewGrant] {
+	return pulumix.Output[[]*ViewGrant]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ViewGrantArrayOutput) Index(i pulumi.IntInput) ViewGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ViewGrant {
 		return vs[0].([]*ViewGrant)[vs[1].(int)]
@@ -416,6 +447,12 @@ func (o ViewGrantMapOutput) ToViewGrantMapOutput() ViewGrantMapOutput {
 
 func (o ViewGrantMapOutput) ToViewGrantMapOutputWithContext(ctx context.Context) ViewGrantMapOutput {
 	return o
+}
+
+func (o ViewGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ViewGrant] {
+	return pulumix.Output[map[string]*ViewGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ViewGrantMapOutput) MapIndex(k pulumi.StringInput) ViewGrantOutput {

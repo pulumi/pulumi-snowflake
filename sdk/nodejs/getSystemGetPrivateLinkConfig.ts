@@ -56,3 +56,6 @@ export interface GetSystemGetPrivateLinkConfigResult {
      */
     readonly snowsightUrl: string;
 }
+export function getSystemGetPrivateLinkConfigOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemGetPrivateLinkConfigResult> {
+    return pulumi.output(getSystemGetPrivateLinkConfig(opts))
+}

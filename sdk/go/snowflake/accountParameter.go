@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -153,6 +154,12 @@ func (i *AccountParameter) ToAccountParameterOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AccountParameterOutput)
 }
 
+func (i *AccountParameter) ToOutput(ctx context.Context) pulumix.Output[*AccountParameter] {
+	return pulumix.Output[*AccountParameter]{
+		OutputState: i.ToAccountParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AccountParameterArrayInput is an input type that accepts AccountParameterArray and AccountParameterArrayOutput values.
 // You can construct a concrete instance of `AccountParameterArrayInput` via:
 //
@@ -176,6 +183,12 @@ func (i AccountParameterArray) ToAccountParameterArrayOutput() AccountParameterA
 
 func (i AccountParameterArray) ToAccountParameterArrayOutputWithContext(ctx context.Context) AccountParameterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountParameterArrayOutput)
+}
+
+func (i AccountParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccountParameter] {
+	return pulumix.Output[[]*AccountParameter]{
+		OutputState: i.ToAccountParameterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AccountParameterMapInput is an input type that accepts AccountParameterMap and AccountParameterMapOutput values.
@@ -203,6 +216,12 @@ func (i AccountParameterMap) ToAccountParameterMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AccountParameterMapOutput)
 }
 
+func (i AccountParameterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountParameter] {
+	return pulumix.Output[map[string]*AccountParameter]{
+		OutputState: i.ToAccountParameterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccountParameterOutput struct{ *pulumi.OutputState }
 
 func (AccountParameterOutput) ElementType() reflect.Type {
@@ -215,6 +234,12 @@ func (o AccountParameterOutput) ToAccountParameterOutput() AccountParameterOutpu
 
 func (o AccountParameterOutput) ToAccountParameterOutputWithContext(ctx context.Context) AccountParameterOutput {
 	return o
+}
+
+func (o AccountParameterOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountParameter] {
+	return pulumix.Output[*AccountParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of account parameter. Valid values are those in [account parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#account-parameters).
@@ -241,6 +266,12 @@ func (o AccountParameterArrayOutput) ToAccountParameterArrayOutputWithContext(ct
 	return o
 }
 
+func (o AccountParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccountParameter] {
+	return pulumix.Output[[]*AccountParameter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AccountParameterArrayOutput) Index(i pulumi.IntInput) AccountParameterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccountParameter {
 		return vs[0].([]*AccountParameter)[vs[1].(int)]
@@ -259,6 +290,12 @@ func (o AccountParameterMapOutput) ToAccountParameterMapOutput() AccountParamete
 
 func (o AccountParameterMapOutput) ToAccountParameterMapOutputWithContext(ctx context.Context) AccountParameterMapOutput {
 	return o
+}
+
+func (o AccountParameterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountParameter] {
+	return pulumix.Output[map[string]*AccountParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccountParameterMapOutput) MapIndex(k pulumi.StringInput) AccountParameterOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetDatabaseRoles(ctx *pulumi.Context, args *GetDatabaseRolesArgs, opts ...pulumi.InvokeOption) (*GetDatabaseRolesResult, error) {
@@ -73,6 +74,12 @@ func (o GetDatabaseRolesResultOutput) ToGetDatabaseRolesResultOutput() GetDataba
 
 func (o GetDatabaseRolesResultOutput) ToGetDatabaseRolesResultOutputWithContext(ctx context.Context) GetDatabaseRolesResultOutput {
 	return o
+}
+
+func (o GetDatabaseRolesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDatabaseRolesResult] {
+	return pulumix.Output[GetDatabaseRolesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The database from which to return the database roles from.

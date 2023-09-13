@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -200,6 +201,12 @@ func (i *Sequence) ToSequenceOutputWithContext(ctx context.Context) SequenceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SequenceOutput)
 }
 
+func (i *Sequence) ToOutput(ctx context.Context) pulumix.Output[*Sequence] {
+	return pulumix.Output[*Sequence]{
+		OutputState: i.ToSequenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SequenceArrayInput is an input type that accepts SequenceArray and SequenceArrayOutput values.
 // You can construct a concrete instance of `SequenceArrayInput` via:
 //
@@ -223,6 +230,12 @@ func (i SequenceArray) ToSequenceArrayOutput() SequenceArrayOutput {
 
 func (i SequenceArray) ToSequenceArrayOutputWithContext(ctx context.Context) SequenceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SequenceArrayOutput)
+}
+
+func (i SequenceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Sequence] {
+	return pulumix.Output[[]*Sequence]{
+		OutputState: i.ToSequenceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SequenceMapInput is an input type that accepts SequenceMap and SequenceMapOutput values.
@@ -250,6 +263,12 @@ func (i SequenceMap) ToSequenceMapOutputWithContext(ctx context.Context) Sequenc
 	return pulumi.ToOutputWithContext(ctx, i).(SequenceMapOutput)
 }
 
+func (i SequenceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Sequence] {
+	return pulumix.Output[map[string]*Sequence]{
+		OutputState: i.ToSequenceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SequenceOutput struct{ *pulumi.OutputState }
 
 func (SequenceOutput) ElementType() reflect.Type {
@@ -262,6 +281,12 @@ func (o SequenceOutput) ToSequenceOutput() SequenceOutput {
 
 func (o SequenceOutput) ToSequenceOutputWithContext(ctx context.Context) SequenceOutput {
 	return o
+}
+
+func (o SequenceOutput) ToOutput(ctx context.Context) pulumix.Output[*Sequence] {
+	return pulumix.Output[*Sequence]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a comment for the sequence.
@@ -313,6 +338,12 @@ func (o SequenceArrayOutput) ToSequenceArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o SequenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Sequence] {
+	return pulumix.Output[[]*Sequence]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SequenceArrayOutput) Index(i pulumi.IntInput) SequenceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Sequence {
 		return vs[0].([]*Sequence)[vs[1].(int)]
@@ -331,6 +362,12 @@ func (o SequenceMapOutput) ToSequenceMapOutput() SequenceMapOutput {
 
 func (o SequenceMapOutput) ToSequenceMapOutputWithContext(ctx context.Context) SequenceMapOutput {
 	return o
+}
+
+func (o SequenceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Sequence] {
+	return pulumix.Output[map[string]*Sequence]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SequenceMapOutput) MapIndex(k pulumi.StringInput) SequenceOutput {

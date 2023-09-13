@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -209,6 +210,12 @@ func (i *DatabaseGrant) ToDatabaseGrantOutputWithContext(ctx context.Context) Da
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseGrantOutput)
 }
 
+func (i *DatabaseGrant) ToOutput(ctx context.Context) pulumix.Output[*DatabaseGrant] {
+	return pulumix.Output[*DatabaseGrant]{
+		OutputState: i.ToDatabaseGrantOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DatabaseGrantArrayInput is an input type that accepts DatabaseGrantArray and DatabaseGrantArrayOutput values.
 // You can construct a concrete instance of `DatabaseGrantArrayInput` via:
 //
@@ -232,6 +239,12 @@ func (i DatabaseGrantArray) ToDatabaseGrantArrayOutput() DatabaseGrantArrayOutpu
 
 func (i DatabaseGrantArray) ToDatabaseGrantArrayOutputWithContext(ctx context.Context) DatabaseGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseGrantArrayOutput)
+}
+
+func (i DatabaseGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*DatabaseGrant] {
+	return pulumix.Output[[]*DatabaseGrant]{
+		OutputState: i.ToDatabaseGrantArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DatabaseGrantMapInput is an input type that accepts DatabaseGrantMap and DatabaseGrantMapOutput values.
@@ -259,6 +272,12 @@ func (i DatabaseGrantMap) ToDatabaseGrantMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseGrantMapOutput)
 }
 
+func (i DatabaseGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatabaseGrant] {
+	return pulumix.Output[map[string]*DatabaseGrant]{
+		OutputState: i.ToDatabaseGrantMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatabaseGrantOutput struct{ *pulumi.OutputState }
 
 func (DatabaseGrantOutput) ElementType() reflect.Type {
@@ -271,6 +290,12 @@ func (o DatabaseGrantOutput) ToDatabaseGrantOutput() DatabaseGrantOutput {
 
 func (o DatabaseGrantOutput) ToDatabaseGrantOutputWithContext(ctx context.Context) DatabaseGrantOutput {
 	return o
+}
+
+func (o DatabaseGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*DatabaseGrant] {
+	return pulumix.Output[*DatabaseGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the database on which to grant privileges.
@@ -323,6 +348,12 @@ func (o DatabaseGrantArrayOutput) ToDatabaseGrantArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o DatabaseGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatabaseGrant] {
+	return pulumix.Output[[]*DatabaseGrant]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatabaseGrantArrayOutput) Index(i pulumi.IntInput) DatabaseGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatabaseGrant {
 		return vs[0].([]*DatabaseGrant)[vs[1].(int)]
@@ -341,6 +372,12 @@ func (o DatabaseGrantMapOutput) ToDatabaseGrantMapOutput() DatabaseGrantMapOutpu
 
 func (o DatabaseGrantMapOutput) ToDatabaseGrantMapOutputWithContext(ctx context.Context) DatabaseGrantMapOutput {
 	return o
+}
+
+func (o DatabaseGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatabaseGrant] {
+	return pulumix.Output[map[string]*DatabaseGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatabaseGrantMapOutput) MapIndex(k pulumi.StringInput) DatabaseGrantOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -157,6 +158,12 @@ func (i *NetworkPolicyAttachment) ToNetworkPolicyAttachmentOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPolicyAttachmentOutput)
 }
 
+func (i *NetworkPolicyAttachment) ToOutput(ctx context.Context) pulumix.Output[*NetworkPolicyAttachment] {
+	return pulumix.Output[*NetworkPolicyAttachment]{
+		OutputState: i.ToNetworkPolicyAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkPolicyAttachmentArrayInput is an input type that accepts NetworkPolicyAttachmentArray and NetworkPolicyAttachmentArrayOutput values.
 // You can construct a concrete instance of `NetworkPolicyAttachmentArrayInput` via:
 //
@@ -180,6 +187,12 @@ func (i NetworkPolicyAttachmentArray) ToNetworkPolicyAttachmentArrayOutput() Net
 
 func (i NetworkPolicyAttachmentArray) ToNetworkPolicyAttachmentArrayOutputWithContext(ctx context.Context) NetworkPolicyAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPolicyAttachmentArrayOutput)
+}
+
+func (i NetworkPolicyAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkPolicyAttachment] {
+	return pulumix.Output[[]*NetworkPolicyAttachment]{
+		OutputState: i.ToNetworkPolicyAttachmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkPolicyAttachmentMapInput is an input type that accepts NetworkPolicyAttachmentMap and NetworkPolicyAttachmentMapOutput values.
@@ -207,6 +220,12 @@ func (i NetworkPolicyAttachmentMap) ToNetworkPolicyAttachmentMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPolicyAttachmentMapOutput)
 }
 
+func (i NetworkPolicyAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkPolicyAttachment] {
+	return pulumix.Output[map[string]*NetworkPolicyAttachment]{
+		OutputState: i.ToNetworkPolicyAttachmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkPolicyAttachmentOutput struct{ *pulumi.OutputState }
 
 func (NetworkPolicyAttachmentOutput) ElementType() reflect.Type {
@@ -219,6 +238,12 @@ func (o NetworkPolicyAttachmentOutput) ToNetworkPolicyAttachmentOutput() Network
 
 func (o NetworkPolicyAttachmentOutput) ToNetworkPolicyAttachmentOutputWithContext(ctx context.Context) NetworkPolicyAttachmentOutput {
 	return o
+}
+
+func (o NetworkPolicyAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkPolicyAttachment] {
+	return pulumix.Output[*NetworkPolicyAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
@@ -250,6 +275,12 @@ func (o NetworkPolicyAttachmentArrayOutput) ToNetworkPolicyAttachmentArrayOutput
 	return o
 }
 
+func (o NetworkPolicyAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkPolicyAttachment] {
+	return pulumix.Output[[]*NetworkPolicyAttachment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkPolicyAttachmentArrayOutput) Index(i pulumi.IntInput) NetworkPolicyAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkPolicyAttachment {
 		return vs[0].([]*NetworkPolicyAttachment)[vs[1].(int)]
@@ -268,6 +299,12 @@ func (o NetworkPolicyAttachmentMapOutput) ToNetworkPolicyAttachmentMapOutput() N
 
 func (o NetworkPolicyAttachmentMapOutput) ToNetworkPolicyAttachmentMapOutputWithContext(ctx context.Context) NetworkPolicyAttachmentMapOutput {
 	return o
+}
+
+func (o NetworkPolicyAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkPolicyAttachment] {
+	return pulumix.Output[map[string]*NetworkPolicyAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkPolicyAttachmentMapOutput) MapIndex(k pulumi.StringInput) NetworkPolicyAttachmentOutput {

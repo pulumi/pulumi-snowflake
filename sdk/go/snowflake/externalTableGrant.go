@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -255,6 +256,12 @@ func (i *ExternalTableGrant) ToExternalTableGrantOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalTableGrantOutput)
 }
 
+func (i *ExternalTableGrant) ToOutput(ctx context.Context) pulumix.Output[*ExternalTableGrant] {
+	return pulumix.Output[*ExternalTableGrant]{
+		OutputState: i.ToExternalTableGrantOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ExternalTableGrantArrayInput is an input type that accepts ExternalTableGrantArray and ExternalTableGrantArrayOutput values.
 // You can construct a concrete instance of `ExternalTableGrantArrayInput` via:
 //
@@ -278,6 +285,12 @@ func (i ExternalTableGrantArray) ToExternalTableGrantArrayOutput() ExternalTable
 
 func (i ExternalTableGrantArray) ToExternalTableGrantArrayOutputWithContext(ctx context.Context) ExternalTableGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalTableGrantArrayOutput)
+}
+
+func (i ExternalTableGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*ExternalTableGrant] {
+	return pulumix.Output[[]*ExternalTableGrant]{
+		OutputState: i.ToExternalTableGrantArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ExternalTableGrantMapInput is an input type that accepts ExternalTableGrantMap and ExternalTableGrantMapOutput values.
@@ -305,6 +318,12 @@ func (i ExternalTableGrantMap) ToExternalTableGrantMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalTableGrantMapOutput)
 }
 
+func (i ExternalTableGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExternalTableGrant] {
+	return pulumix.Output[map[string]*ExternalTableGrant]{
+		OutputState: i.ToExternalTableGrantMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExternalTableGrantOutput struct{ *pulumi.OutputState }
 
 func (ExternalTableGrantOutput) ElementType() reflect.Type {
@@ -317,6 +336,12 @@ func (o ExternalTableGrantOutput) ToExternalTableGrantOutput() ExternalTableGran
 
 func (o ExternalTableGrantOutput) ToExternalTableGrantOutputWithContext(ctx context.Context) ExternalTableGrantOutput {
 	return o
+}
+
+func (o ExternalTableGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*ExternalTableGrant] {
+	return pulumix.Output[*ExternalTableGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the database containing the current or future external tables on which to grant privileges.
@@ -389,6 +414,12 @@ func (o ExternalTableGrantArrayOutput) ToExternalTableGrantArrayOutputWithContex
 	return o
 }
 
+func (o ExternalTableGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ExternalTableGrant] {
+	return pulumix.Output[[]*ExternalTableGrant]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ExternalTableGrantArrayOutput) Index(i pulumi.IntInput) ExternalTableGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExternalTableGrant {
 		return vs[0].([]*ExternalTableGrant)[vs[1].(int)]
@@ -407,6 +438,12 @@ func (o ExternalTableGrantMapOutput) ToExternalTableGrantMapOutput() ExternalTab
 
 func (o ExternalTableGrantMapOutput) ToExternalTableGrantMapOutputWithContext(ctx context.Context) ExternalTableGrantMapOutput {
 	return o
+}
+
+func (o ExternalTableGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExternalTableGrant] {
+	return pulumix.Output[map[string]*ExternalTableGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExternalTableGrantMapOutput) MapIndex(k pulumi.StringInput) ExternalTableGrantOutput {

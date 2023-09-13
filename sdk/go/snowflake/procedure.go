@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -257,6 +258,12 @@ func (i *Procedure) ToProcedureOutputWithContext(ctx context.Context) ProcedureO
 	return pulumi.ToOutputWithContext(ctx, i).(ProcedureOutput)
 }
 
+func (i *Procedure) ToOutput(ctx context.Context) pulumix.Output[*Procedure] {
+	return pulumix.Output[*Procedure]{
+		OutputState: i.ToProcedureOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProcedureArrayInput is an input type that accepts ProcedureArray and ProcedureArrayOutput values.
 // You can construct a concrete instance of `ProcedureArrayInput` via:
 //
@@ -280,6 +287,12 @@ func (i ProcedureArray) ToProcedureArrayOutput() ProcedureArrayOutput {
 
 func (i ProcedureArray) ToProcedureArrayOutputWithContext(ctx context.Context) ProcedureArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProcedureArrayOutput)
+}
+
+func (i ProcedureArray) ToOutput(ctx context.Context) pulumix.Output[[]*Procedure] {
+	return pulumix.Output[[]*Procedure]{
+		OutputState: i.ToProcedureArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProcedureMapInput is an input type that accepts ProcedureMap and ProcedureMapOutput values.
@@ -307,6 +320,12 @@ func (i ProcedureMap) ToProcedureMapOutputWithContext(ctx context.Context) Proce
 	return pulumi.ToOutputWithContext(ctx, i).(ProcedureMapOutput)
 }
 
+func (i ProcedureMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Procedure] {
+	return pulumix.Output[map[string]*Procedure]{
+		OutputState: i.ToProcedureMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProcedureOutput struct{ *pulumi.OutputState }
 
 func (ProcedureOutput) ElementType() reflect.Type {
@@ -319,6 +338,12 @@ func (o ProcedureOutput) ToProcedureOutput() ProcedureOutput {
 
 func (o ProcedureOutput) ToProcedureOutputWithContext(ctx context.Context) ProcedureOutput {
 	return o
+}
+
+func (o ProcedureOutput) ToOutput(ctx context.Context) pulumix.Output[*Procedure] {
+	return pulumix.Output[*Procedure]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of the arguments for the procedure
@@ -410,6 +435,12 @@ func (o ProcedureArrayOutput) ToProcedureArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ProcedureArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Procedure] {
+	return pulumix.Output[[]*Procedure]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProcedureArrayOutput) Index(i pulumi.IntInput) ProcedureOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Procedure {
 		return vs[0].([]*Procedure)[vs[1].(int)]
@@ -428,6 +459,12 @@ func (o ProcedureMapOutput) ToProcedureMapOutput() ProcedureMapOutput {
 
 func (o ProcedureMapOutput) ToProcedureMapOutputWithContext(ctx context.Context) ProcedureMapOutput {
 	return o
+}
+
+func (o ProcedureMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Procedure] {
+	return pulumix.Output[map[string]*Procedure]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProcedureMapOutput) MapIndex(k pulumi.StringInput) ProcedureOutput {

@@ -28,3 +28,6 @@ export interface GetSystemGetSnowflakePlatformInfoResult {
      */
     readonly id: string;
 }
+export function getSystemGetSnowflakePlatformInfoOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemGetSnowflakePlatformInfoResult> {
+    return pulumi.output(getSystemGetSnowflakePlatformInfo(opts))
+}

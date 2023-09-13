@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -241,6 +242,12 @@ func (i *TaskGrant) ToTaskGrantOutputWithContext(ctx context.Context) TaskGrantO
 	return pulumi.ToOutputWithContext(ctx, i).(TaskGrantOutput)
 }
 
+func (i *TaskGrant) ToOutput(ctx context.Context) pulumix.Output[*TaskGrant] {
+	return pulumix.Output[*TaskGrant]{
+		OutputState: i.ToTaskGrantOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TaskGrantArrayInput is an input type that accepts TaskGrantArray and TaskGrantArrayOutput values.
 // You can construct a concrete instance of `TaskGrantArrayInput` via:
 //
@@ -264,6 +271,12 @@ func (i TaskGrantArray) ToTaskGrantArrayOutput() TaskGrantArrayOutput {
 
 func (i TaskGrantArray) ToTaskGrantArrayOutputWithContext(ctx context.Context) TaskGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TaskGrantArrayOutput)
+}
+
+func (i TaskGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*TaskGrant] {
+	return pulumix.Output[[]*TaskGrant]{
+		OutputState: i.ToTaskGrantArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TaskGrantMapInput is an input type that accepts TaskGrantMap and TaskGrantMapOutput values.
@@ -291,6 +304,12 @@ func (i TaskGrantMap) ToTaskGrantMapOutputWithContext(ctx context.Context) TaskG
 	return pulumi.ToOutputWithContext(ctx, i).(TaskGrantMapOutput)
 }
 
+func (i TaskGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TaskGrant] {
+	return pulumix.Output[map[string]*TaskGrant]{
+		OutputState: i.ToTaskGrantMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TaskGrantOutput struct{ *pulumi.OutputState }
 
 func (TaskGrantOutput) ElementType() reflect.Type {
@@ -303,6 +322,12 @@ func (o TaskGrantOutput) ToTaskGrantOutput() TaskGrantOutput {
 
 func (o TaskGrantOutput) ToTaskGrantOutputWithContext(ctx context.Context) TaskGrantOutput {
 	return o
+}
+
+func (o TaskGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskGrant] {
+	return pulumix.Output[*TaskGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the database containing the current or future tasks on which to grant privileges.
@@ -370,6 +395,12 @@ func (o TaskGrantArrayOutput) ToTaskGrantArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o TaskGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TaskGrant] {
+	return pulumix.Output[[]*TaskGrant]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskGrantArrayOutput) Index(i pulumi.IntInput) TaskGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TaskGrant {
 		return vs[0].([]*TaskGrant)[vs[1].(int)]
@@ -388,6 +419,12 @@ func (o TaskGrantMapOutput) ToTaskGrantMapOutput() TaskGrantMapOutput {
 
 func (o TaskGrantMapOutput) ToTaskGrantMapOutputWithContext(ctx context.Context) TaskGrantMapOutput {
 	return o
+}
+
+func (o TaskGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TaskGrant] {
+	return pulumix.Output[map[string]*TaskGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskGrantMapOutput) MapIndex(k pulumi.StringInput) TaskGrantOutput {

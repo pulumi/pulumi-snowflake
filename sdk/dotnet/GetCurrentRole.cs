@@ -13,6 +13,9 @@ namespace Pulumi.Snowflake
     {
         public static Task<GetCurrentRoleResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCurrentRoleResult>("snowflake:index/getCurrentRole:getCurrentRole", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<GetCurrentRoleResult> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCurrentRoleResult>("snowflake:index/getCurrentRole:getCurrentRole", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

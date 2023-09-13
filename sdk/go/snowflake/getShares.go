@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetShares(ctx *pulumi.Context, args *GetSharesArgs, opts ...pulumi.InvokeOption) (*GetSharesResult, error) {
@@ -73,6 +74,12 @@ func (o GetSharesResultOutput) ToGetSharesResultOutput() GetSharesResultOutput {
 
 func (o GetSharesResultOutput) ToGetSharesResultOutputWithContext(ctx context.Context) GetSharesResultOutput {
 	return o
+}
+
+func (o GetSharesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSharesResult] {
+	return pulumix.Output[GetSharesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.
