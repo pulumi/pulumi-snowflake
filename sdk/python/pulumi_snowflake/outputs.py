@@ -651,7 +651,7 @@ class GrantPrivilegesToRoleOnSchemaObject(dict):
         :param 'GrantPrivilegesToRoleOnSchemaObjectAllArgs' all: Configures the privilege to be granted on all objects in eihter a database or schema.
         :param 'GrantPrivilegesToRoleOnSchemaObjectFutureArgs' future: Configures the privilege to be granted on future objects in eihter a database or schema.
         :param str object_name: The fully qualified name of the object on which privileges will be granted.
-        :param str object_type: The object type of the schema object on which privileges will be granted. Valid values are: ALERT | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW
+        :param str object_type: The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -690,7 +690,7 @@ class GrantPrivilegesToRoleOnSchemaObject(dict):
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[str]:
         """
-        The object type of the schema object on which privileges will be granted. Valid values are: ALERT | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW
+        The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW
         """
         return pulumi.get(self, "object_type")
 
@@ -2548,13 +2548,11 @@ class GetParametersParameterResult(dict):
                  description: str,
                  key: str,
                  level: str,
-                 type: str,
                  value: str):
         pulumi.set(__self__, "default", default)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "level", level)
-        pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
 
     @property
@@ -2576,11 +2574,6 @@ class GetParametersParameterResult(dict):
     @pulumi.getter
     def level(self) -> str:
         return pulumi.get(self, "level")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter

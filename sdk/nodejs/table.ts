@@ -7,67 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const schema = new snowflake.Schema("schema", {
- *     database: "database",
- *     dataRetentionDays: 1,
- * });
- * const sequence = new snowflake.Sequence("sequence", {
- *     database: schema.database,
- *     schema: schema.name,
- * });
- * const table = new snowflake.Table("table", {
- *     database: schema.database,
- *     schema: schema.name,
- *     comment: "A table.",
- *     clusterBies: ["to_date(DATE)"],
- *     dataRetentionDays: schema.dataRetentionDays,
- *     changeTracking: false,
- *     columns: [
- *         {
- *             name: "id",
- *             type: "int",
- *             nullable: true,
- *             "default": {
- *                 sequence: sequence.fullyQualifiedName,
- *             },
- *         },
- *         {
- *             name: "identity",
- *             type: "NUMBER(38,0)",
- *             nullable: true,
- *             identity: {
- *                 startNum: 1,
- *                 stepNum: 3,
- *             },
- *         },
- *         {
- *             name: "data",
- *             type: "text",
- *             nullable: false,
- *         },
- *         {
- *             name: "DATE",
- *             type: "TIMESTAMP_NTZ(9)",
- *         },
- *         {
- *             name: "extra",
- *             type: "VARIANT",
- *             comment: "extra data",
- *         },
- *     ],
- *     primaryKey: {
- *         name: "my_key",
- *         keys: ["data"],
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * format is database name | schema name | table name
@@ -123,9 +62,15 @@ export class Table extends pulumi.CustomResource {
     /**
      * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
      *
-     * @deprecated Use snowflake_object_parameter instead
+     * @deprecated Use data_retention_time_in_days attribute instead
      */
     public readonly dataRetentionDays!: pulumi.Output<number | undefined>;
+    /**
+     * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+     *
+     * @deprecated Use snowflake_object_parameter instead
+     */
+    public readonly dataRetentionTimeInDays!: pulumi.Output<number | undefined>;
     /**
      * The database in which to create the table.
      */
@@ -177,6 +122,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["columns"] = state ? state.columns : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["dataRetentionDays"] = state ? state.dataRetentionDays : undefined;
+            resourceInputs["dataRetentionTimeInDays"] = state ? state.dataRetentionTimeInDays : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["owner"] = state ? state.owner : undefined;
@@ -200,6 +146,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["columns"] = args ? args.columns : undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["dataRetentionDays"] = args ? args.dataRetentionDays : undefined;
+            resourceInputs["dataRetentionTimeInDays"] = args ? args.dataRetentionTimeInDays : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["primaryKey"] = args ? args.primaryKey : undefined;
@@ -236,9 +183,15 @@ export interface TableState {
     /**
      * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
      *
-     * @deprecated Use snowflake_object_parameter instead
+     * @deprecated Use data_retention_time_in_days attribute instead
      */
     dataRetentionDays?: pulumi.Input<number>;
+    /**
+     * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+     *
+     * @deprecated Use snowflake_object_parameter instead
+     */
+    dataRetentionTimeInDays?: pulumi.Input<number>;
     /**
      * The database in which to create the table.
      */
@@ -296,9 +249,15 @@ export interface TableArgs {
     /**
      * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
      *
-     * @deprecated Use snowflake_object_parameter instead
+     * @deprecated Use data_retention_time_in_days attribute instead
      */
     dataRetentionDays?: pulumi.Input<number>;
+    /**
+     * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+     *
+     * @deprecated Use snowflake_object_parameter instead
+     */
+    dataRetentionTimeInDays?: pulumi.Input<number>;
     /**
      * The database in which to create the table.
      */

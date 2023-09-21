@@ -13,7 +13,6 @@ public final class GetParametersParameter {
     private String description;
     private String key;
     private String level;
-    private String type;
     private String value;
 
     private GetParametersParameter() {}
@@ -28,9 +27,6 @@ public final class GetParametersParameter {
     }
     public String level() {
         return this.level;
-    }
-    public String type() {
-        return this.type;
     }
     public String value() {
         return this.value;
@@ -49,7 +45,6 @@ public final class GetParametersParameter {
         private String description;
         private String key;
         private String level;
-        private String type;
         private String value;
         public Builder() {}
         public Builder(GetParametersParameter defaults) {
@@ -58,7 +53,6 @@ public final class GetParametersParameter {
     	      this.description = defaults.description;
     	      this.key = defaults.key;
     	      this.level = defaults.level;
-    	      this.type = defaults.type;
     	      this.value = defaults.value;
         }
 
@@ -83,11 +77,6 @@ public final class GetParametersParameter {
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
-            return this;
-        }
-        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
@@ -98,7 +87,6 @@ public final class GetParametersParameter {
             o.description = description;
             o.key = key;
             o.level = level;
-            o.type = type;
             o.value = value;
             return o;
         }

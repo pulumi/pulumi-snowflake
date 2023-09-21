@@ -10,93 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var schema = new Snowflake.Schema("schema", new()
-    ///     {
-    ///         Database = "database",
-    ///         DataRetentionDays = 1,
-    ///     });
-    /// 
-    ///     var sequence = new Snowflake.Sequence("sequence", new()
-    ///     {
-    ///         Database = schema.Database,
-    ///         Schema = schema.Name,
-    ///     });
-    /// 
-    ///     var table = new Snowflake.Table("table", new()
-    ///     {
-    ///         Database = schema.Database,
-    ///         Schema = schema.Name,
-    ///         Comment = "A table.",
-    ///         ClusterBies = new[]
-    ///         {
-    ///             "to_date(DATE)",
-    ///         },
-    ///         DataRetentionDays = schema.DataRetentionDays,
-    ///         ChangeTracking = false,
-    ///         Columns = new[]
-    ///         {
-    ///             new Snowflake.Inputs.TableColumnArgs
-    ///             {
-    ///                 Name = "id",
-    ///                 Type = "int",
-    ///                 Nullable = true,
-    ///                 Default = new Snowflake.Inputs.TableColumnDefaultArgs
-    ///                 {
-    ///                     Sequence = sequence.FullyQualifiedName,
-    ///                 },
-    ///             },
-    ///             new Snowflake.Inputs.TableColumnArgs
-    ///             {
-    ///                 Name = "identity",
-    ///                 Type = "NUMBER(38,0)",
-    ///                 Nullable = true,
-    ///                 Identity = new Snowflake.Inputs.TableColumnIdentityArgs
-    ///                 {
-    ///                     StartNum = 1,
-    ///                     StepNum = 3,
-    ///                 },
-    ///             },
-    ///             new Snowflake.Inputs.TableColumnArgs
-    ///             {
-    ///                 Name = "data",
-    ///                 Type = "text",
-    ///                 Nullable = false,
-    ///             },
-    ///             new Snowflake.Inputs.TableColumnArgs
-    ///             {
-    ///                 Name = "DATE",
-    ///                 Type = "TIMESTAMP_NTZ(9)",
-    ///             },
-    ///             new Snowflake.Inputs.TableColumnArgs
-    ///             {
-    ///                 Name = "extra",
-    ///                 Type = "VARIANT",
-    ///                 Comment = "extra data",
-    ///             },
-    ///         },
-    ///         PrimaryKey = new Snowflake.Inputs.TablePrimaryKeyArgs
-    ///         {
-    ///             Name = "my_key",
-    ///             Keys = new[]
-    ///             {
-    ///                 "data",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// format is database name | schema name | table name
@@ -137,6 +50,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("dataRetentionDays")]
         public Output<int?> DataRetentionDays { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        /// </summary>
+        [Output("dataRetentionTimeInDays")]
+        public Output<int?> DataRetentionTimeInDays { get; private set; } = null!;
 
         /// <summary>
         /// The database in which to create the table.
@@ -269,6 +188,12 @@ namespace Pulumi.Snowflake
         public Input<int>? DataRetentionDays { get; set; }
 
         /// <summary>
+        /// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        /// </summary>
+        [Input("dataRetentionTimeInDays")]
+        public Input<int>? DataRetentionTimeInDays { get; set; }
+
+        /// <summary>
         /// The database in which to create the table.
         /// </summary>
         [Input("database", required: true)]
@@ -354,6 +279,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("dataRetentionDays")]
         public Input<int>? DataRetentionDays { get; set; }
+
+        /// <summary>
+        /// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        /// </summary>
+        [Input("dataRetentionTimeInDays")]
+        public Input<int>? DataRetentionTimeInDays { get; set; }
 
         /// <summary>
         /// The database in which to create the table.

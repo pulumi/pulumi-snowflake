@@ -17,7 +17,6 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string Description;
         public readonly string Key;
         public readonly string Level;
-        public readonly string Type;
         public readonly string Value;
 
         [OutputConstructor]
@@ -30,15 +29,12 @@ namespace Pulumi.Snowflake.Outputs
 
             string level,
 
-            string type,
-
             string value)
         {
             Default = @default;
             Description = description;
             Key = key;
             Level = level;
-            Type = type;
             Value = value;
         }
     }

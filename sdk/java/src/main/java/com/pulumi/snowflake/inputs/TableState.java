@@ -85,12 +85,35 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
      * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
      * 
      * @deprecated
+     * Use data_retention_time_in_days attribute instead
+     * 
+     */
+    @Deprecated /* Use data_retention_time_in_days attribute instead */
+    @Import(name="dataRetentionDays")
+    private @Nullable Output<Integer> dataRetentionDays;
+
+    /**
+     * @return Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+     * 
+     * @deprecated
+     * Use data_retention_time_in_days attribute instead
+     * 
+     */
+    @Deprecated /* Use data_retention_time_in_days attribute instead */
+    public Optional<Output<Integer>> dataRetentionDays() {
+        return Optional.ofNullable(this.dataRetentionDays);
+    }
+
+    /**
+     * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+     * 
+     * @deprecated
      * Use snowflake_object_parameter instead
      * 
      */
     @Deprecated /* Use snowflake_object_parameter instead */
-    @Import(name="dataRetentionDays")
-    private @Nullable Output<Integer> dataRetentionDays;
+    @Import(name="dataRetentionTimeInDays")
+    private @Nullable Output<Integer> dataRetentionTimeInDays;
 
     /**
      * @return Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
@@ -100,8 +123,8 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Deprecated /* Use snowflake_object_parameter instead */
-    public Optional<Output<Integer>> dataRetentionDays() {
-        return Optional.ofNullable(this.dataRetentionDays);
+    public Optional<Output<Integer>> dataRetentionTimeInDays() {
+        return Optional.ofNullable(this.dataRetentionTimeInDays);
     }
 
     /**
@@ -233,6 +256,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         this.columns = $.columns;
         this.comment = $.comment;
         this.dataRetentionDays = $.dataRetentionDays;
+        this.dataRetentionTimeInDays = $.dataRetentionTimeInDays;
         this.database = $.database;
         this.name = $.name;
         this.owner = $.owner;
@@ -370,10 +394,10 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use snowflake_object_parameter instead
+         * Use data_retention_time_in_days attribute instead
          * 
          */
-        @Deprecated /* Use snowflake_object_parameter instead */
+        @Deprecated /* Use data_retention_time_in_days attribute instead */
         public Builder dataRetentionDays(@Nullable Output<Integer> dataRetentionDays) {
             $.dataRetentionDays = dataRetentionDays;
             return this;
@@ -385,12 +409,41 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
+         * Use data_retention_time_in_days attribute instead
+         * 
+         */
+        @Deprecated /* Use data_retention_time_in_days attribute instead */
+        public Builder dataRetentionDays(Integer dataRetentionDays) {
+            return dataRetentionDays(Output.of(dataRetentionDays));
+        }
+
+        /**
+         * @param dataRetentionTimeInDays Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+         * 
+         * @return builder
+         * 
+         * @deprecated
          * Use snowflake_object_parameter instead
          * 
          */
         @Deprecated /* Use snowflake_object_parameter instead */
-        public Builder dataRetentionDays(Integer dataRetentionDays) {
-            return dataRetentionDays(Output.of(dataRetentionDays));
+        public Builder dataRetentionTimeInDays(@Nullable Output<Integer> dataRetentionTimeInDays) {
+            $.dataRetentionTimeInDays = dataRetentionTimeInDays;
+            return this;
+        }
+
+        /**
+         * @param dataRetentionTimeInDays Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use snowflake_object_parameter instead
+         * 
+         */
+        @Deprecated /* Use snowflake_object_parameter instead */
+        public Builder dataRetentionTimeInDays(Integer dataRetentionTimeInDays) {
+            return dataRetentionTimeInDays(Output.of(dataRetentionTimeInDays));
         }
 
         /**
