@@ -1865,6 +1865,7 @@
                 "clusterBies": "cluster_by",
                 "columns": "column",
                 "dataRetentionDays": "data_retention_days",
+                "dataRetentionTimeInDays": "data_retention_time_in_days",
                 "primaryKey": "primary_key",
                 "qualifiedName": "qualified_name",
                 "tags": "tag"
