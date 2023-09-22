@@ -21,95 +21,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.Schema;
- * import com.pulumi.snowflake.SchemaArgs;
- * import com.pulumi.snowflake.Sequence;
- * import com.pulumi.snowflake.SequenceArgs;
- * import com.pulumi.snowflake.Table;
- * import com.pulumi.snowflake.TableArgs;
- * import com.pulumi.snowflake.inputs.TableColumnArgs;
- * import com.pulumi.snowflake.inputs.TableColumnDefaultArgs;
- * import com.pulumi.snowflake.inputs.TableColumnIdentityArgs;
- * import com.pulumi.snowflake.inputs.TablePrimaryKeyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var schema = new Schema(&#34;schema&#34;, SchemaArgs.builder()        
- *             .database(&#34;database&#34;)
- *             .dataRetentionDays(1)
- *             .build());
- * 
- *         var sequence = new Sequence(&#34;sequence&#34;, SequenceArgs.builder()        
- *             .database(schema.database())
- *             .schema(schema.name())
- *             .build());
- * 
- *         var table = new Table(&#34;table&#34;, TableArgs.builder()        
- *             .database(schema.database())
- *             .schema(schema.name())
- *             .comment(&#34;A table.&#34;)
- *             .clusterBies(&#34;to_date(DATE)&#34;)
- *             .dataRetentionDays(schema.dataRetentionDays())
- *             .changeTracking(false)
- *             .columns(            
- *                 TableColumnArgs.builder()
- *                     .name(&#34;id&#34;)
- *                     .type(&#34;int&#34;)
- *                     .nullable(true)
- *                     .default_(TableColumnDefaultArgs.builder()
- *                         .sequence(sequence.fullyQualifiedName())
- *                         .build())
- *                     .build(),
- *                 TableColumnArgs.builder()
- *                     .name(&#34;identity&#34;)
- *                     .type(&#34;NUMBER(38,0)&#34;)
- *                     .nullable(true)
- *                     .identity(TableColumnIdentityArgs.builder()
- *                         .startNum(1)
- *                         .stepNum(3)
- *                         .build())
- *                     .build(),
- *                 TableColumnArgs.builder()
- *                     .name(&#34;data&#34;)
- *                     .type(&#34;text&#34;)
- *                     .nullable(false)
- *                     .build(),
- *                 TableColumnArgs.builder()
- *                     .name(&#34;DATE&#34;)
- *                     .type(&#34;TIMESTAMP_NTZ(9)&#34;)
- *                     .build(),
- *                 TableColumnArgs.builder()
- *                     .name(&#34;extra&#34;)
- *                     .type(&#34;VARIANT&#34;)
- *                     .comment(&#34;extra data&#34;)
- *                     .build())
- *             .primaryKey(TablePrimaryKeyArgs.builder()
- *                 .name(&#34;my_key&#34;)
- *                 .keys(&#34;data&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * format is database name | schema name | table name
@@ -181,10 +92,10 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
      * 
      * @deprecated
-     * Use snowflake_object_parameter instead
+     * Use data_retention_time_in_days attribute instead
      * 
      */
-    @Deprecated /* Use snowflake_object_parameter instead */
+    @Deprecated /* Use data_retention_time_in_days attribute instead */
     @Export(name="dataRetentionDays", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> dataRetentionDays;
 
@@ -194,6 +105,24 @@ public class Table extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> dataRetentionDays() {
         return Codegen.optional(this.dataRetentionDays);
+    }
+    /**
+     * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+     * 
+     * @deprecated
+     * Use snowflake_object_parameter instead
+     * 
+     */
+    @Deprecated /* Use snowflake_object_parameter instead */
+    @Export(name="dataRetentionTimeInDays", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> dataRetentionTimeInDays;
+
+    /**
+     * @return Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+     * 
+     */
+    public Output<Optional<Integer>> dataRetentionTimeInDays() {
+        return Codegen.optional(this.dataRetentionTimeInDays);
     }
     /**
      * The database in which to create the table.

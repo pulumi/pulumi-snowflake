@@ -9,8 +9,8 @@ replace (
 )
 
 require (
-	github.com/Snowflake-Labs/terraform-provider-snowflake v0.70.1
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.59.0
+	github.com/Snowflake-Labs/terraform-provider-snowflake v0.71.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.60.1
 	github.com/pulumi/pulumi/sdk/v3 v3.81.0
 )
 

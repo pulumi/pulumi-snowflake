@@ -2152,7 +2152,7 @@ type GrantPrivilegesToRoleOnSchemaObject struct {
 	Future *GrantPrivilegesToRoleOnSchemaObjectFuture `pulumi:"future"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName *string `pulumi:"objectName"`
-	// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW
+	// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW
 	ObjectType *string `pulumi:"objectType"`
 }
 
@@ -2174,7 +2174,7 @@ type GrantPrivilegesToRoleOnSchemaObjectArgs struct {
 	Future GrantPrivilegesToRoleOnSchemaObjectFuturePtrInput `pulumi:"future"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName pulumi.StringPtrInput `pulumi:"objectName"`
-	// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW
+	// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW
 	ObjectType pulumi.StringPtrInput `pulumi:"objectType"`
 }
 
@@ -2290,7 +2290,7 @@ func (o GrantPrivilegesToRoleOnSchemaObjectOutput) ObjectName() pulumi.StringPtr
 	return o.ApplyT(func(v GrantPrivilegesToRoleOnSchemaObject) *string { return v.ObjectName }).(pulumi.StringPtrOutput)
 }
 
-// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW
+// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW
 func (o GrantPrivilegesToRoleOnSchemaObjectOutput) ObjectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToRoleOnSchemaObject) *string { return v.ObjectType }).(pulumi.StringPtrOutput)
 }
@@ -2355,7 +2355,7 @@ func (o GrantPrivilegesToRoleOnSchemaObjectPtrOutput) ObjectName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW
+// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW
 func (o GrantPrivilegesToRoleOnSchemaObjectPtrOutput) ObjectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToRoleOnSchemaObject) *string {
 		if v == nil {
@@ -8575,7 +8575,6 @@ type GetParametersParameter struct {
 	Description string `pulumi:"description"`
 	Key         string `pulumi:"key"`
 	Level       string `pulumi:"level"`
-	Type        string `pulumi:"type"`
 	Value       string `pulumi:"value"`
 }
 
@@ -8595,7 +8594,6 @@ type GetParametersParameterArgs struct {
 	Description pulumi.StringInput `pulumi:"description"`
 	Key         pulumi.StringInput `pulumi:"key"`
 	Level       pulumi.StringInput `pulumi:"level"`
-	Type        pulumi.StringInput `pulumi:"type"`
 	Value       pulumi.StringInput `pulumi:"value"`
 }
 
@@ -8682,10 +8680,6 @@ func (o GetParametersParameterOutput) Key() pulumi.StringOutput {
 
 func (o GetParametersParameterOutput) Level() pulumi.StringOutput {
 	return o.ApplyT(func(v GetParametersParameter) string { return v.Level }).(pulumi.StringOutput)
-}
-
-func (o GetParametersParameterOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetParametersParameter) string { return v.Type }).(pulumi.StringOutput)
 }
 
 func (o GetParametersParameterOutput) Value() pulumi.StringOutput {
