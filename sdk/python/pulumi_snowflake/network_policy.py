@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['NetworkPolicyArgs', 'NetworkPolicy']
@@ -25,13 +25,28 @@ class NetworkPolicyArgs:
         :param pulumi.Input[str] comment: Specifies a comment for the network policy.
         :param pulumi.Input[str] name: Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
         """
-        pulumi.set(__self__, "allowed_ip_lists", allowed_ip_lists)
+        NetworkPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_ip_lists=allowed_ip_lists,
+            blocked_ip_lists=blocked_ip_lists,
+            comment=comment,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_ip_lists: pulumi.Input[Sequence[pulumi.Input[str]]],
+             blocked_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allowed_ip_lists", allowed_ip_lists)
         if blocked_ip_lists is not None:
-            pulumi.set(__self__, "blocked_ip_lists", blocked_ip_lists)
+            _setter("blocked_ip_lists", blocked_ip_lists)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="allowedIpLists")
@@ -96,14 +111,29 @@ class _NetworkPolicyState:
         :param pulumi.Input[str] comment: Specifies a comment for the network policy.
         :param pulumi.Input[str] name: Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
         """
+        _NetworkPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_ip_lists=allowed_ip_lists,
+            blocked_ip_lists=blocked_ip_lists,
+            comment=comment,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             blocked_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_ip_lists is not None:
-            pulumi.set(__self__, "allowed_ip_lists", allowed_ip_lists)
+            _setter("allowed_ip_lists", allowed_ip_lists)
         if blocked_ip_lists is not None:
-            pulumi.set(__self__, "blocked_ip_lists", blocked_ip_lists)
+            _setter("blocked_ip_lists", blocked_ip_lists)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="allowedIpLists")
@@ -225,6 +255,10 @@ class NetworkPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

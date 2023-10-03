@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,17 +31,36 @@ class TagAssociationArgs:
         :param pulumi.Input[str] object_name: Specifies the object identifier for the tag association.
         :param pulumi.Input[bool] skip_validation: If true, skips validation of the tag association.
         """
-        pulumi.set(__self__, "object_identifiers", object_identifiers)
-        pulumi.set(__self__, "object_type", object_type)
-        pulumi.set(__self__, "tag_id", tag_id)
-        pulumi.set(__self__, "tag_value", tag_value)
+        TagAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_identifiers=object_identifiers,
+            object_type=object_type,
+            tag_id=tag_id,
+            tag_value=tag_value,
+            object_name=object_name,
+            skip_validation=skip_validation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_identifiers: pulumi.Input[Sequence[pulumi.Input['TagAssociationObjectIdentifierArgs']]],
+             object_type: pulumi.Input[str],
+             tag_id: pulumi.Input[str],
+             tag_value: pulumi.Input[str],
+             object_name: Optional[pulumi.Input[str]] = None,
+             skip_validation: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object_identifiers", object_identifiers)
+        _setter("object_type", object_type)
+        _setter("tag_id", tag_id)
+        _setter("tag_value", tag_value)
         if object_name is not None:
             warnings.warn("""Use `object_identifier` instead""", DeprecationWarning)
             pulumi.log.warn("""object_name is deprecated: Use `object_identifier` instead""")
         if object_name is not None:
-            pulumi.set(__self__, "object_name", object_name)
+            _setter("object_name", object_name)
         if skip_validation is not None:
-            pulumi.set(__self__, "skip_validation", skip_validation)
+            _setter("skip_validation", skip_validation)
 
     @property
     @pulumi.getter(name="objectIdentifiers")
@@ -137,21 +156,40 @@ class _TagAssociationState:
         :param pulumi.Input[str] tag_id: Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
         :param pulumi.Input[str] tag_value: Specifies the value of the tag, (e.g. 'finance' or 'engineering')
         """
+        _TagAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_identifiers=object_identifiers,
+            object_name=object_name,
+            object_type=object_type,
+            skip_validation=skip_validation,
+            tag_id=tag_id,
+            tag_value=tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input['TagAssociationObjectIdentifierArgs']]]] = None,
+             object_name: Optional[pulumi.Input[str]] = None,
+             object_type: Optional[pulumi.Input[str]] = None,
+             skip_validation: Optional[pulumi.Input[bool]] = None,
+             tag_id: Optional[pulumi.Input[str]] = None,
+             tag_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if object_identifiers is not None:
-            pulumi.set(__self__, "object_identifiers", object_identifiers)
+            _setter("object_identifiers", object_identifiers)
         if object_name is not None:
             warnings.warn("""Use `object_identifier` instead""", DeprecationWarning)
             pulumi.log.warn("""object_name is deprecated: Use `object_identifier` instead""")
         if object_name is not None:
-            pulumi.set(__self__, "object_name", object_name)
+            _setter("object_name", object_name)
         if object_type is not None:
-            pulumi.set(__self__, "object_type", object_type)
+            _setter("object_type", object_type)
         if skip_validation is not None:
-            pulumi.set(__self__, "skip_validation", skip_validation)
+            _setter("skip_validation", skip_validation)
         if tag_id is not None:
-            pulumi.set(__self__, "tag_id", tag_id)
+            _setter("tag_id", tag_id)
         if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
+            _setter("tag_value", tag_value)
 
     @property
     @pulumi.getter(name="objectIdentifiers")
@@ -378,6 +416,10 @@ class TagAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TagAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -401,9 +443,6 @@ class TagAssociation(pulumi.CustomResource):
             if object_identifiers is None and not opts.urn:
                 raise TypeError("Missing required property 'object_identifiers'")
             __props__.__dict__["object_identifiers"] = object_identifiers
-            if object_name is not None and not opts.urn:
-                warnings.warn("""Use `object_identifier` instead""", DeprecationWarning)
-                pulumi.log.warn("""object_name is deprecated: Use `object_identifier` instead""")
             __props__.__dict__["object_name"] = object_name
             if object_type is None and not opts.urn:
                 raise TypeError("Missing required property 'object_type'")

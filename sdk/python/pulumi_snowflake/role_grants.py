@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RoleGrantsArgs', 'RoleGrants']
@@ -26,13 +26,28 @@ class RoleGrantsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants role to this specified role.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: Grants role to this specified user.
         """
-        pulumi.set(__self__, "role_name", role_name)
+        RoleGrantsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_name=role_name,
+            enable_multiple_grants=enable_multiple_grants,
+            roles=roles,
+            users=users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_name: pulumi.Input[str],
+             enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("role_name", role_name)
         if enable_multiple_grants is not None:
-            pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
+            _setter("enable_multiple_grants", enable_multiple_grants)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if users is not None:
-            pulumi.set(__self__, "users", users)
+            _setter("users", users)
 
     @property
     @pulumi.getter(name="roleName")
@@ -99,14 +114,29 @@ class _RoleGrantsState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants role to this specified role.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: Grants role to this specified user.
         """
+        _RoleGrantsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_multiple_grants=enable_multiple_grants,
+            role_name=role_name,
+            roles=roles,
+            users=users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
+             role_name: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable_multiple_grants is not None:
-            pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
+            _setter("enable_multiple_grants", enable_multiple_grants)
         if role_name is not None:
-            pulumi.set(__self__, "role_name", role_name)
+            _setter("role_name", role_name)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if users is not None:
-            pulumi.set(__self__, "users", users)
+            _setter("users", users)
 
     @property
     @pulumi.getter(name="enableMultipleGrants")
@@ -248,6 +278,10 @@ class RoleGrants(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RoleGrantsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

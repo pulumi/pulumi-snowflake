@@ -10,20 +10,28 @@ import java.util.Objects;
 @CustomType
 public final class MaskingPolicySignatureColumn {
     /**
-     * @return Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+     * @return Specifies the column name to mask.
      * 
      */
     private String name;
+    /**
+     * @return Specifies the column type to mask.
+     * 
+     */
     private String type;
 
     private MaskingPolicySignatureColumn() {}
     /**
-     * @return Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+     * @return Specifies the column name to mask.
      * 
      */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Specifies the column type to mask.
+     * 
+     */
     public String type() {
         return this.type;
     }

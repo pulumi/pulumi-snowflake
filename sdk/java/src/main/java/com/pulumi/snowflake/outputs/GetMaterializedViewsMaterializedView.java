@@ -10,36 +10,20 @@ import java.util.Objects;
 @CustomType
 public final class GetMaterializedViewsMaterializedView {
     private String comment;
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     private String database;
     private String name;
-    /**
-     * @return The schema from which to return the views from.
-     * 
-     */
     private String schema;
 
     private GetMaterializedViewsMaterializedView() {}
     public String comment() {
         return this.comment;
     }
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     public String database() {
         return this.database;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return The schema from which to return the views from.
-     * 
-     */
     public String schema() {
         return this.schema;
     }

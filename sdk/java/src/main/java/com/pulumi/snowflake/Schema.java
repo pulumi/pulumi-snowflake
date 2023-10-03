@@ -93,14 +93,14 @@ public class Schema extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dataRetentionDays);
     }
     /**
-     * The database in which to create the schema.
+     * Name of the database that the tag was created in.
      * 
      */
     @Export(name="database", type=String.class, parameters={})
     private Output<String> database;
 
     /**
-     * @return The database in which to create the schema.
+     * @return Name of the database that the tag was created in.
      * 
      */
     public Output<String> database() {
@@ -135,14 +135,14 @@ public class Schema extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.isTransient);
     }
     /**
-     * Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+     * Tag name, e.g. department.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+     * @return Tag name, e.g. department.
      * 
      */
     public Output<String> name() {

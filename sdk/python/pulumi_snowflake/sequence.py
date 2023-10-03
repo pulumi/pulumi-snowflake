@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['SequenceArgs', 'Sequence']
@@ -27,14 +27,31 @@ class SequenceArgs:
         :param pulumi.Input[int] increment: The amount the sequence will increase by each time it is used
         :param pulumi.Input[str] name: Specifies the name for the sequence.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "schema", schema)
+        SequenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            schema=schema,
+            comment=comment,
+            increment=increment,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: pulumi.Input[str],
+             schema: pulumi.Input[str],
+             comment: Optional[pulumi.Input[str]] = None,
+             increment: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database", database)
+        _setter("schema", schema)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if increment is not None:
-            pulumi.set(__self__, "increment", increment)
+            _setter("increment", increment)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -117,20 +134,41 @@ class _SequenceState:
         :param pulumi.Input[int] next_value: The next value the sequence will provide.
         :param pulumi.Input[str] schema: The schema in which to create the sequence. Don't use the | character.
         """
+        _SequenceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+            database=database,
+            fully_qualified_name=fully_qualified_name,
+            increment=increment,
+            name=name,
+            next_value=next_value,
+            schema=schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             fully_qualified_name: Optional[pulumi.Input[str]] = None,
+             increment: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             next_value: Optional[pulumi.Input[int]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if fully_qualified_name is not None:
-            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
+            _setter("fully_qualified_name", fully_qualified_name)
         if increment is not None:
-            pulumi.set(__self__, "increment", increment)
+            _setter("increment", increment)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if next_value is not None:
-            pulumi.set(__self__, "next_value", next_value)
+            _setter("next_value", next_value)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
 
     @property
     @pulumi.getter
@@ -296,6 +334,10 @@ class Sequence(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SequenceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

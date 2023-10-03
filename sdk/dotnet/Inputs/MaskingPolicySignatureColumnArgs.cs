@@ -13,11 +13,14 @@ namespace Pulumi.Snowflake.Inputs
     public sealed class MaskingPolicySignatureColumnArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        /// Specifies the column name to mask.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the column type to mask.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

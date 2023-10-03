@@ -10,16 +10,8 @@ import java.util.Objects;
 @CustomType
 public final class GetTasksTask {
     private String comment;
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     private String database;
     private String name;
-    /**
-     * @return The schema from which to return the tasks from.
-     * 
-     */
     private String schema;
     private String warehouse;
 
@@ -27,20 +19,12 @@ public final class GetTasksTask {
     public String comment() {
         return this.comment;
     }
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     public String database() {
         return this.database;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return The schema from which to return the tasks from.
-     * 
-     */
     public String schema() {
         return this.schema;
     }

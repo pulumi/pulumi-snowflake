@@ -62,9 +62,17 @@ public class Role extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
+    /**
+     * Tag name, e.g. department.
+     * 
+     */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
+    /**
+     * @return Tag name, e.g. department.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }

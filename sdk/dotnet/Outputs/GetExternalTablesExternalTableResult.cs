@@ -14,14 +14,8 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class GetExternalTablesExternalTableResult
     {
         public readonly string Comment;
-        /// <summary>
-        /// The database from which to return the schemas from.
-        /// </summary>
         public readonly string Database;
         public readonly string Name;
-        /// <summary>
-        /// The schema from which to return the external tables from.
-        /// </summary>
         public readonly string Schema;
 
         [OutputConstructor]

@@ -59,15 +59,15 @@ type MaterializedView struct {
 
 	// Specifies a comment for the view.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// The database in which to create the view. Don't use the | character.
+	// Name of the database that the tag was created in.
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Specifies that the view is secure.
 	IsSecure pulumi.BoolPtrOutput `pulumi:"isSecure"`
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created.
+	// Tag name, e.g. department.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Overwrites the View if it exists.
 	OrReplace pulumi.BoolPtrOutput `pulumi:"orReplace"`
-	// The schema in which to create the view. Don't use the | character.
+	// Name of the schema that the tag was created in.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Specifies the query used to create the view.
 	Statement pulumi.StringOutput `pulumi:"statement"`
@@ -123,15 +123,15 @@ func GetMaterializedView(ctx *pulumi.Context,
 type materializedViewState struct {
 	// Specifies a comment for the view.
 	Comment *string `pulumi:"comment"`
-	// The database in which to create the view. Don't use the | character.
+	// Name of the database that the tag was created in.
 	Database *string `pulumi:"database"`
 	// Specifies that the view is secure.
 	IsSecure *bool `pulumi:"isSecure"`
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created.
+	// Tag name, e.g. department.
 	Name *string `pulumi:"name"`
 	// Overwrites the View if it exists.
 	OrReplace *bool `pulumi:"orReplace"`
-	// The schema in which to create the view. Don't use the | character.
+	// Name of the schema that the tag was created in.
 	Schema *string `pulumi:"schema"`
 	// Specifies the query used to create the view.
 	Statement *string `pulumi:"statement"`
@@ -146,15 +146,15 @@ type materializedViewState struct {
 type MaterializedViewState struct {
 	// Specifies a comment for the view.
 	Comment pulumi.StringPtrInput
-	// The database in which to create the view. Don't use the | character.
+	// Name of the database that the tag was created in.
 	Database pulumi.StringPtrInput
 	// Specifies that the view is secure.
 	IsSecure pulumi.BoolPtrInput
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created.
+	// Tag name, e.g. department.
 	Name pulumi.StringPtrInput
 	// Overwrites the View if it exists.
 	OrReplace pulumi.BoolPtrInput
-	// The schema in which to create the view. Don't use the | character.
+	// Name of the schema that the tag was created in.
 	Schema pulumi.StringPtrInput
 	// Specifies the query used to create the view.
 	Statement pulumi.StringPtrInput
@@ -173,15 +173,15 @@ func (MaterializedViewState) ElementType() reflect.Type {
 type materializedViewArgs struct {
 	// Specifies a comment for the view.
 	Comment *string `pulumi:"comment"`
-	// The database in which to create the view. Don't use the | character.
+	// Name of the database that the tag was created in.
 	Database string `pulumi:"database"`
 	// Specifies that the view is secure.
 	IsSecure *bool `pulumi:"isSecure"`
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created.
+	// Tag name, e.g. department.
 	Name *string `pulumi:"name"`
 	// Overwrites the View if it exists.
 	OrReplace *bool `pulumi:"orReplace"`
-	// The schema in which to create the view. Don't use the | character.
+	// Name of the schema that the tag was created in.
 	Schema string `pulumi:"schema"`
 	// Specifies the query used to create the view.
 	Statement string `pulumi:"statement"`
@@ -197,15 +197,15 @@ type materializedViewArgs struct {
 type MaterializedViewArgs struct {
 	// Specifies a comment for the view.
 	Comment pulumi.StringPtrInput
-	// The database in which to create the view. Don't use the | character.
+	// Name of the database that the tag was created in.
 	Database pulumi.StringInput
 	// Specifies that the view is secure.
 	IsSecure pulumi.BoolPtrInput
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created.
+	// Tag name, e.g. department.
 	Name pulumi.StringPtrInput
 	// Overwrites the View if it exists.
 	OrReplace pulumi.BoolPtrInput
-	// The schema in which to create the view. Don't use the | character.
+	// Name of the schema that the tag was created in.
 	Schema pulumi.StringInput
 	// Specifies the query used to create the view.
 	Statement pulumi.StringInput
@@ -333,7 +333,7 @@ func (o MaterializedViewOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaterializedView) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// The database in which to create the view. Don't use the | character.
+// Name of the database that the tag was created in.
 func (o MaterializedViewOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaterializedView) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
@@ -343,7 +343,7 @@ func (o MaterializedViewOutput) IsSecure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MaterializedView) pulumi.BoolPtrOutput { return v.IsSecure }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the identifier for the view; must be unique for the schema in which the view is created.
+// Tag name, e.g. department.
 func (o MaterializedViewOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaterializedView) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -353,7 +353,7 @@ func (o MaterializedViewOutput) OrReplace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MaterializedView) pulumi.BoolPtrOutput { return v.OrReplace }).(pulumi.BoolPtrOutput)
 }
 
-// The schema in which to create the view. Don't use the | character.
+// Name of the schema that the tag was created in.
 func (o MaterializedViewOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaterializedView) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }

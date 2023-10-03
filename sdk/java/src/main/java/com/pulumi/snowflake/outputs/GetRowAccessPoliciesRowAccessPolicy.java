@@ -10,36 +10,20 @@ import java.util.Objects;
 @CustomType
 public final class GetRowAccessPoliciesRowAccessPolicy {
     private String comment;
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     private String database;
     private String name;
-    /**
-     * @return The schema from which to return the row access policyfrom.
-     * 
-     */
     private String schema;
 
     private GetRowAccessPoliciesRowAccessPolicy() {}
     public String comment() {
         return this.comment;
     }
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     public String database() {
         return this.database;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return The schema from which to return the row access policyfrom.
-     * 
-     */
     public String schema() {
         return this.schema;
     }

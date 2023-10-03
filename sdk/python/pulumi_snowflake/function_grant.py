@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['FunctionGrantArgs', 'FunctionGrant']
@@ -42,28 +42,59 @@ class FunctionGrantArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on_future is false).
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "roles", roles)
+        FunctionGrantArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            roles=roles,
+            argument_data_types=argument_data_types,
+            enable_multiple_grants=enable_multiple_grants,
+            function_name=function_name,
+            on_all=on_all,
+            on_future=on_future,
+            privilege=privilege,
+            revert_ownership_to_role_name=revert_ownership_to_role_name,
+            schema_name=schema_name,
+            shares=shares,
+            with_grant_option=with_grant_option,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: pulumi.Input[str],
+             roles: pulumi.Input[Sequence[pulumi.Input[str]]],
+             argument_data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
+             function_name: Optional[pulumi.Input[str]] = None,
+             on_all: Optional[pulumi.Input[bool]] = None,
+             on_future: Optional[pulumi.Input[bool]] = None,
+             privilege: Optional[pulumi.Input[str]] = None,
+             revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
+             schema_name: Optional[pulumi.Input[str]] = None,
+             shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             with_grant_option: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("roles", roles)
         if argument_data_types is not None:
-            pulumi.set(__self__, "argument_data_types", argument_data_types)
+            _setter("argument_data_types", argument_data_types)
         if enable_multiple_grants is not None:
-            pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
+            _setter("enable_multiple_grants", enable_multiple_grants)
         if function_name is not None:
-            pulumi.set(__self__, "function_name", function_name)
+            _setter("function_name", function_name)
         if on_all is not None:
-            pulumi.set(__self__, "on_all", on_all)
+            _setter("on_all", on_all)
         if on_future is not None:
-            pulumi.set(__self__, "on_future", on_future)
+            _setter("on_future", on_future)
         if privilege is not None:
-            pulumi.set(__self__, "privilege", privilege)
+            _setter("privilege", privilege)
         if revert_ownership_to_role_name is not None:
-            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
+            _setter("revert_ownership_to_role_name", revert_ownership_to_role_name)
         if schema_name is not None:
-            pulumi.set(__self__, "schema_name", schema_name)
+            _setter("schema_name", schema_name)
         if shares is not None:
-            pulumi.set(__self__, "shares", shares)
+            _setter("shares", shares)
         if with_grant_option is not None:
-            pulumi.set(__self__, "with_grant_option", with_grant_option)
+            _setter("with_grant_option", with_grant_option)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -242,30 +273,61 @@ class _FunctionGrantState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shares: Grants privilege to these shares (only valid if on_future is false).
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
+        _FunctionGrantState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            argument_data_types=argument_data_types,
+            database_name=database_name,
+            enable_multiple_grants=enable_multiple_grants,
+            function_name=function_name,
+            on_all=on_all,
+            on_future=on_future,
+            privilege=privilege,
+            revert_ownership_to_role_name=revert_ownership_to_role_name,
+            roles=roles,
+            schema_name=schema_name,
+            shares=shares,
+            with_grant_option=with_grant_option,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             argument_data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
+             function_name: Optional[pulumi.Input[str]] = None,
+             on_all: Optional[pulumi.Input[bool]] = None,
+             on_future: Optional[pulumi.Input[bool]] = None,
+             privilege: Optional[pulumi.Input[str]] = None,
+             revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             schema_name: Optional[pulumi.Input[str]] = None,
+             shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             with_grant_option: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if argument_data_types is not None:
-            pulumi.set(__self__, "argument_data_types", argument_data_types)
+            _setter("argument_data_types", argument_data_types)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if enable_multiple_grants is not None:
-            pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
+            _setter("enable_multiple_grants", enable_multiple_grants)
         if function_name is not None:
-            pulumi.set(__self__, "function_name", function_name)
+            _setter("function_name", function_name)
         if on_all is not None:
-            pulumi.set(__self__, "on_all", on_all)
+            _setter("on_all", on_all)
         if on_future is not None:
-            pulumi.set(__self__, "on_future", on_future)
+            _setter("on_future", on_future)
         if privilege is not None:
-            pulumi.set(__self__, "privilege", privilege)
+            _setter("privilege", privilege)
         if revert_ownership_to_role_name is not None:
-            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
+            _setter("revert_ownership_to_role_name", revert_ownership_to_role_name)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if schema_name is not None:
-            pulumi.set(__self__, "schema_name", schema_name)
+            _setter("schema_name", schema_name)
         if shares is not None:
-            pulumi.set(__self__, "shares", shares)
+            _setter("shares", shares)
         if with_grant_option is not None:
-            pulumi.set(__self__, "with_grant_option", with_grant_option)
+            _setter("with_grant_option", with_grant_option)
 
     @property
     @pulumi.getter(name="argumentDataTypes")
@@ -535,6 +597,10 @@ class FunctionGrant(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FunctionGrantArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

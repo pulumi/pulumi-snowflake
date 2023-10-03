@@ -15,23 +15,47 @@ public final class TableColumnDefaultArgs extends com.pulumi.resources.ResourceA
 
     public static final TableColumnDefaultArgs Empty = new TableColumnDefaultArgs();
 
+    /**
+     * The default constant value for the column
+     * 
+     */
     @Import(name="constant")
     private @Nullable Output<String> constant;
 
+    /**
+     * @return The default constant value for the column
+     * 
+     */
     public Optional<Output<String>> constant() {
         return Optional.ofNullable(this.constant);
     }
 
+    /**
+     * The default expression value for the column
+     * 
+     */
     @Import(name="expression")
     private @Nullable Output<String> expression;
 
+    /**
+     * @return The default expression value for the column
+     * 
+     */
     public Optional<Output<String>> expression() {
         return Optional.ofNullable(this.expression);
     }
 
+    /**
+     * The default sequence to use for the column
+     * 
+     */
     @Import(name="sequence")
     private @Nullable Output<String> sequence;
 
+    /**
+     * @return The default sequence to use for the column
+     * 
+     */
     public Optional<Output<String>> sequence() {
         return Optional.ofNullable(this.sequence);
     }
@@ -62,29 +86,65 @@ public final class TableColumnDefaultArgs extends com.pulumi.resources.ResourceA
             $ = new TableColumnDefaultArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param constant The default constant value for the column
+         * 
+         * @return builder
+         * 
+         */
         public Builder constant(@Nullable Output<String> constant) {
             $.constant = constant;
             return this;
         }
 
+        /**
+         * @param constant The default constant value for the column
+         * 
+         * @return builder
+         * 
+         */
         public Builder constant(String constant) {
             return constant(Output.of(constant));
         }
 
+        /**
+         * @param expression The default expression value for the column
+         * 
+         * @return builder
+         * 
+         */
         public Builder expression(@Nullable Output<String> expression) {
             $.expression = expression;
             return this;
         }
 
+        /**
+         * @param expression The default expression value for the column
+         * 
+         * @return builder
+         * 
+         */
         public Builder expression(String expression) {
             return expression(Output.of(expression));
         }
 
+        /**
+         * @param sequence The default sequence to use for the column
+         * 
+         * @return builder
+         * 
+         */
         public Builder sequence(@Nullable Output<String> sequence) {
             $.sequence = sequence;
             return this;
         }
 
+        /**
+         * @param sequence The default sequence to use for the column
+         * 
+         * @return builder
+         * 
+         */
         public Builder sequence(String sequence) {
             return sequence(Output.of(sequence));
         }

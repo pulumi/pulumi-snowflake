@@ -203,14 +203,14 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maxBatchRows);
     }
     /**
-     * Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function&#39;s signature (name and argument data types) must be unique within the schema.
+     * Argument name
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function&#39;s signature (name and argument data types) must be unique within the schema.
+     * @return Argument name
      * 
      */
     public Output<String> name() {

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -14,6 +14,7 @@ __all__ = [
     'GetStorageIntegrationsResult',
     'AwaitableGetStorageIntegrationsResult',
     'get_storage_integrations',
+    'get_storage_integrations_output',
 ]
 
 @pulumi.output_type
@@ -74,3 +75,18 @@ def get_storage_integrations(opts: Optional[pulumi.InvokeOptions] = None) -> Awa
     return AwaitableGetStorageIntegrationsResult(
         id=pulumi.get(__ret__, 'id'),
         storage_integrations=pulumi.get(__ret__, 'storage_integrations'))
+
+
+@_utilities.lift_output_func(get_storage_integrations)
+def get_storage_integrations_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageIntegrationsResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_storage_integrations()
+    ```
+    """
+    ...

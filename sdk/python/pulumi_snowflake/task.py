@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['TaskArgs', 'Task']
@@ -47,33 +47,70 @@ class TaskArgs:
         :param pulumi.Input[str] warehouse: The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)
         :param pulumi.Input[str] when: Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "schema", schema)
-        pulumi.set(__self__, "sql_statement", sql_statement)
+        TaskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            schema=schema,
+            sql_statement=sql_statement,
+            afters=afters,
+            allow_overlapping_execution=allow_overlapping_execution,
+            comment=comment,
+            enabled=enabled,
+            error_integration=error_integration,
+            name=name,
+            schedule=schedule,
+            session_parameters=session_parameters,
+            user_task_managed_initial_warehouse_size=user_task_managed_initial_warehouse_size,
+            user_task_timeout_ms=user_task_timeout_ms,
+            warehouse=warehouse,
+            when=when,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: pulumi.Input[str],
+             schema: pulumi.Input[str],
+             sql_statement: pulumi.Input[str],
+             afters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allow_overlapping_execution: Optional[pulumi.Input[bool]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             error_integration: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input[str]] = None,
+             session_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_task_managed_initial_warehouse_size: Optional[pulumi.Input[str]] = None,
+             user_task_timeout_ms: Optional[pulumi.Input[int]] = None,
+             warehouse: Optional[pulumi.Input[str]] = None,
+             when: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database", database)
+        _setter("schema", schema)
+        _setter("sql_statement", sql_statement)
         if afters is not None:
-            pulumi.set(__self__, "afters", afters)
+            _setter("afters", afters)
         if allow_overlapping_execution is not None:
-            pulumi.set(__self__, "allow_overlapping_execution", allow_overlapping_execution)
+            _setter("allow_overlapping_execution", allow_overlapping_execution)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if error_integration is not None:
-            pulumi.set(__self__, "error_integration", error_integration)
+            _setter("error_integration", error_integration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if session_parameters is not None:
-            pulumi.set(__self__, "session_parameters", session_parameters)
+            _setter("session_parameters", session_parameters)
         if user_task_managed_initial_warehouse_size is not None:
-            pulumi.set(__self__, "user_task_managed_initial_warehouse_size", user_task_managed_initial_warehouse_size)
+            _setter("user_task_managed_initial_warehouse_size", user_task_managed_initial_warehouse_size)
         if user_task_timeout_ms is not None:
-            pulumi.set(__self__, "user_task_timeout_ms", user_task_timeout_ms)
+            _setter("user_task_timeout_ms", user_task_timeout_ms)
         if warehouse is not None:
-            pulumi.set(__self__, "warehouse", warehouse)
+            _setter("warehouse", warehouse)
         if when is not None:
-            pulumi.set(__self__, "when", when)
+            _setter("when", when)
 
     @property
     @pulumi.getter
@@ -292,36 +329,73 @@ class _TaskState:
         :param pulumi.Input[str] warehouse: The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)
         :param pulumi.Input[str] when: Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported.
         """
+        _TaskState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            afters=afters,
+            allow_overlapping_execution=allow_overlapping_execution,
+            comment=comment,
+            database=database,
+            enabled=enabled,
+            error_integration=error_integration,
+            name=name,
+            schedule=schedule,
+            schema=schema,
+            session_parameters=session_parameters,
+            sql_statement=sql_statement,
+            user_task_managed_initial_warehouse_size=user_task_managed_initial_warehouse_size,
+            user_task_timeout_ms=user_task_timeout_ms,
+            warehouse=warehouse,
+            when=when,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             afters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allow_overlapping_execution: Optional[pulumi.Input[bool]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             error_integration: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             session_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             sql_statement: Optional[pulumi.Input[str]] = None,
+             user_task_managed_initial_warehouse_size: Optional[pulumi.Input[str]] = None,
+             user_task_timeout_ms: Optional[pulumi.Input[int]] = None,
+             warehouse: Optional[pulumi.Input[str]] = None,
+             when: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if afters is not None:
-            pulumi.set(__self__, "afters", afters)
+            _setter("afters", afters)
         if allow_overlapping_execution is not None:
-            pulumi.set(__self__, "allow_overlapping_execution", allow_overlapping_execution)
+            _setter("allow_overlapping_execution", allow_overlapping_execution)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if error_integration is not None:
-            pulumi.set(__self__, "error_integration", error_integration)
+            _setter("error_integration", error_integration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if session_parameters is not None:
-            pulumi.set(__self__, "session_parameters", session_parameters)
+            _setter("session_parameters", session_parameters)
         if sql_statement is not None:
-            pulumi.set(__self__, "sql_statement", sql_statement)
+            _setter("sql_statement", sql_statement)
         if user_task_managed_initial_warehouse_size is not None:
-            pulumi.set(__self__, "user_task_managed_initial_warehouse_size", user_task_managed_initial_warehouse_size)
+            _setter("user_task_managed_initial_warehouse_size", user_task_managed_initial_warehouse_size)
         if user_task_timeout_ms is not None:
-            pulumi.set(__self__, "user_task_timeout_ms", user_task_timeout_ms)
+            _setter("user_task_timeout_ms", user_task_timeout_ms)
         if warehouse is not None:
-            pulumi.set(__self__, "warehouse", warehouse)
+            _setter("warehouse", warehouse)
         if when is not None:
-            pulumi.set(__self__, "when", when)
+            _setter("when", when)
 
     @property
     @pulumi.getter
@@ -663,6 +737,10 @@ class Task(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TaskArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

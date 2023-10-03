@@ -195,8 +195,10 @@ func (o AlertAlertSchedulePtrOutput) Interval() pulumi.IntPtrOutput {
 }
 
 type AlertAlertScheduleCron struct {
+	// Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
 	Expression string `pulumi:"expression"`
-	TimeZone   string `pulumi:"timeZone"`
+	// Specifies the time zone for alert refresh.
+	TimeZone string `pulumi:"timeZone"`
 }
 
 // AlertAlertScheduleCronInput is an input type that accepts AlertAlertScheduleCronArgs and AlertAlertScheduleCronOutput values.
@@ -211,8 +213,10 @@ type AlertAlertScheduleCronInput interface {
 }
 
 type AlertAlertScheduleCronArgs struct {
+	// Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
 	Expression pulumi.StringInput `pulumi:"expression"`
-	TimeZone   pulumi.StringInput `pulumi:"timeZone"`
+	// Specifies the time zone for alert refresh.
+	TimeZone pulumi.StringInput `pulumi:"timeZone"`
 }
 
 func (AlertAlertScheduleCronArgs) ElementType() reflect.Type {
@@ -310,10 +314,12 @@ func (o AlertAlertScheduleCronOutput) ToOutput(ctx context.Context) pulumix.Outp
 	}
 }
 
+// Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
 func (o AlertAlertScheduleCronOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertAlertScheduleCron) string { return v.Expression }).(pulumi.StringOutput)
 }
 
+// Specifies the time zone for alert refresh.
 func (o AlertAlertScheduleCronOutput) TimeZone() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertAlertScheduleCron) string { return v.TimeZone }).(pulumi.StringOutput)
 }
@@ -348,6 +354,7 @@ func (o AlertAlertScheduleCronPtrOutput) Elem() AlertAlertScheduleCronOutput {
 	}).(AlertAlertScheduleCronOutput)
 }
 
+// Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
 func (o AlertAlertScheduleCronPtrOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertAlertScheduleCron) *string {
 		if v == nil {
@@ -357,6 +364,7 @@ func (o AlertAlertScheduleCronPtrOutput) Expression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the time zone for alert refresh.
 func (o AlertAlertScheduleCronPtrOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertAlertScheduleCron) *string {
 		if v == nil {
@@ -1465,8 +1473,10 @@ func (o FailoverGroupReplicationSchedulePtrOutput) Interval() pulumi.IntPtrOutpu
 }
 
 type FailoverGroupReplicationScheduleCron struct {
+	// Specifies the cron expression for the replication schedule. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
 	Expression string `pulumi:"expression"`
-	TimeZone   string `pulumi:"timeZone"`
+	// Specifies the time zone for secondary group refresh.
+	TimeZone string `pulumi:"timeZone"`
 }
 
 // FailoverGroupReplicationScheduleCronInput is an input type that accepts FailoverGroupReplicationScheduleCronArgs and FailoverGroupReplicationScheduleCronOutput values.
@@ -1481,8 +1491,10 @@ type FailoverGroupReplicationScheduleCronInput interface {
 }
 
 type FailoverGroupReplicationScheduleCronArgs struct {
+	// Specifies the cron expression for the replication schedule. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
 	Expression pulumi.StringInput `pulumi:"expression"`
-	TimeZone   pulumi.StringInput `pulumi:"timeZone"`
+	// Specifies the time zone for secondary group refresh.
+	TimeZone pulumi.StringInput `pulumi:"timeZone"`
 }
 
 func (FailoverGroupReplicationScheduleCronArgs) ElementType() reflect.Type {
@@ -1580,10 +1592,12 @@ func (o FailoverGroupReplicationScheduleCronOutput) ToOutput(ctx context.Context
 	}
 }
 
+// Specifies the cron expression for the replication schedule. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
 func (o FailoverGroupReplicationScheduleCronOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v FailoverGroupReplicationScheduleCron) string { return v.Expression }).(pulumi.StringOutput)
 }
 
+// Specifies the time zone for secondary group refresh.
 func (o FailoverGroupReplicationScheduleCronOutput) TimeZone() pulumi.StringOutput {
 	return o.ApplyT(func(v FailoverGroupReplicationScheduleCron) string { return v.TimeZone }).(pulumi.StringOutput)
 }
@@ -1618,6 +1632,7 @@ func (o FailoverGroupReplicationScheduleCronPtrOutput) Elem() FailoverGroupRepli
 	}).(FailoverGroupReplicationScheduleCronOutput)
 }
 
+// Specifies the cron expression for the replication schedule. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
 func (o FailoverGroupReplicationScheduleCronPtrOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FailoverGroupReplicationScheduleCron) *string {
 		if v == nil {
@@ -1627,6 +1642,7 @@ func (o FailoverGroupReplicationScheduleCronPtrOutput) Expression() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the time zone for secondary group refresh.
 func (o FailoverGroupReplicationScheduleCronPtrOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FailoverGroupReplicationScheduleCron) *string {
 		if v == nil {
@@ -2366,9 +2382,12 @@ func (o GrantPrivilegesToRoleOnSchemaObjectPtrOutput) ObjectType() pulumi.String
 }
 
 type GrantPrivilegesToRoleOnSchemaObjectAll struct {
-	InDatabase       *string `pulumi:"inDatabase"`
-	InSchema         *string `pulumi:"inSchema"`
-	ObjectTypePlural string  `pulumi:"objectTypePlural"`
+	// The fully qualified name of the database.
+	InDatabase *string `pulumi:"inDatabase"`
+	// The fully qualified name of the schema.
+	InSchema *string `pulumi:"inSchema"`
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
 // GrantPrivilegesToRoleOnSchemaObjectAllInput is an input type that accepts GrantPrivilegesToRoleOnSchemaObjectAllArgs and GrantPrivilegesToRoleOnSchemaObjectAllOutput values.
@@ -2383,9 +2402,12 @@ type GrantPrivilegesToRoleOnSchemaObjectAllInput interface {
 }
 
 type GrantPrivilegesToRoleOnSchemaObjectAllArgs struct {
-	InDatabase       pulumi.StringPtrInput `pulumi:"inDatabase"`
-	InSchema         pulumi.StringPtrInput `pulumi:"inSchema"`
-	ObjectTypePlural pulumi.StringInput    `pulumi:"objectTypePlural"`
+	// The fully qualified name of the database.
+	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
+	// The fully qualified name of the schema.
+	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
 func (GrantPrivilegesToRoleOnSchemaObjectAllArgs) ElementType() reflect.Type {
@@ -2483,14 +2505,17 @@ func (o GrantPrivilegesToRoleOnSchemaObjectAllOutput) ToOutput(ctx context.Conte
 	}
 }
 
+// The fully qualified name of the database.
 func (o GrantPrivilegesToRoleOnSchemaObjectAllOutput) InDatabase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToRoleOnSchemaObjectAll) *string { return v.InDatabase }).(pulumi.StringPtrOutput)
 }
 
+// The fully qualified name of the schema.
 func (o GrantPrivilegesToRoleOnSchemaObjectAllOutput) InSchema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToRoleOnSchemaObjectAll) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
 func (o GrantPrivilegesToRoleOnSchemaObjectAllOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToRoleOnSchemaObjectAll) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -2525,6 +2550,7 @@ func (o GrantPrivilegesToRoleOnSchemaObjectAllPtrOutput) Elem() GrantPrivilegesT
 	}).(GrantPrivilegesToRoleOnSchemaObjectAllOutput)
 }
 
+// The fully qualified name of the database.
 func (o GrantPrivilegesToRoleOnSchemaObjectAllPtrOutput) InDatabase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToRoleOnSchemaObjectAll) *string {
 		if v == nil {
@@ -2534,6 +2560,7 @@ func (o GrantPrivilegesToRoleOnSchemaObjectAllPtrOutput) InDatabase() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The fully qualified name of the schema.
 func (o GrantPrivilegesToRoleOnSchemaObjectAllPtrOutput) InSchema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToRoleOnSchemaObjectAll) *string {
 		if v == nil {
@@ -2543,6 +2570,7 @@ func (o GrantPrivilegesToRoleOnSchemaObjectAllPtrOutput) InSchema() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
 func (o GrantPrivilegesToRoleOnSchemaObjectAllPtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToRoleOnSchemaObjectAll) *string {
 		if v == nil {
@@ -2553,9 +2581,12 @@ func (o GrantPrivilegesToRoleOnSchemaObjectAllPtrOutput) ObjectTypePlural() pulu
 }
 
 type GrantPrivilegesToRoleOnSchemaObjectFuture struct {
-	InDatabase       *string `pulumi:"inDatabase"`
-	InSchema         *string `pulumi:"inSchema"`
-	ObjectTypePlural string  `pulumi:"objectTypePlural"`
+	// The fully qualified name of the database.
+	InDatabase *string `pulumi:"inDatabase"`
+	// The fully qualified name of the schema.
+	InSchema *string `pulumi:"inSchema"`
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
 // GrantPrivilegesToRoleOnSchemaObjectFutureInput is an input type that accepts GrantPrivilegesToRoleOnSchemaObjectFutureArgs and GrantPrivilegesToRoleOnSchemaObjectFutureOutput values.
@@ -2570,9 +2601,12 @@ type GrantPrivilegesToRoleOnSchemaObjectFutureInput interface {
 }
 
 type GrantPrivilegesToRoleOnSchemaObjectFutureArgs struct {
-	InDatabase       pulumi.StringPtrInput `pulumi:"inDatabase"`
-	InSchema         pulumi.StringPtrInput `pulumi:"inSchema"`
-	ObjectTypePlural pulumi.StringInput    `pulumi:"objectTypePlural"`
+	// The fully qualified name of the database.
+	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
+	// The fully qualified name of the schema.
+	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
 func (GrantPrivilegesToRoleOnSchemaObjectFutureArgs) ElementType() reflect.Type {
@@ -2670,14 +2704,17 @@ func (o GrantPrivilegesToRoleOnSchemaObjectFutureOutput) ToOutput(ctx context.Co
 	}
 }
 
+// The fully qualified name of the database.
 func (o GrantPrivilegesToRoleOnSchemaObjectFutureOutput) InDatabase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToRoleOnSchemaObjectFuture) *string { return v.InDatabase }).(pulumi.StringPtrOutput)
 }
 
+// The fully qualified name of the schema.
 func (o GrantPrivilegesToRoleOnSchemaObjectFutureOutput) InSchema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToRoleOnSchemaObjectFuture) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
 func (o GrantPrivilegesToRoleOnSchemaObjectFutureOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToRoleOnSchemaObjectFuture) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -2712,6 +2749,7 @@ func (o GrantPrivilegesToRoleOnSchemaObjectFuturePtrOutput) Elem() GrantPrivileg
 	}).(GrantPrivilegesToRoleOnSchemaObjectFutureOutput)
 }
 
+// The fully qualified name of the database.
 func (o GrantPrivilegesToRoleOnSchemaObjectFuturePtrOutput) InDatabase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToRoleOnSchemaObjectFuture) *string {
 		if v == nil {
@@ -2721,6 +2759,7 @@ func (o GrantPrivilegesToRoleOnSchemaObjectFuturePtrOutput) InDatabase() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The fully qualified name of the schema.
 func (o GrantPrivilegesToRoleOnSchemaObjectFuturePtrOutput) InSchema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToRoleOnSchemaObjectFuture) *string {
 		if v == nil {
@@ -2730,6 +2769,7 @@ func (o GrantPrivilegesToRoleOnSchemaObjectFuturePtrOutput) InSchema() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
 func (o GrantPrivilegesToRoleOnSchemaObjectFuturePtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToRoleOnSchemaObjectFuture) *string {
 		if v == nil {
@@ -2897,8 +2937,9 @@ func (o MaskingPolicySignaturePtrOutput) Columns() MaskingPolicySignatureColumnA
 }
 
 type MaskingPolicySignatureColumn struct {
-	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+	// Specifies the column name to mask.
 	Name string `pulumi:"name"`
+	// Specifies the column type to mask.
 	Type string `pulumi:"type"`
 }
 
@@ -2914,8 +2955,9 @@ type MaskingPolicySignatureColumnInput interface {
 }
 
 type MaskingPolicySignatureColumnArgs struct {
-	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+	// Specifies the column name to mask.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the column type to mask.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2988,11 +3030,12 @@ func (o MaskingPolicySignatureColumnOutput) ToOutput(ctx context.Context) pulumi
 	}
 }
 
-// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+// Specifies the column name to mask.
 func (o MaskingPolicySignatureColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MaskingPolicySignatureColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the column type to mask.
 func (o MaskingPolicySignatureColumnOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MaskingPolicySignatureColumn) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4060,9 +4103,12 @@ func (o TableColumnArrayOutput) Index(i pulumi.IntInput) TableColumnOutput {
 }
 
 type TableColumnDefault struct {
-	Constant   *string `pulumi:"constant"`
+	// The default constant value for the column
+	Constant *string `pulumi:"constant"`
+	// The default expression value for the column
 	Expression *string `pulumi:"expression"`
-	Sequence   *string `pulumi:"sequence"`
+	// The default sequence to use for the column
+	Sequence *string `pulumi:"sequence"`
 }
 
 // TableColumnDefaultInput is an input type that accepts TableColumnDefaultArgs and TableColumnDefaultOutput values.
@@ -4077,9 +4123,12 @@ type TableColumnDefaultInput interface {
 }
 
 type TableColumnDefaultArgs struct {
-	Constant   pulumi.StringPtrInput `pulumi:"constant"`
+	// The default constant value for the column
+	Constant pulumi.StringPtrInput `pulumi:"constant"`
+	// The default expression value for the column
 	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	Sequence   pulumi.StringPtrInput `pulumi:"sequence"`
+	// The default sequence to use for the column
+	Sequence pulumi.StringPtrInput `pulumi:"sequence"`
 }
 
 func (TableColumnDefaultArgs) ElementType() reflect.Type {
@@ -4177,14 +4226,17 @@ func (o TableColumnDefaultOutput) ToOutput(ctx context.Context) pulumix.Output[T
 	}
 }
 
+// The default constant value for the column
 func (o TableColumnDefaultOutput) Constant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableColumnDefault) *string { return v.Constant }).(pulumi.StringPtrOutput)
 }
 
+// The default expression value for the column
 func (o TableColumnDefaultOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableColumnDefault) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
+// The default sequence to use for the column
 func (o TableColumnDefaultOutput) Sequence() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableColumnDefault) *string { return v.Sequence }).(pulumi.StringPtrOutput)
 }
@@ -4219,6 +4271,7 @@ func (o TableColumnDefaultPtrOutput) Elem() TableColumnDefaultOutput {
 	}).(TableColumnDefaultOutput)
 }
 
+// The default constant value for the column
 func (o TableColumnDefaultPtrOutput) Constant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableColumnDefault) *string {
 		if v == nil {
@@ -4228,6 +4281,7 @@ func (o TableColumnDefaultPtrOutput) Constant() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The default expression value for the column
 func (o TableColumnDefaultPtrOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableColumnDefault) *string {
 		if v == nil {
@@ -4237,6 +4291,7 @@ func (o TableColumnDefaultPtrOutput) Expression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The default sequence to use for the column
 func (o TableColumnDefaultPtrOutput) Sequence() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableColumnDefault) *string {
 		if v == nil {
@@ -4247,8 +4302,10 @@ func (o TableColumnDefaultPtrOutput) Sequence() pulumi.StringPtrOutput {
 }
 
 type TableColumnIdentity struct {
+	// The number to start incrementing at.
 	StartNum *int `pulumi:"startNum"`
-	StepNum  *int `pulumi:"stepNum"`
+	// Step size to increment by.
+	StepNum *int `pulumi:"stepNum"`
 }
 
 // TableColumnIdentityInput is an input type that accepts TableColumnIdentityArgs and TableColumnIdentityOutput values.
@@ -4263,8 +4320,10 @@ type TableColumnIdentityInput interface {
 }
 
 type TableColumnIdentityArgs struct {
+	// The number to start incrementing at.
 	StartNum pulumi.IntPtrInput `pulumi:"startNum"`
-	StepNum  pulumi.IntPtrInput `pulumi:"stepNum"`
+	// Step size to increment by.
+	StepNum pulumi.IntPtrInput `pulumi:"stepNum"`
 }
 
 func (TableColumnIdentityArgs) ElementType() reflect.Type {
@@ -4362,10 +4421,12 @@ func (o TableColumnIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[
 	}
 }
 
+// The number to start incrementing at.
 func (o TableColumnIdentityOutput) StartNum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableColumnIdentity) *int { return v.StartNum }).(pulumi.IntPtrOutput)
 }
 
+// Step size to increment by.
 func (o TableColumnIdentityOutput) StepNum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableColumnIdentity) *int { return v.StepNum }).(pulumi.IntPtrOutput)
 }
@@ -4400,6 +4461,7 @@ func (o TableColumnIdentityPtrOutput) Elem() TableColumnIdentityOutput {
 	}).(TableColumnIdentityOutput)
 }
 
+// The number to start incrementing at.
 func (o TableColumnIdentityPtrOutput) StartNum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableColumnIdentity) *int {
 		if v == nil {
@@ -4409,6 +4471,7 @@ func (o TableColumnIdentityPtrOutput) StartNum() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Step size to increment by.
 func (o TableColumnIdentityPtrOutput) StepNum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableColumnIdentity) *int {
 		if v == nil {
@@ -4639,9 +4702,9 @@ func (o TableConstraintForeignKeyPropertiesPtrOutput) References() TableConstrai
 }
 
 type TableConstraintForeignKeyPropertiesReferences struct {
-	// Columns to use in constraint key
+	// Columns to use in foreign key reference
 	Columns []string `pulumi:"columns"`
-	// Idenfifier for table to create constraint on. Must be of the form Note: format must follow: "\n\n"."\n\n"."\n\n" or "\n\n.\n\n.\n\n" or "\n\n|\n\n.\n\n" (snowflake*table.my*table.id)
+	// Name of constraint
 	TableId string `pulumi:"tableId"`
 }
 
@@ -4657,9 +4720,9 @@ type TableConstraintForeignKeyPropertiesReferencesInput interface {
 }
 
 type TableConstraintForeignKeyPropertiesReferencesArgs struct {
-	// Columns to use in constraint key
+	// Columns to use in foreign key reference
 	Columns pulumi.StringArrayInput `pulumi:"columns"`
-	// Idenfifier for table to create constraint on. Must be of the form Note: format must follow: "\n\n"."\n\n"."\n\n" or "\n\n.\n\n.\n\n" or "\n\n|\n\n.\n\n" (snowflake*table.my*table.id)
+	// Name of constraint
 	TableId pulumi.StringInput `pulumi:"tableId"`
 }
 
@@ -4758,12 +4821,12 @@ func (o TableConstraintForeignKeyPropertiesReferencesOutput) ToOutput(ctx contex
 	}
 }
 
-// Columns to use in constraint key
+// Columns to use in foreign key reference
 func (o TableConstraintForeignKeyPropertiesReferencesOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TableConstraintForeignKeyPropertiesReferences) []string { return v.Columns }).(pulumi.StringArrayOutput)
 }
 
-// Idenfifier for table to create constraint on. Must be of the form Note: format must follow: "\n\n"."\n\n"."\n\n" or "\n\n.\n\n.\n\n" or "\n\n|\n\n.\n\n" (snowflake*table.my*table.id)
+// Name of constraint
 func (o TableConstraintForeignKeyPropertiesReferencesOutput) TableId() pulumi.StringOutput {
 	return o.ApplyT(func(v TableConstraintForeignKeyPropertiesReferences) string { return v.TableId }).(pulumi.StringOutput)
 }
@@ -4798,7 +4861,7 @@ func (o TableConstraintForeignKeyPropertiesReferencesPtrOutput) Elem() TableCons
 	}).(TableConstraintForeignKeyPropertiesReferencesOutput)
 }
 
-// Columns to use in constraint key
+// Columns to use in foreign key reference
 func (o TableConstraintForeignKeyPropertiesReferencesPtrOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TableConstraintForeignKeyPropertiesReferences) []string {
 		if v == nil {
@@ -4808,7 +4871,7 @@ func (o TableConstraintForeignKeyPropertiesReferencesPtrOutput) Columns() pulumi
 	}).(pulumi.StringArrayOutput)
 }
 
-// Idenfifier for table to create constraint on. Must be of the form Note: format must follow: "\n\n"."\n\n"."\n\n" or "\n\n.\n\n.\n\n" or "\n\n|\n\n.\n\n" (snowflake*table.my*table.id)
+// Name of constraint
 func (o TableConstraintForeignKeyPropertiesReferencesPtrOutput) TableId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableConstraintForeignKeyPropertiesReferences) *string {
 		if v == nil {
@@ -6224,13 +6287,11 @@ func (o GetDatabasesDatabaseReplicationConfigurationArrayOutput) Index(i pulumi.
 }
 
 type GetExternalFunctionsExternalFunction struct {
-	Comment string `pulumi:"comment"`
-	// The database from which to return the schemas from.
+	Comment  string `pulumi:"comment"`
 	Database string `pulumi:"database"`
 	Language string `pulumi:"language"`
 	Name     string `pulumi:"name"`
-	// The schema from which to return the external functions from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // GetExternalFunctionsExternalFunctionInput is an input type that accepts GetExternalFunctionsExternalFunctionArgs and GetExternalFunctionsExternalFunctionOutput values.
@@ -6245,13 +6306,11 @@ type GetExternalFunctionsExternalFunctionInput interface {
 }
 
 type GetExternalFunctionsExternalFunctionArgs struct {
-	Comment pulumi.StringInput `pulumi:"comment"`
-	// The database from which to return the schemas from.
+	Comment  pulumi.StringInput `pulumi:"comment"`
 	Database pulumi.StringInput `pulumi:"database"`
 	Language pulumi.StringInput `pulumi:"language"`
 	Name     pulumi.StringInput `pulumi:"name"`
-	// The schema from which to return the external functions from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetExternalFunctionsExternalFunctionArgs) ElementType() reflect.Type {
@@ -6327,7 +6386,6 @@ func (o GetExternalFunctionsExternalFunctionOutput) Comment() pulumi.StringOutpu
 	return o.ApplyT(func(v GetExternalFunctionsExternalFunction) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-// The database from which to return the schemas from.
 func (o GetExternalFunctionsExternalFunctionOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExternalFunctionsExternalFunction) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -6340,7 +6398,6 @@ func (o GetExternalFunctionsExternalFunctionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExternalFunctionsExternalFunction) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the external functions from.
 func (o GetExternalFunctionsExternalFunctionOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExternalFunctionsExternalFunction) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -6372,12 +6429,10 @@ func (o GetExternalFunctionsExternalFunctionArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetExternalTablesExternalTable struct {
-	Comment string `pulumi:"comment"`
-	// The database from which to return the schemas from.
+	Comment  string `pulumi:"comment"`
 	Database string `pulumi:"database"`
 	Name     string `pulumi:"name"`
-	// The schema from which to return the external tables from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // GetExternalTablesExternalTableInput is an input type that accepts GetExternalTablesExternalTableArgs and GetExternalTablesExternalTableOutput values.
@@ -6392,12 +6447,10 @@ type GetExternalTablesExternalTableInput interface {
 }
 
 type GetExternalTablesExternalTableArgs struct {
-	Comment pulumi.StringInput `pulumi:"comment"`
-	// The database from which to return the schemas from.
+	Comment  pulumi.StringInput `pulumi:"comment"`
 	Database pulumi.StringInput `pulumi:"database"`
 	Name     pulumi.StringInput `pulumi:"name"`
-	// The schema from which to return the external tables from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetExternalTablesExternalTableArgs) ElementType() reflect.Type {
@@ -6473,7 +6526,6 @@ func (o GetExternalTablesExternalTableOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExternalTablesExternalTable) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-// The database from which to return the schemas from.
 func (o GetExternalTablesExternalTableOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExternalTablesExternalTable) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -6482,7 +6534,6 @@ func (o GetExternalTablesExternalTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExternalTablesExternalTable) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the external tables from.
 func (o GetExternalTablesExternalTableOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExternalTablesExternalTable) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -6728,13 +6779,11 @@ func (o GetFailoverGroupsFailoverGroupArrayOutput) Index(i pulumi.IntInput) GetF
 }
 
 type GetFileFormatsFileFormat struct {
-	Comment string `pulumi:"comment"`
-	// The database from which to return the schemas from.
+	Comment    string `pulumi:"comment"`
 	Database   string `pulumi:"database"`
 	FormatType string `pulumi:"formatType"`
 	Name       string `pulumi:"name"`
-	// The schema from which to return the file formats from.
-	Schema string `pulumi:"schema"`
+	Schema     string `pulumi:"schema"`
 }
 
 // GetFileFormatsFileFormatInput is an input type that accepts GetFileFormatsFileFormatArgs and GetFileFormatsFileFormatOutput values.
@@ -6749,13 +6798,11 @@ type GetFileFormatsFileFormatInput interface {
 }
 
 type GetFileFormatsFileFormatArgs struct {
-	Comment pulumi.StringInput `pulumi:"comment"`
-	// The database from which to return the schemas from.
+	Comment    pulumi.StringInput `pulumi:"comment"`
 	Database   pulumi.StringInput `pulumi:"database"`
 	FormatType pulumi.StringInput `pulumi:"formatType"`
 	Name       pulumi.StringInput `pulumi:"name"`
-	// The schema from which to return the file formats from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema     pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetFileFormatsFileFormatArgs) ElementType() reflect.Type {
@@ -6831,7 +6878,6 @@ func (o GetFileFormatsFileFormatOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileFormatsFileFormat) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-// The database from which to return the schemas from.
 func (o GetFileFormatsFileFormatOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileFormatsFileFormat) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -6844,7 +6890,6 @@ func (o GetFileFormatsFileFormatOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileFormatsFileFormat) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the file formats from.
 func (o GetFileFormatsFileFormatOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileFormatsFileFormat) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -6878,12 +6923,10 @@ func (o GetFileFormatsFileFormatArrayOutput) Index(i pulumi.IntInput) GetFileFor
 type GetFunctionsFunction struct {
 	ArgumentTypes []string `pulumi:"argumentTypes"`
 	Comment       string   `pulumi:"comment"`
-	// The database from which to return the schemas from.
-	Database   string `pulumi:"database"`
-	Name       string `pulumi:"name"`
-	ReturnType string `pulumi:"returnType"`
-	// The schema from which to return the functions from.
-	Schema string `pulumi:"schema"`
+	Database      string   `pulumi:"database"`
+	Name          string   `pulumi:"name"`
+	ReturnType    string   `pulumi:"returnType"`
+	Schema        string   `pulumi:"schema"`
 }
 
 // GetFunctionsFunctionInput is an input type that accepts GetFunctionsFunctionArgs and GetFunctionsFunctionOutput values.
@@ -6900,12 +6943,10 @@ type GetFunctionsFunctionInput interface {
 type GetFunctionsFunctionArgs struct {
 	ArgumentTypes pulumi.StringArrayInput `pulumi:"argumentTypes"`
 	Comment       pulumi.StringInput      `pulumi:"comment"`
-	// The database from which to return the schemas from.
-	Database   pulumi.StringInput `pulumi:"database"`
-	Name       pulumi.StringInput `pulumi:"name"`
-	ReturnType pulumi.StringInput `pulumi:"returnType"`
-	// The schema from which to return the functions from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Database      pulumi.StringInput      `pulumi:"database"`
+	Name          pulumi.StringInput      `pulumi:"name"`
+	ReturnType    pulumi.StringInput      `pulumi:"returnType"`
+	Schema        pulumi.StringInput      `pulumi:"schema"`
 }
 
 func (GetFunctionsFunctionArgs) ElementType() reflect.Type {
@@ -6985,7 +7026,6 @@ func (o GetFunctionsFunctionOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionsFunction) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-// The database from which to return the schemas from.
 func (o GetFunctionsFunctionOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionsFunction) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -6998,7 +7038,6 @@ func (o GetFunctionsFunctionOutput) ReturnType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionsFunction) string { return v.ReturnType }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the functions from.
 func (o GetFunctionsFunctionOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionsFunction) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -7210,8 +7249,10 @@ func (o GetGrantsFutureGrantsInPtrOutput) Schema() GetGrantsFutureGrantsInSchema
 }
 
 type GetGrantsFutureGrantsInSchema struct {
+	// The database in which the scehma resides. Optional when querying a schema in the current database.
 	DatabaseName *string `pulumi:"databaseName"`
-	SchemaName   string  `pulumi:"schemaName"`
+	// The name of the schema to list all privileges of new (ie. future) objects granted to
+	SchemaName string `pulumi:"schemaName"`
 }
 
 // GetGrantsFutureGrantsInSchemaInput is an input type that accepts GetGrantsFutureGrantsInSchemaArgs and GetGrantsFutureGrantsInSchemaOutput values.
@@ -7226,8 +7267,10 @@ type GetGrantsFutureGrantsInSchemaInput interface {
 }
 
 type GetGrantsFutureGrantsInSchemaArgs struct {
+	// The database in which the scehma resides. Optional when querying a schema in the current database.
 	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
-	SchemaName   pulumi.StringInput    `pulumi:"schemaName"`
+	// The name of the schema to list all privileges of new (ie. future) objects granted to
+	SchemaName pulumi.StringInput `pulumi:"schemaName"`
 }
 
 func (GetGrantsFutureGrantsInSchemaArgs) ElementType() reflect.Type {
@@ -7325,10 +7368,12 @@ func (o GetGrantsFutureGrantsInSchemaOutput) ToOutput(ctx context.Context) pulum
 	}
 }
 
+// The database in which the scehma resides. Optional when querying a schema in the current database.
 func (o GetGrantsFutureGrantsInSchemaOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetGrantsFutureGrantsInSchema) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
 }
 
+// The name of the schema to list all privileges of new (ie. future) objects granted to
 func (o GetGrantsFutureGrantsInSchemaOutput) SchemaName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGrantsFutureGrantsInSchema) string { return v.SchemaName }).(pulumi.StringOutput)
 }
@@ -7363,6 +7408,7 @@ func (o GetGrantsFutureGrantsInSchemaPtrOutput) Elem() GetGrantsFutureGrantsInSc
 	}).(GetGrantsFutureGrantsInSchemaOutput)
 }
 
+// The database in which the scehma resides. Optional when querying a schema in the current database.
 func (o GetGrantsFutureGrantsInSchemaPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetGrantsFutureGrantsInSchema) *string {
 		if v == nil {
@@ -7372,6 +7418,7 @@ func (o GetGrantsFutureGrantsInSchemaPtrOutput) DatabaseName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the schema to list all privileges of new (ie. future) objects granted to
 func (o GetGrantsFutureGrantsInSchemaPtrOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetGrantsFutureGrantsInSchema) *string {
 		if v == nil {
@@ -8281,13 +8328,11 @@ func (o GetGrantsGrantsToPtrOutput) User() pulumi.StringPtrOutput {
 }
 
 type GetMaskingPoliciesMaskingPolicy struct {
-	Comment string `pulumi:"comment"`
-	// The database from which to return the schemas from.
+	Comment  string `pulumi:"comment"`
 	Database string `pulumi:"database"`
 	Kind     string `pulumi:"kind"`
 	Name     string `pulumi:"name"`
-	// The schema from which to return the maskingPolicies from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // GetMaskingPoliciesMaskingPolicyInput is an input type that accepts GetMaskingPoliciesMaskingPolicyArgs and GetMaskingPoliciesMaskingPolicyOutput values.
@@ -8302,13 +8347,11 @@ type GetMaskingPoliciesMaskingPolicyInput interface {
 }
 
 type GetMaskingPoliciesMaskingPolicyArgs struct {
-	Comment pulumi.StringInput `pulumi:"comment"`
-	// The database from which to return the schemas from.
+	Comment  pulumi.StringInput `pulumi:"comment"`
 	Database pulumi.StringInput `pulumi:"database"`
 	Kind     pulumi.StringInput `pulumi:"kind"`
 	Name     pulumi.StringInput `pulumi:"name"`
-	// The schema from which to return the maskingPolicies from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetMaskingPoliciesMaskingPolicyArgs) ElementType() reflect.Type {
@@ -8384,7 +8427,6 @@ func (o GetMaskingPoliciesMaskingPolicyOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMaskingPoliciesMaskingPolicy) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-// The database from which to return the schemas from.
 func (o GetMaskingPoliciesMaskingPolicyOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMaskingPoliciesMaskingPolicy) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -8397,7 +8439,6 @@ func (o GetMaskingPoliciesMaskingPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMaskingPoliciesMaskingPolicy) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the maskingPolicies from.
 func (o GetMaskingPoliciesMaskingPolicyOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMaskingPoliciesMaskingPolicy) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -8429,12 +8470,10 @@ func (o GetMaskingPoliciesMaskingPolicyArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetMaterializedViewsMaterializedView struct {
-	Comment string `pulumi:"comment"`
-	// The database from which to return the schemas from.
+	Comment  string `pulumi:"comment"`
 	Database string `pulumi:"database"`
 	Name     string `pulumi:"name"`
-	// The schema from which to return the views from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // GetMaterializedViewsMaterializedViewInput is an input type that accepts GetMaterializedViewsMaterializedViewArgs and GetMaterializedViewsMaterializedViewOutput values.
@@ -8449,12 +8488,10 @@ type GetMaterializedViewsMaterializedViewInput interface {
 }
 
 type GetMaterializedViewsMaterializedViewArgs struct {
-	Comment pulumi.StringInput `pulumi:"comment"`
-	// The database from which to return the schemas from.
+	Comment  pulumi.StringInput `pulumi:"comment"`
 	Database pulumi.StringInput `pulumi:"database"`
 	Name     pulumi.StringInput `pulumi:"name"`
-	// The schema from which to return the views from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetMaterializedViewsMaterializedViewArgs) ElementType() reflect.Type {
@@ -8530,7 +8567,6 @@ func (o GetMaterializedViewsMaterializedViewOutput) Comment() pulumi.StringOutpu
 	return o.ApplyT(func(v GetMaterializedViewsMaterializedView) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-// The database from which to return the schemas from.
 func (o GetMaterializedViewsMaterializedViewOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMaterializedViewsMaterializedView) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -8539,7 +8575,6 @@ func (o GetMaterializedViewsMaterializedViewOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMaterializedViewsMaterializedView) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the views from.
 func (o GetMaterializedViewsMaterializedViewOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMaterializedViewsMaterializedView) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -8713,13 +8748,11 @@ func (o GetParametersParameterArrayOutput) Index(i pulumi.IntInput) GetParameter
 }
 
 type GetPipesPipe struct {
-	Comment string `pulumi:"comment"`
-	// The database from which to return the schemas from.
+	Comment     string `pulumi:"comment"`
 	Database    string `pulumi:"database"`
 	Integration string `pulumi:"integration"`
 	Name        string `pulumi:"name"`
-	// The schema from which to return the pipes from.
-	Schema string `pulumi:"schema"`
+	Schema      string `pulumi:"schema"`
 }
 
 // GetPipesPipeInput is an input type that accepts GetPipesPipeArgs and GetPipesPipeOutput values.
@@ -8734,13 +8767,11 @@ type GetPipesPipeInput interface {
 }
 
 type GetPipesPipeArgs struct {
-	Comment pulumi.StringInput `pulumi:"comment"`
-	// The database from which to return the schemas from.
+	Comment     pulumi.StringInput `pulumi:"comment"`
 	Database    pulumi.StringInput `pulumi:"database"`
 	Integration pulumi.StringInput `pulumi:"integration"`
 	Name        pulumi.StringInput `pulumi:"name"`
-	// The schema from which to return the pipes from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema      pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetPipesPipeArgs) ElementType() reflect.Type {
@@ -8816,7 +8847,6 @@ func (o GetPipesPipeOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPipesPipe) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-// The database from which to return the schemas from.
 func (o GetPipesPipeOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPipesPipe) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -8829,7 +8859,6 @@ func (o GetPipesPipeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPipesPipe) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the pipes from.
 func (o GetPipesPipeOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPipesPipe) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -8863,12 +8892,10 @@ func (o GetPipesPipeArrayOutput) Index(i pulumi.IntInput) GetPipesPipeOutput {
 type GetProceduresProcedure struct {
 	ArgumentTypes []string `pulumi:"argumentTypes"`
 	Comment       string   `pulumi:"comment"`
-	// The database from which to return the schemas from.
-	Database   string `pulumi:"database"`
-	Name       string `pulumi:"name"`
-	ReturnType string `pulumi:"returnType"`
-	// The schema from which to return the procedures from.
-	Schema string `pulumi:"schema"`
+	Database      string   `pulumi:"database"`
+	Name          string   `pulumi:"name"`
+	ReturnType    string   `pulumi:"returnType"`
+	Schema        string   `pulumi:"schema"`
 }
 
 // GetProceduresProcedureInput is an input type that accepts GetProceduresProcedureArgs and GetProceduresProcedureOutput values.
@@ -8885,12 +8912,10 @@ type GetProceduresProcedureInput interface {
 type GetProceduresProcedureArgs struct {
 	ArgumentTypes pulumi.StringArrayInput `pulumi:"argumentTypes"`
 	Comment       pulumi.StringInput      `pulumi:"comment"`
-	// The database from which to return the schemas from.
-	Database   pulumi.StringInput `pulumi:"database"`
-	Name       pulumi.StringInput `pulumi:"name"`
-	ReturnType pulumi.StringInput `pulumi:"returnType"`
-	// The schema from which to return the procedures from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Database      pulumi.StringInput      `pulumi:"database"`
+	Name          pulumi.StringInput      `pulumi:"name"`
+	ReturnType    pulumi.StringInput      `pulumi:"returnType"`
+	Schema        pulumi.StringInput      `pulumi:"schema"`
 }
 
 func (GetProceduresProcedureArgs) ElementType() reflect.Type {
@@ -8970,7 +8995,6 @@ func (o GetProceduresProcedureOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProceduresProcedure) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-// The database from which to return the schemas from.
 func (o GetProceduresProcedureOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProceduresProcedure) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -8983,7 +9007,6 @@ func (o GetProceduresProcedureOutput) ReturnType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProceduresProcedure) string { return v.ReturnType }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the procedures from.
 func (o GetProceduresProcedureOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProceduresProcedure) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -9281,12 +9304,10 @@ func (o GetRolesRoleArrayOutput) Index(i pulumi.IntInput) GetRolesRoleOutput {
 }
 
 type GetRowAccessPoliciesRowAccessPolicy struct {
-	Comment string `pulumi:"comment"`
-	// The database from which to return the schemas from.
+	Comment  string `pulumi:"comment"`
 	Database string `pulumi:"database"`
 	Name     string `pulumi:"name"`
-	// The schema from which to return the row access policyfrom.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // GetRowAccessPoliciesRowAccessPolicyInput is an input type that accepts GetRowAccessPoliciesRowAccessPolicyArgs and GetRowAccessPoliciesRowAccessPolicyOutput values.
@@ -9301,12 +9322,10 @@ type GetRowAccessPoliciesRowAccessPolicyInput interface {
 }
 
 type GetRowAccessPoliciesRowAccessPolicyArgs struct {
-	Comment pulumi.StringInput `pulumi:"comment"`
-	// The database from which to return the schemas from.
+	Comment  pulumi.StringInput `pulumi:"comment"`
 	Database pulumi.StringInput `pulumi:"database"`
 	Name     pulumi.StringInput `pulumi:"name"`
-	// The schema from which to return the row access policyfrom.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetRowAccessPoliciesRowAccessPolicyArgs) ElementType() reflect.Type {
@@ -9382,7 +9401,6 @@ func (o GetRowAccessPoliciesRowAccessPolicyOutput) Comment() pulumi.StringOutput
 	return o.ApplyT(func(v GetRowAccessPoliciesRowAccessPolicy) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-// The database from which to return the schemas from.
 func (o GetRowAccessPoliciesRowAccessPolicyOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRowAccessPoliciesRowAccessPolicy) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -9391,7 +9409,6 @@ func (o GetRowAccessPoliciesRowAccessPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRowAccessPoliciesRowAccessPolicy) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the row access policyfrom.
 func (o GetRowAccessPoliciesRowAccessPolicyOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRowAccessPoliciesRowAccessPolicy) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -9423,8 +9440,7 @@ func (o GetRowAccessPoliciesRowAccessPolicyArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetSchemasSchema struct {
-	Comment string `pulumi:"comment"`
-	// The database from which to return the schemas from.
+	Comment  string `pulumi:"comment"`
 	Database string `pulumi:"database"`
 	Name     string `pulumi:"name"`
 }
@@ -9441,8 +9457,7 @@ type GetSchemasSchemaInput interface {
 }
 
 type GetSchemasSchemaArgs struct {
-	Comment pulumi.StringInput `pulumi:"comment"`
-	// The database from which to return the schemas from.
+	Comment  pulumi.StringInput `pulumi:"comment"`
 	Database pulumi.StringInput `pulumi:"database"`
 	Name     pulumi.StringInput `pulumi:"name"`
 }
@@ -9520,7 +9535,6 @@ func (o GetSchemasSchemaOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemasSchema) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-// The database from which to return the schemas from.
 func (o GetSchemasSchemaOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemasSchema) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -9556,12 +9570,10 @@ func (o GetSchemasSchemaArrayOutput) Index(i pulumi.IntInput) GetSchemasSchemaOu
 }
 
 type GetSequencesSequence struct {
-	Comment string `pulumi:"comment"`
-	// The database from which to return the schemas from.
+	Comment  string `pulumi:"comment"`
 	Database string `pulumi:"database"`
 	Name     string `pulumi:"name"`
-	// The schema from which to return the sequences from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // GetSequencesSequenceInput is an input type that accepts GetSequencesSequenceArgs and GetSequencesSequenceOutput values.
@@ -9576,12 +9588,10 @@ type GetSequencesSequenceInput interface {
 }
 
 type GetSequencesSequenceArgs struct {
-	Comment pulumi.StringInput `pulumi:"comment"`
-	// The database from which to return the schemas from.
+	Comment  pulumi.StringInput `pulumi:"comment"`
 	Database pulumi.StringInput `pulumi:"database"`
 	Name     pulumi.StringInput `pulumi:"name"`
-	// The schema from which to return the sequences from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetSequencesSequenceArgs) ElementType() reflect.Type {
@@ -9657,7 +9667,6 @@ func (o GetSequencesSequenceOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSequencesSequence) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-// The database from which to return the schemas from.
 func (o GetSequencesSequenceOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSequencesSequence) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -9666,7 +9675,6 @@ func (o GetSequencesSequenceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSequencesSequence) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the sequences from.
 func (o GetSequencesSequenceOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSequencesSequence) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -9840,11 +9848,9 @@ func (o GetSharesShareArrayOutput) Index(i pulumi.IntInput) GetSharesShareOutput
 }
 
 type GetStagesStage struct {
-	Comment string `pulumi:"comment"`
-	// The database from which to return the schemas from.
-	Database string `pulumi:"database"`
-	Name     string `pulumi:"name"`
-	// The schema from which to return the stages from.
+	Comment            string `pulumi:"comment"`
+	Database           string `pulumi:"database"`
+	Name               string `pulumi:"name"`
 	Schema             string `pulumi:"schema"`
 	StorageIntegration string `pulumi:"storageIntegration"`
 }
@@ -9861,11 +9867,9 @@ type GetStagesStageInput interface {
 }
 
 type GetStagesStageArgs struct {
-	Comment pulumi.StringInput `pulumi:"comment"`
-	// The database from which to return the schemas from.
-	Database pulumi.StringInput `pulumi:"database"`
-	Name     pulumi.StringInput `pulumi:"name"`
-	// The schema from which to return the stages from.
+	Comment            pulumi.StringInput `pulumi:"comment"`
+	Database           pulumi.StringInput `pulumi:"database"`
+	Name               pulumi.StringInput `pulumi:"name"`
 	Schema             pulumi.StringInput `pulumi:"schema"`
 	StorageIntegration pulumi.StringInput `pulumi:"storageIntegration"`
 }
@@ -9943,7 +9947,6 @@ func (o GetStagesStageOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStagesStage) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-// The database from which to return the schemas from.
 func (o GetStagesStageOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStagesStage) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -9952,7 +9955,6 @@ func (o GetStagesStageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStagesStage) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the stages from.
 func (o GetStagesStageOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStagesStage) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -10124,13 +10126,11 @@ func (o GetStorageIntegrationsStorageIntegrationArrayOutput) Index(i pulumi.IntI
 }
 
 type GetStreamsStream struct {
-	Comment string `pulumi:"comment"`
-	// The database from which to return the streams from.
+	Comment  string `pulumi:"comment"`
 	Database string `pulumi:"database"`
 	Name     string `pulumi:"name"`
-	// The schema from which to return the streams from.
-	Schema string `pulumi:"schema"`
-	Table  string `pulumi:"table"`
+	Schema   string `pulumi:"schema"`
+	Table    string `pulumi:"table"`
 }
 
 // GetStreamsStreamInput is an input type that accepts GetStreamsStreamArgs and GetStreamsStreamOutput values.
@@ -10145,13 +10145,11 @@ type GetStreamsStreamInput interface {
 }
 
 type GetStreamsStreamArgs struct {
-	Comment pulumi.StringInput `pulumi:"comment"`
-	// The database from which to return the streams from.
+	Comment  pulumi.StringInput `pulumi:"comment"`
 	Database pulumi.StringInput `pulumi:"database"`
 	Name     pulumi.StringInput `pulumi:"name"`
-	// The schema from which to return the streams from.
-	Schema pulumi.StringInput `pulumi:"schema"`
-	Table  pulumi.StringInput `pulumi:"table"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
+	Table    pulumi.StringInput `pulumi:"table"`
 }
 
 func (GetStreamsStreamArgs) ElementType() reflect.Type {
@@ -10227,7 +10225,6 @@ func (o GetStreamsStreamOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStreamsStream) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-// The database from which to return the streams from.
 func (o GetStreamsStreamOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStreamsStream) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -10236,7 +10233,6 @@ func (o GetStreamsStreamOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStreamsStream) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the streams from.
 func (o GetStreamsStreamOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStreamsStream) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -10272,12 +10268,10 @@ func (o GetStreamsStreamArrayOutput) Index(i pulumi.IntInput) GetStreamsStreamOu
 }
 
 type GetTablesTable struct {
-	Comment string `pulumi:"comment"`
-	// The database from which to return the schemas from.
+	Comment  string `pulumi:"comment"`
 	Database string `pulumi:"database"`
 	Name     string `pulumi:"name"`
-	// The schema from which to return the tables from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // GetTablesTableInput is an input type that accepts GetTablesTableArgs and GetTablesTableOutput values.
@@ -10292,12 +10286,10 @@ type GetTablesTableInput interface {
 }
 
 type GetTablesTableArgs struct {
-	Comment pulumi.StringInput `pulumi:"comment"`
-	// The database from which to return the schemas from.
+	Comment  pulumi.StringInput `pulumi:"comment"`
 	Database pulumi.StringInput `pulumi:"database"`
 	Name     pulumi.StringInput `pulumi:"name"`
-	// The schema from which to return the tables from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetTablesTableArgs) ElementType() reflect.Type {
@@ -10373,7 +10365,6 @@ func (o GetTablesTableOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTablesTable) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-// The database from which to return the schemas from.
 func (o GetTablesTableOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTablesTable) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -10382,7 +10373,6 @@ func (o GetTablesTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTablesTable) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the tables from.
 func (o GetTablesTableOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTablesTable) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -10414,11 +10404,9 @@ func (o GetTablesTableArrayOutput) Index(i pulumi.IntInput) GetTablesTableOutput
 }
 
 type GetTasksTask struct {
-	Comment string `pulumi:"comment"`
-	// The database from which to return the schemas from.
-	Database string `pulumi:"database"`
-	Name     string `pulumi:"name"`
-	// The schema from which to return the tasks from.
+	Comment   string `pulumi:"comment"`
+	Database  string `pulumi:"database"`
+	Name      string `pulumi:"name"`
 	Schema    string `pulumi:"schema"`
 	Warehouse string `pulumi:"warehouse"`
 }
@@ -10435,11 +10423,9 @@ type GetTasksTaskInput interface {
 }
 
 type GetTasksTaskArgs struct {
-	Comment pulumi.StringInput `pulumi:"comment"`
-	// The database from which to return the schemas from.
-	Database pulumi.StringInput `pulumi:"database"`
-	Name     pulumi.StringInput `pulumi:"name"`
-	// The schema from which to return the tasks from.
+	Comment   pulumi.StringInput `pulumi:"comment"`
+	Database  pulumi.StringInput `pulumi:"database"`
+	Name      pulumi.StringInput `pulumi:"name"`
 	Schema    pulumi.StringInput `pulumi:"schema"`
 	Warehouse pulumi.StringInput `pulumi:"warehouse"`
 }
@@ -10517,7 +10503,6 @@ func (o GetTasksTaskOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTasksTask) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-// The database from which to return the schemas from.
 func (o GetTasksTaskOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTasksTask) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -10526,7 +10511,6 @@ func (o GetTasksTaskOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTasksTask) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the tasks from.
 func (o GetTasksTaskOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTasksTask) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -10752,12 +10736,10 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 type GetViewsView struct {
-	Comment string `pulumi:"comment"`
-	// The database from which to return the schemas from.
+	Comment  string `pulumi:"comment"`
 	Database string `pulumi:"database"`
 	Name     string `pulumi:"name"`
-	// The schema from which to return the views from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // GetViewsViewInput is an input type that accepts GetViewsViewArgs and GetViewsViewOutput values.
@@ -10772,12 +10754,10 @@ type GetViewsViewInput interface {
 }
 
 type GetViewsViewArgs struct {
-	Comment pulumi.StringInput `pulumi:"comment"`
-	// The database from which to return the schemas from.
+	Comment  pulumi.StringInput `pulumi:"comment"`
 	Database pulumi.StringInput `pulumi:"database"`
 	Name     pulumi.StringInput `pulumi:"name"`
-	// The schema from which to return the views from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetViewsViewArgs) ElementType() reflect.Type {
@@ -10853,7 +10833,6 @@ func (o GetViewsViewOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetViewsView) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-// The database from which to return the schemas from.
 func (o GetViewsViewOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetViewsView) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -10862,7 +10841,6 @@ func (o GetViewsViewOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetViewsView) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the views from.
 func (o GetViewsViewOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetViewsView) string { return v.Schema }).(pulumi.StringOutput)
 }

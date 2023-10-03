@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,38 +43,75 @@ class ProcedureArgs:
         :param pulumi.Input[str] handler: The handler method for Java / Python procedures.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[str] language: Specifies the language of the stored procedure code.
-        :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+        :param pulumi.Input[str] name: The argument name
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] packages: List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
         :param pulumi.Input[str] runtime_version: Required for Python procedures. Specifies Python runtime version.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "return_type", return_type)
-        pulumi.set(__self__, "schema", schema)
-        pulumi.set(__self__, "statement", statement)
+        ProcedureArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            return_type=return_type,
+            schema=schema,
+            statement=statement,
+            arguments=arguments,
+            comment=comment,
+            execute_as=execute_as,
+            handler=handler,
+            imports=imports,
+            language=language,
+            name=name,
+            null_input_behavior=null_input_behavior,
+            packages=packages,
+            return_behavior=return_behavior,
+            runtime_version=runtime_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: pulumi.Input[str],
+             return_type: pulumi.Input[str],
+             schema: pulumi.Input[str],
+             statement: pulumi.Input[str],
+             arguments: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedureArgumentArgs']]]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             execute_as: Optional[pulumi.Input[str]] = None,
+             handler: Optional[pulumi.Input[str]] = None,
+             imports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             language: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             null_input_behavior: Optional[pulumi.Input[str]] = None,
+             packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             return_behavior: Optional[pulumi.Input[str]] = None,
+             runtime_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database", database)
+        _setter("return_type", return_type)
+        _setter("schema", schema)
+        _setter("statement", statement)
         if arguments is not None:
-            pulumi.set(__self__, "arguments", arguments)
+            _setter("arguments", arguments)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if execute_as is not None:
-            pulumi.set(__self__, "execute_as", execute_as)
+            _setter("execute_as", execute_as)
         if handler is not None:
-            pulumi.set(__self__, "handler", handler)
+            _setter("handler", handler)
         if imports is not None:
-            pulumi.set(__self__, "imports", imports)
+            _setter("imports", imports)
         if language is not None:
-            pulumi.set(__self__, "language", language)
+            _setter("language", language)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if null_input_behavior is not None:
-            pulumi.set(__self__, "null_input_behavior", null_input_behavior)
+            _setter("null_input_behavior", null_input_behavior)
         if packages is not None:
-            pulumi.set(__self__, "packages", packages)
+            _setter("packages", packages)
         if return_behavior is not None:
-            pulumi.set(__self__, "return_behavior", return_behavior)
+            _setter("return_behavior", return_behavior)
         if runtime_version is not None:
-            pulumi.set(__self__, "runtime_version", runtime_version)
+            _setter("runtime_version", runtime_version)
 
     @property
     @pulumi.getter
@@ -200,7 +237,7 @@ class ProcedureArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+        The argument name
         """
         return pulumi.get(self, "name")
 
@@ -284,7 +321,7 @@ class _ProcedureState:
         :param pulumi.Input[str] handler: The handler method for Java / Python procedures.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[str] language: Specifies the language of the stored procedure code.
-        :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+        :param pulumi.Input[str] name: The argument name
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] packages: List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
@@ -293,36 +330,73 @@ class _ProcedureState:
         :param pulumi.Input[str] schema: The schema in which to create the procedure. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the code used to create the procedure.
         """
+        _ProcedureState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arguments=arguments,
+            comment=comment,
+            database=database,
+            execute_as=execute_as,
+            handler=handler,
+            imports=imports,
+            language=language,
+            name=name,
+            null_input_behavior=null_input_behavior,
+            packages=packages,
+            return_behavior=return_behavior,
+            return_type=return_type,
+            runtime_version=runtime_version,
+            schema=schema,
+            statement=statement,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arguments: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedureArgumentArgs']]]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             execute_as: Optional[pulumi.Input[str]] = None,
+             handler: Optional[pulumi.Input[str]] = None,
+             imports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             language: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             null_input_behavior: Optional[pulumi.Input[str]] = None,
+             packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             return_behavior: Optional[pulumi.Input[str]] = None,
+             return_type: Optional[pulumi.Input[str]] = None,
+             runtime_version: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             statement: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arguments is not None:
-            pulumi.set(__self__, "arguments", arguments)
+            _setter("arguments", arguments)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if execute_as is not None:
-            pulumi.set(__self__, "execute_as", execute_as)
+            _setter("execute_as", execute_as)
         if handler is not None:
-            pulumi.set(__self__, "handler", handler)
+            _setter("handler", handler)
         if imports is not None:
-            pulumi.set(__self__, "imports", imports)
+            _setter("imports", imports)
         if language is not None:
-            pulumi.set(__self__, "language", language)
+            _setter("language", language)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if null_input_behavior is not None:
-            pulumi.set(__self__, "null_input_behavior", null_input_behavior)
+            _setter("null_input_behavior", null_input_behavior)
         if packages is not None:
-            pulumi.set(__self__, "packages", packages)
+            _setter("packages", packages)
         if return_behavior is not None:
-            pulumi.set(__self__, "return_behavior", return_behavior)
+            _setter("return_behavior", return_behavior)
         if return_type is not None:
-            pulumi.set(__self__, "return_type", return_type)
+            _setter("return_type", return_type)
         if runtime_version is not None:
-            pulumi.set(__self__, "runtime_version", runtime_version)
+            _setter("runtime_version", runtime_version)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if statement is not None:
-            pulumi.set(__self__, "statement", statement)
+            _setter("statement", statement)
 
     @property
     @pulumi.getter
@@ -412,7 +486,7 @@ class _ProcedureState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+        The argument name
         """
         return pulumi.get(self, "name")
 
@@ -544,7 +618,7 @@ class Procedure(pulumi.CustomResource):
         :param pulumi.Input[str] handler: The handler method for Java / Python procedures.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[str] language: Specifies the language of the stored procedure code.
-        :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+        :param pulumi.Input[str] name: The argument name
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] packages: List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
@@ -578,6 +652,10 @@ class Procedure(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProcedureArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -669,7 +747,7 @@ class Procedure(pulumi.CustomResource):
         :param pulumi.Input[str] handler: The handler method for Java / Python procedures.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[str] language: Specifies the language of the stored procedure code.
-        :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+        :param pulumi.Input[str] name: The argument name
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] packages: List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
@@ -759,7 +837,7 @@ class Procedure(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+        The argument name
         """
         return pulumi.get(self, "name")
 

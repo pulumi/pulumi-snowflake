@@ -39,7 +39,7 @@ type Procedure struct {
 	Imports pulumi.StringArrayOutput `pulumi:"imports"`
 	// Specifies the language of the stored procedure code.
 	Language pulumi.StringPtrOutput `pulumi:"language"`
-	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+	// The argument name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior pulumi.StringPtrOutput `pulumi:"nullInputBehavior"`
@@ -113,7 +113,7 @@ type procedureState struct {
 	Imports []string `pulumi:"imports"`
 	// Specifies the language of the stored procedure code.
 	Language *string `pulumi:"language"`
-	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+	// The argument name
 	Name *string `pulumi:"name"`
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
@@ -146,7 +146,7 @@ type ProcedureState struct {
 	Imports pulumi.StringArrayInput
 	// Specifies the language of the stored procedure code.
 	Language pulumi.StringPtrInput
-	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+	// The argument name
 	Name pulumi.StringPtrInput
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior pulumi.StringPtrInput
@@ -183,7 +183,7 @@ type procedureArgs struct {
 	Imports []string `pulumi:"imports"`
 	// Specifies the language of the stored procedure code.
 	Language *string `pulumi:"language"`
-	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+	// The argument name
 	Name *string `pulumi:"name"`
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
@@ -217,7 +217,7 @@ type ProcedureArgs struct {
 	Imports pulumi.StringArrayInput
 	// Specifies the language of the stored procedure code.
 	Language pulumi.StringPtrInput
-	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+	// The argument name
 	Name pulumi.StringPtrInput
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior pulumi.StringPtrInput
@@ -381,7 +381,7 @@ func (o ProcedureOutput) Language() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Procedure) pulumi.StringPtrOutput { return v.Language }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
+// The argument name
 func (o ProcedureOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Procedure) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

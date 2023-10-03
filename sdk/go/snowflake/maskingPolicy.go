@@ -82,7 +82,7 @@ type MaskingPolicy struct {
 	IfNotExists pulumi.BoolPtrOutput `pulumi:"ifNotExists"`
 	// Specifies the SQL expression that transforms the data.
 	MaskingExpression pulumi.StringOutput `pulumi:"maskingExpression"`
-	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+	// Specifies the column name to mask.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether to override a previous masking policy with the same name.
 	OrReplace pulumi.BoolPtrOutput `pulumi:"orReplace"`
@@ -151,7 +151,7 @@ type maskingPolicyState struct {
 	IfNotExists *bool `pulumi:"ifNotExists"`
 	// Specifies the SQL expression that transforms the data.
 	MaskingExpression *string `pulumi:"maskingExpression"`
-	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+	// Specifies the column name to mask.
 	Name *string `pulumi:"name"`
 	// Whether to override a previous masking policy with the same name.
 	OrReplace *bool `pulumi:"orReplace"`
@@ -176,7 +176,7 @@ type MaskingPolicyState struct {
 	IfNotExists pulumi.BoolPtrInput
 	// Specifies the SQL expression that transforms the data.
 	MaskingExpression pulumi.StringPtrInput
-	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+	// Specifies the column name to mask.
 	Name pulumi.StringPtrInput
 	// Whether to override a previous masking policy with the same name.
 	OrReplace pulumi.BoolPtrInput
@@ -205,7 +205,7 @@ type maskingPolicyArgs struct {
 	IfNotExists *bool `pulumi:"ifNotExists"`
 	// Specifies the SQL expression that transforms the data.
 	MaskingExpression string `pulumi:"maskingExpression"`
-	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+	// Specifies the column name to mask.
 	Name *string `pulumi:"name"`
 	// Whether to override a previous masking policy with the same name.
 	OrReplace *bool `pulumi:"orReplace"`
@@ -229,7 +229,7 @@ type MaskingPolicyArgs struct {
 	IfNotExists pulumi.BoolPtrInput
 	// Specifies the SQL expression that transforms the data.
 	MaskingExpression pulumi.StringInput
-	// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+	// Specifies the column name to mask.
 	Name pulumi.StringPtrInput
 	// Whether to override a previous masking policy with the same name.
 	OrReplace pulumi.BoolPtrInput
@@ -377,7 +377,7 @@ func (o MaskingPolicyOutput) MaskingExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaskingPolicy) pulumi.StringOutput { return v.MaskingExpression }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+// Specifies the column name to mask.
 func (o MaskingPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaskingPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

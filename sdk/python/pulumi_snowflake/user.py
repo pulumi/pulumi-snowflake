@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['UserArgs', 'User']
@@ -47,38 +47,77 @@ class UserArgs:
         :param pulumi.Input[str] rsa_public_key: Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
         :param pulumi.Input[str] rsa_public_key2: Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         """
+        UserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+            default_namespace=default_namespace,
+            default_role=default_role,
+            default_secondary_roles=default_secondary_roles,
+            default_warehouse=default_warehouse,
+            disabled=disabled,
+            display_name=display_name,
+            email=email,
+            first_name=first_name,
+            last_name=last_name,
+            login_name=login_name,
+            must_change_password=must_change_password,
+            name=name,
+            password=password,
+            rsa_public_key=rsa_public_key,
+            rsa_public_key2=rsa_public_key2,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: Optional[pulumi.Input[str]] = None,
+             default_namespace: Optional[pulumi.Input[str]] = None,
+             default_role: Optional[pulumi.Input[str]] = None,
+             default_secondary_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             default_warehouse: Optional[pulumi.Input[str]] = None,
+             disabled: Optional[pulumi.Input[bool]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             first_name: Optional[pulumi.Input[str]] = None,
+             last_name: Optional[pulumi.Input[str]] = None,
+             login_name: Optional[pulumi.Input[str]] = None,
+             must_change_password: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             rsa_public_key: Optional[pulumi.Input[str]] = None,
+             rsa_public_key2: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if default_namespace is not None:
-            pulumi.set(__self__, "default_namespace", default_namespace)
+            _setter("default_namespace", default_namespace)
         if default_role is not None:
-            pulumi.set(__self__, "default_role", default_role)
+            _setter("default_role", default_role)
         if default_secondary_roles is not None:
-            pulumi.set(__self__, "default_secondary_roles", default_secondary_roles)
+            _setter("default_secondary_roles", default_secondary_roles)
         if default_warehouse is not None:
-            pulumi.set(__self__, "default_warehouse", default_warehouse)
+            _setter("default_warehouse", default_warehouse)
         if disabled is not None:
-            pulumi.set(__self__, "disabled", disabled)
+            _setter("disabled", disabled)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
+            _setter("first_name", first_name)
         if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
+            _setter("last_name", last_name)
         if login_name is not None:
-            pulumi.set(__self__, "login_name", login_name)
+            _setter("login_name", login_name)
         if must_change_password is not None:
-            pulumi.set(__self__, "must_change_password", must_change_password)
+            _setter("must_change_password", must_change_password)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if rsa_public_key is not None:
-            pulumi.set(__self__, "rsa_public_key", rsa_public_key)
+            _setter("rsa_public_key", rsa_public_key)
         if rsa_public_key2 is not None:
-            pulumi.set(__self__, "rsa_public_key2", rsa_public_key2)
+            _setter("rsa_public_key2", rsa_public_key2)
 
     @property
     @pulumi.getter
@@ -305,40 +344,81 @@ class _UserState:
         :param pulumi.Input[str] rsa_public_key: Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
         :param pulumi.Input[str] rsa_public_key2: Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         """
+        _UserState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+            default_namespace=default_namespace,
+            default_role=default_role,
+            default_secondary_roles=default_secondary_roles,
+            default_warehouse=default_warehouse,
+            disabled=disabled,
+            display_name=display_name,
+            email=email,
+            first_name=first_name,
+            has_rsa_public_key=has_rsa_public_key,
+            last_name=last_name,
+            login_name=login_name,
+            must_change_password=must_change_password,
+            name=name,
+            password=password,
+            rsa_public_key=rsa_public_key,
+            rsa_public_key2=rsa_public_key2,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: Optional[pulumi.Input[str]] = None,
+             default_namespace: Optional[pulumi.Input[str]] = None,
+             default_role: Optional[pulumi.Input[str]] = None,
+             default_secondary_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             default_warehouse: Optional[pulumi.Input[str]] = None,
+             disabled: Optional[pulumi.Input[bool]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             first_name: Optional[pulumi.Input[str]] = None,
+             has_rsa_public_key: Optional[pulumi.Input[bool]] = None,
+             last_name: Optional[pulumi.Input[str]] = None,
+             login_name: Optional[pulumi.Input[str]] = None,
+             must_change_password: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             rsa_public_key: Optional[pulumi.Input[str]] = None,
+             rsa_public_key2: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if default_namespace is not None:
-            pulumi.set(__self__, "default_namespace", default_namespace)
+            _setter("default_namespace", default_namespace)
         if default_role is not None:
-            pulumi.set(__self__, "default_role", default_role)
+            _setter("default_role", default_role)
         if default_secondary_roles is not None:
-            pulumi.set(__self__, "default_secondary_roles", default_secondary_roles)
+            _setter("default_secondary_roles", default_secondary_roles)
         if default_warehouse is not None:
-            pulumi.set(__self__, "default_warehouse", default_warehouse)
+            _setter("default_warehouse", default_warehouse)
         if disabled is not None:
-            pulumi.set(__self__, "disabled", disabled)
+            _setter("disabled", disabled)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
+            _setter("first_name", first_name)
         if has_rsa_public_key is not None:
-            pulumi.set(__self__, "has_rsa_public_key", has_rsa_public_key)
+            _setter("has_rsa_public_key", has_rsa_public_key)
         if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
+            _setter("last_name", last_name)
         if login_name is not None:
-            pulumi.set(__self__, "login_name", login_name)
+            _setter("login_name", login_name)
         if must_change_password is not None:
-            pulumi.set(__self__, "must_change_password", must_change_password)
+            _setter("must_change_password", must_change_password)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if rsa_public_key is not None:
-            pulumi.set(__self__, "rsa_public_key", rsa_public_key)
+            _setter("rsa_public_key", rsa_public_key)
         if rsa_public_key2 is not None:
-            pulumi.set(__self__, "rsa_public_key2", rsa_public_key2)
+            _setter("rsa_public_key2", rsa_public_key2)
 
     @property
     @pulumi.getter
@@ -654,6 +734,10 @@ class User(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

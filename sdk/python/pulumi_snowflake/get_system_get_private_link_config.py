@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
     'GetSystemGetPrivateLinkConfigResult',
     'AwaitableGetSystemGetPrivateLinkConfigResult',
     'get_system_get_private_link_config',
+    'get_system_get_private_link_config_output',
 ]
 
 @pulumi.output_type
@@ -170,3 +171,11 @@ def get_system_get_private_link_config(opts: Optional[pulumi.InvokeOptions] = No
         regionless_account_url=pulumi.get(__ret__, 'regionless_account_url'),
         regionless_snowsight_url=pulumi.get(__ret__, 'regionless_snowsight_url'),
         snowsight_url=pulumi.get(__ret__, 'snowsight_url'))
+
+
+@_utilities.lift_output_func(get_system_get_private_link_config)
+def get_system_get_private_link_config_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemGetPrivateLinkConfigResult]:
+    """
+    Use this data source to access information about an existing resource.
+    """
+    ...

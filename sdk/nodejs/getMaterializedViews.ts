@@ -32,13 +32,7 @@ export function getMaterializedViews(args: GetMaterializedViewsArgs, opts?: pulu
  * A collection of arguments for invoking getMaterializedViews.
  */
 export interface GetMaterializedViewsArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
-    /**
-     * The schema from which to return the views from.
-     */
     schema: string;
 }
 
@@ -84,12 +78,6 @@ export function getMaterializedViewsOutput(args: GetMaterializedViewsOutputArgs,
  * A collection of arguments for invoking getMaterializedViews.
  */
 export interface GetMaterializedViewsOutputArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database: pulumi.Input<string>;
-    /**
-     * The schema from which to return the views from.
-     */
     schema: pulumi.Input<string>;
 }

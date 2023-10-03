@@ -15,23 +15,47 @@ public final class GrantPrivilegesToRoleOnSchemaObjectFutureArgs extends com.pul
 
     public static final GrantPrivilegesToRoleOnSchemaObjectFutureArgs Empty = new GrantPrivilegesToRoleOnSchemaObjectFutureArgs();
 
+    /**
+     * The fully qualified name of the database.
+     * 
+     */
     @Import(name="inDatabase")
     private @Nullable Output<String> inDatabase;
 
+    /**
+     * @return The fully qualified name of the database.
+     * 
+     */
     public Optional<Output<String>> inDatabase() {
         return Optional.ofNullable(this.inDatabase);
     }
 
+    /**
+     * The fully qualified name of the schema.
+     * 
+     */
     @Import(name="inSchema")
     private @Nullable Output<String> inSchema;
 
+    /**
+     * @return The fully qualified name of the schema.
+     * 
+     */
     public Optional<Output<String>> inSchema() {
         return Optional.ofNullable(this.inSchema);
     }
 
+    /**
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+     * 
+     */
     @Import(name="objectTypePlural", required=true)
     private Output<String> objectTypePlural;
 
+    /**
+     * @return The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+     * 
+     */
     public Output<String> objectTypePlural() {
         return this.objectTypePlural;
     }
@@ -62,29 +86,65 @@ public final class GrantPrivilegesToRoleOnSchemaObjectFutureArgs extends com.pul
             $ = new GrantPrivilegesToRoleOnSchemaObjectFutureArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param inDatabase The fully qualified name of the database.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inDatabase(@Nullable Output<String> inDatabase) {
             $.inDatabase = inDatabase;
             return this;
         }
 
+        /**
+         * @param inDatabase The fully qualified name of the database.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inDatabase(String inDatabase) {
             return inDatabase(Output.of(inDatabase));
         }
 
+        /**
+         * @param inSchema The fully qualified name of the schema.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inSchema(@Nullable Output<String> inSchema) {
             $.inSchema = inSchema;
             return this;
         }
 
+        /**
+         * @param inSchema The fully qualified name of the schema.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inSchema(String inSchema) {
             return inSchema(Output.of(inSchema));
         }
 
+        /**
+         * @param objectTypePlural The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+         * 
+         * @return builder
+         * 
+         */
         public Builder objectTypePlural(Output<String> objectTypePlural) {
             $.objectTypePlural = objectTypePlural;
             return this;
         }
 
+        /**
+         * @param objectTypePlural The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+         * 
+         * @return builder
+         * 
+         */
         public Builder objectTypePlural(String objectTypePlural) {
             return objectTypePlural(Output.of(objectTypePlural));
         }

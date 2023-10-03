@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['StreamGrantArgs', 'StreamGrant']
@@ -38,24 +38,51 @@ class StreamGrantArgs:
         :param pulumi.Input[str] stream_name: The name of the stream on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "roles", roles)
+        StreamGrantArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            roles=roles,
+            enable_multiple_grants=enable_multiple_grants,
+            on_all=on_all,
+            on_future=on_future,
+            privilege=privilege,
+            revert_ownership_to_role_name=revert_ownership_to_role_name,
+            schema_name=schema_name,
+            stream_name=stream_name,
+            with_grant_option=with_grant_option,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: pulumi.Input[str],
+             roles: pulumi.Input[Sequence[pulumi.Input[str]]],
+             enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
+             on_all: Optional[pulumi.Input[bool]] = None,
+             on_future: Optional[pulumi.Input[bool]] = None,
+             privilege: Optional[pulumi.Input[str]] = None,
+             revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
+             schema_name: Optional[pulumi.Input[str]] = None,
+             stream_name: Optional[pulumi.Input[str]] = None,
+             with_grant_option: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("roles", roles)
         if enable_multiple_grants is not None:
-            pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
+            _setter("enable_multiple_grants", enable_multiple_grants)
         if on_all is not None:
-            pulumi.set(__self__, "on_all", on_all)
+            _setter("on_all", on_all)
         if on_future is not None:
-            pulumi.set(__self__, "on_future", on_future)
+            _setter("on_future", on_future)
         if privilege is not None:
-            pulumi.set(__self__, "privilege", privilege)
+            _setter("privilege", privilege)
         if revert_ownership_to_role_name is not None:
-            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
+            _setter("revert_ownership_to_role_name", revert_ownership_to_role_name)
         if schema_name is not None:
-            pulumi.set(__self__, "schema_name", schema_name)
+            _setter("schema_name", schema_name)
         if stream_name is not None:
-            pulumi.set(__self__, "stream_name", stream_name)
+            _setter("stream_name", stream_name)
         if with_grant_option is not None:
-            pulumi.set(__self__, "with_grant_option", with_grant_option)
+            _setter("with_grant_option", with_grant_option)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -206,26 +233,53 @@ class _StreamGrantState:
         :param pulumi.Input[str] stream_name: The name of the stream on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
+        _StreamGrantState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            enable_multiple_grants=enable_multiple_grants,
+            on_all=on_all,
+            on_future=on_future,
+            privilege=privilege,
+            revert_ownership_to_role_name=revert_ownership_to_role_name,
+            roles=roles,
+            schema_name=schema_name,
+            stream_name=stream_name,
+            with_grant_option=with_grant_option,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[pulumi.Input[str]] = None,
+             enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
+             on_all: Optional[pulumi.Input[bool]] = None,
+             on_future: Optional[pulumi.Input[bool]] = None,
+             privilege: Optional[pulumi.Input[str]] = None,
+             revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             schema_name: Optional[pulumi.Input[str]] = None,
+             stream_name: Optional[pulumi.Input[str]] = None,
+             with_grant_option: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if enable_multiple_grants is not None:
-            pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
+            _setter("enable_multiple_grants", enable_multiple_grants)
         if on_all is not None:
-            pulumi.set(__self__, "on_all", on_all)
+            _setter("on_all", on_all)
         if on_future is not None:
-            pulumi.set(__self__, "on_future", on_future)
+            _setter("on_future", on_future)
         if privilege is not None:
-            pulumi.set(__self__, "privilege", privilege)
+            _setter("privilege", privilege)
         if revert_ownership_to_role_name is not None:
-            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
+            _setter("revert_ownership_to_role_name", revert_ownership_to_role_name)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if schema_name is not None:
-            pulumi.set(__self__, "schema_name", schema_name)
+            _setter("schema_name", schema_name)
         if stream_name is not None:
-            pulumi.set(__self__, "stream_name", stream_name)
+            _setter("stream_name", stream_name)
         if with_grant_option is not None:
-            pulumi.set(__self__, "with_grant_option", with_grant_option)
+            _setter("with_grant_option", with_grant_option)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -451,6 +505,10 @@ class StreamGrant(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StreamGrantArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

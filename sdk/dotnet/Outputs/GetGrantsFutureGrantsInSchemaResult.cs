@@ -13,7 +13,13 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class GetGrantsFutureGrantsInSchemaResult
     {
+        /// <summary>
+        /// The database in which the scehma resides. Optional when querying a schema in the current database.
+        /// </summary>
         public readonly string? DatabaseName;
+        /// <summary>
+        /// The name of the schema to list all privileges of new (ie. future) objects granted to
+        /// </summary>
         public readonly string SchemaName;
 
         [OutputConstructor]

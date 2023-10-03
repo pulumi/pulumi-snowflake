@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RoleOwnershipGrantArgs', 'RoleOwnershipGrant']
@@ -25,12 +25,27 @@ class RoleOwnershipGrantArgs:
         :param pulumi.Input[str] current_grants: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
         :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy.
         """
-        pulumi.set(__self__, "on_role_name", on_role_name)
-        pulumi.set(__self__, "to_role_name", to_role_name)
+        RoleOwnershipGrantArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            on_role_name=on_role_name,
+            to_role_name=to_role_name,
+            current_grants=current_grants,
+            revert_ownership_to_role_name=revert_ownership_to_role_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             on_role_name: pulumi.Input[str],
+             to_role_name: pulumi.Input[str],
+             current_grants: Optional[pulumi.Input[str]] = None,
+             revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("on_role_name", on_role_name)
+        _setter("to_role_name", to_role_name)
         if current_grants is not None:
-            pulumi.set(__self__, "current_grants", current_grants)
+            _setter("current_grants", current_grants)
         if revert_ownership_to_role_name is not None:
-            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
+            _setter("revert_ownership_to_role_name", revert_ownership_to_role_name)
 
     @property
     @pulumi.getter(name="onRoleName")
@@ -95,14 +110,29 @@ class _RoleOwnershipGrantState:
         :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy.
         :param pulumi.Input[str] to_role_name: The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
         """
+        _RoleOwnershipGrantState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            current_grants=current_grants,
+            on_role_name=on_role_name,
+            revert_ownership_to_role_name=revert_ownership_to_role_name,
+            to_role_name=to_role_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             current_grants: Optional[pulumi.Input[str]] = None,
+             on_role_name: Optional[pulumi.Input[str]] = None,
+             revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
+             to_role_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if current_grants is not None:
-            pulumi.set(__self__, "current_grants", current_grants)
+            _setter("current_grants", current_grants)
         if on_role_name is not None:
-            pulumi.set(__self__, "on_role_name", on_role_name)
+            _setter("on_role_name", on_role_name)
         if revert_ownership_to_role_name is not None:
-            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
+            _setter("revert_ownership_to_role_name", revert_ownership_to_role_name)
         if to_role_name is not None:
-            pulumi.set(__self__, "to_role_name", to_role_name)
+            _setter("to_role_name", to_role_name)
 
     @property
     @pulumi.getter(name="currentGrants")
@@ -190,6 +220,10 @@ class RoleOwnershipGrant(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RoleOwnershipGrantArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

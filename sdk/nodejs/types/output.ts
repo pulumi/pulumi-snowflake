@@ -17,7 +17,13 @@ export interface AlertAlertSchedule {
 }
 
 export interface AlertAlertScheduleCron {
+    /**
+     * Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+     */
     expression: string;
+    /**
+     * Specifies the time zone for alert refresh.
+     */
     timeZone: string;
 }
 
@@ -109,7 +115,13 @@ export interface FailoverGroupReplicationSchedule {
 }
 
 export interface FailoverGroupReplicationScheduleCron {
+    /**
+     * Specifies the cron expression for the replication schedule. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+     */
     expression: string;
+    /**
+     * Specifies the time zone for secondary group refresh.
+     */
     timeZone: string;
 }
 
@@ -179,28 +191,16 @@ export interface GetDatabasesDatabaseReplicationConfiguration {
 
 export interface GetExternalFunctionsExternalFunction {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     language: string;
     name: string;
-    /**
-     * The schema from which to return the external functions from.
-     */
     schema: string;
 }
 
 export interface GetExternalTablesExternalTable {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     name: string;
-    /**
-     * The schema from which to return the external tables from.
-     */
     schema: string;
 }
 
@@ -226,30 +226,18 @@ export interface GetFailoverGroupsFailoverGroup {
 
 export interface GetFileFormatsFileFormat {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     formatType: string;
     name: string;
-    /**
-     * The schema from which to return the file formats from.
-     */
     schema: string;
 }
 
 export interface GetFunctionsFunction {
     argumentTypes: string[];
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     name: string;
     returnType: string;
-    /**
-     * The schema from which to return the functions from.
-     */
     schema: string;
 }
 
@@ -265,7 +253,13 @@ export interface GetGrantsFutureGrantsIn {
 }
 
 export interface GetGrantsFutureGrantsInSchema {
+    /**
+     * The database in which the scehma resides. Optional when querying a schema in the current database.
+     */
     databaseName?: string;
+    /**
+     * The name of the schema to list all privileges of new (ie. future) objects granted to
+     */
     schemaName: string;
 }
 
@@ -330,28 +324,16 @@ export interface GetGrantsGrantsTo {
 
 export interface GetMaskingPoliciesMaskingPolicy {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     kind: string;
     name: string;
-    /**
-     * The schema from which to return the maskingPolicies from.
-     */
     schema: string;
 }
 
 export interface GetMaterializedViewsMaterializedView {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     name: string;
-    /**
-     * The schema from which to return the views from.
-     */
     schema: string;
 }
 
@@ -365,30 +347,18 @@ export interface GetParametersParameter {
 
 export interface GetPipesPipe {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     integration: string;
     name: string;
-    /**
-     * The schema from which to return the pipes from.
-     */
     schema: string;
 }
 
 export interface GetProceduresProcedure {
     argumentTypes: string[];
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     name: string;
     returnType: string;
-    /**
-     * The schema from which to return the procedures from.
-     */
     schema: string;
 }
 
@@ -407,36 +377,21 @@ export interface GetRolesRole {
 
 export interface GetRowAccessPoliciesRowAccessPolicy {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     name: string;
-    /**
-     * The schema from which to return the row access policyfrom.
-     */
     schema: string;
 }
 
 export interface GetSchemasSchema {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     name: string;
 }
 
 export interface GetSequencesSequence {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     name: string;
-    /**
-     * The schema from which to return the sequences from.
-     */
     schema: string;
 }
 
@@ -450,14 +405,8 @@ export interface GetSharesShare {
 
 export interface GetStagesStage {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     name: string;
-    /**
-     * The schema from which to return the stages from.
-     */
     schema: string;
     storageIntegration: string;
 }
@@ -471,41 +420,23 @@ export interface GetStorageIntegrationsStorageIntegration {
 
 export interface GetStreamsStream {
     comment: string;
-    /**
-     * The database from which to return the streams from.
-     */
     database: string;
     name: string;
-    /**
-     * The schema from which to return the streams from.
-     */
     schema: string;
     table: string;
 }
 
 export interface GetTablesTable {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     name: string;
-    /**
-     * The schema from which to return the tables from.
-     */
     schema: string;
 }
 
 export interface GetTasksTask {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     name: string;
-    /**
-     * The schema from which to return the tasks from.
-     */
     schema: string;
     warehouse: string;
 }
@@ -528,14 +459,8 @@ export interface GetUsersUser {
 
 export interface GetViewsView {
     comment: string;
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
     name: string;
-    /**
-     * The schema from which to return the views from.
-     */
     schema: string;
 }
 
@@ -594,14 +519,32 @@ export interface GrantPrivilegesToRoleOnSchemaObject {
 }
 
 export interface GrantPrivilegesToRoleOnSchemaObjectAll {
+    /**
+     * The fully qualified name of the database.
+     */
     inDatabase?: string;
+    /**
+     * The fully qualified name of the schema.
+     */
     inSchema?: string;
+    /**
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+     */
     objectTypePlural: string;
 }
 
 export interface GrantPrivilegesToRoleOnSchemaObjectFuture {
+    /**
+     * The fully qualified name of the database.
+     */
     inDatabase?: string;
+    /**
+     * The fully qualified name of the schema.
+     */
     inSchema?: string;
+    /**
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+     */
     objectTypePlural: string;
 }
 
@@ -611,9 +554,12 @@ export interface MaskingPolicySignature {
 
 export interface MaskingPolicySignatureColumn {
     /**
-     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+     * Specifies the column name to mask.
      */
     name: string;
+    /**
+     * Specifies the column type to mask.
+     */
     type: string;
 }
 
@@ -751,13 +697,28 @@ export interface TableColumn {
 }
 
 export interface TableColumnDefault {
+    /**
+     * The default constant value for the column
+     */
     constant?: string;
+    /**
+     * The default expression value for the column
+     */
     expression?: string;
+    /**
+     * The default sequence to use for the column
+     */
     sequence?: string;
 }
 
 export interface TableColumnIdentity {
+    /**
+     * The number to start incrementing at.
+     */
     startNum?: number;
+    /**
+     * Step size to increment by.
+     */
     stepNum?: number;
 }
 
@@ -782,11 +743,11 @@ export interface TableConstraintForeignKeyProperties {
 
 export interface TableConstraintForeignKeyPropertiesReferences {
     /**
-     * Columns to use in constraint key
+     * Columns to use in foreign key reference
      */
     columns: string[];
     /**
-     * Idenfifier for table to create constraint on. Must be of the form Note: format must follow: "\n\n"."\n\n"."\n\n" or "\n\n.\n\n.\n\n" or "\n\n|\n\n.\n\n" (snowflake*table.my*table.id)
+     * Name of constraint
      */
     tableId: string;
 }

@@ -32,13 +32,7 @@ export function getSequences(args: GetSequencesArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getSequences.
  */
 export interface GetSequencesArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
-    /**
-     * The schema from which to return the sequences from.
-     */
     schema: string;
 }
 
@@ -84,12 +78,6 @@ export function getSequencesOutput(args: GetSequencesOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getSequences.
  */
 export interface GetSequencesOutputArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database: pulumi.Input<string>;
-    /**
-     * The schema from which to return the sequences from.
-     */
     schema: pulumi.Input<string>;
 }

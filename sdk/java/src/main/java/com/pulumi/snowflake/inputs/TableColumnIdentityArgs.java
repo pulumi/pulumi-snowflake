@@ -15,16 +15,32 @@ public final class TableColumnIdentityArgs extends com.pulumi.resources.Resource
 
     public static final TableColumnIdentityArgs Empty = new TableColumnIdentityArgs();
 
+    /**
+     * The number to start incrementing at.
+     * 
+     */
     @Import(name="startNum")
     private @Nullable Output<Integer> startNum;
 
+    /**
+     * @return The number to start incrementing at.
+     * 
+     */
     public Optional<Output<Integer>> startNum() {
         return Optional.ofNullable(this.startNum);
     }
 
+    /**
+     * Step size to increment by.
+     * 
+     */
     @Import(name="stepNum")
     private @Nullable Output<Integer> stepNum;
 
+    /**
+     * @return Step size to increment by.
+     * 
+     */
     public Optional<Output<Integer>> stepNum() {
         return Optional.ofNullable(this.stepNum);
     }
@@ -54,20 +70,44 @@ public final class TableColumnIdentityArgs extends com.pulumi.resources.Resource
             $ = new TableColumnIdentityArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param startNum The number to start incrementing at.
+         * 
+         * @return builder
+         * 
+         */
         public Builder startNum(@Nullable Output<Integer> startNum) {
             $.startNum = startNum;
             return this;
         }
 
+        /**
+         * @param startNum The number to start incrementing at.
+         * 
+         * @return builder
+         * 
+         */
         public Builder startNum(Integer startNum) {
             return startNum(Output.of(startNum));
         }
 
+        /**
+         * @param stepNum Step size to increment by.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stepNum(@Nullable Output<Integer> stepNum) {
             $.stepNum = stepNum;
             return this;
         }
 
+        /**
+         * @param stepNum Step size to increment by.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stepNum(Integer stepNum) {
             return stepNum(Output.of(stepNum));
         }

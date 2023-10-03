@@ -40,6 +40,9 @@ namespace Pulumi.Snowflake
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
+        /// <summary>
+        /// Tag name, e.g. department.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -98,6 +101,9 @@ namespace Pulumi.Snowflake
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        /// <summary>
+        /// Tag name, e.g. department.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -125,6 +131,9 @@ namespace Pulumi.Snowflake
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        /// <summary>
+        /// Tag name, e.g. department.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

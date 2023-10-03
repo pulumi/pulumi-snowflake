@@ -32,13 +32,7 @@ export function getProcedures(args: GetProceduresArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getProcedures.
  */
 export interface GetProceduresArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
-    /**
-     * The schema from which to return the procedures from.
-     */
     schema: string;
 }
 
@@ -84,12 +78,6 @@ export function getProceduresOutput(args: GetProceduresOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getProcedures.
  */
 export interface GetProceduresOutputArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database: pulumi.Input<string>;
-    /**
-     * The schema from which to return the procedures from.
-     */
     schema: pulumi.Input<string>;
 }

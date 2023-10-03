@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['StreamArgs', 'Stream']
@@ -37,24 +37,51 @@ class StreamArgs:
         :param pulumi.Input[str] on_view: Name of the view the stream will monitor.
         :param pulumi.Input[bool] show_initial_rows: Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "schema", schema)
+        StreamArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            schema=schema,
+            append_only=append_only,
+            comment=comment,
+            insert_only=insert_only,
+            name=name,
+            on_stage=on_stage,
+            on_table=on_table,
+            on_view=on_view,
+            show_initial_rows=show_initial_rows,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: pulumi.Input[str],
+             schema: pulumi.Input[str],
+             append_only: Optional[pulumi.Input[bool]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             insert_only: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             on_stage: Optional[pulumi.Input[str]] = None,
+             on_table: Optional[pulumi.Input[str]] = None,
+             on_view: Optional[pulumi.Input[str]] = None,
+             show_initial_rows: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database", database)
+        _setter("schema", schema)
         if append_only is not None:
-            pulumi.set(__self__, "append_only", append_only)
+            _setter("append_only", append_only)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if insert_only is not None:
-            pulumi.set(__self__, "insert_only", insert_only)
+            _setter("insert_only", insert_only)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if on_stage is not None:
-            pulumi.set(__self__, "on_stage", on_stage)
+            _setter("on_stage", on_stage)
         if on_table is not None:
-            pulumi.set(__self__, "on_table", on_table)
+            _setter("on_table", on_table)
         if on_view is not None:
-            pulumi.set(__self__, "on_view", on_view)
+            _setter("on_view", on_view)
         if show_initial_rows is not None:
-            pulumi.set(__self__, "show_initial_rows", show_initial_rows)
+            _setter("show_initial_rows", show_initial_rows)
 
     @property
     @pulumi.getter
@@ -205,28 +232,57 @@ class _StreamState:
         :param pulumi.Input[str] schema: The schema in which to create the stream.
         :param pulumi.Input[bool] show_initial_rows: Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed.
         """
+        _StreamState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            append_only=append_only,
+            comment=comment,
+            database=database,
+            insert_only=insert_only,
+            name=name,
+            on_stage=on_stage,
+            on_table=on_table,
+            on_view=on_view,
+            owner=owner,
+            schema=schema,
+            show_initial_rows=show_initial_rows,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             append_only: Optional[pulumi.Input[bool]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             insert_only: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             on_stage: Optional[pulumi.Input[str]] = None,
+             on_table: Optional[pulumi.Input[str]] = None,
+             on_view: Optional[pulumi.Input[str]] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             show_initial_rows: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if append_only is not None:
-            pulumi.set(__self__, "append_only", append_only)
+            _setter("append_only", append_only)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if insert_only is not None:
-            pulumi.set(__self__, "insert_only", insert_only)
+            _setter("insert_only", insert_only)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if on_stage is not None:
-            pulumi.set(__self__, "on_stage", on_stage)
+            _setter("on_stage", on_stage)
         if on_table is not None:
-            pulumi.set(__self__, "on_table", on_table)
+            _setter("on_table", on_table)
         if on_view is not None:
-            pulumi.set(__self__, "on_view", on_view)
+            _setter("on_view", on_view)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if show_initial_rows is not None:
-            pulumi.set(__self__, "show_initial_rows", show_initial_rows)
+            _setter("show_initial_rows", show_initial_rows)
 
     @property
     @pulumi.getter(name="appendOnly")
@@ -424,6 +480,10 @@ class Stream(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StreamArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

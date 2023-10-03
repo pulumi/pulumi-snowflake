@@ -14,16 +14,32 @@ public final class GetGrantsFutureGrantsInSchema extends com.pulumi.resources.In
 
     public static final GetGrantsFutureGrantsInSchema Empty = new GetGrantsFutureGrantsInSchema();
 
+    /**
+     * The database in which the scehma resides. Optional when querying a schema in the current database.
+     * 
+     */
     @Import(name="databaseName")
     private @Nullable String databaseName;
 
+    /**
+     * @return The database in which the scehma resides. Optional when querying a schema in the current database.
+     * 
+     */
     public Optional<String> databaseName() {
         return Optional.ofNullable(this.databaseName);
     }
 
+    /**
+     * The name of the schema to list all privileges of new (ie. future) objects granted to
+     * 
+     */
     @Import(name="schemaName", required=true)
     private String schemaName;
 
+    /**
+     * @return The name of the schema to list all privileges of new (ie. future) objects granted to
+     * 
+     */
     public String schemaName() {
         return this.schemaName;
     }
@@ -53,11 +69,23 @@ public final class GetGrantsFutureGrantsInSchema extends com.pulumi.resources.In
             $ = new GetGrantsFutureGrantsInSchema(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param databaseName The database in which the scehma resides. Optional when querying a schema in the current database.
+         * 
+         * @return builder
+         * 
+         */
         public Builder databaseName(@Nullable String databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
+        /**
+         * @param schemaName The name of the schema to list all privileges of new (ie. future) objects granted to
+         * 
+         * @return builder
+         * 
+         */
         public Builder schemaName(String schemaName) {
             $.schemaName = schemaName;
             return this;

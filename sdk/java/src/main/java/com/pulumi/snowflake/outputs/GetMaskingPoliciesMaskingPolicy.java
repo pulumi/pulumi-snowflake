@@ -10,27 +10,15 @@ import java.util.Objects;
 @CustomType
 public final class GetMaskingPoliciesMaskingPolicy {
     private String comment;
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     private String database;
     private String kind;
     private String name;
-    /**
-     * @return The schema from which to return the maskingPolicies from.
-     * 
-     */
     private String schema;
 
     private GetMaskingPoliciesMaskingPolicy() {}
     public String comment() {
         return this.comment;
     }
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     public String database() {
         return this.database;
     }
@@ -40,10 +28,6 @@ public final class GetMaskingPoliciesMaskingPolicy {
     public String name() {
         return this.name;
     }
-    /**
-     * @return The schema from which to return the maskingPolicies from.
-     * 
-     */
     public String schema() {
         return this.schema;
     }

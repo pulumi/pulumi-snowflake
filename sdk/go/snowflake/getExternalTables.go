@@ -50,10 +50,8 @@ func GetExternalTables(ctx *pulumi.Context, args *GetExternalTablesArgs, opts ..
 
 // A collection of arguments for invoking getExternalTables.
 type GetExternalTablesArgs struct {
-	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	// The schema from which to return the external tables from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // A collection of values returned by getExternalTables.
@@ -83,10 +81,8 @@ func GetExternalTablesOutput(ctx *pulumi.Context, args GetExternalTablesOutputAr
 
 // A collection of arguments for invoking getExternalTables.
 type GetExternalTablesOutputArgs struct {
-	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the external tables from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetExternalTablesOutputArgs) ElementType() reflect.Type {

@@ -50,10 +50,8 @@ func GetStreams(ctx *pulumi.Context, args *GetStreamsArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getStreams.
 type GetStreamsArgs struct {
-	// The database from which to return the streams from.
 	Database string `pulumi:"database"`
-	// The schema from which to return the streams from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // A collection of values returned by getStreams.
@@ -83,10 +81,8 @@ func GetStreamsOutput(ctx *pulumi.Context, args GetStreamsOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getStreams.
 type GetStreamsOutputArgs struct {
-	// The database from which to return the streams from.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the streams from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetStreamsOutputArgs) ElementType() reflect.Type {

@@ -32,13 +32,7 @@ export function getStreams(args: GetStreamsArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getStreams.
  */
 export interface GetStreamsArgs {
-    /**
-     * The database from which to return the streams from.
-     */
     database: string;
-    /**
-     * The schema from which to return the streams from.
-     */
     schema: string;
 }
 
@@ -84,12 +78,6 @@ export function getStreamsOutput(args: GetStreamsOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getStreams.
  */
 export interface GetStreamsOutputArgs {
-    /**
-     * The database from which to return the streams from.
-     */
     database: pulumi.Input<string>;
-    /**
-     * The schema from which to return the streams from.
-     */
     schema: pulumi.Input<string>;
 }

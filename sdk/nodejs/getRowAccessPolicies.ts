@@ -32,13 +32,7 @@ export function getRowAccessPolicies(args: GetRowAccessPoliciesArgs, opts?: pulu
  * A collection of arguments for invoking getRowAccessPolicies.
  */
 export interface GetRowAccessPoliciesArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
-    /**
-     * The schema from which to return the row access policyfrom.
-     */
     schema: string;
 }
 
@@ -84,12 +78,6 @@ export function getRowAccessPoliciesOutput(args: GetRowAccessPoliciesOutputArgs,
  * A collection of arguments for invoking getRowAccessPolicies.
  */
 export interface GetRowAccessPoliciesOutputArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database: pulumi.Input<string>;
-    /**
-     * The schema from which to return the row access policyfrom.
-     */
     schema: pulumi.Input<string>;
 }

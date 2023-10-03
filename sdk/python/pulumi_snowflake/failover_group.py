@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,28 +33,53 @@ class FailoverGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_shares: Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
         :param pulumi.Input['FailoverGroupFromReplicaArgs'] from_replica: Specifies the name of the replica to use as the source for the failover group.
         :param pulumi.Input[bool] ignore_edition_check: Allows replicating objects to accounts on lower editions.
-        :param pulumi.Input[str] name: Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
+        :param pulumi.Input[str] name: Identifier for the primary failover group in the source account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] object_types: Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
         :param pulumi.Input['FailoverGroupReplicationScheduleArgs'] replication_schedule: Specifies the schedule for refreshing secondary failover groups.
         """
+        FailoverGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_accounts=allowed_accounts,
+            allowed_databases=allowed_databases,
+            allowed_integration_types=allowed_integration_types,
+            allowed_shares=allowed_shares,
+            from_replica=from_replica,
+            ignore_edition_check=ignore_edition_check,
+            name=name,
+            object_types=object_types,
+            replication_schedule=replication_schedule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_databases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_integration_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             from_replica: Optional[pulumi.Input['FailoverGroupFromReplicaArgs']] = None,
+             ignore_edition_check: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             object_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             replication_schedule: Optional[pulumi.Input['FailoverGroupReplicationScheduleArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_accounts is not None:
-            pulumi.set(__self__, "allowed_accounts", allowed_accounts)
+            _setter("allowed_accounts", allowed_accounts)
         if allowed_databases is not None:
-            pulumi.set(__self__, "allowed_databases", allowed_databases)
+            _setter("allowed_databases", allowed_databases)
         if allowed_integration_types is not None:
-            pulumi.set(__self__, "allowed_integration_types", allowed_integration_types)
+            _setter("allowed_integration_types", allowed_integration_types)
         if allowed_shares is not None:
-            pulumi.set(__self__, "allowed_shares", allowed_shares)
+            _setter("allowed_shares", allowed_shares)
         if from_replica is not None:
-            pulumi.set(__self__, "from_replica", from_replica)
+            _setter("from_replica", from_replica)
         if ignore_edition_check is not None:
-            pulumi.set(__self__, "ignore_edition_check", ignore_edition_check)
+            _setter("ignore_edition_check", ignore_edition_check)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if object_types is not None:
-            pulumi.set(__self__, "object_types", object_types)
+            _setter("object_types", object_types)
         if replication_schedule is not None:
-            pulumi.set(__self__, "replication_schedule", replication_schedule)
+            _setter("replication_schedule", replication_schedule)
 
     @property
     @pulumi.getter(name="allowedAccounts")
@@ -132,7 +157,7 @@ class FailoverGroupArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
+        Identifier for the primary failover group in the source account.
         """
         return pulumi.get(self, "name")
 
@@ -185,28 +210,53 @@ class _FailoverGroupState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_shares: Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
         :param pulumi.Input['FailoverGroupFromReplicaArgs'] from_replica: Specifies the name of the replica to use as the source for the failover group.
         :param pulumi.Input[bool] ignore_edition_check: Allows replicating objects to accounts on lower editions.
-        :param pulumi.Input[str] name: Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
+        :param pulumi.Input[str] name: Identifier for the primary failover group in the source account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] object_types: Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
         :param pulumi.Input['FailoverGroupReplicationScheduleArgs'] replication_schedule: Specifies the schedule for refreshing secondary failover groups.
         """
+        _FailoverGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_accounts=allowed_accounts,
+            allowed_databases=allowed_databases,
+            allowed_integration_types=allowed_integration_types,
+            allowed_shares=allowed_shares,
+            from_replica=from_replica,
+            ignore_edition_check=ignore_edition_check,
+            name=name,
+            object_types=object_types,
+            replication_schedule=replication_schedule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_databases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_integration_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             from_replica: Optional[pulumi.Input['FailoverGroupFromReplicaArgs']] = None,
+             ignore_edition_check: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             object_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             replication_schedule: Optional[pulumi.Input['FailoverGroupReplicationScheduleArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_accounts is not None:
-            pulumi.set(__self__, "allowed_accounts", allowed_accounts)
+            _setter("allowed_accounts", allowed_accounts)
         if allowed_databases is not None:
-            pulumi.set(__self__, "allowed_databases", allowed_databases)
+            _setter("allowed_databases", allowed_databases)
         if allowed_integration_types is not None:
-            pulumi.set(__self__, "allowed_integration_types", allowed_integration_types)
+            _setter("allowed_integration_types", allowed_integration_types)
         if allowed_shares is not None:
-            pulumi.set(__self__, "allowed_shares", allowed_shares)
+            _setter("allowed_shares", allowed_shares)
         if from_replica is not None:
-            pulumi.set(__self__, "from_replica", from_replica)
+            _setter("from_replica", from_replica)
         if ignore_edition_check is not None:
-            pulumi.set(__self__, "ignore_edition_check", ignore_edition_check)
+            _setter("ignore_edition_check", ignore_edition_check)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if object_types is not None:
-            pulumi.set(__self__, "object_types", object_types)
+            _setter("object_types", object_types)
         if replication_schedule is not None:
-            pulumi.set(__self__, "replication_schedule", replication_schedule)
+            _setter("replication_schedule", replication_schedule)
 
     @property
     @pulumi.getter(name="allowedAccounts")
@@ -284,7 +334,7 @@ class _FailoverGroupState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
+        Identifier for the primary failover group in the source account.
         """
         return pulumi.get(self, "name")
 
@@ -382,7 +432,7 @@ class FailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_shares: Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
         :param pulumi.Input[pulumi.InputType['FailoverGroupFromReplicaArgs']] from_replica: Specifies the name of the replica to use as the source for the failover group.
         :param pulumi.Input[bool] ignore_edition_check: Allows replicating objects to accounts on lower editions.
-        :param pulumi.Input[str] name: Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
+        :param pulumi.Input[str] name: Identifier for the primary failover group in the source account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] object_types: Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
         :param pulumi.Input[pulumi.InputType['FailoverGroupReplicationScheduleArgs']] replication_schedule: Specifies the schedule for refreshing secondary failover groups.
         """
@@ -444,6 +494,10 @@ class FailoverGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FailoverGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -471,10 +525,20 @@ class FailoverGroup(pulumi.CustomResource):
             __props__.__dict__["allowed_databases"] = allowed_databases
             __props__.__dict__["allowed_integration_types"] = allowed_integration_types
             __props__.__dict__["allowed_shares"] = allowed_shares
+            if from_replica is not None and not isinstance(from_replica, FailoverGroupFromReplicaArgs):
+                from_replica = from_replica or {}
+                def _setter(key, value):
+                    from_replica[key] = value
+                FailoverGroupFromReplicaArgs._configure(_setter, **from_replica)
             __props__.__dict__["from_replica"] = from_replica
             __props__.__dict__["ignore_edition_check"] = ignore_edition_check
             __props__.__dict__["name"] = name
             __props__.__dict__["object_types"] = object_types
+            if replication_schedule is not None and not isinstance(replication_schedule, FailoverGroupReplicationScheduleArgs):
+                replication_schedule = replication_schedule or {}
+                def _setter(key, value):
+                    replication_schedule[key] = value
+                FailoverGroupReplicationScheduleArgs._configure(_setter, **replication_schedule)
             __props__.__dict__["replication_schedule"] = replication_schedule
         super(FailoverGroup, __self__).__init__(
             'snowflake:index/failoverGroup:FailoverGroup',
@@ -508,7 +572,7 @@ class FailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_shares: Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
         :param pulumi.Input[pulumi.InputType['FailoverGroupFromReplicaArgs']] from_replica: Specifies the name of the replica to use as the source for the failover group.
         :param pulumi.Input[bool] ignore_edition_check: Allows replicating objects to accounts on lower editions.
-        :param pulumi.Input[str] name: Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
+        :param pulumi.Input[str] name: Identifier for the primary failover group in the source account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] object_types: Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
         :param pulumi.Input[pulumi.InputType['FailoverGroupReplicationScheduleArgs']] replication_schedule: Specifies the schedule for refreshing secondary failover groups.
         """
@@ -579,7 +643,7 @@ class FailoverGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
+        Identifier for the primary failover group in the source account.
         """
         return pulumi.get(self, "name")
 

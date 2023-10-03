@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,46 +33,81 @@ class ExternalTableArgs:
         """
         The set of arguments for constructing a ExternalTable resource.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalTableColumnArgs']]] columns: Definitions of a column to create in the external table. Minimum one required.
-        :param pulumi.Input[str] database: The database in which to create the external table.
+        :param pulumi.Input[str] database: Name of the database that the tag was created in.
         :param pulumi.Input[str] file_format: Specifies the file format for the external table.
         :param pulumi.Input[str] location: Specifies a location for the external table.
-        :param pulumi.Input[str] schema: The schema in which to create the external table.
+        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
         :param pulumi.Input[bool] auto_refresh: Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
         :param pulumi.Input[str] aws_sns_topic: Specifies the aws sns topic for the external table.
         :param pulumi.Input[str] comment: Specifies a comment for the external table.
         :param pulumi.Input[bool] copy_grants: Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
-        :param pulumi.Input[str] name: Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
+        :param pulumi.Input[str] name: Column name
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_bies: Specifies any partition columns to evaluate for the external table.
         :param pulumi.Input[str] pattern: Specifies the file names and/or paths on the external stage to match.
         :param pulumi.Input[bool] refresh_on_create: Specifies weather to refresh when an external table is created.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
-        pulumi.set(__self__, "columns", columns)
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "file_format", file_format)
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "schema", schema)
+        ExternalTableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+            database=database,
+            file_format=file_format,
+            location=location,
+            schema=schema,
+            auto_refresh=auto_refresh,
+            aws_sns_topic=aws_sns_topic,
+            comment=comment,
+            copy_grants=copy_grants,
+            name=name,
+            partition_bies=partition_bies,
+            pattern=pattern,
+            refresh_on_create=refresh_on_create,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: pulumi.Input[Sequence[pulumi.Input['ExternalTableColumnArgs']]],
+             database: pulumi.Input[str],
+             file_format: pulumi.Input[str],
+             location: pulumi.Input[str],
+             schema: pulumi.Input[str],
+             auto_refresh: Optional[pulumi.Input[bool]] = None,
+             aws_sns_topic: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             copy_grants: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             partition_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             pattern: Optional[pulumi.Input[str]] = None,
+             refresh_on_create: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("columns", columns)
+        _setter("database", database)
+        _setter("file_format", file_format)
+        _setter("location", location)
+        _setter("schema", schema)
         if auto_refresh is not None:
-            pulumi.set(__self__, "auto_refresh", auto_refresh)
+            _setter("auto_refresh", auto_refresh)
         if aws_sns_topic is not None:
-            pulumi.set(__self__, "aws_sns_topic", aws_sns_topic)
+            _setter("aws_sns_topic", aws_sns_topic)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if copy_grants is not None:
-            pulumi.set(__self__, "copy_grants", copy_grants)
+            _setter("copy_grants", copy_grants)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if partition_bies is not None:
-            pulumi.set(__self__, "partition_bies", partition_bies)
+            _setter("partition_bies", partition_bies)
         if pattern is not None:
-            pulumi.set(__self__, "pattern", pattern)
+            _setter("pattern", pattern)
         if refresh_on_create is not None:
-            pulumi.set(__self__, "refresh_on_create", refresh_on_create)
+            _setter("refresh_on_create", refresh_on_create)
         if tags is not None:
             warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
             pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -90,7 +125,7 @@ class ExternalTableArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        The database in which to create the external table.
+        Name of the database that the tag was created in.
         """
         return pulumi.get(self, "database")
 
@@ -126,7 +161,7 @@ class ExternalTableArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input[str]:
         """
-        The schema in which to create the external table.
+        Name of the schema that the tag was created in.
         """
         return pulumi.get(self, "schema")
 
@@ -186,7 +221,7 @@ class ExternalTableArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
+        Column name
         """
         return pulumi.get(self, "name")
 
@@ -271,50 +306,87 @@ class _ExternalTableState:
         :param pulumi.Input[Sequence[pulumi.Input['ExternalTableColumnArgs']]] columns: Definitions of a column to create in the external table. Minimum one required.
         :param pulumi.Input[str] comment: Specifies a comment for the external table.
         :param pulumi.Input[bool] copy_grants: Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
-        :param pulumi.Input[str] database: The database in which to create the external table.
+        :param pulumi.Input[str] database: Name of the database that the tag was created in.
         :param pulumi.Input[str] file_format: Specifies the file format for the external table.
         :param pulumi.Input[str] location: Specifies a location for the external table.
-        :param pulumi.Input[str] name: Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
+        :param pulumi.Input[str] name: Column name
         :param pulumi.Input[str] owner: Name of the role that owns the external table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_bies: Specifies any partition columns to evaluate for the external table.
         :param pulumi.Input[str] pattern: Specifies the file names and/or paths on the external stage to match.
         :param pulumi.Input[bool] refresh_on_create: Specifies weather to refresh when an external table is created.
-        :param pulumi.Input[str] schema: The schema in which to create the external table.
+        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
+        _ExternalTableState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_refresh=auto_refresh,
+            aws_sns_topic=aws_sns_topic,
+            columns=columns,
+            comment=comment,
+            copy_grants=copy_grants,
+            database=database,
+            file_format=file_format,
+            location=location,
+            name=name,
+            owner=owner,
+            partition_bies=partition_bies,
+            pattern=pattern,
+            refresh_on_create=refresh_on_create,
+            schema=schema,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_refresh: Optional[pulumi.Input[bool]] = None,
+             aws_sns_topic: Optional[pulumi.Input[str]] = None,
+             columns: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableColumnArgs']]]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             copy_grants: Optional[pulumi.Input[bool]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             file_format: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             partition_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             pattern: Optional[pulumi.Input[str]] = None,
+             refresh_on_create: Optional[pulumi.Input[bool]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_refresh is not None:
-            pulumi.set(__self__, "auto_refresh", auto_refresh)
+            _setter("auto_refresh", auto_refresh)
         if aws_sns_topic is not None:
-            pulumi.set(__self__, "aws_sns_topic", aws_sns_topic)
+            _setter("aws_sns_topic", aws_sns_topic)
         if columns is not None:
-            pulumi.set(__self__, "columns", columns)
+            _setter("columns", columns)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if copy_grants is not None:
-            pulumi.set(__self__, "copy_grants", copy_grants)
+            _setter("copy_grants", copy_grants)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if file_format is not None:
-            pulumi.set(__self__, "file_format", file_format)
+            _setter("file_format", file_format)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if partition_bies is not None:
-            pulumi.set(__self__, "partition_bies", partition_bies)
+            _setter("partition_bies", partition_bies)
         if pattern is not None:
-            pulumi.set(__self__, "pattern", pattern)
+            _setter("pattern", pattern)
         if refresh_on_create is not None:
-            pulumi.set(__self__, "refresh_on_create", refresh_on_create)
+            _setter("refresh_on_create", refresh_on_create)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if tags is not None:
             warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
             pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="autoRefresh")
@@ -380,7 +452,7 @@ class _ExternalTableState:
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
         """
-        The database in which to create the external table.
+        Name of the database that the tag was created in.
         """
         return pulumi.get(self, "database")
 
@@ -416,7 +488,7 @@ class _ExternalTableState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
+        Column name
         """
         return pulumi.get(self, "name")
 
@@ -476,7 +548,7 @@ class _ExternalTableState:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
         """
-        The schema in which to create the external table.
+        Name of the schema that the tag was created in.
         """
         return pulumi.get(self, "schema")
 
@@ -559,14 +631,14 @@ class ExternalTable(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalTableColumnArgs']]]] columns: Definitions of a column to create in the external table. Minimum one required.
         :param pulumi.Input[str] comment: Specifies a comment for the external table.
         :param pulumi.Input[bool] copy_grants: Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
-        :param pulumi.Input[str] database: The database in which to create the external table.
+        :param pulumi.Input[str] database: Name of the database that the tag was created in.
         :param pulumi.Input[str] file_format: Specifies the file format for the external table.
         :param pulumi.Input[str] location: Specifies a location for the external table.
-        :param pulumi.Input[str] name: Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
+        :param pulumi.Input[str] name: Column name
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_bies: Specifies any partition columns to evaluate for the external table.
         :param pulumi.Input[str] pattern: Specifies the file names and/or paths on the external stage to match.
         :param pulumi.Input[bool] refresh_on_create: Specifies weather to refresh when an external table is created.
-        :param pulumi.Input[str] schema: The schema in which to create the external table.
+        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalTableTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         ...
@@ -617,6 +689,10 @@ class ExternalTable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExternalTableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -668,9 +744,6 @@ class ExternalTable(pulumi.CustomResource):
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
-            if tags is not None and not opts.urn:
-                warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
-                pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
             __props__.__dict__["tags"] = tags
             __props__.__dict__["owner"] = None
         super(ExternalTable, __self__).__init__(
@@ -710,15 +783,15 @@ class ExternalTable(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalTableColumnArgs']]]] columns: Definitions of a column to create in the external table. Minimum one required.
         :param pulumi.Input[str] comment: Specifies a comment for the external table.
         :param pulumi.Input[bool] copy_grants: Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
-        :param pulumi.Input[str] database: The database in which to create the external table.
+        :param pulumi.Input[str] database: Name of the database that the tag was created in.
         :param pulumi.Input[str] file_format: Specifies the file format for the external table.
         :param pulumi.Input[str] location: Specifies a location for the external table.
-        :param pulumi.Input[str] name: Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
+        :param pulumi.Input[str] name: Column name
         :param pulumi.Input[str] owner: Name of the role that owns the external table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_bies: Specifies any partition columns to evaluate for the external table.
         :param pulumi.Input[str] pattern: Specifies the file names and/or paths on the external stage to match.
         :param pulumi.Input[bool] refresh_on_create: Specifies weather to refresh when an external table is created.
-        :param pulumi.Input[str] schema: The schema in which to create the external table.
+        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalTableTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -786,7 +859,7 @@ class ExternalTable(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[str]:
         """
-        The database in which to create the external table.
+        Name of the database that the tag was created in.
         """
         return pulumi.get(self, "database")
 
@@ -810,7 +883,7 @@ class ExternalTable(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
+        Column name
         """
         return pulumi.get(self, "name")
 
@@ -850,7 +923,7 @@ class ExternalTable(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[str]:
         """
-        The schema in which to create the external table.
+        Name of the schema that the tag was created in.
         """
         return pulumi.get(self, "schema")
 

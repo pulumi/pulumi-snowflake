@@ -64,14 +64,14 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The database in which to create the view. Don&#39;t use the | character.
+     * Name of the database that the tag was created in.
      * 
      */
     @Import(name="database")
     private @Nullable Output<String> database;
 
     /**
-     * @return The database in which to create the view. Don&#39;t use the | character.
+     * @return Name of the database that the tag was created in.
      * 
      */
     public Optional<Output<String>> database() {
@@ -94,14 +94,14 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Don&#39;t use the | character.
+     * Tag name, e.g. department.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the view; must be unique for the schema in which the view is created. Don&#39;t use the | character.
+     * @return Tag name, e.g. department.
      * 
      */
     public Optional<Output<String>> name() {
@@ -124,14 +124,14 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schema in which to create the view. Don&#39;t use the | character.
+     * Name of the schema that the tag was created in.
      * 
      */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
     /**
-     * @return The schema in which to create the view. Don&#39;t use the | character.
+     * @return Name of the schema that the tag was created in.
      * 
      */
     public Optional<Output<String>> schema() {
@@ -273,7 +273,7 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the view. Don&#39;t use the | character.
+         * @param database Name of the database that the tag was created in.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the view. Don&#39;t use the | character.
+         * @param database Name of the database that the tag was created in.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the view; must be unique for the schema in which the view is created. Don&#39;t use the | character.
+         * @param name Tag name, e.g. department.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the view; must be unique for the schema in which the view is created. Don&#39;t use the | character.
+         * @param name Tag name, e.g. department.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the view. Don&#39;t use the | character.
+         * @param schema Name of the schema that the tag was created in.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the view. Don&#39;t use the | character.
+         * @param schema Name of the schema that the tag was created in.
          * 
          * @return builder
          * 

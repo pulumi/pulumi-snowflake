@@ -84,7 +84,7 @@ type ExternalFunction struct {
 	Headers ExternalFunctionHeaderArrayOutput `pulumi:"headers"`
 	// This specifies the maximum number of rows in each batch sent to the proxy service.
 	MaxBatchRows pulumi.IntPtrOutput `pulumi:"maxBatchRows"`
-	// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+	// Argument name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the behavior of the external function when called with null inputs.
 	NullInputBehavior pulumi.StringPtrOutput `pulumi:"nullInputBehavior"`
@@ -170,7 +170,7 @@ type externalFunctionState struct {
 	Headers []ExternalFunctionHeader `pulumi:"headers"`
 	// This specifies the maximum number of rows in each batch sent to the proxy service.
 	MaxBatchRows *int `pulumi:"maxBatchRows"`
-	// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+	// Argument name
 	Name *string `pulumi:"name"`
 	// Specifies the behavior of the external function when called with null inputs.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
@@ -209,7 +209,7 @@ type ExternalFunctionState struct {
 	Headers ExternalFunctionHeaderArrayInput
 	// This specifies the maximum number of rows in each batch sent to the proxy service.
 	MaxBatchRows pulumi.IntPtrInput
-	// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+	// Argument name
 	Name pulumi.StringPtrInput
 	// Specifies the behavior of the external function when called with null inputs.
 	NullInputBehavior pulumi.StringPtrInput
@@ -250,7 +250,7 @@ type externalFunctionArgs struct {
 	Headers []ExternalFunctionHeader `pulumi:"headers"`
 	// This specifies the maximum number of rows in each batch sent to the proxy service.
 	MaxBatchRows *int `pulumi:"maxBatchRows"`
-	// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+	// Argument name
 	Name *string `pulumi:"name"`
 	// Specifies the behavior of the external function when called with null inputs.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
@@ -288,7 +288,7 @@ type ExternalFunctionArgs struct {
 	Headers ExternalFunctionHeaderArrayInput
 	// This specifies the maximum number of rows in each batch sent to the proxy service.
 	MaxBatchRows pulumi.IntPtrInput
-	// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+	// Argument name
 	Name pulumi.StringPtrInput
 	// Specifies the behavior of the external function when called with null inputs.
 	NullInputBehavior pulumi.StringPtrInput
@@ -464,7 +464,7 @@ func (o ExternalFunctionOutput) MaxBatchRows() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ExternalFunction) pulumi.IntPtrOutput { return v.MaxBatchRows }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+// Argument name
 func (o ExternalFunctionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalFunction) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

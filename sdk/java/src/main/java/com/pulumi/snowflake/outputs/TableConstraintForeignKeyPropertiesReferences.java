@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class TableConstraintForeignKeyPropertiesReferences {
     /**
-     * @return Columns to use in constraint key
+     * @return Columns to use in foreign key reference
      * 
      */
     private List<String> columns;
     /**
-     * @return Idenfifier for table to create constraint on. Must be of the form Note: format must follow: &#34;\n\n&#34;.&#34;\n\n&#34;.&#34;\n\n&#34; or &#34;\n\n.\n\n.\n\n&#34; or &#34;\n\n|\n\n.\n\n&#34; (snowflake*table.my*table.id)
+     * @return Name of constraint
      * 
      */
     private String tableId;
 
     private TableConstraintForeignKeyPropertiesReferences() {}
     /**
-     * @return Columns to use in constraint key
+     * @return Columns to use in foreign key reference
      * 
      */
     public List<String> columns() {
         return this.columns;
     }
     /**
-     * @return Idenfifier for table to create constraint on. Must be of the form Note: format must follow: &#34;\n\n&#34;.&#34;\n\n&#34;.&#34;\n\n&#34; or &#34;\n\n.\n\n.\n\n&#34; or &#34;\n\n|\n\n.\n\n&#34; (snowflake*table.my*table.id)
+     * @return Name of constraint
      * 
      */
     public String tableId() {

@@ -13,8 +13,17 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class TableColumnDefault
     {
+        /// <summary>
+        /// The default constant value for the column
+        /// </summary>
         public readonly string? Constant;
+        /// <summary>
+        /// The default expression value for the column
+        /// </summary>
         public readonly string? Expression;
+        /// <summary>
+        /// The default sequence to use for the column
+        /// </summary>
         public readonly string? Sequence;
 
         [OutputConstructor]

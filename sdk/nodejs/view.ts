@@ -72,7 +72,7 @@ export class View extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdOn!: pulumi.Output<string>;
     /**
-     * The database in which to create the view. Don't use the | character.
+     * Name of the database that the tag was created in.
      */
     public readonly database!: pulumi.Output<string>;
     /**
@@ -80,7 +80,7 @@ export class View extends pulumi.CustomResource {
      */
     public readonly isSecure!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+     * Tag name, e.g. department.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -88,7 +88,7 @@ export class View extends pulumi.CustomResource {
      */
     public readonly orReplace!: pulumi.Output<boolean | undefined>;
     /**
-     * The schema in which to create the view. Don't use the | character.
+     * Name of the schema that the tag was created in.
      */
     public readonly schema!: pulumi.Output<string>;
     /**
@@ -169,7 +169,7 @@ export interface ViewState {
      */
     createdOn?: pulumi.Input<string>;
     /**
-     * The database in which to create the view. Don't use the | character.
+     * Name of the database that the tag was created in.
      */
     database?: pulumi.Input<string>;
     /**
@@ -177,7 +177,7 @@ export interface ViewState {
      */
     isSecure?: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+     * Tag name, e.g. department.
      */
     name?: pulumi.Input<string>;
     /**
@@ -185,7 +185,7 @@ export interface ViewState {
      */
     orReplace?: pulumi.Input<boolean>;
     /**
-     * The schema in which to create the view. Don't use the | character.
+     * Name of the schema that the tag was created in.
      */
     schema?: pulumi.Input<string>;
     /**
@@ -213,7 +213,7 @@ export interface ViewArgs {
      */
     copyGrants?: pulumi.Input<boolean>;
     /**
-     * The database in which to create the view. Don't use the | character.
+     * Name of the database that the tag was created in.
      */
     database: pulumi.Input<string>;
     /**
@@ -221,7 +221,7 @@ export interface ViewArgs {
      */
     isSecure?: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+     * Tag name, e.g. department.
      */
     name?: pulumi.Input<string>;
     /**
@@ -229,7 +229,7 @@ export interface ViewArgs {
      */
     orReplace?: pulumi.Input<boolean>;
     /**
-     * The schema in which to create the view. Don't use the | character.
+     * Name of the schema that the tag was created in.
      */
     schema: pulumi.Input<string>;
     /**

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['AccountArgs', 'Account']
@@ -41,27 +41,58 @@ class AccountArgs:
         :param pulumi.Input[str] region: ID of the Snowflake Region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
         :param pulumi.Input[str] region_group: ID of the Snowflake Region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
         """
-        pulumi.set(__self__, "admin_name", admin_name)
-        pulumi.set(__self__, "edition", edition)
-        pulumi.set(__self__, "email", email)
+        AccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_name=admin_name,
+            edition=edition,
+            email=email,
+            admin_password=admin_password,
+            admin_rsa_public_key=admin_rsa_public_key,
+            comment=comment,
+            first_name=first_name,
+            last_name=last_name,
+            must_change_password=must_change_password,
+            name=name,
+            region=region,
+            region_group=region_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_name: pulumi.Input[str],
+             edition: pulumi.Input[str],
+             email: pulumi.Input[str],
+             admin_password: Optional[pulumi.Input[str]] = None,
+             admin_rsa_public_key: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             first_name: Optional[pulumi.Input[str]] = None,
+             last_name: Optional[pulumi.Input[str]] = None,
+             must_change_password: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             region_group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("admin_name", admin_name)
+        _setter("edition", edition)
+        _setter("email", email)
         if admin_password is not None:
-            pulumi.set(__self__, "admin_password", admin_password)
+            _setter("admin_password", admin_password)
         if admin_rsa_public_key is not None:
-            pulumi.set(__self__, "admin_rsa_public_key", admin_rsa_public_key)
+            _setter("admin_rsa_public_key", admin_rsa_public_key)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
+            _setter("first_name", first_name)
         if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
+            _setter("last_name", last_name)
         if must_change_password is not None:
-            pulumi.set(__self__, "must_change_password", must_change_password)
+            _setter("must_change_password", must_change_password)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if region_group is not None:
-            pulumi.set(__self__, "region_group", region_group)
+            _setter("region_group", region_group)
 
     @property
     @pulumi.getter(name="adminName")
@@ -240,32 +271,65 @@ class _AccountState:
         :param pulumi.Input[str] region: ID of the Snowflake Region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
         :param pulumi.Input[str] region_group: ID of the Snowflake Region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
         """
+        _AccountState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_name=admin_name,
+            admin_password=admin_password,
+            admin_rsa_public_key=admin_rsa_public_key,
+            comment=comment,
+            edition=edition,
+            email=email,
+            first_name=first_name,
+            is_org_admin=is_org_admin,
+            last_name=last_name,
+            must_change_password=must_change_password,
+            name=name,
+            region=region,
+            region_group=region_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_name: Optional[pulumi.Input[str]] = None,
+             admin_password: Optional[pulumi.Input[str]] = None,
+             admin_rsa_public_key: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             edition: Optional[pulumi.Input[str]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             first_name: Optional[pulumi.Input[str]] = None,
+             is_org_admin: Optional[pulumi.Input[bool]] = None,
+             last_name: Optional[pulumi.Input[str]] = None,
+             must_change_password: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             region_group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if admin_name is not None:
-            pulumi.set(__self__, "admin_name", admin_name)
+            _setter("admin_name", admin_name)
         if admin_password is not None:
-            pulumi.set(__self__, "admin_password", admin_password)
+            _setter("admin_password", admin_password)
         if admin_rsa_public_key is not None:
-            pulumi.set(__self__, "admin_rsa_public_key", admin_rsa_public_key)
+            _setter("admin_rsa_public_key", admin_rsa_public_key)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if edition is not None:
-            pulumi.set(__self__, "edition", edition)
+            _setter("edition", edition)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
+            _setter("first_name", first_name)
         if is_org_admin is not None:
-            pulumi.set(__self__, "is_org_admin", is_org_admin)
+            _setter("is_org_admin", is_org_admin)
         if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
+            _setter("last_name", last_name)
         if must_change_password is not None:
-            pulumi.set(__self__, "must_change_password", must_change_password)
+            _setter("must_change_password", must_change_password)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if region_group is not None:
-            pulumi.set(__self__, "region_group", region_group)
+            _setter("region_group", region_group)
 
     @property
     @pulumi.getter(name="adminName")
@@ -539,6 +603,10 @@ class Account(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

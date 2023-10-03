@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
     'GetCurrentAccountResult',
     'AwaitableGetCurrentAccountResult',
     'get_current_account',
+    'get_current_account_output',
 ]
 
 @pulumi.output_type
@@ -103,3 +104,22 @@ def get_current_account(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         url=pulumi.get(__ret__, 'url'))
+
+
+@_utilities.lift_output_func(get_current_account)
+def get_current_account_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCurrentAccountResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_snowflake as snowflake
+
+    this = snowflake.get_current_account()
+    snowflake_account_url = aws.ssm.Parameter("snowflakeAccountUrl",
+        type="String",
+        value=this.url)
+    ```
+    """
+    ...

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['FileFormatArgs', 'FileFormat']
@@ -87,73 +87,150 @@ class FileFormatArgs:
         :param pulumi.Input[str] timestamp_format: Defines the format of timestamp values in the data files (data loading) or table (data unloading).
         :param pulumi.Input[bool] trim_space: Boolean that specifies whether to remove white space from fields.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "format_type", format_type)
-        pulumi.set(__self__, "schema", schema)
+        FileFormatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            format_type=format_type,
+            schema=schema,
+            allow_duplicate=allow_duplicate,
+            binary_as_text=binary_as_text,
+            binary_format=binary_format,
+            comment=comment,
+            compression=compression,
+            date_format=date_format,
+            disable_auto_convert=disable_auto_convert,
+            disable_snowflake_data=disable_snowflake_data,
+            empty_field_as_null=empty_field_as_null,
+            enable_octal=enable_octal,
+            encoding=encoding,
+            error_on_column_count_mismatch=error_on_column_count_mismatch,
+            escape=escape,
+            escape_unenclosed_field=escape_unenclosed_field,
+            field_delimiter=field_delimiter,
+            field_optionally_enclosed_by=field_optionally_enclosed_by,
+            file_extension=file_extension,
+            ignore_utf8_errors=ignore_utf8_errors,
+            name=name,
+            null_ifs=null_ifs,
+            preserve_space=preserve_space,
+            record_delimiter=record_delimiter,
+            replace_invalid_characters=replace_invalid_characters,
+            skip_blank_lines=skip_blank_lines,
+            skip_byte_order_mark=skip_byte_order_mark,
+            skip_header=skip_header,
+            strip_null_values=strip_null_values,
+            strip_outer_array=strip_outer_array,
+            strip_outer_element=strip_outer_element,
+            time_format=time_format,
+            timestamp_format=timestamp_format,
+            trim_space=trim_space,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: pulumi.Input[str],
+             format_type: pulumi.Input[str],
+             schema: pulumi.Input[str],
+             allow_duplicate: Optional[pulumi.Input[bool]] = None,
+             binary_as_text: Optional[pulumi.Input[bool]] = None,
+             binary_format: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             compression: Optional[pulumi.Input[str]] = None,
+             date_format: Optional[pulumi.Input[str]] = None,
+             disable_auto_convert: Optional[pulumi.Input[bool]] = None,
+             disable_snowflake_data: Optional[pulumi.Input[bool]] = None,
+             empty_field_as_null: Optional[pulumi.Input[bool]] = None,
+             enable_octal: Optional[pulumi.Input[bool]] = None,
+             encoding: Optional[pulumi.Input[str]] = None,
+             error_on_column_count_mismatch: Optional[pulumi.Input[bool]] = None,
+             escape: Optional[pulumi.Input[str]] = None,
+             escape_unenclosed_field: Optional[pulumi.Input[str]] = None,
+             field_delimiter: Optional[pulumi.Input[str]] = None,
+             field_optionally_enclosed_by: Optional[pulumi.Input[str]] = None,
+             file_extension: Optional[pulumi.Input[str]] = None,
+             ignore_utf8_errors: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             null_ifs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             preserve_space: Optional[pulumi.Input[bool]] = None,
+             record_delimiter: Optional[pulumi.Input[str]] = None,
+             replace_invalid_characters: Optional[pulumi.Input[bool]] = None,
+             skip_blank_lines: Optional[pulumi.Input[bool]] = None,
+             skip_byte_order_mark: Optional[pulumi.Input[bool]] = None,
+             skip_header: Optional[pulumi.Input[int]] = None,
+             strip_null_values: Optional[pulumi.Input[bool]] = None,
+             strip_outer_array: Optional[pulumi.Input[bool]] = None,
+             strip_outer_element: Optional[pulumi.Input[bool]] = None,
+             time_format: Optional[pulumi.Input[str]] = None,
+             timestamp_format: Optional[pulumi.Input[str]] = None,
+             trim_space: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database", database)
+        _setter("format_type", format_type)
+        _setter("schema", schema)
         if allow_duplicate is not None:
-            pulumi.set(__self__, "allow_duplicate", allow_duplicate)
+            _setter("allow_duplicate", allow_duplicate)
         if binary_as_text is not None:
-            pulumi.set(__self__, "binary_as_text", binary_as_text)
+            _setter("binary_as_text", binary_as_text)
         if binary_format is not None:
-            pulumi.set(__self__, "binary_format", binary_format)
+            _setter("binary_format", binary_format)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if compression is not None:
-            pulumi.set(__self__, "compression", compression)
+            _setter("compression", compression)
         if date_format is not None:
-            pulumi.set(__self__, "date_format", date_format)
+            _setter("date_format", date_format)
         if disable_auto_convert is not None:
-            pulumi.set(__self__, "disable_auto_convert", disable_auto_convert)
+            _setter("disable_auto_convert", disable_auto_convert)
         if disable_snowflake_data is not None:
-            pulumi.set(__self__, "disable_snowflake_data", disable_snowflake_data)
+            _setter("disable_snowflake_data", disable_snowflake_data)
         if empty_field_as_null is not None:
-            pulumi.set(__self__, "empty_field_as_null", empty_field_as_null)
+            _setter("empty_field_as_null", empty_field_as_null)
         if enable_octal is not None:
-            pulumi.set(__self__, "enable_octal", enable_octal)
+            _setter("enable_octal", enable_octal)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if error_on_column_count_mismatch is not None:
-            pulumi.set(__self__, "error_on_column_count_mismatch", error_on_column_count_mismatch)
+            _setter("error_on_column_count_mismatch", error_on_column_count_mismatch)
         if escape is not None:
-            pulumi.set(__self__, "escape", escape)
+            _setter("escape", escape)
         if escape_unenclosed_field is not None:
-            pulumi.set(__self__, "escape_unenclosed_field", escape_unenclosed_field)
+            _setter("escape_unenclosed_field", escape_unenclosed_field)
         if field_delimiter is not None:
-            pulumi.set(__self__, "field_delimiter", field_delimiter)
+            _setter("field_delimiter", field_delimiter)
         if field_optionally_enclosed_by is not None:
-            pulumi.set(__self__, "field_optionally_enclosed_by", field_optionally_enclosed_by)
+            _setter("field_optionally_enclosed_by", field_optionally_enclosed_by)
         if file_extension is not None:
-            pulumi.set(__self__, "file_extension", file_extension)
+            _setter("file_extension", file_extension)
         if ignore_utf8_errors is not None:
-            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+            _setter("ignore_utf8_errors", ignore_utf8_errors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if null_ifs is not None:
-            pulumi.set(__self__, "null_ifs", null_ifs)
+            _setter("null_ifs", null_ifs)
         if preserve_space is not None:
-            pulumi.set(__self__, "preserve_space", preserve_space)
+            _setter("preserve_space", preserve_space)
         if record_delimiter is not None:
-            pulumi.set(__self__, "record_delimiter", record_delimiter)
+            _setter("record_delimiter", record_delimiter)
         if replace_invalid_characters is not None:
-            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+            _setter("replace_invalid_characters", replace_invalid_characters)
         if skip_blank_lines is not None:
-            pulumi.set(__self__, "skip_blank_lines", skip_blank_lines)
+            _setter("skip_blank_lines", skip_blank_lines)
         if skip_byte_order_mark is not None:
-            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+            _setter("skip_byte_order_mark", skip_byte_order_mark)
         if skip_header is not None:
-            pulumi.set(__self__, "skip_header", skip_header)
+            _setter("skip_header", skip_header)
         if strip_null_values is not None:
-            pulumi.set(__self__, "strip_null_values", strip_null_values)
+            _setter("strip_null_values", strip_null_values)
         if strip_outer_array is not None:
-            pulumi.set(__self__, "strip_outer_array", strip_outer_array)
+            _setter("strip_outer_array", strip_outer_array)
         if strip_outer_element is not None:
-            pulumi.set(__self__, "strip_outer_element", strip_outer_element)
+            _setter("strip_outer_element", strip_outer_element)
         if time_format is not None:
-            pulumi.set(__self__, "time_format", time_format)
+            _setter("time_format", time_format)
         if timestamp_format is not None:
-            pulumi.set(__self__, "timestamp_format", timestamp_format)
+            _setter("timestamp_format", timestamp_format)
         if trim_space is not None:
-            pulumi.set(__self__, "trim_space", trim_space)
+            _setter("trim_space", trim_space)
 
     @property
     @pulumi.getter
@@ -652,76 +729,153 @@ class _FileFormatState:
         :param pulumi.Input[str] timestamp_format: Defines the format of timestamp values in the data files (data loading) or table (data unloading).
         :param pulumi.Input[bool] trim_space: Boolean that specifies whether to remove white space from fields.
         """
+        _FileFormatState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_duplicate=allow_duplicate,
+            binary_as_text=binary_as_text,
+            binary_format=binary_format,
+            comment=comment,
+            compression=compression,
+            database=database,
+            date_format=date_format,
+            disable_auto_convert=disable_auto_convert,
+            disable_snowflake_data=disable_snowflake_data,
+            empty_field_as_null=empty_field_as_null,
+            enable_octal=enable_octal,
+            encoding=encoding,
+            error_on_column_count_mismatch=error_on_column_count_mismatch,
+            escape=escape,
+            escape_unenclosed_field=escape_unenclosed_field,
+            field_delimiter=field_delimiter,
+            field_optionally_enclosed_by=field_optionally_enclosed_by,
+            file_extension=file_extension,
+            format_type=format_type,
+            ignore_utf8_errors=ignore_utf8_errors,
+            name=name,
+            null_ifs=null_ifs,
+            preserve_space=preserve_space,
+            record_delimiter=record_delimiter,
+            replace_invalid_characters=replace_invalid_characters,
+            schema=schema,
+            skip_blank_lines=skip_blank_lines,
+            skip_byte_order_mark=skip_byte_order_mark,
+            skip_header=skip_header,
+            strip_null_values=strip_null_values,
+            strip_outer_array=strip_outer_array,
+            strip_outer_element=strip_outer_element,
+            time_format=time_format,
+            timestamp_format=timestamp_format,
+            trim_space=trim_space,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_duplicate: Optional[pulumi.Input[bool]] = None,
+             binary_as_text: Optional[pulumi.Input[bool]] = None,
+             binary_format: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             compression: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             date_format: Optional[pulumi.Input[str]] = None,
+             disable_auto_convert: Optional[pulumi.Input[bool]] = None,
+             disable_snowflake_data: Optional[pulumi.Input[bool]] = None,
+             empty_field_as_null: Optional[pulumi.Input[bool]] = None,
+             enable_octal: Optional[pulumi.Input[bool]] = None,
+             encoding: Optional[pulumi.Input[str]] = None,
+             error_on_column_count_mismatch: Optional[pulumi.Input[bool]] = None,
+             escape: Optional[pulumi.Input[str]] = None,
+             escape_unenclosed_field: Optional[pulumi.Input[str]] = None,
+             field_delimiter: Optional[pulumi.Input[str]] = None,
+             field_optionally_enclosed_by: Optional[pulumi.Input[str]] = None,
+             file_extension: Optional[pulumi.Input[str]] = None,
+             format_type: Optional[pulumi.Input[str]] = None,
+             ignore_utf8_errors: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             null_ifs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             preserve_space: Optional[pulumi.Input[bool]] = None,
+             record_delimiter: Optional[pulumi.Input[str]] = None,
+             replace_invalid_characters: Optional[pulumi.Input[bool]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             skip_blank_lines: Optional[pulumi.Input[bool]] = None,
+             skip_byte_order_mark: Optional[pulumi.Input[bool]] = None,
+             skip_header: Optional[pulumi.Input[int]] = None,
+             strip_null_values: Optional[pulumi.Input[bool]] = None,
+             strip_outer_array: Optional[pulumi.Input[bool]] = None,
+             strip_outer_element: Optional[pulumi.Input[bool]] = None,
+             time_format: Optional[pulumi.Input[str]] = None,
+             timestamp_format: Optional[pulumi.Input[str]] = None,
+             trim_space: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow_duplicate is not None:
-            pulumi.set(__self__, "allow_duplicate", allow_duplicate)
+            _setter("allow_duplicate", allow_duplicate)
         if binary_as_text is not None:
-            pulumi.set(__self__, "binary_as_text", binary_as_text)
+            _setter("binary_as_text", binary_as_text)
         if binary_format is not None:
-            pulumi.set(__self__, "binary_format", binary_format)
+            _setter("binary_format", binary_format)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if compression is not None:
-            pulumi.set(__self__, "compression", compression)
+            _setter("compression", compression)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if date_format is not None:
-            pulumi.set(__self__, "date_format", date_format)
+            _setter("date_format", date_format)
         if disable_auto_convert is not None:
-            pulumi.set(__self__, "disable_auto_convert", disable_auto_convert)
+            _setter("disable_auto_convert", disable_auto_convert)
         if disable_snowflake_data is not None:
-            pulumi.set(__self__, "disable_snowflake_data", disable_snowflake_data)
+            _setter("disable_snowflake_data", disable_snowflake_data)
         if empty_field_as_null is not None:
-            pulumi.set(__self__, "empty_field_as_null", empty_field_as_null)
+            _setter("empty_field_as_null", empty_field_as_null)
         if enable_octal is not None:
-            pulumi.set(__self__, "enable_octal", enable_octal)
+            _setter("enable_octal", enable_octal)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if error_on_column_count_mismatch is not None:
-            pulumi.set(__self__, "error_on_column_count_mismatch", error_on_column_count_mismatch)
+            _setter("error_on_column_count_mismatch", error_on_column_count_mismatch)
         if escape is not None:
-            pulumi.set(__self__, "escape", escape)
+            _setter("escape", escape)
         if escape_unenclosed_field is not None:
-            pulumi.set(__self__, "escape_unenclosed_field", escape_unenclosed_field)
+            _setter("escape_unenclosed_field", escape_unenclosed_field)
         if field_delimiter is not None:
-            pulumi.set(__self__, "field_delimiter", field_delimiter)
+            _setter("field_delimiter", field_delimiter)
         if field_optionally_enclosed_by is not None:
-            pulumi.set(__self__, "field_optionally_enclosed_by", field_optionally_enclosed_by)
+            _setter("field_optionally_enclosed_by", field_optionally_enclosed_by)
         if file_extension is not None:
-            pulumi.set(__self__, "file_extension", file_extension)
+            _setter("file_extension", file_extension)
         if format_type is not None:
-            pulumi.set(__self__, "format_type", format_type)
+            _setter("format_type", format_type)
         if ignore_utf8_errors is not None:
-            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+            _setter("ignore_utf8_errors", ignore_utf8_errors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if null_ifs is not None:
-            pulumi.set(__self__, "null_ifs", null_ifs)
+            _setter("null_ifs", null_ifs)
         if preserve_space is not None:
-            pulumi.set(__self__, "preserve_space", preserve_space)
+            _setter("preserve_space", preserve_space)
         if record_delimiter is not None:
-            pulumi.set(__self__, "record_delimiter", record_delimiter)
+            _setter("record_delimiter", record_delimiter)
         if replace_invalid_characters is not None:
-            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+            _setter("replace_invalid_characters", replace_invalid_characters)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if skip_blank_lines is not None:
-            pulumi.set(__self__, "skip_blank_lines", skip_blank_lines)
+            _setter("skip_blank_lines", skip_blank_lines)
         if skip_byte_order_mark is not None:
-            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+            _setter("skip_byte_order_mark", skip_byte_order_mark)
         if skip_header is not None:
-            pulumi.set(__self__, "skip_header", skip_header)
+            _setter("skip_header", skip_header)
         if strip_null_values is not None:
-            pulumi.set(__self__, "strip_null_values", strip_null_values)
+            _setter("strip_null_values", strip_null_values)
         if strip_outer_array is not None:
-            pulumi.set(__self__, "strip_outer_array", strip_outer_array)
+            _setter("strip_outer_array", strip_outer_array)
         if strip_outer_element is not None:
-            pulumi.set(__self__, "strip_outer_element", strip_outer_element)
+            _setter("strip_outer_element", strip_outer_element)
         if time_format is not None:
-            pulumi.set(__self__, "time_format", time_format)
+            _setter("time_format", time_format)
         if timestamp_format is not None:
-            pulumi.set(__self__, "timestamp_format", timestamp_format)
+            _setter("timestamp_format", timestamp_format)
         if trim_space is not None:
-            pulumi.set(__self__, "trim_space", trim_space)
+            _setter("trim_space", trim_space)
 
     @property
     @pulumi.getter(name="allowDuplicate")
@@ -1281,6 +1435,10 @@ class FileFormat(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FileFormatArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

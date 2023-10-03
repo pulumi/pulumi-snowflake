@@ -116,7 +116,7 @@ export class TableConstraint extends pulumi.CustomResource {
     }
 
     /**
-     * Columns to use in constraint key
+     * Columns to use in foreign key reference
      */
     public readonly columns!: pulumi.Output<string[]>;
     /**
@@ -152,7 +152,7 @@ export class TableConstraint extends pulumi.CustomResource {
      */
     public readonly rely!: pulumi.Output<boolean | undefined>;
     /**
-     * Idenfifier for table to create constraint on. Must be of the form Note: format must follow: "\n\n"."\n\n"."\n\n" or "\n\n.\n\n.\n\n" or "\n\n|\n\n.\n\n" (snowflake*table.my*table.id)
+     * Name of constraint
      */
     public readonly tableId!: pulumi.Output<string>;
     /**
@@ -223,7 +223,7 @@ export class TableConstraint extends pulumi.CustomResource {
  */
 export interface TableConstraintState {
     /**
-     * Columns to use in constraint key
+     * Columns to use in foreign key reference
      */
     columns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -259,7 +259,7 @@ export interface TableConstraintState {
      */
     rely?: pulumi.Input<boolean>;
     /**
-     * Idenfifier for table to create constraint on. Must be of the form Note: format must follow: "\n\n"."\n\n"."\n\n" or "\n\n.\n\n.\n\n" or "\n\n|\n\n.\n\n" (snowflake*table.my*table.id)
+     * Name of constraint
      */
     tableId?: pulumi.Input<string>;
     /**
@@ -277,7 +277,7 @@ export interface TableConstraintState {
  */
 export interface TableConstraintArgs {
     /**
-     * Columns to use in constraint key
+     * Columns to use in foreign key reference
      */
     columns: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -313,7 +313,7 @@ export interface TableConstraintArgs {
      */
     rely?: pulumi.Input<boolean>;
     /**
-     * Idenfifier for table to create constraint on. Must be of the form Note: format must follow: "\n\n"."\n\n"."\n\n" or "\n\n.\n\n.\n\n" or "\n\n|\n\n.\n\n" (snowflake*table.my*table.id)
+     * Name of constraint
      */
     tableId: pulumi.Input<string>;
     /**

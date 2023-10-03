@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TableColumnDefault {
+    /**
+     * @return The default constant value for the column
+     * 
+     */
     private @Nullable String constant;
+    /**
+     * @return The default expression value for the column
+     * 
+     */
     private @Nullable String expression;
+    /**
+     * @return The default sequence to use for the column
+     * 
+     */
     private @Nullable String sequence;
 
     private TableColumnDefault() {}
+    /**
+     * @return The default constant value for the column
+     * 
+     */
     public Optional<String> constant() {
         return Optional.ofNullable(this.constant);
     }
+    /**
+     * @return The default expression value for the column
+     * 
+     */
     public Optional<String> expression() {
         return Optional.ofNullable(this.expression);
     }
+    /**
+     * @return The default sequence to use for the column
+     * 
+     */
     public Optional<String> sequence() {
         return Optional.ofNullable(this.sequence);
     }

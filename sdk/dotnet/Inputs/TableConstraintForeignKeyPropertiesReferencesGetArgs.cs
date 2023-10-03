@@ -16,7 +16,7 @@ namespace Pulumi.Snowflake.Inputs
         private InputList<string>? _columns;
 
         /// <summary>
-        /// Columns to use in constraint key
+        /// Columns to use in foreign key reference
         /// </summary>
         public InputList<string> Columns
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Snowflake.Inputs
         }
 
         /// <summary>
-        /// Idenfifier for table to create constraint on. Must be of the form Note: format must follow: "\n\n"."\n\n"."\n\n" or "\n\n.\n\n.\n\n" or "\n\n|\n\n.\n\n" (snowflake*table.my*table.id)
+        /// Name of constraint
         /// </summary>
         [Input("tableId", required: true)]
         public Input<string> TableId { get; set; } = null!;

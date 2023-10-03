@@ -65,7 +65,7 @@ export class MaterializedView extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * The database in which to create the view. Don't use the | character.
+     * Name of the database that the tag was created in.
      */
     public readonly database!: pulumi.Output<string>;
     /**
@@ -73,7 +73,7 @@ export class MaterializedView extends pulumi.CustomResource {
      */
     public readonly isSecure!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created.
+     * Tag name, e.g. department.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -81,7 +81,7 @@ export class MaterializedView extends pulumi.CustomResource {
      */
     public readonly orReplace!: pulumi.Output<boolean | undefined>;
     /**
-     * The schema in which to create the view. Don't use the | character.
+     * Name of the schema that the tag was created in.
      */
     public readonly schema!: pulumi.Output<string>;
     /**
@@ -159,7 +159,7 @@ export interface MaterializedViewState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * The database in which to create the view. Don't use the | character.
+     * Name of the database that the tag was created in.
      */
     database?: pulumi.Input<string>;
     /**
@@ -167,7 +167,7 @@ export interface MaterializedViewState {
      */
     isSecure?: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created.
+     * Tag name, e.g. department.
      */
     name?: pulumi.Input<string>;
     /**
@@ -175,7 +175,7 @@ export interface MaterializedViewState {
      */
     orReplace?: pulumi.Input<boolean>;
     /**
-     * The schema in which to create the view. Don't use the | character.
+     * Name of the schema that the tag was created in.
      */
     schema?: pulumi.Input<string>;
     /**
@@ -203,7 +203,7 @@ export interface MaterializedViewArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * The database in which to create the view. Don't use the | character.
+     * Name of the database that the tag was created in.
      */
     database: pulumi.Input<string>;
     /**
@@ -211,7 +211,7 @@ export interface MaterializedViewArgs {
      */
     isSecure?: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created.
+     * Tag name, e.g. department.
      */
     name?: pulumi.Input<string>;
     /**
@@ -219,7 +219,7 @@ export interface MaterializedViewArgs {
      */
     orReplace?: pulumi.Input<boolean>;
     /**
-     * The schema in which to create the view. Don't use the | character.
+     * Name of the schema that the tag was created in.
      */
     schema: pulumi.Input<string>;
     /**

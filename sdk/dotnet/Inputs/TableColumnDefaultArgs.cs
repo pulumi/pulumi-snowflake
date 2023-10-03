@@ -12,12 +12,21 @@ namespace Pulumi.Snowflake.Inputs
 
     public sealed class TableColumnDefaultArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default constant value for the column
+        /// </summary>
         [Input("constant")]
         public Input<string>? Constant { get; set; }
 
+        /// <summary>
+        /// The default expression value for the column
+        /// </summary>
         [Input("expression")]
         public Input<string>? Expression { get; set; }
 
+        /// <summary>
+        /// The default sequence to use for the column
+        /// </summary>
         [Input("sequence")]
         public Input<string>? Sequence { get; set; }
 

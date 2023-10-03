@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GrantPrivilegesToRoleOnSchemaObjectFuture {
+    /**
+     * @return The fully qualified name of the database.
+     * 
+     */
     private @Nullable String inDatabase;
+    /**
+     * @return The fully qualified name of the schema.
+     * 
+     */
     private @Nullable String inSchema;
+    /**
+     * @return The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+     * 
+     */
     private String objectTypePlural;
 
     private GrantPrivilegesToRoleOnSchemaObjectFuture() {}
+    /**
+     * @return The fully qualified name of the database.
+     * 
+     */
     public Optional<String> inDatabase() {
         return Optional.ofNullable(this.inDatabase);
     }
+    /**
+     * @return The fully qualified name of the schema.
+     * 
+     */
     public Optional<String> inSchema() {
         return Optional.ofNullable(this.inSchema);
     }
+    /**
+     * @return The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+     * 
+     */
     public String objectTypePlural() {
         return this.objectTypePlural;
     }

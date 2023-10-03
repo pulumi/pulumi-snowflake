@@ -14,9 +14,12 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class MaskingPolicySignatureColumn
     {
         /// <summary>
-        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        /// Specifies the column name to mask.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Specifies the column type to mask.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
