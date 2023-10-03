@@ -78,7 +78,7 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly credentials!: pulumi.Output<string | undefined>;
     /**
-     * The database in which to create the stage.
+     * Name of the database that the tag was created in.
      */
     public readonly database!: pulumi.Output<string>;
     /**
@@ -94,11 +94,11 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly fileFormat!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
+     * Tag name, e.g. department.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The schema in which to create the stage.
+     * Name of the schema that the tag was created in.
      */
     public readonly schema!: pulumi.Output<string>;
     public readonly snowflakeIamUser!: pulumi.Output<string>;
@@ -192,7 +192,7 @@ export interface StageState {
      */
     credentials?: pulumi.Input<string>;
     /**
-     * The database in which to create the stage.
+     * Name of the database that the tag was created in.
      */
     database?: pulumi.Input<string>;
     /**
@@ -208,11 +208,11 @@ export interface StageState {
      */
     fileFormat?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
+     * Tag name, e.g. department.
      */
     name?: pulumi.Input<string>;
     /**
-     * The schema in which to create the stage.
+     * Name of the schema that the tag was created in.
      */
     schema?: pulumi.Input<string>;
     snowflakeIamUser?: pulumi.Input<string>;
@@ -250,7 +250,7 @@ export interface StageArgs {
      */
     credentials?: pulumi.Input<string>;
     /**
-     * The database in which to create the stage.
+     * Name of the database that the tag was created in.
      */
     database: pulumi.Input<string>;
     /**
@@ -266,11 +266,11 @@ export interface StageArgs {
      */
     fileFormat?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
+     * Tag name, e.g. department.
      */
     name?: pulumi.Input<string>;
     /**
-     * The schema in which to create the stage.
+     * Name of the schema that the tag was created in.
      */
     schema: pulumi.Input<string>;
     snowflakeIamUser?: pulumi.Input<string>;

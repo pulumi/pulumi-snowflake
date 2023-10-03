@@ -110,14 +110,14 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. &#34;My object&#34;). Identifiers enclosed in double quotes are also case-sensitive.
+     * Identifier for the primary failover group in the source account.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. &#34;My object&#34;). Identifiers enclosed in double quotes are also case-sensitive.
+     * @return Identifier for the primary failover group in the source account.
      * 
      */
     public Optional<Output<String>> name() {
@@ -353,7 +353,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. &#34;My object&#34;). Identifiers enclosed in double quotes are also case-sensitive.
+         * @param name Identifier for the primary failover group in the source account.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. &#34;My object&#34;). Identifiers enclosed in double quotes are also case-sensitive.
+         * @param name Identifier for the primary failover group in the source account.
          * 
          * @return builder
          * 

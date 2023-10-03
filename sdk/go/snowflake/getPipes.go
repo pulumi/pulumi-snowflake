@@ -50,10 +50,8 @@ func GetPipes(ctx *pulumi.Context, args *GetPipesArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getPipes.
 type GetPipesArgs struct {
-	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	// The schema from which to return the pipes from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // A collection of values returned by getPipes.
@@ -83,10 +81,8 @@ func GetPipesOutput(ctx *pulumi.Context, args GetPipesOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getPipes.
 type GetPipesOutputArgs struct {
-	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the pipes from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetPipesOutputArgs) ElementType() reflect.Type {

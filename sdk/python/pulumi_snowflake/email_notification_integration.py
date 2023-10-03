@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['EmailNotificationIntegrationArgs', 'EmailNotificationIntegration']
@@ -23,12 +23,27 @@ class EmailNotificationIntegrationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_recipients: List of email addresses that should receive notifications.
         :param pulumi.Input[str] comment: A comment for the email integration.
         """
-        pulumi.set(__self__, "allowed_recipients", allowed_recipients)
-        pulumi.set(__self__, "enabled", enabled)
+        EmailNotificationIntegrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_recipients=allowed_recipients,
+            enabled=enabled,
+            comment=comment,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_recipients: pulumi.Input[Sequence[pulumi.Input[str]]],
+             enabled: pulumi.Input[bool],
+             comment: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allowed_recipients", allowed_recipients)
+        _setter("enabled", enabled)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="allowedRecipients")
@@ -85,14 +100,29 @@ class _EmailNotificationIntegrationState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_recipients: List of email addresses that should receive notifications.
         :param pulumi.Input[str] comment: A comment for the email integration.
         """
+        _EmailNotificationIntegrationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_recipients=allowed_recipients,
+            comment=comment,
+            enabled=enabled,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_recipients is not None:
-            pulumi.set(__self__, "allowed_recipients", allowed_recipients)
+            _setter("allowed_recipients", allowed_recipients)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="allowedRecipients")
@@ -206,6 +236,10 @@ class EmailNotificationIntegration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EmailNotificationIntegrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

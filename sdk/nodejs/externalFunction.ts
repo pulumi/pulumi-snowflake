@@ -106,7 +106,7 @@ export class ExternalFunction extends pulumi.CustomResource {
      */
     public readonly maxBatchRows!: pulumi.Output<number | undefined>;
     /**
-     * Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+     * Argument name
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -258,7 +258,7 @@ export interface ExternalFunctionState {
      */
     maxBatchRows?: pulumi.Input<number>;
     /**
-     * Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+     * Argument name
      */
     name?: pulumi.Input<string>;
     /**
@@ -332,7 +332,7 @@ export interface ExternalFunctionArgs {
      */
     maxBatchRows?: pulumi.Input<number>;
     /**
-     * Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+     * Argument name
      */
     name?: pulumi.Input<string>;
     /**

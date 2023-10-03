@@ -50,10 +50,8 @@ func GetSequences(ctx *pulumi.Context, args *GetSequencesArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getSequences.
 type GetSequencesArgs struct {
-	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	// The schema from which to return the sequences from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // A collection of values returned by getSequences.
@@ -83,10 +81,8 @@ func GetSequencesOutput(ctx *pulumi.Context, args GetSequencesOutputArgs, opts .
 
 // A collection of arguments for invoking getSequences.
 type GetSequencesOutputArgs struct {
-	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the sequences from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetSequencesOutputArgs) ElementType() reflect.Type {

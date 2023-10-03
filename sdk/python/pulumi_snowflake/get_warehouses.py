@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -14,6 +14,7 @@ __all__ = [
     'GetWarehousesResult',
     'AwaitableGetWarehousesResult',
     'get_warehouses',
+    'get_warehouses_output',
 ]
 
 @pulumi.output_type
@@ -74,3 +75,18 @@ def get_warehouses(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetW
     return AwaitableGetWarehousesResult(
         id=pulumi.get(__ret__, 'id'),
         warehouses=pulumi.get(__ret__, 'warehouses'))
+
+
+@_utilities.lift_output_func(get_warehouses)
+def get_warehouses_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWarehousesResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_warehouses()
+    ```
+    """
+    ...

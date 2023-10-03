@@ -112,7 +112,7 @@ namespace Pulumi.Snowflake
         public Output<int?> MaxBatchRows { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        /// Argument name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -278,7 +278,7 @@ namespace Pulumi.Snowflake
         public Input<int>? MaxBatchRows { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        /// Argument name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -412,7 +412,7 @@ namespace Pulumi.Snowflake
         public Input<int>? MaxBatchRows { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        /// Argument name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

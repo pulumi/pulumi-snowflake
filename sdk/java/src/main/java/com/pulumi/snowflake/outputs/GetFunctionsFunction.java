@@ -12,17 +12,9 @@ import java.util.Objects;
 public final class GetFunctionsFunction {
     private List<String> argumentTypes;
     private String comment;
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     private String database;
     private String name;
     private String returnType;
-    /**
-     * @return The schema from which to return the functions from.
-     * 
-     */
     private String schema;
 
     private GetFunctionsFunction() {}
@@ -32,10 +24,6 @@ public final class GetFunctionsFunction {
     public String comment() {
         return this.comment;
     }
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     public String database() {
         return this.database;
     }
@@ -45,10 +33,6 @@ public final class GetFunctionsFunction {
     public String returnType() {
         return this.returnType;
     }
-    /**
-     * @return The schema from which to return the functions from.
-     * 
-     */
     public String schema() {
         return this.schema;
     }

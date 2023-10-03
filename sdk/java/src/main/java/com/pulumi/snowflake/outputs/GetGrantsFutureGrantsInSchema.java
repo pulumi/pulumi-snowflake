@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGrantsFutureGrantsInSchema {
+    /**
+     * @return The database in which the scehma resides. Optional when querying a schema in the current database.
+     * 
+     */
     private @Nullable String databaseName;
+    /**
+     * @return The name of the schema to list all privileges of new (ie. future) objects granted to
+     * 
+     */
     private String schemaName;
 
     private GetGrantsFutureGrantsInSchema() {}
+    /**
+     * @return The database in which the scehma resides. Optional when querying a schema in the current database.
+     * 
+     */
     public Optional<String> databaseName() {
         return Optional.ofNullable(this.databaseName);
     }
+    /**
+     * @return The name of the schema to list all privileges of new (ie. future) objects granted to
+     * 
+     */
     public String schemaName() {
         return this.schemaName;
     }

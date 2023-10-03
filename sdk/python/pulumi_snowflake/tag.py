@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['TagArgs', 'Tag']
@@ -27,14 +27,31 @@ class TagArgs:
         :param pulumi.Input[str] comment: Specifies a comment for the tag.
         :param pulumi.Input[str] name: Specifies the identifier for the tag; must be unique for the database in which the tag is created.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "schema", schema)
+        TagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            schema=schema,
+            allowed_values=allowed_values,
+            comment=comment,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: pulumi.Input[str],
+             schema: pulumi.Input[str],
+             allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database", database)
+        _setter("schema", schema)
         if allowed_values is not None:
-            pulumi.set(__self__, "allowed_values", allowed_values)
+            _setter("allowed_values", allowed_values)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -113,16 +130,33 @@ class _TagState:
         :param pulumi.Input[str] name: Specifies the identifier for the tag; must be unique for the database in which the tag is created.
         :param pulumi.Input[str] schema: The schema in which to create the tag.
         """
+        _TagState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_values=allowed_values,
+            comment=comment,
+            database=database,
+            name=name,
+            schema=schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_values is not None:
-            pulumi.set(__self__, "allowed_values", allowed_values)
+            _setter("allowed_values", allowed_values)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
 
     @property
     @pulumi.getter(name="allowedValues")
@@ -272,6 +306,10 @@ class Tag(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TagArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

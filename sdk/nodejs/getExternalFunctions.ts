@@ -32,13 +32,7 @@ export function getExternalFunctions(args: GetExternalFunctionsArgs, opts?: pulu
  * A collection of arguments for invoking getExternalFunctions.
  */
 export interface GetExternalFunctionsArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
-    /**
-     * The schema from which to return the external functions from.
-     */
     schema: string;
 }
 
@@ -84,12 +78,6 @@ export function getExternalFunctionsOutput(args: GetExternalFunctionsOutputArgs,
  * A collection of arguments for invoking getExternalFunctions.
  */
 export interface GetExternalFunctionsOutputArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database: pulumi.Input<string>;
-    /**
-     * The schema from which to return the external functions from.
-     */
     schema: pulumi.Input<string>;
 }

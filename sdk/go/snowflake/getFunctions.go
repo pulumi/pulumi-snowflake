@@ -50,10 +50,8 @@ func GetFunctions(ctx *pulumi.Context, args *GetFunctionsArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getFunctions.
 type GetFunctionsArgs struct {
-	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	// The schema from which to return the functions from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // A collection of values returned by getFunctions.
@@ -83,10 +81,8 @@ func GetFunctionsOutput(ctx *pulumi.Context, args GetFunctionsOutputArgs, opts .
 
 // A collection of arguments for invoking getFunctions.
 type GetFunctionsOutputArgs struct {
-	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the functions from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetFunctionsOutputArgs) ElementType() reflect.Type {

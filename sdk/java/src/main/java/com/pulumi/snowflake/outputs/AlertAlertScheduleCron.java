@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class AlertAlertScheduleCron {
+    /**
+     * @return Specifies the cron expression for the alert. The cron expression must be in the following format: &#34;minute hour day-of-month month day-of-week&#34;. The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+     * 
+     */
     private String expression;
+    /**
+     * @return Specifies the time zone for alert refresh.
+     * 
+     */
     private String timeZone;
 
     private AlertAlertScheduleCron() {}
+    /**
+     * @return Specifies the cron expression for the alert. The cron expression must be in the following format: &#34;minute hour day-of-month month day-of-week&#34;. The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+     * 
+     */
     public String expression() {
         return this.expression;
     }
+    /**
+     * @return Specifies the time zone for alert refresh.
+     * 
+     */
     public String timeZone() {
         return this.timeZone;
     }

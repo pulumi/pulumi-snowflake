@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,40 +27,65 @@ class ViewArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]]] = None):
         """
         The set of arguments for constructing a View resource.
-        :param pulumi.Input[str] database: The database in which to create the view. Don't use the | character.
-        :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
+        :param pulumi.Input[str] database: Name of the database that the tag was created in.
+        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
         :param pulumi.Input[str] comment: Specifies a comment for the view.
         :param pulumi.Input[bool] copy_grants: Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure.
-        :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+        :param pulumi.Input[str] name: Tag name, e.g. department.
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
         :param pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "schema", schema)
-        pulumi.set(__self__, "statement", statement)
+        ViewArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            schema=schema,
+            statement=statement,
+            comment=comment,
+            copy_grants=copy_grants,
+            is_secure=is_secure,
+            name=name,
+            or_replace=or_replace,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: pulumi.Input[str],
+             schema: pulumi.Input[str],
+             statement: pulumi.Input[str],
+             comment: Optional[pulumi.Input[str]] = None,
+             copy_grants: Optional[pulumi.Input[bool]] = None,
+             is_secure: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             or_replace: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database", database)
+        _setter("schema", schema)
+        _setter("statement", statement)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if copy_grants is not None:
-            pulumi.set(__self__, "copy_grants", copy_grants)
+            _setter("copy_grants", copy_grants)
         if is_secure is not None:
-            pulumi.set(__self__, "is_secure", is_secure)
+            _setter("is_secure", is_secure)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if or_replace is not None:
-            pulumi.set(__self__, "or_replace", or_replace)
+            _setter("or_replace", or_replace)
         if tags is not None:
             warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
             pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        The database in which to create the view. Don't use the | character.
+        Name of the database that the tag was created in.
         """
         return pulumi.get(self, "database")
 
@@ -72,7 +97,7 @@ class ViewArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input[str]:
         """
-        The schema in which to create the view. Don't use the | character.
+        Name of the schema that the tag was created in.
         """
         return pulumi.get(self, "schema")
 
@@ -132,7 +157,7 @@ class ViewArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+        Tag name, e.g. department.
         """
         return pulumi.get(self, "name")
 
@@ -186,37 +211,64 @@ class _ViewState:
         :param pulumi.Input[str] comment: Specifies a comment for the view.
         :param pulumi.Input[bool] copy_grants: Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
         :param pulumi.Input[str] created_on: The timestamp at which the view was created.
-        :param pulumi.Input[str] database: The database in which to create the view. Don't use the | character.
+        :param pulumi.Input[str] database: Name of the database that the tag was created in.
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure.
-        :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+        :param pulumi.Input[str] name: Tag name, e.g. department.
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
-        :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
+        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
         :param pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
+        _ViewState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+            copy_grants=copy_grants,
+            created_on=created_on,
+            database=database,
+            is_secure=is_secure,
+            name=name,
+            or_replace=or_replace,
+            schema=schema,
+            statement=statement,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: Optional[pulumi.Input[str]] = None,
+             copy_grants: Optional[pulumi.Input[bool]] = None,
+             created_on: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             is_secure: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             or_replace: Optional[pulumi.Input[bool]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             statement: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if copy_grants is not None:
-            pulumi.set(__self__, "copy_grants", copy_grants)
+            _setter("copy_grants", copy_grants)
         if created_on is not None:
-            pulumi.set(__self__, "created_on", created_on)
+            _setter("created_on", created_on)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if is_secure is not None:
-            pulumi.set(__self__, "is_secure", is_secure)
+            _setter("is_secure", is_secure)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if or_replace is not None:
-            pulumi.set(__self__, "or_replace", or_replace)
+            _setter("or_replace", or_replace)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if statement is not None:
-            pulumi.set(__self__, "statement", statement)
+            _setter("statement", statement)
         if tags is not None:
             warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
             pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -258,7 +310,7 @@ class _ViewState:
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
         """
-        The database in which to create the view. Don't use the | character.
+        Name of the database that the tag was created in.
         """
         return pulumi.get(self, "database")
 
@@ -282,7 +334,7 @@ class _ViewState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+        Tag name, e.g. department.
         """
         return pulumi.get(self, "name")
 
@@ -306,7 +358,7 @@ class _ViewState:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
         """
-        The schema in which to create the view. Don't use the | character.
+        Name of the schema that the tag was created in.
         """
         return pulumi.get(self, "schema")
 
@@ -385,11 +437,11 @@ class View(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the view.
         :param pulumi.Input[bool] copy_grants: Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
-        :param pulumi.Input[str] database: The database in which to create the view. Don't use the | character.
+        :param pulumi.Input[str] database: Name of the database that the tag was created in.
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure.
-        :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+        :param pulumi.Input[str] name: Tag name, e.g. department.
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
-        :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
+        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
@@ -433,6 +485,10 @@ class View(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ViewArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -470,9 +526,6 @@ class View(pulumi.CustomResource):
             if statement is None and not opts.urn:
                 raise TypeError("Missing required property 'statement'")
             __props__.__dict__["statement"] = statement
-            if tags is not None and not opts.urn:
-                warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
-                pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_on"] = None
         super(View, __self__).__init__(
@@ -505,11 +558,11 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the view.
         :param pulumi.Input[bool] copy_grants: Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
         :param pulumi.Input[str] created_on: The timestamp at which the view was created.
-        :param pulumi.Input[str] database: The database in which to create the view. Don't use the | character.
+        :param pulumi.Input[str] database: Name of the database that the tag was created in.
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure.
-        :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+        :param pulumi.Input[str] name: Tag name, e.g. department.
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
-        :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
+        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
@@ -557,7 +610,7 @@ class View(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[str]:
         """
-        The database in which to create the view. Don't use the | character.
+        Name of the database that the tag was created in.
         """
         return pulumi.get(self, "database")
 
@@ -573,7 +626,7 @@ class View(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+        Tag name, e.g. department.
         """
         return pulumi.get(self, "name")
 
@@ -589,7 +642,7 @@ class View(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[str]:
         """
-        The schema in which to create the view. Don't use the | character.
+        Name of the schema that the tag was created in.
         """
         return pulumi.get(self, "schema")
 

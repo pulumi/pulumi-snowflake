@@ -15,16 +15,32 @@ public final class GetGrantsFutureGrantsInSchemaArgs extends com.pulumi.resource
 
     public static final GetGrantsFutureGrantsInSchemaArgs Empty = new GetGrantsFutureGrantsInSchemaArgs();
 
+    /**
+     * The database in which the scehma resides. Optional when querying a schema in the current database.
+     * 
+     */
     @Import(name="databaseName")
     private @Nullable Output<String> databaseName;
 
+    /**
+     * @return The database in which the scehma resides. Optional when querying a schema in the current database.
+     * 
+     */
     public Optional<Output<String>> databaseName() {
         return Optional.ofNullable(this.databaseName);
     }
 
+    /**
+     * The name of the schema to list all privileges of new (ie. future) objects granted to
+     * 
+     */
     @Import(name="schemaName", required=true)
     private Output<String> schemaName;
 
+    /**
+     * @return The name of the schema to list all privileges of new (ie. future) objects granted to
+     * 
+     */
     public Output<String> schemaName() {
         return this.schemaName;
     }
@@ -54,20 +70,44 @@ public final class GetGrantsFutureGrantsInSchemaArgs extends com.pulumi.resource
             $ = new GetGrantsFutureGrantsInSchemaArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param databaseName The database in which the scehma resides. Optional when querying a schema in the current database.
+         * 
+         * @return builder
+         * 
+         */
         public Builder databaseName(@Nullable Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
+        /**
+         * @param databaseName The database in which the scehma resides. Optional when querying a schema in the current database.
+         * 
+         * @return builder
+         * 
+         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
+        /**
+         * @param schemaName The name of the schema to list all privileges of new (ie. future) objects granted to
+         * 
+         * @return builder
+         * 
+         */
         public Builder schemaName(Output<String> schemaName) {
             $.schemaName = schemaName;
             return this;
         }
 
+        /**
+         * @param schemaName The name of the schema to list all privileges of new (ie. future) objects granted to
+         * 
+         * @return builder
+         * 
+         */
         public Builder schemaName(String schemaName) {
             return schemaName(Output.of(schemaName));
         }

@@ -50,10 +50,8 @@ func GetFileFormats(ctx *pulumi.Context, args *GetFileFormatsArgs, opts ...pulum
 
 // A collection of arguments for invoking getFileFormats.
 type GetFileFormatsArgs struct {
-	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	// The schema from which to return the file formats from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // A collection of values returned by getFileFormats.
@@ -83,10 +81,8 @@ func GetFileFormatsOutput(ctx *pulumi.Context, args GetFileFormatsOutputArgs, op
 
 // A collection of arguments for invoking getFileFormats.
 type GetFileFormatsOutputArgs struct {
-	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the file formats from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetFileFormatsOutputArgs) ElementType() reflect.Type {

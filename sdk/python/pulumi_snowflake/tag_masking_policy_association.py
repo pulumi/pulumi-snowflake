@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['TagMaskingPolicyAssociationArgs', 'TagMaskingPolicyAssociation']
@@ -21,8 +21,19 @@ class TagMaskingPolicyAssociationArgs:
         :param pulumi.Input[str] masking_policy_id: The resource id of the masking policy
         :param pulumi.Input[str] tag_id: Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
         """
-        pulumi.set(__self__, "masking_policy_id", masking_policy_id)
-        pulumi.set(__self__, "tag_id", tag_id)
+        TagMaskingPolicyAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            masking_policy_id=masking_policy_id,
+            tag_id=tag_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             masking_policy_id: pulumi.Input[str],
+             tag_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("masking_policy_id", masking_policy_id)
+        _setter("tag_id", tag_id)
 
     @property
     @pulumi.getter(name="maskingPolicyId")
@@ -59,10 +70,21 @@ class _TagMaskingPolicyAssociationState:
         :param pulumi.Input[str] masking_policy_id: The resource id of the masking policy
         :param pulumi.Input[str] tag_id: Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
         """
+        _TagMaskingPolicyAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            masking_policy_id=masking_policy_id,
+            tag_id=tag_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             masking_policy_id: Optional[pulumi.Input[str]] = None,
+             tag_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if masking_policy_id is not None:
-            pulumi.set(__self__, "masking_policy_id", masking_policy_id)
+            _setter("masking_policy_id", masking_policy_id)
         if tag_id is not None:
-            pulumi.set(__self__, "tag_id", tag_id)
+            _setter("tag_id", tag_id)
 
     @property
     @pulumi.getter(name="maskingPolicyId")
@@ -140,6 +162,10 @@ class TagMaskingPolicyAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TagMaskingPolicyAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

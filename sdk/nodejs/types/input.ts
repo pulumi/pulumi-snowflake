@@ -17,7 +17,13 @@ export interface AlertAlertSchedule {
 }
 
 export interface AlertAlertScheduleCron {
+    /**
+     * Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+     */
     expression: pulumi.Input<string>;
+    /**
+     * Specifies the time zone for alert refresh.
+     */
     timeZone: pulumi.Input<string>;
 }
 
@@ -109,7 +115,13 @@ export interface FailoverGroupReplicationSchedule {
 }
 
 export interface FailoverGroupReplicationScheduleCron {
+    /**
+     * Specifies the cron expression for the replication schedule. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+     */
     expression: pulumi.Input<string>;
+    /**
+     * Specifies the time zone for secondary group refresh.
+     */
     timeZone: pulumi.Input<string>;
 }
 
@@ -147,12 +159,24 @@ export interface GetGrantsFutureGrantsInArgs {
 }
 
 export interface GetGrantsFutureGrantsInSchema {
+    /**
+     * The database in which the scehma resides. Optional when querying a schema in the current database.
+     */
     databaseName?: string;
+    /**
+     * The name of the schema to list all privileges of new (ie. future) objects granted to
+     */
     schemaName: string;
 }
 
 export interface GetGrantsFutureGrantsInSchemaArgs {
+    /**
+     * The database in which the scehma resides. Optional when querying a schema in the current database.
+     */
     databaseName?: pulumi.Input<string>;
+    /**
+     * The name of the schema to list all privileges of new (ie. future) objects granted to
+     */
     schemaName: pulumi.Input<string>;
 }
 
@@ -298,14 +322,32 @@ export interface GrantPrivilegesToRoleOnSchemaObject {
 }
 
 export interface GrantPrivilegesToRoleOnSchemaObjectAll {
+    /**
+     * The fully qualified name of the database.
+     */
     inDatabase?: pulumi.Input<string>;
+    /**
+     * The fully qualified name of the schema.
+     */
     inSchema?: pulumi.Input<string>;
+    /**
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+     */
     objectTypePlural: pulumi.Input<string>;
 }
 
 export interface GrantPrivilegesToRoleOnSchemaObjectFuture {
+    /**
+     * The fully qualified name of the database.
+     */
     inDatabase?: pulumi.Input<string>;
+    /**
+     * The fully qualified name of the schema.
+     */
     inSchema?: pulumi.Input<string>;
+    /**
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+     */
     objectTypePlural: pulumi.Input<string>;
 }
 
@@ -315,9 +357,12 @@ export interface MaskingPolicySignature {
 
 export interface MaskingPolicySignatureColumn {
     /**
-     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+     * Specifies the column name to mask.
      */
     name: pulumi.Input<string>;
+    /**
+     * Specifies the column type to mask.
+     */
     type: pulumi.Input<string>;
 }
 
@@ -455,13 +500,28 @@ export interface TableColumn {
 }
 
 export interface TableColumnDefault {
+    /**
+     * The default constant value for the column
+     */
     constant?: pulumi.Input<string>;
+    /**
+     * The default expression value for the column
+     */
     expression?: pulumi.Input<string>;
+    /**
+     * The default sequence to use for the column
+     */
     sequence?: pulumi.Input<string>;
 }
 
 export interface TableColumnIdentity {
+    /**
+     * The number to start incrementing at.
+     */
     startNum?: pulumi.Input<number>;
+    /**
+     * Step size to increment by.
+     */
     stepNum?: pulumi.Input<number>;
 }
 
@@ -486,11 +546,11 @@ export interface TableConstraintForeignKeyProperties {
 
 export interface TableConstraintForeignKeyPropertiesReferences {
     /**
-     * Columns to use in constraint key
+     * Columns to use in foreign key reference
      */
     columns: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Idenfifier for table to create constraint on. Must be of the form Note: format must follow: "\n\n"."\n\n"."\n\n" or "\n\n.\n\n.\n\n" or "\n\n|\n\n.\n\n" (snowflake*table.my*table.id)
+     * Name of constraint
      */
     tableId: pulumi.Input<string>;
 }

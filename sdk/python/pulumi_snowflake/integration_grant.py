@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['IntegrationGrantArgs', 'IntegrationGrant']
@@ -30,17 +30,36 @@ class IntegrationGrantArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
-        pulumi.set(__self__, "integration_name", integration_name)
+        IntegrationGrantArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            integration_name=integration_name,
+            enable_multiple_grants=enable_multiple_grants,
+            privilege=privilege,
+            revert_ownership_to_role_name=revert_ownership_to_role_name,
+            roles=roles,
+            with_grant_option=with_grant_option,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             integration_name: pulumi.Input[str],
+             enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
+             privilege: Optional[pulumi.Input[str]] = None,
+             revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             with_grant_option: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("integration_name", integration_name)
         if enable_multiple_grants is not None:
-            pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
+            _setter("enable_multiple_grants", enable_multiple_grants)
         if privilege is not None:
-            pulumi.set(__self__, "privilege", privilege)
+            _setter("privilege", privilege)
         if revert_ownership_to_role_name is not None:
-            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
+            _setter("revert_ownership_to_role_name", revert_ownership_to_role_name)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if with_grant_option is not None:
-            pulumi.set(__self__, "with_grant_option", with_grant_option)
+            _setter("with_grant_option", with_grant_option)
 
     @property
     @pulumi.getter(name="integrationName")
@@ -135,18 +154,37 @@ class _IntegrationGrantState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
+        _IntegrationGrantState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_multiple_grants=enable_multiple_grants,
+            integration_name=integration_name,
+            privilege=privilege,
+            revert_ownership_to_role_name=revert_ownership_to_role_name,
+            roles=roles,
+            with_grant_option=with_grant_option,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
+             integration_name: Optional[pulumi.Input[str]] = None,
+             privilege: Optional[pulumi.Input[str]] = None,
+             revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             with_grant_option: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable_multiple_grants is not None:
-            pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
+            _setter("enable_multiple_grants", enable_multiple_grants)
         if integration_name is not None:
-            pulumi.set(__self__, "integration_name", integration_name)
+            _setter("integration_name", integration_name)
         if privilege is not None:
-            pulumi.set(__self__, "privilege", privilege)
+            _setter("privilege", privilege)
         if revert_ownership_to_role_name is not None:
-            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
+            _setter("revert_ownership_to_role_name", revert_ownership_to_role_name)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if with_grant_option is not None:
-            pulumi.set(__self__, "with_grant_option", with_grant_option)
+            _setter("with_grant_option", with_grant_option)
 
     @property
     @pulumi.getter(name="enableMultipleGrants")
@@ -310,6 +348,10 @@ class IntegrationGrant(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationGrantArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

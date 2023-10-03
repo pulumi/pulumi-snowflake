@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['NetworkPolicyAttachmentArgs', 'NetworkPolicyAttachment']
@@ -23,11 +23,24 @@ class NetworkPolicyAttachmentArgs:
         :param pulumi.Input[bool] set_for_account: Specifies whether the network policy should be applied globally to your Snowflake account\\n\\n\\n\\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\\n\\n\\n\\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: Specifies which users the network policy should be attached to
         """
-        pulumi.set(__self__, "network_policy_name", network_policy_name)
+        NetworkPolicyAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_policy_name=network_policy_name,
+            set_for_account=set_for_account,
+            users=users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_policy_name: pulumi.Input[str],
+             set_for_account: Optional[pulumi.Input[bool]] = None,
+             users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("network_policy_name", network_policy_name)
         if set_for_account is not None:
-            pulumi.set(__self__, "set_for_account", set_for_account)
+            _setter("set_for_account", set_for_account)
         if users is not None:
-            pulumi.set(__self__, "users", users)
+            _setter("users", users)
 
     @property
     @pulumi.getter(name="networkPolicyName")
@@ -78,12 +91,25 @@ class _NetworkPolicyAttachmentState:
         :param pulumi.Input[bool] set_for_account: Specifies whether the network policy should be applied globally to your Snowflake account\\n\\n\\n\\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\\n\\n\\n\\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: Specifies which users the network policy should be attached to
         """
+        _NetworkPolicyAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_policy_name=network_policy_name,
+            set_for_account=set_for_account,
+            users=users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_policy_name: Optional[pulumi.Input[str]] = None,
+             set_for_account: Optional[pulumi.Input[bool]] = None,
+             users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if network_policy_name is not None:
-            pulumi.set(__self__, "network_policy_name", network_policy_name)
+            _setter("network_policy_name", network_policy_name)
         if set_for_account is not None:
-            pulumi.set(__self__, "set_for_account", set_for_account)
+            _setter("set_for_account", set_for_account)
         if users is not None:
-            pulumi.set(__self__, "users", users)
+            _setter("users", users)
 
     @property
     @pulumi.getter(name="networkPolicyName")
@@ -197,6 +223,10 @@ class NetworkPolicyAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkPolicyAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

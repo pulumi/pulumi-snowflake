@@ -10,10 +10,6 @@ import java.util.Objects;
 @CustomType
 public final class GetSchemasSchema {
     private String comment;
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     private String database;
     private String name;
 
@@ -21,10 +17,6 @@ public final class GetSchemasSchema {
     public String comment() {
         return this.comment;
     }
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     public String database() {
         return this.database;
     }

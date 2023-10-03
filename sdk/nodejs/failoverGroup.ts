@@ -103,7 +103,7 @@ export class FailoverGroup extends pulumi.CustomResource {
      */
     public readonly ignoreEditionCheck!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
+     * Identifier for the primary failover group in the source account.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -183,7 +183,7 @@ export interface FailoverGroupState {
      */
     ignoreEditionCheck?: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
+     * Identifier for the primary failover group in the source account.
      */
     name?: pulumi.Input<string>;
     /**
@@ -225,7 +225,7 @@ export interface FailoverGroupArgs {
      */
     ignoreEditionCheck?: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
+     * Identifier for the primary failover group in the source account.
      */
     name?: pulumi.Input<string>;
     /**

@@ -56,7 +56,7 @@ namespace Pulumi.Snowflake
         public Output<int?> DataRetentionDays { get; private set; } = null!;
 
         /// <summary>
-        /// The database in which to create the schema.
+        /// Name of the database that the tag was created in.
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> IsTransient { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+        /// Tag name, e.g. department.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Snowflake
         public Input<int>? DataRetentionDays { get; set; }
 
         /// <summary>
-        /// The database in which to create the schema.
+        /// Name of the database that the tag was created in.
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? IsTransient { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+        /// Tag name, e.g. department.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -201,7 +201,7 @@ namespace Pulumi.Snowflake
         public Input<int>? DataRetentionDays { get; set; }
 
         /// <summary>
-        /// The database in which to create the schema.
+        /// Name of the database that the tag was created in.
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
@@ -219,7 +219,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? IsTransient { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+        /// Tag name, e.g. department.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

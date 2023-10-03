@@ -12,17 +12,9 @@ import java.util.Objects;
 public final class GetProceduresProcedure {
     private List<String> argumentTypes;
     private String comment;
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     private String database;
     private String name;
     private String returnType;
-    /**
-     * @return The schema from which to return the procedures from.
-     * 
-     */
     private String schema;
 
     private GetProceduresProcedure() {}
@@ -32,10 +24,6 @@ public final class GetProceduresProcedure {
     public String comment() {
         return this.comment;
     }
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     public String database() {
         return this.database;
     }
@@ -45,10 +33,6 @@ public final class GetProceduresProcedure {
     public String returnType() {
         return this.returnType;
     }
-    /**
-     * @return The schema from which to return the procedures from.
-     * 
-     */
     public String schema() {
         return this.schema;
     }

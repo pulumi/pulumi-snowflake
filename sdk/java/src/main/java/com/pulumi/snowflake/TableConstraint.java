@@ -135,14 +135,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/tableConstraint:TableConstraint")
 public class TableConstraint extends com.pulumi.resources.CustomResource {
     /**
-     * Columns to use in constraint key
+     * Columns to use in foreign key reference
      * 
      */
     @Export(name="columns", type=List.class, parameters={String.class})
     private Output<List<String>> columns;
 
     /**
-     * @return Columns to use in constraint key
+     * @return Columns to use in foreign key reference
      * 
      */
     public Output<List<String>> columns() {
@@ -261,14 +261,14 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.rely);
     }
     /**
-     * Idenfifier for table to create constraint on. Must be of the form Note: format must follow: &#34;\n\n&#34;.&#34;\n\n&#34;.&#34;\n\n&#34; or &#34;\n\n.\n\n.\n\n&#34; or &#34;\n\n|\n\n.\n\n&#34; (snowflake*table.my*table.id)
+     * Name of constraint
      * 
      */
     @Export(name="tableId", type=String.class, parameters={})
     private Output<String> tableId;
 
     /**
-     * @return Idenfifier for table to create constraint on. Must be of the form Note: format must follow: &#34;\n\n&#34;.&#34;\n\n&#34;.&#34;\n\n&#34; or &#34;\n\n.\n\n.\n\n&#34; or &#34;\n\n|\n\n.\n\n&#34; (snowflake*table.my*table.id)
+     * @return Name of constraint
      * 
      */
     public Output<String> tableId() {

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,40 +47,81 @@ class ExternalFunctionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] context_headers: Binds Snowflake context function results to HTTP headers.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]] headers: Allows users to specify key-value metadata that is sent with every request as HTTP headers.
         :param pulumi.Input[int] max_batch_rows: This specifies the maximum number of rows in each batch sent to the proxy service.
-        :param pulumi.Input[str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        :param pulumi.Input[str] name: Argument name
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the external function when called with null inputs.
         :param pulumi.Input[str] request_translator: This specifies the name of the request translator function
         :param pulumi.Input[str] response_translator: This specifies the name of the response translator function.
         :param pulumi.Input[bool] return_null_allowed: Indicates whether the function can return NULL values or must return only NON-NULL values.
         """
-        pulumi.set(__self__, "api_integration", api_integration)
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "return_behavior", return_behavior)
-        pulumi.set(__self__, "return_type", return_type)
-        pulumi.set(__self__, "schema", schema)
-        pulumi.set(__self__, "url_of_proxy_and_resource", url_of_proxy_and_resource)
+        ExternalFunctionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_integration=api_integration,
+            database=database,
+            return_behavior=return_behavior,
+            return_type=return_type,
+            schema=schema,
+            url_of_proxy_and_resource=url_of_proxy_and_resource,
+            args=args,
+            comment=comment,
+            compression=compression,
+            context_headers=context_headers,
+            headers=headers,
+            max_batch_rows=max_batch_rows,
+            name=name,
+            null_input_behavior=null_input_behavior,
+            request_translator=request_translator,
+            response_translator=response_translator,
+            return_null_allowed=return_null_allowed,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_integration: pulumi.Input[str],
+             database: pulumi.Input[str],
+             return_behavior: pulumi.Input[str],
+             return_type: pulumi.Input[str],
+             schema: pulumi.Input[str],
+             url_of_proxy_and_resource: pulumi.Input[str],
+             args: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionArgArgs']]]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             compression: Optional[pulumi.Input[str]] = None,
+             context_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             headers: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]]] = None,
+             max_batch_rows: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             null_input_behavior: Optional[pulumi.Input[str]] = None,
+             request_translator: Optional[pulumi.Input[str]] = None,
+             response_translator: Optional[pulumi.Input[str]] = None,
+             return_null_allowed: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_integration", api_integration)
+        _setter("database", database)
+        _setter("return_behavior", return_behavior)
+        _setter("return_type", return_type)
+        _setter("schema", schema)
+        _setter("url_of_proxy_and_resource", url_of_proxy_and_resource)
         if args is not None:
-            pulumi.set(__self__, "args", args)
+            _setter("args", args)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if compression is not None:
-            pulumi.set(__self__, "compression", compression)
+            _setter("compression", compression)
         if context_headers is not None:
-            pulumi.set(__self__, "context_headers", context_headers)
+            _setter("context_headers", context_headers)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if max_batch_rows is not None:
-            pulumi.set(__self__, "max_batch_rows", max_batch_rows)
+            _setter("max_batch_rows", max_batch_rows)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if null_input_behavior is not None:
-            pulumi.set(__self__, "null_input_behavior", null_input_behavior)
+            _setter("null_input_behavior", null_input_behavior)
         if request_translator is not None:
-            pulumi.set(__self__, "request_translator", request_translator)
+            _setter("request_translator", request_translator)
         if response_translator is not None:
-            pulumi.set(__self__, "response_translator", response_translator)
+            _setter("response_translator", response_translator)
         if return_null_allowed is not None:
-            pulumi.set(__self__, "return_null_allowed", return_null_allowed)
+            _setter("return_null_allowed", return_null_allowed)
 
     @property
     @pulumi.getter(name="apiIntegration")
@@ -230,7 +271,7 @@ class ExternalFunctionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        Argument name
         """
         return pulumi.get(self, "name")
 
@@ -319,7 +360,7 @@ class _ExternalFunctionState:
         :param pulumi.Input[str] database: The database in which to create the external function.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]] headers: Allows users to specify key-value metadata that is sent with every request as HTTP headers.
         :param pulumi.Input[int] max_batch_rows: This specifies the maximum number of rows in each batch sent to the proxy service.
-        :param pulumi.Input[str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        :param pulumi.Input[str] name: Argument name
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the external function when called with null inputs.
         :param pulumi.Input[str] request_translator: This specifies the name of the request translator function
         :param pulumi.Input[str] response_translator: This specifies the name of the response translator function.
@@ -329,42 +370,85 @@ class _ExternalFunctionState:
         :param pulumi.Input[str] schema: The schema in which to create the external function.
         :param pulumi.Input[str] url_of_proxy_and_resource: This is the invocation URL of the proxy service and resource through which Snowflake calls the remote service.
         """
+        _ExternalFunctionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_integration=api_integration,
+            args=args,
+            comment=comment,
+            compression=compression,
+            context_headers=context_headers,
+            created_on=created_on,
+            database=database,
+            headers=headers,
+            max_batch_rows=max_batch_rows,
+            name=name,
+            null_input_behavior=null_input_behavior,
+            request_translator=request_translator,
+            response_translator=response_translator,
+            return_behavior=return_behavior,
+            return_null_allowed=return_null_allowed,
+            return_type=return_type,
+            schema=schema,
+            url_of_proxy_and_resource=url_of_proxy_and_resource,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_integration: Optional[pulumi.Input[str]] = None,
+             args: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionArgArgs']]]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             compression: Optional[pulumi.Input[str]] = None,
+             context_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             created_on: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             headers: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]]] = None,
+             max_batch_rows: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             null_input_behavior: Optional[pulumi.Input[str]] = None,
+             request_translator: Optional[pulumi.Input[str]] = None,
+             response_translator: Optional[pulumi.Input[str]] = None,
+             return_behavior: Optional[pulumi.Input[str]] = None,
+             return_null_allowed: Optional[pulumi.Input[bool]] = None,
+             return_type: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             url_of_proxy_and_resource: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_integration is not None:
-            pulumi.set(__self__, "api_integration", api_integration)
+            _setter("api_integration", api_integration)
         if args is not None:
-            pulumi.set(__self__, "args", args)
+            _setter("args", args)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if compression is not None:
-            pulumi.set(__self__, "compression", compression)
+            _setter("compression", compression)
         if context_headers is not None:
-            pulumi.set(__self__, "context_headers", context_headers)
+            _setter("context_headers", context_headers)
         if created_on is not None:
-            pulumi.set(__self__, "created_on", created_on)
+            _setter("created_on", created_on)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if max_batch_rows is not None:
-            pulumi.set(__self__, "max_batch_rows", max_batch_rows)
+            _setter("max_batch_rows", max_batch_rows)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if null_input_behavior is not None:
-            pulumi.set(__self__, "null_input_behavior", null_input_behavior)
+            _setter("null_input_behavior", null_input_behavior)
         if request_translator is not None:
-            pulumi.set(__self__, "request_translator", request_translator)
+            _setter("request_translator", request_translator)
         if response_translator is not None:
-            pulumi.set(__self__, "response_translator", response_translator)
+            _setter("response_translator", response_translator)
         if return_behavior is not None:
-            pulumi.set(__self__, "return_behavior", return_behavior)
+            _setter("return_behavior", return_behavior)
         if return_null_allowed is not None:
-            pulumi.set(__self__, "return_null_allowed", return_null_allowed)
+            _setter("return_null_allowed", return_null_allowed)
         if return_type is not None:
-            pulumi.set(__self__, "return_type", return_type)
+            _setter("return_type", return_type)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if url_of_proxy_and_resource is not None:
-            pulumi.set(__self__, "url_of_proxy_and_resource", url_of_proxy_and_resource)
+            _setter("url_of_proxy_and_resource", url_of_proxy_and_resource)
 
     @property
     @pulumi.getter(name="apiIntegration")
@@ -478,7 +562,7 @@ class _ExternalFunctionState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        Argument name
         """
         return pulumi.get(self, "name")
 
@@ -650,7 +734,7 @@ class ExternalFunction(pulumi.CustomResource):
         :param pulumi.Input[str] database: The database in which to create the external function.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalFunctionHeaderArgs']]]] headers: Allows users to specify key-value metadata that is sent with every request as HTTP headers.
         :param pulumi.Input[int] max_batch_rows: This specifies the maximum number of rows in each batch sent to the proxy service.
-        :param pulumi.Input[str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        :param pulumi.Input[str] name: Argument name
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the external function when called with null inputs.
         :param pulumi.Input[str] request_translator: This specifies the name of the request translator function
         :param pulumi.Input[str] response_translator: This specifies the name of the response translator function.
@@ -710,6 +794,10 @@ class ExternalFunction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExternalFunctionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -815,7 +903,7 @@ class ExternalFunction(pulumi.CustomResource):
         :param pulumi.Input[str] database: The database in which to create the external function.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalFunctionHeaderArgs']]]] headers: Allows users to specify key-value metadata that is sent with every request as HTTP headers.
         :param pulumi.Input[int] max_batch_rows: This specifies the maximum number of rows in each batch sent to the proxy service.
-        :param pulumi.Input[str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        :param pulumi.Input[str] name: Argument name
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the external function when called with null inputs.
         :param pulumi.Input[str] request_translator: This specifies the name of the request translator function
         :param pulumi.Input[str] response_translator: This specifies the name of the response translator function.
@@ -925,7 +1013,7 @@ class ExternalFunction(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        Argument name
         """
         return pulumi.get(self, "name")
 

@@ -50,10 +50,8 @@ func GetTasks(ctx *pulumi.Context, args *GetTasksArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getTasks.
 type GetTasksArgs struct {
-	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	// The schema from which to return the tasks from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // A collection of values returned by getTasks.
@@ -83,10 +81,8 @@ func GetTasksOutput(ctx *pulumi.Context, args GetTasksOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getTasks.
 type GetTasksOutputArgs struct {
-	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the tasks from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetTasksOutputArgs) ElementType() reflect.Type {

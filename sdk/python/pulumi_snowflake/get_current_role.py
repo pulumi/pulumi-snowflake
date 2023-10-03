@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
     'GetCurrentRoleResult',
     'AwaitableGetCurrentRoleResult',
     'get_current_role',
+    'get_current_role_output',
 ]
 
 @pulumi.output_type
@@ -66,3 +67,11 @@ def get_current_role(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     return AwaitableGetCurrentRoleResult(
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
+
+
+@_utilities.lift_output_func(get_current_role)
+def get_current_role_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCurrentRoleResult]:
+    """
+    Use this data source to access information about an existing resource.
+    """
+    ...

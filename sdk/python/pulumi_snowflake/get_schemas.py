@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -80,9 +80,6 @@ def get_schemas(database: Optional[str] = None,
 
     current = snowflake.get_schemas(database="MYDB")
     ```
-
-
-    :param str database: The database from which to return the schemas from.
     """
     __args__ = dict()
     __args__['database'] = database
@@ -107,8 +104,5 @@ def get_schemas_output(database: Optional[pulumi.Input[str]] = None,
 
     current = snowflake.get_schemas(database="MYDB")
     ```
-
-
-    :param str database: The database from which to return the schemas from.
     """
     ...

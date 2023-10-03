@@ -118,7 +118,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> IgnoreEditionCheck { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
+        /// Identifier for the primary failover group in the source account.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? IgnoreEditionCheck { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
+        /// Identifier for the primary failover group in the source account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -334,7 +334,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? IgnoreEditionCheck { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
+        /// Identifier for the primary failover group in the source account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -94,10 +94,6 @@ def get_streams(database: Optional[str] = None,
     current = snowflake.get_streams(database="MYDB",
         schema="MYSCHEMA")
     ```
-
-
-    :param str database: The database from which to return the streams from.
-    :param str schema: The schema from which to return the streams from.
     """
     __args__ = dict()
     __args__['database'] = database
@@ -126,9 +122,5 @@ def get_streams_output(database: Optional[pulumi.Input[str]] = None,
     current = snowflake.get_streams(database="MYDB",
         schema="MYSCHEMA")
     ```
-
-
-    :param str database: The database from which to return the streams from.
-    :param str schema: The schema from which to return the streams from.
     """
     ...

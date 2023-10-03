@@ -32,13 +32,7 @@ export function getTables(args: GetTablesArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getTables.
  */
 export interface GetTablesArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
-    /**
-     * The schema from which to return the tables from.
-     */
     schema: string;
 }
 
@@ -84,12 +78,6 @@ export function getTablesOutput(args: GetTablesOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getTables.
  */
 export interface GetTablesOutputArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database: pulumi.Input<string>;
-    /**
-     * The schema from which to return the tables from.
-     */
     schema: pulumi.Input<string>;
 }

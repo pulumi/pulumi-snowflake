@@ -67,9 +67,6 @@ namespace Pulumi.Snowflake
 
     public sealed class GetSchemasArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The database from which to return the schemas from.
-        /// </summary>
         [Input("database", required: true)]
         public string Database { get; set; } = null!;
 
@@ -81,9 +78,6 @@ namespace Pulumi.Snowflake
 
     public sealed class GetSchemasInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The database from which to return the schemas from.
-        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 

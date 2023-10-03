@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['NotificationIntegrationArgs', 'NotificationIntegration']
@@ -43,34 +43,69 @@ class NotificationIntegrationArgs:
         :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
         :param pulumi.Input[str] type: A type of integration
         """
+        NotificationIntegrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_sns_role_arn=aws_sns_role_arn,
+            aws_sns_topic_arn=aws_sns_topic_arn,
+            aws_sqs_arn=aws_sqs_arn,
+            aws_sqs_role_arn=aws_sqs_role_arn,
+            azure_storage_queue_primary_uri=azure_storage_queue_primary_uri,
+            azure_tenant_id=azure_tenant_id,
+            comment=comment,
+            direction=direction,
+            enabled=enabled,
+            gcp_pubsub_subscription_name=gcp_pubsub_subscription_name,
+            gcp_pubsub_topic_name=gcp_pubsub_topic_name,
+            name=name,
+            notification_provider=notification_provider,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_sns_role_arn: Optional[pulumi.Input[str]] = None,
+             aws_sns_topic_arn: Optional[pulumi.Input[str]] = None,
+             aws_sqs_arn: Optional[pulumi.Input[str]] = None,
+             aws_sqs_role_arn: Optional[pulumi.Input[str]] = None,
+             azure_storage_queue_primary_uri: Optional[pulumi.Input[str]] = None,
+             azure_tenant_id: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             direction: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             gcp_pubsub_subscription_name: Optional[pulumi.Input[str]] = None,
+             gcp_pubsub_topic_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_provider: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_sns_role_arn is not None:
-            pulumi.set(__self__, "aws_sns_role_arn", aws_sns_role_arn)
+            _setter("aws_sns_role_arn", aws_sns_role_arn)
         if aws_sns_topic_arn is not None:
-            pulumi.set(__self__, "aws_sns_topic_arn", aws_sns_topic_arn)
+            _setter("aws_sns_topic_arn", aws_sns_topic_arn)
         if aws_sqs_arn is not None:
-            pulumi.set(__self__, "aws_sqs_arn", aws_sqs_arn)
+            _setter("aws_sqs_arn", aws_sqs_arn)
         if aws_sqs_role_arn is not None:
-            pulumi.set(__self__, "aws_sqs_role_arn", aws_sqs_role_arn)
+            _setter("aws_sqs_role_arn", aws_sqs_role_arn)
         if azure_storage_queue_primary_uri is not None:
-            pulumi.set(__self__, "azure_storage_queue_primary_uri", azure_storage_queue_primary_uri)
+            _setter("azure_storage_queue_primary_uri", azure_storage_queue_primary_uri)
         if azure_tenant_id is not None:
-            pulumi.set(__self__, "azure_tenant_id", azure_tenant_id)
+            _setter("azure_tenant_id", azure_tenant_id)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if direction is not None:
-            pulumi.set(__self__, "direction", direction)
+            _setter("direction", direction)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if gcp_pubsub_subscription_name is not None:
-            pulumi.set(__self__, "gcp_pubsub_subscription_name", gcp_pubsub_subscription_name)
+            _setter("gcp_pubsub_subscription_name", gcp_pubsub_subscription_name)
         if gcp_pubsub_topic_name is not None:
-            pulumi.set(__self__, "gcp_pubsub_topic_name", gcp_pubsub_topic_name)
+            _setter("gcp_pubsub_topic_name", gcp_pubsub_topic_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_provider is not None:
-            pulumi.set(__self__, "notification_provider", notification_provider)
+            _setter("notification_provider", notification_provider)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="awsSnsRoleArn")
@@ -279,46 +314,93 @@ class _NotificationIntegrationState:
         :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
         :param pulumi.Input[str] type: A type of integration
         """
+        _NotificationIntegrationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_sns_external_id=aws_sns_external_id,
+            aws_sns_iam_user_arn=aws_sns_iam_user_arn,
+            aws_sns_role_arn=aws_sns_role_arn,
+            aws_sns_topic_arn=aws_sns_topic_arn,
+            aws_sqs_arn=aws_sqs_arn,
+            aws_sqs_external_id=aws_sqs_external_id,
+            aws_sqs_iam_user_arn=aws_sqs_iam_user_arn,
+            aws_sqs_role_arn=aws_sqs_role_arn,
+            azure_storage_queue_primary_uri=azure_storage_queue_primary_uri,
+            azure_tenant_id=azure_tenant_id,
+            comment=comment,
+            created_on=created_on,
+            direction=direction,
+            enabled=enabled,
+            gcp_pubsub_service_account=gcp_pubsub_service_account,
+            gcp_pubsub_subscription_name=gcp_pubsub_subscription_name,
+            gcp_pubsub_topic_name=gcp_pubsub_topic_name,
+            name=name,
+            notification_provider=notification_provider,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_sns_external_id: Optional[pulumi.Input[str]] = None,
+             aws_sns_iam_user_arn: Optional[pulumi.Input[str]] = None,
+             aws_sns_role_arn: Optional[pulumi.Input[str]] = None,
+             aws_sns_topic_arn: Optional[pulumi.Input[str]] = None,
+             aws_sqs_arn: Optional[pulumi.Input[str]] = None,
+             aws_sqs_external_id: Optional[pulumi.Input[str]] = None,
+             aws_sqs_iam_user_arn: Optional[pulumi.Input[str]] = None,
+             aws_sqs_role_arn: Optional[pulumi.Input[str]] = None,
+             azure_storage_queue_primary_uri: Optional[pulumi.Input[str]] = None,
+             azure_tenant_id: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             created_on: Optional[pulumi.Input[str]] = None,
+             direction: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             gcp_pubsub_service_account: Optional[pulumi.Input[str]] = None,
+             gcp_pubsub_subscription_name: Optional[pulumi.Input[str]] = None,
+             gcp_pubsub_topic_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_provider: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_sns_external_id is not None:
-            pulumi.set(__self__, "aws_sns_external_id", aws_sns_external_id)
+            _setter("aws_sns_external_id", aws_sns_external_id)
         if aws_sns_iam_user_arn is not None:
-            pulumi.set(__self__, "aws_sns_iam_user_arn", aws_sns_iam_user_arn)
+            _setter("aws_sns_iam_user_arn", aws_sns_iam_user_arn)
         if aws_sns_role_arn is not None:
-            pulumi.set(__self__, "aws_sns_role_arn", aws_sns_role_arn)
+            _setter("aws_sns_role_arn", aws_sns_role_arn)
         if aws_sns_topic_arn is not None:
-            pulumi.set(__self__, "aws_sns_topic_arn", aws_sns_topic_arn)
+            _setter("aws_sns_topic_arn", aws_sns_topic_arn)
         if aws_sqs_arn is not None:
-            pulumi.set(__self__, "aws_sqs_arn", aws_sqs_arn)
+            _setter("aws_sqs_arn", aws_sqs_arn)
         if aws_sqs_external_id is not None:
-            pulumi.set(__self__, "aws_sqs_external_id", aws_sqs_external_id)
+            _setter("aws_sqs_external_id", aws_sqs_external_id)
         if aws_sqs_iam_user_arn is not None:
-            pulumi.set(__self__, "aws_sqs_iam_user_arn", aws_sqs_iam_user_arn)
+            _setter("aws_sqs_iam_user_arn", aws_sqs_iam_user_arn)
         if aws_sqs_role_arn is not None:
-            pulumi.set(__self__, "aws_sqs_role_arn", aws_sqs_role_arn)
+            _setter("aws_sqs_role_arn", aws_sqs_role_arn)
         if azure_storage_queue_primary_uri is not None:
-            pulumi.set(__self__, "azure_storage_queue_primary_uri", azure_storage_queue_primary_uri)
+            _setter("azure_storage_queue_primary_uri", azure_storage_queue_primary_uri)
         if azure_tenant_id is not None:
-            pulumi.set(__self__, "azure_tenant_id", azure_tenant_id)
+            _setter("azure_tenant_id", azure_tenant_id)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if created_on is not None:
-            pulumi.set(__self__, "created_on", created_on)
+            _setter("created_on", created_on)
         if direction is not None:
-            pulumi.set(__self__, "direction", direction)
+            _setter("direction", direction)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if gcp_pubsub_service_account is not None:
-            pulumi.set(__self__, "gcp_pubsub_service_account", gcp_pubsub_service_account)
+            _setter("gcp_pubsub_service_account", gcp_pubsub_service_account)
         if gcp_pubsub_subscription_name is not None:
-            pulumi.set(__self__, "gcp_pubsub_subscription_name", gcp_pubsub_subscription_name)
+            _setter("gcp_pubsub_subscription_name", gcp_pubsub_subscription_name)
         if gcp_pubsub_topic_name is not None:
-            pulumi.set(__self__, "gcp_pubsub_topic_name", gcp_pubsub_topic_name)
+            _setter("gcp_pubsub_topic_name", gcp_pubsub_topic_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_provider is not None:
-            pulumi.set(__self__, "notification_provider", notification_provider)
+            _setter("notification_provider", notification_provider)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="awsSnsExternalId")
@@ -652,6 +734,10 @@ class NotificationIntegration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NotificationIntegrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

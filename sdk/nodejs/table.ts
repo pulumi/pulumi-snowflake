@@ -56,7 +56,7 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly columns!: pulumi.Output<outputs.TableColumn[]>;
     /**
-     * Specifies a comment for the table.
+     * Column comment
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
@@ -72,11 +72,11 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly dataRetentionTimeInDays!: pulumi.Output<number | undefined>;
     /**
-     * The database in which to create the table.
+     * Name of the database that the tag was created in.
      */
     public readonly database!: pulumi.Output<string>;
     /**
-     * Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+     * Column name
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -94,7 +94,7 @@ export class Table extends pulumi.CustomResource {
      */
     public /*out*/ readonly qualifiedName!: pulumi.Output<string>;
     /**
-     * The schema in which to create the table.
+     * Name of the schema that the tag was created in.
      */
     public readonly schema!: pulumi.Output<string>;
     /**
@@ -177,7 +177,7 @@ export interface TableState {
      */
     columns?: pulumi.Input<pulumi.Input<inputs.TableColumn>[]>;
     /**
-     * Specifies a comment for the table.
+     * Column comment
      */
     comment?: pulumi.Input<string>;
     /**
@@ -193,11 +193,11 @@ export interface TableState {
      */
     dataRetentionTimeInDays?: pulumi.Input<number>;
     /**
-     * The database in which to create the table.
+     * Name of the database that the tag was created in.
      */
     database?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+     * Column name
      */
     name?: pulumi.Input<string>;
     /**
@@ -215,7 +215,7 @@ export interface TableState {
      */
     qualifiedName?: pulumi.Input<string>;
     /**
-     * The schema in which to create the table.
+     * Name of the schema that the tag was created in.
      */
     schema?: pulumi.Input<string>;
     /**
@@ -243,7 +243,7 @@ export interface TableArgs {
      */
     columns: pulumi.Input<pulumi.Input<inputs.TableColumn>[]>;
     /**
-     * Specifies a comment for the table.
+     * Column comment
      */
     comment?: pulumi.Input<string>;
     /**
@@ -259,11 +259,11 @@ export interface TableArgs {
      */
     dataRetentionTimeInDays?: pulumi.Input<number>;
     /**
-     * The database in which to create the table.
+     * Name of the database that the tag was created in.
      */
     database: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+     * Column name
      */
     name?: pulumi.Input<string>;
     /**
@@ -273,7 +273,7 @@ export interface TableArgs {
      */
     primaryKey?: pulumi.Input<inputs.TablePrimaryKey>;
     /**
-     * The schema in which to create the table.
+     * Name of the schema that the tag was created in.
      */
     schema: pulumi.Input<string>;
     /**

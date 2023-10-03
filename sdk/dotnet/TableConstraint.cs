@@ -135,7 +135,7 @@ namespace Pulumi.Snowflake
     public partial class TableConstraint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Columns to use in constraint key
+        /// Columns to use in foreign key reference
         /// </summary>
         [Output("columns")]
         public Output<ImmutableArray<string>> Columns { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> Rely { get; private set; } = null!;
 
         /// <summary>
-        /// Idenfifier for table to create constraint on. Must be of the form Note: format must follow: "\n\n"."\n\n"."\n\n" or "\n\n.\n\n.\n\n" or "\n\n|\n\n.\n\n" (snowflake*table.my*table.id)
+        /// Name of constraint
         /// </summary>
         [Output("tableId")]
         public Output<string> TableId { get; private set; } = null!;
@@ -256,7 +256,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _columns;
 
         /// <summary>
-        /// Columns to use in constraint key
+        /// Columns to use in foreign key reference
         /// </summary>
         public InputList<string> Columns
         {
@@ -313,7 +313,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? Rely { get; set; }
 
         /// <summary>
-        /// Idenfifier for table to create constraint on. Must be of the form Note: format must follow: "\n\n"."\n\n"."\n\n" or "\n\n.\n\n.\n\n" or "\n\n|\n\n.\n\n" (snowflake*table.my*table.id)
+        /// Name of constraint
         /// </summary>
         [Input("tableId", required: true)]
         public Input<string> TableId { get; set; } = null!;
@@ -342,7 +342,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _columns;
 
         /// <summary>
-        /// Columns to use in constraint key
+        /// Columns to use in foreign key reference
         /// </summary>
         public InputList<string> Columns
         {
@@ -399,7 +399,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? Rely { get; set; }
 
         /// <summary>
-        /// Idenfifier for table to create constraint on. Must be of the form Note: format must follow: "\n\n"."\n\n"."\n\n" or "\n\n.\n\n.\n\n" or "\n\n|\n\n.\n\n" (snowflake*table.my*table.id)
+        /// Name of constraint
         /// </summary>
         [Input("tableId")]
         public Input<string>? TableId { get; set; }

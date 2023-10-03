@@ -99,7 +99,7 @@ type FailoverGroup struct {
 	FromReplica FailoverGroupFromReplicaPtrOutput `pulumi:"fromReplica"`
 	// Allows replicating objects to accounts on lower editions.
 	IgnoreEditionCheck pulumi.BoolPtrOutput `pulumi:"ignoreEditionCheck"`
-	// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
+	// Identifier for the primary failover group in the source account.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
 	ObjectTypes pulumi.StringArrayOutput `pulumi:"objectTypes"`
@@ -149,7 +149,7 @@ type failoverGroupState struct {
 	FromReplica *FailoverGroupFromReplica `pulumi:"fromReplica"`
 	// Allows replicating objects to accounts on lower editions.
 	IgnoreEditionCheck *bool `pulumi:"ignoreEditionCheck"`
-	// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
+	// Identifier for the primary failover group in the source account.
 	Name *string `pulumi:"name"`
 	// Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
 	ObjectTypes []string `pulumi:"objectTypes"`
@@ -170,7 +170,7 @@ type FailoverGroupState struct {
 	FromReplica FailoverGroupFromReplicaPtrInput
 	// Allows replicating objects to accounts on lower editions.
 	IgnoreEditionCheck pulumi.BoolPtrInput
-	// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
+	// Identifier for the primary failover group in the source account.
 	Name pulumi.StringPtrInput
 	// Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
 	ObjectTypes pulumi.StringArrayInput
@@ -195,7 +195,7 @@ type failoverGroupArgs struct {
 	FromReplica *FailoverGroupFromReplica `pulumi:"fromReplica"`
 	// Allows replicating objects to accounts on lower editions.
 	IgnoreEditionCheck *bool `pulumi:"ignoreEditionCheck"`
-	// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
+	// Identifier for the primary failover group in the source account.
 	Name *string `pulumi:"name"`
 	// Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
 	ObjectTypes []string `pulumi:"objectTypes"`
@@ -217,7 +217,7 @@ type FailoverGroupArgs struct {
 	FromReplica FailoverGroupFromReplicaPtrInput
 	// Allows replicating objects to accounts on lower editions.
 	IgnoreEditionCheck pulumi.BoolPtrInput
-	// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
+	// Identifier for the primary failover group in the source account.
 	Name pulumi.StringPtrInput
 	// Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
 	ObjectTypes pulumi.StringArrayInput
@@ -366,7 +366,7 @@ func (o FailoverGroupOutput) IgnoreEditionCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FailoverGroup) pulumi.BoolPtrOutput { return v.IgnoreEditionCheck }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
+// Identifier for the primary failover group in the source account.
 func (o FailoverGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FailoverGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

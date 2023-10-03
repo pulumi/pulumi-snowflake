@@ -50,14 +50,14 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The database in which to create the schema.
+     * Name of the database that the tag was created in.
      * 
      */
     @Import(name="database")
     private @Nullable Output<String> database;
 
     /**
-     * @return The database in which to create the schema.
+     * @return Name of the database that the tag was created in.
      * 
      */
     public Optional<Output<String>> database() {
@@ -95,14 +95,14 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+     * Tag name, e.g. department.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+     * @return Tag name, e.g. department.
      * 
      */
     public Optional<Output<String>> name() {
@@ -205,7 +205,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the schema.
+         * @param database Name of the database that the tag was created in.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the schema.
+         * @param database Name of the database that the tag was created in.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+         * @param name Tag name, e.g. department.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+         * @param name Tag name, e.g. department.
          * 
          * @return builder
          * 

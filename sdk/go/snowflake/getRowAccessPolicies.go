@@ -50,10 +50,8 @@ func GetRowAccessPolicies(ctx *pulumi.Context, args *GetRowAccessPoliciesArgs, o
 
 // A collection of arguments for invoking getRowAccessPolicies.
 type GetRowAccessPoliciesArgs struct {
-	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	// The schema from which to return the row access policyfrom.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // A collection of values returned by getRowAccessPolicies.
@@ -83,10 +81,8 @@ func GetRowAccessPoliciesOutput(ctx *pulumi.Context, args GetRowAccessPoliciesOu
 
 // A collection of arguments for invoking getRowAccessPolicies.
 type GetRowAccessPoliciesOutputArgs struct {
-	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the row access policyfrom.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetRowAccessPoliciesOutputArgs) ElementType() reflect.Type {

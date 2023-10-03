@@ -12,9 +12,15 @@ namespace Pulumi.Snowflake.Inputs
 
     public sealed class GetGrantsFutureGrantsInSchemaArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database in which the scehma resides. Optional when querying a schema in the current database.
+        /// </summary>
         [Input("databaseName")]
         public string? DatabaseName { get; set; }
 
+        /// <summary>
+        /// The name of the schema to list all privileges of new (ie. future) objects granted to
+        /// </summary>
         [Input("schemaName", required: true)]
         public string SchemaName { get; set; } = null!;
 

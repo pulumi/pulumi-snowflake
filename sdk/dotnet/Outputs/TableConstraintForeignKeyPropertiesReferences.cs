@@ -14,11 +14,11 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class TableConstraintForeignKeyPropertiesReferences
     {
         /// <summary>
-        /// Columns to use in constraint key
+        /// Columns to use in foreign key reference
         /// </summary>
         public readonly ImmutableArray<string> Columns;
         /// <summary>
-        /// Idenfifier for table to create constraint on. Must be of the form Note: format must follow: "\n\n"."\n\n"."\n\n" or "\n\n.\n\n.\n\n" or "\n\n|\n\n.\n\n" (snowflake*table.my*table.id)
+        /// Name of constraint
         /// </summary>
         public readonly string TableId;
 

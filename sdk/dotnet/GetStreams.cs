@@ -69,15 +69,9 @@ namespace Pulumi.Snowflake
 
     public sealed class GetStreamsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The database from which to return the streams from.
-        /// </summary>
         [Input("database", required: true)]
         public string Database { get; set; } = null!;
 
-        /// <summary>
-        /// The schema from which to return the streams from.
-        /// </summary>
         [Input("schema", required: true)]
         public string Schema { get; set; } = null!;
 
@@ -89,15 +83,9 @@ namespace Pulumi.Snowflake
 
     public sealed class GetStreamsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The database from which to return the streams from.
-        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
-        /// <summary>
-        /// The schema from which to return the streams from.
-        /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 

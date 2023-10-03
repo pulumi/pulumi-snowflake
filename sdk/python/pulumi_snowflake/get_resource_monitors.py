@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -14,6 +14,7 @@ __all__ = [
     'GetResourceMonitorsResult',
     'AwaitableGetResourceMonitorsResult',
     'get_resource_monitors',
+    'get_resource_monitors_output',
 ]
 
 @pulumi.output_type
@@ -74,3 +75,18 @@ def get_resource_monitors(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
     return AwaitableGetResourceMonitorsResult(
         id=pulumi.get(__ret__, 'id'),
         resource_monitors=pulumi.get(__ret__, 'resource_monitors'))
+
+
+@_utilities.lift_output_func(get_resource_monitors)
+def get_resource_monitors_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceMonitorsResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_resource_monitors()
+    ```
+    """
+    ...

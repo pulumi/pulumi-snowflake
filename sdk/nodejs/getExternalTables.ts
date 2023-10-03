@@ -32,13 +32,7 @@ export function getExternalTables(args: GetExternalTablesArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getExternalTables.
  */
 export interface GetExternalTablesArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
-    /**
-     * The schema from which to return the external tables from.
-     */
     schema: string;
 }
 
@@ -84,12 +78,6 @@ export function getExternalTablesOutput(args: GetExternalTablesOutputArgs, opts?
  * A collection of arguments for invoking getExternalTables.
  */
 export interface GetExternalTablesOutputArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database: pulumi.Input<string>;
-    /**
-     * The schema from which to return the external tables from.
-     */
     schema: pulumi.Input<string>;
 }

@@ -82,14 +82,14 @@ public class MaterializedView extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * The database in which to create the view. Don&#39;t use the | character.
+     * Name of the database that the tag was created in.
      * 
      */
     @Export(name="database", type=String.class, parameters={})
     private Output<String> database;
 
     /**
-     * @return The database in which to create the view. Don&#39;t use the | character.
+     * @return Name of the database that the tag was created in.
      * 
      */
     public Output<String> database() {
@@ -110,14 +110,14 @@ public class MaterializedView extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.isSecure);
     }
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created.
+     * Tag name, e.g. department.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the view; must be unique for the schema in which the view is created.
+     * @return Tag name, e.g. department.
      * 
      */
     public Output<String> name() {
@@ -138,14 +138,14 @@ public class MaterializedView extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.orReplace);
     }
     /**
-     * The schema in which to create the view. Don&#39;t use the | character.
+     * Name of the schema that the tag was created in.
      * 
      */
     @Export(name="schema", type=String.class, parameters={})
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the view. Don&#39;t use the | character.
+     * @return Name of the schema that the tag was created in.
      * 
      */
     public Output<String> schema() {

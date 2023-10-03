@@ -13,7 +13,13 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class TableColumnIdentity
     {
+        /// <summary>
+        /// The number to start incrementing at.
+        /// </summary>
         public readonly int? StartNum;
+        /// <summary>
+        /// Step size to increment by.
+        /// </summary>
         public readonly int? StepNum;
 
         [OutputConstructor]

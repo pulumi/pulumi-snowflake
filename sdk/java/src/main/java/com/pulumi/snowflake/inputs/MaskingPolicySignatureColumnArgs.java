@@ -14,23 +14,31 @@ public final class MaskingPolicySignatureColumnArgs extends com.pulumi.resources
     public static final MaskingPolicySignatureColumnArgs Empty = new MaskingPolicySignatureColumnArgs();
 
     /**
-     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+     * Specifies the column name to mask.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+     * @return Specifies the column name to mask.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Specifies the column type to mask.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return Specifies the column type to mask.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -61,7 +69,7 @@ public final class MaskingPolicySignatureColumnArgs extends com.pulumi.resources
         }
 
         /**
-         * @param name Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+         * @param name Specifies the column name to mask.
          * 
          * @return builder
          * 
@@ -72,7 +80,7 @@ public final class MaskingPolicySignatureColumnArgs extends com.pulumi.resources
         }
 
         /**
-         * @param name Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+         * @param name Specifies the column name to mask.
          * 
          * @return builder
          * 
@@ -81,11 +89,23 @@ public final class MaskingPolicySignatureColumnArgs extends com.pulumi.resources
             return name(Output.of(name));
         }
 
+        /**
+         * @param type Specifies the column type to mask.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Specifies the column type to mask.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

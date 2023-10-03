@@ -67,7 +67,7 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly dataRetentionDays!: pulumi.Output<number | undefined>;
     /**
-     * The database in which to create the schema.
+     * Name of the database that the tag was created in.
      */
     public readonly database!: pulumi.Output<string>;
     /**
@@ -79,7 +79,7 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly isTransient!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+     * Tag name, e.g. department.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -140,7 +140,7 @@ export interface SchemaState {
      */
     dataRetentionDays?: pulumi.Input<number>;
     /**
-     * The database in which to create the schema.
+     * Name of the database that the tag was created in.
      */
     database?: pulumi.Input<string>;
     /**
@@ -152,7 +152,7 @@ export interface SchemaState {
      */
     isTransient?: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+     * Tag name, e.g. department.
      */
     name?: pulumi.Input<string>;
     /**
@@ -176,7 +176,7 @@ export interface SchemaArgs {
      */
     dataRetentionDays?: pulumi.Input<number>;
     /**
-     * The database in which to create the schema.
+     * Name of the database that the tag was created in.
      */
     database: pulumi.Input<string>;
     /**
@@ -188,7 +188,7 @@ export interface SchemaArgs {
      */
     isTransient?: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+     * Tag name, e.g. department.
      */
     name?: pulumi.Input<string>;
     /**

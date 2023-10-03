@@ -32,13 +32,7 @@ export function getFileFormats(args: GetFileFormatsArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getFileFormats.
  */
 export interface GetFileFormatsArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
-    /**
-     * The schema from which to return the file formats from.
-     */
     schema: string;
 }
 
@@ -84,12 +78,6 @@ export function getFileFormatsOutput(args: GetFileFormatsOutputArgs, opts?: pulu
  * A collection of arguments for invoking getFileFormats.
  */
 export interface GetFileFormatsOutputArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database: pulumi.Input<string>;
-    /**
-     * The schema from which to return the file formats from.
-     */
     schema: pulumi.Input<string>;
 }

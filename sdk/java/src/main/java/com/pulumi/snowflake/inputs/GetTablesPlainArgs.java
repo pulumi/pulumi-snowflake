@@ -12,32 +12,16 @@ public final class GetTablesPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTablesPlainArgs Empty = new GetTablesPlainArgs();
 
-    /**
-     * The database from which to return the schemas from.
-     * 
-     */
     @Import(name="database", required=true)
     private String database;
 
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     public String database() {
         return this.database;
     }
 
-    /**
-     * The schema from which to return the tables from.
-     * 
-     */
     @Import(name="schema", required=true)
     private String schema;
 
-    /**
-     * @return The schema from which to return the tables from.
-     * 
-     */
     public String schema() {
         return this.schema;
     }
@@ -67,23 +51,11 @@ public final class GetTablesPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetTablesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param database The database from which to return the schemas from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder database(String database) {
             $.database = database;
             return this;
         }
 
-        /**
-         * @param schema The schema from which to return the tables from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schema(String schema) {
             $.schema = schema;
             return this;

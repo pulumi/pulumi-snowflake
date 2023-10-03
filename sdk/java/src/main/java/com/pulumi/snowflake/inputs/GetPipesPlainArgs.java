@@ -12,32 +12,16 @@ public final class GetPipesPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetPipesPlainArgs Empty = new GetPipesPlainArgs();
 
-    /**
-     * The database from which to return the schemas from.
-     * 
-     */
     @Import(name="database", required=true)
     private String database;
 
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     public String database() {
         return this.database;
     }
 
-    /**
-     * The schema from which to return the pipes from.
-     * 
-     */
     @Import(name="schema", required=true)
     private String schema;
 
-    /**
-     * @return The schema from which to return the pipes from.
-     * 
-     */
     public String schema() {
         return this.schema;
     }
@@ -67,23 +51,11 @@ public final class GetPipesPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetPipesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param database The database from which to return the schemas from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder database(String database) {
             $.database = database;
             return this;
         }
 
-        /**
-         * @param schema The schema from which to return the pipes from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schema(String schema) {
             $.schema = schema;
             return this;

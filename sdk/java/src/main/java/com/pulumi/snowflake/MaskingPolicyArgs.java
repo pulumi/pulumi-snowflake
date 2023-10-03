@@ -93,14 +93,14 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+     * Specifies the column name to mask.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+     * @return Specifies the column name to mask.
      * 
      */
     public Optional<Output<String>> name() {
@@ -306,7 +306,7 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+         * @param name Specifies the column name to mask.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+         * @param name Specifies the column name to mask.
          * 
          * @return builder
          * 

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ManagedAccountArgs', 'ManagedAccount']
@@ -27,14 +27,31 @@ class ManagedAccountArgs:
         :param pulumi.Input[str] name: Identifier for the managed account; must be unique for your account.
         :param pulumi.Input[str] type: Specifies the type of managed account.
         """
-        pulumi.set(__self__, "admin_name", admin_name)
-        pulumi.set(__self__, "admin_password", admin_password)
+        ManagedAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_name=admin_name,
+            admin_password=admin_password,
+            comment=comment,
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_name: pulumi.Input[str],
+             admin_password: pulumi.Input[str],
+             comment: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("admin_name", admin_name)
+        _setter("admin_password", admin_password)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="adminName")
@@ -123,26 +140,53 @@ class _ManagedAccountState:
         :param pulumi.Input[str] type: Specifies the type of managed account.
         :param pulumi.Input[str] url: URL for accessing the managed account, particularly through the web interface.
         """
+        _ManagedAccountState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_name=admin_name,
+            admin_password=admin_password,
+            cloud=cloud,
+            comment=comment,
+            created_on=created_on,
+            locator=locator,
+            name=name,
+            region=region,
+            type=type,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_name: Optional[pulumi.Input[str]] = None,
+             admin_password: Optional[pulumi.Input[str]] = None,
+             cloud: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             created_on: Optional[pulumi.Input[str]] = None,
+             locator: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if admin_name is not None:
-            pulumi.set(__self__, "admin_name", admin_name)
+            _setter("admin_name", admin_name)
         if admin_password is not None:
-            pulumi.set(__self__, "admin_password", admin_password)
+            _setter("admin_password", admin_password)
         if cloud is not None:
-            pulumi.set(__self__, "cloud", cloud)
+            _setter("cloud", cloud)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if created_on is not None:
-            pulumi.set(__self__, "created_on", created_on)
+            _setter("created_on", created_on)
         if locator is not None:
-            pulumi.set(__self__, "locator", locator)
+            _setter("locator", locator)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="adminName")
@@ -314,6 +358,10 @@ class ManagedAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

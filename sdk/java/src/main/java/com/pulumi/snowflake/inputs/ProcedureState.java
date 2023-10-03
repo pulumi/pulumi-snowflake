@@ -123,14 +123,14 @@ public final class ProcedureState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don&#39;t use the | character.
+     * The argument name
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don&#39;t use the | character.
+     * @return The argument name
      * 
      */
     public Optional<Output<String>> name() {
@@ -448,7 +448,7 @@ public final class ProcedureState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don&#39;t use the | character.
+         * @param name The argument name
          * 
          * @return builder
          * 
@@ -459,7 +459,7 @@ public final class ProcedureState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don&#39;t use the | character.
+         * @param name The argument name
          * 
          * @return builder
          * 

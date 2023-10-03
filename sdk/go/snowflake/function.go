@@ -39,7 +39,7 @@ type Function struct {
 	IsSecure pulumi.BoolPtrOutput `pulumi:"isSecure"`
 	// The language of the statement
 	Language pulumi.StringPtrOutput `pulumi:"language"`
-	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
+	// The argument name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the behavior of the function when called with null inputs.
 	NullInputBehavior pulumi.StringPtrOutput `pulumi:"nullInputBehavior"`
@@ -115,7 +115,7 @@ type functionState struct {
 	IsSecure *bool `pulumi:"isSecure"`
 	// The language of the statement
 	Language *string `pulumi:"language"`
-	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
+	// The argument name
 	Name *string `pulumi:"name"`
 	// Specifies the behavior of the function when called with null inputs.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
@@ -150,7 +150,7 @@ type FunctionState struct {
 	IsSecure pulumi.BoolPtrInput
 	// The language of the statement
 	Language pulumi.StringPtrInput
-	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
+	// The argument name
 	Name pulumi.StringPtrInput
 	// Specifies the behavior of the function when called with null inputs.
 	NullInputBehavior pulumi.StringPtrInput
@@ -189,7 +189,7 @@ type functionArgs struct {
 	IsSecure *bool `pulumi:"isSecure"`
 	// The language of the statement
 	Language *string `pulumi:"language"`
-	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
+	// The argument name
 	Name *string `pulumi:"name"`
 	// Specifies the behavior of the function when called with null inputs.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
@@ -225,7 +225,7 @@ type FunctionArgs struct {
 	IsSecure pulumi.BoolPtrInput
 	// The language of the statement
 	Language pulumi.StringPtrInput
-	// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
+	// The argument name
 	Name pulumi.StringPtrInput
 	// Specifies the behavior of the function when called with null inputs.
 	NullInputBehavior pulumi.StringPtrInput
@@ -391,7 +391,7 @@ func (o FunctionOutput) Language() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Language }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
+// The argument name
 func (o FunctionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

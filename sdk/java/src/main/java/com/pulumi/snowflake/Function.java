@@ -214,14 +214,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.language);
     }
     /**
-     * Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don&#39;t use the | character.
+     * The argument name
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don&#39;t use the | character.
+     * @return The argument name
      * 
      */
     public Output<String> name() {

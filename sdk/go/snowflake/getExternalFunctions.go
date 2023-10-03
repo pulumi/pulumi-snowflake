@@ -50,10 +50,8 @@ func GetExternalFunctions(ctx *pulumi.Context, args *GetExternalFunctionsArgs, o
 
 // A collection of arguments for invoking getExternalFunctions.
 type GetExternalFunctionsArgs struct {
-	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	// The schema from which to return the external functions from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // A collection of values returned by getExternalFunctions.
@@ -83,10 +81,8 @@ func GetExternalFunctionsOutput(ctx *pulumi.Context, args GetExternalFunctionsOu
 
 // A collection of arguments for invoking getExternalFunctions.
 type GetExternalFunctionsOutputArgs struct {
-	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the external functions from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetExternalFunctionsOutputArgs) ElementType() reflect.Type {

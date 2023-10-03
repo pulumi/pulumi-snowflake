@@ -32,13 +32,7 @@ export function getViews(args: GetViewsArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getViews.
  */
 export interface GetViewsArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database: string;
-    /**
-     * The schema from which to return the views from.
-     */
     schema: string;
 }
 
@@ -84,12 +78,6 @@ export function getViewsOutput(args: GetViewsOutputArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getViews.
  */
 export interface GetViewsOutputArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database: pulumi.Input<string>;
-    /**
-     * The schema from which to return the views from.
-     */
     schema: pulumi.Input<string>;
 }

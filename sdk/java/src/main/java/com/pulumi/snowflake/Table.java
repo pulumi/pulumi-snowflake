@@ -75,14 +75,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.columns;
     }
     /**
-     * Specifies a comment for the table.
+     * Column comment
      * 
      */
     @Export(name="comment", type=String.class, parameters={})
     private Output</* @Nullable */ String> comment;
 
     /**
-     * @return Specifies a comment for the table.
+     * @return Column comment
      * 
      */
     public Output<Optional<String>> comment() {
@@ -125,28 +125,28 @@ public class Table extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dataRetentionTimeInDays);
     }
     /**
-     * The database in which to create the table.
+     * Name of the database that the tag was created in.
      * 
      */
     @Export(name="database", type=String.class, parameters={})
     private Output<String> database;
 
     /**
-     * @return The database in which to create the table.
+     * @return Name of the database that the tag was created in.
      * 
      */
     public Output<String> database() {
         return this.database;
     }
     /**
-     * Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+     * Column name
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+     * @return Column name
      * 
      */
     public Output<String> name() {
@@ -199,14 +199,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.qualifiedName;
     }
     /**
-     * The schema in which to create the table.
+     * Name of the schema that the tag was created in.
      * 
      */
     @Export(name="schema", type=String.class, parameters={})
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the table.
+     * @return Name of the schema that the tag was created in.
      * 
      */
     public Output<String> schema() {

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ProviderArgs', 'Provider']
@@ -78,86 +78,137 @@ class ProviderArgs:
                using profile.
         :param pulumi.Input[str] warehouse: Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
         """
+        ProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account=account,
+            browser_auth=browser_auth,
+            host=host,
+            insecure_mode=insecure_mode,
+            oauth_access_token=oauth_access_token,
+            oauth_client_id=oauth_client_id,
+            oauth_client_secret=oauth_client_secret,
+            oauth_endpoint=oauth_endpoint,
+            oauth_redirect_url=oauth_redirect_url,
+            oauth_refresh_token=oauth_refresh_token,
+            password=password,
+            port=port,
+            private_key=private_key,
+            private_key_passphrase=private_key_passphrase,
+            private_key_path=private_key_path,
+            profile=profile,
+            protocol=protocol,
+            region=region,
+            role=role,
+            session_params=session_params,
+            username=username,
+            warehouse=warehouse,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account: Optional[pulumi.Input[str]] = None,
+             browser_auth: Optional[pulumi.Input[bool]] = None,
+             host: Optional[pulumi.Input[str]] = None,
+             insecure_mode: Optional[pulumi.Input[bool]] = None,
+             oauth_access_token: Optional[pulumi.Input[str]] = None,
+             oauth_client_id: Optional[pulumi.Input[str]] = None,
+             oauth_client_secret: Optional[pulumi.Input[str]] = None,
+             oauth_endpoint: Optional[pulumi.Input[str]] = None,
+             oauth_redirect_url: Optional[pulumi.Input[str]] = None,
+             oauth_refresh_token: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             private_key: Optional[pulumi.Input[str]] = None,
+             private_key_passphrase: Optional[pulumi.Input[str]] = None,
+             private_key_path: Optional[pulumi.Input[str]] = None,
+             profile: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             session_params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             warehouse: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account is None:
             account = _utilities.get_env('SNOWFLAKE_ACCOUNT')
         if account is not None:
-            pulumi.set(__self__, "account", account)
+            _setter("account", account)
         if browser_auth is None:
             browser_auth = _utilities.get_env_bool('SNOWFLAKE_USE_BROWSER_AUTH')
         if browser_auth is not None:
-            pulumi.set(__self__, "browser_auth", browser_auth)
+            _setter("browser_auth", browser_auth)
         if host is None:
             host = _utilities.get_env('SNOWFLAKE_HOST')
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if insecure_mode is not None:
-            pulumi.set(__self__, "insecure_mode", insecure_mode)
+            _setter("insecure_mode", insecure_mode)
         if oauth_access_token is None:
             oauth_access_token = _utilities.get_env('SNOWFLAKE_OAUTH_ACCESS_TOKEN')
         if oauth_access_token is not None:
-            pulumi.set(__self__, "oauth_access_token", oauth_access_token)
+            _setter("oauth_access_token", oauth_access_token)
         if oauth_client_id is None:
             oauth_client_id = _utilities.get_env('SNOWFLAKE_OAUTH_CLIENT_ID')
         if oauth_client_id is not None:
-            pulumi.set(__self__, "oauth_client_id", oauth_client_id)
+            _setter("oauth_client_id", oauth_client_id)
         if oauth_client_secret is None:
             oauth_client_secret = _utilities.get_env('SNOWFLAKE_OAUTH_CLIENT_SECRET')
         if oauth_client_secret is not None:
-            pulumi.set(__self__, "oauth_client_secret", oauth_client_secret)
+            _setter("oauth_client_secret", oauth_client_secret)
         if oauth_endpoint is None:
             oauth_endpoint = _utilities.get_env('SNOWFLAKE_OAUTH_ENDPOINT')
         if oauth_endpoint is not None:
-            pulumi.set(__self__, "oauth_endpoint", oauth_endpoint)
+            _setter("oauth_endpoint", oauth_endpoint)
         if oauth_redirect_url is None:
             oauth_redirect_url = _utilities.get_env('SNOWFLAKE_OAUTH_REDIRECT_URL')
         if oauth_redirect_url is not None:
-            pulumi.set(__self__, "oauth_redirect_url", oauth_redirect_url)
+            _setter("oauth_redirect_url", oauth_redirect_url)
         if oauth_refresh_token is None:
             oauth_refresh_token = _utilities.get_env('SNOWFLAKE_OAUTH_REFRESH_TOKEN')
         if oauth_refresh_token is not None:
-            pulumi.set(__self__, "oauth_refresh_token", oauth_refresh_token)
+            _setter("oauth_refresh_token", oauth_refresh_token)
         if password is None:
             password = _utilities.get_env('SNOWFLAKE_PASSWORD')
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if port is None:
             port = _utilities.get_env_int('SNOWFLAKE_PORT')
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if private_key is not None:
-            pulumi.set(__self__, "private_key", private_key)
+            _setter("private_key", private_key)
         if private_key_passphrase is None:
             private_key_passphrase = _utilities.get_env('SNOWFLAKE_PRIVATE_KEY_PASSPHRASE')
         if private_key_passphrase is not None:
-            pulumi.set(__self__, "private_key_passphrase", private_key_passphrase)
+            _setter("private_key_passphrase", private_key_passphrase)
         if private_key_path is None:
             private_key_path = _utilities.get_env('SNOWFLAKE_PRIVATE_KEY_PATH')
         if private_key_path is not None:
-            pulumi.set(__self__, "private_key_path", private_key_path)
+            _setter("private_key_path", private_key_path)
         if profile is not None:
-            pulumi.set(__self__, "profile", profile)
+            _setter("profile", profile)
         if protocol is None:
             protocol = _utilities.get_env('SNOWFLAKE_PROTOCOL')
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if region is None:
             region = _utilities.get_env('SNOWFLAKE_REGION')
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if role is None:
             role = _utilities.get_env('SNOWFLAKE_ROLE')
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
         if session_params is not None:
-            pulumi.set(__self__, "session_params", session_params)
+            _setter("session_params", session_params)
         if username is None:
             username = _utilities.get_env('SNOWFLAKE_USER')
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
         if warehouse is None:
             warehouse = _utilities.get_env('SNOWFLAKE_WAREHOUSE')
         if warehouse is not None:
-            pulumi.set(__self__, "warehouse", warehouse)
+            _setter("warehouse", warehouse)
 
     @property
     @pulumi.getter
@@ -539,6 +590,10 @@ class Provider(pulumi.ProviderResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

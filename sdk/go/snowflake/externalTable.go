@@ -74,13 +74,13 @@ type ExternalTable struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
 	CopyGrants pulumi.BoolPtrOutput `pulumi:"copyGrants"`
-	// The database in which to create the external table.
+	// Name of the database that the tag was created in.
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Specifies the file format for the external table.
 	FileFormat pulumi.StringOutput `pulumi:"fileFormat"`
 	// Specifies a location for the external table.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
+	// Column name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of the role that owns the external table.
 	Owner pulumi.StringOutput `pulumi:"owner"`
@@ -90,7 +90,7 @@ type ExternalTable struct {
 	Pattern pulumi.StringPtrOutput `pulumi:"pattern"`
 	// Specifies weather to refresh when an external table is created.
 	RefreshOnCreate pulumi.BoolPtrOutput `pulumi:"refreshOnCreate"`
-	// The schema in which to create the external table.
+	// Name of the schema that the tag was created in.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Definitions of a tag to associate with the resource.
 	//
@@ -153,13 +153,13 @@ type externalTableState struct {
 	Comment *string `pulumi:"comment"`
 	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
 	CopyGrants *bool `pulumi:"copyGrants"`
-	// The database in which to create the external table.
+	// Name of the database that the tag was created in.
 	Database *string `pulumi:"database"`
 	// Specifies the file format for the external table.
 	FileFormat *string `pulumi:"fileFormat"`
 	// Specifies a location for the external table.
 	Location *string `pulumi:"location"`
-	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
+	// Column name
 	Name *string `pulumi:"name"`
 	// Name of the role that owns the external table.
 	Owner *string `pulumi:"owner"`
@@ -169,7 +169,7 @@ type externalTableState struct {
 	Pattern *string `pulumi:"pattern"`
 	// Specifies weather to refresh when an external table is created.
 	RefreshOnCreate *bool `pulumi:"refreshOnCreate"`
-	// The schema in which to create the external table.
+	// Name of the schema that the tag was created in.
 	Schema *string `pulumi:"schema"`
 	// Definitions of a tag to associate with the resource.
 	//
@@ -188,13 +188,13 @@ type ExternalTableState struct {
 	Comment pulumi.StringPtrInput
 	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
 	CopyGrants pulumi.BoolPtrInput
-	// The database in which to create the external table.
+	// Name of the database that the tag was created in.
 	Database pulumi.StringPtrInput
 	// Specifies the file format for the external table.
 	FileFormat pulumi.StringPtrInput
 	// Specifies a location for the external table.
 	Location pulumi.StringPtrInput
-	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
+	// Column name
 	Name pulumi.StringPtrInput
 	// Name of the role that owns the external table.
 	Owner pulumi.StringPtrInput
@@ -204,7 +204,7 @@ type ExternalTableState struct {
 	Pattern pulumi.StringPtrInput
 	// Specifies weather to refresh when an external table is created.
 	RefreshOnCreate pulumi.BoolPtrInput
-	// The schema in which to create the external table.
+	// Name of the schema that the tag was created in.
 	Schema pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
 	//
@@ -227,13 +227,13 @@ type externalTableArgs struct {
 	Comment *string `pulumi:"comment"`
 	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
 	CopyGrants *bool `pulumi:"copyGrants"`
-	// The database in which to create the external table.
+	// Name of the database that the tag was created in.
 	Database string `pulumi:"database"`
 	// Specifies the file format for the external table.
 	FileFormat string `pulumi:"fileFormat"`
 	// Specifies a location for the external table.
 	Location string `pulumi:"location"`
-	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
+	// Column name
 	Name *string `pulumi:"name"`
 	// Specifies any partition columns to evaluate for the external table.
 	PartitionBies []string `pulumi:"partitionBies"`
@@ -241,7 +241,7 @@ type externalTableArgs struct {
 	Pattern *string `pulumi:"pattern"`
 	// Specifies weather to refresh when an external table is created.
 	RefreshOnCreate *bool `pulumi:"refreshOnCreate"`
-	// The schema in which to create the external table.
+	// Name of the schema that the tag was created in.
 	Schema string `pulumi:"schema"`
 	// Definitions of a tag to associate with the resource.
 	//
@@ -261,13 +261,13 @@ type ExternalTableArgs struct {
 	Comment pulumi.StringPtrInput
 	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
 	CopyGrants pulumi.BoolPtrInput
-	// The database in which to create the external table.
+	// Name of the database that the tag was created in.
 	Database pulumi.StringInput
 	// Specifies the file format for the external table.
 	FileFormat pulumi.StringInput
 	// Specifies a location for the external table.
 	Location pulumi.StringInput
-	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
+	// Column name
 	Name pulumi.StringPtrInput
 	// Specifies any partition columns to evaluate for the external table.
 	PartitionBies pulumi.StringArrayInput
@@ -275,7 +275,7 @@ type ExternalTableArgs struct {
 	Pattern pulumi.StringPtrInput
 	// Specifies weather to refresh when an external table is created.
 	RefreshOnCreate pulumi.BoolPtrInput
-	// The schema in which to create the external table.
+	// Name of the schema that the tag was created in.
 	Schema pulumi.StringInput
 	// Definitions of a tag to associate with the resource.
 	//
@@ -419,7 +419,7 @@ func (o ExternalTableOutput) CopyGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.BoolPtrOutput { return v.CopyGrants }).(pulumi.BoolPtrOutput)
 }
 
-// The database in which to create the external table.
+// Name of the database that the tag was created in.
 func (o ExternalTableOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
@@ -434,7 +434,7 @@ func (o ExternalTableOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
+// Column name
 func (o ExternalTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -459,7 +459,7 @@ func (o ExternalTableOutput) RefreshOnCreate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.BoolPtrOutput { return v.RefreshOnCreate }).(pulumi.BoolPtrOutput)
 }
 
-// The schema in which to create the external table.
+// Name of the schema that the tag was created in.
 func (o ExternalTableOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }

@@ -50,10 +50,8 @@ func GetProcedures(ctx *pulumi.Context, args *GetProceduresArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getProcedures.
 type GetProceduresArgs struct {
-	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	// The schema from which to return the procedures from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // A collection of values returned by getProcedures.
@@ -83,10 +81,8 @@ func GetProceduresOutput(ctx *pulumi.Context, args GetProceduresOutputArgs, opts
 
 // A collection of arguments for invoking getProcedures.
 type GetProceduresOutputArgs struct {
-	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the procedures from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetProceduresOutputArgs) ElementType() reflect.Type {
