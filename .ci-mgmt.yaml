@@ -1,0 +1,19 @@
+provider: snowflake
+major-version: 1
+env:
+  SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+  SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+  SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+  SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
+  SNOWFLAKE_REGION: ${{ secrets.SNOWFLAKE_REGION }}
+makeTemplate: bridged
+plugins:
+  - name: random 
+    version: "4.2.0"
+  - name: aws 
+    version: "4.10.0"
+  - name: gcp 
+    version: "5.10.0"
+  - name: azure 
+    version: "4.7.0"
+team: ecosystem
