@@ -93,6 +93,21 @@ public final class Config {
         return Codegen.stringProp("oauthRefreshToken").config(config).env("SNOWFLAKE_OAUTH_REFRESH_TOKEN").get();
     }
 /**
+ * Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+ * 
+ */
+    public Optional<String> passcode() {
+        return Codegen.stringProp("passcode").config(config).get();
+    }
+/**
+ * False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
+ * of the password.
+ * 
+ */
+    public Optional<Boolean> passcodeInPassword() {
+        return Codegen.booleanProp("passcodeInPassword").config(config).get();
+    }
+/**
  * Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
  * `SNOWFLAKE_PASSWORD` environment variable.
  * 

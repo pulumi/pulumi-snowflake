@@ -735,15 +735,143 @@ public final class SnowflakeFunctions {
     public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetDatabaseRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var dbRoles = SnowflakeFunctions.getDatabaseRoles(GetDatabaseRolesArgs.builder()
+     *             .database(&#34;MYDB&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetDatabaseRolesResult> getDatabaseRoles(GetDatabaseRolesArgs args) {
         return getDatabaseRoles(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetDatabaseRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var dbRoles = SnowflakeFunctions.getDatabaseRoles(GetDatabaseRolesArgs.builder()
+     *             .database(&#34;MYDB&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetDatabaseRolesResult> getDatabaseRolesPlain(GetDatabaseRolesPlainArgs args) {
         return getDatabaseRolesPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetDatabaseRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var dbRoles = SnowflakeFunctions.getDatabaseRoles(GetDatabaseRolesArgs.builder()
+     *             .database(&#34;MYDB&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetDatabaseRolesResult> getDatabaseRoles(GetDatabaseRolesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getDatabaseRoles:getDatabaseRoles", TypeShape.of(GetDatabaseRolesResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetDatabaseRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var dbRoles = SnowflakeFunctions.getDatabaseRoles(GetDatabaseRolesArgs.builder()
+     *             .database(&#34;MYDB&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetDatabaseRolesResult> getDatabaseRolesPlain(GetDatabaseRolesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getDatabaseRoles:getDatabaseRoles", TypeShape.of(GetDatabaseRolesResult.class), args, Utilities.withVersion(options));
     }
@@ -3251,21 +3379,225 @@ public final class SnowflakeFunctions {
     public static CompletableFuture<GetRoleResult> getRolePlain(GetRolePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getRole:getRole", TypeShape.of(GetRoleResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = SnowflakeFunctions.getRoles();
+     * 
+     *         final var ad = SnowflakeFunctions.getRoles(GetRolesArgs.builder()
+     *             .pattern(&#34;SYSADMIN&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetRolesResult> getRoles() {
         return getRoles(GetRolesArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = SnowflakeFunctions.getRoles();
+     * 
+     *         final var ad = SnowflakeFunctions.getRoles(GetRolesArgs.builder()
+     *             .pattern(&#34;SYSADMIN&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetRolesResult> getRolesPlain() {
         return getRolesPlain(GetRolesPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = SnowflakeFunctions.getRoles();
+     * 
+     *         final var ad = SnowflakeFunctions.getRoles(GetRolesArgs.builder()
+     *             .pattern(&#34;SYSADMIN&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetRolesResult> getRoles(GetRolesArgs args) {
         return getRoles(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = SnowflakeFunctions.getRoles();
+     * 
+     *         final var ad = SnowflakeFunctions.getRoles(GetRolesArgs.builder()
+     *             .pattern(&#34;SYSADMIN&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetRolesResult> getRolesPlain(GetRolesPlainArgs args) {
         return getRolesPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = SnowflakeFunctions.getRoles();
+     * 
+     *         final var ad = SnowflakeFunctions.getRoles(GetRolesArgs.builder()
+     *             .pattern(&#34;SYSADMIN&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetRolesResult> getRoles(GetRolesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getRoles:getRoles", TypeShape.of(GetRolesResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = SnowflakeFunctions.getRoles();
+     * 
+     *         final var ad = SnowflakeFunctions.getRoles(GetRolesArgs.builder()
+     *             .pattern(&#34;SYSADMIN&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetRolesResult> getRolesPlain(GetRolesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getRoles:getRoles", TypeShape.of(GetRolesResult.class), args, Utilities.withVersion(options));
     }
@@ -3697,21 +4029,225 @@ public final class SnowflakeFunctions {
     public static CompletableFuture<GetSequencesResult> getSequencesPlain(GetSequencesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSequences:getSequences", TypeShape.of(GetSequencesResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetSharesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = SnowflakeFunctions.getShares();
+     * 
+     *         final var ad = SnowflakeFunctions.getShares(GetSharesArgs.builder()
+     *             .pattern(&#34;usage&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetSharesResult> getShares() {
         return getShares(GetSharesArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetSharesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = SnowflakeFunctions.getShares();
+     * 
+     *         final var ad = SnowflakeFunctions.getShares(GetSharesArgs.builder()
+     *             .pattern(&#34;usage&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetSharesResult> getSharesPlain() {
         return getSharesPlain(GetSharesPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetSharesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = SnowflakeFunctions.getShares();
+     * 
+     *         final var ad = SnowflakeFunctions.getShares(GetSharesArgs.builder()
+     *             .pattern(&#34;usage&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetSharesResult> getShares(GetSharesArgs args) {
         return getShares(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetSharesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = SnowflakeFunctions.getShares();
+     * 
+     *         final var ad = SnowflakeFunctions.getShares(GetSharesArgs.builder()
+     *             .pattern(&#34;usage&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetSharesResult> getSharesPlain(GetSharesPlainArgs args) {
         return getSharesPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetSharesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = SnowflakeFunctions.getShares();
+     * 
+     *         final var ad = SnowflakeFunctions.getShares(GetSharesArgs.builder()
+     *             .pattern(&#34;usage&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetSharesResult> getShares(GetSharesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getShares:getShares", TypeShape.of(GetSharesResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetSharesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = SnowflakeFunctions.getShares();
+     * 
+     *         final var ad = SnowflakeFunctions.getShares(GetSharesArgs.builder()
+     *             .pattern(&#34;usage&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetSharesResult> getSharesPlain(GetSharesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getShares:getShares", TypeShape.of(GetSharesResult.class), args, Utilities.withVersion(options));
     }

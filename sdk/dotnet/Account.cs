@@ -102,6 +102,12 @@ namespace Pulumi.Snowflake
         public Output<string?> FirstName { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the number of days to wait before dropping the account. The default is 3 days.
+        /// </summary>
+        [Output("gracePeriodInDays")]
+        public Output<int?> GracePeriodInDays { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
         /// </summary>
         [Output("isOrgAdmin")]
@@ -273,6 +279,12 @@ namespace Pulumi.Snowflake
             }
         }
 
+        /// <summary>
+        /// Specifies the number of days to wait before dropping the account. The default is 3 days.
+        /// </summary>
+        [Input("gracePeriodInDays")]
+        public Input<int>? GracePeriodInDays { get; set; }
+
         [Input("lastName")]
         private Input<string>? _lastName;
 
@@ -402,6 +414,12 @@ namespace Pulumi.Snowflake
                 _firstName = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Specifies the number of days to wait before dropping the account. The default is 3 days.
+        /// </summary>
+        [Input("gracePeriodInDays")]
+        public Input<int>? GracePeriodInDays { get; set; }
 
         /// <summary>
         /// Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.

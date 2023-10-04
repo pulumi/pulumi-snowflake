@@ -158,7 +158,23 @@ class DatabaseRole(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a DatabaseRole resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        db_role = snowflake.DatabaseRole("dbRole",
+            comment="my db role",
+            database="database")
+        ```
+
+        ## Import
+
+        ```sh
+         $ pulumi import snowflake:index/databaseRole:DatabaseRole example 'dbName|roleName'
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the database role.
@@ -172,7 +188,23 @@ class DatabaseRole(pulumi.CustomResource):
                  args: DatabaseRoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DatabaseRole resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        db_role = snowflake.DatabaseRole("dbRole",
+            comment="my db role",
+            database="database")
+        ```
+
+        ## Import
+
+        ```sh
+         $ pulumi import snowflake:index/databaseRole:DatabaseRole example 'dbName|roleName'
+        ```
+
         :param str resource_name: The name of the resource.
         :param DatabaseRoleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

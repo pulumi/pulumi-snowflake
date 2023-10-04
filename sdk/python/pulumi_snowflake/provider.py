@@ -24,6 +24,8 @@ class ProviderArgs:
                  oauth_endpoint: Optional[pulumi.Input[str]] = None,
                  oauth_redirect_url: Optional[pulumi.Input[str]] = None,
                  oauth_refresh_token: Optional[pulumi.Input[str]] = None,
+                 passcode: Optional[pulumi.Input[str]] = None,
+                 passcode_in_password: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
@@ -55,6 +57,9 @@ class ProviderArgs:
                `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
                `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
                variable.
+        :param pulumi.Input[str] passcode: Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+        :param pulumi.Input[bool] passcode_in_password: False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
+               of the password.
         :param pulumi.Input[str] password: Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
                `SNOWFLAKE_PASSWORD` environment variable.
         :param pulumi.Input[int] port: Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`
@@ -90,6 +95,8 @@ class ProviderArgs:
             oauth_endpoint=oauth_endpoint,
             oauth_redirect_url=oauth_redirect_url,
             oauth_refresh_token=oauth_refresh_token,
+            passcode=passcode,
+            passcode_in_password=passcode_in_password,
             password=password,
             port=port,
             private_key=private_key,
@@ -116,6 +123,8 @@ class ProviderArgs:
              oauth_endpoint: Optional[pulumi.Input[str]] = None,
              oauth_redirect_url: Optional[pulumi.Input[str]] = None,
              oauth_refresh_token: Optional[pulumi.Input[str]] = None,
+             passcode: Optional[pulumi.Input[str]] = None,
+             passcode_in_password: Optional[pulumi.Input[bool]] = None,
              password: Optional[pulumi.Input[str]] = None,
              port: Optional[pulumi.Input[int]] = None,
              private_key: Optional[pulumi.Input[str]] = None,
@@ -167,6 +176,10 @@ class ProviderArgs:
             oauth_refresh_token = _utilities.get_env('SNOWFLAKE_OAUTH_REFRESH_TOKEN')
         if oauth_refresh_token is not None:
             _setter("oauth_refresh_token", oauth_refresh_token)
+        if passcode is not None:
+            _setter("passcode", passcode)
+        if passcode_in_password is not None:
+            _setter("passcode_in_password", passcode_in_password)
         if password is None:
             password = _utilities.get_env('SNOWFLAKE_PASSWORD')
         if password is not None:
@@ -339,6 +352,31 @@ class ProviderArgs:
 
     @property
     @pulumi.getter
+    def passcode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+        """
+        return pulumi.get(self, "passcode")
+
+    @passcode.setter
+    def passcode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "passcode", value)
+
+    @property
+    @pulumi.getter(name="passcodeInPassword")
+    def passcode_in_password(self) -> Optional[pulumi.Input[bool]]:
+        """
+        False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
+        of the password.
+        """
+        return pulumi.get(self, "passcode_in_password")
+
+    @passcode_in_password.setter
+    def passcode_in_password(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "passcode_in_password", value)
+
+    @property
+    @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
         Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
@@ -507,6 +545,8 @@ class Provider(pulumi.ProviderResource):
                  oauth_endpoint: Optional[pulumi.Input[str]] = None,
                  oauth_redirect_url: Optional[pulumi.Input[str]] = None,
                  oauth_refresh_token: Optional[pulumi.Input[str]] = None,
+                 passcode: Optional[pulumi.Input[str]] = None,
+                 passcode_in_password: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
@@ -545,6 +585,9 @@ class Provider(pulumi.ProviderResource):
                `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
                `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
                variable.
+        :param pulumi.Input[str] passcode: Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+        :param pulumi.Input[bool] passcode_in_password: False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
+               of the password.
         :param pulumi.Input[str] password: Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
                `SNOWFLAKE_PASSWORD` environment variable.
         :param pulumi.Input[int] port: Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`
@@ -609,6 +652,8 @@ class Provider(pulumi.ProviderResource):
                  oauth_endpoint: Optional[pulumi.Input[str]] = None,
                  oauth_redirect_url: Optional[pulumi.Input[str]] = None,
                  oauth_refresh_token: Optional[pulumi.Input[str]] = None,
+                 passcode: Optional[pulumi.Input[str]] = None,
+                 passcode_in_password: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
@@ -658,6 +703,8 @@ class Provider(pulumi.ProviderResource):
             if oauth_refresh_token is None:
                 oauth_refresh_token = _utilities.get_env('SNOWFLAKE_OAUTH_REFRESH_TOKEN')
             __props__.__dict__["oauth_refresh_token"] = None if oauth_refresh_token is None else pulumi.Output.secret(oauth_refresh_token)
+            __props__.__dict__["passcode"] = passcode
+            __props__.__dict__["passcode_in_password"] = pulumi.Output.from_input(passcode_in_password).apply(pulumi.runtime.to_json) if passcode_in_password is not None else None
             if password is None:
                 password = _utilities.get_env('SNOWFLAKE_PASSWORD')
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
@@ -765,6 +812,14 @@ class Provider(pulumi.ProviderResource):
         variable.
         """
         return pulumi.get(self, "oauth_refresh_token")
+
+    @property
+    @pulumi.getter
+    def passcode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+        """
+        return pulumi.get(self, "passcode")
 
     @property
     @pulumi.getter

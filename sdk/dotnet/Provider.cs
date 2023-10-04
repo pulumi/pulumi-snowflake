@@ -73,6 +73,12 @@ namespace Pulumi.Snowflake
         public Output<string?> OauthRefreshToken { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+        /// </summary>
+        [Output("passcode")]
+        public Output<string?> Passcode { get; private set; } = null!;
+
+        /// <summary>
         /// Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
         /// `SNOWFLAKE_PASSWORD` environment variable.
         /// </summary>
@@ -308,6 +314,19 @@ namespace Pulumi.Snowflake
                 _oauthRefreshToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+        /// </summary>
+        [Input("passcode")]
+        public Input<string>? Passcode { get; set; }
+
+        /// <summary>
+        /// False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
+        /// of the password.
+        /// </summary>
+        [Input("passcodeInPassword", json: true)]
+        public Input<bool>? PasscodeInPassword { get; set; }
 
         [Input("password")]
         private Input<string>? _password;

@@ -96,6 +96,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly firstName!: pulumi.Output<string | undefined>;
     /**
+     * Specifies the number of days to wait before dropping the account. The default is 3 days.
+     */
+    public readonly gracePeriodInDays!: pulumi.Output<number | undefined>;
+    /**
      * Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
      */
     public /*out*/ readonly isOrgAdmin!: pulumi.Output<boolean>;
@@ -140,6 +144,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["edition"] = state ? state.edition : undefined;
             resourceInputs["email"] = state ? state.email : undefined;
             resourceInputs["firstName"] = state ? state.firstName : undefined;
+            resourceInputs["gracePeriodInDays"] = state ? state.gracePeriodInDays : undefined;
             resourceInputs["isOrgAdmin"] = state ? state.isOrgAdmin : undefined;
             resourceInputs["lastName"] = state ? state.lastName : undefined;
             resourceInputs["mustChangePassword"] = state ? state.mustChangePassword : undefined;
@@ -164,6 +169,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["edition"] = args ? args.edition : undefined;
             resourceInputs["email"] = args?.email ? pulumi.secret(args.email) : undefined;
             resourceInputs["firstName"] = args?.firstName ? pulumi.secret(args.firstName) : undefined;
+            resourceInputs["gracePeriodInDays"] = args ? args.gracePeriodInDays : undefined;
             resourceInputs["lastName"] = args?.lastName ? pulumi.secret(args.lastName) : undefined;
             resourceInputs["mustChangePassword"] = args ? args.mustChangePassword : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -210,6 +216,10 @@ export interface AccountState {
      * First name of the initial administrative user of the account
      */
     firstName?: pulumi.Input<string>;
+    /**
+     * Specifies the number of days to wait before dropping the account. The default is 3 days.
+     */
+    gracePeriodInDays?: pulumi.Input<number>;
     /**
      * Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
      */
@@ -268,6 +278,10 @@ export interface AccountArgs {
      * First name of the initial administrative user of the account
      */
     firstName?: pulumi.Input<string>;
+    /**
+     * Specifies the number of days to wait before dropping the account. The default is 3 days.
+     */
+    gracePeriodInDays?: pulumi.Input<number>;
     /**
      * Last name of the initial administrative user of the account
      */

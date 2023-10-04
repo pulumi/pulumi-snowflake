@@ -72,7 +72,16 @@ class AwaitableGetSharesResult(GetSharesResult):
 def get_shares(pattern: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSharesResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    this = snowflake.get_shares()
+    ad = snowflake.get_shares(pattern="usage")
+    ```
+
 
     :param str pattern: Filters the command output by object name.
     """
@@ -91,7 +100,16 @@ def get_shares(pattern: Optional[str] = None,
 def get_shares_output(pattern: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSharesResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    this = snowflake.get_shares()
+    ad = snowflake.get_shares(pattern="usage")
+    ```
+
 
     :param str pattern: Filters the command output by object name.
     """

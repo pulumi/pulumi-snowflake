@@ -140,6 +140,17 @@ func GetOauthRefreshToken(ctx *pulumi.Context) string {
 	return value
 }
 
+// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+func GetPasscode(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:passcode")
+}
+
+// False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
+// of the password.
+func GetPasscodeInPassword(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "snowflake:passcodeInPassword")
+}
+
 // Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
 // `SNOWFLAKE_PASSWORD` environment variable.
 func GetPassword(ctx *pulumi.Context) string {

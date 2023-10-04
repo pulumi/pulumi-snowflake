@@ -12,6 +12,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.GetShares(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.GetShares(ctx, &snowflake.GetSharesArgs{
+//				Pattern: pulumi.StringRef("usage"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetShares(ctx *pulumi.Context, args *GetSharesArgs, opts ...pulumi.InvokeOption) (*GetSharesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSharesResult

@@ -11,6 +11,7 @@ import com.pulumi.snowflake.AccountArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.AccountState;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -176,6 +177,20 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> firstName() {
         return Codegen.optional(this.firstName);
+    }
+    /**
+     * Specifies the number of days to wait before dropping the account. The default is 3 days.
+     * 
+     */
+    @Export(name="gracePeriodInDays", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> gracePeriodInDays;
+
+    /**
+     * @return Specifies the number of days to wait before dropping the account. The default is 3 days.
+     * 
+     */
+    public Output<Optional<Integer>> gracePeriodInDays() {
+        return Codegen.optional(this.gracePeriodInDays);
     }
     /**
      * Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.

@@ -93,6 +93,21 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('oauthRefreshToken') or _utilities.get_env('SNOWFLAKE_OAUTH_REFRESH_TOKEN')
 
     @property
+    def passcode(self) -> Optional[str]:
+        """
+        Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+        """
+        return __config__.get('passcode')
+
+    @property
+    def passcode_in_password(self) -> Optional[bool]:
+        """
+        False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
+        of the password.
+        """
+        return __config__.get_bool('passcodeInPassword')
+
+    @property
     def password(self) -> Optional[str]:
         """
         Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from

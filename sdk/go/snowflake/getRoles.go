@@ -12,6 +12,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.GetRoles(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.GetRoles(ctx, &snowflake.GetRolesArgs{
+//				Pattern: pulumi.StringRef("SYSADMIN"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetRoles(ctx *pulumi.Context, args *GetRolesArgs, opts ...pulumi.InvokeOption) (*GetRolesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRolesResult

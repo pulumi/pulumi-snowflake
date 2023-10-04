@@ -6,6 +6,19 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const this = snowflake.getShares({});
+ * const ad = snowflake.getShares({
+ *     pattern: "usage",
+ * });
+ * ```
+ */
 export function getShares(args?: GetSharesArgs, opts?: pulumi.InvokeOptions): Promise<GetSharesResult> {
     args = args || {};
 
@@ -42,6 +55,19 @@ export interface GetSharesResult {
      */
     readonly shares: outputs.GetSharesShare[];
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const this = snowflake.getShares({});
+ * const ad = snowflake.getShares({
+ *     pattern: "usage",
+ * });
+ * ```
+ */
 export function getSharesOutput(args?: GetSharesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharesResult> {
     return pulumi.output(args).apply((a: any) => getShares(a, opts))
 }

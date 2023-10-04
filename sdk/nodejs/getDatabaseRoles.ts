@@ -6,6 +6,18 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const dbRoles = snowflake.getDatabaseRoles({
+ *     database: "MYDB",
+ * });
+ * ```
+ */
 export function getDatabaseRoles(args: GetDatabaseRolesArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseRolesResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +53,18 @@ export interface GetDatabaseRolesResult {
      */
     readonly id: string;
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const dbRoles = snowflake.getDatabaseRoles({
+ *     database: "MYDB",
+ * });
+ * ```
+ */
 export function getDatabaseRolesOutput(args: GetDatabaseRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseRolesResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseRoles(a, opts))
 }

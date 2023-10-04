@@ -11,9 +11,59 @@ namespace Pulumi.Snowflake
 {
     public static class GetShares
     {
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var @this = Snowflake.GetShares.Invoke();
+        /// 
+        ///     var ad = Snowflake.GetShares.Invoke(new()
+        ///     {
+        ///         Pattern = "usage",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetSharesResult> InvokeAsync(GetSharesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSharesResult>("snowflake:index/getShares:getShares", args ?? new GetSharesArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var @this = Snowflake.GetShares.Invoke();
+        /// 
+        ///     var ad = Snowflake.GetShares.Invoke(new()
+        ///     {
+        ///         Pattern = "usage",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetSharesResult> Invoke(GetSharesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharesResult>("snowflake:index/getShares:getShares", args ?? new GetSharesInvokeArgs(), options.WithDefaults());
     }
