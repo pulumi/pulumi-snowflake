@@ -148,6 +148,20 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.oauthRefreshToken);
     }
     /**
+     * Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+     * 
+     */
+    @Export(name="passcode", type=String.class, parameters={})
+    private Output</* @Nullable */ String> passcode;
+
+    /**
+     * @return Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+     * 
+     */
+    public Output<Optional<String>> passcode() {
+        return Codegen.optional(this.passcode);
+    }
+    /**
      * Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
      * `SNOWFLAKE_PASSWORD` environment variable.
      * 

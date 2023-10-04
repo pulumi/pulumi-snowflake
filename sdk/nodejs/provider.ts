@@ -64,6 +64,10 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly oauthRefreshToken!: pulumi.Output<string | undefined>;
     /**
+     * Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+     */
+    public readonly passcode!: pulumi.Output<string | undefined>;
+    /**
      * Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
      * `SNOWFLAKE_PASSWORD` environment variable.
      */
@@ -134,6 +138,8 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["oauthEndpoint"] = (args?.oauthEndpoint ? pulumi.secret(args.oauthEndpoint) : undefined) ?? utilities.getEnv("SNOWFLAKE_OAUTH_ENDPOINT");
             resourceInputs["oauthRedirectUrl"] = (args?.oauthRedirectUrl ? pulumi.secret(args.oauthRedirectUrl) : undefined) ?? utilities.getEnv("SNOWFLAKE_OAUTH_REDIRECT_URL");
             resourceInputs["oauthRefreshToken"] = (args?.oauthRefreshToken ? pulumi.secret(args.oauthRefreshToken) : undefined) ?? utilities.getEnv("SNOWFLAKE_OAUTH_REFRESH_TOKEN");
+            resourceInputs["passcode"] = args ? args.passcode : undefined;
+            resourceInputs["passcodeInPassword"] = pulumi.output(args ? args.passcodeInPassword : undefined).apply(JSON.stringify);
             resourceInputs["password"] = (args?.password ? pulumi.secret(args.password) : undefined) ?? utilities.getEnv("SNOWFLAKE_PASSWORD");
             resourceInputs["port"] = pulumi.output((args ? args.port : undefined) ?? utilities.getEnvNumber("SNOWFLAKE_PORT")).apply(JSON.stringify);
             resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
@@ -205,6 +211,15 @@ export interface ProviderArgs {
      * variable.
      */
     oauthRefreshToken?: pulumi.Input<string>;
+    /**
+     * Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+     */
+    passcode?: pulumi.Input<string>;
+    /**
+     * False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
+     * of the password.
+     */
+    passcodeInPassword?: pulumi.Input<boolean>;
     /**
      * Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
      * `SNOWFLAKE_PASSWORD` environment variable.

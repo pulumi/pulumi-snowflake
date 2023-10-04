@@ -6,6 +6,7 @@ package com.pulumi.snowflake.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -122,6 +123,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the number of days to wait before dropping the account. The default is 3 days.
+     * 
+     */
+    @Import(name="gracePeriodInDays")
+    private @Nullable Output<Integer> gracePeriodInDays;
+
+    /**
+     * @return Specifies the number of days to wait before dropping the account. The default is 3 days.
+     * 
+     */
+    public Optional<Output<Integer>> gracePeriodInDays() {
+        return Optional.ofNullable(this.gracePeriodInDays);
+    }
+
+    /**
      * Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
      * 
      */
@@ -221,6 +237,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.edition = $.edition;
         this.email = $.email;
         this.firstName = $.firstName;
+        this.gracePeriodInDays = $.gracePeriodInDays;
         this.isOrgAdmin = $.isOrgAdmin;
         this.lastName = $.lastName;
         this.mustChangePassword = $.mustChangePassword;
@@ -392,6 +409,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder firstName(String firstName) {
             return firstName(Output.of(firstName));
+        }
+
+        /**
+         * @param gracePeriodInDays Specifies the number of days to wait before dropping the account. The default is 3 days.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gracePeriodInDays(@Nullable Output<Integer> gracePeriodInDays) {
+            $.gracePeriodInDays = gracePeriodInDays;
+            return this;
+        }
+
+        /**
+         * @param gracePeriodInDays Specifies the number of days to wait before dropping the account. The default is 3 days.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gracePeriodInDays(Integer gracePeriodInDays) {
+            return gracePeriodInDays(Output.of(gracePeriodInDays));
         }
 
         /**

@@ -185,6 +185,38 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+     * 
+     */
+    @Import(name="passcode")
+    private @Nullable Output<String> passcode;
+
+    /**
+     * @return Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+     * 
+     */
+    public Optional<Output<String>> passcode() {
+        return Optional.ofNullable(this.passcode);
+    }
+
+    /**
+     * False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
+     * of the password.
+     * 
+     */
+    @Import(name="passcodeInPassword", json=true)
+    private @Nullable Output<Boolean> passcodeInPassword;
+
+    /**
+     * @return False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
+     * of the password.
+     * 
+     */
+    public Optional<Output<Boolean>> passcodeInPassword() {
+        return Optional.ofNullable(this.passcodeInPassword);
+    }
+
+    /**
      * Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
      * `SNOWFLAKE_PASSWORD` environment variable.
      * 
@@ -397,6 +429,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.oauthEndpoint = $.oauthEndpoint;
         this.oauthRedirectUrl = $.oauthRedirectUrl;
         this.oauthRefreshToken = $.oauthRefreshToken;
+        this.passcode = $.passcode;
+        this.passcodeInPassword = $.passcodeInPassword;
         this.password = $.password;
         this.port = $.port;
         this.privateKey = $.privateKey;
@@ -651,6 +685,50 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder oauthRefreshToken(String oauthRefreshToken) {
             return oauthRefreshToken(Output.of(oauthRefreshToken));
+        }
+
+        /**
+         * @param passcode Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passcode(@Nullable Output<String> passcode) {
+            $.passcode = passcode;
+            return this;
+        }
+
+        /**
+         * @param passcode Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passcode(String passcode) {
+            return passcode(Output.of(passcode));
+        }
+
+        /**
+         * @param passcodeInPassword False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
+         * of the password.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passcodeInPassword(@Nullable Output<Boolean> passcodeInPassword) {
+            $.passcodeInPassword = passcodeInPassword;
+            return this;
+        }
+
+        /**
+         * @param passcodeInPassword False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
+         * of the password.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passcodeInPassword(Boolean passcodeInPassword) {
+            return passcodeInPassword(Output.of(passcodeInPassword));
         }
 
         /**

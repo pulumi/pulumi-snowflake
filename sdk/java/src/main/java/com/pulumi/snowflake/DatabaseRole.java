@@ -14,6 +14,45 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.DatabaseRole;
+ * import com.pulumi.snowflake.DatabaseRoleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var dbRole = new DatabaseRole(&#34;dbRole&#34;, DatabaseRoleArgs.builder()        
+ *             .comment(&#34;my db role&#34;)
+ *             .database(&#34;database&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * ```sh
+ *  $ pulumi import snowflake:index/databaseRole:DatabaseRole example &#39;dbName|roleName&#39;
+ * ```
+ * 
+ */
 @ResourceType(type="snowflake:index/databaseRole:DatabaseRole")
 public class DatabaseRole extends com.pulumi.resources.CustomResource {
     /**

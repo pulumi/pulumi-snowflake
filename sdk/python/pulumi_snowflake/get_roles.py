@@ -72,7 +72,16 @@ class AwaitableGetRolesResult(GetRolesResult):
 def get_roles(pattern: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRolesResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    this = snowflake.get_roles()
+    ad = snowflake.get_roles(pattern="SYSADMIN")
+    ```
+
 
     :param str pattern: Filters the command output by object name.
     """
@@ -91,7 +100,16 @@ def get_roles(pattern: Optional[str] = None,
 def get_roles_output(pattern: Optional[pulumi.Input[Optional[str]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRolesResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    this = snowflake.get_roles()
+    ad = snowflake.get_roles(pattern="SYSADMIN")
+    ```
+
 
     :param str pattern: Filters the command output by object name.
     """

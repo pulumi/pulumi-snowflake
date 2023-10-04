@@ -4,6 +4,25 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const dbRole = new snowflake.DatabaseRole("dbRole", {
+ *     comment: "my db role",
+ *     database: "database",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * ```sh
+ *  $ pulumi import snowflake:index/databaseRole:DatabaseRole example 'dbName|roleName'
+ * ```
+ */
 export class DatabaseRole extends pulumi.CustomResource {
     /**
      * Get an existing DatabaseRole resource's state with the given name, ID, and optional extra

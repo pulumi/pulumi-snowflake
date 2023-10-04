@@ -41,6 +41,8 @@ type Provider struct {
 	// `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
 	// variable.
 	OauthRefreshToken pulumi.StringPtrOutput `pulumi:"oauthRefreshToken"`
+	// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+	Passcode pulumi.StringPtrOutput `pulumi:"passcode"`
 	// Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
 	// `SNOWFLAKE_PASSWORD` environment variable.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
@@ -249,6 +251,11 @@ type providerArgs struct {
 	// `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
 	// variable.
 	OauthRefreshToken *string `pulumi:"oauthRefreshToken"`
+	// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+	Passcode *string `pulumi:"passcode"`
+	// False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
+	// of the password.
+	PasscodeInPassword *bool `pulumi:"passcodeInPassword"`
 	// Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
 	// `SNOWFLAKE_PASSWORD` environment variable.
 	Password *string `pulumi:"password"`
@@ -314,6 +321,11 @@ type ProviderArgs struct {
 	// `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
 	// variable.
 	OauthRefreshToken pulumi.StringPtrInput
+	// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+	Passcode pulumi.StringPtrInput
+	// False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
+	// of the password.
+	PasscodeInPassword pulumi.BoolPtrInput
 	// Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
 	// `SNOWFLAKE_PASSWORD` environment variable.
 	Password pulumi.StringPtrInput
@@ -443,6 +455,11 @@ func (o ProviderOutput) OauthRedirectUrl() pulumi.StringPtrOutput {
 // variable.
 func (o ProviderOutput) OauthRefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OauthRefreshToken }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+func (o ProviderOutput) Passcode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Passcode }).(pulumi.StringPtrOutput)
 }
 
 // Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from

@@ -11,9 +11,55 @@ namespace Pulumi.Snowflake
 {
     public static class GetDatabaseRoles
     {
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var dbRoles = Snowflake.GetDatabaseRoles.Invoke(new()
+        ///     {
+        ///         Database = "MYDB",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetDatabaseRolesResult> InvokeAsync(GetDatabaseRolesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseRolesResult>("snowflake:index/getDatabaseRoles:getDatabaseRoles", args ?? new GetDatabaseRolesArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var dbRoles = Snowflake.GetDatabaseRoles.Invoke(new()
+        ///     {
+        ///         Database = "MYDB",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetDatabaseRolesResult> Invoke(GetDatabaseRolesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseRolesResult>("snowflake:index/getDatabaseRoles:getDatabaseRoles", args ?? new GetDatabaseRolesInvokeArgs(), options.WithDefaults());
     }

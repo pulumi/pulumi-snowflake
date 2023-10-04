@@ -125,6 +125,29 @@ Object.defineProperty(exports, "oauthRefreshToken", {
 });
 
 /**
+ * Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+ */
+export declare const passcode: string | undefined;
+Object.defineProperty(exports, "passcode", {
+    get() {
+        return __config.get("passcode");
+    },
+    enumerable: true,
+});
+
+/**
+ * False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
+ * of the password.
+ */
+export declare const passcodeInPassword: boolean | undefined;
+Object.defineProperty(exports, "passcodeInPassword", {
+    get() {
+        return __config.getObject<boolean>("passcodeInPassword");
+    },
+    enumerable: true,
+});
+
+/**
  * Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
  * `SNOWFLAKE_PASSWORD` environment variable.
  */

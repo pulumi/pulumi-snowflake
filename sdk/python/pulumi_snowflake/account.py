@@ -21,6 +21,7 @@ class AccountArgs:
                  admin_rsa_public_key: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
+                 grace_period_in_days: Optional[pulumi.Input[int]] = None,
                  last_name: Optional[pulumi.Input[str]] = None,
                  must_change_password: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -35,6 +36,7 @@ class AccountArgs:
         :param pulumi.Input[str] admin_rsa_public_key: Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
         :param pulumi.Input[str] comment: Specifies a comment for the account.
         :param pulumi.Input[str] first_name: First name of the initial administrative user of the account
+        :param pulumi.Input[int] grace_period_in_days: Specifies the number of days to wait before dropping the account. The default is 3 days.
         :param pulumi.Input[str] last_name: Last name of the initial administrative user of the account
         :param pulumi.Input[bool] must_change_password: Specifies whether the new user created to administer the account is forced to change their password upon first login into the account.
         :param pulumi.Input[str] name: Specifies the identifier (i.e. name) for the account; must be unique within an organization, regardless of which Snowflake Region the account is in. In addition, the identifier must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
@@ -50,6 +52,7 @@ class AccountArgs:
             admin_rsa_public_key=admin_rsa_public_key,
             comment=comment,
             first_name=first_name,
+            grace_period_in_days=grace_period_in_days,
             last_name=last_name,
             must_change_password=must_change_password,
             name=name,
@@ -66,6 +69,7 @@ class AccountArgs:
              admin_rsa_public_key: Optional[pulumi.Input[str]] = None,
              comment: Optional[pulumi.Input[str]] = None,
              first_name: Optional[pulumi.Input[str]] = None,
+             grace_period_in_days: Optional[pulumi.Input[int]] = None,
              last_name: Optional[pulumi.Input[str]] = None,
              must_change_password: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -83,6 +87,8 @@ class AccountArgs:
             _setter("comment", comment)
         if first_name is not None:
             _setter("first_name", first_name)
+        if grace_period_in_days is not None:
+            _setter("grace_period_in_days", grace_period_in_days)
         if last_name is not None:
             _setter("last_name", last_name)
         if must_change_password is not None:
@@ -179,6 +185,18 @@ class AccountArgs:
         pulumi.set(self, "first_name", value)
 
     @property
+    @pulumi.getter(name="gracePeriodInDays")
+    def grace_period_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of days to wait before dropping the account. The default is 3 days.
+        """
+        return pulumi.get(self, "grace_period_in_days")
+
+    @grace_period_in_days.setter
+    def grace_period_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "grace_period_in_days", value)
+
+    @property
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -249,6 +267,7 @@ class _AccountState:
                  edition: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
+                 grace_period_in_days: Optional[pulumi.Input[int]] = None,
                  is_org_admin: Optional[pulumi.Input[bool]] = None,
                  last_name: Optional[pulumi.Input[str]] = None,
                  must_change_password: Optional[pulumi.Input[bool]] = None,
@@ -264,6 +283,7 @@ class _AccountState:
         :param pulumi.Input[str] edition: [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions.html) of the account. Valid values are: STANDARD | ENTERPRISE | BUSINESS_CRITICAL
         :param pulumi.Input[str] email: Email address of the initial administrative user of the account. This email address is used to send any notifications about the account.
         :param pulumi.Input[str] first_name: First name of the initial administrative user of the account
+        :param pulumi.Input[int] grace_period_in_days: Specifies the number of days to wait before dropping the account. The default is 3 days.
         :param pulumi.Input[bool] is_org_admin: Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
         :param pulumi.Input[str] last_name: Last name of the initial administrative user of the account
         :param pulumi.Input[bool] must_change_password: Specifies whether the new user created to administer the account is forced to change their password upon first login into the account.
@@ -280,6 +300,7 @@ class _AccountState:
             edition=edition,
             email=email,
             first_name=first_name,
+            grace_period_in_days=grace_period_in_days,
             is_org_admin=is_org_admin,
             last_name=last_name,
             must_change_password=must_change_password,
@@ -297,6 +318,7 @@ class _AccountState:
              edition: Optional[pulumi.Input[str]] = None,
              email: Optional[pulumi.Input[str]] = None,
              first_name: Optional[pulumi.Input[str]] = None,
+             grace_period_in_days: Optional[pulumi.Input[int]] = None,
              is_org_admin: Optional[pulumi.Input[bool]] = None,
              last_name: Optional[pulumi.Input[str]] = None,
              must_change_password: Optional[pulumi.Input[bool]] = None,
@@ -318,6 +340,8 @@ class _AccountState:
             _setter("email", email)
         if first_name is not None:
             _setter("first_name", first_name)
+        if grace_period_in_days is not None:
+            _setter("grace_period_in_days", grace_period_in_days)
         if is_org_admin is not None:
             _setter("is_org_admin", is_org_admin)
         if last_name is not None:
@@ -416,6 +440,18 @@ class _AccountState:
         pulumi.set(self, "first_name", value)
 
     @property
+    @pulumi.getter(name="gracePeriodInDays")
+    def grace_period_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of days to wait before dropping the account. The default is 3 days.
+        """
+        return pulumi.get(self, "grace_period_in_days")
+
+    @grace_period_in_days.setter
+    def grace_period_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "grace_period_in_days", value)
+
+    @property
     @pulumi.getter(name="isOrgAdmin")
     def is_org_admin(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -500,6 +536,7 @@ class Account(pulumi.CustomResource):
                  edition: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
+                 grace_period_in_days: Optional[pulumi.Input[int]] = None,
                  last_name: Optional[pulumi.Input[str]] = None,
                  must_change_password: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -548,6 +585,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] edition: [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions.html) of the account. Valid values are: STANDARD | ENTERPRISE | BUSINESS_CRITICAL
         :param pulumi.Input[str] email: Email address of the initial administrative user of the account. This email address is used to send any notifications about the account.
         :param pulumi.Input[str] first_name: First name of the initial administrative user of the account
+        :param pulumi.Input[int] grace_period_in_days: Specifies the number of days to wait before dropping the account. The default is 3 days.
         :param pulumi.Input[str] last_name: Last name of the initial administrative user of the account
         :param pulumi.Input[bool] must_change_password: Specifies whether the new user created to administer the account is forced to change their password upon first login into the account.
         :param pulumi.Input[str] name: Specifies the identifier (i.e. name) for the account; must be unique within an organization, regardless of which Snowflake Region the account is in. In addition, the identifier must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
@@ -619,6 +657,7 @@ class Account(pulumi.CustomResource):
                  edition: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
+                 grace_period_in_days: Optional[pulumi.Input[int]] = None,
                  last_name: Optional[pulumi.Input[str]] = None,
                  must_change_password: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -646,6 +685,7 @@ class Account(pulumi.CustomResource):
                 raise TypeError("Missing required property 'email'")
             __props__.__dict__["email"] = None if email is None else pulumi.Output.secret(email)
             __props__.__dict__["first_name"] = None if first_name is None else pulumi.Output.secret(first_name)
+            __props__.__dict__["grace_period_in_days"] = grace_period_in_days
             __props__.__dict__["last_name"] = None if last_name is None else pulumi.Output.secret(last_name)
             __props__.__dict__["must_change_password"] = must_change_password
             __props__.__dict__["name"] = name
@@ -671,6 +711,7 @@ class Account(pulumi.CustomResource):
             edition: Optional[pulumi.Input[str]] = None,
             email: Optional[pulumi.Input[str]] = None,
             first_name: Optional[pulumi.Input[str]] = None,
+            grace_period_in_days: Optional[pulumi.Input[int]] = None,
             is_org_admin: Optional[pulumi.Input[bool]] = None,
             last_name: Optional[pulumi.Input[str]] = None,
             must_change_password: Optional[pulumi.Input[bool]] = None,
@@ -691,6 +732,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] edition: [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions.html) of the account. Valid values are: STANDARD | ENTERPRISE | BUSINESS_CRITICAL
         :param pulumi.Input[str] email: Email address of the initial administrative user of the account. This email address is used to send any notifications about the account.
         :param pulumi.Input[str] first_name: First name of the initial administrative user of the account
+        :param pulumi.Input[int] grace_period_in_days: Specifies the number of days to wait before dropping the account. The default is 3 days.
         :param pulumi.Input[bool] is_org_admin: Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
         :param pulumi.Input[str] last_name: Last name of the initial administrative user of the account
         :param pulumi.Input[bool] must_change_password: Specifies whether the new user created to administer the account is forced to change their password upon first login into the account.
@@ -709,6 +751,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["edition"] = edition
         __props__.__dict__["email"] = email
         __props__.__dict__["first_name"] = first_name
+        __props__.__dict__["grace_period_in_days"] = grace_period_in_days
         __props__.__dict__["is_org_admin"] = is_org_admin
         __props__.__dict__["last_name"] = last_name
         __props__.__dict__["must_change_password"] = must_change_password
@@ -772,6 +815,14 @@ class Account(pulumi.CustomResource):
         First name of the initial administrative user of the account
         """
         return pulumi.get(self, "first_name")
+
+    @property
+    @pulumi.getter(name="gracePeriodInDays")
+    def grace_period_in_days(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies the number of days to wait before dropping the account. The default is 3 days.
+        """
+        return pulumi.get(self, "grace_period_in_days")
 
     @property
     @pulumi.getter(name="isOrgAdmin")

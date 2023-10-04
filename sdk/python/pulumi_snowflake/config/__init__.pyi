@@ -66,6 +66,17 @@ Token for use with OAuth. Setup and generation of the token is left to other too
 variable.
 """
 
+passcode: Optional[str]
+"""
+Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+"""
+
+passcodeInPassword: Optional[bool]
+"""
+False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
+of the password.
+"""
+
 password: Optional[str]
 """
 Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from

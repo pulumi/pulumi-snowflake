@@ -83,6 +83,8 @@ type Account struct {
 	Email pulumi.StringOutput `pulumi:"email"`
 	// First name of the initial administrative user of the account
 	FirstName pulumi.StringPtrOutput `pulumi:"firstName"`
+	// Specifies the number of days to wait before dropping the account. The default is 3 days.
+	GracePeriodInDays pulumi.IntPtrOutput `pulumi:"gracePeriodInDays"`
 	// Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
 	IsOrgAdmin pulumi.BoolOutput `pulumi:"isOrgAdmin"`
 	// Last name of the initial administrative user of the account
@@ -173,6 +175,8 @@ type accountState struct {
 	Email *string `pulumi:"email"`
 	// First name of the initial administrative user of the account
 	FirstName *string `pulumi:"firstName"`
+	// Specifies the number of days to wait before dropping the account. The default is 3 days.
+	GracePeriodInDays *int `pulumi:"gracePeriodInDays"`
 	// Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
 	IsOrgAdmin *bool `pulumi:"isOrgAdmin"`
 	// Last name of the initial administrative user of the account
@@ -202,6 +206,8 @@ type AccountState struct {
 	Email pulumi.StringPtrInput
 	// First name of the initial administrative user of the account
 	FirstName pulumi.StringPtrInput
+	// Specifies the number of days to wait before dropping the account. The default is 3 days.
+	GracePeriodInDays pulumi.IntPtrInput
 	// Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
 	IsOrgAdmin pulumi.BoolPtrInput
 	// Last name of the initial administrative user of the account
@@ -235,6 +241,8 @@ type accountArgs struct {
 	Email string `pulumi:"email"`
 	// First name of the initial administrative user of the account
 	FirstName *string `pulumi:"firstName"`
+	// Specifies the number of days to wait before dropping the account. The default is 3 days.
+	GracePeriodInDays *int `pulumi:"gracePeriodInDays"`
 	// Last name of the initial administrative user of the account
 	LastName *string `pulumi:"lastName"`
 	// Specifies whether the new user created to administer the account is forced to change their password upon first login into the account.
@@ -263,6 +271,8 @@ type AccountArgs struct {
 	Email pulumi.StringInput
 	// First name of the initial administrative user of the account
 	FirstName pulumi.StringPtrInput
+	// Specifies the number of days to wait before dropping the account. The default is 3 days.
+	GracePeriodInDays pulumi.IntPtrInput
 	// Last name of the initial administrative user of the account
 	LastName pulumi.StringPtrInput
 	// Specifies whether the new user created to administer the account is forced to change their password upon first login into the account.
@@ -419,6 +429,11 @@ func (o AccountOutput) Email() pulumi.StringOutput {
 // First name of the initial administrative user of the account
 func (o AccountOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.FirstName }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the number of days to wait before dropping the account. The default is 3 days.
+func (o AccountOutput) GracePeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.IntPtrOutput { return v.GracePeriodInDays }).(pulumi.IntPtrOutput)
 }
 
 // Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.

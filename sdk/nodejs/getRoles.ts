@@ -6,6 +6,19 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const this = snowflake.getRoles({});
+ * const ad = snowflake.getRoles({
+ *     pattern: "SYSADMIN",
+ * });
+ * ```
+ */
 export function getRoles(args?: GetRolesArgs, opts?: pulumi.InvokeOptions): Promise<GetRolesResult> {
     args = args || {};
 
@@ -42,6 +55,19 @@ export interface GetRolesResult {
      */
     readonly roles: outputs.GetRolesRole[];
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const this = snowflake.getRoles({});
+ * const ad = snowflake.getRoles({
+ *     pattern: "SYSADMIN",
+ * });
+ * ```
+ */
 export function getRolesOutput(args?: GetRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRolesResult> {
     return pulumi.output(args).apply((a: any) => getRoles(a, opts))
 }

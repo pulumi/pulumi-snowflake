@@ -139,6 +139,27 @@ namespace Pulumi.Snowflake
             set => _oauthRefreshToken.Set(value);
         }
 
+        private static readonly __Value<string?> _passcode = new __Value<string?>(() => __config.Get("passcode"));
+        /// <summary>
+        /// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+        /// </summary>
+        public static string? Passcode
+        {
+            get => _passcode.Get();
+            set => _passcode.Set(value);
+        }
+
+        private static readonly __Value<bool?> _passcodeInPassword = new __Value<bool?>(() => __config.GetBoolean("passcodeInPassword"));
+        /// <summary>
+        /// False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
+        /// of the password.
+        /// </summary>
+        public static bool? PasscodeInPassword
+        {
+            get => _passcodeInPassword.Get();
+            set => _passcodeInPassword.Set(value);
+        }
+
         private static readonly __Value<string?> _password = new __Value<string?>(() => __config.Get("password") ?? Utilities.GetEnv("SNOWFLAKE_PASSWORD"));
         /// <summary>
         /// Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from

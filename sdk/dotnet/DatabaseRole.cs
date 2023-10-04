@@ -9,6 +9,32 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dbRole = new Snowflake.DatabaseRole("dbRole", new()
+    ///     {
+    ///         Comment = "my db role",
+    ///         Database = "database",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    ///  $ pulumi import snowflake:index/databaseRole:DatabaseRole example 'dbName|roleName'
+    /// ```
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/databaseRole:DatabaseRole")]
     public partial class DatabaseRole : global::Pulumi.CustomResource
     {

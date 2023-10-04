@@ -72,7 +72,15 @@ class AwaitableGetDatabaseRolesResult(GetDatabaseRolesResult):
 def get_database_roles(database: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseRolesResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    db_roles = snowflake.get_database_roles(database="MYDB")
+    ```
+
 
     :param str database: The database from which to return the database roles from.
     """
@@ -91,7 +99,15 @@ def get_database_roles(database: Optional[str] = None,
 def get_database_roles_output(database: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseRolesResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    db_roles = snowflake.get_database_roles(database="MYDB")
+    ```
+
 
     :param str database: The database from which to return the database roles from.
     """
