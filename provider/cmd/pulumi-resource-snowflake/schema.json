@@ -141,6 +141,14 @@
                 },
                 "secret": true
             },
+            "passcode": {
+                "type": "string",
+                "description": "Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.\n"
+            },
+            "passcodeInPassword": {
+                "type": "boolean",
+                "description": "False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end\nof the password.\n"
+            },
             "password": {
                 "type": "string",
                 "description": "Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from\n`SNOWFLAKE_PASSWORD` environment variable.\n",
@@ -2166,6 +2174,14 @@
                 "description": "Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with\n`oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment\nvariable.\n",
                 "secret": true
             },
+            "passcode": {
+                "type": "string",
+                "description": "Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.\n"
+            },
+            "passcodeInPassword": {
+                "type": "boolean",
+                "description": "False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end\nof the password.\n"
+            },
             "password": {
                 "type": "string",
                 "description": "Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from\n`SNOWFLAKE_PASSWORD` environment variable.\n",
@@ -2314,6 +2330,14 @@
                 },
                 "secret": true
             },
+            "passcode": {
+                "type": "string",
+                "description": "Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.\n"
+            },
+            "passcodeInPassword": {
+                "type": "boolean",
+                "description": "False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end\nof the password.\n"
+            },
             "password": {
                 "type": "string",
                 "description": "Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from\n`SNOWFLAKE_PASSWORD` environment variable.\n",
@@ -2452,6 +2476,10 @@
                     "description": "First name of the initial administrative user of the account\n",
                     "secret": true
                 },
+                "gracePeriodInDays": {
+                    "type": "integer",
+                    "description": "Specifies the number of days to wait before dropping the account. The default is 3 days.\n"
+                },
                 "isOrgAdmin": {
                     "type": "boolean",
                     "description": "Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.\n"
@@ -2525,6 +2553,10 @@
                     "secret": true,
                     "willReplaceOnChanges": true
                 },
+                "gracePeriodInDays": {
+                    "type": "integer",
+                    "description": "Specifies the number of days to wait before dropping the account. The default is 3 days.\n"
+                },
                 "lastName": {
                     "type": "string",
                     "description": "Last name of the initial administrative user of the account\n",
@@ -2597,6 +2629,10 @@
                         "description": "First name of the initial administrative user of the account\n",
                         "secret": true,
                         "willReplaceOnChanges": true
+                    },
+                    "gracePeriodInDays": {
+                        "type": "integer",
+                        "description": "Specifies the number of days to wait before dropping the account. The default is 3 days.\n"
                     },
                     "isOrgAdmin": {
                         "type": "boolean",
@@ -3408,6 +3444,7 @@
             }
         },
         "snowflake:index/databaseRole:DatabaseRole": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst dbRole = new snowflake.DatabaseRole(\"dbRole\", {\n    comment: \"my db role\",\n    database: \"database\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ndb_role = snowflake.DatabaseRole(\"dbRole\",\n    comment=\"my db role\",\n    database=\"database\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var dbRole = new Snowflake.DatabaseRole(\"dbRole\", new()\n    {\n        Comment = \"my db role\",\n        Database = \"database\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewDatabaseRole(ctx, \"dbRole\", \u0026snowflake.DatabaseRoleArgs{\n\t\t\tComment:  pulumi.String(\"my db role\"),\n\t\t\tDatabase: pulumi.String(\"database\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.DatabaseRole;\nimport com.pulumi.snowflake.DatabaseRoleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var dbRole = new DatabaseRole(\"dbRole\", DatabaseRoleArgs.builder()        \n            .comment(\"my db role\")\n            .database(\"database\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  dbRole:\n    type: snowflake:DatabaseRole\n    properties:\n      comment: my db role\n      database: database\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/databaseRole:DatabaseRole example 'dbName|roleName'\n```\n\n ",
             "properties": {
                 "comment": {
                     "type": "string",
@@ -14164,6 +14201,7 @@
             }
         },
         "snowflake:index/getDatabaseRoles:getDatabaseRoles": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst dbRoles = snowflake.getDatabaseRoles({\n    database: \"MYDB\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ndb_roles = snowflake.get_database_roles(database=\"MYDB\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var dbRoles = Snowflake.GetDatabaseRoles.Invoke(new()\n    {\n        Database = \"MYDB\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.GetDatabaseRoles(ctx, \u0026snowflake.GetDatabaseRolesArgs{\n\t\t\tDatabase: \"MYDB\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.snowflake.inputs.GetDatabaseRolesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var dbRoles = SnowflakeFunctions.getDatabaseRoles(GetDatabaseRolesArgs.builder()\n            .database(\"MYDB\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  dbRoles:\n    fn::invoke:\n      Function: snowflake:getDatabaseRoles\n      Arguments:\n        database: MYDB\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getDatabaseRoles.\n",
                 "properties": {
@@ -14907,6 +14945,7 @@
             }
         },
         "snowflake:index/getRoles:getRoles": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst this = snowflake.getRoles({});\nconst ad = snowflake.getRoles({\n    pattern: \"SYSADMIN\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nthis = snowflake.get_roles()\nad = snowflake.get_roles(pattern=\"SYSADMIN\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var @this = Snowflake.GetRoles.Invoke();\n\n    var ad = Snowflake.GetRoles.Invoke(new()\n    {\n        Pattern = \"SYSADMIN\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.GetRoles(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetRoles(ctx, \u0026snowflake.GetRolesArgs{\n\t\t\tPattern: pulumi.StringRef(\"SYSADMIN\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.snowflake.inputs.GetRolesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var this = SnowflakeFunctions.getRoles();\n\n        final var ad = SnowflakeFunctions.getRoles(GetRolesArgs.builder()\n            .pattern(\"SYSADMIN\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  this:\n    fn::invoke:\n      Function: snowflake:getRoles\n      Arguments: {}\n  ad:\n    fn::invoke:\n      Function: snowflake:getRoles\n      Arguments:\n        pattern: SYSADMIN\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getRoles.\n",
                 "properties": {
@@ -15085,6 +15124,7 @@
             }
         },
         "snowflake:index/getShares:getShares": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst this = snowflake.getShares({});\nconst ad = snowflake.getShares({\n    pattern: \"usage\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nthis = snowflake.get_shares()\nad = snowflake.get_shares(pattern=\"usage\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var @this = Snowflake.GetShares.Invoke();\n\n    var ad = Snowflake.GetShares.Invoke(new()\n    {\n        Pattern = \"usage\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.GetShares(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetShares(ctx, \u0026snowflake.GetSharesArgs{\n\t\t\tPattern: pulumi.StringRef(\"usage\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.snowflake.inputs.GetSharesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var this = SnowflakeFunctions.getShares();\n\n        final var ad = SnowflakeFunctions.getShares(GetSharesArgs.builder()\n            .pattern(\"usage\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  this:\n    fn::invoke:\n      Function: snowflake:getShares\n      Arguments: {}\n  ad:\n    fn::invoke:\n      Function: snowflake:getShares\n      Arguments:\n        pattern: usage\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getShares.\n",
                 "properties": {
