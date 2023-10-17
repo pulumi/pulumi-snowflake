@@ -4,8 +4,12 @@
 package snowflake
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetCurrentRole(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCurrentRoleResult, error) {
@@ -24,4 +28,50 @@ type GetCurrentRoleResult struct {
 	Id string `pulumi:"id"`
 	// The name of the [primary role](https://docs.snowflake.com/en/user-guide/security-access-control-overview.html#label-access-control-role-enforcement) in use for the current session.
 	Name string `pulumi:"name"`
+}
+
+func GetCurrentRoleOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetCurrentRoleResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetCurrentRoleResult, error) {
+		r, err := GetCurrentRole(ctx, opts...)
+		var s GetCurrentRoleResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetCurrentRoleResultOutput)
+}
+
+// A collection of values returned by getCurrentRole.
+type GetCurrentRoleResultOutput struct{ *pulumi.OutputState }
+
+func (GetCurrentRoleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCurrentRoleResult)(nil)).Elem()
+}
+
+func (o GetCurrentRoleResultOutput) ToGetCurrentRoleResultOutput() GetCurrentRoleResultOutput {
+	return o
+}
+
+func (o GetCurrentRoleResultOutput) ToGetCurrentRoleResultOutputWithContext(ctx context.Context) GetCurrentRoleResultOutput {
+	return o
+}
+
+func (o GetCurrentRoleResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCurrentRoleResult] {
+	return pulumix.Output[GetCurrentRoleResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetCurrentRoleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCurrentRoleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the [primary role](https://docs.snowflake.com/en/user-guide/security-access-control-overview.html#label-access-control-role-enforcement) in use for the current session.
+func (o GetCurrentRoleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCurrentRoleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetCurrentRoleResultOutput{})
 }

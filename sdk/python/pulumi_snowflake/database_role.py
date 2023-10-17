@@ -35,7 +35,9 @@ class DatabaseRoleArgs:
              database: pulumi.Input[str],
              comment: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("database", database)
         if comment is not None:
             _setter("comment", comment)
@@ -103,7 +105,9 @@ class _DatabaseRoleState:
              comment: Optional[pulumi.Input[str]] = None,
              database: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if comment is not None:
             _setter("comment", comment)
         if database is not None:

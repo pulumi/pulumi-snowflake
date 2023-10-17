@@ -55,7 +55,21 @@ class DatabaseArgs:
              is_transient: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              replication_configuration: Optional[pulumi.Input['DatabaseReplicationConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataRetentionTimeInDays' in kwargs:
+            data_retention_time_in_days = kwargs['dataRetentionTimeInDays']
+        if 'fromDatabase' in kwargs:
+            from_database = kwargs['fromDatabase']
+        if 'fromReplica' in kwargs:
+            from_replica = kwargs['fromReplica']
+        if 'fromShare' in kwargs:
+            from_share = kwargs['fromShare']
+        if 'isTransient' in kwargs:
+            is_transient = kwargs['isTransient']
+        if 'replicationConfiguration' in kwargs:
+            replication_configuration = kwargs['replicationConfiguration']
+
         if comment is not None:
             _setter("comment", comment)
         if data_retention_time_in_days is not None:
@@ -206,7 +220,21 @@ class _DatabaseState:
              is_transient: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              replication_configuration: Optional[pulumi.Input['DatabaseReplicationConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataRetentionTimeInDays' in kwargs:
+            data_retention_time_in_days = kwargs['dataRetentionTimeInDays']
+        if 'fromDatabase' in kwargs:
+            from_database = kwargs['fromDatabase']
+        if 'fromReplica' in kwargs:
+            from_replica = kwargs['fromReplica']
+        if 'fromShare' in kwargs:
+            from_share = kwargs['fromShare']
+        if 'isTransient' in kwargs:
+            is_transient = kwargs['isTransient']
+        if 'replicationConfiguration' in kwargs:
+            replication_configuration = kwargs['replicationConfiguration']
+
         if comment is not None:
             _setter("comment", comment)
         if data_retention_time_in_days is not None:

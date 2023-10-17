@@ -101,7 +101,9 @@ class AlertAlertSchedule(dict):
              _setter: Callable[[Any, Any], None],
              cron: Optional['outputs.AlertAlertScheduleCron'] = None,
              interval: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if cron is not None:
             _setter("cron", cron)
         if interval is not None:
@@ -160,7 +162,11 @@ class AlertAlertScheduleCron(dict):
              _setter: Callable[[Any, Any], None],
              expression: str,
              time_zone: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         _setter("expression", expression)
         _setter("time_zone", time_zone)
 
@@ -213,7 +219,11 @@ class DatabaseReplicationConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              accounts: Sequence[str],
              ignore_edition_check: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ignoreEditionCheck' in kwargs:
+            ignore_edition_check = kwargs['ignoreEditionCheck']
+
         _setter("accounts", accounts)
         if ignore_edition_check is not None:
             _setter("ignore_edition_check", ignore_edition_check)
@@ -248,7 +258,9 @@ class ExternalFunctionArg(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
 
@@ -288,7 +300,9 @@ class ExternalFunctionHeader(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -349,7 +363,11 @@ class ExternalTableColumn(dict):
              as_: str,
              name: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'as' in kwargs:
+            as_ = kwargs['as']
+
         _setter("as_", as_)
         _setter("name", name)
         _setter("type", type)
@@ -406,7 +424,9 @@ class ExternalTableTag(dict):
              value: str,
              database: Optional[str] = None,
              schema: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
         if database is not None:
@@ -489,7 +509,13 @@ class FailoverGroupFromReplica(dict):
              name: str,
              organization_name: str,
              source_account_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'organizationName' in kwargs:
+            organization_name = kwargs['organizationName']
+        if 'sourceAccountName' in kwargs:
+            source_account_name = kwargs['sourceAccountName']
+
         _setter("name", name)
         _setter("organization_name", organization_name)
         _setter("source_account_name", source_account_name)
@@ -538,7 +564,9 @@ class FailoverGroupReplicationSchedule(dict):
              _setter: Callable[[Any, Any], None],
              cron: Optional['outputs.FailoverGroupReplicationScheduleCron'] = None,
              interval: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if cron is not None:
             _setter("cron", cron)
         if interval is not None:
@@ -597,7 +625,11 @@ class FailoverGroupReplicationScheduleCron(dict):
              _setter: Callable[[Any, Any], None],
              expression: str,
              time_zone: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         _setter("expression", expression)
         _setter("time_zone", time_zone)
 
@@ -637,7 +669,9 @@ class FunctionArgument(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
 
@@ -696,7 +730,13 @@ class GrantPrivilegesToRoleOnAccountObject(dict):
              _setter: Callable[[Any, Any], None],
              object_name: str,
              object_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectName' in kwargs:
+            object_name = kwargs['objectName']
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+
         _setter("object_name", object_name)
         _setter("object_type", object_type)
 
@@ -761,7 +801,15 @@ class GrantPrivilegesToRoleOnSchema(dict):
              all_schemas_in_database: Optional[str] = None,
              future_schemas_in_database: Optional[str] = None,
              schema_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allSchemasInDatabase' in kwargs:
+            all_schemas_in_database = kwargs['allSchemasInDatabase']
+        if 'futureSchemasInDatabase' in kwargs:
+            future_schemas_in_database = kwargs['futureSchemasInDatabase']
+        if 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+
         if all_schemas_in_database is not None:
             _setter("all_schemas_in_database", all_schemas_in_database)
         if future_schemas_in_database is not None:
@@ -840,7 +888,13 @@ class GrantPrivilegesToRoleOnSchemaObject(dict):
              future: Optional['outputs.GrantPrivilegesToRoleOnSchemaObjectFuture'] = None,
              object_name: Optional[str] = None,
              object_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectName' in kwargs:
+            object_name = kwargs['objectName']
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+
         if all is not None:
             _setter("all", all)
         if future is not None:
@@ -927,7 +981,15 @@ class GrantPrivilegesToRoleOnSchemaObjectAll(dict):
              object_type_plural: str,
              in_database: Optional[str] = None,
              in_schema: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectTypePlural' in kwargs:
+            object_type_plural = kwargs['objectTypePlural']
+        if 'inDatabase' in kwargs:
+            in_database = kwargs['inDatabase']
+        if 'inSchema' in kwargs:
+            in_schema = kwargs['inSchema']
+
         _setter("object_type_plural", object_type_plural)
         if in_database is not None:
             _setter("in_database", in_database)
@@ -1003,7 +1065,15 @@ class GrantPrivilegesToRoleOnSchemaObjectFuture(dict):
              object_type_plural: str,
              in_database: Optional[str] = None,
              in_schema: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectTypePlural' in kwargs:
+            object_type_plural = kwargs['objectTypePlural']
+        if 'inDatabase' in kwargs:
+            in_database = kwargs['inDatabase']
+        if 'inSchema' in kwargs:
+            in_schema = kwargs['inSchema']
+
         _setter("object_type_plural", object_type_plural)
         if in_database is not None:
             _setter("in_database", in_database)
@@ -1047,7 +1117,9 @@ class MaskingPolicySignature(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              columns: Sequence['outputs.MaskingPolicySignatureColumn'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("columns", columns)
 
     @property
@@ -1075,7 +1147,9 @@ class MaskingPolicySignatureColumn(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
 
@@ -1123,7 +1197,9 @@ class MaterializedViewTag(dict):
              value: str,
              database: Optional[str] = None,
              schema: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
         if database is not None:
@@ -1187,7 +1263,9 @@ class ObjectParameterObjectIdentifier(dict):
              name: str,
              database: Optional[str] = None,
              schema: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if database is not None:
             _setter("database", database)
@@ -1238,7 +1316,9 @@ class ProcedureArgument(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
 
@@ -1286,7 +1366,9 @@ class RoleTag(dict):
              value: str,
              database: Optional[str] = None,
              schema: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
         if database is not None:
@@ -1354,7 +1436,9 @@ class SchemaTag(dict):
              value: str,
              database: Optional[str] = None,
              schema: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
         if database is not None:
@@ -1422,7 +1506,9 @@ class StageTag(dict):
              value: str,
              database: Optional[str] = None,
              schema: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
         if database is not None:
@@ -1519,7 +1605,11 @@ class TableColumn(dict):
              identity: Optional['outputs.TableColumnIdentity'] = None,
              masking_policy: Optional[str] = None,
              nullable: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maskingPolicy' in kwargs:
+            masking_policy = kwargs['maskingPolicy']
+
         _setter("name", name)
         _setter("type", type)
         if comment is not None:
@@ -1613,7 +1703,9 @@ class TableColumnDefault(dict):
              constant: Optional[str] = None,
              expression: Optional[str] = None,
              sequence: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if constant is not None:
             _setter("constant", constant)
         if expression is not None:
@@ -1684,7 +1776,13 @@ class TableColumnIdentity(dict):
              _setter: Callable[[Any, Any], None],
              start_num: Optional[int] = None,
              step_num: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startNum' in kwargs:
+            start_num = kwargs['startNum']
+        if 'stepNum' in kwargs:
+            step_num = kwargs['stepNum']
+
         if start_num is not None:
             _setter("start_num", start_num)
         if step_num is not None:
@@ -1753,7 +1851,13 @@ class TableConstraintForeignKeyProperties(dict):
              on_delete: Optional[str] = None,
              on_update: Optional[str] = None,
              references: Optional['outputs.TableConstraintForeignKeyPropertiesReferences'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'onDelete' in kwargs:
+            on_delete = kwargs['onDelete']
+        if 'onUpdate' in kwargs:
+            on_update = kwargs['onUpdate']
+
         if match is not None:
             _setter("match", match)
         if on_delete is not None:
@@ -1832,7 +1936,11 @@ class TableConstraintForeignKeyPropertiesReferences(dict):
              _setter: Callable[[Any, Any], None],
              columns: Sequence[str],
              table_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tableId' in kwargs:
+            table_id = kwargs['tableId']
+
         _setter("columns", columns)
         _setter("table_id", table_id)
 
@@ -1872,7 +1980,9 @@ class TablePrimaryKey(dict):
              _setter: Callable[[Any, Any], None],
              keys: Sequence[str],
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("keys", keys)
         if name is not None:
             _setter("name", name)
@@ -1921,7 +2031,9 @@ class TableTag(dict):
              value: str,
              database: Optional[str] = None,
              schema: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
         if database is not None:
@@ -1985,7 +2097,9 @@ class TagAssociationObjectIdentifier(dict):
              name: str,
              database: Optional[str] = None,
              schema: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if database is not None:
             _setter("database", database)
@@ -2044,7 +2158,9 @@ class ViewTag(dict):
              value: str,
              database: Optional[str] = None,
              schema: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
         if database is not None:
@@ -2142,7 +2258,37 @@ class GetAccountsAccountResult(dict):
              organization_name: str,
              region_group: str,
              snowflake_region: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountLocator' in kwargs:
+            account_locator = kwargs['accountLocator']
+        if 'accountLocatorUrl' in kwargs:
+            account_locator_url = kwargs['accountLocatorUrl']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'accountUrl' in kwargs:
+            account_url = kwargs['accountUrl']
+        if 'consumptionBillingEntityName' in kwargs:
+            consumption_billing_entity_name = kwargs['consumptionBillingEntityName']
+        if 'createdOn' in kwargs:
+            created_on = kwargs['createdOn']
+        if 'isOrgAdmin' in kwargs:
+            is_org_admin = kwargs['isOrgAdmin']
+        if 'managedAccounts' in kwargs:
+            managed_accounts = kwargs['managedAccounts']
+        if 'marketplaceConsumerBillingEntityName' in kwargs:
+            marketplace_consumer_billing_entity_name = kwargs['marketplaceConsumerBillingEntityName']
+        if 'marketplaceProviderBillingEntityName' in kwargs:
+            marketplace_provider_billing_entity_name = kwargs['marketplaceProviderBillingEntityName']
+        if 'oldAccountUrl' in kwargs:
+            old_account_url = kwargs['oldAccountUrl']
+        if 'organizationName' in kwargs:
+            organization_name = kwargs['organizationName']
+        if 'regionGroup' in kwargs:
+            region_group = kwargs['regionGroup']
+        if 'snowflakeRegion' in kwargs:
+            snowflake_region = kwargs['snowflakeRegion']
+
         _setter("account_locator", account_locator)
         _setter("account_locator_url", account_locator_url)
         _setter("account_name", account_name)
@@ -2271,7 +2417,13 @@ class GetAlertsAlertResult(dict):
              name: str,
              owner: str,
              schema_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+
         _setter("action", action)
         _setter("comment", comment)
         _setter("condition", condition)
@@ -2334,7 +2486,9 @@ class GetDatabaseRolesDatabaseRoleResult(dict):
              comment: str,
              name: str,
              owner: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comment", comment)
         _setter("name", name)
         _setter("owner", owner)
@@ -2394,7 +2548,19 @@ class GetDatabasesDatabaseResult(dict):
              owner: str,
              replication_configurations: Sequence['outputs.GetDatabasesDatabaseReplicationConfigurationResult'],
              retention_time: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdOn' in kwargs:
+            created_on = kwargs['createdOn']
+        if 'isCurrent' in kwargs:
+            is_current = kwargs['isCurrent']
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if 'replicationConfigurations' in kwargs:
+            replication_configurations = kwargs['replicationConfigurations']
+        if 'retentionTime' in kwargs:
+            retention_time = kwargs['retentionTime']
+
         _setter("comment", comment)
         _setter("created_on", created_on)
         _setter("is_current", is_current)
@@ -2472,7 +2638,11 @@ class GetDatabasesDatabaseReplicationConfigurationResult(dict):
              _setter: Callable[[Any, Any], None],
              accounts: Sequence[str],
              ignore_edition_check: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ignoreEditionCheck' in kwargs:
+            ignore_edition_check = kwargs['ignoreEditionCheck']
+
         _setter("accounts", accounts)
         _setter("ignore_edition_check", ignore_edition_check)
 
@@ -2511,7 +2681,9 @@ class GetExternalFunctionsExternalFunctionResult(dict):
              language: str,
              name: str,
              schema: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comment", comment)
         _setter("database", database)
         _setter("language", language)
@@ -2565,7 +2737,9 @@ class GetExternalTablesExternalTableResult(dict):
              database: str,
              name: str,
              schema: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comment", comment)
         _setter("database", database)
         _setter("name", name)
@@ -2652,7 +2826,35 @@ class GetFailoverGroupsFailoverGroupResult(dict):
              secondary_state: str,
              snowflake_region: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountLocator' in kwargs:
+            account_locator = kwargs['accountLocator']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'allowedAccounts' in kwargs:
+            allowed_accounts = kwargs['allowedAccounts']
+        if 'allowedIntegrationTypes' in kwargs:
+            allowed_integration_types = kwargs['allowedIntegrationTypes']
+        if 'createdOn' in kwargs:
+            created_on = kwargs['createdOn']
+        if 'isPrimary' in kwargs:
+            is_primary = kwargs['isPrimary']
+        if 'nextScheduledRefresh' in kwargs:
+            next_scheduled_refresh = kwargs['nextScheduledRefresh']
+        if 'objectTypes' in kwargs:
+            object_types = kwargs['objectTypes']
+        if 'organizationName' in kwargs:
+            organization_name = kwargs['organizationName']
+        if 'regionGroup' in kwargs:
+            region_group = kwargs['regionGroup']
+        if 'replicationSchedule' in kwargs:
+            replication_schedule = kwargs['replicationSchedule']
+        if 'secondaryState' in kwargs:
+            secondary_state = kwargs['secondaryState']
+        if 'snowflakeRegion' in kwargs:
+            snowflake_region = kwargs['snowflakeRegion']
+
         _setter("account_locator", account_locator)
         _setter("account_name", account_name)
         _setter("allowed_accounts", allowed_accounts)
@@ -2781,7 +2983,11 @@ class GetFileFormatsFileFormatResult(dict):
              format_type: str,
              name: str,
              schema: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'formatType' in kwargs:
+            format_type = kwargs['formatType']
+
         _setter("comment", comment)
         _setter("database", database)
         _setter("format_type", format_type)
@@ -2841,7 +3047,13 @@ class GetFunctionsFunctionResult(dict):
              name: str,
              return_type: str,
              schema: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'argumentTypes' in kwargs:
+            argument_types = kwargs['argumentTypes']
+        if 'returnType' in kwargs:
+            return_type = kwargs['returnType']
+
         _setter("argument_types", argument_types)
         _setter("comment", comment)
         _setter("database", database)
@@ -2899,7 +3111,9 @@ class GetGrantsFutureGrantsInResult(dict):
              _setter: Callable[[Any, Any], None],
              database: Optional[str] = None,
              schema: Optional['outputs.GetGrantsFutureGrantsInSchemaResult'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if database is not None:
             _setter("database", database)
         if schema is not None:
@@ -2941,7 +3155,13 @@ class GetGrantsFutureGrantsInSchemaResult(dict):
              _setter: Callable[[Any, Any], None],
              schema_name: str,
              database_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         _setter("schema_name", schema_name)
         if database_name is not None:
             _setter("database_name", database_name)
@@ -2978,7 +3198,9 @@ class GetGrantsFutureGrantsToResult(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              role: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("role", role)
 
     @property
@@ -3023,7 +3245,21 @@ class GetGrantsGrantResult(dict):
              grantee_name: str,
              name: str,
              privilege: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdOn' in kwargs:
+            created_on = kwargs['createdOn']
+        if 'grantOption' in kwargs:
+            grant_option = kwargs['grantOption']
+        if 'grantedBy' in kwargs:
+            granted_by = kwargs['grantedBy']
+        if 'grantedOn' in kwargs:
+            granted_on = kwargs['grantedOn']
+        if 'grantedTo' in kwargs:
+            granted_to = kwargs['grantedTo']
+        if 'granteeName' in kwargs:
+            grantee_name = kwargs['granteeName']
+
         _setter("created_on", created_on)
         _setter("grant_option", grant_option)
         _setter("granted_by", granted_by)
@@ -3093,7 +3329,9 @@ class GetGrantsGrantsOfResult(dict):
              _setter: Callable[[Any, Any], None],
              role: Optional[str] = None,
              share: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if role is not None:
             _setter("role", role)
         if share is not None:
@@ -3139,7 +3377,13 @@ class GetGrantsGrantsOnResult(dict):
              account: Optional[bool] = None,
              object_name: Optional[str] = None,
              object_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectName' in kwargs:
+            object_name = kwargs['objectName']
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+
         if account is not None:
             _setter("account", account)
         if object_name is not None:
@@ -3195,7 +3439,9 @@ class GetGrantsGrantsToResult(dict):
              role: Optional[str] = None,
              share: Optional[str] = None,
              user: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if role is not None:
             _setter("role", role)
         if share is not None:
@@ -3252,7 +3498,9 @@ class GetMaskingPoliciesMaskingPolicyResult(dict):
              kind: str,
              name: str,
              schema: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comment", comment)
         _setter("database", database)
         _setter("kind", kind)
@@ -3306,7 +3554,9 @@ class GetMaterializedViewsMaterializedViewResult(dict):
              database: str,
              name: str,
              schema: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comment", comment)
         _setter("database", database)
         _setter("name", name)
@@ -3357,7 +3607,9 @@ class GetParametersParameterResult(dict):
              key: str,
              level: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("default", default)
         _setter("description", description)
         _setter("key", key)
@@ -3414,7 +3666,9 @@ class GetPipesPipeResult(dict):
              integration: str,
              name: str,
              schema: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comment", comment)
         _setter("database", database)
         _setter("integration", integration)
@@ -3474,7 +3728,13 @@ class GetProceduresProcedureResult(dict):
              name: str,
              return_type: str,
              schema: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'argumentTypes' in kwargs:
+            argument_types = kwargs['argumentTypes']
+        if 'returnType' in kwargs:
+            return_type = kwargs['returnType']
+
         _setter("argument_types", argument_types)
         _setter("comment", comment)
         _setter("database", database)
@@ -3534,7 +3794,11 @@ class GetResourceMonitorsResourceMonitorResult(dict):
              credit_quota: str,
              frequency: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'creditQuota' in kwargs:
+            credit_quota = kwargs['creditQuota']
+
         _setter("comment", comment)
         _setter("credit_quota", credit_quota)
         _setter("frequency", frequency)
@@ -3579,7 +3843,9 @@ class GetRolesRoleResult(dict):
              comment: str,
              name: str,
              owner: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comment", comment)
         _setter("name", name)
         _setter("owner", owner)
@@ -3621,7 +3887,9 @@ class GetRowAccessPoliciesRowAccessPolicyResult(dict):
              database: str,
              name: str,
              schema: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comment", comment)
         _setter("database", database)
         _setter("name", name)
@@ -3666,7 +3934,9 @@ class GetSchemasSchemaResult(dict):
              comment: str,
              database: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comment", comment)
         _setter("database", database)
         _setter("name", name)
@@ -3708,7 +3978,9 @@ class GetSequencesSequenceResult(dict):
              database: str,
              name: str,
              schema: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comment", comment)
         _setter("database", database)
         _setter("name", name)
@@ -3759,7 +4031,9 @@ class GetSharesShareResult(dict):
              name: str,
              owner: str,
              tos: Sequence[Any],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comment", comment)
         _setter("kind", kind)
         _setter("name", name)
@@ -3816,7 +4090,11 @@ class GetStagesStageResult(dict):
              name: str,
              schema: str,
              storage_integration: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageIntegration' in kwargs:
+            storage_integration = kwargs['storageIntegration']
+
         _setter("comment", comment)
         _setter("database", database)
         _setter("name", name)
@@ -3870,7 +4148,9 @@ class GetStorageIntegrationsStorageIntegrationResult(dict):
              enabled: bool,
              name: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comment", comment)
         _setter("enabled", enabled)
         _setter("name", name)
@@ -3921,7 +4201,9 @@ class GetStreamsStreamResult(dict):
              name: str,
              schema: str,
              table: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comment", comment)
         _setter("database", database)
         _setter("name", name)
@@ -3975,7 +4257,9 @@ class GetTablesTableResult(dict):
              database: str,
              name: str,
              schema: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comment", comment)
         _setter("database", database)
         _setter("name", name)
@@ -4026,7 +4310,9 @@ class GetTasksTaskResult(dict):
              name: str,
              schema: str,
              warehouse: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comment", comment)
         _setter("database", database)
         _setter("name", name)
@@ -4107,7 +4393,27 @@ class GetUsersUserResult(dict):
              last_name: str,
              login_name: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultNamespace' in kwargs:
+            default_namespace = kwargs['defaultNamespace']
+        if 'defaultRole' in kwargs:
+            default_role = kwargs['defaultRole']
+        if 'defaultSecondaryRoles' in kwargs:
+            default_secondary_roles = kwargs['defaultSecondaryRoles']
+        if 'defaultWarehouse' in kwargs:
+            default_warehouse = kwargs['defaultWarehouse']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if 'hasRsaPublicKey' in kwargs:
+            has_rsa_public_key = kwargs['hasRsaPublicKey']
+        if 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if 'loginName' in kwargs:
+            login_name = kwargs['loginName']
+
         _setter("comment", comment)
         _setter("default_namespace", default_namespace)
         _setter("default_role", default_role)
@@ -4209,7 +4515,9 @@ class GetViewsViewResult(dict):
              database: str,
              name: str,
              schema: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comment", comment)
         _setter("database", database)
         _setter("name", name)
@@ -4263,7 +4571,11 @@ class GetWarehousesWarehouseResult(dict):
              size: str,
              state: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scalingPolicy' in kwargs:
+            scaling_policy = kwargs['scalingPolicy']
+
         _setter("comment", comment)
         _setter("name", name)
         _setter("scaling_policy", scaling_policy)

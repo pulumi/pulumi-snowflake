@@ -4,8 +4,12 @@
 package snowflake
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -47,4 +51,50 @@ type GetWarehousesResult struct {
 	Id string `pulumi:"id"`
 	// The warehouses in the database
 	Warehouses []GetWarehousesWarehouse `pulumi:"warehouses"`
+}
+
+func GetWarehousesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetWarehousesResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetWarehousesResult, error) {
+		r, err := GetWarehouses(ctx, opts...)
+		var s GetWarehousesResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetWarehousesResultOutput)
+}
+
+// A collection of values returned by getWarehouses.
+type GetWarehousesResultOutput struct{ *pulumi.OutputState }
+
+func (GetWarehousesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWarehousesResult)(nil)).Elem()
+}
+
+func (o GetWarehousesResultOutput) ToGetWarehousesResultOutput() GetWarehousesResultOutput {
+	return o
+}
+
+func (o GetWarehousesResultOutput) ToGetWarehousesResultOutputWithContext(ctx context.Context) GetWarehousesResultOutput {
+	return o
+}
+
+func (o GetWarehousesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetWarehousesResult] {
+	return pulumix.Output[GetWarehousesResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetWarehousesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWarehousesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The warehouses in the database
+func (o GetWarehousesResultOutput) Warehouses() GetWarehousesWarehouseArrayOutput {
+	return o.ApplyT(func(v GetWarehousesResult) []GetWarehousesWarehouse { return v.Warehouses }).(GetWarehousesWarehouseArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetWarehousesResultOutput{})
 }

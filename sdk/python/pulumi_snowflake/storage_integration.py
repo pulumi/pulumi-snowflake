@@ -56,7 +56,21 @@ class StorageIntegrationArgs:
              storage_aws_role_arn: Optional[pulumi.Input[str]] = None,
              storage_blocked_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAllowedLocations' in kwargs:
+            storage_allowed_locations = kwargs['storageAllowedLocations']
+        if 'storageProvider' in kwargs:
+            storage_provider = kwargs['storageProvider']
+        if 'azureTenantId' in kwargs:
+            azure_tenant_id = kwargs['azureTenantId']
+        if 'storageAwsObjectAcl' in kwargs:
+            storage_aws_object_acl = kwargs['storageAwsObjectAcl']
+        if 'storageAwsRoleArn' in kwargs:
+            storage_aws_role_arn = kwargs['storageAwsRoleArn']
+        if 'storageBlockedLocations' in kwargs:
+            storage_blocked_locations = kwargs['storageBlockedLocations']
+
         _setter("storage_allowed_locations", storage_allowed_locations)
         _setter("storage_provider", storage_provider)
         if azure_tenant_id is not None:
@@ -245,7 +259,33 @@ class _StorageIntegrationState:
              storage_gcp_service_account: Optional[pulumi.Input[str]] = None,
              storage_provider: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureConsentUrl' in kwargs:
+            azure_consent_url = kwargs['azureConsentUrl']
+        if 'azureMultiTenantAppName' in kwargs:
+            azure_multi_tenant_app_name = kwargs['azureMultiTenantAppName']
+        if 'azureTenantId' in kwargs:
+            azure_tenant_id = kwargs['azureTenantId']
+        if 'createdOn' in kwargs:
+            created_on = kwargs['createdOn']
+        if 'storageAllowedLocations' in kwargs:
+            storage_allowed_locations = kwargs['storageAllowedLocations']
+        if 'storageAwsExternalId' in kwargs:
+            storage_aws_external_id = kwargs['storageAwsExternalId']
+        if 'storageAwsIamUserArn' in kwargs:
+            storage_aws_iam_user_arn = kwargs['storageAwsIamUserArn']
+        if 'storageAwsObjectAcl' in kwargs:
+            storage_aws_object_acl = kwargs['storageAwsObjectAcl']
+        if 'storageAwsRoleArn' in kwargs:
+            storage_aws_role_arn = kwargs['storageAwsRoleArn']
+        if 'storageBlockedLocations' in kwargs:
+            storage_blocked_locations = kwargs['storageBlockedLocations']
+        if 'storageGcpServiceAccount' in kwargs:
+            storage_gcp_service_account = kwargs['storageGcpServiceAccount']
+        if 'storageProvider' in kwargs:
+            storage_provider = kwargs['storageProvider']
+
         if azure_consent_url is not None:
             _setter("azure_consent_url", azure_consent_url)
         if azure_multi_tenant_app_name is not None:

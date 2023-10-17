@@ -40,6 +40,24 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.account);
     }
     /**
+     * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+     * connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+     * UsernamePasswordMFA
+     * 
+     */
+    @Export(name="authenticator", type=String.class, parameters={})
+    private Output</* @Nullable */ String> authenticator;
+
+    /**
+     * @return Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+     * connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+     * UsernamePasswordMFA
+     * 
+     */
+    public Output<Optional<String>> authenticator() {
+        return Codegen.optional(this.authenticator);
+    }
+    /**
      * Supports passing in a custom host value to the snowflake go driver for use with privatelink.
      * 
      */

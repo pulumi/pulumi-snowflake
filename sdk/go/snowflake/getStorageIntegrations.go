@@ -4,8 +4,12 @@
 package snowflake
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -47,4 +51,52 @@ type GetStorageIntegrationsResult struct {
 	Id string `pulumi:"id"`
 	// The storage integrations in the database
 	StorageIntegrations []GetStorageIntegrationsStorageIntegration `pulumi:"storageIntegrations"`
+}
+
+func GetStorageIntegrationsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetStorageIntegrationsResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetStorageIntegrationsResult, error) {
+		r, err := GetStorageIntegrations(ctx, opts...)
+		var s GetStorageIntegrationsResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetStorageIntegrationsResultOutput)
+}
+
+// A collection of values returned by getStorageIntegrations.
+type GetStorageIntegrationsResultOutput struct{ *pulumi.OutputState }
+
+func (GetStorageIntegrationsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageIntegrationsResult)(nil)).Elem()
+}
+
+func (o GetStorageIntegrationsResultOutput) ToGetStorageIntegrationsResultOutput() GetStorageIntegrationsResultOutput {
+	return o
+}
+
+func (o GetStorageIntegrationsResultOutput) ToGetStorageIntegrationsResultOutputWithContext(ctx context.Context) GetStorageIntegrationsResultOutput {
+	return o
+}
+
+func (o GetStorageIntegrationsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetStorageIntegrationsResult] {
+	return pulumix.Output[GetStorageIntegrationsResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetStorageIntegrationsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageIntegrationsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The storage integrations in the database
+func (o GetStorageIntegrationsResultOutput) StorageIntegrations() GetStorageIntegrationsStorageIntegrationArrayOutput {
+	return o.ApplyT(func(v GetStorageIntegrationsResult) []GetStorageIntegrationsStorageIntegration {
+		return v.StorageIntegrations
+	}).(GetStorageIntegrationsStorageIntegrationArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetStorageIntegrationsResultOutput{})
 }

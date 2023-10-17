@@ -85,7 +85,19 @@ class ProcedureArgs:
              packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              return_behavior: Optional[pulumi.Input[str]] = None,
              runtime_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'returnType' in kwargs:
+            return_type = kwargs['returnType']
+        if 'executeAs' in kwargs:
+            execute_as = kwargs['executeAs']
+        if 'nullInputBehavior' in kwargs:
+            null_input_behavior = kwargs['nullInputBehavior']
+        if 'returnBehavior' in kwargs:
+            return_behavior = kwargs['returnBehavior']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+
         _setter("database", database)
         _setter("return_type", return_type)
         _setter("schema", schema)
@@ -366,7 +378,19 @@ class _ProcedureState:
              runtime_version: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
              statement: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'executeAs' in kwargs:
+            execute_as = kwargs['executeAs']
+        if 'nullInputBehavior' in kwargs:
+            null_input_behavior = kwargs['nullInputBehavior']
+        if 'returnBehavior' in kwargs:
+            return_behavior = kwargs['returnBehavior']
+        if 'returnType' in kwargs:
+            return_type = kwargs['returnType']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+
         if arguments is not None:
             _setter("arguments", arguments)
         if comment is not None:

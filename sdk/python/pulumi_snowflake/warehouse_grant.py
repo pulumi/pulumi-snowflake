@@ -48,7 +48,17 @@ class WarehouseGrantArgs:
              revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'warehouseName' in kwargs:
+            warehouse_name = kwargs['warehouseName']
+        if 'enableMultipleGrants' in kwargs:
+            enable_multiple_grants = kwargs['enableMultipleGrants']
+        if 'revertOwnershipToRoleName' in kwargs:
+            revert_ownership_to_role_name = kwargs['revertOwnershipToRoleName']
+        if 'withGrantOption' in kwargs:
+            with_grant_option = kwargs['withGrantOption']
+
         _setter("warehouse_name", warehouse_name)
         if enable_multiple_grants is not None:
             _setter("enable_multiple_grants", enable_multiple_grants)
@@ -172,7 +182,17 @@ class _WarehouseGrantState:
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              warehouse_name: Optional[pulumi.Input[str]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableMultipleGrants' in kwargs:
+            enable_multiple_grants = kwargs['enableMultipleGrants']
+        if 'revertOwnershipToRoleName' in kwargs:
+            revert_ownership_to_role_name = kwargs['revertOwnershipToRoleName']
+        if 'warehouseName' in kwargs:
+            warehouse_name = kwargs['warehouseName']
+        if 'withGrantOption' in kwargs:
+            with_grant_option = kwargs['withGrantOption']
+
         if enable_multiple_grants is not None:
             _setter("enable_multiple_grants", enable_multiple_grants)
         if privilege is not None:

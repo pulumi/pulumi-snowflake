@@ -4,8 +4,12 @@
 package snowflake
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetSystemGetPrivateLinkConfig(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSystemGetPrivateLinkConfigResult, error) {
@@ -40,4 +44,90 @@ type GetSystemGetPrivateLinkConfigResult struct {
 	RegionlessSnowsightUrl string `pulumi:"regionlessSnowsightUrl"`
 	// The URL containing the cloud region to access Snowsight and the Snowflake Marketplace using Private Connectivity to the Snowflake Service.
 	SnowsightUrl string `pulumi:"snowsightUrl"`
+}
+
+func GetSystemGetPrivateLinkConfigOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetSystemGetPrivateLinkConfigResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetSystemGetPrivateLinkConfigResult, error) {
+		r, err := GetSystemGetPrivateLinkConfig(ctx, opts...)
+		var s GetSystemGetPrivateLinkConfigResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetSystemGetPrivateLinkConfigResultOutput)
+}
+
+// A collection of values returned by getSystemGetPrivateLinkConfig.
+type GetSystemGetPrivateLinkConfigResultOutput struct{ *pulumi.OutputState }
+
+func (GetSystemGetPrivateLinkConfigResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSystemGetPrivateLinkConfigResult)(nil)).Elem()
+}
+
+func (o GetSystemGetPrivateLinkConfigResultOutput) ToGetSystemGetPrivateLinkConfigResultOutput() GetSystemGetPrivateLinkConfigResultOutput {
+	return o
+}
+
+func (o GetSystemGetPrivateLinkConfigResultOutput) ToGetSystemGetPrivateLinkConfigResultOutputWithContext(ctx context.Context) GetSystemGetPrivateLinkConfigResultOutput {
+	return o
+}
+
+func (o GetSystemGetPrivateLinkConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSystemGetPrivateLinkConfigResult] {
+	return pulumix.Output[GetSystemGetPrivateLinkConfigResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The name of your Snowflake account.
+func (o GetSystemGetPrivateLinkConfigResultOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// The URL used to connect to Snowflake through AWS PrivateLink or Azure Private Link.
+func (o GetSystemGetPrivateLinkConfigResultOutput) AccountUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.AccountUrl }).(pulumi.StringOutput)
+}
+
+// The AWS VPCE ID for your account.
+func (o GetSystemGetPrivateLinkConfigResultOutput) AwsVpceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.AwsVpceId }).(pulumi.StringOutput)
+}
+
+// The Azure Private Link Service ID for your account.
+func (o GetSystemGetPrivateLinkConfigResultOutput) AzurePlsId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.AzurePlsId }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetSystemGetPrivateLinkConfigResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The endpoint to connect to your Snowflake internal stage using AWS PrivateLink or Azure Private Link.
+func (o GetSystemGetPrivateLinkConfigResultOutput) InternalStage() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.InternalStage }).(pulumi.StringOutput)
+}
+
+// The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
+func (o GetSystemGetPrivateLinkConfigResultOutput) OcspUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.OcspUrl }).(pulumi.StringOutput)
+}
+
+// The regionless URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
+func (o GetSystemGetPrivateLinkConfigResultOutput) RegionlessAccountUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.RegionlessAccountUrl }).(pulumi.StringOutput)
+}
+
+// The URL for your organization to access Snowsight using Private Connectivity to the Snowflake Service.
+func (o GetSystemGetPrivateLinkConfigResultOutput) RegionlessSnowsightUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.RegionlessSnowsightUrl }).(pulumi.StringOutput)
+}
+
+// The URL containing the cloud region to access Snowsight and the Snowflake Marketplace using Private Connectivity to the Snowflake Service.
+func (o GetSystemGetPrivateLinkConfigResultOutput) SnowsightUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.SnowsightUrl }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSystemGetPrivateLinkConfigResultOutput{})
 }

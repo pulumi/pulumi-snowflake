@@ -43,6 +43,18 @@ namespace Pulumi.Snowflake
             set => _account.Set(value);
         }
 
+        private static readonly __Value<string?> _authenticator = new __Value<string?>(() => __config.Get("authenticator"));
+        /// <summary>
+        /// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+        /// connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+        /// UsernamePasswordMFA
+        /// </summary>
+        public static string? Authenticator
+        {
+            get => _authenticator.Get();
+            set => _authenticator.Set(value);
+        }
+
         private static readonly __Value<bool?> _browserAuth = new __Value<bool?>(() => __config.GetBoolean("browserAuth") ?? Utilities.GetEnvBoolean("SNOWFLAKE_USE_BROWSER_AUTH"));
         /// <summary>
         /// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.

@@ -20,6 +20,19 @@ Object.defineProperty(exports, "account", {
 });
 
 /**
+ * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+ * connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+ * UsernamePasswordMFA
+ */
+export declare const authenticator: string | undefined;
+Object.defineProperty(exports, "authenticator", {
+    get() {
+        return __config.get("authenticator");
+    },
+    enumerable: true,
+});
+
+/**
  * Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
  */
 export declare const browserAuth: boolean | undefined;

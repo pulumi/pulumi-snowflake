@@ -38,16 +38,43 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
+     * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+     * connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+     * UsernamePasswordMFA
      * 
      */
+    @Import(name="authenticator")
+    private @Nullable Output<String> authenticator;
+
+    /**
+     * @return Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+     * connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+     * UsernamePasswordMFA
+     * 
+     */
+    public Optional<Output<String>> authenticator() {
+        return Optional.ofNullable(this.authenticator);
+    }
+
+    /**
+     * Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
+     * 
+     * @deprecated
+     * Use `authenticator` instead
+     * 
+     */
+    @Deprecated /* Use `authenticator` instead */
     @Import(name="browserAuth", json=true)
     private @Nullable Output<Boolean> browserAuth;
 
     /**
      * @return Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
      * 
+     * @deprecated
+     * Use `authenticator` instead
+     * 
      */
+    @Deprecated /* Use `authenticator` instead */
     public Optional<Output<Boolean>> browserAuth() {
         return Optional.ofNullable(this.browserAuth);
     }
@@ -420,6 +447,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     private ProviderArgs(ProviderArgs $) {
         this.account = $.account;
+        this.authenticator = $.authenticator;
         this.browserAuth = $.browserAuth;
         this.host = $.host;
         this.insecureMode = $.insecureMode;
@@ -487,11 +515,40 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param browserAuth Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
+         * @param authenticator Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+         * connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+         * UsernamePasswordMFA
          * 
          * @return builder
          * 
          */
+        public Builder authenticator(@Nullable Output<String> authenticator) {
+            $.authenticator = authenticator;
+            return this;
+        }
+
+        /**
+         * @param authenticator Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+         * connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+         * UsernamePasswordMFA
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticator(String authenticator) {
+            return authenticator(Output.of(authenticator));
+        }
+
+        /**
+         * @param browserAuth Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use `authenticator` instead
+         * 
+         */
+        @Deprecated /* Use `authenticator` instead */
         public Builder browserAuth(@Nullable Output<Boolean> browserAuth) {
             $.browserAuth = browserAuth;
             return this;
@@ -502,7 +559,11 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `authenticator` instead
+         * 
          */
+        @Deprecated /* Use `authenticator` instead */
         public Builder browserAuth(Boolean browserAuth) {
             return browserAuth(Output.of(browserAuth));
         }

@@ -56,7 +56,21 @@ class RowAccessPolicyGrantArgs:
              revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'rowAccessPolicyName' in kwargs:
+            row_access_policy_name = kwargs['rowAccessPolicyName']
+        if 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if 'enableMultipleGrants' in kwargs:
+            enable_multiple_grants = kwargs['enableMultipleGrants']
+        if 'revertOwnershipToRoleName' in kwargs:
+            revert_ownership_to_role_name = kwargs['revertOwnershipToRoleName']
+        if 'withGrantOption' in kwargs:
+            with_grant_option = kwargs['withGrantOption']
+
         _setter("database_name", database_name)
         _setter("row_access_policy_name", row_access_policy_name)
         _setter("schema_name", schema_name)
@@ -214,7 +228,21 @@ class _RowAccessPolicyGrantState:
              row_access_policy_name: Optional[pulumi.Input[str]] = None,
              schema_name: Optional[pulumi.Input[str]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'enableMultipleGrants' in kwargs:
+            enable_multiple_grants = kwargs['enableMultipleGrants']
+        if 'revertOwnershipToRoleName' in kwargs:
+            revert_ownership_to_role_name = kwargs['revertOwnershipToRoleName']
+        if 'rowAccessPolicyName' in kwargs:
+            row_access_policy_name = kwargs['rowAccessPolicyName']
+        if 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if 'withGrantOption' in kwargs:
+            with_grant_option = kwargs['withGrantOption']
+
         if database_name is not None:
             _setter("database_name", database_name)
         if enable_multiple_grants is not None:

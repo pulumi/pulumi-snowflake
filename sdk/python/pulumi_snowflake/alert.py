@@ -61,7 +61,11 @@ class AlertArgs:
              comment: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertSchedule' in kwargs:
+            alert_schedule = kwargs['alertSchedule']
+
         _setter("action", action)
         _setter("condition", condition)
         _setter("database", database)
@@ -233,7 +237,11 @@ class _AlertState:
              name: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
              warehouse: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertSchedule' in kwargs:
+            alert_schedule = kwargs['alertSchedule']
+
         if action is not None:
             _setter("action", action)
         if alert_schedule is not None:

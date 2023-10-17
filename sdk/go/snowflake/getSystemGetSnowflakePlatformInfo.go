@@ -4,8 +4,12 @@
 package snowflake
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetSystemGetSnowflakePlatformInfo(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSystemGetSnowflakePlatformInfoResult, error) {
@@ -26,4 +30,55 @@ type GetSystemGetSnowflakePlatformInfoResult struct {
 	AzureVnetSubnetIds []string `pulumi:"azureVnetSubnetIds"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+}
+
+func GetSystemGetSnowflakePlatformInfoOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetSystemGetSnowflakePlatformInfoResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetSystemGetSnowflakePlatformInfoResult, error) {
+		r, err := GetSystemGetSnowflakePlatformInfo(ctx, opts...)
+		var s GetSystemGetSnowflakePlatformInfoResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetSystemGetSnowflakePlatformInfoResultOutput)
+}
+
+// A collection of values returned by getSystemGetSnowflakePlatformInfo.
+type GetSystemGetSnowflakePlatformInfoResultOutput struct{ *pulumi.OutputState }
+
+func (GetSystemGetSnowflakePlatformInfoResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSystemGetSnowflakePlatformInfoResult)(nil)).Elem()
+}
+
+func (o GetSystemGetSnowflakePlatformInfoResultOutput) ToGetSystemGetSnowflakePlatformInfoResultOutput() GetSystemGetSnowflakePlatformInfoResultOutput {
+	return o
+}
+
+func (o GetSystemGetSnowflakePlatformInfoResultOutput) ToGetSystemGetSnowflakePlatformInfoResultOutputWithContext(ctx context.Context) GetSystemGetSnowflakePlatformInfoResultOutput {
+	return o
+}
+
+func (o GetSystemGetSnowflakePlatformInfoResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSystemGetSnowflakePlatformInfoResult] {
+	return pulumix.Output[GetSystemGetSnowflakePlatformInfoResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Snowflake AWS Virtual Private Cloud IDs
+func (o GetSystemGetSnowflakePlatformInfoResultOutput) AwsVpcIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSystemGetSnowflakePlatformInfoResult) []string { return v.AwsVpcIds }).(pulumi.StringArrayOutput)
+}
+
+// Snowflake Azure Virtual Network Subnet IDs
+func (o GetSystemGetSnowflakePlatformInfoResultOutput) AzureVnetSubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSystemGetSnowflakePlatformInfoResult) []string { return v.AzureVnetSubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetSystemGetSnowflakePlatformInfoResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSystemGetSnowflakePlatformInfoResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSystemGetSnowflakePlatformInfoResultOutput{})
 }

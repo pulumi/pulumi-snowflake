@@ -40,7 +40,13 @@ class RoleGrantsArgs:
              enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if 'enableMultipleGrants' in kwargs:
+            enable_multiple_grants = kwargs['enableMultipleGrants']
+
         _setter("role_name", role_name)
         if enable_multiple_grants is not None:
             _setter("enable_multiple_grants", enable_multiple_grants)
@@ -128,7 +134,13 @@ class _RoleGrantsState:
              role_name: Optional[pulumi.Input[str]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableMultipleGrants' in kwargs:
+            enable_multiple_grants = kwargs['enableMultipleGrants']
+        if 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+
         if enable_multiple_grants is not None:
             _setter("enable_multiple_grants", enable_multiple_grants)
         if role_name is not None:

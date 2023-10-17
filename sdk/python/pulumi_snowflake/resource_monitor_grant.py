@@ -44,7 +44,15 @@ class ResourceMonitorGrantArgs:
              privilege: Optional[pulumi.Input[str]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'monitorName' in kwargs:
+            monitor_name = kwargs['monitorName']
+        if 'enableMultipleGrants' in kwargs:
+            enable_multiple_grants = kwargs['enableMultipleGrants']
+        if 'withGrantOption' in kwargs:
+            with_grant_option = kwargs['withGrantOption']
+
         _setter("monitor_name", monitor_name)
         if enable_multiple_grants is not None:
             _setter("enable_multiple_grants", enable_multiple_grants)
@@ -150,7 +158,15 @@ class _ResourceMonitorGrantState:
              privilege: Optional[pulumi.Input[str]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableMultipleGrants' in kwargs:
+            enable_multiple_grants = kwargs['enableMultipleGrants']
+        if 'monitorName' in kwargs:
+            monitor_name = kwargs['monitorName']
+        if 'withGrantOption' in kwargs:
+            with_grant_option = kwargs['withGrantOption']
+
         if enable_multiple_grants is not None:
             _setter("enable_multiple_grants", enable_multiple_grants)
         if monitor_name is not None:

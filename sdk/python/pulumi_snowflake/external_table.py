@@ -81,7 +81,21 @@ class ExternalTableArgs:
              pattern: Optional[pulumi.Input[str]] = None,
              refresh_on_create: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fileFormat' in kwargs:
+            file_format = kwargs['fileFormat']
+        if 'autoRefresh' in kwargs:
+            auto_refresh = kwargs['autoRefresh']
+        if 'awsSnsTopic' in kwargs:
+            aws_sns_topic = kwargs['awsSnsTopic']
+        if 'copyGrants' in kwargs:
+            copy_grants = kwargs['copyGrants']
+        if 'partitionBies' in kwargs:
+            partition_bies = kwargs['partitionBies']
+        if 'refreshOnCreate' in kwargs:
+            refresh_on_create = kwargs['refreshOnCreate']
+
         _setter("columns", columns)
         _setter("database", database)
         _setter("file_format", file_format)
@@ -353,7 +367,21 @@ class _ExternalTableState:
              refresh_on_create: Optional[pulumi.Input[bool]] = None,
              schema: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoRefresh' in kwargs:
+            auto_refresh = kwargs['autoRefresh']
+        if 'awsSnsTopic' in kwargs:
+            aws_sns_topic = kwargs['awsSnsTopic']
+        if 'copyGrants' in kwargs:
+            copy_grants = kwargs['copyGrants']
+        if 'fileFormat' in kwargs:
+            file_format = kwargs['fileFormat']
+        if 'partitionBies' in kwargs:
+            partition_bies = kwargs['partitionBies']
+        if 'refreshOnCreate' in kwargs:
+            refresh_on_create = kwargs['refreshOnCreate']
+
         if auto_refresh is not None:
             _setter("auto_refresh", auto_refresh)
         if aws_sns_topic is not None:

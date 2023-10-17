@@ -63,7 +63,23 @@ class OauthIntegrationArgs:
              oauth_redirect_uri: Optional[pulumi.Input[str]] = None,
              oauth_refresh_token_validity: Optional[pulumi.Input[int]] = None,
              oauth_use_secondary_roles: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'oauthClient' in kwargs:
+            oauth_client = kwargs['oauthClient']
+        if 'blockedRolesLists' in kwargs:
+            blocked_roles_lists = kwargs['blockedRolesLists']
+        if 'oauthClientType' in kwargs:
+            oauth_client_type = kwargs['oauthClientType']
+        if 'oauthIssueRefreshTokens' in kwargs:
+            oauth_issue_refresh_tokens = kwargs['oauthIssueRefreshTokens']
+        if 'oauthRedirectUri' in kwargs:
+            oauth_redirect_uri = kwargs['oauthRedirectUri']
+        if 'oauthRefreshTokenValidity' in kwargs:
+            oauth_refresh_token_validity = kwargs['oauthRefreshTokenValidity']
+        if 'oauthUseSecondaryRoles' in kwargs:
+            oauth_use_secondary_roles = kwargs['oauthUseSecondaryRoles']
+
         _setter("oauth_client", oauth_client)
         if blocked_roles_lists is not None:
             _setter("blocked_roles_lists", blocked_roles_lists)
@@ -261,7 +277,25 @@ class _OauthIntegrationState:
              oauth_redirect_uri: Optional[pulumi.Input[str]] = None,
              oauth_refresh_token_validity: Optional[pulumi.Input[int]] = None,
              oauth_use_secondary_roles: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blockedRolesLists' in kwargs:
+            blocked_roles_lists = kwargs['blockedRolesLists']
+        if 'createdOn' in kwargs:
+            created_on = kwargs['createdOn']
+        if 'oauthClient' in kwargs:
+            oauth_client = kwargs['oauthClient']
+        if 'oauthClientType' in kwargs:
+            oauth_client_type = kwargs['oauthClientType']
+        if 'oauthIssueRefreshTokens' in kwargs:
+            oauth_issue_refresh_tokens = kwargs['oauthIssueRefreshTokens']
+        if 'oauthRedirectUri' in kwargs:
+            oauth_redirect_uri = kwargs['oauthRedirectUri']
+        if 'oauthRefreshTokenValidity' in kwargs:
+            oauth_refresh_token_validity = kwargs['oauthRefreshTokenValidity']
+        if 'oauthUseSecondaryRoles' in kwargs:
+            oauth_use_secondary_roles = kwargs['oauthUseSecondaryRoles']
+
         if blocked_roles_lists is not None:
             _setter("blocked_roles_lists", blocked_roles_lists)
         if comment is not None:

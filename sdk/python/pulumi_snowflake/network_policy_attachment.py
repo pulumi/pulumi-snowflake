@@ -35,7 +35,13 @@ class NetworkPolicyAttachmentArgs:
              network_policy_name: pulumi.Input[str],
              set_for_account: Optional[pulumi.Input[bool]] = None,
              users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkPolicyName' in kwargs:
+            network_policy_name = kwargs['networkPolicyName']
+        if 'setForAccount' in kwargs:
+            set_for_account = kwargs['setForAccount']
+
         _setter("network_policy_name", network_policy_name)
         if set_for_account is not None:
             _setter("set_for_account", set_for_account)
@@ -103,7 +109,13 @@ class _NetworkPolicyAttachmentState:
              network_policy_name: Optional[pulumi.Input[str]] = None,
              set_for_account: Optional[pulumi.Input[bool]] = None,
              users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkPolicyName' in kwargs:
+            network_policy_name = kwargs['networkPolicyName']
+        if 'setForAccount' in kwargs:
+            set_for_account = kwargs['setForAccount']
+
         if network_policy_name is not None:
             _setter("network_policy_name", network_policy_name)
         if set_for_account is not None:

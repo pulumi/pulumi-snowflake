@@ -83,7 +83,35 @@ class SamlIntegrationArgs:
              saml2_snowflake_issuer_url: Optional[pulumi.Input[str]] = None,
              saml2_snowflake_x509_cert: Optional[pulumi.Input[str]] = None,
              saml2_sp_initiated_login_page_label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'saml2Issuer' in kwargs:
+            saml2_issuer = kwargs['saml2Issuer']
+        if 'saml2Provider' in kwargs:
+            saml2_provider = kwargs['saml2Provider']
+        if 'saml2SsoUrl' in kwargs:
+            saml2_sso_url = kwargs['saml2SsoUrl']
+        if 'saml2X509Cert' in kwargs:
+            saml2_x509_cert = kwargs['saml2X509Cert']
+        if 'saml2EnableSpInitiated' in kwargs:
+            saml2_enable_sp_initiated = kwargs['saml2EnableSpInitiated']
+        if 'saml2ForceAuthn' in kwargs:
+            saml2_force_authn = kwargs['saml2ForceAuthn']
+        if 'saml2PostLogoutRedirectUrl' in kwargs:
+            saml2_post_logout_redirect_url = kwargs['saml2PostLogoutRedirectUrl']
+        if 'saml2RequestedNameidFormat' in kwargs:
+            saml2_requested_nameid_format = kwargs['saml2RequestedNameidFormat']
+        if 'saml2SignRequest' in kwargs:
+            saml2_sign_request = kwargs['saml2SignRequest']
+        if 'saml2SnowflakeAcsUrl' in kwargs:
+            saml2_snowflake_acs_url = kwargs['saml2SnowflakeAcsUrl']
+        if 'saml2SnowflakeIssuerUrl' in kwargs:
+            saml2_snowflake_issuer_url = kwargs['saml2SnowflakeIssuerUrl']
+        if 'saml2SnowflakeX509Cert' in kwargs:
+            saml2_snowflake_x509_cert = kwargs['saml2SnowflakeX509Cert']
+        if 'saml2SpInitiatedLoginPageLabel' in kwargs:
+            saml2_sp_initiated_login_page_label = kwargs['saml2SpInitiatedLoginPageLabel']
+
         _setter("saml2_issuer", saml2_issuer)
         _setter("saml2_provider", saml2_provider)
         _setter("saml2_sso_url", saml2_sso_url)
@@ -378,7 +406,43 @@ class _SamlIntegrationState:
              saml2_sp_initiated_login_page_label: Optional[pulumi.Input[str]] = None,
              saml2_sso_url: Optional[pulumi.Input[str]] = None,
              saml2_x509_cert: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdOn' in kwargs:
+            created_on = kwargs['createdOn']
+        if 'saml2DigestMethodsUsed' in kwargs:
+            saml2_digest_methods_used = kwargs['saml2DigestMethodsUsed']
+        if 'saml2EnableSpInitiated' in kwargs:
+            saml2_enable_sp_initiated = kwargs['saml2EnableSpInitiated']
+        if 'saml2ForceAuthn' in kwargs:
+            saml2_force_authn = kwargs['saml2ForceAuthn']
+        if 'saml2Issuer' in kwargs:
+            saml2_issuer = kwargs['saml2Issuer']
+        if 'saml2PostLogoutRedirectUrl' in kwargs:
+            saml2_post_logout_redirect_url = kwargs['saml2PostLogoutRedirectUrl']
+        if 'saml2Provider' in kwargs:
+            saml2_provider = kwargs['saml2Provider']
+        if 'saml2RequestedNameidFormat' in kwargs:
+            saml2_requested_nameid_format = kwargs['saml2RequestedNameidFormat']
+        if 'saml2SignRequest' in kwargs:
+            saml2_sign_request = kwargs['saml2SignRequest']
+        if 'saml2SignatureMethodsUsed' in kwargs:
+            saml2_signature_methods_used = kwargs['saml2SignatureMethodsUsed']
+        if 'saml2SnowflakeAcsUrl' in kwargs:
+            saml2_snowflake_acs_url = kwargs['saml2SnowflakeAcsUrl']
+        if 'saml2SnowflakeIssuerUrl' in kwargs:
+            saml2_snowflake_issuer_url = kwargs['saml2SnowflakeIssuerUrl']
+        if 'saml2SnowflakeMetadata' in kwargs:
+            saml2_snowflake_metadata = kwargs['saml2SnowflakeMetadata']
+        if 'saml2SnowflakeX509Cert' in kwargs:
+            saml2_snowflake_x509_cert = kwargs['saml2SnowflakeX509Cert']
+        if 'saml2SpInitiatedLoginPageLabel' in kwargs:
+            saml2_sp_initiated_login_page_label = kwargs['saml2SpInitiatedLoginPageLabel']
+        if 'saml2SsoUrl' in kwargs:
+            saml2_sso_url = kwargs['saml2SsoUrl']
+        if 'saml2X509Cert' in kwargs:
+            saml2_x509_cert = kwargs['saml2X509Cert']
+
         if created_on is not None:
             _setter("created_on", created_on)
         if enabled is not None:

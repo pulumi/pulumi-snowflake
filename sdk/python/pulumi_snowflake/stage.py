@@ -79,7 +79,19 @@ class StageArgs:
              storage_integration: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsExternalId' in kwargs:
+            aws_external_id = kwargs['awsExternalId']
+        if 'copyOptions' in kwargs:
+            copy_options = kwargs['copyOptions']
+        if 'fileFormat' in kwargs:
+            file_format = kwargs['fileFormat']
+        if 'snowflakeIamUser' in kwargs:
+            snowflake_iam_user = kwargs['snowflakeIamUser']
+        if 'storageIntegration' in kwargs:
+            storage_integration = kwargs['storageIntegration']
+
         _setter("database", database)
         _setter("schema", schema)
         if aws_external_id is not None:
@@ -342,7 +354,19 @@ class _StageState:
              storage_integration: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsExternalId' in kwargs:
+            aws_external_id = kwargs['awsExternalId']
+        if 'copyOptions' in kwargs:
+            copy_options = kwargs['copyOptions']
+        if 'fileFormat' in kwargs:
+            file_format = kwargs['fileFormat']
+        if 'snowflakeIamUser' in kwargs:
+            snowflake_iam_user = kwargs['snowflakeIamUser']
+        if 'storageIntegration' in kwargs:
+            storage_integration = kwargs['storageIntegration']
+
         if aws_external_id is not None:
             _setter("aws_external_id", aws_external_id)
         if comment is not None:

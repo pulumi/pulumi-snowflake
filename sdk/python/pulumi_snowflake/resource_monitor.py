@@ -75,7 +75,29 @@ class ResourceMonitorArgs:
              suspend_trigger: Optional[pulumi.Input[int]] = None,
              suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              warehouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'creditQuota' in kwargs:
+            credit_quota = kwargs['creditQuota']
+        if 'endTimestamp' in kwargs:
+            end_timestamp = kwargs['endTimestamp']
+        if 'notifyTriggers' in kwargs:
+            notify_triggers = kwargs['notifyTriggers']
+        if 'notifyUsers' in kwargs:
+            notify_users = kwargs['notifyUsers']
+        if 'setForAccount' in kwargs:
+            set_for_account = kwargs['setForAccount']
+        if 'startTimestamp' in kwargs:
+            start_timestamp = kwargs['startTimestamp']
+        if 'suspendImmediateTrigger' in kwargs:
+            suspend_immediate_trigger = kwargs['suspendImmediateTrigger']
+        if 'suspendImmediateTriggers' in kwargs:
+            suspend_immediate_triggers = kwargs['suspendImmediateTriggers']
+        if 'suspendTrigger' in kwargs:
+            suspend_trigger = kwargs['suspendTrigger']
+        if 'suspendTriggers' in kwargs:
+            suspend_triggers = kwargs['suspendTriggers']
+
         if credit_quota is not None:
             _setter("credit_quota", credit_quota)
         if end_timestamp is not None:
@@ -336,7 +358,29 @@ class _ResourceMonitorState:
              suspend_trigger: Optional[pulumi.Input[int]] = None,
              suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              warehouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'creditQuota' in kwargs:
+            credit_quota = kwargs['creditQuota']
+        if 'endTimestamp' in kwargs:
+            end_timestamp = kwargs['endTimestamp']
+        if 'notifyTriggers' in kwargs:
+            notify_triggers = kwargs['notifyTriggers']
+        if 'notifyUsers' in kwargs:
+            notify_users = kwargs['notifyUsers']
+        if 'setForAccount' in kwargs:
+            set_for_account = kwargs['setForAccount']
+        if 'startTimestamp' in kwargs:
+            start_timestamp = kwargs['startTimestamp']
+        if 'suspendImmediateTrigger' in kwargs:
+            suspend_immediate_trigger = kwargs['suspendImmediateTrigger']
+        if 'suspendImmediateTriggers' in kwargs:
+            suspend_immediate_triggers = kwargs['suspendImmediateTriggers']
+        if 'suspendTrigger' in kwargs:
+            suspend_trigger = kwargs['suspendTrigger']
+        if 'suspendTriggers' in kwargs:
+            suspend_triggers = kwargs['suspendTriggers']
+
         if credit_quota is not None:
             _setter("credit_quota", credit_quota)
         if end_timestamp is not None:

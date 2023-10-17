@@ -26,6 +26,14 @@ namespace Pulumi.Snowflake
         public Output<string?> Account { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+        /// connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+        /// UsernamePasswordMFA
+        /// </summary>
+        [Output("authenticator")]
+        public Output<string?> Authenticator { get; private set; } = null!;
+
+        /// <summary>
         /// Supports passing in a custom host value to the snowflake go driver for use with privatelink.
         /// </summary>
         [Output("host")]
@@ -194,6 +202,14 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("account")]
         public Input<string>? Account { get; set; }
+
+        /// <summary>
+        /// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+        /// connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+        /// UsernamePasswordMFA
+        /// </summary>
+        [Input("authenticator")]
+        public Input<string>? Authenticator { get; set; }
 
         /// <summary>
         /// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.

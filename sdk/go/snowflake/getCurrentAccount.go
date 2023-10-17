@@ -4,8 +4,12 @@
 package snowflake
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -59,4 +63,60 @@ type GetCurrentAccountResult struct {
 	Region string `pulumi:"region"`
 	// The Snowflake URL.
 	Url string `pulumi:"url"`
+}
+
+func GetCurrentAccountOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetCurrentAccountResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetCurrentAccountResult, error) {
+		r, err := GetCurrentAccount(ctx, opts...)
+		var s GetCurrentAccountResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetCurrentAccountResultOutput)
+}
+
+// A collection of values returned by getCurrentAccount.
+type GetCurrentAccountResultOutput struct{ *pulumi.OutputState }
+
+func (GetCurrentAccountResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCurrentAccountResult)(nil)).Elem()
+}
+
+func (o GetCurrentAccountResultOutput) ToGetCurrentAccountResultOutput() GetCurrentAccountResultOutput {
+	return o
+}
+
+func (o GetCurrentAccountResultOutput) ToGetCurrentAccountResultOutputWithContext(ctx context.Context) GetCurrentAccountResultOutput {
+	return o
+}
+
+func (o GetCurrentAccountResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCurrentAccountResult] {
+	return pulumix.Output[GetCurrentAccountResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The Snowflake Account ID; as returned by CURRENT_ACCOUNT().
+func (o GetCurrentAccountResultOutput) Account() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCurrentAccountResult) string { return v.Account }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetCurrentAccountResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCurrentAccountResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Snowflake Region; as returned by CURRENT_REGION()
+func (o GetCurrentAccountResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCurrentAccountResult) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// The Snowflake URL.
+func (o GetCurrentAccountResultOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCurrentAccountResult) string { return v.Url }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetCurrentAccountResultOutput{})
 }

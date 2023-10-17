@@ -57,7 +57,23 @@ class GrantPrivilegesToRoleArgs:
              on_schema_object: Optional[pulumi.Input['GrantPrivilegesToRoleOnSchemaObjectArgs']] = None,
              privileges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if 'allPrivileges' in kwargs:
+            all_privileges = kwargs['allPrivileges']
+        if 'onAccount' in kwargs:
+            on_account = kwargs['onAccount']
+        if 'onAccountObject' in kwargs:
+            on_account_object = kwargs['onAccountObject']
+        if 'onSchema' in kwargs:
+            on_schema = kwargs['onSchema']
+        if 'onSchemaObject' in kwargs:
+            on_schema_object = kwargs['onSchemaObject']
+        if 'withGrantOption' in kwargs:
+            with_grant_option = kwargs['withGrantOption']
+
         _setter("role_name", role_name)
         if all_privileges is not None:
             _setter("all_privileges", all_privileges)
@@ -215,7 +231,23 @@ class _GrantPrivilegesToRoleState:
              privileges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              role_name: Optional[pulumi.Input[str]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allPrivileges' in kwargs:
+            all_privileges = kwargs['allPrivileges']
+        if 'onAccount' in kwargs:
+            on_account = kwargs['onAccount']
+        if 'onAccountObject' in kwargs:
+            on_account_object = kwargs['onAccountObject']
+        if 'onSchema' in kwargs:
+            on_schema = kwargs['onSchema']
+        if 'onSchemaObject' in kwargs:
+            on_schema_object = kwargs['onSchemaObject']
+        if 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if 'withGrantOption' in kwargs:
+            with_grant_option = kwargs['withGrantOption']
+
         if all_privileges is not None:
             _setter("all_privileges", all_privileges)
         if on_account is not None:

@@ -83,7 +83,21 @@ class TaskArgs:
              user_task_timeout_ms: Optional[pulumi.Input[int]] = None,
              warehouse: Optional[pulumi.Input[str]] = None,
              when: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sqlStatement' in kwargs:
+            sql_statement = kwargs['sqlStatement']
+        if 'allowOverlappingExecution' in kwargs:
+            allow_overlapping_execution = kwargs['allowOverlappingExecution']
+        if 'errorIntegration' in kwargs:
+            error_integration = kwargs['errorIntegration']
+        if 'sessionParameters' in kwargs:
+            session_parameters = kwargs['sessionParameters']
+        if 'userTaskManagedInitialWarehouseSize' in kwargs:
+            user_task_managed_initial_warehouse_size = kwargs['userTaskManagedInitialWarehouseSize']
+        if 'userTaskTimeoutMs' in kwargs:
+            user_task_timeout_ms = kwargs['userTaskTimeoutMs']
+
         _setter("database", database)
         _setter("schema", schema)
         _setter("sql_statement", sql_statement)
@@ -365,7 +379,21 @@ class _TaskState:
              user_task_timeout_ms: Optional[pulumi.Input[int]] = None,
              warehouse: Optional[pulumi.Input[str]] = None,
              when: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowOverlappingExecution' in kwargs:
+            allow_overlapping_execution = kwargs['allowOverlappingExecution']
+        if 'errorIntegration' in kwargs:
+            error_integration = kwargs['errorIntegration']
+        if 'sessionParameters' in kwargs:
+            session_parameters = kwargs['sessionParameters']
+        if 'sqlStatement' in kwargs:
+            sql_statement = kwargs['sqlStatement']
+        if 'userTaskManagedInitialWarehouseSize' in kwargs:
+            user_task_managed_initial_warehouse_size = kwargs['userTaskManagedInitialWarehouseSize']
+        if 'userTaskTimeoutMs' in kwargs:
+            user_task_timeout_ms = kwargs['userTaskTimeoutMs']
+
         if afters is not None:
             _setter("afters", afters)
         if allow_overlapping_execution is not None:

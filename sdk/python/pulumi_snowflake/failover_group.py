@@ -61,7 +61,25 @@ class FailoverGroupArgs:
              name: Optional[pulumi.Input[str]] = None,
              object_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              replication_schedule: Optional[pulumi.Input['FailoverGroupReplicationScheduleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedAccounts' in kwargs:
+            allowed_accounts = kwargs['allowedAccounts']
+        if 'allowedDatabases' in kwargs:
+            allowed_databases = kwargs['allowedDatabases']
+        if 'allowedIntegrationTypes' in kwargs:
+            allowed_integration_types = kwargs['allowedIntegrationTypes']
+        if 'allowedShares' in kwargs:
+            allowed_shares = kwargs['allowedShares']
+        if 'fromReplica' in kwargs:
+            from_replica = kwargs['fromReplica']
+        if 'ignoreEditionCheck' in kwargs:
+            ignore_edition_check = kwargs['ignoreEditionCheck']
+        if 'objectTypes' in kwargs:
+            object_types = kwargs['objectTypes']
+        if 'replicationSchedule' in kwargs:
+            replication_schedule = kwargs['replicationSchedule']
+
         if allowed_accounts is not None:
             _setter("allowed_accounts", allowed_accounts)
         if allowed_databases is not None:
@@ -238,7 +256,25 @@ class _FailoverGroupState:
              name: Optional[pulumi.Input[str]] = None,
              object_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              replication_schedule: Optional[pulumi.Input['FailoverGroupReplicationScheduleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedAccounts' in kwargs:
+            allowed_accounts = kwargs['allowedAccounts']
+        if 'allowedDatabases' in kwargs:
+            allowed_databases = kwargs['allowedDatabases']
+        if 'allowedIntegrationTypes' in kwargs:
+            allowed_integration_types = kwargs['allowedIntegrationTypes']
+        if 'allowedShares' in kwargs:
+            allowed_shares = kwargs['allowedShares']
+        if 'fromReplica' in kwargs:
+            from_replica = kwargs['fromReplica']
+        if 'ignoreEditionCheck' in kwargs:
+            ignore_edition_check = kwargs['ignoreEditionCheck']
+        if 'objectTypes' in kwargs:
+            object_types = kwargs['objectTypes']
+        if 'replicationSchedule' in kwargs:
+            replication_schedule = kwargs['replicationSchedule']
+
         if allowed_accounts is not None:
             _setter("allowed_accounts", allowed_accounts)
         if allowed_databases is not None:

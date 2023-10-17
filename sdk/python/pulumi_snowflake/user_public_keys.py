@@ -35,7 +35,13 @@ class UserPublicKeysArgs:
              name: Optional[pulumi.Input[str]] = None,
              rsa_public_key: Optional[pulumi.Input[str]] = None,
              rsa_public_key2: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rsaPublicKey' in kwargs:
+            rsa_public_key = kwargs['rsaPublicKey']
+        if 'rsaPublicKey2' in kwargs:
+            rsa_public_key2 = kwargs['rsaPublicKey2']
+
         if name is not None:
             _setter("name", name)
         if rsa_public_key is not None:
@@ -104,7 +110,13 @@ class _UserPublicKeysState:
              name: Optional[pulumi.Input[str]] = None,
              rsa_public_key: Optional[pulumi.Input[str]] = None,
              rsa_public_key2: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rsaPublicKey' in kwargs:
+            rsa_public_key = kwargs['rsaPublicKey']
+        if 'rsaPublicKey2' in kwargs:
+            rsa_public_key2 = kwargs['rsaPublicKey2']
+
         if name is not None:
             _setter("name", name)
         if rsa_public_key is not None:

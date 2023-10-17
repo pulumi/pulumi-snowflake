@@ -37,7 +37,11 @@ class EmailNotificationIntegrationArgs:
              enabled: pulumi.Input[bool],
              comment: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedRecipients' in kwargs:
+            allowed_recipients = kwargs['allowedRecipients']
+
         _setter("allowed_recipients", allowed_recipients)
         _setter("enabled", enabled)
         if comment is not None:
@@ -114,7 +118,11 @@ class _EmailNotificationIntegrationState:
              comment: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedRecipients' in kwargs:
+            allowed_recipients = kwargs['allowedRecipients']
+
         if allowed_recipients is not None:
             _setter("allowed_recipients", allowed_recipients)
         if comment is not None:

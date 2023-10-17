@@ -69,7 +69,19 @@ class TableArgs:
              name: Optional[pulumi.Input[str]] = None,
              primary_key: Optional[pulumi.Input['TablePrimaryKeyArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'changeTracking' in kwargs:
+            change_tracking = kwargs['changeTracking']
+        if 'clusterBies' in kwargs:
+            cluster_bies = kwargs['clusterBies']
+        if 'dataRetentionDays' in kwargs:
+            data_retention_days = kwargs['dataRetentionDays']
+        if 'dataRetentionTimeInDays' in kwargs:
+            data_retention_time_in_days = kwargs['dataRetentionTimeInDays']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+
         _setter("columns", columns)
         _setter("database", database)
         _setter("schema", schema)
@@ -311,7 +323,21 @@ class _TableState:
              qualified_name: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'changeTracking' in kwargs:
+            change_tracking = kwargs['changeTracking']
+        if 'clusterBies' in kwargs:
+            cluster_bies = kwargs['clusterBies']
+        if 'dataRetentionDays' in kwargs:
+            data_retention_days = kwargs['dataRetentionDays']
+        if 'dataRetentionTimeInDays' in kwargs:
+            data_retention_time_in_days = kwargs['dataRetentionTimeInDays']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+        if 'qualifiedName' in kwargs:
+            qualified_name = kwargs['qualifiedName']
+
         if change_tracking is not None:
             _setter("change_tracking", change_tracking)
         if cluster_bies is not None:

@@ -27,7 +27,11 @@ class AccountPasswordPolicyAttachmentArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              password_policy: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'passwordPolicy' in kwargs:
+            password_policy = kwargs['passwordPolicy']
+
         _setter("password_policy", password_policy)
 
     @property
@@ -59,7 +63,11 @@ class _AccountPasswordPolicyAttachmentState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              password_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'passwordPolicy' in kwargs:
+            password_policy = kwargs['passwordPolicy']
+
         if password_policy is not None:
             _setter("password_policy", password_policy)
 

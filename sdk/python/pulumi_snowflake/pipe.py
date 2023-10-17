@@ -59,7 +59,17 @@ class PipeArgs:
              error_integration: Optional[pulumi.Input[str]] = None,
              integration: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'copyStatement' in kwargs:
+            copy_statement = kwargs['copyStatement']
+        if 'autoIngest' in kwargs:
+            auto_ingest = kwargs['autoIngest']
+        if 'awsSnsTopicArn' in kwargs:
+            aws_sns_topic_arn = kwargs['awsSnsTopicArn']
+        if 'errorIntegration' in kwargs:
+            error_integration = kwargs['errorIntegration']
+
         _setter("copy_statement", copy_statement)
         _setter("database", database)
         _setter("schema", schema)
@@ -241,7 +251,19 @@ class _PipeState:
              notification_channel: Optional[pulumi.Input[str]] = None,
              owner: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoIngest' in kwargs:
+            auto_ingest = kwargs['autoIngest']
+        if 'awsSnsTopicArn' in kwargs:
+            aws_sns_topic_arn = kwargs['awsSnsTopicArn']
+        if 'copyStatement' in kwargs:
+            copy_statement = kwargs['copyStatement']
+        if 'errorIntegration' in kwargs:
+            error_integration = kwargs['errorIntegration']
+        if 'notificationChannel' in kwargs:
+            notification_channel = kwargs['notificationChannel']
+
         if auto_ingest is not None:
             _setter("auto_ingest", auto_ingest)
         if aws_sns_topic_arn is not None:

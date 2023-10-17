@@ -47,7 +47,11 @@ class RowAccessPolicyArgs:
              signature: pulumi.Input[Mapping[str, pulumi.Input[str]]],
              comment: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rowAccessExpression' in kwargs:
+            row_access_expression = kwargs['rowAccessExpression']
+
         _setter("database", database)
         _setter("row_access_expression", row_access_expression)
         _setter("schema", schema)
@@ -166,7 +170,11 @@ class _RowAccessPolicyState:
              row_access_expression: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
              signature: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rowAccessExpression' in kwargs:
+            row_access_expression = kwargs['rowAccessExpression']
+
         if comment is not None:
             _setter("comment", comment)
         if database is not None:

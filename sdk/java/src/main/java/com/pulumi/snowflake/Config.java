@@ -24,6 +24,15 @@ public final class Config {
         return Codegen.stringProp("account").config(config).env("SNOWFLAKE_ACCOUNT").get();
     }
 /**
+ * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+ * connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+ * UsernamePasswordMFA
+ * 
+ */
+    public Optional<String> authenticator() {
+        return Codegen.stringProp("authenticator").config(config).get();
+    }
+/**
  * Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
  * 
  */

@@ -43,7 +43,11 @@ class TagArgs:
              allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              comment: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedValues' in kwargs:
+            allowed_values = kwargs['allowedValues']
+
         _setter("database", database)
         _setter("schema", schema)
         if allowed_values is not None:
@@ -146,7 +150,11 @@ class _TagState:
              database: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedValues' in kwargs:
+            allowed_values = kwargs['allowedValues']
+
         if allowed_values is not None:
             _setter("allowed_values", allowed_values)
         if comment is not None:
