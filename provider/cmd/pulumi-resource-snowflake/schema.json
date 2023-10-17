@@ -59,6 +59,10 @@
                     ]
                 }
             },
+            "authenticator": {
+                "type": "string",
+                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when\nconnecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,\nUsernamePasswordMFA\n"
+            },
             "browserAuth": {
                 "type": "boolean",
                 "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.\n",
@@ -66,7 +70,8 @@
                     "environment": [
                         "SNOWFLAKE_USE_BROWSER_AUTH"
                     ]
-                }
+                },
+                "deprecationMessage": "Use `authenticator` instead"
             },
             "host": {
                 "type": "string",
@@ -2132,9 +2137,14 @@
                 "type": "string",
                 "description": "The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless\nusing profile.\n"
             },
+            "authenticator": {
+                "type": "string",
+                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when\nconnecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,\nUsernamePasswordMFA\n"
+            },
             "browserAuth": {
                 "type": "boolean",
-                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.\n"
+                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.\n",
+                "deprecationMessage": "Use `authenticator` instead"
             },
             "host": {
                 "type": "string",
@@ -2248,6 +2258,10 @@
                     ]
                 }
             },
+            "authenticator": {
+                "type": "string",
+                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when\nconnecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,\nUsernamePasswordMFA\n"
+            },
             "browserAuth": {
                 "type": "boolean",
                 "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.\n",
@@ -2255,7 +2269,8 @@
                     "environment": [
                         "SNOWFLAKE_USE_BROWSER_AUTH"
                     ]
-                }
+                },
+                "deprecationMessage": "Use `authenticator` instead"
             },
             "host": {
                 "type": "string",
