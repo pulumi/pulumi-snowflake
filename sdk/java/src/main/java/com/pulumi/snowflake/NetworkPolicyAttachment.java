@@ -64,7 +64,7 @@ public class NetworkPolicyAttachment extends com.pulumi.resources.CustomResource
      * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
      * 
      */
-    @Export(name="networkPolicyName", type=String.class, parameters={})
+    @Export(name="networkPolicyName", refs={String.class}, tree="[0]")
     private Output<String> networkPolicyName;
 
     /**
@@ -78,7 +78,7 @@ public class NetworkPolicyAttachment extends com.pulumi.resources.CustomResource
      * Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user&#39;s responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
      * 
      */
-    @Export(name="setForAccount", type=Boolean.class, parameters={})
+    @Export(name="setForAccount", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> setForAccount;
 
     /**
@@ -92,7 +92,7 @@ public class NetworkPolicyAttachment extends com.pulumi.resources.CustomResource
      * Specifies which users the network policy should be attached to
      * 
      */
-    @Export(name="users", type=List.class, parameters={String.class})
+    @Export(name="users", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> users;
 
     /**

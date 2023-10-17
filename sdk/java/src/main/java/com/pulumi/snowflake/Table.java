@@ -36,7 +36,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Specifies whether to enable change tracking on the table. Default false.
      * 
      */
-    @Export(name="changeTracking", type=Boolean.class, parameters={})
+    @Export(name="changeTracking", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> changeTracking;
 
     /**
@@ -50,7 +50,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * A list of one or more table columns/expressions to be used as clustering key(s) for the table
      * 
      */
-    @Export(name="clusterBies", type=List.class, parameters={String.class})
+    @Export(name="clusterBies", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> clusterBies;
 
     /**
@@ -64,7 +64,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Definitions of a column to create in the table. Minimum one required.
      * 
      */
-    @Export(name="columns", type=List.class, parameters={TableColumn.class})
+    @Export(name="columns", refs={List.class,TableColumn.class}, tree="[0,1]")
     private Output<List<TableColumn>> columns;
 
     /**
@@ -78,7 +78,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Column comment
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -96,7 +96,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use data_retention_time_in_days attribute instead */
-    @Export(name="dataRetentionDays", type=Integer.class, parameters={})
+    @Export(name="dataRetentionDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> dataRetentionDays;
 
     /**
@@ -114,7 +114,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use snowflake_object_parameter instead */
-    @Export(name="dataRetentionTimeInDays", type=Integer.class, parameters={})
+    @Export(name="dataRetentionTimeInDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> dataRetentionTimeInDays;
 
     /**
@@ -128,7 +128,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Name of the database that the tag was created in.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -142,7 +142,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Column name
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -156,7 +156,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Name of the role that owns the table.
      * 
      */
-    @Export(name="owner", type=String.class, parameters={})
+    @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
     /**
@@ -174,7 +174,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use snowflake_table_constraint instead */
-    @Export(name="primaryKey", type=TablePrimaryKey.class, parameters={})
+    @Export(name="primaryKey", refs={TablePrimaryKey.class}, tree="[0]")
     private Output</* @Nullable */ TablePrimaryKey> primaryKey;
 
     /**
@@ -188,7 +188,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Qualified name of the table.
      * 
      */
-    @Export(name="qualifiedName", type=String.class, parameters={})
+    @Export(name="qualifiedName", refs={String.class}, tree="[0]")
     private Output<String> qualifiedName;
 
     /**
@@ -202,7 +202,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Name of the schema that the tag was created in.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
@@ -220,7 +220,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    @Export(name="tags", type=List.class, parameters={TableTag.class})
+    @Export(name="tags", refs={List.class,TableTag.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TableTag>> tags;
 
     /**

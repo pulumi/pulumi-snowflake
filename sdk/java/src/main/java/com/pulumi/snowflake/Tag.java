@@ -74,7 +74,7 @@ public class Tag extends com.pulumi.resources.CustomResource {
      * List of allowed values for the tag.
      * 
      */
-    @Export(name="allowedValues", type=List.class, parameters={String.class})
+    @Export(name="allowedValues", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedValues;
 
     /**
@@ -88,7 +88,7 @@ public class Tag extends com.pulumi.resources.CustomResource {
      * Specifies a comment for the tag.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -102,7 +102,7 @@ public class Tag extends com.pulumi.resources.CustomResource {
      * The database in which to create the tag.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -116,7 +116,7 @@ public class Tag extends com.pulumi.resources.CustomResource {
      * Specifies the identifier for the tag; must be unique for the database in which the tag is created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -130,7 +130,7 @@ public class Tag extends com.pulumi.resources.CustomResource {
      * The schema in which to create the tag.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**

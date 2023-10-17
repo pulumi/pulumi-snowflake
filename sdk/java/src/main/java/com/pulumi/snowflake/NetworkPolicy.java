@@ -61,7 +61,7 @@ public class NetworkPolicy extends com.pulumi.resources.CustomResource {
      * Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account
      * 
      */
-    @Export(name="allowedIpLists", type=List.class, parameters={String.class})
+    @Export(name="allowedIpLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> allowedIpLists;
 
     /**
@@ -75,7 +75,7 @@ public class NetworkPolicy extends com.pulumi.resources.CustomResource {
      * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
      * 
      */
-    @Export(name="blockedIpLists", type=List.class, parameters={String.class})
+    @Export(name="blockedIpLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> blockedIpLists;
 
     /**
@@ -89,7 +89,7 @@ public class NetworkPolicy extends com.pulumi.resources.CustomResource {
      * Specifies a comment for the network policy.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -103,7 +103,7 @@ public class NetworkPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

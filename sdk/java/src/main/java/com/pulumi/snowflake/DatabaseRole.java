@@ -59,7 +59,7 @@ public class DatabaseRole extends com.pulumi.resources.CustomResource {
      * Specifies a comment for the database role.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -73,7 +73,7 @@ public class DatabaseRole extends com.pulumi.resources.CustomResource {
      * The database in which to create the database role.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -87,7 +87,7 @@ public class DatabaseRole extends com.pulumi.resources.CustomResource {
      * Specifies the identifier for the database role.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

@@ -84,7 +84,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Login name of the initial administrative user of the account. A new user is created in the new account with this name and password and granted the ACCOUNTADMIN role in the account. A login name can be any string consisting of letters, numbers, and underscores. Login names are always case-insensitive.
      * 
      */
-    @Export(name="adminName", type=String.class, parameters={})
+    @Export(name="adminName", refs={String.class}, tree="[0]")
     private Output<String> adminName;
 
     /**
@@ -98,7 +98,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%2Dprovided%20Password%20Policy).
      * 
      */
-    @Export(name="adminPassword", type=String.class, parameters={})
+    @Export(name="adminPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminPassword;
 
     /**
@@ -112,7 +112,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
      * 
      */
-    @Export(name="adminRsaPublicKey", type=String.class, parameters={})
+    @Export(name="adminRsaPublicKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminRsaPublicKey;
 
     /**
@@ -126,7 +126,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies a comment for the account.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -140,7 +140,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions.html) of the account. Valid values are: STANDARD | ENTERPRISE | BUSINESS_CRITICAL
      * 
      */
-    @Export(name="edition", type=String.class, parameters={})
+    @Export(name="edition", refs={String.class}, tree="[0]")
     private Output<String> edition;
 
     /**
@@ -154,7 +154,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Email address of the initial administrative user of the account. This email address is used to send any notifications about the account.
      * 
      */
-    @Export(name="email", type=String.class, parameters={})
+    @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
     /**
@@ -168,7 +168,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * First name of the initial administrative user of the account
      * 
      */
-    @Export(name="firstName", type=String.class, parameters={})
+    @Export(name="firstName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> firstName;
 
     /**
@@ -182,7 +182,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies the number of days to wait before dropping the account. The default is 3 days.
      * 
      */
-    @Export(name="gracePeriodInDays", type=Integer.class, parameters={})
+    @Export(name="gracePeriodInDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> gracePeriodInDays;
 
     /**
@@ -196,7 +196,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
      * 
      */
-    @Export(name="isOrgAdmin", type=Boolean.class, parameters={})
+    @Export(name="isOrgAdmin", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isOrgAdmin;
 
     /**
@@ -210,7 +210,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Last name of the initial administrative user of the account
      * 
      */
-    @Export(name="lastName", type=String.class, parameters={})
+    @Export(name="lastName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> lastName;
 
     /**
@@ -224,7 +224,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies whether the new user created to administer the account is forced to change their password upon first login into the account.
      * 
      */
-    @Export(name="mustChangePassword", type=Boolean.class, parameters={})
+    @Export(name="mustChangePassword", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> mustChangePassword;
 
     /**
@@ -238,7 +238,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies the identifier (i.e. name) for the account; must be unique within an organization, regardless of which Snowflake Region the account is in. In addition, the identifier must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -252,7 +252,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * ID of the Snowflake Region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
      * 
      */
-    @Export(name="region", type=String.class, parameters={})
+    @Export(name="region", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> region;
 
     /**
@@ -266,7 +266,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * ID of the Snowflake Region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
      * 
      */
-    @Export(name="regionGroup", type=String.class, parameters={})
+    @Export(name="regionGroup", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> regionGroup;
 
     /**

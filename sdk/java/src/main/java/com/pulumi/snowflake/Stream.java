@@ -68,7 +68,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * Type of the stream that will be created.
      * 
      */
-    @Export(name="appendOnly", type=Boolean.class, parameters={})
+    @Export(name="appendOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> appendOnly;
 
     /**
@@ -82,7 +82,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * Specifies a comment for the stream.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -96,7 +96,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * The database in which to create the stream.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -110,7 +110,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * Create an insert only stream type.
      * 
      */
-    @Export(name="insertOnly", type=Boolean.class, parameters={})
+    @Export(name="insertOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> insertOnly;
 
     /**
@@ -124,7 +124,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -138,7 +138,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * Name of the stage the stream will monitor.
      * 
      */
-    @Export(name="onStage", type=String.class, parameters={})
+    @Export(name="onStage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onStage;
 
     /**
@@ -152,7 +152,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * Name of the table the stream will monitor.
      * 
      */
-    @Export(name="onTable", type=String.class, parameters={})
+    @Export(name="onTable", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onTable;
 
     /**
@@ -166,7 +166,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * Name of the view the stream will monitor.
      * 
      */
-    @Export(name="onView", type=String.class, parameters={})
+    @Export(name="onView", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onView;
 
     /**
@@ -180,7 +180,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * Name of the role that owns the stream.
      * 
      */
-    @Export(name="owner", type=String.class, parameters={})
+    @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
     /**
@@ -194,7 +194,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * The schema in which to create the stream.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
@@ -208,7 +208,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed.
      * 
      */
-    @Export(name="showInitialRows", type=Boolean.class, parameters={})
+    @Export(name="showInitialRows", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> showInitialRows;
 
     /**

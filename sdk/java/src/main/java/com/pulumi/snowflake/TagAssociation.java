@@ -117,7 +117,7 @@ public class TagAssociation extends com.pulumi.resources.CustomResource {
      * Specifies the object identifier for the tag association.
      * 
      */
-    @Export(name="objectIdentifiers", type=List.class, parameters={TagAssociationObjectIdentifier.class})
+    @Export(name="objectIdentifiers", refs={List.class,TagAssociationObjectIdentifier.class}, tree="[0,1]")
     private Output<List<TagAssociationObjectIdentifier>> objectIdentifiers;
 
     /**
@@ -135,7 +135,7 @@ public class TagAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use `object_identifier` instead */
-    @Export(name="objectName", type=String.class, parameters={})
+    @Export(name="objectName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> objectName;
 
     /**
@@ -149,7 +149,7 @@ public class TagAssociation extends com.pulumi.resources.CustomResource {
      * Specifies the type of object to add a tag to. ex: &#39;ACCOUNT&#39;, &#39;COLUMN&#39;, &#39;DATABASE&#39;, etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
      * 
      */
-    @Export(name="objectType", type=String.class, parameters={})
+    @Export(name="objectType", refs={String.class}, tree="[0]")
     private Output<String> objectType;
 
     /**
@@ -163,7 +163,7 @@ public class TagAssociation extends com.pulumi.resources.CustomResource {
      * If true, skips validation of the tag association.
      * 
      */
-    @Export(name="skipValidation", type=Boolean.class, parameters={})
+    @Export(name="skipValidation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipValidation;
 
     /**
@@ -177,7 +177,7 @@ public class TagAssociation extends com.pulumi.resources.CustomResource {
      * Specifies the identifier for the tag. Note: format must follow: &#34;databaseName&#34;.&#34;schemaName&#34;.&#34;tagName&#34; or &#34;databaseName.schemaName.tagName&#34; or &#34;databaseName|schemaName.tagName&#34; (snowflake_tag.tag.id)
      * 
      */
-    @Export(name="tagId", type=String.class, parameters={})
+    @Export(name="tagId", refs={String.class}, tree="[0]")
     private Output<String> tagId;
 
     /**
@@ -191,7 +191,7 @@ public class TagAssociation extends com.pulumi.resources.CustomResource {
      * Specifies the value of the tag, (e.g. &#39;finance&#39; or &#39;engineering&#39;)
      * 
      */
-    @Export(name="tagValue", type=String.class, parameters={})
+    @Export(name="tagValue", refs={String.class}, tree="[0]")
     private Output<String> tagValue;
 
     /**

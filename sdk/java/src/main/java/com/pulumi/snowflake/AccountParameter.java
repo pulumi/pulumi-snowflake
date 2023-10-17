@@ -63,7 +63,7 @@ public class AccountParameter extends com.pulumi.resources.CustomResource {
      * Name of account parameter. Valid values are those in [account parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#account-parameters).
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -77,7 +77,7 @@ public class AccountParameter extends com.pulumi.resources.CustomResource {
      * Value of account parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**

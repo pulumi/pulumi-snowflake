@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="snowflake:index/stage:Stage")
 public class Stage extends com.pulumi.resources.CustomResource {
-    @Export(name="awsExternalId", type=String.class, parameters={})
+    @Export(name="awsExternalId", refs={String.class}, tree="[0]")
     private Output<String> awsExternalId;
 
     public Output<String> awsExternalId() {
@@ -81,7 +81,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * Specifies a comment for the stage.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -95,7 +95,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * Specifies the copy options for the stage.
      * 
      */
-    @Export(name="copyOptions", type=String.class, parameters={})
+    @Export(name="copyOptions", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> copyOptions;
 
     /**
@@ -109,7 +109,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * Specifies the credentials for the stage.
      * 
      */
-    @Export(name="credentials", type=String.class, parameters={})
+    @Export(name="credentials", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> credentials;
 
     /**
@@ -123,7 +123,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * Name of the database that the tag was created in.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -137,7 +137,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * Specifies the directory settings for the stage.
      * 
      */
-    @Export(name="directory", type=String.class, parameters={})
+    @Export(name="directory", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> directory;
 
     /**
@@ -151,7 +151,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * Specifies the encryption settings for the stage.
      * 
      */
-    @Export(name="encryption", type=String.class, parameters={})
+    @Export(name="encryption", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> encryption;
 
     /**
@@ -165,7 +165,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * Specifies the file format for the stage.
      * 
      */
-    @Export(name="fileFormat", type=String.class, parameters={})
+    @Export(name="fileFormat", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fileFormat;
 
     /**
@@ -179,7 +179,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * Tag name, e.g. department.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -193,7 +193,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * Name of the schema that the tag was created in.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
@@ -203,7 +203,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
     public Output<String> schema() {
         return this.schema;
     }
-    @Export(name="snowflakeIamUser", type=String.class, parameters={})
+    @Export(name="snowflakeIamUser", refs={String.class}, tree="[0]")
     private Output<String> snowflakeIamUser;
 
     public Output<String> snowflakeIamUser() {
@@ -213,7 +213,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
      * 
      */
-    @Export(name="storageIntegration", type=String.class, parameters={})
+    @Export(name="storageIntegration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageIntegration;
 
     /**
@@ -231,7 +231,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    @Export(name="tags", type=List.class, parameters={StageTag.class})
+    @Export(name="tags", refs={List.class,StageTag.class}, tree="[0,1]")
     private Output</* @Nullable */ List<StageTag>> tags;
 
     /**
@@ -245,7 +245,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * Specifies the URL for the stage.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> url;
 
     /**

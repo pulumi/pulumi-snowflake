@@ -72,7 +72,7 @@ public class Alert extends com.pulumi.resources.CustomResource {
      * The SQL statement that should be executed if the condition returns one or more rows.
      * 
      */
-    @Export(name="action", type=String.class, parameters={})
+    @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
     /**
@@ -86,7 +86,7 @@ public class Alert extends com.pulumi.resources.CustomResource {
      * The schedule for periodically running an alert.
      * 
      */
-    @Export(name="alertSchedule", type=AlertAlertSchedule.class, parameters={})
+    @Export(name="alertSchedule", refs={AlertAlertSchedule.class}, tree="[0]")
     private Output</* @Nullable */ AlertAlertSchedule> alertSchedule;
 
     /**
@@ -100,7 +100,7 @@ public class Alert extends com.pulumi.resources.CustomResource {
      * Specifies a comment for the alert.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -114,7 +114,7 @@ public class Alert extends com.pulumi.resources.CustomResource {
      * The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
      * 
      */
-    @Export(name="condition", type=String.class, parameters={})
+    @Export(name="condition", refs={String.class}, tree="[0]")
     private Output<String> condition;
 
     /**
@@ -128,7 +128,7 @@ public class Alert extends com.pulumi.resources.CustomResource {
      * The database in which to create the alert.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -142,7 +142,7 @@ public class Alert extends com.pulumi.resources.CustomResource {
      * Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -156,7 +156,7 @@ public class Alert extends com.pulumi.resources.CustomResource {
      * Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -170,7 +170,7 @@ public class Alert extends com.pulumi.resources.CustomResource {
      * The schema in which to create the alert.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
@@ -184,7 +184,7 @@ public class Alert extends com.pulumi.resources.CustomResource {
      * The warehouse the alert will use.
      * 
      */
-    @Export(name="warehouse", type=String.class, parameters={})
+    @Export(name="warehouse", refs={String.class}, tree="[0]")
     private Output<String> warehouse;
 
     /**

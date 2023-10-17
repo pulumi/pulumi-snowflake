@@ -68,7 +68,7 @@ public class Pipe extends com.pulumi.resources.CustomResource {
      * Specifies a auto_ingest param for the pipe.
      * 
      */
-    @Export(name="autoIngest", type=Boolean.class, parameters={})
+    @Export(name="autoIngest", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoIngest;
 
     /**
@@ -82,7 +82,7 @@ public class Pipe extends com.pulumi.resources.CustomResource {
      * Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
      * 
      */
-    @Export(name="awsSnsTopicArn", type=String.class, parameters={})
+    @Export(name="awsSnsTopicArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsSnsTopicArn;
 
     /**
@@ -96,7 +96,7 @@ public class Pipe extends com.pulumi.resources.CustomResource {
      * Specifies a comment for the pipe.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -110,7 +110,7 @@ public class Pipe extends com.pulumi.resources.CustomResource {
      * Specifies the copy statement for the pipe.
      * 
      */
-    @Export(name="copyStatement", type=String.class, parameters={})
+    @Export(name="copyStatement", refs={String.class}, tree="[0]")
     private Output<String> copyStatement;
 
     /**
@@ -124,7 +124,7 @@ public class Pipe extends com.pulumi.resources.CustomResource {
      * The database in which to create the pipe.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -138,7 +138,7 @@ public class Pipe extends com.pulumi.resources.CustomResource {
      * Specifies the name of the notification integration used for error notifications.
      * 
      */
-    @Export(name="errorIntegration", type=String.class, parameters={})
+    @Export(name="errorIntegration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> errorIntegration;
 
     /**
@@ -152,7 +152,7 @@ public class Pipe extends com.pulumi.resources.CustomResource {
      * Specifies an integration for the pipe.
      * 
      */
-    @Export(name="integration", type=String.class, parameters={})
+    @Export(name="integration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> integration;
 
     /**
@@ -166,7 +166,7 @@ public class Pipe extends com.pulumi.resources.CustomResource {
      * Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -180,7 +180,7 @@ public class Pipe extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
      * 
      */
-    @Export(name="notificationChannel", type=String.class, parameters={})
+    @Export(name="notificationChannel", refs={String.class}, tree="[0]")
     private Output<String> notificationChannel;
 
     /**
@@ -194,7 +194,7 @@ public class Pipe extends com.pulumi.resources.CustomResource {
      * Name of the role that owns the pipe.
      * 
      */
-    @Export(name="owner", type=String.class, parameters={})
+    @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
     /**
@@ -208,7 +208,7 @@ public class Pipe extends com.pulumi.resources.CustomResource {
      * The schema in which to create the pipe.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**

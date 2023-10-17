@@ -20,7 +20,7 @@ public class UserPublicKeys extends com.pulumi.resources.CustomResource {
      * Name of the user.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -34,7 +34,7 @@ public class UserPublicKeys extends com.pulumi.resources.CustomResource {
      * Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
      * 
      */
-    @Export(name="rsaPublicKey", type=String.class, parameters={})
+    @Export(name="rsaPublicKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rsaPublicKey;
 
     /**
@@ -48,7 +48,7 @@ public class UserPublicKeys extends com.pulumi.resources.CustomResource {
      * Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      * 
      */
-    @Export(name="rsaPublicKey2", type=String.class, parameters={})
+    @Export(name="rsaPublicKey2", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rsaPublicKey2;
 
     /**

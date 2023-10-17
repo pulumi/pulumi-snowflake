@@ -67,7 +67,7 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
      * The consent URL that is used to create an Azure Snowflake service principle inside your tenant.
      * 
      */
-    @Export(name="azureConsentUrl", type=String.class, parameters={})
+    @Export(name="azureConsentUrl", refs={String.class}, tree="[0]")
     private Output<String> azureConsentUrl;
 
     /**
@@ -81,7 +81,7 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
      * This is the name of the Snowflake client application created for your account.
      * 
      */
-    @Export(name="azureMultiTenantAppName", type=String.class, parameters={})
+    @Export(name="azureMultiTenantAppName", refs={String.class}, tree="[0]")
     private Output<String> azureMultiTenantAppName;
 
     /**
@@ -91,13 +91,13 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
     public Output<String> azureMultiTenantAppName() {
         return this.azureMultiTenantAppName;
     }
-    @Export(name="azureTenantId", type=String.class, parameters={})
+    @Export(name="azureTenantId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> azureTenantId;
 
     public Output<Optional<String>> azureTenantId() {
         return Codegen.optional(this.azureTenantId);
     }
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     public Output<Optional<String>> comment() {
@@ -107,7 +107,7 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
      * Date and time when the storage integration was created.
      * 
      */
-    @Export(name="createdOn", type=String.class, parameters={})
+    @Export(name="createdOn", refs={String.class}, tree="[0]")
     private Output<String> createdOn;
 
     /**
@@ -117,13 +117,13 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
     public Output<String> createdOn() {
         return this.createdOn;
     }
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     public Output<String> name() {
@@ -133,7 +133,7 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
      * Explicitly limits external stages that use the integration to reference one or more storage locations.
      * 
      */
-    @Export(name="storageAllowedLocations", type=List.class, parameters={String.class})
+    @Export(name="storageAllowedLocations", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> storageAllowedLocations;
 
     /**
@@ -147,7 +147,7 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
      * The external ID that Snowflake will use when assuming the AWS role.
      * 
      */
-    @Export(name="storageAwsExternalId", type=String.class, parameters={})
+    @Export(name="storageAwsExternalId", refs={String.class}, tree="[0]")
     private Output<String> storageAwsExternalId;
 
     /**
@@ -161,7 +161,7 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
      * The Snowflake user that will attempt to assume the AWS role.
      * 
      */
-    @Export(name="storageAwsIamUserArn", type=String.class, parameters={})
+    @Export(name="storageAwsIamUserArn", refs={String.class}, tree="[0]")
     private Output<String> storageAwsIamUserArn;
 
     /**
@@ -175,7 +175,7 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
      * &#34;bucket-owner-full-control&#34; Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
      * 
      */
-    @Export(name="storageAwsObjectAcl", type=String.class, parameters={})
+    @Export(name="storageAwsObjectAcl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAwsObjectAcl;
 
     /**
@@ -185,7 +185,7 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> storageAwsObjectAcl() {
         return Codegen.optional(this.storageAwsObjectAcl);
     }
-    @Export(name="storageAwsRoleArn", type=String.class, parameters={})
+    @Export(name="storageAwsRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAwsRoleArn;
 
     public Output<Optional<String>> storageAwsRoleArn() {
@@ -195,7 +195,7 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
      * Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
      * 
      */
-    @Export(name="storageBlockedLocations", type=List.class, parameters={String.class})
+    @Export(name="storageBlockedLocations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> storageBlockedLocations;
 
     /**
@@ -209,7 +209,7 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
      * This is the name of the Snowflake Google Service Account created for your account.
      * 
      */
-    @Export(name="storageGcpServiceAccount", type=String.class, parameters={})
+    @Export(name="storageGcpServiceAccount", refs={String.class}, tree="[0]")
     private Output<String> storageGcpServiceAccount;
 
     /**
@@ -219,13 +219,13 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
     public Output<String> storageGcpServiceAccount() {
         return this.storageGcpServiceAccount;
     }
-    @Export(name="storageProvider", type=String.class, parameters={})
+    @Export(name="storageProvider", refs={String.class}, tree="[0]")
     private Output<String> storageProvider;
 
     public Output<String> storageProvider() {
         return this.storageProvider;
     }
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     public Output<Optional<String>> type() {

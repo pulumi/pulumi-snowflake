@@ -60,7 +60,7 @@ public class AccountPasswordPolicyAttachment extends com.pulumi.resources.Custom
      * Qualified name (`&#34;db&#34;.&#34;schema&#34;.&#34;policy_name&#34;`) of the password policy to apply to the current account.
      * 
      */
-    @Export(name="passwordPolicy", type=String.class, parameters={})
+    @Export(name="passwordPolicy", refs={String.class}, tree="[0]")
     private Output<String> passwordPolicy;
 
     /**

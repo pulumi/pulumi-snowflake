@@ -60,7 +60,7 @@ public class Share extends com.pulumi.resources.CustomResource {
      * A list of accounts to be added to the share. Values should not be the account locator, but in the form of &#39;organization*name.account*name
      * 
      */
-    @Export(name="accounts", type=List.class, parameters={String.class})
+    @Export(name="accounts", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> accounts;
 
     /**
@@ -74,7 +74,7 @@ public class Share extends com.pulumi.resources.CustomResource {
      * Specifies a comment for the managed account.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -88,7 +88,7 @@ public class Share extends com.pulumi.resources.CustomResource {
      * Specifies the identifier for the share; must be unique for the account in which the share is created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

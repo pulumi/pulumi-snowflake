@@ -138,7 +138,7 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
      * Columns to use in foreign key reference
      * 
      */
-    @Export(name="columns", type=List.class, parameters={String.class})
+    @Export(name="columns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> columns;
 
     /**
@@ -152,7 +152,7 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
      * Comment for the table constraint
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -166,7 +166,7 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
      * Whether the constraint is deferrable
      * 
      */
-    @Export(name="deferrable", type=Boolean.class, parameters={})
+    @Export(name="deferrable", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deferrable;
 
     /**
@@ -180,7 +180,7 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
      * Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
      * 
      */
-    @Export(name="enable", type=Boolean.class, parameters={})
+    @Export(name="enable", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enable;
 
     /**
@@ -194,7 +194,7 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
      * Whether the constraint is enforced
      * 
      */
-    @Export(name="enforced", type=Boolean.class, parameters={})
+    @Export(name="enforced", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enforced;
 
     /**
@@ -208,7 +208,7 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
      * Additional properties when type is set to foreign key. Not applicable for primary/unique keys
      * 
      */
-    @Export(name="foreignKeyProperties", type=TableConstraintForeignKeyProperties.class, parameters={})
+    @Export(name="foreignKeyProperties", refs={TableConstraintForeignKeyProperties.class}, tree="[0]")
     private Output</* @Nullable */ TableConstraintForeignKeyProperties> foreignKeyProperties;
 
     /**
@@ -222,7 +222,7 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
      * Whether the constraint is initially deferred or immediate
      * 
      */
-    @Export(name="initially", type=String.class, parameters={})
+    @Export(name="initially", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> initially;
 
     /**
@@ -236,7 +236,7 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
      * Name of constraint
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -250,7 +250,7 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
      * Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
      * 
      */
-    @Export(name="rely", type=Boolean.class, parameters={})
+    @Export(name="rely", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> rely;
 
     /**
@@ -264,7 +264,7 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
      * Name of constraint
      * 
      */
-    @Export(name="tableId", type=String.class, parameters={})
+    @Export(name="tableId", refs={String.class}, tree="[0]")
     private Output<String> tableId;
 
     /**
@@ -278,7 +278,7 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
      * Type of constraint, one of &#39;UNIQUE&#39;, &#39;PRIMARY KEY&#39;, &#39;FOREIGN KEY&#39;, or &#39;NOT NULL&#39;
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -292,7 +292,7 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
      * Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
      * 
      */
-    @Export(name="validate", type=Boolean.class, parameters={})
+    @Export(name="validate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> validate;
 
     /**

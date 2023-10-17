@@ -122,7 +122,7 @@ public class GrantPrivilegesToRole extends com.pulumi.resources.CustomResource {
      * Grant all privileges on the account role.
      * 
      */
-    @Export(name="allPrivileges", type=Boolean.class, parameters={})
+    @Export(name="allPrivileges", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allPrivileges;
 
     /**
@@ -136,7 +136,7 @@ public class GrantPrivilegesToRole extends com.pulumi.resources.CustomResource {
      * If true, the privileges will be granted on the account.
      * 
      */
-    @Export(name="onAccount", type=Boolean.class, parameters={})
+    @Export(name="onAccount", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> onAccount;
 
     /**
@@ -150,7 +150,7 @@ public class GrantPrivilegesToRole extends com.pulumi.resources.CustomResource {
      * Specifies the account object on which privileges will be granted
      * 
      */
-    @Export(name="onAccountObject", type=GrantPrivilegesToRoleOnAccountObject.class, parameters={})
+    @Export(name="onAccountObject", refs={GrantPrivilegesToRoleOnAccountObject.class}, tree="[0]")
     private Output</* @Nullable */ GrantPrivilegesToRoleOnAccountObject> onAccountObject;
 
     /**
@@ -164,7 +164,7 @@ public class GrantPrivilegesToRole extends com.pulumi.resources.CustomResource {
      * Specifies the schema on which privileges will be granted.
      * 
      */
-    @Export(name="onSchema", type=GrantPrivilegesToRoleOnSchema.class, parameters={})
+    @Export(name="onSchema", refs={GrantPrivilegesToRoleOnSchema.class}, tree="[0]")
     private Output</* @Nullable */ GrantPrivilegesToRoleOnSchema> onSchema;
 
     /**
@@ -178,7 +178,7 @@ public class GrantPrivilegesToRole extends com.pulumi.resources.CustomResource {
      * Specifies the schema object on which privileges will be granted.
      * 
      */
-    @Export(name="onSchemaObject", type=GrantPrivilegesToRoleOnSchemaObject.class, parameters={})
+    @Export(name="onSchemaObject", refs={GrantPrivilegesToRoleOnSchemaObject.class}, tree="[0]")
     private Output</* @Nullable */ GrantPrivilegesToRoleOnSchemaObject> onSchemaObject;
 
     /**
@@ -192,7 +192,7 @@ public class GrantPrivilegesToRole extends com.pulumi.resources.CustomResource {
      * The privileges to grant on the account role.
      * 
      */
-    @Export(name="privileges", type=List.class, parameters={String.class})
+    @Export(name="privileges", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> privileges;
 
     /**
@@ -206,7 +206,7 @@ public class GrantPrivilegesToRole extends com.pulumi.resources.CustomResource {
      * The fully qualified name of the role to which privileges will be granted.
      * 
      */
-    @Export(name="roleName", type=String.class, parameters={})
+    @Export(name="roleName", refs={String.class}, tree="[0]")
     private Output<String> roleName;
 
     /**
@@ -220,7 +220,7 @@ public class GrantPrivilegesToRole extends com.pulumi.resources.CustomResource {
      * Specifies whether the grantee can grant the privileges to other users.
      * 
      */
-    @Export(name="withGrantOption", type=Boolean.class, parameters={})
+    @Export(name="withGrantOption", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> withGrantOption;
 
     /**

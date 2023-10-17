@@ -97,7 +97,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
      * 
      */
-    @Export(name="allowedAccounts", type=List.class, parameters={String.class})
+    @Export(name="allowedAccounts", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedAccounts;
 
     /**
@@ -111,7 +111,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
      * 
      */
-    @Export(name="allowedDatabases", type=List.class, parameters={String.class})
+    @Export(name="allowedDatabases", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedDatabases;
 
     /**
@@ -125,7 +125,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: &#34;SECURITY INTEGRATIONS&#34;, &#34;API INTEGRATIONS&#34;
      * 
      */
-    @Export(name="allowedIntegrationTypes", type=List.class, parameters={String.class})
+    @Export(name="allowedIntegrationTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedIntegrationTypes;
 
     /**
@@ -139,7 +139,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
      * 
      */
-    @Export(name="allowedShares", type=List.class, parameters={String.class})
+    @Export(name="allowedShares", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedShares;
 
     /**
@@ -153,7 +153,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * Specifies the name of the replica to use as the source for the failover group.
      * 
      */
-    @Export(name="fromReplica", type=FailoverGroupFromReplica.class, parameters={})
+    @Export(name="fromReplica", refs={FailoverGroupFromReplica.class}, tree="[0]")
     private Output</* @Nullable */ FailoverGroupFromReplica> fromReplica;
 
     /**
@@ -167,7 +167,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * Allows replicating objects to accounts on lower editions.
      * 
      */
-    @Export(name="ignoreEditionCheck", type=Boolean.class, parameters={})
+    @Export(name="ignoreEditionCheck", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreEditionCheck;
 
     /**
@@ -181,7 +181,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * Identifier for the primary failover group in the source account.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -195,7 +195,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: &#34;ACCOUNT PARAMETERS&#34;, &#34;DATABASES&#34;, &#34;INTEGRATIONS&#34;, &#34;NETWORK POLICIES&#34;, &#34;RESOURCE MONITORS&#34;, &#34;ROLES&#34;, &#34;SHARES&#34;, &#34;USERS&#34;, &#34;WAREHOUSES&#34;
      * 
      */
-    @Export(name="objectTypes", type=List.class, parameters={String.class})
+    @Export(name="objectTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> objectTypes;
 
     /**
@@ -209,7 +209,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * Specifies the schedule for refreshing secondary failover groups.
      * 
      */
-    @Export(name="replicationSchedule", type=FailoverGroupReplicationSchedule.class, parameters={})
+    @Export(name="replicationSchedule", refs={FailoverGroupReplicationSchedule.class}, tree="[0]")
     private Output</* @Nullable */ FailoverGroupReplicationSchedule> replicationSchedule;
 
     /**

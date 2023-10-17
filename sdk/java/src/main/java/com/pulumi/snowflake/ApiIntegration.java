@@ -78,7 +78,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
      * 
      */
-    @Export(name="apiAllowedPrefixes", type=List.class, parameters={String.class})
+    @Export(name="apiAllowedPrefixes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> apiAllowedPrefixes;
 
     /**
@@ -92,7 +92,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * The external ID that Snowflake will use when assuming the AWS role.
      * 
      */
-    @Export(name="apiAwsExternalId", type=String.class, parameters={})
+    @Export(name="apiAwsExternalId", refs={String.class}, tree="[0]")
     private Output<String> apiAwsExternalId;
 
     /**
@@ -106,7 +106,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * The Snowflake user that will attempt to assume the AWS role.
      * 
      */
-    @Export(name="apiAwsIamUserArn", type=String.class, parameters={})
+    @Export(name="apiAwsIamUserArn", refs={String.class}, tree="[0]")
     private Output<String> apiAwsIamUserArn;
 
     /**
@@ -120,7 +120,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * ARN of a cloud platform role.
      * 
      */
-    @Export(name="apiAwsRoleArn", type=String.class, parameters={})
+    @Export(name="apiAwsRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiAwsRoleArn;
 
     /**
@@ -134,7 +134,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
      * 
      */
-    @Export(name="apiBlockedPrefixes", type=List.class, parameters={String.class})
+    @Export(name="apiBlockedPrefixes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> apiBlockedPrefixes;
 
     /**
@@ -148,7 +148,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * The service account used for communication with the Google API Gateway.
      * 
      */
-    @Export(name="apiGcpServiceAccount", type=String.class, parameters={})
+    @Export(name="apiGcpServiceAccount", refs={String.class}, tree="[0]")
     private Output<String> apiGcpServiceAccount;
 
     /**
@@ -162,7 +162,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * The API key (also called a “subscription key”).
      * 
      */
-    @Export(name="apiKey", type=String.class, parameters={})
+    @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiKey;
 
     /**
@@ -176,7 +176,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * Specifies the HTTPS proxy service type.
      * 
      */
-    @Export(name="apiProvider", type=String.class, parameters={})
+    @Export(name="apiProvider", refs={String.class}, tree="[0]")
     private Output<String> apiProvider;
 
     /**
@@ -190,7 +190,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
      * 
      */
-    @Export(name="azureAdApplicationId", type=String.class, parameters={})
+    @Export(name="azureAdApplicationId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> azureAdApplicationId;
 
     /**
@@ -200,13 +200,13 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> azureAdApplicationId() {
         return Codegen.optional(this.azureAdApplicationId);
     }
-    @Export(name="azureConsentUrl", type=String.class, parameters={})
+    @Export(name="azureConsentUrl", refs={String.class}, tree="[0]")
     private Output<String> azureConsentUrl;
 
     public Output<String> azureConsentUrl() {
         return this.azureConsentUrl;
     }
-    @Export(name="azureMultiTenantAppName", type=String.class, parameters={})
+    @Export(name="azureMultiTenantAppName", refs={String.class}, tree="[0]")
     private Output<String> azureMultiTenantAppName;
 
     public Output<String> azureMultiTenantAppName() {
@@ -216,7 +216,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
      * 
      */
-    @Export(name="azureTenantId", type=String.class, parameters={})
+    @Export(name="azureTenantId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> azureTenantId;
 
     /**
@@ -226,7 +226,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> azureTenantId() {
         return Codegen.optional(this.azureTenantId);
     }
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     public Output<Optional<String>> comment() {
@@ -236,7 +236,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * Date and time when the API integration was created.
      * 
      */
-    @Export(name="createdOn", type=String.class, parameters={})
+    @Export(name="createdOn", refs={String.class}, tree="[0]")
     private Output<String> createdOn;
 
     /**
@@ -250,7 +250,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -264,7 +264,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
      * 
      */
-    @Export(name="googleAudience", type=String.class, parameters={})
+    @Export(name="googleAudience", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> googleAudience;
 
     /**
@@ -278,7 +278,7 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

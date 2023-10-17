@@ -68,7 +68,7 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      * Specifies the list of roles that the client can set as the primary role.
      * 
      */
-    @Export(name="allowedRoles", type=List.class, parameters={String.class})
+    @Export(name="allowedRoles", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedRoles;
 
     /**
@@ -82,7 +82,7 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      * Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.
      * 
      */
-    @Export(name="anyRoleMode", type=String.class, parameters={})
+    @Export(name="anyRoleMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> anyRoleMode;
 
     /**
@@ -96,7 +96,7 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      * Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s Snowflake Account URL
      * 
      */
-    @Export(name="audienceUrls", type=List.class, parameters={String.class})
+    @Export(name="audienceUrls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> audienceUrls;
 
     /**
@@ -110,7 +110,7 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      * Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
      * 
      */
-    @Export(name="blockedRoles", type=List.class, parameters={String.class})
+    @Export(name="blockedRoles", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> blockedRoles;
 
     /**
@@ -124,7 +124,7 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      * Specifies a comment for the OAuth integration.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -138,7 +138,7 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      * Date and time when the External OAUTH integration was created.
      * 
      */
-    @Export(name="createdOn", type=String.class, parameters={})
+    @Export(name="createdOn", refs={String.class}, tree="[0]")
     private Output<String> createdOn;
 
     /**
@@ -152,7 +152,7 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      * Specifies whether to initiate operation of the integration or suspend it.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
@@ -166,7 +166,7 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      * Specifies the URL to define the OAuth 2.0 authorization server.
      * 
      */
-    @Export(name="issuer", type=String.class, parameters={})
+    @Export(name="issuer", refs={String.class}, tree="[0]")
     private Output<String> issuer;
 
     /**
@@ -180,7 +180,7 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      * Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
      * 
      */
-    @Export(name="jwsKeysUrls", type=List.class, parameters={String.class})
+    @Export(name="jwsKeysUrls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> jwsKeysUrls;
 
     /**
@@ -194,7 +194,7 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -208,7 +208,7 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      * Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
      * 
      */
-    @Export(name="rsaPublicKey", type=String.class, parameters={})
+    @Export(name="rsaPublicKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rsaPublicKey;
 
     /**
@@ -222,7 +222,7 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      * Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
      * 
      */
-    @Export(name="rsaPublicKey2", type=String.class, parameters={})
+    @Export(name="rsaPublicKey2", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rsaPublicKey2;
 
     /**
@@ -236,7 +236,7 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      * Specifies the scope delimiter in the authorization token.
      * 
      */
-    @Export(name="scopeDelimiter", type=String.class, parameters={})
+    @Export(name="scopeDelimiter", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scopeDelimiter;
 
     /**
@@ -250,7 +250,7 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      * Specifies the access token claim to map the access token to an account role.
      * 
      */
-    @Export(name="scopeMappingAttribute", type=String.class, parameters={})
+    @Export(name="scopeMappingAttribute", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scopeMappingAttribute;
 
     /**
@@ -264,7 +264,7 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      * Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
      * 
      */
-    @Export(name="snowflakeUserMappingAttribute", type=String.class, parameters={})
+    @Export(name="snowflakeUserMappingAttribute", refs={String.class}, tree="[0]")
     private Output<String> snowflakeUserMappingAttribute;
 
     /**
@@ -278,7 +278,7 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      * Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
      * 
      */
-    @Export(name="tokenUserMappingClaims", type=List.class, parameters={String.class})
+    @Export(name="tokenUserMappingClaims", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> tokenUserMappingClaims;
 
     /**
@@ -292,7 +292,7 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      * Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

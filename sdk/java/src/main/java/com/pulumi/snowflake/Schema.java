@@ -68,7 +68,7 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * Specifies a comment for the schema.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -82,7 +82,7 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
      * 
      */
-    @Export(name="dataRetentionDays", type=Integer.class, parameters={})
+    @Export(name="dataRetentionDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> dataRetentionDays;
 
     /**
@@ -96,7 +96,7 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * Name of the database that the tag was created in.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -110,7 +110,7 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
      * 
      */
-    @Export(name="isManaged", type=Boolean.class, parameters={})
+    @Export(name="isManaged", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isManaged;
 
     /**
@@ -124,7 +124,7 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
      * 
      */
-    @Export(name="isTransient", type=Boolean.class, parameters={})
+    @Export(name="isTransient", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isTransient;
 
     /**
@@ -138,7 +138,7 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * Tag name, e.g. department.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -156,7 +156,7 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    @Export(name="tags", type=List.class, parameters={SchemaTag.class})
+    @Export(name="tags", refs={List.class,SchemaTag.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SchemaTag>> tags;
 
     /**

@@ -80,7 +80,7 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
      * The name of the API integration object that should be used to authenticate the call to the proxy service.
      * 
      */
-    @Export(name="apiIntegration", type=String.class, parameters={})
+    @Export(name="apiIntegration", refs={String.class}, tree="[0]")
     private Output<String> apiIntegration;
 
     /**
@@ -94,7 +94,7 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
      * Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
      * 
      */
-    @Export(name="args", type=List.class, parameters={ExternalFunctionArg.class})
+    @Export(name="args", refs={List.class,ExternalFunctionArg.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ExternalFunctionArg>> args;
 
     /**
@@ -108,7 +108,7 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
      * A description of the external function.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -122,7 +122,7 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
      * If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
      * 
      */
-    @Export(name="compression", type=String.class, parameters={})
+    @Export(name="compression", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> compression;
 
     /**
@@ -136,7 +136,7 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
      * Binds Snowflake context function results to HTTP headers.
      * 
      */
-    @Export(name="contextHeaders", type=List.class, parameters={String.class})
+    @Export(name="contextHeaders", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> contextHeaders;
 
     /**
@@ -150,7 +150,7 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
      * Date and time when the external function was created.
      * 
      */
-    @Export(name="createdOn", type=String.class, parameters={})
+    @Export(name="createdOn", refs={String.class}, tree="[0]")
     private Output<String> createdOn;
 
     /**
@@ -164,7 +164,7 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
      * The database in which to create the external function.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -178,7 +178,7 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
      * Allows users to specify key-value metadata that is sent with every request as HTTP headers.
      * 
      */
-    @Export(name="headers", type=List.class, parameters={ExternalFunctionHeader.class})
+    @Export(name="headers", refs={List.class,ExternalFunctionHeader.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ExternalFunctionHeader>> headers;
 
     /**
@@ -192,7 +192,7 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
      * This specifies the maximum number of rows in each batch sent to the proxy service.
      * 
      */
-    @Export(name="maxBatchRows", type=Integer.class, parameters={})
+    @Export(name="maxBatchRows", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxBatchRows;
 
     /**
@@ -206,7 +206,7 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
      * Argument name
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -220,7 +220,7 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
      * Specifies the behavior of the external function when called with null inputs.
      * 
      */
-    @Export(name="nullInputBehavior", type=String.class, parameters={})
+    @Export(name="nullInputBehavior", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nullInputBehavior;
 
     /**
@@ -234,7 +234,7 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
      * This specifies the name of the request translator function
      * 
      */
-    @Export(name="requestTranslator", type=String.class, parameters={})
+    @Export(name="requestTranslator", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> requestTranslator;
 
     /**
@@ -248,7 +248,7 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
      * This specifies the name of the response translator function.
      * 
      */
-    @Export(name="responseTranslator", type=String.class, parameters={})
+    @Export(name="responseTranslator", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> responseTranslator;
 
     /**
@@ -262,7 +262,7 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
      * Specifies the behavior of the function when returning results
      * 
      */
-    @Export(name="returnBehavior", type=String.class, parameters={})
+    @Export(name="returnBehavior", refs={String.class}, tree="[0]")
     private Output<String> returnBehavior;
 
     /**
@@ -276,7 +276,7 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
      * Indicates whether the function can return NULL values or must return only NON-NULL values.
      * 
      */
-    @Export(name="returnNullAllowed", type=Boolean.class, parameters={})
+    @Export(name="returnNullAllowed", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> returnNullAllowed;
 
     /**
@@ -290,7 +290,7 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
      * Specifies the data type returned by the external function.
      * 
      */
-    @Export(name="returnType", type=String.class, parameters={})
+    @Export(name="returnType", refs={String.class}, tree="[0]")
     private Output<String> returnType;
 
     /**
@@ -304,7 +304,7 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
      * The schema in which to create the external function.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
@@ -318,7 +318,7 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
      * This is the invocation URL of the proxy service and resource through which Snowflake calls the remote service.
      * 
      */
-    @Export(name="urlOfProxyAndResource", type=String.class, parameters={})
+    @Export(name="urlOfProxyAndResource", refs={String.class}, tree="[0]")
     private Output<String> urlOfProxyAndResource;
 
     /**

@@ -67,7 +67,7 @@ public class SessionParameter extends com.pulumi.resources.CustomResource {
      * Name of session parameter. Valid values are those in [session parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#session-parameters).
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -81,7 +81,7 @@ public class SessionParameter extends com.pulumi.resources.CustomResource {
      * If true, the session parameter will be set on the account level.
      * 
      */
-    @Export(name="onAccount", type=Boolean.class, parameters={})
+    @Export(name="onAccount", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> onAccount;
 
     /**
@@ -95,7 +95,7 @@ public class SessionParameter extends com.pulumi.resources.CustomResource {
      * The user to set the session parameter for. Required if on_account is false
      * 
      */
-    @Export(name="user", type=String.class, parameters={})
+    @Export(name="user", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> user;
 
     /**
@@ -109,7 +109,7 @@ public class SessionParameter extends com.pulumi.resources.CustomResource {
      * Value of session parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**

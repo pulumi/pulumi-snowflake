@@ -71,7 +71,7 @@ public class Sequence extends com.pulumi.resources.CustomResource {
      * Specifies a comment for the sequence.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -85,7 +85,7 @@ public class Sequence extends com.pulumi.resources.CustomResource {
      * The database in which to create the sequence. Don&#39;t use the | character.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -99,7 +99,7 @@ public class Sequence extends com.pulumi.resources.CustomResource {
      * The fully qualified name of the sequence.
      * 
      */
-    @Export(name="fullyQualifiedName", type=String.class, parameters={})
+    @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
@@ -113,7 +113,7 @@ public class Sequence extends com.pulumi.resources.CustomResource {
      * The amount the sequence will increase by each time it is used
      * 
      */
-    @Export(name="increment", type=Integer.class, parameters={})
+    @Export(name="increment", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> increment;
 
     /**
@@ -127,7 +127,7 @@ public class Sequence extends com.pulumi.resources.CustomResource {
      * Specifies the name for the sequence.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -141,7 +141,7 @@ public class Sequence extends com.pulumi.resources.CustomResource {
      * The next value the sequence will provide.
      * 
      */
-    @Export(name="nextValue", type=Integer.class, parameters={})
+    @Export(name="nextValue", refs={Integer.class}, tree="[0]")
     private Output<Integer> nextValue;
 
     /**
@@ -155,7 +155,7 @@ public class Sequence extends com.pulumi.resources.CustomResource {
      * The schema in which to create the sequence. Don&#39;t use the | character.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**

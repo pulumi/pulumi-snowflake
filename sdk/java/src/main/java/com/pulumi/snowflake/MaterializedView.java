@@ -71,7 +71,7 @@ public class MaterializedView extends com.pulumi.resources.CustomResource {
      * Specifies a comment for the view.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -85,7 +85,7 @@ public class MaterializedView extends com.pulumi.resources.CustomResource {
      * Name of the database that the tag was created in.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -99,7 +99,7 @@ public class MaterializedView extends com.pulumi.resources.CustomResource {
      * Specifies that the view is secure.
      * 
      */
-    @Export(name="isSecure", type=Boolean.class, parameters={})
+    @Export(name="isSecure", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isSecure;
 
     /**
@@ -113,7 +113,7 @@ public class MaterializedView extends com.pulumi.resources.CustomResource {
      * Tag name, e.g. department.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -127,7 +127,7 @@ public class MaterializedView extends com.pulumi.resources.CustomResource {
      * Overwrites the View if it exists.
      * 
      */
-    @Export(name="orReplace", type=Boolean.class, parameters={})
+    @Export(name="orReplace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> orReplace;
 
     /**
@@ -141,7 +141,7 @@ public class MaterializedView extends com.pulumi.resources.CustomResource {
      * Name of the schema that the tag was created in.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
@@ -155,7 +155,7 @@ public class MaterializedView extends com.pulumi.resources.CustomResource {
      * Specifies the query used to create the view.
      * 
      */
-    @Export(name="statement", type=String.class, parameters={})
+    @Export(name="statement", refs={String.class}, tree="[0]")
     private Output<String> statement;
 
     /**
@@ -173,7 +173,7 @@ public class MaterializedView extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    @Export(name="tags", type=List.class, parameters={MaterializedViewTag.class})
+    @Export(name="tags", refs={List.class,MaterializedViewTag.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MaterializedViewTag>> tags;
 
     /**
@@ -187,7 +187,7 @@ public class MaterializedView extends com.pulumi.resources.CustomResource {
      * The warehouse name.
      * 
      */
-    @Export(name="warehouse", type=String.class, parameters={})
+    @Export(name="warehouse", refs={String.class}, tree="[0]")
     private Output<String> warehouse;
 
     /**

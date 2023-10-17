@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="snowflake:index/database:Database")
 public class Database extends com.pulumi.resources.CustomResource {
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     public Output<Optional<String>> comment() {
@@ -94,7 +94,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding &amp; Using Time Travel.
      * 
      */
-    @Export(name="dataRetentionTimeInDays", type=Integer.class, parameters={})
+    @Export(name="dataRetentionTimeInDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> dataRetentionTimeInDays;
 
     /**
@@ -108,7 +108,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specify a database to create a clone from.
      * 
      */
-    @Export(name="fromDatabase", type=String.class, parameters={})
+    @Export(name="fromDatabase", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fromDatabase;
 
     /**
@@ -122,7 +122,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of &#34;\n\n&#34;.&#34;\n\n&#34;.&#34;\n\n&#34;. An example would be: &#34;myorg1&#34;.&#34;account1&#34;.&#34;db1&#34;
      * 
      */
-    @Export(name="fromReplica", type=String.class, parameters={})
+    @Export(name="fromReplica", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fromReplica;
 
     /**
@@ -136,7 +136,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specify a provider and a share in this map to create a database from a share.
      * 
      */
-    @Export(name="fromShare", type=Map.class, parameters={String.class, String.class})
+    @Export(name="fromShare", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> fromShare;
 
     /**
@@ -150,7 +150,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
      * 
      */
-    @Export(name="isTransient", type=Boolean.class, parameters={})
+    @Export(name="isTransient", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isTransient;
 
     /**
@@ -160,7 +160,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> isTransient() {
         return Codegen.optional(this.isTransient);
     }
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     public Output<String> name() {
@@ -170,7 +170,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * When set, specifies the configurations for database replication.
      * 
      */
-    @Export(name="replicationConfiguration", type=DatabaseReplicationConfiguration.class, parameters={})
+    @Export(name="replicationConfiguration", refs={DatabaseReplicationConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ DatabaseReplicationConfiguration> replicationConfiguration;
 
     /**

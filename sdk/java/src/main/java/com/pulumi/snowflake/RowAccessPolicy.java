@@ -67,7 +67,7 @@ public class RowAccessPolicy extends com.pulumi.resources.CustomResource {
      * Specifies a comment for the row access policy.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -81,7 +81,7 @@ public class RowAccessPolicy extends com.pulumi.resources.CustomResource {
      * The database in which to create the row access policy.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -95,7 +95,7 @@ public class RowAccessPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -109,7 +109,7 @@ public class RowAccessPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
      * 
      */
-    @Export(name="rowAccessExpression", type=String.class, parameters={})
+    @Export(name="rowAccessExpression", refs={String.class}, tree="[0]")
     private Output<String> rowAccessExpression;
 
     /**
@@ -123,7 +123,7 @@ public class RowAccessPolicy extends com.pulumi.resources.CustomResource {
      * The schema in which to create the row access policy.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
@@ -137,7 +137,7 @@ public class RowAccessPolicy extends com.pulumi.resources.CustomResource {
      * Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
      * 
      */
-    @Export(name="signature", type=Map.class, parameters={String.class, String.class})
+    @Export(name="signature", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> signature;
 
     /**
