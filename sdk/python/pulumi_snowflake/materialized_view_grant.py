@@ -68,7 +68,25 @@ class MaterializedViewGrantArgs:
              schema_name: Optional[pulumi.Input[str]] = None,
              shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'enableMultipleGrants' in kwargs:
+            enable_multiple_grants = kwargs['enableMultipleGrants']
+        if 'materializedViewName' in kwargs:
+            materialized_view_name = kwargs['materializedViewName']
+        if 'onAll' in kwargs:
+            on_all = kwargs['onAll']
+        if 'onFuture' in kwargs:
+            on_future = kwargs['onFuture']
+        if 'revertOwnershipToRoleName' in kwargs:
+            revert_ownership_to_role_name = kwargs['revertOwnershipToRoleName']
+        if 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if 'withGrantOption' in kwargs:
+            with_grant_option = kwargs['withGrantOption']
+
         _setter("database_name", database_name)
         if enable_multiple_grants is not None:
             _setter("enable_multiple_grants", enable_multiple_grants)
@@ -282,7 +300,25 @@ class _MaterializedViewGrantState:
              schema_name: Optional[pulumi.Input[str]] = None,
              shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'enableMultipleGrants' in kwargs:
+            enable_multiple_grants = kwargs['enableMultipleGrants']
+        if 'materializedViewName' in kwargs:
+            materialized_view_name = kwargs['materializedViewName']
+        if 'onAll' in kwargs:
+            on_all = kwargs['onAll']
+        if 'onFuture' in kwargs:
+            on_future = kwargs['onFuture']
+        if 'revertOwnershipToRoleName' in kwargs:
+            revert_ownership_to_role_name = kwargs['revertOwnershipToRoleName']
+        if 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if 'withGrantOption' in kwargs:
+            with_grant_option = kwargs['withGrantOption']
+
         if database_name is not None:
             _setter("database_name", database_name)
         if enable_multiple_grants is not None:

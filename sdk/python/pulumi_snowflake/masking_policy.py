@@ -65,7 +65,19 @@ class MaskingPolicyArgs:
              if_not_exists: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              or_replace: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maskingExpression' in kwargs:
+            masking_expression = kwargs['maskingExpression']
+        if 'returnDataType' in kwargs:
+            return_data_type = kwargs['returnDataType']
+        if 'exemptOtherPolicies' in kwargs:
+            exempt_other_policies = kwargs['exemptOtherPolicies']
+        if 'ifNotExists' in kwargs:
+            if_not_exists = kwargs['ifNotExists']
+        if 'orReplace' in kwargs:
+            or_replace = kwargs['orReplace']
+
         _setter("database", database)
         _setter("masking_expression", masking_expression)
         _setter("return_data_type", return_data_type)
@@ -259,7 +271,21 @@ class _MaskingPolicyState:
              return_data_type: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
              signature: Optional[pulumi.Input['MaskingPolicySignatureArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'exemptOtherPolicies' in kwargs:
+            exempt_other_policies = kwargs['exemptOtherPolicies']
+        if 'ifNotExists' in kwargs:
+            if_not_exists = kwargs['ifNotExists']
+        if 'maskingExpression' in kwargs:
+            masking_expression = kwargs['maskingExpression']
+        if 'orReplace' in kwargs:
+            or_replace = kwargs['orReplace']
+        if 'qualifiedName' in kwargs:
+            qualified_name = kwargs['qualifiedName']
+        if 'returnDataType' in kwargs:
+            return_data_type = kwargs['returnDataType']
+
         if comment is not None:
             _setter("comment", comment)
         if database is not None:

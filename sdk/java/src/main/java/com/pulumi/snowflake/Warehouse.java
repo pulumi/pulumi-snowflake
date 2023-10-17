@@ -61,7 +61,7 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
      * Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it.
      * 
      */
-    @Export(name="autoResume", type=Boolean.class, parameters={})
+    @Export(name="autoResume", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> autoResume;
 
     /**
@@ -75,7 +75,7 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
      * Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
      * 
      */
-    @Export(name="autoSuspend", type=Integer.class, parameters={})
+    @Export(name="autoSuspend", refs={Integer.class}, tree="[0]")
     private Output<Integer> autoSuspend;
 
     /**
@@ -85,7 +85,7 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
     public Output<Integer> autoSuspend() {
         return this.autoSuspend;
     }
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     public Output<Optional<String>> comment() {
@@ -95,7 +95,7 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
      * Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
      * 
      */
-    @Export(name="enableQueryAcceleration", type=Boolean.class, parameters={})
+    @Export(name="enableQueryAcceleration", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableQueryAcceleration;
 
     /**
@@ -109,7 +109,7 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
      * Specifies whether the warehouse is created initially in the ‘Suspended’ state.
      * 
      */
-    @Export(name="initiallySuspended", type=Boolean.class, parameters={})
+    @Export(name="initiallySuspended", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> initiallySuspended;
 
     /**
@@ -123,7 +123,7 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
      * Specifies the maximum number of server clusters for the warehouse.
      * 
      */
-    @Export(name="maxClusterCount", type=Integer.class, parameters={})
+    @Export(name="maxClusterCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxClusterCount;
 
     /**
@@ -137,7 +137,7 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
      * Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
      * 
      */
-    @Export(name="maxConcurrencyLevel", type=Integer.class, parameters={})
+    @Export(name="maxConcurrencyLevel", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxConcurrencyLevel;
 
     /**
@@ -151,7 +151,7 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
      * Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
      * 
      */
-    @Export(name="minClusterCount", type=Integer.class, parameters={})
+    @Export(name="minClusterCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> minClusterCount;
 
     /**
@@ -165,7 +165,7 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
      * Identifier for the virtual warehouse; must be unique for your account.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -179,7 +179,7 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
      * Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
      * 
      */
-    @Export(name="queryAccelerationMaxScaleFactor", type=Integer.class, parameters={})
+    @Export(name="queryAccelerationMaxScaleFactor", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> queryAccelerationMaxScaleFactor;
 
     /**
@@ -193,7 +193,7 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
      * Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
      * 
      */
-    @Export(name="resourceMonitor", type=String.class, parameters={})
+    @Export(name="resourceMonitor", refs={String.class}, tree="[0]")
     private Output<String> resourceMonitor;
 
     /**
@@ -207,7 +207,7 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
      * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
      * 
      */
-    @Export(name="scalingPolicy", type=String.class, parameters={})
+    @Export(name="scalingPolicy", refs={String.class}, tree="[0]")
     private Output<String> scalingPolicy;
 
     /**
@@ -221,7 +221,7 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
      * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
      * 
      */
-    @Export(name="statementQueuedTimeoutInSeconds", type=Integer.class, parameters={})
+    @Export(name="statementQueuedTimeoutInSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> statementQueuedTimeoutInSeconds;
 
     /**
@@ -235,7 +235,7 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
      * Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
      * 
      */
-    @Export(name="statementTimeoutInSeconds", type=Integer.class, parameters={})
+    @Export(name="statementTimeoutInSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> statementTimeoutInSeconds;
 
     /**
@@ -253,7 +253,7 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration. */
-    @Export(name="waitForProvisioning", type=Boolean.class, parameters={})
+    @Export(name="waitForProvisioning", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> waitForProvisioning;
 
     /**
@@ -267,7 +267,7 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
      * Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
      * 
      */
-    @Export(name="warehouseSize", type=String.class, parameters={})
+    @Export(name="warehouseSize", refs={String.class}, tree="[0]")
     private Output<String> warehouseSize;
 
     /**
@@ -281,7 +281,7 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
      * Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
      * 
      */
-    @Export(name="warehouseType", type=String.class, parameters={})
+    @Export(name="warehouseType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> warehouseType;
 
     /**

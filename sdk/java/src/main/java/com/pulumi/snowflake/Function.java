@@ -119,7 +119,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * List of the arguments for the function
      * 
      */
-    @Export(name="arguments", type=List.class, parameters={FunctionArgument.class})
+    @Export(name="arguments", refs={List.class,FunctionArgument.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FunctionArgument>> arguments;
 
     /**
@@ -133,7 +133,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Specifies a comment for the function.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -147,7 +147,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * The database in which to create the function. Don&#39;t use the | character.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -161,7 +161,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * The handler method for Java / Python function.
      * 
      */
-    @Export(name="handler", type=String.class, parameters={})
+    @Export(name="handler", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> handler;
 
     /**
@@ -175,7 +175,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
      * 
      */
-    @Export(name="imports", type=List.class, parameters={String.class})
+    @Export(name="imports", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> imports;
 
     /**
@@ -189,7 +189,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Specifies that the function is secure.
      * 
      */
-    @Export(name="isSecure", type=Boolean.class, parameters={})
+    @Export(name="isSecure", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isSecure;
 
     /**
@@ -203,7 +203,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * The language of the statement
      * 
      */
-    @Export(name="language", type=String.class, parameters={})
+    @Export(name="language", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> language;
 
     /**
@@ -217,7 +217,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * The argument name
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -231,7 +231,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Specifies the behavior of the function when called with null inputs.
      * 
      */
-    @Export(name="nullInputBehavior", type=String.class, parameters={})
+    @Export(name="nullInputBehavior", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nullInputBehavior;
 
     /**
@@ -245,7 +245,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * List of package imports to use for Java / Python functions. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: (&#39;numpy&#39;,&#39;pandas&#39;,&#39;xgboost==1.5.0&#39;).
      * 
      */
-    @Export(name="packages", type=List.class, parameters={String.class})
+    @Export(name="packages", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> packages;
 
     /**
@@ -259,7 +259,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Specifies the behavior of the function when returning results
      * 
      */
-    @Export(name="returnBehavior", type=String.class, parameters={})
+    @Export(name="returnBehavior", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> returnBehavior;
 
     /**
@@ -273,7 +273,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * The return type of the function
      * 
      */
-    @Export(name="returnType", type=String.class, parameters={})
+    @Export(name="returnType", refs={String.class}, tree="[0]")
     private Output<String> returnType;
 
     /**
@@ -287,7 +287,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Required for Python functions. Specifies Python runtime version.
      * 
      */
-    @Export(name="runtimeVersion", type=String.class, parameters={})
+    @Export(name="runtimeVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeVersion;
 
     /**
@@ -301,7 +301,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * The schema in which to create the function. Don&#39;t use the | character.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
@@ -315,7 +315,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Specifies the javascript / java / sql / python code used to create the function.
      * 
      */
-    @Export(name="statement", type=String.class, parameters={})
+    @Export(name="statement", refs={String.class}, tree="[0]")
     private Output<String> statement;
 
     /**
@@ -329,7 +329,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
      * 
      */
-    @Export(name="targetPath", type=String.class, parameters={})
+    @Export(name="targetPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetPath;
 
     /**

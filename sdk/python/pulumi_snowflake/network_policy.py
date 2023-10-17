@@ -39,7 +39,13 @@ class NetworkPolicyArgs:
              blocked_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              comment: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedIpLists' in kwargs:
+            allowed_ip_lists = kwargs['allowedIpLists']
+        if 'blockedIpLists' in kwargs:
+            blocked_ip_lists = kwargs['blockedIpLists']
+
         _setter("allowed_ip_lists", allowed_ip_lists)
         if blocked_ip_lists is not None:
             _setter("blocked_ip_lists", blocked_ip_lists)
@@ -125,7 +131,13 @@ class _NetworkPolicyState:
              blocked_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              comment: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedIpLists' in kwargs:
+            allowed_ip_lists = kwargs['allowedIpLists']
+        if 'blockedIpLists' in kwargs:
+            blocked_ip_lists = kwargs['blockedIpLists']
+
         if allowed_ip_lists is not None:
             _setter("allowed_ip_lists", allowed_ip_lists)
         if blocked_ip_lists is not None:

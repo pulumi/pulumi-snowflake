@@ -39,7 +39,17 @@ class RoleOwnershipGrantArgs:
              to_role_name: pulumi.Input[str],
              current_grants: Optional[pulumi.Input[str]] = None,
              revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'onRoleName' in kwargs:
+            on_role_name = kwargs['onRoleName']
+        if 'toRoleName' in kwargs:
+            to_role_name = kwargs['toRoleName']
+        if 'currentGrants' in kwargs:
+            current_grants = kwargs['currentGrants']
+        if 'revertOwnershipToRoleName' in kwargs:
+            revert_ownership_to_role_name = kwargs['revertOwnershipToRoleName']
+
         _setter("on_role_name", on_role_name)
         _setter("to_role_name", to_role_name)
         if current_grants is not None:
@@ -124,7 +134,17 @@ class _RoleOwnershipGrantState:
              on_role_name: Optional[pulumi.Input[str]] = None,
              revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
              to_role_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'currentGrants' in kwargs:
+            current_grants = kwargs['currentGrants']
+        if 'onRoleName' in kwargs:
+            on_role_name = kwargs['onRoleName']
+        if 'revertOwnershipToRoleName' in kwargs:
+            revert_ownership_to_role_name = kwargs['revertOwnershipToRoleName']
+        if 'toRoleName' in kwargs:
+            to_role_name = kwargs['toRoleName']
+
         if current_grants is not None:
             _setter("current_grants", current_grants)
         if on_role_name is not None:

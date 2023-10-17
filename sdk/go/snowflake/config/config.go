@@ -25,7 +25,16 @@ func GetAccount(ctx *pulumi.Context) string {
 	return value
 }
 
+// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+// connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+// UsernamePasswordMFA
+func GetAuthenticator(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:authenticator")
+}
+
 // Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
+//
+// Deprecated: Use `authenticator` instead
 func GetBrowserAuth(ctx *pulumi.Context) bool {
 	v, err := config.TryBool(ctx, "snowflake:browserAuth")
 	if err == nil {

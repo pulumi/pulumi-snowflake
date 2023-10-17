@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="snowflake:index/role:Role")
 public class Role extends com.pulumi.resources.CustomResource {
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     public Output<Optional<String>> comment() {
@@ -66,7 +66,7 @@ public class Role extends com.pulumi.resources.CustomResource {
      * Tag name, e.g. department.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -84,7 +84,7 @@ public class Role extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    @Export(name="tags", type=List.class, parameters={RoleTag.class})
+    @Export(name="tags", refs={List.class,RoleTag.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RoleTag>> tags;
 
     /**

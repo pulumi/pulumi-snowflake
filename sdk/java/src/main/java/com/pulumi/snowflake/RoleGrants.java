@@ -85,7 +85,7 @@ public class RoleGrants extends com.pulumi.resources.CustomResource {
      * grants applied to roles and objects outside Terraform.
      * 
      */
-    @Export(name="enableMultipleGrants", type=Boolean.class, parameters={})
+    @Export(name="enableMultipleGrants", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableMultipleGrants;
 
     /**
@@ -100,7 +100,7 @@ public class RoleGrants extends com.pulumi.resources.CustomResource {
      * The name of the role we are granting.
      * 
      */
-    @Export(name="roleName", type=String.class, parameters={})
+    @Export(name="roleName", refs={String.class}, tree="[0]")
     private Output<String> roleName;
 
     /**
@@ -114,7 +114,7 @@ public class RoleGrants extends com.pulumi.resources.CustomResource {
      * Grants role to this specified role.
      * 
      */
-    @Export(name="roles", type=List.class, parameters={String.class})
+    @Export(name="roles", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> roles;
 
     /**
@@ -128,7 +128,7 @@ public class RoleGrants extends com.pulumi.resources.CustomResource {
      * Grants role to this specified user.
      * 
      */
-    @Export(name="users", type=List.class, parameters={String.class})
+    @Export(name="users", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> users;
 
     /**

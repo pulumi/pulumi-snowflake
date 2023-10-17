@@ -49,7 +49,21 @@ class TagAssociationArgs:
              tag_value: pulumi.Input[str],
              object_name: Optional[pulumi.Input[str]] = None,
              skip_validation: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectIdentifiers' in kwargs:
+            object_identifiers = kwargs['objectIdentifiers']
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+        if 'tagId' in kwargs:
+            tag_id = kwargs['tagId']
+        if 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+        if 'objectName' in kwargs:
+            object_name = kwargs['objectName']
+        if 'skipValidation' in kwargs:
+            skip_validation = kwargs['skipValidation']
+
         _setter("object_identifiers", object_identifiers)
         _setter("object_type", object_type)
         _setter("tag_id", tag_id)
@@ -174,7 +188,21 @@ class _TagAssociationState:
              skip_validation: Optional[pulumi.Input[bool]] = None,
              tag_id: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectIdentifiers' in kwargs:
+            object_identifiers = kwargs['objectIdentifiers']
+        if 'objectName' in kwargs:
+            object_name = kwargs['objectName']
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+        if 'skipValidation' in kwargs:
+            skip_validation = kwargs['skipValidation']
+        if 'tagId' in kwargs:
+            tag_id = kwargs['tagId']
+        if 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if object_identifiers is not None:
             _setter("object_identifiers", object_identifiers)
         if object_name is not None:

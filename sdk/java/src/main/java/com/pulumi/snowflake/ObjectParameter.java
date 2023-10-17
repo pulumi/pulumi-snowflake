@@ -115,7 +115,7 @@ public class ObjectParameter extends com.pulumi.resources.CustomResource {
      * Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -129,7 +129,7 @@ public class ObjectParameter extends com.pulumi.resources.CustomResource {
      * Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
      * 
      */
-    @Export(name="objectIdentifiers", type=List.class, parameters={ObjectParameterObjectIdentifier.class})
+    @Export(name="objectIdentifiers", refs={List.class,ObjectParameterObjectIdentifier.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ObjectParameterObjectIdentifier>> objectIdentifiers;
 
     /**
@@ -143,7 +143,7 @@ public class ObjectParameter extends com.pulumi.resources.CustomResource {
      * Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
      * 
      */
-    @Export(name="objectType", type=String.class, parameters={})
+    @Export(name="objectType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> objectType;
 
     /**
@@ -157,7 +157,7 @@ public class ObjectParameter extends com.pulumi.resources.CustomResource {
      * If true, the object parameter will be set on the account level.
      * 
      */
-    @Export(name="onAccount", type=Boolean.class, parameters={})
+    @Export(name="onAccount", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> onAccount;
 
     /**
@@ -171,7 +171,7 @@ public class ObjectParameter extends com.pulumi.resources.CustomResource {
      * Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**

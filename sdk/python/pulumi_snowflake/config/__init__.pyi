@@ -15,6 +15,13 @@ The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` en
 using profile.
 """
 
+authenticator: Optional[str]
+"""
+Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+UsernamePasswordMFA
+"""
+
 browserAuth: Optional[bool]
 """
 Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.

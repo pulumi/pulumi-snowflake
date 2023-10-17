@@ -75,7 +75,25 @@ class AccountArgs:
              name: Optional[pulumi.Input[str]] = None,
              region: Optional[pulumi.Input[str]] = None,
              region_group: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminName' in kwargs:
+            admin_name = kwargs['adminName']
+        if 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+        if 'adminRsaPublicKey' in kwargs:
+            admin_rsa_public_key = kwargs['adminRsaPublicKey']
+        if 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if 'gracePeriodInDays' in kwargs:
+            grace_period_in_days = kwargs['gracePeriodInDays']
+        if 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if 'mustChangePassword' in kwargs:
+            must_change_password = kwargs['mustChangePassword']
+        if 'regionGroup' in kwargs:
+            region_group = kwargs['regionGroup']
+
         _setter("admin_name", admin_name)
         _setter("edition", edition)
         _setter("email", email)
@@ -325,7 +343,27 @@ class _AccountState:
              name: Optional[pulumi.Input[str]] = None,
              region: Optional[pulumi.Input[str]] = None,
              region_group: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminName' in kwargs:
+            admin_name = kwargs['adminName']
+        if 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+        if 'adminRsaPublicKey' in kwargs:
+            admin_rsa_public_key = kwargs['adminRsaPublicKey']
+        if 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if 'gracePeriodInDays' in kwargs:
+            grace_period_in_days = kwargs['gracePeriodInDays']
+        if 'isOrgAdmin' in kwargs:
+            is_org_admin = kwargs['isOrgAdmin']
+        if 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if 'mustChangePassword' in kwargs:
+            must_change_password = kwargs['mustChangePassword']
+        if 'regionGroup' in kwargs:
+            region_group = kwargs['regionGroup']
+
         if admin_name is not None:
             _setter("admin_name", admin_name)
         if admin_password is not None:

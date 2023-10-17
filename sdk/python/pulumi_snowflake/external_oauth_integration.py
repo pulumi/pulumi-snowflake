@@ -87,7 +87,31 @@ class ExternalOauthIntegrationArgs:
              rsa_public_key2: Optional[pulumi.Input[str]] = None,
              scope_delimiter: Optional[pulumi.Input[str]] = None,
              scope_mapping_attribute: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'snowflakeUserMappingAttribute' in kwargs:
+            snowflake_user_mapping_attribute = kwargs['snowflakeUserMappingAttribute']
+        if 'tokenUserMappingClaims' in kwargs:
+            token_user_mapping_claims = kwargs['tokenUserMappingClaims']
+        if 'allowedRoles' in kwargs:
+            allowed_roles = kwargs['allowedRoles']
+        if 'anyRoleMode' in kwargs:
+            any_role_mode = kwargs['anyRoleMode']
+        if 'audienceUrls' in kwargs:
+            audience_urls = kwargs['audienceUrls']
+        if 'blockedRoles' in kwargs:
+            blocked_roles = kwargs['blockedRoles']
+        if 'jwsKeysUrls' in kwargs:
+            jws_keys_urls = kwargs['jwsKeysUrls']
+        if 'rsaPublicKey' in kwargs:
+            rsa_public_key = kwargs['rsaPublicKey']
+        if 'rsaPublicKey2' in kwargs:
+            rsa_public_key2 = kwargs['rsaPublicKey2']
+        if 'scopeDelimiter' in kwargs:
+            scope_delimiter = kwargs['scopeDelimiter']
+        if 'scopeMappingAttribute' in kwargs:
+            scope_mapping_attribute = kwargs['scopeMappingAttribute']
+
         _setter("enabled", enabled)
         _setter("issuer", issuer)
         _setter("snowflake_user_mapping_attribute", snowflake_user_mapping_attribute)
@@ -389,7 +413,33 @@ class _ExternalOauthIntegrationState:
              snowflake_user_mapping_attribute: Optional[pulumi.Input[str]] = None,
              token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedRoles' in kwargs:
+            allowed_roles = kwargs['allowedRoles']
+        if 'anyRoleMode' in kwargs:
+            any_role_mode = kwargs['anyRoleMode']
+        if 'audienceUrls' in kwargs:
+            audience_urls = kwargs['audienceUrls']
+        if 'blockedRoles' in kwargs:
+            blocked_roles = kwargs['blockedRoles']
+        if 'createdOn' in kwargs:
+            created_on = kwargs['createdOn']
+        if 'jwsKeysUrls' in kwargs:
+            jws_keys_urls = kwargs['jwsKeysUrls']
+        if 'rsaPublicKey' in kwargs:
+            rsa_public_key = kwargs['rsaPublicKey']
+        if 'rsaPublicKey2' in kwargs:
+            rsa_public_key2 = kwargs['rsaPublicKey2']
+        if 'scopeDelimiter' in kwargs:
+            scope_delimiter = kwargs['scopeDelimiter']
+        if 'scopeMappingAttribute' in kwargs:
+            scope_mapping_attribute = kwargs['scopeMappingAttribute']
+        if 'snowflakeUserMappingAttribute' in kwargs:
+            snowflake_user_mapping_attribute = kwargs['snowflakeUserMappingAttribute']
+        if 'tokenUserMappingClaims' in kwargs:
+            token_user_mapping_claims = kwargs['tokenUserMappingClaims']
+
         if allowed_roles is not None:
             _setter("allowed_roles", allowed_roles)
         if any_role_mode is not None:

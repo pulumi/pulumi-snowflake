@@ -43,7 +43,9 @@ class SequenceArgs:
              comment: Optional[pulumi.Input[str]] = None,
              increment: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("database", database)
         _setter("schema", schema)
         if comment is not None:
@@ -154,7 +156,13 @@ class _SequenceState:
              name: Optional[pulumi.Input[str]] = None,
              next_value: Optional[pulumi.Input[int]] = None,
              schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fullyQualifiedName' in kwargs:
+            fully_qualified_name = kwargs['fullyQualifiedName']
+        if 'nextValue' in kwargs:
+            next_value = kwargs['nextValue']
+
         if comment is not None:
             _setter("comment", comment)
         if database is not None:

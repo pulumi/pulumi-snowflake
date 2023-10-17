@@ -65,7 +65,7 @@ public class OauthIntegration extends com.pulumi.resources.CustomResource {
      * List of roles that a user cannot explicitly consent to using after authenticating. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
      * 
      */
-    @Export(name="blockedRolesLists", type=List.class, parameters={String.class})
+    @Export(name="blockedRolesLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> blockedRolesLists;
 
     /**
@@ -79,7 +79,7 @@ public class OauthIntegration extends com.pulumi.resources.CustomResource {
      * Specifies a comment for the OAuth integration.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -93,7 +93,7 @@ public class OauthIntegration extends com.pulumi.resources.CustomResource {
      * Date and time when the OAuth integration was created.
      * 
      */
-    @Export(name="createdOn", type=String.class, parameters={})
+    @Export(name="createdOn", refs={String.class}, tree="[0]")
     private Output<String> createdOn;
 
     /**
@@ -107,7 +107,7 @@ public class OauthIntegration extends com.pulumi.resources.CustomResource {
      * Specifies whether this OAuth integration is enabled or disabled.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -121,7 +121,7 @@ public class OauthIntegration extends com.pulumi.resources.CustomResource {
      * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -135,7 +135,7 @@ public class OauthIntegration extends com.pulumi.resources.CustomResource {
      * Specifies the OAuth client type.
      * 
      */
-    @Export(name="oauthClient", type=String.class, parameters={})
+    @Export(name="oauthClient", refs={String.class}, tree="[0]")
     private Output<String> oauthClient;
 
     /**
@@ -149,7 +149,7 @@ public class OauthIntegration extends com.pulumi.resources.CustomResource {
      * Specifies the type of client being registered. Snowflake supports both confidential and public clients.
      * 
      */
-    @Export(name="oauthClientType", type=String.class, parameters={})
+    @Export(name="oauthClientType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthClientType;
 
     /**
@@ -163,7 +163,7 @@ public class OauthIntegration extends com.pulumi.resources.CustomResource {
      * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired.
      * 
      */
-    @Export(name="oauthIssueRefreshTokens", type=Boolean.class, parameters={})
+    @Export(name="oauthIssueRefreshTokens", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> oauthIssueRefreshTokens;
 
     /**
@@ -177,7 +177,7 @@ public class OauthIntegration extends com.pulumi.resources.CustomResource {
      * Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
      * 
      */
-    @Export(name="oauthRedirectUri", type=String.class, parameters={})
+    @Export(name="oauthRedirectUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthRedirectUri;
 
     /**
@@ -191,7 +191,7 @@ public class OauthIntegration extends com.pulumi.resources.CustomResource {
      * Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
      * 
      */
-    @Export(name="oauthRefreshTokenValidity", type=Integer.class, parameters={})
+    @Export(name="oauthRefreshTokenValidity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> oauthRefreshTokenValidity;
 
     /**
@@ -205,7 +205,7 @@ public class OauthIntegration extends com.pulumi.resources.CustomResource {
      * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
      * 
      */
-    @Export(name="oauthUseSecondaryRoles", type=String.class, parameters={})
+    @Export(name="oauthUseSecondaryRoles", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthUseSecondaryRoles;
 
     /**

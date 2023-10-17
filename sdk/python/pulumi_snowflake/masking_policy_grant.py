@@ -56,7 +56,21 @@ class MaskingPolicyGrantArgs:
              revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'maskingPolicyName' in kwargs:
+            masking_policy_name = kwargs['maskingPolicyName']
+        if 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if 'enableMultipleGrants' in kwargs:
+            enable_multiple_grants = kwargs['enableMultipleGrants']
+        if 'revertOwnershipToRoleName' in kwargs:
+            revert_ownership_to_role_name = kwargs['revertOwnershipToRoleName']
+        if 'withGrantOption' in kwargs:
+            with_grant_option = kwargs['withGrantOption']
+
         _setter("database_name", database_name)
         _setter("masking_policy_name", masking_policy_name)
         _setter("schema_name", schema_name)
@@ -214,7 +228,21 @@ class _MaskingPolicyGrantState:
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              schema_name: Optional[pulumi.Input[str]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'enableMultipleGrants' in kwargs:
+            enable_multiple_grants = kwargs['enableMultipleGrants']
+        if 'maskingPolicyName' in kwargs:
+            masking_policy_name = kwargs['maskingPolicyName']
+        if 'revertOwnershipToRoleName' in kwargs:
+            revert_ownership_to_role_name = kwargs['revertOwnershipToRoleName']
+        if 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if 'withGrantOption' in kwargs:
+            with_grant_option = kwargs['withGrantOption']
+
         if database_name is not None:
             _setter("database_name", database_name)
         if enable_multiple_grants is not None:

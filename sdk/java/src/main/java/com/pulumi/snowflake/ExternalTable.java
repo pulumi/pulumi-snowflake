@@ -77,7 +77,7 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
      * Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
      * 
      */
-    @Export(name="autoRefresh", type=Boolean.class, parameters={})
+    @Export(name="autoRefresh", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoRefresh;
 
     /**
@@ -91,7 +91,7 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
      * Specifies the aws sns topic for the external table.
      * 
      */
-    @Export(name="awsSnsTopic", type=String.class, parameters={})
+    @Export(name="awsSnsTopic", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsSnsTopic;
 
     /**
@@ -105,7 +105,7 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
      * Definitions of a column to create in the external table. Minimum one required.
      * 
      */
-    @Export(name="columns", type=List.class, parameters={ExternalTableColumn.class})
+    @Export(name="columns", refs={List.class,ExternalTableColumn.class}, tree="[0,1]")
     private Output<List<ExternalTableColumn>> columns;
 
     /**
@@ -119,7 +119,7 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
      * Specifies a comment for the external table.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -133,7 +133,7 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
      * Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
      * 
      */
-    @Export(name="copyGrants", type=Boolean.class, parameters={})
+    @Export(name="copyGrants", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyGrants;
 
     /**
@@ -147,7 +147,7 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
      * Name of the database that the tag was created in.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -161,7 +161,7 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
      * Specifies the file format for the external table.
      * 
      */
-    @Export(name="fileFormat", type=String.class, parameters={})
+    @Export(name="fileFormat", refs={String.class}, tree="[0]")
     private Output<String> fileFormat;
 
     /**
@@ -175,7 +175,7 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
      * Specifies a location for the external table.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -189,7 +189,7 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
      * Column name
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -203,7 +203,7 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
      * Name of the role that owns the external table.
      * 
      */
-    @Export(name="owner", type=String.class, parameters={})
+    @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
     /**
@@ -217,7 +217,7 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
      * Specifies any partition columns to evaluate for the external table.
      * 
      */
-    @Export(name="partitionBies", type=List.class, parameters={String.class})
+    @Export(name="partitionBies", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> partitionBies;
 
     /**
@@ -231,7 +231,7 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
      * Specifies the file names and/or paths on the external stage to match.
      * 
      */
-    @Export(name="pattern", type=String.class, parameters={})
+    @Export(name="pattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pattern;
 
     /**
@@ -245,7 +245,7 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
      * Specifies weather to refresh when an external table is created.
      * 
      */
-    @Export(name="refreshOnCreate", type=Boolean.class, parameters={})
+    @Export(name="refreshOnCreate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> refreshOnCreate;
 
     /**
@@ -259,7 +259,7 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
      * Name of the schema that the tag was created in.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
@@ -277,7 +277,7 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    @Export(name="tags", type=List.class, parameters={ExternalTableTag.class})
+    @Export(name="tags", refs={List.class,ExternalTableTag.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ExternalTableTag>> tags;
 
     /**

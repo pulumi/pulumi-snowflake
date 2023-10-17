@@ -76,7 +76,7 @@ public class FunctionGrant extends com.pulumi.resources.CustomResource {
      * List of the argument data types for the function (must be present if function has arguments and function_name is present)
      * 
      */
-    @Export(name="argumentDataTypes", type=List.class, parameters={String.class})
+    @Export(name="argumentDataTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> argumentDataTypes;
 
     /**
@@ -90,7 +90,7 @@ public class FunctionGrant extends com.pulumi.resources.CustomResource {
      * The name of the database containing the current or future functions on which to grant privileges.
      * 
      */
-    @Export(name="databaseName", type=String.class, parameters={})
+    @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
@@ -105,7 +105,7 @@ public class FunctionGrant extends com.pulumi.resources.CustomResource {
      * grants applied to roles and objects outside Terraform.
      * 
      */
-    @Export(name="enableMultipleGrants", type=Boolean.class, parameters={})
+    @Export(name="enableMultipleGrants", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableMultipleGrants;
 
     /**
@@ -120,7 +120,7 @@ public class FunctionGrant extends com.pulumi.resources.CustomResource {
      * The name of the function on which to grant privileges immediately (only valid if on_future is false).
      * 
      */
-    @Export(name="functionName", type=String.class, parameters={})
+    @Export(name="functionName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> functionName;
 
     /**
@@ -134,7 +134,7 @@ public class FunctionGrant extends com.pulumi.resources.CustomResource {
      * When this is set to true and a schema*name is provided, apply this grant on all functions in the given schema. When this is true and no schema*name is provided apply this grant on all functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
      * 
      */
-    @Export(name="onAll", type=Boolean.class, parameters={})
+    @Export(name="onAll", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> onAll;
 
     /**
@@ -148,7 +148,7 @@ public class FunctionGrant extends com.pulumi.resources.CustomResource {
      * When this is set to true and a schema*name is provided, apply this grant on all future functions in the given schema. When this is true and no schema*name is provided apply this grant on all future functions in the given database. The function*name, arguments, return*type, and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
      * 
      */
-    @Export(name="onFuture", type=Boolean.class, parameters={})
+    @Export(name="onFuture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> onFuture;
 
     /**
@@ -162,7 +162,7 @@ public class FunctionGrant extends com.pulumi.resources.CustomResource {
      * The privilege to grant on the current or future function. Must be one of `USAGE` or `OWNERSHIP`. To grant all privileges, use the value `ALL PRIVILEGES`
      * 
      */
-    @Export(name="privilege", type=String.class, parameters={})
+    @Export(name="privilege", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privilege;
 
     /**
@@ -176,7 +176,7 @@ public class FunctionGrant extends com.pulumi.resources.CustomResource {
      * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
      * 
      */
-    @Export(name="revertOwnershipToRoleName", type=String.class, parameters={})
+    @Export(name="revertOwnershipToRoleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> revertOwnershipToRoleName;
 
     /**
@@ -190,7 +190,7 @@ public class FunctionGrant extends com.pulumi.resources.CustomResource {
      * Grants privilege to these roles.
      * 
      */
-    @Export(name="roles", type=List.class, parameters={String.class})
+    @Export(name="roles", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> roles;
 
     /**
@@ -204,7 +204,7 @@ public class FunctionGrant extends com.pulumi.resources.CustomResource {
      * The name of the schema containing the current or future functions on which to grant privileges.
      * 
      */
-    @Export(name="schemaName", type=String.class, parameters={})
+    @Export(name="schemaName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> schemaName;
 
     /**
@@ -218,7 +218,7 @@ public class FunctionGrant extends com.pulumi.resources.CustomResource {
      * Grants privilege to these shares (only valid if on_future is false).
      * 
      */
-    @Export(name="shares", type=List.class, parameters={String.class})
+    @Export(name="shares", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> shares;
 
     /**
@@ -232,7 +232,7 @@ public class FunctionGrant extends com.pulumi.resources.CustomResource {
      * When this is set to true, allows the recipient role to grant the privileges to other roles.
      * 
      */
-    @Export(name="withGrantOption", type=Boolean.class, parameters={})
+    @Export(name="withGrantOption", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> withGrantOption;
 
     /**

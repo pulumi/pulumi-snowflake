@@ -61,7 +61,15 @@ class ViewArgs:
              name: Optional[pulumi.Input[str]] = None,
              or_replace: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'copyGrants' in kwargs:
+            copy_grants = kwargs['copyGrants']
+        if 'isSecure' in kwargs:
+            is_secure = kwargs['isSecure']
+        if 'orReplace' in kwargs:
+            or_replace = kwargs['orReplace']
+
         _setter("database", database)
         _setter("schema", schema)
         _setter("statement", statement)
@@ -245,7 +253,17 @@ class _ViewState:
              schema: Optional[pulumi.Input[str]] = None,
              statement: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'copyGrants' in kwargs:
+            copy_grants = kwargs['copyGrants']
+        if 'createdOn' in kwargs:
+            created_on = kwargs['createdOn']
+        if 'isSecure' in kwargs:
+            is_secure = kwargs['isSecure']
+        if 'orReplace' in kwargs:
+            or_replace = kwargs['orReplace']
+
         if comment is not None:
             _setter("comment", comment)
         if copy_grants is not None:

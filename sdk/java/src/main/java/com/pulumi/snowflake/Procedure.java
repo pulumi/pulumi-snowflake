@@ -97,7 +97,7 @@ public class Procedure extends com.pulumi.resources.CustomResource {
      * List of the arguments for the procedure
      * 
      */
-    @Export(name="arguments", type=List.class, parameters={ProcedureArgument.class})
+    @Export(name="arguments", refs={List.class,ProcedureArgument.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ProcedureArgument>> arguments;
 
     /**
@@ -111,7 +111,7 @@ public class Procedure extends com.pulumi.resources.CustomResource {
      * Specifies a comment for the procedure.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -125,7 +125,7 @@ public class Procedure extends com.pulumi.resources.CustomResource {
      * The database in which to create the procedure. Don&#39;t use the | character.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -139,7 +139,7 @@ public class Procedure extends com.pulumi.resources.CustomResource {
      * Sets execute context - see caller&#39;s rights and owner&#39;s rights
      * 
      */
-    @Export(name="executeAs", type=String.class, parameters={})
+    @Export(name="executeAs", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> executeAs;
 
     /**
@@ -153,7 +153,7 @@ public class Procedure extends com.pulumi.resources.CustomResource {
      * The handler method for Java / Python procedures.
      * 
      */
-    @Export(name="handler", type=String.class, parameters={})
+    @Export(name="handler", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> handler;
 
     /**
@@ -167,7 +167,7 @@ public class Procedure extends com.pulumi.resources.CustomResource {
      * Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
      * 
      */
-    @Export(name="imports", type=List.class, parameters={String.class})
+    @Export(name="imports", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> imports;
 
     /**
@@ -181,7 +181,7 @@ public class Procedure extends com.pulumi.resources.CustomResource {
      * Specifies the language of the stored procedure code.
      * 
      */
-    @Export(name="language", type=String.class, parameters={})
+    @Export(name="language", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> language;
 
     /**
@@ -195,7 +195,7 @@ public class Procedure extends com.pulumi.resources.CustomResource {
      * The argument name
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -209,7 +209,7 @@ public class Procedure extends com.pulumi.resources.CustomResource {
      * Specifies the behavior of the procedure when called with null inputs.
      * 
      */
-    @Export(name="nullInputBehavior", type=String.class, parameters={})
+    @Export(name="nullInputBehavior", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nullInputBehavior;
 
     /**
@@ -223,7 +223,7 @@ public class Procedure extends com.pulumi.resources.CustomResource {
      * List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: (&#39;numpy&#39;,&#39;pandas&#39;,&#39;xgboost==1.5.0&#39;).
      * 
      */
-    @Export(name="packages", type=List.class, parameters={String.class})
+    @Export(name="packages", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> packages;
 
     /**
@@ -237,7 +237,7 @@ public class Procedure extends com.pulumi.resources.CustomResource {
      * Specifies the behavior of the function when returning results
      * 
      */
-    @Export(name="returnBehavior", type=String.class, parameters={})
+    @Export(name="returnBehavior", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> returnBehavior;
 
     /**
@@ -251,7 +251,7 @@ public class Procedure extends com.pulumi.resources.CustomResource {
      * The return type of the procedure
      * 
      */
-    @Export(name="returnType", type=String.class, parameters={})
+    @Export(name="returnType", refs={String.class}, tree="[0]")
     private Output<String> returnType;
 
     /**
@@ -265,7 +265,7 @@ public class Procedure extends com.pulumi.resources.CustomResource {
      * Required for Python procedures. Specifies Python runtime version.
      * 
      */
-    @Export(name="runtimeVersion", type=String.class, parameters={})
+    @Export(name="runtimeVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeVersion;
 
     /**
@@ -279,7 +279,7 @@ public class Procedure extends com.pulumi.resources.CustomResource {
      * The schema in which to create the procedure. Don&#39;t use the | character.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
@@ -293,7 +293,7 @@ public class Procedure extends com.pulumi.resources.CustomResource {
      * Specifies the code used to create the procedure.
      * 
      */
-    @Export(name="statement", type=String.class, parameters={})
+    @Export(name="statement", refs={String.class}, tree="[0]")
     private Output<String> statement;
 
     /**

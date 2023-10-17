@@ -28,7 +28,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * using profile.
      * 
      */
-    @Export(name="account", type=String.class, parameters={})
+    @Export(name="account", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> account;
 
     /**
@@ -40,10 +40,28 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.account);
     }
     /**
+     * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+     * connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+     * UsernamePasswordMFA
+     * 
+     */
+    @Export(name="authenticator", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> authenticator;
+
+    /**
+     * @return Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+     * connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+     * UsernamePasswordMFA
+     * 
+     */
+    public Output<Optional<String>> authenticator() {
+        return Codegen.optional(this.authenticator);
+    }
+    /**
      * Supports passing in a custom host value to the snowflake go driver for use with privatelink.
      * 
      */
-    @Export(name="host", type=String.class, parameters={})
+    @Export(name="host", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> host;
 
     /**
@@ -59,7 +77,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * variable.
      * 
      */
-    @Export(name="oauthAccessToken", type=String.class, parameters={})
+    @Export(name="oauthAccessToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthAccessToken;
 
     /**
@@ -75,7 +93,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
      * 
      */
-    @Export(name="oauthClientId", type=String.class, parameters={})
+    @Export(name="oauthClientId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthClientId;
 
     /**
@@ -89,7 +107,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
      * 
      */
-    @Export(name="oauthClientSecret", type=String.class, parameters={})
+    @Export(name="oauthClientSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthClientSecret;
 
     /**
@@ -103,7 +121,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
      * 
      */
-    @Export(name="oauthEndpoint", type=String.class, parameters={})
+    @Export(name="oauthEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthEndpoint;
 
     /**
@@ -117,7 +135,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
      * 
      */
-    @Export(name="oauthRedirectUrl", type=String.class, parameters={})
+    @Export(name="oauthRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthRedirectUrl;
 
     /**
@@ -134,7 +152,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * variable.
      * 
      */
-    @Export(name="oauthRefreshToken", type=String.class, parameters={})
+    @Export(name="oauthRefreshToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthRefreshToken;
 
     /**
@@ -151,7 +169,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
      * 
      */
-    @Export(name="passcode", type=String.class, parameters={})
+    @Export(name="passcode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> passcode;
 
     /**
@@ -166,7 +184,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * `SNOWFLAKE_PASSWORD` environment variable.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
@@ -182,7 +200,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * `SNOWFLAKE_PRIVATE_KEY` environment variable.
      * 
      */
-    @Export(name="privateKey", type=String.class, parameters={})
+    @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privateKey;
 
     /**
@@ -198,7 +216,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * des-ede3-cbc
      * 
      */
-    @Export(name="privateKeyPassphrase", type=String.class, parameters={})
+    @Export(name="privateKeyPassphrase", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privateKeyPassphrase;
 
     /**
@@ -214,7 +232,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
      * 
      */
-    @Export(name="privateKeyPath", type=String.class, parameters={})
+    @Export(name="privateKeyPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privateKeyPath;
 
     /**
@@ -229,7 +247,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Sets the profile to read from ~/.snowflake/config file.
      * 
      */
-    @Export(name="profile", type=String.class, parameters={})
+    @Export(name="profile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> profile;
 
     /**
@@ -243,7 +261,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
      * 
      */
-    @Export(name="protocol", type=String.class, parameters={})
+    @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> protocol;
 
     /**
@@ -260,7 +278,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * in the form of `&lt;cloud_region_id&gt;.&lt;cloud&gt;`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
      * 
      */
-    @Export(name="region", type=String.class, parameters={})
+    @Export(name="region", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> region;
 
     /**
@@ -278,7 +296,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * `SNOWFLAKE_ROLE` environment variable.
      * 
      */
-    @Export(name="role", type=String.class, parameters={})
+    @Export(name="role", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> role;
 
     /**
@@ -294,7 +312,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * using profile.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 
     /**
@@ -309,7 +327,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
      * 
      */
-    @Export(name="warehouse", type=String.class, parameters={})
+    @Export(name="warehouse", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> warehouse;
 
     /**

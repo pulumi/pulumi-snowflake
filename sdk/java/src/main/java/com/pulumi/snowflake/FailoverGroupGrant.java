@@ -23,7 +23,7 @@ public class FailoverGroupGrant extends com.pulumi.resources.CustomResource {
      * grants applied to roles and objects outside Terraform.
      * 
      */
-    @Export(name="enableMultipleGrants", type=Boolean.class, parameters={})
+    @Export(name="enableMultipleGrants", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableMultipleGrants;
 
     /**
@@ -38,7 +38,7 @@ public class FailoverGroupGrant extends com.pulumi.resources.CustomResource {
      * The name of the failover group on which to grant privileges.
      * 
      */
-    @Export(name="failoverGroupName", type=String.class, parameters={})
+    @Export(name="failoverGroupName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> failoverGroupName;
 
     /**
@@ -52,7 +52,7 @@ public class FailoverGroupGrant extends com.pulumi.resources.CustomResource {
      * The privilege to grant on the failover group. To grant all privileges, use the value `ALL PRIVILEGES`
      * 
      */
-    @Export(name="privilege", type=String.class, parameters={})
+    @Export(name="privilege", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privilege;
 
     /**
@@ -66,7 +66,7 @@ public class FailoverGroupGrant extends com.pulumi.resources.CustomResource {
      * The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
      * 
      */
-    @Export(name="revertOwnershipToRoleName", type=String.class, parameters={})
+    @Export(name="revertOwnershipToRoleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> revertOwnershipToRoleName;
 
     /**
@@ -80,7 +80,7 @@ public class FailoverGroupGrant extends com.pulumi.resources.CustomResource {
      * Grants privilege to these roles.
      * 
      */
-    @Export(name="roles", type=List.class, parameters={String.class})
+    @Export(name="roles", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> roles;
 
     /**
@@ -94,7 +94,7 @@ public class FailoverGroupGrant extends com.pulumi.resources.CustomResource {
      * When this is set to true, allows the recipient role to grant the privileges to other roles.
      * 
      */
-    @Export(name="withGrantOption", type=Boolean.class, parameters={})
+    @Export(name="withGrantOption", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> withGrantOption;
 
     /**

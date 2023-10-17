@@ -39,7 +39,11 @@ class SessionParameterArgs:
              value: pulumi.Input[str],
              on_account: Optional[pulumi.Input[bool]] = None,
              user: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'onAccount' in kwargs:
+            on_account = kwargs['onAccount']
+
         _setter("key", key)
         _setter("value", value)
         if on_account is not None:
@@ -124,7 +128,11 @@ class _SessionParameterState:
              on_account: Optional[pulumi.Input[bool]] = None,
              user: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'onAccount' in kwargs:
+            on_account = kwargs['onAccount']
+
         if key is not None:
             _setter("key", key)
         if on_account is not None:

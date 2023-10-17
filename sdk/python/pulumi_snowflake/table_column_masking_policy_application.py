@@ -35,7 +35,11 @@ class TableColumnMaskingPolicyApplicationArgs:
              column: pulumi.Input[str],
              masking_policy: pulumi.Input[str],
              table: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maskingPolicy' in kwargs:
+            masking_policy = kwargs['maskingPolicy']
+
         _setter("column", column)
         _setter("masking_policy", masking_policy)
         _setter("table", table)
@@ -101,7 +105,11 @@ class _TableColumnMaskingPolicyApplicationState:
              column: Optional[pulumi.Input[str]] = None,
              masking_policy: Optional[pulumi.Input[str]] = None,
              table: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maskingPolicy' in kwargs:
+            masking_policy = kwargs['maskingPolicy']
+
         if column is not None:
             _setter("column", column)
         if masking_policy is not None:

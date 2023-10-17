@@ -73,7 +73,13 @@ class TableConstraintArgs:
              name: Optional[pulumi.Input[str]] = None,
              rely: Optional[pulumi.Input[bool]] = None,
              validate: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tableId' in kwargs:
+            table_id = kwargs['tableId']
+        if 'foreignKeyProperties' in kwargs:
+            foreign_key_properties = kwargs['foreignKeyProperties']
+
         _setter("columns", columns)
         _setter("table_id", table_id)
         _setter("type", type)
@@ -301,7 +307,13 @@ class _TableConstraintState:
              table_id: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              validate: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'foreignKeyProperties' in kwargs:
+            foreign_key_properties = kwargs['foreignKeyProperties']
+        if 'tableId' in kwargs:
+            table_id = kwargs['tableId']
+
         if columns is not None:
             _setter("columns", columns)
         if comment is not None:

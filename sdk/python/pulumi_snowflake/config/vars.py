@@ -24,6 +24,15 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('account') or _utilities.get_env('SNOWFLAKE_ACCOUNT')
 
     @property
+    def authenticator(self) -> Optional[str]:
+        """
+        Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+        connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+        UsernamePasswordMFA
+        """
+        return __config__.get('authenticator')
+
+    @property
     def browser_auth(self) -> Optional[bool]:
         """
         Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.

@@ -94,7 +94,7 @@ public class TableColumnMaskingPolicyApplication extends com.pulumi.resources.Cu
      * The column to apply the masking policy to.
      * 
      */
-    @Export(name="column", type=String.class, parameters={})
+    @Export(name="column", refs={String.class}, tree="[0]")
     private Output<String> column;
 
     /**
@@ -108,7 +108,7 @@ public class TableColumnMaskingPolicyApplication extends com.pulumi.resources.Cu
      * Fully qualified name (`database.schema.policyname`) of the policy to apply.
      * 
      */
-    @Export(name="maskingPolicy", type=String.class, parameters={})
+    @Export(name="maskingPolicy", refs={String.class}, tree="[0]")
     private Output<String> maskingPolicy;
 
     /**
@@ -122,7 +122,7 @@ public class TableColumnMaskingPolicyApplication extends com.pulumi.resources.Cu
      * The fully qualified name (`database.schema.table`) of the table to apply the masking policy to.
      * 
      */
-    @Export(name="table", type=String.class, parameters={})
+    @Export(name="table", refs={String.class}, tree="[0]")
     private Output<String> table;
 
     /**

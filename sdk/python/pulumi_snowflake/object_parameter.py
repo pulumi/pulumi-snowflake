@@ -45,7 +45,15 @@ class ObjectParameterArgs:
              object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectParameterObjectIdentifierArgs']]]] = None,
              object_type: Optional[pulumi.Input[str]] = None,
              on_account: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectIdentifiers' in kwargs:
+            object_identifiers = kwargs['objectIdentifiers']
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+        if 'onAccount' in kwargs:
+            on_account = kwargs['onAccount']
+
         _setter("key", key)
         _setter("value", value)
         if object_identifiers is not None:
@@ -148,7 +156,15 @@ class _ObjectParameterState:
              object_type: Optional[pulumi.Input[str]] = None,
              on_account: Optional[pulumi.Input[bool]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectIdentifiers' in kwargs:
+            object_identifiers = kwargs['objectIdentifiers']
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+        if 'onAccount' in kwargs:
+            on_account = kwargs['onAccount']
+
         if key is not None:
             _setter("key", key)
         if object_identifiers is not None:

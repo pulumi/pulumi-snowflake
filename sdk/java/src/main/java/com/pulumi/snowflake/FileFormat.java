@@ -65,7 +65,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Boolean that specifies to allow duplicate object field names (only the last one will be preserved).
      * 
      */
-    @Export(name="allowDuplicate", type=Boolean.class, parameters={})
+    @Export(name="allowDuplicate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowDuplicate;
 
     /**
@@ -79,7 +79,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text.
      * 
      */
-    @Export(name="binaryAsText", type=Boolean.class, parameters={})
+    @Export(name="binaryAsText", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> binaryAsText;
 
     /**
@@ -93,7 +93,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Defines the encoding format for binary input or output.
      * 
      */
-    @Export(name="binaryFormat", type=String.class, parameters={})
+    @Export(name="binaryFormat", refs={String.class}, tree="[0]")
     private Output<String> binaryFormat;
 
     /**
@@ -107,7 +107,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Specifies a comment for the file format.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -121,7 +121,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Specifies the current compression algorithm for the data file.
      * 
      */
-    @Export(name="compression", type=String.class, parameters={})
+    @Export(name="compression", refs={String.class}, tree="[0]")
     private Output<String> compression;
 
     /**
@@ -135,7 +135,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * The database in which to create the file format.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -149,7 +149,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Defines the format of date values in the data files (data loading) or table (data unloading).
      * 
      */
-    @Export(name="dateFormat", type=String.class, parameters={})
+    @Export(name="dateFormat", refs={String.class}, tree="[0]")
     private Output<String> dateFormat;
 
     /**
@@ -163,7 +163,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
      * 
      */
-    @Export(name="disableAutoConvert", type=Boolean.class, parameters={})
+    @Export(name="disableAutoConvert", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableAutoConvert;
 
     /**
@@ -177,7 +177,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Boolean that specifies whether the XML parser disables recognition of Snowflake semi-structured data tags.
      * 
      */
-    @Export(name="disableSnowflakeData", type=Boolean.class, parameters={})
+    @Export(name="disableSnowflakeData", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableSnowflakeData;
 
     /**
@@ -191,7 +191,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
      * 
      */
-    @Export(name="emptyFieldAsNull", type=Boolean.class, parameters={})
+    @Export(name="emptyFieldAsNull", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> emptyFieldAsNull;
 
     /**
@@ -205,7 +205,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Boolean that enables parsing of octal numbers.
      * 
      */
-    @Export(name="enableOctal", type=Boolean.class, parameters={})
+    @Export(name="enableOctal", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableOctal;
 
     /**
@@ -219,7 +219,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * String (constant) that specifies the character set of the source data when loading data into a table.
      * 
      */
-    @Export(name="encoding", type=String.class, parameters={})
+    @Export(name="encoding", refs={String.class}, tree="[0]")
     private Output<String> encoding;
 
     /**
@@ -233,7 +233,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
      * 
      */
-    @Export(name="errorOnColumnCountMismatch", type=Boolean.class, parameters={})
+    @Export(name="errorOnColumnCountMismatch", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> errorOnColumnCountMismatch;
 
     /**
@@ -247,7 +247,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Single character string used as the escape character for field values.
      * 
      */
-    @Export(name="escape", type=String.class, parameters={})
+    @Export(name="escape", refs={String.class}, tree="[0]")
     private Output<String> escape;
 
     /**
@@ -261,7 +261,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Single character string used as the escape character for unenclosed field values only.
      * 
      */
-    @Export(name="escapeUnenclosedField", type=String.class, parameters={})
+    @Export(name="escapeUnenclosedField", refs={String.class}, tree="[0]")
     private Output<String> escapeUnenclosedField;
 
     /**
@@ -275,7 +275,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
      * 
      */
-    @Export(name="fieldDelimiter", type=String.class, parameters={})
+    @Export(name="fieldDelimiter", refs={String.class}, tree="[0]")
     private Output<String> fieldDelimiter;
 
     /**
@@ -289,7 +289,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Character used to enclose strings.
      * 
      */
-    @Export(name="fieldOptionallyEnclosedBy", type=String.class, parameters={})
+    @Export(name="fieldOptionallyEnclosedBy", refs={String.class}, tree="[0]")
     private Output<String> fieldOptionallyEnclosedBy;
 
     /**
@@ -303,7 +303,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Specifies the extension for files unloaded to a stage.
      * 
      */
-    @Export(name="fileExtension", type=String.class, parameters={})
+    @Export(name="fileExtension", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fileExtension;
 
     /**
@@ -317,7 +317,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Specifies the format of the input files (for data loading) or output files (for data unloading).
      * 
      */
-    @Export(name="formatType", type=String.class, parameters={})
+    @Export(name="formatType", refs={String.class}, tree="[0]")
     private Output<String> formatType;
 
     /**
@@ -331,7 +331,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Boolean that specifies whether UTF-8 encoding errors produce error conditions.
      * 
      */
-    @Export(name="ignoreUtf8Errors", type=Boolean.class, parameters={})
+    @Export(name="ignoreUtf8Errors", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreUtf8Errors;
 
     /**
@@ -345,7 +345,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -359,7 +359,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * String used to convert to and from SQL NULL.
      * 
      */
-    @Export(name="nullIfs", type=List.class, parameters={String.class})
+    @Export(name="nullIfs", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> nullIfs;
 
     /**
@@ -373,7 +373,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
      * 
      */
-    @Export(name="preserveSpace", type=Boolean.class, parameters={})
+    @Export(name="preserveSpace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> preserveSpace;
 
     /**
@@ -387,7 +387,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
      * 
      */
-    @Export(name="recordDelimiter", type=String.class, parameters={})
+    @Export(name="recordDelimiter", refs={String.class}, tree="[0]")
     private Output<String> recordDelimiter;
 
     /**
@@ -401,7 +401,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�).
      * 
      */
-    @Export(name="replaceInvalidCharacters", type=Boolean.class, parameters={})
+    @Export(name="replaceInvalidCharacters", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replaceInvalidCharacters;
 
     /**
@@ -415,7 +415,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * The schema in which to create the file format.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
@@ -429,7 +429,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Boolean that specifies to skip any blank lines encountered in the data files.
      * 
      */
-    @Export(name="skipBlankLines", type=Boolean.class, parameters={})
+    @Export(name="skipBlankLines", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipBlankLines;
 
     /**
@@ -443,7 +443,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Boolean that specifies whether to skip the BOM (byte order mark), if present in a data file.
      * 
      */
-    @Export(name="skipByteOrderMark", type=Boolean.class, parameters={})
+    @Export(name="skipByteOrderMark", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipByteOrderMark;
 
     /**
@@ -457,7 +457,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Number of lines at the start of the file to skip.
      * 
      */
-    @Export(name="skipHeader", type=Integer.class, parameters={})
+    @Export(name="skipHeader", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> skipHeader;
 
     /**
@@ -471,7 +471,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Boolean that instructs the JSON parser to remove object fields or array elements containing null values.
      * 
      */
-    @Export(name="stripNullValues", type=Boolean.class, parameters={})
+    @Export(name="stripNullValues", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> stripNullValues;
 
     /**
@@ -485,7 +485,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Boolean that instructs the JSON parser to remove outer brackets.
      * 
      */
-    @Export(name="stripOuterArray", type=Boolean.class, parameters={})
+    @Export(name="stripOuterArray", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> stripOuterArray;
 
     /**
@@ -499,7 +499,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
      * 
      */
-    @Export(name="stripOuterElement", type=Boolean.class, parameters={})
+    @Export(name="stripOuterElement", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> stripOuterElement;
 
     /**
@@ -513,7 +513,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Defines the format of time values in the data files (data loading) or table (data unloading).
      * 
      */
-    @Export(name="timeFormat", type=String.class, parameters={})
+    @Export(name="timeFormat", refs={String.class}, tree="[0]")
     private Output<String> timeFormat;
 
     /**
@@ -527,7 +527,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Defines the format of timestamp values in the data files (data loading) or table (data unloading).
      * 
      */
-    @Export(name="timestampFormat", type=String.class, parameters={})
+    @Export(name="timestampFormat", refs={String.class}, tree="[0]")
     private Output<String> timestampFormat;
 
     /**
@@ -541,7 +541,7 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
      * Boolean that specifies whether to remove white space from fields.
      * 
      */
-    @Export(name="trimSpace", type=Boolean.class, parameters={})
+    @Export(name="trimSpace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> trimSpace;
 
     /**

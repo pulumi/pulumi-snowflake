@@ -22,6 +22,10 @@ type Provider struct {
 	// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
 	// using profile.
 	Account pulumi.StringPtrOutput `pulumi:"account"`
+	// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+	// connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+	// UsernamePasswordMFA
+	Authenticator pulumi.StringPtrOutput `pulumi:"authenticator"`
 	// Supports passing in a custom host value to the snowflake go driver for use with privatelink.
 	Host pulumi.StringPtrOutput `pulumi:"host"`
 	// Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
@@ -227,7 +231,13 @@ type providerArgs struct {
 	// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
 	// using profile.
 	Account *string `pulumi:"account"`
+	// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+	// connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+	// UsernamePasswordMFA
+	Authenticator *string `pulumi:"authenticator"`
 	// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
+	//
+	// Deprecated: Use `authenticator` instead
 	BrowserAuth *bool `pulumi:"browserAuth"`
 	// Supports passing in a custom host value to the snowflake go driver for use with privatelink.
 	Host *string `pulumi:"host"`
@@ -297,7 +307,13 @@ type ProviderArgs struct {
 	// The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
 	// using profile.
 	Account pulumi.StringPtrInput
+	// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+	// connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+	// UsernamePasswordMFA
+	Authenticator pulumi.StringPtrInput
 	// Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
+	//
+	// Deprecated: Use `authenticator` instead
 	BrowserAuth pulumi.BoolPtrInput
 	// Supports passing in a custom host value to the snowflake go driver for use with privatelink.
 	Host pulumi.StringPtrInput
@@ -415,6 +431,13 @@ func (o ProviderOutput) ToOutput(ctx context.Context) pulumix.Output[*Provider] 
 // using profile.
 func (o ProviderOutput) Account() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Account }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+// connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+// UsernamePasswordMFA
+func (o ProviderOutput) Authenticator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Authenticator }).(pulumi.StringPtrOutput)
 }
 
 // Supports passing in a custom host value to the snowflake go driver for use with privatelink.

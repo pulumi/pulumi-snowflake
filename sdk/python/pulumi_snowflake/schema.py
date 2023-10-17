@@ -53,7 +53,15 @@ class SchemaArgs:
              is_transient: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataRetentionDays' in kwargs:
+            data_retention_days = kwargs['dataRetentionDays']
+        if 'isManaged' in kwargs:
+            is_managed = kwargs['isManaged']
+        if 'isTransient' in kwargs:
+            is_transient = kwargs['isTransient']
+
         _setter("database", database)
         if comment is not None:
             _setter("comment", comment)
@@ -199,7 +207,15 @@ class _SchemaState:
              is_transient: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataRetentionDays' in kwargs:
+            data_retention_days = kwargs['dataRetentionDays']
+        if 'isManaged' in kwargs:
+            is_managed = kwargs['isManaged']
+        if 'isTransient' in kwargs:
+            is_transient = kwargs['isTransient']
+
         if comment is not None:
             _setter("comment", comment)
         if data_retention_days is not None:

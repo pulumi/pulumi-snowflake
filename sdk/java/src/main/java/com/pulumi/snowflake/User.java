@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="snowflake:index/user:User")
 public class User extends com.pulumi.resources.CustomResource {
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     public Output<Optional<String>> comment() {
@@ -79,7 +79,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login.
      * 
      */
-    @Export(name="defaultNamespace", type=String.class, parameters={})
+    @Export(name="defaultNamespace", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultNamespace;
 
     /**
@@ -93,7 +93,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Specifies the role that is active by default for the user’s session upon login.
      * 
      */
-    @Export(name="defaultRole", type=String.class, parameters={})
+    @Export(name="defaultRole", refs={String.class}, tree="[0]")
     private Output<String> defaultRole;
 
     /**
@@ -107,7 +107,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Specifies the set of secondary roles that are active for the user’s session upon login. Currently only [&#34;ALL&#34;] value is supported - more information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties)
      * 
      */
-    @Export(name="defaultSecondaryRoles", type=List.class, parameters={String.class})
+    @Export(name="defaultSecondaryRoles", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> defaultSecondaryRoles;
 
     /**
@@ -121,7 +121,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Specifies the virtual warehouse that is active by default for the user’s session upon login.
      * 
      */
-    @Export(name="defaultWarehouse", type=String.class, parameters={})
+    @Export(name="defaultWarehouse", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultWarehouse;
 
     /**
@@ -131,7 +131,7 @@ public class User extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> defaultWarehouse() {
         return Codegen.optional(this.defaultWarehouse);
     }
-    @Export(name="disabled", type=Boolean.class, parameters={})
+    @Export(name="disabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> disabled;
 
     public Output<Boolean> disabled() {
@@ -141,7 +141,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Name displayed for the user in the Snowflake web interface.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -155,7 +155,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Email address for the user.
      * 
      */
-    @Export(name="email", type=String.class, parameters={})
+    @Export(name="email", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> email;
 
     /**
@@ -169,7 +169,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * First name of the user.
      * 
      */
-    @Export(name="firstName", type=String.class, parameters={})
+    @Export(name="firstName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> firstName;
 
     /**
@@ -183,7 +183,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Will be true if user as an RSA key set.
      * 
      */
-    @Export(name="hasRsaPublicKey", type=Boolean.class, parameters={})
+    @Export(name="hasRsaPublicKey", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> hasRsaPublicKey;
 
     /**
@@ -197,7 +197,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Last name of the user.
      * 
      */
-    @Export(name="lastName", type=String.class, parameters={})
+    @Export(name="lastName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> lastName;
 
     /**
@@ -211,7 +211,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The name users use to log in. If not supplied, snowflake will use name instead.
      * 
      */
-    @Export(name="loginName", type=String.class, parameters={})
+    @Export(name="loginName", refs={String.class}, tree="[0]")
     private Output<String> loginName;
 
     /**
@@ -225,7 +225,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
      * 
      */
-    @Export(name="mustChangePassword", type=Boolean.class, parameters={})
+    @Export(name="mustChangePassword", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> mustChangePassword;
 
     /**
@@ -239,7 +239,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -253,7 +253,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * **WARNING:** this will put the password in the terraform state file. Use carefully.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
@@ -267,7 +267,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
      * 
      */
-    @Export(name="rsaPublicKey", type=String.class, parameters={})
+    @Export(name="rsaPublicKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rsaPublicKey;
 
     /**
@@ -281,7 +281,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      * 
      */
-    @Export(name="rsaPublicKey2", type=String.class, parameters={})
+    @Export(name="rsaPublicKey2", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rsaPublicKey2;
 
     /**

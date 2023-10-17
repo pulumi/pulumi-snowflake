@@ -65,7 +65,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * The external ID that Snowflake will use when assuming the AWS role
      * 
      */
-    @Export(name="awsSnsExternalId", type=String.class, parameters={})
+    @Export(name="awsSnsExternalId", refs={String.class}, tree="[0]")
     private Output<String> awsSnsExternalId;
 
     /**
@@ -79,7 +79,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * The Snowflake user that will attempt to assume the AWS role.
      * 
      */
-    @Export(name="awsSnsIamUserArn", type=String.class, parameters={})
+    @Export(name="awsSnsIamUserArn", refs={String.class}, tree="[0]")
     private Output<String> awsSnsIamUserArn;
 
     /**
@@ -93,7 +93,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * AWS IAM role ARN for notification integration to assume
      * 
      */
-    @Export(name="awsSnsRoleArn", type=String.class, parameters={})
+    @Export(name="awsSnsRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsSnsRoleArn;
 
     /**
@@ -107,7 +107,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * AWS SNS Topic ARN for notification integration to connect to
      * 
      */
-    @Export(name="awsSnsTopicArn", type=String.class, parameters={})
+    @Export(name="awsSnsTopicArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsSnsTopicArn;
 
     /**
@@ -121,7 +121,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * AWS SQS queue ARN for notification integration to connect to
      * 
      */
-    @Export(name="awsSqsArn", type=String.class, parameters={})
+    @Export(name="awsSqsArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsSqsArn;
 
     /**
@@ -135,7 +135,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * The external ID that Snowflake will use when assuming the AWS role
      * 
      */
-    @Export(name="awsSqsExternalId", type=String.class, parameters={})
+    @Export(name="awsSqsExternalId", refs={String.class}, tree="[0]")
     private Output<String> awsSqsExternalId;
 
     /**
@@ -149,7 +149,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * The Snowflake user that will attempt to assume the AWS role.
      * 
      */
-    @Export(name="awsSqsIamUserArn", type=String.class, parameters={})
+    @Export(name="awsSqsIamUserArn", refs={String.class}, tree="[0]")
     private Output<String> awsSqsIamUserArn;
 
     /**
@@ -163,7 +163,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * AWS IAM role ARN for notification integration to assume
      * 
      */
-    @Export(name="awsSqsRoleArn", type=String.class, parameters={})
+    @Export(name="awsSqsRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsSqsRoleArn;
 
     /**
@@ -177,7 +177,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * The queue ID for the Azure Queue Storage queue created for Event Grid notifications
      * 
      */
-    @Export(name="azureStorageQueuePrimaryUri", type=String.class, parameters={})
+    @Export(name="azureStorageQueuePrimaryUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> azureStorageQueuePrimaryUri;
 
     /**
@@ -191,7 +191,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * The ID of the Azure Active Directory tenant used for identity management
      * 
      */
-    @Export(name="azureTenantId", type=String.class, parameters={})
+    @Export(name="azureTenantId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> azureTenantId;
 
     /**
@@ -205,7 +205,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * A comment for the integration
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -219,7 +219,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * Date and time when the notification integration was created.
      * 
      */
-    @Export(name="createdOn", type=String.class, parameters={})
+    @Export(name="createdOn", refs={String.class}, tree="[0]")
     private Output<String> createdOn;
 
     /**
@@ -233,7 +233,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
      * 
      */
-    @Export(name="direction", type=String.class, parameters={})
+    @Export(name="direction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> direction;
 
     /**
@@ -243,7 +243,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
     public Output<Optional<String>> direction() {
         return Codegen.optional(this.direction);
     }
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     public Output<Optional<Boolean>> enabled() {
@@ -253,7 +253,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * The GCP service account identifier that Snowflake will use when assuming the GCP role
      * 
      */
-    @Export(name="gcpPubsubServiceAccount", type=String.class, parameters={})
+    @Export(name="gcpPubsubServiceAccount", refs={String.class}, tree="[0]")
     private Output<String> gcpPubsubServiceAccount;
 
     /**
@@ -267,7 +267,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
      * 
      */
-    @Export(name="gcpPubsubSubscriptionName", type=String.class, parameters={})
+    @Export(name="gcpPubsubSubscriptionName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> gcpPubsubSubscriptionName;
 
     /**
@@ -281,7 +281,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * The topic id that Snowflake will use to push notifications.
      * 
      */
-    @Export(name="gcpPubsubTopicName", type=String.class, parameters={})
+    @Export(name="gcpPubsubTopicName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> gcpPubsubTopicName;
 
     /**
@@ -291,7 +291,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
     public Output<Optional<String>> gcpPubsubTopicName() {
         return Codegen.optional(this.gcpPubsubTopicName);
     }
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     public Output<String> name() {
@@ -301,7 +301,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
      * 
      */
-    @Export(name="notificationProvider", type=String.class, parameters={})
+    @Export(name="notificationProvider", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notificationProvider;
 
     /**
@@ -315,7 +315,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * A type of integration
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**

@@ -97,7 +97,7 @@ public class Task extends com.pulumi.resources.CustomResource {
      * Specifies one or more predecessor tasks for the current task. Use this option to create a DAG of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies.
      * 
      */
-    @Export(name="afters", type=List.class, parameters={String.class})
+    @Export(name="afters", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> afters;
 
     /**
@@ -111,7 +111,7 @@ public class Task extends com.pulumi.resources.CustomResource {
      * By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap.
      * 
      */
-    @Export(name="allowOverlappingExecution", type=Boolean.class, parameters={})
+    @Export(name="allowOverlappingExecution", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowOverlappingExecution;
 
     /**
@@ -125,7 +125,7 @@ public class Task extends com.pulumi.resources.CustomResource {
      * Specifies a comment for the task.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -139,7 +139,7 @@ public class Task extends com.pulumi.resources.CustomResource {
      * The database in which to create the task.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -153,7 +153,7 @@ public class Task extends com.pulumi.resources.CustomResource {
      * Specifies if the task should be started (enabled) after creation or should remain suspended (default).
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -167,7 +167,7 @@ public class Task extends com.pulumi.resources.CustomResource {
      * Specifies the name of the notification integration used for error notifications.
      * 
      */
-    @Export(name="errorIntegration", type=String.class, parameters={})
+    @Export(name="errorIntegration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> errorIntegration;
 
     /**
@@ -181,7 +181,7 @@ public class Task extends com.pulumi.resources.CustomResource {
      * Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -195,7 +195,7 @@ public class Task extends com.pulumi.resources.CustomResource {
      * The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflict with after)
      * 
      */
-    @Export(name="schedule", type=String.class, parameters={})
+    @Export(name="schedule", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> schedule;
 
     /**
@@ -209,7 +209,7 @@ public class Task extends com.pulumi.resources.CustomResource {
      * The schema in which to create the task.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
@@ -223,7 +223,7 @@ public class Task extends com.pulumi.resources.CustomResource {
      * Specifies session parameters to set for the session when the task runs. A task supports all session parameters.
      * 
      */
-    @Export(name="sessionParameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="sessionParameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> sessionParameters;
 
     /**
@@ -237,7 +237,7 @@ public class Task extends com.pulumi.resources.CustomResource {
      * Any single SQL statement, or a call to a stored procedure, executed when the task runs.
      * 
      */
-    @Export(name="sqlStatement", type=String.class, parameters={})
+    @Export(name="sqlStatement", refs={String.class}, tree="[0]")
     private Output<String> sqlStatement;
 
     /**
@@ -251,7 +251,7 @@ public class Task extends com.pulumi.resources.CustomResource {
      * Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
      * 
      */
-    @Export(name="userTaskManagedInitialWarehouseSize", type=String.class, parameters={})
+    @Export(name="userTaskManagedInitialWarehouseSize", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userTaskManagedInitialWarehouseSize;
 
     /**
@@ -265,7 +265,7 @@ public class Task extends com.pulumi.resources.CustomResource {
      * Specifies the time limit on a single run of the task before it times out (in milliseconds).
      * 
      */
-    @Export(name="userTaskTimeoutMs", type=Integer.class, parameters={})
+    @Export(name="userTaskTimeoutMs", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> userTaskTimeoutMs;
 
     /**
@@ -279,7 +279,7 @@ public class Task extends com.pulumi.resources.CustomResource {
      * The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. (Conflicts with user*task*managed*initial*warehouse_size)
      * 
      */
-    @Export(name="warehouse", type=String.class, parameters={})
+    @Export(name="warehouse", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> warehouse;
 
     /**
@@ -293,7 +293,7 @@ public class Task extends com.pulumi.resources.CustomResource {
      * Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported.
      * 
      */
-    @Export(name="when", type=String.class, parameters={})
+    @Export(name="when", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> when;
 
     /**

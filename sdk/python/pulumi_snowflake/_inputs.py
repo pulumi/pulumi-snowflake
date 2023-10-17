@@ -70,7 +70,9 @@ class AlertAlertScheduleArgs:
              _setter: Callable[[Any, Any], None],
              cron: Optional[pulumi.Input['AlertAlertScheduleCronArgs']] = None,
              interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if cron is not None:
             _setter("cron", cron)
         if interval is not None:
@@ -120,7 +122,11 @@ class AlertAlertScheduleCronArgs:
              _setter: Callable[[Any, Any], None],
              expression: pulumi.Input[str],
              time_zone: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         _setter("expression", expression)
         _setter("time_zone", time_zone)
 
@@ -164,7 +170,11 @@ class DatabaseReplicationConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              accounts: pulumi.Input[Sequence[pulumi.Input[str]]],
              ignore_edition_check: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ignoreEditionCheck' in kwargs:
+            ignore_edition_check = kwargs['ignoreEditionCheck']
+
         _setter("accounts", accounts)
         if ignore_edition_check is not None:
             _setter("ignore_edition_check", ignore_edition_check)
@@ -207,7 +217,9 @@ class ExternalFunctionArgArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
 
@@ -255,7 +267,9 @@ class ExternalFunctionHeaderArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -307,7 +321,11 @@ class ExternalTableColumnArgs:
              as_: pulumi.Input[str],
              name: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'as' in kwargs:
+            as_ = kwargs['as']
+
         _setter("as_", as_)
         _setter("name", name)
         _setter("type", type)
@@ -376,7 +394,9 @@ class ExternalTableTagArgs:
              value: pulumi.Input[str],
              database: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
         if database is not None:
@@ -456,7 +476,13 @@ class FailoverGroupFromReplicaArgs:
              name: pulumi.Input[str],
              organization_name: pulumi.Input[str],
              source_account_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'organizationName' in kwargs:
+            organization_name = kwargs['organizationName']
+        if 'sourceAccountName' in kwargs:
+            source_account_name = kwargs['sourceAccountName']
+
         _setter("name", name)
         _setter("organization_name", organization_name)
         _setter("source_account_name", source_account_name)
@@ -517,7 +543,9 @@ class FailoverGroupReplicationScheduleArgs:
              _setter: Callable[[Any, Any], None],
              cron: Optional[pulumi.Input['FailoverGroupReplicationScheduleCronArgs']] = None,
              interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if cron is not None:
             _setter("cron", cron)
         if interval is not None:
@@ -567,7 +595,11 @@ class FailoverGroupReplicationScheduleCronArgs:
              _setter: Callable[[Any, Any], None],
              expression: pulumi.Input[str],
              time_zone: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         _setter("expression", expression)
         _setter("time_zone", time_zone)
 
@@ -615,7 +647,9 @@ class FunctionArgumentArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
 
@@ -663,7 +697,13 @@ class GrantPrivilegesToRoleOnAccountObjectArgs:
              _setter: Callable[[Any, Any], None],
              object_name: pulumi.Input[str],
              object_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectName' in kwargs:
+            object_name = kwargs['objectName']
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+
         _setter("object_name", object_name)
         _setter("object_type", object_type)
 
@@ -715,7 +755,15 @@ class GrantPrivilegesToRoleOnSchemaArgs:
              all_schemas_in_database: Optional[pulumi.Input[str]] = None,
              future_schemas_in_database: Optional[pulumi.Input[str]] = None,
              schema_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allSchemasInDatabase' in kwargs:
+            all_schemas_in_database = kwargs['allSchemasInDatabase']
+        if 'futureSchemasInDatabase' in kwargs:
+            future_schemas_in_database = kwargs['futureSchemasInDatabase']
+        if 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+
         if all_schemas_in_database is not None:
             _setter("all_schemas_in_database", all_schemas_in_database)
         if future_schemas_in_database is not None:
@@ -787,7 +835,13 @@ class GrantPrivilegesToRoleOnSchemaObjectArgs:
              future: Optional[pulumi.Input['GrantPrivilegesToRoleOnSchemaObjectFutureArgs']] = None,
              object_name: Optional[pulumi.Input[str]] = None,
              object_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectName' in kwargs:
+            object_name = kwargs['objectName']
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+
         if all is not None:
             _setter("all", all)
         if future is not None:
@@ -869,7 +923,15 @@ class GrantPrivilegesToRoleOnSchemaObjectAllArgs:
              object_type_plural: pulumi.Input[str],
              in_database: Optional[pulumi.Input[str]] = None,
              in_schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectTypePlural' in kwargs:
+            object_type_plural = kwargs['objectTypePlural']
+        if 'inDatabase' in kwargs:
+            in_database = kwargs['inDatabase']
+        if 'inSchema' in kwargs:
+            in_schema = kwargs['inSchema']
+
         _setter("object_type_plural", object_type_plural)
         if in_database is not None:
             _setter("in_database", in_database)
@@ -936,7 +998,15 @@ class GrantPrivilegesToRoleOnSchemaObjectFutureArgs:
              object_type_plural: pulumi.Input[str],
              in_database: Optional[pulumi.Input[str]] = None,
              in_schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectTypePlural' in kwargs:
+            object_type_plural = kwargs['objectTypePlural']
+        if 'inDatabase' in kwargs:
+            in_database = kwargs['inDatabase']
+        if 'inSchema' in kwargs:
+            in_schema = kwargs['inSchema']
+
         _setter("object_type_plural", object_type_plural)
         if in_database is not None:
             _setter("in_database", in_database)
@@ -992,7 +1062,9 @@ class MaskingPolicySignatureArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              columns: pulumi.Input[Sequence[pulumi.Input['MaskingPolicySignatureColumnArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("columns", columns)
 
     @property
@@ -1024,7 +1096,9 @@ class MaskingPolicySignatureColumnArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
 
@@ -1080,7 +1154,9 @@ class MaterializedViewTagArgs:
              value: pulumi.Input[str],
              database: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
         if database is not None:
@@ -1160,7 +1236,9 @@ class ObjectParameterObjectIdentifierArgs:
              name: pulumi.Input[str],
              database: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if database is not None:
             _setter("database", database)
@@ -1223,7 +1301,9 @@ class ProcedureArgumentArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
 
@@ -1279,7 +1359,9 @@ class RoleTagArgs:
              value: pulumi.Input[str],
              database: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
         if database is not None:
@@ -1363,7 +1445,9 @@ class SchemaTagArgs:
              value: pulumi.Input[str],
              database: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
         if database is not None:
@@ -1447,7 +1531,9 @@ class StageTagArgs:
              value: pulumi.Input[str],
              database: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
         if database is not None:
@@ -1543,7 +1629,11 @@ class TableColumnArgs:
              identity: Optional[pulumi.Input['TableColumnIdentityArgs']] = None,
              masking_policy: Optional[pulumi.Input[str]] = None,
              nullable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maskingPolicy' in kwargs:
+            masking_policy = kwargs['maskingPolicy']
+
         _setter("name", name)
         _setter("type", type)
         if comment is not None:
@@ -1665,7 +1755,9 @@ class TableColumnDefaultArgs:
              constant: Optional[pulumi.Input[str]] = None,
              expression: Optional[pulumi.Input[str]] = None,
              sequence: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if constant is not None:
             _setter("constant", constant)
         if expression is not None:
@@ -1729,7 +1821,13 @@ class TableColumnIdentityArgs:
              _setter: Callable[[Any, Any], None],
              start_num: Optional[pulumi.Input[int]] = None,
              step_num: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startNum' in kwargs:
+            start_num = kwargs['startNum']
+        if 'stepNum' in kwargs:
+            step_num = kwargs['stepNum']
+
         if start_num is not None:
             _setter("start_num", start_num)
         if step_num is not None:
@@ -1787,7 +1885,13 @@ class TableConstraintForeignKeyPropertiesArgs:
              on_delete: Optional[pulumi.Input[str]] = None,
              on_update: Optional[pulumi.Input[str]] = None,
              references: Optional[pulumi.Input['TableConstraintForeignKeyPropertiesReferencesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'onDelete' in kwargs:
+            on_delete = kwargs['onDelete']
+        if 'onUpdate' in kwargs:
+            on_update = kwargs['onUpdate']
+
         if match is not None:
             _setter("match", match)
         if on_delete is not None:
@@ -1865,7 +1969,11 @@ class TableConstraintForeignKeyPropertiesReferencesArgs:
              _setter: Callable[[Any, Any], None],
              columns: pulumi.Input[Sequence[pulumi.Input[str]]],
              table_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tableId' in kwargs:
+            table_id = kwargs['tableId']
+
         _setter("columns", columns)
         _setter("table_id", table_id)
 
@@ -1913,7 +2021,9 @@ class TablePrimaryKeyArgs:
              _setter: Callable[[Any, Any], None],
              keys: pulumi.Input[Sequence[pulumi.Input[str]]],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("keys", keys)
         if name is not None:
             _setter("name", name)
@@ -1970,7 +2080,9 @@ class TableTagArgs:
              value: pulumi.Input[str],
              database: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
         if database is not None:
@@ -2050,7 +2162,9 @@ class TagAssociationObjectIdentifierArgs:
              name: pulumi.Input[str],
              database: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if database is not None:
             _setter("database", database)
@@ -2121,7 +2235,9 @@ class ViewTagArgs:
              value: pulumi.Input[str],
              database: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
         if database is not None:
@@ -2197,7 +2313,9 @@ class GetGrantsFutureGrantsInArgs:
              _setter: Callable[[Any, Any], None],
              database: Optional[str] = None,
              schema: Optional['GetGrantsFutureGrantsInSchemaArgs'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if database is not None:
             _setter("database", database)
         if schema is not None:
@@ -2247,7 +2365,13 @@ class GetGrantsFutureGrantsInSchemaArgs:
              _setter: Callable[[Any, Any], None],
              schema_name: str,
              database_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         _setter("schema_name", schema_name)
         if database_name is not None:
             _setter("database_name", database_name)
@@ -2292,7 +2416,9 @@ class GetGrantsFutureGrantsToArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              role: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("role", role)
 
     @property
@@ -2327,7 +2453,9 @@ class GetGrantsGrantsOfArgs:
              _setter: Callable[[Any, Any], None],
              role: Optional[str] = None,
              share: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if role is not None:
             _setter("role", role)
         if share is not None:
@@ -2381,7 +2509,13 @@ class GetGrantsGrantsOnArgs:
              account: Optional[bool] = None,
              object_name: Optional[str] = None,
              object_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectName' in kwargs:
+            object_name = kwargs['objectName']
+        if 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+
         if account is not None:
             _setter("account", account)
         if object_name is not None:
@@ -2449,7 +2583,9 @@ class GetGrantsGrantsToArgs:
              role: Optional[str] = None,
              share: Optional[str] = None,
              user: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if role is not None:
             _setter("role", role)
         if share is not None:

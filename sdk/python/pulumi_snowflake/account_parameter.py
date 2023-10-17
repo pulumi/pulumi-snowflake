@@ -31,7 +31,9 @@ class AccountParameterArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -80,7 +82,9 @@ class _AccountParameterState:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:

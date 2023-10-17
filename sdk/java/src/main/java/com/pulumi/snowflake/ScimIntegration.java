@@ -60,7 +60,7 @@ public class ScimIntegration extends com.pulumi.resources.CustomResource {
      * Date and time when the SCIM integration was created.
      * 
      */
-    @Export(name="createdOn", type=String.class, parameters={})
+    @Export(name="createdOn", refs={String.class}, tree="[0]")
     private Output<String> createdOn;
 
     /**
@@ -74,7 +74,7 @@ public class ScimIntegration extends com.pulumi.resources.CustomResource {
      * Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -88,7 +88,7 @@ public class ScimIntegration extends com.pulumi.resources.CustomResource {
      * Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new access token. If this parameter is not set, the network policy for the account (if any) is used instead.
      * 
      */
-    @Export(name="networkPolicy", type=String.class, parameters={})
+    @Export(name="networkPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkPolicy;
 
     /**
@@ -102,7 +102,7 @@ public class ScimIntegration extends com.pulumi.resources.CustomResource {
      * Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM.
      * 
      */
-    @Export(name="provisionerRole", type=String.class, parameters={})
+    @Export(name="provisionerRole", refs={String.class}, tree="[0]")
     private Output<String> provisionerRole;
 
     /**
@@ -116,7 +116,7 @@ public class ScimIntegration extends com.pulumi.resources.CustomResource {
      * Specifies the client type for the scim integration
      * 
      */
-    @Export(name="scimClient", type=String.class, parameters={})
+    @Export(name="scimClient", refs={String.class}, tree="[0]")
     private Output<String> scimClient;
 
     /**

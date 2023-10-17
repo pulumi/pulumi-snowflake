@@ -82,7 +82,7 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
      * Specifies a comment for the masking policy.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -96,7 +96,7 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
      * The database in which to create the masking policy.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -110,7 +110,7 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
      * Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
      * 
      */
-    @Export(name="exemptOtherPolicies", type=Boolean.class, parameters={})
+    @Export(name="exemptOtherPolicies", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> exemptOtherPolicies;
 
     /**
@@ -124,7 +124,7 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
      * Prevent overwriting a previous masking policy with the same name.
      * 
      */
-    @Export(name="ifNotExists", type=Boolean.class, parameters={})
+    @Export(name="ifNotExists", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ifNotExists;
 
     /**
@@ -138,7 +138,7 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the SQL expression that transforms the data.
      * 
      */
-    @Export(name="maskingExpression", type=String.class, parameters={})
+    @Export(name="maskingExpression", refs={String.class}, tree="[0]")
     private Output<String> maskingExpression;
 
     /**
@@ -152,7 +152,7 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the column name to mask.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -166,7 +166,7 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
      * Whether to override a previous masking policy with the same name.
      * 
      */
-    @Export(name="orReplace", type=Boolean.class, parameters={})
+    @Export(name="orReplace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> orReplace;
 
     /**
@@ -180,7 +180,7 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the qualified identifier for the masking policy.
      * 
      */
-    @Export(name="qualifiedName", type=String.class, parameters={})
+    @Export(name="qualifiedName", refs={String.class}, tree="[0]")
     private Output<String> qualifiedName;
 
     /**
@@ -194,7 +194,7 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the data type to return.
      * 
      */
-    @Export(name="returnDataType", type=String.class, parameters={})
+    @Export(name="returnDataType", refs={String.class}, tree="[0]")
     private Output<String> returnDataType;
 
     /**
@@ -208,7 +208,7 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
      * The schema in which to create the masking policy.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
@@ -222,7 +222,7 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
      * The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
      * 
      */
-    @Export(name="signature", type=MaskingPolicySignature.class, parameters={})
+    @Export(name="signature", refs={MaskingPolicySignature.class}, tree="[0]")
     private Output<MaskingPolicySignature> signature;
 
     /**

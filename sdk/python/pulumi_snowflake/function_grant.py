@@ -72,7 +72,27 @@ class FunctionGrantArgs:
              schema_name: Optional[pulumi.Input[str]] = None,
              shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'argumentDataTypes' in kwargs:
+            argument_data_types = kwargs['argumentDataTypes']
+        if 'enableMultipleGrants' in kwargs:
+            enable_multiple_grants = kwargs['enableMultipleGrants']
+        if 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if 'onAll' in kwargs:
+            on_all = kwargs['onAll']
+        if 'onFuture' in kwargs:
+            on_future = kwargs['onFuture']
+        if 'revertOwnershipToRoleName' in kwargs:
+            revert_ownership_to_role_name = kwargs['revertOwnershipToRoleName']
+        if 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if 'withGrantOption' in kwargs:
+            with_grant_option = kwargs['withGrantOption']
+
         _setter("database_name", database_name)
         _setter("roles", roles)
         if argument_data_types is not None:
@@ -303,7 +323,27 @@ class _FunctionGrantState:
              schema_name: Optional[pulumi.Input[str]] = None,
              shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'argumentDataTypes' in kwargs:
+            argument_data_types = kwargs['argumentDataTypes']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'enableMultipleGrants' in kwargs:
+            enable_multiple_grants = kwargs['enableMultipleGrants']
+        if 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if 'onAll' in kwargs:
+            on_all = kwargs['onAll']
+        if 'onFuture' in kwargs:
+            on_future = kwargs['onFuture']
+        if 'revertOwnershipToRoleName' in kwargs:
+            revert_ownership_to_role_name = kwargs['revertOwnershipToRoleName']
+        if 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if 'withGrantOption' in kwargs:
+            with_grant_option = kwargs['withGrantOption']
+
         if argument_data_types is not None:
             _setter("argument_data_types", argument_data_types)
         if database_name is not None:

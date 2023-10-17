@@ -43,7 +43,13 @@ class ManagedAccountArgs:
              comment: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminName' in kwargs:
+            admin_name = kwargs['adminName']
+        if 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+
         _setter("admin_name", admin_name)
         _setter("admin_password", admin_password)
         if comment is not None:
@@ -166,7 +172,15 @@ class _ManagedAccountState:
              region: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminName' in kwargs:
+            admin_name = kwargs['adminName']
+        if 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+        if 'createdOn' in kwargs:
+            created_on = kwargs['createdOn']
+
         if admin_name is not None:
             _setter("admin_name", admin_name)
         if admin_password is not None:

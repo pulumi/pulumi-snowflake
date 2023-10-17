@@ -62,7 +62,7 @@ public class EmailNotificationIntegration extends com.pulumi.resources.CustomRes
      * List of email addresses that should receive notifications.
      * 
      */
-    @Export(name="allowedRecipients", type=List.class, parameters={String.class})
+    @Export(name="allowedRecipients", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> allowedRecipients;
 
     /**
@@ -76,7 +76,7 @@ public class EmailNotificationIntegration extends com.pulumi.resources.CustomRes
      * A comment for the email integration.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -86,13 +86,13 @@ public class EmailNotificationIntegration extends com.pulumi.resources.CustomRes
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     public Output<Boolean> enabled() {
         return this.enabled;
     }
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     public Output<String> name() {

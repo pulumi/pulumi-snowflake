@@ -31,6 +31,12 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly account!: pulumi.Output<string | undefined>;
     /**
+     * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+     * connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+     * UsernamePasswordMFA
+     */
+    public readonly authenticator!: pulumi.Output<string | undefined>;
+    /**
      * Supports passing in a custom host value to the snowflake go driver for use with privatelink.
      */
     public readonly host!: pulumi.Output<string | undefined>;
@@ -129,6 +135,7 @@ export class Provider extends pulumi.ProviderResource {
         opts = opts || {};
         {
             resourceInputs["account"] = (args ? args.account : undefined) ?? utilities.getEnv("SNOWFLAKE_ACCOUNT");
+            resourceInputs["authenticator"] = args ? args.authenticator : undefined;
             resourceInputs["browserAuth"] = pulumi.output((args ? args.browserAuth : undefined) ?? utilities.getEnvBoolean("SNOWFLAKE_USE_BROWSER_AUTH")).apply(JSON.stringify);
             resourceInputs["host"] = (args ? args.host : undefined) ?? utilities.getEnv("SNOWFLAKE_HOST");
             resourceInputs["insecureMode"] = pulumi.output(args ? args.insecureMode : undefined).apply(JSON.stringify);
@@ -170,7 +177,15 @@ export interface ProviderArgs {
      */
     account?: pulumi.Input<string>;
     /**
+     * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+     * connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+     * UsernamePasswordMFA
+     */
+    authenticator?: pulumi.Input<string>;
+    /**
      * Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
+     *
+     * @deprecated Use `authenticator` instead
      */
     browserAuth?: pulumi.Input<boolean>;
     /**

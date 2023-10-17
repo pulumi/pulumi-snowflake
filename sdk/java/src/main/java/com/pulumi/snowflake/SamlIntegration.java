@@ -63,7 +63,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
      * Date and time when the SAML integration was created.
      * 
      */
-    @Export(name="createdOn", type=String.class, parameters={})
+    @Export(name="createdOn", refs={String.class}, tree="[0]")
     private Output<String> createdOn;
 
     /**
@@ -77,7 +77,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
      * Specifies whether this security integration is enabled or disabled.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -91,7 +91,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
      * Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -101,7 +101,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="saml2DigestMethodsUsed", type=String.class, parameters={})
+    @Export(name="saml2DigestMethodsUsed", refs={String.class}, tree="[0]")
     private Output<String> saml2DigestMethodsUsed;
 
     public Output<String> saml2DigestMethodsUsed() {
@@ -111,7 +111,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
      * The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in WIth button on the login page.  FALSE: does not display the Log in With button on the login page.
      * 
      */
-    @Export(name="saml2EnableSpInitiated", type=Boolean.class, parameters={})
+    @Export(name="saml2EnableSpInitiated", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> saml2EnableSpInitiated;
 
     /**
@@ -125,7 +125,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
      * The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the identity provider exists. FALSE: does not force users to authenticate again to access Snowflake.
      * 
      */
-    @Export(name="saml2ForceAuthn", type=Boolean.class, parameters={})
+    @Export(name="saml2ForceAuthn", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> saml2ForceAuthn;
 
     /**
@@ -139,7 +139,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
      * The string containing the IdP EntityID / Issuer.
      * 
      */
-    @Export(name="saml2Issuer", type=String.class, parameters={})
+    @Export(name="saml2Issuer", refs={String.class}, tree="[0]")
     private Output<String> saml2Issuer;
 
     /**
@@ -153,7 +153,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
      * The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
      * 
      */
-    @Export(name="saml2PostLogoutRedirectUrl", type=String.class, parameters={})
+    @Export(name="saml2PostLogoutRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> saml2PostLogoutRedirectUrl;
 
     /**
@@ -167,7 +167,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
      * The string describing the IdP. One of the following: OKTA, ADFS, Custom.
      * 
      */
-    @Export(name="saml2Provider", type=String.class, parameters={})
+    @Export(name="saml2Provider", refs={String.class}, tree="[0]")
     private Output<String> saml2Provider;
 
     /**
@@ -181,7 +181,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
      * The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. If a value is not specified, Snowflake sends the urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress value in the authentication request to the IdP. NameID must be one of the following values: urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified, urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress, urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName, urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName, urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos, urn:oasis:names:tc:SAML:2.0:nameid-format:persistent, urn:oasis:names:tc:SAML:2.0:nameid-format:transient .
      * 
      */
-    @Export(name="saml2RequestedNameidFormat", type=String.class, parameters={})
+    @Export(name="saml2RequestedNameidFormat", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> saml2RequestedNameidFormat;
 
     /**
@@ -195,7 +195,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
      * The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow SAML requests to be signed.
      * 
      */
-    @Export(name="saml2SignRequest", type=Boolean.class, parameters={})
+    @Export(name="saml2SignRequest", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> saml2SignRequest;
 
     /**
@@ -205,7 +205,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> saml2SignRequest() {
         return Codegen.optional(this.saml2SignRequest);
     }
-    @Export(name="saml2SignatureMethodsUsed", type=String.class, parameters={})
+    @Export(name="saml2SignatureMethodsUsed", refs={String.class}, tree="[0]")
     private Output<String> saml2SignatureMethodsUsed;
 
     public Output<String> saml2SignatureMethodsUsed() {
@@ -215,7 +215,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
      * The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use. Default: https://\n\n.\n\n.snowflakecomputing.com/fed/login
      * 
      */
-    @Export(name="saml2SnowflakeAcsUrl", type=String.class, parameters={})
+    @Export(name="saml2SnowflakeAcsUrl", refs={String.class}, tree="[0]")
     private Output<String> saml2SnowflakeAcsUrl;
 
     /**
@@ -229,7 +229,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
      * The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use.
      * 
      */
-    @Export(name="saml2SnowflakeIssuerUrl", type=String.class, parameters={})
+    @Export(name="saml2SnowflakeIssuerUrl", refs={String.class}, tree="[0]")
     private Output<String> saml2SnowflakeIssuerUrl;
 
     /**
@@ -243,7 +243,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
      * Metadata created by Snowflake to provide to SAML2 provider.
      * 
      */
-    @Export(name="saml2SnowflakeMetadata", type=String.class, parameters={})
+    @Export(name="saml2SnowflakeMetadata", refs={String.class}, tree="[0]")
     private Output<String> saml2SnowflakeMetadata;
 
     /**
@@ -257,7 +257,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
      * The Base64 encoded self-signed certificate generated by Snowflake for use with Encrypting SAML Assertions and Signed SAML Requests. You must have at least one of these features (encrypted SAML assertions or signed SAML responses) enabled in your Snowflake account to access the certificate value.
      * 
      */
-    @Export(name="saml2SnowflakeX509Cert", type=String.class, parameters={})
+    @Export(name="saml2SnowflakeX509Cert", refs={String.class}, tree="[0]")
     private Output<String> saml2SnowflakeX509Cert;
 
     /**
@@ -271,7 +271,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
      * The string containing the label to display after the Log In With button on the login page.
      * 
      */
-    @Export(name="saml2SpInitiatedLoginPageLabel", type=String.class, parameters={})
+    @Export(name="saml2SpInitiatedLoginPageLabel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> saml2SpInitiatedLoginPageLabel;
 
     /**
@@ -285,7 +285,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
      * The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a SAML AuthnRequest message.
      * 
      */
-    @Export(name="saml2SsoUrl", type=String.class, parameters={})
+    @Export(name="saml2SsoUrl", refs={String.class}, tree="[0]")
     private Output<String> saml2SsoUrl;
 
     /**
@@ -299,7 +299,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
      * The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
      * 
      */
-    @Export(name="saml2X509Cert", type=String.class, parameters={})
+    @Export(name="saml2X509Cert", refs={String.class}, tree="[0]")
     private Output<String> saml2X509Cert;
 
     /**

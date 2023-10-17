@@ -31,7 +31,7 @@ public class TagMaskingPolicyAssociation extends com.pulumi.resources.CustomReso
      * The resource id of the masking policy
      * 
      */
-    @Export(name="maskingPolicyId", type=String.class, parameters={})
+    @Export(name="maskingPolicyId", refs={String.class}, tree="[0]")
     private Output<String> maskingPolicyId;
 
     /**
@@ -45,7 +45,7 @@ public class TagMaskingPolicyAssociation extends com.pulumi.resources.CustomReso
      * Specifies the identifier for the tag. Note: format must follow: &#34;databaseName&#34;.&#34;schemaName&#34;.&#34;tagName&#34; or &#34;databaseName.schemaName.tagName&#34; or &#34;databaseName|schemaName.tagName&#34; (snowflake_tag.tag.id)
      * 
      */
-    @Export(name="tagId", type=String.class, parameters={})
+    @Export(name="tagId", refs={String.class}, tree="[0]")
     private Output<String> tagId;
 
     /**

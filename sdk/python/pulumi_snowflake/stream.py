@@ -63,7 +63,21 @@ class StreamArgs:
              on_table: Optional[pulumi.Input[str]] = None,
              on_view: Optional[pulumi.Input[str]] = None,
              show_initial_rows: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appendOnly' in kwargs:
+            append_only = kwargs['appendOnly']
+        if 'insertOnly' in kwargs:
+            insert_only = kwargs['insertOnly']
+        if 'onStage' in kwargs:
+            on_stage = kwargs['onStage']
+        if 'onTable' in kwargs:
+            on_table = kwargs['onTable']
+        if 'onView' in kwargs:
+            on_view = kwargs['onView']
+        if 'showInitialRows' in kwargs:
+            show_initial_rows = kwargs['showInitialRows']
+
         _setter("database", database)
         _setter("schema", schema)
         if append_only is not None:
@@ -260,7 +274,21 @@ class _StreamState:
              owner: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
              show_initial_rows: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appendOnly' in kwargs:
+            append_only = kwargs['appendOnly']
+        if 'insertOnly' in kwargs:
+            insert_only = kwargs['insertOnly']
+        if 'onStage' in kwargs:
+            on_stage = kwargs['onStage']
+        if 'onTable' in kwargs:
+            on_table = kwargs['onTable']
+        if 'onView' in kwargs:
+            on_view = kwargs['onView']
+        if 'showInitialRows' in kwargs:
+            show_initial_rows = kwargs['showInitialRows']
+
         if append_only is not None:
             _setter("append_only", append_only)
         if comment is not None:

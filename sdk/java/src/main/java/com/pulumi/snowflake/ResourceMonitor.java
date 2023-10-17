@@ -74,7 +74,7 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
      * The number of credits allocated monthly to the resource monitor.
      * 
      */
-    @Export(name="creditQuota", type=Integer.class, parameters={})
+    @Export(name="creditQuota", refs={Integer.class}, tree="[0]")
     private Output<Integer> creditQuota;
 
     /**
@@ -88,7 +88,7 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
      * The date and time when the resource monitor suspends the assigned warehouses.
      * 
      */
-    @Export(name="endTimestamp", type=String.class, parameters={})
+    @Export(name="endTimestamp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endTimestamp;
 
     /**
@@ -102,7 +102,7 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
      * The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
      * 
      */
-    @Export(name="frequency", type=String.class, parameters={})
+    @Export(name="frequency", refs={String.class}, tree="[0]")
     private Output<String> frequency;
 
     /**
@@ -116,7 +116,7 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
      * Identifier for the resource monitor; must be unique for your account.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -130,7 +130,7 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
      * A list of percentage thresholds at which to send an alert to subscribed users.
      * 
      */
-    @Export(name="notifyTriggers", type=List.class, parameters={Integer.class})
+    @Export(name="notifyTriggers", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> notifyTriggers;
 
     /**
@@ -144,7 +144,7 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
      * Specifies the list of users to receive email notifications on resource monitors.
      * 
      */
-    @Export(name="notifyUsers", type=List.class, parameters={String.class})
+    @Export(name="notifyUsers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> notifyUsers;
 
     /**
@@ -158,7 +158,7 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
      * Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
      * 
      */
-    @Export(name="setForAccount", type=Boolean.class, parameters={})
+    @Export(name="setForAccount", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> setForAccount;
 
     /**
@@ -172,7 +172,7 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
      * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
      * 
      */
-    @Export(name="startTimestamp", type=String.class, parameters={})
+    @Export(name="startTimestamp", refs={String.class}, tree="[0]")
     private Output<String> startTimestamp;
 
     /**
@@ -186,7 +186,7 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
      * The number that represents the percentage threshold at which to immediately suspend all warehouses.
      * 
      */
-    @Export(name="suspendImmediateTrigger", type=Integer.class, parameters={})
+    @Export(name="suspendImmediateTrigger", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> suspendImmediateTrigger;
 
     /**
@@ -204,7 +204,7 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use suspend_immediate_trigger instead */
-    @Export(name="suspendImmediateTriggers", type=List.class, parameters={Integer.class})
+    @Export(name="suspendImmediateTriggers", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> suspendImmediateTriggers;
 
     /**
@@ -218,7 +218,7 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
      * The number that represents the percentage threshold at which to suspend all warehouses.
      * 
      */
-    @Export(name="suspendTrigger", type=Integer.class, parameters={})
+    @Export(name="suspendTrigger", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> suspendTrigger;
 
     /**
@@ -236,7 +236,7 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use suspend_trigger instead */
-    @Export(name="suspendTriggers", type=List.class, parameters={Integer.class})
+    @Export(name="suspendTriggers", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> suspendTriggers;
 
     /**
@@ -250,7 +250,7 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
      * A list of warehouses to apply the resource monitor to.
      * 
      */
-    @Export(name="warehouses", type=List.class, parameters={String.class})
+    @Export(name="warehouses", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> warehouses;
 
     /**

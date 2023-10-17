@@ -66,7 +66,7 @@ public class ManagedAccount extends com.pulumi.resources.CustomResource {
      * Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
      * 
      */
-    @Export(name="adminName", type=String.class, parameters={})
+    @Export(name="adminName", refs={String.class}, tree="[0]")
     private Output<String> adminName;
 
     /**
@@ -80,7 +80,7 @@ public class ManagedAccount extends com.pulumi.resources.CustomResource {
      * Password for the initial user in the managed account.
      * 
      */
-    @Export(name="adminPassword", type=String.class, parameters={})
+    @Export(name="adminPassword", refs={String.class}, tree="[0]")
     private Output<String> adminPassword;
 
     /**
@@ -94,7 +94,7 @@ public class ManagedAccount extends com.pulumi.resources.CustomResource {
      * Cloud in which the managed account is located.
      * 
      */
-    @Export(name="cloud", type=String.class, parameters={})
+    @Export(name="cloud", refs={String.class}, tree="[0]")
     private Output<String> cloud;
 
     /**
@@ -108,7 +108,7 @@ public class ManagedAccount extends com.pulumi.resources.CustomResource {
      * Specifies a comment for the managed account.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -122,7 +122,7 @@ public class ManagedAccount extends com.pulumi.resources.CustomResource {
      * Date and time when the managed account was created.
      * 
      */
-    @Export(name="createdOn", type=String.class, parameters={})
+    @Export(name="createdOn", refs={String.class}, tree="[0]")
     private Output<String> createdOn;
 
     /**
@@ -136,7 +136,7 @@ public class ManagedAccount extends com.pulumi.resources.CustomResource {
      * Display name of the managed account.
      * 
      */
-    @Export(name="locator", type=String.class, parameters={})
+    @Export(name="locator", refs={String.class}, tree="[0]")
     private Output<String> locator;
 
     /**
@@ -150,7 +150,7 @@ public class ManagedAccount extends com.pulumi.resources.CustomResource {
      * Identifier for the managed account; must be unique for your account.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -164,7 +164,7 @@ public class ManagedAccount extends com.pulumi.resources.CustomResource {
      * Snowflake Region in which the managed account is located.
      * 
      */
-    @Export(name="region", type=String.class, parameters={})
+    @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
@@ -178,7 +178,7 @@ public class ManagedAccount extends com.pulumi.resources.CustomResource {
      * Specifies the type of managed account.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
@@ -192,7 +192,7 @@ public class ManagedAccount extends com.pulumi.resources.CustomResource {
      * URL for accessing the managed account, particularly through the web interface.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

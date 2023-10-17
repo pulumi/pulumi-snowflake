@@ -89,7 +89,21 @@ class FunctionArgs:
              return_behavior: Optional[pulumi.Input[str]] = None,
              runtime_version: Optional[pulumi.Input[str]] = None,
              target_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'returnType' in kwargs:
+            return_type = kwargs['returnType']
+        if 'isSecure' in kwargs:
+            is_secure = kwargs['isSecure']
+        if 'nullInputBehavior' in kwargs:
+            null_input_behavior = kwargs['nullInputBehavior']
+        if 'returnBehavior' in kwargs:
+            return_behavior = kwargs['returnBehavior']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'targetPath' in kwargs:
+            target_path = kwargs['targetPath']
+
         _setter("database", database)
         _setter("return_type", return_type)
         _setter("schema", schema)
@@ -388,7 +402,21 @@ class _FunctionState:
              schema: Optional[pulumi.Input[str]] = None,
              statement: Optional[pulumi.Input[str]] = None,
              target_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isSecure' in kwargs:
+            is_secure = kwargs['isSecure']
+        if 'nullInputBehavior' in kwargs:
+            null_input_behavior = kwargs['nullInputBehavior']
+        if 'returnBehavior' in kwargs:
+            return_behavior = kwargs['returnBehavior']
+        if 'returnType' in kwargs:
+            return_type = kwargs['returnType']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'targetPath' in kwargs:
+            target_path = kwargs['targetPath']
+
         if arguments is not None:
             _setter("arguments", arguments)
         if comment is not None:

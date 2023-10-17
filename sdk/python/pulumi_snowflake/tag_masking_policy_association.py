@@ -31,7 +31,13 @@ class TagMaskingPolicyAssociationArgs:
              _setter: Callable[[Any, Any], None],
              masking_policy_id: pulumi.Input[str],
              tag_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maskingPolicyId' in kwargs:
+            masking_policy_id = kwargs['maskingPolicyId']
+        if 'tagId' in kwargs:
+            tag_id = kwargs['tagId']
+
         _setter("masking_policy_id", masking_policy_id)
         _setter("tag_id", tag_id)
 
@@ -80,7 +86,13 @@ class _TagMaskingPolicyAssociationState:
              _setter: Callable[[Any, Any], None],
              masking_policy_id: Optional[pulumi.Input[str]] = None,
              tag_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maskingPolicyId' in kwargs:
+            masking_policy_id = kwargs['maskingPolicyId']
+        if 'tagId' in kwargs:
+            tag_id = kwargs['tagId']
+
         if masking_policy_id is not None:
             _setter("masking_policy_id", masking_policy_id)
         if tag_id is not None:

@@ -26,7 +26,7 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
      * Adds a comment or overwrites an existing comment for the password policy.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -40,7 +40,7 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
      * The database this password policy belongs to.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -54,7 +54,7 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
      * Prevent overwriting a previous password policy with the same name.
      * 
      */
-    @Export(name="ifNotExists", type=Boolean.class, parameters={})
+    @Export(name="ifNotExists", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ifNotExists;
 
     /**
@@ -68,7 +68,7 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
      * 
      */
-    @Export(name="lockoutTimeMins", type=Integer.class, parameters={})
+    @Export(name="lockoutTimeMins", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> lockoutTimeMins;
 
     /**
@@ -82,7 +82,7 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
      * 
      */
-    @Export(name="maxAgeDays", type=Integer.class, parameters={})
+    @Export(name="maxAgeDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxAgeDays;
 
     /**
@@ -96,7 +96,7 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
      * 
      */
-    @Export(name="maxLength", type=Integer.class, parameters={})
+    @Export(name="maxLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxLength;
 
     /**
@@ -110,7 +110,7 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
      * 
      */
-    @Export(name="maxRetries", type=Integer.class, parameters={})
+    @Export(name="maxRetries", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxRetries;
 
     /**
@@ -124,7 +124,7 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
      * 
      */
-    @Export(name="minLength", type=Integer.class, parameters={})
+    @Export(name="minLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minLength;
 
     /**
@@ -138,7 +138,7 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      * 
      */
-    @Export(name="minLowerCaseChars", type=Integer.class, parameters={})
+    @Export(name="minLowerCaseChars", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minLowerCaseChars;
 
     /**
@@ -152,7 +152,7 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      * 
      */
-    @Export(name="minNumericChars", type=Integer.class, parameters={})
+    @Export(name="minNumericChars", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minNumericChars;
 
     /**
@@ -166,7 +166,7 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the minimum number of special characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      * 
      */
-    @Export(name="minSpecialChars", type=Integer.class, parameters={})
+    @Export(name="minSpecialChars", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minSpecialChars;
 
     /**
@@ -180,7 +180,7 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      * 
      */
-    @Export(name="minUpperCaseChars", type=Integer.class, parameters={})
+    @Export(name="minUpperCaseChars", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minUpperCaseChars;
 
     /**
@@ -194,7 +194,7 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
      * Identifier for the password policy; must be unique for your account.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -208,7 +208,7 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
      * Whether to override a previous password policy with the same name.
      * 
      */
-    @Export(name="orReplace", type=Boolean.class, parameters={})
+    @Export(name="orReplace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> orReplace;
 
     /**
@@ -222,7 +222,7 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
      * The qualified name for the password policy.
      * 
      */
-    @Export(name="qualifiedName", type=String.class, parameters={})
+    @Export(name="qualifiedName", refs={String.class}, tree="[0]")
     private Output<String> qualifiedName;
 
     /**
@@ -236,7 +236,7 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
      * The schema this password policy belongs to.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**

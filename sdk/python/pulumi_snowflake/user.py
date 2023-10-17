@@ -85,7 +85,31 @@ class UserArgs:
              password: Optional[pulumi.Input[str]] = None,
              rsa_public_key: Optional[pulumi.Input[str]] = None,
              rsa_public_key2: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultNamespace' in kwargs:
+            default_namespace = kwargs['defaultNamespace']
+        if 'defaultRole' in kwargs:
+            default_role = kwargs['defaultRole']
+        if 'defaultSecondaryRoles' in kwargs:
+            default_secondary_roles = kwargs['defaultSecondaryRoles']
+        if 'defaultWarehouse' in kwargs:
+            default_warehouse = kwargs['defaultWarehouse']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if 'loginName' in kwargs:
+            login_name = kwargs['loginName']
+        if 'mustChangePassword' in kwargs:
+            must_change_password = kwargs['mustChangePassword']
+        if 'rsaPublicKey' in kwargs:
+            rsa_public_key = kwargs['rsaPublicKey']
+        if 'rsaPublicKey2' in kwargs:
+            rsa_public_key2 = kwargs['rsaPublicKey2']
+
         if comment is not None:
             _setter("comment", comment)
         if default_namespace is not None:
@@ -384,7 +408,33 @@ class _UserState:
              password: Optional[pulumi.Input[str]] = None,
              rsa_public_key: Optional[pulumi.Input[str]] = None,
              rsa_public_key2: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultNamespace' in kwargs:
+            default_namespace = kwargs['defaultNamespace']
+        if 'defaultRole' in kwargs:
+            default_role = kwargs['defaultRole']
+        if 'defaultSecondaryRoles' in kwargs:
+            default_secondary_roles = kwargs['defaultSecondaryRoles']
+        if 'defaultWarehouse' in kwargs:
+            default_warehouse = kwargs['defaultWarehouse']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if 'hasRsaPublicKey' in kwargs:
+            has_rsa_public_key = kwargs['hasRsaPublicKey']
+        if 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if 'loginName' in kwargs:
+            login_name = kwargs['loginName']
+        if 'mustChangePassword' in kwargs:
+            must_change_password = kwargs['mustChangePassword']
+        if 'rsaPublicKey' in kwargs:
+            rsa_public_key = kwargs['rsaPublicKey']
+        if 'rsaPublicKey2' in kwargs:
+            rsa_public_key2 = kwargs['rsaPublicKey2']
+
         if comment is not None:
             _setter("comment", comment)
         if default_namespace is not None:

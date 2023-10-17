@@ -83,7 +83,31 @@ class PasswordPolicyArgs:
              min_upper_case_chars: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              or_replace: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ifNotExists' in kwargs:
+            if_not_exists = kwargs['ifNotExists']
+        if 'lockoutTimeMins' in kwargs:
+            lockout_time_mins = kwargs['lockoutTimeMins']
+        if 'maxAgeDays' in kwargs:
+            max_age_days = kwargs['maxAgeDays']
+        if 'maxLength' in kwargs:
+            max_length = kwargs['maxLength']
+        if 'maxRetries' in kwargs:
+            max_retries = kwargs['maxRetries']
+        if 'minLength' in kwargs:
+            min_length = kwargs['minLength']
+        if 'minLowerCaseChars' in kwargs:
+            min_lower_case_chars = kwargs['minLowerCaseChars']
+        if 'minNumericChars' in kwargs:
+            min_numeric_chars = kwargs['minNumericChars']
+        if 'minSpecialChars' in kwargs:
+            min_special_chars = kwargs['minSpecialChars']
+        if 'minUpperCaseChars' in kwargs:
+            min_upper_case_chars = kwargs['minUpperCaseChars']
+        if 'orReplace' in kwargs:
+            or_replace = kwargs['orReplace']
+
         _setter("database", database)
         _setter("schema", schema)
         if comment is not None:
@@ -370,7 +394,33 @@ class _PasswordPolicyState:
              or_replace: Optional[pulumi.Input[bool]] = None,
              qualified_name: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ifNotExists' in kwargs:
+            if_not_exists = kwargs['ifNotExists']
+        if 'lockoutTimeMins' in kwargs:
+            lockout_time_mins = kwargs['lockoutTimeMins']
+        if 'maxAgeDays' in kwargs:
+            max_age_days = kwargs['maxAgeDays']
+        if 'maxLength' in kwargs:
+            max_length = kwargs['maxLength']
+        if 'maxRetries' in kwargs:
+            max_retries = kwargs['maxRetries']
+        if 'minLength' in kwargs:
+            min_length = kwargs['minLength']
+        if 'minLowerCaseChars' in kwargs:
+            min_lower_case_chars = kwargs['minLowerCaseChars']
+        if 'minNumericChars' in kwargs:
+            min_numeric_chars = kwargs['minNumericChars']
+        if 'minSpecialChars' in kwargs:
+            min_special_chars = kwargs['minSpecialChars']
+        if 'minUpperCaseChars' in kwargs:
+            min_upper_case_chars = kwargs['minUpperCaseChars']
+        if 'orReplace' in kwargs:
+            or_replace = kwargs['orReplace']
+        if 'qualifiedName' in kwargs:
+            qualified_name = kwargs['qualifiedName']
+
         if comment is not None:
             _setter("comment", comment)
         if database is not None:

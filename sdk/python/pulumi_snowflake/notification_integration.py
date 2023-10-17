@@ -77,7 +77,27 @@ class NotificationIntegrationArgs:
              name: Optional[pulumi.Input[str]] = None,
              notification_provider: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsSnsRoleArn' in kwargs:
+            aws_sns_role_arn = kwargs['awsSnsRoleArn']
+        if 'awsSnsTopicArn' in kwargs:
+            aws_sns_topic_arn = kwargs['awsSnsTopicArn']
+        if 'awsSqsArn' in kwargs:
+            aws_sqs_arn = kwargs['awsSqsArn']
+        if 'awsSqsRoleArn' in kwargs:
+            aws_sqs_role_arn = kwargs['awsSqsRoleArn']
+        if 'azureStorageQueuePrimaryUri' in kwargs:
+            azure_storage_queue_primary_uri = kwargs['azureStorageQueuePrimaryUri']
+        if 'azureTenantId' in kwargs:
+            azure_tenant_id = kwargs['azureTenantId']
+        if 'gcpPubsubSubscriptionName' in kwargs:
+            gcp_pubsub_subscription_name = kwargs['gcpPubsubSubscriptionName']
+        if 'gcpPubsubTopicName' in kwargs:
+            gcp_pubsub_topic_name = kwargs['gcpPubsubTopicName']
+        if 'notificationProvider' in kwargs:
+            notification_provider = kwargs['notificationProvider']
+
         if aws_sns_role_arn is not None:
             _setter("aws_sns_role_arn", aws_sns_role_arn)
         if aws_sns_topic_arn is not None:
@@ -360,7 +380,39 @@ class _NotificationIntegrationState:
              name: Optional[pulumi.Input[str]] = None,
              notification_provider: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsSnsExternalId' in kwargs:
+            aws_sns_external_id = kwargs['awsSnsExternalId']
+        if 'awsSnsIamUserArn' in kwargs:
+            aws_sns_iam_user_arn = kwargs['awsSnsIamUserArn']
+        if 'awsSnsRoleArn' in kwargs:
+            aws_sns_role_arn = kwargs['awsSnsRoleArn']
+        if 'awsSnsTopicArn' in kwargs:
+            aws_sns_topic_arn = kwargs['awsSnsTopicArn']
+        if 'awsSqsArn' in kwargs:
+            aws_sqs_arn = kwargs['awsSqsArn']
+        if 'awsSqsExternalId' in kwargs:
+            aws_sqs_external_id = kwargs['awsSqsExternalId']
+        if 'awsSqsIamUserArn' in kwargs:
+            aws_sqs_iam_user_arn = kwargs['awsSqsIamUserArn']
+        if 'awsSqsRoleArn' in kwargs:
+            aws_sqs_role_arn = kwargs['awsSqsRoleArn']
+        if 'azureStorageQueuePrimaryUri' in kwargs:
+            azure_storage_queue_primary_uri = kwargs['azureStorageQueuePrimaryUri']
+        if 'azureTenantId' in kwargs:
+            azure_tenant_id = kwargs['azureTenantId']
+        if 'createdOn' in kwargs:
+            created_on = kwargs['createdOn']
+        if 'gcpPubsubServiceAccount' in kwargs:
+            gcp_pubsub_service_account = kwargs['gcpPubsubServiceAccount']
+        if 'gcpPubsubSubscriptionName' in kwargs:
+            gcp_pubsub_subscription_name = kwargs['gcpPubsubSubscriptionName']
+        if 'gcpPubsubTopicName' in kwargs:
+            gcp_pubsub_topic_name = kwargs['gcpPubsubTopicName']
+        if 'notificationProvider' in kwargs:
+            notification_provider = kwargs['notificationProvider']
+
         if aws_sns_external_id is not None:
             _setter("aws_sns_external_id", aws_sns_external_id)
         if aws_sns_iam_user_arn is not None:

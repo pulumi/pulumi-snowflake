@@ -20,7 +20,7 @@ public class RoleOwnershipGrant extends com.pulumi.resources.CustomResource {
      * Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
      * 
      */
-    @Export(name="currentGrants", type=String.class, parameters={})
+    @Export(name="currentGrants", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> currentGrants;
 
     /**
@@ -34,7 +34,7 @@ public class RoleOwnershipGrant extends com.pulumi.resources.CustomResource {
      * The name of the role ownership is granted on.
      * 
      */
-    @Export(name="onRoleName", type=String.class, parameters={})
+    @Export(name="onRoleName", refs={String.class}, tree="[0]")
     private Output<String> onRoleName;
 
     /**
@@ -48,7 +48,7 @@ public class RoleOwnershipGrant extends com.pulumi.resources.CustomResource {
      * The name of the role to revert ownership to on destroy.
      * 
      */
-    @Export(name="revertOwnershipToRoleName", type=String.class, parameters={})
+    @Export(name="revertOwnershipToRoleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> revertOwnershipToRoleName;
 
     /**
@@ -62,7 +62,7 @@ public class RoleOwnershipGrant extends com.pulumi.resources.CustomResource {
      * The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
      * 
      */
-    @Export(name="toRoleName", type=String.class, parameters={})
+    @Export(name="toRoleName", refs={String.class}, tree="[0]")
     private Output<String> toRoleName;
 
     /**

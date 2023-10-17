@@ -4,8 +4,12 @@
 package snowflake
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -47,4 +51,50 @@ type GetResourceMonitorsResult struct {
 	Id string `pulumi:"id"`
 	// The resource monitors in the database
 	ResourceMonitors []GetResourceMonitorsResourceMonitor `pulumi:"resourceMonitors"`
+}
+
+func GetResourceMonitorsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetResourceMonitorsResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetResourceMonitorsResult, error) {
+		r, err := GetResourceMonitors(ctx, opts...)
+		var s GetResourceMonitorsResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetResourceMonitorsResultOutput)
+}
+
+// A collection of values returned by getResourceMonitors.
+type GetResourceMonitorsResultOutput struct{ *pulumi.OutputState }
+
+func (GetResourceMonitorsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResourceMonitorsResult)(nil)).Elem()
+}
+
+func (o GetResourceMonitorsResultOutput) ToGetResourceMonitorsResultOutput() GetResourceMonitorsResultOutput {
+	return o
+}
+
+func (o GetResourceMonitorsResultOutput) ToGetResourceMonitorsResultOutputWithContext(ctx context.Context) GetResourceMonitorsResultOutput {
+	return o
+}
+
+func (o GetResourceMonitorsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetResourceMonitorsResult] {
+	return pulumix.Output[GetResourceMonitorsResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetResourceMonitorsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResourceMonitorsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource monitors in the database
+func (o GetResourceMonitorsResultOutput) ResourceMonitors() GetResourceMonitorsResourceMonitorArrayOutput {
+	return o.ApplyT(func(v GetResourceMonitorsResult) []GetResourceMonitorsResourceMonitor { return v.ResourceMonitors }).(GetResourceMonitorsResourceMonitorArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetResourceMonitorsResultOutput{})
 }

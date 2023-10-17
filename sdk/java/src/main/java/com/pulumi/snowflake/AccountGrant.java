@@ -67,7 +67,7 @@ public class AccountGrant extends com.pulumi.resources.CustomResource {
      * grants applied to roles and objects outside Terraform.
      * 
      */
-    @Export(name="enableMultipleGrants", type=Boolean.class, parameters={})
+    @Export(name="enableMultipleGrants", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableMultipleGrants;
 
     /**
@@ -82,7 +82,7 @@ public class AccountGrant extends com.pulumi.resources.CustomResource {
      * The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html). To grant all privileges, use the value `ALL PRIVILEGES`.
      * 
      */
-    @Export(name="privilege", type=String.class, parameters={})
+    @Export(name="privilege", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privilege;
 
     /**
@@ -96,7 +96,7 @@ public class AccountGrant extends com.pulumi.resources.CustomResource {
      * Grants privilege to these roles.
      * 
      */
-    @Export(name="roles", type=List.class, parameters={String.class})
+    @Export(name="roles", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> roles;
 
     /**
@@ -110,7 +110,7 @@ public class AccountGrant extends com.pulumi.resources.CustomResource {
      * When this is set to true, allows the recipient role to grant the privileges to other roles.
      * 
      */
-    @Export(name="withGrantOption", type=Boolean.class, parameters={})
+    @Export(name="withGrantOption", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> withGrantOption;
 
     /**

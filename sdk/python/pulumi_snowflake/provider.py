@@ -15,6 +15,7 @@ __all__ = ['ProviderArgs', 'Provider']
 class ProviderArgs:
     def __init__(__self__, *,
                  account: Optional[pulumi.Input[str]] = None,
+                 authenticator: Optional[pulumi.Input[str]] = None,
                  browser_auth: Optional[pulumi.Input[bool]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  insecure_mode: Optional[pulumi.Input[bool]] = None,
@@ -42,6 +43,9 @@ class ProviderArgs:
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] account: The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
                using profile.
+        :param pulumi.Input[str] authenticator: Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+               connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+               UsernamePasswordMFA
         :param pulumi.Input[bool] browser_auth: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
         :param pulumi.Input[str] host: Supports passing in a custom host value to the snowflake go driver for use with privatelink.
         :param pulumi.Input[bool] insecure_mode: If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
@@ -86,6 +90,7 @@ class ProviderArgs:
         ProviderArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             account=account,
+            authenticator=authenticator,
             browser_auth=browser_auth,
             host=host,
             insecure_mode=insecure_mode,
@@ -114,6 +119,7 @@ class ProviderArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              account: Optional[pulumi.Input[str]] = None,
+             authenticator: Optional[pulumi.Input[str]] = None,
              browser_auth: Optional[pulumi.Input[bool]] = None,
              host: Optional[pulumi.Input[str]] = None,
              insecure_mode: Optional[pulumi.Input[bool]] = None,
@@ -137,11 +143,44 @@ class ProviderArgs:
              session_params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
              username: Optional[pulumi.Input[str]] = None,
              warehouse: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'browserAuth' in kwargs:
+            browser_auth = kwargs['browserAuth']
+        if 'insecureMode' in kwargs:
+            insecure_mode = kwargs['insecureMode']
+        if 'oauthAccessToken' in kwargs:
+            oauth_access_token = kwargs['oauthAccessToken']
+        if 'oauthClientId' in kwargs:
+            oauth_client_id = kwargs['oauthClientId']
+        if 'oauthClientSecret' in kwargs:
+            oauth_client_secret = kwargs['oauthClientSecret']
+        if 'oauthEndpoint' in kwargs:
+            oauth_endpoint = kwargs['oauthEndpoint']
+        if 'oauthRedirectUrl' in kwargs:
+            oauth_redirect_url = kwargs['oauthRedirectUrl']
+        if 'oauthRefreshToken' in kwargs:
+            oauth_refresh_token = kwargs['oauthRefreshToken']
+        if 'passcodeInPassword' in kwargs:
+            passcode_in_password = kwargs['passcodeInPassword']
+        if 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if 'privateKeyPassphrase' in kwargs:
+            private_key_passphrase = kwargs['privateKeyPassphrase']
+        if 'privateKeyPath' in kwargs:
+            private_key_path = kwargs['privateKeyPath']
+        if 'sessionParams' in kwargs:
+            session_params = kwargs['sessionParams']
+
         if account is None:
             account = _utilities.get_env('SNOWFLAKE_ACCOUNT')
         if account is not None:
             _setter("account", account)
+        if authenticator is not None:
+            _setter("authenticator", authenticator)
+        if browser_auth is not None:
+            warnings.warn("""Use `authenticator` instead""", DeprecationWarning)
+            pulumi.log.warn("""browser_auth is deprecated: Use `authenticator` instead""")
         if browser_auth is None:
             browser_auth = _utilities.get_env_bool('SNOWFLAKE_USE_BROWSER_AUTH')
         if browser_auth is not None:
@@ -237,11 +276,28 @@ class ProviderArgs:
         pulumi.set(self, "account", value)
 
     @property
+    @pulumi.getter
+    def authenticator(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+        connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+        UsernamePasswordMFA
+        """
+        return pulumi.get(self, "authenticator")
+
+    @authenticator.setter
+    def authenticator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authenticator", value)
+
+    @property
     @pulumi.getter(name="browserAuth")
     def browser_auth(self) -> Optional[pulumi.Input[bool]]:
         """
         Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
         """
+        warnings.warn("""Use `authenticator` instead""", DeprecationWarning)
+        pulumi.log.warn("""browser_auth is deprecated: Use `authenticator` instead""")
+
         return pulumi.get(self, "browser_auth")
 
     @browser_auth.setter
@@ -536,6 +592,7 @@ class Provider(pulumi.ProviderResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account: Optional[pulumi.Input[str]] = None,
+                 authenticator: Optional[pulumi.Input[str]] = None,
                  browser_auth: Optional[pulumi.Input[bool]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  insecure_mode: Optional[pulumi.Input[bool]] = None,
@@ -570,6 +627,9 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account: The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
                using profile.
+        :param pulumi.Input[str] authenticator: Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+               connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+               UsernamePasswordMFA
         :param pulumi.Input[bool] browser_auth: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
         :param pulumi.Input[str] host: Supports passing in a custom host value to the snowflake go driver for use with privatelink.
         :param pulumi.Input[bool] insecure_mode: If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
@@ -643,6 +703,7 @@ class Provider(pulumi.ProviderResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account: Optional[pulumi.Input[str]] = None,
+                 authenticator: Optional[pulumi.Input[str]] = None,
                  browser_auth: Optional[pulumi.Input[bool]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  insecure_mode: Optional[pulumi.Input[bool]] = None,
@@ -678,6 +739,7 @@ class Provider(pulumi.ProviderResource):
             if account is None:
                 account = _utilities.get_env('SNOWFLAKE_ACCOUNT')
             __props__.__dict__["account"] = account
+            __props__.__dict__["authenticator"] = authenticator
             if browser_auth is None:
                 browser_auth = _utilities.get_env_bool('SNOWFLAKE_USE_BROWSER_AUTH')
             __props__.__dict__["browser_auth"] = pulumi.Output.from_input(browser_auth).apply(pulumi.runtime.to_json) if browser_auth is not None else None
@@ -751,6 +813,16 @@ class Provider(pulumi.ProviderResource):
         using profile.
         """
         return pulumi.get(self, "account")
+
+    @property
+    @pulumi.getter
+    def authenticator(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
+        connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
+        UsernamePasswordMFA
+        """
+        return pulumi.get(self, "authenticator")
 
     @property
     @pulumi.getter

@@ -70,7 +70,27 @@ class ApiIntegrationArgs:
              enabled: Optional[pulumi.Input[bool]] = None,
              google_audience: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiAllowedPrefixes' in kwargs:
+            api_allowed_prefixes = kwargs['apiAllowedPrefixes']
+        if 'apiProvider' in kwargs:
+            api_provider = kwargs['apiProvider']
+        if 'apiAwsRoleArn' in kwargs:
+            api_aws_role_arn = kwargs['apiAwsRoleArn']
+        if 'apiBlockedPrefixes' in kwargs:
+            api_blocked_prefixes = kwargs['apiBlockedPrefixes']
+        if 'apiGcpServiceAccount' in kwargs:
+            api_gcp_service_account = kwargs['apiGcpServiceAccount']
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'azureAdApplicationId' in kwargs:
+            azure_ad_application_id = kwargs['azureAdApplicationId']
+        if 'azureTenantId' in kwargs:
+            azure_tenant_id = kwargs['azureTenantId']
+        if 'googleAudience' in kwargs:
+            google_audience = kwargs['googleAudience']
+
         _setter("api_allowed_prefixes", api_allowed_prefixes)
         _setter("api_provider", api_provider)
         if api_aws_role_arn is not None:
@@ -313,7 +333,37 @@ class _ApiIntegrationState:
              enabled: Optional[pulumi.Input[bool]] = None,
              google_audience: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiAllowedPrefixes' in kwargs:
+            api_allowed_prefixes = kwargs['apiAllowedPrefixes']
+        if 'apiAwsExternalId' in kwargs:
+            api_aws_external_id = kwargs['apiAwsExternalId']
+        if 'apiAwsIamUserArn' in kwargs:
+            api_aws_iam_user_arn = kwargs['apiAwsIamUserArn']
+        if 'apiAwsRoleArn' in kwargs:
+            api_aws_role_arn = kwargs['apiAwsRoleArn']
+        if 'apiBlockedPrefixes' in kwargs:
+            api_blocked_prefixes = kwargs['apiBlockedPrefixes']
+        if 'apiGcpServiceAccount' in kwargs:
+            api_gcp_service_account = kwargs['apiGcpServiceAccount']
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'apiProvider' in kwargs:
+            api_provider = kwargs['apiProvider']
+        if 'azureAdApplicationId' in kwargs:
+            azure_ad_application_id = kwargs['azureAdApplicationId']
+        if 'azureConsentUrl' in kwargs:
+            azure_consent_url = kwargs['azureConsentUrl']
+        if 'azureMultiTenantAppName' in kwargs:
+            azure_multi_tenant_app_name = kwargs['azureMultiTenantAppName']
+        if 'azureTenantId' in kwargs:
+            azure_tenant_id = kwargs['azureTenantId']
+        if 'createdOn' in kwargs:
+            created_on = kwargs['createdOn']
+        if 'googleAudience' in kwargs:
+            google_audience = kwargs['googleAudience']
+
         if api_allowed_prefixes is not None:
             _setter("api_allowed_prefixes", api_allowed_prefixes)
         if api_aws_external_id is not None:

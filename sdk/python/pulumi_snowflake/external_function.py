@@ -93,7 +93,29 @@ class ExternalFunctionArgs:
              request_translator: Optional[pulumi.Input[str]] = None,
              response_translator: Optional[pulumi.Input[str]] = None,
              return_null_allowed: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiIntegration' in kwargs:
+            api_integration = kwargs['apiIntegration']
+        if 'returnBehavior' in kwargs:
+            return_behavior = kwargs['returnBehavior']
+        if 'returnType' in kwargs:
+            return_type = kwargs['returnType']
+        if 'urlOfProxyAndResource' in kwargs:
+            url_of_proxy_and_resource = kwargs['urlOfProxyAndResource']
+        if 'contextHeaders' in kwargs:
+            context_headers = kwargs['contextHeaders']
+        if 'maxBatchRows' in kwargs:
+            max_batch_rows = kwargs['maxBatchRows']
+        if 'nullInputBehavior' in kwargs:
+            null_input_behavior = kwargs['nullInputBehavior']
+        if 'requestTranslator' in kwargs:
+            request_translator = kwargs['requestTranslator']
+        if 'responseTranslator' in kwargs:
+            response_translator = kwargs['responseTranslator']
+        if 'returnNullAllowed' in kwargs:
+            return_null_allowed = kwargs['returnNullAllowed']
+
         _setter("api_integration", api_integration)
         _setter("database", database)
         _setter("return_behavior", return_behavior)
@@ -412,7 +434,31 @@ class _ExternalFunctionState:
              return_type: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
              url_of_proxy_and_resource: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiIntegration' in kwargs:
+            api_integration = kwargs['apiIntegration']
+        if 'contextHeaders' in kwargs:
+            context_headers = kwargs['contextHeaders']
+        if 'createdOn' in kwargs:
+            created_on = kwargs['createdOn']
+        if 'maxBatchRows' in kwargs:
+            max_batch_rows = kwargs['maxBatchRows']
+        if 'nullInputBehavior' in kwargs:
+            null_input_behavior = kwargs['nullInputBehavior']
+        if 'requestTranslator' in kwargs:
+            request_translator = kwargs['requestTranslator']
+        if 'responseTranslator' in kwargs:
+            response_translator = kwargs['responseTranslator']
+        if 'returnBehavior' in kwargs:
+            return_behavior = kwargs['returnBehavior']
+        if 'returnNullAllowed' in kwargs:
+            return_null_allowed = kwargs['returnNullAllowed']
+        if 'returnType' in kwargs:
+            return_type = kwargs['returnType']
+        if 'urlOfProxyAndResource' in kwargs:
+            url_of_proxy_and_resource = kwargs['urlOfProxyAndResource']
+
         if api_integration is not None:
             _setter("api_integration", api_integration)
         if args is not None:

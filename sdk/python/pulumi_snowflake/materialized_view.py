@@ -61,7 +61,13 @@ class MaterializedViewArgs:
              name: Optional[pulumi.Input[str]] = None,
              or_replace: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isSecure' in kwargs:
+            is_secure = kwargs['isSecure']
+        if 'orReplace' in kwargs:
+            or_replace = kwargs['orReplace']
+
         _setter("database", database)
         _setter("schema", schema)
         _setter("statement", statement)
@@ -240,7 +246,13 @@ class _MaterializedViewState:
              statement: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]]] = None,
              warehouse: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isSecure' in kwargs:
+            is_secure = kwargs['isSecure']
+        if 'orReplace' in kwargs:
+            or_replace = kwargs['orReplace']
+
         if comment is not None:
             _setter("comment", comment)
         if database is not None:
