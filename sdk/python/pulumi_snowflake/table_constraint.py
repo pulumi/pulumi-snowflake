@@ -61,9 +61,9 @@ class TableConstraintArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             columns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             table_id: pulumi.Input[str],
-             type: pulumi.Input[str],
+             columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             table_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              comment: Optional[pulumi.Input[str]] = None,
              deferrable: Optional[pulumi.Input[bool]] = None,
              enable: Optional[pulumi.Input[bool]] = None,
@@ -73,11 +73,17 @@ class TableConstraintArgs:
              name: Optional[pulumi.Input[str]] = None,
              rely: Optional[pulumi.Input[bool]] = None,
              validate: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'tableId' in kwargs:
+        if columns is None:
+            raise TypeError("Missing 'columns' argument")
+        if table_id is None and 'tableId' in kwargs:
             table_id = kwargs['tableId']
-        if 'foreignKeyProperties' in kwargs:
+        if table_id is None:
+            raise TypeError("Missing 'table_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if foreign_key_properties is None and 'foreignKeyProperties' in kwargs:
             foreign_key_properties = kwargs['foreignKeyProperties']
 
         _setter("columns", columns)
@@ -307,11 +313,11 @@ class _TableConstraintState:
              table_id: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              validate: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'foreignKeyProperties' in kwargs:
+        if foreign_key_properties is None and 'foreignKeyProperties' in kwargs:
             foreign_key_properties = kwargs['foreignKeyProperties']
-        if 'tableId' in kwargs:
+        if table_id is None and 'tableId' in kwargs:
             table_id = kwargs['tableId']
 
         if columns is not None:
@@ -722,11 +728,7 @@ class TableConstraint(pulumi.CustomResource):
             __props__.__dict__["deferrable"] = deferrable
             __props__.__dict__["enable"] = enable
             __props__.__dict__["enforced"] = enforced
-            if foreign_key_properties is not None and not isinstance(foreign_key_properties, TableConstraintForeignKeyPropertiesArgs):
-                foreign_key_properties = foreign_key_properties or {}
-                def _setter(key, value):
-                    foreign_key_properties[key] = value
-                TableConstraintForeignKeyPropertiesArgs._configure(_setter, **foreign_key_properties)
+            foreign_key_properties = _utilities.configure(foreign_key_properties, TableConstraintForeignKeyPropertiesArgs, True)
             __props__.__dict__["foreign_key_properties"] = foreign_key_properties
             __props__.__dict__["initially"] = initially
             __props__.__dict__["name"] = name

@@ -32,14 +32,16 @@ class NetworkPolicyAttachmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_policy_name: pulumi.Input[str],
+             network_policy_name: Optional[pulumi.Input[str]] = None,
              set_for_account: Optional[pulumi.Input[bool]] = None,
              users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkPolicyName' in kwargs:
+        if network_policy_name is None and 'networkPolicyName' in kwargs:
             network_policy_name = kwargs['networkPolicyName']
-        if 'setForAccount' in kwargs:
+        if network_policy_name is None:
+            raise TypeError("Missing 'network_policy_name' argument")
+        if set_for_account is None and 'setForAccount' in kwargs:
             set_for_account = kwargs['setForAccount']
 
         _setter("network_policy_name", network_policy_name)
@@ -109,11 +111,11 @@ class _NetworkPolicyAttachmentState:
              network_policy_name: Optional[pulumi.Input[str]] = None,
              set_for_account: Optional[pulumi.Input[bool]] = None,
              users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkPolicyName' in kwargs:
+        if network_policy_name is None and 'networkPolicyName' in kwargs:
             network_policy_name = kwargs['networkPolicyName']
-        if 'setForAccount' in kwargs:
+        if set_for_account is None and 'setForAccount' in kwargs:
             set_for_account = kwargs['setForAccount']
 
         if network_policy_name is not None:

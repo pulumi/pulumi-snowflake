@@ -39,18 +39,22 @@ class UserGrantArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             privilege: pulumi.Input[str],
-             user_name: pulumi.Input[str],
+             privilege: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
              enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'userName' in kwargs:
+        if privilege is None:
+            raise TypeError("Missing 'privilege' argument")
+        if user_name is None and 'userName' in kwargs:
             user_name = kwargs['userName']
-        if 'enableMultipleGrants' in kwargs:
+        if user_name is None:
+            raise TypeError("Missing 'user_name' argument")
+        if enable_multiple_grants is None and 'enableMultipleGrants' in kwargs:
             enable_multiple_grants = kwargs['enableMultipleGrants']
-        if 'withGrantOption' in kwargs:
+        if with_grant_option is None and 'withGrantOption' in kwargs:
             with_grant_option = kwargs['withGrantOption']
 
         _setter("privilege", privilege)
@@ -157,13 +161,13 @@ class _UserGrantState:
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'enableMultipleGrants' in kwargs:
+        if enable_multiple_grants is None and 'enableMultipleGrants' in kwargs:
             enable_multiple_grants = kwargs['enableMultipleGrants']
-        if 'userName' in kwargs:
+        if user_name is None and 'userName' in kwargs:
             user_name = kwargs['userName']
-        if 'withGrantOption' in kwargs:
+        if with_grant_option is None and 'withGrantOption' in kwargs:
             with_grant_option = kwargs['withGrantOption']
 
         if enable_multiple_grants is not None:

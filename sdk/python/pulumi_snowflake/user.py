@@ -85,29 +85,29 @@ class UserArgs:
              password: Optional[pulumi.Input[str]] = None,
              rsa_public_key: Optional[pulumi.Input[str]] = None,
              rsa_public_key2: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultNamespace' in kwargs:
+        if default_namespace is None and 'defaultNamespace' in kwargs:
             default_namespace = kwargs['defaultNamespace']
-        if 'defaultRole' in kwargs:
+        if default_role is None and 'defaultRole' in kwargs:
             default_role = kwargs['defaultRole']
-        if 'defaultSecondaryRoles' in kwargs:
+        if default_secondary_roles is None and 'defaultSecondaryRoles' in kwargs:
             default_secondary_roles = kwargs['defaultSecondaryRoles']
-        if 'defaultWarehouse' in kwargs:
+        if default_warehouse is None and 'defaultWarehouse' in kwargs:
             default_warehouse = kwargs['defaultWarehouse']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'firstName' in kwargs:
+        if first_name is None and 'firstName' in kwargs:
             first_name = kwargs['firstName']
-        if 'lastName' in kwargs:
+        if last_name is None and 'lastName' in kwargs:
             last_name = kwargs['lastName']
-        if 'loginName' in kwargs:
+        if login_name is None and 'loginName' in kwargs:
             login_name = kwargs['loginName']
-        if 'mustChangePassword' in kwargs:
+        if must_change_password is None and 'mustChangePassword' in kwargs:
             must_change_password = kwargs['mustChangePassword']
-        if 'rsaPublicKey' in kwargs:
+        if rsa_public_key is None and 'rsaPublicKey' in kwargs:
             rsa_public_key = kwargs['rsaPublicKey']
-        if 'rsaPublicKey2' in kwargs:
+        if rsa_public_key2 is None and 'rsaPublicKey2' in kwargs:
             rsa_public_key2 = kwargs['rsaPublicKey2']
 
         if comment is not None:
@@ -408,31 +408,31 @@ class _UserState:
              password: Optional[pulumi.Input[str]] = None,
              rsa_public_key: Optional[pulumi.Input[str]] = None,
              rsa_public_key2: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultNamespace' in kwargs:
+        if default_namespace is None and 'defaultNamespace' in kwargs:
             default_namespace = kwargs['defaultNamespace']
-        if 'defaultRole' in kwargs:
+        if default_role is None and 'defaultRole' in kwargs:
             default_role = kwargs['defaultRole']
-        if 'defaultSecondaryRoles' in kwargs:
+        if default_secondary_roles is None and 'defaultSecondaryRoles' in kwargs:
             default_secondary_roles = kwargs['defaultSecondaryRoles']
-        if 'defaultWarehouse' in kwargs:
+        if default_warehouse is None and 'defaultWarehouse' in kwargs:
             default_warehouse = kwargs['defaultWarehouse']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'firstName' in kwargs:
+        if first_name is None and 'firstName' in kwargs:
             first_name = kwargs['firstName']
-        if 'hasRsaPublicKey' in kwargs:
+        if has_rsa_public_key is None and 'hasRsaPublicKey' in kwargs:
             has_rsa_public_key = kwargs['hasRsaPublicKey']
-        if 'lastName' in kwargs:
+        if last_name is None and 'lastName' in kwargs:
             last_name = kwargs['lastName']
-        if 'loginName' in kwargs:
+        if login_name is None and 'loginName' in kwargs:
             login_name = kwargs['loginName']
-        if 'mustChangePassword' in kwargs:
+        if must_change_password is None and 'mustChangePassword' in kwargs:
             must_change_password = kwargs['mustChangePassword']
-        if 'rsaPublicKey' in kwargs:
+        if rsa_public_key is None and 'rsaPublicKey' in kwargs:
             rsa_public_key = kwargs['rsaPublicKey']
-        if 'rsaPublicKey2' in kwargs:
+        if rsa_public_key2 is None and 'rsaPublicKey2' in kwargs:
             rsa_public_key2 = kwargs['rsaPublicKey2']
 
         if comment is not None:

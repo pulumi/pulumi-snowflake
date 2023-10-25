@@ -46,8 +46,8 @@ class StorageIntegrationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_allowed_locations: pulumi.Input[Sequence[pulumi.Input[str]]],
-             storage_provider: pulumi.Input[str],
+             storage_allowed_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             storage_provider: Optional[pulumi.Input[str]] = None,
              azure_tenant_id: Optional[pulumi.Input[str]] = None,
              comment: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
@@ -56,19 +56,23 @@ class StorageIntegrationArgs:
              storage_aws_role_arn: Optional[pulumi.Input[str]] = None,
              storage_blocked_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'storageAllowedLocations' in kwargs:
+        if storage_allowed_locations is None and 'storageAllowedLocations' in kwargs:
             storage_allowed_locations = kwargs['storageAllowedLocations']
-        if 'storageProvider' in kwargs:
+        if storage_allowed_locations is None:
+            raise TypeError("Missing 'storage_allowed_locations' argument")
+        if storage_provider is None and 'storageProvider' in kwargs:
             storage_provider = kwargs['storageProvider']
-        if 'azureTenantId' in kwargs:
+        if storage_provider is None:
+            raise TypeError("Missing 'storage_provider' argument")
+        if azure_tenant_id is None and 'azureTenantId' in kwargs:
             azure_tenant_id = kwargs['azureTenantId']
-        if 'storageAwsObjectAcl' in kwargs:
+        if storage_aws_object_acl is None and 'storageAwsObjectAcl' in kwargs:
             storage_aws_object_acl = kwargs['storageAwsObjectAcl']
-        if 'storageAwsRoleArn' in kwargs:
+        if storage_aws_role_arn is None and 'storageAwsRoleArn' in kwargs:
             storage_aws_role_arn = kwargs['storageAwsRoleArn']
-        if 'storageBlockedLocations' in kwargs:
+        if storage_blocked_locations is None and 'storageBlockedLocations' in kwargs:
             storage_blocked_locations = kwargs['storageBlockedLocations']
 
         _setter("storage_allowed_locations", storage_allowed_locations)
@@ -259,31 +263,31 @@ class _StorageIntegrationState:
              storage_gcp_service_account: Optional[pulumi.Input[str]] = None,
              storage_provider: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'azureConsentUrl' in kwargs:
+        if azure_consent_url is None and 'azureConsentUrl' in kwargs:
             azure_consent_url = kwargs['azureConsentUrl']
-        if 'azureMultiTenantAppName' in kwargs:
+        if azure_multi_tenant_app_name is None and 'azureMultiTenantAppName' in kwargs:
             azure_multi_tenant_app_name = kwargs['azureMultiTenantAppName']
-        if 'azureTenantId' in kwargs:
+        if azure_tenant_id is None and 'azureTenantId' in kwargs:
             azure_tenant_id = kwargs['azureTenantId']
-        if 'createdOn' in kwargs:
+        if created_on is None and 'createdOn' in kwargs:
             created_on = kwargs['createdOn']
-        if 'storageAllowedLocations' in kwargs:
+        if storage_allowed_locations is None and 'storageAllowedLocations' in kwargs:
             storage_allowed_locations = kwargs['storageAllowedLocations']
-        if 'storageAwsExternalId' in kwargs:
+        if storage_aws_external_id is None and 'storageAwsExternalId' in kwargs:
             storage_aws_external_id = kwargs['storageAwsExternalId']
-        if 'storageAwsIamUserArn' in kwargs:
+        if storage_aws_iam_user_arn is None and 'storageAwsIamUserArn' in kwargs:
             storage_aws_iam_user_arn = kwargs['storageAwsIamUserArn']
-        if 'storageAwsObjectAcl' in kwargs:
+        if storage_aws_object_acl is None and 'storageAwsObjectAcl' in kwargs:
             storage_aws_object_acl = kwargs['storageAwsObjectAcl']
-        if 'storageAwsRoleArn' in kwargs:
+        if storage_aws_role_arn is None and 'storageAwsRoleArn' in kwargs:
             storage_aws_role_arn = kwargs['storageAwsRoleArn']
-        if 'storageBlockedLocations' in kwargs:
+        if storage_blocked_locations is None and 'storageBlockedLocations' in kwargs:
             storage_blocked_locations = kwargs['storageBlockedLocations']
-        if 'storageGcpServiceAccount' in kwargs:
+        if storage_gcp_service_account is None and 'storageGcpServiceAccount' in kwargs:
             storage_gcp_service_account = kwargs['storageGcpServiceAccount']
-        if 'storageProvider' in kwargs:
+        if storage_provider is None and 'storageProvider' in kwargs:
             storage_provider = kwargs['storageProvider']
 
         if azure_consent_url is not None:

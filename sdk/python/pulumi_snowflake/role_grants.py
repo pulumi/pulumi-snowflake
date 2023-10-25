@@ -36,15 +36,17 @@ class RoleGrantsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_name: pulumi.Input[str],
+             role_name: Optional[pulumi.Input[str]] = None,
              enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'roleName' in kwargs:
+        if role_name is None and 'roleName' in kwargs:
             role_name = kwargs['roleName']
-        if 'enableMultipleGrants' in kwargs:
+        if role_name is None:
+            raise TypeError("Missing 'role_name' argument")
+        if enable_multiple_grants is None and 'enableMultipleGrants' in kwargs:
             enable_multiple_grants = kwargs['enableMultipleGrants']
 
         _setter("role_name", role_name)
@@ -134,11 +136,11 @@ class _RoleGrantsState:
              role_name: Optional[pulumi.Input[str]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'enableMultipleGrants' in kwargs:
+        if enable_multiple_grants is None and 'enableMultipleGrants' in kwargs:
             enable_multiple_grants = kwargs['enableMultipleGrants']
-        if 'roleName' in kwargs:
+        if role_name is None and 'roleName' in kwargs:
             role_name = kwargs['roleName']
 
         if enable_multiple_grants is not None:

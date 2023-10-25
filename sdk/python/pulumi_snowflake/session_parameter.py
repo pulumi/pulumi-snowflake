@@ -35,13 +35,17 @@ class SessionParameterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              on_account: Optional[pulumi.Input[bool]] = None,
              user: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'onAccount' in kwargs:
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if on_account is None and 'onAccount' in kwargs:
             on_account = kwargs['onAccount']
 
         _setter("key", key)
@@ -128,9 +132,9 @@ class _SessionParameterState:
              on_account: Optional[pulumi.Input[bool]] = None,
              user: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'onAccount' in kwargs:
+        if on_account is None and 'onAccount' in kwargs:
             on_account = kwargs['onAccount']
 
         if key is not None:

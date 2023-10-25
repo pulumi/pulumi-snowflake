@@ -32,11 +32,13 @@ class DatabaseRoleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database: pulumi.Input[str],
+             database: Optional[pulumi.Input[str]] = None,
              comment: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if database is None:
+            raise TypeError("Missing 'database' argument")
 
         _setter("database", database)
         if comment is not None:
@@ -105,7 +107,7 @@ class _DatabaseRoleState:
              comment: Optional[pulumi.Input[str]] = None,
              database: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if comment is not None:

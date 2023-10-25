@@ -67,11 +67,11 @@ class ExternalTableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             columns: pulumi.Input[Sequence[pulumi.Input['ExternalTableColumnArgs']]],
-             database: pulumi.Input[str],
-             file_format: pulumi.Input[str],
-             location: pulumi.Input[str],
-             schema: pulumi.Input[str],
+             columns: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableColumnArgs']]]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             file_format: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
              auto_refresh: Optional[pulumi.Input[bool]] = None,
              aws_sns_topic: Optional[pulumi.Input[str]] = None,
              comment: Optional[pulumi.Input[str]] = None,
@@ -81,19 +81,29 @@ class ExternalTableArgs:
              pattern: Optional[pulumi.Input[str]] = None,
              refresh_on_create: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'fileFormat' in kwargs:
+        if columns is None:
+            raise TypeError("Missing 'columns' argument")
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if file_format is None and 'fileFormat' in kwargs:
             file_format = kwargs['fileFormat']
-        if 'autoRefresh' in kwargs:
+        if file_format is None:
+            raise TypeError("Missing 'file_format' argument")
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if auto_refresh is None and 'autoRefresh' in kwargs:
             auto_refresh = kwargs['autoRefresh']
-        if 'awsSnsTopic' in kwargs:
+        if aws_sns_topic is None and 'awsSnsTopic' in kwargs:
             aws_sns_topic = kwargs['awsSnsTopic']
-        if 'copyGrants' in kwargs:
+        if copy_grants is None and 'copyGrants' in kwargs:
             copy_grants = kwargs['copyGrants']
-        if 'partitionBies' in kwargs:
+        if partition_bies is None and 'partitionBies' in kwargs:
             partition_bies = kwargs['partitionBies']
-        if 'refreshOnCreate' in kwargs:
+        if refresh_on_create is None and 'refreshOnCreate' in kwargs:
             refresh_on_create = kwargs['refreshOnCreate']
 
         _setter("columns", columns)
@@ -367,19 +377,19 @@ class _ExternalTableState:
              refresh_on_create: Optional[pulumi.Input[bool]] = None,
              schema: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoRefresh' in kwargs:
+        if auto_refresh is None and 'autoRefresh' in kwargs:
             auto_refresh = kwargs['autoRefresh']
-        if 'awsSnsTopic' in kwargs:
+        if aws_sns_topic is None and 'awsSnsTopic' in kwargs:
             aws_sns_topic = kwargs['awsSnsTopic']
-        if 'copyGrants' in kwargs:
+        if copy_grants is None and 'copyGrants' in kwargs:
             copy_grants = kwargs['copyGrants']
-        if 'fileFormat' in kwargs:
+        if file_format is None and 'fileFormat' in kwargs:
             file_format = kwargs['fileFormat']
-        if 'partitionBies' in kwargs:
+        if partition_bies is None and 'partitionBies' in kwargs:
             partition_bies = kwargs['partitionBies']
-        if 'refreshOnCreate' in kwargs:
+        if refresh_on_create is None and 'refreshOnCreate' in kwargs:
             refresh_on_create = kwargs['refreshOnCreate']
 
         if auto_refresh is not None:

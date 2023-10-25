@@ -35,15 +35,17 @@ class NetworkPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_ip_lists: pulumi.Input[Sequence[pulumi.Input[str]]],
+             allowed_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              blocked_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              comment: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowedIpLists' in kwargs:
+        if allowed_ip_lists is None and 'allowedIpLists' in kwargs:
             allowed_ip_lists = kwargs['allowedIpLists']
-        if 'blockedIpLists' in kwargs:
+        if allowed_ip_lists is None:
+            raise TypeError("Missing 'allowed_ip_lists' argument")
+        if blocked_ip_lists is None and 'blockedIpLists' in kwargs:
             blocked_ip_lists = kwargs['blockedIpLists']
 
         _setter("allowed_ip_lists", allowed_ip_lists)
@@ -131,11 +133,11 @@ class _NetworkPolicyState:
              blocked_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              comment: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowedIpLists' in kwargs:
+        if allowed_ip_lists is None and 'allowedIpLists' in kwargs:
             allowed_ip_lists = kwargs['allowedIpLists']
-        if 'blockedIpLists' in kwargs:
+        if blocked_ip_lists is None and 'blockedIpLists' in kwargs:
             blocked_ip_lists = kwargs['blockedIpLists']
 
         if allowed_ip_lists is not None:

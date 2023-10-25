@@ -40,18 +40,22 @@ class ObjectParameterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectParameterObjectIdentifierArgs']]]] = None,
              object_type: Optional[pulumi.Input[str]] = None,
              on_account: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'objectIdentifiers' in kwargs:
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if object_identifiers is None and 'objectIdentifiers' in kwargs:
             object_identifiers = kwargs['objectIdentifiers']
-        if 'objectType' in kwargs:
+        if object_type is None and 'objectType' in kwargs:
             object_type = kwargs['objectType']
-        if 'onAccount' in kwargs:
+        if on_account is None and 'onAccount' in kwargs:
             on_account = kwargs['onAccount']
 
         _setter("key", key)
@@ -156,13 +160,13 @@ class _ObjectParameterState:
              object_type: Optional[pulumi.Input[str]] = None,
              on_account: Optional[pulumi.Input[bool]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'objectIdentifiers' in kwargs:
+        if object_identifiers is None and 'objectIdentifiers' in kwargs:
             object_identifiers = kwargs['objectIdentifiers']
-        if 'objectType' in kwargs:
+        if object_type is None and 'objectType' in kwargs:
             object_type = kwargs['objectType']
-        if 'onAccount' in kwargs:
+        if on_account is None and 'onAccount' in kwargs:
             on_account = kwargs['onAccount']
 
         if key is not None:

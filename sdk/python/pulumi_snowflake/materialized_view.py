@@ -52,20 +52,28 @@ class MaterializedViewArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database: pulumi.Input[str],
-             schema: pulumi.Input[str],
-             statement: pulumi.Input[str],
-             warehouse: pulumi.Input[str],
+             database: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             statement: Optional[pulumi.Input[str]] = None,
+             warehouse: Optional[pulumi.Input[str]] = None,
              comment: Optional[pulumi.Input[str]] = None,
              is_secure: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              or_replace: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'isSecure' in kwargs:
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if statement is None:
+            raise TypeError("Missing 'statement' argument")
+        if warehouse is None:
+            raise TypeError("Missing 'warehouse' argument")
+        if is_secure is None and 'isSecure' in kwargs:
             is_secure = kwargs['isSecure']
-        if 'orReplace' in kwargs:
+        if or_replace is None and 'orReplace' in kwargs:
             or_replace = kwargs['orReplace']
 
         _setter("database", database)
@@ -246,11 +254,11 @@ class _MaterializedViewState:
              statement: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]]] = None,
              warehouse: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'isSecure' in kwargs:
+        if is_secure is None and 'isSecure' in kwargs:
             is_secure = kwargs['isSecure']
-        if 'orReplace' in kwargs:
+        if or_replace is None and 'orReplace' in kwargs:
             or_replace = kwargs['orReplace']
 
         if comment is not None:

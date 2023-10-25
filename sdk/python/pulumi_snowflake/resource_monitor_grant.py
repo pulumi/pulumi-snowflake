@@ -39,18 +39,20 @@ class ResourceMonitorGrantArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             monitor_name: pulumi.Input[str],
+             monitor_name: Optional[pulumi.Input[str]] = None,
              enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
              privilege: Optional[pulumi.Input[str]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'monitorName' in kwargs:
+        if monitor_name is None and 'monitorName' in kwargs:
             monitor_name = kwargs['monitorName']
-        if 'enableMultipleGrants' in kwargs:
+        if monitor_name is None:
+            raise TypeError("Missing 'monitor_name' argument")
+        if enable_multiple_grants is None and 'enableMultipleGrants' in kwargs:
             enable_multiple_grants = kwargs['enableMultipleGrants']
-        if 'withGrantOption' in kwargs:
+        if with_grant_option is None and 'withGrantOption' in kwargs:
             with_grant_option = kwargs['withGrantOption']
 
         _setter("monitor_name", monitor_name)
@@ -158,13 +160,13 @@ class _ResourceMonitorGrantState:
              privilege: Optional[pulumi.Input[str]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'enableMultipleGrants' in kwargs:
+        if enable_multiple_grants is None and 'enableMultipleGrants' in kwargs:
             enable_multiple_grants = kwargs['enableMultipleGrants']
-        if 'monitorName' in kwargs:
+        if monitor_name is None and 'monitorName' in kwargs:
             monitor_name = kwargs['monitorName']
-        if 'withGrantOption' in kwargs:
+        if with_grant_option is None and 'withGrantOption' in kwargs:
             with_grant_option = kwargs['withGrantOption']
 
         if enable_multiple_grants is not None:

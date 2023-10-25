@@ -71,11 +71,11 @@ class ExternalOauthIntegrationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             issuer: pulumi.Input[str],
-             snowflake_user_mapping_attribute: pulumi.Input[str],
-             token_user_mapping_claims: pulumi.Input[Sequence[pulumi.Input[str]]],
-             type: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             issuer: Optional[pulumi.Input[str]] = None,
+             snowflake_user_mapping_attribute: Optional[pulumi.Input[str]] = None,
+             token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              allowed_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              any_role_mode: Optional[pulumi.Input[str]] = None,
              audience_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -87,29 +87,39 @@ class ExternalOauthIntegrationArgs:
              rsa_public_key2: Optional[pulumi.Input[str]] = None,
              scope_delimiter: Optional[pulumi.Input[str]] = None,
              scope_mapping_attribute: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'snowflakeUserMappingAttribute' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if issuer is None:
+            raise TypeError("Missing 'issuer' argument")
+        if snowflake_user_mapping_attribute is None and 'snowflakeUserMappingAttribute' in kwargs:
             snowflake_user_mapping_attribute = kwargs['snowflakeUserMappingAttribute']
-        if 'tokenUserMappingClaims' in kwargs:
+        if snowflake_user_mapping_attribute is None:
+            raise TypeError("Missing 'snowflake_user_mapping_attribute' argument")
+        if token_user_mapping_claims is None and 'tokenUserMappingClaims' in kwargs:
             token_user_mapping_claims = kwargs['tokenUserMappingClaims']
-        if 'allowedRoles' in kwargs:
+        if token_user_mapping_claims is None:
+            raise TypeError("Missing 'token_user_mapping_claims' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if allowed_roles is None and 'allowedRoles' in kwargs:
             allowed_roles = kwargs['allowedRoles']
-        if 'anyRoleMode' in kwargs:
+        if any_role_mode is None and 'anyRoleMode' in kwargs:
             any_role_mode = kwargs['anyRoleMode']
-        if 'audienceUrls' in kwargs:
+        if audience_urls is None and 'audienceUrls' in kwargs:
             audience_urls = kwargs['audienceUrls']
-        if 'blockedRoles' in kwargs:
+        if blocked_roles is None and 'blockedRoles' in kwargs:
             blocked_roles = kwargs['blockedRoles']
-        if 'jwsKeysUrls' in kwargs:
+        if jws_keys_urls is None and 'jwsKeysUrls' in kwargs:
             jws_keys_urls = kwargs['jwsKeysUrls']
-        if 'rsaPublicKey' in kwargs:
+        if rsa_public_key is None and 'rsaPublicKey' in kwargs:
             rsa_public_key = kwargs['rsaPublicKey']
-        if 'rsaPublicKey2' in kwargs:
+        if rsa_public_key2 is None and 'rsaPublicKey2' in kwargs:
             rsa_public_key2 = kwargs['rsaPublicKey2']
-        if 'scopeDelimiter' in kwargs:
+        if scope_delimiter is None and 'scopeDelimiter' in kwargs:
             scope_delimiter = kwargs['scopeDelimiter']
-        if 'scopeMappingAttribute' in kwargs:
+        if scope_mapping_attribute is None and 'scopeMappingAttribute' in kwargs:
             scope_mapping_attribute = kwargs['scopeMappingAttribute']
 
         _setter("enabled", enabled)
@@ -413,31 +423,31 @@ class _ExternalOauthIntegrationState:
              snowflake_user_mapping_attribute: Optional[pulumi.Input[str]] = None,
              token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowedRoles' in kwargs:
+        if allowed_roles is None and 'allowedRoles' in kwargs:
             allowed_roles = kwargs['allowedRoles']
-        if 'anyRoleMode' in kwargs:
+        if any_role_mode is None and 'anyRoleMode' in kwargs:
             any_role_mode = kwargs['anyRoleMode']
-        if 'audienceUrls' in kwargs:
+        if audience_urls is None and 'audienceUrls' in kwargs:
             audience_urls = kwargs['audienceUrls']
-        if 'blockedRoles' in kwargs:
+        if blocked_roles is None and 'blockedRoles' in kwargs:
             blocked_roles = kwargs['blockedRoles']
-        if 'createdOn' in kwargs:
+        if created_on is None and 'createdOn' in kwargs:
             created_on = kwargs['createdOn']
-        if 'jwsKeysUrls' in kwargs:
+        if jws_keys_urls is None and 'jwsKeysUrls' in kwargs:
             jws_keys_urls = kwargs['jwsKeysUrls']
-        if 'rsaPublicKey' in kwargs:
+        if rsa_public_key is None and 'rsaPublicKey' in kwargs:
             rsa_public_key = kwargs['rsaPublicKey']
-        if 'rsaPublicKey2' in kwargs:
+        if rsa_public_key2 is None and 'rsaPublicKey2' in kwargs:
             rsa_public_key2 = kwargs['rsaPublicKey2']
-        if 'scopeDelimiter' in kwargs:
+        if scope_delimiter is None and 'scopeDelimiter' in kwargs:
             scope_delimiter = kwargs['scopeDelimiter']
-        if 'scopeMappingAttribute' in kwargs:
+        if scope_mapping_attribute is None and 'scopeMappingAttribute' in kwargs:
             scope_mapping_attribute = kwargs['scopeMappingAttribute']
-        if 'snowflakeUserMappingAttribute' in kwargs:
+        if snowflake_user_mapping_attribute is None and 'snowflakeUserMappingAttribute' in kwargs:
             snowflake_user_mapping_attribute = kwargs['snowflakeUserMappingAttribute']
-        if 'tokenUserMappingClaims' in kwargs:
+        if token_user_mapping_claims is None and 'tokenUserMappingClaims' in kwargs:
             token_user_mapping_claims = kwargs['tokenUserMappingClaims']
 
         if allowed_roles is not None:

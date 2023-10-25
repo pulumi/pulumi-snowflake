@@ -50,24 +50,30 @@ class PipeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             copy_statement: pulumi.Input[str],
-             database: pulumi.Input[str],
-             schema: pulumi.Input[str],
+             copy_statement: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
              auto_ingest: Optional[pulumi.Input[bool]] = None,
              aws_sns_topic_arn: Optional[pulumi.Input[str]] = None,
              comment: Optional[pulumi.Input[str]] = None,
              error_integration: Optional[pulumi.Input[str]] = None,
              integration: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'copyStatement' in kwargs:
+        if copy_statement is None and 'copyStatement' in kwargs:
             copy_statement = kwargs['copyStatement']
-        if 'autoIngest' in kwargs:
+        if copy_statement is None:
+            raise TypeError("Missing 'copy_statement' argument")
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if auto_ingest is None and 'autoIngest' in kwargs:
             auto_ingest = kwargs['autoIngest']
-        if 'awsSnsTopicArn' in kwargs:
+        if aws_sns_topic_arn is None and 'awsSnsTopicArn' in kwargs:
             aws_sns_topic_arn = kwargs['awsSnsTopicArn']
-        if 'errorIntegration' in kwargs:
+        if error_integration is None and 'errorIntegration' in kwargs:
             error_integration = kwargs['errorIntegration']
 
         _setter("copy_statement", copy_statement)
@@ -251,17 +257,17 @@ class _PipeState:
              notification_channel: Optional[pulumi.Input[str]] = None,
              owner: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoIngest' in kwargs:
+        if auto_ingest is None and 'autoIngest' in kwargs:
             auto_ingest = kwargs['autoIngest']
-        if 'awsSnsTopicArn' in kwargs:
+        if aws_sns_topic_arn is None and 'awsSnsTopicArn' in kwargs:
             aws_sns_topic_arn = kwargs['awsSnsTopicArn']
-        if 'copyStatement' in kwargs:
+        if copy_statement is None and 'copyStatement' in kwargs:
             copy_statement = kwargs['copyStatement']
-        if 'errorIntegration' in kwargs:
+        if error_integration is None and 'errorIntegration' in kwargs:
             error_integration = kwargs['errorIntegration']
-        if 'notificationChannel' in kwargs:
+        if notification_channel is None and 'notificationChannel' in kwargs:
             notification_channel = kwargs['notificationChannel']
 
         if auto_ingest is not None:

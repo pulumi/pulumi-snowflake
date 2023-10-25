@@ -38,14 +38,18 @@ class TagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database: pulumi.Input[str],
-             schema: pulumi.Input[str],
+             database: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
              allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              comment: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowedValues' in kwargs:
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if allowed_values is None and 'allowedValues' in kwargs:
             allowed_values = kwargs['allowedValues']
 
         _setter("database", database)
@@ -150,9 +154,9 @@ class _TagState:
              database: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowedValues' in kwargs:
+        if allowed_values is None and 'allowedValues' in kwargs:
             allowed_values = kwargs['allowedValues']
 
         if allowed_values is not None:

@@ -55,27 +55,37 @@ class MaskingPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database: pulumi.Input[str],
-             masking_expression: pulumi.Input[str],
-             return_data_type: pulumi.Input[str],
-             schema: pulumi.Input[str],
-             signature: pulumi.Input['MaskingPolicySignatureArgs'],
+             database: Optional[pulumi.Input[str]] = None,
+             masking_expression: Optional[pulumi.Input[str]] = None,
+             return_data_type: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             signature: Optional[pulumi.Input['MaskingPolicySignatureArgs']] = None,
              comment: Optional[pulumi.Input[str]] = None,
              exempt_other_policies: Optional[pulumi.Input[bool]] = None,
              if_not_exists: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              or_replace: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maskingExpression' in kwargs:
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if masking_expression is None and 'maskingExpression' in kwargs:
             masking_expression = kwargs['maskingExpression']
-        if 'returnDataType' in kwargs:
+        if masking_expression is None:
+            raise TypeError("Missing 'masking_expression' argument")
+        if return_data_type is None and 'returnDataType' in kwargs:
             return_data_type = kwargs['returnDataType']
-        if 'exemptOtherPolicies' in kwargs:
+        if return_data_type is None:
+            raise TypeError("Missing 'return_data_type' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if signature is None:
+            raise TypeError("Missing 'signature' argument")
+        if exempt_other_policies is None and 'exemptOtherPolicies' in kwargs:
             exempt_other_policies = kwargs['exemptOtherPolicies']
-        if 'ifNotExists' in kwargs:
+        if if_not_exists is None and 'ifNotExists' in kwargs:
             if_not_exists = kwargs['ifNotExists']
-        if 'orReplace' in kwargs:
+        if or_replace is None and 'orReplace' in kwargs:
             or_replace = kwargs['orReplace']
 
         _setter("database", database)
@@ -271,19 +281,19 @@ class _MaskingPolicyState:
              return_data_type: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
              signature: Optional[pulumi.Input['MaskingPolicySignatureArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'exemptOtherPolicies' in kwargs:
+        if exempt_other_policies is None and 'exemptOtherPolicies' in kwargs:
             exempt_other_policies = kwargs['exemptOtherPolicies']
-        if 'ifNotExists' in kwargs:
+        if if_not_exists is None and 'ifNotExists' in kwargs:
             if_not_exists = kwargs['ifNotExists']
-        if 'maskingExpression' in kwargs:
+        if masking_expression is None and 'maskingExpression' in kwargs:
             masking_expression = kwargs['maskingExpression']
-        if 'orReplace' in kwargs:
+        if or_replace is None and 'orReplace' in kwargs:
             or_replace = kwargs['orReplace']
-        if 'qualifiedName' in kwargs:
+        if qualified_name is None and 'qualifiedName' in kwargs:
             qualified_name = kwargs['qualifiedName']
-        if 'returnDataType' in kwargs:
+        if return_data_type is None and 'returnDataType' in kwargs:
             return_data_type = kwargs['returnDataType']
 
         if comment is not None:
@@ -606,11 +616,7 @@ class MaskingPolicy(pulumi.CustomResource):
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
-            if signature is not None and not isinstance(signature, MaskingPolicySignatureArgs):
-                signature = signature or {}
-                def _setter(key, value):
-                    signature[key] = value
-                MaskingPolicySignatureArgs._configure(_setter, **signature)
+            signature = _utilities.configure(signature, MaskingPolicySignatureArgs, True)
             if signature is None and not opts.urn:
                 raise TypeError("Missing required property 'signature'")
             __props__.__dict__["signature"] = signature

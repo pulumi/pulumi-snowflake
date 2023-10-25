@@ -70,10 +70,10 @@ class ProcedureArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database: pulumi.Input[str],
-             return_type: pulumi.Input[str],
-             schema: pulumi.Input[str],
-             statement: pulumi.Input[str],
+             database: Optional[pulumi.Input[str]] = None,
+             return_type: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             statement: Optional[pulumi.Input[str]] = None,
              arguments: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedureArgumentArgs']]]] = None,
              comment: Optional[pulumi.Input[str]] = None,
              execute_as: Optional[pulumi.Input[str]] = None,
@@ -85,17 +85,25 @@ class ProcedureArgs:
              packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              return_behavior: Optional[pulumi.Input[str]] = None,
              runtime_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'returnType' in kwargs:
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if return_type is None and 'returnType' in kwargs:
             return_type = kwargs['returnType']
-        if 'executeAs' in kwargs:
+        if return_type is None:
+            raise TypeError("Missing 'return_type' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if statement is None:
+            raise TypeError("Missing 'statement' argument")
+        if execute_as is None and 'executeAs' in kwargs:
             execute_as = kwargs['executeAs']
-        if 'nullInputBehavior' in kwargs:
+        if null_input_behavior is None and 'nullInputBehavior' in kwargs:
             null_input_behavior = kwargs['nullInputBehavior']
-        if 'returnBehavior' in kwargs:
+        if return_behavior is None and 'returnBehavior' in kwargs:
             return_behavior = kwargs['returnBehavior']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
 
         _setter("database", database)
@@ -378,17 +386,17 @@ class _ProcedureState:
              runtime_version: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
              statement: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'executeAs' in kwargs:
+        if execute_as is None and 'executeAs' in kwargs:
             execute_as = kwargs['executeAs']
-        if 'nullInputBehavior' in kwargs:
+        if null_input_behavior is None and 'nullInputBehavior' in kwargs:
             null_input_behavior = kwargs['nullInputBehavior']
-        if 'returnBehavior' in kwargs:
+        if return_behavior is None and 'returnBehavior' in kwargs:
             return_behavior = kwargs['returnBehavior']
-        if 'returnType' in kwargs:
+        if return_type is None and 'returnType' in kwargs:
             return_type = kwargs['returnType']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
 
         if arguments is not None:

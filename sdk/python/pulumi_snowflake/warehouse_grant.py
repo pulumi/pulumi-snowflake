@@ -42,21 +42,23 @@ class WarehouseGrantArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             warehouse_name: pulumi.Input[str],
+             warehouse_name: Optional[pulumi.Input[str]] = None,
              enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
              privilege: Optional[pulumi.Input[str]] = None,
              revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'warehouseName' in kwargs:
+        if warehouse_name is None and 'warehouseName' in kwargs:
             warehouse_name = kwargs['warehouseName']
-        if 'enableMultipleGrants' in kwargs:
+        if warehouse_name is None:
+            raise TypeError("Missing 'warehouse_name' argument")
+        if enable_multiple_grants is None and 'enableMultipleGrants' in kwargs:
             enable_multiple_grants = kwargs['enableMultipleGrants']
-        if 'revertOwnershipToRoleName' in kwargs:
+        if revert_ownership_to_role_name is None and 'revertOwnershipToRoleName' in kwargs:
             revert_ownership_to_role_name = kwargs['revertOwnershipToRoleName']
-        if 'withGrantOption' in kwargs:
+        if with_grant_option is None and 'withGrantOption' in kwargs:
             with_grant_option = kwargs['withGrantOption']
 
         _setter("warehouse_name", warehouse_name)
@@ -182,15 +184,15 @@ class _WarehouseGrantState:
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              warehouse_name: Optional[pulumi.Input[str]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'enableMultipleGrants' in kwargs:
+        if enable_multiple_grants is None and 'enableMultipleGrants' in kwargs:
             enable_multiple_grants = kwargs['enableMultipleGrants']
-        if 'revertOwnershipToRoleName' in kwargs:
+        if revert_ownership_to_role_name is None and 'revertOwnershipToRoleName' in kwargs:
             revert_ownership_to_role_name = kwargs['revertOwnershipToRoleName']
-        if 'warehouseName' in kwargs:
+        if warehouse_name is None and 'warehouseName' in kwargs:
             warehouse_name = kwargs['warehouseName']
-        if 'withGrantOption' in kwargs:
+        if with_grant_option is None and 'withGrantOption' in kwargs:
             with_grant_option = kwargs['withGrantOption']
 
         if enable_multiple_grants is not None:

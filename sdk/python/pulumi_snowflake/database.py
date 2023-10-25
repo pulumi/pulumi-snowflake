@@ -55,19 +55,19 @@ class DatabaseArgs:
              is_transient: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              replication_configuration: Optional[pulumi.Input['DatabaseReplicationConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataRetentionTimeInDays' in kwargs:
+        if data_retention_time_in_days is None and 'dataRetentionTimeInDays' in kwargs:
             data_retention_time_in_days = kwargs['dataRetentionTimeInDays']
-        if 'fromDatabase' in kwargs:
+        if from_database is None and 'fromDatabase' in kwargs:
             from_database = kwargs['fromDatabase']
-        if 'fromReplica' in kwargs:
+        if from_replica is None and 'fromReplica' in kwargs:
             from_replica = kwargs['fromReplica']
-        if 'fromShare' in kwargs:
+        if from_share is None and 'fromShare' in kwargs:
             from_share = kwargs['fromShare']
-        if 'isTransient' in kwargs:
+        if is_transient is None and 'isTransient' in kwargs:
             is_transient = kwargs['isTransient']
-        if 'replicationConfiguration' in kwargs:
+        if replication_configuration is None and 'replicationConfiguration' in kwargs:
             replication_configuration = kwargs['replicationConfiguration']
 
         if comment is not None:
@@ -220,19 +220,19 @@ class _DatabaseState:
              is_transient: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              replication_configuration: Optional[pulumi.Input['DatabaseReplicationConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataRetentionTimeInDays' in kwargs:
+        if data_retention_time_in_days is None and 'dataRetentionTimeInDays' in kwargs:
             data_retention_time_in_days = kwargs['dataRetentionTimeInDays']
-        if 'fromDatabase' in kwargs:
+        if from_database is None and 'fromDatabase' in kwargs:
             from_database = kwargs['fromDatabase']
-        if 'fromReplica' in kwargs:
+        if from_replica is None and 'fromReplica' in kwargs:
             from_replica = kwargs['fromReplica']
-        if 'fromShare' in kwargs:
+        if from_share is None and 'fromShare' in kwargs:
             from_share = kwargs['fromShare']
-        if 'isTransient' in kwargs:
+        if is_transient is None and 'isTransient' in kwargs:
             is_transient = kwargs['isTransient']
-        if 'replicationConfiguration' in kwargs:
+        if replication_configuration is None and 'replicationConfiguration' in kwargs:
             replication_configuration = kwargs['replicationConfiguration']
 
         if comment is not None:
@@ -489,11 +489,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["from_share"] = from_share
             __props__.__dict__["is_transient"] = is_transient
             __props__.__dict__["name"] = name
-            if replication_configuration is not None and not isinstance(replication_configuration, DatabaseReplicationConfigurationArgs):
-                replication_configuration = replication_configuration or {}
-                def _setter(key, value):
-                    replication_configuration[key] = value
-                DatabaseReplicationConfigurationArgs._configure(_setter, **replication_configuration)
+            replication_configuration = _utilities.configure(replication_configuration, DatabaseReplicationConfigurationArgs, True)
             __props__.__dict__["replication_configuration"] = replication_configuration
         super(Database, __self__).__init__(
             'snowflake:index/database:Database',
