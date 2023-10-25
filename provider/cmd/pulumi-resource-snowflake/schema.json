@@ -52,7 +52,7 @@
         "variables": {
             "account": {
                 "type": "string",
-                "description": "The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless\nusing profile.\n",
+                "description": "Specifies your Snowflake account identifier assigned, by Snowflake. For information about account identifiers, see the\n[Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html). Can also be sourced\nfrom the `SNOWFLAKE_ACCOUNT` environment variable. Required unless using `profile`.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_ACCOUNT"
@@ -61,11 +61,11 @@
             },
             "authenticator": {
                 "type": "string",
-                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when\nconnecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,\nUsernamePasswordMFA\n"
+                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when\nconnecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,\nUsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.\n"
             },
             "browserAuth": {
                 "type": "boolean",
-                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.\n",
+                "description": "Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_USE_BROWSER_AUTH"
@@ -73,9 +73,37 @@
                 },
                 "deprecationMessage": "Use `authenticator` instead"
             },
+            "clientIp": {
+                "type": "string",
+                "description": "IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.\n"
+            },
+            "clientRequestMfaToken": {
+                "type": "boolean",
+                "description": "When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also\nbe sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.\n"
+            },
+            "clientStoreTemporaryCredential": {
+                "type": "boolean",
+                "description": "When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be\nsourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.\n"
+            },
+            "clientTimeout": {
+                "type": "integer",
+                "description": "The timeout in seconds for the client to complete the authentication. Default is 900 seconds. Can also be sourced from\nthe `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.\n"
+            },
+            "disableQueryContextCache": {
+                "type": "boolean",
+                "description": "Should HTAP query context cache be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE`\nenvironment variable.\n"
+            },
+            "disableTelemetry": {
+                "type": "boolean",
+                "description": "Indicates whether to disable telemetry. Can also be sourced from the `SNOWFLAKE_DISABLE_TELEMETRY` environment variable.\n"
+            },
+            "externalBrowserTimeout": {
+                "type": "integer",
+                "description": "The timeout in seconds for the external browser to complete the authentication. Default is 120 seconds. Can also be\nsourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.\n"
+            },
             "host": {
                 "type": "string",
-                "description": "Supports passing in a custom host value to the snowflake go driver for use with privatelink.\n",
+                "description": "Supports passing in a custom host value to the snowflake go driver for use with privatelink. Can also be sourced from\nthe `SNOWFLAKE_HOST` environment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_HOST"
@@ -84,79 +112,116 @@
             },
             "insecureMode": {
                 "type": "boolean",
-                "description": "If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the\ndefault value for testing or emergency situations only.\n"
+                "description": "If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the\ndefault value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE`\nenvironment variable.\n"
+            },
+            "jwtClientTimeout": {
+                "type": "integer",
+                "description": "The timeout in seconds for the JWT client to complete the authentication. Default is 10 seconds. Can also be sourced\nfrom the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.\n"
+            },
+            "jwtExpireTimeout": {
+                "type": "integer",
+                "description": "JWT expire after timeout in seconds. Can also be sourced from the `SNOWFLAKE_JWT_EXPIRE_TIMEOUT` environment variable.\n"
+            },
+            "keepSessionAlive": {
+                "type": "boolean",
+                "description": "Enables the session to persist even after the connection is closed. Can also be sourced from the\n`SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.\n"
+            },
+            "loginTimeout": {
+                "type": "integer",
+                "description": "Login retry timeout EXCLUDING network roundtrip and read out http response. Can also be sourced from the\n`SNOWFLAKE_LOGIN_TIMEOUT` environment variable.\n"
             },
             "oauthAccessToken": {
                 "type": "string",
-                "description": "Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment\nvariable.\n",
+                "description": "Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_refresh_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN`\nenvironment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_OAUTH_ACCESS_TOKEN"
                     ]
                 },
+                "deprecationMessage": "Use `token` instead",
                 "secret": true
             },
             "oauthClientId": {
                 "type": "string",
-                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.\n",
+                "description": "Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_OAUTH_CLIENT_ID"
                     ]
                 },
+                "deprecationMessage": "Use `token_accessor.0.client_id` instead",
                 "secret": true
             },
             "oauthClientSecret": {
                 "type": "string",
-                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.\n",
+                "description": "Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment\nvariable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_OAUTH_CLIENT_SECRET"
                     ]
                 },
+                "deprecationMessage": "Use `token_accessor.0.client_secret` instead",
                 "secret": true
             },
             "oauthEndpoint": {
                 "type": "string",
-                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.\n",
+                "description": "Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_OAUTH_ENDPOINT"
                     ]
                 },
+                "deprecationMessage": "Use `token_accessor.0.token_endpoint` instead",
                 "secret": true
             },
             "oauthRedirectUrl": {
                 "type": "string",
-                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.\n",
+                "description": "Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment\nvariable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_OAUTH_REDIRECT_URL"
                     ]
                 },
+                "deprecationMessage": "Use `token_accessor.0.redirect_uri` instead",
                 "secret": true
             },
             "oauthRefreshToken": {
                 "type": "string",
-                "description": "Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with\n`oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment\nvariable.\n",
+                "description": "Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with\n`oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_access_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN`\nenvironment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_OAUTH_REFRESH_TOKEN"
                     ]
                 },
+                "deprecationMessage": "Use `token_accessor.0.refresh_token` instead",
                 "secret": true
+            },
+            "oktaUrl": {
+                "type": "string",
+                "description": "The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment\nvariable.\n"
+            },
+            "oscpFailOpen": {
+                "type": "boolean",
+                "description": "True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be\nsourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.\n"
+            },
+            "params": {
+                "type": "object",
+                "additionalProperties": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "description": "Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)\n"
             },
             "passcode": {
                 "type": "string",
-                "description": "Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.\n"
+                "description": "Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from\nthe `SNOWFLAKE_PASSCODE` environment variable.\n"
             },
             "passcodeInPassword": {
                 "type": "boolean",
-                "description": "False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end\nof the password.\n"
+                "description": "False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end\nof the password. Can also be sourced from the `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.\n"
             },
             "password": {
                 "type": "string",
-                "description": "Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from\n`SNOWFLAKE_PASSWORD` environment variable.\n",
+                "description": "Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can also be sourced from\nthe `SNOWFLAKE_PASSWORD` environment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_PASSWORD"
@@ -166,7 +231,7 @@
             },
             "port": {
                 "type": "integer",
-                "description": "Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`\nenvironment variable.\n",
+                "description": "Support custom port values to snowflake go driver for use with privatelink. Can also be sourced from the\n`SNOWFLAKE_PORT` environment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_PORT"
@@ -175,12 +240,12 @@
             },
             "privateKey": {
                 "type": "string",
-                "description": "Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be sourced from\n`SNOWFLAKE_PRIVATE_KEY` environment variable.\n",
+                "description": "Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can also be sourced from\n`SNOWFLAKE_PRIVATE_KEY` environment variable.\n",
                 "secret": true
             },
             "privateKeyPassphrase": {
                 "type": "string",
-                "description": "Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and\ndes-ede3-cbc\n",
+                "description": "Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and\ndes-ede3-cbc. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"
@@ -190,21 +255,22 @@
             },
             "privateKeyPath": {
                 "type": "string",
-                "description": "Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or\n`password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.\n",
+                "description": "Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or\n`password`. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_PRIVATE_KEY_PATH"
                     ]
                 },
+                "deprecationMessage": "use the [file Function](https://developer.hashicorp.com/terraform/language/functions/file) instead",
                 "secret": true
             },
             "profile": {
                 "type": "string",
-                "description": "Sets the profile to read from ~/.snowflake/config file.\n"
+                "description": "Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment\nvariable.\n"
             },
             "protocol": {
                 "type": "string",
-                "description": "Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.\n",
+                "description": "Either http or https, defaults to https. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_PROTOCOL"
@@ -213,16 +279,21 @@
             },
             "region": {
                 "type": "string",
-                "description": "[Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy\nformat for the `account`\nidentifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)\nin the form of `\u003ccloud_region_id\u003e.\u003ccloud\u003e`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.\n",
+                "description": "Snowflake region, such as \"eu-central-1\", with this parameter. However, since this parameter is deprecated, it is best\nto specify the region as part of the account parameter. For details, see the description of the account parameter.\n[Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy\nformat for the `account`\nidentifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)\nin the form of `\u003ccloud_region_id\u003e.\u003ccloud\u003e`. Can also be sourced from the `SNOWFLAKE_REGION` environment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_REGION"
                     ]
-                }
+                },
+                "deprecationMessage": "Specify the region as part of the account parameter"
+            },
+            "requestTimeout": {
+                "type": "integer",
+                "description": "request retry timeout EXCLUDING network roundtrip and read out http response. Can also be sourced from the\n`SNOWFLAKE_REQUEST_TIMEOUT` environment variable.\n"
             },
             "role": {
                 "type": "string",
-                "description": "Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the\n`SNOWFLAKE_ROLE` environment variable.\n",
+                "description": "Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the\n`SNOWFLAKE_ROLE` environment variable. .\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_ROLE"
@@ -234,32 +305,84 @@
                 "additionalProperties": {
                     "$ref": "pulumi.json#/Any"
                 },
-                "description": "Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)\n"
+                "description": "Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)\n",
+                "deprecationMessage": "Use `params` instead"
+            },
+            "token": {
+                "type": "string",
+                "description": "Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment\nvariable.\n",
+                "secret": true
+            },
+            "tokenAccessor": {
+                "$ref": "#/types/snowflake:config/tokenAccessor:tokenAccessor"
+            },
+            "user": {
+                "type": "string",
+                "description": "Username. Can also be sourced from the `SNOWFLAKE_USER` environment variable. Required unless using `profile`.\n"
             },
             "username": {
                 "type": "string",
-                "description": "Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless\nusing profile.\n",
+                "description": "Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.\nRequired unless using `profile`.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_USER"
                     ]
-                }
+                },
+                "deprecationMessage": "Use `user` instead"
+            },
+            "validateDefaultParameters": {
+                "type": "boolean",
+                "description": "If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is\nestablished. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.\n"
             },
             "warehouse": {
                 "type": "string",
-                "description": "Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.\n",
+                "description": "Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced\nfrom the `SNOWFLAKE_WAREHOUSE` environment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_WAREHOUSE"
                     ]
                 }
             }
-        },
-        "defaults": [
-            "region"
-        ]
+        }
     },
     "types": {
+        "snowflake:config/tokenAccessor:tokenAccessor": {
+            "properties": {
+                "clientId": {
+                    "type": "string",
+                    "secret": true
+                },
+                "clientSecret": {
+                    "type": "string",
+                    "secret": true
+                },
+                "redirectUri": {
+                    "type": "string",
+                    "secret": true
+                },
+                "refreshToken": {
+                    "type": "string",
+                    "secret": true
+                },
+                "tokenEndpoint": {
+                    "type": "string",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "clientId",
+                "clientSecret",
+                "redirectUri",
+                "refreshToken",
+                "tokenEndpoint"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "snowflake:index/AlertAlertSchedule:AlertAlertSchedule": {
             "properties": {
                 "cron": {
@@ -306,6 +429,19 @@
             "required": [
                 "accounts"
             ]
+        },
+        "snowflake:index/DynamicTableTargetLag:DynamicTableTargetLag": {
+            "properties": {
+                "downstream": {
+                    "type": "boolean",
+                    "description": "Specifies whether the target lag time is downstream.\n"
+                },
+                "maximumDuration": {
+                    "type": "string",
+                    "description": "Specifies the maximum target lag time for the dynamic table.\n"
+                }
+            },
+            "type": "object"
         },
         "snowflake:index/ExternalFunctionArg:ExternalFunctionArg": {
             "properties": {
@@ -666,6 +802,43 @@
                 "name",
                 "type"
             ]
+        },
+        "snowflake:index/ProviderTokenAccessor:ProviderTokenAccessor": {
+            "properties": {
+                "clientId": {
+                    "type": "string",
+                    "secret": true
+                },
+                "clientSecret": {
+                    "type": "string",
+                    "secret": true
+                },
+                "redirectUri": {
+                    "type": "string",
+                    "secret": true
+                },
+                "refreshToken": {
+                    "type": "string",
+                    "secret": true
+                },
+                "tokenEndpoint": {
+                    "type": "string",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "clientId",
+                "clientSecret",
+                "redirectUri",
+                "refreshToken",
+                "tokenEndpoint"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": []
+                }
+            }
         },
         "snowflake:index/RoleTag:RoleTag": {
             "properties": {
@@ -1157,6 +1330,140 @@
             "required": [
                 "accounts",
                 "ignoreEditionCheck"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getDynamicTablesIn:getDynamicTablesIn": {
+            "properties": {
+                "account": {
+                    "type": "boolean",
+                    "description": "Returns records for the entire account.\n"
+                },
+                "database": {
+                    "type": "string",
+                    "description": "Returns records for the current database in use or for a specified database (db_name).\n"
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "Returns records for the current schema in use or a specified schema (schema_name).\n"
+                }
+            },
+            "type": "object"
+        },
+        "snowflake:index/getDynamicTablesLike:getDynamicTablesLike": {
+            "properties": {
+                "pattern": {
+                    "type": "string",
+                    "description": "Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "pattern"
+            ]
+        },
+        "snowflake:index/getDynamicTablesLimit:getDynamicTablesLimit": {
+            "properties": {
+                "from": {
+                    "type": "string",
+                    "description": "The optional FROM 'name_string' subclause effectively serves as a “cursor” for the results. This enables fetching the specified number of rows following the first row whose object name matches the specified string\n"
+                },
+                "rows": {
+                    "type": "integer",
+                    "description": "Specifies the maximum number of rows to return.\n"
+                }
+            },
+            "type": "object"
+        },
+        "snowflake:index/getDynamicTablesRecord:getDynamicTablesRecord": {
+            "properties": {
+                "automaticClustering": {
+                    "type": "boolean"
+                },
+                "bytes": {
+                    "type": "integer"
+                },
+                "clusterBy": {
+                    "type": "string"
+                },
+                "comment": {
+                    "type": "string"
+                },
+                "createdOn": {
+                    "type": "string"
+                },
+                "dataTimestamp": {
+                    "type": "string"
+                },
+                "databaseName": {
+                    "type": "string"
+                },
+                "isClone": {
+                    "type": "boolean"
+                },
+                "isReplica": {
+                    "type": "boolean"
+                },
+                "lastSuspendedOn": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "refreshMode": {
+                    "type": "string"
+                },
+                "refreshModeReason": {
+                    "type": "string"
+                },
+                "rows": {
+                    "type": "integer"
+                },
+                "schedulingState": {
+                    "type": "string"
+                },
+                "schemaName": {
+                    "type": "string"
+                },
+                "targetLag": {
+                    "type": "string"
+                },
+                "text": {
+                    "type": "string"
+                },
+                "warehouse": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "automaticClustering",
+                "bytes",
+                "clusterBy",
+                "comment",
+                "createdOn",
+                "dataTimestamp",
+                "databaseName",
+                "isClone",
+                "isReplica",
+                "lastSuspendedOn",
+                "name",
+                "owner",
+                "refreshMode",
+                "refreshModeReason",
+                "rows",
+                "schedulingState",
+                "schemaName",
+                "targetLag",
+                "text",
+                "warehouse"
             ],
             "language": {
                 "nodejs": {
@@ -2135,123 +2442,212 @@
         "properties": {
             "account": {
                 "type": "string",
-                "description": "The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless\nusing profile.\n"
+                "description": "Specifies your Snowflake account identifier assigned, by Snowflake. For information about account identifiers, see the\n[Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html). Can also be sourced\nfrom the `SNOWFLAKE_ACCOUNT` environment variable. Required unless using `profile`.\n"
             },
             "authenticator": {
                 "type": "string",
-                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when\nconnecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,\nUsernamePasswordMFA\n"
+                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when\nconnecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,\nUsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.\n"
             },
             "browserAuth": {
                 "type": "boolean",
-                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.\n",
+                "description": "Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.\n",
                 "deprecationMessage": "Use `authenticator` instead"
+            },
+            "clientIp": {
+                "type": "string",
+                "description": "IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.\n"
+            },
+            "clientRequestMfaToken": {
+                "type": "boolean",
+                "description": "When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also\nbe sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.\n"
+            },
+            "clientStoreTemporaryCredential": {
+                "type": "boolean",
+                "description": "When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be\nsourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.\n"
+            },
+            "clientTimeout": {
+                "type": "integer",
+                "description": "The timeout in seconds for the client to complete the authentication. Default is 900 seconds. Can also be sourced from\nthe `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.\n"
+            },
+            "disableQueryContextCache": {
+                "type": "boolean",
+                "description": "Should HTAP query context cache be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE`\nenvironment variable.\n"
+            },
+            "disableTelemetry": {
+                "type": "boolean",
+                "description": "Indicates whether to disable telemetry. Can also be sourced from the `SNOWFLAKE_DISABLE_TELEMETRY` environment variable.\n"
+            },
+            "externalBrowserTimeout": {
+                "type": "integer",
+                "description": "The timeout in seconds for the external browser to complete the authentication. Default is 120 seconds. Can also be\nsourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.\n"
             },
             "host": {
                 "type": "string",
-                "description": "Supports passing in a custom host value to the snowflake go driver for use with privatelink.\n"
+                "description": "Supports passing in a custom host value to the snowflake go driver for use with privatelink. Can also be sourced from\nthe `SNOWFLAKE_HOST` environment variable.\n"
             },
             "insecureMode": {
                 "type": "boolean",
-                "description": "If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the\ndefault value for testing or emergency situations only.\n"
+                "description": "If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the\ndefault value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE`\nenvironment variable.\n"
+            },
+            "jwtClientTimeout": {
+                "type": "integer",
+                "description": "The timeout in seconds for the JWT client to complete the authentication. Default is 10 seconds. Can also be sourced\nfrom the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.\n"
+            },
+            "jwtExpireTimeout": {
+                "type": "integer",
+                "description": "JWT expire after timeout in seconds. Can also be sourced from the `SNOWFLAKE_JWT_EXPIRE_TIMEOUT` environment variable.\n"
+            },
+            "keepSessionAlive": {
+                "type": "boolean",
+                "description": "Enables the session to persist even after the connection is closed. Can also be sourced from the\n`SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.\n"
+            },
+            "loginTimeout": {
+                "type": "integer",
+                "description": "Login retry timeout EXCLUDING network roundtrip and read out http response. Can also be sourced from the\n`SNOWFLAKE_LOGIN_TIMEOUT` environment variable.\n"
             },
             "oauthAccessToken": {
                 "type": "string",
-                "description": "Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment\nvariable.\n",
+                "description": "Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_refresh_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN`\nenvironment variable.\n",
+                "deprecationMessage": "Use `token` instead",
                 "secret": true
             },
             "oauthClientId": {
                 "type": "string",
-                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.\n",
+                "description": "Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.\n",
+                "deprecationMessage": "Use `token_accessor.0.client_id` instead",
                 "secret": true
             },
             "oauthClientSecret": {
                 "type": "string",
-                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.\n",
+                "description": "Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment\nvariable.\n",
+                "deprecationMessage": "Use `token_accessor.0.client_secret` instead",
                 "secret": true
             },
             "oauthEndpoint": {
                 "type": "string",
-                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.\n",
+                "description": "Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.\n",
+                "deprecationMessage": "Use `token_accessor.0.token_endpoint` instead",
                 "secret": true
             },
             "oauthRedirectUrl": {
                 "type": "string",
-                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.\n",
+                "description": "Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment\nvariable.\n",
+                "deprecationMessage": "Use `token_accessor.0.redirect_uri` instead",
                 "secret": true
             },
             "oauthRefreshToken": {
                 "type": "string",
-                "description": "Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with\n`oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment\nvariable.\n",
+                "description": "Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with\n`oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_access_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN`\nenvironment variable.\n",
+                "deprecationMessage": "Use `token_accessor.0.refresh_token` instead",
                 "secret": true
+            },
+            "oktaUrl": {
+                "type": "string",
+                "description": "The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment\nvariable.\n"
+            },
+            "oscpFailOpen": {
+                "type": "boolean",
+                "description": "True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be\nsourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.\n"
+            },
+            "params": {
+                "type": "object",
+                "additionalProperties": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "description": "Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)\n"
             },
             "passcode": {
                 "type": "string",
-                "description": "Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.\n"
+                "description": "Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from\nthe `SNOWFLAKE_PASSCODE` environment variable.\n"
             },
             "passcodeInPassword": {
                 "type": "boolean",
-                "description": "False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end\nof the password.\n"
+                "description": "False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end\nof the password. Can also be sourced from the `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.\n"
             },
             "password": {
                 "type": "string",
-                "description": "Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from\n`SNOWFLAKE_PASSWORD` environment variable.\n",
+                "description": "Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can also be sourced from\nthe `SNOWFLAKE_PASSWORD` environment variable.\n",
                 "secret": true
             },
             "port": {
                 "type": "integer",
-                "description": "Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`\nenvironment variable.\n"
+                "description": "Support custom port values to snowflake go driver for use with privatelink. Can also be sourced from the\n`SNOWFLAKE_PORT` environment variable.\n"
             },
             "privateKey": {
                 "type": "string",
-                "description": "Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be sourced from\n`SNOWFLAKE_PRIVATE_KEY` environment variable.\n",
+                "description": "Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can also be sourced from\n`SNOWFLAKE_PRIVATE_KEY` environment variable.\n",
                 "secret": true
             },
             "privateKeyPassphrase": {
                 "type": "string",
-                "description": "Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and\ndes-ede3-cbc\n",
+                "description": "Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and\ndes-ede3-cbc. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.\n",
                 "secret": true
             },
             "privateKeyPath": {
                 "type": "string",
-                "description": "Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or\n`password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.\n",
+                "description": "Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or\n`password`. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.\n",
+                "deprecationMessage": "use the [file Function](https://developer.hashicorp.com/terraform/language/functions/file) instead",
                 "secret": true
             },
             "profile": {
                 "type": "string",
-                "description": "Sets the profile to read from ~/.snowflake/config file.\n"
+                "description": "Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment\nvariable.\n"
             },
             "protocol": {
                 "type": "string",
-                "description": "Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.\n"
+                "description": "Either http or https, defaults to https. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.\n"
             },
             "region": {
                 "type": "string",
-                "description": "[Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy\nformat for the `account`\nidentifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)\nin the form of `\u003ccloud_region_id\u003e.\u003ccloud\u003e`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.\n"
+                "description": "Snowflake region, such as \"eu-central-1\", with this parameter. However, since this parameter is deprecated, it is best\nto specify the region as part of the account parameter. For details, see the description of the account parameter.\n[Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy\nformat for the `account`\nidentifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)\nin the form of `\u003ccloud_region_id\u003e.\u003ccloud\u003e`. Can also be sourced from the `SNOWFLAKE_REGION` environment variable.\n",
+                "deprecationMessage": "Specify the region as part of the account parameter"
+            },
+            "requestTimeout": {
+                "type": "integer",
+                "description": "request retry timeout EXCLUDING network roundtrip and read out http response. Can also be sourced from the\n`SNOWFLAKE_REQUEST_TIMEOUT` environment variable.\n"
             },
             "role": {
                 "type": "string",
-                "description": "Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the\n`SNOWFLAKE_ROLE` environment variable.\n"
+                "description": "Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the\n`SNOWFLAKE_ROLE` environment variable. .\n"
             },
             "sessionParams": {
                 "type": "object",
                 "additionalProperties": {
                     "$ref": "pulumi.json#/Any"
                 },
-                "description": "Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)\n"
+                "description": "Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)\n",
+                "deprecationMessage": "Use `params` instead"
+            },
+            "token": {
+                "type": "string",
+                "description": "Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment\nvariable.\n",
+                "secret": true
+            },
+            "tokenAccessor": {
+                "$ref": "#/types/snowflake:index/ProviderTokenAccessor:ProviderTokenAccessor"
+            },
+            "user": {
+                "type": "string",
+                "description": "Username. Can also be sourced from the `SNOWFLAKE_USER` environment variable. Required unless using `profile`.\n"
             },
             "username": {
                 "type": "string",
-                "description": "Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless\nusing profile.\n"
+                "description": "Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.\nRequired unless using `profile`.\n",
+                "deprecationMessage": "Use `user` instead"
+            },
+            "validateDefaultParameters": {
+                "type": "boolean",
+                "description": "If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is\nestablished. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.\n"
             },
             "warehouse": {
                 "type": "string",
-                "description": "Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.\n"
+                "description": "Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced\nfrom the `SNOWFLAKE_WAREHOUSE` environment variable.\n"
             }
         },
         "inputProperties": {
             "account": {
                 "type": "string",
-                "description": "The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless\nusing profile.\n",
+                "description": "Specifies your Snowflake account identifier assigned, by Snowflake. For information about account identifiers, see the\n[Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html). Can also be sourced\nfrom the `SNOWFLAKE_ACCOUNT` environment variable. Required unless using `profile`.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_ACCOUNT"
@@ -2260,11 +2656,11 @@
             },
             "authenticator": {
                 "type": "string",
-                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when\nconnecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,\nUsernamePasswordMFA\n"
+                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when\nconnecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,\nUsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.\n"
             },
             "browserAuth": {
                 "type": "boolean",
-                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.\n",
+                "description": "Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_USE_BROWSER_AUTH"
@@ -2272,9 +2668,37 @@
                 },
                 "deprecationMessage": "Use `authenticator` instead"
             },
+            "clientIp": {
+                "type": "string",
+                "description": "IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.\n"
+            },
+            "clientRequestMfaToken": {
+                "type": "boolean",
+                "description": "When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also\nbe sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.\n"
+            },
+            "clientStoreTemporaryCredential": {
+                "type": "boolean",
+                "description": "When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be\nsourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.\n"
+            },
+            "clientTimeout": {
+                "type": "integer",
+                "description": "The timeout in seconds for the client to complete the authentication. Default is 900 seconds. Can also be sourced from\nthe `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.\n"
+            },
+            "disableQueryContextCache": {
+                "type": "boolean",
+                "description": "Should HTAP query context cache be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE`\nenvironment variable.\n"
+            },
+            "disableTelemetry": {
+                "type": "boolean",
+                "description": "Indicates whether to disable telemetry. Can also be sourced from the `SNOWFLAKE_DISABLE_TELEMETRY` environment variable.\n"
+            },
+            "externalBrowserTimeout": {
+                "type": "integer",
+                "description": "The timeout in seconds for the external browser to complete the authentication. Default is 120 seconds. Can also be\nsourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.\n"
+            },
             "host": {
                 "type": "string",
-                "description": "Supports passing in a custom host value to the snowflake go driver for use with privatelink.\n",
+                "description": "Supports passing in a custom host value to the snowflake go driver for use with privatelink. Can also be sourced from\nthe `SNOWFLAKE_HOST` environment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_HOST"
@@ -2283,79 +2707,116 @@
             },
             "insecureMode": {
                 "type": "boolean",
-                "description": "If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the\ndefault value for testing or emergency situations only.\n"
+                "description": "If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the\ndefault value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE`\nenvironment variable.\n"
+            },
+            "jwtClientTimeout": {
+                "type": "integer",
+                "description": "The timeout in seconds for the JWT client to complete the authentication. Default is 10 seconds. Can also be sourced\nfrom the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.\n"
+            },
+            "jwtExpireTimeout": {
+                "type": "integer",
+                "description": "JWT expire after timeout in seconds. Can also be sourced from the `SNOWFLAKE_JWT_EXPIRE_TIMEOUT` environment variable.\n"
+            },
+            "keepSessionAlive": {
+                "type": "boolean",
+                "description": "Enables the session to persist even after the connection is closed. Can also be sourced from the\n`SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.\n"
+            },
+            "loginTimeout": {
+                "type": "integer",
+                "description": "Login retry timeout EXCLUDING network roundtrip and read out http response. Can also be sourced from the\n`SNOWFLAKE_LOGIN_TIMEOUT` environment variable.\n"
             },
             "oauthAccessToken": {
                 "type": "string",
-                "description": "Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment\nvariable.\n",
+                "description": "Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_refresh_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN`\nenvironment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_OAUTH_ACCESS_TOKEN"
                     ]
                 },
+                "deprecationMessage": "Use `token` instead",
                 "secret": true
             },
             "oauthClientId": {
                 "type": "string",
-                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.\n",
+                "description": "Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_OAUTH_CLIENT_ID"
                     ]
                 },
+                "deprecationMessage": "Use `token_accessor.0.client_id` instead",
                 "secret": true
             },
             "oauthClientSecret": {
                 "type": "string",
-                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.\n",
+                "description": "Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment\nvariable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_OAUTH_CLIENT_SECRET"
                     ]
                 },
+                "deprecationMessage": "Use `token_accessor.0.client_secret` instead",
                 "secret": true
             },
             "oauthEndpoint": {
                 "type": "string",
-                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.\n",
+                "description": "Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_OAUTH_ENDPOINT"
                     ]
                 },
+                "deprecationMessage": "Use `token_accessor.0.token_endpoint` instead",
                 "secret": true
             },
             "oauthRedirectUrl": {
                 "type": "string",
-                "description": "Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.\n",
+                "description": "Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment\nvariable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_OAUTH_REDIRECT_URL"
                     ]
                 },
+                "deprecationMessage": "Use `token_accessor.0.redirect_uri` instead",
                 "secret": true
             },
             "oauthRefreshToken": {
                 "type": "string",
-                "description": "Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with\n`oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment\nvariable.\n",
+                "description": "Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with\n`oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,\n`private_key_path`, `oauth_access_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN`\nenvironment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_OAUTH_REFRESH_TOKEN"
                     ]
                 },
+                "deprecationMessage": "Use `token_accessor.0.refresh_token` instead",
                 "secret": true
+            },
+            "oktaUrl": {
+                "type": "string",
+                "description": "The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment\nvariable.\n"
+            },
+            "oscpFailOpen": {
+                "type": "boolean",
+                "description": "True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be\nsourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.\n"
+            },
+            "params": {
+                "type": "object",
+                "additionalProperties": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "description": "Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)\n"
             },
             "passcode": {
                 "type": "string",
-                "description": "Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.\n"
+                "description": "Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from\nthe `SNOWFLAKE_PASSCODE` environment variable.\n"
             },
             "passcodeInPassword": {
                 "type": "boolean",
-                "description": "False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end\nof the password.\n"
+                "description": "False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end\nof the password. Can also be sourced from the `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.\n"
             },
             "password": {
                 "type": "string",
-                "description": "Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from\n`SNOWFLAKE_PASSWORD` environment variable.\n",
+                "description": "Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can also be sourced from\nthe `SNOWFLAKE_PASSWORD` environment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_PASSWORD"
@@ -2365,7 +2826,7 @@
             },
             "port": {
                 "type": "integer",
-                "description": "Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`\nenvironment variable.\n",
+                "description": "Support custom port values to snowflake go driver for use with privatelink. Can also be sourced from the\n`SNOWFLAKE_PORT` environment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_PORT"
@@ -2374,12 +2835,12 @@
             },
             "privateKey": {
                 "type": "string",
-                "description": "Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be sourced from\n`SNOWFLAKE_PRIVATE_KEY` environment variable.\n",
+                "description": "Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can also be sourced from\n`SNOWFLAKE_PRIVATE_KEY` environment variable.\n",
                 "secret": true
             },
             "privateKeyPassphrase": {
                 "type": "string",
-                "description": "Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and\ndes-ede3-cbc\n",
+                "description": "Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and\ndes-ede3-cbc. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"
@@ -2389,21 +2850,22 @@
             },
             "privateKeyPath": {
                 "type": "string",
-                "description": "Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or\n`password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.\n",
+                "description": "Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or\n`password`. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_PRIVATE_KEY_PATH"
                     ]
                 },
+                "deprecationMessage": "use the [file Function](https://developer.hashicorp.com/terraform/language/functions/file) instead",
                 "secret": true
             },
             "profile": {
                 "type": "string",
-                "description": "Sets the profile to read from ~/.snowflake/config file.\n"
+                "description": "Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment\nvariable.\n"
             },
             "protocol": {
                 "type": "string",
-                "description": "Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.\n",
+                "description": "Either http or https, defaults to https. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_PROTOCOL"
@@ -2412,16 +2874,21 @@
             },
             "region": {
                 "type": "string",
-                "description": "[Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy\nformat for the `account`\nidentifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)\nin the form of `\u003ccloud_region_id\u003e.\u003ccloud\u003e`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.\n",
+                "description": "Snowflake region, such as \"eu-central-1\", with this parameter. However, since this parameter is deprecated, it is best\nto specify the region as part of the account parameter. For details, see the description of the account parameter.\n[Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy\nformat for the `account`\nidentifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)\nin the form of `\u003ccloud_region_id\u003e.\u003ccloud\u003e`. Can also be sourced from the `SNOWFLAKE_REGION` environment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_REGION"
                     ]
-                }
+                },
+                "deprecationMessage": "Specify the region as part of the account parameter"
+            },
+            "requestTimeout": {
+                "type": "integer",
+                "description": "request retry timeout EXCLUDING network roundtrip and read out http response. Can also be sourced from the\n`SNOWFLAKE_REQUEST_TIMEOUT` environment variable.\n"
             },
             "role": {
                 "type": "string",
-                "description": "Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the\n`SNOWFLAKE_ROLE` environment variable.\n",
+                "description": "Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the\n`SNOWFLAKE_ROLE` environment variable. .\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_ROLE"
@@ -2433,20 +2900,38 @@
                 "additionalProperties": {
                     "$ref": "pulumi.json#/Any"
                 },
-                "description": "Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)\n"
+                "description": "Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)\n",
+                "deprecationMessage": "Use `params` instead"
+            },
+            "token": {
+                "type": "string",
+                "description": "Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment\nvariable.\n",
+                "secret": true
+            },
+            "tokenAccessor": {
+                "$ref": "#/types/snowflake:index/ProviderTokenAccessor:ProviderTokenAccessor"
+            },
+            "user": {
+                "type": "string",
+                "description": "Username. Can also be sourced from the `SNOWFLAKE_USER` environment variable. Required unless using `profile`.\n"
             },
             "username": {
                 "type": "string",
-                "description": "Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless\nusing profile.\n",
+                "description": "Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.\nRequired unless using `profile`.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_USER"
                     ]
-                }
+                },
+                "deprecationMessage": "Use `user` instead"
+            },
+            "validateDefaultParameters": {
+                "type": "boolean",
+                "description": "If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is\nestablished. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.\n"
             },
             "warehouse": {
                 "type": "string",
-                "description": "Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.\n",
+                "description": "Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced\nfrom the `SNOWFLAKE_WAREHOUSE` environment variable.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_WAREHOUSE"
@@ -3512,6 +3997,242 @@
                     "name": {
                         "type": "string",
                         "description": "Specifies the identifier for the database role.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "snowflake:index/dynamicTable:DynamicTable": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\n// https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples\nconst dt = new snowflake.DynamicTable(\"dt\", {\n    comment: \"example comment\",\n    database: \"mydb\",\n    query: \"SELECT product_id, product_name FROM \\\"mydb\\\".\\\"myschema\\\".\\\"staging_table\\\"\",\n    schema: \"myschema\",\n    targetLag: {\n        maximumDuration: \"20 minutes\",\n    },\n    warehouse: \"mywh\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\n# https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples\ndt = snowflake.DynamicTable(\"dt\",\n    comment=\"example comment\",\n    database=\"mydb\",\n    query=\"SELECT product_id, product_name FROM \\\"mydb\\\".\\\"myschema\\\".\\\"staging_table\\\"\",\n    schema=\"myschema\",\n    target_lag=snowflake.DynamicTableTargetLagArgs(\n        maximum_duration=\"20 minutes\",\n    ),\n    warehouse=\"mywh\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples\n    var dt = new Snowflake.DynamicTable(\"dt\", new()\n    {\n        Comment = \"example comment\",\n        Database = \"mydb\",\n        Query = \"SELECT product_id, product_name FROM \\\"mydb\\\".\\\"myschema\\\".\\\"staging_table\\\"\",\n        Schema = \"myschema\",\n        TargetLag = new Snowflake.Inputs.DynamicTableTargetLagArgs\n        {\n            MaximumDuration = \"20 minutes\",\n        },\n        Warehouse = \"mywh\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewDynamicTable(ctx, \"dt\", \u0026snowflake.DynamicTableArgs{\n\t\t\tComment:  pulumi.String(\"example comment\"),\n\t\t\tDatabase: pulumi.String(\"mydb\"),\n\t\t\tQuery:    pulumi.String(\"SELECT product_id, product_name FROM \\\"mydb\\\".\\\"myschema\\\".\\\"staging_table\\\"\"),\n\t\t\tSchema:   pulumi.String(\"myschema\"),\n\t\t\tTargetLag: \u0026snowflake.DynamicTableTargetLagArgs{\n\t\t\t\tMaximumDuration: pulumi.String(\"20 minutes\"),\n\t\t\t},\n\t\t\tWarehouse: pulumi.String(\"mywh\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.DynamicTable;\nimport com.pulumi.snowflake.DynamicTableArgs;\nimport com.pulumi.snowflake.inputs.DynamicTableTargetLagArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var dt = new DynamicTable(\"dt\", DynamicTableArgs.builder()        \n            .comment(\"example comment\")\n            .database(\"mydb\")\n            .query(\"SELECT product_id, product_name FROM \\\"mydb\\\".\\\"myschema\\\".\\\"staging_table\\\"\")\n            .schema(\"myschema\")\n            .targetLag(DynamicTableTargetLagArgs.builder()\n                .maximumDuration(\"20 minutes\")\n                .build())\n            .warehouse(\"mywh\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples\n  dt:\n    type: snowflake:DynamicTable\n    properties:\n      comment: example comment\n      database: mydb\n      query: SELECT product_id, product_name FROM \"mydb\".\"myschema\".\"staging_table\"\n      schema: myschema\n      targetLag:\n        maximumDuration: 20 minutes\n      warehouse: mywh\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/dynamicTable:DynamicTable dt \"mydb|myschema|product\"\n```\n\n ",
+            "properties": {
+                "automaticClustering": {
+                    "type": "boolean",
+                    "description": "Whether auto-clustering is enabled on the dynamic table. Not currently supported for dynamic tables.\n"
+                },
+                "bytes": {
+                    "type": "integer",
+                    "description": "Number of bytes that will be scanned if the entire dynamic table is scanned in a query.\n"
+                },
+                "clusterBy": {
+                    "type": "string",
+                    "description": "The clustering key for the dynamic table.\n"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "Specifies a comment for the dynamic table.\n"
+                },
+                "dataTimestamp": {
+                    "type": "string",
+                    "description": "Timestamp of the data in the base object(s) that is included in the dynamic table.\n"
+                },
+                "database": {
+                    "type": "string",
+                    "description": "The database in which to create the dynamic table.\n"
+                },
+                "isClone": {
+                    "type": "boolean",
+                    "description": "TRUE if the dynamic table has been cloned, else FALSE.\n"
+                },
+                "isReplica": {
+                    "type": "boolean",
+                    "description": "TRUE if the dynamic table is a replica. else FALSE.\n"
+                },
+                "lastSuspendedOn": {
+                    "type": "string",
+                    "description": "Timestamp of last suspension.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.\n"
+                },
+                "orReplace": {
+                    "type": "boolean",
+                    "description": "Specifies whether to replace the dynamic table if it already exists.\n"
+                },
+                "owner": {
+                    "type": "string",
+                    "description": "Role that owns the dynamic table.\n"
+                },
+                "query": {
+                    "type": "string",
+                    "description": "Specifies the query to use to populate the dynamic table.\n"
+                },
+                "refreshMode": {
+                    "type": "string",
+                    "description": "INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.\n"
+                },
+                "refreshModeReason": {
+                    "type": "string",
+                    "description": "Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.\n"
+                },
+                "rows": {
+                    "type": "integer",
+                    "description": "Number of rows in the table.\n"
+                },
+                "schedulingState": {
+                    "type": "string",
+                    "description": "Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.\n"
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "The schema in which to create the dynamic table.\n"
+                },
+                "targetLag": {
+                    "$ref": "#/types/snowflake:index/DynamicTableTargetLag:DynamicTableTargetLag",
+                    "description": "Specifies the target lag time for the dynamic table.\n"
+                },
+                "warehouse": {
+                    "type": "string",
+                    "description": "The warehouse in which to create the dynamic table.\n"
+                }
+            },
+            "required": [
+                "automaticClustering",
+                "bytes",
+                "clusterBy",
+                "dataTimestamp",
+                "database",
+                "isClone",
+                "isReplica",
+                "lastSuspendedOn",
+                "name",
+                "owner",
+                "query",
+                "refreshMode",
+                "refreshModeReason",
+                "rows",
+                "schedulingState",
+                "schema",
+                "targetLag",
+                "warehouse"
+            ],
+            "inputProperties": {
+                "comment": {
+                    "type": "string",
+                    "description": "Specifies a comment for the dynamic table.\n"
+                },
+                "database": {
+                    "type": "string",
+                    "description": "The database in which to create the dynamic table.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.\n",
+                    "willReplaceOnChanges": true
+                },
+                "orReplace": {
+                    "type": "boolean",
+                    "description": "Specifies whether to replace the dynamic table if it already exists.\n"
+                },
+                "query": {
+                    "type": "string",
+                    "description": "Specifies the query to use to populate the dynamic table.\n"
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "The schema in which to create the dynamic table.\n"
+                },
+                "targetLag": {
+                    "$ref": "#/types/snowflake:index/DynamicTableTargetLag:DynamicTableTargetLag",
+                    "description": "Specifies the target lag time for the dynamic table.\n"
+                },
+                "warehouse": {
+                    "type": "string",
+                    "description": "The warehouse in which to create the dynamic table.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "database",
+                "query",
+                "schema",
+                "targetLag",
+                "warehouse"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering DynamicTable resources.\n",
+                "properties": {
+                    "automaticClustering": {
+                        "type": "boolean",
+                        "description": "Whether auto-clustering is enabled on the dynamic table. Not currently supported for dynamic tables.\n"
+                    },
+                    "bytes": {
+                        "type": "integer",
+                        "description": "Number of bytes that will be scanned if the entire dynamic table is scanned in a query.\n"
+                    },
+                    "clusterBy": {
+                        "type": "string",
+                        "description": "The clustering key for the dynamic table.\n"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "Specifies a comment for the dynamic table.\n"
+                    },
+                    "dataTimestamp": {
+                        "type": "string",
+                        "description": "Timestamp of the data in the base object(s) that is included in the dynamic table.\n"
+                    },
+                    "database": {
+                        "type": "string",
+                        "description": "The database in which to create the dynamic table.\n"
+                    },
+                    "isClone": {
+                        "type": "boolean",
+                        "description": "TRUE if the dynamic table has been cloned, else FALSE.\n"
+                    },
+                    "isReplica": {
+                        "type": "boolean",
+                        "description": "TRUE if the dynamic table is a replica. else FALSE.\n"
+                    },
+                    "lastSuspendedOn": {
+                        "type": "string",
+                        "description": "Timestamp of last suspension.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "orReplace": {
+                        "type": "boolean",
+                        "description": "Specifies whether to replace the dynamic table if it already exists.\n"
+                    },
+                    "owner": {
+                        "type": "string",
+                        "description": "Role that owns the dynamic table.\n"
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "Specifies the query to use to populate the dynamic table.\n"
+                    },
+                    "refreshMode": {
+                        "type": "string",
+                        "description": "INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.\n"
+                    },
+                    "refreshModeReason": {
+                        "type": "string",
+                        "description": "Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.\n"
+                    },
+                    "rows": {
+                        "type": "integer",
+                        "description": "Number of rows in the table.\n"
+                    },
+                    "schedulingState": {
+                        "type": "string",
+                        "description": "Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.\n"
+                    },
+                    "schema": {
+                        "type": "string",
+                        "description": "The schema in which to create the dynamic table.\n"
+                    },
+                    "targetLag": {
+                        "$ref": "#/types/snowflake:index/DynamicTableTargetLag:DynamicTableTargetLag",
+                        "description": "Specifies the target lag time for the dynamic table.\n"
+                    },
+                    "warehouse": {
+                        "type": "string",
+                        "description": "The warehouse in which to create the dynamic table.\n",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -14315,6 +15036,67 @@
                 "type": "object",
                 "required": [
                     "databases",
+                    "id"
+                ]
+            }
+        },
+        "snowflake:index/getDynamicTables:getDynamicTables": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getDynamicTables.\n",
+                "properties": {
+                    "in": {
+                        "$ref": "#/types/snowflake:index/getDynamicTablesIn:getDynamicTablesIn",
+                        "description": "IN clause to filter the list of dynamic tables.\n"
+                    },
+                    "like": {
+                        "$ref": "#/types/snowflake:index/getDynamicTablesLike:getDynamicTablesLike",
+                        "description": "LIKE clause to filter the list of dynamic tables.\n"
+                    },
+                    "limit": {
+                        "$ref": "#/types/snowflake:index/getDynamicTablesLimit:getDynamicTablesLimit",
+                        "description": "Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).\n"
+                    },
+                    "startsWith": {
+                        "type": "string",
+                        "description": "Optionally filters the command output based on the characters that appear at the beginning of the object name. The string is case-sensitive.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDynamicTables.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "in": {
+                        "$ref": "#/types/snowflake:index/getDynamicTablesIn:getDynamicTablesIn",
+                        "description": "IN clause to filter the list of dynamic tables.\n"
+                    },
+                    "like": {
+                        "$ref": "#/types/snowflake:index/getDynamicTablesLike:getDynamicTablesLike",
+                        "description": "LIKE clause to filter the list of dynamic tables.\n"
+                    },
+                    "limit": {
+                        "$ref": "#/types/snowflake:index/getDynamicTablesLimit:getDynamicTablesLimit",
+                        "description": "Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).\n"
+                    },
+                    "records": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/getDynamicTablesRecord:getDynamicTablesRecord"
+                        },
+                        "description": "The list of dynamic tables.\n"
+                    },
+                    "startsWith": {
+                        "type": "string",
+                        "description": "Optionally filters the command output based on the characters that appear at the beginning of the object name. The string is case-sensitive.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "records",
                     "id"
                 ]
             }

@@ -19,6 +19,8 @@ import com.pulumi.snowflake.inputs.GetDatabaseRolesArgs;
 import com.pulumi.snowflake.inputs.GetDatabaseRolesPlainArgs;
 import com.pulumi.snowflake.inputs.GetDatabasesArgs;
 import com.pulumi.snowflake.inputs.GetDatabasesPlainArgs;
+import com.pulumi.snowflake.inputs.GetDynamicTablesArgs;
+import com.pulumi.snowflake.inputs.GetDynamicTablesPlainArgs;
 import com.pulumi.snowflake.inputs.GetExternalFunctionsArgs;
 import com.pulumi.snowflake.inputs.GetExternalFunctionsPlainArgs;
 import com.pulumi.snowflake.inputs.GetExternalTablesArgs;
@@ -76,6 +78,7 @@ import com.pulumi.snowflake.outputs.GetCurrentRoleResult;
 import com.pulumi.snowflake.outputs.GetDatabaseResult;
 import com.pulumi.snowflake.outputs.GetDatabaseRolesResult;
 import com.pulumi.snowflake.outputs.GetDatabasesResult;
+import com.pulumi.snowflake.outputs.GetDynamicTablesResult;
 import com.pulumi.snowflake.outputs.GetExternalFunctionsResult;
 import com.pulumi.snowflake.outputs.GetExternalTablesResult;
 import com.pulumi.snowflake.outputs.GetFailoverGroupsResult;
@@ -1072,6 +1075,24 @@ public final class SnowflakeFunctions {
      */
     public static CompletableFuture<GetDatabasesResult> getDatabasesPlain(GetDatabasesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getDatabases:getDatabases", TypeShape.of(GetDatabasesResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetDynamicTablesResult> getDynamicTables() {
+        return getDynamicTables(GetDynamicTablesArgs.Empty, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetDynamicTablesResult> getDynamicTablesPlain() {
+        return getDynamicTablesPlain(GetDynamicTablesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    public static Output<GetDynamicTablesResult> getDynamicTables(GetDynamicTablesArgs args) {
+        return getDynamicTables(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetDynamicTablesResult> getDynamicTablesPlain(GetDynamicTablesPlainArgs args) {
+        return getDynamicTablesPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetDynamicTablesResult> getDynamicTables(GetDynamicTablesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getDynamicTables:getDynamicTables", TypeShape.of(GetDynamicTablesResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetDynamicTablesResult> getDynamicTablesPlain(GetDynamicTablesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getDynamicTables:getDynamicTables", TypeShape.of(GetDynamicTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * ## Example Usage

@@ -32,6 +32,17 @@ export interface DatabaseReplicationConfiguration {
     ignoreEditionCheck?: boolean;
 }
 
+export interface DynamicTableTargetLag {
+    /**
+     * Specifies whether the target lag time is downstream.
+     */
+    downstream?: boolean;
+    /**
+     * Specifies the maximum target lag time for the dynamic table.
+     */
+    maximumDuration?: string;
+}
+
 export interface ExternalFunctionArg {
     /**
      * Argument name
@@ -187,6 +198,62 @@ export interface GetDatabasesDatabase {
 export interface GetDatabasesDatabaseReplicationConfiguration {
     accounts: string[];
     ignoreEditionCheck: boolean;
+}
+
+export interface GetDynamicTablesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database (db_name).
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema (schema_name).
+     */
+    schema?: string;
+}
+
+export interface GetDynamicTablesLike {
+    /**
+     * Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+     */
+    pattern: string;
+}
+
+export interface GetDynamicTablesLimit {
+    /**
+     * The optional FROM 'name_string' subclause effectively serves as a “cursor” for the results. This enables fetching the specified number of rows following the first row whose object name matches the specified string
+     */
+    from?: string;
+    /**
+     * Specifies the maximum number of rows to return.
+     */
+    rows?: number;
+}
+
+export interface GetDynamicTablesRecord {
+    automaticClustering: boolean;
+    bytes: number;
+    clusterBy: string;
+    comment: string;
+    createdOn: string;
+    dataTimestamp: string;
+    databaseName: string;
+    isClone: boolean;
+    isReplica: boolean;
+    lastSuspendedOn: string;
+    name: string;
+    owner: string;
+    refreshMode: string;
+    refreshModeReason: string;
+    rows: number;
+    schedulingState: string;
+    schemaName: string;
+    targetLag: string;
+    text: string;
+    warehouse: string;
 }
 
 export interface GetExternalFunctionsExternalFunction {
@@ -816,3 +883,13 @@ export interface ViewTag {
     value: string;
 }
 
+export namespace config {
+    export interface TokenAccessor {
+        clientId: string;
+        clientSecret: string;
+        redirectUri: string;
+        refreshToken: string;
+        tokenEndpoint: string;
+    }
+
+}
