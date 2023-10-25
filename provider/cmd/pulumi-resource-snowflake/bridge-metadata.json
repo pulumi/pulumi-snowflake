@@ -76,6 +76,14 @@
             "snowflake_database_role": {
                 "current": "snowflake:index/databaseRole:DatabaseRole"
             },
+            "snowflake_dynamic_table": {
+                "current": "snowflake:index/dynamicTable:DynamicTable",
+                "fields": {
+                    "target_lag": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "snowflake_email_notification_integration": {
                 "current": "snowflake:index/emailNotificationIntegration:EmailNotificationIntegration",
                 "fields": {
@@ -767,6 +775,23 @@
                     }
                 }
             },
+            "snowflake_dynamic_tables": {
+                "current": "snowflake:index/getDynamicTables:getDynamicTables",
+                "fields": {
+                    "in": {
+                        "maxItemsOne": true
+                    },
+                    "like": {
+                        "maxItemsOne": true
+                    },
+                    "limit": {
+                        "maxItemsOne": true
+                    },
+                    "records": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "snowflake_external_functions": {
                 "current": "snowflake:index/getExternalFunctions:getExternalFunctions",
                 "fields": {
@@ -1066,6 +1091,7 @@
             "snowflake:index/database:Database": "snowflake_database",
             "snowflake:index/databaseGrant:DatabaseGrant": "snowflake_database_grant",
             "snowflake:index/databaseRole:DatabaseRole": "snowflake_database_role",
+            "snowflake:index/dynamicTable:DynamicTable": "snowflake_dynamic_table",
             "snowflake:index/emailNotificationIntegration:EmailNotificationIntegration": "snowflake_email_notification_integration",
             "snowflake:index/externalFunction:ExternalFunction": "snowflake_external_function",
             "snowflake:index/externalOauthIntegration:ExternalOauthIntegration": "snowflake_external_oauth_integration",
@@ -1141,6 +1167,7 @@
             "snowflake:index/getDatabase:getDatabase": "snowflake_database",
             "snowflake:index/getDatabaseRoles:getDatabaseRoles": "snowflake_database_roles",
             "snowflake:index/getDatabases:getDatabases": "snowflake_databases",
+            "snowflake:index/getDynamicTables:getDynamicTables": "snowflake_dynamic_tables",
             "snowflake:index/getExternalFunctions:getExternalFunctions": "snowflake_external_functions",
             "snowflake:index/getExternalTables:getExternalTables": "snowflake_external_tables",
             "snowflake:index/getFailoverGroups:getFailoverGroups": "snowflake_failover_groups",
@@ -1173,11 +1200,21 @@
             "snowflake:index/getWarehouses:getWarehouses": "snowflake_warehouses"
         },
         "renamedProperties": {
+            "snowflake:config/tokenAccessor:tokenAccessor": {
+                "clientId": "client_id",
+                "clientSecret": "client_secret",
+                "redirectUri": "redirect_uri",
+                "refreshToken": "refresh_token",
+                "tokenEndpoint": "token_endpoint"
+            },
             "snowflake:index/AlertAlertScheduleCron:AlertAlertScheduleCron": {
                 "timeZone": "time_zone"
             },
             "snowflake:index/DatabaseReplicationConfiguration:DatabaseReplicationConfiguration": {
                 "ignoreEditionCheck": "ignore_edition_check"
+            },
+            "snowflake:index/DynamicTableTargetLag:DynamicTableTargetLag": {
+                "maximumDuration": "maximum_duration"
             },
             "snowflake:index/FailoverGroupFromReplica:FailoverGroupFromReplica": {
                 "organizationName": "organization_name",
@@ -1211,6 +1248,13 @@
             },
             "snowflake:index/MaskingPolicySignature:MaskingPolicySignature": {
                 "columns": "column"
+            },
+            "snowflake:index/ProviderTokenAccessor:ProviderTokenAccessor": {
+                "clientId": "client_id",
+                "clientSecret": "client_secret",
+                "redirectUri": "redirect_uri",
+                "refreshToken": "refresh_token",
+                "tokenEndpoint": "token_endpoint"
             },
             "snowflake:index/TableColumn:TableColumn": {
                 "maskingPolicy": "masking_policy"
@@ -1276,6 +1320,19 @@
                 "enableMultipleGrants": "enable_multiple_grants",
                 "revertOwnershipToRoleName": "revert_ownership_to_role_name",
                 "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/dynamicTable:DynamicTable": {
+                "automaticClustering": "automatic_clustering",
+                "clusterBy": "cluster_by",
+                "dataTimestamp": "data_timestamp",
+                "isClone": "is_clone",
+                "isReplica": "is_replica",
+                "lastSuspendedOn": "last_suspended_on",
+                "orReplace": "or_replace",
+                "refreshMode": "refresh_mode",
+                "refreshModeReason": "refresh_mode_reason",
+                "schedulingState": "scheduling_state",
+                "targetLag": "target_lag"
             },
             "snowflake:index/emailNotificationIntegration:EmailNotificationIntegration": {
                 "allowedRecipients": "allowed_recipients"
@@ -1445,6 +1502,24 @@
             },
             "snowflake:index/getDatabasesDatabaseReplicationConfiguration:getDatabasesDatabaseReplicationConfiguration": {
                 "ignoreEditionCheck": "ignore_edition_check"
+            },
+            "snowflake:index/getDynamicTables:getDynamicTables": {
+                "startsWith": "starts_with"
+            },
+            "snowflake:index/getDynamicTablesRecord:getDynamicTablesRecord": {
+                "automaticClustering": "automatic_clustering",
+                "clusterBy": "cluster_by",
+                "createdOn": "created_on",
+                "dataTimestamp": "data_timestamp",
+                "databaseName": "database_name",
+                "isClone": "is_clone",
+                "isReplica": "is_replica",
+                "lastSuspendedOn": "last_suspended_on",
+                "refreshMode": "refresh_mode",
+                "refreshModeReason": "refresh_mode_reason",
+                "schedulingState": "scheduling_state",
+                "schemaName": "schema_name",
+                "targetLag": "target_lag"
             },
             "snowflake:index/getExternalFunctions:getExternalFunctions": {
                 "externalFunctions": "external_functions"
@@ -2001,34 +2076,66 @@
             },
             "snowflake:index:Provider": {
                 "browserAuth": "browser_auth",
+                "clientIp": "client_ip",
+                "clientRequestMfaToken": "client_request_mfa_token",
+                "clientStoreTemporaryCredential": "client_store_temporary_credential",
+                "clientTimeout": "client_timeout",
+                "disableQueryContextCache": "disable_query_context_cache",
+                "disableTelemetry": "disable_telemetry",
+                "externalBrowserTimeout": "external_browser_timeout",
                 "insecureMode": "insecure_mode",
+                "jwtClientTimeout": "jwt_client_timeout",
+                "jwtExpireTimeout": "jwt_expire_timeout",
+                "keepSessionAlive": "keep_session_alive",
+                "loginTimeout": "login_timeout",
                 "oauthAccessToken": "oauth_access_token",
                 "oauthClientId": "oauth_client_id",
                 "oauthClientSecret": "oauth_client_secret",
                 "oauthEndpoint": "oauth_endpoint",
                 "oauthRedirectUrl": "oauth_redirect_url",
                 "oauthRefreshToken": "oauth_refresh_token",
+                "oktaUrl": "okta_url",
+                "oscpFailOpen": "oscp_fail_open",
                 "passcodeInPassword": "passcode_in_password",
                 "privateKey": "private_key",
                 "privateKeyPassphrase": "private_key_passphrase",
                 "privateKeyPath": "private_key_path",
-                "sessionParams": "session_params"
+                "requestTimeout": "request_timeout",
+                "sessionParams": "session_params",
+                "tokenAccessor": "token_accessor",
+                "validateDefaultParameters": "validate_default_parameters"
             }
         },
         "renamedConfigProperties": {
             "browserAuth": "browser_auth",
+            "clientIp": "client_ip",
+            "clientRequestMfaToken": "client_request_mfa_token",
+            "clientStoreTemporaryCredential": "client_store_temporary_credential",
+            "clientTimeout": "client_timeout",
+            "disableQueryContextCache": "disable_query_context_cache",
+            "disableTelemetry": "disable_telemetry",
+            "externalBrowserTimeout": "external_browser_timeout",
             "insecureMode": "insecure_mode",
+            "jwtClientTimeout": "jwt_client_timeout",
+            "jwtExpireTimeout": "jwt_expire_timeout",
+            "keepSessionAlive": "keep_session_alive",
+            "loginTimeout": "login_timeout",
             "oauthAccessToken": "oauth_access_token",
             "oauthClientId": "oauth_client_id",
             "oauthClientSecret": "oauth_client_secret",
             "oauthEndpoint": "oauth_endpoint",
             "oauthRedirectUrl": "oauth_redirect_url",
             "oauthRefreshToken": "oauth_refresh_token",
+            "oktaUrl": "okta_url",
+            "oscpFailOpen": "oscp_fail_open",
             "passcodeInPassword": "passcode_in_password",
             "privateKey": "private_key",
             "privateKeyPassphrase": "private_key_passphrase",
             "privateKeyPath": "private_key_path",
-            "sessionParams": "session_params"
+            "requestTimeout": "request_timeout",
+            "sessionParams": "session_params",
+            "tokenAccessor": "token_accessor",
+            "validateDefaultParameters": "validate_default_parameters"
         }
     }
 }
