@@ -58,9 +58,9 @@ class TableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             columns: pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]],
-             database: pulumi.Input[str],
-             schema: pulumi.Input[str],
+             columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
              change_tracking: Optional[pulumi.Input[bool]] = None,
              cluster_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              comment: Optional[pulumi.Input[str]] = None,
@@ -69,17 +69,23 @@ class TableArgs:
              name: Optional[pulumi.Input[str]] = None,
              primary_key: Optional[pulumi.Input['TablePrimaryKeyArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'changeTracking' in kwargs:
+        if columns is None:
+            raise TypeError("Missing 'columns' argument")
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if change_tracking is None and 'changeTracking' in kwargs:
             change_tracking = kwargs['changeTracking']
-        if 'clusterBies' in kwargs:
+        if cluster_bies is None and 'clusterBies' in kwargs:
             cluster_bies = kwargs['clusterBies']
-        if 'dataRetentionDays' in kwargs:
+        if data_retention_days is None and 'dataRetentionDays' in kwargs:
             data_retention_days = kwargs['dataRetentionDays']
-        if 'dataRetentionTimeInDays' in kwargs:
+        if data_retention_time_in_days is None and 'dataRetentionTimeInDays' in kwargs:
             data_retention_time_in_days = kwargs['dataRetentionTimeInDays']
-        if 'primaryKey' in kwargs:
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
 
         _setter("columns", columns)
@@ -323,19 +329,19 @@ class _TableState:
              qualified_name: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'changeTracking' in kwargs:
+        if change_tracking is None and 'changeTracking' in kwargs:
             change_tracking = kwargs['changeTracking']
-        if 'clusterBies' in kwargs:
+        if cluster_bies is None and 'clusterBies' in kwargs:
             cluster_bies = kwargs['clusterBies']
-        if 'dataRetentionDays' in kwargs:
+        if data_retention_days is None and 'dataRetentionDays' in kwargs:
             data_retention_days = kwargs['dataRetentionDays']
-        if 'dataRetentionTimeInDays' in kwargs:
+        if data_retention_time_in_days is None and 'dataRetentionTimeInDays' in kwargs:
             data_retention_time_in_days = kwargs['dataRetentionTimeInDays']
-        if 'primaryKey' in kwargs:
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
-        if 'qualifiedName' in kwargs:
+        if qualified_name is None and 'qualifiedName' in kwargs:
             qualified_name = kwargs['qualifiedName']
 
         if change_tracking is not None:
@@ -652,11 +658,7 @@ class Table(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
             __props__.__dict__["name"] = name
-            if primary_key is not None and not isinstance(primary_key, TablePrimaryKeyArgs):
-                primary_key = primary_key or {}
-                def _setter(key, value):
-                    primary_key[key] = value
-                TablePrimaryKeyArgs._configure(_setter, **primary_key)
+            primary_key = _utilities.configure(primary_key, TablePrimaryKeyArgs, True)
             __props__.__dict__["primary_key"] = primary_key
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")

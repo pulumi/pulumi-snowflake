@@ -76,12 +76,12 @@ class ExternalFunctionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_integration: pulumi.Input[str],
-             database: pulumi.Input[str],
-             return_behavior: pulumi.Input[str],
-             return_type: pulumi.Input[str],
-             schema: pulumi.Input[str],
-             url_of_proxy_and_resource: pulumi.Input[str],
+             api_integration: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             return_behavior: Optional[pulumi.Input[str]] = None,
+             return_type: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             url_of_proxy_and_resource: Optional[pulumi.Input[str]] = None,
              args: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionArgArgs']]]] = None,
              comment: Optional[pulumi.Input[str]] = None,
              compression: Optional[pulumi.Input[str]] = None,
@@ -93,27 +93,39 @@ class ExternalFunctionArgs:
              request_translator: Optional[pulumi.Input[str]] = None,
              response_translator: Optional[pulumi.Input[str]] = None,
              return_null_allowed: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiIntegration' in kwargs:
+        if api_integration is None and 'apiIntegration' in kwargs:
             api_integration = kwargs['apiIntegration']
-        if 'returnBehavior' in kwargs:
+        if api_integration is None:
+            raise TypeError("Missing 'api_integration' argument")
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if return_behavior is None and 'returnBehavior' in kwargs:
             return_behavior = kwargs['returnBehavior']
-        if 'returnType' in kwargs:
+        if return_behavior is None:
+            raise TypeError("Missing 'return_behavior' argument")
+        if return_type is None and 'returnType' in kwargs:
             return_type = kwargs['returnType']
-        if 'urlOfProxyAndResource' in kwargs:
+        if return_type is None:
+            raise TypeError("Missing 'return_type' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if url_of_proxy_and_resource is None and 'urlOfProxyAndResource' in kwargs:
             url_of_proxy_and_resource = kwargs['urlOfProxyAndResource']
-        if 'contextHeaders' in kwargs:
+        if url_of_proxy_and_resource is None:
+            raise TypeError("Missing 'url_of_proxy_and_resource' argument")
+        if context_headers is None and 'contextHeaders' in kwargs:
             context_headers = kwargs['contextHeaders']
-        if 'maxBatchRows' in kwargs:
+        if max_batch_rows is None and 'maxBatchRows' in kwargs:
             max_batch_rows = kwargs['maxBatchRows']
-        if 'nullInputBehavior' in kwargs:
+        if null_input_behavior is None and 'nullInputBehavior' in kwargs:
             null_input_behavior = kwargs['nullInputBehavior']
-        if 'requestTranslator' in kwargs:
+        if request_translator is None and 'requestTranslator' in kwargs:
             request_translator = kwargs['requestTranslator']
-        if 'responseTranslator' in kwargs:
+        if response_translator is None and 'responseTranslator' in kwargs:
             response_translator = kwargs['responseTranslator']
-        if 'returnNullAllowed' in kwargs:
+        if return_null_allowed is None and 'returnNullAllowed' in kwargs:
             return_null_allowed = kwargs['returnNullAllowed']
 
         _setter("api_integration", api_integration)
@@ -434,29 +446,29 @@ class _ExternalFunctionState:
              return_type: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
              url_of_proxy_and_resource: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiIntegration' in kwargs:
+        if api_integration is None and 'apiIntegration' in kwargs:
             api_integration = kwargs['apiIntegration']
-        if 'contextHeaders' in kwargs:
+        if context_headers is None and 'contextHeaders' in kwargs:
             context_headers = kwargs['contextHeaders']
-        if 'createdOn' in kwargs:
+        if created_on is None and 'createdOn' in kwargs:
             created_on = kwargs['createdOn']
-        if 'maxBatchRows' in kwargs:
+        if max_batch_rows is None and 'maxBatchRows' in kwargs:
             max_batch_rows = kwargs['maxBatchRows']
-        if 'nullInputBehavior' in kwargs:
+        if null_input_behavior is None and 'nullInputBehavior' in kwargs:
             null_input_behavior = kwargs['nullInputBehavior']
-        if 'requestTranslator' in kwargs:
+        if request_translator is None and 'requestTranslator' in kwargs:
             request_translator = kwargs['requestTranslator']
-        if 'responseTranslator' in kwargs:
+        if response_translator is None and 'responseTranslator' in kwargs:
             response_translator = kwargs['responseTranslator']
-        if 'returnBehavior' in kwargs:
+        if return_behavior is None and 'returnBehavior' in kwargs:
             return_behavior = kwargs['returnBehavior']
-        if 'returnNullAllowed' in kwargs:
+        if return_null_allowed is None and 'returnNullAllowed' in kwargs:
             return_null_allowed = kwargs['returnNullAllowed']
-        if 'returnType' in kwargs:
+        if return_type is None and 'returnType' in kwargs:
             return_type = kwargs['returnType']
-        if 'urlOfProxyAndResource' in kwargs:
+        if url_of_proxy_and_resource is None and 'urlOfProxyAndResource' in kwargs:
             url_of_proxy_and_resource = kwargs['urlOfProxyAndResource']
 
         if api_integration is not None:

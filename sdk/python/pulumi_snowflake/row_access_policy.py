@@ -41,16 +41,24 @@ class RowAccessPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database: pulumi.Input[str],
-             row_access_expression: pulumi.Input[str],
-             schema: pulumi.Input[str],
-             signature: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+             database: Optional[pulumi.Input[str]] = None,
+             row_access_expression: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             signature: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              comment: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'rowAccessExpression' in kwargs:
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if row_access_expression is None and 'rowAccessExpression' in kwargs:
             row_access_expression = kwargs['rowAccessExpression']
+        if row_access_expression is None:
+            raise TypeError("Missing 'row_access_expression' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if signature is None:
+            raise TypeError("Missing 'signature' argument")
 
         _setter("database", database)
         _setter("row_access_expression", row_access_expression)
@@ -170,9 +178,9 @@ class _RowAccessPolicyState:
              row_access_expression: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
              signature: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'rowAccessExpression' in kwargs:
+        if row_access_expression is None and 'rowAccessExpression' in kwargs:
             row_access_expression = kwargs['rowAccessExpression']
 
         if comment is not None:

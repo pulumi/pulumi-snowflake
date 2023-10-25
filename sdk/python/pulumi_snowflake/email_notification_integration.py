@@ -33,14 +33,18 @@ class EmailNotificationIntegrationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_recipients: pulumi.Input[Sequence[pulumi.Input[str]]],
-             enabled: pulumi.Input[bool],
+             allowed_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
              comment: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowedRecipients' in kwargs:
+        if allowed_recipients is None and 'allowedRecipients' in kwargs:
             allowed_recipients = kwargs['allowedRecipients']
+        if allowed_recipients is None:
+            raise TypeError("Missing 'allowed_recipients' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
 
         _setter("allowed_recipients", allowed_recipients)
         _setter("enabled", enabled)
@@ -118,9 +122,9 @@ class _EmailNotificationIntegrationState:
              comment: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowedRecipients' in kwargs:
+        if allowed_recipients is None and 'allowedRecipients' in kwargs:
             allowed_recipients = kwargs['allowedRecipients']
 
         if allowed_recipients is not None:

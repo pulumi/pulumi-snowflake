@@ -61,23 +61,23 @@ class FailoverGroupArgs:
              name: Optional[pulumi.Input[str]] = None,
              object_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              replication_schedule: Optional[pulumi.Input['FailoverGroupReplicationScheduleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowedAccounts' in kwargs:
+        if allowed_accounts is None and 'allowedAccounts' in kwargs:
             allowed_accounts = kwargs['allowedAccounts']
-        if 'allowedDatabases' in kwargs:
+        if allowed_databases is None and 'allowedDatabases' in kwargs:
             allowed_databases = kwargs['allowedDatabases']
-        if 'allowedIntegrationTypes' in kwargs:
+        if allowed_integration_types is None and 'allowedIntegrationTypes' in kwargs:
             allowed_integration_types = kwargs['allowedIntegrationTypes']
-        if 'allowedShares' in kwargs:
+        if allowed_shares is None and 'allowedShares' in kwargs:
             allowed_shares = kwargs['allowedShares']
-        if 'fromReplica' in kwargs:
+        if from_replica is None and 'fromReplica' in kwargs:
             from_replica = kwargs['fromReplica']
-        if 'ignoreEditionCheck' in kwargs:
+        if ignore_edition_check is None and 'ignoreEditionCheck' in kwargs:
             ignore_edition_check = kwargs['ignoreEditionCheck']
-        if 'objectTypes' in kwargs:
+        if object_types is None and 'objectTypes' in kwargs:
             object_types = kwargs['objectTypes']
-        if 'replicationSchedule' in kwargs:
+        if replication_schedule is None and 'replicationSchedule' in kwargs:
             replication_schedule = kwargs['replicationSchedule']
 
         if allowed_accounts is not None:
@@ -256,23 +256,23 @@ class _FailoverGroupState:
              name: Optional[pulumi.Input[str]] = None,
              object_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              replication_schedule: Optional[pulumi.Input['FailoverGroupReplicationScheduleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowedAccounts' in kwargs:
+        if allowed_accounts is None and 'allowedAccounts' in kwargs:
             allowed_accounts = kwargs['allowedAccounts']
-        if 'allowedDatabases' in kwargs:
+        if allowed_databases is None and 'allowedDatabases' in kwargs:
             allowed_databases = kwargs['allowedDatabases']
-        if 'allowedIntegrationTypes' in kwargs:
+        if allowed_integration_types is None and 'allowedIntegrationTypes' in kwargs:
             allowed_integration_types = kwargs['allowedIntegrationTypes']
-        if 'allowedShares' in kwargs:
+        if allowed_shares is None and 'allowedShares' in kwargs:
             allowed_shares = kwargs['allowedShares']
-        if 'fromReplica' in kwargs:
+        if from_replica is None and 'fromReplica' in kwargs:
             from_replica = kwargs['fromReplica']
-        if 'ignoreEditionCheck' in kwargs:
+        if ignore_edition_check is None and 'ignoreEditionCheck' in kwargs:
             ignore_edition_check = kwargs['ignoreEditionCheck']
-        if 'objectTypes' in kwargs:
+        if object_types is None and 'objectTypes' in kwargs:
             object_types = kwargs['objectTypes']
-        if 'replicationSchedule' in kwargs:
+        if replication_schedule is None and 'replicationSchedule' in kwargs:
             replication_schedule = kwargs['replicationSchedule']
 
         if allowed_accounts is not None:
@@ -561,20 +561,12 @@ class FailoverGroup(pulumi.CustomResource):
             __props__.__dict__["allowed_databases"] = allowed_databases
             __props__.__dict__["allowed_integration_types"] = allowed_integration_types
             __props__.__dict__["allowed_shares"] = allowed_shares
-            if from_replica is not None and not isinstance(from_replica, FailoverGroupFromReplicaArgs):
-                from_replica = from_replica or {}
-                def _setter(key, value):
-                    from_replica[key] = value
-                FailoverGroupFromReplicaArgs._configure(_setter, **from_replica)
+            from_replica = _utilities.configure(from_replica, FailoverGroupFromReplicaArgs, True)
             __props__.__dict__["from_replica"] = from_replica
             __props__.__dict__["ignore_edition_check"] = ignore_edition_check
             __props__.__dict__["name"] = name
             __props__.__dict__["object_types"] = object_types
-            if replication_schedule is not None and not isinstance(replication_schedule, FailoverGroupReplicationScheduleArgs):
-                replication_schedule = replication_schedule or {}
-                def _setter(key, value):
-                    replication_schedule[key] = value
-                FailoverGroupReplicationScheduleArgs._configure(_setter, **replication_schedule)
+            replication_schedule = _utilities.configure(replication_schedule, FailoverGroupReplicationScheduleArgs, True)
             __props__.__dict__["replication_schedule"] = replication_schedule
         super(FailoverGroup, __self__).__init__(
             'snowflake:index/failoverGroup:FailoverGroup',

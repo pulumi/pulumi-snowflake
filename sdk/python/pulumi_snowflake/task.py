@@ -68,9 +68,9 @@ class TaskArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database: pulumi.Input[str],
-             schema: pulumi.Input[str],
-             sql_statement: pulumi.Input[str],
+             database: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             sql_statement: Optional[pulumi.Input[str]] = None,
              afters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allow_overlapping_execution: Optional[pulumi.Input[bool]] = None,
              comment: Optional[pulumi.Input[str]] = None,
@@ -83,19 +83,25 @@ class TaskArgs:
              user_task_timeout_ms: Optional[pulumi.Input[int]] = None,
              warehouse: Optional[pulumi.Input[str]] = None,
              when: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'sqlStatement' in kwargs:
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if sql_statement is None and 'sqlStatement' in kwargs:
             sql_statement = kwargs['sqlStatement']
-        if 'allowOverlappingExecution' in kwargs:
+        if sql_statement is None:
+            raise TypeError("Missing 'sql_statement' argument")
+        if allow_overlapping_execution is None and 'allowOverlappingExecution' in kwargs:
             allow_overlapping_execution = kwargs['allowOverlappingExecution']
-        if 'errorIntegration' in kwargs:
+        if error_integration is None and 'errorIntegration' in kwargs:
             error_integration = kwargs['errorIntegration']
-        if 'sessionParameters' in kwargs:
+        if session_parameters is None and 'sessionParameters' in kwargs:
             session_parameters = kwargs['sessionParameters']
-        if 'userTaskManagedInitialWarehouseSize' in kwargs:
+        if user_task_managed_initial_warehouse_size is None and 'userTaskManagedInitialWarehouseSize' in kwargs:
             user_task_managed_initial_warehouse_size = kwargs['userTaskManagedInitialWarehouseSize']
-        if 'userTaskTimeoutMs' in kwargs:
+        if user_task_timeout_ms is None and 'userTaskTimeoutMs' in kwargs:
             user_task_timeout_ms = kwargs['userTaskTimeoutMs']
 
         _setter("database", database)
@@ -379,19 +385,19 @@ class _TaskState:
              user_task_timeout_ms: Optional[pulumi.Input[int]] = None,
              warehouse: Optional[pulumi.Input[str]] = None,
              when: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowOverlappingExecution' in kwargs:
+        if allow_overlapping_execution is None and 'allowOverlappingExecution' in kwargs:
             allow_overlapping_execution = kwargs['allowOverlappingExecution']
-        if 'errorIntegration' in kwargs:
+        if error_integration is None and 'errorIntegration' in kwargs:
             error_integration = kwargs['errorIntegration']
-        if 'sessionParameters' in kwargs:
+        if session_parameters is None and 'sessionParameters' in kwargs:
             session_parameters = kwargs['sessionParameters']
-        if 'sqlStatement' in kwargs:
+        if sql_statement is None and 'sqlStatement' in kwargs:
             sql_statement = kwargs['sqlStatement']
-        if 'userTaskManagedInitialWarehouseSize' in kwargs:
+        if user_task_managed_initial_warehouse_size is None and 'userTaskManagedInitialWarehouseSize' in kwargs:
             user_task_managed_initial_warehouse_size = kwargs['userTaskManagedInitialWarehouseSize']
-        if 'userTaskTimeoutMs' in kwargs:
+        if user_task_timeout_ms is None and 'userTaskTimeoutMs' in kwargs:
             user_task_timeout_ms = kwargs['userTaskTimeoutMs']
 
         if afters is not None:

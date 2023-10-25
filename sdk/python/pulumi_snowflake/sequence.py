@@ -38,13 +38,17 @@ class SequenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database: pulumi.Input[str],
-             schema: pulumi.Input[str],
+             database: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
              comment: Optional[pulumi.Input[str]] = None,
              increment: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
 
         _setter("database", database)
         _setter("schema", schema)
@@ -156,11 +160,11 @@ class _SequenceState:
              name: Optional[pulumi.Input[str]] = None,
              next_value: Optional[pulumi.Input[int]] = None,
              schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'fullyQualifiedName' in kwargs:
+        if fully_qualified_name is None and 'fullyQualifiedName' in kwargs:
             fully_qualified_name = kwargs['fullyQualifiedName']
-        if 'nextValue' in kwargs:
+        if next_value is None and 'nextValue' in kwargs:
             next_value = kwargs['nextValue']
 
         if comment is not None:

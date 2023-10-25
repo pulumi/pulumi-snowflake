@@ -43,25 +43,33 @@ class TagAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             object_identifiers: pulumi.Input[Sequence[pulumi.Input['TagAssociationObjectIdentifierArgs']]],
-             object_type: pulumi.Input[str],
-             tag_id: pulumi.Input[str],
-             tag_value: pulumi.Input[str],
+             object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input['TagAssociationObjectIdentifierArgs']]]] = None,
+             object_type: Optional[pulumi.Input[str]] = None,
+             tag_id: Optional[pulumi.Input[str]] = None,
+             tag_value: Optional[pulumi.Input[str]] = None,
              object_name: Optional[pulumi.Input[str]] = None,
              skip_validation: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'objectIdentifiers' in kwargs:
+        if object_identifiers is None and 'objectIdentifiers' in kwargs:
             object_identifiers = kwargs['objectIdentifiers']
-        if 'objectType' in kwargs:
+        if object_identifiers is None:
+            raise TypeError("Missing 'object_identifiers' argument")
+        if object_type is None and 'objectType' in kwargs:
             object_type = kwargs['objectType']
-        if 'tagId' in kwargs:
+        if object_type is None:
+            raise TypeError("Missing 'object_type' argument")
+        if tag_id is None and 'tagId' in kwargs:
             tag_id = kwargs['tagId']
-        if 'tagValue' in kwargs:
+        if tag_id is None:
+            raise TypeError("Missing 'tag_id' argument")
+        if tag_value is None and 'tagValue' in kwargs:
             tag_value = kwargs['tagValue']
-        if 'objectName' in kwargs:
+        if tag_value is None:
+            raise TypeError("Missing 'tag_value' argument")
+        if object_name is None and 'objectName' in kwargs:
             object_name = kwargs['objectName']
-        if 'skipValidation' in kwargs:
+        if skip_validation is None and 'skipValidation' in kwargs:
             skip_validation = kwargs['skipValidation']
 
         _setter("object_identifiers", object_identifiers)
@@ -188,19 +196,19 @@ class _TagAssociationState:
              skip_validation: Optional[pulumi.Input[bool]] = None,
              tag_id: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'objectIdentifiers' in kwargs:
+        if object_identifiers is None and 'objectIdentifiers' in kwargs:
             object_identifiers = kwargs['objectIdentifiers']
-        if 'objectName' in kwargs:
+        if object_name is None and 'objectName' in kwargs:
             object_name = kwargs['objectName']
-        if 'objectType' in kwargs:
+        if object_type is None and 'objectType' in kwargs:
             object_type = kwargs['objectType']
-        if 'skipValidation' in kwargs:
+        if skip_validation is None and 'skipValidation' in kwargs:
             skip_validation = kwargs['skipValidation']
-        if 'tagId' in kwargs:
+        if tag_id is None and 'tagId' in kwargs:
             tag_id = kwargs['tagId']
-        if 'tagValue' in kwargs:
+        if tag_value is None and 'tagValue' in kwargs:
             tag_value = kwargs['tagValue']
 
         if object_identifiers is not None:

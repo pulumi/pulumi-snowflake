@@ -40,11 +40,11 @@ class AccountGrantArgs:
              privilege: Optional[pulumi.Input[str]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'enableMultipleGrants' in kwargs:
+        if enable_multiple_grants is None and 'enableMultipleGrants' in kwargs:
             enable_multiple_grants = kwargs['enableMultipleGrants']
-        if 'withGrantOption' in kwargs:
+        if with_grant_option is None and 'withGrantOption' in kwargs:
             with_grant_option = kwargs['withGrantOption']
 
         if enable_multiple_grants is not None:
@@ -135,11 +135,11 @@ class _AccountGrantState:
              privilege: Optional[pulumi.Input[str]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'enableMultipleGrants' in kwargs:
+        if enable_multiple_grants is None and 'enableMultipleGrants' in kwargs:
             enable_multiple_grants = kwargs['enableMultipleGrants']
-        if 'withGrantOption' in kwargs:
+        if with_grant_option is None and 'withGrantOption' in kwargs:
             with_grant_option = kwargs['withGrantOption']
 
         if enable_multiple_grants is not None:

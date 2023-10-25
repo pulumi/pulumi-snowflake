@@ -128,9 +128,9 @@ class FileFormatArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database: pulumi.Input[str],
-             format_type: pulumi.Input[str],
-             schema: pulumi.Input[str],
+             database: Optional[pulumi.Input[str]] = None,
+             format_type: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
              allow_duplicate: Optional[pulumi.Input[bool]] = None,
              binary_as_text: Optional[pulumi.Input[bool]] = None,
              binary_format: Optional[pulumi.Input[str]] = None,
@@ -163,63 +163,69 @@ class FileFormatArgs:
              time_format: Optional[pulumi.Input[str]] = None,
              timestamp_format: Optional[pulumi.Input[str]] = None,
              trim_space: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'formatType' in kwargs:
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if format_type is None and 'formatType' in kwargs:
             format_type = kwargs['formatType']
-        if 'allowDuplicate' in kwargs:
+        if format_type is None:
+            raise TypeError("Missing 'format_type' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if allow_duplicate is None and 'allowDuplicate' in kwargs:
             allow_duplicate = kwargs['allowDuplicate']
-        if 'binaryAsText' in kwargs:
+        if binary_as_text is None and 'binaryAsText' in kwargs:
             binary_as_text = kwargs['binaryAsText']
-        if 'binaryFormat' in kwargs:
+        if binary_format is None and 'binaryFormat' in kwargs:
             binary_format = kwargs['binaryFormat']
-        if 'dateFormat' in kwargs:
+        if date_format is None and 'dateFormat' in kwargs:
             date_format = kwargs['dateFormat']
-        if 'disableAutoConvert' in kwargs:
+        if disable_auto_convert is None and 'disableAutoConvert' in kwargs:
             disable_auto_convert = kwargs['disableAutoConvert']
-        if 'disableSnowflakeData' in kwargs:
+        if disable_snowflake_data is None and 'disableSnowflakeData' in kwargs:
             disable_snowflake_data = kwargs['disableSnowflakeData']
-        if 'emptyFieldAsNull' in kwargs:
+        if empty_field_as_null is None and 'emptyFieldAsNull' in kwargs:
             empty_field_as_null = kwargs['emptyFieldAsNull']
-        if 'enableOctal' in kwargs:
+        if enable_octal is None and 'enableOctal' in kwargs:
             enable_octal = kwargs['enableOctal']
-        if 'errorOnColumnCountMismatch' in kwargs:
+        if error_on_column_count_mismatch is None and 'errorOnColumnCountMismatch' in kwargs:
             error_on_column_count_mismatch = kwargs['errorOnColumnCountMismatch']
-        if 'escapeUnenclosedField' in kwargs:
+        if escape_unenclosed_field is None and 'escapeUnenclosedField' in kwargs:
             escape_unenclosed_field = kwargs['escapeUnenclosedField']
-        if 'fieldDelimiter' in kwargs:
+        if field_delimiter is None and 'fieldDelimiter' in kwargs:
             field_delimiter = kwargs['fieldDelimiter']
-        if 'fieldOptionallyEnclosedBy' in kwargs:
+        if field_optionally_enclosed_by is None and 'fieldOptionallyEnclosedBy' in kwargs:
             field_optionally_enclosed_by = kwargs['fieldOptionallyEnclosedBy']
-        if 'fileExtension' in kwargs:
+        if file_extension is None and 'fileExtension' in kwargs:
             file_extension = kwargs['fileExtension']
-        if 'ignoreUtf8Errors' in kwargs:
+        if ignore_utf8_errors is None and 'ignoreUtf8Errors' in kwargs:
             ignore_utf8_errors = kwargs['ignoreUtf8Errors']
-        if 'nullIfs' in kwargs:
+        if null_ifs is None and 'nullIfs' in kwargs:
             null_ifs = kwargs['nullIfs']
-        if 'preserveSpace' in kwargs:
+        if preserve_space is None and 'preserveSpace' in kwargs:
             preserve_space = kwargs['preserveSpace']
-        if 'recordDelimiter' in kwargs:
+        if record_delimiter is None and 'recordDelimiter' in kwargs:
             record_delimiter = kwargs['recordDelimiter']
-        if 'replaceInvalidCharacters' in kwargs:
+        if replace_invalid_characters is None and 'replaceInvalidCharacters' in kwargs:
             replace_invalid_characters = kwargs['replaceInvalidCharacters']
-        if 'skipBlankLines' in kwargs:
+        if skip_blank_lines is None and 'skipBlankLines' in kwargs:
             skip_blank_lines = kwargs['skipBlankLines']
-        if 'skipByteOrderMark' in kwargs:
+        if skip_byte_order_mark is None and 'skipByteOrderMark' in kwargs:
             skip_byte_order_mark = kwargs['skipByteOrderMark']
-        if 'skipHeader' in kwargs:
+        if skip_header is None and 'skipHeader' in kwargs:
             skip_header = kwargs['skipHeader']
-        if 'stripNullValues' in kwargs:
+        if strip_null_values is None and 'stripNullValues' in kwargs:
             strip_null_values = kwargs['stripNullValues']
-        if 'stripOuterArray' in kwargs:
+        if strip_outer_array is None and 'stripOuterArray' in kwargs:
             strip_outer_array = kwargs['stripOuterArray']
-        if 'stripOuterElement' in kwargs:
+        if strip_outer_element is None and 'stripOuterElement' in kwargs:
             strip_outer_element = kwargs['stripOuterElement']
-        if 'timeFormat' in kwargs:
+        if time_format is None and 'timeFormat' in kwargs:
             time_format = kwargs['timeFormat']
-        if 'timestampFormat' in kwargs:
+        if timestamp_format is None and 'timestampFormat' in kwargs:
             timestamp_format = kwargs['timestampFormat']
-        if 'trimSpace' in kwargs:
+        if trim_space is None and 'trimSpace' in kwargs:
             trim_space = kwargs['trimSpace']
 
         _setter("database", database)
@@ -863,63 +869,63 @@ class _FileFormatState:
              time_format: Optional[pulumi.Input[str]] = None,
              timestamp_format: Optional[pulumi.Input[str]] = None,
              trim_space: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowDuplicate' in kwargs:
+        if allow_duplicate is None and 'allowDuplicate' in kwargs:
             allow_duplicate = kwargs['allowDuplicate']
-        if 'binaryAsText' in kwargs:
+        if binary_as_text is None and 'binaryAsText' in kwargs:
             binary_as_text = kwargs['binaryAsText']
-        if 'binaryFormat' in kwargs:
+        if binary_format is None and 'binaryFormat' in kwargs:
             binary_format = kwargs['binaryFormat']
-        if 'dateFormat' in kwargs:
+        if date_format is None and 'dateFormat' in kwargs:
             date_format = kwargs['dateFormat']
-        if 'disableAutoConvert' in kwargs:
+        if disable_auto_convert is None and 'disableAutoConvert' in kwargs:
             disable_auto_convert = kwargs['disableAutoConvert']
-        if 'disableSnowflakeData' in kwargs:
+        if disable_snowflake_data is None and 'disableSnowflakeData' in kwargs:
             disable_snowflake_data = kwargs['disableSnowflakeData']
-        if 'emptyFieldAsNull' in kwargs:
+        if empty_field_as_null is None and 'emptyFieldAsNull' in kwargs:
             empty_field_as_null = kwargs['emptyFieldAsNull']
-        if 'enableOctal' in kwargs:
+        if enable_octal is None and 'enableOctal' in kwargs:
             enable_octal = kwargs['enableOctal']
-        if 'errorOnColumnCountMismatch' in kwargs:
+        if error_on_column_count_mismatch is None and 'errorOnColumnCountMismatch' in kwargs:
             error_on_column_count_mismatch = kwargs['errorOnColumnCountMismatch']
-        if 'escapeUnenclosedField' in kwargs:
+        if escape_unenclosed_field is None and 'escapeUnenclosedField' in kwargs:
             escape_unenclosed_field = kwargs['escapeUnenclosedField']
-        if 'fieldDelimiter' in kwargs:
+        if field_delimiter is None and 'fieldDelimiter' in kwargs:
             field_delimiter = kwargs['fieldDelimiter']
-        if 'fieldOptionallyEnclosedBy' in kwargs:
+        if field_optionally_enclosed_by is None and 'fieldOptionallyEnclosedBy' in kwargs:
             field_optionally_enclosed_by = kwargs['fieldOptionallyEnclosedBy']
-        if 'fileExtension' in kwargs:
+        if file_extension is None and 'fileExtension' in kwargs:
             file_extension = kwargs['fileExtension']
-        if 'formatType' in kwargs:
+        if format_type is None and 'formatType' in kwargs:
             format_type = kwargs['formatType']
-        if 'ignoreUtf8Errors' in kwargs:
+        if ignore_utf8_errors is None and 'ignoreUtf8Errors' in kwargs:
             ignore_utf8_errors = kwargs['ignoreUtf8Errors']
-        if 'nullIfs' in kwargs:
+        if null_ifs is None and 'nullIfs' in kwargs:
             null_ifs = kwargs['nullIfs']
-        if 'preserveSpace' in kwargs:
+        if preserve_space is None and 'preserveSpace' in kwargs:
             preserve_space = kwargs['preserveSpace']
-        if 'recordDelimiter' in kwargs:
+        if record_delimiter is None and 'recordDelimiter' in kwargs:
             record_delimiter = kwargs['recordDelimiter']
-        if 'replaceInvalidCharacters' in kwargs:
+        if replace_invalid_characters is None and 'replaceInvalidCharacters' in kwargs:
             replace_invalid_characters = kwargs['replaceInvalidCharacters']
-        if 'skipBlankLines' in kwargs:
+        if skip_blank_lines is None and 'skipBlankLines' in kwargs:
             skip_blank_lines = kwargs['skipBlankLines']
-        if 'skipByteOrderMark' in kwargs:
+        if skip_byte_order_mark is None and 'skipByteOrderMark' in kwargs:
             skip_byte_order_mark = kwargs['skipByteOrderMark']
-        if 'skipHeader' in kwargs:
+        if skip_header is None and 'skipHeader' in kwargs:
             skip_header = kwargs['skipHeader']
-        if 'stripNullValues' in kwargs:
+        if strip_null_values is None and 'stripNullValues' in kwargs:
             strip_null_values = kwargs['stripNullValues']
-        if 'stripOuterArray' in kwargs:
+        if strip_outer_array is None and 'stripOuterArray' in kwargs:
             strip_outer_array = kwargs['stripOuterArray']
-        if 'stripOuterElement' in kwargs:
+        if strip_outer_element is None and 'stripOuterElement' in kwargs:
             strip_outer_element = kwargs['stripOuterElement']
-        if 'timeFormat' in kwargs:
+        if time_format is None and 'timeFormat' in kwargs:
             time_format = kwargs['timeFormat']
-        if 'timestampFormat' in kwargs:
+        if timestamp_format is None and 'timestampFormat' in kwargs:
             timestamp_format = kwargs['timestampFormat']
-        if 'trimSpace' in kwargs:
+        if trim_space is None and 'trimSpace' in kwargs:
             trim_space = kwargs['trimSpace']
 
         if allow_duplicate is not None:

@@ -35,17 +35,21 @@ class ScimIntegrationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             provisioner_role: pulumi.Input[str],
-             scim_client: pulumi.Input[str],
+             provisioner_role: Optional[pulumi.Input[str]] = None,
+             scim_client: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              network_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'provisionerRole' in kwargs:
+        if provisioner_role is None and 'provisionerRole' in kwargs:
             provisioner_role = kwargs['provisionerRole']
-        if 'scimClient' in kwargs:
+        if provisioner_role is None:
+            raise TypeError("Missing 'provisioner_role' argument")
+        if scim_client is None and 'scimClient' in kwargs:
             scim_client = kwargs['scimClient']
-        if 'networkPolicy' in kwargs:
+        if scim_client is None:
+            raise TypeError("Missing 'scim_client' argument")
+        if network_policy is None and 'networkPolicy' in kwargs:
             network_policy = kwargs['networkPolicy']
 
         _setter("provisioner_role", provisioner_role)
@@ -136,15 +140,15 @@ class _ScimIntegrationState:
              network_policy: Optional[pulumi.Input[str]] = None,
              provisioner_role: Optional[pulumi.Input[str]] = None,
              scim_client: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'createdOn' in kwargs:
+        if created_on is None and 'createdOn' in kwargs:
             created_on = kwargs['createdOn']
-        if 'networkPolicy' in kwargs:
+        if network_policy is None and 'networkPolicy' in kwargs:
             network_policy = kwargs['networkPolicy']
-        if 'provisionerRole' in kwargs:
+        if provisioner_role is None and 'provisionerRole' in kwargs:
             provisioner_role = kwargs['provisionerRole']
-        if 'scimClient' in kwargs:
+        if scim_client is None and 'scimClient' in kwargs:
             scim_client = kwargs['scimClient']
 
         if created_on is not None:

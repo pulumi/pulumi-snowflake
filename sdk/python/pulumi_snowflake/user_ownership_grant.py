@@ -35,19 +35,23 @@ class UserOwnershipGrantArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             on_user_name: pulumi.Input[str],
-             to_role_name: pulumi.Input[str],
+             on_user_name: Optional[pulumi.Input[str]] = None,
+             to_role_name: Optional[pulumi.Input[str]] = None,
              current_grants: Optional[pulumi.Input[str]] = None,
              revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'onUserName' in kwargs:
+        if on_user_name is None and 'onUserName' in kwargs:
             on_user_name = kwargs['onUserName']
-        if 'toRoleName' in kwargs:
+        if on_user_name is None:
+            raise TypeError("Missing 'on_user_name' argument")
+        if to_role_name is None and 'toRoleName' in kwargs:
             to_role_name = kwargs['toRoleName']
-        if 'currentGrants' in kwargs:
+        if to_role_name is None:
+            raise TypeError("Missing 'to_role_name' argument")
+        if current_grants is None and 'currentGrants' in kwargs:
             current_grants = kwargs['currentGrants']
-        if 'revertOwnershipToRoleName' in kwargs:
+        if revert_ownership_to_role_name is None and 'revertOwnershipToRoleName' in kwargs:
             revert_ownership_to_role_name = kwargs['revertOwnershipToRoleName']
 
         _setter("on_user_name", on_user_name)
@@ -134,15 +138,15 @@ class _UserOwnershipGrantState:
              on_user_name: Optional[pulumi.Input[str]] = None,
              revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
              to_role_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'currentGrants' in kwargs:
+        if current_grants is None and 'currentGrants' in kwargs:
             current_grants = kwargs['currentGrants']
-        if 'onUserName' in kwargs:
+        if on_user_name is None and 'onUserName' in kwargs:
             on_user_name = kwargs['onUserName']
-        if 'revertOwnershipToRoleName' in kwargs:
+        if revert_ownership_to_role_name is None and 'revertOwnershipToRoleName' in kwargs:
             revert_ownership_to_role_name = kwargs['revertOwnershipToRoleName']
-        if 'toRoleName' in kwargs:
+        if to_role_name is None and 'toRoleName' in kwargs:
             to_role_name = kwargs['toRoleName']
 
         if current_grants is not None:

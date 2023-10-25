@@ -38,17 +38,21 @@ class ManagedAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             admin_name: pulumi.Input[str],
-             admin_password: pulumi.Input[str],
+             admin_name: Optional[pulumi.Input[str]] = None,
+             admin_password: Optional[pulumi.Input[str]] = None,
              comment: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'adminName' in kwargs:
+        if admin_name is None and 'adminName' in kwargs:
             admin_name = kwargs['adminName']
-        if 'adminPassword' in kwargs:
+        if admin_name is None:
+            raise TypeError("Missing 'admin_name' argument")
+        if admin_password is None and 'adminPassword' in kwargs:
             admin_password = kwargs['adminPassword']
+        if admin_password is None:
+            raise TypeError("Missing 'admin_password' argument")
 
         _setter("admin_name", admin_name)
         _setter("admin_password", admin_password)
@@ -172,13 +176,13 @@ class _ManagedAccountState:
              region: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'adminName' in kwargs:
+        if admin_name is None and 'adminName' in kwargs:
             admin_name = kwargs['adminName']
-        if 'adminPassword' in kwargs:
+        if admin_password is None and 'adminPassword' in kwargs:
             admin_password = kwargs['adminPassword']
-        if 'createdOn' in kwargs:
+        if created_on is None and 'createdOn' in kwargs:
             created_on = kwargs['createdOn']
 
         if admin_name is not None:

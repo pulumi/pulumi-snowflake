@@ -53,8 +53,8 @@ class StreamArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database: pulumi.Input[str],
-             schema: pulumi.Input[str],
+             database: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
              append_only: Optional[pulumi.Input[bool]] = None,
              comment: Optional[pulumi.Input[str]] = None,
              insert_only: Optional[pulumi.Input[bool]] = None,
@@ -63,19 +63,23 @@ class StreamArgs:
              on_table: Optional[pulumi.Input[str]] = None,
              on_view: Optional[pulumi.Input[str]] = None,
              show_initial_rows: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appendOnly' in kwargs:
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if append_only is None and 'appendOnly' in kwargs:
             append_only = kwargs['appendOnly']
-        if 'insertOnly' in kwargs:
+        if insert_only is None and 'insertOnly' in kwargs:
             insert_only = kwargs['insertOnly']
-        if 'onStage' in kwargs:
+        if on_stage is None and 'onStage' in kwargs:
             on_stage = kwargs['onStage']
-        if 'onTable' in kwargs:
+        if on_table is None and 'onTable' in kwargs:
             on_table = kwargs['onTable']
-        if 'onView' in kwargs:
+        if on_view is None and 'onView' in kwargs:
             on_view = kwargs['onView']
-        if 'showInitialRows' in kwargs:
+        if show_initial_rows is None and 'showInitialRows' in kwargs:
             show_initial_rows = kwargs['showInitialRows']
 
         _setter("database", database)
@@ -274,19 +278,19 @@ class _StreamState:
              owner: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
              show_initial_rows: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appendOnly' in kwargs:
+        if append_only is None and 'appendOnly' in kwargs:
             append_only = kwargs['appendOnly']
-        if 'insertOnly' in kwargs:
+        if insert_only is None and 'insertOnly' in kwargs:
             insert_only = kwargs['insertOnly']
-        if 'onStage' in kwargs:
+        if on_stage is None and 'onStage' in kwargs:
             on_stage = kwargs['onStage']
-        if 'onTable' in kwargs:
+        if on_table is None and 'onTable' in kwargs:
             on_table = kwargs['onTable']
-        if 'onView' in kwargs:
+        if on_view is None and 'onView' in kwargs:
             on_view = kwargs['onView']
-        if 'showInitialRows' in kwargs:
+        if show_initial_rows is None and 'showInitialRows' in kwargs:
             show_initial_rows = kwargs['showInitialRows']
 
         if append_only is not None:

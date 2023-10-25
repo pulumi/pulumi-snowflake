@@ -77,25 +77,25 @@ class NotificationIntegrationArgs:
              name: Optional[pulumi.Input[str]] = None,
              notification_provider: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'awsSnsRoleArn' in kwargs:
+        if aws_sns_role_arn is None and 'awsSnsRoleArn' in kwargs:
             aws_sns_role_arn = kwargs['awsSnsRoleArn']
-        if 'awsSnsTopicArn' in kwargs:
+        if aws_sns_topic_arn is None and 'awsSnsTopicArn' in kwargs:
             aws_sns_topic_arn = kwargs['awsSnsTopicArn']
-        if 'awsSqsArn' in kwargs:
+        if aws_sqs_arn is None and 'awsSqsArn' in kwargs:
             aws_sqs_arn = kwargs['awsSqsArn']
-        if 'awsSqsRoleArn' in kwargs:
+        if aws_sqs_role_arn is None and 'awsSqsRoleArn' in kwargs:
             aws_sqs_role_arn = kwargs['awsSqsRoleArn']
-        if 'azureStorageQueuePrimaryUri' in kwargs:
+        if azure_storage_queue_primary_uri is None and 'azureStorageQueuePrimaryUri' in kwargs:
             azure_storage_queue_primary_uri = kwargs['azureStorageQueuePrimaryUri']
-        if 'azureTenantId' in kwargs:
+        if azure_tenant_id is None and 'azureTenantId' in kwargs:
             azure_tenant_id = kwargs['azureTenantId']
-        if 'gcpPubsubSubscriptionName' in kwargs:
+        if gcp_pubsub_subscription_name is None and 'gcpPubsubSubscriptionName' in kwargs:
             gcp_pubsub_subscription_name = kwargs['gcpPubsubSubscriptionName']
-        if 'gcpPubsubTopicName' in kwargs:
+        if gcp_pubsub_topic_name is None and 'gcpPubsubTopicName' in kwargs:
             gcp_pubsub_topic_name = kwargs['gcpPubsubTopicName']
-        if 'notificationProvider' in kwargs:
+        if notification_provider is None and 'notificationProvider' in kwargs:
             notification_provider = kwargs['notificationProvider']
 
         if aws_sns_role_arn is not None:
@@ -380,37 +380,37 @@ class _NotificationIntegrationState:
              name: Optional[pulumi.Input[str]] = None,
              notification_provider: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'awsSnsExternalId' in kwargs:
+        if aws_sns_external_id is None and 'awsSnsExternalId' in kwargs:
             aws_sns_external_id = kwargs['awsSnsExternalId']
-        if 'awsSnsIamUserArn' in kwargs:
+        if aws_sns_iam_user_arn is None and 'awsSnsIamUserArn' in kwargs:
             aws_sns_iam_user_arn = kwargs['awsSnsIamUserArn']
-        if 'awsSnsRoleArn' in kwargs:
+        if aws_sns_role_arn is None and 'awsSnsRoleArn' in kwargs:
             aws_sns_role_arn = kwargs['awsSnsRoleArn']
-        if 'awsSnsTopicArn' in kwargs:
+        if aws_sns_topic_arn is None and 'awsSnsTopicArn' in kwargs:
             aws_sns_topic_arn = kwargs['awsSnsTopicArn']
-        if 'awsSqsArn' in kwargs:
+        if aws_sqs_arn is None and 'awsSqsArn' in kwargs:
             aws_sqs_arn = kwargs['awsSqsArn']
-        if 'awsSqsExternalId' in kwargs:
+        if aws_sqs_external_id is None and 'awsSqsExternalId' in kwargs:
             aws_sqs_external_id = kwargs['awsSqsExternalId']
-        if 'awsSqsIamUserArn' in kwargs:
+        if aws_sqs_iam_user_arn is None and 'awsSqsIamUserArn' in kwargs:
             aws_sqs_iam_user_arn = kwargs['awsSqsIamUserArn']
-        if 'awsSqsRoleArn' in kwargs:
+        if aws_sqs_role_arn is None and 'awsSqsRoleArn' in kwargs:
             aws_sqs_role_arn = kwargs['awsSqsRoleArn']
-        if 'azureStorageQueuePrimaryUri' in kwargs:
+        if azure_storage_queue_primary_uri is None and 'azureStorageQueuePrimaryUri' in kwargs:
             azure_storage_queue_primary_uri = kwargs['azureStorageQueuePrimaryUri']
-        if 'azureTenantId' in kwargs:
+        if azure_tenant_id is None and 'azureTenantId' in kwargs:
             azure_tenant_id = kwargs['azureTenantId']
-        if 'createdOn' in kwargs:
+        if created_on is None and 'createdOn' in kwargs:
             created_on = kwargs['createdOn']
-        if 'gcpPubsubServiceAccount' in kwargs:
+        if gcp_pubsub_service_account is None and 'gcpPubsubServiceAccount' in kwargs:
             gcp_pubsub_service_account = kwargs['gcpPubsubServiceAccount']
-        if 'gcpPubsubSubscriptionName' in kwargs:
+        if gcp_pubsub_subscription_name is None and 'gcpPubsubSubscriptionName' in kwargs:
             gcp_pubsub_subscription_name = kwargs['gcpPubsubSubscriptionName']
-        if 'gcpPubsubTopicName' in kwargs:
+        if gcp_pubsub_topic_name is None and 'gcpPubsubTopicName' in kwargs:
             gcp_pubsub_topic_name = kwargs['gcpPubsubTopicName']
-        if 'notificationProvider' in kwargs:
+        if notification_provider is None and 'notificationProvider' in kwargs:
             notification_provider = kwargs['notificationProvider']
 
         if aws_sns_external_id is not None:

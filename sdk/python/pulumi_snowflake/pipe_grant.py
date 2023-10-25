@@ -51,7 +51,7 @@ class PipeGrantArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
+             database_name: Optional[pulumi.Input[str]] = None,
              enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
              on_future: Optional[pulumi.Input[bool]] = None,
              pipe_name: Optional[pulumi.Input[str]] = None,
@@ -60,21 +60,23 @@ class PipeGrantArgs:
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              schema_name: Optional[pulumi.Input[str]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'enableMultipleGrants' in kwargs:
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if enable_multiple_grants is None and 'enableMultipleGrants' in kwargs:
             enable_multiple_grants = kwargs['enableMultipleGrants']
-        if 'onFuture' in kwargs:
+        if on_future is None and 'onFuture' in kwargs:
             on_future = kwargs['onFuture']
-        if 'pipeName' in kwargs:
+        if pipe_name is None and 'pipeName' in kwargs:
             pipe_name = kwargs['pipeName']
-        if 'revertOwnershipToRoleName' in kwargs:
+        if revert_ownership_to_role_name is None and 'revertOwnershipToRoleName' in kwargs:
             revert_ownership_to_role_name = kwargs['revertOwnershipToRoleName']
-        if 'schemaName' in kwargs:
+        if schema_name is None and 'schemaName' in kwargs:
             schema_name = kwargs['schemaName']
-        if 'withGrantOption' in kwargs:
+        if with_grant_option is None and 'withGrantOption' in kwargs:
             with_grant_option = kwargs['withGrantOption']
 
         _setter("database_name", database_name)
@@ -254,21 +256,21 @@ class _PipeGrantState:
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              schema_name: Optional[pulumi.Input[str]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'enableMultipleGrants' in kwargs:
+        if enable_multiple_grants is None and 'enableMultipleGrants' in kwargs:
             enable_multiple_grants = kwargs['enableMultipleGrants']
-        if 'onFuture' in kwargs:
+        if on_future is None and 'onFuture' in kwargs:
             on_future = kwargs['onFuture']
-        if 'pipeName' in kwargs:
+        if pipe_name is None and 'pipeName' in kwargs:
             pipe_name = kwargs['pipeName']
-        if 'revertOwnershipToRoleName' in kwargs:
+        if revert_ownership_to_role_name is None and 'revertOwnershipToRoleName' in kwargs:
             revert_ownership_to_role_name = kwargs['revertOwnershipToRoleName']
-        if 'schemaName' in kwargs:
+        if schema_name is None and 'schemaName' in kwargs:
             schema_name = kwargs['schemaName']
-        if 'withGrantOption' in kwargs:
+        if with_grant_option is None and 'withGrantOption' in kwargs:
             with_grant_option = kwargs['withGrantOption']
 
         if database_name is not None:

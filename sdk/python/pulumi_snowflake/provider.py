@@ -143,33 +143,33 @@ class ProviderArgs:
              session_params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
              username: Optional[pulumi.Input[str]] = None,
              warehouse: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'browserAuth' in kwargs:
+        if browser_auth is None and 'browserAuth' in kwargs:
             browser_auth = kwargs['browserAuth']
-        if 'insecureMode' in kwargs:
+        if insecure_mode is None and 'insecureMode' in kwargs:
             insecure_mode = kwargs['insecureMode']
-        if 'oauthAccessToken' in kwargs:
+        if oauth_access_token is None and 'oauthAccessToken' in kwargs:
             oauth_access_token = kwargs['oauthAccessToken']
-        if 'oauthClientId' in kwargs:
+        if oauth_client_id is None and 'oauthClientId' in kwargs:
             oauth_client_id = kwargs['oauthClientId']
-        if 'oauthClientSecret' in kwargs:
+        if oauth_client_secret is None and 'oauthClientSecret' in kwargs:
             oauth_client_secret = kwargs['oauthClientSecret']
-        if 'oauthEndpoint' in kwargs:
+        if oauth_endpoint is None and 'oauthEndpoint' in kwargs:
             oauth_endpoint = kwargs['oauthEndpoint']
-        if 'oauthRedirectUrl' in kwargs:
+        if oauth_redirect_url is None and 'oauthRedirectUrl' in kwargs:
             oauth_redirect_url = kwargs['oauthRedirectUrl']
-        if 'oauthRefreshToken' in kwargs:
+        if oauth_refresh_token is None and 'oauthRefreshToken' in kwargs:
             oauth_refresh_token = kwargs['oauthRefreshToken']
-        if 'passcodeInPassword' in kwargs:
+        if passcode_in_password is None and 'passcodeInPassword' in kwargs:
             passcode_in_password = kwargs['passcodeInPassword']
-        if 'privateKey' in kwargs:
+        if private_key is None and 'privateKey' in kwargs:
             private_key = kwargs['privateKey']
-        if 'privateKeyPassphrase' in kwargs:
+        if private_key_passphrase is None and 'privateKeyPassphrase' in kwargs:
             private_key_passphrase = kwargs['privateKeyPassphrase']
-        if 'privateKeyPath' in kwargs:
+        if private_key_path is None and 'privateKeyPath' in kwargs:
             private_key_path = kwargs['privateKeyPath']
-        if 'sessionParams' in kwargs:
+        if session_params is None and 'sessionParams' in kwargs:
             session_params = kwargs['sessionParams']
 
         if account is None:

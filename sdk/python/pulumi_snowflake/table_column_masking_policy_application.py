@@ -32,13 +32,19 @@ class TableColumnMaskingPolicyApplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: pulumi.Input[str],
-             masking_policy: pulumi.Input[str],
-             table: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             column: Optional[pulumi.Input[str]] = None,
+             masking_policy: Optional[pulumi.Input[str]] = None,
+             table: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maskingPolicy' in kwargs:
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if masking_policy is None and 'maskingPolicy' in kwargs:
             masking_policy = kwargs['maskingPolicy']
+        if masking_policy is None:
+            raise TypeError("Missing 'masking_policy' argument")
+        if table is None:
+            raise TypeError("Missing 'table' argument")
 
         _setter("column", column)
         _setter("masking_policy", masking_policy)
@@ -105,9 +111,9 @@ class _TableColumnMaskingPolicyApplicationState:
              column: Optional[pulumi.Input[str]] = None,
              masking_policy: Optional[pulumi.Input[str]] = None,
              table: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maskingPolicy' in kwargs:
+        if masking_policy is None and 'maskingPolicy' in kwargs:
             masking_policy = kwargs['maskingPolicy']
 
         if column is not None:

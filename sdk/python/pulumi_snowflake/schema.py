@@ -46,20 +46,22 @@ class SchemaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database: pulumi.Input[str],
+             database: Optional[pulumi.Input[str]] = None,
              comment: Optional[pulumi.Input[str]] = None,
              data_retention_days: Optional[pulumi.Input[int]] = None,
              is_managed: Optional[pulumi.Input[bool]] = None,
              is_transient: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataRetentionDays' in kwargs:
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if data_retention_days is None and 'dataRetentionDays' in kwargs:
             data_retention_days = kwargs['dataRetentionDays']
-        if 'isManaged' in kwargs:
+        if is_managed is None and 'isManaged' in kwargs:
             is_managed = kwargs['isManaged']
-        if 'isTransient' in kwargs:
+        if is_transient is None and 'isTransient' in kwargs:
             is_transient = kwargs['isTransient']
 
         _setter("database", database)
@@ -207,13 +209,13 @@ class _SchemaState:
              is_transient: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataRetentionDays' in kwargs:
+        if data_retention_days is None and 'dataRetentionDays' in kwargs:
             data_retention_days = kwargs['dataRetentionDays']
-        if 'isManaged' in kwargs:
+        if is_managed is None and 'isManaged' in kwargs:
             is_managed = kwargs['isManaged']
-        if 'isTransient' in kwargs:
+        if is_transient is None and 'isTransient' in kwargs:
             is_transient = kwargs['isTransient']
 
         if comment is not None:

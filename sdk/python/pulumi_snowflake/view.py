@@ -52,22 +52,28 @@ class ViewArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database: pulumi.Input[str],
-             schema: pulumi.Input[str],
-             statement: pulumi.Input[str],
+             database: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             statement: Optional[pulumi.Input[str]] = None,
              comment: Optional[pulumi.Input[str]] = None,
              copy_grants: Optional[pulumi.Input[bool]] = None,
              is_secure: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              or_replace: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'copyGrants' in kwargs:
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if statement is None:
+            raise TypeError("Missing 'statement' argument")
+        if copy_grants is None and 'copyGrants' in kwargs:
             copy_grants = kwargs['copyGrants']
-        if 'isSecure' in kwargs:
+        if is_secure is None and 'isSecure' in kwargs:
             is_secure = kwargs['isSecure']
-        if 'orReplace' in kwargs:
+        if or_replace is None and 'orReplace' in kwargs:
             or_replace = kwargs['orReplace']
 
         _setter("database", database)
@@ -253,15 +259,15 @@ class _ViewState:
              schema: Optional[pulumi.Input[str]] = None,
              statement: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'copyGrants' in kwargs:
+        if copy_grants is None and 'copyGrants' in kwargs:
             copy_grants = kwargs['copyGrants']
-        if 'createdOn' in kwargs:
+        if created_on is None and 'createdOn' in kwargs:
             created_on = kwargs['createdOn']
-        if 'isSecure' in kwargs:
+        if is_secure is None and 'isSecure' in kwargs:
             is_secure = kwargs['isSecure']
-        if 'orReplace' in kwargs:
+        if or_replace is None and 'orReplace' in kwargs:
             or_replace = kwargs['orReplace']
 
         if comment is not None:

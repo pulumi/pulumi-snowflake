@@ -75,27 +75,27 @@ class ResourceMonitorArgs:
              suspend_trigger: Optional[pulumi.Input[int]] = None,
              suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              warehouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'creditQuota' in kwargs:
+        if credit_quota is None and 'creditQuota' in kwargs:
             credit_quota = kwargs['creditQuota']
-        if 'endTimestamp' in kwargs:
+        if end_timestamp is None and 'endTimestamp' in kwargs:
             end_timestamp = kwargs['endTimestamp']
-        if 'notifyTriggers' in kwargs:
+        if notify_triggers is None and 'notifyTriggers' in kwargs:
             notify_triggers = kwargs['notifyTriggers']
-        if 'notifyUsers' in kwargs:
+        if notify_users is None and 'notifyUsers' in kwargs:
             notify_users = kwargs['notifyUsers']
-        if 'setForAccount' in kwargs:
+        if set_for_account is None and 'setForAccount' in kwargs:
             set_for_account = kwargs['setForAccount']
-        if 'startTimestamp' in kwargs:
+        if start_timestamp is None and 'startTimestamp' in kwargs:
             start_timestamp = kwargs['startTimestamp']
-        if 'suspendImmediateTrigger' in kwargs:
+        if suspend_immediate_trigger is None and 'suspendImmediateTrigger' in kwargs:
             suspend_immediate_trigger = kwargs['suspendImmediateTrigger']
-        if 'suspendImmediateTriggers' in kwargs:
+        if suspend_immediate_triggers is None and 'suspendImmediateTriggers' in kwargs:
             suspend_immediate_triggers = kwargs['suspendImmediateTriggers']
-        if 'suspendTrigger' in kwargs:
+        if suspend_trigger is None and 'suspendTrigger' in kwargs:
             suspend_trigger = kwargs['suspendTrigger']
-        if 'suspendTriggers' in kwargs:
+        if suspend_triggers is None and 'suspendTriggers' in kwargs:
             suspend_triggers = kwargs['suspendTriggers']
 
         if credit_quota is not None:
@@ -358,27 +358,27 @@ class _ResourceMonitorState:
              suspend_trigger: Optional[pulumi.Input[int]] = None,
              suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              warehouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'creditQuota' in kwargs:
+        if credit_quota is None and 'creditQuota' in kwargs:
             credit_quota = kwargs['creditQuota']
-        if 'endTimestamp' in kwargs:
+        if end_timestamp is None and 'endTimestamp' in kwargs:
             end_timestamp = kwargs['endTimestamp']
-        if 'notifyTriggers' in kwargs:
+        if notify_triggers is None and 'notifyTriggers' in kwargs:
             notify_triggers = kwargs['notifyTriggers']
-        if 'notifyUsers' in kwargs:
+        if notify_users is None and 'notifyUsers' in kwargs:
             notify_users = kwargs['notifyUsers']
-        if 'setForAccount' in kwargs:
+        if set_for_account is None and 'setForAccount' in kwargs:
             set_for_account = kwargs['setForAccount']
-        if 'startTimestamp' in kwargs:
+        if start_timestamp is None and 'startTimestamp' in kwargs:
             start_timestamp = kwargs['startTimestamp']
-        if 'suspendImmediateTrigger' in kwargs:
+        if suspend_immediate_trigger is None and 'suspendImmediateTrigger' in kwargs:
             suspend_immediate_trigger = kwargs['suspendImmediateTrigger']
-        if 'suspendImmediateTriggers' in kwargs:
+        if suspend_immediate_triggers is None and 'suspendImmediateTriggers' in kwargs:
             suspend_immediate_triggers = kwargs['suspendImmediateTriggers']
-        if 'suspendTrigger' in kwargs:
+        if suspend_trigger is None and 'suspendTrigger' in kwargs:
             suspend_trigger = kwargs['suspendTrigger']
-        if 'suspendTriggers' in kwargs:
+        if suspend_triggers is None and 'suspendTriggers' in kwargs:
             suspend_triggers = kwargs['suspendTriggers']
 
         if credit_quota is not None:

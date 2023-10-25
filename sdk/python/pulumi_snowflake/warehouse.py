@@ -90,37 +90,37 @@ class WarehouseArgs:
              wait_for_provisioning: Optional[pulumi.Input[bool]] = None,
              warehouse_size: Optional[pulumi.Input[str]] = None,
              warehouse_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoResume' in kwargs:
+        if auto_resume is None and 'autoResume' in kwargs:
             auto_resume = kwargs['autoResume']
-        if 'autoSuspend' in kwargs:
+        if auto_suspend is None and 'autoSuspend' in kwargs:
             auto_suspend = kwargs['autoSuspend']
-        if 'enableQueryAcceleration' in kwargs:
+        if enable_query_acceleration is None and 'enableQueryAcceleration' in kwargs:
             enable_query_acceleration = kwargs['enableQueryAcceleration']
-        if 'initiallySuspended' in kwargs:
+        if initially_suspended is None and 'initiallySuspended' in kwargs:
             initially_suspended = kwargs['initiallySuspended']
-        if 'maxClusterCount' in kwargs:
+        if max_cluster_count is None and 'maxClusterCount' in kwargs:
             max_cluster_count = kwargs['maxClusterCount']
-        if 'maxConcurrencyLevel' in kwargs:
+        if max_concurrency_level is None and 'maxConcurrencyLevel' in kwargs:
             max_concurrency_level = kwargs['maxConcurrencyLevel']
-        if 'minClusterCount' in kwargs:
+        if min_cluster_count is None and 'minClusterCount' in kwargs:
             min_cluster_count = kwargs['minClusterCount']
-        if 'queryAccelerationMaxScaleFactor' in kwargs:
+        if query_acceleration_max_scale_factor is None and 'queryAccelerationMaxScaleFactor' in kwargs:
             query_acceleration_max_scale_factor = kwargs['queryAccelerationMaxScaleFactor']
-        if 'resourceMonitor' in kwargs:
+        if resource_monitor is None and 'resourceMonitor' in kwargs:
             resource_monitor = kwargs['resourceMonitor']
-        if 'scalingPolicy' in kwargs:
+        if scaling_policy is None and 'scalingPolicy' in kwargs:
             scaling_policy = kwargs['scalingPolicy']
-        if 'statementQueuedTimeoutInSeconds' in kwargs:
+        if statement_queued_timeout_in_seconds is None and 'statementQueuedTimeoutInSeconds' in kwargs:
             statement_queued_timeout_in_seconds = kwargs['statementQueuedTimeoutInSeconds']
-        if 'statementTimeoutInSeconds' in kwargs:
+        if statement_timeout_in_seconds is None and 'statementTimeoutInSeconds' in kwargs:
             statement_timeout_in_seconds = kwargs['statementTimeoutInSeconds']
-        if 'waitForProvisioning' in kwargs:
+        if wait_for_provisioning is None and 'waitForProvisioning' in kwargs:
             wait_for_provisioning = kwargs['waitForProvisioning']
-        if 'warehouseSize' in kwargs:
+        if warehouse_size is None and 'warehouseSize' in kwargs:
             warehouse_size = kwargs['warehouseSize']
-        if 'warehouseType' in kwargs:
+        if warehouse_type is None and 'warehouseType' in kwargs:
             warehouse_type = kwargs['warehouseType']
 
         if auto_resume is not None:
@@ -445,37 +445,37 @@ class _WarehouseState:
              wait_for_provisioning: Optional[pulumi.Input[bool]] = None,
              warehouse_size: Optional[pulumi.Input[str]] = None,
              warehouse_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoResume' in kwargs:
+        if auto_resume is None and 'autoResume' in kwargs:
             auto_resume = kwargs['autoResume']
-        if 'autoSuspend' in kwargs:
+        if auto_suspend is None and 'autoSuspend' in kwargs:
             auto_suspend = kwargs['autoSuspend']
-        if 'enableQueryAcceleration' in kwargs:
+        if enable_query_acceleration is None and 'enableQueryAcceleration' in kwargs:
             enable_query_acceleration = kwargs['enableQueryAcceleration']
-        if 'initiallySuspended' in kwargs:
+        if initially_suspended is None and 'initiallySuspended' in kwargs:
             initially_suspended = kwargs['initiallySuspended']
-        if 'maxClusterCount' in kwargs:
+        if max_cluster_count is None and 'maxClusterCount' in kwargs:
             max_cluster_count = kwargs['maxClusterCount']
-        if 'maxConcurrencyLevel' in kwargs:
+        if max_concurrency_level is None and 'maxConcurrencyLevel' in kwargs:
             max_concurrency_level = kwargs['maxConcurrencyLevel']
-        if 'minClusterCount' in kwargs:
+        if min_cluster_count is None and 'minClusterCount' in kwargs:
             min_cluster_count = kwargs['minClusterCount']
-        if 'queryAccelerationMaxScaleFactor' in kwargs:
+        if query_acceleration_max_scale_factor is None and 'queryAccelerationMaxScaleFactor' in kwargs:
             query_acceleration_max_scale_factor = kwargs['queryAccelerationMaxScaleFactor']
-        if 'resourceMonitor' in kwargs:
+        if resource_monitor is None and 'resourceMonitor' in kwargs:
             resource_monitor = kwargs['resourceMonitor']
-        if 'scalingPolicy' in kwargs:
+        if scaling_policy is None and 'scalingPolicy' in kwargs:
             scaling_policy = kwargs['scalingPolicy']
-        if 'statementQueuedTimeoutInSeconds' in kwargs:
+        if statement_queued_timeout_in_seconds is None and 'statementQueuedTimeoutInSeconds' in kwargs:
             statement_queued_timeout_in_seconds = kwargs['statementQueuedTimeoutInSeconds']
-        if 'statementTimeoutInSeconds' in kwargs:
+        if statement_timeout_in_seconds is None and 'statementTimeoutInSeconds' in kwargs:
             statement_timeout_in_seconds = kwargs['statementTimeoutInSeconds']
-        if 'waitForProvisioning' in kwargs:
+        if wait_for_provisioning is None and 'waitForProvisioning' in kwargs:
             wait_for_provisioning = kwargs['waitForProvisioning']
-        if 'warehouseSize' in kwargs:
+        if warehouse_size is None and 'warehouseSize' in kwargs:
             warehouse_size = kwargs['warehouseSize']
-        if 'warehouseType' in kwargs:
+        if warehouse_type is None and 'warehouseType' in kwargs:
             warehouse_type = kwargs['warehouseType']
 
         if auto_resume is not None:

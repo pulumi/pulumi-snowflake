@@ -49,7 +49,7 @@ class GrantPrivilegesToRoleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_name: pulumi.Input[str],
+             role_name: Optional[pulumi.Input[str]] = None,
              all_privileges: Optional[pulumi.Input[bool]] = None,
              on_account: Optional[pulumi.Input[bool]] = None,
              on_account_object: Optional[pulumi.Input['GrantPrivilegesToRoleOnAccountObjectArgs']] = None,
@@ -57,21 +57,23 @@ class GrantPrivilegesToRoleArgs:
              on_schema_object: Optional[pulumi.Input['GrantPrivilegesToRoleOnSchemaObjectArgs']] = None,
              privileges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'roleName' in kwargs:
+        if role_name is None and 'roleName' in kwargs:
             role_name = kwargs['roleName']
-        if 'allPrivileges' in kwargs:
+        if role_name is None:
+            raise TypeError("Missing 'role_name' argument")
+        if all_privileges is None and 'allPrivileges' in kwargs:
             all_privileges = kwargs['allPrivileges']
-        if 'onAccount' in kwargs:
+        if on_account is None and 'onAccount' in kwargs:
             on_account = kwargs['onAccount']
-        if 'onAccountObject' in kwargs:
+        if on_account_object is None and 'onAccountObject' in kwargs:
             on_account_object = kwargs['onAccountObject']
-        if 'onSchema' in kwargs:
+        if on_schema is None and 'onSchema' in kwargs:
             on_schema = kwargs['onSchema']
-        if 'onSchemaObject' in kwargs:
+        if on_schema_object is None and 'onSchemaObject' in kwargs:
             on_schema_object = kwargs['onSchemaObject']
-        if 'withGrantOption' in kwargs:
+        if with_grant_option is None and 'withGrantOption' in kwargs:
             with_grant_option = kwargs['withGrantOption']
 
         _setter("role_name", role_name)
@@ -231,21 +233,21 @@ class _GrantPrivilegesToRoleState:
              privileges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              role_name: Optional[pulumi.Input[str]] = None,
              with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allPrivileges' in kwargs:
+        if all_privileges is None and 'allPrivileges' in kwargs:
             all_privileges = kwargs['allPrivileges']
-        if 'onAccount' in kwargs:
+        if on_account is None and 'onAccount' in kwargs:
             on_account = kwargs['onAccount']
-        if 'onAccountObject' in kwargs:
+        if on_account_object is None and 'onAccountObject' in kwargs:
             on_account_object = kwargs['onAccountObject']
-        if 'onSchema' in kwargs:
+        if on_schema is None and 'onSchema' in kwargs:
             on_schema = kwargs['onSchema']
-        if 'onSchemaObject' in kwargs:
+        if on_schema_object is None and 'onSchemaObject' in kwargs:
             on_schema_object = kwargs['onSchemaObject']
-        if 'roleName' in kwargs:
+        if role_name is None and 'roleName' in kwargs:
             role_name = kwargs['roleName']
-        if 'withGrantOption' in kwargs:
+        if with_grant_option is None and 'withGrantOption' in kwargs:
             with_grant_option = kwargs['withGrantOption']
 
         if all_privileges is not None:
@@ -623,23 +625,11 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
 
             __props__.__dict__["all_privileges"] = all_privileges
             __props__.__dict__["on_account"] = on_account
-            if on_account_object is not None and not isinstance(on_account_object, GrantPrivilegesToRoleOnAccountObjectArgs):
-                on_account_object = on_account_object or {}
-                def _setter(key, value):
-                    on_account_object[key] = value
-                GrantPrivilegesToRoleOnAccountObjectArgs._configure(_setter, **on_account_object)
+            on_account_object = _utilities.configure(on_account_object, GrantPrivilegesToRoleOnAccountObjectArgs, True)
             __props__.__dict__["on_account_object"] = on_account_object
-            if on_schema is not None and not isinstance(on_schema, GrantPrivilegesToRoleOnSchemaArgs):
-                on_schema = on_schema or {}
-                def _setter(key, value):
-                    on_schema[key] = value
-                GrantPrivilegesToRoleOnSchemaArgs._configure(_setter, **on_schema)
+            on_schema = _utilities.configure(on_schema, GrantPrivilegesToRoleOnSchemaArgs, True)
             __props__.__dict__["on_schema"] = on_schema
-            if on_schema_object is not None and not isinstance(on_schema_object, GrantPrivilegesToRoleOnSchemaObjectArgs):
-                on_schema_object = on_schema_object or {}
-                def _setter(key, value):
-                    on_schema_object[key] = value
-                GrantPrivilegesToRoleOnSchemaObjectArgs._configure(_setter, **on_schema_object)
+            on_schema_object = _utilities.configure(on_schema_object, GrantPrivilegesToRoleOnSchemaObjectArgs, True)
             __props__.__dict__["on_schema_object"] = on_schema_object
             __props__.__dict__["privileges"] = privileges
             if role_name is None and not opts.urn:
