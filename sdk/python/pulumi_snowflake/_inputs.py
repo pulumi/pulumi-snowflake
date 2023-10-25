@@ -13,6 +13,7 @@ __all__ = [
     'AlertAlertScheduleArgs',
     'AlertAlertScheduleCronArgs',
     'DatabaseReplicationConfigurationArgs',
+    'DynamicTableTargetLagArgs',
     'ExternalFunctionArgArgs',
     'ExternalFunctionHeaderArgs',
     'ExternalTableColumnArgs',
@@ -31,6 +32,7 @@ __all__ = [
     'MaterializedViewTagArgs',
     'ObjectParameterObjectIdentifierArgs',
     'ProcedureArgumentArgs',
+    'ProviderTokenAccessorArgs',
     'RoleTagArgs',
     'SchemaTagArgs',
     'StageTagArgs',
@@ -43,6 +45,9 @@ __all__ = [
     'TableTagArgs',
     'TagAssociationObjectIdentifierArgs',
     'ViewTagArgs',
+    'GetDynamicTablesInArgs',
+    'GetDynamicTablesLikeArgs',
+    'GetDynamicTablesLimitArgs',
     'GetGrantsFutureGrantsInArgs',
     'GetGrantsFutureGrantsInSchemaArgs',
     'GetGrantsFutureGrantsToArgs',
@@ -202,6 +207,60 @@ class DatabaseReplicationConfigurationArgs:
     @ignore_edition_check.setter
     def ignore_edition_check(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ignore_edition_check", value)
+
+
+@pulumi.input_type
+class DynamicTableTargetLagArgs:
+    def __init__(__self__, *,
+                 downstream: Optional[pulumi.Input[bool]] = None,
+                 maximum_duration: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] downstream: Specifies whether the target lag time is downstream.
+        :param pulumi.Input[str] maximum_duration: Specifies the maximum target lag time for the dynamic table.
+        """
+        DynamicTableTargetLagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            downstream=downstream,
+            maximum_duration=maximum_duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             downstream: Optional[pulumi.Input[bool]] = None,
+             maximum_duration: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if maximum_duration is None and 'maximumDuration' in kwargs:
+            maximum_duration = kwargs['maximumDuration']
+
+        if downstream is not None:
+            _setter("downstream", downstream)
+        if maximum_duration is not None:
+            _setter("maximum_duration", maximum_duration)
+
+    @property
+    @pulumi.getter
+    def downstream(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the target lag time is downstream.
+        """
+        return pulumi.get(self, "downstream")
+
+    @downstream.setter
+    def downstream(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "downstream", value)
+
+    @property
+    @pulumi.getter(name="maximumDuration")
+    def maximum_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the maximum target lag time for the dynamic table.
+        """
+        return pulumi.get(self, "maximum_duration")
+
+    @maximum_duration.setter
+    def maximum_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maximum_duration", value)
 
 
 @pulumi.input_type
@@ -1395,6 +1454,105 @@ class ProcedureArgumentArgs:
 
 
 @pulumi.input_type
+class ProviderTokenAccessorArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: pulumi.Input[str],
+                 redirect_uri: pulumi.Input[str],
+                 refresh_token: pulumi.Input[str],
+                 token_endpoint: pulumi.Input[str]):
+        ProviderTokenAccessorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret=client_secret,
+            redirect_uri=redirect_uri,
+            refresh_token=refresh_token,
+            token_endpoint=token_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             redirect_uri: Optional[pulumi.Input[str]] = None,
+             refresh_token: Optional[pulumi.Input[str]] = None,
+             token_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+        if redirect_uri is None and 'redirectUri' in kwargs:
+            redirect_uri = kwargs['redirectUri']
+        if redirect_uri is None:
+            raise TypeError("Missing 'redirect_uri' argument")
+        if refresh_token is None and 'refreshToken' in kwargs:
+            refresh_token = kwargs['refreshToken']
+        if refresh_token is None:
+            raise TypeError("Missing 'refresh_token' argument")
+        if token_endpoint is None and 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+        if token_endpoint is None:
+            raise TypeError("Missing 'token_endpoint' argument")
+
+        _setter("client_id", client_id)
+        _setter("client_secret", client_secret)
+        _setter("redirect_uri", redirect_uri)
+        _setter("refresh_token", refresh_token)
+        _setter("token_endpoint", token_endpoint)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="redirectUri")
+    def redirect_uri(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "redirect_uri")
+
+    @redirect_uri.setter
+    def redirect_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "redirect_uri", value)
+
+    @property
+    @pulumi.getter(name="refreshToken")
+    def refresh_token(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "refresh_token")
+
+    @refresh_token.setter
+    def refresh_token(self, value: pulumi.Input[str]):
+        pulumi.set(self, "refresh_token", value)
+
+    @property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "token_endpoint")
+
+    @token_endpoint.setter
+    def token_endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "token_endpoint", value)
+
+
+@pulumi.input_type
 class RoleTagArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -2386,6 +2544,165 @@ class ViewTagArgs:
     @schema.setter
     def schema(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schema", value)
+
+
+@pulumi.input_type
+class GetDynamicTablesInArgs:
+    def __init__(__self__, *,
+                 account: Optional[bool] = None,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param bool account: Returns records for the entire account.
+        :param str database: Returns records for the current database in use or for a specified database (db_name).
+        :param str schema: Returns records for the current schema in use or a specified schema (schema_name).
+        """
+        GetDynamicTablesInArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account=account,
+            database=database,
+            schema=schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account: Optional[bool] = None,
+             database: Optional[str] = None,
+             schema: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
+        if account is not None:
+            _setter("account", account)
+        if database is not None:
+            _setter("database", database)
+        if schema is not None:
+            _setter("schema", schema)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[bool]):
+        pulumi.set(self, "account", value)
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Returns records for the current database in use or for a specified database (db_name).
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[str]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Returns records for the current schema in use or a specified schema (schema_name).
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[str]):
+        pulumi.set(self, "schema", value)
+
+
+@pulumi.input_type
+class GetDynamicTablesLikeArgs:
+    def __init__(__self__, *,
+                 pattern: str):
+        """
+        :param str pattern: Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+        """
+        GetDynamicTablesLikeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pattern=pattern,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pattern: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
+        _setter("pattern", pattern)
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> str:
+        """
+        Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+        """
+        return pulumi.get(self, "pattern")
+
+    @pattern.setter
+    def pattern(self, value: str):
+        pulumi.set(self, "pattern", value)
+
+
+@pulumi.input_type
+class GetDynamicTablesLimitArgs:
+    def __init__(__self__, *,
+                 from_: Optional[str] = None,
+                 rows: Optional[int] = None):
+        """
+        :param str from_: The optional FROM 'name_string' subclause effectively serves as a “cursor” for the results. This enables fetching the specified number of rows following the first row whose object name matches the specified string
+        :param int rows: Specifies the maximum number of rows to return.
+        """
+        GetDynamicTablesLimitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_=from_,
+            rows=rows,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_: Optional[str] = None,
+             rows: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_ is None and 'from' in kwargs:
+            from_ = kwargs['from']
+
+        if from_ is not None:
+            _setter("from_", from_)
+        if rows is not None:
+            _setter("rows", rows)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[str]:
+        """
+        The optional FROM 'name_string' subclause effectively serves as a “cursor” for the results. This enables fetching the specified number of rows following the first row whose object name matches the specified string
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[str]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def rows(self) -> Optional[int]:
+        """
+        Specifies the maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: Optional[int]):
+        pulumi.set(self, "rows", value)
 
 
 @pulumi.input_type

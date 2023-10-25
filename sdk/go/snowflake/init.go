@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DatabaseGrant{}
 	case "snowflake:index/databaseRole:DatabaseRole":
 		r = &DatabaseRole{}
+	case "snowflake:index/dynamicTable:DynamicTable":
+		r = &DynamicTable{}
 	case "snowflake:index/emailNotificationIntegration:EmailNotificationIntegration":
 		r = &EmailNotificationIntegration{}
 	case "snowflake:index/externalFunction:ExternalFunction":
@@ -245,6 +247,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/databaseRole",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/dynamicTable",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

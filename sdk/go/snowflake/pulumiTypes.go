@@ -546,6 +546,186 @@ func (o DatabaseReplicationConfigurationPtrOutput) IgnoreEditionCheck() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+type DynamicTableTargetLag struct {
+	// Specifies whether the target lag time is downstream.
+	Downstream *bool `pulumi:"downstream"`
+	// Specifies the maximum target lag time for the dynamic table.
+	MaximumDuration *string `pulumi:"maximumDuration"`
+}
+
+// DynamicTableTargetLagInput is an input type that accepts DynamicTableTargetLagArgs and DynamicTableTargetLagOutput values.
+// You can construct a concrete instance of `DynamicTableTargetLagInput` via:
+//
+//	DynamicTableTargetLagArgs{...}
+type DynamicTableTargetLagInput interface {
+	pulumi.Input
+
+	ToDynamicTableTargetLagOutput() DynamicTableTargetLagOutput
+	ToDynamicTableTargetLagOutputWithContext(context.Context) DynamicTableTargetLagOutput
+}
+
+type DynamicTableTargetLagArgs struct {
+	// Specifies whether the target lag time is downstream.
+	Downstream pulumi.BoolPtrInput `pulumi:"downstream"`
+	// Specifies the maximum target lag time for the dynamic table.
+	MaximumDuration pulumi.StringPtrInput `pulumi:"maximumDuration"`
+}
+
+func (DynamicTableTargetLagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DynamicTableTargetLag)(nil)).Elem()
+}
+
+func (i DynamicTableTargetLagArgs) ToDynamicTableTargetLagOutput() DynamicTableTargetLagOutput {
+	return i.ToDynamicTableTargetLagOutputWithContext(context.Background())
+}
+
+func (i DynamicTableTargetLagArgs) ToDynamicTableTargetLagOutputWithContext(ctx context.Context) DynamicTableTargetLagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DynamicTableTargetLagOutput)
+}
+
+func (i DynamicTableTargetLagArgs) ToOutput(ctx context.Context) pulumix.Output[DynamicTableTargetLag] {
+	return pulumix.Output[DynamicTableTargetLag]{
+		OutputState: i.ToDynamicTableTargetLagOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DynamicTableTargetLagArgs) ToDynamicTableTargetLagPtrOutput() DynamicTableTargetLagPtrOutput {
+	return i.ToDynamicTableTargetLagPtrOutputWithContext(context.Background())
+}
+
+func (i DynamicTableTargetLagArgs) ToDynamicTableTargetLagPtrOutputWithContext(ctx context.Context) DynamicTableTargetLagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DynamicTableTargetLagOutput).ToDynamicTableTargetLagPtrOutputWithContext(ctx)
+}
+
+// DynamicTableTargetLagPtrInput is an input type that accepts DynamicTableTargetLagArgs, DynamicTableTargetLagPtr and DynamicTableTargetLagPtrOutput values.
+// You can construct a concrete instance of `DynamicTableTargetLagPtrInput` via:
+//
+//	        DynamicTableTargetLagArgs{...}
+//
+//	or:
+//
+//	        nil
+type DynamicTableTargetLagPtrInput interface {
+	pulumi.Input
+
+	ToDynamicTableTargetLagPtrOutput() DynamicTableTargetLagPtrOutput
+	ToDynamicTableTargetLagPtrOutputWithContext(context.Context) DynamicTableTargetLagPtrOutput
+}
+
+type dynamicTableTargetLagPtrType DynamicTableTargetLagArgs
+
+func DynamicTableTargetLagPtr(v *DynamicTableTargetLagArgs) DynamicTableTargetLagPtrInput {
+	return (*dynamicTableTargetLagPtrType)(v)
+}
+
+func (*dynamicTableTargetLagPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DynamicTableTargetLag)(nil)).Elem()
+}
+
+func (i *dynamicTableTargetLagPtrType) ToDynamicTableTargetLagPtrOutput() DynamicTableTargetLagPtrOutput {
+	return i.ToDynamicTableTargetLagPtrOutputWithContext(context.Background())
+}
+
+func (i *dynamicTableTargetLagPtrType) ToDynamicTableTargetLagPtrOutputWithContext(ctx context.Context) DynamicTableTargetLagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DynamicTableTargetLagPtrOutput)
+}
+
+func (i *dynamicTableTargetLagPtrType) ToOutput(ctx context.Context) pulumix.Output[*DynamicTableTargetLag] {
+	return pulumix.Output[*DynamicTableTargetLag]{
+		OutputState: i.ToDynamicTableTargetLagPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DynamicTableTargetLagOutput struct{ *pulumi.OutputState }
+
+func (DynamicTableTargetLagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DynamicTableTargetLag)(nil)).Elem()
+}
+
+func (o DynamicTableTargetLagOutput) ToDynamicTableTargetLagOutput() DynamicTableTargetLagOutput {
+	return o
+}
+
+func (o DynamicTableTargetLagOutput) ToDynamicTableTargetLagOutputWithContext(ctx context.Context) DynamicTableTargetLagOutput {
+	return o
+}
+
+func (o DynamicTableTargetLagOutput) ToDynamicTableTargetLagPtrOutput() DynamicTableTargetLagPtrOutput {
+	return o.ToDynamicTableTargetLagPtrOutputWithContext(context.Background())
+}
+
+func (o DynamicTableTargetLagOutput) ToDynamicTableTargetLagPtrOutputWithContext(ctx context.Context) DynamicTableTargetLagPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DynamicTableTargetLag) *DynamicTableTargetLag {
+		return &v
+	}).(DynamicTableTargetLagPtrOutput)
+}
+
+func (o DynamicTableTargetLagOutput) ToOutput(ctx context.Context) pulumix.Output[DynamicTableTargetLag] {
+	return pulumix.Output[DynamicTableTargetLag]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Specifies whether the target lag time is downstream.
+func (o DynamicTableTargetLagOutput) Downstream() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DynamicTableTargetLag) *bool { return v.Downstream }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the maximum target lag time for the dynamic table.
+func (o DynamicTableTargetLagOutput) MaximumDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DynamicTableTargetLag) *string { return v.MaximumDuration }).(pulumi.StringPtrOutput)
+}
+
+type DynamicTableTargetLagPtrOutput struct{ *pulumi.OutputState }
+
+func (DynamicTableTargetLagPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DynamicTableTargetLag)(nil)).Elem()
+}
+
+func (o DynamicTableTargetLagPtrOutput) ToDynamicTableTargetLagPtrOutput() DynamicTableTargetLagPtrOutput {
+	return o
+}
+
+func (o DynamicTableTargetLagPtrOutput) ToDynamicTableTargetLagPtrOutputWithContext(ctx context.Context) DynamicTableTargetLagPtrOutput {
+	return o
+}
+
+func (o DynamicTableTargetLagPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DynamicTableTargetLag] {
+	return pulumix.Output[*DynamicTableTargetLag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DynamicTableTargetLagPtrOutput) Elem() DynamicTableTargetLagOutput {
+	return o.ApplyT(func(v *DynamicTableTargetLag) DynamicTableTargetLag {
+		if v != nil {
+			return *v
+		}
+		var ret DynamicTableTargetLag
+		return ret
+	}).(DynamicTableTargetLagOutput)
+}
+
+// Specifies whether the target lag time is downstream.
+func (o DynamicTableTargetLagPtrOutput) Downstream() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DynamicTableTargetLag) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Downstream
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the maximum target lag time for the dynamic table.
+func (o DynamicTableTargetLagPtrOutput) MaximumDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DynamicTableTargetLag) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumDuration
+	}).(pulumi.StringPtrOutput)
+}
+
 type ExternalFunctionArg struct {
 	// Argument name
 	Name string `pulumi:"name"`
@@ -3483,6 +3663,223 @@ func (o ProcedureArgumentArrayOutput) Index(i pulumi.IntInput) ProcedureArgument
 	}).(ProcedureArgumentOutput)
 }
 
+type ProviderTokenAccessor struct {
+	ClientId      string `pulumi:"clientId"`
+	ClientSecret  string `pulumi:"clientSecret"`
+	RedirectUri   string `pulumi:"redirectUri"`
+	RefreshToken  string `pulumi:"refreshToken"`
+	TokenEndpoint string `pulumi:"tokenEndpoint"`
+}
+
+// ProviderTokenAccessorInput is an input type that accepts ProviderTokenAccessorArgs and ProviderTokenAccessorOutput values.
+// You can construct a concrete instance of `ProviderTokenAccessorInput` via:
+//
+//	ProviderTokenAccessorArgs{...}
+type ProviderTokenAccessorInput interface {
+	pulumi.Input
+
+	ToProviderTokenAccessorOutput() ProviderTokenAccessorOutput
+	ToProviderTokenAccessorOutputWithContext(context.Context) ProviderTokenAccessorOutput
+}
+
+type ProviderTokenAccessorArgs struct {
+	ClientId      pulumi.StringInput `pulumi:"clientId"`
+	ClientSecret  pulumi.StringInput `pulumi:"clientSecret"`
+	RedirectUri   pulumi.StringInput `pulumi:"redirectUri"`
+	RefreshToken  pulumi.StringInput `pulumi:"refreshToken"`
+	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
+}
+
+func (ProviderTokenAccessorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderTokenAccessor)(nil)).Elem()
+}
+
+func (i ProviderTokenAccessorArgs) ToProviderTokenAccessorOutput() ProviderTokenAccessorOutput {
+	return i.ToProviderTokenAccessorOutputWithContext(context.Background())
+}
+
+func (i ProviderTokenAccessorArgs) ToProviderTokenAccessorOutputWithContext(ctx context.Context) ProviderTokenAccessorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderTokenAccessorOutput)
+}
+
+func (i ProviderTokenAccessorArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderTokenAccessor] {
+	return pulumix.Output[ProviderTokenAccessor]{
+		OutputState: i.ToProviderTokenAccessorOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ProviderTokenAccessorArgs) ToProviderTokenAccessorPtrOutput() ProviderTokenAccessorPtrOutput {
+	return i.ToProviderTokenAccessorPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderTokenAccessorArgs) ToProviderTokenAccessorPtrOutputWithContext(ctx context.Context) ProviderTokenAccessorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderTokenAccessorOutput).ToProviderTokenAccessorPtrOutputWithContext(ctx)
+}
+
+// ProviderTokenAccessorPtrInput is an input type that accepts ProviderTokenAccessorArgs, ProviderTokenAccessorPtr and ProviderTokenAccessorPtrOutput values.
+// You can construct a concrete instance of `ProviderTokenAccessorPtrInput` via:
+//
+//	        ProviderTokenAccessorArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderTokenAccessorPtrInput interface {
+	pulumi.Input
+
+	ToProviderTokenAccessorPtrOutput() ProviderTokenAccessorPtrOutput
+	ToProviderTokenAccessorPtrOutputWithContext(context.Context) ProviderTokenAccessorPtrOutput
+}
+
+type providerTokenAccessorPtrType ProviderTokenAccessorArgs
+
+func ProviderTokenAccessorPtr(v *ProviderTokenAccessorArgs) ProviderTokenAccessorPtrInput {
+	return (*providerTokenAccessorPtrType)(v)
+}
+
+func (*providerTokenAccessorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderTokenAccessor)(nil)).Elem()
+}
+
+func (i *providerTokenAccessorPtrType) ToProviderTokenAccessorPtrOutput() ProviderTokenAccessorPtrOutput {
+	return i.ToProviderTokenAccessorPtrOutputWithContext(context.Background())
+}
+
+func (i *providerTokenAccessorPtrType) ToProviderTokenAccessorPtrOutputWithContext(ctx context.Context) ProviderTokenAccessorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderTokenAccessorPtrOutput)
+}
+
+func (i *providerTokenAccessorPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderTokenAccessor] {
+	return pulumix.Output[*ProviderTokenAccessor]{
+		OutputState: i.ToProviderTokenAccessorPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ProviderTokenAccessorOutput struct{ *pulumi.OutputState }
+
+func (ProviderTokenAccessorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderTokenAccessor)(nil)).Elem()
+}
+
+func (o ProviderTokenAccessorOutput) ToProviderTokenAccessorOutput() ProviderTokenAccessorOutput {
+	return o
+}
+
+func (o ProviderTokenAccessorOutput) ToProviderTokenAccessorOutputWithContext(ctx context.Context) ProviderTokenAccessorOutput {
+	return o
+}
+
+func (o ProviderTokenAccessorOutput) ToProviderTokenAccessorPtrOutput() ProviderTokenAccessorPtrOutput {
+	return o.ToProviderTokenAccessorPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderTokenAccessorOutput) ToProviderTokenAccessorPtrOutputWithContext(ctx context.Context) ProviderTokenAccessorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderTokenAccessor) *ProviderTokenAccessor {
+		return &v
+	}).(ProviderTokenAccessorPtrOutput)
+}
+
+func (o ProviderTokenAccessorOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderTokenAccessor] {
+	return pulumix.Output[ProviderTokenAccessor]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ProviderTokenAccessorOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderTokenAccessor) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+func (o ProviderTokenAccessorOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderTokenAccessor) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+func (o ProviderTokenAccessorOutput) RedirectUri() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderTokenAccessor) string { return v.RedirectUri }).(pulumi.StringOutput)
+}
+
+func (o ProviderTokenAccessorOutput) RefreshToken() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderTokenAccessor) string { return v.RefreshToken }).(pulumi.StringOutput)
+}
+
+func (o ProviderTokenAccessorOutput) TokenEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderTokenAccessor) string { return v.TokenEndpoint }).(pulumi.StringOutput)
+}
+
+type ProviderTokenAccessorPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderTokenAccessorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderTokenAccessor)(nil)).Elem()
+}
+
+func (o ProviderTokenAccessorPtrOutput) ToProviderTokenAccessorPtrOutput() ProviderTokenAccessorPtrOutput {
+	return o
+}
+
+func (o ProviderTokenAccessorPtrOutput) ToProviderTokenAccessorPtrOutputWithContext(ctx context.Context) ProviderTokenAccessorPtrOutput {
+	return o
+}
+
+func (o ProviderTokenAccessorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderTokenAccessor] {
+	return pulumix.Output[*ProviderTokenAccessor]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ProviderTokenAccessorPtrOutput) Elem() ProviderTokenAccessorOutput {
+	return o.ApplyT(func(v *ProviderTokenAccessor) ProviderTokenAccessor {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderTokenAccessor
+		return ret
+	}).(ProviderTokenAccessorOutput)
+}
+
+func (o ProviderTokenAccessorPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderTokenAccessor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderTokenAccessorPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderTokenAccessor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderTokenAccessorPtrOutput) RedirectUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderTokenAccessor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RedirectUri
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderTokenAccessorPtrOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderTokenAccessor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RefreshToken
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderTokenAccessorPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderTokenAccessor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
 type RoleTag struct {
 	// Name of the database that the tag was created in.
 	Database *string `pulumi:"database"`
@@ -6284,6 +6681,778 @@ func (o GetDatabasesDatabaseReplicationConfigurationArrayOutput) Index(i pulumi.
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabaseReplicationConfiguration {
 		return vs[0].([]GetDatabasesDatabaseReplicationConfiguration)[vs[1].(int)]
 	}).(GetDatabasesDatabaseReplicationConfigurationOutput)
+}
+
+type GetDynamicTablesIn struct {
+	// Returns records for the entire account.
+	Account *bool `pulumi:"account"`
+	// Returns records for the current database in use or for a specified database (db_name).
+	Database *string `pulumi:"database"`
+	// Returns records for the current schema in use or a specified schema (schema_name).
+	Schema *string `pulumi:"schema"`
+}
+
+// GetDynamicTablesInInput is an input type that accepts GetDynamicTablesInArgs and GetDynamicTablesInOutput values.
+// You can construct a concrete instance of `GetDynamicTablesInInput` via:
+//
+//	GetDynamicTablesInArgs{...}
+type GetDynamicTablesInInput interface {
+	pulumi.Input
+
+	ToGetDynamicTablesInOutput() GetDynamicTablesInOutput
+	ToGetDynamicTablesInOutputWithContext(context.Context) GetDynamicTablesInOutput
+}
+
+type GetDynamicTablesInArgs struct {
+	// Returns records for the entire account.
+	Account pulumi.BoolPtrInput `pulumi:"account"`
+	// Returns records for the current database in use or for a specified database (db_name).
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// Returns records for the current schema in use or a specified schema (schema_name).
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+}
+
+func (GetDynamicTablesInArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDynamicTablesIn)(nil)).Elem()
+}
+
+func (i GetDynamicTablesInArgs) ToGetDynamicTablesInOutput() GetDynamicTablesInOutput {
+	return i.ToGetDynamicTablesInOutputWithContext(context.Background())
+}
+
+func (i GetDynamicTablesInArgs) ToGetDynamicTablesInOutputWithContext(ctx context.Context) GetDynamicTablesInOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDynamicTablesInOutput)
+}
+
+func (i GetDynamicTablesInArgs) ToOutput(ctx context.Context) pulumix.Output[GetDynamicTablesIn] {
+	return pulumix.Output[GetDynamicTablesIn]{
+		OutputState: i.ToGetDynamicTablesInOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i GetDynamicTablesInArgs) ToGetDynamicTablesInPtrOutput() GetDynamicTablesInPtrOutput {
+	return i.ToGetDynamicTablesInPtrOutputWithContext(context.Background())
+}
+
+func (i GetDynamicTablesInArgs) ToGetDynamicTablesInPtrOutputWithContext(ctx context.Context) GetDynamicTablesInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDynamicTablesInOutput).ToGetDynamicTablesInPtrOutputWithContext(ctx)
+}
+
+// GetDynamicTablesInPtrInput is an input type that accepts GetDynamicTablesInArgs, GetDynamicTablesInPtr and GetDynamicTablesInPtrOutput values.
+// You can construct a concrete instance of `GetDynamicTablesInPtrInput` via:
+//
+//	        GetDynamicTablesInArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetDynamicTablesInPtrInput interface {
+	pulumi.Input
+
+	ToGetDynamicTablesInPtrOutput() GetDynamicTablesInPtrOutput
+	ToGetDynamicTablesInPtrOutputWithContext(context.Context) GetDynamicTablesInPtrOutput
+}
+
+type getDynamicTablesInPtrType GetDynamicTablesInArgs
+
+func GetDynamicTablesInPtr(v *GetDynamicTablesInArgs) GetDynamicTablesInPtrInput {
+	return (*getDynamicTablesInPtrType)(v)
+}
+
+func (*getDynamicTablesInPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDynamicTablesIn)(nil)).Elem()
+}
+
+func (i *getDynamicTablesInPtrType) ToGetDynamicTablesInPtrOutput() GetDynamicTablesInPtrOutput {
+	return i.ToGetDynamicTablesInPtrOutputWithContext(context.Background())
+}
+
+func (i *getDynamicTablesInPtrType) ToGetDynamicTablesInPtrOutputWithContext(ctx context.Context) GetDynamicTablesInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDynamicTablesInPtrOutput)
+}
+
+func (i *getDynamicTablesInPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetDynamicTablesIn] {
+	return pulumix.Output[*GetDynamicTablesIn]{
+		OutputState: i.ToGetDynamicTablesInPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetDynamicTablesInOutput struct{ *pulumi.OutputState }
+
+func (GetDynamicTablesInOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDynamicTablesIn)(nil)).Elem()
+}
+
+func (o GetDynamicTablesInOutput) ToGetDynamicTablesInOutput() GetDynamicTablesInOutput {
+	return o
+}
+
+func (o GetDynamicTablesInOutput) ToGetDynamicTablesInOutputWithContext(ctx context.Context) GetDynamicTablesInOutput {
+	return o
+}
+
+func (o GetDynamicTablesInOutput) ToGetDynamicTablesInPtrOutput() GetDynamicTablesInPtrOutput {
+	return o.ToGetDynamicTablesInPtrOutputWithContext(context.Background())
+}
+
+func (o GetDynamicTablesInOutput) ToGetDynamicTablesInPtrOutputWithContext(ctx context.Context) GetDynamicTablesInPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDynamicTablesIn) *GetDynamicTablesIn {
+		return &v
+	}).(GetDynamicTablesInPtrOutput)
+}
+
+func (o GetDynamicTablesInOutput) ToOutput(ctx context.Context) pulumix.Output[GetDynamicTablesIn] {
+	return pulumix.Output[GetDynamicTablesIn]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Returns records for the entire account.
+func (o GetDynamicTablesInOutput) Account() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDynamicTablesIn) *bool { return v.Account }).(pulumi.BoolPtrOutput)
+}
+
+// Returns records for the current database in use or for a specified database (db_name).
+func (o GetDynamicTablesInOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDynamicTablesIn) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// Returns records for the current schema in use or a specified schema (schema_name).
+func (o GetDynamicTablesInOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDynamicTablesIn) *string { return v.Schema }).(pulumi.StringPtrOutput)
+}
+
+type GetDynamicTablesInPtrOutput struct{ *pulumi.OutputState }
+
+func (GetDynamicTablesInPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDynamicTablesIn)(nil)).Elem()
+}
+
+func (o GetDynamicTablesInPtrOutput) ToGetDynamicTablesInPtrOutput() GetDynamicTablesInPtrOutput {
+	return o
+}
+
+func (o GetDynamicTablesInPtrOutput) ToGetDynamicTablesInPtrOutputWithContext(ctx context.Context) GetDynamicTablesInPtrOutput {
+	return o
+}
+
+func (o GetDynamicTablesInPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetDynamicTablesIn] {
+	return pulumix.Output[*GetDynamicTablesIn]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetDynamicTablesInPtrOutput) Elem() GetDynamicTablesInOutput {
+	return o.ApplyT(func(v *GetDynamicTablesIn) GetDynamicTablesIn {
+		if v != nil {
+			return *v
+		}
+		var ret GetDynamicTablesIn
+		return ret
+	}).(GetDynamicTablesInOutput)
+}
+
+// Returns records for the entire account.
+func (o GetDynamicTablesInPtrOutput) Account() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetDynamicTablesIn) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Account
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Returns records for the current database in use or for a specified database (db_name).
+func (o GetDynamicTablesInPtrOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDynamicTablesIn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Database
+	}).(pulumi.StringPtrOutput)
+}
+
+// Returns records for the current schema in use or a specified schema (schema_name).
+func (o GetDynamicTablesInPtrOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDynamicTablesIn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Schema
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetDynamicTablesLike struct {
+	// Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+	Pattern string `pulumi:"pattern"`
+}
+
+// GetDynamicTablesLikeInput is an input type that accepts GetDynamicTablesLikeArgs and GetDynamicTablesLikeOutput values.
+// You can construct a concrete instance of `GetDynamicTablesLikeInput` via:
+//
+//	GetDynamicTablesLikeArgs{...}
+type GetDynamicTablesLikeInput interface {
+	pulumi.Input
+
+	ToGetDynamicTablesLikeOutput() GetDynamicTablesLikeOutput
+	ToGetDynamicTablesLikeOutputWithContext(context.Context) GetDynamicTablesLikeOutput
+}
+
+type GetDynamicTablesLikeArgs struct {
+	// Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+	Pattern pulumi.StringInput `pulumi:"pattern"`
+}
+
+func (GetDynamicTablesLikeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDynamicTablesLike)(nil)).Elem()
+}
+
+func (i GetDynamicTablesLikeArgs) ToGetDynamicTablesLikeOutput() GetDynamicTablesLikeOutput {
+	return i.ToGetDynamicTablesLikeOutputWithContext(context.Background())
+}
+
+func (i GetDynamicTablesLikeArgs) ToGetDynamicTablesLikeOutputWithContext(ctx context.Context) GetDynamicTablesLikeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDynamicTablesLikeOutput)
+}
+
+func (i GetDynamicTablesLikeArgs) ToOutput(ctx context.Context) pulumix.Output[GetDynamicTablesLike] {
+	return pulumix.Output[GetDynamicTablesLike]{
+		OutputState: i.ToGetDynamicTablesLikeOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i GetDynamicTablesLikeArgs) ToGetDynamicTablesLikePtrOutput() GetDynamicTablesLikePtrOutput {
+	return i.ToGetDynamicTablesLikePtrOutputWithContext(context.Background())
+}
+
+func (i GetDynamicTablesLikeArgs) ToGetDynamicTablesLikePtrOutputWithContext(ctx context.Context) GetDynamicTablesLikePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDynamicTablesLikeOutput).ToGetDynamicTablesLikePtrOutputWithContext(ctx)
+}
+
+// GetDynamicTablesLikePtrInput is an input type that accepts GetDynamicTablesLikeArgs, GetDynamicTablesLikePtr and GetDynamicTablesLikePtrOutput values.
+// You can construct a concrete instance of `GetDynamicTablesLikePtrInput` via:
+//
+//	        GetDynamicTablesLikeArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetDynamicTablesLikePtrInput interface {
+	pulumi.Input
+
+	ToGetDynamicTablesLikePtrOutput() GetDynamicTablesLikePtrOutput
+	ToGetDynamicTablesLikePtrOutputWithContext(context.Context) GetDynamicTablesLikePtrOutput
+}
+
+type getDynamicTablesLikePtrType GetDynamicTablesLikeArgs
+
+func GetDynamicTablesLikePtr(v *GetDynamicTablesLikeArgs) GetDynamicTablesLikePtrInput {
+	return (*getDynamicTablesLikePtrType)(v)
+}
+
+func (*getDynamicTablesLikePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDynamicTablesLike)(nil)).Elem()
+}
+
+func (i *getDynamicTablesLikePtrType) ToGetDynamicTablesLikePtrOutput() GetDynamicTablesLikePtrOutput {
+	return i.ToGetDynamicTablesLikePtrOutputWithContext(context.Background())
+}
+
+func (i *getDynamicTablesLikePtrType) ToGetDynamicTablesLikePtrOutputWithContext(ctx context.Context) GetDynamicTablesLikePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDynamicTablesLikePtrOutput)
+}
+
+func (i *getDynamicTablesLikePtrType) ToOutput(ctx context.Context) pulumix.Output[*GetDynamicTablesLike] {
+	return pulumix.Output[*GetDynamicTablesLike]{
+		OutputState: i.ToGetDynamicTablesLikePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetDynamicTablesLikeOutput struct{ *pulumi.OutputState }
+
+func (GetDynamicTablesLikeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDynamicTablesLike)(nil)).Elem()
+}
+
+func (o GetDynamicTablesLikeOutput) ToGetDynamicTablesLikeOutput() GetDynamicTablesLikeOutput {
+	return o
+}
+
+func (o GetDynamicTablesLikeOutput) ToGetDynamicTablesLikeOutputWithContext(ctx context.Context) GetDynamicTablesLikeOutput {
+	return o
+}
+
+func (o GetDynamicTablesLikeOutput) ToGetDynamicTablesLikePtrOutput() GetDynamicTablesLikePtrOutput {
+	return o.ToGetDynamicTablesLikePtrOutputWithContext(context.Background())
+}
+
+func (o GetDynamicTablesLikeOutput) ToGetDynamicTablesLikePtrOutputWithContext(ctx context.Context) GetDynamicTablesLikePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDynamicTablesLike) *GetDynamicTablesLike {
+		return &v
+	}).(GetDynamicTablesLikePtrOutput)
+}
+
+func (o GetDynamicTablesLikeOutput) ToOutput(ctx context.Context) pulumix.Output[GetDynamicTablesLike] {
+	return pulumix.Output[GetDynamicTablesLike]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+func (o GetDynamicTablesLikeOutput) Pattern() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesLike) string { return v.Pattern }).(pulumi.StringOutput)
+}
+
+type GetDynamicTablesLikePtrOutput struct{ *pulumi.OutputState }
+
+func (GetDynamicTablesLikePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDynamicTablesLike)(nil)).Elem()
+}
+
+func (o GetDynamicTablesLikePtrOutput) ToGetDynamicTablesLikePtrOutput() GetDynamicTablesLikePtrOutput {
+	return o
+}
+
+func (o GetDynamicTablesLikePtrOutput) ToGetDynamicTablesLikePtrOutputWithContext(ctx context.Context) GetDynamicTablesLikePtrOutput {
+	return o
+}
+
+func (o GetDynamicTablesLikePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetDynamicTablesLike] {
+	return pulumix.Output[*GetDynamicTablesLike]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetDynamicTablesLikePtrOutput) Elem() GetDynamicTablesLikeOutput {
+	return o.ApplyT(func(v *GetDynamicTablesLike) GetDynamicTablesLike {
+		if v != nil {
+			return *v
+		}
+		var ret GetDynamicTablesLike
+		return ret
+	}).(GetDynamicTablesLikeOutput)
+}
+
+// Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+func (o GetDynamicTablesLikePtrOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDynamicTablesLike) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Pattern
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetDynamicTablesLimit struct {
+	// The optional FROM 'name_string' subclause effectively serves as a “cursor” for the results. This enables fetching the specified number of rows following the first row whose object name matches the specified string
+	From *string `pulumi:"from"`
+	// Specifies the maximum number of rows to return.
+	Rows *int `pulumi:"rows"`
+}
+
+// GetDynamicTablesLimitInput is an input type that accepts GetDynamicTablesLimitArgs and GetDynamicTablesLimitOutput values.
+// You can construct a concrete instance of `GetDynamicTablesLimitInput` via:
+//
+//	GetDynamicTablesLimitArgs{...}
+type GetDynamicTablesLimitInput interface {
+	pulumi.Input
+
+	ToGetDynamicTablesLimitOutput() GetDynamicTablesLimitOutput
+	ToGetDynamicTablesLimitOutputWithContext(context.Context) GetDynamicTablesLimitOutput
+}
+
+type GetDynamicTablesLimitArgs struct {
+	// The optional FROM 'name_string' subclause effectively serves as a “cursor” for the results. This enables fetching the specified number of rows following the first row whose object name matches the specified string
+	From pulumi.StringPtrInput `pulumi:"from"`
+	// Specifies the maximum number of rows to return.
+	Rows pulumi.IntPtrInput `pulumi:"rows"`
+}
+
+func (GetDynamicTablesLimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDynamicTablesLimit)(nil)).Elem()
+}
+
+func (i GetDynamicTablesLimitArgs) ToGetDynamicTablesLimitOutput() GetDynamicTablesLimitOutput {
+	return i.ToGetDynamicTablesLimitOutputWithContext(context.Background())
+}
+
+func (i GetDynamicTablesLimitArgs) ToGetDynamicTablesLimitOutputWithContext(ctx context.Context) GetDynamicTablesLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDynamicTablesLimitOutput)
+}
+
+func (i GetDynamicTablesLimitArgs) ToOutput(ctx context.Context) pulumix.Output[GetDynamicTablesLimit] {
+	return pulumix.Output[GetDynamicTablesLimit]{
+		OutputState: i.ToGetDynamicTablesLimitOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i GetDynamicTablesLimitArgs) ToGetDynamicTablesLimitPtrOutput() GetDynamicTablesLimitPtrOutput {
+	return i.ToGetDynamicTablesLimitPtrOutputWithContext(context.Background())
+}
+
+func (i GetDynamicTablesLimitArgs) ToGetDynamicTablesLimitPtrOutputWithContext(ctx context.Context) GetDynamicTablesLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDynamicTablesLimitOutput).ToGetDynamicTablesLimitPtrOutputWithContext(ctx)
+}
+
+// GetDynamicTablesLimitPtrInput is an input type that accepts GetDynamicTablesLimitArgs, GetDynamicTablesLimitPtr and GetDynamicTablesLimitPtrOutput values.
+// You can construct a concrete instance of `GetDynamicTablesLimitPtrInput` via:
+//
+//	        GetDynamicTablesLimitArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetDynamicTablesLimitPtrInput interface {
+	pulumi.Input
+
+	ToGetDynamicTablesLimitPtrOutput() GetDynamicTablesLimitPtrOutput
+	ToGetDynamicTablesLimitPtrOutputWithContext(context.Context) GetDynamicTablesLimitPtrOutput
+}
+
+type getDynamicTablesLimitPtrType GetDynamicTablesLimitArgs
+
+func GetDynamicTablesLimitPtr(v *GetDynamicTablesLimitArgs) GetDynamicTablesLimitPtrInput {
+	return (*getDynamicTablesLimitPtrType)(v)
+}
+
+func (*getDynamicTablesLimitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDynamicTablesLimit)(nil)).Elem()
+}
+
+func (i *getDynamicTablesLimitPtrType) ToGetDynamicTablesLimitPtrOutput() GetDynamicTablesLimitPtrOutput {
+	return i.ToGetDynamicTablesLimitPtrOutputWithContext(context.Background())
+}
+
+func (i *getDynamicTablesLimitPtrType) ToGetDynamicTablesLimitPtrOutputWithContext(ctx context.Context) GetDynamicTablesLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDynamicTablesLimitPtrOutput)
+}
+
+func (i *getDynamicTablesLimitPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetDynamicTablesLimit] {
+	return pulumix.Output[*GetDynamicTablesLimit]{
+		OutputState: i.ToGetDynamicTablesLimitPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetDynamicTablesLimitOutput struct{ *pulumi.OutputState }
+
+func (GetDynamicTablesLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDynamicTablesLimit)(nil)).Elem()
+}
+
+func (o GetDynamicTablesLimitOutput) ToGetDynamicTablesLimitOutput() GetDynamicTablesLimitOutput {
+	return o
+}
+
+func (o GetDynamicTablesLimitOutput) ToGetDynamicTablesLimitOutputWithContext(ctx context.Context) GetDynamicTablesLimitOutput {
+	return o
+}
+
+func (o GetDynamicTablesLimitOutput) ToGetDynamicTablesLimitPtrOutput() GetDynamicTablesLimitPtrOutput {
+	return o.ToGetDynamicTablesLimitPtrOutputWithContext(context.Background())
+}
+
+func (o GetDynamicTablesLimitOutput) ToGetDynamicTablesLimitPtrOutputWithContext(ctx context.Context) GetDynamicTablesLimitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDynamicTablesLimit) *GetDynamicTablesLimit {
+		return &v
+	}).(GetDynamicTablesLimitPtrOutput)
+}
+
+func (o GetDynamicTablesLimitOutput) ToOutput(ctx context.Context) pulumix.Output[GetDynamicTablesLimit] {
+	return pulumix.Output[GetDynamicTablesLimit]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The optional FROM 'name_string' subclause effectively serves as a “cursor” for the results. This enables fetching the specified number of rows following the first row whose object name matches the specified string
+func (o GetDynamicTablesLimitOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDynamicTablesLimit) *string { return v.From }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the maximum number of rows to return.
+func (o GetDynamicTablesLimitOutput) Rows() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetDynamicTablesLimit) *int { return v.Rows }).(pulumi.IntPtrOutput)
+}
+
+type GetDynamicTablesLimitPtrOutput struct{ *pulumi.OutputState }
+
+func (GetDynamicTablesLimitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDynamicTablesLimit)(nil)).Elem()
+}
+
+func (o GetDynamicTablesLimitPtrOutput) ToGetDynamicTablesLimitPtrOutput() GetDynamicTablesLimitPtrOutput {
+	return o
+}
+
+func (o GetDynamicTablesLimitPtrOutput) ToGetDynamicTablesLimitPtrOutputWithContext(ctx context.Context) GetDynamicTablesLimitPtrOutput {
+	return o
+}
+
+func (o GetDynamicTablesLimitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetDynamicTablesLimit] {
+	return pulumix.Output[*GetDynamicTablesLimit]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetDynamicTablesLimitPtrOutput) Elem() GetDynamicTablesLimitOutput {
+	return o.ApplyT(func(v *GetDynamicTablesLimit) GetDynamicTablesLimit {
+		if v != nil {
+			return *v
+		}
+		var ret GetDynamicTablesLimit
+		return ret
+	}).(GetDynamicTablesLimitOutput)
+}
+
+// The optional FROM 'name_string' subclause effectively serves as a “cursor” for the results. This enables fetching the specified number of rows following the first row whose object name matches the specified string
+func (o GetDynamicTablesLimitPtrOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDynamicTablesLimit) *string {
+		if v == nil {
+			return nil
+		}
+		return v.From
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the maximum number of rows to return.
+func (o GetDynamicTablesLimitPtrOutput) Rows() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetDynamicTablesLimit) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Rows
+	}).(pulumi.IntPtrOutput)
+}
+
+type GetDynamicTablesRecord struct {
+	AutomaticClustering bool   `pulumi:"automaticClustering"`
+	Bytes               int    `pulumi:"bytes"`
+	ClusterBy           string `pulumi:"clusterBy"`
+	Comment             string `pulumi:"comment"`
+	CreatedOn           string `pulumi:"createdOn"`
+	DataTimestamp       string `pulumi:"dataTimestamp"`
+	DatabaseName        string `pulumi:"databaseName"`
+	IsClone             bool   `pulumi:"isClone"`
+	IsReplica           bool   `pulumi:"isReplica"`
+	LastSuspendedOn     string `pulumi:"lastSuspendedOn"`
+	Name                string `pulumi:"name"`
+	Owner               string `pulumi:"owner"`
+	RefreshMode         string `pulumi:"refreshMode"`
+	RefreshModeReason   string `pulumi:"refreshModeReason"`
+	Rows                int    `pulumi:"rows"`
+	SchedulingState     string `pulumi:"schedulingState"`
+	SchemaName          string `pulumi:"schemaName"`
+	TargetLag           string `pulumi:"targetLag"`
+	Text                string `pulumi:"text"`
+	Warehouse           string `pulumi:"warehouse"`
+}
+
+// GetDynamicTablesRecordInput is an input type that accepts GetDynamicTablesRecordArgs and GetDynamicTablesRecordOutput values.
+// You can construct a concrete instance of `GetDynamicTablesRecordInput` via:
+//
+//	GetDynamicTablesRecordArgs{...}
+type GetDynamicTablesRecordInput interface {
+	pulumi.Input
+
+	ToGetDynamicTablesRecordOutput() GetDynamicTablesRecordOutput
+	ToGetDynamicTablesRecordOutputWithContext(context.Context) GetDynamicTablesRecordOutput
+}
+
+type GetDynamicTablesRecordArgs struct {
+	AutomaticClustering pulumi.BoolInput   `pulumi:"automaticClustering"`
+	Bytes               pulumi.IntInput    `pulumi:"bytes"`
+	ClusterBy           pulumi.StringInput `pulumi:"clusterBy"`
+	Comment             pulumi.StringInput `pulumi:"comment"`
+	CreatedOn           pulumi.StringInput `pulumi:"createdOn"`
+	DataTimestamp       pulumi.StringInput `pulumi:"dataTimestamp"`
+	DatabaseName        pulumi.StringInput `pulumi:"databaseName"`
+	IsClone             pulumi.BoolInput   `pulumi:"isClone"`
+	IsReplica           pulumi.BoolInput   `pulumi:"isReplica"`
+	LastSuspendedOn     pulumi.StringInput `pulumi:"lastSuspendedOn"`
+	Name                pulumi.StringInput `pulumi:"name"`
+	Owner               pulumi.StringInput `pulumi:"owner"`
+	RefreshMode         pulumi.StringInput `pulumi:"refreshMode"`
+	RefreshModeReason   pulumi.StringInput `pulumi:"refreshModeReason"`
+	Rows                pulumi.IntInput    `pulumi:"rows"`
+	SchedulingState     pulumi.StringInput `pulumi:"schedulingState"`
+	SchemaName          pulumi.StringInput `pulumi:"schemaName"`
+	TargetLag           pulumi.StringInput `pulumi:"targetLag"`
+	Text                pulumi.StringInput `pulumi:"text"`
+	Warehouse           pulumi.StringInput `pulumi:"warehouse"`
+}
+
+func (GetDynamicTablesRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDynamicTablesRecord)(nil)).Elem()
+}
+
+func (i GetDynamicTablesRecordArgs) ToGetDynamicTablesRecordOutput() GetDynamicTablesRecordOutput {
+	return i.ToGetDynamicTablesRecordOutputWithContext(context.Background())
+}
+
+func (i GetDynamicTablesRecordArgs) ToGetDynamicTablesRecordOutputWithContext(ctx context.Context) GetDynamicTablesRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDynamicTablesRecordOutput)
+}
+
+func (i GetDynamicTablesRecordArgs) ToOutput(ctx context.Context) pulumix.Output[GetDynamicTablesRecord] {
+	return pulumix.Output[GetDynamicTablesRecord]{
+		OutputState: i.ToGetDynamicTablesRecordOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetDynamicTablesRecordArrayInput is an input type that accepts GetDynamicTablesRecordArray and GetDynamicTablesRecordArrayOutput values.
+// You can construct a concrete instance of `GetDynamicTablesRecordArrayInput` via:
+//
+//	GetDynamicTablesRecordArray{ GetDynamicTablesRecordArgs{...} }
+type GetDynamicTablesRecordArrayInput interface {
+	pulumi.Input
+
+	ToGetDynamicTablesRecordArrayOutput() GetDynamicTablesRecordArrayOutput
+	ToGetDynamicTablesRecordArrayOutputWithContext(context.Context) GetDynamicTablesRecordArrayOutput
+}
+
+type GetDynamicTablesRecordArray []GetDynamicTablesRecordInput
+
+func (GetDynamicTablesRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDynamicTablesRecord)(nil)).Elem()
+}
+
+func (i GetDynamicTablesRecordArray) ToGetDynamicTablesRecordArrayOutput() GetDynamicTablesRecordArrayOutput {
+	return i.ToGetDynamicTablesRecordArrayOutputWithContext(context.Background())
+}
+
+func (i GetDynamicTablesRecordArray) ToGetDynamicTablesRecordArrayOutputWithContext(ctx context.Context) GetDynamicTablesRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDynamicTablesRecordArrayOutput)
+}
+
+func (i GetDynamicTablesRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDynamicTablesRecord] {
+	return pulumix.Output[[]GetDynamicTablesRecord]{
+		OutputState: i.ToGetDynamicTablesRecordArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetDynamicTablesRecordOutput struct{ *pulumi.OutputState }
+
+func (GetDynamicTablesRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDynamicTablesRecord)(nil)).Elem()
+}
+
+func (o GetDynamicTablesRecordOutput) ToGetDynamicTablesRecordOutput() GetDynamicTablesRecordOutput {
+	return o
+}
+
+func (o GetDynamicTablesRecordOutput) ToGetDynamicTablesRecordOutputWithContext(ctx context.Context) GetDynamicTablesRecordOutput {
+	return o
+}
+
+func (o GetDynamicTablesRecordOutput) ToOutput(ctx context.Context) pulumix.Output[GetDynamicTablesRecord] {
+	return pulumix.Output[GetDynamicTablesRecord]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetDynamicTablesRecordOutput) AutomaticClustering() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) bool { return v.AutomaticClustering }).(pulumi.BoolOutput)
+}
+
+func (o GetDynamicTablesRecordOutput) Bytes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) int { return v.Bytes }).(pulumi.IntOutput)
+}
+
+func (o GetDynamicTablesRecordOutput) ClusterBy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.ClusterBy }).(pulumi.StringOutput)
+}
+
+func (o GetDynamicTablesRecordOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetDynamicTablesRecordOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+func (o GetDynamicTablesRecordOutput) DataTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.DataTimestamp }).(pulumi.StringOutput)
+}
+
+func (o GetDynamicTablesRecordOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o GetDynamicTablesRecordOutput) IsClone() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) bool { return v.IsClone }).(pulumi.BoolOutput)
+}
+
+func (o GetDynamicTablesRecordOutput) IsReplica() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) bool { return v.IsReplica }).(pulumi.BoolOutput)
+}
+
+func (o GetDynamicTablesRecordOutput) LastSuspendedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.LastSuspendedOn }).(pulumi.StringOutput)
+}
+
+func (o GetDynamicTablesRecordOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetDynamicTablesRecordOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o GetDynamicTablesRecordOutput) RefreshMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.RefreshMode }).(pulumi.StringOutput)
+}
+
+func (o GetDynamicTablesRecordOutput) RefreshModeReason() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.RefreshModeReason }).(pulumi.StringOutput)
+}
+
+func (o GetDynamicTablesRecordOutput) Rows() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) int { return v.Rows }).(pulumi.IntOutput)
+}
+
+func (o GetDynamicTablesRecordOutput) SchedulingState() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.SchedulingState }).(pulumi.StringOutput)
+}
+
+func (o GetDynamicTablesRecordOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+func (o GetDynamicTablesRecordOutput) TargetLag() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.TargetLag }).(pulumi.StringOutput)
+}
+
+func (o GetDynamicTablesRecordOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.Text }).(pulumi.StringOutput)
+}
+
+func (o GetDynamicTablesRecordOutput) Warehouse() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.Warehouse }).(pulumi.StringOutput)
+}
+
+type GetDynamicTablesRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDynamicTablesRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDynamicTablesRecord)(nil)).Elem()
+}
+
+func (o GetDynamicTablesRecordArrayOutput) ToGetDynamicTablesRecordArrayOutput() GetDynamicTablesRecordArrayOutput {
+	return o
+}
+
+func (o GetDynamicTablesRecordArrayOutput) ToGetDynamicTablesRecordArrayOutputWithContext(ctx context.Context) GetDynamicTablesRecordArrayOutput {
+	return o
+}
+
+func (o GetDynamicTablesRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDynamicTablesRecord] {
+	return pulumix.Output[[]GetDynamicTablesRecord]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetDynamicTablesRecordArrayOutput) Index(i pulumi.IntInput) GetDynamicTablesRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDynamicTablesRecord {
+		return vs[0].([]GetDynamicTablesRecord)[vs[1].(int)]
+	}).(GetDynamicTablesRecordOutput)
 }
 
 type GetExternalFunctionsExternalFunction struct {
@@ -11026,6 +12195,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertAlertScheduleCronPtrInput)(nil)).Elem(), AlertAlertScheduleCronArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseReplicationConfigurationInput)(nil)).Elem(), DatabaseReplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseReplicationConfigurationPtrInput)(nil)).Elem(), DatabaseReplicationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DynamicTableTargetLagInput)(nil)).Elem(), DynamicTableTargetLagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DynamicTableTargetLagPtrInput)(nil)).Elem(), DynamicTableTargetLagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalFunctionArgInput)(nil)).Elem(), ExternalFunctionArgArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalFunctionArgArrayInput)(nil)).Elem(), ExternalFunctionArgArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalFunctionHeaderInput)(nil)).Elem(), ExternalFunctionHeaderArgs{})
@@ -11062,6 +12233,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectParameterObjectIdentifierArrayInput)(nil)).Elem(), ObjectParameterObjectIdentifierArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureArgumentInput)(nil)).Elem(), ProcedureArgumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureArgumentArrayInput)(nil)).Elem(), ProcedureArgumentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderTokenAccessorInput)(nil)).Elem(), ProviderTokenAccessorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderTokenAccessorPtrInput)(nil)).Elem(), ProviderTokenAccessorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleTagInput)(nil)).Elem(), RoleTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleTagArrayInput)(nil)).Elem(), RoleTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaTagInput)(nil)).Elem(), SchemaTagArgs{})
@@ -11096,6 +12269,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseArrayInput)(nil)).Elem(), GetDatabasesDatabaseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseReplicationConfigurationInput)(nil)).Elem(), GetDatabasesDatabaseReplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseReplicationConfigurationArrayInput)(nil)).Elem(), GetDatabasesDatabaseReplicationConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDynamicTablesInInput)(nil)).Elem(), GetDynamicTablesInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDynamicTablesInPtrInput)(nil)).Elem(), GetDynamicTablesInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDynamicTablesLikeInput)(nil)).Elem(), GetDynamicTablesLikeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDynamicTablesLikePtrInput)(nil)).Elem(), GetDynamicTablesLikeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDynamicTablesLimitInput)(nil)).Elem(), GetDynamicTablesLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDynamicTablesLimitPtrInput)(nil)).Elem(), GetDynamicTablesLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDynamicTablesRecordInput)(nil)).Elem(), GetDynamicTablesRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDynamicTablesRecordArrayInput)(nil)).Elem(), GetDynamicTablesRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalFunctionsExternalFunctionInput)(nil)).Elem(), GetExternalFunctionsExternalFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalFunctionsExternalFunctionArrayInput)(nil)).Elem(), GetExternalFunctionsExternalFunctionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalTablesExternalTableInput)(nil)).Elem(), GetExternalTablesExternalTableArgs{})
@@ -11164,6 +12345,8 @@ func init() {
 	pulumi.RegisterOutputType(AlertAlertScheduleCronPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseReplicationConfigurationOutput{})
 	pulumi.RegisterOutputType(DatabaseReplicationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DynamicTableTargetLagOutput{})
+	pulumi.RegisterOutputType(DynamicTableTargetLagPtrOutput{})
 	pulumi.RegisterOutputType(ExternalFunctionArgOutput{})
 	pulumi.RegisterOutputType(ExternalFunctionArgArrayOutput{})
 	pulumi.RegisterOutputType(ExternalFunctionHeaderOutput{})
@@ -11200,6 +12383,8 @@ func init() {
 	pulumi.RegisterOutputType(ObjectParameterObjectIdentifierArrayOutput{})
 	pulumi.RegisterOutputType(ProcedureArgumentOutput{})
 	pulumi.RegisterOutputType(ProcedureArgumentArrayOutput{})
+	pulumi.RegisterOutputType(ProviderTokenAccessorOutput{})
+	pulumi.RegisterOutputType(ProviderTokenAccessorPtrOutput{})
 	pulumi.RegisterOutputType(RoleTagOutput{})
 	pulumi.RegisterOutputType(RoleTagArrayOutput{})
 	pulumi.RegisterOutputType(SchemaTagOutput{})
@@ -11234,6 +12419,14 @@ func init() {
 	pulumi.RegisterOutputType(GetDatabasesDatabaseArrayOutput{})
 	pulumi.RegisterOutputType(GetDatabasesDatabaseReplicationConfigurationOutput{})
 	pulumi.RegisterOutputType(GetDatabasesDatabaseReplicationConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetDynamicTablesInOutput{})
+	pulumi.RegisterOutputType(GetDynamicTablesInPtrOutput{})
+	pulumi.RegisterOutputType(GetDynamicTablesLikeOutput{})
+	pulumi.RegisterOutputType(GetDynamicTablesLikePtrOutput{})
+	pulumi.RegisterOutputType(GetDynamicTablesLimitOutput{})
+	pulumi.RegisterOutputType(GetDynamicTablesLimitPtrOutput{})
+	pulumi.RegisterOutputType(GetDynamicTablesRecordOutput{})
+	pulumi.RegisterOutputType(GetDynamicTablesRecordArrayOutput{})
 	pulumi.RegisterOutputType(GetExternalFunctionsExternalFunctionOutput{})
 	pulumi.RegisterOutputType(GetExternalFunctionsExternalFunctionArrayOutput{})
 	pulumi.RegisterOutputType(GetExternalTablesExternalTableOutput{})

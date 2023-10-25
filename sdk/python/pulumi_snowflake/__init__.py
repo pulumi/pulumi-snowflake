@@ -14,6 +14,7 @@ from .api_integration import *
 from .database import *
 from .database_grant import *
 from .database_role import *
+from .dynamic_table import *
 from .email_notification_integration import *
 from .external_function import *
 from .external_oauth_integration import *
@@ -32,6 +33,7 @@ from .get_current_role import *
 from .get_database import *
 from .get_database_roles import *
 from .get_databases import *
+from .get_dynamic_tables import *
 from .get_external_functions import *
 from .get_external_tables import *
 from .get_failover_groups import *
@@ -201,6 +203,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/databaseRole:DatabaseRole": "DatabaseRole"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/dynamicTable",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/dynamicTable:DynamicTable": "DynamicTable"
   }
  },
  {

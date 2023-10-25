@@ -24,16 +24,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="pulumi:providers:snowflake")
 public class Provider extends com.pulumi.resources.ProviderResource {
     /**
-     * The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
-     * using profile.
+     * Specifies your Snowflake account identifier assigned, by Snowflake. For information about account identifiers, see the
+     * [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html). Can also be sourced
+     * from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless using `profile`.
      * 
      */
     @Export(name="account", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> account;
 
     /**
-     * @return The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
-     * using profile.
+     * @return Specifies your Snowflake account identifier assigned, by Snowflake. For information about account identifiers, see the
+     * [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html). Can also be sourced
+     * from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless using `profile`.
      * 
      */
     public Output<Optional<String>> account() {
@@ -42,7 +44,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     /**
      * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
      * connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
-     * UsernamePasswordMFA
+     * UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
      * 
      */
     @Export(name="authenticator", refs={String.class}, tree="[0]")
@@ -51,21 +53,37 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     /**
      * @return Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
      * connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
-     * UsernamePasswordMFA
+     * UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
      * 
      */
     public Output<Optional<String>> authenticator() {
         return Codegen.optional(this.authenticator);
     }
     /**
-     * Supports passing in a custom host value to the snowflake go driver for use with privatelink.
+     * IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
+     * 
+     */
+    @Export(name="clientIp", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> clientIp;
+
+    /**
+     * @return IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
+     * 
+     */
+    public Output<Optional<String>> clientIp() {
+        return Codegen.optional(this.clientIp);
+    }
+    /**
+     * Supports passing in a custom host value to the snowflake go driver for use with privatelink. Can also be sourced from
+     * the `SNOWFLAKE_HOST` environment variable.
      * 
      */
     @Export(name="host", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> host;
 
     /**
-     * @return Supports passing in a custom host value to the snowflake go driver for use with privatelink.
+     * @return Supports passing in a custom host value to the snowflake go driver for use with privatelink. Can also be sourced from
+     * the `SNOWFLAKE_HOST` environment variable.
      * 
      */
     public Output<Optional<String>> host() {
@@ -73,73 +91,97 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     }
     /**
      * Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
-     * `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
-     * variable.
+     * `private_key_path`, `oauth_refresh_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN`
+     * environment variable.
+     * 
+     * @deprecated
+     * Use `token` instead
      * 
      */
+    @Deprecated /* Use `token` instead */
     @Export(name="oauthAccessToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthAccessToken;
 
     /**
      * @return Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
-     * `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
-     * variable.
+     * `private_key_path`, `oauth_refresh_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN`
+     * environment variable.
      * 
      */
     public Output<Optional<String>> oauthAccessToken() {
         return Codegen.optional(this.oauthAccessToken);
     }
     /**
-     * Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+     * Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+     * 
+     * @deprecated
+     * Use `token_accessor.0.client_id` instead
      * 
      */
+    @Deprecated /* Use `token_accessor.0.client_id` instead */
     @Export(name="oauthClientId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthClientId;
 
     /**
-     * @return Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+     * @return Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
      * 
      */
     public Output<Optional<String>> oauthClientId() {
         return Codegen.optional(this.oauthClientId);
     }
     /**
-     * Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+     * Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment
+     * variable.
+     * 
+     * @deprecated
+     * Use `token_accessor.0.client_secret` instead
      * 
      */
+    @Deprecated /* Use `token_accessor.0.client_secret` instead */
     @Export(name="oauthClientSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthClientSecret;
 
     /**
-     * @return Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+     * @return Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment
+     * variable.
      * 
      */
     public Output<Optional<String>> oauthClientSecret() {
         return Codegen.optional(this.oauthClientSecret);
     }
     /**
-     * Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
+     * Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
+     * 
+     * @deprecated
+     * Use `token_accessor.0.token_endpoint` instead
      * 
      */
+    @Deprecated /* Use `token_accessor.0.token_endpoint` instead */
     @Export(name="oauthEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthEndpoint;
 
     /**
-     * @return Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
+     * @return Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
      * 
      */
     public Output<Optional<String>> oauthEndpoint() {
         return Codegen.optional(this.oauthEndpoint);
     }
     /**
-     * Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
+     * Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment
+     * variable.
+     * 
+     * @deprecated
+     * Use `token_accessor.0.redirect_uri` instead
      * 
      */
+    @Deprecated /* Use `token_accessor.0.redirect_uri` instead */
     @Export(name="oauthRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthRedirectUrl;
 
     /**
-     * @return Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
+     * @return Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment
+     * variable.
      * 
      */
     public Output<Optional<String>> oauthRedirectUrl() {
@@ -148,55 +190,77 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     /**
      * Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
      * `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
-     * `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
-     * variable.
+     * `private_key_path`, `oauth_access_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN`
+     * environment variable.
+     * 
+     * @deprecated
+     * Use `token_accessor.0.refresh_token` instead
      * 
      */
+    @Deprecated /* Use `token_accessor.0.refresh_token` instead */
     @Export(name="oauthRefreshToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthRefreshToken;
 
     /**
      * @return Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
      * `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
-     * `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
-     * variable.
+     * `private_key_path`, `oauth_access_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN`
+     * environment variable.
      * 
      */
     public Output<Optional<String>> oauthRefreshToken() {
         return Codegen.optional(this.oauthRefreshToken);
     }
     /**
-     * Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+     * The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
+     * variable.
+     * 
+     */
+    @Export(name="oktaUrl", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> oktaUrl;
+
+    /**
+     * @return The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
+     * variable.
+     * 
+     */
+    public Output<Optional<String>> oktaUrl() {
+        return Codegen.optional(this.oktaUrl);
+    }
+    /**
+     * Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
+     * the `SNOWFLAKE_PASSCODE` environment variable.
      * 
      */
     @Export(name="passcode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> passcode;
 
     /**
-     * @return Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+     * @return Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
+     * the `SNOWFLAKE_PASSCODE` environment variable.
      * 
      */
     public Output<Optional<String>> passcode() {
         return Codegen.optional(this.passcode);
     }
     /**
-     * Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
-     * `SNOWFLAKE_PASSWORD` environment variable.
+     * Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can also be sourced from
+     * the `SNOWFLAKE_PASSWORD` environment variable.
      * 
      */
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
-     * @return Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
-     * `SNOWFLAKE_PASSWORD` environment variable.
+     * @return Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can also be sourced from
+     * the `SNOWFLAKE_PASSWORD` environment variable.
      * 
      */
     public Output<Optional<String>> password() {
         return Codegen.optional(this.password);
     }
     /**
-     * Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be sourced from
+     * Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can also be sourced from
      * `SNOWFLAKE_PRIVATE_KEY` environment variable.
      * 
      */
@@ -204,7 +268,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     private Output</* @Nullable */ String> privateKey;
 
     /**
-     * @return Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be sourced from
+     * @return Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can also be sourced from
      * `SNOWFLAKE_PRIVATE_KEY` environment variable.
      * 
      */
@@ -213,7 +277,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     }
     /**
      * Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
-     * des-ede3-cbc
+     * des-ede3-cbc. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
      * 
      */
     @Export(name="privateKeyPassphrase", refs={String.class}, tree="[0]")
@@ -221,7 +285,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
 
     /**
      * @return Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
-     * des-ede3-cbc
+     * des-ede3-cbc. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
      * 
      */
     public Output<Optional<String>> privateKeyPassphrase() {
@@ -229,109 +293,159 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     }
     /**
      * Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
-     * `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+     * `password`. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+     * 
+     * @deprecated
+     * use the [file Function](https://developer.hashicorp.com/terraform/language/functions/file) instead
      * 
      */
+    @Deprecated /* use the [file Function](https://developer.hashicorp.com/terraform/language/functions/file) instead */
     @Export(name="privateKeyPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privateKeyPath;
 
     /**
      * @return Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
-     * `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+     * `password`. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
      * 
      */
     public Output<Optional<String>> privateKeyPath() {
         return Codegen.optional(this.privateKeyPath);
     }
     /**
-     * Sets the profile to read from ~/.snowflake/config file.
+     * Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment
+     * variable.
      * 
      */
     @Export(name="profile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> profile;
 
     /**
-     * @return Sets the profile to read from ~/.snowflake/config file.
+     * @return Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment
+     * variable.
      * 
      */
     public Output<Optional<String>> profile() {
         return Codegen.optional(this.profile);
     }
     /**
-     * Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
+     * Either http or https, defaults to https. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
      * 
      */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> protocol;
 
     /**
-     * @return Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
+     * @return Either http or https, defaults to https. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
      * 
      */
     public Output<Optional<String>> protocol() {
         return Codegen.optional(this.protocol);
     }
     /**
+     * Snowflake region, such as &#34;eu-central-1&#34;, with this parameter. However, since this parameter is deprecated, it is best
+     * to specify the region as part of the account parameter. For details, see the description of the account parameter.
      * [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
      * format for the `account`
      * identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
-     * in the form of `&lt;cloud_region_id&gt;.&lt;cloud&gt;`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
+     * in the form of `&lt;cloud_region_id&gt;.&lt;cloud&gt;`. Can also be sourced from the `SNOWFLAKE_REGION` environment variable.
+     * 
+     * @deprecated
+     * Specify the region as part of the account parameter
      * 
      */
+    @Deprecated /* Specify the region as part of the account parameter */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> region;
 
     /**
-     * @return [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
+     * @return Snowflake region, such as &#34;eu-central-1&#34;, with this parameter. However, since this parameter is deprecated, it is best
+     * to specify the region as part of the account parameter. For details, see the description of the account parameter.
+     * [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
      * format for the `account`
      * identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
-     * in the form of `&lt;cloud_region_id&gt;.&lt;cloud&gt;`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
+     * in the form of `&lt;cloud_region_id&gt;.&lt;cloud&gt;`. Can also be sourced from the `SNOWFLAKE_REGION` environment variable.
      * 
      */
     public Output<Optional<String>> region() {
         return Codegen.optional(this.region);
     }
     /**
-     * Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
-     * `SNOWFLAKE_ROLE` environment variable.
+     * Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
+     * `SNOWFLAKE_ROLE` environment variable. .
      * 
      */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> role;
 
     /**
-     * @return Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
-     * `SNOWFLAKE_ROLE` environment variable.
+     * @return Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
+     * `SNOWFLAKE_ROLE` environment variable. .
      * 
      */
     public Output<Optional<String>> role() {
         return Codegen.optional(this.role);
     }
     /**
-     * Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
-     * using profile.
+     * Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
+     * variable.
      * 
      */
+    @Export(name="token", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> token;
+
+    /**
+     * @return Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
+     * variable.
+     * 
+     */
+    public Output<Optional<String>> token() {
+        return Codegen.optional(this.token);
+    }
+    /**
+     * Username. Can also be sourced from the `SNOWFLAKE_USER` environment variable. Required unless using `profile`.
+     * 
+     */
+    @Export(name="user", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> user;
+
+    /**
+     * @return Username. Can also be sourced from the `SNOWFLAKE_USER` environment variable. Required unless using `profile`.
+     * 
+     */
+    public Output<Optional<String>> user() {
+        return Codegen.optional(this.user);
+    }
+    /**
+     * Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+     * Required unless using `profile`.
+     * 
+     * @deprecated
+     * Use `user` instead
+     * 
+     */
+    @Deprecated /* Use `user` instead */
     @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 
     /**
-     * @return Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
-     * using profile.
+     * @return Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+     * Required unless using `profile`.
      * 
      */
     public Output<Optional<String>> username() {
         return Codegen.optional(this.username);
     }
     /**
-     * Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
+     * Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced
+     * from the `SNOWFLAKE_WAREHOUSE` environment variable.
      * 
      */
     @Export(name="warehouse", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> warehouse;
 
     /**
-     * @return Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
+     * @return Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced
+     * from the `SNOWFLAKE_WAREHOUSE` environment variable.
      * 
      */
     public Output<Optional<String>> warehouse() {
@@ -376,7 +490,8 @@ public class Provider extends com.pulumi.resources.ProviderResource {
                 "password",
                 "privateKey",
                 "privateKeyPassphrase",
-                "privateKeyPath"
+                "privateKeyPath",
+                "token"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

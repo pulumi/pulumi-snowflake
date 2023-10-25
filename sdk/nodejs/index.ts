@@ -50,6 +50,11 @@ export type DatabaseRole = import("./databaseRole").DatabaseRole;
 export const DatabaseRole: typeof import("./databaseRole").DatabaseRole = null as any;
 utilities.lazyLoad(exports, ["DatabaseRole"], () => require("./databaseRole"));
 
+export { DynamicTableArgs, DynamicTableState } from "./dynamicTable";
+export type DynamicTable = import("./dynamicTable").DynamicTable;
+export const DynamicTable: typeof import("./dynamicTable").DynamicTable = null as any;
+utilities.lazyLoad(exports, ["DynamicTable"], () => require("./dynamicTable"));
+
 export { EmailNotificationIntegrationArgs, EmailNotificationIntegrationState } from "./emailNotificationIntegration";
 export type EmailNotificationIntegration = import("./emailNotificationIntegration").EmailNotificationIntegration;
 export const EmailNotificationIntegration: typeof import("./emailNotificationIntegration").EmailNotificationIntegration = null as any;
@@ -139,6 +144,11 @@ export { GetDatabasesArgs, GetDatabasesResult, GetDatabasesOutputArgs } from "./
 export const getDatabases: typeof import("./getDatabases").getDatabases = null as any;
 export const getDatabasesOutput: typeof import("./getDatabases").getDatabasesOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabases","getDatabasesOutput"], () => require("./getDatabases"));
+
+export { GetDynamicTablesArgs, GetDynamicTablesResult, GetDynamicTablesOutputArgs } from "./getDynamicTables";
+export const getDynamicTables: typeof import("./getDynamicTables").getDynamicTables = null as any;
+export const getDynamicTablesOutput: typeof import("./getDynamicTables").getDynamicTablesOutput = null as any;
+utilities.lazyLoad(exports, ["getDynamicTables","getDynamicTablesOutput"], () => require("./getDynamicTables"));
 
 export { GetExternalFunctionsArgs, GetExternalFunctionsResult, GetExternalFunctionsOutputArgs } from "./getExternalFunctions";
 export const getExternalFunctions: typeof import("./getExternalFunctions").getExternalFunctions = null as any;
@@ -602,6 +612,8 @@ const _module = {
                 return new DatabaseGrant(name, <any>undefined, { urn })
             case "snowflake:index/databaseRole:DatabaseRole":
                 return new DatabaseRole(name, <any>undefined, { urn })
+            case "snowflake:index/dynamicTable:DynamicTable":
+                return new DynamicTable(name, <any>undefined, { urn })
             case "snowflake:index/emailNotificationIntegration:EmailNotificationIntegration":
                 return new EmailNotificationIntegration(name, <any>undefined, { urn })
             case "snowflake:index/externalFunction:ExternalFunction":
@@ -748,6 +760,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/apiIntegration", _modu
 pulumi.runtime.registerResourceModule("snowflake", "index/database", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/databaseGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/databaseRole", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/dynamicTable", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/emailNotificationIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalFunction", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalOauthIntegration", _module)

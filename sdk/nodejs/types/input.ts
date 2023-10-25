@@ -32,6 +32,17 @@ export interface DatabaseReplicationConfiguration {
     ignoreEditionCheck?: pulumi.Input<boolean>;
 }
 
+export interface DynamicTableTargetLag {
+    /**
+     * Specifies whether the target lag time is downstream.
+     */
+    downstream?: pulumi.Input<boolean>;
+    /**
+     * Specifies the maximum target lag time for the dynamic table.
+     */
+    maximumDuration?: pulumi.Input<string>;
+}
+
 export interface ExternalFunctionArg {
     /**
      * Argument name
@@ -134,6 +145,72 @@ export interface FunctionArgument {
      * The argument type
      */
     type: pulumi.Input<string>;
+}
+
+export interface GetDynamicTablesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database (db_name).
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema (schema_name).
+     */
+    schema?: string;
+}
+
+export interface GetDynamicTablesInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean>;
+    /**
+     * Returns records for the current database in use or for a specified database (db_name).
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Returns records for the current schema in use or a specified schema (schema_name).
+     */
+    schema?: pulumi.Input<string>;
+}
+
+export interface GetDynamicTablesLike {
+    /**
+     * Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+     */
+    pattern: string;
+}
+
+export interface GetDynamicTablesLikeArgs {
+    /**
+     * Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+     */
+    pattern: pulumi.Input<string>;
+}
+
+export interface GetDynamicTablesLimit {
+    /**
+     * The optional FROM 'name_string' subclause effectively serves as a “cursor” for the results. This enables fetching the specified number of rows following the first row whose object name matches the specified string
+     */
+    from?: string;
+    /**
+     * Specifies the maximum number of rows to return.
+     */
+    rows?: number;
+}
+
+export interface GetDynamicTablesLimitArgs {
+    /**
+     * The optional FROM 'name_string' subclause effectively serves as a “cursor” for the results. This enables fetching the specified number of rows following the first row whose object name matches the specified string
+     */
+    from?: pulumi.Input<string>;
+    /**
+     * Specifies the maximum number of rows to return.
+     */
+    rows?: pulumi.Input<number>;
 }
 
 export interface GetGrantsFutureGrantsIn {
@@ -411,6 +488,14 @@ export interface ProcedureArgument {
     type: pulumi.Input<string>;
 }
 
+export interface ProviderTokenAccessor {
+    clientId: pulumi.Input<string>;
+    clientSecret: pulumi.Input<string>;
+    redirectUri: pulumi.Input<string>;
+    refreshToken: pulumi.Input<string>;
+    tokenEndpoint: pulumi.Input<string>;
+}
+
 export interface RoleTag {
     /**
      * Name of the database that the tag was created in.
@@ -617,4 +702,6 @@ export interface ViewTag {
      * Tag value, e.g. marketing_info.
      */
     value: pulumi.Input<string>;
+}
+export namespace config {
 }

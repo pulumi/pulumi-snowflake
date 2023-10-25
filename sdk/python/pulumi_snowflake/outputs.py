@@ -14,6 +14,7 @@ __all__ = [
     'AlertAlertSchedule',
     'AlertAlertScheduleCron',
     'DatabaseReplicationConfiguration',
+    'DynamicTableTargetLag',
     'ExternalFunctionArg',
     'ExternalFunctionHeader',
     'ExternalTableColumn',
@@ -49,6 +50,10 @@ __all__ = [
     'GetDatabaseRolesDatabaseRoleResult',
     'GetDatabasesDatabaseResult',
     'GetDatabasesDatabaseReplicationConfigurationResult',
+    'GetDynamicTablesInResult',
+    'GetDynamicTablesLikeResult',
+    'GetDynamicTablesLimitResult',
+    'GetDynamicTablesRecordResult',
     'GetExternalFunctionsExternalFunctionResult',
     'GetExternalTablesExternalTableResult',
     'GetFailoverGroupsFailoverGroupResult',
@@ -243,6 +248,69 @@ class DatabaseReplicationConfiguration(dict):
     @pulumi.getter(name="ignoreEditionCheck")
     def ignore_edition_check(self) -> Optional[bool]:
         return pulumi.get(self, "ignore_edition_check")
+
+
+@pulumi.output_type
+class DynamicTableTargetLag(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumDuration":
+            suggest = "maximum_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DynamicTableTargetLag. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DynamicTableTargetLag.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DynamicTableTargetLag.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 downstream: Optional[bool] = None,
+                 maximum_duration: Optional[str] = None):
+        """
+        :param bool downstream: Specifies whether the target lag time is downstream.
+        :param str maximum_duration: Specifies the maximum target lag time for the dynamic table.
+        """
+        DynamicTableTargetLag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            downstream=downstream,
+            maximum_duration=maximum_duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             downstream: Optional[bool] = None,
+             maximum_duration: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if maximum_duration is None and 'maximumDuration' in kwargs:
+            maximum_duration = kwargs['maximumDuration']
+
+        if downstream is not None:
+            _setter("downstream", downstream)
+        if maximum_duration is not None:
+            _setter("maximum_duration", maximum_duration)
+
+    @property
+    @pulumi.getter
+    def downstream(self) -> Optional[bool]:
+        """
+        Specifies whether the target lag time is downstream.
+        """
+        return pulumi.get(self, "downstream")
+
+    @property
+    @pulumi.getter(name="maximumDuration")
+    def maximum_duration(self) -> Optional[str]:
+        """
+        Specifies the maximum target lag time for the dynamic table.
+        """
+        return pulumi.get(self, "maximum_duration")
 
 
 @pulumi.output_type
@@ -2825,6 +2893,401 @@ class GetDatabasesDatabaseReplicationConfigurationResult(dict):
     @pulumi.getter(name="ignoreEditionCheck")
     def ignore_edition_check(self) -> bool:
         return pulumi.get(self, "ignore_edition_check")
+
+
+@pulumi.output_type
+class GetDynamicTablesInResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[bool] = None,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param bool account: Returns records for the entire account.
+        :param str database: Returns records for the current database in use or for a specified database (db_name).
+        :param str schema: Returns records for the current schema in use or a specified schema (schema_name).
+        """
+        GetDynamicTablesInResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account=account,
+            database=database,
+            schema=schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account: Optional[bool] = None,
+             database: Optional[str] = None,
+             schema: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
+        if account is not None:
+            _setter("account", account)
+        if database is not None:
+            _setter("database", database)
+        if schema is not None:
+            _setter("schema", schema)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Returns records for the current database in use or for a specified database (db_name).
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Returns records for the current schema in use or a specified schema (schema_name).
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetDynamicTablesLikeResult(dict):
+    def __init__(__self__, *,
+                 pattern: str):
+        """
+        :param str pattern: Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+        """
+        GetDynamicTablesLikeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pattern=pattern,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pattern: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
+        _setter("pattern", pattern)
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> str:
+        """
+        Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+        """
+        return pulumi.get(self, "pattern")
+
+
+@pulumi.output_type
+class GetDynamicTablesLimitResult(dict):
+    def __init__(__self__, *,
+                 from_: Optional[str] = None,
+                 rows: Optional[int] = None):
+        """
+        :param str from_: The optional FROM 'name_string' subclause effectively serves as a “cursor” for the results. This enables fetching the specified number of rows following the first row whose object name matches the specified string
+        :param int rows: Specifies the maximum number of rows to return.
+        """
+        GetDynamicTablesLimitResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_=from_,
+            rows=rows,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_: Optional[str] = None,
+             rows: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_ is None and 'from' in kwargs:
+            from_ = kwargs['from']
+
+        if from_ is not None:
+            _setter("from_", from_)
+        if rows is not None:
+            _setter("rows", rows)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[str]:
+        """
+        The optional FROM 'name_string' subclause effectively serves as a “cursor” for the results. This enables fetching the specified number of rows following the first row whose object name matches the specified string
+        """
+        return pulumi.get(self, "from_")
+
+    @property
+    @pulumi.getter
+    def rows(self) -> Optional[int]:
+        """
+        Specifies the maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+
+@pulumi.output_type
+class GetDynamicTablesRecordResult(dict):
+    def __init__(__self__, *,
+                 automatic_clustering: bool,
+                 bytes: int,
+                 cluster_by: str,
+                 comment: str,
+                 created_on: str,
+                 data_timestamp: str,
+                 database_name: str,
+                 is_clone: bool,
+                 is_replica: bool,
+                 last_suspended_on: str,
+                 name: str,
+                 owner: str,
+                 refresh_mode: str,
+                 refresh_mode_reason: str,
+                 rows: int,
+                 scheduling_state: str,
+                 schema_name: str,
+                 target_lag: str,
+                 text: str,
+                 warehouse: str):
+        GetDynamicTablesRecordResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automatic_clustering=automatic_clustering,
+            bytes=bytes,
+            cluster_by=cluster_by,
+            comment=comment,
+            created_on=created_on,
+            data_timestamp=data_timestamp,
+            database_name=database_name,
+            is_clone=is_clone,
+            is_replica=is_replica,
+            last_suspended_on=last_suspended_on,
+            name=name,
+            owner=owner,
+            refresh_mode=refresh_mode,
+            refresh_mode_reason=refresh_mode_reason,
+            rows=rows,
+            scheduling_state=scheduling_state,
+            schema_name=schema_name,
+            target_lag=target_lag,
+            text=text,
+            warehouse=warehouse,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automatic_clustering: Optional[bool] = None,
+             bytes: Optional[int] = None,
+             cluster_by: Optional[str] = None,
+             comment: Optional[str] = None,
+             created_on: Optional[str] = None,
+             data_timestamp: Optional[str] = None,
+             database_name: Optional[str] = None,
+             is_clone: Optional[bool] = None,
+             is_replica: Optional[bool] = None,
+             last_suspended_on: Optional[str] = None,
+             name: Optional[str] = None,
+             owner: Optional[str] = None,
+             refresh_mode: Optional[str] = None,
+             refresh_mode_reason: Optional[str] = None,
+             rows: Optional[int] = None,
+             scheduling_state: Optional[str] = None,
+             schema_name: Optional[str] = None,
+             target_lag: Optional[str] = None,
+             text: Optional[str] = None,
+             warehouse: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if automatic_clustering is None and 'automaticClustering' in kwargs:
+            automatic_clustering = kwargs['automaticClustering']
+        if automatic_clustering is None:
+            raise TypeError("Missing 'automatic_clustering' argument")
+        if bytes is None:
+            raise TypeError("Missing 'bytes' argument")
+        if cluster_by is None and 'clusterBy' in kwargs:
+            cluster_by = kwargs['clusterBy']
+        if cluster_by is None:
+            raise TypeError("Missing 'cluster_by' argument")
+        if comment is None:
+            raise TypeError("Missing 'comment' argument")
+        if created_on is None and 'createdOn' in kwargs:
+            created_on = kwargs['createdOn']
+        if created_on is None:
+            raise TypeError("Missing 'created_on' argument")
+        if data_timestamp is None and 'dataTimestamp' in kwargs:
+            data_timestamp = kwargs['dataTimestamp']
+        if data_timestamp is None:
+            raise TypeError("Missing 'data_timestamp' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if is_clone is None and 'isClone' in kwargs:
+            is_clone = kwargs['isClone']
+        if is_clone is None:
+            raise TypeError("Missing 'is_clone' argument")
+        if is_replica is None and 'isReplica' in kwargs:
+            is_replica = kwargs['isReplica']
+        if is_replica is None:
+            raise TypeError("Missing 'is_replica' argument")
+        if last_suspended_on is None and 'lastSuspendedOn' in kwargs:
+            last_suspended_on = kwargs['lastSuspendedOn']
+        if last_suspended_on is None:
+            raise TypeError("Missing 'last_suspended_on' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if owner is None:
+            raise TypeError("Missing 'owner' argument")
+        if refresh_mode is None and 'refreshMode' in kwargs:
+            refresh_mode = kwargs['refreshMode']
+        if refresh_mode is None:
+            raise TypeError("Missing 'refresh_mode' argument")
+        if refresh_mode_reason is None and 'refreshModeReason' in kwargs:
+            refresh_mode_reason = kwargs['refreshModeReason']
+        if refresh_mode_reason is None:
+            raise TypeError("Missing 'refresh_mode_reason' argument")
+        if rows is None:
+            raise TypeError("Missing 'rows' argument")
+        if scheduling_state is None and 'schedulingState' in kwargs:
+            scheduling_state = kwargs['schedulingState']
+        if scheduling_state is None:
+            raise TypeError("Missing 'scheduling_state' argument")
+        if schema_name is None and 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if schema_name is None:
+            raise TypeError("Missing 'schema_name' argument")
+        if target_lag is None and 'targetLag' in kwargs:
+            target_lag = kwargs['targetLag']
+        if target_lag is None:
+            raise TypeError("Missing 'target_lag' argument")
+        if text is None:
+            raise TypeError("Missing 'text' argument")
+        if warehouse is None:
+            raise TypeError("Missing 'warehouse' argument")
+
+        _setter("automatic_clustering", automatic_clustering)
+        _setter("bytes", bytes)
+        _setter("cluster_by", cluster_by)
+        _setter("comment", comment)
+        _setter("created_on", created_on)
+        _setter("data_timestamp", data_timestamp)
+        _setter("database_name", database_name)
+        _setter("is_clone", is_clone)
+        _setter("is_replica", is_replica)
+        _setter("last_suspended_on", last_suspended_on)
+        _setter("name", name)
+        _setter("owner", owner)
+        _setter("refresh_mode", refresh_mode)
+        _setter("refresh_mode_reason", refresh_mode_reason)
+        _setter("rows", rows)
+        _setter("scheduling_state", scheduling_state)
+        _setter("schema_name", schema_name)
+        _setter("target_lag", target_lag)
+        _setter("text", text)
+        _setter("warehouse", warehouse)
+
+    @property
+    @pulumi.getter(name="automaticClustering")
+    def automatic_clustering(self) -> bool:
+        return pulumi.get(self, "automatic_clustering")
+
+    @property
+    @pulumi.getter
+    def bytes(self) -> int:
+        return pulumi.get(self, "bytes")
+
+    @property
+    @pulumi.getter(name="clusterBy")
+    def cluster_by(self) -> str:
+        return pulumi.get(self, "cluster_by")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="dataTimestamp")
+    def data_timestamp(self) -> str:
+        return pulumi.get(self, "data_timestamp")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="isClone")
+    def is_clone(self) -> bool:
+        return pulumi.get(self, "is_clone")
+
+    @property
+    @pulumi.getter(name="isReplica")
+    def is_replica(self) -> bool:
+        return pulumi.get(self, "is_replica")
+
+    @property
+    @pulumi.getter(name="lastSuspendedOn")
+    def last_suspended_on(self) -> str:
+        return pulumi.get(self, "last_suspended_on")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="refreshMode")
+    def refresh_mode(self) -> str:
+        return pulumi.get(self, "refresh_mode")
+
+    @property
+    @pulumi.getter(name="refreshModeReason")
+    def refresh_mode_reason(self) -> str:
+        return pulumi.get(self, "refresh_mode_reason")
+
+    @property
+    @pulumi.getter
+    def rows(self) -> int:
+        return pulumi.get(self, "rows")
+
+    @property
+    @pulumi.getter(name="schedulingState")
+    def scheduling_state(self) -> str:
+        return pulumi.get(self, "scheduling_state")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> str:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter(name="targetLag")
+    def target_lag(self) -> str:
+        return pulumi.get(self, "target_lag")
+
+    @property
+    @pulumi.getter
+    def text(self) -> str:
+        return pulumi.get(self, "text")
+
+    @property
+    @pulumi.getter
+    def warehouse(self) -> str:
+        return pulumi.get(self, "warehouse")
 
 
 @pulumi.output_type

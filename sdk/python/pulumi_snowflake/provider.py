@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from ._inputs import *
 
 __all__ = ['ProviderArgs', 'Provider']
 
@@ -17,14 +18,28 @@ class ProviderArgs:
                  account: Optional[pulumi.Input[str]] = None,
                  authenticator: Optional[pulumi.Input[str]] = None,
                  browser_auth: Optional[pulumi.Input[bool]] = None,
+                 client_ip: Optional[pulumi.Input[str]] = None,
+                 client_request_mfa_token: Optional[pulumi.Input[bool]] = None,
+                 client_store_temporary_credential: Optional[pulumi.Input[bool]] = None,
+                 client_timeout: Optional[pulumi.Input[int]] = None,
+                 disable_query_context_cache: Optional[pulumi.Input[bool]] = None,
+                 disable_telemetry: Optional[pulumi.Input[bool]] = None,
+                 external_browser_timeout: Optional[pulumi.Input[int]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  insecure_mode: Optional[pulumi.Input[bool]] = None,
+                 jwt_client_timeout: Optional[pulumi.Input[int]] = None,
+                 jwt_expire_timeout: Optional[pulumi.Input[int]] = None,
+                 keep_session_alive: Optional[pulumi.Input[bool]] = None,
+                 login_timeout: Optional[pulumi.Input[int]] = None,
                  oauth_access_token: Optional[pulumi.Input[str]] = None,
                  oauth_client_id: Optional[pulumi.Input[str]] = None,
                  oauth_client_secret: Optional[pulumi.Input[str]] = None,
                  oauth_endpoint: Optional[pulumi.Input[str]] = None,
                  oauth_redirect_url: Optional[pulumi.Input[str]] = None,
                  oauth_refresh_token: Optional[pulumi.Input[str]] = None,
+                 okta_url: Optional[pulumi.Input[str]] = None,
+                 oscp_fail_open: Optional[pulumi.Input[bool]] = None,
+                 params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  passcode: Optional[pulumi.Input[str]] = None,
                  passcode_in_password: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -35,71 +50,131 @@ class ProviderArgs:
                  profile: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
+                 request_timeout: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  session_params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 token: Optional[pulumi.Input[str]] = None,
+                 token_accessor: Optional[pulumi.Input['ProviderTokenAccessorArgs']] = None,
+                 user: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
+                 validate_default_parameters: Optional[pulumi.Input[bool]] = None,
                  warehouse: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
-        :param pulumi.Input[str] account: The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
-               using profile.
+        :param pulumi.Input[str] account: Specifies your Snowflake account identifier assigned, by Snowflake. For information about account identifiers, see the
+               [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html). Can also be sourced
+               from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless using `profile`.
         :param pulumi.Input[str] authenticator: Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
                connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
-               UsernamePasswordMFA
-        :param pulumi.Input[bool] browser_auth: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
-        :param pulumi.Input[str] host: Supports passing in a custom host value to the snowflake go driver for use with privatelink.
+               UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        :param pulumi.Input[bool] browser_auth: Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
+        :param pulumi.Input[str] client_ip: IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
+        :param pulumi.Input[bool] client_request_mfa_token: When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also
+               be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
+        :param pulumi.Input[bool] client_store_temporary_credential: When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be
+               sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
+        :param pulumi.Input[int] client_timeout: The timeout in seconds for the client to complete the authentication. Default is 900 seconds. Can also be sourced from
+               the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
+        :param pulumi.Input[bool] disable_query_context_cache: Should HTAP query context cache be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE`
+               environment variable.
+        :param pulumi.Input[bool] disable_telemetry: Indicates whether to disable telemetry. Can also be sourced from the `SNOWFLAKE_DISABLE_TELEMETRY` environment variable.
+        :param pulumi.Input[int] external_browser_timeout: The timeout in seconds for the external browser to complete the authentication. Default is 120 seconds. Can also be
+               sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
+        :param pulumi.Input[str] host: Supports passing in a custom host value to the snowflake go driver for use with privatelink. Can also be sourced from
+               the `SNOWFLAKE_HOST` environment variable.
         :param pulumi.Input[bool] insecure_mode: If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
-               default value for testing or emergency situations only.
+               default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE`
+               environment variable.
+        :param pulumi.Input[int] jwt_client_timeout: The timeout in seconds for the JWT client to complete the authentication. Default is 10 seconds. Can also be sourced
+               from the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
+        :param pulumi.Input[int] jwt_expire_timeout: JWT expire after timeout in seconds. Can also be sourced from the `SNOWFLAKE_JWT_EXPIRE_TIMEOUT` environment variable.
+        :param pulumi.Input[bool] keep_session_alive: Enables the session to persist even after the connection is closed. Can also be sourced from the
+               `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
+        :param pulumi.Input[int] login_timeout: Login retry timeout EXCLUDING network roundtrip and read out http response. Can also be sourced from the
+               `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
         :param pulumi.Input[str] oauth_access_token: Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
-               `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
+               `private_key_path`, `oauth_refresh_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN`
+               environment variable.
+        :param pulumi.Input[str] oauth_client_id: Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+        :param pulumi.Input[str] oauth_client_secret: Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment
                variable.
-        :param pulumi.Input[str] oauth_client_id: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
-        :param pulumi.Input[str] oauth_client_secret: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
-        :param pulumi.Input[str] oauth_endpoint: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
-        :param pulumi.Input[str] oauth_redirect_url: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
+        :param pulumi.Input[str] oauth_endpoint: Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
+        :param pulumi.Input[str] oauth_redirect_url: Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment
+               variable.
         :param pulumi.Input[str] oauth_refresh_token: Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
                `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
-               `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
-               variable.
-        :param pulumi.Input[str] passcode: Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
-        :param pulumi.Input[bool] passcode_in_password: False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
-               of the password.
-        :param pulumi.Input[str] password: Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
-               `SNOWFLAKE_PASSWORD` environment variable.
-        :param pulumi.Input[int] port: Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`
+               `private_key_path`, `oauth_access_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN`
                environment variable.
-        :param pulumi.Input[str] private_key: Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be sourced from
+        :param pulumi.Input[str] okta_url: The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
+               variable.
+        :param pulumi.Input[bool] oscp_fail_open: True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
+               sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+        :param pulumi.Input[Mapping[str, Any]] params: Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
+        :param pulumi.Input[str] passcode: Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
+               the `SNOWFLAKE_PASSCODE` environment variable.
+        :param pulumi.Input[bool] passcode_in_password: False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
+               of the password. Can also be sourced from the `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
+        :param pulumi.Input[str] password: Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can also be sourced from
+               the `SNOWFLAKE_PASSWORD` environment variable.
+        :param pulumi.Input[int] port: Support custom port values to snowflake go driver for use with privatelink. Can also be sourced from the
+               `SNOWFLAKE_PORT` environment variable.
+        :param pulumi.Input[str] private_key: Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can also be sourced from
                `SNOWFLAKE_PRIVATE_KEY` environment variable.
         :param pulumi.Input[str] private_key_passphrase: Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
-               des-ede3-cbc
+               des-ede3-cbc. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
         :param pulumi.Input[str] private_key_path: Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
-               `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
-        :param pulumi.Input[str] profile: Sets the profile to read from ~/.snowflake/config file.
-        :param pulumi.Input[str] protocol: Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
-        :param pulumi.Input[str] region: [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
+               `password`. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+        :param pulumi.Input[str] profile: Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment
+               variable.
+        :param pulumi.Input[str] protocol: Either http or https, defaults to https. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
+        :param pulumi.Input[str] region: Snowflake region, such as "eu-central-1", with this parameter. However, since this parameter is deprecated, it is best
+               to specify the region as part of the account parameter. For details, see the description of the account parameter.
+               [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
                format for the `account`
                identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
-               in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
-        :param pulumi.Input[str] role: Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
-               `SNOWFLAKE_ROLE` environment variable.
+               in the form of `<cloud_region_id>.<cloud>`. Can also be sourced from the `SNOWFLAKE_REGION` environment variable.
+        :param pulumi.Input[int] request_timeout: request retry timeout EXCLUDING network roundtrip and read out http response. Can also be sourced from the
+               `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
+        :param pulumi.Input[str] role: Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
+               `SNOWFLAKE_ROLE` environment variable. .
         :param pulumi.Input[Mapping[str, Any]] session_params: Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
-        :param pulumi.Input[str] username: Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
-               using profile.
-        :param pulumi.Input[str] warehouse: Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
+        :param pulumi.Input[str] token: Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
+               variable.
+        :param pulumi.Input[str] user: Username. Can also be sourced from the `SNOWFLAKE_USER` environment variable. Required unless using `profile`.
+        :param pulumi.Input[str] username: Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+               Required unless using `profile`.
+        :param pulumi.Input[bool] validate_default_parameters: If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
+               established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+        :param pulumi.Input[str] warehouse: Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced
+               from the `SNOWFLAKE_WAREHOUSE` environment variable.
         """
         ProviderArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             account=account,
             authenticator=authenticator,
             browser_auth=browser_auth,
+            client_ip=client_ip,
+            client_request_mfa_token=client_request_mfa_token,
+            client_store_temporary_credential=client_store_temporary_credential,
+            client_timeout=client_timeout,
+            disable_query_context_cache=disable_query_context_cache,
+            disable_telemetry=disable_telemetry,
+            external_browser_timeout=external_browser_timeout,
             host=host,
             insecure_mode=insecure_mode,
+            jwt_client_timeout=jwt_client_timeout,
+            jwt_expire_timeout=jwt_expire_timeout,
+            keep_session_alive=keep_session_alive,
+            login_timeout=login_timeout,
             oauth_access_token=oauth_access_token,
             oauth_client_id=oauth_client_id,
             oauth_client_secret=oauth_client_secret,
             oauth_endpoint=oauth_endpoint,
             oauth_redirect_url=oauth_redirect_url,
             oauth_refresh_token=oauth_refresh_token,
+            okta_url=okta_url,
+            oscp_fail_open=oscp_fail_open,
+            params=params,
             passcode=passcode,
             passcode_in_password=passcode_in_password,
             password=password,
@@ -110,9 +185,14 @@ class ProviderArgs:
             profile=profile,
             protocol=protocol,
             region=region,
+            request_timeout=request_timeout,
             role=role,
             session_params=session_params,
+            token=token,
+            token_accessor=token_accessor,
+            user=user,
             username=username,
+            validate_default_parameters=validate_default_parameters,
             warehouse=warehouse,
         )
     @staticmethod
@@ -121,14 +201,28 @@ class ProviderArgs:
              account: Optional[pulumi.Input[str]] = None,
              authenticator: Optional[pulumi.Input[str]] = None,
              browser_auth: Optional[pulumi.Input[bool]] = None,
+             client_ip: Optional[pulumi.Input[str]] = None,
+             client_request_mfa_token: Optional[pulumi.Input[bool]] = None,
+             client_store_temporary_credential: Optional[pulumi.Input[bool]] = None,
+             client_timeout: Optional[pulumi.Input[int]] = None,
+             disable_query_context_cache: Optional[pulumi.Input[bool]] = None,
+             disable_telemetry: Optional[pulumi.Input[bool]] = None,
+             external_browser_timeout: Optional[pulumi.Input[int]] = None,
              host: Optional[pulumi.Input[str]] = None,
              insecure_mode: Optional[pulumi.Input[bool]] = None,
+             jwt_client_timeout: Optional[pulumi.Input[int]] = None,
+             jwt_expire_timeout: Optional[pulumi.Input[int]] = None,
+             keep_session_alive: Optional[pulumi.Input[bool]] = None,
+             login_timeout: Optional[pulumi.Input[int]] = None,
              oauth_access_token: Optional[pulumi.Input[str]] = None,
              oauth_client_id: Optional[pulumi.Input[str]] = None,
              oauth_client_secret: Optional[pulumi.Input[str]] = None,
              oauth_endpoint: Optional[pulumi.Input[str]] = None,
              oauth_redirect_url: Optional[pulumi.Input[str]] = None,
              oauth_refresh_token: Optional[pulumi.Input[str]] = None,
+             okta_url: Optional[pulumi.Input[str]] = None,
+             oscp_fail_open: Optional[pulumi.Input[bool]] = None,
+             params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
              passcode: Optional[pulumi.Input[str]] = None,
              passcode_in_password: Optional[pulumi.Input[bool]] = None,
              password: Optional[pulumi.Input[str]] = None,
@@ -139,16 +233,43 @@ class ProviderArgs:
              profile: Optional[pulumi.Input[str]] = None,
              protocol: Optional[pulumi.Input[str]] = None,
              region: Optional[pulumi.Input[str]] = None,
+             request_timeout: Optional[pulumi.Input[int]] = None,
              role: Optional[pulumi.Input[str]] = None,
              session_params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             token: Optional[pulumi.Input[str]] = None,
+             token_accessor: Optional[pulumi.Input['ProviderTokenAccessorArgs']] = None,
+             user: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
+             validate_default_parameters: Optional[pulumi.Input[bool]] = None,
              warehouse: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
         if browser_auth is None and 'browserAuth' in kwargs:
             browser_auth = kwargs['browserAuth']
+        if client_ip is None and 'clientIp' in kwargs:
+            client_ip = kwargs['clientIp']
+        if client_request_mfa_token is None and 'clientRequestMfaToken' in kwargs:
+            client_request_mfa_token = kwargs['clientRequestMfaToken']
+        if client_store_temporary_credential is None and 'clientStoreTemporaryCredential' in kwargs:
+            client_store_temporary_credential = kwargs['clientStoreTemporaryCredential']
+        if client_timeout is None and 'clientTimeout' in kwargs:
+            client_timeout = kwargs['clientTimeout']
+        if disable_query_context_cache is None and 'disableQueryContextCache' in kwargs:
+            disable_query_context_cache = kwargs['disableQueryContextCache']
+        if disable_telemetry is None and 'disableTelemetry' in kwargs:
+            disable_telemetry = kwargs['disableTelemetry']
+        if external_browser_timeout is None and 'externalBrowserTimeout' in kwargs:
+            external_browser_timeout = kwargs['externalBrowserTimeout']
         if insecure_mode is None and 'insecureMode' in kwargs:
             insecure_mode = kwargs['insecureMode']
+        if jwt_client_timeout is None and 'jwtClientTimeout' in kwargs:
+            jwt_client_timeout = kwargs['jwtClientTimeout']
+        if jwt_expire_timeout is None and 'jwtExpireTimeout' in kwargs:
+            jwt_expire_timeout = kwargs['jwtExpireTimeout']
+        if keep_session_alive is None and 'keepSessionAlive' in kwargs:
+            keep_session_alive = kwargs['keepSessionAlive']
+        if login_timeout is None and 'loginTimeout' in kwargs:
+            login_timeout = kwargs['loginTimeout']
         if oauth_access_token is None and 'oauthAccessToken' in kwargs:
             oauth_access_token = kwargs['oauthAccessToken']
         if oauth_client_id is None and 'oauthClientId' in kwargs:
@@ -161,6 +282,10 @@ class ProviderArgs:
             oauth_redirect_url = kwargs['oauthRedirectUrl']
         if oauth_refresh_token is None and 'oauthRefreshToken' in kwargs:
             oauth_refresh_token = kwargs['oauthRefreshToken']
+        if okta_url is None and 'oktaUrl' in kwargs:
+            okta_url = kwargs['oktaUrl']
+        if oscp_fail_open is None and 'oscpFailOpen' in kwargs:
+            oscp_fail_open = kwargs['oscpFailOpen']
         if passcode_in_password is None and 'passcodeInPassword' in kwargs:
             passcode_in_password = kwargs['passcodeInPassword']
         if private_key is None and 'privateKey' in kwargs:
@@ -169,8 +294,14 @@ class ProviderArgs:
             private_key_passphrase = kwargs['privateKeyPassphrase']
         if private_key_path is None and 'privateKeyPath' in kwargs:
             private_key_path = kwargs['privateKeyPath']
+        if request_timeout is None and 'requestTimeout' in kwargs:
+            request_timeout = kwargs['requestTimeout']
         if session_params is None and 'sessionParams' in kwargs:
             session_params = kwargs['sessionParams']
+        if token_accessor is None and 'tokenAccessor' in kwargs:
+            token_accessor = kwargs['tokenAccessor']
+        if validate_default_parameters is None and 'validateDefaultParameters' in kwargs:
+            validate_default_parameters = kwargs['validateDefaultParameters']
 
         if account is None:
             account = _utilities.get_env('SNOWFLAKE_ACCOUNT')
@@ -185,36 +316,82 @@ class ProviderArgs:
             browser_auth = _utilities.get_env_bool('SNOWFLAKE_USE_BROWSER_AUTH')
         if browser_auth is not None:
             _setter("browser_auth", browser_auth)
+        if client_ip is not None:
+            _setter("client_ip", client_ip)
+        if client_request_mfa_token is not None:
+            _setter("client_request_mfa_token", client_request_mfa_token)
+        if client_store_temporary_credential is not None:
+            _setter("client_store_temporary_credential", client_store_temporary_credential)
+        if client_timeout is not None:
+            _setter("client_timeout", client_timeout)
+        if disable_query_context_cache is not None:
+            _setter("disable_query_context_cache", disable_query_context_cache)
+        if disable_telemetry is not None:
+            _setter("disable_telemetry", disable_telemetry)
+        if external_browser_timeout is not None:
+            _setter("external_browser_timeout", external_browser_timeout)
         if host is None:
             host = _utilities.get_env('SNOWFLAKE_HOST')
         if host is not None:
             _setter("host", host)
         if insecure_mode is not None:
             _setter("insecure_mode", insecure_mode)
+        if jwt_client_timeout is not None:
+            _setter("jwt_client_timeout", jwt_client_timeout)
+        if jwt_expire_timeout is not None:
+            _setter("jwt_expire_timeout", jwt_expire_timeout)
+        if keep_session_alive is not None:
+            _setter("keep_session_alive", keep_session_alive)
+        if login_timeout is not None:
+            _setter("login_timeout", login_timeout)
+        if oauth_access_token is not None:
+            warnings.warn("""Use `token` instead""", DeprecationWarning)
+            pulumi.log.warn("""oauth_access_token is deprecated: Use `token` instead""")
         if oauth_access_token is None:
             oauth_access_token = _utilities.get_env('SNOWFLAKE_OAUTH_ACCESS_TOKEN')
         if oauth_access_token is not None:
             _setter("oauth_access_token", oauth_access_token)
+        if oauth_client_id is not None:
+            warnings.warn("""Use `token_accessor.0.client_id` instead""", DeprecationWarning)
+            pulumi.log.warn("""oauth_client_id is deprecated: Use `token_accessor.0.client_id` instead""")
         if oauth_client_id is None:
             oauth_client_id = _utilities.get_env('SNOWFLAKE_OAUTH_CLIENT_ID')
         if oauth_client_id is not None:
             _setter("oauth_client_id", oauth_client_id)
+        if oauth_client_secret is not None:
+            warnings.warn("""Use `token_accessor.0.client_secret` instead""", DeprecationWarning)
+            pulumi.log.warn("""oauth_client_secret is deprecated: Use `token_accessor.0.client_secret` instead""")
         if oauth_client_secret is None:
             oauth_client_secret = _utilities.get_env('SNOWFLAKE_OAUTH_CLIENT_SECRET')
         if oauth_client_secret is not None:
             _setter("oauth_client_secret", oauth_client_secret)
+        if oauth_endpoint is not None:
+            warnings.warn("""Use `token_accessor.0.token_endpoint` instead""", DeprecationWarning)
+            pulumi.log.warn("""oauth_endpoint is deprecated: Use `token_accessor.0.token_endpoint` instead""")
         if oauth_endpoint is None:
             oauth_endpoint = _utilities.get_env('SNOWFLAKE_OAUTH_ENDPOINT')
         if oauth_endpoint is not None:
             _setter("oauth_endpoint", oauth_endpoint)
+        if oauth_redirect_url is not None:
+            warnings.warn("""Use `token_accessor.0.redirect_uri` instead""", DeprecationWarning)
+            pulumi.log.warn("""oauth_redirect_url is deprecated: Use `token_accessor.0.redirect_uri` instead""")
         if oauth_redirect_url is None:
             oauth_redirect_url = _utilities.get_env('SNOWFLAKE_OAUTH_REDIRECT_URL')
         if oauth_redirect_url is not None:
             _setter("oauth_redirect_url", oauth_redirect_url)
+        if oauth_refresh_token is not None:
+            warnings.warn("""Use `token_accessor.0.refresh_token` instead""", DeprecationWarning)
+            pulumi.log.warn("""oauth_refresh_token is deprecated: Use `token_accessor.0.refresh_token` instead""")
         if oauth_refresh_token is None:
             oauth_refresh_token = _utilities.get_env('SNOWFLAKE_OAUTH_REFRESH_TOKEN')
         if oauth_refresh_token is not None:
             _setter("oauth_refresh_token", oauth_refresh_token)
+        if okta_url is not None:
+            _setter("okta_url", okta_url)
+        if oscp_fail_open is not None:
+            _setter("oscp_fail_open", oscp_fail_open)
+        if params is not None:
+            _setter("params", params)
         if passcode is not None:
             _setter("passcode", passcode)
         if passcode_in_password is not None:
@@ -233,6 +410,9 @@ class ProviderArgs:
             private_key_passphrase = _utilities.get_env('SNOWFLAKE_PRIVATE_KEY_PASSPHRASE')
         if private_key_passphrase is not None:
             _setter("private_key_passphrase", private_key_passphrase)
+        if private_key_path is not None:
+            warnings.warn("""use the [file Function](https://developer.hashicorp.com/terraform/language/functions/file) instead""", DeprecationWarning)
+            pulumi.log.warn("""private_key_path is deprecated: use the [file Function](https://developer.hashicorp.com/terraform/language/functions/file) instead""")
         if private_key_path is None:
             private_key_path = _utilities.get_env('SNOWFLAKE_PRIVATE_KEY_PATH')
         if private_key_path is not None:
@@ -243,20 +423,39 @@ class ProviderArgs:
             protocol = _utilities.get_env('SNOWFLAKE_PROTOCOL')
         if protocol is not None:
             _setter("protocol", protocol)
+        if region is not None:
+            warnings.warn("""Specify the region as part of the account parameter""", DeprecationWarning)
+            pulumi.log.warn("""region is deprecated: Specify the region as part of the account parameter""")
         if region is None:
             region = _utilities.get_env('SNOWFLAKE_REGION')
         if region is not None:
             _setter("region", region)
+        if request_timeout is not None:
+            _setter("request_timeout", request_timeout)
         if role is None:
             role = _utilities.get_env('SNOWFLAKE_ROLE')
         if role is not None:
             _setter("role", role)
         if session_params is not None:
+            warnings.warn("""Use `params` instead""", DeprecationWarning)
+            pulumi.log.warn("""session_params is deprecated: Use `params` instead""")
+        if session_params is not None:
             _setter("session_params", session_params)
+        if token is not None:
+            _setter("token", token)
+        if token_accessor is not None:
+            _setter("token_accessor", token_accessor)
+        if user is not None:
+            _setter("user", user)
+        if username is not None:
+            warnings.warn("""Use `user` instead""", DeprecationWarning)
+            pulumi.log.warn("""username is deprecated: Use `user` instead""")
         if username is None:
             username = _utilities.get_env('SNOWFLAKE_USER')
         if username is not None:
             _setter("username", username)
+        if validate_default_parameters is not None:
+            _setter("validate_default_parameters", validate_default_parameters)
         if warehouse is None:
             warehouse = _utilities.get_env('SNOWFLAKE_WAREHOUSE')
         if warehouse is not None:
@@ -266,8 +465,9 @@ class ProviderArgs:
     @pulumi.getter
     def account(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
-        using profile.
+        Specifies your Snowflake account identifier assigned, by Snowflake. For information about account identifiers, see the
+        [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html). Can also be sourced
+        from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless using `profile`.
         """
         return pulumi.get(self, "account")
 
@@ -281,7 +481,7 @@ class ProviderArgs:
         """
         Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
         connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
-        UsernamePasswordMFA
+        UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         """
         return pulumi.get(self, "authenticator")
 
@@ -293,7 +493,7 @@ class ProviderArgs:
     @pulumi.getter(name="browserAuth")
     def browser_auth(self) -> Optional[pulumi.Input[bool]]:
         """
-        Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
+        Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
         """
         warnings.warn("""Use `authenticator` instead""", DeprecationWarning)
         pulumi.log.warn("""browser_auth is deprecated: Use `authenticator` instead""")
@@ -305,10 +505,100 @@ class ProviderArgs:
         pulumi.set(self, "browser_auth", value)
 
     @property
+    @pulumi.getter(name="clientIp")
+    def client_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
+        """
+        return pulumi.get(self, "client_ip")
+
+    @client_ip.setter
+    def client_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_ip", value)
+
+    @property
+    @pulumi.getter(name="clientRequestMfaToken")
+    def client_request_mfa_token(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also
+        be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
+        """
+        return pulumi.get(self, "client_request_mfa_token")
+
+    @client_request_mfa_token.setter
+    def client_request_mfa_token(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "client_request_mfa_token", value)
+
+    @property
+    @pulumi.getter(name="clientStoreTemporaryCredential")
+    def client_store_temporary_credential(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be
+        sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
+        """
+        return pulumi.get(self, "client_store_temporary_credential")
+
+    @client_store_temporary_credential.setter
+    def client_store_temporary_credential(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "client_store_temporary_credential", value)
+
+    @property
+    @pulumi.getter(name="clientTimeout")
+    def client_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        The timeout in seconds for the client to complete the authentication. Default is 900 seconds. Can also be sourced from
+        the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
+        """
+        return pulumi.get(self, "client_timeout")
+
+    @client_timeout.setter
+    def client_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "client_timeout", value)
+
+    @property
+    @pulumi.getter(name="disableQueryContextCache")
+    def disable_query_context_cache(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should HTAP query context cache be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE`
+        environment variable.
+        """
+        return pulumi.get(self, "disable_query_context_cache")
+
+    @disable_query_context_cache.setter
+    def disable_query_context_cache(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_query_context_cache", value)
+
+    @property
+    @pulumi.getter(name="disableTelemetry")
+    def disable_telemetry(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to disable telemetry. Can also be sourced from the `SNOWFLAKE_DISABLE_TELEMETRY` environment variable.
+        """
+        return pulumi.get(self, "disable_telemetry")
+
+    @disable_telemetry.setter
+    def disable_telemetry(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_telemetry", value)
+
+    @property
+    @pulumi.getter(name="externalBrowserTimeout")
+    def external_browser_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        The timeout in seconds for the external browser to complete the authentication. Default is 120 seconds. Can also be
+        sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
+        """
+        return pulumi.get(self, "external_browser_timeout")
+
+    @external_browser_timeout.setter
+    def external_browser_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "external_browser_timeout", value)
+
+    @property
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[str]]:
         """
-        Supports passing in a custom host value to the snowflake go driver for use with privatelink.
+        Supports passing in a custom host value to the snowflake go driver for use with privatelink. Can also be sourced from
+        the `SNOWFLAKE_HOST` environment variable.
         """
         return pulumi.get(self, "host")
 
@@ -321,7 +611,8 @@ class ProviderArgs:
     def insecure_mode(self) -> Optional[pulumi.Input[bool]]:
         """
         If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
-        default value for testing or emergency situations only.
+        default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE`
+        environment variable.
         """
         return pulumi.get(self, "insecure_mode")
 
@@ -330,13 +621,67 @@ class ProviderArgs:
         pulumi.set(self, "insecure_mode", value)
 
     @property
+    @pulumi.getter(name="jwtClientTimeout")
+    def jwt_client_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        The timeout in seconds for the JWT client to complete the authentication. Default is 10 seconds. Can also be sourced
+        from the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
+        """
+        return pulumi.get(self, "jwt_client_timeout")
+
+    @jwt_client_timeout.setter
+    def jwt_client_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "jwt_client_timeout", value)
+
+    @property
+    @pulumi.getter(name="jwtExpireTimeout")
+    def jwt_expire_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        JWT expire after timeout in seconds. Can also be sourced from the `SNOWFLAKE_JWT_EXPIRE_TIMEOUT` environment variable.
+        """
+        return pulumi.get(self, "jwt_expire_timeout")
+
+    @jwt_expire_timeout.setter
+    def jwt_expire_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "jwt_expire_timeout", value)
+
+    @property
+    @pulumi.getter(name="keepSessionAlive")
+    def keep_session_alive(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables the session to persist even after the connection is closed. Can also be sourced from the
+        `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
+        """
+        return pulumi.get(self, "keep_session_alive")
+
+    @keep_session_alive.setter
+    def keep_session_alive(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "keep_session_alive", value)
+
+    @property
+    @pulumi.getter(name="loginTimeout")
+    def login_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Login retry timeout EXCLUDING network roundtrip and read out http response. Can also be sourced from the
+        `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
+        """
+        return pulumi.get(self, "login_timeout")
+
+    @login_timeout.setter
+    def login_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "login_timeout", value)
+
+    @property
     @pulumi.getter(name="oauthAccessToken")
     def oauth_access_token(self) -> Optional[pulumi.Input[str]]:
         """
         Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
-        `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
-        variable.
+        `private_key_path`, `oauth_refresh_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN`
+        environment variable.
         """
+        warnings.warn("""Use `token` instead""", DeprecationWarning)
+        pulumi.log.warn("""oauth_access_token is deprecated: Use `token` instead""")
+
         return pulumi.get(self, "oauth_access_token")
 
     @oauth_access_token.setter
@@ -347,8 +692,11 @@ class ProviderArgs:
     @pulumi.getter(name="oauthClientId")
     def oauth_client_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+        Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
         """
+        warnings.warn("""Use `token_accessor.0.client_id` instead""", DeprecationWarning)
+        pulumi.log.warn("""oauth_client_id is deprecated: Use `token_accessor.0.client_id` instead""")
+
         return pulumi.get(self, "oauth_client_id")
 
     @oauth_client_id.setter
@@ -359,8 +707,12 @@ class ProviderArgs:
     @pulumi.getter(name="oauthClientSecret")
     def oauth_client_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+        Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment
+        variable.
         """
+        warnings.warn("""Use `token_accessor.0.client_secret` instead""", DeprecationWarning)
+        pulumi.log.warn("""oauth_client_secret is deprecated: Use `token_accessor.0.client_secret` instead""")
+
         return pulumi.get(self, "oauth_client_secret")
 
     @oauth_client_secret.setter
@@ -371,8 +723,11 @@ class ProviderArgs:
     @pulumi.getter(name="oauthEndpoint")
     def oauth_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
+        Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
         """
+        warnings.warn("""Use `token_accessor.0.token_endpoint` instead""", DeprecationWarning)
+        pulumi.log.warn("""oauth_endpoint is deprecated: Use `token_accessor.0.token_endpoint` instead""")
+
         return pulumi.get(self, "oauth_endpoint")
 
     @oauth_endpoint.setter
@@ -383,8 +738,12 @@ class ProviderArgs:
     @pulumi.getter(name="oauthRedirectUrl")
     def oauth_redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
+        Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment
+        variable.
         """
+        warnings.warn("""Use `token_accessor.0.redirect_uri` instead""", DeprecationWarning)
+        pulumi.log.warn("""oauth_redirect_url is deprecated: Use `token_accessor.0.redirect_uri` instead""")
+
         return pulumi.get(self, "oauth_redirect_url")
 
     @oauth_redirect_url.setter
@@ -397,9 +756,12 @@ class ProviderArgs:
         """
         Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
         `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
-        `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
-        variable.
+        `private_key_path`, `oauth_access_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN`
+        environment variable.
         """
+        warnings.warn("""Use `token_accessor.0.refresh_token` instead""", DeprecationWarning)
+        pulumi.log.warn("""oauth_refresh_token is deprecated: Use `token_accessor.0.refresh_token` instead""")
+
         return pulumi.get(self, "oauth_refresh_token")
 
     @oauth_refresh_token.setter
@@ -407,10 +769,49 @@ class ProviderArgs:
         pulumi.set(self, "oauth_refresh_token", value)
 
     @property
+    @pulumi.getter(name="oktaUrl")
+    def okta_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
+        variable.
+        """
+        return pulumi.get(self, "okta_url")
+
+    @okta_url.setter
+    def okta_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "okta_url", value)
+
+    @property
+    @pulumi.getter(name="oscpFailOpen")
+    def oscp_fail_open(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
+        sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+        """
+        return pulumi.get(self, "oscp_fail_open")
+
+    @oscp_fail_open.setter
+    def oscp_fail_open(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "oscp_fail_open", value)
+
+    @property
+    @pulumi.getter
+    def params(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "params", value)
+
+    @property
     @pulumi.getter
     def passcode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+        Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
+        the `SNOWFLAKE_PASSCODE` environment variable.
         """
         return pulumi.get(self, "passcode")
 
@@ -423,7 +824,7 @@ class ProviderArgs:
     def passcode_in_password(self) -> Optional[pulumi.Input[bool]]:
         """
         False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
-        of the password.
+        of the password. Can also be sourced from the `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
         """
         return pulumi.get(self, "passcode_in_password")
 
@@ -435,8 +836,8 @@ class ProviderArgs:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
-        `SNOWFLAKE_PASSWORD` environment variable.
+        Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can also be sourced from
+        the `SNOWFLAKE_PASSWORD` environment variable.
         """
         return pulumi.get(self, "password")
 
@@ -448,8 +849,8 @@ class ProviderArgs:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
-        Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`
-        environment variable.
+        Support custom port values to snowflake go driver for use with privatelink. Can also be sourced from the
+        `SNOWFLAKE_PORT` environment variable.
         """
         return pulumi.get(self, "port")
 
@@ -461,7 +862,7 @@ class ProviderArgs:
     @pulumi.getter(name="privateKey")
     def private_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be sourced from
+        Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can also be sourced from
         `SNOWFLAKE_PRIVATE_KEY` environment variable.
         """
         return pulumi.get(self, "private_key")
@@ -475,7 +876,7 @@ class ProviderArgs:
     def private_key_passphrase(self) -> Optional[pulumi.Input[str]]:
         """
         Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
-        des-ede3-cbc
+        des-ede3-cbc. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
         """
         return pulumi.get(self, "private_key_passphrase")
 
@@ -488,8 +889,11 @@ class ProviderArgs:
     def private_key_path(self) -> Optional[pulumi.Input[str]]:
         """
         Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
-        `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+        `password`. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
         """
+        warnings.warn("""use the [file Function](https://developer.hashicorp.com/terraform/language/functions/file) instead""", DeprecationWarning)
+        pulumi.log.warn("""private_key_path is deprecated: use the [file Function](https://developer.hashicorp.com/terraform/language/functions/file) instead""")
+
         return pulumi.get(self, "private_key_path")
 
     @private_key_path.setter
@@ -500,7 +904,8 @@ class ProviderArgs:
     @pulumi.getter
     def profile(self) -> Optional[pulumi.Input[str]]:
         """
-        Sets the profile to read from ~/.snowflake/config file.
+        Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment
+        variable.
         """
         return pulumi.get(self, "profile")
 
@@ -512,7 +917,7 @@ class ProviderArgs:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
+        Either http or https, defaults to https. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
         """
         return pulumi.get(self, "protocol")
 
@@ -524,11 +929,16 @@ class ProviderArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
         """
+        Snowflake region, such as "eu-central-1", with this parameter. However, since this parameter is deprecated, it is best
+        to specify the region as part of the account parameter. For details, see the description of the account parameter.
         [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
         format for the `account`
         identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
-        in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
+        in the form of `<cloud_region_id>.<cloud>`. Can also be sourced from the `SNOWFLAKE_REGION` environment variable.
         """
+        warnings.warn("""Specify the region as part of the account parameter""", DeprecationWarning)
+        pulumi.log.warn("""region is deprecated: Specify the region as part of the account parameter""")
+
         return pulumi.get(self, "region")
 
     @region.setter
@@ -536,11 +946,24 @@ class ProviderArgs:
         pulumi.set(self, "region", value)
 
     @property
+    @pulumi.getter(name="requestTimeout")
+    def request_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        request retry timeout EXCLUDING network roundtrip and read out http response. Can also be sourced from the
+        `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
+        """
+        return pulumi.get(self, "request_timeout")
+
+    @request_timeout.setter
+    def request_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "request_timeout", value)
+
+    @property
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
         """
-        Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
-        `SNOWFLAKE_ROLE` environment variable.
+        Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
+        `SNOWFLAKE_ROLE` environment variable. .
         """
         return pulumi.get(self, "role")
 
@@ -554,6 +977,9 @@ class ProviderArgs:
         """
         Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
         """
+        warnings.warn("""Use `params` instead""", DeprecationWarning)
+        pulumi.log.warn("""session_params is deprecated: Use `params` instead""")
+
         return pulumi.get(self, "session_params")
 
     @session_params.setter
@@ -562,11 +988,48 @@ class ProviderArgs:
 
     @property
     @pulumi.getter
+    def token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
+        variable.
+        """
+        return pulumi.get(self, "token")
+
+    @token.setter
+    def token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token", value)
+
+    @property
+    @pulumi.getter(name="tokenAccessor")
+    def token_accessor(self) -> Optional[pulumi.Input['ProviderTokenAccessorArgs']]:
+        return pulumi.get(self, "token_accessor")
+
+    @token_accessor.setter
+    def token_accessor(self, value: Optional[pulumi.Input['ProviderTokenAccessorArgs']]):
+        pulumi.set(self, "token_accessor", value)
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username. Can also be sourced from the `SNOWFLAKE_USER` environment variable. Required unless using `profile`.
+        """
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user", value)
+
+    @property
+    @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
-        Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
-        using profile.
+        Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+        Required unless using `profile`.
         """
+        warnings.warn("""Use `user` instead""", DeprecationWarning)
+        pulumi.log.warn("""username is deprecated: Use `user` instead""")
+
         return pulumi.get(self, "username")
 
     @username.setter
@@ -574,10 +1037,24 @@ class ProviderArgs:
         pulumi.set(self, "username", value)
 
     @property
+    @pulumi.getter(name="validateDefaultParameters")
+    def validate_default_parameters(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
+        established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+        """
+        return pulumi.get(self, "validate_default_parameters")
+
+    @validate_default_parameters.setter
+    def validate_default_parameters(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "validate_default_parameters", value)
+
+    @property
     @pulumi.getter
     def warehouse(self) -> Optional[pulumi.Input[str]]:
         """
-        Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
+        Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced
+        from the `SNOWFLAKE_WAREHOUSE` environment variable.
         """
         return pulumi.get(self, "warehouse")
 
@@ -594,14 +1071,28 @@ class Provider(pulumi.ProviderResource):
                  account: Optional[pulumi.Input[str]] = None,
                  authenticator: Optional[pulumi.Input[str]] = None,
                  browser_auth: Optional[pulumi.Input[bool]] = None,
+                 client_ip: Optional[pulumi.Input[str]] = None,
+                 client_request_mfa_token: Optional[pulumi.Input[bool]] = None,
+                 client_store_temporary_credential: Optional[pulumi.Input[bool]] = None,
+                 client_timeout: Optional[pulumi.Input[int]] = None,
+                 disable_query_context_cache: Optional[pulumi.Input[bool]] = None,
+                 disable_telemetry: Optional[pulumi.Input[bool]] = None,
+                 external_browser_timeout: Optional[pulumi.Input[int]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  insecure_mode: Optional[pulumi.Input[bool]] = None,
+                 jwt_client_timeout: Optional[pulumi.Input[int]] = None,
+                 jwt_expire_timeout: Optional[pulumi.Input[int]] = None,
+                 keep_session_alive: Optional[pulumi.Input[bool]] = None,
+                 login_timeout: Optional[pulumi.Input[int]] = None,
                  oauth_access_token: Optional[pulumi.Input[str]] = None,
                  oauth_client_id: Optional[pulumi.Input[str]] = None,
                  oauth_client_secret: Optional[pulumi.Input[str]] = None,
                  oauth_endpoint: Optional[pulumi.Input[str]] = None,
                  oauth_redirect_url: Optional[pulumi.Input[str]] = None,
                  oauth_refresh_token: Optional[pulumi.Input[str]] = None,
+                 okta_url: Optional[pulumi.Input[str]] = None,
+                 oscp_fail_open: Optional[pulumi.Input[bool]] = None,
+                 params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  passcode: Optional[pulumi.Input[str]] = None,
                  passcode_in_password: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -612,9 +1103,14 @@ class Provider(pulumi.ProviderResource):
                  profile: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
+                 request_timeout: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  session_params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 token: Optional[pulumi.Input[str]] = None,
+                 token_accessor: Optional[pulumi.Input[pulumi.InputType['ProviderTokenAccessorArgs']]] = None,
+                 user: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
+                 validate_default_parameters: Optional[pulumi.Input[bool]] = None,
                  warehouse: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -625,51 +1121,92 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account: The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
-               using profile.
+        :param pulumi.Input[str] account: Specifies your Snowflake account identifier assigned, by Snowflake. For information about account identifiers, see the
+               [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html). Can also be sourced
+               from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless using `profile`.
         :param pulumi.Input[str] authenticator: Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
                connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
-               UsernamePasswordMFA
-        :param pulumi.Input[bool] browser_auth: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
-        :param pulumi.Input[str] host: Supports passing in a custom host value to the snowflake go driver for use with privatelink.
+               UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        :param pulumi.Input[bool] browser_auth: Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
+        :param pulumi.Input[str] client_ip: IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
+        :param pulumi.Input[bool] client_request_mfa_token: When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also
+               be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
+        :param pulumi.Input[bool] client_store_temporary_credential: When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be
+               sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
+        :param pulumi.Input[int] client_timeout: The timeout in seconds for the client to complete the authentication. Default is 900 seconds. Can also be sourced from
+               the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
+        :param pulumi.Input[bool] disable_query_context_cache: Should HTAP query context cache be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE`
+               environment variable.
+        :param pulumi.Input[bool] disable_telemetry: Indicates whether to disable telemetry. Can also be sourced from the `SNOWFLAKE_DISABLE_TELEMETRY` environment variable.
+        :param pulumi.Input[int] external_browser_timeout: The timeout in seconds for the external browser to complete the authentication. Default is 120 seconds. Can also be
+               sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
+        :param pulumi.Input[str] host: Supports passing in a custom host value to the snowflake go driver for use with privatelink. Can also be sourced from
+               the `SNOWFLAKE_HOST` environment variable.
         :param pulumi.Input[bool] insecure_mode: If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
-               default value for testing or emergency situations only.
+               default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE`
+               environment variable.
+        :param pulumi.Input[int] jwt_client_timeout: The timeout in seconds for the JWT client to complete the authentication. Default is 10 seconds. Can also be sourced
+               from the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
+        :param pulumi.Input[int] jwt_expire_timeout: JWT expire after timeout in seconds. Can also be sourced from the `SNOWFLAKE_JWT_EXPIRE_TIMEOUT` environment variable.
+        :param pulumi.Input[bool] keep_session_alive: Enables the session to persist even after the connection is closed. Can also be sourced from the
+               `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
+        :param pulumi.Input[int] login_timeout: Login retry timeout EXCLUDING network roundtrip and read out http response. Can also be sourced from the
+               `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
         :param pulumi.Input[str] oauth_access_token: Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
-               `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
+               `private_key_path`, `oauth_refresh_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN`
+               environment variable.
+        :param pulumi.Input[str] oauth_client_id: Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+        :param pulumi.Input[str] oauth_client_secret: Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment
                variable.
-        :param pulumi.Input[str] oauth_client_id: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
-        :param pulumi.Input[str] oauth_client_secret: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
-        :param pulumi.Input[str] oauth_endpoint: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
-        :param pulumi.Input[str] oauth_redirect_url: Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
+        :param pulumi.Input[str] oauth_endpoint: Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
+        :param pulumi.Input[str] oauth_redirect_url: Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment
+               variable.
         :param pulumi.Input[str] oauth_refresh_token: Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
                `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
-               `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
-               variable.
-        :param pulumi.Input[str] passcode: Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
-        :param pulumi.Input[bool] passcode_in_password: False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
-               of the password.
-        :param pulumi.Input[str] password: Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
-               `SNOWFLAKE_PASSWORD` environment variable.
-        :param pulumi.Input[int] port: Support custom port values to snowflake go driver for use with privatelink. Can be sourced from `SNOWFLAKE_PORT`
+               `private_key_path`, `oauth_access_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN`
                environment variable.
-        :param pulumi.Input[str] private_key: Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be sourced from
+        :param pulumi.Input[str] okta_url: The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
+               variable.
+        :param pulumi.Input[bool] oscp_fail_open: True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
+               sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+        :param pulumi.Input[Mapping[str, Any]] params: Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
+        :param pulumi.Input[str] passcode: Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
+               the `SNOWFLAKE_PASSCODE` environment variable.
+        :param pulumi.Input[bool] passcode_in_password: False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
+               of the password. Can also be sourced from the `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
+        :param pulumi.Input[str] password: Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can also be sourced from
+               the `SNOWFLAKE_PASSWORD` environment variable.
+        :param pulumi.Input[int] port: Support custom port values to snowflake go driver for use with privatelink. Can also be sourced from the
+               `SNOWFLAKE_PORT` environment variable.
+        :param pulumi.Input[str] private_key: Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can also be sourced from
                `SNOWFLAKE_PRIVATE_KEY` environment variable.
         :param pulumi.Input[str] private_key_passphrase: Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
-               des-ede3-cbc
+               des-ede3-cbc. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
         :param pulumi.Input[str] private_key_path: Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
-               `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
-        :param pulumi.Input[str] profile: Sets the profile to read from ~/.snowflake/config file.
-        :param pulumi.Input[str] protocol: Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
-        :param pulumi.Input[str] region: [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
+               `password`. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+        :param pulumi.Input[str] profile: Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment
+               variable.
+        :param pulumi.Input[str] protocol: Either http or https, defaults to https. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
+        :param pulumi.Input[str] region: Snowflake region, such as "eu-central-1", with this parameter. However, since this parameter is deprecated, it is best
+               to specify the region as part of the account parameter. For details, see the description of the account parameter.
+               [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
                format for the `account`
                identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
-               in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
-        :param pulumi.Input[str] role: Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
-               `SNOWFLAKE_ROLE` environment variable.
+               in the form of `<cloud_region_id>.<cloud>`. Can also be sourced from the `SNOWFLAKE_REGION` environment variable.
+        :param pulumi.Input[int] request_timeout: request retry timeout EXCLUDING network roundtrip and read out http response. Can also be sourced from the
+               `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
+        :param pulumi.Input[str] role: Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
+               `SNOWFLAKE_ROLE` environment variable. .
         :param pulumi.Input[Mapping[str, Any]] session_params: Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
-        :param pulumi.Input[str] username: Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
-               using profile.
-        :param pulumi.Input[str] warehouse: Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
+        :param pulumi.Input[str] token: Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
+               variable.
+        :param pulumi.Input[str] user: Username. Can also be sourced from the `SNOWFLAKE_USER` environment variable. Required unless using `profile`.
+        :param pulumi.Input[str] username: Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+               Required unless using `profile`.
+        :param pulumi.Input[bool] validate_default_parameters: If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
+               established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+        :param pulumi.Input[str] warehouse: Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced
+               from the `SNOWFLAKE_WAREHOUSE` environment variable.
         """
         ...
     @overload
@@ -705,14 +1242,28 @@ class Provider(pulumi.ProviderResource):
                  account: Optional[pulumi.Input[str]] = None,
                  authenticator: Optional[pulumi.Input[str]] = None,
                  browser_auth: Optional[pulumi.Input[bool]] = None,
+                 client_ip: Optional[pulumi.Input[str]] = None,
+                 client_request_mfa_token: Optional[pulumi.Input[bool]] = None,
+                 client_store_temporary_credential: Optional[pulumi.Input[bool]] = None,
+                 client_timeout: Optional[pulumi.Input[int]] = None,
+                 disable_query_context_cache: Optional[pulumi.Input[bool]] = None,
+                 disable_telemetry: Optional[pulumi.Input[bool]] = None,
+                 external_browser_timeout: Optional[pulumi.Input[int]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  insecure_mode: Optional[pulumi.Input[bool]] = None,
+                 jwt_client_timeout: Optional[pulumi.Input[int]] = None,
+                 jwt_expire_timeout: Optional[pulumi.Input[int]] = None,
+                 keep_session_alive: Optional[pulumi.Input[bool]] = None,
+                 login_timeout: Optional[pulumi.Input[int]] = None,
                  oauth_access_token: Optional[pulumi.Input[str]] = None,
                  oauth_client_id: Optional[pulumi.Input[str]] = None,
                  oauth_client_secret: Optional[pulumi.Input[str]] = None,
                  oauth_endpoint: Optional[pulumi.Input[str]] = None,
                  oauth_redirect_url: Optional[pulumi.Input[str]] = None,
                  oauth_refresh_token: Optional[pulumi.Input[str]] = None,
+                 okta_url: Optional[pulumi.Input[str]] = None,
+                 oscp_fail_open: Optional[pulumi.Input[bool]] = None,
+                 params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  passcode: Optional[pulumi.Input[str]] = None,
                  passcode_in_password: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -723,9 +1274,14 @@ class Provider(pulumi.ProviderResource):
                  profile: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
+                 request_timeout: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  session_params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 token: Optional[pulumi.Input[str]] = None,
+                 token_accessor: Optional[pulumi.Input[pulumi.InputType['ProviderTokenAccessorArgs']]] = None,
+                 user: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
+                 validate_default_parameters: Optional[pulumi.Input[bool]] = None,
                  warehouse: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -743,10 +1299,21 @@ class Provider(pulumi.ProviderResource):
             if browser_auth is None:
                 browser_auth = _utilities.get_env_bool('SNOWFLAKE_USE_BROWSER_AUTH')
             __props__.__dict__["browser_auth"] = pulumi.Output.from_input(browser_auth).apply(pulumi.runtime.to_json) if browser_auth is not None else None
+            __props__.__dict__["client_ip"] = client_ip
+            __props__.__dict__["client_request_mfa_token"] = pulumi.Output.from_input(client_request_mfa_token).apply(pulumi.runtime.to_json) if client_request_mfa_token is not None else None
+            __props__.__dict__["client_store_temporary_credential"] = pulumi.Output.from_input(client_store_temporary_credential).apply(pulumi.runtime.to_json) if client_store_temporary_credential is not None else None
+            __props__.__dict__["client_timeout"] = pulumi.Output.from_input(client_timeout).apply(pulumi.runtime.to_json) if client_timeout is not None else None
+            __props__.__dict__["disable_query_context_cache"] = pulumi.Output.from_input(disable_query_context_cache).apply(pulumi.runtime.to_json) if disable_query_context_cache is not None else None
+            __props__.__dict__["disable_telemetry"] = pulumi.Output.from_input(disable_telemetry).apply(pulumi.runtime.to_json) if disable_telemetry is not None else None
+            __props__.__dict__["external_browser_timeout"] = pulumi.Output.from_input(external_browser_timeout).apply(pulumi.runtime.to_json) if external_browser_timeout is not None else None
             if host is None:
                 host = _utilities.get_env('SNOWFLAKE_HOST')
             __props__.__dict__["host"] = host
             __props__.__dict__["insecure_mode"] = pulumi.Output.from_input(insecure_mode).apply(pulumi.runtime.to_json) if insecure_mode is not None else None
+            __props__.__dict__["jwt_client_timeout"] = pulumi.Output.from_input(jwt_client_timeout).apply(pulumi.runtime.to_json) if jwt_client_timeout is not None else None
+            __props__.__dict__["jwt_expire_timeout"] = pulumi.Output.from_input(jwt_expire_timeout).apply(pulumi.runtime.to_json) if jwt_expire_timeout is not None else None
+            __props__.__dict__["keep_session_alive"] = pulumi.Output.from_input(keep_session_alive).apply(pulumi.runtime.to_json) if keep_session_alive is not None else None
+            __props__.__dict__["login_timeout"] = pulumi.Output.from_input(login_timeout).apply(pulumi.runtime.to_json) if login_timeout is not None else None
             if oauth_access_token is None:
                 oauth_access_token = _utilities.get_env('SNOWFLAKE_OAUTH_ACCESS_TOKEN')
             __props__.__dict__["oauth_access_token"] = None if oauth_access_token is None else pulumi.Output.secret(oauth_access_token)
@@ -765,6 +1332,9 @@ class Provider(pulumi.ProviderResource):
             if oauth_refresh_token is None:
                 oauth_refresh_token = _utilities.get_env('SNOWFLAKE_OAUTH_REFRESH_TOKEN')
             __props__.__dict__["oauth_refresh_token"] = None if oauth_refresh_token is None else pulumi.Output.secret(oauth_refresh_token)
+            __props__.__dict__["okta_url"] = okta_url
+            __props__.__dict__["oscp_fail_open"] = pulumi.Output.from_input(oscp_fail_open).apply(pulumi.runtime.to_json) if oscp_fail_open is not None else None
+            __props__.__dict__["params"] = pulumi.Output.from_input(params).apply(pulumi.runtime.to_json) if params is not None else None
             __props__.__dict__["passcode"] = passcode
             __props__.__dict__["passcode_in_password"] = pulumi.Output.from_input(passcode_in_password).apply(pulumi.runtime.to_json) if passcode_in_password is not None else None
             if password is None:
@@ -787,17 +1357,23 @@ class Provider(pulumi.ProviderResource):
             if region is None:
                 region = _utilities.get_env('SNOWFLAKE_REGION')
             __props__.__dict__["region"] = region
+            __props__.__dict__["request_timeout"] = pulumi.Output.from_input(request_timeout).apply(pulumi.runtime.to_json) if request_timeout is not None else None
             if role is None:
                 role = _utilities.get_env('SNOWFLAKE_ROLE')
             __props__.__dict__["role"] = role
             __props__.__dict__["session_params"] = pulumi.Output.from_input(session_params).apply(pulumi.runtime.to_json) if session_params is not None else None
+            __props__.__dict__["token"] = None if token is None else pulumi.Output.secret(token)
+            token_accessor = _utilities.configure(token_accessor, ProviderTokenAccessorArgs, True)
+            __props__.__dict__["token_accessor"] = pulumi.Output.from_input(token_accessor).apply(pulumi.runtime.to_json) if token_accessor is not None else None
+            __props__.__dict__["user"] = user
             if username is None:
                 username = _utilities.get_env('SNOWFLAKE_USER')
             __props__.__dict__["username"] = username
+            __props__.__dict__["validate_default_parameters"] = pulumi.Output.from_input(validate_default_parameters).apply(pulumi.runtime.to_json) if validate_default_parameters is not None else None
             if warehouse is None:
                 warehouse = _utilities.get_env('SNOWFLAKE_WAREHOUSE')
             __props__.__dict__["warehouse"] = warehouse
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["oauthAccessToken", "oauthClientId", "oauthClientSecret", "oauthEndpoint", "oauthRedirectUrl", "oauthRefreshToken", "password", "privateKey", "privateKeyPassphrase", "privateKeyPath"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["oauthAccessToken", "oauthClientId", "oauthClientSecret", "oauthEndpoint", "oauthRedirectUrl", "oauthRefreshToken", "password", "privateKey", "privateKeyPassphrase", "privateKeyPath", "token"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'snowflake',
@@ -809,8 +1385,9 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def account(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the Snowflake account. Can also come from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless
-        using profile.
+        Specifies your Snowflake account identifier assigned, by Snowflake. For information about account identifiers, see the
+        [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html). Can also be sourced
+        from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless using `profile`.
         """
         return pulumi.get(self, "account")
 
@@ -820,15 +1397,24 @@ class Provider(pulumi.ProviderResource):
         """
         Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
         connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
-        UsernamePasswordMFA
+        UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         """
         return pulumi.get(self, "authenticator")
+
+    @property
+    @pulumi.getter(name="clientIp")
+    def client_ip(self) -> pulumi.Output[Optional[str]]:
+        """
+        IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
+        """
+        return pulumi.get(self, "client_ip")
 
     @property
     @pulumi.getter
     def host(self) -> pulumi.Output[Optional[str]]:
         """
-        Supports passing in a custom host value to the snowflake go driver for use with privatelink.
+        Supports passing in a custom host value to the snowflake go driver for use with privatelink. Can also be sourced from
+        the `SNOWFLAKE_HOST` environment variable.
         """
         return pulumi.get(self, "host")
 
@@ -837,41 +1423,58 @@ class Provider(pulumi.ProviderResource):
     def oauth_access_token(self) -> pulumi.Output[Optional[str]]:
         """
         Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
-        `private_key_path`, `oauth_refresh_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
-        variable.
+        `private_key_path`, `oauth_refresh_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN`
+        environment variable.
         """
+        warnings.warn("""Use `token` instead""", DeprecationWarning)
+        pulumi.log.warn("""oauth_access_token is deprecated: Use `token` instead""")
+
         return pulumi.get(self, "oauth_access_token")
 
     @property
     @pulumi.getter(name="oauthClientId")
     def oauth_client_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+        Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
         """
+        warnings.warn("""Use `token_accessor.0.client_id` instead""", DeprecationWarning)
+        pulumi.log.warn("""oauth_client_id is deprecated: Use `token_accessor.0.client_id` instead""")
+
         return pulumi.get(self, "oauth_client_id")
 
     @property
     @pulumi.getter(name="oauthClientSecret")
     def oauth_client_secret(self) -> pulumi.Output[Optional[str]]:
         """
-        Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+        Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment
+        variable.
         """
+        warnings.warn("""Use `token_accessor.0.client_secret` instead""", DeprecationWarning)
+        pulumi.log.warn("""oauth_client_secret is deprecated: Use `token_accessor.0.client_secret` instead""")
+
         return pulumi.get(self, "oauth_client_secret")
 
     @property
     @pulumi.getter(name="oauthEndpoint")
     def oauth_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
-        Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
+        Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
         """
+        warnings.warn("""Use `token_accessor.0.token_endpoint` instead""", DeprecationWarning)
+        pulumi.log.warn("""oauth_endpoint is deprecated: Use `token_accessor.0.token_endpoint` instead""")
+
         return pulumi.get(self, "oauth_endpoint")
 
     @property
     @pulumi.getter(name="oauthRedirectUrl")
     def oauth_redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
-        Required when `oauth_refresh_token` is used. Can be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
+        Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment
+        variable.
         """
+        warnings.warn("""Use `token_accessor.0.redirect_uri` instead""", DeprecationWarning)
+        pulumi.log.warn("""oauth_redirect_url is deprecated: Use `token_accessor.0.redirect_uri` instead""")
+
         return pulumi.get(self, "oauth_redirect_url")
 
     @property
@@ -880,16 +1483,29 @@ class Provider(pulumi.ProviderResource):
         """
         Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
         `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
-        `private_key_path`, `oauth_access_token` or `password`. Can be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
+        `private_key_path`, `oauth_access_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN`
+        environment variable.
+        """
+        warnings.warn("""Use `token_accessor.0.refresh_token` instead""", DeprecationWarning)
+        pulumi.log.warn("""oauth_refresh_token is deprecated: Use `token_accessor.0.refresh_token` instead""")
+
+        return pulumi.get(self, "oauth_refresh_token")
+
+    @property
+    @pulumi.getter(name="oktaUrl")
+    def okta_url(self) -> pulumi.Output[Optional[str]]:
+        """
+        The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
         variable.
         """
-        return pulumi.get(self, "oauth_refresh_token")
+        return pulumi.get(self, "okta_url")
 
     @property
     @pulumi.getter
     def passcode(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login.
+        Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
+        the `SNOWFLAKE_PASSCODE` environment variable.
         """
         return pulumi.get(self, "passcode")
 
@@ -897,8 +1513,8 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def password(self) -> pulumi.Output[Optional[str]]:
         """
-        Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can be sourced from
-        `SNOWFLAKE_PASSWORD` environment variable.
+        Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can also be sourced from
+        the `SNOWFLAKE_PASSWORD` environment variable.
         """
         return pulumi.get(self, "password")
 
@@ -906,7 +1522,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Output[Optional[str]]:
         """
-        Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can be sourced from
+        Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can also be sourced from
         `SNOWFLAKE_PRIVATE_KEY` environment variable.
         """
         return pulumi.get(self, "private_key")
@@ -916,7 +1532,7 @@ class Provider(pulumi.ProviderResource):
     def private_key_passphrase(self) -> pulumi.Output[Optional[str]]:
         """
         Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
-        des-ede3-cbc
+        des-ede3-cbc. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
         """
         return pulumi.get(self, "private_key_passphrase")
 
@@ -925,15 +1541,19 @@ class Provider(pulumi.ProviderResource):
     def private_key_path(self) -> pulumi.Output[Optional[str]]:
         """
         Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
-        `password`. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
+        `password`. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
         """
+        warnings.warn("""use the [file Function](https://developer.hashicorp.com/terraform/language/functions/file) instead""", DeprecationWarning)
+        pulumi.log.warn("""private_key_path is deprecated: use the [file Function](https://developer.hashicorp.com/terraform/language/functions/file) instead""")
+
         return pulumi.get(self, "private_key_path")
 
     @property
     @pulumi.getter
     def profile(self) -> pulumi.Output[Optional[str]]:
         """
-        Sets the profile to read from ~/.snowflake/config file.
+        Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment
+        variable.
         """
         return pulumi.get(self, "profile")
 
@@ -941,7 +1561,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def protocol(self) -> pulumi.Output[Optional[str]]:
         """
-        Support custom protocols to snowflake go driver. Can be sourced from `SNOWFLAKE_PROTOCOL` environment variable.
+        Either http or https, defaults to https. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
         """
         return pulumi.get(self, "protocol")
 
@@ -949,36 +1569,62 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[Optional[str]]:
         """
+        Snowflake region, such as "eu-central-1", with this parameter. However, since this parameter is deprecated, it is best
+        to specify the region as part of the account parameter. For details, see the description of the account parameter.
         [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
         format for the `account`
         identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
-        in the form of `<cloud_region_id>.<cloud>`. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
+        in the form of `<cloud_region_id>.<cloud>`. Can also be sourced from the `SNOWFLAKE_REGION` environment variable.
         """
+        warnings.warn("""Specify the region as part of the account parameter""", DeprecationWarning)
+        pulumi.log.warn("""region is deprecated: Specify the region as part of the account parameter""")
+
         return pulumi.get(self, "region")
 
     @property
     @pulumi.getter
     def role(self) -> pulumi.Output[Optional[str]]:
         """
-        Snowflake role to use for operations. If left unset, default role for user will be used. Can be sourced from the
-        `SNOWFLAKE_ROLE` environment variable.
+        Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
+        `SNOWFLAKE_ROLE` environment variable. .
         """
         return pulumi.get(self, "role")
 
     @property
     @pulumi.getter
+    def token(self) -> pulumi.Output[Optional[str]]:
+        """
+        Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
+        variable.
+        """
+        return pulumi.get(self, "token")
+
+    @property
+    @pulumi.getter
+    def user(self) -> pulumi.Output[Optional[str]]:
+        """
+        Username. Can also be sourced from the `SNOWFLAKE_USER` environment variable. Required unless using `profile`.
+        """
+        return pulumi.get(self, "user")
+
+    @property
+    @pulumi.getter
     def username(self) -> pulumi.Output[Optional[str]]:
         """
-        Username for username+password authentication. Can come from the `SNOWFLAKE_USER` environment variable. Required unless
-        using profile.
+        Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+        Required unless using `profile`.
         """
+        warnings.warn("""Use `user` instead""", DeprecationWarning)
+        pulumi.log.warn("""username is deprecated: Use `user` instead""")
+
         return pulumi.get(self, "username")
 
     @property
     @pulumi.getter
     def warehouse(self) -> pulumi.Output[Optional[str]]:
         """
-        Sets the default warehouse. Optional. Can be sourced from SNOWFLAKE_WAREHOUSE environment variable.
+        Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced
+        from the `SNOWFLAKE_WAREHOUSE` environment variable.
         """
         return pulumi.get(self, "warehouse")
 
