@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ScimIntegrationArgs', 'ScimIntegration']
@@ -25,39 +25,12 @@ class ScimIntegrationArgs:
         :param pulumi.Input[str] name: Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
         :param pulumi.Input[str] network_policy: Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new access token. If this parameter is not set, the network policy for the account (if any) is used instead.
         """
-        ScimIntegrationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            provisioner_role=provisioner_role,
-            scim_client=scim_client,
-            name=name,
-            network_policy=network_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             provisioner_role: Optional[pulumi.Input[str]] = None,
-             scim_client: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if provisioner_role is None and 'provisionerRole' in kwargs:
-            provisioner_role = kwargs['provisionerRole']
-        if provisioner_role is None:
-            raise TypeError("Missing 'provisioner_role' argument")
-        if scim_client is None and 'scimClient' in kwargs:
-            scim_client = kwargs['scimClient']
-        if scim_client is None:
-            raise TypeError("Missing 'scim_client' argument")
-        if network_policy is None and 'networkPolicy' in kwargs:
-            network_policy = kwargs['networkPolicy']
-
-        _setter("provisioner_role", provisioner_role)
-        _setter("scim_client", scim_client)
+        pulumi.set(__self__, "provisioner_role", provisioner_role)
+        pulumi.set(__self__, "scim_client", scim_client)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_policy is not None:
-            _setter("network_policy", network_policy)
+            pulumi.set(__self__, "network_policy", network_policy)
 
     @property
     @pulumi.getter(name="provisionerRole")
@@ -124,43 +97,16 @@ class _ScimIntegrationState:
         :param pulumi.Input[str] provisioner_role: Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM.
         :param pulumi.Input[str] scim_client: Specifies the client type for the scim integration
         """
-        _ScimIntegrationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            created_on=created_on,
-            name=name,
-            network_policy=network_policy,
-            provisioner_role=provisioner_role,
-            scim_client=scim_client,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             created_on: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_policy: Optional[pulumi.Input[str]] = None,
-             provisioner_role: Optional[pulumi.Input[str]] = None,
-             scim_client: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if created_on is None and 'createdOn' in kwargs:
-            created_on = kwargs['createdOn']
-        if network_policy is None and 'networkPolicy' in kwargs:
-            network_policy = kwargs['networkPolicy']
-        if provisioner_role is None and 'provisionerRole' in kwargs:
-            provisioner_role = kwargs['provisionerRole']
-        if scim_client is None and 'scimClient' in kwargs:
-            scim_client = kwargs['scimClient']
-
         if created_on is not None:
-            _setter("created_on", created_on)
+            pulumi.set(__self__, "created_on", created_on)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_policy is not None:
-            _setter("network_policy", network_policy)
+            pulumi.set(__self__, "network_policy", network_policy)
         if provisioner_role is not None:
-            _setter("provisioner_role", provisioner_role)
+            pulumi.set(__self__, "provisioner_role", provisioner_role)
         if scim_client is not None:
-            _setter("scim_client", scim_client)
+            pulumi.set(__self__, "scim_client", scim_client)
 
     @property
     @pulumi.getter(name="createdOn")
@@ -294,10 +240,6 @@ class ScimIntegration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ScimIntegrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

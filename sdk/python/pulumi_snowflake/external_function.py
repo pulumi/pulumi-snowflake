@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -53,109 +53,34 @@ class ExternalFunctionArgs:
         :param pulumi.Input[str] response_translator: This specifies the name of the response translator function.
         :param pulumi.Input[bool] return_null_allowed: Indicates whether the function can return NULL values or must return only NON-NULL values.
         """
-        ExternalFunctionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_integration=api_integration,
-            database=database,
-            return_behavior=return_behavior,
-            return_type=return_type,
-            schema=schema,
-            url_of_proxy_and_resource=url_of_proxy_and_resource,
-            args=args,
-            comment=comment,
-            compression=compression,
-            context_headers=context_headers,
-            headers=headers,
-            max_batch_rows=max_batch_rows,
-            name=name,
-            null_input_behavior=null_input_behavior,
-            request_translator=request_translator,
-            response_translator=response_translator,
-            return_null_allowed=return_null_allowed,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_integration: Optional[pulumi.Input[str]] = None,
-             database: Optional[pulumi.Input[str]] = None,
-             return_behavior: Optional[pulumi.Input[str]] = None,
-             return_type: Optional[pulumi.Input[str]] = None,
-             schema: Optional[pulumi.Input[str]] = None,
-             url_of_proxy_and_resource: Optional[pulumi.Input[str]] = None,
-             args: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionArgArgs']]]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             compression: Optional[pulumi.Input[str]] = None,
-             context_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             headers: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]]] = None,
-             max_batch_rows: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             null_input_behavior: Optional[pulumi.Input[str]] = None,
-             request_translator: Optional[pulumi.Input[str]] = None,
-             response_translator: Optional[pulumi.Input[str]] = None,
-             return_null_allowed: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_integration is None and 'apiIntegration' in kwargs:
-            api_integration = kwargs['apiIntegration']
-        if api_integration is None:
-            raise TypeError("Missing 'api_integration' argument")
-        if database is None:
-            raise TypeError("Missing 'database' argument")
-        if return_behavior is None and 'returnBehavior' in kwargs:
-            return_behavior = kwargs['returnBehavior']
-        if return_behavior is None:
-            raise TypeError("Missing 'return_behavior' argument")
-        if return_type is None and 'returnType' in kwargs:
-            return_type = kwargs['returnType']
-        if return_type is None:
-            raise TypeError("Missing 'return_type' argument")
-        if schema is None:
-            raise TypeError("Missing 'schema' argument")
-        if url_of_proxy_and_resource is None and 'urlOfProxyAndResource' in kwargs:
-            url_of_proxy_and_resource = kwargs['urlOfProxyAndResource']
-        if url_of_proxy_and_resource is None:
-            raise TypeError("Missing 'url_of_proxy_and_resource' argument")
-        if context_headers is None and 'contextHeaders' in kwargs:
-            context_headers = kwargs['contextHeaders']
-        if max_batch_rows is None and 'maxBatchRows' in kwargs:
-            max_batch_rows = kwargs['maxBatchRows']
-        if null_input_behavior is None and 'nullInputBehavior' in kwargs:
-            null_input_behavior = kwargs['nullInputBehavior']
-        if request_translator is None and 'requestTranslator' in kwargs:
-            request_translator = kwargs['requestTranslator']
-        if response_translator is None and 'responseTranslator' in kwargs:
-            response_translator = kwargs['responseTranslator']
-        if return_null_allowed is None and 'returnNullAllowed' in kwargs:
-            return_null_allowed = kwargs['returnNullAllowed']
-
-        _setter("api_integration", api_integration)
-        _setter("database", database)
-        _setter("return_behavior", return_behavior)
-        _setter("return_type", return_type)
-        _setter("schema", schema)
-        _setter("url_of_proxy_and_resource", url_of_proxy_and_resource)
+        pulumi.set(__self__, "api_integration", api_integration)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "return_behavior", return_behavior)
+        pulumi.set(__self__, "return_type", return_type)
+        pulumi.set(__self__, "schema", schema)
+        pulumi.set(__self__, "url_of_proxy_and_resource", url_of_proxy_and_resource)
         if args is not None:
-            _setter("args", args)
+            pulumi.set(__self__, "args", args)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if compression is not None:
-            _setter("compression", compression)
+            pulumi.set(__self__, "compression", compression)
         if context_headers is not None:
-            _setter("context_headers", context_headers)
+            pulumi.set(__self__, "context_headers", context_headers)
         if headers is not None:
-            _setter("headers", headers)
+            pulumi.set(__self__, "headers", headers)
         if max_batch_rows is not None:
-            _setter("max_batch_rows", max_batch_rows)
+            pulumi.set(__self__, "max_batch_rows", max_batch_rows)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if null_input_behavior is not None:
-            _setter("null_input_behavior", null_input_behavior)
+            pulumi.set(__self__, "null_input_behavior", null_input_behavior)
         if request_translator is not None:
-            _setter("request_translator", request_translator)
+            pulumi.set(__self__, "request_translator", request_translator)
         if response_translator is not None:
-            _setter("response_translator", response_translator)
+            pulumi.set(__self__, "response_translator", response_translator)
         if return_null_allowed is not None:
-            _setter("return_null_allowed", return_null_allowed)
+            pulumi.set(__self__, "return_null_allowed", return_null_allowed)
 
     @property
     @pulumi.getter(name="apiIntegration")
@@ -404,109 +329,42 @@ class _ExternalFunctionState:
         :param pulumi.Input[str] schema: The schema in which to create the external function.
         :param pulumi.Input[str] url_of_proxy_and_resource: This is the invocation URL of the proxy service and resource through which Snowflake calls the remote service.
         """
-        _ExternalFunctionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_integration=api_integration,
-            args=args,
-            comment=comment,
-            compression=compression,
-            context_headers=context_headers,
-            created_on=created_on,
-            database=database,
-            headers=headers,
-            max_batch_rows=max_batch_rows,
-            name=name,
-            null_input_behavior=null_input_behavior,
-            request_translator=request_translator,
-            response_translator=response_translator,
-            return_behavior=return_behavior,
-            return_null_allowed=return_null_allowed,
-            return_type=return_type,
-            schema=schema,
-            url_of_proxy_and_resource=url_of_proxy_and_resource,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_integration: Optional[pulumi.Input[str]] = None,
-             args: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionArgArgs']]]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             compression: Optional[pulumi.Input[str]] = None,
-             context_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             created_on: Optional[pulumi.Input[str]] = None,
-             database: Optional[pulumi.Input[str]] = None,
-             headers: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]]] = None,
-             max_batch_rows: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             null_input_behavior: Optional[pulumi.Input[str]] = None,
-             request_translator: Optional[pulumi.Input[str]] = None,
-             response_translator: Optional[pulumi.Input[str]] = None,
-             return_behavior: Optional[pulumi.Input[str]] = None,
-             return_null_allowed: Optional[pulumi.Input[bool]] = None,
-             return_type: Optional[pulumi.Input[str]] = None,
-             schema: Optional[pulumi.Input[str]] = None,
-             url_of_proxy_and_resource: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_integration is None and 'apiIntegration' in kwargs:
-            api_integration = kwargs['apiIntegration']
-        if context_headers is None and 'contextHeaders' in kwargs:
-            context_headers = kwargs['contextHeaders']
-        if created_on is None and 'createdOn' in kwargs:
-            created_on = kwargs['createdOn']
-        if max_batch_rows is None and 'maxBatchRows' in kwargs:
-            max_batch_rows = kwargs['maxBatchRows']
-        if null_input_behavior is None and 'nullInputBehavior' in kwargs:
-            null_input_behavior = kwargs['nullInputBehavior']
-        if request_translator is None and 'requestTranslator' in kwargs:
-            request_translator = kwargs['requestTranslator']
-        if response_translator is None and 'responseTranslator' in kwargs:
-            response_translator = kwargs['responseTranslator']
-        if return_behavior is None and 'returnBehavior' in kwargs:
-            return_behavior = kwargs['returnBehavior']
-        if return_null_allowed is None and 'returnNullAllowed' in kwargs:
-            return_null_allowed = kwargs['returnNullAllowed']
-        if return_type is None and 'returnType' in kwargs:
-            return_type = kwargs['returnType']
-        if url_of_proxy_and_resource is None and 'urlOfProxyAndResource' in kwargs:
-            url_of_proxy_and_resource = kwargs['urlOfProxyAndResource']
-
         if api_integration is not None:
-            _setter("api_integration", api_integration)
+            pulumi.set(__self__, "api_integration", api_integration)
         if args is not None:
-            _setter("args", args)
+            pulumi.set(__self__, "args", args)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if compression is not None:
-            _setter("compression", compression)
+            pulumi.set(__self__, "compression", compression)
         if context_headers is not None:
-            _setter("context_headers", context_headers)
+            pulumi.set(__self__, "context_headers", context_headers)
         if created_on is not None:
-            _setter("created_on", created_on)
+            pulumi.set(__self__, "created_on", created_on)
         if database is not None:
-            _setter("database", database)
+            pulumi.set(__self__, "database", database)
         if headers is not None:
-            _setter("headers", headers)
+            pulumi.set(__self__, "headers", headers)
         if max_batch_rows is not None:
-            _setter("max_batch_rows", max_batch_rows)
+            pulumi.set(__self__, "max_batch_rows", max_batch_rows)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if null_input_behavior is not None:
-            _setter("null_input_behavior", null_input_behavior)
+            pulumi.set(__self__, "null_input_behavior", null_input_behavior)
         if request_translator is not None:
-            _setter("request_translator", request_translator)
+            pulumi.set(__self__, "request_translator", request_translator)
         if response_translator is not None:
-            _setter("response_translator", response_translator)
+            pulumi.set(__self__, "response_translator", response_translator)
         if return_behavior is not None:
-            _setter("return_behavior", return_behavior)
+            pulumi.set(__self__, "return_behavior", return_behavior)
         if return_null_allowed is not None:
-            _setter("return_null_allowed", return_null_allowed)
+            pulumi.set(__self__, "return_null_allowed", return_null_allowed)
         if return_type is not None:
-            _setter("return_type", return_type)
+            pulumi.set(__self__, "return_type", return_type)
         if schema is not None:
-            _setter("schema", schema)
+            pulumi.set(__self__, "schema", schema)
         if url_of_proxy_and_resource is not None:
-            _setter("url_of_proxy_and_resource", url_of_proxy_and_resource)
+            pulumi.set(__self__, "url_of_proxy_and_resource", url_of_proxy_and_resource)
 
     @property
     @pulumi.getter(name="apiIntegration")
@@ -852,10 +710,6 @@ class ExternalFunction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ExternalFunctionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

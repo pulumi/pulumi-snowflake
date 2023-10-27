@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,58 +37,19 @@ class AlertArgs:
         :param pulumi.Input[bool] enabled: Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         :param pulumi.Input[str] name: Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
         """
-        AlertArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            condition=condition,
-            database=database,
-            schema=schema,
-            warehouse=warehouse,
-            alert_schedule=alert_schedule,
-            comment=comment,
-            enabled=enabled,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[pulumi.Input[str]] = None,
-             condition: Optional[pulumi.Input[str]] = None,
-             database: Optional[pulumi.Input[str]] = None,
-             schema: Optional[pulumi.Input[str]] = None,
-             warehouse: Optional[pulumi.Input[str]] = None,
-             alert_schedule: Optional[pulumi.Input['AlertAlertScheduleArgs']] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action is None:
-            raise TypeError("Missing 'action' argument")
-        if condition is None:
-            raise TypeError("Missing 'condition' argument")
-        if database is None:
-            raise TypeError("Missing 'database' argument")
-        if schema is None:
-            raise TypeError("Missing 'schema' argument")
-        if warehouse is None:
-            raise TypeError("Missing 'warehouse' argument")
-        if alert_schedule is None and 'alertSchedule' in kwargs:
-            alert_schedule = kwargs['alertSchedule']
-
-        _setter("action", action)
-        _setter("condition", condition)
-        _setter("database", database)
-        _setter("schema", schema)
-        _setter("warehouse", warehouse)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "schema", schema)
+        pulumi.set(__self__, "warehouse", warehouse)
         if alert_schedule is not None:
-            _setter("alert_schedule", alert_schedule)
+            pulumi.set(__self__, "alert_schedule", alert_schedule)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -223,53 +184,24 @@ class _AlertState:
         :param pulumi.Input[str] schema: The schema in which to create the alert.
         :param pulumi.Input[str] warehouse: The warehouse the alert will use.
         """
-        _AlertState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            alert_schedule=alert_schedule,
-            comment=comment,
-            condition=condition,
-            database=database,
-            enabled=enabled,
-            name=name,
-            schema=schema,
-            warehouse=warehouse,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[pulumi.Input[str]] = None,
-             alert_schedule: Optional[pulumi.Input['AlertAlertScheduleArgs']] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             condition: Optional[pulumi.Input[str]] = None,
-             database: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             schema: Optional[pulumi.Input[str]] = None,
-             warehouse: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if alert_schedule is None and 'alertSchedule' in kwargs:
-            alert_schedule = kwargs['alertSchedule']
-
         if action is not None:
-            _setter("action", action)
+            pulumi.set(__self__, "action", action)
         if alert_schedule is not None:
-            _setter("alert_schedule", alert_schedule)
+            pulumi.set(__self__, "alert_schedule", alert_schedule)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if condition is not None:
-            _setter("condition", condition)
+            pulumi.set(__self__, "condition", condition)
         if database is not None:
-            _setter("database", database)
+            pulumi.set(__self__, "database", database)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if schema is not None:
-            _setter("schema", schema)
+            pulumi.set(__self__, "schema", schema)
         if warehouse is not None:
-            _setter("warehouse", warehouse)
+            pulumi.set(__self__, "warehouse", warehouse)
 
     @property
     @pulumi.getter
@@ -479,10 +411,6 @@ class Alert(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AlertArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -509,7 +437,6 @@ class Alert(pulumi.CustomResource):
             if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
             __props__.__dict__["action"] = action
-            alert_schedule = _utilities.configure(alert_schedule, AlertAlertScheduleArgs, True)
             __props__.__dict__["alert_schedule"] = alert_schedule
             __props__.__dict__["comment"] = comment
             if condition is None and not opts.urn:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['WarehouseArgs', 'Warehouse']
@@ -50,116 +50,43 @@ class WarehouseArgs:
         :param pulumi.Input[str] warehouse_size: Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
         :param pulumi.Input[str] warehouse_type: Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
         """
-        WarehouseArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_resume=auto_resume,
-            auto_suspend=auto_suspend,
-            comment=comment,
-            enable_query_acceleration=enable_query_acceleration,
-            initially_suspended=initially_suspended,
-            max_cluster_count=max_cluster_count,
-            max_concurrency_level=max_concurrency_level,
-            min_cluster_count=min_cluster_count,
-            name=name,
-            query_acceleration_max_scale_factor=query_acceleration_max_scale_factor,
-            resource_monitor=resource_monitor,
-            scaling_policy=scaling_policy,
-            statement_queued_timeout_in_seconds=statement_queued_timeout_in_seconds,
-            statement_timeout_in_seconds=statement_timeout_in_seconds,
-            wait_for_provisioning=wait_for_provisioning,
-            warehouse_size=warehouse_size,
-            warehouse_type=warehouse_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_resume: Optional[pulumi.Input[bool]] = None,
-             auto_suspend: Optional[pulumi.Input[int]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             enable_query_acceleration: Optional[pulumi.Input[bool]] = None,
-             initially_suspended: Optional[pulumi.Input[bool]] = None,
-             max_cluster_count: Optional[pulumi.Input[int]] = None,
-             max_concurrency_level: Optional[pulumi.Input[int]] = None,
-             min_cluster_count: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             query_acceleration_max_scale_factor: Optional[pulumi.Input[int]] = None,
-             resource_monitor: Optional[pulumi.Input[str]] = None,
-             scaling_policy: Optional[pulumi.Input[str]] = None,
-             statement_queued_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             statement_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             wait_for_provisioning: Optional[pulumi.Input[bool]] = None,
-             warehouse_size: Optional[pulumi.Input[str]] = None,
-             warehouse_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auto_resume is None and 'autoResume' in kwargs:
-            auto_resume = kwargs['autoResume']
-        if auto_suspend is None and 'autoSuspend' in kwargs:
-            auto_suspend = kwargs['autoSuspend']
-        if enable_query_acceleration is None and 'enableQueryAcceleration' in kwargs:
-            enable_query_acceleration = kwargs['enableQueryAcceleration']
-        if initially_suspended is None and 'initiallySuspended' in kwargs:
-            initially_suspended = kwargs['initiallySuspended']
-        if max_cluster_count is None and 'maxClusterCount' in kwargs:
-            max_cluster_count = kwargs['maxClusterCount']
-        if max_concurrency_level is None and 'maxConcurrencyLevel' in kwargs:
-            max_concurrency_level = kwargs['maxConcurrencyLevel']
-        if min_cluster_count is None and 'minClusterCount' in kwargs:
-            min_cluster_count = kwargs['minClusterCount']
-        if query_acceleration_max_scale_factor is None and 'queryAccelerationMaxScaleFactor' in kwargs:
-            query_acceleration_max_scale_factor = kwargs['queryAccelerationMaxScaleFactor']
-        if resource_monitor is None and 'resourceMonitor' in kwargs:
-            resource_monitor = kwargs['resourceMonitor']
-        if scaling_policy is None and 'scalingPolicy' in kwargs:
-            scaling_policy = kwargs['scalingPolicy']
-        if statement_queued_timeout_in_seconds is None and 'statementQueuedTimeoutInSeconds' in kwargs:
-            statement_queued_timeout_in_seconds = kwargs['statementQueuedTimeoutInSeconds']
-        if statement_timeout_in_seconds is None and 'statementTimeoutInSeconds' in kwargs:
-            statement_timeout_in_seconds = kwargs['statementTimeoutInSeconds']
-        if wait_for_provisioning is None and 'waitForProvisioning' in kwargs:
-            wait_for_provisioning = kwargs['waitForProvisioning']
-        if warehouse_size is None and 'warehouseSize' in kwargs:
-            warehouse_size = kwargs['warehouseSize']
-        if warehouse_type is None and 'warehouseType' in kwargs:
-            warehouse_type = kwargs['warehouseType']
-
         if auto_resume is not None:
-            _setter("auto_resume", auto_resume)
+            pulumi.set(__self__, "auto_resume", auto_resume)
         if auto_suspend is not None:
-            _setter("auto_suspend", auto_suspend)
+            pulumi.set(__self__, "auto_suspend", auto_suspend)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if enable_query_acceleration is not None:
-            _setter("enable_query_acceleration", enable_query_acceleration)
+            pulumi.set(__self__, "enable_query_acceleration", enable_query_acceleration)
         if initially_suspended is not None:
-            _setter("initially_suspended", initially_suspended)
+            pulumi.set(__self__, "initially_suspended", initially_suspended)
         if max_cluster_count is not None:
-            _setter("max_cluster_count", max_cluster_count)
+            pulumi.set(__self__, "max_cluster_count", max_cluster_count)
         if max_concurrency_level is not None:
-            _setter("max_concurrency_level", max_concurrency_level)
+            pulumi.set(__self__, "max_concurrency_level", max_concurrency_level)
         if min_cluster_count is not None:
-            _setter("min_cluster_count", min_cluster_count)
+            pulumi.set(__self__, "min_cluster_count", min_cluster_count)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if query_acceleration_max_scale_factor is not None:
-            _setter("query_acceleration_max_scale_factor", query_acceleration_max_scale_factor)
+            pulumi.set(__self__, "query_acceleration_max_scale_factor", query_acceleration_max_scale_factor)
         if resource_monitor is not None:
-            _setter("resource_monitor", resource_monitor)
+            pulumi.set(__self__, "resource_monitor", resource_monitor)
         if scaling_policy is not None:
-            _setter("scaling_policy", scaling_policy)
+            pulumi.set(__self__, "scaling_policy", scaling_policy)
         if statement_queued_timeout_in_seconds is not None:
-            _setter("statement_queued_timeout_in_seconds", statement_queued_timeout_in_seconds)
+            pulumi.set(__self__, "statement_queued_timeout_in_seconds", statement_queued_timeout_in_seconds)
         if statement_timeout_in_seconds is not None:
-            _setter("statement_timeout_in_seconds", statement_timeout_in_seconds)
+            pulumi.set(__self__, "statement_timeout_in_seconds", statement_timeout_in_seconds)
         if wait_for_provisioning is not None:
             warnings.warn("""This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.""", DeprecationWarning)
             pulumi.log.warn("""wait_for_provisioning is deprecated: This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.""")
         if wait_for_provisioning is not None:
-            _setter("wait_for_provisioning", wait_for_provisioning)
+            pulumi.set(__self__, "wait_for_provisioning", wait_for_provisioning)
         if warehouse_size is not None:
-            _setter("warehouse_size", warehouse_size)
+            pulumi.set(__self__, "warehouse_size", warehouse_size)
         if warehouse_type is not None:
-            _setter("warehouse_type", warehouse_type)
+            pulumi.set(__self__, "warehouse_type", warehouse_type)
 
     @property
     @pulumi.getter(name="autoResume")
@@ -405,116 +332,43 @@ class _WarehouseState:
         :param pulumi.Input[str] warehouse_size: Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
         :param pulumi.Input[str] warehouse_type: Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
         """
-        _WarehouseState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_resume=auto_resume,
-            auto_suspend=auto_suspend,
-            comment=comment,
-            enable_query_acceleration=enable_query_acceleration,
-            initially_suspended=initially_suspended,
-            max_cluster_count=max_cluster_count,
-            max_concurrency_level=max_concurrency_level,
-            min_cluster_count=min_cluster_count,
-            name=name,
-            query_acceleration_max_scale_factor=query_acceleration_max_scale_factor,
-            resource_monitor=resource_monitor,
-            scaling_policy=scaling_policy,
-            statement_queued_timeout_in_seconds=statement_queued_timeout_in_seconds,
-            statement_timeout_in_seconds=statement_timeout_in_seconds,
-            wait_for_provisioning=wait_for_provisioning,
-            warehouse_size=warehouse_size,
-            warehouse_type=warehouse_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_resume: Optional[pulumi.Input[bool]] = None,
-             auto_suspend: Optional[pulumi.Input[int]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             enable_query_acceleration: Optional[pulumi.Input[bool]] = None,
-             initially_suspended: Optional[pulumi.Input[bool]] = None,
-             max_cluster_count: Optional[pulumi.Input[int]] = None,
-             max_concurrency_level: Optional[pulumi.Input[int]] = None,
-             min_cluster_count: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             query_acceleration_max_scale_factor: Optional[pulumi.Input[int]] = None,
-             resource_monitor: Optional[pulumi.Input[str]] = None,
-             scaling_policy: Optional[pulumi.Input[str]] = None,
-             statement_queued_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             statement_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             wait_for_provisioning: Optional[pulumi.Input[bool]] = None,
-             warehouse_size: Optional[pulumi.Input[str]] = None,
-             warehouse_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auto_resume is None and 'autoResume' in kwargs:
-            auto_resume = kwargs['autoResume']
-        if auto_suspend is None and 'autoSuspend' in kwargs:
-            auto_suspend = kwargs['autoSuspend']
-        if enable_query_acceleration is None and 'enableQueryAcceleration' in kwargs:
-            enable_query_acceleration = kwargs['enableQueryAcceleration']
-        if initially_suspended is None and 'initiallySuspended' in kwargs:
-            initially_suspended = kwargs['initiallySuspended']
-        if max_cluster_count is None and 'maxClusterCount' in kwargs:
-            max_cluster_count = kwargs['maxClusterCount']
-        if max_concurrency_level is None and 'maxConcurrencyLevel' in kwargs:
-            max_concurrency_level = kwargs['maxConcurrencyLevel']
-        if min_cluster_count is None and 'minClusterCount' in kwargs:
-            min_cluster_count = kwargs['minClusterCount']
-        if query_acceleration_max_scale_factor is None and 'queryAccelerationMaxScaleFactor' in kwargs:
-            query_acceleration_max_scale_factor = kwargs['queryAccelerationMaxScaleFactor']
-        if resource_monitor is None and 'resourceMonitor' in kwargs:
-            resource_monitor = kwargs['resourceMonitor']
-        if scaling_policy is None and 'scalingPolicy' in kwargs:
-            scaling_policy = kwargs['scalingPolicy']
-        if statement_queued_timeout_in_seconds is None and 'statementQueuedTimeoutInSeconds' in kwargs:
-            statement_queued_timeout_in_seconds = kwargs['statementQueuedTimeoutInSeconds']
-        if statement_timeout_in_seconds is None and 'statementTimeoutInSeconds' in kwargs:
-            statement_timeout_in_seconds = kwargs['statementTimeoutInSeconds']
-        if wait_for_provisioning is None and 'waitForProvisioning' in kwargs:
-            wait_for_provisioning = kwargs['waitForProvisioning']
-        if warehouse_size is None and 'warehouseSize' in kwargs:
-            warehouse_size = kwargs['warehouseSize']
-        if warehouse_type is None and 'warehouseType' in kwargs:
-            warehouse_type = kwargs['warehouseType']
-
         if auto_resume is not None:
-            _setter("auto_resume", auto_resume)
+            pulumi.set(__self__, "auto_resume", auto_resume)
         if auto_suspend is not None:
-            _setter("auto_suspend", auto_suspend)
+            pulumi.set(__self__, "auto_suspend", auto_suspend)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if enable_query_acceleration is not None:
-            _setter("enable_query_acceleration", enable_query_acceleration)
+            pulumi.set(__self__, "enable_query_acceleration", enable_query_acceleration)
         if initially_suspended is not None:
-            _setter("initially_suspended", initially_suspended)
+            pulumi.set(__self__, "initially_suspended", initially_suspended)
         if max_cluster_count is not None:
-            _setter("max_cluster_count", max_cluster_count)
+            pulumi.set(__self__, "max_cluster_count", max_cluster_count)
         if max_concurrency_level is not None:
-            _setter("max_concurrency_level", max_concurrency_level)
+            pulumi.set(__self__, "max_concurrency_level", max_concurrency_level)
         if min_cluster_count is not None:
-            _setter("min_cluster_count", min_cluster_count)
+            pulumi.set(__self__, "min_cluster_count", min_cluster_count)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if query_acceleration_max_scale_factor is not None:
-            _setter("query_acceleration_max_scale_factor", query_acceleration_max_scale_factor)
+            pulumi.set(__self__, "query_acceleration_max_scale_factor", query_acceleration_max_scale_factor)
         if resource_monitor is not None:
-            _setter("resource_monitor", resource_monitor)
+            pulumi.set(__self__, "resource_monitor", resource_monitor)
         if scaling_policy is not None:
-            _setter("scaling_policy", scaling_policy)
+            pulumi.set(__self__, "scaling_policy", scaling_policy)
         if statement_queued_timeout_in_seconds is not None:
-            _setter("statement_queued_timeout_in_seconds", statement_queued_timeout_in_seconds)
+            pulumi.set(__self__, "statement_queued_timeout_in_seconds", statement_queued_timeout_in_seconds)
         if statement_timeout_in_seconds is not None:
-            _setter("statement_timeout_in_seconds", statement_timeout_in_seconds)
+            pulumi.set(__self__, "statement_timeout_in_seconds", statement_timeout_in_seconds)
         if wait_for_provisioning is not None:
             warnings.warn("""This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.""", DeprecationWarning)
             pulumi.log.warn("""wait_for_provisioning is deprecated: This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.""")
         if wait_for_provisioning is not None:
-            _setter("wait_for_provisioning", wait_for_provisioning)
+            pulumi.set(__self__, "wait_for_provisioning", wait_for_provisioning)
         if warehouse_size is not None:
-            _setter("warehouse_size", warehouse_size)
+            pulumi.set(__self__, "warehouse_size", warehouse_size)
         if warehouse_type is not None:
-            _setter("warehouse_type", warehouse_type)
+            pulumi.set(__self__, "warehouse_type", warehouse_type)
 
     @property
     @pulumi.getter(name="autoResume")
@@ -815,10 +669,6 @@ class Warehouse(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WarehouseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
