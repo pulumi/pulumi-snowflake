@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['FailoverGroupGrantArgs', 'FailoverGroupGrant']
@@ -30,48 +30,17 @@ class FailoverGroupGrantArgs:
         :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
-        FailoverGroupGrantArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            roles=roles,
-            enable_multiple_grants=enable_multiple_grants,
-            failover_group_name=failover_group_name,
-            privilege=privilege,
-            revert_ownership_to_role_name=revert_ownership_to_role_name,
-            with_grant_option=with_grant_option,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
-             failover_group_name: Optional[pulumi.Input[str]] = None,
-             privilege: Optional[pulumi.Input[str]] = None,
-             revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
-             with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if roles is None:
-            raise TypeError("Missing 'roles' argument")
-        if enable_multiple_grants is None and 'enableMultipleGrants' in kwargs:
-            enable_multiple_grants = kwargs['enableMultipleGrants']
-        if failover_group_name is None and 'failoverGroupName' in kwargs:
-            failover_group_name = kwargs['failoverGroupName']
-        if revert_ownership_to_role_name is None and 'revertOwnershipToRoleName' in kwargs:
-            revert_ownership_to_role_name = kwargs['revertOwnershipToRoleName']
-        if with_grant_option is None and 'withGrantOption' in kwargs:
-            with_grant_option = kwargs['withGrantOption']
-
-        _setter("roles", roles)
+        pulumi.set(__self__, "roles", roles)
         if enable_multiple_grants is not None:
-            _setter("enable_multiple_grants", enable_multiple_grants)
+            pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
         if failover_group_name is not None:
-            _setter("failover_group_name", failover_group_name)
+            pulumi.set(__self__, "failover_group_name", failover_group_name)
         if privilege is not None:
-            _setter("privilege", privilege)
+            pulumi.set(__self__, "privilege", privilege)
         if revert_ownership_to_role_name is not None:
-            _setter("revert_ownership_to_role_name", revert_ownership_to_role_name)
+            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
         if with_grant_option is not None:
-            _setter("with_grant_option", with_grant_option)
+            pulumi.set(__self__, "with_grant_option", with_grant_option)
 
     @property
     @pulumi.getter
@@ -166,47 +135,18 @@ class _FailoverGroupGrantState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
-        _FailoverGroupGrantState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enable_multiple_grants=enable_multiple_grants,
-            failover_group_name=failover_group_name,
-            privilege=privilege,
-            revert_ownership_to_role_name=revert_ownership_to_role_name,
-            roles=roles,
-            with_grant_option=with_grant_option,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
-             failover_group_name: Optional[pulumi.Input[str]] = None,
-             privilege: Optional[pulumi.Input[str]] = None,
-             revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
-             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             with_grant_option: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enable_multiple_grants is None and 'enableMultipleGrants' in kwargs:
-            enable_multiple_grants = kwargs['enableMultipleGrants']
-        if failover_group_name is None and 'failoverGroupName' in kwargs:
-            failover_group_name = kwargs['failoverGroupName']
-        if revert_ownership_to_role_name is None and 'revertOwnershipToRoleName' in kwargs:
-            revert_ownership_to_role_name = kwargs['revertOwnershipToRoleName']
-        if with_grant_option is None and 'withGrantOption' in kwargs:
-            with_grant_option = kwargs['withGrantOption']
-
         if enable_multiple_grants is not None:
-            _setter("enable_multiple_grants", enable_multiple_grants)
+            pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
         if failover_group_name is not None:
-            _setter("failover_group_name", failover_group_name)
+            pulumi.set(__self__, "failover_group_name", failover_group_name)
         if privilege is not None:
-            _setter("privilege", privilege)
+            pulumi.set(__self__, "privilege", privilege)
         if revert_ownership_to_role_name is not None:
-            _setter("revert_ownership_to_role_name", revert_ownership_to_role_name)
+            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
         if roles is not None:
-            _setter("roles", roles)
+            pulumi.set(__self__, "roles", roles)
         if with_grant_option is not None:
-            _setter("with_grant_option", with_grant_option)
+            pulumi.set(__self__, "with_grant_option", with_grant_option)
 
     @property
     @pulumi.getter(name="enableMultipleGrants")
@@ -324,10 +264,6 @@ class FailoverGroupGrant(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FailoverGroupGrantArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

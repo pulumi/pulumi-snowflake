@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['StorageIntegrationArgs', 'StorageIntegration']
@@ -30,69 +30,24 @@ class StorageIntegrationArgs:
         :param pulumi.Input[str] storage_aws_object_acl: "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_blocked_locations: Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
         """
-        StorageIntegrationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            storage_allowed_locations=storage_allowed_locations,
-            storage_provider=storage_provider,
-            azure_tenant_id=azure_tenant_id,
-            comment=comment,
-            enabled=enabled,
-            name=name,
-            storage_aws_object_acl=storage_aws_object_acl,
-            storage_aws_role_arn=storage_aws_role_arn,
-            storage_blocked_locations=storage_blocked_locations,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             storage_allowed_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             storage_provider: Optional[pulumi.Input[str]] = None,
-             azure_tenant_id: Optional[pulumi.Input[str]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             storage_aws_object_acl: Optional[pulumi.Input[str]] = None,
-             storage_aws_role_arn: Optional[pulumi.Input[str]] = None,
-             storage_blocked_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if storage_allowed_locations is None and 'storageAllowedLocations' in kwargs:
-            storage_allowed_locations = kwargs['storageAllowedLocations']
-        if storage_allowed_locations is None:
-            raise TypeError("Missing 'storage_allowed_locations' argument")
-        if storage_provider is None and 'storageProvider' in kwargs:
-            storage_provider = kwargs['storageProvider']
-        if storage_provider is None:
-            raise TypeError("Missing 'storage_provider' argument")
-        if azure_tenant_id is None and 'azureTenantId' in kwargs:
-            azure_tenant_id = kwargs['azureTenantId']
-        if storage_aws_object_acl is None and 'storageAwsObjectAcl' in kwargs:
-            storage_aws_object_acl = kwargs['storageAwsObjectAcl']
-        if storage_aws_role_arn is None and 'storageAwsRoleArn' in kwargs:
-            storage_aws_role_arn = kwargs['storageAwsRoleArn']
-        if storage_blocked_locations is None and 'storageBlockedLocations' in kwargs:
-            storage_blocked_locations = kwargs['storageBlockedLocations']
-
-        _setter("storage_allowed_locations", storage_allowed_locations)
-        _setter("storage_provider", storage_provider)
+        pulumi.set(__self__, "storage_allowed_locations", storage_allowed_locations)
+        pulumi.set(__self__, "storage_provider", storage_provider)
         if azure_tenant_id is not None:
-            _setter("azure_tenant_id", azure_tenant_id)
+            pulumi.set(__self__, "azure_tenant_id", azure_tenant_id)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if storage_aws_object_acl is not None:
-            _setter("storage_aws_object_acl", storage_aws_object_acl)
+            pulumi.set(__self__, "storage_aws_object_acl", storage_aws_object_acl)
         if storage_aws_role_arn is not None:
-            _setter("storage_aws_role_arn", storage_aws_role_arn)
+            pulumi.set(__self__, "storage_aws_role_arn", storage_aws_role_arn)
         if storage_blocked_locations is not None:
-            _setter("storage_blocked_locations", storage_blocked_locations)
+            pulumi.set(__self__, "storage_blocked_locations", storage_blocked_locations)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="storageAllowedLocations")
@@ -225,103 +180,38 @@ class _StorageIntegrationState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_blocked_locations: Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
         :param pulumi.Input[str] storage_gcp_service_account: This is the name of the Snowflake Google Service Account created for your account.
         """
-        _StorageIntegrationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            azure_consent_url=azure_consent_url,
-            azure_multi_tenant_app_name=azure_multi_tenant_app_name,
-            azure_tenant_id=azure_tenant_id,
-            comment=comment,
-            created_on=created_on,
-            enabled=enabled,
-            name=name,
-            storage_allowed_locations=storage_allowed_locations,
-            storage_aws_external_id=storage_aws_external_id,
-            storage_aws_iam_user_arn=storage_aws_iam_user_arn,
-            storage_aws_object_acl=storage_aws_object_acl,
-            storage_aws_role_arn=storage_aws_role_arn,
-            storage_blocked_locations=storage_blocked_locations,
-            storage_gcp_service_account=storage_gcp_service_account,
-            storage_provider=storage_provider,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             azure_consent_url: Optional[pulumi.Input[str]] = None,
-             azure_multi_tenant_app_name: Optional[pulumi.Input[str]] = None,
-             azure_tenant_id: Optional[pulumi.Input[str]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             created_on: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             storage_allowed_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             storage_aws_external_id: Optional[pulumi.Input[str]] = None,
-             storage_aws_iam_user_arn: Optional[pulumi.Input[str]] = None,
-             storage_aws_object_acl: Optional[pulumi.Input[str]] = None,
-             storage_aws_role_arn: Optional[pulumi.Input[str]] = None,
-             storage_blocked_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             storage_gcp_service_account: Optional[pulumi.Input[str]] = None,
-             storage_provider: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if azure_consent_url is None and 'azureConsentUrl' in kwargs:
-            azure_consent_url = kwargs['azureConsentUrl']
-        if azure_multi_tenant_app_name is None and 'azureMultiTenantAppName' in kwargs:
-            azure_multi_tenant_app_name = kwargs['azureMultiTenantAppName']
-        if azure_tenant_id is None and 'azureTenantId' in kwargs:
-            azure_tenant_id = kwargs['azureTenantId']
-        if created_on is None and 'createdOn' in kwargs:
-            created_on = kwargs['createdOn']
-        if storage_allowed_locations is None and 'storageAllowedLocations' in kwargs:
-            storage_allowed_locations = kwargs['storageAllowedLocations']
-        if storage_aws_external_id is None and 'storageAwsExternalId' in kwargs:
-            storage_aws_external_id = kwargs['storageAwsExternalId']
-        if storage_aws_iam_user_arn is None and 'storageAwsIamUserArn' in kwargs:
-            storage_aws_iam_user_arn = kwargs['storageAwsIamUserArn']
-        if storage_aws_object_acl is None and 'storageAwsObjectAcl' in kwargs:
-            storage_aws_object_acl = kwargs['storageAwsObjectAcl']
-        if storage_aws_role_arn is None and 'storageAwsRoleArn' in kwargs:
-            storage_aws_role_arn = kwargs['storageAwsRoleArn']
-        if storage_blocked_locations is None and 'storageBlockedLocations' in kwargs:
-            storage_blocked_locations = kwargs['storageBlockedLocations']
-        if storage_gcp_service_account is None and 'storageGcpServiceAccount' in kwargs:
-            storage_gcp_service_account = kwargs['storageGcpServiceAccount']
-        if storage_provider is None and 'storageProvider' in kwargs:
-            storage_provider = kwargs['storageProvider']
-
         if azure_consent_url is not None:
-            _setter("azure_consent_url", azure_consent_url)
+            pulumi.set(__self__, "azure_consent_url", azure_consent_url)
         if azure_multi_tenant_app_name is not None:
-            _setter("azure_multi_tenant_app_name", azure_multi_tenant_app_name)
+            pulumi.set(__self__, "azure_multi_tenant_app_name", azure_multi_tenant_app_name)
         if azure_tenant_id is not None:
-            _setter("azure_tenant_id", azure_tenant_id)
+            pulumi.set(__self__, "azure_tenant_id", azure_tenant_id)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if created_on is not None:
-            _setter("created_on", created_on)
+            pulumi.set(__self__, "created_on", created_on)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if storage_allowed_locations is not None:
-            _setter("storage_allowed_locations", storage_allowed_locations)
+            pulumi.set(__self__, "storage_allowed_locations", storage_allowed_locations)
         if storage_aws_external_id is not None:
-            _setter("storage_aws_external_id", storage_aws_external_id)
+            pulumi.set(__self__, "storage_aws_external_id", storage_aws_external_id)
         if storage_aws_iam_user_arn is not None:
-            _setter("storage_aws_iam_user_arn", storage_aws_iam_user_arn)
+            pulumi.set(__self__, "storage_aws_iam_user_arn", storage_aws_iam_user_arn)
         if storage_aws_object_acl is not None:
-            _setter("storage_aws_object_acl", storage_aws_object_acl)
+            pulumi.set(__self__, "storage_aws_object_acl", storage_aws_object_acl)
         if storage_aws_role_arn is not None:
-            _setter("storage_aws_role_arn", storage_aws_role_arn)
+            pulumi.set(__self__, "storage_aws_role_arn", storage_aws_role_arn)
         if storage_blocked_locations is not None:
-            _setter("storage_blocked_locations", storage_blocked_locations)
+            pulumi.set(__self__, "storage_blocked_locations", storage_blocked_locations)
         if storage_gcp_service_account is not None:
-            _setter("storage_gcp_service_account", storage_gcp_service_account)
+            pulumi.set(__self__, "storage_gcp_service_account", storage_gcp_service_account)
         if storage_provider is not None:
-            _setter("storage_provider", storage_provider)
+            pulumi.set(__self__, "storage_provider", storage_provider)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="azureConsentUrl")
@@ -547,10 +437,6 @@ class StorageIntegration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            StorageIntegrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

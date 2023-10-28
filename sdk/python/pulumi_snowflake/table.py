@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,84 +41,37 @@ class TableArgs:
         :param pulumi.Input['TablePrimaryKeyArgs'] primary_key: Definitions of primary key constraint to create on table
         :param pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
-        TableArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            columns=columns,
-            database=database,
-            schema=schema,
-            change_tracking=change_tracking,
-            cluster_bies=cluster_bies,
-            comment=comment,
-            data_retention_days=data_retention_days,
-            data_retention_time_in_days=data_retention_time_in_days,
-            name=name,
-            primary_key=primary_key,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
-             database: Optional[pulumi.Input[str]] = None,
-             schema: Optional[pulumi.Input[str]] = None,
-             change_tracking: Optional[pulumi.Input[bool]] = None,
-             cluster_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             data_retention_days: Optional[pulumi.Input[int]] = None,
-             data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             primary_key: Optional[pulumi.Input['TablePrimaryKeyArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if columns is None:
-            raise TypeError("Missing 'columns' argument")
-        if database is None:
-            raise TypeError("Missing 'database' argument")
-        if schema is None:
-            raise TypeError("Missing 'schema' argument")
-        if change_tracking is None and 'changeTracking' in kwargs:
-            change_tracking = kwargs['changeTracking']
-        if cluster_bies is None and 'clusterBies' in kwargs:
-            cluster_bies = kwargs['clusterBies']
-        if data_retention_days is None and 'dataRetentionDays' in kwargs:
-            data_retention_days = kwargs['dataRetentionDays']
-        if data_retention_time_in_days is None and 'dataRetentionTimeInDays' in kwargs:
-            data_retention_time_in_days = kwargs['dataRetentionTimeInDays']
-        if primary_key is None and 'primaryKey' in kwargs:
-            primary_key = kwargs['primaryKey']
-
-        _setter("columns", columns)
-        _setter("database", database)
-        _setter("schema", schema)
+        pulumi.set(__self__, "columns", columns)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "schema", schema)
         if change_tracking is not None:
-            _setter("change_tracking", change_tracking)
+            pulumi.set(__self__, "change_tracking", change_tracking)
         if cluster_bies is not None:
-            _setter("cluster_bies", cluster_bies)
+            pulumi.set(__self__, "cluster_bies", cluster_bies)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if data_retention_days is not None:
             warnings.warn("""Use data_retention_time_in_days attribute instead""", DeprecationWarning)
             pulumi.log.warn("""data_retention_days is deprecated: Use data_retention_time_in_days attribute instead""")
         if data_retention_days is not None:
-            _setter("data_retention_days", data_retention_days)
+            pulumi.set(__self__, "data_retention_days", data_retention_days)
         if data_retention_time_in_days is not None:
             warnings.warn("""Use snowflake_object_parameter instead""", DeprecationWarning)
             pulumi.log.warn("""data_retention_time_in_days is deprecated: Use snowflake_object_parameter instead""")
         if data_retention_time_in_days is not None:
-            _setter("data_retention_time_in_days", data_retention_time_in_days)
+            pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if primary_key is not None:
             warnings.warn("""Use snowflake_table_constraint instead""", DeprecationWarning)
             pulumi.log.warn("""primary_key is deprecated: Use snowflake_table_constraint instead""")
         if primary_key is not None:
-            _setter("primary_key", primary_key)
+            pulumi.set(__self__, "primary_key", primary_key)
         if tags is not None:
             warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
             pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -297,91 +250,44 @@ class _TableState:
         :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
         :param pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
-        _TableState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            change_tracking=change_tracking,
-            cluster_bies=cluster_bies,
-            columns=columns,
-            comment=comment,
-            data_retention_days=data_retention_days,
-            data_retention_time_in_days=data_retention_time_in_days,
-            database=database,
-            name=name,
-            owner=owner,
-            primary_key=primary_key,
-            qualified_name=qualified_name,
-            schema=schema,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             change_tracking: Optional[pulumi.Input[bool]] = None,
-             cluster_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             data_retention_days: Optional[pulumi.Input[int]] = None,
-             data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
-             database: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             owner: Optional[pulumi.Input[str]] = None,
-             primary_key: Optional[pulumi.Input['TablePrimaryKeyArgs']] = None,
-             qualified_name: Optional[pulumi.Input[str]] = None,
-             schema: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if change_tracking is None and 'changeTracking' in kwargs:
-            change_tracking = kwargs['changeTracking']
-        if cluster_bies is None and 'clusterBies' in kwargs:
-            cluster_bies = kwargs['clusterBies']
-        if data_retention_days is None and 'dataRetentionDays' in kwargs:
-            data_retention_days = kwargs['dataRetentionDays']
-        if data_retention_time_in_days is None and 'dataRetentionTimeInDays' in kwargs:
-            data_retention_time_in_days = kwargs['dataRetentionTimeInDays']
-        if primary_key is None and 'primaryKey' in kwargs:
-            primary_key = kwargs['primaryKey']
-        if qualified_name is None and 'qualifiedName' in kwargs:
-            qualified_name = kwargs['qualifiedName']
-
         if change_tracking is not None:
-            _setter("change_tracking", change_tracking)
+            pulumi.set(__self__, "change_tracking", change_tracking)
         if cluster_bies is not None:
-            _setter("cluster_bies", cluster_bies)
+            pulumi.set(__self__, "cluster_bies", cluster_bies)
         if columns is not None:
-            _setter("columns", columns)
+            pulumi.set(__self__, "columns", columns)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if data_retention_days is not None:
             warnings.warn("""Use data_retention_time_in_days attribute instead""", DeprecationWarning)
             pulumi.log.warn("""data_retention_days is deprecated: Use data_retention_time_in_days attribute instead""")
         if data_retention_days is not None:
-            _setter("data_retention_days", data_retention_days)
+            pulumi.set(__self__, "data_retention_days", data_retention_days)
         if data_retention_time_in_days is not None:
             warnings.warn("""Use snowflake_object_parameter instead""", DeprecationWarning)
             pulumi.log.warn("""data_retention_time_in_days is deprecated: Use snowflake_object_parameter instead""")
         if data_retention_time_in_days is not None:
-            _setter("data_retention_time_in_days", data_retention_time_in_days)
+            pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
         if database is not None:
-            _setter("database", database)
+            pulumi.set(__self__, "database", database)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if owner is not None:
-            _setter("owner", owner)
+            pulumi.set(__self__, "owner", owner)
         if primary_key is not None:
             warnings.warn("""Use snowflake_table_constraint instead""", DeprecationWarning)
             pulumi.log.warn("""primary_key is deprecated: Use snowflake_table_constraint instead""")
         if primary_key is not None:
-            _setter("primary_key", primary_key)
+            pulumi.set(__self__, "primary_key", primary_key)
         if qualified_name is not None:
-            _setter("qualified_name", qualified_name)
+            pulumi.set(__self__, "qualified_name", qualified_name)
         if schema is not None:
-            _setter("schema", schema)
+            pulumi.set(__self__, "schema", schema)
         if tags is not None:
             warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
             pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="changeTracking")
@@ -617,10 +523,6 @@ class Table(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -658,7 +560,6 @@ class Table(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
             __props__.__dict__["name"] = name
-            primary_key = _utilities.configure(primary_key, TablePrimaryKeyArgs, True)
             __props__.__dict__["primary_key"] = primary_key
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")

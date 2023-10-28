@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['SessionParameterArgs', 'SessionParameter']
@@ -25,35 +25,12 @@ class SessionParameterArgs:
         :param pulumi.Input[bool] on_account: If true, the session parameter will be set on the account level.
         :param pulumi.Input[str] user: The user to set the session parameter for. Required if on_account is false
         """
-        SessionParameterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-            on_account=on_account,
-            user=user,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             on_account: Optional[pulumi.Input[bool]] = None,
-             user: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-        if on_account is None and 'onAccount' in kwargs:
-            on_account = kwargs['onAccount']
-
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
         if on_account is not None:
-            _setter("on_account", on_account)
+            pulumi.set(__self__, "on_account", on_account)
         if user is not None:
-            _setter("user", user)
+            pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter
@@ -118,33 +95,14 @@ class _SessionParameterState:
         :param pulumi.Input[str] user: The user to set the session parameter for. Required if on_account is false
         :param pulumi.Input[str] value: Value of session parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
         """
-        _SessionParameterState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            on_account=on_account,
-            user=user,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[pulumi.Input[str]] = None,
-             on_account: Optional[pulumi.Input[bool]] = None,
-             user: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if on_account is None and 'onAccount' in kwargs:
-            on_account = kwargs['onAccount']
-
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if on_account is not None:
-            _setter("on_account", on_account)
+            pulumi.set(__self__, "on_account", on_account)
         if user is not None:
-            _setter("user", user)
+            pulumi.set(__self__, "user", user)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -274,10 +232,6 @@ class SessionParameter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SessionParameterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

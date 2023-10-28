@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,86 +45,35 @@ class StageArgs:
         :param pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[str] url: Specifies the URL for the stage.
         """
-        StageArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            database=database,
-            schema=schema,
-            aws_external_id=aws_external_id,
-            comment=comment,
-            copy_options=copy_options,
-            credentials=credentials,
-            directory=directory,
-            encryption=encryption,
-            file_format=file_format,
-            name=name,
-            snowflake_iam_user=snowflake_iam_user,
-            storage_integration=storage_integration,
-            tags=tags,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             database: Optional[pulumi.Input[str]] = None,
-             schema: Optional[pulumi.Input[str]] = None,
-             aws_external_id: Optional[pulumi.Input[str]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             copy_options: Optional[pulumi.Input[str]] = None,
-             credentials: Optional[pulumi.Input[str]] = None,
-             directory: Optional[pulumi.Input[str]] = None,
-             encryption: Optional[pulumi.Input[str]] = None,
-             file_format: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             snowflake_iam_user: Optional[pulumi.Input[str]] = None,
-             storage_integration: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if database is None:
-            raise TypeError("Missing 'database' argument")
-        if schema is None:
-            raise TypeError("Missing 'schema' argument")
-        if aws_external_id is None and 'awsExternalId' in kwargs:
-            aws_external_id = kwargs['awsExternalId']
-        if copy_options is None and 'copyOptions' in kwargs:
-            copy_options = kwargs['copyOptions']
-        if file_format is None and 'fileFormat' in kwargs:
-            file_format = kwargs['fileFormat']
-        if snowflake_iam_user is None and 'snowflakeIamUser' in kwargs:
-            snowflake_iam_user = kwargs['snowflakeIamUser']
-        if storage_integration is None and 'storageIntegration' in kwargs:
-            storage_integration = kwargs['storageIntegration']
-
-        _setter("database", database)
-        _setter("schema", schema)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "schema", schema)
         if aws_external_id is not None:
-            _setter("aws_external_id", aws_external_id)
+            pulumi.set(__self__, "aws_external_id", aws_external_id)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if copy_options is not None:
-            _setter("copy_options", copy_options)
+            pulumi.set(__self__, "copy_options", copy_options)
         if credentials is not None:
-            _setter("credentials", credentials)
+            pulumi.set(__self__, "credentials", credentials)
         if directory is not None:
-            _setter("directory", directory)
+            pulumi.set(__self__, "directory", directory)
         if encryption is not None:
-            _setter("encryption", encryption)
+            pulumi.set(__self__, "encryption", encryption)
         if file_format is not None:
-            _setter("file_format", file_format)
+            pulumi.set(__self__, "file_format", file_format)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if snowflake_iam_user is not None:
-            _setter("snowflake_iam_user", snowflake_iam_user)
+            pulumi.set(__self__, "snowflake_iam_user", snowflake_iam_user)
         if storage_integration is not None:
-            _setter("storage_integration", storage_integration)
+            pulumi.set(__self__, "storage_integration", storage_integration)
         if tags is not None:
             warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
             pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -324,84 +273,37 @@ class _StageState:
         :param pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[str] url: Specifies the URL for the stage.
         """
-        _StageState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            aws_external_id=aws_external_id,
-            comment=comment,
-            copy_options=copy_options,
-            credentials=credentials,
-            database=database,
-            directory=directory,
-            encryption=encryption,
-            file_format=file_format,
-            name=name,
-            schema=schema,
-            snowflake_iam_user=snowflake_iam_user,
-            storage_integration=storage_integration,
-            tags=tags,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             aws_external_id: Optional[pulumi.Input[str]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             copy_options: Optional[pulumi.Input[str]] = None,
-             credentials: Optional[pulumi.Input[str]] = None,
-             database: Optional[pulumi.Input[str]] = None,
-             directory: Optional[pulumi.Input[str]] = None,
-             encryption: Optional[pulumi.Input[str]] = None,
-             file_format: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             schema: Optional[pulumi.Input[str]] = None,
-             snowflake_iam_user: Optional[pulumi.Input[str]] = None,
-             storage_integration: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if aws_external_id is None and 'awsExternalId' in kwargs:
-            aws_external_id = kwargs['awsExternalId']
-        if copy_options is None and 'copyOptions' in kwargs:
-            copy_options = kwargs['copyOptions']
-        if file_format is None and 'fileFormat' in kwargs:
-            file_format = kwargs['fileFormat']
-        if snowflake_iam_user is None and 'snowflakeIamUser' in kwargs:
-            snowflake_iam_user = kwargs['snowflakeIamUser']
-        if storage_integration is None and 'storageIntegration' in kwargs:
-            storage_integration = kwargs['storageIntegration']
-
         if aws_external_id is not None:
-            _setter("aws_external_id", aws_external_id)
+            pulumi.set(__self__, "aws_external_id", aws_external_id)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if copy_options is not None:
-            _setter("copy_options", copy_options)
+            pulumi.set(__self__, "copy_options", copy_options)
         if credentials is not None:
-            _setter("credentials", credentials)
+            pulumi.set(__self__, "credentials", credentials)
         if database is not None:
-            _setter("database", database)
+            pulumi.set(__self__, "database", database)
         if directory is not None:
-            _setter("directory", directory)
+            pulumi.set(__self__, "directory", directory)
         if encryption is not None:
-            _setter("encryption", encryption)
+            pulumi.set(__self__, "encryption", encryption)
         if file_format is not None:
-            _setter("file_format", file_format)
+            pulumi.set(__self__, "file_format", file_format)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if schema is not None:
-            _setter("schema", schema)
+            pulumi.set(__self__, "schema", schema)
         if snowflake_iam_user is not None:
-            _setter("snowflake_iam_user", snowflake_iam_user)
+            pulumi.set(__self__, "snowflake_iam_user", snowflake_iam_user)
         if storage_integration is not None:
-            _setter("storage_integration", storage_integration)
+            pulumi.set(__self__, "storage_integration", storage_integration)
         if tags is not None:
             warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
             pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter(name="awsExternalId")
@@ -676,10 +578,6 @@ class Stage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            StageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

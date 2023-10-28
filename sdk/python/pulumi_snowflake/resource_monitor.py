@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ResourceMonitorArgs', 'ResourceMonitor']
@@ -43,93 +43,38 @@ class ResourceMonitorArgs:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_triggers: A list of percentage thresholds at which to suspend all warehouses.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] warehouses: A list of warehouses to apply the resource monitor to.
         """
-        ResourceMonitorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            credit_quota=credit_quota,
-            end_timestamp=end_timestamp,
-            frequency=frequency,
-            name=name,
-            notify_triggers=notify_triggers,
-            notify_users=notify_users,
-            set_for_account=set_for_account,
-            start_timestamp=start_timestamp,
-            suspend_immediate_trigger=suspend_immediate_trigger,
-            suspend_immediate_triggers=suspend_immediate_triggers,
-            suspend_trigger=suspend_trigger,
-            suspend_triggers=suspend_triggers,
-            warehouses=warehouses,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             credit_quota: Optional[pulumi.Input[int]] = None,
-             end_timestamp: Optional[pulumi.Input[str]] = None,
-             frequency: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             notify_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             notify_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             set_for_account: Optional[pulumi.Input[bool]] = None,
-             start_timestamp: Optional[pulumi.Input[str]] = None,
-             suspend_immediate_trigger: Optional[pulumi.Input[int]] = None,
-             suspend_immediate_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             suspend_trigger: Optional[pulumi.Input[int]] = None,
-             suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             warehouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if credit_quota is None and 'creditQuota' in kwargs:
-            credit_quota = kwargs['creditQuota']
-        if end_timestamp is None and 'endTimestamp' in kwargs:
-            end_timestamp = kwargs['endTimestamp']
-        if notify_triggers is None and 'notifyTriggers' in kwargs:
-            notify_triggers = kwargs['notifyTriggers']
-        if notify_users is None and 'notifyUsers' in kwargs:
-            notify_users = kwargs['notifyUsers']
-        if set_for_account is None and 'setForAccount' in kwargs:
-            set_for_account = kwargs['setForAccount']
-        if start_timestamp is None and 'startTimestamp' in kwargs:
-            start_timestamp = kwargs['startTimestamp']
-        if suspend_immediate_trigger is None and 'suspendImmediateTrigger' in kwargs:
-            suspend_immediate_trigger = kwargs['suspendImmediateTrigger']
-        if suspend_immediate_triggers is None and 'suspendImmediateTriggers' in kwargs:
-            suspend_immediate_triggers = kwargs['suspendImmediateTriggers']
-        if suspend_trigger is None and 'suspendTrigger' in kwargs:
-            suspend_trigger = kwargs['suspendTrigger']
-        if suspend_triggers is None and 'suspendTriggers' in kwargs:
-            suspend_triggers = kwargs['suspendTriggers']
-
         if credit_quota is not None:
-            _setter("credit_quota", credit_quota)
+            pulumi.set(__self__, "credit_quota", credit_quota)
         if end_timestamp is not None:
-            _setter("end_timestamp", end_timestamp)
+            pulumi.set(__self__, "end_timestamp", end_timestamp)
         if frequency is not None:
-            _setter("frequency", frequency)
+            pulumi.set(__self__, "frequency", frequency)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if notify_triggers is not None:
-            _setter("notify_triggers", notify_triggers)
+            pulumi.set(__self__, "notify_triggers", notify_triggers)
         if notify_users is not None:
-            _setter("notify_users", notify_users)
+            pulumi.set(__self__, "notify_users", notify_users)
         if set_for_account is not None:
-            _setter("set_for_account", set_for_account)
+            pulumi.set(__self__, "set_for_account", set_for_account)
         if start_timestamp is not None:
-            _setter("start_timestamp", start_timestamp)
+            pulumi.set(__self__, "start_timestamp", start_timestamp)
         if suspend_immediate_trigger is not None:
-            _setter("suspend_immediate_trigger", suspend_immediate_trigger)
+            pulumi.set(__self__, "suspend_immediate_trigger", suspend_immediate_trigger)
         if suspend_immediate_triggers is not None:
             warnings.warn("""Use suspend_immediate_trigger instead""", DeprecationWarning)
             pulumi.log.warn("""suspend_immediate_triggers is deprecated: Use suspend_immediate_trigger instead""")
         if suspend_immediate_triggers is not None:
-            _setter("suspend_immediate_triggers", suspend_immediate_triggers)
+            pulumi.set(__self__, "suspend_immediate_triggers", suspend_immediate_triggers)
         if suspend_trigger is not None:
-            _setter("suspend_trigger", suspend_trigger)
+            pulumi.set(__self__, "suspend_trigger", suspend_trigger)
         if suspend_triggers is not None:
             warnings.warn("""Use suspend_trigger instead""", DeprecationWarning)
             pulumi.log.warn("""suspend_triggers is deprecated: Use suspend_trigger instead""")
         if suspend_triggers is not None:
-            _setter("suspend_triggers", suspend_triggers)
+            pulumi.set(__self__, "suspend_triggers", suspend_triggers)
         if warehouses is not None:
-            _setter("warehouses", warehouses)
+            pulumi.set(__self__, "warehouses", warehouses)
 
     @property
     @pulumi.getter(name="creditQuota")
@@ -326,93 +271,38 @@ class _ResourceMonitorState:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_triggers: A list of percentage thresholds at which to suspend all warehouses.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] warehouses: A list of warehouses to apply the resource monitor to.
         """
-        _ResourceMonitorState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            credit_quota=credit_quota,
-            end_timestamp=end_timestamp,
-            frequency=frequency,
-            name=name,
-            notify_triggers=notify_triggers,
-            notify_users=notify_users,
-            set_for_account=set_for_account,
-            start_timestamp=start_timestamp,
-            suspend_immediate_trigger=suspend_immediate_trigger,
-            suspend_immediate_triggers=suspend_immediate_triggers,
-            suspend_trigger=suspend_trigger,
-            suspend_triggers=suspend_triggers,
-            warehouses=warehouses,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             credit_quota: Optional[pulumi.Input[int]] = None,
-             end_timestamp: Optional[pulumi.Input[str]] = None,
-             frequency: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             notify_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             notify_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             set_for_account: Optional[pulumi.Input[bool]] = None,
-             start_timestamp: Optional[pulumi.Input[str]] = None,
-             suspend_immediate_trigger: Optional[pulumi.Input[int]] = None,
-             suspend_immediate_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             suspend_trigger: Optional[pulumi.Input[int]] = None,
-             suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             warehouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if credit_quota is None and 'creditQuota' in kwargs:
-            credit_quota = kwargs['creditQuota']
-        if end_timestamp is None and 'endTimestamp' in kwargs:
-            end_timestamp = kwargs['endTimestamp']
-        if notify_triggers is None and 'notifyTriggers' in kwargs:
-            notify_triggers = kwargs['notifyTriggers']
-        if notify_users is None and 'notifyUsers' in kwargs:
-            notify_users = kwargs['notifyUsers']
-        if set_for_account is None and 'setForAccount' in kwargs:
-            set_for_account = kwargs['setForAccount']
-        if start_timestamp is None and 'startTimestamp' in kwargs:
-            start_timestamp = kwargs['startTimestamp']
-        if suspend_immediate_trigger is None and 'suspendImmediateTrigger' in kwargs:
-            suspend_immediate_trigger = kwargs['suspendImmediateTrigger']
-        if suspend_immediate_triggers is None and 'suspendImmediateTriggers' in kwargs:
-            suspend_immediate_triggers = kwargs['suspendImmediateTriggers']
-        if suspend_trigger is None and 'suspendTrigger' in kwargs:
-            suspend_trigger = kwargs['suspendTrigger']
-        if suspend_triggers is None and 'suspendTriggers' in kwargs:
-            suspend_triggers = kwargs['suspendTriggers']
-
         if credit_quota is not None:
-            _setter("credit_quota", credit_quota)
+            pulumi.set(__self__, "credit_quota", credit_quota)
         if end_timestamp is not None:
-            _setter("end_timestamp", end_timestamp)
+            pulumi.set(__self__, "end_timestamp", end_timestamp)
         if frequency is not None:
-            _setter("frequency", frequency)
+            pulumi.set(__self__, "frequency", frequency)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if notify_triggers is not None:
-            _setter("notify_triggers", notify_triggers)
+            pulumi.set(__self__, "notify_triggers", notify_triggers)
         if notify_users is not None:
-            _setter("notify_users", notify_users)
+            pulumi.set(__self__, "notify_users", notify_users)
         if set_for_account is not None:
-            _setter("set_for_account", set_for_account)
+            pulumi.set(__self__, "set_for_account", set_for_account)
         if start_timestamp is not None:
-            _setter("start_timestamp", start_timestamp)
+            pulumi.set(__self__, "start_timestamp", start_timestamp)
         if suspend_immediate_trigger is not None:
-            _setter("suspend_immediate_trigger", suspend_immediate_trigger)
+            pulumi.set(__self__, "suspend_immediate_trigger", suspend_immediate_trigger)
         if suspend_immediate_triggers is not None:
             warnings.warn("""Use suspend_immediate_trigger instead""", DeprecationWarning)
             pulumi.log.warn("""suspend_immediate_triggers is deprecated: Use suspend_immediate_trigger instead""")
         if suspend_immediate_triggers is not None:
-            _setter("suspend_immediate_triggers", suspend_immediate_triggers)
+            pulumi.set(__self__, "suspend_immediate_triggers", suspend_immediate_triggers)
         if suspend_trigger is not None:
-            _setter("suspend_trigger", suspend_trigger)
+            pulumi.set(__self__, "suspend_trigger", suspend_trigger)
         if suspend_triggers is not None:
             warnings.warn("""Use suspend_trigger instead""", DeprecationWarning)
             pulumi.log.warn("""suspend_triggers is deprecated: Use suspend_trigger instead""")
         if suspend_triggers is not None:
-            _setter("suspend_triggers", suspend_triggers)
+            pulumi.set(__self__, "suspend_triggers", suspend_triggers)
         if warehouses is not None:
-            _setter("warehouses", warehouses)
+            pulumi.set(__self__, "warehouses", warehouses)
 
     @property
     @pulumi.getter(name="creditQuota")
@@ -692,10 +582,6 @@ class ResourceMonitor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ResourceMonitorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
