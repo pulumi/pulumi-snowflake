@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['OauthIntegrationArgs', 'OauthIntegration']
@@ -37,70 +37,25 @@ class OauthIntegrationArgs:
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
         :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
         """
-        OauthIntegrationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            oauth_client=oauth_client,
-            blocked_roles_lists=blocked_roles_lists,
-            comment=comment,
-            enabled=enabled,
-            name=name,
-            oauth_client_type=oauth_client_type,
-            oauth_issue_refresh_tokens=oauth_issue_refresh_tokens,
-            oauth_redirect_uri=oauth_redirect_uri,
-            oauth_refresh_token_validity=oauth_refresh_token_validity,
-            oauth_use_secondary_roles=oauth_use_secondary_roles,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             oauth_client: Optional[pulumi.Input[str]] = None,
-             blocked_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             oauth_client_type: Optional[pulumi.Input[str]] = None,
-             oauth_issue_refresh_tokens: Optional[pulumi.Input[bool]] = None,
-             oauth_redirect_uri: Optional[pulumi.Input[str]] = None,
-             oauth_refresh_token_validity: Optional[pulumi.Input[int]] = None,
-             oauth_use_secondary_roles: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if oauth_client is None and 'oauthClient' in kwargs:
-            oauth_client = kwargs['oauthClient']
-        if oauth_client is None:
-            raise TypeError("Missing 'oauth_client' argument")
-        if blocked_roles_lists is None and 'blockedRolesLists' in kwargs:
-            blocked_roles_lists = kwargs['blockedRolesLists']
-        if oauth_client_type is None and 'oauthClientType' in kwargs:
-            oauth_client_type = kwargs['oauthClientType']
-        if oauth_issue_refresh_tokens is None and 'oauthIssueRefreshTokens' in kwargs:
-            oauth_issue_refresh_tokens = kwargs['oauthIssueRefreshTokens']
-        if oauth_redirect_uri is None and 'oauthRedirectUri' in kwargs:
-            oauth_redirect_uri = kwargs['oauthRedirectUri']
-        if oauth_refresh_token_validity is None and 'oauthRefreshTokenValidity' in kwargs:
-            oauth_refresh_token_validity = kwargs['oauthRefreshTokenValidity']
-        if oauth_use_secondary_roles is None and 'oauthUseSecondaryRoles' in kwargs:
-            oauth_use_secondary_roles = kwargs['oauthUseSecondaryRoles']
-
-        _setter("oauth_client", oauth_client)
+        pulumi.set(__self__, "oauth_client", oauth_client)
         if blocked_roles_lists is not None:
-            _setter("blocked_roles_lists", blocked_roles_lists)
+            pulumi.set(__self__, "blocked_roles_lists", blocked_roles_lists)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if oauth_client_type is not None:
-            _setter("oauth_client_type", oauth_client_type)
+            pulumi.set(__self__, "oauth_client_type", oauth_client_type)
         if oauth_issue_refresh_tokens is not None:
-            _setter("oauth_issue_refresh_tokens", oauth_issue_refresh_tokens)
+            pulumi.set(__self__, "oauth_issue_refresh_tokens", oauth_issue_refresh_tokens)
         if oauth_redirect_uri is not None:
-            _setter("oauth_redirect_uri", oauth_redirect_uri)
+            pulumi.set(__self__, "oauth_redirect_uri", oauth_redirect_uri)
         if oauth_refresh_token_validity is not None:
-            _setter("oauth_refresh_token_validity", oauth_refresh_token_validity)
+            pulumi.set(__self__, "oauth_refresh_token_validity", oauth_refresh_token_validity)
         if oauth_use_secondary_roles is not None:
-            _setter("oauth_use_secondary_roles", oauth_use_secondary_roles)
+            pulumi.set(__self__, "oauth_use_secondary_roles", oauth_use_secondary_roles)
 
     @property
     @pulumi.getter(name="oauthClient")
@@ -251,75 +206,28 @@ class _OauthIntegrationState:
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
         :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened.
         """
-        _OauthIntegrationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            blocked_roles_lists=blocked_roles_lists,
-            comment=comment,
-            created_on=created_on,
-            enabled=enabled,
-            name=name,
-            oauth_client=oauth_client,
-            oauth_client_type=oauth_client_type,
-            oauth_issue_refresh_tokens=oauth_issue_refresh_tokens,
-            oauth_redirect_uri=oauth_redirect_uri,
-            oauth_refresh_token_validity=oauth_refresh_token_validity,
-            oauth_use_secondary_roles=oauth_use_secondary_roles,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             blocked_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             created_on: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             oauth_client: Optional[pulumi.Input[str]] = None,
-             oauth_client_type: Optional[pulumi.Input[str]] = None,
-             oauth_issue_refresh_tokens: Optional[pulumi.Input[bool]] = None,
-             oauth_redirect_uri: Optional[pulumi.Input[str]] = None,
-             oauth_refresh_token_validity: Optional[pulumi.Input[int]] = None,
-             oauth_use_secondary_roles: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if blocked_roles_lists is None and 'blockedRolesLists' in kwargs:
-            blocked_roles_lists = kwargs['blockedRolesLists']
-        if created_on is None and 'createdOn' in kwargs:
-            created_on = kwargs['createdOn']
-        if oauth_client is None and 'oauthClient' in kwargs:
-            oauth_client = kwargs['oauthClient']
-        if oauth_client_type is None and 'oauthClientType' in kwargs:
-            oauth_client_type = kwargs['oauthClientType']
-        if oauth_issue_refresh_tokens is None and 'oauthIssueRefreshTokens' in kwargs:
-            oauth_issue_refresh_tokens = kwargs['oauthIssueRefreshTokens']
-        if oauth_redirect_uri is None and 'oauthRedirectUri' in kwargs:
-            oauth_redirect_uri = kwargs['oauthRedirectUri']
-        if oauth_refresh_token_validity is None and 'oauthRefreshTokenValidity' in kwargs:
-            oauth_refresh_token_validity = kwargs['oauthRefreshTokenValidity']
-        if oauth_use_secondary_roles is None and 'oauthUseSecondaryRoles' in kwargs:
-            oauth_use_secondary_roles = kwargs['oauthUseSecondaryRoles']
-
         if blocked_roles_lists is not None:
-            _setter("blocked_roles_lists", blocked_roles_lists)
+            pulumi.set(__self__, "blocked_roles_lists", blocked_roles_lists)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if created_on is not None:
-            _setter("created_on", created_on)
+            pulumi.set(__self__, "created_on", created_on)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if oauth_client is not None:
-            _setter("oauth_client", oauth_client)
+            pulumi.set(__self__, "oauth_client", oauth_client)
         if oauth_client_type is not None:
-            _setter("oauth_client_type", oauth_client_type)
+            pulumi.set(__self__, "oauth_client_type", oauth_client_type)
         if oauth_issue_refresh_tokens is not None:
-            _setter("oauth_issue_refresh_tokens", oauth_issue_refresh_tokens)
+            pulumi.set(__self__, "oauth_issue_refresh_tokens", oauth_issue_refresh_tokens)
         if oauth_redirect_uri is not None:
-            _setter("oauth_redirect_uri", oauth_redirect_uri)
+            pulumi.set(__self__, "oauth_redirect_uri", oauth_redirect_uri)
         if oauth_refresh_token_validity is not None:
-            _setter("oauth_refresh_token_validity", oauth_refresh_token_validity)
+            pulumi.set(__self__, "oauth_refresh_token_validity", oauth_refresh_token_validity)
         if oauth_use_secondary_roles is not None:
-            _setter("oauth_use_secondary_roles", oauth_use_secondary_roles)
+            pulumi.set(__self__, "oauth_use_secondary_roles", oauth_use_secondary_roles)
 
     @property
     @pulumi.getter(name="blockedRolesLists")
@@ -541,10 +449,6 @@ class OauthIntegration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            OauthIntegrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

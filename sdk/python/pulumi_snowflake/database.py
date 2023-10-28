@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,59 +33,22 @@ class DatabaseArgs:
         :param pulumi.Input[bool] is_transient: Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
         :param pulumi.Input['DatabaseReplicationConfigurationArgs'] replication_configuration: When set, specifies the configurations for database replication.
         """
-        DatabaseArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comment=comment,
-            data_retention_time_in_days=data_retention_time_in_days,
-            from_database=from_database,
-            from_replica=from_replica,
-            from_share=from_share,
-            is_transient=is_transient,
-            name=name,
-            replication_configuration=replication_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comment: Optional[pulumi.Input[str]] = None,
-             data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
-             from_database: Optional[pulumi.Input[str]] = None,
-             from_replica: Optional[pulumi.Input[str]] = None,
-             from_share: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             is_transient: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             replication_configuration: Optional[pulumi.Input['DatabaseReplicationConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_retention_time_in_days is None and 'dataRetentionTimeInDays' in kwargs:
-            data_retention_time_in_days = kwargs['dataRetentionTimeInDays']
-        if from_database is None and 'fromDatabase' in kwargs:
-            from_database = kwargs['fromDatabase']
-        if from_replica is None and 'fromReplica' in kwargs:
-            from_replica = kwargs['fromReplica']
-        if from_share is None and 'fromShare' in kwargs:
-            from_share = kwargs['fromShare']
-        if is_transient is None and 'isTransient' in kwargs:
-            is_transient = kwargs['isTransient']
-        if replication_configuration is None and 'replicationConfiguration' in kwargs:
-            replication_configuration = kwargs['replicationConfiguration']
-
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if data_retention_time_in_days is not None:
-            _setter("data_retention_time_in_days", data_retention_time_in_days)
+            pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
         if from_database is not None:
-            _setter("from_database", from_database)
+            pulumi.set(__self__, "from_database", from_database)
         if from_replica is not None:
-            _setter("from_replica", from_replica)
+            pulumi.set(__self__, "from_replica", from_replica)
         if from_share is not None:
-            _setter("from_share", from_share)
+            pulumi.set(__self__, "from_share", from_share)
         if is_transient is not None:
-            _setter("is_transient", is_transient)
+            pulumi.set(__self__, "is_transient", is_transient)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if replication_configuration is not None:
-            _setter("replication_configuration", replication_configuration)
+            pulumi.set(__self__, "replication_configuration", replication_configuration)
 
     @property
     @pulumi.getter
@@ -198,59 +161,22 @@ class _DatabaseState:
         :param pulumi.Input[bool] is_transient: Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
         :param pulumi.Input['DatabaseReplicationConfigurationArgs'] replication_configuration: When set, specifies the configurations for database replication.
         """
-        _DatabaseState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comment=comment,
-            data_retention_time_in_days=data_retention_time_in_days,
-            from_database=from_database,
-            from_replica=from_replica,
-            from_share=from_share,
-            is_transient=is_transient,
-            name=name,
-            replication_configuration=replication_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comment: Optional[pulumi.Input[str]] = None,
-             data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
-             from_database: Optional[pulumi.Input[str]] = None,
-             from_replica: Optional[pulumi.Input[str]] = None,
-             from_share: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             is_transient: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             replication_configuration: Optional[pulumi.Input['DatabaseReplicationConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_retention_time_in_days is None and 'dataRetentionTimeInDays' in kwargs:
-            data_retention_time_in_days = kwargs['dataRetentionTimeInDays']
-        if from_database is None and 'fromDatabase' in kwargs:
-            from_database = kwargs['fromDatabase']
-        if from_replica is None and 'fromReplica' in kwargs:
-            from_replica = kwargs['fromReplica']
-        if from_share is None and 'fromShare' in kwargs:
-            from_share = kwargs['fromShare']
-        if is_transient is None and 'isTransient' in kwargs:
-            is_transient = kwargs['isTransient']
-        if replication_configuration is None and 'replicationConfiguration' in kwargs:
-            replication_configuration = kwargs['replicationConfiguration']
-
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if data_retention_time_in_days is not None:
-            _setter("data_retention_time_in_days", data_retention_time_in_days)
+            pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
         if from_database is not None:
-            _setter("from_database", from_database)
+            pulumi.set(__self__, "from_database", from_database)
         if from_replica is not None:
-            _setter("from_replica", from_replica)
+            pulumi.set(__self__, "from_replica", from_replica)
         if from_share is not None:
-            _setter("from_share", from_share)
+            pulumi.set(__self__, "from_share", from_share)
         if is_transient is not None:
-            _setter("is_transient", is_transient)
+            pulumi.set(__self__, "is_transient", is_transient)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if replication_configuration is not None:
-            _setter("replication_configuration", replication_configuration)
+            pulumi.set(__self__, "replication_configuration", replication_configuration)
 
     @property
     @pulumi.getter
@@ -456,10 +382,6 @@ class Database(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DatabaseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -489,7 +411,6 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["from_share"] = from_share
             __props__.__dict__["is_transient"] = is_transient
             __props__.__dict__["name"] = name
-            replication_configuration = _utilities.configure(replication_configuration, DatabaseReplicationConfigurationArgs, True)
             __props__.__dict__["replication_configuration"] = replication_configuration
         super(Database, __self__).__init__(
             'snowflake:index/database:Database',

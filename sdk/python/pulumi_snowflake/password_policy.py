@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['PasswordPolicyArgs', 'PasswordPolicy']
@@ -47,99 +47,34 @@ class PasswordPolicyArgs:
         :param pulumi.Input[str] name: Identifier for the password policy; must be unique for your account.
         :param pulumi.Input[bool] or_replace: Whether to override a previous password policy with the same name.
         """
-        PasswordPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            database=database,
-            schema=schema,
-            comment=comment,
-            if_not_exists=if_not_exists,
-            lockout_time_mins=lockout_time_mins,
-            max_age_days=max_age_days,
-            max_length=max_length,
-            max_retries=max_retries,
-            min_length=min_length,
-            min_lower_case_chars=min_lower_case_chars,
-            min_numeric_chars=min_numeric_chars,
-            min_special_chars=min_special_chars,
-            min_upper_case_chars=min_upper_case_chars,
-            name=name,
-            or_replace=or_replace,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             database: Optional[pulumi.Input[str]] = None,
-             schema: Optional[pulumi.Input[str]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             if_not_exists: Optional[pulumi.Input[bool]] = None,
-             lockout_time_mins: Optional[pulumi.Input[int]] = None,
-             max_age_days: Optional[pulumi.Input[int]] = None,
-             max_length: Optional[pulumi.Input[int]] = None,
-             max_retries: Optional[pulumi.Input[int]] = None,
-             min_length: Optional[pulumi.Input[int]] = None,
-             min_lower_case_chars: Optional[pulumi.Input[int]] = None,
-             min_numeric_chars: Optional[pulumi.Input[int]] = None,
-             min_special_chars: Optional[pulumi.Input[int]] = None,
-             min_upper_case_chars: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             or_replace: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if database is None:
-            raise TypeError("Missing 'database' argument")
-        if schema is None:
-            raise TypeError("Missing 'schema' argument")
-        if if_not_exists is None and 'ifNotExists' in kwargs:
-            if_not_exists = kwargs['ifNotExists']
-        if lockout_time_mins is None and 'lockoutTimeMins' in kwargs:
-            lockout_time_mins = kwargs['lockoutTimeMins']
-        if max_age_days is None and 'maxAgeDays' in kwargs:
-            max_age_days = kwargs['maxAgeDays']
-        if max_length is None and 'maxLength' in kwargs:
-            max_length = kwargs['maxLength']
-        if max_retries is None and 'maxRetries' in kwargs:
-            max_retries = kwargs['maxRetries']
-        if min_length is None and 'minLength' in kwargs:
-            min_length = kwargs['minLength']
-        if min_lower_case_chars is None and 'minLowerCaseChars' in kwargs:
-            min_lower_case_chars = kwargs['minLowerCaseChars']
-        if min_numeric_chars is None and 'minNumericChars' in kwargs:
-            min_numeric_chars = kwargs['minNumericChars']
-        if min_special_chars is None and 'minSpecialChars' in kwargs:
-            min_special_chars = kwargs['minSpecialChars']
-        if min_upper_case_chars is None and 'minUpperCaseChars' in kwargs:
-            min_upper_case_chars = kwargs['minUpperCaseChars']
-        if or_replace is None and 'orReplace' in kwargs:
-            or_replace = kwargs['orReplace']
-
-        _setter("database", database)
-        _setter("schema", schema)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "schema", schema)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if if_not_exists is not None:
-            _setter("if_not_exists", if_not_exists)
+            pulumi.set(__self__, "if_not_exists", if_not_exists)
         if lockout_time_mins is not None:
-            _setter("lockout_time_mins", lockout_time_mins)
+            pulumi.set(__self__, "lockout_time_mins", lockout_time_mins)
         if max_age_days is not None:
-            _setter("max_age_days", max_age_days)
+            pulumi.set(__self__, "max_age_days", max_age_days)
         if max_length is not None:
-            _setter("max_length", max_length)
+            pulumi.set(__self__, "max_length", max_length)
         if max_retries is not None:
-            _setter("max_retries", max_retries)
+            pulumi.set(__self__, "max_retries", max_retries)
         if min_length is not None:
-            _setter("min_length", min_length)
+            pulumi.set(__self__, "min_length", min_length)
         if min_lower_case_chars is not None:
-            _setter("min_lower_case_chars", min_lower_case_chars)
+            pulumi.set(__self__, "min_lower_case_chars", min_lower_case_chars)
         if min_numeric_chars is not None:
-            _setter("min_numeric_chars", min_numeric_chars)
+            pulumi.set(__self__, "min_numeric_chars", min_numeric_chars)
         if min_special_chars is not None:
-            _setter("min_special_chars", min_special_chars)
+            pulumi.set(__self__, "min_special_chars", min_special_chars)
         if min_upper_case_chars is not None:
-            _setter("min_upper_case_chars", min_upper_case_chars)
+            pulumi.set(__self__, "min_upper_case_chars", min_upper_case_chars)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if or_replace is not None:
-            _setter("or_replace", or_replace)
+            pulumi.set(__self__, "or_replace", or_replace)
 
     @property
     @pulumi.getter
@@ -360,103 +295,38 @@ class _PasswordPolicyState:
         :param pulumi.Input[str] qualified_name: The qualified name for the password policy.
         :param pulumi.Input[str] schema: The schema this password policy belongs to.
         """
-        _PasswordPolicyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comment=comment,
-            database=database,
-            if_not_exists=if_not_exists,
-            lockout_time_mins=lockout_time_mins,
-            max_age_days=max_age_days,
-            max_length=max_length,
-            max_retries=max_retries,
-            min_length=min_length,
-            min_lower_case_chars=min_lower_case_chars,
-            min_numeric_chars=min_numeric_chars,
-            min_special_chars=min_special_chars,
-            min_upper_case_chars=min_upper_case_chars,
-            name=name,
-            or_replace=or_replace,
-            qualified_name=qualified_name,
-            schema=schema,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comment: Optional[pulumi.Input[str]] = None,
-             database: Optional[pulumi.Input[str]] = None,
-             if_not_exists: Optional[pulumi.Input[bool]] = None,
-             lockout_time_mins: Optional[pulumi.Input[int]] = None,
-             max_age_days: Optional[pulumi.Input[int]] = None,
-             max_length: Optional[pulumi.Input[int]] = None,
-             max_retries: Optional[pulumi.Input[int]] = None,
-             min_length: Optional[pulumi.Input[int]] = None,
-             min_lower_case_chars: Optional[pulumi.Input[int]] = None,
-             min_numeric_chars: Optional[pulumi.Input[int]] = None,
-             min_special_chars: Optional[pulumi.Input[int]] = None,
-             min_upper_case_chars: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             or_replace: Optional[pulumi.Input[bool]] = None,
-             qualified_name: Optional[pulumi.Input[str]] = None,
-             schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if if_not_exists is None and 'ifNotExists' in kwargs:
-            if_not_exists = kwargs['ifNotExists']
-        if lockout_time_mins is None and 'lockoutTimeMins' in kwargs:
-            lockout_time_mins = kwargs['lockoutTimeMins']
-        if max_age_days is None and 'maxAgeDays' in kwargs:
-            max_age_days = kwargs['maxAgeDays']
-        if max_length is None and 'maxLength' in kwargs:
-            max_length = kwargs['maxLength']
-        if max_retries is None and 'maxRetries' in kwargs:
-            max_retries = kwargs['maxRetries']
-        if min_length is None and 'minLength' in kwargs:
-            min_length = kwargs['minLength']
-        if min_lower_case_chars is None and 'minLowerCaseChars' in kwargs:
-            min_lower_case_chars = kwargs['minLowerCaseChars']
-        if min_numeric_chars is None and 'minNumericChars' in kwargs:
-            min_numeric_chars = kwargs['minNumericChars']
-        if min_special_chars is None and 'minSpecialChars' in kwargs:
-            min_special_chars = kwargs['minSpecialChars']
-        if min_upper_case_chars is None and 'minUpperCaseChars' in kwargs:
-            min_upper_case_chars = kwargs['minUpperCaseChars']
-        if or_replace is None and 'orReplace' in kwargs:
-            or_replace = kwargs['orReplace']
-        if qualified_name is None and 'qualifiedName' in kwargs:
-            qualified_name = kwargs['qualifiedName']
-
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if database is not None:
-            _setter("database", database)
+            pulumi.set(__self__, "database", database)
         if if_not_exists is not None:
-            _setter("if_not_exists", if_not_exists)
+            pulumi.set(__self__, "if_not_exists", if_not_exists)
         if lockout_time_mins is not None:
-            _setter("lockout_time_mins", lockout_time_mins)
+            pulumi.set(__self__, "lockout_time_mins", lockout_time_mins)
         if max_age_days is not None:
-            _setter("max_age_days", max_age_days)
+            pulumi.set(__self__, "max_age_days", max_age_days)
         if max_length is not None:
-            _setter("max_length", max_length)
+            pulumi.set(__self__, "max_length", max_length)
         if max_retries is not None:
-            _setter("max_retries", max_retries)
+            pulumi.set(__self__, "max_retries", max_retries)
         if min_length is not None:
-            _setter("min_length", min_length)
+            pulumi.set(__self__, "min_length", min_length)
         if min_lower_case_chars is not None:
-            _setter("min_lower_case_chars", min_lower_case_chars)
+            pulumi.set(__self__, "min_lower_case_chars", min_lower_case_chars)
         if min_numeric_chars is not None:
-            _setter("min_numeric_chars", min_numeric_chars)
+            pulumi.set(__self__, "min_numeric_chars", min_numeric_chars)
         if min_special_chars is not None:
-            _setter("min_special_chars", min_special_chars)
+            pulumi.set(__self__, "min_special_chars", min_special_chars)
         if min_upper_case_chars is not None:
-            _setter("min_upper_case_chars", min_upper_case_chars)
+            pulumi.set(__self__, "min_upper_case_chars", min_upper_case_chars)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if or_replace is not None:
-            _setter("or_replace", or_replace)
+            pulumi.set(__self__, "or_replace", or_replace)
         if qualified_name is not None:
-            _setter("qualified_name", qualified_name)
+            pulumi.set(__self__, "qualified_name", qualified_name)
         if schema is not None:
-            _setter("schema", schema)
+            pulumi.set(__self__, "schema", schema)
 
     @property
     @pulumi.getter
@@ -712,10 +582,6 @@ class PasswordPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PasswordPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

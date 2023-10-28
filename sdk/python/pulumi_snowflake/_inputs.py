@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
@@ -65,23 +65,10 @@ class AlertAlertScheduleArgs:
         :param pulumi.Input['AlertAlertScheduleCronArgs'] cron: Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
         :param pulumi.Input[int] interval: Specifies the interval in minutes for the alert schedule. The interval must be greater than 0 and less than 1440 (24 hours).
         """
-        AlertAlertScheduleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cron=cron,
-            interval=interval,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cron: Optional[pulumi.Input['AlertAlertScheduleCronArgs']] = None,
-             interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if cron is not None:
-            _setter("cron", cron)
+            pulumi.set(__self__, "cron", cron)
         if interval is not None:
-            _setter("interval", interval)
+            pulumi.set(__self__, "interval", interval)
 
     @property
     @pulumi.getter
@@ -117,27 +104,8 @@ class AlertAlertScheduleCronArgs:
         :param pulumi.Input[str] expression: Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
         :param pulumi.Input[str] time_zone: Specifies the time zone for alert refresh.
         """
-        AlertAlertScheduleCronArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            expression=expression,
-            time_zone=time_zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             expression: Optional[pulumi.Input[str]] = None,
-             time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if expression is None:
-            raise TypeError("Missing 'expression' argument")
-        if time_zone is None and 'timeZone' in kwargs:
-            time_zone = kwargs['timeZone']
-        if time_zone is None:
-            raise TypeError("Missing 'time_zone' argument")
-
-        _setter("expression", expression)
-        _setter("time_zone", time_zone)
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -169,26 +137,9 @@ class DatabaseReplicationConfigurationArgs:
     def __init__(__self__, *,
                  accounts: pulumi.Input[Sequence[pulumi.Input[str]]],
                  ignore_edition_check: Optional[pulumi.Input[bool]] = None):
-        DatabaseReplicationConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            accounts=accounts,
-            ignore_edition_check=ignore_edition_check,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             ignore_edition_check: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if accounts is None:
-            raise TypeError("Missing 'accounts' argument")
-        if ignore_edition_check is None and 'ignoreEditionCheck' in kwargs:
-            ignore_edition_check = kwargs['ignoreEditionCheck']
-
-        _setter("accounts", accounts)
+        pulumi.set(__self__, "accounts", accounts)
         if ignore_edition_check is not None:
-            _setter("ignore_edition_check", ignore_edition_check)
+            pulumi.set(__self__, "ignore_edition_check", ignore_edition_check)
 
     @property
     @pulumi.getter
@@ -218,25 +169,10 @@ class DynamicTableTargetLagArgs:
         :param pulumi.Input[bool] downstream: Specifies whether the target lag time is downstream.
         :param pulumi.Input[str] maximum_duration: Specifies the maximum target lag time for the dynamic table.
         """
-        DynamicTableTargetLagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            downstream=downstream,
-            maximum_duration=maximum_duration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             downstream: Optional[pulumi.Input[bool]] = None,
-             maximum_duration: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if maximum_duration is None and 'maximumDuration' in kwargs:
-            maximum_duration = kwargs['maximumDuration']
-
         if downstream is not None:
-            _setter("downstream", downstream)
+            pulumi.set(__self__, "downstream", downstream)
         if maximum_duration is not None:
-            _setter("maximum_duration", maximum_duration)
+            pulumi.set(__self__, "maximum_duration", maximum_duration)
 
     @property
     @pulumi.getter
@@ -272,25 +208,8 @@ class ExternalFunctionArgArgs:
         :param pulumi.Input[str] name: Argument name
         :param pulumi.Input[str] type: Argument type, e.g. VARCHAR
         """
-        ExternalFunctionArgArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("name", name)
-        _setter("type", type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -326,25 +245,8 @@ class ExternalFunctionHeaderArgs:
         :param pulumi.Input[str] name: Header name
         :param pulumi.Input[str] value: Header value
         """
-        ExternalFunctionHeaderArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -382,32 +284,9 @@ class ExternalTableColumnArgs:
         :param pulumi.Input[str] name: Column name
         :param pulumi.Input[str] type: Column type, e.g. VARIANT
         """
-        ExternalTableColumnArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            as_=as_,
-            name=name,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             as_: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if as_ is None and 'as' in kwargs:
-            as_ = kwargs['as']
-        if as_ is None:
-            raise TypeError("Missing 'as_' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("as_", as_)
-        _setter("name", name)
-        _setter("type", type)
+        pulumi.set(__self__, "as_", as_)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="as")
@@ -459,33 +338,12 @@ class ExternalTableTagArgs:
         :param pulumi.Input[str] database: Name of the database that the tag was created in.
         :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
         """
-        ExternalTableTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-            database=database,
-            schema=schema,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             database: Optional[pulumi.Input[str]] = None,
-             schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
         if database is not None:
-            _setter("database", database)
+            pulumi.set(__self__, "database", database)
         if schema is not None:
-            _setter("schema", schema)
+            pulumi.set(__self__, "schema", schema)
 
     @property
     @pulumi.getter
@@ -547,34 +405,9 @@ class FailoverGroupFromReplicaArgs:
         :param pulumi.Input[str] organization_name: Name of your Snowflake organization.
         :param pulumi.Input[str] source_account_name: Source account from which you are enabling replication and failover of the specified objects.
         """
-        FailoverGroupFromReplicaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            organization_name=organization_name,
-            source_account_name=source_account_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             organization_name: Optional[pulumi.Input[str]] = None,
-             source_account_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if organization_name is None and 'organizationName' in kwargs:
-            organization_name = kwargs['organizationName']
-        if organization_name is None:
-            raise TypeError("Missing 'organization_name' argument")
-        if source_account_name is None and 'sourceAccountName' in kwargs:
-            source_account_name = kwargs['sourceAccountName']
-        if source_account_name is None:
-            raise TypeError("Missing 'source_account_name' argument")
-
-        _setter("name", name)
-        _setter("organization_name", organization_name)
-        _setter("source_account_name", source_account_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "organization_name", organization_name)
+        pulumi.set(__self__, "source_account_name", source_account_name)
 
     @property
     @pulumi.getter
@@ -622,23 +455,10 @@ class FailoverGroupReplicationScheduleArgs:
         :param pulumi.Input['FailoverGroupReplicationScheduleCronArgs'] cron: Specifies the cron expression for the replication schedule. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
         :param pulumi.Input[int] interval: Specifies the interval in minutes for the replication schedule. The interval must be greater than 0 and less than 1440 (24 hours).
         """
-        FailoverGroupReplicationScheduleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cron=cron,
-            interval=interval,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cron: Optional[pulumi.Input['FailoverGroupReplicationScheduleCronArgs']] = None,
-             interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if cron is not None:
-            _setter("cron", cron)
+            pulumi.set(__self__, "cron", cron)
         if interval is not None:
-            _setter("interval", interval)
+            pulumi.set(__self__, "interval", interval)
 
     @property
     @pulumi.getter
@@ -674,27 +494,8 @@ class FailoverGroupReplicationScheduleCronArgs:
         :param pulumi.Input[str] expression: Specifies the cron expression for the replication schedule. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
         :param pulumi.Input[str] time_zone: Specifies the time zone for secondary group refresh.
         """
-        FailoverGroupReplicationScheduleCronArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            expression=expression,
-            time_zone=time_zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             expression: Optional[pulumi.Input[str]] = None,
-             time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if expression is None:
-            raise TypeError("Missing 'expression' argument")
-        if time_zone is None and 'timeZone' in kwargs:
-            time_zone = kwargs['timeZone']
-        if time_zone is None:
-            raise TypeError("Missing 'time_zone' argument")
-
-        _setter("expression", expression)
-        _setter("time_zone", time_zone)
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -730,25 +531,8 @@ class FunctionArgumentArgs:
         :param pulumi.Input[str] name: The argument name
         :param pulumi.Input[str] type: The argument type
         """
-        FunctionArgumentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("name", name)
-        _setter("type", type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -784,29 +568,8 @@ class GrantPrivilegesToRoleOnAccountObjectArgs:
         :param pulumi.Input[str] object_name: The fully qualified name of the object on which privileges will be granted.
         :param pulumi.Input[str] object_type: The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP
         """
-        GrantPrivilegesToRoleOnAccountObjectArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            object_name=object_name,
-            object_type=object_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             object_name: Optional[pulumi.Input[str]] = None,
-             object_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if object_name is None and 'objectName' in kwargs:
-            object_name = kwargs['objectName']
-        if object_name is None:
-            raise TypeError("Missing 'object_name' argument")
-        if object_type is None and 'objectType' in kwargs:
-            object_type = kwargs['objectType']
-        if object_type is None:
-            raise TypeError("Missing 'object_type' argument")
-
-        _setter("object_name", object_name)
-        _setter("object_type", object_type)
+        pulumi.set(__self__, "object_name", object_name)
+        pulumi.set(__self__, "object_type", object_type)
 
     @property
     @pulumi.getter(name="objectName")
@@ -844,33 +607,12 @@ class GrantPrivilegesToRoleOnSchemaArgs:
         :param pulumi.Input[str] future_schemas_in_database: The fully qualified name of the database.
         :param pulumi.Input[str] schema_name: The fully qualified name of the schema.
         """
-        GrantPrivilegesToRoleOnSchemaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            all_schemas_in_database=all_schemas_in_database,
-            future_schemas_in_database=future_schemas_in_database,
-            schema_name=schema_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             all_schemas_in_database: Optional[pulumi.Input[str]] = None,
-             future_schemas_in_database: Optional[pulumi.Input[str]] = None,
-             schema_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if all_schemas_in_database is None and 'allSchemasInDatabase' in kwargs:
-            all_schemas_in_database = kwargs['allSchemasInDatabase']
-        if future_schemas_in_database is None and 'futureSchemasInDatabase' in kwargs:
-            future_schemas_in_database = kwargs['futureSchemasInDatabase']
-        if schema_name is None and 'schemaName' in kwargs:
-            schema_name = kwargs['schemaName']
-
         if all_schemas_in_database is not None:
-            _setter("all_schemas_in_database", all_schemas_in_database)
+            pulumi.set(__self__, "all_schemas_in_database", all_schemas_in_database)
         if future_schemas_in_database is not None:
-            _setter("future_schemas_in_database", future_schemas_in_database)
+            pulumi.set(__self__, "future_schemas_in_database", future_schemas_in_database)
         if schema_name is not None:
-            _setter("schema_name", schema_name)
+            pulumi.set(__self__, "schema_name", schema_name)
 
     @property
     @pulumi.getter(name="allSchemasInDatabase")
@@ -922,35 +664,14 @@ class GrantPrivilegesToRoleOnSchemaObjectArgs:
         :param pulumi.Input[str] object_name: The fully qualified name of the object on which privileges will be granted.
         :param pulumi.Input[str] object_type: The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW
         """
-        GrantPrivilegesToRoleOnSchemaObjectArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            all=all,
-            future=future,
-            object_name=object_name,
-            object_type=object_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             all: Optional[pulumi.Input['GrantPrivilegesToRoleOnSchemaObjectAllArgs']] = None,
-             future: Optional[pulumi.Input['GrantPrivilegesToRoleOnSchemaObjectFutureArgs']] = None,
-             object_name: Optional[pulumi.Input[str]] = None,
-             object_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if object_name is None and 'objectName' in kwargs:
-            object_name = kwargs['objectName']
-        if object_type is None and 'objectType' in kwargs:
-            object_type = kwargs['objectType']
-
         if all is not None:
-            _setter("all", all)
+            pulumi.set(__self__, "all", all)
         if future is not None:
-            _setter("future", future)
+            pulumi.set(__self__, "future", future)
         if object_name is not None:
-            _setter("object_name", object_name)
+            pulumi.set(__self__, "object_name", object_name)
         if object_type is not None:
-            _setter("object_type", object_type)
+            pulumi.set(__self__, "object_type", object_type)
 
     @property
     @pulumi.getter
@@ -1012,34 +733,11 @@ class GrantPrivilegesToRoleOnSchemaObjectAllArgs:
         :param pulumi.Input[str] in_database: The fully qualified name of the database.
         :param pulumi.Input[str] in_schema: The fully qualified name of the schema.
         """
-        GrantPrivilegesToRoleOnSchemaObjectAllArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            object_type_plural=object_type_plural,
-            in_database=in_database,
-            in_schema=in_schema,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             object_type_plural: Optional[pulumi.Input[str]] = None,
-             in_database: Optional[pulumi.Input[str]] = None,
-             in_schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if object_type_plural is None and 'objectTypePlural' in kwargs:
-            object_type_plural = kwargs['objectTypePlural']
-        if object_type_plural is None:
-            raise TypeError("Missing 'object_type_plural' argument")
-        if in_database is None and 'inDatabase' in kwargs:
-            in_database = kwargs['inDatabase']
-        if in_schema is None and 'inSchema' in kwargs:
-            in_schema = kwargs['inSchema']
-
-        _setter("object_type_plural", object_type_plural)
+        pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
-            _setter("in_database", in_database)
+            pulumi.set(__self__, "in_database", in_database)
         if in_schema is not None:
-            _setter("in_schema", in_schema)
+            pulumi.set(__self__, "in_schema", in_schema)
 
     @property
     @pulumi.getter(name="objectTypePlural")
@@ -1089,34 +787,11 @@ class GrantPrivilegesToRoleOnSchemaObjectFutureArgs:
         :param pulumi.Input[str] in_database: The fully qualified name of the database.
         :param pulumi.Input[str] in_schema: The fully qualified name of the schema.
         """
-        GrantPrivilegesToRoleOnSchemaObjectFutureArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            object_type_plural=object_type_plural,
-            in_database=in_database,
-            in_schema=in_schema,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             object_type_plural: Optional[pulumi.Input[str]] = None,
-             in_database: Optional[pulumi.Input[str]] = None,
-             in_schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if object_type_plural is None and 'objectTypePlural' in kwargs:
-            object_type_plural = kwargs['objectTypePlural']
-        if object_type_plural is None:
-            raise TypeError("Missing 'object_type_plural' argument")
-        if in_database is None and 'inDatabase' in kwargs:
-            in_database = kwargs['inDatabase']
-        if in_schema is None and 'inSchema' in kwargs:
-            in_schema = kwargs['inSchema']
-
-        _setter("object_type_plural", object_type_plural)
+        pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
-            _setter("in_database", in_database)
+            pulumi.set(__self__, "in_database", in_database)
         if in_schema is not None:
-            _setter("in_schema", in_schema)
+            pulumi.set(__self__, "in_schema", in_schema)
 
     @property
     @pulumi.getter(name="objectTypePlural")
@@ -1159,20 +834,7 @@ class GrantPrivilegesToRoleOnSchemaObjectFutureArgs:
 class MaskingPolicySignatureArgs:
     def __init__(__self__, *,
                  columns: pulumi.Input[Sequence[pulumi.Input['MaskingPolicySignatureColumnArgs']]]):
-        MaskingPolicySignatureArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            columns=columns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             columns: Optional[pulumi.Input[Sequence[pulumi.Input['MaskingPolicySignatureColumnArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if columns is None:
-            raise TypeError("Missing 'columns' argument")
-
-        _setter("columns", columns)
+        pulumi.set(__self__, "columns", columns)
 
     @property
     @pulumi.getter
@@ -1193,25 +855,8 @@ class MaskingPolicySignatureColumnArgs:
         :param pulumi.Input[str] name: Specifies the column name to mask.
         :param pulumi.Input[str] type: Specifies the column type to mask.
         """
-        MaskingPolicySignatureColumnArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("name", name)
-        _setter("type", type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -1251,33 +896,12 @@ class MaterializedViewTagArgs:
         :param pulumi.Input[str] database: Name of the database that the tag was created in.
         :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
         """
-        MaterializedViewTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-            database=database,
-            schema=schema,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             database: Optional[pulumi.Input[str]] = None,
-             schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
         if database is not None:
-            _setter("database", database)
+            pulumi.set(__self__, "database", database)
         if schema is not None:
-            _setter("schema", schema)
+            pulumi.set(__self__, "schema", schema)
 
     @property
     @pulumi.getter
@@ -1339,28 +963,11 @@ class ObjectParameterObjectIdentifierArgs:
         :param pulumi.Input[str] database: Name of the database that the object was created in.
         :param pulumi.Input[str] schema: Name of the schema that the object was created in.
         """
-        ObjectParameterObjectIdentifierArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            database=database,
-            schema=schema,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             database: Optional[pulumi.Input[str]] = None,
-             schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if database is not None:
-            _setter("database", database)
+            pulumi.set(__self__, "database", database)
         if schema is not None:
-            _setter("schema", schema)
+            pulumi.set(__self__, "schema", schema)
 
     @property
     @pulumi.getter
@@ -1408,25 +1015,8 @@ class ProcedureArgumentArgs:
         :param pulumi.Input[str] name: The argument name
         :param pulumi.Input[str] type: The argument type
         """
-        ProcedureArgumentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("name", name)
-        _setter("type", type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -1461,50 +1051,11 @@ class ProviderTokenAccessorArgs:
                  redirect_uri: pulumi.Input[str],
                  refresh_token: pulumi.Input[str],
                  token_endpoint: pulumi.Input[str]):
-        ProviderTokenAccessorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            client_id=client_id,
-            client_secret=client_secret,
-            redirect_uri=redirect_uri,
-            refresh_token=refresh_token,
-            token_endpoint=token_endpoint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             client_id: Optional[pulumi.Input[str]] = None,
-             client_secret: Optional[pulumi.Input[str]] = None,
-             redirect_uri: Optional[pulumi.Input[str]] = None,
-             refresh_token: Optional[pulumi.Input[str]] = None,
-             token_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if client_id is None and 'clientId' in kwargs:
-            client_id = kwargs['clientId']
-        if client_id is None:
-            raise TypeError("Missing 'client_id' argument")
-        if client_secret is None and 'clientSecret' in kwargs:
-            client_secret = kwargs['clientSecret']
-        if client_secret is None:
-            raise TypeError("Missing 'client_secret' argument")
-        if redirect_uri is None and 'redirectUri' in kwargs:
-            redirect_uri = kwargs['redirectUri']
-        if redirect_uri is None:
-            raise TypeError("Missing 'redirect_uri' argument")
-        if refresh_token is None and 'refreshToken' in kwargs:
-            refresh_token = kwargs['refreshToken']
-        if refresh_token is None:
-            raise TypeError("Missing 'refresh_token' argument")
-        if token_endpoint is None and 'tokenEndpoint' in kwargs:
-            token_endpoint = kwargs['tokenEndpoint']
-        if token_endpoint is None:
-            raise TypeError("Missing 'token_endpoint' argument")
-
-        _setter("client_id", client_id)
-        _setter("client_secret", client_secret)
-        _setter("redirect_uri", redirect_uri)
-        _setter("refresh_token", refresh_token)
-        _setter("token_endpoint", token_endpoint)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "redirect_uri", redirect_uri)
+        pulumi.set(__self__, "refresh_token", refresh_token)
+        pulumi.set(__self__, "token_endpoint", token_endpoint)
 
     @property
     @pulumi.getter(name="clientId")
@@ -1565,33 +1116,12 @@ class RoleTagArgs:
         :param pulumi.Input[str] database: Name of the database that the tag was created in.
         :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
         """
-        RoleTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-            database=database,
-            schema=schema,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             database: Optional[pulumi.Input[str]] = None,
-             schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
         if database is not None:
-            _setter("database", database)
+            pulumi.set(__self__, "database", database)
         if schema is not None:
-            _setter("schema", schema)
+            pulumi.set(__self__, "schema", schema)
 
     @property
     @pulumi.getter
@@ -1655,33 +1185,12 @@ class SchemaTagArgs:
         :param pulumi.Input[str] database: Name of the database that the tag was created in.
         :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
         """
-        SchemaTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-            database=database,
-            schema=schema,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             database: Optional[pulumi.Input[str]] = None,
-             schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
         if database is not None:
-            _setter("database", database)
+            pulumi.set(__self__, "database", database)
         if schema is not None:
-            _setter("schema", schema)
+            pulumi.set(__self__, "schema", schema)
 
     @property
     @pulumi.getter
@@ -1745,33 +1254,12 @@ class StageTagArgs:
         :param pulumi.Input[str] database: Name of the database that the tag was created in.
         :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
         """
-        StageTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-            database=database,
-            schema=schema,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             database: Optional[pulumi.Input[str]] = None,
-             schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
         if database is not None:
-            _setter("database", database)
+            pulumi.set(__self__, "database", database)
         if schema is not None:
-            _setter("schema", schema)
+            pulumi.set(__self__, "schema", schema)
 
     @property
     @pulumi.getter
@@ -1841,47 +1329,18 @@ class TableColumnArgs:
         :param pulumi.Input[str] masking_policy: Masking policy to apply on column
         :param pulumi.Input[bool] nullable: Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
         """
-        TableColumnArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            type=type,
-            comment=comment,
-            default=default,
-            identity=identity,
-            masking_policy=masking_policy,
-            nullable=nullable,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             default: Optional[pulumi.Input['TableColumnDefaultArgs']] = None,
-             identity: Optional[pulumi.Input['TableColumnIdentityArgs']] = None,
-             masking_policy: Optional[pulumi.Input[str]] = None,
-             nullable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if masking_policy is None and 'maskingPolicy' in kwargs:
-            masking_policy = kwargs['maskingPolicy']
-
-        _setter("name", name)
-        _setter("type", type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if default is not None:
-            _setter("default", default)
+            pulumi.set(__self__, "default", default)
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if masking_policy is not None:
-            _setter("masking_policy", masking_policy)
+            pulumi.set(__self__, "masking_policy", masking_policy)
         if nullable is not None:
-            _setter("nullable", nullable)
+            pulumi.set(__self__, "nullable", nullable)
 
     @property
     @pulumi.getter
@@ -1979,27 +1438,12 @@ class TableColumnDefaultArgs:
         :param pulumi.Input[str] expression: The default expression value for the column
         :param pulumi.Input[str] sequence: The default sequence to use for the column
         """
-        TableColumnDefaultArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            constant=constant,
-            expression=expression,
-            sequence=sequence,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             constant: Optional[pulumi.Input[str]] = None,
-             expression: Optional[pulumi.Input[str]] = None,
-             sequence: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if constant is not None:
-            _setter("constant", constant)
+            pulumi.set(__self__, "constant", constant)
         if expression is not None:
-            _setter("expression", expression)
+            pulumi.set(__self__, "expression", expression)
         if sequence is not None:
-            _setter("sequence", sequence)
+            pulumi.set(__self__, "sequence", sequence)
 
     @property
     @pulumi.getter
@@ -2047,27 +1491,10 @@ class TableColumnIdentityArgs:
         :param pulumi.Input[int] start_num: The number to start incrementing at.
         :param pulumi.Input[int] step_num: Step size to increment by.
         """
-        TableColumnIdentityArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            start_num=start_num,
-            step_num=step_num,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             start_num: Optional[pulumi.Input[int]] = None,
-             step_num: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if start_num is None and 'startNum' in kwargs:
-            start_num = kwargs['startNum']
-        if step_num is None and 'stepNum' in kwargs:
-            step_num = kwargs['stepNum']
-
         if start_num is not None:
-            _setter("start_num", start_num)
+            pulumi.set(__self__, "start_num", start_num)
         if step_num is not None:
-            _setter("step_num", step_num)
+            pulumi.set(__self__, "step_num", step_num)
 
     @property
     @pulumi.getter(name="startNum")
@@ -2107,35 +1534,14 @@ class TableConstraintForeignKeyPropertiesArgs:
         :param pulumi.Input[str] on_update: Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
         :param pulumi.Input['TableConstraintForeignKeyPropertiesReferencesArgs'] references: The table and columns that the foreign key references. Not applicable for primary/unique keys
         """
-        TableConstraintForeignKeyPropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            match=match,
-            on_delete=on_delete,
-            on_update=on_update,
-            references=references,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             match: Optional[pulumi.Input[str]] = None,
-             on_delete: Optional[pulumi.Input[str]] = None,
-             on_update: Optional[pulumi.Input[str]] = None,
-             references: Optional[pulumi.Input['TableConstraintForeignKeyPropertiesReferencesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if on_delete is None and 'onDelete' in kwargs:
-            on_delete = kwargs['onDelete']
-        if on_update is None and 'onUpdate' in kwargs:
-            on_update = kwargs['onUpdate']
-
         if match is not None:
-            _setter("match", match)
+            pulumi.set(__self__, "match", match)
         if on_delete is not None:
-            _setter("on_delete", on_delete)
+            pulumi.set(__self__, "on_delete", on_delete)
         if on_update is not None:
-            _setter("on_update", on_update)
+            pulumi.set(__self__, "on_update", on_update)
         if references is not None:
-            _setter("references", references)
+            pulumi.set(__self__, "references", references)
 
     @property
     @pulumi.getter
@@ -2195,27 +1601,8 @@ class TableConstraintForeignKeyPropertiesReferencesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Columns to use in foreign key reference
         :param pulumi.Input[str] table_id: Name of constraint
         """
-        TableConstraintForeignKeyPropertiesReferencesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            columns=columns,
-            table_id=table_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             table_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if columns is None:
-            raise TypeError("Missing 'columns' argument")
-        if table_id is None and 'tableId' in kwargs:
-            table_id = kwargs['tableId']
-        if table_id is None:
-            raise TypeError("Missing 'table_id' argument")
-
-        _setter("columns", columns)
-        _setter("table_id", table_id)
+        pulumi.set(__self__, "columns", columns)
+        pulumi.set(__self__, "table_id", table_id)
 
     @property
     @pulumi.getter
@@ -2251,24 +1638,9 @@ class TablePrimaryKeyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] keys: Columns to use in primary key
         :param pulumi.Input[str] name: Name of constraint
         """
-        TablePrimaryKeyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            keys=keys,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if keys is None:
-            raise TypeError("Missing 'keys' argument")
-
-        _setter("keys", keys)
+        pulumi.set(__self__, "keys", keys)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -2308,33 +1680,12 @@ class TableTagArgs:
         :param pulumi.Input[str] database: Name of the database that the tag was created in.
         :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
         """
-        TableTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-            database=database,
-            schema=schema,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             database: Optional[pulumi.Input[str]] = None,
-             schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
         if database is not None:
-            _setter("database", database)
+            pulumi.set(__self__, "database", database)
         if schema is not None:
-            _setter("schema", schema)
+            pulumi.set(__self__, "schema", schema)
 
     @property
     @pulumi.getter
@@ -2396,28 +1747,11 @@ class TagAssociationObjectIdentifierArgs:
         :param pulumi.Input[str] database: Name of the database that the object was created in.
         :param pulumi.Input[str] schema: Name of the schema that the object was created in.
         """
-        TagAssociationObjectIdentifierArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            database=database,
-            schema=schema,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             database: Optional[pulumi.Input[str]] = None,
-             schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if database is not None:
-            _setter("database", database)
+            pulumi.set(__self__, "database", database)
         if schema is not None:
-            _setter("schema", schema)
+            pulumi.set(__self__, "schema", schema)
 
     @property
     @pulumi.getter
@@ -2469,33 +1803,12 @@ class ViewTagArgs:
         :param pulumi.Input[str] database: Name of the database that the tag was created in.
         :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
         """
-        ViewTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-            database=database,
-            schema=schema,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             database: Optional[pulumi.Input[str]] = None,
-             schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
         if database is not None:
-            _setter("database", database)
+            pulumi.set(__self__, "database", database)
         if schema is not None:
-            _setter("schema", schema)
+            pulumi.set(__self__, "schema", schema)
 
     @property
     @pulumi.getter
@@ -2557,27 +1870,12 @@ class GetDynamicTablesInArgs:
         :param str database: Returns records for the current database in use or for a specified database (db_name).
         :param str schema: Returns records for the current schema in use or a specified schema (schema_name).
         """
-        GetDynamicTablesInArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account=account,
-            database=database,
-            schema=schema,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account: Optional[bool] = None,
-             database: Optional[str] = None,
-             schema: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if account is not None:
-            _setter("account", account)
+            pulumi.set(__self__, "account", account)
         if database is not None:
-            _setter("database", database)
+            pulumi.set(__self__, "database", database)
         if schema is not None:
-            _setter("schema", schema)
+            pulumi.set(__self__, "schema", schema)
 
     @property
     @pulumi.getter
@@ -2623,20 +1921,7 @@ class GetDynamicTablesLikeArgs:
         """
         :param str pattern: Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
         """
-        GetDynamicTablesLikeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            pattern=pattern,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             pattern: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if pattern is None:
-            raise TypeError("Missing 'pattern' argument")
-
-        _setter("pattern", pattern)
+        pulumi.set(__self__, "pattern", pattern)
 
     @property
     @pulumi.getter
@@ -2660,25 +1945,10 @@ class GetDynamicTablesLimitArgs:
         :param str from_: The optional FROM 'name_string' subclause effectively serves as a “cursor” for the results. This enables fetching the specified number of rows following the first row whose object name matches the specified string
         :param int rows: Specifies the maximum number of rows to return.
         """
-        GetDynamicTablesLimitArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            from_=from_,
-            rows=rows,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             from_: Optional[str] = None,
-             rows: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if from_ is None and 'from' in kwargs:
-            from_ = kwargs['from']
-
         if from_ is not None:
-            _setter("from_", from_)
+            pulumi.set(__self__, "from_", from_)
         if rows is not None:
-            _setter("rows", rows)
+            pulumi.set(__self__, "rows", rows)
 
     @property
     @pulumi.getter(name="from")
@@ -2714,23 +1984,10 @@ class GetGrantsFutureGrantsInArgs:
         :param str database: Lists all privileges on new (i.e. future) objects of a specified type in the database granted to a role.
         :param 'GetGrantsFutureGrantsInSchemaArgs' schema: Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
         """
-        GetGrantsFutureGrantsInArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            database=database,
-            schema=schema,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             database: Optional[str] = None,
-             schema: Optional['GetGrantsFutureGrantsInSchemaArgs'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if database is not None:
-            _setter("database", database)
+            pulumi.set(__self__, "database", database)
         if schema is not None:
-            _setter("schema", schema)
+            pulumi.set(__self__, "schema", schema)
 
     @property
     @pulumi.getter
@@ -2766,28 +2023,9 @@ class GetGrantsFutureGrantsInSchemaArgs:
         :param str schema_name: The name of the schema to list all privileges of new (ie. future) objects granted to
         :param str database_name: The database in which the scehma resides. Optional when querying a schema in the current database.
         """
-        GetGrantsFutureGrantsInSchemaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            schema_name=schema_name,
-            database_name=database_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             schema_name: Optional[str] = None,
-             database_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if schema_name is None and 'schemaName' in kwargs:
-            schema_name = kwargs['schemaName']
-        if schema_name is None:
-            raise TypeError("Missing 'schema_name' argument")
-        if database_name is None and 'databaseName' in kwargs:
-            database_name = kwargs['databaseName']
-
-        _setter("schema_name", schema_name)
+        pulumi.set(__self__, "schema_name", schema_name)
         if database_name is not None:
-            _setter("database_name", database_name)
+            pulumi.set(__self__, "database_name", database_name)
 
     @property
     @pulumi.getter(name="schemaName")
@@ -2821,20 +2059,7 @@ class GetGrantsFutureGrantsToArgs:
         """
         :param str role: Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
         """
-        GetGrantsFutureGrantsToArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role=role,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if role is None:
-            raise TypeError("Missing 'role' argument")
-
-        _setter("role", role)
+        pulumi.set(__self__, "role", role)
 
     @property
     @pulumi.getter
@@ -2858,23 +2083,10 @@ class GetGrantsGrantsOfArgs:
         :param str role: Lists all users and roles to which the role has been granted
         :param str share: Lists all the accounts for the share and indicates the accounts that are using the share.
         """
-        GetGrantsGrantsOfArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role=role,
-            share=share,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role: Optional[str] = None,
-             share: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if role is not None:
-            _setter("role", role)
+            pulumi.set(__self__, "role", role)
         if share is not None:
-            _setter("share", share)
+            pulumi.set(__self__, "share", share)
 
     @property
     @pulumi.getter
@@ -2912,31 +2124,12 @@ class GetGrantsGrantsOnArgs:
         :param str object_name: Name of object to list privileges on
         :param str object_type: Type of object to list privileges on.
         """
-        GetGrantsGrantsOnArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account=account,
-            object_name=object_name,
-            object_type=object_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account: Optional[bool] = None,
-             object_name: Optional[str] = None,
-             object_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if object_name is None and 'objectName' in kwargs:
-            object_name = kwargs['objectName']
-        if object_type is None and 'objectType' in kwargs:
-            object_type = kwargs['objectType']
-
         if account is not None:
-            _setter("account", account)
+            pulumi.set(__self__, "account", account)
         if object_name is not None:
-            _setter("object_name", object_name)
+            pulumi.set(__self__, "object_name", object_name)
         if object_type is not None:
-            _setter("object_type", object_type)
+            pulumi.set(__self__, "object_type", object_type)
 
     @property
     @pulumi.getter
@@ -2986,27 +2179,12 @@ class GetGrantsGrantsToArgs:
         :param str share: Lists all the privileges granted to the share
         :param str user: Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed
         """
-        GetGrantsGrantsToArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role=role,
-            share=share,
-            user=user,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role: Optional[str] = None,
-             share: Optional[str] = None,
-             user: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if role is not None:
-            _setter("role", role)
+            pulumi.set(__self__, "role", role)
         if share is not None:
-            _setter("share", share)
+            pulumi.set(__self__, "share", share)
         if user is not None:
-            _setter("user", user)
+            pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter

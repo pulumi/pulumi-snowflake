@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,53 +33,22 @@ class SchemaArgs:
         :param pulumi.Input[str] name: Tag name, e.g. department.
         :param pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
-        SchemaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            database=database,
-            comment=comment,
-            data_retention_days=data_retention_days,
-            is_managed=is_managed,
-            is_transient=is_transient,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             database: Optional[pulumi.Input[str]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             data_retention_days: Optional[pulumi.Input[int]] = None,
-             is_managed: Optional[pulumi.Input[bool]] = None,
-             is_transient: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if database is None:
-            raise TypeError("Missing 'database' argument")
-        if data_retention_days is None and 'dataRetentionDays' in kwargs:
-            data_retention_days = kwargs['dataRetentionDays']
-        if is_managed is None and 'isManaged' in kwargs:
-            is_managed = kwargs['isManaged']
-        if is_transient is None and 'isTransient' in kwargs:
-            is_transient = kwargs['isTransient']
-
-        _setter("database", database)
+        pulumi.set(__self__, "database", database)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if data_retention_days is not None:
-            _setter("data_retention_days", data_retention_days)
+            pulumi.set(__self__, "data_retention_days", data_retention_days)
         if is_managed is not None:
-            _setter("is_managed", is_managed)
+            pulumi.set(__self__, "is_managed", is_managed)
         if is_transient is not None:
-            _setter("is_transient", is_transient)
+            pulumi.set(__self__, "is_transient", is_transient)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
             pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -189,52 +158,23 @@ class _SchemaState:
         :param pulumi.Input[str] name: Tag name, e.g. department.
         :param pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
-        _SchemaState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comment=comment,
-            data_retention_days=data_retention_days,
-            database=database,
-            is_managed=is_managed,
-            is_transient=is_transient,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comment: Optional[pulumi.Input[str]] = None,
-             data_retention_days: Optional[pulumi.Input[int]] = None,
-             database: Optional[pulumi.Input[str]] = None,
-             is_managed: Optional[pulumi.Input[bool]] = None,
-             is_transient: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_retention_days is None and 'dataRetentionDays' in kwargs:
-            data_retention_days = kwargs['dataRetentionDays']
-        if is_managed is None and 'isManaged' in kwargs:
-            is_managed = kwargs['isManaged']
-        if is_transient is None and 'isTransient' in kwargs:
-            is_transient = kwargs['isTransient']
-
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if data_retention_days is not None:
-            _setter("data_retention_days", data_retention_days)
+            pulumi.set(__self__, "data_retention_days", data_retention_days)
         if database is not None:
-            _setter("database", database)
+            pulumi.set(__self__, "database", database)
         if is_managed is not None:
-            _setter("is_managed", is_managed)
+            pulumi.set(__self__, "is_managed", is_managed)
         if is_transient is not None:
-            _setter("is_transient", is_transient)
+            pulumi.set(__self__, "is_transient", is_transient)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
             pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -409,10 +349,6 @@ class Schema(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SchemaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
