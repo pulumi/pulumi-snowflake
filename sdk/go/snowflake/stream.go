@@ -35,11 +35,11 @@ type Stream struct {
 	InsertOnly pulumi.BoolPtrOutput `pulumi:"insertOnly"`
 	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Name of the stage the stream will monitor.
+	// Specifies an identifier for the stage the stream will monitor.
 	OnStage pulumi.StringPtrOutput `pulumi:"onStage"`
-	// Name of the table the stream will monitor.
+	// Specifies an identifier for the table the stream will monitor.
 	OnTable pulumi.StringPtrOutput `pulumi:"onTable"`
-	// Name of the view the stream will monitor.
+	// Specifies an identifier for the view the stream will monitor.
 	OnView pulumi.StringPtrOutput `pulumi:"onView"`
 	// Name of the role that owns the stream.
 	Owner pulumi.StringOutput `pulumi:"owner"`
@@ -95,11 +95,11 @@ type streamState struct {
 	InsertOnly *bool `pulumi:"insertOnly"`
 	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
 	Name *string `pulumi:"name"`
-	// Name of the stage the stream will monitor.
+	// Specifies an identifier for the stage the stream will monitor.
 	OnStage *string `pulumi:"onStage"`
-	// Name of the table the stream will monitor.
+	// Specifies an identifier for the table the stream will monitor.
 	OnTable *string `pulumi:"onTable"`
-	// Name of the view the stream will monitor.
+	// Specifies an identifier for the view the stream will monitor.
 	OnView *string `pulumi:"onView"`
 	// Name of the role that owns the stream.
 	Owner *string `pulumi:"owner"`
@@ -120,11 +120,11 @@ type StreamState struct {
 	InsertOnly pulumi.BoolPtrInput
 	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
 	Name pulumi.StringPtrInput
-	// Name of the stage the stream will monitor.
+	// Specifies an identifier for the stage the stream will monitor.
 	OnStage pulumi.StringPtrInput
-	// Name of the table the stream will monitor.
+	// Specifies an identifier for the table the stream will monitor.
 	OnTable pulumi.StringPtrInput
-	// Name of the view the stream will monitor.
+	// Specifies an identifier for the view the stream will monitor.
 	OnView pulumi.StringPtrInput
 	// Name of the role that owns the stream.
 	Owner pulumi.StringPtrInput
@@ -149,11 +149,11 @@ type streamArgs struct {
 	InsertOnly *bool `pulumi:"insertOnly"`
 	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
 	Name *string `pulumi:"name"`
-	// Name of the stage the stream will monitor.
+	// Specifies an identifier for the stage the stream will monitor.
 	OnStage *string `pulumi:"onStage"`
-	// Name of the table the stream will monitor.
+	// Specifies an identifier for the table the stream will monitor.
 	OnTable *string `pulumi:"onTable"`
-	// Name of the view the stream will monitor.
+	// Specifies an identifier for the view the stream will monitor.
 	OnView *string `pulumi:"onView"`
 	// The schema in which to create the stream.
 	Schema string `pulumi:"schema"`
@@ -173,11 +173,11 @@ type StreamArgs struct {
 	InsertOnly pulumi.BoolPtrInput
 	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
 	Name pulumi.StringPtrInput
-	// Name of the stage the stream will monitor.
+	// Specifies an identifier for the stage the stream will monitor.
 	OnStage pulumi.StringPtrInput
-	// Name of the table the stream will monitor.
+	// Specifies an identifier for the table the stream will monitor.
 	OnTable pulumi.StringPtrInput
-	// Name of the view the stream will monitor.
+	// Specifies an identifier for the view the stream will monitor.
 	OnView pulumi.StringPtrInput
 	// The schema in which to create the stream.
 	Schema pulumi.StringInput
@@ -321,17 +321,17 @@ func (o StreamOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Name of the stage the stream will monitor.
+// Specifies an identifier for the stage the stream will monitor.
 func (o StreamOutput) OnStage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringPtrOutput { return v.OnStage }).(pulumi.StringPtrOutput)
 }
 
-// Name of the table the stream will monitor.
+// Specifies an identifier for the table the stream will monitor.
 func (o StreamOutput) OnTable() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringPtrOutput { return v.OnTable }).(pulumi.StringPtrOutput)
 }
 
-// Name of the view the stream will monitor.
+// Specifies an identifier for the view the stream will monitor.
 func (o StreamOutput) OnView() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringPtrOutput { return v.OnView }).(pulumi.StringPtrOutput)
 }

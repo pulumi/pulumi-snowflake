@@ -143,6 +143,10 @@ export class FileFormat extends pulumi.CustomResource {
      */
     public readonly nullIfs!: pulumi.Output<string[]>;
     /**
+     * Boolean that specifies whether to use the first row headers in the data files to determine column names.
+     */
+    public readonly parseHeader!: pulumi.Output<boolean | undefined>;
+    /**
      * Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
      */
     public readonly preserveSpace!: pulumi.Output<boolean | undefined>;
@@ -230,6 +234,7 @@ export class FileFormat extends pulumi.CustomResource {
             resourceInputs["ignoreUtf8Errors"] = state ? state.ignoreUtf8Errors : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nullIfs"] = state ? state.nullIfs : undefined;
+            resourceInputs["parseHeader"] = state ? state.parseHeader : undefined;
             resourceInputs["preserveSpace"] = state ? state.preserveSpace : undefined;
             resourceInputs["recordDelimiter"] = state ? state.recordDelimiter : undefined;
             resourceInputs["replaceInvalidCharacters"] = state ? state.replaceInvalidCharacters : undefined;
@@ -276,6 +281,7 @@ export class FileFormat extends pulumi.CustomResource {
             resourceInputs["ignoreUtf8Errors"] = args ? args.ignoreUtf8Errors : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nullIfs"] = args ? args.nullIfs : undefined;
+            resourceInputs["parseHeader"] = args ? args.parseHeader : undefined;
             resourceInputs["preserveSpace"] = args ? args.preserveSpace : undefined;
             resourceInputs["recordDelimiter"] = args ? args.recordDelimiter : undefined;
             resourceInputs["replaceInvalidCharacters"] = args ? args.replaceInvalidCharacters : undefined;
@@ -387,6 +393,10 @@ export interface FileFormatState {
      * String used to convert to and from SQL NULL.
      */
     nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Boolean that specifies whether to use the first row headers in the data files to determine column names.
+     */
+    parseHeader?: pulumi.Input<boolean>;
     /**
      * Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
      */
@@ -533,6 +543,10 @@ export interface FileFormatArgs {
      * String used to convert to and from SQL NULL.
      */
     nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Boolean that specifies whether to use the first row headers in the data files to determine column names.
+     */
+    parseHeader?: pulumi.Input<boolean>;
     /**
      * Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
      */

@@ -37,6 +37,7 @@ class FileFormatArgs:
                  ignore_utf8_errors: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_ifs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 parse_header: Optional[pulumi.Input[bool]] = None,
                  preserve_space: Optional[pulumi.Input[bool]] = None,
                  record_delimiter: Optional[pulumi.Input[str]] = None,
                  replace_invalid_characters: Optional[pulumi.Input[bool]] = None,
@@ -74,6 +75,7 @@ class FileFormatArgs:
         :param pulumi.Input[bool] ignore_utf8_errors: Boolean that specifies whether UTF-8 encoding errors produce error conditions.
         :param pulumi.Input[str] name: Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] null_ifs: String used to convert to and from SQL NULL.
+        :param pulumi.Input[bool] parse_header: Boolean that specifies whether to use the first row headers in the data files to determine column names.
         :param pulumi.Input[bool] preserve_space: Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
         :param pulumi.Input[str] record_delimiter: Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
         :param pulumi.Input[bool] replace_invalid_characters: Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�).
@@ -130,6 +132,8 @@ class FileFormatArgs:
             pulumi.set(__self__, "name", name)
         if null_ifs is not None:
             pulumi.set(__self__, "null_ifs", null_ifs)
+        if parse_header is not None:
+            pulumi.set(__self__, "parse_header", parse_header)
         if preserve_space is not None:
             pulumi.set(__self__, "preserve_space", preserve_space)
         if record_delimiter is not None:
@@ -432,6 +436,18 @@ class FileFormatArgs:
         pulumi.set(self, "null_ifs", value)
 
     @property
+    @pulumi.getter(name="parseHeader")
+    def parse_header(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean that specifies whether to use the first row headers in the data files to determine column names.
+        """
+        return pulumi.get(self, "parse_header")
+
+    @parse_header.setter
+    def parse_header(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "parse_header", value)
+
+    @property
     @pulumi.getter(name="preserveSpace")
     def preserve_space(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -601,6 +617,7 @@ class _FileFormatState:
                  ignore_utf8_errors: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_ifs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 parse_header: Optional[pulumi.Input[bool]] = None,
                  preserve_space: Optional[pulumi.Input[bool]] = None,
                  record_delimiter: Optional[pulumi.Input[str]] = None,
                  replace_invalid_characters: Optional[pulumi.Input[bool]] = None,
@@ -638,6 +655,7 @@ class _FileFormatState:
         :param pulumi.Input[bool] ignore_utf8_errors: Boolean that specifies whether UTF-8 encoding errors produce error conditions.
         :param pulumi.Input[str] name: Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] null_ifs: String used to convert to and from SQL NULL.
+        :param pulumi.Input[bool] parse_header: Boolean that specifies whether to use the first row headers in the data files to determine column names.
         :param pulumi.Input[bool] preserve_space: Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
         :param pulumi.Input[str] record_delimiter: Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
         :param pulumi.Input[bool] replace_invalid_characters: Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�).
@@ -696,6 +714,8 @@ class _FileFormatState:
             pulumi.set(__self__, "name", name)
         if null_ifs is not None:
             pulumi.set(__self__, "null_ifs", null_ifs)
+        if parse_header is not None:
+            pulumi.set(__self__, "parse_header", parse_header)
         if preserve_space is not None:
             pulumi.set(__self__, "preserve_space", preserve_space)
         if record_delimiter is not None:
@@ -988,6 +1008,18 @@ class _FileFormatState:
         pulumi.set(self, "null_ifs", value)
 
     @property
+    @pulumi.getter(name="parseHeader")
+    def parse_header(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean that specifies whether to use the first row headers in the data files to determine column names.
+        """
+        return pulumi.get(self, "parse_header")
+
+    @parse_header.setter
+    def parse_header(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "parse_header", value)
+
+    @property
     @pulumi.getter(name="preserveSpace")
     def preserve_space(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1171,6 +1203,7 @@ class FileFormat(pulumi.CustomResource):
                  ignore_utf8_errors: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_ifs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 parse_header: Optional[pulumi.Input[bool]] = None,
                  preserve_space: Optional[pulumi.Input[bool]] = None,
                  record_delimiter: Optional[pulumi.Input[str]] = None,
                  replace_invalid_characters: Optional[pulumi.Input[bool]] = None,
@@ -1230,6 +1263,7 @@ class FileFormat(pulumi.CustomResource):
         :param pulumi.Input[bool] ignore_utf8_errors: Boolean that specifies whether UTF-8 encoding errors produce error conditions.
         :param pulumi.Input[str] name: Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] null_ifs: String used to convert to and from SQL NULL.
+        :param pulumi.Input[bool] parse_header: Boolean that specifies whether to use the first row headers in the data files to determine column names.
         :param pulumi.Input[bool] preserve_space: Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
         :param pulumi.Input[str] record_delimiter: Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
         :param pulumi.Input[bool] replace_invalid_characters: Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�).
@@ -1308,6 +1342,7 @@ class FileFormat(pulumi.CustomResource):
                  ignore_utf8_errors: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_ifs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 parse_header: Optional[pulumi.Input[bool]] = None,
                  preserve_space: Optional[pulumi.Input[bool]] = None,
                  record_delimiter: Optional[pulumi.Input[str]] = None,
                  replace_invalid_characters: Optional[pulumi.Input[bool]] = None,
@@ -1356,6 +1391,7 @@ class FileFormat(pulumi.CustomResource):
             __props__.__dict__["ignore_utf8_errors"] = ignore_utf8_errors
             __props__.__dict__["name"] = name
             __props__.__dict__["null_ifs"] = null_ifs
+            __props__.__dict__["parse_header"] = parse_header
             __props__.__dict__["preserve_space"] = preserve_space
             __props__.__dict__["record_delimiter"] = record_delimiter
             __props__.__dict__["replace_invalid_characters"] = replace_invalid_characters
@@ -1403,6 +1439,7 @@ class FileFormat(pulumi.CustomResource):
             ignore_utf8_errors: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             null_ifs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            parse_header: Optional[pulumi.Input[bool]] = None,
             preserve_space: Optional[pulumi.Input[bool]] = None,
             record_delimiter: Optional[pulumi.Input[str]] = None,
             replace_invalid_characters: Optional[pulumi.Input[bool]] = None,
@@ -1445,6 +1482,7 @@ class FileFormat(pulumi.CustomResource):
         :param pulumi.Input[bool] ignore_utf8_errors: Boolean that specifies whether UTF-8 encoding errors produce error conditions.
         :param pulumi.Input[str] name: Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] null_ifs: String used to convert to and from SQL NULL.
+        :param pulumi.Input[bool] parse_header: Boolean that specifies whether to use the first row headers in the data files to determine column names.
         :param pulumi.Input[bool] preserve_space: Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
         :param pulumi.Input[str] record_delimiter: Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
         :param pulumi.Input[bool] replace_invalid_characters: Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�).
@@ -1485,6 +1523,7 @@ class FileFormat(pulumi.CustomResource):
         __props__.__dict__["ignore_utf8_errors"] = ignore_utf8_errors
         __props__.__dict__["name"] = name
         __props__.__dict__["null_ifs"] = null_ifs
+        __props__.__dict__["parse_header"] = parse_header
         __props__.__dict__["preserve_space"] = preserve_space
         __props__.__dict__["record_delimiter"] = record_delimiter
         __props__.__dict__["replace_invalid_characters"] = replace_invalid_characters
@@ -1675,6 +1714,14 @@ class FileFormat(pulumi.CustomResource):
         String used to convert to and from SQL NULL.
         """
         return pulumi.get(self, "null_ifs")
+
+    @property
+    @pulumi.getter(name="parseHeader")
+    def parse_header(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean that specifies whether to use the first row headers in the data files to determine column names.
+        """
+        return pulumi.get(self, "parse_header")
 
     @property
     @pulumi.getter(name="preserveSpace")

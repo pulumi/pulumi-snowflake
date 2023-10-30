@@ -105,10 +105,10 @@ type Provider struct {
 	Token pulumi.StringPtrOutput `pulumi:"token"`
 	// Username. Can also be sourced from the `SNOWFLAKE_USER` environment variable. Required unless using `profile`.
 	User pulumi.StringPtrOutput `pulumi:"user"`
-	// Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+	// Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
 	// Required unless using `profile`.
 	//
-	// Deprecated: Use `user` instead
+	// Deprecated: Use `user` instead of `username`
 	Username pulumi.StringPtrOutput `pulumi:"username"`
 	// Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced
 	// from the `SNOWFLAKE_WAREHOUSE` environment variable.
@@ -410,10 +410,10 @@ type providerArgs struct {
 	TokenAccessor *ProviderTokenAccessor `pulumi:"tokenAccessor"`
 	// Username. Can also be sourced from the `SNOWFLAKE_USER` environment variable. Required unless using `profile`.
 	User *string `pulumi:"user"`
-	// Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+	// Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
 	// Required unless using `profile`.
 	//
-	// Deprecated: Use `user` instead
+	// Deprecated: Use `user` instead of `username`
 	Username *string `pulumi:"username"`
 	// If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
 	// established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
@@ -566,10 +566,10 @@ type ProviderArgs struct {
 	TokenAccessor ProviderTokenAccessorPtrInput
 	// Username. Can also be sourced from the `SNOWFLAKE_USER` environment variable. Required unless using `profile`.
 	User pulumi.StringPtrInput
-	// Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+	// Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
 	// Required unless using `profile`.
 	//
-	// Deprecated: Use `user` instead
+	// Deprecated: Use `user` instead of `username`
 	Username pulumi.StringPtrInput
 	// If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
 	// established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
@@ -780,10 +780,10 @@ func (o ProviderOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.User }).(pulumi.StringPtrOutput)
 }
 
-// Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+// Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
 // Required unless using `profile`.
 //
-// Deprecated: Use `user` instead
+// Deprecated: Use `user` instead of `username`
 func (o ProviderOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
 }

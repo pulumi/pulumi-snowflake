@@ -481,7 +481,7 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<string?> _username = new __Value<string?>(() => __config.Get("username") ?? Utilities.GetEnv("SNOWFLAKE_USER"));
         /// <summary>
-        /// Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+        /// Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
         /// Required unless using `profile`.
         /// </summary>
         public static string? Username

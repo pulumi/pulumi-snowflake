@@ -343,7 +343,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def username(self) -> Optional[str]:
         """
-        Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+        Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
         Required unless using `profile`.
         """
         return __config__.get('username') or _utilities.get_env('SNOWFLAKE_USER')

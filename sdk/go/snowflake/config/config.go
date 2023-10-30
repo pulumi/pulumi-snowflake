@@ -402,10 +402,10 @@ func GetUser(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:user")
 }
 
-// Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+// Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
 // Required unless using `profile`.
 //
-// Deprecated: Use `user` instead
+// Deprecated: Use `user` instead of `username`
 func GetUsername(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "snowflake:username")
 	if err == nil {

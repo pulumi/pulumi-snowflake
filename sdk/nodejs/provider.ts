@@ -158,10 +158,10 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly user!: pulumi.Output<string | undefined>;
     /**
-     * Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+     * Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
      * Required unless using `profile`.
      *
-     * @deprecated Use `user` instead
+     * @deprecated Use `user` instead of `username`
      */
     public readonly username!: pulumi.Output<string | undefined>;
     /**
@@ -459,10 +459,10 @@ export interface ProviderArgs {
      */
     user?: pulumi.Input<string>;
     /**
-     * Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+     * Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
      * Required unless using `profile`.
      *
-     * @deprecated Use `user` instead
+     * @deprecated Use `user` instead of `username`
      */
     username?: pulumi.Input<string>;
     /**

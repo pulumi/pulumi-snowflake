@@ -370,6 +370,20 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
         return this.nullIfs;
     }
     /**
+     * Boolean that specifies whether to use the first row headers in the data files to determine column names.
+     * 
+     */
+    @Export(name="parseHeader", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> parseHeader;
+
+    /**
+     * @return Boolean that specifies whether to use the first row headers in the data files to determine column names.
+     * 
+     */
+    public Output<Optional<Boolean>> parseHeader() {
+        return Codegen.optional(this.parseHeader);
+    }
+    /**
      * Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
      * 
      */

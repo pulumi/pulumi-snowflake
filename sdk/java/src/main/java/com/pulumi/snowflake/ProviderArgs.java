@@ -789,26 +789,26 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+     * Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
      * Required unless using `profile`.
      * 
      * @deprecated
-     * Use `user` instead
+     * Use `user` instead of `username`
      * 
      */
-    @Deprecated /* Use `user` instead */
+    @Deprecated /* Use `user` instead of `username` */
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
-     * @return Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+     * @return Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
      * Required unless using `profile`.
      * 
      * @deprecated
-     * Use `user` instead
+     * Use `user` instead of `username`
      * 
      */
-    @Deprecated /* Use `user` instead */
+    @Deprecated /* Use `user` instead of `username` */
     public Optional<Output<String>> username() {
         return Optional.ofNullable(this.username);
     }
@@ -1924,32 +1924,32 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param username Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+         * @param username Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
          * Required unless using `profile`.
          * 
          * @return builder
          * 
          * @deprecated
-         * Use `user` instead
+         * Use `user` instead of `username`
          * 
          */
-        @Deprecated /* Use `user` instead */
+        @Deprecated /* Use `user` instead of `username` */
         public Builder username(@Nullable Output<String> username) {
             $.username = username;
             return this;
         }
 
         /**
-         * @param username Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+         * @param username Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
          * Required unless using `profile`.
          * 
          * @return builder
          * 
          * @deprecated
-         * Use `user` instead
+         * Use `user` instead of `username`
          * 
          */
-        @Deprecated /* Use `user` instead */
+        @Deprecated /* Use `user` instead of `username` */
         public Builder username(String username) {
             return username(Output.of(username));
         }

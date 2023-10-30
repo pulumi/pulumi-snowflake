@@ -177,7 +177,7 @@ namespace Pulumi.Snowflake
         public Output<string?> User { get; private set; } = null!;
 
         /// <summary>
-        /// Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+        /// Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
         /// Required unless using `profile`.
         /// </summary>
         [Output("username")]
@@ -646,7 +646,7 @@ namespace Pulumi.Snowflake
         public Input<string>? User { get; set; }
 
         /// <summary>
-        /// Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+        /// Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
         /// Required unless using `profile`.
         /// </summary>
         [Input("username")]

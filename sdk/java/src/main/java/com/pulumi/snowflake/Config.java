@@ -340,7 +340,7 @@ public final class Config {
         return Codegen.stringProp("user").config(config).get();
     }
 /**
- * Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+ * Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
  * Required unless using `profile`.
  * 
  */

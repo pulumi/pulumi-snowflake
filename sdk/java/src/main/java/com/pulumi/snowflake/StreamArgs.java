@@ -92,14 +92,14 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the stage the stream will monitor.
+     * Specifies an identifier for the stage the stream will monitor.
      * 
      */
     @Import(name="onStage")
     private @Nullable Output<String> onStage;
 
     /**
-     * @return Name of the stage the stream will monitor.
+     * @return Specifies an identifier for the stage the stream will monitor.
      * 
      */
     public Optional<Output<String>> onStage() {
@@ -107,14 +107,14 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the table the stream will monitor.
+     * Specifies an identifier for the table the stream will monitor.
      * 
      */
     @Import(name="onTable")
     private @Nullable Output<String> onTable;
 
     /**
-     * @return Name of the table the stream will monitor.
+     * @return Specifies an identifier for the table the stream will monitor.
      * 
      */
     public Optional<Output<String>> onTable() {
@@ -122,14 +122,14 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the view the stream will monitor.
+     * Specifies an identifier for the view the stream will monitor.
      * 
      */
     @Import(name="onView")
     private @Nullable Output<String> onView;
 
     /**
-     * @return Name of the view the stream will monitor.
+     * @return Specifies an identifier for the view the stream will monitor.
      * 
      */
     public Optional<Output<String>> onView() {
@@ -305,7 +305,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onStage Name of the stage the stream will monitor.
+         * @param onStage Specifies an identifier for the stage the stream will monitor.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onStage Name of the stage the stream will monitor.
+         * @param onStage Specifies an identifier for the stage the stream will monitor.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onTable Name of the table the stream will monitor.
+         * @param onTable Specifies an identifier for the table the stream will monitor.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onTable Name of the table the stream will monitor.
+         * @param onTable Specifies an identifier for the table the stream will monitor.
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onView Name of the view the stream will monitor.
+         * @param onView Specifies an identifier for the view the stream will monitor.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onView Name of the view the stream will monitor.
+         * @param onView Specifies an identifier for the view the stream will monitor.
          * 
          * @return builder
          * 

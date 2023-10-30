@@ -135,42 +135,42 @@ public class Stream extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Name of the stage the stream will monitor.
+     * Specifies an identifier for the stage the stream will monitor.
      * 
      */
     @Export(name="onStage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onStage;
 
     /**
-     * @return Name of the stage the stream will monitor.
+     * @return Specifies an identifier for the stage the stream will monitor.
      * 
      */
     public Output<Optional<String>> onStage() {
         return Codegen.optional(this.onStage);
     }
     /**
-     * Name of the table the stream will monitor.
+     * Specifies an identifier for the table the stream will monitor.
      * 
      */
     @Export(name="onTable", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onTable;
 
     /**
-     * @return Name of the table the stream will monitor.
+     * @return Specifies an identifier for the table the stream will monitor.
      * 
      */
     public Output<Optional<String>> onTable() {
         return Codegen.optional(this.onTable);
     }
     /**
-     * Name of the view the stream will monitor.
+     * Specifies an identifier for the view the stream will monitor.
      * 
      */
     @Export(name="onView", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onView;
 
     /**
-     * @return Name of the view the stream will monitor.
+     * @return Specifies an identifier for the view the stream will monitor.
      * 
      */
     public Output<Optional<String>> onView() {

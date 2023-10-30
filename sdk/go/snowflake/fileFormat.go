@@ -97,6 +97,8 @@ type FileFormat struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// String used to convert to and from SQL NULL.
 	NullIfs pulumi.StringArrayOutput `pulumi:"nullIfs"`
+	// Boolean that specifies whether to use the first row headers in the data files to determine column names.
+	ParseHeader pulumi.BoolPtrOutput `pulumi:"parseHeader"`
 	// Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
 	PreserveSpace pulumi.BoolPtrOutput `pulumi:"preserveSpace"`
 	// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
@@ -208,6 +210,8 @@ type fileFormatState struct {
 	Name *string `pulumi:"name"`
 	// String used to convert to and from SQL NULL.
 	NullIfs []string `pulumi:"nullIfs"`
+	// Boolean that specifies whether to use the first row headers in the data files to determine column names.
+	ParseHeader *bool `pulumi:"parseHeader"`
 	// Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
 	PreserveSpace *bool `pulumi:"preserveSpace"`
 	// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
@@ -281,6 +285,8 @@ type FileFormatState struct {
 	Name pulumi.StringPtrInput
 	// String used to convert to and from SQL NULL.
 	NullIfs pulumi.StringArrayInput
+	// Boolean that specifies whether to use the first row headers in the data files to determine column names.
+	ParseHeader pulumi.BoolPtrInput
 	// Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
 	PreserveSpace pulumi.BoolPtrInput
 	// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
@@ -358,6 +364,8 @@ type fileFormatArgs struct {
 	Name *string `pulumi:"name"`
 	// String used to convert to and from SQL NULL.
 	NullIfs []string `pulumi:"nullIfs"`
+	// Boolean that specifies whether to use the first row headers in the data files to determine column names.
+	ParseHeader *bool `pulumi:"parseHeader"`
 	// Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
 	PreserveSpace *bool `pulumi:"preserveSpace"`
 	// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
@@ -432,6 +440,8 @@ type FileFormatArgs struct {
 	Name pulumi.StringPtrInput
 	// String used to convert to and from SQL NULL.
 	NullIfs pulumi.StringArrayInput
+	// Boolean that specifies whether to use the first row headers in the data files to determine column names.
+	ParseHeader pulumi.BoolPtrInput
 	// Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
 	PreserveSpace pulumi.BoolPtrInput
 	// Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
@@ -679,6 +689,11 @@ func (o FileFormatOutput) Name() pulumi.StringOutput {
 // String used to convert to and from SQL NULL.
 func (o FileFormatOutput) NullIfs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FileFormat) pulumi.StringArrayOutput { return v.NullIfs }).(pulumi.StringArrayOutput)
+}
+
+// Boolean that specifies whether to use the first row headers in the data files to determine column names.
+func (o FileFormatOutput) ParseHeader() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FileFormat) pulumi.BoolPtrOutput { return v.ParseHeader }).(pulumi.BoolPtrOutput)
 }
 
 // Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.

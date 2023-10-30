@@ -32,9 +32,9 @@ class StreamArgs:
         :param pulumi.Input[str] comment: Specifies a comment for the stream.
         :param pulumi.Input[bool] insert_only: Create an insert only stream type.
         :param pulumi.Input[str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
-        :param pulumi.Input[str] on_stage: Name of the stage the stream will monitor.
-        :param pulumi.Input[str] on_table: Name of the table the stream will monitor.
-        :param pulumi.Input[str] on_view: Name of the view the stream will monitor.
+        :param pulumi.Input[str] on_stage: Specifies an identifier for the stage the stream will monitor.
+        :param pulumi.Input[str] on_table: Specifies an identifier for the table the stream will monitor.
+        :param pulumi.Input[str] on_view: Specifies an identifier for the view the stream will monitor.
         :param pulumi.Input[bool] show_initial_rows: Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed.
         """
         pulumi.set(__self__, "database", database)
@@ -132,7 +132,7 @@ class StreamArgs:
     @pulumi.getter(name="onStage")
     def on_stage(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the stage the stream will monitor.
+        Specifies an identifier for the stage the stream will monitor.
         """
         return pulumi.get(self, "on_stage")
 
@@ -144,7 +144,7 @@ class StreamArgs:
     @pulumi.getter(name="onTable")
     def on_table(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the table the stream will monitor.
+        Specifies an identifier for the table the stream will monitor.
         """
         return pulumi.get(self, "on_table")
 
@@ -156,7 +156,7 @@ class StreamArgs:
     @pulumi.getter(name="onView")
     def on_view(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the view the stream will monitor.
+        Specifies an identifier for the view the stream will monitor.
         """
         return pulumi.get(self, "on_view")
 
@@ -198,9 +198,9 @@ class _StreamState:
         :param pulumi.Input[str] database: The database in which to create the stream.
         :param pulumi.Input[bool] insert_only: Create an insert only stream type.
         :param pulumi.Input[str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
-        :param pulumi.Input[str] on_stage: Name of the stage the stream will monitor.
-        :param pulumi.Input[str] on_table: Name of the table the stream will monitor.
-        :param pulumi.Input[str] on_view: Name of the view the stream will monitor.
+        :param pulumi.Input[str] on_stage: Specifies an identifier for the stage the stream will monitor.
+        :param pulumi.Input[str] on_table: Specifies an identifier for the table the stream will monitor.
+        :param pulumi.Input[str] on_view: Specifies an identifier for the view the stream will monitor.
         :param pulumi.Input[str] owner: Name of the role that owns the stream.
         :param pulumi.Input[str] schema: The schema in which to create the stream.
         :param pulumi.Input[bool] show_initial_rows: Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed.
@@ -292,7 +292,7 @@ class _StreamState:
     @pulumi.getter(name="onStage")
     def on_stage(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the stage the stream will monitor.
+        Specifies an identifier for the stage the stream will monitor.
         """
         return pulumi.get(self, "on_stage")
 
@@ -304,7 +304,7 @@ class _StreamState:
     @pulumi.getter(name="onTable")
     def on_table(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the table the stream will monitor.
+        Specifies an identifier for the table the stream will monitor.
         """
         return pulumi.get(self, "on_table")
 
@@ -316,7 +316,7 @@ class _StreamState:
     @pulumi.getter(name="onView")
     def on_view(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the view the stream will monitor.
+        Specifies an identifier for the view the stream will monitor.
         """
         return pulumi.get(self, "on_view")
 
@@ -393,9 +393,9 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[str] database: The database in which to create the stream.
         :param pulumi.Input[bool] insert_only: Create an insert only stream type.
         :param pulumi.Input[str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
-        :param pulumi.Input[str] on_stage: Name of the stage the stream will monitor.
-        :param pulumi.Input[str] on_table: Name of the table the stream will monitor.
-        :param pulumi.Input[str] on_view: Name of the view the stream will monitor.
+        :param pulumi.Input[str] on_stage: Specifies an identifier for the stage the stream will monitor.
+        :param pulumi.Input[str] on_table: Specifies an identifier for the table the stream will monitor.
+        :param pulumi.Input[str] on_view: Specifies an identifier for the view the stream will monitor.
         :param pulumi.Input[str] schema: The schema in which to create the stream.
         :param pulumi.Input[bool] show_initial_rows: Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed.
         """
@@ -496,9 +496,9 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[str] database: The database in which to create the stream.
         :param pulumi.Input[bool] insert_only: Create an insert only stream type.
         :param pulumi.Input[str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
-        :param pulumi.Input[str] on_stage: Name of the stage the stream will monitor.
-        :param pulumi.Input[str] on_table: Name of the table the stream will monitor.
-        :param pulumi.Input[str] on_view: Name of the view the stream will monitor.
+        :param pulumi.Input[str] on_stage: Specifies an identifier for the stage the stream will monitor.
+        :param pulumi.Input[str] on_table: Specifies an identifier for the table the stream will monitor.
+        :param pulumi.Input[str] on_view: Specifies an identifier for the view the stream will monitor.
         :param pulumi.Input[str] owner: Name of the role that owns the stream.
         :param pulumi.Input[str] schema: The schema in which to create the stream.
         :param pulumi.Input[bool] show_initial_rows: Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed.
@@ -564,7 +564,7 @@ class Stream(pulumi.CustomResource):
     @pulumi.getter(name="onStage")
     def on_stage(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of the stage the stream will monitor.
+        Specifies an identifier for the stage the stream will monitor.
         """
         return pulumi.get(self, "on_stage")
 
@@ -572,7 +572,7 @@ class Stream(pulumi.CustomResource):
     @pulumi.getter(name="onTable")
     def on_table(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of the table the stream will monitor.
+        Specifies an identifier for the table the stream will monitor.
         """
         return pulumi.get(self, "on_table")
 
@@ -580,7 +580,7 @@ class Stream(pulumi.CustomResource):
     @pulumi.getter(name="onView")
     def on_view(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of the view the stream will monitor.
+        Specifies an identifier for the view the stream will monitor.
         """
         return pulumi.get(self, "on_view")
 
