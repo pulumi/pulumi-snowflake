@@ -141,7 +141,7 @@ class ProviderArgs:
         :param pulumi.Input[str] token: Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
                variable.
         :param pulumi.Input[str] user: Username. Can also be sourced from the `SNOWFLAKE_USER` environment variable. Required unless using `profile`.
-        :param pulumi.Input[str] username: Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+        :param pulumi.Input[str] username: Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
                Required unless using `profile`.
         :param pulumi.Input[bool] validate_default_parameters: If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
                established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
@@ -293,8 +293,8 @@ class ProviderArgs:
         if user is not None:
             pulumi.set(__self__, "user", user)
         if username is not None:
-            warnings.warn("""Use `user` instead""", DeprecationWarning)
-            pulumi.log.warn("""username is deprecated: Use `user` instead""")
+            warnings.warn("""Use `user` instead of `username`""", DeprecationWarning)
+            pulumi.log.warn("""username is deprecated: Use `user` instead of `username`""")
         if username is None:
             username = _utilities.get_env('SNOWFLAKE_USER')
         if username is not None:
@@ -869,11 +869,11 @@ class ProviderArgs:
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
-        Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+        Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
         Required unless using `profile`.
         """
-        warnings.warn("""Use `user` instead""", DeprecationWarning)
-        pulumi.log.warn("""username is deprecated: Use `user` instead""")
+        warnings.warn("""Use `user` instead of `username`""", DeprecationWarning)
+        pulumi.log.warn("""username is deprecated: Use `user` instead of `username`""")
 
         return pulumi.get(self, "username")
 
@@ -1046,7 +1046,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] token: Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
                variable.
         :param pulumi.Input[str] user: Username. Can also be sourced from the `SNOWFLAKE_USER` environment variable. Required unless using `profile`.
-        :param pulumi.Input[str] username: Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+        :param pulumi.Input[str] username: Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
                Required unless using `profile`.
         :param pulumi.Input[bool] validate_default_parameters: If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
                established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
@@ -1451,11 +1451,11 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def username(self) -> pulumi.Output[Optional[str]]:
         """
-        Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+        Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
         Required unless using `profile`.
         """
-        warnings.warn("""Use `user` instead""", DeprecationWarning)
-        pulumi.log.warn("""username is deprecated: Use `user` instead""")
+        warnings.warn("""Use `user` instead of `username`""", DeprecationWarning)
+        pulumi.log.warn("""username is deprecated: Use `user` instead of `username`""")
 
         return pulumi.get(self, "username")
 

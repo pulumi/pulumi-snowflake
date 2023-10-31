@@ -416,19 +416,19 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.user);
     }
     /**
-     * Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+     * Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
      * Required unless using `profile`.
      * 
      * @deprecated
-     * Use `user` instead
+     * Use `user` instead of `username`
      * 
      */
-    @Deprecated /* Use `user` instead */
+    @Deprecated /* Use `user` instead of `username` */
     @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 
     /**
-     * @return Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+     * @return Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
      * Required unless using `profile`.
      * 
      */

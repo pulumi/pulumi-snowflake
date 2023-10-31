@@ -349,6 +349,21 @@ public final class FileFormatArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Boolean that specifies whether to use the first row headers in the data files to determine column names.
+     * 
+     */
+    @Import(name="parseHeader")
+    private @Nullable Output<Boolean> parseHeader;
+
+    /**
+     * @return Boolean that specifies whether to use the first row headers in the data files to determine column names.
+     * 
+     */
+    public Optional<Output<Boolean>> parseHeader() {
+        return Optional.ofNullable(this.parseHeader);
+    }
+
+    /**
      * Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
      * 
      */
@@ -568,6 +583,7 @@ public final class FileFormatArgs extends com.pulumi.resources.ResourceArgs {
         this.ignoreUtf8Errors = $.ignoreUtf8Errors;
         this.name = $.name;
         this.nullIfs = $.nullIfs;
+        this.parseHeader = $.parseHeader;
         this.preserveSpace = $.preserveSpace;
         this.recordDelimiter = $.recordDelimiter;
         this.replaceInvalidCharacters = $.replaceInvalidCharacters;
@@ -1071,6 +1087,27 @@ public final class FileFormatArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder nullIfs(String... nullIfs) {
             return nullIfs(List.of(nullIfs));
+        }
+
+        /**
+         * @param parseHeader Boolean that specifies whether to use the first row headers in the data files to determine column names.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parseHeader(@Nullable Output<Boolean> parseHeader) {
+            $.parseHeader = parseHeader;
+            return this;
+        }
+
+        /**
+         * @param parseHeader Boolean that specifies whether to use the first row headers in the data files to determine column names.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parseHeader(Boolean parseHeader) {
+            return parseHeader(Output.of(parseHeader));
         }
 
         /**

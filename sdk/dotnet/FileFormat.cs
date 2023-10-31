@@ -174,6 +174,12 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> NullIfs { get; private set; } = null!;
 
         /// <summary>
+        /// Boolean that specifies whether to use the first row headers in the data files to determine column names.
+        /// </summary>
+        [Output("parseHeader")]
+        public Output<bool?> ParseHeader { get; private set; } = null!;
+
+        /// <summary>
         /// Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
         /// </summary>
         [Output("preserveSpace")]
@@ -436,6 +442,12 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
+        /// Boolean that specifies whether to use the first row headers in the data files to determine column names.
+        /// </summary>
+        [Input("parseHeader")]
+        public Input<bool>? ParseHeader { get; set; }
+
+        /// <summary>
         /// Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
         /// </summary>
         [Input("preserveSpace")]
@@ -658,6 +670,12 @@ namespace Pulumi.Snowflake
             get => _nullIfs ?? (_nullIfs = new InputList<string>());
             set => _nullIfs = value;
         }
+
+        /// <summary>
+        /// Boolean that specifies whether to use the first row headers in the data files to determine column names.
+        /// </summary>
+        [Input("parseHeader")]
+        public Input<bool>? ParseHeader { get; set; }
 
         /// <summary>
         /// Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.

@@ -1419,6 +1419,7 @@
                 "formatType": "format_type",
                 "ignoreUtf8Errors": "ignore_utf8_errors",
                 "nullIfs": "null_if",
+                "parseHeader": "parse_header",
                 "preserveSpace": "preserve_space",
                 "recordDelimiter": "record_delimiter",
                 "replaceInvalidCharacters": "replace_invalid_characters",

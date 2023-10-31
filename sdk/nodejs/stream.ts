@@ -62,15 +62,15 @@ export class Stream extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Name of the stage the stream will monitor.
+     * Specifies an identifier for the stage the stream will monitor.
      */
     public readonly onStage!: pulumi.Output<string | undefined>;
     /**
-     * Name of the table the stream will monitor.
+     * Specifies an identifier for the table the stream will monitor.
      */
     public readonly onTable!: pulumi.Output<string | undefined>;
     /**
-     * Name of the view the stream will monitor.
+     * Specifies an identifier for the view the stream will monitor.
      */
     public readonly onView!: pulumi.Output<string | undefined>;
     /**
@@ -160,15 +160,15 @@ export interface StreamState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Name of the stage the stream will monitor.
+     * Specifies an identifier for the stage the stream will monitor.
      */
     onStage?: pulumi.Input<string>;
     /**
-     * Name of the table the stream will monitor.
+     * Specifies an identifier for the table the stream will monitor.
      */
     onTable?: pulumi.Input<string>;
     /**
-     * Name of the view the stream will monitor.
+     * Specifies an identifier for the view the stream will monitor.
      */
     onView?: pulumi.Input<string>;
     /**
@@ -210,15 +210,15 @@ export interface StreamArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Name of the stage the stream will monitor.
+     * Specifies an identifier for the stage the stream will monitor.
      */
     onStage?: pulumi.Input<string>;
     /**
-     * Name of the table the stream will monitor.
+     * Specifies an identifier for the table the stream will monitor.
      */
     onTable?: pulumi.Input<string>;
     /**
-     * Name of the view the stream will monitor.
+     * Specifies an identifier for the view the stream will monitor.
      */
     onView?: pulumi.Input<string>;
     /**

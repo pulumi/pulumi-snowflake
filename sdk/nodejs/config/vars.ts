@@ -498,7 +498,7 @@ Object.defineProperty(exports, "user", {
 });
 
 /**
- * Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+ * Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
  * Required unless using `profile`.
  */
 export declare const username: string | undefined;

@@ -322,13 +322,13 @@
             },
             "username": {
                 "type": "string",
-                "description": "Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.\nRequired unless using `profile`.\n",
+                "description": "Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.\nRequired unless using `profile`.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_USER"
                     ]
                 },
-                "deprecationMessage": "Use `user` instead"
+                "deprecationMessage": "Use `user` instead of `username`"
             },
             "validateDefaultParameters": {
                 "type": "boolean",
@@ -2632,8 +2632,8 @@
             },
             "username": {
                 "type": "string",
-                "description": "Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.\nRequired unless using `profile`.\n",
-                "deprecationMessage": "Use `user` instead"
+                "description": "Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.\nRequired unless using `profile`.\n",
+                "deprecationMessage": "Use `user` instead of `username`"
             },
             "validateDefaultParameters": {
                 "type": "boolean",
@@ -2917,13 +2917,13 @@
             },
             "username": {
                 "type": "string",
-                "description": "Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USER` environment variable.\nRequired unless using `profile`.\n",
+                "description": "Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.\nRequired unless using `profile`.\n",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_USER"
                     ]
                 },
-                "deprecationMessage": "Use `user` instead"
+                "deprecationMessage": "Use `user` instead of `username`"
             },
             "validateDefaultParameters": {
                 "type": "boolean",
@@ -5716,6 +5716,10 @@
                     },
                     "description": "String used to convert to and from SQL NULL.\n"
                 },
+                "parseHeader": {
+                    "type": "boolean",
+                    "description": "Boolean that specifies whether to use the first row headers in the data files to determine column names.\n"
+                },
                 "preserveSpace": {
                     "type": "boolean",
                     "description": "Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.\n"
@@ -5882,6 +5886,10 @@
                     },
                     "description": "String used to convert to and from SQL NULL.\n"
                 },
+                "parseHeader": {
+                    "type": "boolean",
+                    "description": "Boolean that specifies whether to use the first row headers in the data files to determine column names.\n"
+                },
                 "preserveSpace": {
                     "type": "boolean",
                     "description": "Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.\n"
@@ -6037,6 +6045,10 @@
                             "type": "string"
                         },
                         "description": "String used to convert to and from SQL NULL.\n"
+                    },
+                    "parseHeader": {
+                        "type": "boolean",
+                        "description": "Boolean that specifies whether to use the first row headers in the data files to determine column names.\n"
                     },
                     "preserveSpace": {
                         "type": "boolean",
@@ -11819,15 +11831,15 @@
                 },
                 "onStage": {
                     "type": "string",
-                    "description": "Name of the stage the stream will monitor.\n"
+                    "description": "Specifies an identifier for the stage the stream will monitor.\n"
                 },
                 "onTable": {
                     "type": "string",
-                    "description": "Name of the table the stream will monitor.\n"
+                    "description": "Specifies an identifier for the table the stream will monitor.\n"
                 },
                 "onView": {
                     "type": "string",
-                    "description": "Name of the view the stream will monitor.\n"
+                    "description": "Specifies an identifier for the view the stream will monitor.\n"
                 },
                 "owner": {
                     "type": "string",
@@ -11875,17 +11887,17 @@
                 },
                 "onStage": {
                     "type": "string",
-                    "description": "Name of the stage the stream will monitor.\n",
+                    "description": "Specifies an identifier for the stage the stream will monitor.\n",
                     "willReplaceOnChanges": true
                 },
                 "onTable": {
                     "type": "string",
-                    "description": "Name of the table the stream will monitor.\n",
+                    "description": "Specifies an identifier for the table the stream will monitor.\n",
                     "willReplaceOnChanges": true
                 },
                 "onView": {
                     "type": "string",
-                    "description": "Name of the view the stream will monitor.\n",
+                    "description": "Specifies an identifier for the view the stream will monitor.\n",
                     "willReplaceOnChanges": true
                 },
                 "schema": {
@@ -11932,17 +11944,17 @@
                     },
                     "onStage": {
                         "type": "string",
-                        "description": "Name of the stage the stream will monitor.\n",
+                        "description": "Specifies an identifier for the stage the stream will monitor.\n",
                         "willReplaceOnChanges": true
                     },
                     "onTable": {
                         "type": "string",
-                        "description": "Name of the table the stream will monitor.\n",
+                        "description": "Specifies an identifier for the table the stream will monitor.\n",
                         "willReplaceOnChanges": true
                     },
                     "onView": {
                         "type": "string",
-                        "description": "Name of the view the stream will monitor.\n",
+                        "description": "Specifies an identifier for the view the stream will monitor.\n",
                         "willReplaceOnChanges": true
                     },
                     "owner": {
@@ -14137,8 +14149,7 @@
                 },
                 "statement": {
                     "type": "string",
-                    "description": "Specifies the query used to create the view.\n",
-                    "willReplaceOnChanges": true
+                    "description": "Specifies the query used to create the view.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -14193,8 +14204,7 @@
                     },
                     "statement": {
                         "type": "string",
-                        "description": "Specifies the query used to create the view.\n",
-                        "willReplaceOnChanges": true
+                        "description": "Specifies the query used to create the view.\n"
                     },
                     "tags": {
                         "type": "array",
