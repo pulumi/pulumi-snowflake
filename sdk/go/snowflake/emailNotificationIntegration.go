@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -160,12 +159,6 @@ func (i *EmailNotificationIntegration) ToEmailNotificationIntegrationOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EmailNotificationIntegrationOutput)
 }
 
-func (i *EmailNotificationIntegration) ToOutput(ctx context.Context) pulumix.Output[*EmailNotificationIntegration] {
-	return pulumix.Output[*EmailNotificationIntegration]{
-		OutputState: i.ToEmailNotificationIntegrationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EmailNotificationIntegrationArrayInput is an input type that accepts EmailNotificationIntegrationArray and EmailNotificationIntegrationArrayOutput values.
 // You can construct a concrete instance of `EmailNotificationIntegrationArrayInput` via:
 //
@@ -189,12 +182,6 @@ func (i EmailNotificationIntegrationArray) ToEmailNotificationIntegrationArrayOu
 
 func (i EmailNotificationIntegrationArray) ToEmailNotificationIntegrationArrayOutputWithContext(ctx context.Context) EmailNotificationIntegrationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EmailNotificationIntegrationArrayOutput)
-}
-
-func (i EmailNotificationIntegrationArray) ToOutput(ctx context.Context) pulumix.Output[[]*EmailNotificationIntegration] {
-	return pulumix.Output[[]*EmailNotificationIntegration]{
-		OutputState: i.ToEmailNotificationIntegrationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EmailNotificationIntegrationMapInput is an input type that accepts EmailNotificationIntegrationMap and EmailNotificationIntegrationMapOutput values.
@@ -222,12 +209,6 @@ func (i EmailNotificationIntegrationMap) ToEmailNotificationIntegrationMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(EmailNotificationIntegrationMapOutput)
 }
 
-func (i EmailNotificationIntegrationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailNotificationIntegration] {
-	return pulumix.Output[map[string]*EmailNotificationIntegration]{
-		OutputState: i.ToEmailNotificationIntegrationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EmailNotificationIntegrationOutput struct{ *pulumi.OutputState }
 
 func (EmailNotificationIntegrationOutput) ElementType() reflect.Type {
@@ -240,12 +221,6 @@ func (o EmailNotificationIntegrationOutput) ToEmailNotificationIntegrationOutput
 
 func (o EmailNotificationIntegrationOutput) ToEmailNotificationIntegrationOutputWithContext(ctx context.Context) EmailNotificationIntegrationOutput {
 	return o
-}
-
-func (o EmailNotificationIntegrationOutput) ToOutput(ctx context.Context) pulumix.Output[*EmailNotificationIntegration] {
-	return pulumix.Output[*EmailNotificationIntegration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of email addresses that should receive notifications.
@@ -280,12 +255,6 @@ func (o EmailNotificationIntegrationArrayOutput) ToEmailNotificationIntegrationA
 	return o
 }
 
-func (o EmailNotificationIntegrationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EmailNotificationIntegration] {
-	return pulumix.Output[[]*EmailNotificationIntegration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EmailNotificationIntegrationArrayOutput) Index(i pulumi.IntInput) EmailNotificationIntegrationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EmailNotificationIntegration {
 		return vs[0].([]*EmailNotificationIntegration)[vs[1].(int)]
@@ -304,12 +273,6 @@ func (o EmailNotificationIntegrationMapOutput) ToEmailNotificationIntegrationMap
 
 func (o EmailNotificationIntegrationMapOutput) ToEmailNotificationIntegrationMapOutputWithContext(ctx context.Context) EmailNotificationIntegrationMapOutput {
 	return o
-}
-
-func (o EmailNotificationIntegrationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailNotificationIntegration] {
-	return pulumix.Output[map[string]*EmailNotificationIntegration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EmailNotificationIntegrationMapOutput) MapIndex(k pulumi.StringInput) EmailNotificationIntegrationOutput {

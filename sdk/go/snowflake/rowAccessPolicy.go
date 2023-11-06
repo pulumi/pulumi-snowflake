@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -200,12 +199,6 @@ func (i *RowAccessPolicy) ToRowAccessPolicyOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(RowAccessPolicyOutput)
 }
 
-func (i *RowAccessPolicy) ToOutput(ctx context.Context) pulumix.Output[*RowAccessPolicy] {
-	return pulumix.Output[*RowAccessPolicy]{
-		OutputState: i.ToRowAccessPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RowAccessPolicyArrayInput is an input type that accepts RowAccessPolicyArray and RowAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `RowAccessPolicyArrayInput` via:
 //
@@ -229,12 +222,6 @@ func (i RowAccessPolicyArray) ToRowAccessPolicyArrayOutput() RowAccessPolicyArra
 
 func (i RowAccessPolicyArray) ToRowAccessPolicyArrayOutputWithContext(ctx context.Context) RowAccessPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RowAccessPolicyArrayOutput)
-}
-
-func (i RowAccessPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*RowAccessPolicy] {
-	return pulumix.Output[[]*RowAccessPolicy]{
-		OutputState: i.ToRowAccessPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RowAccessPolicyMapInput is an input type that accepts RowAccessPolicyMap and RowAccessPolicyMapOutput values.
@@ -262,12 +249,6 @@ func (i RowAccessPolicyMap) ToRowAccessPolicyMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(RowAccessPolicyMapOutput)
 }
 
-func (i RowAccessPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RowAccessPolicy] {
-	return pulumix.Output[map[string]*RowAccessPolicy]{
-		OutputState: i.ToRowAccessPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RowAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (RowAccessPolicyOutput) ElementType() reflect.Type {
@@ -280,12 +261,6 @@ func (o RowAccessPolicyOutput) ToRowAccessPolicyOutput() RowAccessPolicyOutput {
 
 func (o RowAccessPolicyOutput) ToRowAccessPolicyOutputWithContext(ctx context.Context) RowAccessPolicyOutput {
 	return o
-}
-
-func (o RowAccessPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*RowAccessPolicy] {
-	return pulumix.Output[*RowAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a comment for the row access policy.
@@ -332,12 +307,6 @@ func (o RowAccessPolicyArrayOutput) ToRowAccessPolicyArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o RowAccessPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RowAccessPolicy] {
-	return pulumix.Output[[]*RowAccessPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RowAccessPolicyArrayOutput) Index(i pulumi.IntInput) RowAccessPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RowAccessPolicy {
 		return vs[0].([]*RowAccessPolicy)[vs[1].(int)]
@@ -356,12 +325,6 @@ func (o RowAccessPolicyMapOutput) ToRowAccessPolicyMapOutput() RowAccessPolicyMa
 
 func (o RowAccessPolicyMapOutput) ToRowAccessPolicyMapOutputWithContext(ctx context.Context) RowAccessPolicyMapOutput {
 	return o
-}
-
-func (o RowAccessPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RowAccessPolicy] {
-	return pulumix.Output[map[string]*RowAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RowAccessPolicyMapOutput) MapIndex(k pulumi.StringInput) RowAccessPolicyOutput {

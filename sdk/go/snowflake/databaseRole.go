@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -154,12 +153,6 @@ func (i *DatabaseRole) ToDatabaseRoleOutputWithContext(ctx context.Context) Data
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseRoleOutput)
 }
 
-func (i *DatabaseRole) ToOutput(ctx context.Context) pulumix.Output[*DatabaseRole] {
-	return pulumix.Output[*DatabaseRole]{
-		OutputState: i.ToDatabaseRoleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DatabaseRoleArrayInput is an input type that accepts DatabaseRoleArray and DatabaseRoleArrayOutput values.
 // You can construct a concrete instance of `DatabaseRoleArrayInput` via:
 //
@@ -183,12 +176,6 @@ func (i DatabaseRoleArray) ToDatabaseRoleArrayOutput() DatabaseRoleArrayOutput {
 
 func (i DatabaseRoleArray) ToDatabaseRoleArrayOutputWithContext(ctx context.Context) DatabaseRoleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseRoleArrayOutput)
-}
-
-func (i DatabaseRoleArray) ToOutput(ctx context.Context) pulumix.Output[[]*DatabaseRole] {
-	return pulumix.Output[[]*DatabaseRole]{
-		OutputState: i.ToDatabaseRoleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DatabaseRoleMapInput is an input type that accepts DatabaseRoleMap and DatabaseRoleMapOutput values.
@@ -216,12 +203,6 @@ func (i DatabaseRoleMap) ToDatabaseRoleMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseRoleMapOutput)
 }
 
-func (i DatabaseRoleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatabaseRole] {
-	return pulumix.Output[map[string]*DatabaseRole]{
-		OutputState: i.ToDatabaseRoleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DatabaseRoleOutput struct{ *pulumi.OutputState }
 
 func (DatabaseRoleOutput) ElementType() reflect.Type {
@@ -234,12 +215,6 @@ func (o DatabaseRoleOutput) ToDatabaseRoleOutput() DatabaseRoleOutput {
 
 func (o DatabaseRoleOutput) ToDatabaseRoleOutputWithContext(ctx context.Context) DatabaseRoleOutput {
 	return o
-}
-
-func (o DatabaseRoleOutput) ToOutput(ctx context.Context) pulumix.Output[*DatabaseRole] {
-	return pulumix.Output[*DatabaseRole]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a comment for the database role.
@@ -271,12 +246,6 @@ func (o DatabaseRoleArrayOutput) ToDatabaseRoleArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o DatabaseRoleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatabaseRole] {
-	return pulumix.Output[[]*DatabaseRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatabaseRoleArrayOutput) Index(i pulumi.IntInput) DatabaseRoleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatabaseRole {
 		return vs[0].([]*DatabaseRole)[vs[1].(int)]
@@ -295,12 +264,6 @@ func (o DatabaseRoleMapOutput) ToDatabaseRoleMapOutput() DatabaseRoleMapOutput {
 
 func (o DatabaseRoleMapOutput) ToDatabaseRoleMapOutputWithContext(ctx context.Context) DatabaseRoleMapOutput {
 	return o
-}
-
-func (o DatabaseRoleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatabaseRole] {
-	return pulumix.Output[map[string]*DatabaseRole]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatabaseRoleMapOutput) MapIndex(k pulumi.StringInput) DatabaseRoleOutput {

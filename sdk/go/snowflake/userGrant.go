@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -189,12 +188,6 @@ func (i *UserGrant) ToUserGrantOutputWithContext(ctx context.Context) UserGrantO
 	return pulumi.ToOutputWithContext(ctx, i).(UserGrantOutput)
 }
 
-func (i *UserGrant) ToOutput(ctx context.Context) pulumix.Output[*UserGrant] {
-	return pulumix.Output[*UserGrant]{
-		OutputState: i.ToUserGrantOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserGrantArrayInput is an input type that accepts UserGrantArray and UserGrantArrayOutput values.
 // You can construct a concrete instance of `UserGrantArrayInput` via:
 //
@@ -218,12 +211,6 @@ func (i UserGrantArray) ToUserGrantArrayOutput() UserGrantArrayOutput {
 
 func (i UserGrantArray) ToUserGrantArrayOutputWithContext(ctx context.Context) UserGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserGrantArrayOutput)
-}
-
-func (i UserGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserGrant] {
-	return pulumix.Output[[]*UserGrant]{
-		OutputState: i.ToUserGrantArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UserGrantMapInput is an input type that accepts UserGrantMap and UserGrantMapOutput values.
@@ -251,12 +238,6 @@ func (i UserGrantMap) ToUserGrantMapOutputWithContext(ctx context.Context) UserG
 	return pulumi.ToOutputWithContext(ctx, i).(UserGrantMapOutput)
 }
 
-func (i UserGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserGrant] {
-	return pulumix.Output[map[string]*UserGrant]{
-		OutputState: i.ToUserGrantMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserGrantOutput struct{ *pulumi.OutputState }
 
 func (UserGrantOutput) ElementType() reflect.Type {
@@ -269,12 +250,6 @@ func (o UserGrantOutput) ToUserGrantOutput() UserGrantOutput {
 
 func (o UserGrantOutput) ToUserGrantOutputWithContext(ctx context.Context) UserGrantOutput {
 	return o
-}
-
-func (o UserGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*UserGrant] {
-	return pulumix.Output[*UserGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -317,12 +292,6 @@ func (o UserGrantArrayOutput) ToUserGrantArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o UserGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserGrant] {
-	return pulumix.Output[[]*UserGrant]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserGrantArrayOutput) Index(i pulumi.IntInput) UserGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserGrant {
 		return vs[0].([]*UserGrant)[vs[1].(int)]
@@ -341,12 +310,6 @@ func (o UserGrantMapOutput) ToUserGrantMapOutput() UserGrantMapOutput {
 
 func (o UserGrantMapOutput) ToUserGrantMapOutputWithContext(ctx context.Context) UserGrantMapOutput {
 	return o
-}
-
-func (o UserGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserGrant] {
-	return pulumix.Output[map[string]*UserGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserGrantMapOutput) MapIndex(k pulumi.StringInput) UserGrantOutput {

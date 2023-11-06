@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -306,12 +305,6 @@ func (i *ExternalTable) ToExternalTableOutputWithContext(ctx context.Context) Ex
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalTableOutput)
 }
 
-func (i *ExternalTable) ToOutput(ctx context.Context) pulumix.Output[*ExternalTable] {
-	return pulumix.Output[*ExternalTable]{
-		OutputState: i.ToExternalTableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ExternalTableArrayInput is an input type that accepts ExternalTableArray and ExternalTableArrayOutput values.
 // You can construct a concrete instance of `ExternalTableArrayInput` via:
 //
@@ -335,12 +328,6 @@ func (i ExternalTableArray) ToExternalTableArrayOutput() ExternalTableArrayOutpu
 
 func (i ExternalTableArray) ToExternalTableArrayOutputWithContext(ctx context.Context) ExternalTableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalTableArrayOutput)
-}
-
-func (i ExternalTableArray) ToOutput(ctx context.Context) pulumix.Output[[]*ExternalTable] {
-	return pulumix.Output[[]*ExternalTable]{
-		OutputState: i.ToExternalTableArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ExternalTableMapInput is an input type that accepts ExternalTableMap and ExternalTableMapOutput values.
@@ -368,12 +355,6 @@ func (i ExternalTableMap) ToExternalTableMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalTableMapOutput)
 }
 
-func (i ExternalTableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExternalTable] {
-	return pulumix.Output[map[string]*ExternalTable]{
-		OutputState: i.ToExternalTableMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ExternalTableOutput struct{ *pulumi.OutputState }
 
 func (ExternalTableOutput) ElementType() reflect.Type {
@@ -386,12 +367,6 @@ func (o ExternalTableOutput) ToExternalTableOutput() ExternalTableOutput {
 
 func (o ExternalTableOutput) ToExternalTableOutputWithContext(ctx context.Context) ExternalTableOutput {
 	return o
-}
-
-func (o ExternalTableOutput) ToOutput(ctx context.Context) pulumix.Output[*ExternalTable] {
-	return pulumix.Output[*ExternalTable]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
@@ -485,12 +460,6 @@ func (o ExternalTableArrayOutput) ToExternalTableArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o ExternalTableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ExternalTable] {
-	return pulumix.Output[[]*ExternalTable]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ExternalTableArrayOutput) Index(i pulumi.IntInput) ExternalTableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExternalTable {
 		return vs[0].([]*ExternalTable)[vs[1].(int)]
@@ -509,12 +478,6 @@ func (o ExternalTableMapOutput) ToExternalTableMapOutput() ExternalTableMapOutpu
 
 func (o ExternalTableMapOutput) ToExternalTableMapOutputWithContext(ctx context.Context) ExternalTableMapOutput {
 	return o
-}
-
-func (o ExternalTableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExternalTable] {
-	return pulumix.Output[map[string]*ExternalTable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ExternalTableMapOutput) MapIndex(k pulumi.StringInput) ExternalTableOutput {

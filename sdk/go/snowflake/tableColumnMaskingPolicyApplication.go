@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Applies a masking policy to a table column.
@@ -132,12 +131,6 @@ func (i *TableColumnMaskingPolicyApplication) ToTableColumnMaskingPolicyApplicat
 	return pulumi.ToOutputWithContext(ctx, i).(TableColumnMaskingPolicyApplicationOutput)
 }
 
-func (i *TableColumnMaskingPolicyApplication) ToOutput(ctx context.Context) pulumix.Output[*TableColumnMaskingPolicyApplication] {
-	return pulumix.Output[*TableColumnMaskingPolicyApplication]{
-		OutputState: i.ToTableColumnMaskingPolicyApplicationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TableColumnMaskingPolicyApplicationArrayInput is an input type that accepts TableColumnMaskingPolicyApplicationArray and TableColumnMaskingPolicyApplicationArrayOutput values.
 // You can construct a concrete instance of `TableColumnMaskingPolicyApplicationArrayInput` via:
 //
@@ -161,12 +154,6 @@ func (i TableColumnMaskingPolicyApplicationArray) ToTableColumnMaskingPolicyAppl
 
 func (i TableColumnMaskingPolicyApplicationArray) ToTableColumnMaskingPolicyApplicationArrayOutputWithContext(ctx context.Context) TableColumnMaskingPolicyApplicationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableColumnMaskingPolicyApplicationArrayOutput)
-}
-
-func (i TableColumnMaskingPolicyApplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]*TableColumnMaskingPolicyApplication] {
-	return pulumix.Output[[]*TableColumnMaskingPolicyApplication]{
-		OutputState: i.ToTableColumnMaskingPolicyApplicationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TableColumnMaskingPolicyApplicationMapInput is an input type that accepts TableColumnMaskingPolicyApplicationMap and TableColumnMaskingPolicyApplicationMapOutput values.
@@ -194,12 +181,6 @@ func (i TableColumnMaskingPolicyApplicationMap) ToTableColumnMaskingPolicyApplic
 	return pulumi.ToOutputWithContext(ctx, i).(TableColumnMaskingPolicyApplicationMapOutput)
 }
 
-func (i TableColumnMaskingPolicyApplicationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TableColumnMaskingPolicyApplication] {
-	return pulumix.Output[map[string]*TableColumnMaskingPolicyApplication]{
-		OutputState: i.ToTableColumnMaskingPolicyApplicationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableColumnMaskingPolicyApplicationOutput struct{ *pulumi.OutputState }
 
 func (TableColumnMaskingPolicyApplicationOutput) ElementType() reflect.Type {
@@ -212,12 +193,6 @@ func (o TableColumnMaskingPolicyApplicationOutput) ToTableColumnMaskingPolicyApp
 
 func (o TableColumnMaskingPolicyApplicationOutput) ToTableColumnMaskingPolicyApplicationOutputWithContext(ctx context.Context) TableColumnMaskingPolicyApplicationOutput {
 	return o
-}
-
-func (o TableColumnMaskingPolicyApplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*TableColumnMaskingPolicyApplication] {
-	return pulumix.Output[*TableColumnMaskingPolicyApplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The column to apply the masking policy to.
@@ -249,12 +224,6 @@ func (o TableColumnMaskingPolicyApplicationArrayOutput) ToTableColumnMaskingPoli
 	return o
 }
 
-func (o TableColumnMaskingPolicyApplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TableColumnMaskingPolicyApplication] {
-	return pulumix.Output[[]*TableColumnMaskingPolicyApplication]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TableColumnMaskingPolicyApplicationArrayOutput) Index(i pulumi.IntInput) TableColumnMaskingPolicyApplicationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TableColumnMaskingPolicyApplication {
 		return vs[0].([]*TableColumnMaskingPolicyApplication)[vs[1].(int)]
@@ -273,12 +242,6 @@ func (o TableColumnMaskingPolicyApplicationMapOutput) ToTableColumnMaskingPolicy
 
 func (o TableColumnMaskingPolicyApplicationMapOutput) ToTableColumnMaskingPolicyApplicationMapOutputWithContext(ctx context.Context) TableColumnMaskingPolicyApplicationMapOutput {
 	return o
-}
-
-func (o TableColumnMaskingPolicyApplicationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TableColumnMaskingPolicyApplication] {
-	return pulumix.Output[map[string]*TableColumnMaskingPolicyApplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableColumnMaskingPolicyApplicationMapOutput) MapIndex(k pulumi.StringInput) TableColumnMaskingPolicyApplicationOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i TokenAccessorArgs) ToTokenAccessorOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(TokenAccessorOutput)
 }
 
-func (i TokenAccessorArgs) ToOutput(ctx context.Context) pulumix.Output[TokenAccessor] {
-	return pulumix.Output[TokenAccessor]{
-		OutputState: i.ToTokenAccessorOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TokenAccessorOutput struct{ *pulumi.OutputState }
 
 func (TokenAccessorOutput) ElementType() reflect.Type {
@@ -71,12 +64,6 @@ func (o TokenAccessorOutput) ToTokenAccessorOutput() TokenAccessorOutput {
 
 func (o TokenAccessorOutput) ToTokenAccessorOutputWithContext(ctx context.Context) TokenAccessorOutput {
 	return o
-}
-
-func (o TokenAccessorOutput) ToOutput(ctx context.Context) pulumix.Output[TokenAccessor] {
-	return pulumix.Output[TokenAccessor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TokenAccessorOutput) ClientId() pulumi.StringOutput {

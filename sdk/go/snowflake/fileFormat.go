@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -493,12 +492,6 @@ func (i *FileFormat) ToFileFormatOutputWithContext(ctx context.Context) FileForm
 	return pulumi.ToOutputWithContext(ctx, i).(FileFormatOutput)
 }
 
-func (i *FileFormat) ToOutput(ctx context.Context) pulumix.Output[*FileFormat] {
-	return pulumix.Output[*FileFormat]{
-		OutputState: i.ToFileFormatOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FileFormatArrayInput is an input type that accepts FileFormatArray and FileFormatArrayOutput values.
 // You can construct a concrete instance of `FileFormatArrayInput` via:
 //
@@ -522,12 +515,6 @@ func (i FileFormatArray) ToFileFormatArrayOutput() FileFormatArrayOutput {
 
 func (i FileFormatArray) ToFileFormatArrayOutputWithContext(ctx context.Context) FileFormatArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FileFormatArrayOutput)
-}
-
-func (i FileFormatArray) ToOutput(ctx context.Context) pulumix.Output[[]*FileFormat] {
-	return pulumix.Output[[]*FileFormat]{
-		OutputState: i.ToFileFormatArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FileFormatMapInput is an input type that accepts FileFormatMap and FileFormatMapOutput values.
@@ -555,12 +542,6 @@ func (i FileFormatMap) ToFileFormatMapOutputWithContext(ctx context.Context) Fil
 	return pulumi.ToOutputWithContext(ctx, i).(FileFormatMapOutput)
 }
 
-func (i FileFormatMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FileFormat] {
-	return pulumix.Output[map[string]*FileFormat]{
-		OutputState: i.ToFileFormatMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileFormatOutput struct{ *pulumi.OutputState }
 
 func (FileFormatOutput) ElementType() reflect.Type {
@@ -573,12 +554,6 @@ func (o FileFormatOutput) ToFileFormatOutput() FileFormatOutput {
 
 func (o FileFormatOutput) ToFileFormatOutputWithContext(ctx context.Context) FileFormatOutput {
 	return o
-}
-
-func (o FileFormatOutput) ToOutput(ctx context.Context) pulumix.Output[*FileFormat] {
-	return pulumix.Output[*FileFormat]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Boolean that specifies to allow duplicate object field names (only the last one will be preserved).
@@ -775,12 +750,6 @@ func (o FileFormatArrayOutput) ToFileFormatArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o FileFormatArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FileFormat] {
-	return pulumix.Output[[]*FileFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FileFormatArrayOutput) Index(i pulumi.IntInput) FileFormatOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FileFormat {
 		return vs[0].([]*FileFormat)[vs[1].(int)]
@@ -799,12 +768,6 @@ func (o FileFormatMapOutput) ToFileFormatMapOutput() FileFormatMapOutput {
 
 func (o FileFormatMapOutput) ToFileFormatMapOutputWithContext(ctx context.Context) FileFormatMapOutput {
 	return o
-}
-
-func (o FileFormatMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FileFormat] {
-	return pulumix.Output[map[string]*FileFormat]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileFormatMapOutput) MapIndex(k pulumi.StringInput) FileFormatOutput {

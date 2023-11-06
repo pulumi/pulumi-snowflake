@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -291,12 +290,6 @@ func (i *NotificationIntegration) ToNotificationIntegrationOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationIntegrationOutput)
 }
 
-func (i *NotificationIntegration) ToOutput(ctx context.Context) pulumix.Output[*NotificationIntegration] {
-	return pulumix.Output[*NotificationIntegration]{
-		OutputState: i.ToNotificationIntegrationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationIntegrationArrayInput is an input type that accepts NotificationIntegrationArray and NotificationIntegrationArrayOutput values.
 // You can construct a concrete instance of `NotificationIntegrationArrayInput` via:
 //
@@ -320,12 +313,6 @@ func (i NotificationIntegrationArray) ToNotificationIntegrationArrayOutput() Not
 
 func (i NotificationIntegrationArray) ToNotificationIntegrationArrayOutputWithContext(ctx context.Context) NotificationIntegrationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationIntegrationArrayOutput)
-}
-
-func (i NotificationIntegrationArray) ToOutput(ctx context.Context) pulumix.Output[[]*NotificationIntegration] {
-	return pulumix.Output[[]*NotificationIntegration]{
-		OutputState: i.ToNotificationIntegrationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NotificationIntegrationMapInput is an input type that accepts NotificationIntegrationMap and NotificationIntegrationMapOutput values.
@@ -353,12 +340,6 @@ func (i NotificationIntegrationMap) ToNotificationIntegrationMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationIntegrationMapOutput)
 }
 
-func (i NotificationIntegrationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NotificationIntegration] {
-	return pulumix.Output[map[string]*NotificationIntegration]{
-		OutputState: i.ToNotificationIntegrationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationIntegrationOutput struct{ *pulumi.OutputState }
 
 func (NotificationIntegrationOutput) ElementType() reflect.Type {
@@ -371,12 +352,6 @@ func (o NotificationIntegrationOutput) ToNotificationIntegrationOutput() Notific
 
 func (o NotificationIntegrationOutput) ToNotificationIntegrationOutputWithContext(ctx context.Context) NotificationIntegrationOutput {
 	return o
-}
-
-func (o NotificationIntegrationOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationIntegration] {
-	return pulumix.Output[*NotificationIntegration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The external ID that Snowflake will use when assuming the AWS role
@@ -491,12 +466,6 @@ func (o NotificationIntegrationArrayOutput) ToNotificationIntegrationArrayOutput
 	return o
 }
 
-func (o NotificationIntegrationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NotificationIntegration] {
-	return pulumix.Output[[]*NotificationIntegration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NotificationIntegrationArrayOutput) Index(i pulumi.IntInput) NotificationIntegrationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NotificationIntegration {
 		return vs[0].([]*NotificationIntegration)[vs[1].(int)]
@@ -515,12 +484,6 @@ func (o NotificationIntegrationMapOutput) ToNotificationIntegrationMapOutput() N
 
 func (o NotificationIntegrationMapOutput) ToNotificationIntegrationMapOutputWithContext(ctx context.Context) NotificationIntegrationMapOutput {
 	return o
-}
-
-func (o NotificationIntegrationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NotificationIntegration] {
-	return pulumix.Output[map[string]*NotificationIntegration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationIntegrationMapOutput) MapIndex(k pulumi.StringInput) NotificationIntegrationOutput {

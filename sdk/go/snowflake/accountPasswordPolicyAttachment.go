@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Specifies the password policy to use for the current account. To set the password policy of a different account, use a provider alias.
@@ -134,12 +133,6 @@ func (i *AccountPasswordPolicyAttachment) ToAccountPasswordPolicyAttachmentOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AccountPasswordPolicyAttachmentOutput)
 }
 
-func (i *AccountPasswordPolicyAttachment) ToOutput(ctx context.Context) pulumix.Output[*AccountPasswordPolicyAttachment] {
-	return pulumix.Output[*AccountPasswordPolicyAttachment]{
-		OutputState: i.ToAccountPasswordPolicyAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccountPasswordPolicyAttachmentArrayInput is an input type that accepts AccountPasswordPolicyAttachmentArray and AccountPasswordPolicyAttachmentArrayOutput values.
 // You can construct a concrete instance of `AccountPasswordPolicyAttachmentArrayInput` via:
 //
@@ -163,12 +156,6 @@ func (i AccountPasswordPolicyAttachmentArray) ToAccountPasswordPolicyAttachmentA
 
 func (i AccountPasswordPolicyAttachmentArray) ToAccountPasswordPolicyAttachmentArrayOutputWithContext(ctx context.Context) AccountPasswordPolicyAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountPasswordPolicyAttachmentArrayOutput)
-}
-
-func (i AccountPasswordPolicyAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccountPasswordPolicyAttachment] {
-	return pulumix.Output[[]*AccountPasswordPolicyAttachment]{
-		OutputState: i.ToAccountPasswordPolicyAttachmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AccountPasswordPolicyAttachmentMapInput is an input type that accepts AccountPasswordPolicyAttachmentMap and AccountPasswordPolicyAttachmentMapOutput values.
@@ -196,12 +183,6 @@ func (i AccountPasswordPolicyAttachmentMap) ToAccountPasswordPolicyAttachmentMap
 	return pulumi.ToOutputWithContext(ctx, i).(AccountPasswordPolicyAttachmentMapOutput)
 }
 
-func (i AccountPasswordPolicyAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountPasswordPolicyAttachment] {
-	return pulumix.Output[map[string]*AccountPasswordPolicyAttachment]{
-		OutputState: i.ToAccountPasswordPolicyAttachmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountPasswordPolicyAttachmentOutput struct{ *pulumi.OutputState }
 
 func (AccountPasswordPolicyAttachmentOutput) ElementType() reflect.Type {
@@ -214,12 +195,6 @@ func (o AccountPasswordPolicyAttachmentOutput) ToAccountPasswordPolicyAttachment
 
 func (o AccountPasswordPolicyAttachmentOutput) ToAccountPasswordPolicyAttachmentOutputWithContext(ctx context.Context) AccountPasswordPolicyAttachmentOutput {
 	return o
-}
-
-func (o AccountPasswordPolicyAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountPasswordPolicyAttachment] {
-	return pulumix.Output[*AccountPasswordPolicyAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Qualified name (`"db"."schema"."policyName"`) of the password policy to apply to the current account.
@@ -241,12 +216,6 @@ func (o AccountPasswordPolicyAttachmentArrayOutput) ToAccountPasswordPolicyAttac
 	return o
 }
 
-func (o AccountPasswordPolicyAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccountPasswordPolicyAttachment] {
-	return pulumix.Output[[]*AccountPasswordPolicyAttachment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccountPasswordPolicyAttachmentArrayOutput) Index(i pulumi.IntInput) AccountPasswordPolicyAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccountPasswordPolicyAttachment {
 		return vs[0].([]*AccountPasswordPolicyAttachment)[vs[1].(int)]
@@ -265,12 +234,6 @@ func (o AccountPasswordPolicyAttachmentMapOutput) ToAccountPasswordPolicyAttachm
 
 func (o AccountPasswordPolicyAttachmentMapOutput) ToAccountPasswordPolicyAttachmentMapOutputWithContext(ctx context.Context) AccountPasswordPolicyAttachmentMapOutput {
 	return o
-}
-
-func (o AccountPasswordPolicyAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountPasswordPolicyAttachment] {
-	return pulumix.Output[map[string]*AccountPasswordPolicyAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountPasswordPolicyAttachmentMapOutput) MapIndex(k pulumi.StringInput) AccountPasswordPolicyAttachmentOutput {

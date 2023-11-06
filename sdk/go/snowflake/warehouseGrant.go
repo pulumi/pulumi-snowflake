@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -196,12 +195,6 @@ func (i *WarehouseGrant) ToWarehouseGrantOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(WarehouseGrantOutput)
 }
 
-func (i *WarehouseGrant) ToOutput(ctx context.Context) pulumix.Output[*WarehouseGrant] {
-	return pulumix.Output[*WarehouseGrant]{
-		OutputState: i.ToWarehouseGrantOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WarehouseGrantArrayInput is an input type that accepts WarehouseGrantArray and WarehouseGrantArrayOutput values.
 // You can construct a concrete instance of `WarehouseGrantArrayInput` via:
 //
@@ -225,12 +218,6 @@ func (i WarehouseGrantArray) ToWarehouseGrantArrayOutput() WarehouseGrantArrayOu
 
 func (i WarehouseGrantArray) ToWarehouseGrantArrayOutputWithContext(ctx context.Context) WarehouseGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WarehouseGrantArrayOutput)
-}
-
-func (i WarehouseGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*WarehouseGrant] {
-	return pulumix.Output[[]*WarehouseGrant]{
-		OutputState: i.ToWarehouseGrantArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // WarehouseGrantMapInput is an input type that accepts WarehouseGrantMap and WarehouseGrantMapOutput values.
@@ -258,12 +245,6 @@ func (i WarehouseGrantMap) ToWarehouseGrantMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(WarehouseGrantMapOutput)
 }
 
-func (i WarehouseGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WarehouseGrant] {
-	return pulumix.Output[map[string]*WarehouseGrant]{
-		OutputState: i.ToWarehouseGrantMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WarehouseGrantOutput struct{ *pulumi.OutputState }
 
 func (WarehouseGrantOutput) ElementType() reflect.Type {
@@ -276,12 +257,6 @@ func (o WarehouseGrantOutput) ToWarehouseGrantOutput() WarehouseGrantOutput {
 
 func (o WarehouseGrantOutput) ToWarehouseGrantOutputWithContext(ctx context.Context) WarehouseGrantOutput {
 	return o
-}
-
-func (o WarehouseGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*WarehouseGrant] {
-	return pulumix.Output[*WarehouseGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -329,12 +304,6 @@ func (o WarehouseGrantArrayOutput) ToWarehouseGrantArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o WarehouseGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WarehouseGrant] {
-	return pulumix.Output[[]*WarehouseGrant]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WarehouseGrantArrayOutput) Index(i pulumi.IntInput) WarehouseGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WarehouseGrant {
 		return vs[0].([]*WarehouseGrant)[vs[1].(int)]
@@ -353,12 +322,6 @@ func (o WarehouseGrantMapOutput) ToWarehouseGrantMapOutput() WarehouseGrantMapOu
 
 func (o WarehouseGrantMapOutput) ToWarehouseGrantMapOutputWithContext(ctx context.Context) WarehouseGrantMapOutput {
 	return o
-}
-
-func (o WarehouseGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WarehouseGrant] {
-	return pulumix.Output[map[string]*WarehouseGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WarehouseGrantMapOutput) MapIndex(k pulumi.StringInput) WarehouseGrantOutput {

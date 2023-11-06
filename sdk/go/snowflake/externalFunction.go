@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -331,12 +330,6 @@ func (i *ExternalFunction) ToExternalFunctionOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalFunctionOutput)
 }
 
-func (i *ExternalFunction) ToOutput(ctx context.Context) pulumix.Output[*ExternalFunction] {
-	return pulumix.Output[*ExternalFunction]{
-		OutputState: i.ToExternalFunctionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ExternalFunctionArrayInput is an input type that accepts ExternalFunctionArray and ExternalFunctionArrayOutput values.
 // You can construct a concrete instance of `ExternalFunctionArrayInput` via:
 //
@@ -360,12 +353,6 @@ func (i ExternalFunctionArray) ToExternalFunctionArrayOutput() ExternalFunctionA
 
 func (i ExternalFunctionArray) ToExternalFunctionArrayOutputWithContext(ctx context.Context) ExternalFunctionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalFunctionArrayOutput)
-}
-
-func (i ExternalFunctionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ExternalFunction] {
-	return pulumix.Output[[]*ExternalFunction]{
-		OutputState: i.ToExternalFunctionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ExternalFunctionMapInput is an input type that accepts ExternalFunctionMap and ExternalFunctionMapOutput values.
@@ -393,12 +380,6 @@ func (i ExternalFunctionMap) ToExternalFunctionMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalFunctionMapOutput)
 }
 
-func (i ExternalFunctionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExternalFunction] {
-	return pulumix.Output[map[string]*ExternalFunction]{
-		OutputState: i.ToExternalFunctionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ExternalFunctionOutput struct{ *pulumi.OutputState }
 
 func (ExternalFunctionOutput) ElementType() reflect.Type {
@@ -411,12 +392,6 @@ func (o ExternalFunctionOutput) ToExternalFunctionOutput() ExternalFunctionOutpu
 
 func (o ExternalFunctionOutput) ToExternalFunctionOutputWithContext(ctx context.Context) ExternalFunctionOutput {
 	return o
-}
-
-func (o ExternalFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[*ExternalFunction] {
-	return pulumix.Output[*ExternalFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the API integration object that should be used to authenticate the call to the proxy service.
@@ -523,12 +498,6 @@ func (o ExternalFunctionArrayOutput) ToExternalFunctionArrayOutputWithContext(ct
 	return o
 }
 
-func (o ExternalFunctionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ExternalFunction] {
-	return pulumix.Output[[]*ExternalFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ExternalFunctionArrayOutput) Index(i pulumi.IntInput) ExternalFunctionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExternalFunction {
 		return vs[0].([]*ExternalFunction)[vs[1].(int)]
@@ -547,12 +516,6 @@ func (o ExternalFunctionMapOutput) ToExternalFunctionMapOutput() ExternalFunctio
 
 func (o ExternalFunctionMapOutput) ToExternalFunctionMapOutputWithContext(ctx context.Context) ExternalFunctionMapOutput {
 	return o
-}
-
-func (o ExternalFunctionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExternalFunction] {
-	return pulumix.Output[map[string]*ExternalFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ExternalFunctionMapOutput) MapIndex(k pulumi.StringInput) ExternalFunctionOutput {

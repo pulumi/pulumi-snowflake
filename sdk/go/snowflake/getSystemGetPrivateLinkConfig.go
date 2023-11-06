@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetSystemGetPrivateLinkConfig(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSystemGetPrivateLinkConfigResult, error) {
@@ -70,12 +69,6 @@ func (o GetSystemGetPrivateLinkConfigResultOutput) ToGetSystemGetPrivateLinkConf
 
 func (o GetSystemGetPrivateLinkConfigResultOutput) ToGetSystemGetPrivateLinkConfigResultOutputWithContext(ctx context.Context) GetSystemGetPrivateLinkConfigResultOutput {
 	return o
-}
-
-func (o GetSystemGetPrivateLinkConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSystemGetPrivateLinkConfigResult] {
-	return pulumix.Output[GetSystemGetPrivateLinkConfigResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of your Snowflake account.

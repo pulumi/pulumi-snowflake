@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -304,12 +303,6 @@ func (i *SamlIntegration) ToSamlIntegrationOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(SamlIntegrationOutput)
 }
 
-func (i *SamlIntegration) ToOutput(ctx context.Context) pulumix.Output[*SamlIntegration] {
-	return pulumix.Output[*SamlIntegration]{
-		OutputState: i.ToSamlIntegrationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SamlIntegrationArrayInput is an input type that accepts SamlIntegrationArray and SamlIntegrationArrayOutput values.
 // You can construct a concrete instance of `SamlIntegrationArrayInput` via:
 //
@@ -333,12 +326,6 @@ func (i SamlIntegrationArray) ToSamlIntegrationArrayOutput() SamlIntegrationArra
 
 func (i SamlIntegrationArray) ToSamlIntegrationArrayOutputWithContext(ctx context.Context) SamlIntegrationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SamlIntegrationArrayOutput)
-}
-
-func (i SamlIntegrationArray) ToOutput(ctx context.Context) pulumix.Output[[]*SamlIntegration] {
-	return pulumix.Output[[]*SamlIntegration]{
-		OutputState: i.ToSamlIntegrationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SamlIntegrationMapInput is an input type that accepts SamlIntegrationMap and SamlIntegrationMapOutput values.
@@ -366,12 +353,6 @@ func (i SamlIntegrationMap) ToSamlIntegrationMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SamlIntegrationMapOutput)
 }
 
-func (i SamlIntegrationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SamlIntegration] {
-	return pulumix.Output[map[string]*SamlIntegration]{
-		OutputState: i.ToSamlIntegrationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SamlIntegrationOutput struct{ *pulumi.OutputState }
 
 func (SamlIntegrationOutput) ElementType() reflect.Type {
@@ -384,12 +365,6 @@ func (o SamlIntegrationOutput) ToSamlIntegrationOutput() SamlIntegrationOutput {
 
 func (o SamlIntegrationOutput) ToSamlIntegrationOutputWithContext(ctx context.Context) SamlIntegrationOutput {
 	return o
-}
-
-func (o SamlIntegrationOutput) ToOutput(ctx context.Context) pulumix.Output[*SamlIntegration] {
-	return pulumix.Output[*SamlIntegration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Date and time when the SAML integration was created.
@@ -499,12 +474,6 @@ func (o SamlIntegrationArrayOutput) ToSamlIntegrationArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o SamlIntegrationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SamlIntegration] {
-	return pulumix.Output[[]*SamlIntegration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SamlIntegrationArrayOutput) Index(i pulumi.IntInput) SamlIntegrationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SamlIntegration {
 		return vs[0].([]*SamlIntegration)[vs[1].(int)]
@@ -523,12 +492,6 @@ func (o SamlIntegrationMapOutput) ToSamlIntegrationMapOutput() SamlIntegrationMa
 
 func (o SamlIntegrationMapOutput) ToSamlIntegrationMapOutputWithContext(ctx context.Context) SamlIntegrationMapOutput {
 	return o
-}
-
-func (o SamlIntegrationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SamlIntegration] {
-	return pulumix.Output[map[string]*SamlIntegration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SamlIntegrationMapOutput) MapIndex(k pulumi.StringInput) SamlIntegrationOutput {
