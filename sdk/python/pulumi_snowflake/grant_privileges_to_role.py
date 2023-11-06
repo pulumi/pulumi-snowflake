@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,21 +35,62 @@ class GrantPrivilegesToRoleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the account role.
         :param pulumi.Input[bool] with_grant_option: Specifies whether the grantee can grant the privileges to other users.
         """
-        pulumi.set(__self__, "role_name", role_name)
+        GrantPrivilegesToRoleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_name=role_name,
+            all_privileges=all_privileges,
+            on_account=on_account,
+            on_account_object=on_account_object,
+            on_schema=on_schema,
+            on_schema_object=on_schema_object,
+            privileges=privileges,
+            with_grant_option=with_grant_option,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_name: Optional[pulumi.Input[str]] = None,
+             all_privileges: Optional[pulumi.Input[bool]] = None,
+             on_account: Optional[pulumi.Input[bool]] = None,
+             on_account_object: Optional[pulumi.Input['GrantPrivilegesToRoleOnAccountObjectArgs']] = None,
+             on_schema: Optional[pulumi.Input['GrantPrivilegesToRoleOnSchemaArgs']] = None,
+             on_schema_object: Optional[pulumi.Input['GrantPrivilegesToRoleOnSchemaObjectArgs']] = None,
+             privileges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             with_grant_option: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if role_name is None and 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if role_name is None:
+            raise TypeError("Missing 'role_name' argument")
+        if all_privileges is None and 'allPrivileges' in kwargs:
+            all_privileges = kwargs['allPrivileges']
+        if on_account is None and 'onAccount' in kwargs:
+            on_account = kwargs['onAccount']
+        if on_account_object is None and 'onAccountObject' in kwargs:
+            on_account_object = kwargs['onAccountObject']
+        if on_schema is None and 'onSchema' in kwargs:
+            on_schema = kwargs['onSchema']
+        if on_schema_object is None and 'onSchemaObject' in kwargs:
+            on_schema_object = kwargs['onSchemaObject']
+        if with_grant_option is None and 'withGrantOption' in kwargs:
+            with_grant_option = kwargs['withGrantOption']
+
+        _setter("role_name", role_name)
         if all_privileges is not None:
-            pulumi.set(__self__, "all_privileges", all_privileges)
+            _setter("all_privileges", all_privileges)
         if on_account is not None:
-            pulumi.set(__self__, "on_account", on_account)
+            _setter("on_account", on_account)
         if on_account_object is not None:
-            pulumi.set(__self__, "on_account_object", on_account_object)
+            _setter("on_account_object", on_account_object)
         if on_schema is not None:
-            pulumi.set(__self__, "on_schema", on_schema)
+            _setter("on_schema", on_schema)
         if on_schema_object is not None:
-            pulumi.set(__self__, "on_schema_object", on_schema_object)
+            _setter("on_schema_object", on_schema_object)
         if privileges is not None:
-            pulumi.set(__self__, "privileges", privileges)
+            _setter("privileges", privileges)
         if with_grant_option is not None:
-            pulumi.set(__self__, "with_grant_option", with_grant_option)
+            _setter("with_grant_option", with_grant_option)
 
     @property
     @pulumi.getter(name="roleName")
@@ -170,22 +211,61 @@ class _GrantPrivilegesToRoleState:
         :param pulumi.Input[str] role_name: The fully qualified name of the role to which privileges will be granted.
         :param pulumi.Input[bool] with_grant_option: Specifies whether the grantee can grant the privileges to other users.
         """
+        _GrantPrivilegesToRoleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_privileges=all_privileges,
+            on_account=on_account,
+            on_account_object=on_account_object,
+            on_schema=on_schema,
+            on_schema_object=on_schema_object,
+            privileges=privileges,
+            role_name=role_name,
+            with_grant_option=with_grant_option,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_privileges: Optional[pulumi.Input[bool]] = None,
+             on_account: Optional[pulumi.Input[bool]] = None,
+             on_account_object: Optional[pulumi.Input['GrantPrivilegesToRoleOnAccountObjectArgs']] = None,
+             on_schema: Optional[pulumi.Input['GrantPrivilegesToRoleOnSchemaArgs']] = None,
+             on_schema_object: Optional[pulumi.Input['GrantPrivilegesToRoleOnSchemaObjectArgs']] = None,
+             privileges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             role_name: Optional[pulumi.Input[str]] = None,
+             with_grant_option: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if all_privileges is None and 'allPrivileges' in kwargs:
+            all_privileges = kwargs['allPrivileges']
+        if on_account is None and 'onAccount' in kwargs:
+            on_account = kwargs['onAccount']
+        if on_account_object is None and 'onAccountObject' in kwargs:
+            on_account_object = kwargs['onAccountObject']
+        if on_schema is None and 'onSchema' in kwargs:
+            on_schema = kwargs['onSchema']
+        if on_schema_object is None and 'onSchemaObject' in kwargs:
+            on_schema_object = kwargs['onSchemaObject']
+        if role_name is None and 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if with_grant_option is None and 'withGrantOption' in kwargs:
+            with_grant_option = kwargs['withGrantOption']
+
         if all_privileges is not None:
-            pulumi.set(__self__, "all_privileges", all_privileges)
+            _setter("all_privileges", all_privileges)
         if on_account is not None:
-            pulumi.set(__self__, "on_account", on_account)
+            _setter("on_account", on_account)
         if on_account_object is not None:
-            pulumi.set(__self__, "on_account_object", on_account_object)
+            _setter("on_account_object", on_account_object)
         if on_schema is not None:
-            pulumi.set(__self__, "on_schema", on_schema)
+            _setter("on_schema", on_schema)
         if on_schema_object is not None:
-            pulumi.set(__self__, "on_schema_object", on_schema_object)
+            _setter("on_schema_object", on_schema_object)
         if privileges is not None:
-            pulumi.set(__self__, "privileges", privileges)
+            _setter("privileges", privileges)
         if role_name is not None:
-            pulumi.set(__self__, "role_name", role_name)
+            _setter("role_name", role_name)
         if with_grant_option is not None:
-            pulumi.set(__self__, "with_grant_option", with_grant_option)
+            _setter("with_grant_option", with_grant_option)
 
     @property
     @pulumi.getter(name="allPrivileges")
@@ -517,6 +597,10 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GrantPrivilegesToRoleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -541,8 +625,23 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
 
             __props__.__dict__["all_privileges"] = all_privileges
             __props__.__dict__["on_account"] = on_account
+            if on_account_object is not None and not isinstance(on_account_object, GrantPrivilegesToRoleOnAccountObjectArgs):
+                on_account_object = on_account_object or {}
+                def _setter(key, value):
+                    on_account_object[key] = value
+                GrantPrivilegesToRoleOnAccountObjectArgs._configure(_setter, **on_account_object)
             __props__.__dict__["on_account_object"] = on_account_object
+            if on_schema is not None and not isinstance(on_schema, GrantPrivilegesToRoleOnSchemaArgs):
+                on_schema = on_schema or {}
+                def _setter(key, value):
+                    on_schema[key] = value
+                GrantPrivilegesToRoleOnSchemaArgs._configure(_setter, **on_schema)
             __props__.__dict__["on_schema"] = on_schema
+            if on_schema_object is not None and not isinstance(on_schema_object, GrantPrivilegesToRoleOnSchemaObjectArgs):
+                on_schema_object = on_schema_object or {}
+                def _setter(key, value):
+                    on_schema_object[key] = value
+                GrantPrivilegesToRoleOnSchemaObjectArgs._configure(_setter, **on_schema_object)
             __props__.__dict__["on_schema_object"] = on_schema_object
             __props__.__dict__["privileges"] = privileges
             if role_name is None and not opts.urn:

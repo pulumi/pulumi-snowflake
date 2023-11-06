@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ExternalOauthIntegrationArgs', 'ExternalOauthIntegration']
@@ -49,33 +49,106 @@ class ExternalOauthIntegrationArgs:
         :param pulumi.Input[str] scope_delimiter: Specifies the scope delimiter in the authorization token.
         :param pulumi.Input[str] scope_mapping_attribute: Specifies the access token claim to map the access token to an account role.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "issuer", issuer)
-        pulumi.set(__self__, "snowflake_user_mapping_attribute", snowflake_user_mapping_attribute)
-        pulumi.set(__self__, "token_user_mapping_claims", token_user_mapping_claims)
-        pulumi.set(__self__, "type", type)
+        ExternalOauthIntegrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            issuer=issuer,
+            snowflake_user_mapping_attribute=snowflake_user_mapping_attribute,
+            token_user_mapping_claims=token_user_mapping_claims,
+            type=type,
+            allowed_roles=allowed_roles,
+            any_role_mode=any_role_mode,
+            audience_urls=audience_urls,
+            blocked_roles=blocked_roles,
+            comment=comment,
+            jws_keys_urls=jws_keys_urls,
+            name=name,
+            rsa_public_key=rsa_public_key,
+            rsa_public_key2=rsa_public_key2,
+            scope_delimiter=scope_delimiter,
+            scope_mapping_attribute=scope_mapping_attribute,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             issuer: Optional[pulumi.Input[str]] = None,
+             snowflake_user_mapping_attribute: Optional[pulumi.Input[str]] = None,
+             token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             allowed_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             any_role_mode: Optional[pulumi.Input[str]] = None,
+             audience_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             blocked_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             jws_keys_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rsa_public_key: Optional[pulumi.Input[str]] = None,
+             rsa_public_key2: Optional[pulumi.Input[str]] = None,
+             scope_delimiter: Optional[pulumi.Input[str]] = None,
+             scope_mapping_attribute: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if issuer is None:
+            raise TypeError("Missing 'issuer' argument")
+        if snowflake_user_mapping_attribute is None and 'snowflakeUserMappingAttribute' in kwargs:
+            snowflake_user_mapping_attribute = kwargs['snowflakeUserMappingAttribute']
+        if snowflake_user_mapping_attribute is None:
+            raise TypeError("Missing 'snowflake_user_mapping_attribute' argument")
+        if token_user_mapping_claims is None and 'tokenUserMappingClaims' in kwargs:
+            token_user_mapping_claims = kwargs['tokenUserMappingClaims']
+        if token_user_mapping_claims is None:
+            raise TypeError("Missing 'token_user_mapping_claims' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if allowed_roles is None and 'allowedRoles' in kwargs:
+            allowed_roles = kwargs['allowedRoles']
+        if any_role_mode is None and 'anyRoleMode' in kwargs:
+            any_role_mode = kwargs['anyRoleMode']
+        if audience_urls is None and 'audienceUrls' in kwargs:
+            audience_urls = kwargs['audienceUrls']
+        if blocked_roles is None and 'blockedRoles' in kwargs:
+            blocked_roles = kwargs['blockedRoles']
+        if jws_keys_urls is None and 'jwsKeysUrls' in kwargs:
+            jws_keys_urls = kwargs['jwsKeysUrls']
+        if rsa_public_key is None and 'rsaPublicKey' in kwargs:
+            rsa_public_key = kwargs['rsaPublicKey']
+        if rsa_public_key2 is None and 'rsaPublicKey2' in kwargs:
+            rsa_public_key2 = kwargs['rsaPublicKey2']
+        if scope_delimiter is None and 'scopeDelimiter' in kwargs:
+            scope_delimiter = kwargs['scopeDelimiter']
+        if scope_mapping_attribute is None and 'scopeMappingAttribute' in kwargs:
+            scope_mapping_attribute = kwargs['scopeMappingAttribute']
+
+        _setter("enabled", enabled)
+        _setter("issuer", issuer)
+        _setter("snowflake_user_mapping_attribute", snowflake_user_mapping_attribute)
+        _setter("token_user_mapping_claims", token_user_mapping_claims)
+        _setter("type", type)
         if allowed_roles is not None:
-            pulumi.set(__self__, "allowed_roles", allowed_roles)
+            _setter("allowed_roles", allowed_roles)
         if any_role_mode is not None:
-            pulumi.set(__self__, "any_role_mode", any_role_mode)
+            _setter("any_role_mode", any_role_mode)
         if audience_urls is not None:
-            pulumi.set(__self__, "audience_urls", audience_urls)
+            _setter("audience_urls", audience_urls)
         if blocked_roles is not None:
-            pulumi.set(__self__, "blocked_roles", blocked_roles)
+            _setter("blocked_roles", blocked_roles)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if jws_keys_urls is not None:
-            pulumi.set(__self__, "jws_keys_urls", jws_keys_urls)
+            _setter("jws_keys_urls", jws_keys_urls)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rsa_public_key is not None:
-            pulumi.set(__self__, "rsa_public_key", rsa_public_key)
+            _setter("rsa_public_key", rsa_public_key)
         if rsa_public_key2 is not None:
-            pulumi.set(__self__, "rsa_public_key2", rsa_public_key2)
+            _setter("rsa_public_key2", rsa_public_key2)
         if scope_delimiter is not None:
-            pulumi.set(__self__, "scope_delimiter", scope_delimiter)
+            _setter("scope_delimiter", scope_delimiter)
         if scope_mapping_attribute is not None:
-            pulumi.set(__self__, "scope_mapping_attribute", scope_mapping_attribute)
+            _setter("scope_mapping_attribute", scope_mapping_attribute)
 
     @property
     @pulumi.getter
@@ -310,40 +383,107 @@ class _ExternalOauthIntegrationState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] token_user_mapping_claims: Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
         :param pulumi.Input[str] type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
         """
+        _ExternalOauthIntegrationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_roles=allowed_roles,
+            any_role_mode=any_role_mode,
+            audience_urls=audience_urls,
+            blocked_roles=blocked_roles,
+            comment=comment,
+            created_on=created_on,
+            enabled=enabled,
+            issuer=issuer,
+            jws_keys_urls=jws_keys_urls,
+            name=name,
+            rsa_public_key=rsa_public_key,
+            rsa_public_key2=rsa_public_key2,
+            scope_delimiter=scope_delimiter,
+            scope_mapping_attribute=scope_mapping_attribute,
+            snowflake_user_mapping_attribute=snowflake_user_mapping_attribute,
+            token_user_mapping_claims=token_user_mapping_claims,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             any_role_mode: Optional[pulumi.Input[str]] = None,
+             audience_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             blocked_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             created_on: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             issuer: Optional[pulumi.Input[str]] = None,
+             jws_keys_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rsa_public_key: Optional[pulumi.Input[str]] = None,
+             rsa_public_key2: Optional[pulumi.Input[str]] = None,
+             scope_delimiter: Optional[pulumi.Input[str]] = None,
+             scope_mapping_attribute: Optional[pulumi.Input[str]] = None,
+             snowflake_user_mapping_attribute: Optional[pulumi.Input[str]] = None,
+             token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allowed_roles is None and 'allowedRoles' in kwargs:
+            allowed_roles = kwargs['allowedRoles']
+        if any_role_mode is None and 'anyRoleMode' in kwargs:
+            any_role_mode = kwargs['anyRoleMode']
+        if audience_urls is None and 'audienceUrls' in kwargs:
+            audience_urls = kwargs['audienceUrls']
+        if blocked_roles is None and 'blockedRoles' in kwargs:
+            blocked_roles = kwargs['blockedRoles']
+        if created_on is None and 'createdOn' in kwargs:
+            created_on = kwargs['createdOn']
+        if jws_keys_urls is None and 'jwsKeysUrls' in kwargs:
+            jws_keys_urls = kwargs['jwsKeysUrls']
+        if rsa_public_key is None and 'rsaPublicKey' in kwargs:
+            rsa_public_key = kwargs['rsaPublicKey']
+        if rsa_public_key2 is None and 'rsaPublicKey2' in kwargs:
+            rsa_public_key2 = kwargs['rsaPublicKey2']
+        if scope_delimiter is None and 'scopeDelimiter' in kwargs:
+            scope_delimiter = kwargs['scopeDelimiter']
+        if scope_mapping_attribute is None and 'scopeMappingAttribute' in kwargs:
+            scope_mapping_attribute = kwargs['scopeMappingAttribute']
+        if snowflake_user_mapping_attribute is None and 'snowflakeUserMappingAttribute' in kwargs:
+            snowflake_user_mapping_attribute = kwargs['snowflakeUserMappingAttribute']
+        if token_user_mapping_claims is None and 'tokenUserMappingClaims' in kwargs:
+            token_user_mapping_claims = kwargs['tokenUserMappingClaims']
+
         if allowed_roles is not None:
-            pulumi.set(__self__, "allowed_roles", allowed_roles)
+            _setter("allowed_roles", allowed_roles)
         if any_role_mode is not None:
-            pulumi.set(__self__, "any_role_mode", any_role_mode)
+            _setter("any_role_mode", any_role_mode)
         if audience_urls is not None:
-            pulumi.set(__self__, "audience_urls", audience_urls)
+            _setter("audience_urls", audience_urls)
         if blocked_roles is not None:
-            pulumi.set(__self__, "blocked_roles", blocked_roles)
+            _setter("blocked_roles", blocked_roles)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if created_on is not None:
-            pulumi.set(__self__, "created_on", created_on)
+            _setter("created_on", created_on)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if issuer is not None:
-            pulumi.set(__self__, "issuer", issuer)
+            _setter("issuer", issuer)
         if jws_keys_urls is not None:
-            pulumi.set(__self__, "jws_keys_urls", jws_keys_urls)
+            _setter("jws_keys_urls", jws_keys_urls)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rsa_public_key is not None:
-            pulumi.set(__self__, "rsa_public_key", rsa_public_key)
+            _setter("rsa_public_key", rsa_public_key)
         if rsa_public_key2 is not None:
-            pulumi.set(__self__, "rsa_public_key2", rsa_public_key2)
+            _setter("rsa_public_key2", rsa_public_key2)
         if scope_delimiter is not None:
-            pulumi.set(__self__, "scope_delimiter", scope_delimiter)
+            _setter("scope_delimiter", scope_delimiter)
         if scope_mapping_attribute is not None:
-            pulumi.set(__self__, "scope_mapping_attribute", scope_mapping_attribute)
+            _setter("scope_mapping_attribute", scope_mapping_attribute)
         if snowflake_user_mapping_attribute is not None:
-            pulumi.set(__self__, "snowflake_user_mapping_attribute", snowflake_user_mapping_attribute)
+            _setter("snowflake_user_mapping_attribute", snowflake_user_mapping_attribute)
         if token_user_mapping_claims is not None:
-            pulumi.set(__self__, "token_user_mapping_claims", token_user_mapping_claims)
+            _setter("token_user_mapping_claims", token_user_mapping_claims)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="allowedRoles")
@@ -657,6 +797,10 @@ class ExternalOauthIntegration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExternalOauthIntegrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

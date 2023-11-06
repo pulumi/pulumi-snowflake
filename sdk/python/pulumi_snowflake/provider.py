@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from ._inputs import *
 
@@ -148,163 +148,318 @@ class ProviderArgs:
         :param pulumi.Input[str] warehouse: Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced
                from the `SNOWFLAKE_WAREHOUSE` environment variable.
         """
+        ProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account=account,
+            authenticator=authenticator,
+            browser_auth=browser_auth,
+            client_ip=client_ip,
+            client_request_mfa_token=client_request_mfa_token,
+            client_store_temporary_credential=client_store_temporary_credential,
+            client_timeout=client_timeout,
+            disable_query_context_cache=disable_query_context_cache,
+            disable_telemetry=disable_telemetry,
+            external_browser_timeout=external_browser_timeout,
+            host=host,
+            insecure_mode=insecure_mode,
+            jwt_client_timeout=jwt_client_timeout,
+            jwt_expire_timeout=jwt_expire_timeout,
+            keep_session_alive=keep_session_alive,
+            login_timeout=login_timeout,
+            oauth_access_token=oauth_access_token,
+            oauth_client_id=oauth_client_id,
+            oauth_client_secret=oauth_client_secret,
+            oauth_endpoint=oauth_endpoint,
+            oauth_redirect_url=oauth_redirect_url,
+            oauth_refresh_token=oauth_refresh_token,
+            okta_url=okta_url,
+            oscp_fail_open=oscp_fail_open,
+            params=params,
+            passcode=passcode,
+            passcode_in_password=passcode_in_password,
+            password=password,
+            port=port,
+            private_key=private_key,
+            private_key_passphrase=private_key_passphrase,
+            private_key_path=private_key_path,
+            profile=profile,
+            protocol=protocol,
+            region=region,
+            request_timeout=request_timeout,
+            role=role,
+            session_params=session_params,
+            token=token,
+            token_accessor=token_accessor,
+            user=user,
+            username=username,
+            validate_default_parameters=validate_default_parameters,
+            warehouse=warehouse,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account: Optional[pulumi.Input[str]] = None,
+             authenticator: Optional[pulumi.Input[str]] = None,
+             browser_auth: Optional[pulumi.Input[bool]] = None,
+             client_ip: Optional[pulumi.Input[str]] = None,
+             client_request_mfa_token: Optional[pulumi.Input[bool]] = None,
+             client_store_temporary_credential: Optional[pulumi.Input[bool]] = None,
+             client_timeout: Optional[pulumi.Input[int]] = None,
+             disable_query_context_cache: Optional[pulumi.Input[bool]] = None,
+             disable_telemetry: Optional[pulumi.Input[bool]] = None,
+             external_browser_timeout: Optional[pulumi.Input[int]] = None,
+             host: Optional[pulumi.Input[str]] = None,
+             insecure_mode: Optional[pulumi.Input[bool]] = None,
+             jwt_client_timeout: Optional[pulumi.Input[int]] = None,
+             jwt_expire_timeout: Optional[pulumi.Input[int]] = None,
+             keep_session_alive: Optional[pulumi.Input[bool]] = None,
+             login_timeout: Optional[pulumi.Input[int]] = None,
+             oauth_access_token: Optional[pulumi.Input[str]] = None,
+             oauth_client_id: Optional[pulumi.Input[str]] = None,
+             oauth_client_secret: Optional[pulumi.Input[str]] = None,
+             oauth_endpoint: Optional[pulumi.Input[str]] = None,
+             oauth_redirect_url: Optional[pulumi.Input[str]] = None,
+             oauth_refresh_token: Optional[pulumi.Input[str]] = None,
+             okta_url: Optional[pulumi.Input[str]] = None,
+             oscp_fail_open: Optional[pulumi.Input[bool]] = None,
+             params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             passcode: Optional[pulumi.Input[str]] = None,
+             passcode_in_password: Optional[pulumi.Input[bool]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             private_key: Optional[pulumi.Input[str]] = None,
+             private_key_passphrase: Optional[pulumi.Input[str]] = None,
+             private_key_path: Optional[pulumi.Input[str]] = None,
+             profile: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             request_timeout: Optional[pulumi.Input[int]] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             session_params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             token: Optional[pulumi.Input[str]] = None,
+             token_accessor: Optional[pulumi.Input['ProviderTokenAccessorArgs']] = None,
+             user: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             validate_default_parameters: Optional[pulumi.Input[bool]] = None,
+             warehouse: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if browser_auth is None and 'browserAuth' in kwargs:
+            browser_auth = kwargs['browserAuth']
+        if client_ip is None and 'clientIp' in kwargs:
+            client_ip = kwargs['clientIp']
+        if client_request_mfa_token is None and 'clientRequestMfaToken' in kwargs:
+            client_request_mfa_token = kwargs['clientRequestMfaToken']
+        if client_store_temporary_credential is None and 'clientStoreTemporaryCredential' in kwargs:
+            client_store_temporary_credential = kwargs['clientStoreTemporaryCredential']
+        if client_timeout is None and 'clientTimeout' in kwargs:
+            client_timeout = kwargs['clientTimeout']
+        if disable_query_context_cache is None and 'disableQueryContextCache' in kwargs:
+            disable_query_context_cache = kwargs['disableQueryContextCache']
+        if disable_telemetry is None and 'disableTelemetry' in kwargs:
+            disable_telemetry = kwargs['disableTelemetry']
+        if external_browser_timeout is None and 'externalBrowserTimeout' in kwargs:
+            external_browser_timeout = kwargs['externalBrowserTimeout']
+        if insecure_mode is None and 'insecureMode' in kwargs:
+            insecure_mode = kwargs['insecureMode']
+        if jwt_client_timeout is None and 'jwtClientTimeout' in kwargs:
+            jwt_client_timeout = kwargs['jwtClientTimeout']
+        if jwt_expire_timeout is None and 'jwtExpireTimeout' in kwargs:
+            jwt_expire_timeout = kwargs['jwtExpireTimeout']
+        if keep_session_alive is None and 'keepSessionAlive' in kwargs:
+            keep_session_alive = kwargs['keepSessionAlive']
+        if login_timeout is None and 'loginTimeout' in kwargs:
+            login_timeout = kwargs['loginTimeout']
+        if oauth_access_token is None and 'oauthAccessToken' in kwargs:
+            oauth_access_token = kwargs['oauthAccessToken']
+        if oauth_client_id is None and 'oauthClientId' in kwargs:
+            oauth_client_id = kwargs['oauthClientId']
+        if oauth_client_secret is None and 'oauthClientSecret' in kwargs:
+            oauth_client_secret = kwargs['oauthClientSecret']
+        if oauth_endpoint is None and 'oauthEndpoint' in kwargs:
+            oauth_endpoint = kwargs['oauthEndpoint']
+        if oauth_redirect_url is None and 'oauthRedirectUrl' in kwargs:
+            oauth_redirect_url = kwargs['oauthRedirectUrl']
+        if oauth_refresh_token is None and 'oauthRefreshToken' in kwargs:
+            oauth_refresh_token = kwargs['oauthRefreshToken']
+        if okta_url is None and 'oktaUrl' in kwargs:
+            okta_url = kwargs['oktaUrl']
+        if oscp_fail_open is None and 'oscpFailOpen' in kwargs:
+            oscp_fail_open = kwargs['oscpFailOpen']
+        if passcode_in_password is None and 'passcodeInPassword' in kwargs:
+            passcode_in_password = kwargs['passcodeInPassword']
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if private_key_passphrase is None and 'privateKeyPassphrase' in kwargs:
+            private_key_passphrase = kwargs['privateKeyPassphrase']
+        if private_key_path is None and 'privateKeyPath' in kwargs:
+            private_key_path = kwargs['privateKeyPath']
+        if request_timeout is None and 'requestTimeout' in kwargs:
+            request_timeout = kwargs['requestTimeout']
+        if session_params is None and 'sessionParams' in kwargs:
+            session_params = kwargs['sessionParams']
+        if token_accessor is None and 'tokenAccessor' in kwargs:
+            token_accessor = kwargs['tokenAccessor']
+        if validate_default_parameters is None and 'validateDefaultParameters' in kwargs:
+            validate_default_parameters = kwargs['validateDefaultParameters']
+
         if account is None:
             account = _utilities.get_env('SNOWFLAKE_ACCOUNT')
         if account is not None:
-            pulumi.set(__self__, "account", account)
+            _setter("account", account)
         if authenticator is not None:
-            pulumi.set(__self__, "authenticator", authenticator)
+            _setter("authenticator", authenticator)
         if browser_auth is not None:
             warnings.warn("""Use `authenticator` instead""", DeprecationWarning)
             pulumi.log.warn("""browser_auth is deprecated: Use `authenticator` instead""")
         if browser_auth is None:
             browser_auth = _utilities.get_env_bool('SNOWFLAKE_USE_BROWSER_AUTH')
         if browser_auth is not None:
-            pulumi.set(__self__, "browser_auth", browser_auth)
+            _setter("browser_auth", browser_auth)
         if client_ip is not None:
-            pulumi.set(__self__, "client_ip", client_ip)
+            _setter("client_ip", client_ip)
         if client_request_mfa_token is not None:
-            pulumi.set(__self__, "client_request_mfa_token", client_request_mfa_token)
+            _setter("client_request_mfa_token", client_request_mfa_token)
         if client_store_temporary_credential is not None:
-            pulumi.set(__self__, "client_store_temporary_credential", client_store_temporary_credential)
+            _setter("client_store_temporary_credential", client_store_temporary_credential)
         if client_timeout is not None:
-            pulumi.set(__self__, "client_timeout", client_timeout)
+            _setter("client_timeout", client_timeout)
         if disable_query_context_cache is not None:
-            pulumi.set(__self__, "disable_query_context_cache", disable_query_context_cache)
+            _setter("disable_query_context_cache", disable_query_context_cache)
         if disable_telemetry is not None:
-            pulumi.set(__self__, "disable_telemetry", disable_telemetry)
+            _setter("disable_telemetry", disable_telemetry)
         if external_browser_timeout is not None:
-            pulumi.set(__self__, "external_browser_timeout", external_browser_timeout)
+            _setter("external_browser_timeout", external_browser_timeout)
         if host is None:
             host = _utilities.get_env('SNOWFLAKE_HOST')
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if insecure_mode is not None:
-            pulumi.set(__self__, "insecure_mode", insecure_mode)
+            _setter("insecure_mode", insecure_mode)
         if jwt_client_timeout is not None:
-            pulumi.set(__self__, "jwt_client_timeout", jwt_client_timeout)
+            _setter("jwt_client_timeout", jwt_client_timeout)
         if jwt_expire_timeout is not None:
-            pulumi.set(__self__, "jwt_expire_timeout", jwt_expire_timeout)
+            _setter("jwt_expire_timeout", jwt_expire_timeout)
         if keep_session_alive is not None:
-            pulumi.set(__self__, "keep_session_alive", keep_session_alive)
+            _setter("keep_session_alive", keep_session_alive)
         if login_timeout is not None:
-            pulumi.set(__self__, "login_timeout", login_timeout)
+            _setter("login_timeout", login_timeout)
         if oauth_access_token is not None:
             warnings.warn("""Use `token` instead""", DeprecationWarning)
             pulumi.log.warn("""oauth_access_token is deprecated: Use `token` instead""")
         if oauth_access_token is None:
             oauth_access_token = _utilities.get_env('SNOWFLAKE_OAUTH_ACCESS_TOKEN')
         if oauth_access_token is not None:
-            pulumi.set(__self__, "oauth_access_token", oauth_access_token)
+            _setter("oauth_access_token", oauth_access_token)
         if oauth_client_id is not None:
             warnings.warn("""Use `token_accessor.0.client_id` instead""", DeprecationWarning)
             pulumi.log.warn("""oauth_client_id is deprecated: Use `token_accessor.0.client_id` instead""")
         if oauth_client_id is None:
             oauth_client_id = _utilities.get_env('SNOWFLAKE_OAUTH_CLIENT_ID')
         if oauth_client_id is not None:
-            pulumi.set(__self__, "oauth_client_id", oauth_client_id)
+            _setter("oauth_client_id", oauth_client_id)
         if oauth_client_secret is not None:
             warnings.warn("""Use `token_accessor.0.client_secret` instead""", DeprecationWarning)
             pulumi.log.warn("""oauth_client_secret is deprecated: Use `token_accessor.0.client_secret` instead""")
         if oauth_client_secret is None:
             oauth_client_secret = _utilities.get_env('SNOWFLAKE_OAUTH_CLIENT_SECRET')
         if oauth_client_secret is not None:
-            pulumi.set(__self__, "oauth_client_secret", oauth_client_secret)
+            _setter("oauth_client_secret", oauth_client_secret)
         if oauth_endpoint is not None:
             warnings.warn("""Use `token_accessor.0.token_endpoint` instead""", DeprecationWarning)
             pulumi.log.warn("""oauth_endpoint is deprecated: Use `token_accessor.0.token_endpoint` instead""")
         if oauth_endpoint is None:
             oauth_endpoint = _utilities.get_env('SNOWFLAKE_OAUTH_ENDPOINT')
         if oauth_endpoint is not None:
-            pulumi.set(__self__, "oauth_endpoint", oauth_endpoint)
+            _setter("oauth_endpoint", oauth_endpoint)
         if oauth_redirect_url is not None:
             warnings.warn("""Use `token_accessor.0.redirect_uri` instead""", DeprecationWarning)
             pulumi.log.warn("""oauth_redirect_url is deprecated: Use `token_accessor.0.redirect_uri` instead""")
         if oauth_redirect_url is None:
             oauth_redirect_url = _utilities.get_env('SNOWFLAKE_OAUTH_REDIRECT_URL')
         if oauth_redirect_url is not None:
-            pulumi.set(__self__, "oauth_redirect_url", oauth_redirect_url)
+            _setter("oauth_redirect_url", oauth_redirect_url)
         if oauth_refresh_token is not None:
             warnings.warn("""Use `token_accessor.0.refresh_token` instead""", DeprecationWarning)
             pulumi.log.warn("""oauth_refresh_token is deprecated: Use `token_accessor.0.refresh_token` instead""")
         if oauth_refresh_token is None:
             oauth_refresh_token = _utilities.get_env('SNOWFLAKE_OAUTH_REFRESH_TOKEN')
         if oauth_refresh_token is not None:
-            pulumi.set(__self__, "oauth_refresh_token", oauth_refresh_token)
+            _setter("oauth_refresh_token", oauth_refresh_token)
         if okta_url is not None:
-            pulumi.set(__self__, "okta_url", okta_url)
+            _setter("okta_url", okta_url)
         if oscp_fail_open is not None:
-            pulumi.set(__self__, "oscp_fail_open", oscp_fail_open)
+            _setter("oscp_fail_open", oscp_fail_open)
         if params is not None:
-            pulumi.set(__self__, "params", params)
+            _setter("params", params)
         if passcode is not None:
-            pulumi.set(__self__, "passcode", passcode)
+            _setter("passcode", passcode)
         if passcode_in_password is not None:
-            pulumi.set(__self__, "passcode_in_password", passcode_in_password)
+            _setter("passcode_in_password", passcode_in_password)
         if password is None:
             password = _utilities.get_env('SNOWFLAKE_PASSWORD')
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if port is None:
             port = _utilities.get_env_int('SNOWFLAKE_PORT')
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if private_key is not None:
-            pulumi.set(__self__, "private_key", private_key)
+            _setter("private_key", private_key)
         if private_key_passphrase is None:
             private_key_passphrase = _utilities.get_env('SNOWFLAKE_PRIVATE_KEY_PASSPHRASE')
         if private_key_passphrase is not None:
-            pulumi.set(__self__, "private_key_passphrase", private_key_passphrase)
+            _setter("private_key_passphrase", private_key_passphrase)
         if private_key_path is not None:
             warnings.warn("""use the [file Function](https://developer.hashicorp.com/terraform/language/functions/file) instead""", DeprecationWarning)
             pulumi.log.warn("""private_key_path is deprecated: use the [file Function](https://developer.hashicorp.com/terraform/language/functions/file) instead""")
         if private_key_path is None:
             private_key_path = _utilities.get_env('SNOWFLAKE_PRIVATE_KEY_PATH')
         if private_key_path is not None:
-            pulumi.set(__self__, "private_key_path", private_key_path)
+            _setter("private_key_path", private_key_path)
         if profile is not None:
-            pulumi.set(__self__, "profile", profile)
+            _setter("profile", profile)
         if protocol is None:
             protocol = _utilities.get_env('SNOWFLAKE_PROTOCOL')
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if region is not None:
             warnings.warn("""Specify the region as part of the account parameter""", DeprecationWarning)
             pulumi.log.warn("""region is deprecated: Specify the region as part of the account parameter""")
         if region is None:
             region = _utilities.get_env('SNOWFLAKE_REGION')
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if request_timeout is not None:
-            pulumi.set(__self__, "request_timeout", request_timeout)
+            _setter("request_timeout", request_timeout)
         if role is None:
             role = _utilities.get_env('SNOWFLAKE_ROLE')
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
         if session_params is not None:
             warnings.warn("""Use `params` instead""", DeprecationWarning)
             pulumi.log.warn("""session_params is deprecated: Use `params` instead""")
         if session_params is not None:
-            pulumi.set(__self__, "session_params", session_params)
+            _setter("session_params", session_params)
         if token is not None:
-            pulumi.set(__self__, "token", token)
+            _setter("token", token)
         if token_accessor is not None:
-            pulumi.set(__self__, "token_accessor", token_accessor)
+            _setter("token_accessor", token_accessor)
         if user is not None:
-            pulumi.set(__self__, "user", user)
+            _setter("user", user)
         if username is not None:
             warnings.warn("""Use `user` instead of `username`""", DeprecationWarning)
             pulumi.log.warn("""username is deprecated: Use `user` instead of `username`""")
         if username is None:
             username = _utilities.get_env('SNOWFLAKE_USER')
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
         if validate_default_parameters is not None:
-            pulumi.set(__self__, "validate_default_parameters", validate_default_parameters)
+            _setter("validate_default_parameters", validate_default_parameters)
         if warehouse is None:
             warehouse = _utilities.get_env('SNOWFLAKE_WAREHOUSE')
         if warehouse is not None:
-            pulumi.set(__self__, "warehouse", warehouse)
+            _setter("warehouse", warehouse)
 
     @property
     @pulumi.getter
@@ -1075,6 +1230,10 @@ class Provider(pulumi.ProviderResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1204,6 +1363,11 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["role"] = role
             __props__.__dict__["session_params"] = pulumi.Output.from_input(session_params).apply(pulumi.runtime.to_json) if session_params is not None else None
             __props__.__dict__["token"] = None if token is None else pulumi.Output.secret(token)
+            if token_accessor is not None and not isinstance(token_accessor, ProviderTokenAccessorArgs):
+                token_accessor = token_accessor or {}
+                def _setter(key, value):
+                    token_accessor[key] = value
+                ProviderTokenAccessorArgs._configure(_setter, **token_accessor)
             __props__.__dict__["token_accessor"] = pulumi.Output.from_input(token_accessor).apply(pulumi.runtime.to_json) if token_accessor is not None else None
             __props__.__dict__["user"] = user
             if username is None:

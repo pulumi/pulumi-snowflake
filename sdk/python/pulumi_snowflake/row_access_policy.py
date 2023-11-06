@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RowAccessPolicyArgs', 'RowAccessPolicy']
@@ -29,14 +29,45 @@ class RowAccessPolicyArgs:
         :param pulumi.Input[str] comment: Specifies a comment for the row access policy.
         :param pulumi.Input[str] name: Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "row_access_expression", row_access_expression)
-        pulumi.set(__self__, "schema", schema)
-        pulumi.set(__self__, "signature", signature)
+        RowAccessPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            row_access_expression=row_access_expression,
+            schema=schema,
+            signature=signature,
+            comment=comment,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: Optional[pulumi.Input[str]] = None,
+             row_access_expression: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             signature: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if row_access_expression is None and 'rowAccessExpression' in kwargs:
+            row_access_expression = kwargs['rowAccessExpression']
+        if row_access_expression is None:
+            raise TypeError("Missing 'row_access_expression' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if signature is None:
+            raise TypeError("Missing 'signature' argument")
+
+        _setter("database", database)
+        _setter("row_access_expression", row_access_expression)
+        _setter("schema", schema)
+        _setter("signature", signature)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -129,18 +160,41 @@ class _RowAccessPolicyState:
         :param pulumi.Input[str] schema: The schema in which to create the row access policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] signature: Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
         """
+        _RowAccessPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+            database=database,
+            name=name,
+            row_access_expression=row_access_expression,
+            schema=schema,
+            signature=signature,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             row_access_expression: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             signature: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if row_access_expression is None and 'rowAccessExpression' in kwargs:
+            row_access_expression = kwargs['rowAccessExpression']
+
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if row_access_expression is not None:
-            pulumi.set(__self__, "row_access_expression", row_access_expression)
+            _setter("row_access_expression", row_access_expression)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if signature is not None:
-            pulumi.set(__self__, "signature", signature)
+            _setter("signature", signature)
 
     @property
     @pulumi.getter
@@ -302,6 +356,10 @@ class RowAccessPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RowAccessPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

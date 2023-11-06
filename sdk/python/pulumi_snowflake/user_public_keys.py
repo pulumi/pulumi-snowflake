@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['UserPublicKeysArgs', 'UserPublicKeys']
@@ -23,12 +23,31 @@ class UserPublicKeysArgs:
         :param pulumi.Input[str] rsa_public_key: Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
         :param pulumi.Input[str] rsa_public_key2: Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         """
+        UserPublicKeysArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            rsa_public_key=rsa_public_key,
+            rsa_public_key2=rsa_public_key2,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             rsa_public_key: Optional[pulumi.Input[str]] = None,
+             rsa_public_key2: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if rsa_public_key is None and 'rsaPublicKey' in kwargs:
+            rsa_public_key = kwargs['rsaPublicKey']
+        if rsa_public_key2 is None and 'rsaPublicKey2' in kwargs:
+            rsa_public_key2 = kwargs['rsaPublicKey2']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rsa_public_key is not None:
-            pulumi.set(__self__, "rsa_public_key", rsa_public_key)
+            _setter("rsa_public_key", rsa_public_key)
         if rsa_public_key2 is not None:
-            pulumi.set(__self__, "rsa_public_key2", rsa_public_key2)
+            _setter("rsa_public_key2", rsa_public_key2)
 
     @property
     @pulumi.getter
@@ -79,12 +98,31 @@ class _UserPublicKeysState:
         :param pulumi.Input[str] rsa_public_key: Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
         :param pulumi.Input[str] rsa_public_key2: Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         """
+        _UserPublicKeysState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            rsa_public_key=rsa_public_key,
+            rsa_public_key2=rsa_public_key2,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             rsa_public_key: Optional[pulumi.Input[str]] = None,
+             rsa_public_key2: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if rsa_public_key is None and 'rsaPublicKey' in kwargs:
+            rsa_public_key = kwargs['rsaPublicKey']
+        if rsa_public_key2 is None and 'rsaPublicKey2' in kwargs:
+            rsa_public_key2 = kwargs['rsaPublicKey2']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rsa_public_key is not None:
-            pulumi.set(__self__, "rsa_public_key", rsa_public_key)
+            _setter("rsa_public_key", rsa_public_key)
         if rsa_public_key2 is not None:
-            pulumi.set(__self__, "rsa_public_key2", rsa_public_key2)
+            _setter("rsa_public_key2", rsa_public_key2)
 
     @property
     @pulumi.getter
@@ -158,6 +196,10 @@ class UserPublicKeys(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserPublicKeysArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

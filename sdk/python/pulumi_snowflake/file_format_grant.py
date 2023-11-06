@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['FileFormatGrantArgs', 'FileFormatGrant']
@@ -38,24 +38,73 @@ class FileFormatGrantArgs:
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future file formats on which to grant privileges.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "roles", roles)
+        FileFormatGrantArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            roles=roles,
+            enable_multiple_grants=enable_multiple_grants,
+            file_format_name=file_format_name,
+            on_all=on_all,
+            on_future=on_future,
+            privilege=privilege,
+            revert_ownership_to_role_name=revert_ownership_to_role_name,
+            schema_name=schema_name,
+            with_grant_option=with_grant_option,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
+             file_format_name: Optional[pulumi.Input[str]] = None,
+             on_all: Optional[pulumi.Input[bool]] = None,
+             on_future: Optional[pulumi.Input[bool]] = None,
+             privilege: Optional[pulumi.Input[str]] = None,
+             revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
+             schema_name: Optional[pulumi.Input[str]] = None,
+             with_grant_option: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if roles is None:
+            raise TypeError("Missing 'roles' argument")
+        if enable_multiple_grants is None and 'enableMultipleGrants' in kwargs:
+            enable_multiple_grants = kwargs['enableMultipleGrants']
+        if file_format_name is None and 'fileFormatName' in kwargs:
+            file_format_name = kwargs['fileFormatName']
+        if on_all is None and 'onAll' in kwargs:
+            on_all = kwargs['onAll']
+        if on_future is None and 'onFuture' in kwargs:
+            on_future = kwargs['onFuture']
+        if revert_ownership_to_role_name is None and 'revertOwnershipToRoleName' in kwargs:
+            revert_ownership_to_role_name = kwargs['revertOwnershipToRoleName']
+        if schema_name is None and 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if with_grant_option is None and 'withGrantOption' in kwargs:
+            with_grant_option = kwargs['withGrantOption']
+
+        _setter("database_name", database_name)
+        _setter("roles", roles)
         if enable_multiple_grants is not None:
-            pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
+            _setter("enable_multiple_grants", enable_multiple_grants)
         if file_format_name is not None:
-            pulumi.set(__self__, "file_format_name", file_format_name)
+            _setter("file_format_name", file_format_name)
         if on_all is not None:
-            pulumi.set(__self__, "on_all", on_all)
+            _setter("on_all", on_all)
         if on_future is not None:
-            pulumi.set(__self__, "on_future", on_future)
+            _setter("on_future", on_future)
         if privilege is not None:
-            pulumi.set(__self__, "privilege", privilege)
+            _setter("privilege", privilege)
         if revert_ownership_to_role_name is not None:
-            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
+            _setter("revert_ownership_to_role_name", revert_ownership_to_role_name)
         if schema_name is not None:
-            pulumi.set(__self__, "schema_name", schema_name)
+            _setter("schema_name", schema_name)
         if with_grant_option is not None:
-            pulumi.set(__self__, "with_grant_option", with_grant_option)
+            _setter("with_grant_option", with_grant_option)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -206,26 +255,71 @@ class _FileFormatGrantState:
         :param pulumi.Input[str] schema_name: The name of the schema containing the current or future file formats on which to grant privileges.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
         """
+        _FileFormatGrantState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            enable_multiple_grants=enable_multiple_grants,
+            file_format_name=file_format_name,
+            on_all=on_all,
+            on_future=on_future,
+            privilege=privilege,
+            revert_ownership_to_role_name=revert_ownership_to_role_name,
+            roles=roles,
+            schema_name=schema_name,
+            with_grant_option=with_grant_option,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[pulumi.Input[str]] = None,
+             enable_multiple_grants: Optional[pulumi.Input[bool]] = None,
+             file_format_name: Optional[pulumi.Input[str]] = None,
+             on_all: Optional[pulumi.Input[bool]] = None,
+             on_future: Optional[pulumi.Input[bool]] = None,
+             privilege: Optional[pulumi.Input[str]] = None,
+             revert_ownership_to_role_name: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             schema_name: Optional[pulumi.Input[str]] = None,
+             with_grant_option: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if enable_multiple_grants is None and 'enableMultipleGrants' in kwargs:
+            enable_multiple_grants = kwargs['enableMultipleGrants']
+        if file_format_name is None and 'fileFormatName' in kwargs:
+            file_format_name = kwargs['fileFormatName']
+        if on_all is None and 'onAll' in kwargs:
+            on_all = kwargs['onAll']
+        if on_future is None and 'onFuture' in kwargs:
+            on_future = kwargs['onFuture']
+        if revert_ownership_to_role_name is None and 'revertOwnershipToRoleName' in kwargs:
+            revert_ownership_to_role_name = kwargs['revertOwnershipToRoleName']
+        if schema_name is None and 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if with_grant_option is None and 'withGrantOption' in kwargs:
+            with_grant_option = kwargs['withGrantOption']
+
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if enable_multiple_grants is not None:
-            pulumi.set(__self__, "enable_multiple_grants", enable_multiple_grants)
+            _setter("enable_multiple_grants", enable_multiple_grants)
         if file_format_name is not None:
-            pulumi.set(__self__, "file_format_name", file_format_name)
+            _setter("file_format_name", file_format_name)
         if on_all is not None:
-            pulumi.set(__self__, "on_all", on_all)
+            _setter("on_all", on_all)
         if on_future is not None:
-            pulumi.set(__self__, "on_future", on_future)
+            _setter("on_future", on_future)
         if privilege is not None:
-            pulumi.set(__self__, "privilege", privilege)
+            _setter("privilege", privilege)
         if revert_ownership_to_role_name is not None:
-            pulumi.set(__self__, "revert_ownership_to_role_name", revert_ownership_to_role_name)
+            _setter("revert_ownership_to_role_name", revert_ownership_to_role_name)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if schema_name is not None:
-            pulumi.set(__self__, "schema_name", schema_name)
+            _setter("schema_name", schema_name)
         if with_grant_option is not None:
-            pulumi.set(__self__, "with_grant_option", with_grant_option)
+            _setter("with_grant_option", with_grant_option)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -451,6 +545,10 @@ class FileFormatGrant(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FileFormatGrantArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

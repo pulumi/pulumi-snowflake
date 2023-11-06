@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -51,34 +51,95 @@ class FunctionArgs:
         :param pulumi.Input[str] runtime_version: Required for Python functions. Specifies Python runtime version.
         :param pulumi.Input[str] target_path: The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "return_type", return_type)
-        pulumi.set(__self__, "schema", schema)
-        pulumi.set(__self__, "statement", statement)
+        FunctionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            return_type=return_type,
+            schema=schema,
+            statement=statement,
+            arguments=arguments,
+            comment=comment,
+            handler=handler,
+            imports=imports,
+            is_secure=is_secure,
+            language=language,
+            name=name,
+            null_input_behavior=null_input_behavior,
+            packages=packages,
+            return_behavior=return_behavior,
+            runtime_version=runtime_version,
+            target_path=target_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: Optional[pulumi.Input[str]] = None,
+             return_type: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             statement: Optional[pulumi.Input[str]] = None,
+             arguments: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArgumentArgs']]]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             handler: Optional[pulumi.Input[str]] = None,
+             imports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             is_secure: Optional[pulumi.Input[bool]] = None,
+             language: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             null_input_behavior: Optional[pulumi.Input[str]] = None,
+             packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             return_behavior: Optional[pulumi.Input[str]] = None,
+             runtime_version: Optional[pulumi.Input[str]] = None,
+             target_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if return_type is None and 'returnType' in kwargs:
+            return_type = kwargs['returnType']
+        if return_type is None:
+            raise TypeError("Missing 'return_type' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if statement is None:
+            raise TypeError("Missing 'statement' argument")
+        if is_secure is None and 'isSecure' in kwargs:
+            is_secure = kwargs['isSecure']
+        if null_input_behavior is None and 'nullInputBehavior' in kwargs:
+            null_input_behavior = kwargs['nullInputBehavior']
+        if return_behavior is None and 'returnBehavior' in kwargs:
+            return_behavior = kwargs['returnBehavior']
+        if runtime_version is None and 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if target_path is None and 'targetPath' in kwargs:
+            target_path = kwargs['targetPath']
+
+        _setter("database", database)
+        _setter("return_type", return_type)
+        _setter("schema", schema)
+        _setter("statement", statement)
         if arguments is not None:
-            pulumi.set(__self__, "arguments", arguments)
+            _setter("arguments", arguments)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if handler is not None:
-            pulumi.set(__self__, "handler", handler)
+            _setter("handler", handler)
         if imports is not None:
-            pulumi.set(__self__, "imports", imports)
+            _setter("imports", imports)
         if is_secure is not None:
-            pulumi.set(__self__, "is_secure", is_secure)
+            _setter("is_secure", is_secure)
         if language is not None:
-            pulumi.set(__self__, "language", language)
+            _setter("language", language)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if null_input_behavior is not None:
-            pulumi.set(__self__, "null_input_behavior", null_input_behavior)
+            _setter("null_input_behavior", null_input_behavior)
         if packages is not None:
-            pulumi.set(__self__, "packages", packages)
+            _setter("packages", packages)
         if return_behavior is not None:
-            pulumi.set(__self__, "return_behavior", return_behavior)
+            _setter("return_behavior", return_behavior)
         if runtime_version is not None:
-            pulumi.set(__self__, "runtime_version", runtime_version)
+            _setter("runtime_version", runtime_version)
         if target_path is not None:
-            pulumi.set(__self__, "target_path", target_path)
+            _setter("target_path", target_path)
 
     @property
     @pulumi.getter
@@ -311,38 +372,91 @@ class _FunctionState:
         :param pulumi.Input[str] statement: Specifies the javascript / java / sql / python code used to create the function.
         :param pulumi.Input[str] target_path: The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
         """
+        _FunctionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arguments=arguments,
+            comment=comment,
+            database=database,
+            handler=handler,
+            imports=imports,
+            is_secure=is_secure,
+            language=language,
+            name=name,
+            null_input_behavior=null_input_behavior,
+            packages=packages,
+            return_behavior=return_behavior,
+            return_type=return_type,
+            runtime_version=runtime_version,
+            schema=schema,
+            statement=statement,
+            target_path=target_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arguments: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArgumentArgs']]]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             handler: Optional[pulumi.Input[str]] = None,
+             imports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             is_secure: Optional[pulumi.Input[bool]] = None,
+             language: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             null_input_behavior: Optional[pulumi.Input[str]] = None,
+             packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             return_behavior: Optional[pulumi.Input[str]] = None,
+             return_type: Optional[pulumi.Input[str]] = None,
+             runtime_version: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             statement: Optional[pulumi.Input[str]] = None,
+             target_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if is_secure is None and 'isSecure' in kwargs:
+            is_secure = kwargs['isSecure']
+        if null_input_behavior is None and 'nullInputBehavior' in kwargs:
+            null_input_behavior = kwargs['nullInputBehavior']
+        if return_behavior is None and 'returnBehavior' in kwargs:
+            return_behavior = kwargs['returnBehavior']
+        if return_type is None and 'returnType' in kwargs:
+            return_type = kwargs['returnType']
+        if runtime_version is None and 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if target_path is None and 'targetPath' in kwargs:
+            target_path = kwargs['targetPath']
+
         if arguments is not None:
-            pulumi.set(__self__, "arguments", arguments)
+            _setter("arguments", arguments)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if handler is not None:
-            pulumi.set(__self__, "handler", handler)
+            _setter("handler", handler)
         if imports is not None:
-            pulumi.set(__self__, "imports", imports)
+            _setter("imports", imports)
         if is_secure is not None:
-            pulumi.set(__self__, "is_secure", is_secure)
+            _setter("is_secure", is_secure)
         if language is not None:
-            pulumi.set(__self__, "language", language)
+            _setter("language", language)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if null_input_behavior is not None:
-            pulumi.set(__self__, "null_input_behavior", null_input_behavior)
+            _setter("null_input_behavior", null_input_behavior)
         if packages is not None:
-            pulumi.set(__self__, "packages", packages)
+            _setter("packages", packages)
         if return_behavior is not None:
-            pulumi.set(__self__, "return_behavior", return_behavior)
+            _setter("return_behavior", return_behavior)
         if return_type is not None:
-            pulumi.set(__self__, "return_type", return_type)
+            _setter("return_type", return_type)
         if runtime_version is not None:
-            pulumi.set(__self__, "runtime_version", runtime_version)
+            _setter("runtime_version", runtime_version)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if statement is not None:
-            pulumi.set(__self__, "statement", statement)
+            _setter("statement", statement)
         if target_path is not None:
-            pulumi.set(__self__, "target_path", target_path)
+            _setter("target_path", target_path)
 
     @property
     @pulumi.getter
@@ -612,6 +726,10 @@ class Function(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FunctionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

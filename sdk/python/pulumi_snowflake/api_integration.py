@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ApiIntegrationArgs', 'ApiIntegration']
@@ -40,28 +40,83 @@ class ApiIntegrationArgs:
         :param pulumi.Input[str] google_audience: The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
         :param pulumi.Input[str] name: Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
         """
-        pulumi.set(__self__, "api_allowed_prefixes", api_allowed_prefixes)
-        pulumi.set(__self__, "api_provider", api_provider)
+        ApiIntegrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_allowed_prefixes=api_allowed_prefixes,
+            api_provider=api_provider,
+            api_aws_role_arn=api_aws_role_arn,
+            api_blocked_prefixes=api_blocked_prefixes,
+            api_gcp_service_account=api_gcp_service_account,
+            api_key=api_key,
+            azure_ad_application_id=azure_ad_application_id,
+            azure_tenant_id=azure_tenant_id,
+            comment=comment,
+            enabled=enabled,
+            google_audience=google_audience,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             api_provider: Optional[pulumi.Input[str]] = None,
+             api_aws_role_arn: Optional[pulumi.Input[str]] = None,
+             api_blocked_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             api_gcp_service_account: Optional[pulumi.Input[str]] = None,
+             api_key: Optional[pulumi.Input[str]] = None,
+             azure_ad_application_id: Optional[pulumi.Input[str]] = None,
+             azure_tenant_id: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             google_audience: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_allowed_prefixes is None and 'apiAllowedPrefixes' in kwargs:
+            api_allowed_prefixes = kwargs['apiAllowedPrefixes']
+        if api_allowed_prefixes is None:
+            raise TypeError("Missing 'api_allowed_prefixes' argument")
+        if api_provider is None and 'apiProvider' in kwargs:
+            api_provider = kwargs['apiProvider']
+        if api_provider is None:
+            raise TypeError("Missing 'api_provider' argument")
+        if api_aws_role_arn is None and 'apiAwsRoleArn' in kwargs:
+            api_aws_role_arn = kwargs['apiAwsRoleArn']
+        if api_blocked_prefixes is None and 'apiBlockedPrefixes' in kwargs:
+            api_blocked_prefixes = kwargs['apiBlockedPrefixes']
+        if api_gcp_service_account is None and 'apiGcpServiceAccount' in kwargs:
+            api_gcp_service_account = kwargs['apiGcpServiceAccount']
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if azure_ad_application_id is None and 'azureAdApplicationId' in kwargs:
+            azure_ad_application_id = kwargs['azureAdApplicationId']
+        if azure_tenant_id is None and 'azureTenantId' in kwargs:
+            azure_tenant_id = kwargs['azureTenantId']
+        if google_audience is None and 'googleAudience' in kwargs:
+            google_audience = kwargs['googleAudience']
+
+        _setter("api_allowed_prefixes", api_allowed_prefixes)
+        _setter("api_provider", api_provider)
         if api_aws_role_arn is not None:
-            pulumi.set(__self__, "api_aws_role_arn", api_aws_role_arn)
+            _setter("api_aws_role_arn", api_aws_role_arn)
         if api_blocked_prefixes is not None:
-            pulumi.set(__self__, "api_blocked_prefixes", api_blocked_prefixes)
+            _setter("api_blocked_prefixes", api_blocked_prefixes)
         if api_gcp_service_account is not None:
-            pulumi.set(__self__, "api_gcp_service_account", api_gcp_service_account)
+            _setter("api_gcp_service_account", api_gcp_service_account)
         if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
+            _setter("api_key", api_key)
         if azure_ad_application_id is not None:
-            pulumi.set(__self__, "azure_ad_application_id", azure_ad_application_id)
+            _setter("azure_ad_application_id", azure_ad_application_id)
         if azure_tenant_id is not None:
-            pulumi.set(__self__, "azure_tenant_id", azure_tenant_id)
+            _setter("azure_tenant_id", azure_tenant_id)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if google_audience is not None:
-            pulumi.set(__self__, "google_audience", google_audience)
+            _setter("google_audience", google_audience)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="apiAllowedPrefixes")
@@ -242,40 +297,111 @@ class _ApiIntegrationState:
         :param pulumi.Input[str] google_audience: The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
         :param pulumi.Input[str] name: Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
         """
+        _ApiIntegrationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_allowed_prefixes=api_allowed_prefixes,
+            api_aws_external_id=api_aws_external_id,
+            api_aws_iam_user_arn=api_aws_iam_user_arn,
+            api_aws_role_arn=api_aws_role_arn,
+            api_blocked_prefixes=api_blocked_prefixes,
+            api_gcp_service_account=api_gcp_service_account,
+            api_key=api_key,
+            api_provider=api_provider,
+            azure_ad_application_id=azure_ad_application_id,
+            azure_consent_url=azure_consent_url,
+            azure_multi_tenant_app_name=azure_multi_tenant_app_name,
+            azure_tenant_id=azure_tenant_id,
+            comment=comment,
+            created_on=created_on,
+            enabled=enabled,
+            google_audience=google_audience,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             api_aws_external_id: Optional[pulumi.Input[str]] = None,
+             api_aws_iam_user_arn: Optional[pulumi.Input[str]] = None,
+             api_aws_role_arn: Optional[pulumi.Input[str]] = None,
+             api_blocked_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             api_gcp_service_account: Optional[pulumi.Input[str]] = None,
+             api_key: Optional[pulumi.Input[str]] = None,
+             api_provider: Optional[pulumi.Input[str]] = None,
+             azure_ad_application_id: Optional[pulumi.Input[str]] = None,
+             azure_consent_url: Optional[pulumi.Input[str]] = None,
+             azure_multi_tenant_app_name: Optional[pulumi.Input[str]] = None,
+             azure_tenant_id: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             created_on: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             google_audience: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_allowed_prefixes is None and 'apiAllowedPrefixes' in kwargs:
+            api_allowed_prefixes = kwargs['apiAllowedPrefixes']
+        if api_aws_external_id is None and 'apiAwsExternalId' in kwargs:
+            api_aws_external_id = kwargs['apiAwsExternalId']
+        if api_aws_iam_user_arn is None and 'apiAwsIamUserArn' in kwargs:
+            api_aws_iam_user_arn = kwargs['apiAwsIamUserArn']
+        if api_aws_role_arn is None and 'apiAwsRoleArn' in kwargs:
+            api_aws_role_arn = kwargs['apiAwsRoleArn']
+        if api_blocked_prefixes is None and 'apiBlockedPrefixes' in kwargs:
+            api_blocked_prefixes = kwargs['apiBlockedPrefixes']
+        if api_gcp_service_account is None and 'apiGcpServiceAccount' in kwargs:
+            api_gcp_service_account = kwargs['apiGcpServiceAccount']
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if api_provider is None and 'apiProvider' in kwargs:
+            api_provider = kwargs['apiProvider']
+        if azure_ad_application_id is None and 'azureAdApplicationId' in kwargs:
+            azure_ad_application_id = kwargs['azureAdApplicationId']
+        if azure_consent_url is None and 'azureConsentUrl' in kwargs:
+            azure_consent_url = kwargs['azureConsentUrl']
+        if azure_multi_tenant_app_name is None and 'azureMultiTenantAppName' in kwargs:
+            azure_multi_tenant_app_name = kwargs['azureMultiTenantAppName']
+        if azure_tenant_id is None and 'azureTenantId' in kwargs:
+            azure_tenant_id = kwargs['azureTenantId']
+        if created_on is None and 'createdOn' in kwargs:
+            created_on = kwargs['createdOn']
+        if google_audience is None and 'googleAudience' in kwargs:
+            google_audience = kwargs['googleAudience']
+
         if api_allowed_prefixes is not None:
-            pulumi.set(__self__, "api_allowed_prefixes", api_allowed_prefixes)
+            _setter("api_allowed_prefixes", api_allowed_prefixes)
         if api_aws_external_id is not None:
-            pulumi.set(__self__, "api_aws_external_id", api_aws_external_id)
+            _setter("api_aws_external_id", api_aws_external_id)
         if api_aws_iam_user_arn is not None:
-            pulumi.set(__self__, "api_aws_iam_user_arn", api_aws_iam_user_arn)
+            _setter("api_aws_iam_user_arn", api_aws_iam_user_arn)
         if api_aws_role_arn is not None:
-            pulumi.set(__self__, "api_aws_role_arn", api_aws_role_arn)
+            _setter("api_aws_role_arn", api_aws_role_arn)
         if api_blocked_prefixes is not None:
-            pulumi.set(__self__, "api_blocked_prefixes", api_blocked_prefixes)
+            _setter("api_blocked_prefixes", api_blocked_prefixes)
         if api_gcp_service_account is not None:
-            pulumi.set(__self__, "api_gcp_service_account", api_gcp_service_account)
+            _setter("api_gcp_service_account", api_gcp_service_account)
         if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
+            _setter("api_key", api_key)
         if api_provider is not None:
-            pulumi.set(__self__, "api_provider", api_provider)
+            _setter("api_provider", api_provider)
         if azure_ad_application_id is not None:
-            pulumi.set(__self__, "azure_ad_application_id", azure_ad_application_id)
+            _setter("azure_ad_application_id", azure_ad_application_id)
         if azure_consent_url is not None:
-            pulumi.set(__self__, "azure_consent_url", azure_consent_url)
+            _setter("azure_consent_url", azure_consent_url)
         if azure_multi_tenant_app_name is not None:
-            pulumi.set(__self__, "azure_multi_tenant_app_name", azure_multi_tenant_app_name)
+            _setter("azure_multi_tenant_app_name", azure_multi_tenant_app_name)
         if azure_tenant_id is not None:
-            pulumi.set(__self__, "azure_tenant_id", azure_tenant_id)
+            _setter("azure_tenant_id", azure_tenant_id)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if created_on is not None:
-            pulumi.set(__self__, "created_on", created_on)
+            _setter("created_on", created_on)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if google_audience is not None:
-            pulumi.set(__self__, "google_audience", google_audience)
+            _setter("google_audience", google_audience)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="apiAllowedPrefixes")
@@ -583,6 +709,10 @@ class ApiIntegration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiIntegrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

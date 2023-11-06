@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,17 +35,56 @@ class DynamicTableArgs:
         :param pulumi.Input[str] name: Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
         :param pulumi.Input[bool] or_replace: Specifies whether to replace the dynamic table if it already exists.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "query", query)
-        pulumi.set(__self__, "schema", schema)
-        pulumi.set(__self__, "target_lag", target_lag)
-        pulumi.set(__self__, "warehouse", warehouse)
+        DynamicTableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            query=query,
+            schema=schema,
+            target_lag=target_lag,
+            warehouse=warehouse,
+            comment=comment,
+            name=name,
+            or_replace=or_replace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: Optional[pulumi.Input[str]] = None,
+             query: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             target_lag: Optional[pulumi.Input['DynamicTableTargetLagArgs']] = None,
+             warehouse: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             or_replace: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if target_lag is None and 'targetLag' in kwargs:
+            target_lag = kwargs['targetLag']
+        if target_lag is None:
+            raise TypeError("Missing 'target_lag' argument")
+        if warehouse is None:
+            raise TypeError("Missing 'warehouse' argument")
+        if or_replace is None and 'orReplace' in kwargs:
+            or_replace = kwargs['orReplace']
+
+        _setter("database", database)
+        _setter("query", query)
+        _setter("schema", schema)
+        _setter("target_lag", target_lag)
+        _setter("warehouse", warehouse)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if or_replace is not None:
-            pulumi.set(__self__, "or_replace", or_replace)
+            _setter("or_replace", or_replace)
 
     @property
     @pulumi.getter
@@ -190,46 +229,117 @@ class _DynamicTableState:
         :param pulumi.Input['DynamicTableTargetLagArgs'] target_lag: Specifies the target lag time for the dynamic table.
         :param pulumi.Input[str] warehouse: The warehouse in which to create the dynamic table.
         """
+        _DynamicTableState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automatic_clustering=automatic_clustering,
+            bytes=bytes,
+            cluster_by=cluster_by,
+            comment=comment,
+            data_timestamp=data_timestamp,
+            database=database,
+            is_clone=is_clone,
+            is_replica=is_replica,
+            last_suspended_on=last_suspended_on,
+            name=name,
+            or_replace=or_replace,
+            owner=owner,
+            query=query,
+            refresh_mode=refresh_mode,
+            refresh_mode_reason=refresh_mode_reason,
+            rows=rows,
+            scheduling_state=scheduling_state,
+            schema=schema,
+            target_lag=target_lag,
+            warehouse=warehouse,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automatic_clustering: Optional[pulumi.Input[bool]] = None,
+             bytes: Optional[pulumi.Input[int]] = None,
+             cluster_by: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             data_timestamp: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             is_clone: Optional[pulumi.Input[bool]] = None,
+             is_replica: Optional[pulumi.Input[bool]] = None,
+             last_suspended_on: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             or_replace: Optional[pulumi.Input[bool]] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             query: Optional[pulumi.Input[str]] = None,
+             refresh_mode: Optional[pulumi.Input[str]] = None,
+             refresh_mode_reason: Optional[pulumi.Input[str]] = None,
+             rows: Optional[pulumi.Input[int]] = None,
+             scheduling_state: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             target_lag: Optional[pulumi.Input['DynamicTableTargetLagArgs']] = None,
+             warehouse: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if automatic_clustering is None and 'automaticClustering' in kwargs:
+            automatic_clustering = kwargs['automaticClustering']
+        if cluster_by is None and 'clusterBy' in kwargs:
+            cluster_by = kwargs['clusterBy']
+        if data_timestamp is None and 'dataTimestamp' in kwargs:
+            data_timestamp = kwargs['dataTimestamp']
+        if is_clone is None and 'isClone' in kwargs:
+            is_clone = kwargs['isClone']
+        if is_replica is None and 'isReplica' in kwargs:
+            is_replica = kwargs['isReplica']
+        if last_suspended_on is None and 'lastSuspendedOn' in kwargs:
+            last_suspended_on = kwargs['lastSuspendedOn']
+        if or_replace is None and 'orReplace' in kwargs:
+            or_replace = kwargs['orReplace']
+        if refresh_mode is None and 'refreshMode' in kwargs:
+            refresh_mode = kwargs['refreshMode']
+        if refresh_mode_reason is None and 'refreshModeReason' in kwargs:
+            refresh_mode_reason = kwargs['refreshModeReason']
+        if scheduling_state is None and 'schedulingState' in kwargs:
+            scheduling_state = kwargs['schedulingState']
+        if target_lag is None and 'targetLag' in kwargs:
+            target_lag = kwargs['targetLag']
+
         if automatic_clustering is not None:
-            pulumi.set(__self__, "automatic_clustering", automatic_clustering)
+            _setter("automatic_clustering", automatic_clustering)
         if bytes is not None:
-            pulumi.set(__self__, "bytes", bytes)
+            _setter("bytes", bytes)
         if cluster_by is not None:
-            pulumi.set(__self__, "cluster_by", cluster_by)
+            _setter("cluster_by", cluster_by)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if data_timestamp is not None:
-            pulumi.set(__self__, "data_timestamp", data_timestamp)
+            _setter("data_timestamp", data_timestamp)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if is_clone is not None:
-            pulumi.set(__self__, "is_clone", is_clone)
+            _setter("is_clone", is_clone)
         if is_replica is not None:
-            pulumi.set(__self__, "is_replica", is_replica)
+            _setter("is_replica", is_replica)
         if last_suspended_on is not None:
-            pulumi.set(__self__, "last_suspended_on", last_suspended_on)
+            _setter("last_suspended_on", last_suspended_on)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if or_replace is not None:
-            pulumi.set(__self__, "or_replace", or_replace)
+            _setter("or_replace", or_replace)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if query is not None:
-            pulumi.set(__self__, "query", query)
+            _setter("query", query)
         if refresh_mode is not None:
-            pulumi.set(__self__, "refresh_mode", refresh_mode)
+            _setter("refresh_mode", refresh_mode)
         if refresh_mode_reason is not None:
-            pulumi.set(__self__, "refresh_mode_reason", refresh_mode_reason)
+            _setter("refresh_mode_reason", refresh_mode_reason)
         if rows is not None:
-            pulumi.set(__self__, "rows", rows)
+            _setter("rows", rows)
         if scheduling_state is not None:
-            pulumi.set(__self__, "scheduling_state", scheduling_state)
+            _setter("scheduling_state", scheduling_state)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if target_lag is not None:
-            pulumi.set(__self__, "target_lag", target_lag)
+            _setter("target_lag", target_lag)
         if warehouse is not None:
-            pulumi.set(__self__, "warehouse", warehouse)
+            _setter("warehouse", warehouse)
 
     @property
     @pulumi.getter(name="automaticClustering")
@@ -563,6 +673,10 @@ class DynamicTable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DynamicTableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -597,6 +711,11 @@ class DynamicTable(pulumi.CustomResource):
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
+            if target_lag is not None and not isinstance(target_lag, DynamicTableTargetLagArgs):
+                target_lag = target_lag or {}
+                def _setter(key, value):
+                    target_lag[key] = value
+                DynamicTableTargetLagArgs._configure(_setter, **target_lag)
             if target_lag is None and not opts.urn:
                 raise TypeError("Missing required property 'target_lag'")
             __props__.__dict__["target_lag"] = target_lag

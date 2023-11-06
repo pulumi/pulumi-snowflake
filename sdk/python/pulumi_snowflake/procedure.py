@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -49,32 +49,89 @@ class ProcedureArgs:
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
         :param pulumi.Input[str] runtime_version: Required for Python procedures. Specifies Python runtime version.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "return_type", return_type)
-        pulumi.set(__self__, "schema", schema)
-        pulumi.set(__self__, "statement", statement)
+        ProcedureArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            return_type=return_type,
+            schema=schema,
+            statement=statement,
+            arguments=arguments,
+            comment=comment,
+            execute_as=execute_as,
+            handler=handler,
+            imports=imports,
+            language=language,
+            name=name,
+            null_input_behavior=null_input_behavior,
+            packages=packages,
+            return_behavior=return_behavior,
+            runtime_version=runtime_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: Optional[pulumi.Input[str]] = None,
+             return_type: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             statement: Optional[pulumi.Input[str]] = None,
+             arguments: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedureArgumentArgs']]]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             execute_as: Optional[pulumi.Input[str]] = None,
+             handler: Optional[pulumi.Input[str]] = None,
+             imports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             language: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             null_input_behavior: Optional[pulumi.Input[str]] = None,
+             packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             return_behavior: Optional[pulumi.Input[str]] = None,
+             runtime_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if return_type is None and 'returnType' in kwargs:
+            return_type = kwargs['returnType']
+        if return_type is None:
+            raise TypeError("Missing 'return_type' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if statement is None:
+            raise TypeError("Missing 'statement' argument")
+        if execute_as is None and 'executeAs' in kwargs:
+            execute_as = kwargs['executeAs']
+        if null_input_behavior is None and 'nullInputBehavior' in kwargs:
+            null_input_behavior = kwargs['nullInputBehavior']
+        if return_behavior is None and 'returnBehavior' in kwargs:
+            return_behavior = kwargs['returnBehavior']
+        if runtime_version is None and 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+
+        _setter("database", database)
+        _setter("return_type", return_type)
+        _setter("schema", schema)
+        _setter("statement", statement)
         if arguments is not None:
-            pulumi.set(__self__, "arguments", arguments)
+            _setter("arguments", arguments)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if execute_as is not None:
-            pulumi.set(__self__, "execute_as", execute_as)
+            _setter("execute_as", execute_as)
         if handler is not None:
-            pulumi.set(__self__, "handler", handler)
+            _setter("handler", handler)
         if imports is not None:
-            pulumi.set(__self__, "imports", imports)
+            _setter("imports", imports)
         if language is not None:
-            pulumi.set(__self__, "language", language)
+            _setter("language", language)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if null_input_behavior is not None:
-            pulumi.set(__self__, "null_input_behavior", null_input_behavior)
+            _setter("null_input_behavior", null_input_behavior)
         if packages is not None:
-            pulumi.set(__self__, "packages", packages)
+            _setter("packages", packages)
         if return_behavior is not None:
-            pulumi.set(__self__, "return_behavior", return_behavior)
+            _setter("return_behavior", return_behavior)
         if runtime_version is not None:
-            pulumi.set(__self__, "runtime_version", runtime_version)
+            _setter("runtime_version", runtime_version)
 
     @property
     @pulumi.getter
@@ -293,36 +350,85 @@ class _ProcedureState:
         :param pulumi.Input[str] schema: The schema in which to create the procedure. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the code used to create the procedure.
         """
+        _ProcedureState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arguments=arguments,
+            comment=comment,
+            database=database,
+            execute_as=execute_as,
+            handler=handler,
+            imports=imports,
+            language=language,
+            name=name,
+            null_input_behavior=null_input_behavior,
+            packages=packages,
+            return_behavior=return_behavior,
+            return_type=return_type,
+            runtime_version=runtime_version,
+            schema=schema,
+            statement=statement,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arguments: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedureArgumentArgs']]]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             execute_as: Optional[pulumi.Input[str]] = None,
+             handler: Optional[pulumi.Input[str]] = None,
+             imports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             language: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             null_input_behavior: Optional[pulumi.Input[str]] = None,
+             packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             return_behavior: Optional[pulumi.Input[str]] = None,
+             return_type: Optional[pulumi.Input[str]] = None,
+             runtime_version: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             statement: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if execute_as is None and 'executeAs' in kwargs:
+            execute_as = kwargs['executeAs']
+        if null_input_behavior is None and 'nullInputBehavior' in kwargs:
+            null_input_behavior = kwargs['nullInputBehavior']
+        if return_behavior is None and 'returnBehavior' in kwargs:
+            return_behavior = kwargs['returnBehavior']
+        if return_type is None and 'returnType' in kwargs:
+            return_type = kwargs['returnType']
+        if runtime_version is None and 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+
         if arguments is not None:
-            pulumi.set(__self__, "arguments", arguments)
+            _setter("arguments", arguments)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if execute_as is not None:
-            pulumi.set(__self__, "execute_as", execute_as)
+            _setter("execute_as", execute_as)
         if handler is not None:
-            pulumi.set(__self__, "handler", handler)
+            _setter("handler", handler)
         if imports is not None:
-            pulumi.set(__self__, "imports", imports)
+            _setter("imports", imports)
         if language is not None:
-            pulumi.set(__self__, "language", language)
+            _setter("language", language)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if null_input_behavior is not None:
-            pulumi.set(__self__, "null_input_behavior", null_input_behavior)
+            _setter("null_input_behavior", null_input_behavior)
         if packages is not None:
-            pulumi.set(__self__, "packages", packages)
+            _setter("packages", packages)
         if return_behavior is not None:
-            pulumi.set(__self__, "return_behavior", return_behavior)
+            _setter("return_behavior", return_behavior)
         if return_type is not None:
-            pulumi.set(__self__, "return_type", return_type)
+            _setter("return_type", return_type)
         if runtime_version is not None:
-            pulumi.set(__self__, "runtime_version", runtime_version)
+            _setter("runtime_version", runtime_version)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if statement is not None:
-            pulumi.set(__self__, "statement", statement)
+            _setter("statement", statement)
 
     @property
     @pulumi.getter
@@ -578,6 +684,10 @@ class Procedure(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProcedureArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

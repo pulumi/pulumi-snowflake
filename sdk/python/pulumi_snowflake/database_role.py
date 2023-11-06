@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['DatabaseRoleArgs', 'DatabaseRole']
@@ -23,11 +23,28 @@ class DatabaseRoleArgs:
         :param pulumi.Input[str] comment: Specifies a comment for the database role.
         :param pulumi.Input[str] name: Specifies the identifier for the database role.
         """
-        pulumi.set(__self__, "database", database)
+        DatabaseRoleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            comment=comment,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+
+        _setter("database", database)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -78,12 +95,27 @@ class _DatabaseRoleState:
         :param pulumi.Input[str] database: The database in which to create the database role.
         :param pulumi.Input[str] name: Specifies the identifier for the database role.
         """
+        _DatabaseRoleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+            database=database,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -189,6 +221,10 @@ class DatabaseRole(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatabaseRoleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

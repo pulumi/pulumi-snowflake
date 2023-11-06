@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,24 +37,63 @@ class ViewArgs:
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
         :param pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "schema", schema)
-        pulumi.set(__self__, "statement", statement)
+        ViewArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            schema=schema,
+            statement=statement,
+            comment=comment,
+            copy_grants=copy_grants,
+            is_secure=is_secure,
+            name=name,
+            or_replace=or_replace,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             statement: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             copy_grants: Optional[pulumi.Input[bool]] = None,
+             is_secure: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             or_replace: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if statement is None:
+            raise TypeError("Missing 'statement' argument")
+        if copy_grants is None and 'copyGrants' in kwargs:
+            copy_grants = kwargs['copyGrants']
+        if is_secure is None and 'isSecure' in kwargs:
+            is_secure = kwargs['isSecure']
+        if or_replace is None and 'orReplace' in kwargs:
+            or_replace = kwargs['orReplace']
+
+        _setter("database", database)
+        _setter("schema", schema)
+        _setter("statement", statement)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if copy_grants is not None:
-            pulumi.set(__self__, "copy_grants", copy_grants)
+            _setter("copy_grants", copy_grants)
         if is_secure is not None:
-            pulumi.set(__self__, "is_secure", is_secure)
+            _setter("is_secure", is_secure)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if or_replace is not None:
-            pulumi.set(__self__, "or_replace", or_replace)
+            _setter("or_replace", or_replace)
         if tags is not None:
             warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
             pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -194,29 +233,66 @@ class _ViewState:
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
         :param pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
+        _ViewState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+            copy_grants=copy_grants,
+            created_on=created_on,
+            database=database,
+            is_secure=is_secure,
+            name=name,
+            or_replace=or_replace,
+            schema=schema,
+            statement=statement,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: Optional[pulumi.Input[str]] = None,
+             copy_grants: Optional[pulumi.Input[bool]] = None,
+             created_on: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             is_secure: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             or_replace: Optional[pulumi.Input[bool]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             statement: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if copy_grants is None and 'copyGrants' in kwargs:
+            copy_grants = kwargs['copyGrants']
+        if created_on is None and 'createdOn' in kwargs:
+            created_on = kwargs['createdOn']
+        if is_secure is None and 'isSecure' in kwargs:
+            is_secure = kwargs['isSecure']
+        if or_replace is None and 'orReplace' in kwargs:
+            or_replace = kwargs['orReplace']
+
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if copy_grants is not None:
-            pulumi.set(__self__, "copy_grants", copy_grants)
+            _setter("copy_grants", copy_grants)
         if created_on is not None:
-            pulumi.set(__self__, "created_on", created_on)
+            _setter("created_on", created_on)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if is_secure is not None:
-            pulumi.set(__self__, "is_secure", is_secure)
+            _setter("is_secure", is_secure)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if or_replace is not None:
-            pulumi.set(__self__, "or_replace", or_replace)
+            _setter("or_replace", or_replace)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if statement is not None:
-            pulumi.set(__self__, "statement", statement)
+            _setter("statement", statement)
         if tags is not None:
             warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
             pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -433,6 +509,10 @@ class View(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ViewArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

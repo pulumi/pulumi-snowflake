@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -21,11 +21,50 @@ class TokenAccessor(dict):
                  redirect_uri: str,
                  refresh_token: str,
                  token_endpoint: str):
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
-        pulumi.set(__self__, "redirect_uri", redirect_uri)
-        pulumi.set(__self__, "refresh_token", refresh_token)
-        pulumi.set(__self__, "token_endpoint", token_endpoint)
+        TokenAccessor._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret=client_secret,
+            redirect_uri=redirect_uri,
+            refresh_token=refresh_token,
+            token_endpoint=token_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             client_secret: Optional[str] = None,
+             redirect_uri: Optional[str] = None,
+             refresh_token: Optional[str] = None,
+             token_endpoint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+        if redirect_uri is None and 'redirectUri' in kwargs:
+            redirect_uri = kwargs['redirectUri']
+        if redirect_uri is None:
+            raise TypeError("Missing 'redirect_uri' argument")
+        if refresh_token is None and 'refreshToken' in kwargs:
+            refresh_token = kwargs['refreshToken']
+        if refresh_token is None:
+            raise TypeError("Missing 'refresh_token' argument")
+        if token_endpoint is None and 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+        if token_endpoint is None:
+            raise TypeError("Missing 'token_endpoint' argument")
+
+        _setter("client_id", client_id)
+        _setter("client_secret", client_secret)
+        _setter("redirect_uri", redirect_uri)
+        _setter("refresh_token", refresh_token)
+        _setter("token_endpoint", token_endpoint)
 
     @property
     @pulumi.getter(name="clientId")

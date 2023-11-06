@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['TableColumnMaskingPolicyApplicationArgs', 'TableColumnMaskingPolicyApplication']
@@ -23,9 +23,32 @@ class TableColumnMaskingPolicyApplicationArgs:
         :param pulumi.Input[str] masking_policy: Fully qualified name (`database.schema.policyname`) of the policy to apply.
         :param pulumi.Input[str] table: The fully qualified name (`database.schema.table`) of the table to apply the masking policy to.
         """
-        pulumi.set(__self__, "column", column)
-        pulumi.set(__self__, "masking_policy", masking_policy)
-        pulumi.set(__self__, "table", table)
+        TableColumnMaskingPolicyApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column=column,
+            masking_policy=masking_policy,
+            table=table,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column: Optional[pulumi.Input[str]] = None,
+             masking_policy: Optional[pulumi.Input[str]] = None,
+             table: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if masking_policy is None and 'maskingPolicy' in kwargs:
+            masking_policy = kwargs['maskingPolicy']
+        if masking_policy is None:
+            raise TypeError("Missing 'masking_policy' argument")
+        if table is None:
+            raise TypeError("Missing 'table' argument")
+
+        _setter("column", column)
+        _setter("masking_policy", masking_policy)
+        _setter("table", table)
 
     @property
     @pulumi.getter
@@ -76,12 +99,29 @@ class _TableColumnMaskingPolicyApplicationState:
         :param pulumi.Input[str] masking_policy: Fully qualified name (`database.schema.policyname`) of the policy to apply.
         :param pulumi.Input[str] table: The fully qualified name (`database.schema.table`) of the table to apply the masking policy to.
         """
+        _TableColumnMaskingPolicyApplicationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column=column,
+            masking_policy=masking_policy,
+            table=table,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column: Optional[pulumi.Input[str]] = None,
+             masking_policy: Optional[pulumi.Input[str]] = None,
+             table: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if masking_policy is None and 'maskingPolicy' in kwargs:
+            masking_policy = kwargs['maskingPolicy']
+
         if column is not None:
-            pulumi.set(__self__, "column", column)
+            _setter("column", column)
         if masking_policy is not None:
-            pulumi.set(__self__, "masking_policy", masking_policy)
+            _setter("masking_policy", masking_policy)
         if table is not None:
-            pulumi.set(__self__, "table", table)
+            _setter("table", table)
 
     @property
     @pulumi.getter
@@ -167,6 +207,10 @@ class TableColumnMaskingPolicyApplication(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TableColumnMaskingPolicyApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

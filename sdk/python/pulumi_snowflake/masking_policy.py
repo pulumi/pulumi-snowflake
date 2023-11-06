@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,21 +39,70 @@ class MaskingPolicyArgs:
         :param pulumi.Input[str] name: Specifies the column name to mask.
         :param pulumi.Input[bool] or_replace: Whether to override a previous masking policy with the same name.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "masking_expression", masking_expression)
-        pulumi.set(__self__, "return_data_type", return_data_type)
-        pulumi.set(__self__, "schema", schema)
-        pulumi.set(__self__, "signature", signature)
+        MaskingPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            masking_expression=masking_expression,
+            return_data_type=return_data_type,
+            schema=schema,
+            signature=signature,
+            comment=comment,
+            exempt_other_policies=exempt_other_policies,
+            if_not_exists=if_not_exists,
+            name=name,
+            or_replace=or_replace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: Optional[pulumi.Input[str]] = None,
+             masking_expression: Optional[pulumi.Input[str]] = None,
+             return_data_type: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             signature: Optional[pulumi.Input['MaskingPolicySignatureArgs']] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             exempt_other_policies: Optional[pulumi.Input[bool]] = None,
+             if_not_exists: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             or_replace: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if masking_expression is None and 'maskingExpression' in kwargs:
+            masking_expression = kwargs['maskingExpression']
+        if masking_expression is None:
+            raise TypeError("Missing 'masking_expression' argument")
+        if return_data_type is None and 'returnDataType' in kwargs:
+            return_data_type = kwargs['returnDataType']
+        if return_data_type is None:
+            raise TypeError("Missing 'return_data_type' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if signature is None:
+            raise TypeError("Missing 'signature' argument")
+        if exempt_other_policies is None and 'exemptOtherPolicies' in kwargs:
+            exempt_other_policies = kwargs['exemptOtherPolicies']
+        if if_not_exists is None and 'ifNotExists' in kwargs:
+            if_not_exists = kwargs['ifNotExists']
+        if or_replace is None and 'orReplace' in kwargs:
+            or_replace = kwargs['orReplace']
+
+        _setter("database", database)
+        _setter("masking_expression", masking_expression)
+        _setter("return_data_type", return_data_type)
+        _setter("schema", schema)
+        _setter("signature", signature)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if exempt_other_policies is not None:
-            pulumi.set(__self__, "exempt_other_policies", exempt_other_policies)
+            _setter("exempt_other_policies", exempt_other_policies)
         if if_not_exists is not None:
-            pulumi.set(__self__, "if_not_exists", if_not_exists)
+            _setter("if_not_exists", if_not_exists)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if or_replace is not None:
-            pulumi.set(__self__, "or_replace", or_replace)
+            _setter("or_replace", or_replace)
 
     @property
     @pulumi.getter
@@ -204,28 +253,71 @@ class _MaskingPolicyState:
         :param pulumi.Input[str] schema: The schema in which to create the masking policy.
         :param pulumi.Input['MaskingPolicySignatureArgs'] signature: The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
         """
+        _MaskingPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+            database=database,
+            exempt_other_policies=exempt_other_policies,
+            if_not_exists=if_not_exists,
+            masking_expression=masking_expression,
+            name=name,
+            or_replace=or_replace,
+            qualified_name=qualified_name,
+            return_data_type=return_data_type,
+            schema=schema,
+            signature=signature,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             exempt_other_policies: Optional[pulumi.Input[bool]] = None,
+             if_not_exists: Optional[pulumi.Input[bool]] = None,
+             masking_expression: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             or_replace: Optional[pulumi.Input[bool]] = None,
+             qualified_name: Optional[pulumi.Input[str]] = None,
+             return_data_type: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             signature: Optional[pulumi.Input['MaskingPolicySignatureArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if exempt_other_policies is None and 'exemptOtherPolicies' in kwargs:
+            exempt_other_policies = kwargs['exemptOtherPolicies']
+        if if_not_exists is None and 'ifNotExists' in kwargs:
+            if_not_exists = kwargs['ifNotExists']
+        if masking_expression is None and 'maskingExpression' in kwargs:
+            masking_expression = kwargs['maskingExpression']
+        if or_replace is None and 'orReplace' in kwargs:
+            or_replace = kwargs['orReplace']
+        if qualified_name is None and 'qualifiedName' in kwargs:
+            qualified_name = kwargs['qualifiedName']
+        if return_data_type is None and 'returnDataType' in kwargs:
+            return_data_type = kwargs['returnDataType']
+
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if exempt_other_policies is not None:
-            pulumi.set(__self__, "exempt_other_policies", exempt_other_policies)
+            _setter("exempt_other_policies", exempt_other_policies)
         if if_not_exists is not None:
-            pulumi.set(__self__, "if_not_exists", if_not_exists)
+            _setter("if_not_exists", if_not_exists)
         if masking_expression is not None:
-            pulumi.set(__self__, "masking_expression", masking_expression)
+            _setter("masking_expression", masking_expression)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if or_replace is not None:
-            pulumi.set(__self__, "or_replace", or_replace)
+            _setter("or_replace", or_replace)
         if qualified_name is not None:
-            pulumi.set(__self__, "qualified_name", qualified_name)
+            _setter("qualified_name", qualified_name)
         if return_data_type is not None:
-            pulumi.set(__self__, "return_data_type", return_data_type)
+            _setter("return_data_type", return_data_type)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if signature is not None:
-            pulumi.set(__self__, "signature", signature)
+            _setter("signature", signature)
 
     @property
     @pulumi.getter
@@ -479,6 +571,10 @@ class MaskingPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MaskingPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -520,6 +616,11 @@ class MaskingPolicy(pulumi.CustomResource):
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
+            if signature is not None and not isinstance(signature, MaskingPolicySignatureArgs):
+                signature = signature or {}
+                def _setter(key, value):
+                    signature[key] = value
+                MaskingPolicySignatureArgs._configure(_setter, **signature)
             if signature is None and not opts.urn:
                 raise TypeError("Missing required property 'signature'")
             __props__.__dict__["signature"] = signature

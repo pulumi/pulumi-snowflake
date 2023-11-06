@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['PipeArgs', 'Pipe']
@@ -35,21 +35,62 @@ class PipeArgs:
         :param pulumi.Input[str] integration: Specifies an integration for the pipe.
         :param pulumi.Input[str] name: Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
         """
-        pulumi.set(__self__, "copy_statement", copy_statement)
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "schema", schema)
+        PipeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            copy_statement=copy_statement,
+            database=database,
+            schema=schema,
+            auto_ingest=auto_ingest,
+            aws_sns_topic_arn=aws_sns_topic_arn,
+            comment=comment,
+            error_integration=error_integration,
+            integration=integration,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             copy_statement: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             auto_ingest: Optional[pulumi.Input[bool]] = None,
+             aws_sns_topic_arn: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             error_integration: Optional[pulumi.Input[str]] = None,
+             integration: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if copy_statement is None and 'copyStatement' in kwargs:
+            copy_statement = kwargs['copyStatement']
+        if copy_statement is None:
+            raise TypeError("Missing 'copy_statement' argument")
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if auto_ingest is None and 'autoIngest' in kwargs:
+            auto_ingest = kwargs['autoIngest']
+        if aws_sns_topic_arn is None and 'awsSnsTopicArn' in kwargs:
+            aws_sns_topic_arn = kwargs['awsSnsTopicArn']
+        if error_integration is None and 'errorIntegration' in kwargs:
+            error_integration = kwargs['errorIntegration']
+
+        _setter("copy_statement", copy_statement)
+        _setter("database", database)
+        _setter("schema", schema)
         if auto_ingest is not None:
-            pulumi.set(__self__, "auto_ingest", auto_ingest)
+            _setter("auto_ingest", auto_ingest)
         if aws_sns_topic_arn is not None:
-            pulumi.set(__self__, "aws_sns_topic_arn", aws_sns_topic_arn)
+            _setter("aws_sns_topic_arn", aws_sns_topic_arn)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if error_integration is not None:
-            pulumi.set(__self__, "error_integration", error_integration)
+            _setter("error_integration", error_integration)
         if integration is not None:
-            pulumi.set(__self__, "integration", integration)
+            _setter("integration", integration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="copyStatement")
@@ -188,28 +229,69 @@ class _PipeState:
         :param pulumi.Input[str] owner: Name of the role that owns the pipe.
         :param pulumi.Input[str] schema: The schema in which to create the pipe.
         """
+        _PipeState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_ingest=auto_ingest,
+            aws_sns_topic_arn=aws_sns_topic_arn,
+            comment=comment,
+            copy_statement=copy_statement,
+            database=database,
+            error_integration=error_integration,
+            integration=integration,
+            name=name,
+            notification_channel=notification_channel,
+            owner=owner,
+            schema=schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_ingest: Optional[pulumi.Input[bool]] = None,
+             aws_sns_topic_arn: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             copy_statement: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             error_integration: Optional[pulumi.Input[str]] = None,
+             integration: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_channel: Optional[pulumi.Input[str]] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if auto_ingest is None and 'autoIngest' in kwargs:
+            auto_ingest = kwargs['autoIngest']
+        if aws_sns_topic_arn is None and 'awsSnsTopicArn' in kwargs:
+            aws_sns_topic_arn = kwargs['awsSnsTopicArn']
+        if copy_statement is None and 'copyStatement' in kwargs:
+            copy_statement = kwargs['copyStatement']
+        if error_integration is None and 'errorIntegration' in kwargs:
+            error_integration = kwargs['errorIntegration']
+        if notification_channel is None and 'notificationChannel' in kwargs:
+            notification_channel = kwargs['notificationChannel']
+
         if auto_ingest is not None:
-            pulumi.set(__self__, "auto_ingest", auto_ingest)
+            _setter("auto_ingest", auto_ingest)
         if aws_sns_topic_arn is not None:
-            pulumi.set(__self__, "aws_sns_topic_arn", aws_sns_topic_arn)
+            _setter("aws_sns_topic_arn", aws_sns_topic_arn)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if copy_statement is not None:
-            pulumi.set(__self__, "copy_statement", copy_statement)
+            _setter("copy_statement", copy_statement)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if error_integration is not None:
-            pulumi.set(__self__, "error_integration", error_integration)
+            _setter("error_integration", error_integration)
         if integration is not None:
-            pulumi.set(__self__, "integration", integration)
+            _setter("integration", integration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_channel is not None:
-            pulumi.set(__self__, "notification_channel", notification_channel)
+            _setter("notification_channel", notification_channel)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
 
     @property
     @pulumi.getter(name="autoIngest")
@@ -405,6 +487,10 @@ class Pipe(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PipeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
