@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -340,12 +339,6 @@ func (i *TableConstraint) ToTableConstraintOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(TableConstraintOutput)
 }
 
-func (i *TableConstraint) ToOutput(ctx context.Context) pulumix.Output[*TableConstraint] {
-	return pulumix.Output[*TableConstraint]{
-		OutputState: i.ToTableConstraintOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TableConstraintArrayInput is an input type that accepts TableConstraintArray and TableConstraintArrayOutput values.
 // You can construct a concrete instance of `TableConstraintArrayInput` via:
 //
@@ -369,12 +362,6 @@ func (i TableConstraintArray) ToTableConstraintArrayOutput() TableConstraintArra
 
 func (i TableConstraintArray) ToTableConstraintArrayOutputWithContext(ctx context.Context) TableConstraintArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableConstraintArrayOutput)
-}
-
-func (i TableConstraintArray) ToOutput(ctx context.Context) pulumix.Output[[]*TableConstraint] {
-	return pulumix.Output[[]*TableConstraint]{
-		OutputState: i.ToTableConstraintArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TableConstraintMapInput is an input type that accepts TableConstraintMap and TableConstraintMapOutput values.
@@ -402,12 +389,6 @@ func (i TableConstraintMap) ToTableConstraintMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(TableConstraintMapOutput)
 }
 
-func (i TableConstraintMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TableConstraint] {
-	return pulumix.Output[map[string]*TableConstraint]{
-		OutputState: i.ToTableConstraintMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableConstraintOutput struct{ *pulumi.OutputState }
 
 func (TableConstraintOutput) ElementType() reflect.Type {
@@ -420,12 +401,6 @@ func (o TableConstraintOutput) ToTableConstraintOutput() TableConstraintOutput {
 
 func (o TableConstraintOutput) ToTableConstraintOutputWithContext(ctx context.Context) TableConstraintOutput {
 	return o
-}
-
-func (o TableConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[*TableConstraint] {
-	return pulumix.Output[*TableConstraint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Columns to use in foreign key reference
@@ -502,12 +477,6 @@ func (o TableConstraintArrayOutput) ToTableConstraintArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o TableConstraintArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TableConstraint] {
-	return pulumix.Output[[]*TableConstraint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TableConstraintArrayOutput) Index(i pulumi.IntInput) TableConstraintOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TableConstraint {
 		return vs[0].([]*TableConstraint)[vs[1].(int)]
@@ -526,12 +495,6 @@ func (o TableConstraintMapOutput) ToTableConstraintMapOutput() TableConstraintMa
 
 func (o TableConstraintMapOutput) ToTableConstraintMapOutputWithContext(ctx context.Context) TableConstraintMapOutput {
 	return o
-}
-
-func (o TableConstraintMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TableConstraint] {
-	return pulumix.Output[map[string]*TableConstraint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableConstraintMapOutput) MapIndex(k pulumi.StringInput) TableConstraintOutput {

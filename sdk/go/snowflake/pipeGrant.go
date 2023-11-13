@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -229,12 +228,6 @@ func (i *PipeGrant) ToPipeGrantOutputWithContext(ctx context.Context) PipeGrantO
 	return pulumi.ToOutputWithContext(ctx, i).(PipeGrantOutput)
 }
 
-func (i *PipeGrant) ToOutput(ctx context.Context) pulumix.Output[*PipeGrant] {
-	return pulumix.Output[*PipeGrant]{
-		OutputState: i.ToPipeGrantOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PipeGrantArrayInput is an input type that accepts PipeGrantArray and PipeGrantArrayOutput values.
 // You can construct a concrete instance of `PipeGrantArrayInput` via:
 //
@@ -258,12 +251,6 @@ func (i PipeGrantArray) ToPipeGrantArrayOutput() PipeGrantArrayOutput {
 
 func (i PipeGrantArray) ToPipeGrantArrayOutputWithContext(ctx context.Context) PipeGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PipeGrantArrayOutput)
-}
-
-func (i PipeGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*PipeGrant] {
-	return pulumix.Output[[]*PipeGrant]{
-		OutputState: i.ToPipeGrantArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PipeGrantMapInput is an input type that accepts PipeGrantMap and PipeGrantMapOutput values.
@@ -291,12 +278,6 @@ func (i PipeGrantMap) ToPipeGrantMapOutputWithContext(ctx context.Context) PipeG
 	return pulumi.ToOutputWithContext(ctx, i).(PipeGrantMapOutput)
 }
 
-func (i PipeGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PipeGrant] {
-	return pulumix.Output[map[string]*PipeGrant]{
-		OutputState: i.ToPipeGrantMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PipeGrantOutput struct{ *pulumi.OutputState }
 
 func (PipeGrantOutput) ElementType() reflect.Type {
@@ -309,12 +290,6 @@ func (o PipeGrantOutput) ToPipeGrantOutput() PipeGrantOutput {
 
 func (o PipeGrantOutput) ToPipeGrantOutputWithContext(ctx context.Context) PipeGrantOutput {
 	return o
-}
-
-func (o PipeGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeGrant] {
-	return pulumix.Output[*PipeGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the database containing the current or future pipes on which to grant privileges.
@@ -377,12 +352,6 @@ func (o PipeGrantArrayOutput) ToPipeGrantArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o PipeGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PipeGrant] {
-	return pulumix.Output[[]*PipeGrant]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PipeGrantArrayOutput) Index(i pulumi.IntInput) PipeGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PipeGrant {
 		return vs[0].([]*PipeGrant)[vs[1].(int)]
@@ -401,12 +370,6 @@ func (o PipeGrantMapOutput) ToPipeGrantMapOutput() PipeGrantMapOutput {
 
 func (o PipeGrantMapOutput) ToPipeGrantMapOutputWithContext(ctx context.Context) PipeGrantMapOutput {
 	return o
-}
-
-func (o PipeGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PipeGrant] {
-	return pulumix.Output[map[string]*PipeGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipeGrantMapOutput) MapIndex(k pulumi.StringInput) PipeGrantOutput {

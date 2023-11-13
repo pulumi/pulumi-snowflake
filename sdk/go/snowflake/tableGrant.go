@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -251,12 +250,6 @@ func (i *TableGrant) ToTableGrantOutputWithContext(ctx context.Context) TableGra
 	return pulumi.ToOutputWithContext(ctx, i).(TableGrantOutput)
 }
 
-func (i *TableGrant) ToOutput(ctx context.Context) pulumix.Output[*TableGrant] {
-	return pulumix.Output[*TableGrant]{
-		OutputState: i.ToTableGrantOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TableGrantArrayInput is an input type that accepts TableGrantArray and TableGrantArrayOutput values.
 // You can construct a concrete instance of `TableGrantArrayInput` via:
 //
@@ -280,12 +273,6 @@ func (i TableGrantArray) ToTableGrantArrayOutput() TableGrantArrayOutput {
 
 func (i TableGrantArray) ToTableGrantArrayOutputWithContext(ctx context.Context) TableGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableGrantArrayOutput)
-}
-
-func (i TableGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*TableGrant] {
-	return pulumix.Output[[]*TableGrant]{
-		OutputState: i.ToTableGrantArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TableGrantMapInput is an input type that accepts TableGrantMap and TableGrantMapOutput values.
@@ -313,12 +300,6 @@ func (i TableGrantMap) ToTableGrantMapOutputWithContext(ctx context.Context) Tab
 	return pulumi.ToOutputWithContext(ctx, i).(TableGrantMapOutput)
 }
 
-func (i TableGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TableGrant] {
-	return pulumix.Output[map[string]*TableGrant]{
-		OutputState: i.ToTableGrantMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableGrantOutput struct{ *pulumi.OutputState }
 
 func (TableGrantOutput) ElementType() reflect.Type {
@@ -331,12 +312,6 @@ func (o TableGrantOutput) ToTableGrantOutput() TableGrantOutput {
 
 func (o TableGrantOutput) ToTableGrantOutputWithContext(ctx context.Context) TableGrantOutput {
 	return o
-}
-
-func (o TableGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*TableGrant] {
-	return pulumix.Output[*TableGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the database containing the current or future tables on which to grant privileges.
@@ -409,12 +384,6 @@ func (o TableGrantArrayOutput) ToTableGrantArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o TableGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TableGrant] {
-	return pulumix.Output[[]*TableGrant]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TableGrantArrayOutput) Index(i pulumi.IntInput) TableGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TableGrant {
 		return vs[0].([]*TableGrant)[vs[1].(int)]
@@ -433,12 +402,6 @@ func (o TableGrantMapOutput) ToTableGrantMapOutput() TableGrantMapOutput {
 
 func (o TableGrantMapOutput) ToTableGrantMapOutputWithContext(ctx context.Context) TableGrantMapOutput {
 	return o
-}
-
-func (o TableGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TableGrant] {
-	return pulumix.Output[map[string]*TableGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableGrantMapOutput) MapIndex(k pulumi.StringInput) TableGrantOutput {

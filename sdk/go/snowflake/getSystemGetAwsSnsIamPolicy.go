@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetSystemGetAwsSnsIamPolicy(ctx *pulumi.Context, args *GetSystemGetAwsSnsIamPolicyArgs, opts ...pulumi.InvokeOption) (*GetSystemGetAwsSnsIamPolicyResult, error) {
@@ -74,12 +73,6 @@ func (o GetSystemGetAwsSnsIamPolicyResultOutput) ToGetSystemGetAwsSnsIamPolicyRe
 
 func (o GetSystemGetAwsSnsIamPolicyResultOutput) ToGetSystemGetAwsSnsIamPolicyResultOutputWithContext(ctx context.Context) GetSystemGetAwsSnsIamPolicyResultOutput {
 	return o
-}
-
-func (o GetSystemGetAwsSnsIamPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSystemGetAwsSnsIamPolicyResult] {
-	return pulumix.Output[GetSystemGetAwsSnsIamPolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the SNS topic for your S3 bucket

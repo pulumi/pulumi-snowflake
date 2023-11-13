@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -225,12 +224,6 @@ func (i *MaskingPolicyGrant) ToMaskingPolicyGrantOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(MaskingPolicyGrantOutput)
 }
 
-func (i *MaskingPolicyGrant) ToOutput(ctx context.Context) pulumix.Output[*MaskingPolicyGrant] {
-	return pulumix.Output[*MaskingPolicyGrant]{
-		OutputState: i.ToMaskingPolicyGrantOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MaskingPolicyGrantArrayInput is an input type that accepts MaskingPolicyGrantArray and MaskingPolicyGrantArrayOutput values.
 // You can construct a concrete instance of `MaskingPolicyGrantArrayInput` via:
 //
@@ -254,12 +247,6 @@ func (i MaskingPolicyGrantArray) ToMaskingPolicyGrantArrayOutput() MaskingPolicy
 
 func (i MaskingPolicyGrantArray) ToMaskingPolicyGrantArrayOutputWithContext(ctx context.Context) MaskingPolicyGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MaskingPolicyGrantArrayOutput)
-}
-
-func (i MaskingPolicyGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*MaskingPolicyGrant] {
-	return pulumix.Output[[]*MaskingPolicyGrant]{
-		OutputState: i.ToMaskingPolicyGrantArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MaskingPolicyGrantMapInput is an input type that accepts MaskingPolicyGrantMap and MaskingPolicyGrantMapOutput values.
@@ -287,12 +274,6 @@ func (i MaskingPolicyGrantMap) ToMaskingPolicyGrantMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(MaskingPolicyGrantMapOutput)
 }
 
-func (i MaskingPolicyGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MaskingPolicyGrant] {
-	return pulumix.Output[map[string]*MaskingPolicyGrant]{
-		OutputState: i.ToMaskingPolicyGrantMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MaskingPolicyGrantOutput struct{ *pulumi.OutputState }
 
 func (MaskingPolicyGrantOutput) ElementType() reflect.Type {
@@ -305,12 +286,6 @@ func (o MaskingPolicyGrantOutput) ToMaskingPolicyGrantOutput() MaskingPolicyGran
 
 func (o MaskingPolicyGrantOutput) ToMaskingPolicyGrantOutputWithContext(ctx context.Context) MaskingPolicyGrantOutput {
 	return o
-}
-
-func (o MaskingPolicyGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*MaskingPolicyGrant] {
-	return pulumix.Output[*MaskingPolicyGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the database containing the masking policy on which to grant privileges.
@@ -368,12 +343,6 @@ func (o MaskingPolicyGrantArrayOutput) ToMaskingPolicyGrantArrayOutputWithContex
 	return o
 }
 
-func (o MaskingPolicyGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MaskingPolicyGrant] {
-	return pulumix.Output[[]*MaskingPolicyGrant]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MaskingPolicyGrantArrayOutput) Index(i pulumi.IntInput) MaskingPolicyGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MaskingPolicyGrant {
 		return vs[0].([]*MaskingPolicyGrant)[vs[1].(int)]
@@ -392,12 +361,6 @@ func (o MaskingPolicyGrantMapOutput) ToMaskingPolicyGrantMapOutput() MaskingPoli
 
 func (o MaskingPolicyGrantMapOutput) ToMaskingPolicyGrantMapOutputWithContext(ctx context.Context) MaskingPolicyGrantMapOutput {
 	return o
-}
-
-func (o MaskingPolicyGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MaskingPolicyGrant] {
-	return pulumix.Output[map[string]*MaskingPolicyGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MaskingPolicyGrantMapOutput) MapIndex(k pulumi.StringInput) MaskingPolicyGrantOutput {

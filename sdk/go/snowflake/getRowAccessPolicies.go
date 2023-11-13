@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -102,12 +101,6 @@ func (o GetRowAccessPoliciesResultOutput) ToGetRowAccessPoliciesResultOutput() G
 
 func (o GetRowAccessPoliciesResultOutput) ToGetRowAccessPoliciesResultOutputWithContext(ctx context.Context) GetRowAccessPoliciesResultOutput {
 	return o
-}
-
-func (o GetRowAccessPoliciesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRowAccessPoliciesResult] {
-	return pulumix.Output[GetRowAccessPoliciesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The database from which to return the schemas from.

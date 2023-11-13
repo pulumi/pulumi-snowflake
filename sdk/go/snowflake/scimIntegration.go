@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -174,12 +173,6 @@ func (i *ScimIntegration) ToScimIntegrationOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ScimIntegrationOutput)
 }
 
-func (i *ScimIntegration) ToOutput(ctx context.Context) pulumix.Output[*ScimIntegration] {
-	return pulumix.Output[*ScimIntegration]{
-		OutputState: i.ToScimIntegrationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScimIntegrationArrayInput is an input type that accepts ScimIntegrationArray and ScimIntegrationArrayOutput values.
 // You can construct a concrete instance of `ScimIntegrationArrayInput` via:
 //
@@ -203,12 +196,6 @@ func (i ScimIntegrationArray) ToScimIntegrationArrayOutput() ScimIntegrationArra
 
 func (i ScimIntegrationArray) ToScimIntegrationArrayOutputWithContext(ctx context.Context) ScimIntegrationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScimIntegrationArrayOutput)
-}
-
-func (i ScimIntegrationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ScimIntegration] {
-	return pulumix.Output[[]*ScimIntegration]{
-		OutputState: i.ToScimIntegrationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ScimIntegrationMapInput is an input type that accepts ScimIntegrationMap and ScimIntegrationMapOutput values.
@@ -236,12 +223,6 @@ func (i ScimIntegrationMap) ToScimIntegrationMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ScimIntegrationMapOutput)
 }
 
-func (i ScimIntegrationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScimIntegration] {
-	return pulumix.Output[map[string]*ScimIntegration]{
-		OutputState: i.ToScimIntegrationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScimIntegrationOutput struct{ *pulumi.OutputState }
 
 func (ScimIntegrationOutput) ElementType() reflect.Type {
@@ -254,12 +235,6 @@ func (o ScimIntegrationOutput) ToScimIntegrationOutput() ScimIntegrationOutput {
 
 func (o ScimIntegrationOutput) ToScimIntegrationOutputWithContext(ctx context.Context) ScimIntegrationOutput {
 	return o
-}
-
-func (o ScimIntegrationOutput) ToOutput(ctx context.Context) pulumix.Output[*ScimIntegration] {
-	return pulumix.Output[*ScimIntegration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Date and time when the SCIM integration was created.
@@ -301,12 +276,6 @@ func (o ScimIntegrationArrayOutput) ToScimIntegrationArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o ScimIntegrationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ScimIntegration] {
-	return pulumix.Output[[]*ScimIntegration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScimIntegrationArrayOutput) Index(i pulumi.IntInput) ScimIntegrationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ScimIntegration {
 		return vs[0].([]*ScimIntegration)[vs[1].(int)]
@@ -325,12 +294,6 @@ func (o ScimIntegrationMapOutput) ToScimIntegrationMapOutput() ScimIntegrationMa
 
 func (o ScimIntegrationMapOutput) ToScimIntegrationMapOutputWithContext(ctx context.Context) ScimIntegrationMapOutput {
 	return o
-}
-
-func (o ScimIntegrationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScimIntegration] {
-	return pulumix.Output[map[string]*ScimIntegration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScimIntegrationMapOutput) MapIndex(k pulumi.StringInput) ScimIntegrationOutput {

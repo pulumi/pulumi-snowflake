@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -89,12 +88,6 @@ func (o GetCurrentAccountResultOutput) ToGetCurrentAccountResultOutput() GetCurr
 
 func (o GetCurrentAccountResultOutput) ToGetCurrentAccountResultOutputWithContext(ctx context.Context) GetCurrentAccountResultOutput {
 	return o
-}
-
-func (o GetCurrentAccountResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCurrentAccountResult] {
-	return pulumix.Output[GetCurrentAccountResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Snowflake Account ID; as returned by CURRENT_ACCOUNT().

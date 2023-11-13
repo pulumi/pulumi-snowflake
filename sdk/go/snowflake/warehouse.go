@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -295,12 +294,6 @@ func (i *Warehouse) ToWarehouseOutputWithContext(ctx context.Context) WarehouseO
 	return pulumi.ToOutputWithContext(ctx, i).(WarehouseOutput)
 }
 
-func (i *Warehouse) ToOutput(ctx context.Context) pulumix.Output[*Warehouse] {
-	return pulumix.Output[*Warehouse]{
-		OutputState: i.ToWarehouseOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WarehouseArrayInput is an input type that accepts WarehouseArray and WarehouseArrayOutput values.
 // You can construct a concrete instance of `WarehouseArrayInput` via:
 //
@@ -324,12 +317,6 @@ func (i WarehouseArray) ToWarehouseArrayOutput() WarehouseArrayOutput {
 
 func (i WarehouseArray) ToWarehouseArrayOutputWithContext(ctx context.Context) WarehouseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WarehouseArrayOutput)
-}
-
-func (i WarehouseArray) ToOutput(ctx context.Context) pulumix.Output[[]*Warehouse] {
-	return pulumix.Output[[]*Warehouse]{
-		OutputState: i.ToWarehouseArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // WarehouseMapInput is an input type that accepts WarehouseMap and WarehouseMapOutput values.
@@ -357,12 +344,6 @@ func (i WarehouseMap) ToWarehouseMapOutputWithContext(ctx context.Context) Wareh
 	return pulumi.ToOutputWithContext(ctx, i).(WarehouseMapOutput)
 }
 
-func (i WarehouseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Warehouse] {
-	return pulumix.Output[map[string]*Warehouse]{
-		OutputState: i.ToWarehouseMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WarehouseOutput struct{ *pulumi.OutputState }
 
 func (WarehouseOutput) ElementType() reflect.Type {
@@ -375,12 +356,6 @@ func (o WarehouseOutput) ToWarehouseOutput() WarehouseOutput {
 
 func (o WarehouseOutput) ToWarehouseOutputWithContext(ctx context.Context) WarehouseOutput {
 	return o
-}
-
-func (o WarehouseOutput) ToOutput(ctx context.Context) pulumix.Output[*Warehouse] {
-	return pulumix.Output[*Warehouse]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it.
@@ -483,12 +458,6 @@ func (o WarehouseArrayOutput) ToWarehouseArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o WarehouseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Warehouse] {
-	return pulumix.Output[[]*Warehouse]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WarehouseArrayOutput) Index(i pulumi.IntInput) WarehouseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Warehouse {
 		return vs[0].([]*Warehouse)[vs[1].(int)]
@@ -507,12 +476,6 @@ func (o WarehouseMapOutput) ToWarehouseMapOutput() WarehouseMapOutput {
 
 func (o WarehouseMapOutput) ToWarehouseMapOutputWithContext(ctx context.Context) WarehouseMapOutput {
 	return o
-}
-
-func (o WarehouseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Warehouse] {
-	return pulumix.Output[map[string]*Warehouse]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WarehouseMapOutput) MapIndex(k pulumi.StringInput) WarehouseOutput {

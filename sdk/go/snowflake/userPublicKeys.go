@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type UserPublicKeys struct {
@@ -116,12 +115,6 @@ func (i *UserPublicKeys) ToUserPublicKeysOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(UserPublicKeysOutput)
 }
 
-func (i *UserPublicKeys) ToOutput(ctx context.Context) pulumix.Output[*UserPublicKeys] {
-	return pulumix.Output[*UserPublicKeys]{
-		OutputState: i.ToUserPublicKeysOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserPublicKeysArrayInput is an input type that accepts UserPublicKeysArray and UserPublicKeysArrayOutput values.
 // You can construct a concrete instance of `UserPublicKeysArrayInput` via:
 //
@@ -145,12 +138,6 @@ func (i UserPublicKeysArray) ToUserPublicKeysArrayOutput() UserPublicKeysArrayOu
 
 func (i UserPublicKeysArray) ToUserPublicKeysArrayOutputWithContext(ctx context.Context) UserPublicKeysArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserPublicKeysArrayOutput)
-}
-
-func (i UserPublicKeysArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserPublicKeys] {
-	return pulumix.Output[[]*UserPublicKeys]{
-		OutputState: i.ToUserPublicKeysArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UserPublicKeysMapInput is an input type that accepts UserPublicKeysMap and UserPublicKeysMapOutput values.
@@ -178,12 +165,6 @@ func (i UserPublicKeysMap) ToUserPublicKeysMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(UserPublicKeysMapOutput)
 }
 
-func (i UserPublicKeysMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserPublicKeys] {
-	return pulumix.Output[map[string]*UserPublicKeys]{
-		OutputState: i.ToUserPublicKeysMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPublicKeysOutput struct{ *pulumi.OutputState }
 
 func (UserPublicKeysOutput) ElementType() reflect.Type {
@@ -196,12 +177,6 @@ func (o UserPublicKeysOutput) ToUserPublicKeysOutput() UserPublicKeysOutput {
 
 func (o UserPublicKeysOutput) ToUserPublicKeysOutputWithContext(ctx context.Context) UserPublicKeysOutput {
 	return o
-}
-
-func (o UserPublicKeysOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPublicKeys] {
-	return pulumix.Output[*UserPublicKeys]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the user.
@@ -233,12 +208,6 @@ func (o UserPublicKeysArrayOutput) ToUserPublicKeysArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o UserPublicKeysArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserPublicKeys] {
-	return pulumix.Output[[]*UserPublicKeys]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserPublicKeysArrayOutput) Index(i pulumi.IntInput) UserPublicKeysOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserPublicKeys {
 		return vs[0].([]*UserPublicKeys)[vs[1].(int)]
@@ -257,12 +226,6 @@ func (o UserPublicKeysMapOutput) ToUserPublicKeysMapOutput() UserPublicKeysMapOu
 
 func (o UserPublicKeysMapOutput) ToUserPublicKeysMapOutputWithContext(ctx context.Context) UserPublicKeysMapOutput {
 	return o
-}
-
-func (o UserPublicKeysMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserPublicKeys] {
-	return pulumix.Output[map[string]*UserPublicKeys]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPublicKeysMapOutput) MapIndex(k pulumi.StringInput) UserPublicKeysOutput {

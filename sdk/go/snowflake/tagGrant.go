@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -222,12 +221,6 @@ func (i *TagGrant) ToTagGrantOutputWithContext(ctx context.Context) TagGrantOutp
 	return pulumi.ToOutputWithContext(ctx, i).(TagGrantOutput)
 }
 
-func (i *TagGrant) ToOutput(ctx context.Context) pulumix.Output[*TagGrant] {
-	return pulumix.Output[*TagGrant]{
-		OutputState: i.ToTagGrantOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TagGrantArrayInput is an input type that accepts TagGrantArray and TagGrantArrayOutput values.
 // You can construct a concrete instance of `TagGrantArrayInput` via:
 //
@@ -251,12 +244,6 @@ func (i TagGrantArray) ToTagGrantArrayOutput() TagGrantArrayOutput {
 
 func (i TagGrantArray) ToTagGrantArrayOutputWithContext(ctx context.Context) TagGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TagGrantArrayOutput)
-}
-
-func (i TagGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*TagGrant] {
-	return pulumix.Output[[]*TagGrant]{
-		OutputState: i.ToTagGrantArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TagGrantMapInput is an input type that accepts TagGrantMap and TagGrantMapOutput values.
@@ -284,12 +271,6 @@ func (i TagGrantMap) ToTagGrantMapOutputWithContext(ctx context.Context) TagGran
 	return pulumi.ToOutputWithContext(ctx, i).(TagGrantMapOutput)
 }
 
-func (i TagGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TagGrant] {
-	return pulumix.Output[map[string]*TagGrant]{
-		OutputState: i.ToTagGrantMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TagGrantOutput struct{ *pulumi.OutputState }
 
 func (TagGrantOutput) ElementType() reflect.Type {
@@ -302,12 +283,6 @@ func (o TagGrantOutput) ToTagGrantOutput() TagGrantOutput {
 
 func (o TagGrantOutput) ToTagGrantOutputWithContext(ctx context.Context) TagGrantOutput {
 	return o
-}
-
-func (o TagGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*TagGrant] {
-	return pulumix.Output[*TagGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the database containing the tag on which to grant privileges.
@@ -365,12 +340,6 @@ func (o TagGrantArrayOutput) ToTagGrantArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o TagGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TagGrant] {
-	return pulumix.Output[[]*TagGrant]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TagGrantArrayOutput) Index(i pulumi.IntInput) TagGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TagGrant {
 		return vs[0].([]*TagGrant)[vs[1].(int)]
@@ -389,12 +358,6 @@ func (o TagGrantMapOutput) ToTagGrantMapOutput() TagGrantMapOutput {
 
 func (o TagGrantMapOutput) ToTagGrantMapOutputWithContext(ctx context.Context) TagGrantMapOutput {
 	return o
-}
-
-func (o TagGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TagGrant] {
-	return pulumix.Output[map[string]*TagGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TagGrantMapOutput) MapIndex(k pulumi.StringInput) TagGrantOutput {
