@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type FailoverGroupGrant struct {
@@ -155,12 +154,6 @@ func (i *FailoverGroupGrant) ToFailoverGroupGrantOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupGrantOutput)
 }
 
-func (i *FailoverGroupGrant) ToOutput(ctx context.Context) pulumix.Output[*FailoverGroupGrant] {
-	return pulumix.Output[*FailoverGroupGrant]{
-		OutputState: i.ToFailoverGroupGrantOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FailoverGroupGrantArrayInput is an input type that accepts FailoverGroupGrantArray and FailoverGroupGrantArrayOutput values.
 // You can construct a concrete instance of `FailoverGroupGrantArrayInput` via:
 //
@@ -184,12 +177,6 @@ func (i FailoverGroupGrantArray) ToFailoverGroupGrantArrayOutput() FailoverGroup
 
 func (i FailoverGroupGrantArray) ToFailoverGroupGrantArrayOutputWithContext(ctx context.Context) FailoverGroupGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupGrantArrayOutput)
-}
-
-func (i FailoverGroupGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*FailoverGroupGrant] {
-	return pulumix.Output[[]*FailoverGroupGrant]{
-		OutputState: i.ToFailoverGroupGrantArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FailoverGroupGrantMapInput is an input type that accepts FailoverGroupGrantMap and FailoverGroupGrantMapOutput values.
@@ -217,12 +204,6 @@ func (i FailoverGroupGrantMap) ToFailoverGroupGrantMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupGrantMapOutput)
 }
 
-func (i FailoverGroupGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FailoverGroupGrant] {
-	return pulumix.Output[map[string]*FailoverGroupGrant]{
-		OutputState: i.ToFailoverGroupGrantMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FailoverGroupGrantOutput struct{ *pulumi.OutputState }
 
 func (FailoverGroupGrantOutput) ElementType() reflect.Type {
@@ -235,12 +216,6 @@ func (o FailoverGroupGrantOutput) ToFailoverGroupGrantOutput() FailoverGroupGran
 
 func (o FailoverGroupGrantOutput) ToFailoverGroupGrantOutputWithContext(ctx context.Context) FailoverGroupGrantOutput {
 	return o
-}
-
-func (o FailoverGroupGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*FailoverGroupGrant] {
-	return pulumix.Output[*FailoverGroupGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -288,12 +263,6 @@ func (o FailoverGroupGrantArrayOutput) ToFailoverGroupGrantArrayOutputWithContex
 	return o
 }
 
-func (o FailoverGroupGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FailoverGroupGrant] {
-	return pulumix.Output[[]*FailoverGroupGrant]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FailoverGroupGrantArrayOutput) Index(i pulumi.IntInput) FailoverGroupGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FailoverGroupGrant {
 		return vs[0].([]*FailoverGroupGrant)[vs[1].(int)]
@@ -312,12 +281,6 @@ func (o FailoverGroupGrantMapOutput) ToFailoverGroupGrantMapOutput() FailoverGro
 
 func (o FailoverGroupGrantMapOutput) ToFailoverGroupGrantMapOutputWithContext(ctx context.Context) FailoverGroupGrantMapOutput {
 	return o
-}
-
-func (o FailoverGroupGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FailoverGroupGrant] {
-	return pulumix.Output[map[string]*FailoverGroupGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FailoverGroupGrantMapOutput) MapIndex(k pulumi.StringInput) FailoverGroupGrantOutput {

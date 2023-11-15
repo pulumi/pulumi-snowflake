@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -77,12 +76,6 @@ func (o GetWarehousesResultOutput) ToGetWarehousesResultOutput() GetWarehousesRe
 
 func (o GetWarehousesResultOutput) ToGetWarehousesResultOutputWithContext(ctx context.Context) GetWarehousesResultOutput {
 	return o
-}
-
-func (o GetWarehousesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetWarehousesResult] {
-	return pulumix.Output[GetWarehousesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

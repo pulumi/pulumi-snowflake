@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -270,12 +269,6 @@ func (i *ProcedureGrant) ToProcedureGrantOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ProcedureGrantOutput)
 }
 
-func (i *ProcedureGrant) ToOutput(ctx context.Context) pulumix.Output[*ProcedureGrant] {
-	return pulumix.Output[*ProcedureGrant]{
-		OutputState: i.ToProcedureGrantOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProcedureGrantArrayInput is an input type that accepts ProcedureGrantArray and ProcedureGrantArrayOutput values.
 // You can construct a concrete instance of `ProcedureGrantArrayInput` via:
 //
@@ -299,12 +292,6 @@ func (i ProcedureGrantArray) ToProcedureGrantArrayOutput() ProcedureGrantArrayOu
 
 func (i ProcedureGrantArray) ToProcedureGrantArrayOutputWithContext(ctx context.Context) ProcedureGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProcedureGrantArrayOutput)
-}
-
-func (i ProcedureGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProcedureGrant] {
-	return pulumix.Output[[]*ProcedureGrant]{
-		OutputState: i.ToProcedureGrantArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ProcedureGrantMapInput is an input type that accepts ProcedureGrantMap and ProcedureGrantMapOutput values.
@@ -332,12 +319,6 @@ func (i ProcedureGrantMap) ToProcedureGrantMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ProcedureGrantMapOutput)
 }
 
-func (i ProcedureGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProcedureGrant] {
-	return pulumix.Output[map[string]*ProcedureGrant]{
-		OutputState: i.ToProcedureGrantMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProcedureGrantOutput struct{ *pulumi.OutputState }
 
 func (ProcedureGrantOutput) ElementType() reflect.Type {
@@ -350,12 +331,6 @@ func (o ProcedureGrantOutput) ToProcedureGrantOutput() ProcedureGrantOutput {
 
 func (o ProcedureGrantOutput) ToProcedureGrantOutputWithContext(ctx context.Context) ProcedureGrantOutput {
 	return o
-}
-
-func (o ProcedureGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*ProcedureGrant] {
-	return pulumix.Output[*ProcedureGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of the argument data types for the procedure (must be present if procedure has arguments and procedureName is present)
@@ -433,12 +408,6 @@ func (o ProcedureGrantArrayOutput) ToProcedureGrantArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o ProcedureGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProcedureGrant] {
-	return pulumix.Output[[]*ProcedureGrant]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProcedureGrantArrayOutput) Index(i pulumi.IntInput) ProcedureGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProcedureGrant {
 		return vs[0].([]*ProcedureGrant)[vs[1].(int)]
@@ -457,12 +426,6 @@ func (o ProcedureGrantMapOutput) ToProcedureGrantMapOutput() ProcedureGrantMapOu
 
 func (o ProcedureGrantMapOutput) ToProcedureGrantMapOutputWithContext(ctx context.Context) ProcedureGrantMapOutput {
 	return o
-}
-
-func (o ProcedureGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProcedureGrant] {
-	return pulumix.Output[map[string]*ProcedureGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProcedureGrantMapOutput) MapIndex(k pulumi.StringInput) ProcedureGrantOutput {

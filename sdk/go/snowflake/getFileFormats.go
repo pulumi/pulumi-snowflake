@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -102,12 +101,6 @@ func (o GetFileFormatsResultOutput) ToGetFileFormatsResultOutput() GetFileFormat
 
 func (o GetFileFormatsResultOutput) ToGetFileFormatsResultOutputWithContext(ctx context.Context) GetFileFormatsResultOutput {
 	return o
-}
-
-func (o GetFileFormatsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetFileFormatsResult] {
-	return pulumix.Output[GetFileFormatsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The database from which to return the schemas from.

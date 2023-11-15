@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -253,12 +252,6 @@ func (i *MaterializedViewGrant) ToMaterializedViewGrantOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(MaterializedViewGrantOutput)
 }
 
-func (i *MaterializedViewGrant) ToOutput(ctx context.Context) pulumix.Output[*MaterializedViewGrant] {
-	return pulumix.Output[*MaterializedViewGrant]{
-		OutputState: i.ToMaterializedViewGrantOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MaterializedViewGrantArrayInput is an input type that accepts MaterializedViewGrantArray and MaterializedViewGrantArrayOutput values.
 // You can construct a concrete instance of `MaterializedViewGrantArrayInput` via:
 //
@@ -282,12 +275,6 @@ func (i MaterializedViewGrantArray) ToMaterializedViewGrantArrayOutput() Materia
 
 func (i MaterializedViewGrantArray) ToMaterializedViewGrantArrayOutputWithContext(ctx context.Context) MaterializedViewGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MaterializedViewGrantArrayOutput)
-}
-
-func (i MaterializedViewGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*MaterializedViewGrant] {
-	return pulumix.Output[[]*MaterializedViewGrant]{
-		OutputState: i.ToMaterializedViewGrantArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MaterializedViewGrantMapInput is an input type that accepts MaterializedViewGrantMap and MaterializedViewGrantMapOutput values.
@@ -315,12 +302,6 @@ func (i MaterializedViewGrantMap) ToMaterializedViewGrantMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(MaterializedViewGrantMapOutput)
 }
 
-func (i MaterializedViewGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MaterializedViewGrant] {
-	return pulumix.Output[map[string]*MaterializedViewGrant]{
-		OutputState: i.ToMaterializedViewGrantMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MaterializedViewGrantOutput struct{ *pulumi.OutputState }
 
 func (MaterializedViewGrantOutput) ElementType() reflect.Type {
@@ -333,12 +314,6 @@ func (o MaterializedViewGrantOutput) ToMaterializedViewGrantOutput() Materialize
 
 func (o MaterializedViewGrantOutput) ToMaterializedViewGrantOutputWithContext(ctx context.Context) MaterializedViewGrantOutput {
 	return o
-}
-
-func (o MaterializedViewGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*MaterializedViewGrant] {
-	return pulumix.Output[*MaterializedViewGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the database containing the current or future materialized views on which to grant privileges.
@@ -411,12 +386,6 @@ func (o MaterializedViewGrantArrayOutput) ToMaterializedViewGrantArrayOutputWith
 	return o
 }
 
-func (o MaterializedViewGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MaterializedViewGrant] {
-	return pulumix.Output[[]*MaterializedViewGrant]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MaterializedViewGrantArrayOutput) Index(i pulumi.IntInput) MaterializedViewGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MaterializedViewGrant {
 		return vs[0].([]*MaterializedViewGrant)[vs[1].(int)]
@@ -435,12 +404,6 @@ func (o MaterializedViewGrantMapOutput) ToMaterializedViewGrantMapOutput() Mater
 
 func (o MaterializedViewGrantMapOutput) ToMaterializedViewGrantMapOutputWithContext(ctx context.Context) MaterializedViewGrantMapOutput {
 	return o
-}
-
-func (o MaterializedViewGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MaterializedViewGrant] {
-	return pulumix.Output[map[string]*MaterializedViewGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MaterializedViewGrantMapOutput) MapIndex(k pulumi.StringInput) MaterializedViewGrantOutput {

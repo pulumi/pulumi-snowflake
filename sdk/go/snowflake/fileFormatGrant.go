@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -242,12 +241,6 @@ func (i *FileFormatGrant) ToFileFormatGrantOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(FileFormatGrantOutput)
 }
 
-func (i *FileFormatGrant) ToOutput(ctx context.Context) pulumix.Output[*FileFormatGrant] {
-	return pulumix.Output[*FileFormatGrant]{
-		OutputState: i.ToFileFormatGrantOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FileFormatGrantArrayInput is an input type that accepts FileFormatGrantArray and FileFormatGrantArrayOutput values.
 // You can construct a concrete instance of `FileFormatGrantArrayInput` via:
 //
@@ -271,12 +264,6 @@ func (i FileFormatGrantArray) ToFileFormatGrantArrayOutput() FileFormatGrantArra
 
 func (i FileFormatGrantArray) ToFileFormatGrantArrayOutputWithContext(ctx context.Context) FileFormatGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FileFormatGrantArrayOutput)
-}
-
-func (i FileFormatGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*FileFormatGrant] {
-	return pulumix.Output[[]*FileFormatGrant]{
-		OutputState: i.ToFileFormatGrantArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FileFormatGrantMapInput is an input type that accepts FileFormatGrantMap and FileFormatGrantMapOutput values.
@@ -304,12 +291,6 @@ func (i FileFormatGrantMap) ToFileFormatGrantMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(FileFormatGrantMapOutput)
 }
 
-func (i FileFormatGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FileFormatGrant] {
-	return pulumix.Output[map[string]*FileFormatGrant]{
-		OutputState: i.ToFileFormatGrantMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileFormatGrantOutput struct{ *pulumi.OutputState }
 
 func (FileFormatGrantOutput) ElementType() reflect.Type {
@@ -322,12 +303,6 @@ func (o FileFormatGrantOutput) ToFileFormatGrantOutput() FileFormatGrantOutput {
 
 func (o FileFormatGrantOutput) ToFileFormatGrantOutputWithContext(ctx context.Context) FileFormatGrantOutput {
 	return o
-}
-
-func (o FileFormatGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*FileFormatGrant] {
-	return pulumix.Output[*FileFormatGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the database containing the current or future file formats on which to grant privileges.
@@ -395,12 +370,6 @@ func (o FileFormatGrantArrayOutput) ToFileFormatGrantArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o FileFormatGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FileFormatGrant] {
-	return pulumix.Output[[]*FileFormatGrant]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FileFormatGrantArrayOutput) Index(i pulumi.IntInput) FileFormatGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FileFormatGrant {
 		return vs[0].([]*FileFormatGrant)[vs[1].(int)]
@@ -419,12 +388,6 @@ func (o FileFormatGrantMapOutput) ToFileFormatGrantMapOutput() FileFormatGrantMa
 
 func (o FileFormatGrantMapOutput) ToFileFormatGrantMapOutputWithContext(ctx context.Context) FileFormatGrantMapOutput {
 	return o
-}
-
-func (o FileFormatGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FileFormatGrant] {
-	return pulumix.Output[map[string]*FileFormatGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileFormatGrantMapOutput) MapIndex(k pulumi.StringInput) FileFormatGrantOutput {

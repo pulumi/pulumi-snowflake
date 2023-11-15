@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetDynamicTables(ctx *pulumi.Context, args *GetDynamicTablesArgs, opts ...pulumi.InvokeOption) (*GetDynamicTablesResult, error) {
@@ -92,12 +91,6 @@ func (o GetDynamicTablesResultOutput) ToGetDynamicTablesResultOutput() GetDynami
 
 func (o GetDynamicTablesResultOutput) ToGetDynamicTablesResultOutputWithContext(ctx context.Context) GetDynamicTablesResultOutput {
 	return o
-}
-
-func (o GetDynamicTablesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDynamicTablesResult] {
-	return pulumix.Output[GetDynamicTablesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.
