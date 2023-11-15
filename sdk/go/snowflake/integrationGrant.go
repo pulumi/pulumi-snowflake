@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -196,12 +195,6 @@ func (i *IntegrationGrant) ToIntegrationGrantOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationGrantOutput)
 }
 
-func (i *IntegrationGrant) ToOutput(ctx context.Context) pulumix.Output[*IntegrationGrant] {
-	return pulumix.Output[*IntegrationGrant]{
-		OutputState: i.ToIntegrationGrantOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationGrantArrayInput is an input type that accepts IntegrationGrantArray and IntegrationGrantArrayOutput values.
 // You can construct a concrete instance of `IntegrationGrantArrayInput` via:
 //
@@ -225,12 +218,6 @@ func (i IntegrationGrantArray) ToIntegrationGrantArrayOutput() IntegrationGrantA
 
 func (i IntegrationGrantArray) ToIntegrationGrantArrayOutputWithContext(ctx context.Context) IntegrationGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationGrantArrayOutput)
-}
-
-func (i IntegrationGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationGrant] {
-	return pulumix.Output[[]*IntegrationGrant]{
-		OutputState: i.ToIntegrationGrantArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IntegrationGrantMapInput is an input type that accepts IntegrationGrantMap and IntegrationGrantMapOutput values.
@@ -258,12 +245,6 @@ func (i IntegrationGrantMap) ToIntegrationGrantMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationGrantMapOutput)
 }
 
-func (i IntegrationGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationGrant] {
-	return pulumix.Output[map[string]*IntegrationGrant]{
-		OutputState: i.ToIntegrationGrantMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationGrantOutput struct{ *pulumi.OutputState }
 
 func (IntegrationGrantOutput) ElementType() reflect.Type {
@@ -276,12 +257,6 @@ func (o IntegrationGrantOutput) ToIntegrationGrantOutput() IntegrationGrantOutpu
 
 func (o IntegrationGrantOutput) ToIntegrationGrantOutputWithContext(ctx context.Context) IntegrationGrantOutput {
 	return o
-}
-
-func (o IntegrationGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationGrant] {
-	return pulumix.Output[*IntegrationGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -329,12 +304,6 @@ func (o IntegrationGrantArrayOutput) ToIntegrationGrantArrayOutputWithContext(ct
 	return o
 }
 
-func (o IntegrationGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationGrant] {
-	return pulumix.Output[[]*IntegrationGrant]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationGrantArrayOutput) Index(i pulumi.IntInput) IntegrationGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationGrant {
 		return vs[0].([]*IntegrationGrant)[vs[1].(int)]
@@ -353,12 +322,6 @@ func (o IntegrationGrantMapOutput) ToIntegrationGrantMapOutput() IntegrationGran
 
 func (o IntegrationGrantMapOutput) ToIntegrationGrantMapOutputWithContext(ctx context.Context) IntegrationGrantMapOutput {
 	return o
-}
-
-func (o IntegrationGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationGrant] {
-	return pulumix.Output[map[string]*IntegrationGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationGrantMapOutput) MapIndex(k pulumi.StringInput) IntegrationGrantOutput {

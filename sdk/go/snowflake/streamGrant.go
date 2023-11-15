@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -242,12 +241,6 @@ func (i *StreamGrant) ToStreamGrantOutputWithContext(ctx context.Context) Stream
 	return pulumi.ToOutputWithContext(ctx, i).(StreamGrantOutput)
 }
 
-func (i *StreamGrant) ToOutput(ctx context.Context) pulumix.Output[*StreamGrant] {
-	return pulumix.Output[*StreamGrant]{
-		OutputState: i.ToStreamGrantOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StreamGrantArrayInput is an input type that accepts StreamGrantArray and StreamGrantArrayOutput values.
 // You can construct a concrete instance of `StreamGrantArrayInput` via:
 //
@@ -271,12 +264,6 @@ func (i StreamGrantArray) ToStreamGrantArrayOutput() StreamGrantArrayOutput {
 
 func (i StreamGrantArray) ToStreamGrantArrayOutputWithContext(ctx context.Context) StreamGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamGrantArrayOutput)
-}
-
-func (i StreamGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*StreamGrant] {
-	return pulumix.Output[[]*StreamGrant]{
-		OutputState: i.ToStreamGrantArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // StreamGrantMapInput is an input type that accepts StreamGrantMap and StreamGrantMapOutput values.
@@ -304,12 +291,6 @@ func (i StreamGrantMap) ToStreamGrantMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(StreamGrantMapOutput)
 }
 
-func (i StreamGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StreamGrant] {
-	return pulumix.Output[map[string]*StreamGrant]{
-		OutputState: i.ToStreamGrantMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamGrantOutput struct{ *pulumi.OutputState }
 
 func (StreamGrantOutput) ElementType() reflect.Type {
@@ -322,12 +303,6 @@ func (o StreamGrantOutput) ToStreamGrantOutput() StreamGrantOutput {
 
 func (o StreamGrantOutput) ToStreamGrantOutputWithContext(ctx context.Context) StreamGrantOutput {
 	return o
-}
-
-func (o StreamGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamGrant] {
-	return pulumix.Output[*StreamGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the database containing the current or future streams on which to grant privileges.
@@ -395,12 +370,6 @@ func (o StreamGrantArrayOutput) ToStreamGrantArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o StreamGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StreamGrant] {
-	return pulumix.Output[[]*StreamGrant]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StreamGrantArrayOutput) Index(i pulumi.IntInput) StreamGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StreamGrant {
 		return vs[0].([]*StreamGrant)[vs[1].(int)]
@@ -419,12 +388,6 @@ func (o StreamGrantMapOutput) ToStreamGrantMapOutput() StreamGrantMapOutput {
 
 func (o StreamGrantMapOutput) ToStreamGrantMapOutputWithContext(ctx context.Context) StreamGrantMapOutput {
 	return o
-}
-
-func (o StreamGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StreamGrant] {
-	return pulumix.Output[map[string]*StreamGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamGrantMapOutput) MapIndex(k pulumi.StringInput) StreamGrantOutput {

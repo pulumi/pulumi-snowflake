@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An External OAuth security integration allows a client to use a third-party authorization server to obtain the access tokens needed to interact with Snowflake.
@@ -315,12 +314,6 @@ func (i *ExternalOauthIntegration) ToExternalOauthIntegrationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalOauthIntegrationOutput)
 }
 
-func (i *ExternalOauthIntegration) ToOutput(ctx context.Context) pulumix.Output[*ExternalOauthIntegration] {
-	return pulumix.Output[*ExternalOauthIntegration]{
-		OutputState: i.ToExternalOauthIntegrationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ExternalOauthIntegrationArrayInput is an input type that accepts ExternalOauthIntegrationArray and ExternalOauthIntegrationArrayOutput values.
 // You can construct a concrete instance of `ExternalOauthIntegrationArrayInput` via:
 //
@@ -344,12 +337,6 @@ func (i ExternalOauthIntegrationArray) ToExternalOauthIntegrationArrayOutput() E
 
 func (i ExternalOauthIntegrationArray) ToExternalOauthIntegrationArrayOutputWithContext(ctx context.Context) ExternalOauthIntegrationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalOauthIntegrationArrayOutput)
-}
-
-func (i ExternalOauthIntegrationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ExternalOauthIntegration] {
-	return pulumix.Output[[]*ExternalOauthIntegration]{
-		OutputState: i.ToExternalOauthIntegrationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ExternalOauthIntegrationMapInput is an input type that accepts ExternalOauthIntegrationMap and ExternalOauthIntegrationMapOutput values.
@@ -377,12 +364,6 @@ func (i ExternalOauthIntegrationMap) ToExternalOauthIntegrationMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalOauthIntegrationMapOutput)
 }
 
-func (i ExternalOauthIntegrationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExternalOauthIntegration] {
-	return pulumix.Output[map[string]*ExternalOauthIntegration]{
-		OutputState: i.ToExternalOauthIntegrationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ExternalOauthIntegrationOutput struct{ *pulumi.OutputState }
 
 func (ExternalOauthIntegrationOutput) ElementType() reflect.Type {
@@ -395,12 +376,6 @@ func (o ExternalOauthIntegrationOutput) ToExternalOauthIntegrationOutput() Exter
 
 func (o ExternalOauthIntegrationOutput) ToExternalOauthIntegrationOutputWithContext(ctx context.Context) ExternalOauthIntegrationOutput {
 	return o
-}
-
-func (o ExternalOauthIntegrationOutput) ToOutput(ctx context.Context) pulumix.Output[*ExternalOauthIntegration] {
-	return pulumix.Output[*ExternalOauthIntegration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the list of roles that the client can set as the primary role.
@@ -502,12 +477,6 @@ func (o ExternalOauthIntegrationArrayOutput) ToExternalOauthIntegrationArrayOutp
 	return o
 }
 
-func (o ExternalOauthIntegrationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ExternalOauthIntegration] {
-	return pulumix.Output[[]*ExternalOauthIntegration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ExternalOauthIntegrationArrayOutput) Index(i pulumi.IntInput) ExternalOauthIntegrationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExternalOauthIntegration {
 		return vs[0].([]*ExternalOauthIntegration)[vs[1].(int)]
@@ -526,12 +495,6 @@ func (o ExternalOauthIntegrationMapOutput) ToExternalOauthIntegrationMapOutput()
 
 func (o ExternalOauthIntegrationMapOutput) ToExternalOauthIntegrationMapOutputWithContext(ctx context.Context) ExternalOauthIntegrationMapOutput {
 	return o
-}
-
-func (o ExternalOauthIntegrationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExternalOauthIntegration] {
-	return pulumix.Output[map[string]*ExternalOauthIntegration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ExternalOauthIntegrationMapOutput) MapIndex(k pulumi.StringInput) ExternalOauthIntegrationOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -243,12 +242,6 @@ func (i *ObjectParameter) ToObjectParameterOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectParameterOutput)
 }
 
-func (i *ObjectParameter) ToOutput(ctx context.Context) pulumix.Output[*ObjectParameter] {
-	return pulumix.Output[*ObjectParameter]{
-		OutputState: i.ToObjectParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ObjectParameterArrayInput is an input type that accepts ObjectParameterArray and ObjectParameterArrayOutput values.
 // You can construct a concrete instance of `ObjectParameterArrayInput` via:
 //
@@ -272,12 +265,6 @@ func (i ObjectParameterArray) ToObjectParameterArrayOutput() ObjectParameterArra
 
 func (i ObjectParameterArray) ToObjectParameterArrayOutputWithContext(ctx context.Context) ObjectParameterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectParameterArrayOutput)
-}
-
-func (i ObjectParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]*ObjectParameter] {
-	return pulumix.Output[[]*ObjectParameter]{
-		OutputState: i.ToObjectParameterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ObjectParameterMapInput is an input type that accepts ObjectParameterMap and ObjectParameterMapOutput values.
@@ -305,12 +292,6 @@ func (i ObjectParameterMap) ToObjectParameterMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectParameterMapOutput)
 }
 
-func (i ObjectParameterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ObjectParameter] {
-	return pulumix.Output[map[string]*ObjectParameter]{
-		OutputState: i.ToObjectParameterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ObjectParameterOutput struct{ *pulumi.OutputState }
 
 func (ObjectParameterOutput) ElementType() reflect.Type {
@@ -323,12 +304,6 @@ func (o ObjectParameterOutput) ToObjectParameterOutput() ObjectParameterOutput {
 
 func (o ObjectParameterOutput) ToObjectParameterOutputWithContext(ctx context.Context) ObjectParameterOutput {
 	return o
-}
-
-func (o ObjectParameterOutput) ToOutput(ctx context.Context) pulumix.Output[*ObjectParameter] {
-	return pulumix.Output[*ObjectParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
@@ -370,12 +345,6 @@ func (o ObjectParameterArrayOutput) ToObjectParameterArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o ObjectParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ObjectParameter] {
-	return pulumix.Output[[]*ObjectParameter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ObjectParameterArrayOutput) Index(i pulumi.IntInput) ObjectParameterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ObjectParameter {
 		return vs[0].([]*ObjectParameter)[vs[1].(int)]
@@ -394,12 +363,6 @@ func (o ObjectParameterMapOutput) ToObjectParameterMapOutput() ObjectParameterMa
 
 func (o ObjectParameterMapOutput) ToObjectParameterMapOutputWithContext(ctx context.Context) ObjectParameterMapOutput {
 	return o
-}
-
-func (o ObjectParameterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ObjectParameter] {
-	return pulumix.Output[map[string]*ObjectParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ObjectParameterMapOutput) MapIndex(k pulumi.StringInput) ObjectParameterOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetFailoverGroups(ctx *pulumi.Context, args *GetFailoverGroupsArgs, opts ...pulumi.InvokeOption) (*GetFailoverGroupsResult, error) {
@@ -74,12 +73,6 @@ func (o GetFailoverGroupsResultOutput) ToGetFailoverGroupsResultOutput() GetFail
 
 func (o GetFailoverGroupsResultOutput) ToGetFailoverGroupsResultOutputWithContext(ctx context.Context) GetFailoverGroupsResultOutput {
 	return o
-}
-
-func (o GetFailoverGroupsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetFailoverGroupsResult] {
-	return pulumix.Output[GetFailoverGroupsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of all the failover groups available in the system.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -112,12 +111,6 @@ func (o GetAlertsResultOutput) ToGetAlertsResultOutput() GetAlertsResultOutput {
 
 func (o GetAlertsResultOutput) ToGetAlertsResultOutputWithContext(ctx context.Context) GetAlertsResultOutput {
 	return o
-}
-
-func (o GetAlertsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAlertsResult] {
-	return pulumix.Output[GetAlertsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Lists alerts for the current/specified database or schema, or across the entire account.

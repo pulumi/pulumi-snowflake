@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -264,12 +263,6 @@ func (i *MaskingPolicy) ToMaskingPolicyOutputWithContext(ctx context.Context) Ma
 	return pulumi.ToOutputWithContext(ctx, i).(MaskingPolicyOutput)
 }
 
-func (i *MaskingPolicy) ToOutput(ctx context.Context) pulumix.Output[*MaskingPolicy] {
-	return pulumix.Output[*MaskingPolicy]{
-		OutputState: i.ToMaskingPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MaskingPolicyArrayInput is an input type that accepts MaskingPolicyArray and MaskingPolicyArrayOutput values.
 // You can construct a concrete instance of `MaskingPolicyArrayInput` via:
 //
@@ -293,12 +286,6 @@ func (i MaskingPolicyArray) ToMaskingPolicyArrayOutput() MaskingPolicyArrayOutpu
 
 func (i MaskingPolicyArray) ToMaskingPolicyArrayOutputWithContext(ctx context.Context) MaskingPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MaskingPolicyArrayOutput)
-}
-
-func (i MaskingPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*MaskingPolicy] {
-	return pulumix.Output[[]*MaskingPolicy]{
-		OutputState: i.ToMaskingPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MaskingPolicyMapInput is an input type that accepts MaskingPolicyMap and MaskingPolicyMapOutput values.
@@ -326,12 +313,6 @@ func (i MaskingPolicyMap) ToMaskingPolicyMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(MaskingPolicyMapOutput)
 }
 
-func (i MaskingPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MaskingPolicy] {
-	return pulumix.Output[map[string]*MaskingPolicy]{
-		OutputState: i.ToMaskingPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MaskingPolicyOutput struct{ *pulumi.OutputState }
 
 func (MaskingPolicyOutput) ElementType() reflect.Type {
@@ -344,12 +325,6 @@ func (o MaskingPolicyOutput) ToMaskingPolicyOutput() MaskingPolicyOutput {
 
 func (o MaskingPolicyOutput) ToMaskingPolicyOutputWithContext(ctx context.Context) MaskingPolicyOutput {
 	return o
-}
-
-func (o MaskingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*MaskingPolicy] {
-	return pulumix.Output[*MaskingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a comment for the masking policy.
@@ -421,12 +396,6 @@ func (o MaskingPolicyArrayOutput) ToMaskingPolicyArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o MaskingPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MaskingPolicy] {
-	return pulumix.Output[[]*MaskingPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MaskingPolicyArrayOutput) Index(i pulumi.IntInput) MaskingPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MaskingPolicy {
 		return vs[0].([]*MaskingPolicy)[vs[1].(int)]
@@ -445,12 +414,6 @@ func (o MaskingPolicyMapOutput) ToMaskingPolicyMapOutput() MaskingPolicyMapOutpu
 
 func (o MaskingPolicyMapOutput) ToMaskingPolicyMapOutputWithContext(ctx context.Context) MaskingPolicyMapOutput {
 	return o
-}
-
-func (o MaskingPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MaskingPolicy] {
-	return pulumix.Output[map[string]*MaskingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MaskingPolicyMapOutput) MapIndex(k pulumi.StringInput) MaskingPolicyOutput {

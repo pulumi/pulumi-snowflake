@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -176,12 +175,6 @@ func (i *SessionParameter) ToSessionParameterOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SessionParameterOutput)
 }
 
-func (i *SessionParameter) ToOutput(ctx context.Context) pulumix.Output[*SessionParameter] {
-	return pulumix.Output[*SessionParameter]{
-		OutputState: i.ToSessionParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SessionParameterArrayInput is an input type that accepts SessionParameterArray and SessionParameterArrayOutput values.
 // You can construct a concrete instance of `SessionParameterArrayInput` via:
 //
@@ -205,12 +198,6 @@ func (i SessionParameterArray) ToSessionParameterArrayOutput() SessionParameterA
 
 func (i SessionParameterArray) ToSessionParameterArrayOutputWithContext(ctx context.Context) SessionParameterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SessionParameterArrayOutput)
-}
-
-func (i SessionParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]*SessionParameter] {
-	return pulumix.Output[[]*SessionParameter]{
-		OutputState: i.ToSessionParameterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SessionParameterMapInput is an input type that accepts SessionParameterMap and SessionParameterMapOutput values.
@@ -238,12 +225,6 @@ func (i SessionParameterMap) ToSessionParameterMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SessionParameterMapOutput)
 }
 
-func (i SessionParameterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SessionParameter] {
-	return pulumix.Output[map[string]*SessionParameter]{
-		OutputState: i.ToSessionParameterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SessionParameterOutput struct{ *pulumi.OutputState }
 
 func (SessionParameterOutput) ElementType() reflect.Type {
@@ -256,12 +237,6 @@ func (o SessionParameterOutput) ToSessionParameterOutput() SessionParameterOutpu
 
 func (o SessionParameterOutput) ToSessionParameterOutputWithContext(ctx context.Context) SessionParameterOutput {
 	return o
-}
-
-func (o SessionParameterOutput) ToOutput(ctx context.Context) pulumix.Output[*SessionParameter] {
-	return pulumix.Output[*SessionParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of session parameter. Valid values are those in [session parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#session-parameters).
@@ -298,12 +273,6 @@ func (o SessionParameterArrayOutput) ToSessionParameterArrayOutputWithContext(ct
 	return o
 }
 
-func (o SessionParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SessionParameter] {
-	return pulumix.Output[[]*SessionParameter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SessionParameterArrayOutput) Index(i pulumi.IntInput) SessionParameterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SessionParameter {
 		return vs[0].([]*SessionParameter)[vs[1].(int)]
@@ -322,12 +291,6 @@ func (o SessionParameterMapOutput) ToSessionParameterMapOutput() SessionParamete
 
 func (o SessionParameterMapOutput) ToSessionParameterMapOutputWithContext(ctx context.Context) SessionParameterMapOutput {
 	return o
-}
-
-func (o SessionParameterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SessionParameter] {
-	return pulumix.Output[map[string]*SessionParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SessionParameterMapOutput) MapIndex(k pulumi.StringInput) SessionParameterOutput {

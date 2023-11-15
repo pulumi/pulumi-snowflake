@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetSystemGetSnowflakePlatformInfo(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSystemGetSnowflakePlatformInfoResult, error) {
@@ -56,12 +55,6 @@ func (o GetSystemGetSnowflakePlatformInfoResultOutput) ToGetSystemGetSnowflakePl
 
 func (o GetSystemGetSnowflakePlatformInfoResultOutput) ToGetSystemGetSnowflakePlatformInfoResultOutputWithContext(ctx context.Context) GetSystemGetSnowflakePlatformInfoResultOutput {
 	return o
-}
-
-func (o GetSystemGetSnowflakePlatformInfoResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSystemGetSnowflakePlatformInfoResult] {
-	return pulumix.Output[GetSystemGetSnowflakePlatformInfoResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Snowflake AWS Virtual Private Cloud IDs

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -187,12 +186,6 @@ func (i *ManagedAccount) ToManagedAccountOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedAccountOutput)
 }
 
-func (i *ManagedAccount) ToOutput(ctx context.Context) pulumix.Output[*ManagedAccount] {
-	return pulumix.Output[*ManagedAccount]{
-		OutputState: i.ToManagedAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ManagedAccountArrayInput is an input type that accepts ManagedAccountArray and ManagedAccountArrayOutput values.
 // You can construct a concrete instance of `ManagedAccountArrayInput` via:
 //
@@ -216,12 +209,6 @@ func (i ManagedAccountArray) ToManagedAccountArrayOutput() ManagedAccountArrayOu
 
 func (i ManagedAccountArray) ToManagedAccountArrayOutputWithContext(ctx context.Context) ManagedAccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedAccountArrayOutput)
-}
-
-func (i ManagedAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedAccount] {
-	return pulumix.Output[[]*ManagedAccount]{
-		OutputState: i.ToManagedAccountArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ManagedAccountMapInput is an input type that accepts ManagedAccountMap and ManagedAccountMapOutput values.
@@ -249,12 +236,6 @@ func (i ManagedAccountMap) ToManagedAccountMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedAccountMapOutput)
 }
 
-func (i ManagedAccountMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedAccount] {
-	return pulumix.Output[map[string]*ManagedAccount]{
-		OutputState: i.ToManagedAccountMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedAccountOutput struct{ *pulumi.OutputState }
 
 func (ManagedAccountOutput) ElementType() reflect.Type {
@@ -267,12 +248,6 @@ func (o ManagedAccountOutput) ToManagedAccountOutput() ManagedAccountOutput {
 
 func (o ManagedAccountOutput) ToManagedAccountOutputWithContext(ctx context.Context) ManagedAccountOutput {
 	return o
-}
-
-func (o ManagedAccountOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedAccount] {
-	return pulumix.Output[*ManagedAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
@@ -339,12 +314,6 @@ func (o ManagedAccountArrayOutput) ToManagedAccountArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o ManagedAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedAccount] {
-	return pulumix.Output[[]*ManagedAccount]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ManagedAccountArrayOutput) Index(i pulumi.IntInput) ManagedAccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedAccount {
 		return vs[0].([]*ManagedAccount)[vs[1].(int)]
@@ -363,12 +332,6 @@ func (o ManagedAccountMapOutput) ToManagedAccountMapOutput() ManagedAccountMapOu
 
 func (o ManagedAccountMapOutput) ToManagedAccountMapOutputWithContext(ctx context.Context) ManagedAccountMapOutput {
 	return o
-}
-
-func (o ManagedAccountMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedAccount] {
-	return pulumix.Output[map[string]*ManagedAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedAccountMapOutput) MapIndex(k pulumi.StringInput) ManagedAccountOutput {
