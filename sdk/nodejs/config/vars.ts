@@ -274,6 +274,18 @@ Object.defineProperty(exports, "oauthRefreshToken", {
 });
 
 /**
+ * True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
+ * sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+ */
+export declare const ocspFailOpen: boolean | undefined;
+Object.defineProperty(exports, "ocspFailOpen", {
+    get() {
+        return __config.getObject<boolean>("ocspFailOpen");
+    },
+    enumerable: true,
+});
+
+/**
  * The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
  * variable.
  */
@@ -281,18 +293,6 @@ export declare const oktaUrl: string | undefined;
 Object.defineProperty(exports, "oktaUrl", {
     get() {
         return __config.get("oktaUrl");
-    },
-    enumerable: true,
-});
-
-/**
- * True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
- * sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
- */
-export declare const oscpFailOpen: boolean | undefined;
-Object.defineProperty(exports, "oscpFailOpen", {
-    get() {
-        return __config.getObject<boolean>("oscpFailOpen");
     },
     enumerable: true,
 });
@@ -510,8 +510,8 @@ Object.defineProperty(exports, "username", {
 });
 
 /**
- * If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
- * established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+ * True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
+ * connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
  */
 export declare const validateDefaultParameters: boolean | undefined;
 Object.defineProperty(exports, "validateDefaultParameters", {

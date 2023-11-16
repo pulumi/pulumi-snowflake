@@ -132,6 +132,10 @@ export class Task extends pulumi.CustomResource {
      */
     public readonly sqlStatement!: pulumi.Output<string>;
     /**
+     * Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension).
+     */
+    public readonly suspendTaskAfterNumFailures!: pulumi.Output<number | undefined>;
+    /**
      * Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
      */
     public readonly userTaskManagedInitialWarehouseSize!: pulumi.Output<string | undefined>;
@@ -172,6 +176,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["schema"] = state ? state.schema : undefined;
             resourceInputs["sessionParameters"] = state ? state.sessionParameters : undefined;
             resourceInputs["sqlStatement"] = state ? state.sqlStatement : undefined;
+            resourceInputs["suspendTaskAfterNumFailures"] = state ? state.suspendTaskAfterNumFailures : undefined;
             resourceInputs["userTaskManagedInitialWarehouseSize"] = state ? state.userTaskManagedInitialWarehouseSize : undefined;
             resourceInputs["userTaskTimeoutMs"] = state ? state.userTaskTimeoutMs : undefined;
             resourceInputs["warehouse"] = state ? state.warehouse : undefined;
@@ -198,6 +203,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["sessionParameters"] = args ? args.sessionParameters : undefined;
             resourceInputs["sqlStatement"] = args ? args.sqlStatement : undefined;
+            resourceInputs["suspendTaskAfterNumFailures"] = args ? args.suspendTaskAfterNumFailures : undefined;
             resourceInputs["userTaskManagedInitialWarehouseSize"] = args ? args.userTaskManagedInitialWarehouseSize : undefined;
             resourceInputs["userTaskTimeoutMs"] = args ? args.userTaskTimeoutMs : undefined;
             resourceInputs["warehouse"] = args ? args.warehouse : undefined;
@@ -256,6 +262,10 @@ export interface TaskState {
      * Any single SQL statement, or a call to a stored procedure, executed when the task runs.
      */
     sqlStatement?: pulumi.Input<string>;
+    /**
+     * Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension).
+     */
+    suspendTaskAfterNumFailures?: pulumi.Input<number>;
     /**
      * Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
      */
@@ -322,6 +332,10 @@ export interface TaskArgs {
      * Any single SQL statement, or a call to a stored procedure, executed when the task runs.
      */
     sqlStatement: pulumi.Input<string>;
+    /**
+     * Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension).
+     */
+    suspendTaskAfterNumFailures?: pulumi.Input<number>;
     /**
      * Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
      */

@@ -142,16 +142,16 @@ Token for use with OAuth. Setup and generation of the token is left to other too
 environment variable.
 """
 
+ocspFailOpen: Optional[bool]
+"""
+True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
+sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+"""
+
 oktaUrl: Optional[str]
 """
 The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
 variable.
-"""
-
-oscpFailOpen: Optional[bool]
-"""
-True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
 """
 
 params: Optional[str]
@@ -260,8 +260,8 @@ Required unless using `profile`.
 
 validateDefaultParameters: Optional[bool]
 """
-If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
-established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
+connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
 """
 
 warehouse: Optional[str]

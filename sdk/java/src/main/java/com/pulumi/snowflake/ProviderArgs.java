@@ -452,6 +452,23 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
+     * sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+     * 
+     */
+    @Import(name="ocspFailOpen", json=true)
+    private @Nullable Output<Boolean> ocspFailOpen;
+
+    /**
+     * @return True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
+     * sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+     * 
+     */
+    public Optional<Output<Boolean>> ocspFailOpen() {
+        return Optional.ofNullable(this.ocspFailOpen);
+    }
+
+    /**
      * The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
      * variable.
      * 
@@ -466,23 +483,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> oktaUrl() {
         return Optional.ofNullable(this.oktaUrl);
-    }
-
-    /**
-     * True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-     * sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
-     * 
-     */
-    @Import(name="oscpFailOpen", json=true)
-    private @Nullable Output<Boolean> oscpFailOpen;
-
-    /**
-     * @return True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-     * sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
-     * 
-     */
-    public Optional<Output<Boolean>> oscpFailOpen() {
-        return Optional.ofNullable(this.oscpFailOpen);
     }
 
     /**
@@ -814,16 +814,16 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
-     * established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+     * True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
+     * connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
      * 
      */
     @Import(name="validateDefaultParameters", json=true)
     private @Nullable Output<Boolean> validateDefaultParameters;
 
     /**
-     * @return If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
-     * established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+     * @return True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
+     * connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
      * 
      */
     public Optional<Output<Boolean>> validateDefaultParameters() {
@@ -872,8 +872,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.oauthEndpoint = $.oauthEndpoint;
         this.oauthRedirectUrl = $.oauthRedirectUrl;
         this.oauthRefreshToken = $.oauthRefreshToken;
+        this.ocspFailOpen = $.ocspFailOpen;
         this.oktaUrl = $.oktaUrl;
-        this.oscpFailOpen = $.oscpFailOpen;
         this.params = $.params;
         this.passcode = $.passcode;
         this.passcodeInPassword = $.passcodeInPassword;
@@ -1477,6 +1477,29 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param ocspFailOpen True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
+         * sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ocspFailOpen(@Nullable Output<Boolean> ocspFailOpen) {
+            $.ocspFailOpen = ocspFailOpen;
+            return this;
+        }
+
+        /**
+         * @param ocspFailOpen True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
+         * sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ocspFailOpen(Boolean ocspFailOpen) {
+            return ocspFailOpen(Output.of(ocspFailOpen));
+        }
+
+        /**
          * @param oktaUrl The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
          * variable.
          * 
@@ -1497,29 +1520,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder oktaUrl(String oktaUrl) {
             return oktaUrl(Output.of(oktaUrl));
-        }
-
-        /**
-         * @param oscpFailOpen True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-         * sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder oscpFailOpen(@Nullable Output<Boolean> oscpFailOpen) {
-            $.oscpFailOpen = oscpFailOpen;
-            return this;
-        }
-
-        /**
-         * @param oscpFailOpen True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-         * sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder oscpFailOpen(Boolean oscpFailOpen) {
-            return oscpFailOpen(Output.of(oscpFailOpen));
         }
 
         /**
@@ -1955,8 +1955,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validateDefaultParameters If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
-         * established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+         * @param validateDefaultParameters True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
+         * connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
          * 
          * @return builder
          * 
@@ -1967,8 +1967,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validateDefaultParameters If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
-         * established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+         * @param validateDefaultParameters True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
+         * connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
          * 
          * @return builder
          * 

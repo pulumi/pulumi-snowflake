@@ -193,20 +193,20 @@ public final class Config {
         return Codegen.stringProp("oauthRefreshToken").config(config).env("SNOWFLAKE_OAUTH_REFRESH_TOKEN").get();
     }
 /**
+ * True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
+ * sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+ * 
+ */
+    public Optional<Boolean> ocspFailOpen() {
+        return Codegen.booleanProp("ocspFailOpen").config(config).get();
+    }
+/**
  * The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
  * variable.
  * 
  */
     public Optional<String> oktaUrl() {
         return Codegen.stringProp("oktaUrl").config(config).get();
-    }
-/**
- * True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
- * sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
- * 
- */
-    public Optional<Boolean> oscpFailOpen() {
-        return Codegen.booleanProp("oscpFailOpen").config(config).get();
     }
 /**
  * Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
@@ -348,8 +348,8 @@ public final class Config {
         return Codegen.stringProp("username").config(config).env("SNOWFLAKE_USER").get();
     }
 /**
- * If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
- * established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+ * True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
+ * connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
  * 
  */
     public Optional<Boolean> validateDefaultParameters() {

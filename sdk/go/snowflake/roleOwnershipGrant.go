@@ -12,6 +12,60 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			role, err := snowflake.NewRole(ctx, "role", &snowflake.RoleArgs{
+//				Comment: pulumi.String("for testing"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			otherRole, err := snowflake.NewRole(ctx, "otherRole", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewRoleGrants(ctx, "grants", &snowflake.RoleGrantsArgs{
+//				RoleName: role.Name,
+//				Roles: pulumi.StringArray{
+//					pulumi.String("ACCOUNTADMIN"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewRoleOwnershipGrant(ctx, "grant", &snowflake.RoleOwnershipGrantArgs{
+//				OnRoleName:    role.Name,
+//				ToRoleName:    otherRole.Name,
+//				CurrentGrants: pulumi.String("COPY"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// ```sh
+//
+//	$ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example rolename
+//
+// ```
 type RoleOwnershipGrant struct {
 	pulumi.CustomResourceState
 

@@ -164,7 +164,31 @@ class RoleOwnershipGrant(pulumi.CustomResource):
                  to_role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a RoleOwnershipGrant resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        role = snowflake.Role("role", comment="for testing")
+        other_role = snowflake.Role("otherRole")
+        # ensure the Terraform user inherits ownership privileges for the rking_test_role role
+        # otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges
+        grants = snowflake.RoleGrants("grants",
+            role_name=role.name,
+            roles=["ACCOUNTADMIN"])
+        grant = snowflake.RoleOwnershipGrant("grant",
+            on_role_name=role.name,
+            to_role_name=other_role.name,
+            current_grants="COPY")
+        ```
+
+        ## Import
+
+        ```sh
+         $ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example rolename
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] current_grants: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
@@ -179,7 +203,31 @@ class RoleOwnershipGrant(pulumi.CustomResource):
                  args: RoleOwnershipGrantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RoleOwnershipGrant resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        role = snowflake.Role("role", comment="for testing")
+        other_role = snowflake.Role("otherRole")
+        # ensure the Terraform user inherits ownership privileges for the rking_test_role role
+        # otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges
+        grants = snowflake.RoleGrants("grants",
+            role_name=role.name,
+            roles=["ACCOUNTADMIN"])
+        grant = snowflake.RoleOwnershipGrant("grant",
+            on_role_name=role.name,
+            to_role_name=other_role.name,
+            current_grants="COPY")
+        ```
+
+        ## Import
+
+        ```sh
+         $ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example rolename
+        ```
+
         :param str resource_name: The name of the resource.
         :param RoleOwnershipGrantArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

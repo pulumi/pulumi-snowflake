@@ -115,6 +115,8 @@ type Task struct {
 	SessionParameters pulumi.StringMapOutput `pulumi:"sessionParameters"`
 	// Any single SQL statement, or a call to a stored procedure, executed when the task runs.
 	SqlStatement pulumi.StringOutput `pulumi:"sqlStatement"`
+	// Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension).
+	SuspendTaskAfterNumFailures pulumi.IntPtrOutput `pulumi:"suspendTaskAfterNumFailures"`
 	// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
 	UserTaskManagedInitialWarehouseSize pulumi.StringPtrOutput `pulumi:"userTaskManagedInitialWarehouseSize"`
 	// Specifies the time limit on a single run of the task before it times out (in milliseconds).
@@ -186,6 +188,8 @@ type taskState struct {
 	SessionParameters map[string]string `pulumi:"sessionParameters"`
 	// Any single SQL statement, or a call to a stored procedure, executed when the task runs.
 	SqlStatement *string `pulumi:"sqlStatement"`
+	// Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension).
+	SuspendTaskAfterNumFailures *int `pulumi:"suspendTaskAfterNumFailures"`
 	// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
 	UserTaskManagedInitialWarehouseSize *string `pulumi:"userTaskManagedInitialWarehouseSize"`
 	// Specifies the time limit on a single run of the task before it times out (in milliseconds).
@@ -219,6 +223,8 @@ type TaskState struct {
 	SessionParameters pulumi.StringMapInput
 	// Any single SQL statement, or a call to a stored procedure, executed when the task runs.
 	SqlStatement pulumi.StringPtrInput
+	// Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension).
+	SuspendTaskAfterNumFailures pulumi.IntPtrInput
 	// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
 	UserTaskManagedInitialWarehouseSize pulumi.StringPtrInput
 	// Specifies the time limit on a single run of the task before it times out (in milliseconds).
@@ -256,6 +262,8 @@ type taskArgs struct {
 	SessionParameters map[string]string `pulumi:"sessionParameters"`
 	// Any single SQL statement, or a call to a stored procedure, executed when the task runs.
 	SqlStatement string `pulumi:"sqlStatement"`
+	// Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension).
+	SuspendTaskAfterNumFailures *int `pulumi:"suspendTaskAfterNumFailures"`
 	// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
 	UserTaskManagedInitialWarehouseSize *string `pulumi:"userTaskManagedInitialWarehouseSize"`
 	// Specifies the time limit on a single run of the task before it times out (in milliseconds).
@@ -290,6 +298,8 @@ type TaskArgs struct {
 	SessionParameters pulumi.StringMapInput
 	// Any single SQL statement, or a call to a stored procedure, executed when the task runs.
 	SqlStatement pulumi.StringInput
+	// Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension).
+	SuspendTaskAfterNumFailures pulumi.IntPtrInput
 	// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
 	UserTaskManagedInitialWarehouseSize pulumi.StringPtrInput
 	// Specifies the time limit on a single run of the task before it times out (in milliseconds).
@@ -440,6 +450,11 @@ func (o TaskOutput) SessionParameters() pulumi.StringMapOutput {
 // Any single SQL statement, or a call to a stored procedure, executed when the task runs.
 func (o TaskOutput) SqlStatement() pulumi.StringOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.SqlStatement }).(pulumi.StringOutput)
+}
+
+// Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension).
+func (o TaskOutput) SuspendTaskAfterNumFailures() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Task) pulumi.IntPtrOutput { return v.SuspendTaskAfterNumFailures }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)

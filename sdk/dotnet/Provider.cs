@@ -453,18 +453,18 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
+        /// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
+        /// sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+        /// </summary>
+        [Input("ocspFailOpen", json: true)]
+        public Input<bool>? OcspFailOpen { get; set; }
+
+        /// <summary>
         /// The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
         /// variable.
         /// </summary>
         [Input("oktaUrl")]
         public Input<string>? OktaUrl { get; set; }
-
-        /// <summary>
-        /// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-        /// sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
-        /// </summary>
-        [Input("oscpFailOpen", json: true)]
-        public Input<bool>? OscpFailOpen { get; set; }
 
         [Input("params", json: true)]
         private InputMap<object>? _params;
@@ -653,8 +653,8 @@ namespace Pulumi.Snowflake
         public Input<string>? Username { get; set; }
 
         /// <summary>
-        /// If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
-        /// established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+        /// True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
+        /// connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
         /// </summary>
         [Input("validateDefaultParameters", json: true)]
         public Input<bool>? ValidateDefaultParameters { get; set; }

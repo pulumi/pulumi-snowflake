@@ -248,6 +248,20 @@ public class Task extends com.pulumi.resources.CustomResource {
         return this.sqlStatement;
     }
     /**
+     * Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension).
+     * 
+     */
+    @Export(name="suspendTaskAfterNumFailures", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> suspendTaskAfterNumFailures;
+
+    /**
+     * @return Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension).
+     * 
+     */
+    public Output<Optional<Integer>> suspendTaskAfterNumFailures() {
+        return Codegen.optional(this.suspendTaskAfterNumFailures);
+    }
+    /**
      * Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
      * 
      */

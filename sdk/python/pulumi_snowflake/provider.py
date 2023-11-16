@@ -37,8 +37,8 @@ class ProviderArgs:
                  oauth_endpoint: Optional[pulumi.Input[str]] = None,
                  oauth_redirect_url: Optional[pulumi.Input[str]] = None,
                  oauth_refresh_token: Optional[pulumi.Input[str]] = None,
+                 ocsp_fail_open: Optional[pulumi.Input[bool]] = None,
                  okta_url: Optional[pulumi.Input[str]] = None,
-                 oscp_fail_open: Optional[pulumi.Input[bool]] = None,
                  params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  passcode: Optional[pulumi.Input[str]] = None,
                  passcode_in_password: Optional[pulumi.Input[bool]] = None,
@@ -105,10 +105,10 @@ class ProviderArgs:
                `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
                `private_key_path`, `oauth_access_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN`
                environment variable.
+        :param pulumi.Input[bool] ocsp_fail_open: True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
+               sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
         :param pulumi.Input[str] okta_url: The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
                variable.
-        :param pulumi.Input[bool] oscp_fail_open: True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-               sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
         :param pulumi.Input[Mapping[str, Any]] params: Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
         :param pulumi.Input[str] passcode: Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
                the `SNOWFLAKE_PASSCODE` environment variable.
@@ -143,8 +143,8 @@ class ProviderArgs:
         :param pulumi.Input[str] user: Username. Can also be sourced from the `SNOWFLAKE_USER` environment variable. Required unless using `profile`.
         :param pulumi.Input[str] username: Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
                Required unless using `profile`.
-        :param pulumi.Input[bool] validate_default_parameters: If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
-               established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+        :param pulumi.Input[bool] validate_default_parameters: True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
+               connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
         :param pulumi.Input[str] warehouse: Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced
                from the `SNOWFLAKE_WAREHOUSE` environment variable.
         """
@@ -231,10 +231,10 @@ class ProviderArgs:
             oauth_refresh_token = _utilities.get_env('SNOWFLAKE_OAUTH_REFRESH_TOKEN')
         if oauth_refresh_token is not None:
             pulumi.set(__self__, "oauth_refresh_token", oauth_refresh_token)
+        if ocsp_fail_open is not None:
+            pulumi.set(__self__, "ocsp_fail_open", ocsp_fail_open)
         if okta_url is not None:
             pulumi.set(__self__, "okta_url", okta_url)
-        if oscp_fail_open is not None:
-            pulumi.set(__self__, "oscp_fail_open", oscp_fail_open)
         if params is not None:
             pulumi.set(__self__, "params", params)
         if passcode is not None:
@@ -614,6 +614,19 @@ class ProviderArgs:
         pulumi.set(self, "oauth_refresh_token", value)
 
     @property
+    @pulumi.getter(name="ocspFailOpen")
+    def ocsp_fail_open(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
+        sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+        """
+        return pulumi.get(self, "ocsp_fail_open")
+
+    @ocsp_fail_open.setter
+    def ocsp_fail_open(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ocsp_fail_open", value)
+
+    @property
     @pulumi.getter(name="oktaUrl")
     def okta_url(self) -> Optional[pulumi.Input[str]]:
         """
@@ -625,19 +638,6 @@ class ProviderArgs:
     @okta_url.setter
     def okta_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "okta_url", value)
-
-    @property
-    @pulumi.getter(name="oscpFailOpen")
-    def oscp_fail_open(self) -> Optional[pulumi.Input[bool]]:
-        """
-        True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-        sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
-        """
-        return pulumi.get(self, "oscp_fail_open")
-
-    @oscp_fail_open.setter
-    def oscp_fail_open(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "oscp_fail_open", value)
 
     @property
     @pulumi.getter
@@ -885,8 +885,8 @@ class ProviderArgs:
     @pulumi.getter(name="validateDefaultParameters")
     def validate_default_parameters(self) -> Optional[pulumi.Input[bool]]:
         """
-        If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
-        established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+        True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
+        connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
         """
         return pulumi.get(self, "validate_default_parameters")
 
@@ -935,8 +935,8 @@ class Provider(pulumi.ProviderResource):
                  oauth_endpoint: Optional[pulumi.Input[str]] = None,
                  oauth_redirect_url: Optional[pulumi.Input[str]] = None,
                  oauth_refresh_token: Optional[pulumi.Input[str]] = None,
+                 ocsp_fail_open: Optional[pulumi.Input[bool]] = None,
                  okta_url: Optional[pulumi.Input[str]] = None,
-                 oscp_fail_open: Optional[pulumi.Input[bool]] = None,
                  params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  passcode: Optional[pulumi.Input[str]] = None,
                  passcode_in_password: Optional[pulumi.Input[bool]] = None,
@@ -1010,10 +1010,10 @@ class Provider(pulumi.ProviderResource):
                `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
                `private_key_path`, `oauth_access_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN`
                environment variable.
+        :param pulumi.Input[bool] ocsp_fail_open: True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
+               sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
         :param pulumi.Input[str] okta_url: The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
                variable.
-        :param pulumi.Input[bool] oscp_fail_open: True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-               sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
         :param pulumi.Input[Mapping[str, Any]] params: Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
         :param pulumi.Input[str] passcode: Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
                the `SNOWFLAKE_PASSCODE` environment variable.
@@ -1048,8 +1048,8 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] user: Username. Can also be sourced from the `SNOWFLAKE_USER` environment variable. Required unless using `profile`.
         :param pulumi.Input[str] username: Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
                Required unless using `profile`.
-        :param pulumi.Input[bool] validate_default_parameters: If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
-               established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+        :param pulumi.Input[bool] validate_default_parameters: True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
+               connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
         :param pulumi.Input[str] warehouse: Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced
                from the `SNOWFLAKE_WAREHOUSE` environment variable.
         """
@@ -1102,8 +1102,8 @@ class Provider(pulumi.ProviderResource):
                  oauth_endpoint: Optional[pulumi.Input[str]] = None,
                  oauth_redirect_url: Optional[pulumi.Input[str]] = None,
                  oauth_refresh_token: Optional[pulumi.Input[str]] = None,
+                 ocsp_fail_open: Optional[pulumi.Input[bool]] = None,
                  okta_url: Optional[pulumi.Input[str]] = None,
-                 oscp_fail_open: Optional[pulumi.Input[bool]] = None,
                  params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  passcode: Optional[pulumi.Input[str]] = None,
                  passcode_in_password: Optional[pulumi.Input[bool]] = None,
@@ -1173,8 +1173,8 @@ class Provider(pulumi.ProviderResource):
             if oauth_refresh_token is None:
                 oauth_refresh_token = _utilities.get_env('SNOWFLAKE_OAUTH_REFRESH_TOKEN')
             __props__.__dict__["oauth_refresh_token"] = None if oauth_refresh_token is None else pulumi.Output.secret(oauth_refresh_token)
+            __props__.__dict__["ocsp_fail_open"] = pulumi.Output.from_input(ocsp_fail_open).apply(pulumi.runtime.to_json) if ocsp_fail_open is not None else None
             __props__.__dict__["okta_url"] = okta_url
-            __props__.__dict__["oscp_fail_open"] = pulumi.Output.from_input(oscp_fail_open).apply(pulumi.runtime.to_json) if oscp_fail_open is not None else None
             __props__.__dict__["params"] = pulumi.Output.from_input(params).apply(pulumi.runtime.to_json) if params is not None else None
             __props__.__dict__["passcode"] = passcode
             __props__.__dict__["passcode_in_password"] = pulumi.Output.from_input(passcode_in_password).apply(pulumi.runtime.to_json) if passcode_in_password is not None else None

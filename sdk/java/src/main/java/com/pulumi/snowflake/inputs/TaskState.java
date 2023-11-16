@@ -185,6 +185,21 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension).
+     * 
+     */
+    @Import(name="suspendTaskAfterNumFailures")
+    private @Nullable Output<Integer> suspendTaskAfterNumFailures;
+
+    /**
+     * @return Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension).
+     * 
+     */
+    public Optional<Output<Integer>> suspendTaskAfterNumFailures() {
+        return Optional.ofNullable(this.suspendTaskAfterNumFailures);
+    }
+
+    /**
      * Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
      * 
      */
@@ -258,6 +273,7 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
         this.schema = $.schema;
         this.sessionParameters = $.sessionParameters;
         this.sqlStatement = $.sqlStatement;
+        this.suspendTaskAfterNumFailures = $.suspendTaskAfterNumFailures;
         this.userTaskManagedInitialWarehouseSize = $.userTaskManagedInitialWarehouseSize;
         this.userTaskTimeoutMs = $.userTaskTimeoutMs;
         this.warehouse = $.warehouse;
@@ -521,6 +537,27 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder sqlStatement(String sqlStatement) {
             return sqlStatement(Output.of(sqlStatement));
+        }
+
+        /**
+         * @param suspendTaskAfterNumFailures Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder suspendTaskAfterNumFailures(@Nullable Output<Integer> suspendTaskAfterNumFailures) {
+            $.suspendTaskAfterNumFailures = suspendTaskAfterNumFailures;
+            return this;
+        }
+
+        /**
+         * @param suspendTaskAfterNumFailures Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder suspendTaskAfterNumFailures(Integer suspendTaskAfterNumFailures) {
+            return suspendTaskAfterNumFailures(Output.of(suspendTaskAfterNumFailures));
         }
 
         /**
