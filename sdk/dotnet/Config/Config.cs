@@ -274,6 +274,17 @@ namespace Pulumi.Snowflake
             set => _oauthRefreshToken.Set(value);
         }
 
+        private static readonly __Value<bool?> _ocspFailOpen = new __Value<bool?>(() => __config.GetBoolean("ocspFailOpen"));
+        /// <summary>
+        /// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
+        /// sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+        /// </summary>
+        public static bool? OcspFailOpen
+        {
+            get => _ocspFailOpen.Get();
+            set => _ocspFailOpen.Set(value);
+        }
+
         private static readonly __Value<string?> _oktaUrl = new __Value<string?>(() => __config.Get("oktaUrl"));
         /// <summary>
         /// The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
@@ -283,17 +294,6 @@ namespace Pulumi.Snowflake
         {
             get => _oktaUrl.Get();
             set => _oktaUrl.Set(value);
-        }
-
-        private static readonly __Value<bool?> _oscpFailOpen = new __Value<bool?>(() => __config.GetBoolean("oscpFailOpen"));
-        /// <summary>
-        /// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-        /// sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
-        /// </summary>
-        public static bool? OscpFailOpen
-        {
-            get => _oscpFailOpen.Get();
-            set => _oscpFailOpen.Set(value);
         }
 
         private static readonly __Value<ImmutableDictionary<string, object>?> _params = new __Value<ImmutableDictionary<string, object>?>(() => __config.GetObject<ImmutableDictionary<string, object>>("params"));
@@ -492,8 +492,8 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<bool?> _validateDefaultParameters = new __Value<bool?>(() => __config.GetBoolean("validateDefaultParameters"));
         /// <summary>
-        /// If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
-        /// established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+        /// True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
+        /// connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
         /// </summary>
         public static bool? ValidateDefaultParameters
         {

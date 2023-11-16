@@ -203,8 +203,8 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["oauthEndpoint"] = (args?.oauthEndpoint ? pulumi.secret(args.oauthEndpoint) : undefined) ?? utilities.getEnv("SNOWFLAKE_OAUTH_ENDPOINT");
             resourceInputs["oauthRedirectUrl"] = (args?.oauthRedirectUrl ? pulumi.secret(args.oauthRedirectUrl) : undefined) ?? utilities.getEnv("SNOWFLAKE_OAUTH_REDIRECT_URL");
             resourceInputs["oauthRefreshToken"] = (args?.oauthRefreshToken ? pulumi.secret(args.oauthRefreshToken) : undefined) ?? utilities.getEnv("SNOWFLAKE_OAUTH_REFRESH_TOKEN");
+            resourceInputs["ocspFailOpen"] = pulumi.output(args ? args.ocspFailOpen : undefined).apply(JSON.stringify);
             resourceInputs["oktaUrl"] = args ? args.oktaUrl : undefined;
-            resourceInputs["oscpFailOpen"] = pulumi.output(args ? args.oscpFailOpen : undefined).apply(JSON.stringify);
             resourceInputs["params"] = pulumi.output(args ? args.params : undefined).apply(JSON.stringify);
             resourceInputs["passcode"] = args ? args.passcode : undefined;
             resourceInputs["passcodeInPassword"] = pulumi.output(args ? args.passcodeInPassword : undefined).apply(JSON.stringify);
@@ -362,15 +362,15 @@ export interface ProviderArgs {
      */
     oauthRefreshToken?: pulumi.Input<string>;
     /**
+     * True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
+     * sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+     */
+    ocspFailOpen?: pulumi.Input<boolean>;
+    /**
      * The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
      * variable.
      */
     oktaUrl?: pulumi.Input<string>;
-    /**
-     * True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-     * sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
-     */
-    oscpFailOpen?: pulumi.Input<boolean>;
     /**
      * Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
      */
@@ -466,8 +466,8 @@ export interface ProviderArgs {
      */
     username?: pulumi.Input<string>;
     /**
-     * If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
-     * established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+     * True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
+     * connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
      */
     validateDefaultParameters?: pulumi.Input<boolean>;
     /**

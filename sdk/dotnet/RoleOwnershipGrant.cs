@@ -9,6 +9,51 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var role = new Snowflake.Role("role", new()
+    ///     {
+    ///         Comment = "for testing",
+    ///     });
+    /// 
+    ///     var otherRole = new Snowflake.Role("otherRole");
+    /// 
+    ///     // ensure the Terraform user inherits ownership privileges for the rking_test_role role
+    ///     // otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges
+    ///     var grants = new Snowflake.RoleGrants("grants", new()
+    ///     {
+    ///         RoleName = role.Name,
+    ///         Roles = new[]
+    ///         {
+    ///             "ACCOUNTADMIN",
+    ///         },
+    ///     });
+    /// 
+    ///     var grant = new Snowflake.RoleOwnershipGrant("grant", new()
+    ///     {
+    ///         OnRoleName = role.Name,
+    ///         ToRoleName = otherRole.Name,
+    ///         CurrentGrants = "COPY",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    ///  $ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example rolename
+    /// ```
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/roleOwnershipGrant:RoleOwnershipGrant")]
     public partial class RoleOwnershipGrant : global::Pulumi.CustomResource
     {

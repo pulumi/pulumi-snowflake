@@ -348,12 +348,12 @@ type providerArgs struct {
 	//
 	// Deprecated: Use `token_accessor.0.refresh_token` instead
 	OauthRefreshToken *string `pulumi:"oauthRefreshToken"`
+	// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
+	// sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+	OcspFailOpen *bool `pulumi:"ocspFailOpen"`
 	// The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
 	// variable.
 	OktaUrl *string `pulumi:"oktaUrl"`
-	// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-	// sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
-	OscpFailOpen *bool `pulumi:"oscpFailOpen"`
 	// Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
 	Params map[string]interface{} `pulumi:"params"`
 	// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
@@ -414,8 +414,8 @@ type providerArgs struct {
 	//
 	// Deprecated: Use `user` instead of `username`
 	Username *string `pulumi:"username"`
-	// If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
-	// established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+	// True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
+	// connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
 	ValidateDefaultParameters *bool `pulumi:"validateDefaultParameters"`
 	// Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced
 	// from the `SNOWFLAKE_WAREHOUSE` environment variable.
@@ -504,12 +504,12 @@ type ProviderArgs struct {
 	//
 	// Deprecated: Use `token_accessor.0.refresh_token` instead
 	OauthRefreshToken pulumi.StringPtrInput
+	// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
+	// sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+	OcspFailOpen pulumi.BoolPtrInput
 	// The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
 	// variable.
 	OktaUrl pulumi.StringPtrInput
-	// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-	// sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
-	OscpFailOpen pulumi.BoolPtrInput
 	// Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
 	Params pulumi.MapInput
 	// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
@@ -570,8 +570,8 @@ type ProviderArgs struct {
 	//
 	// Deprecated: Use `user` instead of `username`
 	Username pulumi.StringPtrInput
-	// If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
-	// established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+	// True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
+	// connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
 	ValidateDefaultParameters pulumi.BoolPtrInput
 	// Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced
 	// from the `SNOWFLAKE_WAREHOUSE` environment variable.

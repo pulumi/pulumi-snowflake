@@ -229,16 +229,16 @@ func GetOauthRefreshToken(ctx *pulumi.Context) string {
 	return value
 }
 
+// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
+// sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+func GetOcspFailOpen(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "snowflake:ocspFailOpen")
+}
+
 // The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
 // variable.
 func GetOktaUrl(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:oktaUrl")
-}
-
-// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-// sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
-func GetOscpFailOpen(ctx *pulumi.Context) bool {
-	return config.GetBool(ctx, "snowflake:oscpFailOpen")
 }
 
 // Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
@@ -418,8 +418,8 @@ func GetUsername(ctx *pulumi.Context) string {
 	return value
 }
 
-// If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
-// established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+// True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
+// connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
 func GetValidateDefaultParameters(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "snowflake:validateDefaultParameters")
 }

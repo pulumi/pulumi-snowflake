@@ -14,6 +14,61 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.Role;
+ * import com.pulumi.snowflake.RoleArgs;
+ * import com.pulumi.snowflake.RoleGrants;
+ * import com.pulumi.snowflake.RoleGrantsArgs;
+ * import com.pulumi.snowflake.RoleOwnershipGrant;
+ * import com.pulumi.snowflake.RoleOwnershipGrantArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
+ *             .comment(&#34;for testing&#34;)
+ *             .build());
+ * 
+ *         var otherRole = new Role(&#34;otherRole&#34;);
+ * 
+ *         var grants = new RoleGrants(&#34;grants&#34;, RoleGrantsArgs.builder()        
+ *             .roleName(role.name())
+ *             .roles(&#34;ACCOUNTADMIN&#34;)
+ *             .build());
+ * 
+ *         var grant = new RoleOwnershipGrant(&#34;grant&#34;, RoleOwnershipGrantArgs.builder()        
+ *             .onRoleName(role.name())
+ *             .toRoleName(otherRole.name())
+ *             .currentGrants(&#34;COPY&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * ```sh
+ *  $ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example rolename
+ * ```
+ * 
+ */
 @ResourceType(type="snowflake:index/roleOwnershipGrant:RoleOwnershipGrant")
 public class RoleOwnershipGrant extends com.pulumi.resources.CustomResource {
     /**

@@ -193,20 +193,20 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('oauthRefreshToken') or _utilities.get_env('SNOWFLAKE_OAUTH_REFRESH_TOKEN')
 
     @property
+    def ocsp_fail_open(self) -> Optional[bool]:
+        """
+        True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
+        sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+        """
+        return __config__.get_bool('ocspFailOpen')
+
+    @property
     def okta_url(self) -> Optional[str]:
         """
         The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
         variable.
         """
         return __config__.get('oktaUrl')
-
-    @property
-    def oscp_fail_open(self) -> Optional[bool]:
-        """
-        True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-        sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
-        """
-        return __config__.get_bool('oscpFailOpen')
 
     @property
     def params(self) -> Optional[str]:
@@ -351,8 +351,8 @@ class _ExportableConfig(types.ModuleType):
     @property
     def validate_default_parameters(self) -> Optional[bool]:
         """
-        If true, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is
-        established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+        True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
+        connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
         """
         return __config__.get_bool('validateDefaultParameters')
 

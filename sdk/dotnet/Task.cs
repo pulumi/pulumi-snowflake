@@ -150,6 +150,12 @@ namespace Pulumi.Snowflake
         public Output<string> SqlStatement { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension).
+        /// </summary>
+        [Output("suspendTaskAfterNumFailures")]
+        public Output<int?> SuspendTaskAfterNumFailures { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
         /// </summary>
         [Output("userTaskManagedInitialWarehouseSize")]
@@ -298,6 +304,12 @@ namespace Pulumi.Snowflake
         public Input<string> SqlStatement { get; set; } = null!;
 
         /// <summary>
+        /// Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension).
+        /// </summary>
+        [Input("suspendTaskAfterNumFailures")]
+        public Input<int>? SuspendTaskAfterNumFailures { get; set; }
+
+        /// <summary>
         /// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)
         /// </summary>
         [Input("userTaskManagedInitialWarehouseSize")]
@@ -406,6 +418,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("sqlStatement")]
         public Input<string>? SqlStatement { get; set; }
+
+        /// <summary>
+        /// Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension).
+        /// </summary>
+        [Input("suspendTaskAfterNumFailures")]
+        public Input<int>? SuspendTaskAfterNumFailures { get; set; }
 
         /// <summary>
         /// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. (Conflicts with warehouse)

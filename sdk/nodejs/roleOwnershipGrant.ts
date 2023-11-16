@@ -4,6 +4,34 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const role = new snowflake.Role("role", {comment: "for testing"});
+ * const otherRole = new snowflake.Role("otherRole", {});
+ * // ensure the Terraform user inherits ownership privileges for the rking_test_role role
+ * // otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges
+ * const grants = new snowflake.RoleGrants("grants", {
+ *     roleName: role.name,
+ *     roles: ["ACCOUNTADMIN"],
+ * });
+ * const grant = new snowflake.RoleOwnershipGrant("grant", {
+ *     onRoleName: role.name,
+ *     toRoleName: otherRole.name,
+ *     currentGrants: "COPY",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * ```sh
+ *  $ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example rolename
+ * ```
+ */
 export class RoleOwnershipGrant extends pulumi.CustomResource {
     /**
      * Get an existing RoleOwnershipGrant resource's state with the given name, ID, and optional extra
