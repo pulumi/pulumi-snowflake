@@ -51,7 +51,7 @@ namespace Pulumi.Snowflake
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example rolename
+    ///  $ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example "&lt;on_role_name&gt;|&lt;to_role_name&gt;|&lt;current_grants&gt;"
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/roleOwnershipGrant:RoleOwnershipGrant")]

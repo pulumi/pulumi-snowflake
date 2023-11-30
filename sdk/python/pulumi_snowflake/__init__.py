@@ -112,6 +112,7 @@ from .tag_grant import *
 from .tag_masking_policy_association import *
 from .task import *
 from .task_grant import *
+from .unsafe_execute import *
 from .user import *
 from .user_grant import *
 from .user_ownership_grant import *
@@ -675,6 +676,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/taskGrant:TaskGrant": "TaskGrant"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/unsafeExecute",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/unsafeExecute:UnsafeExecute": "UnsafeExecute"
   }
  },
  {

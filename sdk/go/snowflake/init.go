@@ -157,6 +157,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Task{}
 	case "snowflake:index/taskGrant:TaskGrant":
 		r = &TaskGrant{}
+	case "snowflake:index/unsafeExecute:UnsafeExecute":
+		r = &UnsafeExecute{}
 	case "snowflake:index/user:User":
 		r = &User{}
 	case "snowflake:index/userGrant:UserGrant":
@@ -542,6 +544,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/taskGrant",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/unsafeExecute",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
