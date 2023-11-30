@@ -658,6 +658,14 @@
                     }
                 }
             },
+            "snowflake_unsafe_execute": {
+                "current": "snowflake:index/unsafeExecute:UnsafeExecute",
+                "fields": {
+                    "query_results": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "snowflake_user": {
                 "current": "snowflake:index/user:User",
                 "fields": {
@@ -1150,6 +1158,7 @@
             "snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation": "snowflake_tag_masking_policy_association",
             "snowflake:index/task:Task": "snowflake_task",
             "snowflake:index/taskGrant:TaskGrant": "snowflake_task_grant",
+            "snowflake:index/unsafeExecute:UnsafeExecute": "snowflake_unsafe_execute",
             "snowflake:index/user:User": "snowflake_user",
             "snowflake:index/userGrant:UserGrant": "snowflake_user_grant",
             "snowflake:index/userOwnershipGrant:UserOwnershipGrant": "snowflake_user_ownership_grant",
@@ -2006,6 +2015,9 @@
                 "schemaName": "schema_name",
                 "taskName": "task_name",
                 "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/unsafeExecute:UnsafeExecute": {
+                "queryResults": "query_results"
             },
             "snowflake:index/user:User": {
                 "defaultNamespace": "default_namespace",
