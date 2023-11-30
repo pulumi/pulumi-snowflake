@@ -540,6 +540,11 @@ export type TaskGrant = import("./taskGrant").TaskGrant;
 export const TaskGrant: typeof import("./taskGrant").TaskGrant = null as any;
 utilities.lazyLoad(exports, ["TaskGrant"], () => require("./taskGrant"));
 
+export { UnsafeExecuteArgs, UnsafeExecuteState } from "./unsafeExecute";
+export type UnsafeExecute = import("./unsafeExecute").UnsafeExecute;
+export const UnsafeExecute: typeof import("./unsafeExecute").UnsafeExecute = null as any;
+utilities.lazyLoad(exports, ["UnsafeExecute"], () => require("./unsafeExecute"));
+
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
@@ -730,6 +735,8 @@ const _module = {
                 return new Task(name, <any>undefined, { urn })
             case "snowflake:index/taskGrant:TaskGrant":
                 return new TaskGrant(name, <any>undefined, { urn })
+            case "snowflake:index/unsafeExecute:UnsafeExecute":
+                return new UnsafeExecute(name, <any>undefined, { urn })
             case "snowflake:index/user:User":
                 return new User(name, <any>undefined, { urn })
             case "snowflake:index/userGrant:UserGrant":
@@ -819,6 +826,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/tagGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tagMaskingPolicyAssociation", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/task", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/taskGrant", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/unsafeExecute", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/user", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/userGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/userOwnershipGrant", _module)

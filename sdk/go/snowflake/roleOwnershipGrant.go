@@ -63,7 +63,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example rolename
+//	$ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example "<on_role_name>|<to_role_name>|<current_grants>"
 //
 // ```
 type RoleOwnershipGrant struct {

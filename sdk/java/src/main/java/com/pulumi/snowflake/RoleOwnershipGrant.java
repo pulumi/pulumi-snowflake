@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- *  $ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example rolename
+ *  $ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example &#34;&lt;on_role_name&gt;|&lt;to_role_name&gt;|&lt;current_grants&gt;&#34;
  * ```
  * 
  */

@@ -9893,7 +9893,7 @@
             }
         },
         "snowflake:index/roleOwnershipGrant:RoleOwnershipGrant": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst role = new snowflake.Role(\"role\", {comment: \"for testing\"});\nconst otherRole = new snowflake.Role(\"otherRole\", {});\n// ensure the Terraform user inherits ownership privileges for the rking_test_role role\n// otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges\nconst grants = new snowflake.RoleGrants(\"grants\", {\n    roleName: role.name,\n    roles: [\"ACCOUNTADMIN\"],\n});\nconst grant = new snowflake.RoleOwnershipGrant(\"grant\", {\n    onRoleName: role.name,\n    toRoleName: otherRole.name,\n    currentGrants: \"COPY\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nrole = snowflake.Role(\"role\", comment=\"for testing\")\nother_role = snowflake.Role(\"otherRole\")\n# ensure the Terraform user inherits ownership privileges for the rking_test_role role\n# otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges\ngrants = snowflake.RoleGrants(\"grants\",\n    role_name=role.name,\n    roles=[\"ACCOUNTADMIN\"])\ngrant = snowflake.RoleOwnershipGrant(\"grant\",\n    on_role_name=role.name,\n    to_role_name=other_role.name,\n    current_grants=\"COPY\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var role = new Snowflake.Role(\"role\", new()\n    {\n        Comment = \"for testing\",\n    });\n\n    var otherRole = new Snowflake.Role(\"otherRole\");\n\n    // ensure the Terraform user inherits ownership privileges for the rking_test_role role\n    // otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges\n    var grants = new Snowflake.RoleGrants(\"grants\", new()\n    {\n        RoleName = role.Name,\n        Roles = new[]\n        {\n            \"ACCOUNTADMIN\",\n        },\n    });\n\n    var grant = new Snowflake.RoleOwnershipGrant(\"grant\", new()\n    {\n        OnRoleName = role.Name,\n        ToRoleName = otherRole.Name,\n        CurrentGrants = \"COPY\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\trole, err := snowflake.NewRole(ctx, \"role\", \u0026snowflake.RoleArgs{\n\t\t\tComment: pulumi.String(\"for testing\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\totherRole, err := snowflake.NewRole(ctx, \"otherRole\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewRoleGrants(ctx, \"grants\", \u0026snowflake.RoleGrantsArgs{\n\t\t\tRoleName: role.Name,\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"ACCOUNTADMIN\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewRoleOwnershipGrant(ctx, \"grant\", \u0026snowflake.RoleOwnershipGrantArgs{\n\t\t\tOnRoleName:    role.Name,\n\t\t\tToRoleName:    otherRole.Name,\n\t\t\tCurrentGrants: pulumi.String(\"COPY\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Role;\nimport com.pulumi.snowflake.RoleArgs;\nimport com.pulumi.snowflake.RoleGrants;\nimport com.pulumi.snowflake.RoleGrantsArgs;\nimport com.pulumi.snowflake.RoleOwnershipGrant;\nimport com.pulumi.snowflake.RoleOwnershipGrantArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var role = new Role(\"role\", RoleArgs.builder()        \n            .comment(\"for testing\")\n            .build());\n\n        var otherRole = new Role(\"otherRole\");\n\n        var grants = new RoleGrants(\"grants\", RoleGrantsArgs.builder()        \n            .roleName(role.name())\n            .roles(\"ACCOUNTADMIN\")\n            .build());\n\n        var grant = new RoleOwnershipGrant(\"grant\", RoleOwnershipGrantArgs.builder()        \n            .onRoleName(role.name())\n            .toRoleName(otherRole.name())\n            .currentGrants(\"COPY\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  role:\n    type: snowflake:Role\n    properties:\n      comment: for testing\n  otherRole:\n    type: snowflake:Role\n  # ensure the Terraform user inherits ownership privileges for the rking_test_role role\n  # otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges\n  grants:\n    type: snowflake:RoleGrants\n    properties:\n      roleName: ${role.name}\n      roles:\n        - ACCOUNTADMIN\n  grant:\n    type: snowflake:RoleOwnershipGrant\n    properties:\n      onRoleName: ${role.name}\n      toRoleName: ${otherRole.name}\n      currentGrants: COPY\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example rolename\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst role = new snowflake.Role(\"role\", {comment: \"for testing\"});\nconst otherRole = new snowflake.Role(\"otherRole\", {});\n// ensure the Terraform user inherits ownership privileges for the rking_test_role role\n// otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges\nconst grants = new snowflake.RoleGrants(\"grants\", {\n    roleName: role.name,\n    roles: [\"ACCOUNTADMIN\"],\n});\nconst grant = new snowflake.RoleOwnershipGrant(\"grant\", {\n    onRoleName: role.name,\n    toRoleName: otherRole.name,\n    currentGrants: \"COPY\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nrole = snowflake.Role(\"role\", comment=\"for testing\")\nother_role = snowflake.Role(\"otherRole\")\n# ensure the Terraform user inherits ownership privileges for the rking_test_role role\n# otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges\ngrants = snowflake.RoleGrants(\"grants\",\n    role_name=role.name,\n    roles=[\"ACCOUNTADMIN\"])\ngrant = snowflake.RoleOwnershipGrant(\"grant\",\n    on_role_name=role.name,\n    to_role_name=other_role.name,\n    current_grants=\"COPY\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var role = new Snowflake.Role(\"role\", new()\n    {\n        Comment = \"for testing\",\n    });\n\n    var otherRole = new Snowflake.Role(\"otherRole\");\n\n    // ensure the Terraform user inherits ownership privileges for the rking_test_role role\n    // otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges\n    var grants = new Snowflake.RoleGrants(\"grants\", new()\n    {\n        RoleName = role.Name,\n        Roles = new[]\n        {\n            \"ACCOUNTADMIN\",\n        },\n    });\n\n    var grant = new Snowflake.RoleOwnershipGrant(\"grant\", new()\n    {\n        OnRoleName = role.Name,\n        ToRoleName = otherRole.Name,\n        CurrentGrants = \"COPY\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\trole, err := snowflake.NewRole(ctx, \"role\", \u0026snowflake.RoleArgs{\n\t\t\tComment: pulumi.String(\"for testing\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\totherRole, err := snowflake.NewRole(ctx, \"otherRole\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewRoleGrants(ctx, \"grants\", \u0026snowflake.RoleGrantsArgs{\n\t\t\tRoleName: role.Name,\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"ACCOUNTADMIN\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewRoleOwnershipGrant(ctx, \"grant\", \u0026snowflake.RoleOwnershipGrantArgs{\n\t\t\tOnRoleName:    role.Name,\n\t\t\tToRoleName:    otherRole.Name,\n\t\t\tCurrentGrants: pulumi.String(\"COPY\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Role;\nimport com.pulumi.snowflake.RoleArgs;\nimport com.pulumi.snowflake.RoleGrants;\nimport com.pulumi.snowflake.RoleGrantsArgs;\nimport com.pulumi.snowflake.RoleOwnershipGrant;\nimport com.pulumi.snowflake.RoleOwnershipGrantArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var role = new Role(\"role\", RoleArgs.builder()        \n            .comment(\"for testing\")\n            .build());\n\n        var otherRole = new Role(\"otherRole\");\n\n        var grants = new RoleGrants(\"grants\", RoleGrantsArgs.builder()        \n            .roleName(role.name())\n            .roles(\"ACCOUNTADMIN\")\n            .build());\n\n        var grant = new RoleOwnershipGrant(\"grant\", RoleOwnershipGrantArgs.builder()        \n            .onRoleName(role.name())\n            .toRoleName(otherRole.name())\n            .currentGrants(\"COPY\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  role:\n    type: snowflake:Role\n    properties:\n      comment: for testing\n  otherRole:\n    type: snowflake:Role\n  # ensure the Terraform user inherits ownership privileges for the rking_test_role role\n  # otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges\n  grants:\n    type: snowflake:RoleGrants\n    properties:\n      roleName: ${role.name}\n      roles:\n        - ACCOUNTADMIN\n  grant:\n    type: snowflake:RoleOwnershipGrant\n    properties:\n      onRoleName: ${role.name}\n      toRoleName: ${otherRole.name}\n      currentGrants: COPY\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example \"\u003con_role_name\u003e|\u003cto_role_name\u003e|\u003ccurrent_grants\u003e\"\n```\n\n ",
             "properties": {
                 "currentGrants": {
                     "type": "string",
@@ -13610,6 +13610,86 @@
                         "type": "boolean",
                         "description": "When this is set to true, allows the recipient role to grant the privileges to other roles.\n",
                         "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "snowflake:index/unsafeExecute:UnsafeExecute": {
+            "description": "!\u003e **Warning** This is a dangerous resource that allows executing **ANY** SQL statement. It may destroy resources if used incorrectly. It may behave incorrectly combined with other resources. Will be deleted in the upcoming versions. Use at your own risk.\n\n\u003e **Note** It can be theoretically used to manage resource that are not supported by the provider. This is risky and may brake other resources if used incorrectly.\n\n\u003e **Note** Use `query` parameter with caution. It will fetch **ALL** the results returned by the query provided. Try to limit the number of results by writing query with filters. Query failure does not stop resource creation; it simply results in `query_results` being empty.\n\nExperimental resource used for testing purposes only. Allows to execute ANY SQL statement.\n\n{{% examples %}}\n## Example Usage\n### simple use cases\n##################################\n\n# create and destroy resource\nresource \"snowflake_unsafe_execute\" \"test\" {\n  execute = \"CREATE DATABASE ABC\"\n  revert  = \"DROP DATABASE ABC\"\n}\n\n# create and destroy resource using qualified name\nresource \"snowflake_unsafe_execute\" \"test\" {\n  execute = \"CREATE DATABASE \\\"abc\\\"\"\n  revert  = \"DROP DATABASE \\\"abc\\\"\"\n}\n\n# with query\nresource \"snowflake_unsafe_execute\" \"test\" {\n  execute = \"CREATE DATABASE ABC\"\n  revert  = \"DROP DATABASE ABC\"\n  query   = \"SHOW DATABASES LIKE '%ABC%'\"\n}\n\n##################################\n### grants example\n##################################\n\n# grant and revoke privilege USAGE to ROLE on database\nresource \"snowflake_unsafe_execute\" \"test\" {\n  execute = \"GRANT USAGE ON DATABASE ABC TO ROLE XYZ\"\n  revert  = \"REVOKE USAGE ON DATABASE ABC FROM ROLE XYZ\"\n}\n\n# grant and revoke with for_each\nvariable \"database_grants\" {\n  type = list(object({\n    database_name = string\n    role_id       = string\n    privileges    = list(string)\n  }))\n}\n\nresource \"snowflake_unsafe_execute\" \"test\" {\n  for_each = { for index, db_grant in var.database_grants : index =\u003e db_grant }\n  execute  = \"GRANT ${join(\",\", each.value.privileges)} ON DATABASE ${each.value.database_name} TO ROLE ${each.value.role_id}\"\n  revert   = \"REVOKE ${join(\",\", each.value.privileges)} ON DATABASE ${each.value.database_name} FROM ROLE ${each.value.role_id}\"\n}\n\n##################################\n{{% /examples %}}",
+            "properties": {
+                "execute": {
+                    "type": "string",
+                    "description": "SQL statement to execute. Forces recreation of resource on change.\n"
+                },
+                "query": {
+                    "type": "string",
+                    "description": "Optional SQL statement to do a read. Invoked after creation and every time it is changed.\n"
+                },
+                "queryResults": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "description": "List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.\n"
+                },
+                "revert": {
+                    "type": "string",
+                    "description": "SQL statement to revert the execute statement. Invoked when resource is being destroyed.\n"
+                }
+            },
+            "required": [
+                "execute",
+                "queryResults",
+                "revert"
+            ],
+            "inputProperties": {
+                "execute": {
+                    "type": "string",
+                    "description": "SQL statement to execute. Forces recreation of resource on change.\n",
+                    "willReplaceOnChanges": true
+                },
+                "query": {
+                    "type": "string",
+                    "description": "Optional SQL statement to do a read. Invoked after creation and every time it is changed.\n"
+                },
+                "revert": {
+                    "type": "string",
+                    "description": "SQL statement to revert the execute statement. Invoked when resource is being destroyed.\n"
+                }
+            },
+            "requiredInputs": [
+                "execute",
+                "revert"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering UnsafeExecute resources.\n",
+                "properties": {
+                    "execute": {
+                        "type": "string",
+                        "description": "SQL statement to execute. Forces recreation of resource on change.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "Optional SQL statement to do a read. Invoked after creation and every time it is changed.\n"
+                    },
+                    "queryResults": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        },
+                        "description": "List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.\n"
+                    },
+                    "revert": {
+                        "type": "string",
+                        "description": "SQL statement to revert the execute statement. Invoked when resource is being destroyed.\n"
                     }
                 },
                 "type": "object"
