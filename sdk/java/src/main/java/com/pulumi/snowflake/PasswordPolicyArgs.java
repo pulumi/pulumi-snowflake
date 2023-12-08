@@ -48,6 +48,21 @@ public final class PasswordPolicyArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+     * 
+     */
+    @Import(name="history")
+    private @Nullable Output<Integer> history;
+
+    /**
+     * @return Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+     * 
+     */
+    public Optional<Output<Integer>> history() {
+        return Optional.ofNullable(this.history);
+    }
+
+    /**
      * Prevent overwriting a previous password policy with the same name.
      * 
      */
@@ -120,6 +135,21 @@ public final class PasswordPolicyArgs extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<Integer>> maxRetries() {
         return Optional.ofNullable(this.maxRetries);
+    }
+
+    /**
+     * Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+     * 
+     */
+    @Import(name="minAgeDays")
+    private @Nullable Output<Integer> minAgeDays;
+
+    /**
+     * @return Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+     * 
+     */
+    public Optional<Output<Integer>> minAgeDays() {
+        return Optional.ofNullable(this.minAgeDays);
     }
 
     /**
@@ -247,11 +277,13 @@ public final class PasswordPolicyArgs extends com.pulumi.resources.ResourceArgs 
     private PasswordPolicyArgs(PasswordPolicyArgs $) {
         this.comment = $.comment;
         this.database = $.database;
+        this.history = $.history;
         this.ifNotExists = $.ifNotExists;
         this.lockoutTimeMins = $.lockoutTimeMins;
         this.maxAgeDays = $.maxAgeDays;
         this.maxLength = $.maxLength;
         this.maxRetries = $.maxRetries;
+        this.minAgeDays = $.minAgeDays;
         this.minLength = $.minLength;
         this.minLowerCaseChars = $.minLowerCaseChars;
         this.minNumericChars = $.minNumericChars;
@@ -320,6 +352,27 @@ public final class PasswordPolicyArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder database(String database) {
             return database(Output.of(database));
+        }
+
+        /**
+         * @param history Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+         * 
+         * @return builder
+         * 
+         */
+        public Builder history(@Nullable Output<Integer> history) {
+            $.history = history;
+            return this;
+        }
+
+        /**
+         * @param history Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+         * 
+         * @return builder
+         * 
+         */
+        public Builder history(Integer history) {
+            return history(Output.of(history));
         }
 
         /**
@@ -425,6 +478,27 @@ public final class PasswordPolicyArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder maxRetries(Integer maxRetries) {
             return maxRetries(Output.of(maxRetries));
+        }
+
+        /**
+         * @param minAgeDays Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minAgeDays(@Nullable Output<Integer> minAgeDays) {
+            $.minAgeDays = minAgeDays;
+            return this;
+        }
+
+        /**
+         * @param minAgeDays Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minAgeDays(Integer minAgeDays) {
+            return minAgeDays(Output.of(minAgeDays));
         }
 
         /**

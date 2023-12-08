@@ -28,6 +28,12 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+        /// </summary>
+        [Output("history")]
+        public Output<int?> History { get; private set; } = null!;
+
+        /// <summary>
         /// Prevent overwriting a previous password policy with the same name.
         /// </summary>
         [Output("ifNotExists")]
@@ -56,6 +62,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("maxRetries")]
         public Output<int?> MaxRetries { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+        /// </summary>
+        [Output("minAgeDays")]
+        public Output<int?> MinAgeDays { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
@@ -170,6 +182,12 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
+        /// Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+        /// </summary>
+        [Input("history")]
+        public Input<int>? History { get; set; }
+
+        /// <summary>
         /// Prevent overwriting a previous password policy with the same name.
         /// </summary>
         [Input("ifNotExists")]
@@ -198,6 +216,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("maxRetries")]
         public Input<int>? MaxRetries { get; set; }
+
+        /// <summary>
+        /// Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+        /// </summary>
+        [Input("minAgeDays")]
+        public Input<int>? MinAgeDays { get; set; }
 
         /// <summary>
         /// Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
@@ -268,6 +292,12 @@ namespace Pulumi.Snowflake
         public Input<string>? Database { get; set; }
 
         /// <summary>
+        /// Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+        /// </summary>
+        [Input("history")]
+        public Input<int>? History { get; set; }
+
+        /// <summary>
         /// Prevent overwriting a previous password policy with the same name.
         /// </summary>
         [Input("ifNotExists")]
@@ -296,6 +326,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("maxRetries")]
         public Input<int>? MaxRetries { get; set; }
+
+        /// <summary>
+        /// Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+        /// </summary>
+        [Input("minAgeDays")]
+        public Input<int>? MinAgeDays { get; set; }
 
         /// <summary>
         /// Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
