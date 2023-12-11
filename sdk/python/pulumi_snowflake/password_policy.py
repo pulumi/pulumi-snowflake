@@ -17,11 +17,13 @@ class PasswordPolicyArgs:
                  database: pulumi.Input[str],
                  schema: pulumi.Input[str],
                  comment: Optional[pulumi.Input[str]] = None,
+                 history: Optional[pulumi.Input[int]] = None,
                  if_not_exists: Optional[pulumi.Input[bool]] = None,
                  lockout_time_mins: Optional[pulumi.Input[int]] = None,
                  max_age_days: Optional[pulumi.Input[int]] = None,
                  max_length: Optional[pulumi.Input[int]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
+                 min_age_days: Optional[pulumi.Input[int]] = None,
                  min_length: Optional[pulumi.Input[int]] = None,
                  min_lower_case_chars: Optional[pulumi.Input[int]] = None,
                  min_numeric_chars: Optional[pulumi.Input[int]] = None,
@@ -34,11 +36,13 @@ class PasswordPolicyArgs:
         :param pulumi.Input[str] database: The database this password policy belongs to.
         :param pulumi.Input[str] schema: The schema this password policy belongs to.
         :param pulumi.Input[str] comment: Adds a comment or overwrites an existing comment for the password policy.
+        :param pulumi.Input[int] history: Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
         :param pulumi.Input[bool] if_not_exists: Prevent overwriting a previous password policy with the same name.
         :param pulumi.Input[int] lockout_time_mins: Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
         :param pulumi.Input[int] max_age_days: Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
         :param pulumi.Input[int] max_length: Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
         :param pulumi.Input[int] max_retries: Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
+        :param pulumi.Input[int] min_age_days: Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
         :param pulumi.Input[int] min_length: Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
         :param pulumi.Input[int] min_lower_case_chars: Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
         :param pulumi.Input[int] min_numeric_chars: Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
@@ -51,6 +55,8 @@ class PasswordPolicyArgs:
         pulumi.set(__self__, "schema", schema)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if history is not None:
+            pulumi.set(__self__, "history", history)
         if if_not_exists is not None:
             pulumi.set(__self__, "if_not_exists", if_not_exists)
         if lockout_time_mins is not None:
@@ -61,6 +67,8 @@ class PasswordPolicyArgs:
             pulumi.set(__self__, "max_length", max_length)
         if max_retries is not None:
             pulumi.set(__self__, "max_retries", max_retries)
+        if min_age_days is not None:
+            pulumi.set(__self__, "min_age_days", min_age_days)
         if min_length is not None:
             pulumi.set(__self__, "min_length", min_length)
         if min_lower_case_chars is not None:
@@ -111,6 +119,18 @@ class PasswordPolicyArgs:
     @comment.setter
     def comment(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter
+    def history(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+        """
+        return pulumi.get(self, "history")
+
+    @history.setter
+    def history(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "history", value)
 
     @property
     @pulumi.getter(name="ifNotExists")
@@ -171,6 +191,18 @@ class PasswordPolicyArgs:
     @max_retries.setter
     def max_retries(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_retries", value)
+
+    @property
+    @pulumi.getter(name="minAgeDays")
+    def min_age_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+        """
+        return pulumi.get(self, "min_age_days")
+
+    @min_age_days.setter
+    def min_age_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_age_days", value)
 
     @property
     @pulumi.getter(name="minLength")
@@ -262,11 +294,13 @@ class _PasswordPolicyState:
     def __init__(__self__, *,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 history: Optional[pulumi.Input[int]] = None,
                  if_not_exists: Optional[pulumi.Input[bool]] = None,
                  lockout_time_mins: Optional[pulumi.Input[int]] = None,
                  max_age_days: Optional[pulumi.Input[int]] = None,
                  max_length: Optional[pulumi.Input[int]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
+                 min_age_days: Optional[pulumi.Input[int]] = None,
                  min_length: Optional[pulumi.Input[int]] = None,
                  min_lower_case_chars: Optional[pulumi.Input[int]] = None,
                  min_numeric_chars: Optional[pulumi.Input[int]] = None,
@@ -280,11 +314,13 @@ class _PasswordPolicyState:
         Input properties used for looking up and filtering PasswordPolicy resources.
         :param pulumi.Input[str] comment: Adds a comment or overwrites an existing comment for the password policy.
         :param pulumi.Input[str] database: The database this password policy belongs to.
+        :param pulumi.Input[int] history: Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
         :param pulumi.Input[bool] if_not_exists: Prevent overwriting a previous password policy with the same name.
         :param pulumi.Input[int] lockout_time_mins: Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
         :param pulumi.Input[int] max_age_days: Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
         :param pulumi.Input[int] max_length: Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
         :param pulumi.Input[int] max_retries: Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
+        :param pulumi.Input[int] min_age_days: Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
         :param pulumi.Input[int] min_length: Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
         :param pulumi.Input[int] min_lower_case_chars: Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
         :param pulumi.Input[int] min_numeric_chars: Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
@@ -299,6 +335,8 @@ class _PasswordPolicyState:
             pulumi.set(__self__, "comment", comment)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if history is not None:
+            pulumi.set(__self__, "history", history)
         if if_not_exists is not None:
             pulumi.set(__self__, "if_not_exists", if_not_exists)
         if lockout_time_mins is not None:
@@ -309,6 +347,8 @@ class _PasswordPolicyState:
             pulumi.set(__self__, "max_length", max_length)
         if max_retries is not None:
             pulumi.set(__self__, "max_retries", max_retries)
+        if min_age_days is not None:
+            pulumi.set(__self__, "min_age_days", min_age_days)
         if min_length is not None:
             pulumi.set(__self__, "min_length", min_length)
         if min_lower_case_chars is not None:
@@ -351,6 +391,18 @@ class _PasswordPolicyState:
     @database.setter
     def database(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def history(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+        """
+        return pulumi.get(self, "history")
+
+    @history.setter
+    def history(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "history", value)
 
     @property
     @pulumi.getter(name="ifNotExists")
@@ -411,6 +463,18 @@ class _PasswordPolicyState:
     @max_retries.setter
     def max_retries(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_retries", value)
+
+    @property
+    @pulumi.getter(name="minAgeDays")
+    def min_age_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+        """
+        return pulumi.get(self, "min_age_days")
+
+    @min_age_days.setter
+    def min_age_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_age_days", value)
 
     @property
     @pulumi.getter(name="minLength")
@@ -528,11 +592,13 @@ class PasswordPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 history: Optional[pulumi.Input[int]] = None,
                  if_not_exists: Optional[pulumi.Input[bool]] = None,
                  lockout_time_mins: Optional[pulumi.Input[int]] = None,
                  max_age_days: Optional[pulumi.Input[int]] = None,
                  max_length: Optional[pulumi.Input[int]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
+                 min_age_days: Optional[pulumi.Input[int]] = None,
                  min_length: Optional[pulumi.Input[int]] = None,
                  min_lower_case_chars: Optional[pulumi.Input[int]] = None,
                  min_numeric_chars: Optional[pulumi.Input[int]] = None,
@@ -549,11 +615,13 @@ class PasswordPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Adds a comment or overwrites an existing comment for the password policy.
         :param pulumi.Input[str] database: The database this password policy belongs to.
+        :param pulumi.Input[int] history: Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
         :param pulumi.Input[bool] if_not_exists: Prevent overwriting a previous password policy with the same name.
         :param pulumi.Input[int] lockout_time_mins: Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
         :param pulumi.Input[int] max_age_days: Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
         :param pulumi.Input[int] max_length: Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
         :param pulumi.Input[int] max_retries: Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
+        :param pulumi.Input[int] min_age_days: Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
         :param pulumi.Input[int] min_length: Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
         :param pulumi.Input[int] min_lower_case_chars: Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
         :param pulumi.Input[int] min_numeric_chars: Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
@@ -589,11 +657,13 @@ class PasswordPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 history: Optional[pulumi.Input[int]] = None,
                  if_not_exists: Optional[pulumi.Input[bool]] = None,
                  lockout_time_mins: Optional[pulumi.Input[int]] = None,
                  max_age_days: Optional[pulumi.Input[int]] = None,
                  max_length: Optional[pulumi.Input[int]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
+                 min_age_days: Optional[pulumi.Input[int]] = None,
                  min_length: Optional[pulumi.Input[int]] = None,
                  min_lower_case_chars: Optional[pulumi.Input[int]] = None,
                  min_numeric_chars: Optional[pulumi.Input[int]] = None,
@@ -615,11 +685,13 @@ class PasswordPolicy(pulumi.CustomResource):
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
+            __props__.__dict__["history"] = history
             __props__.__dict__["if_not_exists"] = if_not_exists
             __props__.__dict__["lockout_time_mins"] = lockout_time_mins
             __props__.__dict__["max_age_days"] = max_age_days
             __props__.__dict__["max_length"] = max_length
             __props__.__dict__["max_retries"] = max_retries
+            __props__.__dict__["min_age_days"] = min_age_days
             __props__.__dict__["min_length"] = min_length
             __props__.__dict__["min_lower_case_chars"] = min_lower_case_chars
             __props__.__dict__["min_numeric_chars"] = min_numeric_chars
@@ -643,11 +715,13 @@ class PasswordPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
+            history: Optional[pulumi.Input[int]] = None,
             if_not_exists: Optional[pulumi.Input[bool]] = None,
             lockout_time_mins: Optional[pulumi.Input[int]] = None,
             max_age_days: Optional[pulumi.Input[int]] = None,
             max_length: Optional[pulumi.Input[int]] = None,
             max_retries: Optional[pulumi.Input[int]] = None,
+            min_age_days: Optional[pulumi.Input[int]] = None,
             min_length: Optional[pulumi.Input[int]] = None,
             min_lower_case_chars: Optional[pulumi.Input[int]] = None,
             min_numeric_chars: Optional[pulumi.Input[int]] = None,
@@ -666,11 +740,13 @@ class PasswordPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Adds a comment or overwrites an existing comment for the password policy.
         :param pulumi.Input[str] database: The database this password policy belongs to.
+        :param pulumi.Input[int] history: Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
         :param pulumi.Input[bool] if_not_exists: Prevent overwriting a previous password policy with the same name.
         :param pulumi.Input[int] lockout_time_mins: Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
         :param pulumi.Input[int] max_age_days: Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
         :param pulumi.Input[int] max_length: Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
         :param pulumi.Input[int] max_retries: Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
+        :param pulumi.Input[int] min_age_days: Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
         :param pulumi.Input[int] min_length: Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
         :param pulumi.Input[int] min_lower_case_chars: Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
         :param pulumi.Input[int] min_numeric_chars: Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
@@ -687,11 +763,13 @@ class PasswordPolicy(pulumi.CustomResource):
 
         __props__.__dict__["comment"] = comment
         __props__.__dict__["database"] = database
+        __props__.__dict__["history"] = history
         __props__.__dict__["if_not_exists"] = if_not_exists
         __props__.__dict__["lockout_time_mins"] = lockout_time_mins
         __props__.__dict__["max_age_days"] = max_age_days
         __props__.__dict__["max_length"] = max_length
         __props__.__dict__["max_retries"] = max_retries
+        __props__.__dict__["min_age_days"] = min_age_days
         __props__.__dict__["min_length"] = min_length
         __props__.__dict__["min_lower_case_chars"] = min_lower_case_chars
         __props__.__dict__["min_numeric_chars"] = min_numeric_chars
@@ -718,6 +796,14 @@ class PasswordPolicy(pulumi.CustomResource):
         The database this password policy belongs to.
         """
         return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def history(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+        """
+        return pulumi.get(self, "history")
 
     @property
     @pulumi.getter(name="ifNotExists")
@@ -758,6 +844,14 @@ class PasswordPolicy(pulumi.CustomResource):
         Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
         """
         return pulumi.get(self, "max_retries")
+
+    @property
+    @pulumi.getter(name="minAgeDays")
+    def min_age_days(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+        """
+        return pulumi.get(self, "min_age_days")
 
     @property
     @pulumi.getter(name="minLength")

@@ -20,6 +20,8 @@ type PasswordPolicy struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The database this password policy belongs to.
 	Database pulumi.StringOutput `pulumi:"database"`
+	// Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+	History pulumi.IntPtrOutput `pulumi:"history"`
 	// Prevent overwriting a previous password policy with the same name.
 	IfNotExists pulumi.BoolPtrOutput `pulumi:"ifNotExists"`
 	// Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
@@ -30,6 +32,8 @@ type PasswordPolicy struct {
 	MaxLength pulumi.IntPtrOutput `pulumi:"maxLength"`
 	// Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
 	MaxRetries pulumi.IntPtrOutput `pulumi:"maxRetries"`
+	// Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+	MinAgeDays pulumi.IntPtrOutput `pulumi:"minAgeDays"`
 	// Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
 	MinLength pulumi.IntPtrOutput `pulumi:"minLength"`
 	// Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
@@ -90,6 +94,8 @@ type passwordPolicyState struct {
 	Comment *string `pulumi:"comment"`
 	// The database this password policy belongs to.
 	Database *string `pulumi:"database"`
+	// Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+	History *int `pulumi:"history"`
 	// Prevent overwriting a previous password policy with the same name.
 	IfNotExists *bool `pulumi:"ifNotExists"`
 	// Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
@@ -100,6 +106,8 @@ type passwordPolicyState struct {
 	MaxLength *int `pulumi:"maxLength"`
 	// Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
 	MaxRetries *int `pulumi:"maxRetries"`
+	// Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+	MinAgeDays *int `pulumi:"minAgeDays"`
 	// Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
 	MinLength *int `pulumi:"minLength"`
 	// Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
@@ -125,6 +133,8 @@ type PasswordPolicyState struct {
 	Comment pulumi.StringPtrInput
 	// The database this password policy belongs to.
 	Database pulumi.StringPtrInput
+	// Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+	History pulumi.IntPtrInput
 	// Prevent overwriting a previous password policy with the same name.
 	IfNotExists pulumi.BoolPtrInput
 	// Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
@@ -135,6 +145,8 @@ type PasswordPolicyState struct {
 	MaxLength pulumi.IntPtrInput
 	// Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
 	MaxRetries pulumi.IntPtrInput
+	// Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+	MinAgeDays pulumi.IntPtrInput
 	// Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
 	MinLength pulumi.IntPtrInput
 	// Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
@@ -164,6 +176,8 @@ type passwordPolicyArgs struct {
 	Comment *string `pulumi:"comment"`
 	// The database this password policy belongs to.
 	Database string `pulumi:"database"`
+	// Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+	History *int `pulumi:"history"`
 	// Prevent overwriting a previous password policy with the same name.
 	IfNotExists *bool `pulumi:"ifNotExists"`
 	// Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
@@ -174,6 +188,8 @@ type passwordPolicyArgs struct {
 	MaxLength *int `pulumi:"maxLength"`
 	// Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
 	MaxRetries *int `pulumi:"maxRetries"`
+	// Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+	MinAgeDays *int `pulumi:"minAgeDays"`
 	// Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
 	MinLength *int `pulumi:"minLength"`
 	// Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
@@ -198,6 +214,8 @@ type PasswordPolicyArgs struct {
 	Comment pulumi.StringPtrInput
 	// The database this password policy belongs to.
 	Database pulumi.StringInput
+	// Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+	History pulumi.IntPtrInput
 	// Prevent overwriting a previous password policy with the same name.
 	IfNotExists pulumi.BoolPtrInput
 	// Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
@@ -208,6 +226,8 @@ type PasswordPolicyArgs struct {
 	MaxLength pulumi.IntPtrInput
 	// Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
 	MaxRetries pulumi.IntPtrInput
+	// Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+	MinAgeDays pulumi.IntPtrInput
 	// Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
 	MinLength pulumi.IntPtrInput
 	// Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
@@ -323,6 +343,11 @@ func (o PasswordPolicyOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *PasswordPolicy) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
+// Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+func (o PasswordPolicyOutput) History() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PasswordPolicy) pulumi.IntPtrOutput { return v.History }).(pulumi.IntPtrOutput)
+}
+
 // Prevent overwriting a previous password policy with the same name.
 func (o PasswordPolicyOutput) IfNotExists() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PasswordPolicy) pulumi.BoolPtrOutput { return v.IfNotExists }).(pulumi.BoolPtrOutput)
@@ -346,6 +371,11 @@ func (o PasswordPolicyOutput) MaxLength() pulumi.IntPtrOutput {
 // Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
 func (o PasswordPolicyOutput) MaxRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PasswordPolicy) pulumi.IntPtrOutput { return v.MaxRetries }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+func (o PasswordPolicyOutput) MinAgeDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PasswordPolicy) pulumi.IntPtrOutput { return v.MinAgeDays }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
