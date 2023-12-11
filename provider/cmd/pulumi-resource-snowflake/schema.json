@@ -8441,6 +8441,10 @@
                     "type": "string",
                     "description": "The database this password policy belongs to.\n"
                 },
+                "history": {
+                    "type": "integer",
+                    "description": "Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24\n"
+                },
                 "ifNotExists": {
                     "type": "boolean",
                     "description": "Prevent overwriting a previous password policy with the same name.\n"
@@ -8460,6 +8464,10 @@
                 "maxRetries": {
                     "type": "integer",
                     "description": "Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5\n"
+                },
+                "minAgeDays": {
+                    "type": "integer",
+                    "description": "Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0\n"
                 },
                 "minLength": {
                     "type": "integer",
@@ -8514,6 +8522,10 @@
                     "description": "The database this password policy belongs to.\n",
                     "willReplaceOnChanges": true
                 },
+                "history": {
+                    "type": "integer",
+                    "description": "Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24\n"
+                },
                 "ifNotExists": {
                     "type": "boolean",
                     "description": "Prevent overwriting a previous password policy with the same name.\n"
@@ -8533,6 +8545,10 @@
                 "maxRetries": {
                     "type": "integer",
                     "description": "Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5\n"
+                },
+                "minAgeDays": {
+                    "type": "integer",
+                    "description": "Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0\n"
                 },
                 "minLength": {
                     "type": "integer",
@@ -8584,6 +8600,10 @@
                         "description": "The database this password policy belongs to.\n",
                         "willReplaceOnChanges": true
                     },
+                    "history": {
+                        "type": "integer",
+                        "description": "Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24\n"
+                    },
                     "ifNotExists": {
                         "type": "boolean",
                         "description": "Prevent overwriting a previous password policy with the same name.\n"
@@ -8603,6 +8623,10 @@
                     "maxRetries": {
                         "type": "integer",
                         "description": "Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5\n"
+                    },
+                    "minAgeDays": {
+                        "type": "integer",
+                        "description": "Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0\n"
                     },
                     "minLength": {
                         "type": "integer",
