@@ -82,13 +82,13 @@ public final class TokenAccessor {
             return this;
         }
         public TokenAccessor build() {
-            final var o = new TokenAccessor();
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.redirectUri = redirectUri;
-            o.refreshToken = refreshToken;
-            o.tokenEndpoint = tokenEndpoint;
-            return o;
+            final var _resultValue = new TokenAccessor();
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.redirectUri = redirectUri;
+            _resultValue.refreshToken = refreshToken;
+            _resultValue.tokenEndpoint = tokenEndpoint;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class GetGrantsGrantsTo {
             return this;
         }
         public GetGrantsGrantsTo build() {
-            final var o = new GetGrantsGrantsTo();
-            o.role = role;
-            o.share = share;
-            o.user = user;
-            return o;
+            final var _resultValue = new GetGrantsGrantsTo();
+            _resultValue.role = role;
+            _resultValue.share = share;
+            _resultValue.user = user;
+            return _resultValue;
         }
     }
 }

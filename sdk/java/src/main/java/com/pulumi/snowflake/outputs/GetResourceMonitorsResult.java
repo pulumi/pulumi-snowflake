@@ -70,10 +70,10 @@ public final class GetResourceMonitorsResult {
             return resourceMonitors(List.of(resourceMonitors));
         }
         public GetResourceMonitorsResult build() {
-            final var o = new GetResourceMonitorsResult();
-            o.id = id;
-            o.resourceMonitors = resourceMonitors;
-            return o;
+            final var _resultValue = new GetResourceMonitorsResult();
+            _resultValue.id = id;
+            _resultValue.resourceMonitors = resourceMonitors;
+            return _resultValue;
         }
     }
 }

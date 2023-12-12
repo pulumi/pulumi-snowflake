@@ -67,10 +67,10 @@ public final class GetGrantsFutureGrantsInSchema {
             return this;
         }
         public GetGrantsFutureGrantsInSchema build() {
-            final var o = new GetGrantsFutureGrantsInSchema();
-            o.databaseName = databaseName;
-            o.schemaName = schemaName;
-            return o;
+            final var _resultValue = new GetGrantsFutureGrantsInSchema();
+            _resultValue.databaseName = databaseName;
+            _resultValue.schemaName = schemaName;
+            return _resultValue;
         }
     }
 }

@@ -105,12 +105,12 @@ public final class TableTag {
             return this;
         }
         public TableTag build() {
-            final var o = new TableTag();
-            o.database = database;
-            o.name = name;
-            o.schema = schema;
-            o.value = value;
-            return o;
+            final var _resultValue = new TableTag();
+            _resultValue.database = database;
+            _resultValue.name = name;
+            _resultValue.schema = schema;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

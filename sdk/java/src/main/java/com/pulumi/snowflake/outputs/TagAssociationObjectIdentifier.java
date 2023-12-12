@@ -86,11 +86,11 @@ public final class TagAssociationObjectIdentifier {
             return this;
         }
         public TagAssociationObjectIdentifier build() {
-            final var o = new TagAssociationObjectIdentifier();
-            o.database = database;
-            o.name = name;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new TagAssociationObjectIdentifier();
+            _resultValue.database = database;
+            _resultValue.name = name;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

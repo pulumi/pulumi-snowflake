@@ -71,12 +71,12 @@ public final class GetResourceMonitorsResourceMonitor {
             return this;
         }
         public GetResourceMonitorsResourceMonitor build() {
-            final var o = new GetResourceMonitorsResourceMonitor();
-            o.comment = comment;
-            o.creditQuota = creditQuota;
-            o.frequency = frequency;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetResourceMonitorsResourceMonitor();
+            _resultValue.comment = comment;
+            _resultValue.creditQuota = creditQuota;
+            _resultValue.frequency = frequency;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

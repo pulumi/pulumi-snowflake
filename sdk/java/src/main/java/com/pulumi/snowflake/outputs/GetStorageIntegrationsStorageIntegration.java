@@ -72,12 +72,12 @@ public final class GetStorageIntegrationsStorageIntegration {
             return this;
         }
         public GetStorageIntegrationsStorageIntegration build() {
-            final var o = new GetStorageIntegrationsStorageIntegration();
-            o.comment = comment;
-            o.enabled = enabled;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetStorageIntegrationsStorageIntegration();
+            _resultValue.comment = comment;
+            _resultValue.enabled = enabled;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

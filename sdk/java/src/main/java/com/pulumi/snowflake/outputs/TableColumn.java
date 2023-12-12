@@ -165,15 +165,15 @@ public final class TableColumn {
             return this;
         }
         public TableColumn build() {
-            final var o = new TableColumn();
-            o.comment = comment;
-            o.default_ = default_;
-            o.identity = identity;
-            o.maskingPolicy = maskingPolicy;
-            o.name = name;
-            o.nullable = nullable;
-            o.type = type;
-            return o;
+            final var _resultValue = new TableColumn();
+            _resultValue.comment = comment;
+            _resultValue.default_ = default_;
+            _resultValue.identity = identity;
+            _resultValue.maskingPolicy = maskingPolicy;
+            _resultValue.name = name;
+            _resultValue.nullable = nullable;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -129,13 +129,13 @@ public final class GetAlertsResult {
             return this;
         }
         public GetAlertsResult build() {
-            final var o = new GetAlertsResult();
-            o.alerts = alerts;
-            o.database = database;
-            o.id = id;
-            o.pattern = pattern;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new GetAlertsResult();
+            _resultValue.alerts = alerts;
+            _resultValue.database = database;
+            _resultValue.id = id;
+            _resultValue.pattern = pattern;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

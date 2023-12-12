@@ -84,11 +84,11 @@ public final class FailoverGroupFromReplica {
             return this;
         }
         public FailoverGroupFromReplica build() {
-            final var o = new FailoverGroupFromReplica();
-            o.name = name;
-            o.organizationName = organizationName;
-            o.sourceAccountName = sourceAccountName;
-            return o;
+            final var _resultValue = new FailoverGroupFromReplica();
+            _resultValue.name = name;
+            _resultValue.organizationName = organizationName;
+            _resultValue.sourceAccountName = sourceAccountName;
+            return _resultValue;
         }
     }
 }

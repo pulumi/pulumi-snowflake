@@ -82,13 +82,13 @@ public final class GetExternalFunctionsExternalFunction {
             return this;
         }
         public GetExternalFunctionsExternalFunction build() {
-            final var o = new GetExternalFunctionsExternalFunction();
-            o.comment = comment;
-            o.database = database;
-            o.language = language;
-            o.name = name;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new GetExternalFunctionsExternalFunction();
+            _resultValue.comment = comment;
+            _resultValue.database = database;
+            _resultValue.language = language;
+            _resultValue.name = name;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

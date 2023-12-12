@@ -175,21 +175,21 @@ public final class GetUsersUser {
             return this;
         }
         public GetUsersUser build() {
-            final var o = new GetUsersUser();
-            o.comment = comment;
-            o.defaultNamespace = defaultNamespace;
-            o.defaultRole = defaultRole;
-            o.defaultSecondaryRoles = defaultSecondaryRoles;
-            o.defaultWarehouse = defaultWarehouse;
-            o.disabled = disabled;
-            o.displayName = displayName;
-            o.email = email;
-            o.firstName = firstName;
-            o.hasRsaPublicKey = hasRsaPublicKey;
-            o.lastName = lastName;
-            o.loginName = loginName;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetUsersUser();
+            _resultValue.comment = comment;
+            _resultValue.defaultNamespace = defaultNamespace;
+            _resultValue.defaultRole = defaultRole;
+            _resultValue.defaultSecondaryRoles = defaultSecondaryRoles;
+            _resultValue.defaultWarehouse = defaultWarehouse;
+            _resultValue.disabled = disabled;
+            _resultValue.displayName = displayName;
+            _resultValue.email = email;
+            _resultValue.firstName = firstName;
+            _resultValue.hasRsaPublicKey = hasRsaPublicKey;
+            _resultValue.lastName = lastName;
+            _resultValue.loginName = loginName;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -82,13 +82,13 @@ public final class GetMaskingPoliciesMaskingPolicy {
             return this;
         }
         public GetMaskingPoliciesMaskingPolicy build() {
-            final var o = new GetMaskingPoliciesMaskingPolicy();
-            o.comment = comment;
-            o.database = database;
-            o.kind = kind;
-            o.name = name;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new GetMaskingPoliciesMaskingPolicy();
+            _resultValue.comment = comment;
+            _resultValue.database = database;
+            _resultValue.kind = kind;
+            _resultValue.name = name;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

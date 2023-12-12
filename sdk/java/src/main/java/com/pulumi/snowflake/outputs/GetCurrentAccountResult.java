@@ -103,12 +103,12 @@ public final class GetCurrentAccountResult {
             return this;
         }
         public GetCurrentAccountResult build() {
-            final var o = new GetCurrentAccountResult();
-            o.account = account;
-            o.id = id;
-            o.region = region;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetCurrentAccountResult();
+            _resultValue.account = account;
+            _resultValue.id = id;
+            _resultValue.region = region;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

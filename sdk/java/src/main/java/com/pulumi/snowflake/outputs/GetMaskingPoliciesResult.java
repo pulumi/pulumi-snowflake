@@ -108,12 +108,12 @@ public final class GetMaskingPoliciesResult {
             return this;
         }
         public GetMaskingPoliciesResult build() {
-            final var o = new GetMaskingPoliciesResult();
-            o.database = database;
-            o.id = id;
-            o.maskingPolicies = maskingPolicies;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new GetMaskingPoliciesResult();
+            _resultValue.database = database;
+            _resultValue.id = id;
+            _resultValue.maskingPolicies = maskingPolicies;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

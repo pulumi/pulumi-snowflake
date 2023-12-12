@@ -86,11 +86,11 @@ public final class GrantPrivilegesToRoleOnSchema {
             return this;
         }
         public GrantPrivilegesToRoleOnSchema build() {
-            final var o = new GrantPrivilegesToRoleOnSchema();
-            o.allSchemasInDatabase = allSchemasInDatabase;
-            o.futureSchemasInDatabase = futureSchemasInDatabase;
-            o.schemaName = schemaName;
-            return o;
+            final var _resultValue = new GrantPrivilegesToRoleOnSchema();
+            _resultValue.allSchemasInDatabase = allSchemasInDatabase;
+            _resultValue.futureSchemasInDatabase = futureSchemasInDatabase;
+            _resultValue.schemaName = schemaName;
+            return _resultValue;
         }
     }
 }

@@ -105,12 +105,12 @@ public final class ExternalTableTag {
             return this;
         }
         public ExternalTableTag build() {
-            final var o = new ExternalTableTag();
-            o.database = database;
-            o.name = name;
-            o.schema = schema;
-            o.value = value;
-            return o;
+            final var _resultValue = new ExternalTableTag();
+            _resultValue.database = database;
+            _resultValue.name = name;
+            _resultValue.schema = schema;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -97,14 +97,14 @@ public final class GetProceduresProcedure {
             return this;
         }
         public GetProceduresProcedure build() {
-            final var o = new GetProceduresProcedure();
-            o.argumentTypes = argumentTypes;
-            o.comment = comment;
-            o.database = database;
-            o.name = name;
-            o.returnType = returnType;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new GetProceduresProcedure();
+            _resultValue.argumentTypes = argumentTypes;
+            _resultValue.comment = comment;
+            _resultValue.database = database;
+            _resultValue.name = name;
+            _resultValue.returnType = returnType;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

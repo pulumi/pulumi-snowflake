@@ -82,13 +82,13 @@ public final class GetPipesPipe {
             return this;
         }
         public GetPipesPipe build() {
-            final var o = new GetPipesPipe();
-            o.comment = comment;
-            o.database = database;
-            o.integration = integration;
-            o.name = name;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new GetPipesPipe();
+            _resultValue.comment = comment;
+            _resultValue.database = database;
+            _resultValue.integration = integration;
+            _resultValue.name = name;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

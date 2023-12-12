@@ -108,12 +108,12 @@ public final class GetFileFormatsResult {
             return this;
         }
         public GetFileFormatsResult build() {
-            final var o = new GetFileFormatsResult();
-            o.database = database;
-            o.fileFormats = fileFormats;
-            o.id = id;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new GetFileFormatsResult();
+            _resultValue.database = database;
+            _resultValue.fileFormats = fileFormats;
+            _resultValue.id = id;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

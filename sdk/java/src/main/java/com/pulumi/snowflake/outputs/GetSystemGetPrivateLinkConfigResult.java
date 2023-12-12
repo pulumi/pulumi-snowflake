@@ -217,18 +217,18 @@ public final class GetSystemGetPrivateLinkConfigResult {
             return this;
         }
         public GetSystemGetPrivateLinkConfigResult build() {
-            final var o = new GetSystemGetPrivateLinkConfigResult();
-            o.accountName = accountName;
-            o.accountUrl = accountUrl;
-            o.awsVpceId = awsVpceId;
-            o.azurePlsId = azurePlsId;
-            o.id = id;
-            o.internalStage = internalStage;
-            o.ocspUrl = ocspUrl;
-            o.regionlessAccountUrl = regionlessAccountUrl;
-            o.regionlessSnowsightUrl = regionlessSnowsightUrl;
-            o.snowsightUrl = snowsightUrl;
-            return o;
+            final var _resultValue = new GetSystemGetPrivateLinkConfigResult();
+            _resultValue.accountName = accountName;
+            _resultValue.accountUrl = accountUrl;
+            _resultValue.awsVpceId = awsVpceId;
+            _resultValue.azurePlsId = azurePlsId;
+            _resultValue.id = id;
+            _resultValue.internalStage = internalStage;
+            _resultValue.ocspUrl = ocspUrl;
+            _resultValue.regionlessAccountUrl = regionlessAccountUrl;
+            _resultValue.regionlessSnowsightUrl = regionlessSnowsightUrl;
+            _resultValue.snowsightUrl = snowsightUrl;
+            return _resultValue;
         }
     }
 }

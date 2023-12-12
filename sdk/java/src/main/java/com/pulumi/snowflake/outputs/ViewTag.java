@@ -105,12 +105,12 @@ public final class ViewTag {
             return this;
         }
         public ViewTag build() {
-            final var o = new ViewTag();
-            o.database = database;
-            o.name = name;
-            o.schema = schema;
-            o.value = value;
-            return o;
+            final var _resultValue = new ViewTag();
+            _resultValue.database = database;
+            _resultValue.name = name;
+            _resultValue.schema = schema;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

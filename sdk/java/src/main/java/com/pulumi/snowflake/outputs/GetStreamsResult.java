@@ -108,12 +108,12 @@ public final class GetStreamsResult {
             return streams(List.of(streams));
         }
         public GetStreamsResult build() {
-            final var o = new GetStreamsResult();
-            o.database = database;
-            o.id = id;
-            o.schema = schema;
-            o.streams = streams;
-            return o;
+            final var _resultValue = new GetStreamsResult();
+            _resultValue.database = database;
+            _resultValue.id = id;
+            _resultValue.schema = schema;
+            _resultValue.streams = streams;
+            return _resultValue;
         }
     }
 }

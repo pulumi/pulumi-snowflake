@@ -108,12 +108,12 @@ public final class GetSequencesResult {
             return sequences(List.of(sequences));
         }
         public GetSequencesResult build() {
-            final var o = new GetSequencesResult();
-            o.database = database;
-            o.id = id;
-            o.schema = schema;
-            o.sequences = sequences;
-            return o;
+            final var _resultValue = new GetSequencesResult();
+            _resultValue.database = database;
+            _resultValue.id = id;
+            _resultValue.schema = schema;
+            _resultValue.sequences = sequences;
+            return _resultValue;
         }
     }
 }

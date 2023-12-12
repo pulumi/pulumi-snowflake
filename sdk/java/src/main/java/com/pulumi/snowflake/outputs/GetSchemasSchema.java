@@ -60,11 +60,11 @@ public final class GetSchemasSchema {
             return this;
         }
         public GetSchemasSchema build() {
-            final var o = new GetSchemasSchema();
-            o.comment = comment;
-            o.database = database;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetSchemasSchema();
+            _resultValue.comment = comment;
+            _resultValue.database = database;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

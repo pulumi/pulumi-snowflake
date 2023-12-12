@@ -67,10 +67,10 @@ public final class TableColumnIdentity {
             return this;
         }
         public TableColumnIdentity build() {
-            final var o = new TableColumnIdentity();
-            o.startNum = startNum;
-            o.stepNum = stepNum;
-            return o;
+            final var _resultValue = new TableColumnIdentity();
+            _resultValue.startNum = startNum;
+            _resultValue.stepNum = stepNum;
+            return _resultValue;
         }
     }
 }

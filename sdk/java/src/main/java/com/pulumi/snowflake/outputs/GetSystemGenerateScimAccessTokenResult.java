@@ -84,11 +84,11 @@ public final class GetSystemGenerateScimAccessTokenResult {
             return this;
         }
         public GetSystemGenerateScimAccessTokenResult build() {
-            final var o = new GetSystemGenerateScimAccessTokenResult();
-            o.accessToken = accessToken;
-            o.id = id;
-            o.integrationName = integrationName;
-            return o;
+            final var _resultValue = new GetSystemGenerateScimAccessTokenResult();
+            _resultValue.accessToken = accessToken;
+            _resultValue.id = id;
+            _resultValue.integrationName = integrationName;
+            return _resultValue;
         }
     }
 }

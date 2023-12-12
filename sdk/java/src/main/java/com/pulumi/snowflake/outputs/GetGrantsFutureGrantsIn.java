@@ -68,10 +68,10 @@ public final class GetGrantsFutureGrantsIn {
             return this;
         }
         public GetGrantsFutureGrantsIn build() {
-            final var o = new GetGrantsFutureGrantsIn();
-            o.database = database;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new GetGrantsFutureGrantsIn();
+            _resultValue.database = database;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

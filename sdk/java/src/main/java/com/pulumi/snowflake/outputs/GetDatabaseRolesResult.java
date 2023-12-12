@@ -89,11 +89,11 @@ public final class GetDatabaseRolesResult {
             return this;
         }
         public GetDatabaseRolesResult build() {
-            final var o = new GetDatabaseRolesResult();
-            o.database = database;
-            o.databaseRoles = databaseRoles;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetDatabaseRolesResult();
+            _resultValue.database = database;
+            _resultValue.databaseRoles = databaseRoles;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

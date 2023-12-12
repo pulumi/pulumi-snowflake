@@ -89,11 +89,11 @@ public final class GetSchemasResult {
             return schemas(List.of(schemas));
         }
         public GetSchemasResult build() {
-            final var o = new GetSchemasResult();
-            o.database = database;
-            o.id = id;
-            o.schemas = schemas;
-            return o;
+            final var _resultValue = new GetSchemasResult();
+            _resultValue.database = database;
+            _resultValue.id = id;
+            _resultValue.schemas = schemas;
+            return _resultValue;
         }
     }
 }

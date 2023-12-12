@@ -82,13 +82,13 @@ public final class GetStagesStage {
             return this;
         }
         public GetStagesStage build() {
-            final var o = new GetStagesStage();
-            o.comment = comment;
-            o.database = database;
-            o.name = name;
-            o.schema = schema;
-            o.storageIntegration = storageIntegration;
-            return o;
+            final var _resultValue = new GetStagesStage();
+            _resultValue.comment = comment;
+            _resultValue.database = database;
+            _resultValue.name = name;
+            _resultValue.schema = schema;
+            _resultValue.storageIntegration = storageIntegration;
+            return _resultValue;
         }
     }
 }

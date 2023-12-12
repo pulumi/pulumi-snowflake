@@ -71,12 +71,12 @@ public final class GetExternalTablesExternalTable {
             return this;
         }
         public GetExternalTablesExternalTable build() {
-            final var o = new GetExternalTablesExternalTable();
-            o.comment = comment;
-            o.database = database;
-            o.name = name;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new GetExternalTablesExternalTable();
+            _resultValue.comment = comment;
+            _resultValue.database = database;
+            _resultValue.name = name;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

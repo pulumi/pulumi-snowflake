@@ -82,13 +82,13 @@ public final class GetParametersParameter {
             return this;
         }
         public GetParametersParameter build() {
-            final var o = new GetParametersParameter();
-            o.default_ = default_;
-            o.description = description;
-            o.key = key;
-            o.level = level;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetParametersParameter();
+            _resultValue.default_ = default_;
+            _resultValue.description = description;
+            _resultValue.key = key;
+            _resultValue.level = level;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

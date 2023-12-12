@@ -65,10 +65,10 @@ public final class ExternalFunctionHeader {
             return this;
         }
         public ExternalFunctionHeader build() {
-            final var o = new ExternalFunctionHeader();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new ExternalFunctionHeader();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class ObjectParameterObjectIdentifier {
             return this;
         }
         public ObjectParameterObjectIdentifier build() {
-            final var o = new ObjectParameterObjectIdentifier();
-            o.database = database;
-            o.name = name;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new ObjectParameterObjectIdentifier();
+            _resultValue.database = database;
+            _resultValue.name = name;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

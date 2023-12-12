@@ -82,13 +82,13 @@ public final class GetStreamsStream {
             return this;
         }
         public GetStreamsStream build() {
-            final var o = new GetStreamsStream();
-            o.comment = comment;
-            o.database = database;
-            o.name = name;
-            o.schema = schema;
-            o.table = table;
-            return o;
+            final var _resultValue = new GetStreamsStream();
+            _resultValue.comment = comment;
+            _resultValue.database = database;
+            _resultValue.name = name;
+            _resultValue.schema = schema;
+            _resultValue.table = table;
+            return _resultValue;
         }
     }
 }

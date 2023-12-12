@@ -54,10 +54,10 @@ public final class GetDatabasesDatabaseReplicationConfiguration {
             return this;
         }
         public GetDatabasesDatabaseReplicationConfiguration build() {
-            final var o = new GetDatabasesDatabaseReplicationConfiguration();
-            o.accounts = accounts;
-            o.ignoreEditionCheck = ignoreEditionCheck;
-            return o;
+            final var _resultValue = new GetDatabasesDatabaseReplicationConfiguration();
+            _resultValue.accounts = accounts;
+            _resultValue.ignoreEditionCheck = ignoreEditionCheck;
+            return _resultValue;
         }
     }
 }

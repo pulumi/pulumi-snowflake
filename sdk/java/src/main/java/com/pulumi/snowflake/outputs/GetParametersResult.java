@@ -167,15 +167,15 @@ public final class GetParametersResult {
             return this;
         }
         public GetParametersResult build() {
-            final var o = new GetParametersResult();
-            o.id = id;
-            o.objectName = objectName;
-            o.objectType = objectType;
-            o.parameterType = parameterType;
-            o.parameters = parameters;
-            o.pattern = pattern;
-            o.user = user;
-            return o;
+            final var _resultValue = new GetParametersResult();
+            _resultValue.id = id;
+            _resultValue.objectName = objectName;
+            _resultValue.objectType = objectType;
+            _resultValue.parameterType = parameterType;
+            _resultValue.parameters = parameters;
+            _resultValue.pattern = pattern;
+            _resultValue.user = user;
+            return _resultValue;
         }
     }
 }

@@ -69,10 +69,10 @@ public final class TableConstraintForeignKeyPropertiesReferences {
             return this;
         }
         public TableConstraintForeignKeyPropertiesReferences build() {
-            final var o = new TableConstraintForeignKeyPropertiesReferences();
-            o.columns = columns;
-            o.tableId = tableId;
-            return o;
+            final var _resultValue = new TableConstraintForeignKeyPropertiesReferences();
+            _resultValue.columns = columns;
+            _resultValue.tableId = tableId;
+            return _resultValue;
         }
     }
 }

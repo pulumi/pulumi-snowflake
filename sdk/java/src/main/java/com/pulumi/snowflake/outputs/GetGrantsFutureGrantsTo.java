@@ -46,9 +46,9 @@ public final class GetGrantsFutureGrantsTo {
             return this;
         }
         public GetGrantsFutureGrantsTo build() {
-            final var o = new GetGrantsFutureGrantsTo();
-            o.role = role;
-            return o;
+            final var _resultValue = new GetGrantsFutureGrantsTo();
+            _resultValue.role = role;
+            return _resultValue;
         }
     }
 }

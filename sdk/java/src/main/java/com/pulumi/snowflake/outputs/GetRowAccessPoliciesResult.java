@@ -108,12 +108,12 @@ public final class GetRowAccessPoliciesResult {
             return this;
         }
         public GetRowAccessPoliciesResult build() {
-            final var o = new GetRowAccessPoliciesResult();
-            o.database = database;
-            o.id = id;
-            o.rowAccessPolicies = rowAccessPolicies;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new GetRowAccessPoliciesResult();
+            _resultValue.database = database;
+            _resultValue.id = id;
+            _resultValue.rowAccessPolicies = rowAccessPolicies;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

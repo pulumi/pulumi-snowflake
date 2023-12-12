@@ -91,11 +91,11 @@ public final class GetAccountsResult {
             return this;
         }
         public GetAccountsResult build() {
-            final var o = new GetAccountsResult();
-            o.accounts = accounts;
-            o.id = id;
-            o.pattern = pattern;
-            return o;
+            final var _resultValue = new GetAccountsResult();
+            _resultValue.accounts = accounts;
+            _resultValue.id = id;
+            _resultValue.pattern = pattern;
+            return _resultValue;
         }
     }
 }

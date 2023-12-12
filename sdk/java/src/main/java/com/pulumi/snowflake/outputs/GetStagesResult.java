@@ -108,12 +108,12 @@ public final class GetStagesResult {
             return stages(List.of(stages));
         }
         public GetStagesResult build() {
-            final var o = new GetStagesResult();
-            o.database = database;
-            o.id = id;
-            o.schema = schema;
-            o.stages = stages;
-            return o;
+            final var _resultValue = new GetStagesResult();
+            _resultValue.database = database;
+            _resultValue.id = id;
+            _resultValue.schema = schema;
+            _resultValue.stages = stages;
+            return _resultValue;
         }
     }
 }

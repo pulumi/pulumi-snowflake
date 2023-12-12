@@ -82,13 +82,13 @@ public final class GetTasksTask {
             return this;
         }
         public GetTasksTask build() {
-            final var o = new GetTasksTask();
-            o.comment = comment;
-            o.database = database;
-            o.name = name;
-            o.schema = schema;
-            o.warehouse = warehouse;
-            return o;
+            final var _resultValue = new GetTasksTask();
+            _resultValue.comment = comment;
+            _resultValue.database = database;
+            _resultValue.name = name;
+            _resultValue.schema = schema;
+            _resultValue.warehouse = warehouse;
+            return _resultValue;
         }
     }
 }

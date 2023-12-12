@@ -68,10 +68,10 @@ public final class AlertAlertSchedule {
             return this;
         }
         public AlertAlertSchedule build() {
-            final var o = new AlertAlertSchedule();
-            o.cron = cron;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new AlertAlertSchedule();
+            _resultValue.cron = cron;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

@@ -82,13 +82,13 @@ public final class GetFileFormatsFileFormat {
             return this;
         }
         public GetFileFormatsFileFormat build() {
-            final var o = new GetFileFormatsFileFormat();
-            o.comment = comment;
-            o.database = database;
-            o.formatType = formatType;
-            o.name = name;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new GetFileFormatsFileFormat();
+            _resultValue.comment = comment;
+            _resultValue.database = database;
+            _resultValue.formatType = formatType;
+            _resultValue.name = name;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

@@ -108,12 +108,12 @@ public final class GetViewsResult {
             return views(List.of(views));
         }
         public GetViewsResult build() {
-            final var o = new GetViewsResult();
-            o.database = database;
-            o.id = id;
-            o.schema = schema;
-            o.views = views;
-            return o;
+            final var _resultValue = new GetViewsResult();
+            _resultValue.database = database;
+            _resultValue.id = id;
+            _resultValue.schema = schema;
+            _resultValue.views = views;
+            return _resultValue;
         }
     }
 }

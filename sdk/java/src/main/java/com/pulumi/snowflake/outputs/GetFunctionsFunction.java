@@ -97,14 +97,14 @@ public final class GetFunctionsFunction {
             return this;
         }
         public GetFunctionsFunction build() {
-            final var o = new GetFunctionsFunction();
-            o.argumentTypes = argumentTypes;
-            o.comment = comment;
-            o.database = database;
-            o.name = name;
-            o.returnType = returnType;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new GetFunctionsFunction();
+            _resultValue.argumentTypes = argumentTypes;
+            _resultValue.comment = comment;
+            _resultValue.database = database;
+            _resultValue.name = name;
+            _resultValue.returnType = returnType;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

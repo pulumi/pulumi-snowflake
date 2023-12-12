@@ -65,10 +65,10 @@ public final class MaskingPolicySignatureColumn {
             return this;
         }
         public MaskingPolicySignatureColumn build() {
-            final var o = new MaskingPolicySignatureColumn();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new MaskingPolicySignatureColumn();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

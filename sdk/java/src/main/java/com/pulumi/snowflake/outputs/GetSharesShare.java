@@ -87,13 +87,13 @@ public final class GetSharesShare {
             return tos(List.of(tos));
         }
         public GetSharesShare build() {
-            final var o = new GetSharesShare();
-            o.comment = comment;
-            o.kind = kind;
-            o.name = name;
-            o.owner = owner;
-            o.tos = tos;
-            return o;
+            final var _resultValue = new GetSharesShare();
+            _resultValue.comment = comment;
+            _resultValue.kind = kind;
+            _resultValue.name = name;
+            _resultValue.owner = owner;
+            _resultValue.tos = tos;
+            return _resultValue;
         }
     }
 }

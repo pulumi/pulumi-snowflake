@@ -226,25 +226,25 @@ public final class GetFailoverGroupsFailoverGroup {
             return this;
         }
         public GetFailoverGroupsFailoverGroup build() {
-            final var o = new GetFailoverGroupsFailoverGroup();
-            o.accountLocator = accountLocator;
-            o.accountName = accountName;
-            o.allowedAccounts = allowedAccounts;
-            o.allowedIntegrationTypes = allowedIntegrationTypes;
-            o.comment = comment;
-            o.createdOn = createdOn;
-            o.isPrimary = isPrimary;
-            o.nextScheduledRefresh = nextScheduledRefresh;
-            o.objectTypes = objectTypes;
-            o.organizationName = organizationName;
-            o.owner = owner;
-            o.primary = primary;
-            o.regionGroup = regionGroup;
-            o.replicationSchedule = replicationSchedule;
-            o.secondaryState = secondaryState;
-            o.snowflakeRegion = snowflakeRegion;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetFailoverGroupsFailoverGroup();
+            _resultValue.accountLocator = accountLocator;
+            _resultValue.accountName = accountName;
+            _resultValue.allowedAccounts = allowedAccounts;
+            _resultValue.allowedIntegrationTypes = allowedIntegrationTypes;
+            _resultValue.comment = comment;
+            _resultValue.createdOn = createdOn;
+            _resultValue.isPrimary = isPrimary;
+            _resultValue.nextScheduledRefresh = nextScheduledRefresh;
+            _resultValue.objectTypes = objectTypes;
+            _resultValue.organizationName = organizationName;
+            _resultValue.owner = owner;
+            _resultValue.primary = primary;
+            _resultValue.regionGroup = regionGroup;
+            _resultValue.replicationSchedule = replicationSchedule;
+            _resultValue.secondaryState = secondaryState;
+            _resultValue.snowflakeRegion = snowflakeRegion;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

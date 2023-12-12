@@ -70,10 +70,10 @@ public final class GetStorageIntegrationsResult {
             return storageIntegrations(List.of(storageIntegrations));
         }
         public GetStorageIntegrationsResult build() {
-            final var o = new GetStorageIntegrationsResult();
-            o.id = id;
-            o.storageIntegrations = storageIntegrations;
-            return o;
+            final var _resultValue = new GetStorageIntegrationsResult();
+            _resultValue.id = id;
+            _resultValue.storageIntegrations = storageIntegrations;
+            return _resultValue;
         }
     }
 }

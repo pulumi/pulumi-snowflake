@@ -65,10 +65,10 @@ public final class FailoverGroupReplicationScheduleCron {
             return this;
         }
         public FailoverGroupReplicationScheduleCron build() {
-            final var o = new FailoverGroupReplicationScheduleCron();
-            o.expression = expression;
-            o.timeZone = timeZone;
-            return o;
+            final var _resultValue = new FailoverGroupReplicationScheduleCron();
+            _resultValue.expression = expression;
+            _resultValue.timeZone = timeZone;
+            return _resultValue;
         }
     }
 }

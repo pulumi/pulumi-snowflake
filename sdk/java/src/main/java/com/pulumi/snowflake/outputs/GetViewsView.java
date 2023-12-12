@@ -71,12 +71,12 @@ public final class GetViewsView {
             return this;
         }
         public GetViewsView build() {
-            final var o = new GetViewsView();
-            o.comment = comment;
-            o.database = database;
-            o.name = name;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new GetViewsView();
+            _resultValue.comment = comment;
+            _resultValue.database = database;
+            _resultValue.name = name;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }
