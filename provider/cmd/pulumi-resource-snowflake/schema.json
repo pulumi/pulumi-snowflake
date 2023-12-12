@@ -606,7 +606,7 @@
                 },
                 "objectType": {
                     "type": "string",
-                    "description": "The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP\n"
+                    "description": "The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME\n"
                 }
             },
             "type": "object",
@@ -654,7 +654,7 @@
                 },
                 "objectType": {
                     "type": "string",
-                    "description": "The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW\n",
+                    "description": "The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | ICEBERG TABLE | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -674,7 +674,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS\n",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | ICEBERG TABLES | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -697,7 +697,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS\n",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | ICEBERG TABLES | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -8441,6 +8441,10 @@
                     "type": "string",
                     "description": "The database this password policy belongs to.\n"
                 },
+                "history": {
+                    "type": "integer",
+                    "description": "Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24\n"
+                },
                 "ifNotExists": {
                     "type": "boolean",
                     "description": "Prevent overwriting a previous password policy with the same name.\n"
@@ -8460,6 +8464,10 @@
                 "maxRetries": {
                     "type": "integer",
                     "description": "Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5\n"
+                },
+                "minAgeDays": {
+                    "type": "integer",
+                    "description": "Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0\n"
                 },
                 "minLength": {
                     "type": "integer",
@@ -8514,6 +8522,10 @@
                     "description": "The database this password policy belongs to.\n",
                     "willReplaceOnChanges": true
                 },
+                "history": {
+                    "type": "integer",
+                    "description": "Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24\n"
+                },
                 "ifNotExists": {
                     "type": "boolean",
                     "description": "Prevent overwriting a previous password policy with the same name.\n"
@@ -8533,6 +8545,10 @@
                 "maxRetries": {
                     "type": "integer",
                     "description": "Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5\n"
+                },
+                "minAgeDays": {
+                    "type": "integer",
+                    "description": "Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0\n"
                 },
                 "minLength": {
                     "type": "integer",
@@ -8584,6 +8600,10 @@
                         "description": "The database this password policy belongs to.\n",
                         "willReplaceOnChanges": true
                     },
+                    "history": {
+                        "type": "integer",
+                        "description": "Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24\n"
+                    },
                     "ifNotExists": {
                         "type": "boolean",
                         "description": "Prevent overwriting a previous password policy with the same name.\n"
@@ -8603,6 +8623,10 @@
                     "maxRetries": {
                         "type": "integer",
                         "description": "Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5\n"
+                    },
+                    "minAgeDays": {
+                        "type": "integer",
+                        "description": "Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0\n"
                     },
                     "minLength": {
                         "type": "integer",

@@ -1756,6 +1756,7 @@
                 "maxAgeDays": "max_age_days",
                 "maxLength": "max_length",
                 "maxRetries": "max_retries",
+                "minAgeDays": "min_age_days",
                 "minLength": "min_length",
                 "minLowerCaseChars": "min_lower_case_chars",
                 "minNumericChars": "min_numeric_chars",
