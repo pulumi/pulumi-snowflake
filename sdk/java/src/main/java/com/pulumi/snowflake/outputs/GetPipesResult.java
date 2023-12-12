@@ -108,12 +108,12 @@ public final class GetPipesResult {
             return this;
         }
         public GetPipesResult build() {
-            final var o = new GetPipesResult();
-            o.database = database;
-            o.id = id;
-            o.pipes = pipes;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new GetPipesResult();
+            _resultValue.database = database;
+            _resultValue.id = id;
+            _resultValue.pipes = pipes;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

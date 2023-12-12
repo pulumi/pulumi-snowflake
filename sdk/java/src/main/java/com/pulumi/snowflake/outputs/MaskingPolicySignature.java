@@ -42,9 +42,9 @@ public final class MaskingPolicySignature {
             return columns(List.of(columns));
         }
         public MaskingPolicySignature build() {
-            final var o = new MaskingPolicySignature();
-            o.columns = columns;
-            return o;
+            final var _resultValue = new MaskingPolicySignature();
+            _resultValue.columns = columns;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class DynamicTableTargetLag {
             return this;
         }
         public DynamicTableTargetLag build() {
-            final var o = new DynamicTableTargetLag();
-            o.downstream = downstream;
-            o.maximumDuration = maximumDuration;
-            return o;
+            final var _resultValue = new DynamicTableTargetLag();
+            _resultValue.downstream = downstream;
+            _resultValue.maximumDuration = maximumDuration;
+            return _resultValue;
         }
     }
 }

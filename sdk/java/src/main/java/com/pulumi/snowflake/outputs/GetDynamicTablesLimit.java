@@ -68,10 +68,10 @@ public final class GetDynamicTablesLimit {
             return this;
         }
         public GetDynamicTablesLimit build() {
-            final var o = new GetDynamicTablesLimit();
-            o.from = from;
-            o.rows = rows;
-            return o;
+            final var _resultValue = new GetDynamicTablesLimit();
+            _resultValue.from = from;
+            _resultValue.rows = rows;
+            return _resultValue;
         }
     }
 }

@@ -91,11 +91,11 @@ public final class GetFailoverGroupsResult {
             return this;
         }
         public GetFailoverGroupsResult build() {
-            final var o = new GetFailoverGroupsResult();
-            o.failoverGroups = failoverGroups;
-            o.id = id;
-            o.inAccount = inAccount;
-            return o;
+            final var _resultValue = new GetFailoverGroupsResult();
+            _resultValue.failoverGroups = failoverGroups;
+            _resultValue.id = id;
+            _resultValue.inAccount = inAccount;
+            return _resultValue;
         }
     }
 }

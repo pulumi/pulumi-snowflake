@@ -172,15 +172,15 @@ public final class GetGrantsResult {
             return this;
         }
         public GetGrantsResult build() {
-            final var o = new GetGrantsResult();
-            o.futureGrantsIn = futureGrantsIn;
-            o.futureGrantsTo = futureGrantsTo;
-            o.grants = grants;
-            o.grantsOf = grantsOf;
-            o.grantsOn = grantsOn;
-            o.grantsTo = grantsTo;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetGrantsResult();
+            _resultValue.futureGrantsIn = futureGrantsIn;
+            _resultValue.futureGrantsTo = futureGrantsTo;
+            _resultValue.grants = grants;
+            _resultValue.grantsOf = grantsOf;
+            _resultValue.grantsOn = grantsOn;
+            _resultValue.grantsTo = grantsTo;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

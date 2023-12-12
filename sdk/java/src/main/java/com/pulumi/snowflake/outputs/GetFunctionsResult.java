@@ -108,12 +108,12 @@ public final class GetFunctionsResult {
             return this;
         }
         public GetFunctionsResult build() {
-            final var o = new GetFunctionsResult();
-            o.database = database;
-            o.functions = functions;
-            o.id = id;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new GetFunctionsResult();
+            _resultValue.database = database;
+            _resultValue.functions = functions;
+            _resultValue.id = id;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

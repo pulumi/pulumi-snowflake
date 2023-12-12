@@ -91,11 +91,11 @@ public final class GetSystemGetSnowflakePlatformInfoResult {
             return this;
         }
         public GetSystemGetSnowflakePlatformInfoResult build() {
-            final var o = new GetSystemGetSnowflakePlatformInfoResult();
-            o.awsVpcIds = awsVpcIds;
-            o.azureVnetSubnetIds = azureVnetSubnetIds;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetSystemGetSnowflakePlatformInfoResult();
+            _resultValue.awsVpcIds = awsVpcIds;
+            _resultValue.azureVnetSubnetIds = azureVnetSubnetIds;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

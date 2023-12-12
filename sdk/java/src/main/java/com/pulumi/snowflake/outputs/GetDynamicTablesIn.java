@@ -87,11 +87,11 @@ public final class GetDynamicTablesIn {
             return this;
         }
         public GetDynamicTablesIn build() {
-            final var o = new GetDynamicTablesIn();
-            o.account = account;
-            o.database = database;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new GetDynamicTablesIn();
+            _resultValue.account = account;
+            _resultValue.database = database;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

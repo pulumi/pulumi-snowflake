@@ -65,10 +65,10 @@ public final class ExternalFunctionArg {
             return this;
         }
         public ExternalFunctionArg build() {
-            final var o = new ExternalFunctionArg();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new ExternalFunctionArg();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

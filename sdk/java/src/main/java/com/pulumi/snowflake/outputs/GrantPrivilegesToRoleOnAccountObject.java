@@ -65,10 +65,10 @@ public final class GrantPrivilegesToRoleOnAccountObject {
             return this;
         }
         public GrantPrivilegesToRoleOnAccountObject build() {
-            final var o = new GrantPrivilegesToRoleOnAccountObject();
-            o.objectName = objectName;
-            o.objectType = objectType;
-            return o;
+            final var _resultValue = new GrantPrivilegesToRoleOnAccountObject();
+            _resultValue.objectName = objectName;
+            _resultValue.objectType = objectType;
+            return _resultValue;
         }
     }
 }

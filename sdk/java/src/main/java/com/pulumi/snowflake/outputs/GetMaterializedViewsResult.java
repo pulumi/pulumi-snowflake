@@ -108,12 +108,12 @@ public final class GetMaterializedViewsResult {
             return this;
         }
         public GetMaterializedViewsResult build() {
-            final var o = new GetMaterializedViewsResult();
-            o.database = database;
-            o.id = id;
-            o.materializedViews = materializedViews;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new GetMaterializedViewsResult();
+            _resultValue.database = database;
+            _resultValue.id = id;
+            _resultValue.materializedViews = materializedViews;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

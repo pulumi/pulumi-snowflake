@@ -105,12 +105,12 @@ public final class SchemaTag {
             return this;
         }
         public SchemaTag build() {
-            final var o = new SchemaTag();
-            o.database = database;
-            o.name = name;
-            o.schema = schema;
-            o.value = value;
-            return o;
+            final var _resultValue = new SchemaTag();
+            _resultValue.database = database;
+            _resultValue.name = name;
+            _resultValue.schema = schema;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

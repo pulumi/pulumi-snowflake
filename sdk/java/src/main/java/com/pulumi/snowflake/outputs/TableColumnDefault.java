@@ -86,11 +86,11 @@ public final class TableColumnDefault {
             return this;
         }
         public TableColumnDefault build() {
-            final var o = new TableColumnDefault();
-            o.constant = constant;
-            o.expression = expression;
-            o.sequence = sequence;
-            return o;
+            final var _resultValue = new TableColumnDefault();
+            _resultValue.constant = constant;
+            _resultValue.expression = expression;
+            _resultValue.sequence = sequence;
+            return _resultValue;
         }
     }
 }

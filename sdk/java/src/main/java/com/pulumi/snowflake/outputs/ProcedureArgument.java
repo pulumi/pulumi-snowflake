@@ -65,10 +65,10 @@ public final class ProcedureArgument {
             return this;
         }
         public ProcedureArgument build() {
-            final var o = new ProcedureArgument();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new ProcedureArgument();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

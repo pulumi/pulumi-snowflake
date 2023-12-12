@@ -70,10 +70,10 @@ public final class GetWarehousesResult {
             return warehouses(List.of(warehouses));
         }
         public GetWarehousesResult build() {
-            final var o = new GetWarehousesResult();
-            o.id = id;
-            o.warehouses = warehouses;
-            return o;
+            final var _resultValue = new GetWarehousesResult();
+            _resultValue.id = id;
+            _resultValue.warehouses = warehouses;
+            return _resultValue;
         }
     }
 }

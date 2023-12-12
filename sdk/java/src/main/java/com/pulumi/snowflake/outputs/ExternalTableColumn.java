@@ -84,11 +84,11 @@ public final class ExternalTableColumn {
             return this;
         }
         public ExternalTableColumn build() {
-            final var o = new ExternalTableColumn();
-            o.as = as;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new ExternalTableColumn();
+            _resultValue.as = as;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

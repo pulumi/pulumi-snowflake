@@ -155,18 +155,18 @@ public final class GetDatabaseResult {
             return this;
         }
         public GetDatabaseResult build() {
-            final var o = new GetDatabaseResult();
-            o.comment = comment;
-            o.createdOn = createdOn;
-            o.id = id;
-            o.isCurrent = isCurrent;
-            o.isDefault = isDefault;
-            o.name = name;
-            o.options = options;
-            o.origin = origin;
-            o.owner = owner;
-            o.retentionTime = retentionTime;
-            return o;
+            final var _resultValue = new GetDatabaseResult();
+            _resultValue.comment = comment;
+            _resultValue.createdOn = createdOn;
+            _resultValue.id = id;
+            _resultValue.isCurrent = isCurrent;
+            _resultValue.isDefault = isDefault;
+            _resultValue.name = name;
+            _resultValue.options = options;
+            _resultValue.origin = origin;
+            _resultValue.owner = owner;
+            _resultValue.retentionTime = retentionTime;
+            return _resultValue;
         }
     }
 }

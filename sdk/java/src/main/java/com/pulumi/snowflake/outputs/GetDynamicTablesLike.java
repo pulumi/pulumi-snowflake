@@ -46,9 +46,9 @@ public final class GetDynamicTablesLike {
             return this;
         }
         public GetDynamicTablesLike build() {
-            final var o = new GetDynamicTablesLike();
-            o.pattern = pattern;
-            return o;
+            final var _resultValue = new GetDynamicTablesLike();
+            _resultValue.pattern = pattern;
+            return _resultValue;
         }
     }
 }

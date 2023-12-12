@@ -65,10 +65,10 @@ public final class AlertAlertScheduleCron {
             return this;
         }
         public AlertAlertScheduleCron build() {
-            final var o = new AlertAlertScheduleCron();
-            o.expression = expression;
-            o.timeZone = timeZone;
-            return o;
+            final var _resultValue = new AlertAlertScheduleCron();
+            _resultValue.expression = expression;
+            _resultValue.timeZone = timeZone;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class GetCurrentRoleResult {
             return this;
         }
         public GetCurrentRoleResult build() {
-            final var o = new GetCurrentRoleResult();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetCurrentRoleResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

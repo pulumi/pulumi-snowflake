@@ -71,12 +71,12 @@ public final class GetTablesTable {
             return this;
         }
         public GetTablesTable build() {
-            final var o = new GetTablesTable();
-            o.comment = comment;
-            o.database = database;
-            o.name = name;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new GetTablesTable();
+            _resultValue.comment = comment;
+            _resultValue.database = database;
+            _resultValue.name = name;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

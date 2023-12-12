@@ -84,11 +84,11 @@ public final class GetSystemGetAwsSnsIamPolicyResult {
             return this;
         }
         public GetSystemGetAwsSnsIamPolicyResult build() {
-            final var o = new GetSystemGetAwsSnsIamPolicyResult();
-            o.awsSnsTopicArn = awsSnsTopicArn;
-            o.awsSnsTopicPolicyJson = awsSnsTopicPolicyJson;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetSystemGetAwsSnsIamPolicyResult();
+            _resultValue.awsSnsTopicArn = awsSnsTopicArn;
+            _resultValue.awsSnsTopicPolicyJson = awsSnsTopicPolicyJson;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

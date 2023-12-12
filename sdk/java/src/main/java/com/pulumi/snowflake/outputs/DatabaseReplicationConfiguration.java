@@ -56,10 +56,10 @@ public final class DatabaseReplicationConfiguration {
             return this;
         }
         public DatabaseReplicationConfiguration build() {
-            final var o = new DatabaseReplicationConfiguration();
-            o.accounts = accounts;
-            o.ignoreEditionCheck = ignoreEditionCheck;
-            return o;
+            final var _resultValue = new DatabaseReplicationConfiguration();
+            _resultValue.accounts = accounts;
+            _resultValue.ignoreEditionCheck = ignoreEditionCheck;
+            return _resultValue;
         }
     }
 }

@@ -205,24 +205,24 @@ public final class GetAccountsAccount {
             return this;
         }
         public GetAccountsAccount build() {
-            final var o = new GetAccountsAccount();
-            o.accountLocator = accountLocator;
-            o.accountLocatorUrl = accountLocatorUrl;
-            o.accountName = accountName;
-            o.accountUrl = accountUrl;
-            o.comment = comment;
-            o.consumptionBillingEntityName = consumptionBillingEntityName;
-            o.createdOn = createdOn;
-            o.edition = edition;
-            o.isOrgAdmin = isOrgAdmin;
-            o.managedAccounts = managedAccounts;
-            o.marketplaceConsumerBillingEntityName = marketplaceConsumerBillingEntityName;
-            o.marketplaceProviderBillingEntityName = marketplaceProviderBillingEntityName;
-            o.oldAccountUrl = oldAccountUrl;
-            o.organizationName = organizationName;
-            o.regionGroup = regionGroup;
-            o.snowflakeRegion = snowflakeRegion;
-            return o;
+            final var _resultValue = new GetAccountsAccount();
+            _resultValue.accountLocator = accountLocator;
+            _resultValue.accountLocatorUrl = accountLocatorUrl;
+            _resultValue.accountName = accountName;
+            _resultValue.accountUrl = accountUrl;
+            _resultValue.comment = comment;
+            _resultValue.consumptionBillingEntityName = consumptionBillingEntityName;
+            _resultValue.createdOn = createdOn;
+            _resultValue.edition = edition;
+            _resultValue.isOrgAdmin = isOrgAdmin;
+            _resultValue.managedAccounts = managedAccounts;
+            _resultValue.marketplaceConsumerBillingEntityName = marketplaceConsumerBillingEntityName;
+            _resultValue.marketplaceProviderBillingEntityName = marketplaceProviderBillingEntityName;
+            _resultValue.oldAccountUrl = oldAccountUrl;
+            _resultValue.organizationName = organizationName;
+            _resultValue.regionGroup = regionGroup;
+            _resultValue.snowflakeRegion = snowflakeRegion;
+            return _resultValue;
         }
     }
 }

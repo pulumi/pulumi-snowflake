@@ -68,10 +68,10 @@ public final class FailoverGroupReplicationSchedule {
             return this;
         }
         public FailoverGroupReplicationSchedule build() {
-            final var o = new FailoverGroupReplicationSchedule();
-            o.cron = cron;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new FailoverGroupReplicationSchedule();
+            _resultValue.cron = cron;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

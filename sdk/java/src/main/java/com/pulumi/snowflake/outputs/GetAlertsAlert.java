@@ -104,15 +104,15 @@ public final class GetAlertsAlert {
             return this;
         }
         public GetAlertsAlert build() {
-            final var o = new GetAlertsAlert();
-            o.action = action;
-            o.comment = comment;
-            o.condition = condition;
-            o.databaseName = databaseName;
-            o.name = name;
-            o.owner = owner;
-            o.schemaName = schemaName;
-            return o;
+            final var _resultValue = new GetAlertsAlert();
+            _resultValue.action = action;
+            _resultValue.comment = comment;
+            _resultValue.condition = condition;
+            _resultValue.databaseName = databaseName;
+            _resultValue.name = name;
+            _resultValue.owner = owner;
+            _resultValue.schemaName = schemaName;
+            return _resultValue;
         }
     }
 }

@@ -105,12 +105,12 @@ public final class StageTag {
             return this;
         }
         public StageTag build() {
-            final var o = new StageTag();
-            o.database = database;
-            o.name = name;
-            o.schema = schema;
-            o.value = value;
-            return o;
+            final var _resultValue = new StageTag();
+            _resultValue.database = database;
+            _resultValue.name = name;
+            _resultValue.schema = schema;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

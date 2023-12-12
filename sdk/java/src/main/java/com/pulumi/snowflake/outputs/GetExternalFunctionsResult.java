@@ -108,12 +108,12 @@ public final class GetExternalFunctionsResult {
             return this;
         }
         public GetExternalFunctionsResult build() {
-            final var o = new GetExternalFunctionsResult();
-            o.database = database;
-            o.externalFunctions = externalFunctions;
-            o.id = id;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new GetExternalFunctionsResult();
+            _resultValue.database = database;
+            _resultValue.externalFunctions = externalFunctions;
+            _resultValue.id = id;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

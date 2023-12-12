@@ -67,10 +67,10 @@ public final class GetGrantsGrantsOf {
             return this;
         }
         public GetGrantsGrantsOf build() {
-            final var o = new GetGrantsGrantsOf();
-            o.role = role;
-            o.share = share;
-            return o;
+            final var _resultValue = new GetGrantsGrantsOf();
+            _resultValue.role = role;
+            _resultValue.share = share;
+            return _resultValue;
         }
     }
 }

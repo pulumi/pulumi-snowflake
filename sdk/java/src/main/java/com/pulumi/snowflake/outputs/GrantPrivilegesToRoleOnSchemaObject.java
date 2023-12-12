@@ -107,12 +107,12 @@ public final class GrantPrivilegesToRoleOnSchemaObject {
             return this;
         }
         public GrantPrivilegesToRoleOnSchemaObject build() {
-            final var o = new GrantPrivilegesToRoleOnSchemaObject();
-            o.all = all;
-            o.future = future;
-            o.objectName = objectName;
-            o.objectType = objectType;
-            return o;
+            final var _resultValue = new GrantPrivilegesToRoleOnSchemaObject();
+            _resultValue.all = all;
+            _resultValue.future = future;
+            _resultValue.objectName = objectName;
+            _resultValue.objectType = objectType;
+            return _resultValue;
         }
     }
 }

@@ -91,11 +91,11 @@ public final class GetSharesResult {
             return shares(List.of(shares));
         }
         public GetSharesResult build() {
-            final var o = new GetSharesResult();
-            o.id = id;
-            o.pattern = pattern;
-            o.shares = shares;
-            return o;
+            final var _resultValue = new GetSharesResult();
+            _resultValue.id = id;
+            _resultValue.pattern = pattern;
+            _resultValue.shares = shares;
+            return _resultValue;
         }
     }
 }

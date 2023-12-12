@@ -249,28 +249,28 @@ public final class GetDynamicTablesRecord {
             return this;
         }
         public GetDynamicTablesRecord build() {
-            final var o = new GetDynamicTablesRecord();
-            o.automaticClustering = automaticClustering;
-            o.bytes = bytes;
-            o.clusterBy = clusterBy;
-            o.comment = comment;
-            o.createdOn = createdOn;
-            o.dataTimestamp = dataTimestamp;
-            o.databaseName = databaseName;
-            o.isClone = isClone;
-            o.isReplica = isReplica;
-            o.lastSuspendedOn = lastSuspendedOn;
-            o.name = name;
-            o.owner = owner;
-            o.refreshMode = refreshMode;
-            o.refreshModeReason = refreshModeReason;
-            o.rows = rows;
-            o.schedulingState = schedulingState;
-            o.schemaName = schemaName;
-            o.targetLag = targetLag;
-            o.text = text;
-            o.warehouse = warehouse;
-            return o;
+            final var _resultValue = new GetDynamicTablesRecord();
+            _resultValue.automaticClustering = automaticClustering;
+            _resultValue.bytes = bytes;
+            _resultValue.clusterBy = clusterBy;
+            _resultValue.comment = comment;
+            _resultValue.createdOn = createdOn;
+            _resultValue.dataTimestamp = dataTimestamp;
+            _resultValue.databaseName = databaseName;
+            _resultValue.isClone = isClone;
+            _resultValue.isReplica = isReplica;
+            _resultValue.lastSuspendedOn = lastSuspendedOn;
+            _resultValue.name = name;
+            _resultValue.owner = owner;
+            _resultValue.refreshMode = refreshMode;
+            _resultValue.refreshModeReason = refreshModeReason;
+            _resultValue.rows = rows;
+            _resultValue.schedulingState = schedulingState;
+            _resultValue.schemaName = schemaName;
+            _resultValue.targetLag = targetLag;
+            _resultValue.text = text;
+            _resultValue.warehouse = warehouse;
+            return _resultValue;
         }
     }
 }

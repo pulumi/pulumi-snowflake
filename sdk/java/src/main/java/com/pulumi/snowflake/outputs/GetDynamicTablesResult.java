@@ -151,14 +151,14 @@ public final class GetDynamicTablesResult {
             return this;
         }
         public GetDynamicTablesResult build() {
-            final var o = new GetDynamicTablesResult();
-            o.id = id;
-            o.in = in;
-            o.like = like;
-            o.limit = limit;
-            o.records = records;
-            o.startsWith = startsWith;
-            return o;
+            final var _resultValue = new GetDynamicTablesResult();
+            _resultValue.id = id;
+            _resultValue.in = in;
+            _resultValue.like = like;
+            _resultValue.limit = limit;
+            _resultValue.records = records;
+            _resultValue.startsWith = startsWith;
+            return _resultValue;
         }
     }
 }

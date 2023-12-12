@@ -60,11 +60,11 @@ public final class GetRolesRole {
             return this;
         }
         public GetRolesRole build() {
-            final var o = new GetRolesRole();
-            o.comment = comment;
-            o.name = name;
-            o.owner = owner;
-            return o;
+            final var _resultValue = new GetRolesRole();
+            _resultValue.comment = comment;
+            _resultValue.name = name;
+            _resultValue.owner = owner;
+            return _resultValue;
         }
     }
 }

@@ -105,12 +105,12 @@ public final class MaterializedViewTag {
             return this;
         }
         public MaterializedViewTag build() {
-            final var o = new MaterializedViewTag();
-            o.database = database;
-            o.name = name;
-            o.schema = schema;
-            o.value = value;
-            return o;
+            final var _resultValue = new MaterializedViewTag();
+            _resultValue.database = database;
+            _resultValue.name = name;
+            _resultValue.schema = schema;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

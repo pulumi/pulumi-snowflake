@@ -108,12 +108,12 @@ public final class GetTablesResult {
             return tables(List.of(tables));
         }
         public GetTablesResult build() {
-            final var o = new GetTablesResult();
-            o.database = database;
-            o.id = id;
-            o.schema = schema;
-            o.tables = tables;
-            return o;
+            final var _resultValue = new GetTablesResult();
+            _resultValue.database = database;
+            _resultValue.id = id;
+            _resultValue.schema = schema;
+            _resultValue.tables = tables;
+            return _resultValue;
         }
     }
 }

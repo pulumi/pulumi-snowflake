@@ -108,12 +108,12 @@ public final class GetTasksResult {
             return tasks(List.of(tasks));
         }
         public GetTasksResult build() {
-            final var o = new GetTasksResult();
-            o.database = database;
-            o.id = id;
-            o.schema = schema;
-            o.tasks = tasks;
-            return o;
+            final var _resultValue = new GetTasksResult();
+            _resultValue.database = database;
+            _resultValue.id = id;
+            _resultValue.schema = schema;
+            _resultValue.tasks = tasks;
+            return _resultValue;
         }
     }
 }

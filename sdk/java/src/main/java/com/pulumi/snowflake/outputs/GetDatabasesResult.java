@@ -149,14 +149,14 @@ public final class GetDatabasesResult {
             return this;
         }
         public GetDatabasesResult build() {
-            final var o = new GetDatabasesResult();
-            o.databases = databases;
-            o.history = history;
-            o.id = id;
-            o.pattern = pattern;
-            o.startsWith = startsWith;
-            o.terse = terse;
-            return o;
+            final var _resultValue = new GetDatabasesResult();
+            _resultValue.databases = databases;
+            _resultValue.history = history;
+            _resultValue.id = id;
+            _resultValue.pattern = pattern;
+            _resultValue.startsWith = startsWith;
+            _resultValue.terse = terse;
+            return _resultValue;
         }
     }
 }

@@ -60,11 +60,11 @@ public final class GetDatabaseRolesDatabaseRole {
             return this;
         }
         public GetDatabaseRolesDatabaseRole build() {
-            final var o = new GetDatabaseRolesDatabaseRole();
-            o.comment = comment;
-            o.name = name;
-            o.owner = owner;
-            return o;
+            final var _resultValue = new GetDatabaseRolesDatabaseRole();
+            _resultValue.comment = comment;
+            _resultValue.name = name;
+            _resultValue.owner = owner;
+            return _resultValue;
         }
     }
 }

@@ -144,18 +144,18 @@ public final class GetDatabasesDatabase {
             return this;
         }
         public GetDatabasesDatabase build() {
-            final var o = new GetDatabasesDatabase();
-            o.comment = comment;
-            o.createdOn = createdOn;
-            o.isCurrent = isCurrent;
-            o.isDefault = isDefault;
-            o.name = name;
-            o.options = options;
-            o.origin = origin;
-            o.owner = owner;
-            o.replicationConfigurations = replicationConfigurations;
-            o.retentionTime = retentionTime;
-            return o;
+            final var _resultValue = new GetDatabasesDatabase();
+            _resultValue.comment = comment;
+            _resultValue.createdOn = createdOn;
+            _resultValue.isCurrent = isCurrent;
+            _resultValue.isDefault = isDefault;
+            _resultValue.name = name;
+            _resultValue.options = options;
+            _resultValue.origin = origin;
+            _resultValue.owner = owner;
+            _resultValue.replicationConfigurations = replicationConfigurations;
+            _resultValue.retentionTime = retentionTime;
+            return _resultValue;
         }
     }
 }

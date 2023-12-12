@@ -106,12 +106,12 @@ public final class TableConstraintForeignKeyProperties {
             return this;
         }
         public TableConstraintForeignKeyProperties build() {
-            final var o = new TableConstraintForeignKeyProperties();
-            o.match = match;
-            o.onDelete = onDelete;
-            o.onUpdate = onUpdate;
-            o.references = references;
-            return o;
+            final var _resultValue = new TableConstraintForeignKeyProperties();
+            _resultValue.match = match;
+            _resultValue.onDelete = onDelete;
+            _resultValue.onUpdate = onUpdate;
+            _resultValue.references = references;
+            return _resultValue;
         }
     }
 }

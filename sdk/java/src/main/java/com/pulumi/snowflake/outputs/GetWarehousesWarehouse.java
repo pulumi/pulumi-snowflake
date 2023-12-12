@@ -93,14 +93,14 @@ public final class GetWarehousesWarehouse {
             return this;
         }
         public GetWarehousesWarehouse build() {
-            final var o = new GetWarehousesWarehouse();
-            o.comment = comment;
-            o.name = name;
-            o.scalingPolicy = scalingPolicy;
-            o.size = size;
-            o.state = state;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetWarehousesWarehouse();
+            _resultValue.comment = comment;
+            _resultValue.name = name;
+            _resultValue.scalingPolicy = scalingPolicy;
+            _resultValue.size = size;
+            _resultValue.state = state;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

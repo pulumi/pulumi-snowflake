@@ -108,12 +108,12 @@ public final class GetProceduresResult {
             return this;
         }
         public GetProceduresResult build() {
-            final var o = new GetProceduresResult();
-            o.database = database;
-            o.id = id;
-            o.procedures = procedures;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new GetProceduresResult();
+            _resultValue.database = database;
+            _resultValue.id = id;
+            _resultValue.procedures = procedures;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

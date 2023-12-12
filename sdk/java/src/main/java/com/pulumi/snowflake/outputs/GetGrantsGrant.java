@@ -116,16 +116,16 @@ public final class GetGrantsGrant {
             return this;
         }
         public GetGrantsGrant build() {
-            final var o = new GetGrantsGrant();
-            o.createdOn = createdOn;
-            o.grantOption = grantOption;
-            o.grantedBy = grantedBy;
-            o.grantedOn = grantedOn;
-            o.grantedTo = grantedTo;
-            o.granteeName = granteeName;
-            o.name = name;
-            o.privilege = privilege;
-            return o;
+            final var _resultValue = new GetGrantsGrant();
+            _resultValue.createdOn = createdOn;
+            _resultValue.grantOption = grantOption;
+            _resultValue.grantedBy = grantedBy;
+            _resultValue.grantedOn = grantedOn;
+            _resultValue.grantedTo = grantedTo;
+            _resultValue.granteeName = granteeName;
+            _resultValue.name = name;
+            _resultValue.privilege = privilege;
+            return _resultValue;
         }
     }
 }

@@ -87,11 +87,11 @@ public final class GetGrantsGrantsOn {
             return this;
         }
         public GetGrantsGrantsOn build() {
-            final var o = new GetGrantsGrantsOn();
-            o.account = account;
-            o.objectName = objectName;
-            o.objectType = objectType;
-            return o;
+            final var _resultValue = new GetGrantsGrantsOn();
+            _resultValue.account = account;
+            _resultValue.objectName = objectName;
+            _resultValue.objectType = objectType;
+            return _resultValue;
         }
     }
 }
