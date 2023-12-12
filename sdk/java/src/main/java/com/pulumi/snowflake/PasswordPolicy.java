@@ -51,6 +51,20 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
+     * Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+     * 
+     */
+    @Export(name="history", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> history;
+
+    /**
+     * @return Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+     * 
+     */
+    public Output<Optional<Integer>> history() {
+        return Codegen.optional(this.history);
+    }
+    /**
      * Prevent overwriting a previous password policy with the same name.
      * 
      */
@@ -119,6 +133,20 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> maxRetries() {
         return Codegen.optional(this.maxRetries);
+    }
+    /**
+     * Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+     * 
+     */
+    @Export(name="minAgeDays", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> minAgeDays;
+
+    /**
+     * @return Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+     * 
+     */
+    public Output<Optional<Integer>> minAgeDays() {
+        return Codegen.optional(this.minAgeDays);
     }
     /**
      * Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8

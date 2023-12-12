@@ -44,6 +44,10 @@ export class PasswordPolicy extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
+     * Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+     */
+    public readonly history!: pulumi.Output<number | undefined>;
+    /**
      * Prevent overwriting a previous password policy with the same name.
      */
     public readonly ifNotExists!: pulumi.Output<boolean | undefined>;
@@ -63,6 +67,10 @@ export class PasswordPolicy extends pulumi.CustomResource {
      * Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
      */
     public readonly maxRetries!: pulumi.Output<number | undefined>;
+    /**
+     * Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+     */
+    public readonly minAgeDays!: pulumi.Output<number | undefined>;
     /**
      * Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
      */
@@ -115,11 +123,13 @@ export class PasswordPolicy extends pulumi.CustomResource {
             const state = argsOrState as PasswordPolicyState | undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["history"] = state ? state.history : undefined;
             resourceInputs["ifNotExists"] = state ? state.ifNotExists : undefined;
             resourceInputs["lockoutTimeMins"] = state ? state.lockoutTimeMins : undefined;
             resourceInputs["maxAgeDays"] = state ? state.maxAgeDays : undefined;
             resourceInputs["maxLength"] = state ? state.maxLength : undefined;
             resourceInputs["maxRetries"] = state ? state.maxRetries : undefined;
+            resourceInputs["minAgeDays"] = state ? state.minAgeDays : undefined;
             resourceInputs["minLength"] = state ? state.minLength : undefined;
             resourceInputs["minLowerCaseChars"] = state ? state.minLowerCaseChars : undefined;
             resourceInputs["minNumericChars"] = state ? state.minNumericChars : undefined;
@@ -139,11 +149,13 @@ export class PasswordPolicy extends pulumi.CustomResource {
             }
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["history"] = args ? args.history : undefined;
             resourceInputs["ifNotExists"] = args ? args.ifNotExists : undefined;
             resourceInputs["lockoutTimeMins"] = args ? args.lockoutTimeMins : undefined;
             resourceInputs["maxAgeDays"] = args ? args.maxAgeDays : undefined;
             resourceInputs["maxLength"] = args ? args.maxLength : undefined;
             resourceInputs["maxRetries"] = args ? args.maxRetries : undefined;
+            resourceInputs["minAgeDays"] = args ? args.minAgeDays : undefined;
             resourceInputs["minLength"] = args ? args.minLength : undefined;
             resourceInputs["minLowerCaseChars"] = args ? args.minLowerCaseChars : undefined;
             resourceInputs["minNumericChars"] = args ? args.minNumericChars : undefined;
@@ -172,6 +184,10 @@ export interface PasswordPolicyState {
      */
     database?: pulumi.Input<string>;
     /**
+     * Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+     */
+    history?: pulumi.Input<number>;
+    /**
      * Prevent overwriting a previous password policy with the same name.
      */
     ifNotExists?: pulumi.Input<boolean>;
@@ -191,6 +207,10 @@ export interface PasswordPolicyState {
      * Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
      */
     maxRetries?: pulumi.Input<number>;
+    /**
+     * Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+     */
+    minAgeDays?: pulumi.Input<number>;
     /**
      * Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
      */
@@ -242,6 +262,10 @@ export interface PasswordPolicyArgs {
      */
     database: pulumi.Input<string>;
     /**
+     * Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+     */
+    history?: pulumi.Input<number>;
+    /**
      * Prevent overwriting a previous password policy with the same name.
      */
     ifNotExists?: pulumi.Input<boolean>;
@@ -261,6 +285,10 @@ export interface PasswordPolicyArgs {
      * Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
      */
     maxRetries?: pulumi.Input<number>;
+    /**
+     * Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+     */
+    minAgeDays?: pulumi.Input<number>;
     /**
      * Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
      */
