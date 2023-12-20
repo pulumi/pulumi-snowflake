@@ -56,9 +56,6 @@
                                 }
                             }
                         }
-                    },
-                    "tag": {
-                        "maxItemsOne": false
                     }
                 }
             },
@@ -671,9 +668,6 @@
                 "fields": {
                     "default_secondary_roles": {
                         "maxItemsOne": false
-                    },
-                    "tag": {
-                        "maxItemsOne": false
                     }
                 }
             },
@@ -711,12 +705,7 @@
                 }
             },
             "snowflake_warehouse": {
-                "current": "snowflake:index/warehouse:Warehouse",
-                "fields": {
-                    "tag": {
-                        "maxItemsOne": false
-                    }
-                }
+                "current": "snowflake:index/warehouse:Warehouse"
             },
             "snowflake_warehouse_grant": {
                 "current": "snowflake:index/warehouseGrant:WarehouseGrant",
@@ -1088,6 +1077,7 @@
             }
         }
     },
+    "auto-settings": {},
     "renames": {
         "resources": {
             "snowflake:index/account:Account": "snowflake_account",
