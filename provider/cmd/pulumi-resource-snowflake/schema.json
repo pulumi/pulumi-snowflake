@@ -4127,7 +4127,8 @@
                 },
                 "query": {
                     "type": "string",
-                    "description": "Specifies the query to use to populate the dynamic table.\n"
+                    "description": "Specifies the query to use to populate the dynamic table.\n",
+                    "willReplaceOnChanges": true
                 },
                 "schema": {
                     "type": "string",
@@ -4204,7 +4205,8 @@
                     },
                     "query": {
                         "type": "string",
-                        "description": "Specifies the query to use to populate the dynamic table.\n"
+                        "description": "Specifies the query to use to populate the dynamic table.\n",
+                        "willReplaceOnChanges": true
                     },
                     "refreshMode": {
                         "type": "string",
