@@ -14,8 +14,8 @@ __all__ = ['EmailNotificationIntegrationArgs', 'EmailNotificationIntegration']
 @pulumi.input_type
 class EmailNotificationIntegrationArgs:
     def __init__(__self__, *,
-                 allowed_recipients: pulumi.Input[Sequence[pulumi.Input[str]]],
                  enabled: pulumi.Input[bool],
+                 allowed_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
@@ -23,24 +23,13 @@ class EmailNotificationIntegrationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_recipients: List of email addresses that should receive notifications.
         :param pulumi.Input[str] comment: A comment for the email integration.
         """
-        pulumi.set(__self__, "allowed_recipients", allowed_recipients)
         pulumi.set(__self__, "enabled", enabled)
+        if allowed_recipients is not None:
+            pulumi.set(__self__, "allowed_recipients", allowed_recipients)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if name is not None:
             pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="allowedRecipients")
-    def allowed_recipients(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        List of email addresses that should receive notifications.
-        """
-        return pulumi.get(self, "allowed_recipients")
-
-    @allowed_recipients.setter
-    def allowed_recipients(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "allowed_recipients", value)
 
     @property
     @pulumi.getter
@@ -50,6 +39,18 @@ class EmailNotificationIntegrationArgs:
     @enabled.setter
     def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="allowedRecipients")
+    def allowed_recipients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of email addresses that should receive notifications.
+        """
+        return pulumi.get(self, "allowed_recipients")
+
+    @allowed_recipients.setter
+    def allowed_recipients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_recipients", value)
 
     @property
     @pulumi.getter
@@ -224,8 +225,6 @@ class EmailNotificationIntegration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EmailNotificationIntegrationArgs.__new__(EmailNotificationIntegrationArgs)
 
-            if allowed_recipients is None and not opts.urn:
-                raise TypeError("Missing required property 'allowed_recipients'")
             __props__.__dict__["allowed_recipients"] = allowed_recipients
             __props__.__dict__["comment"] = comment
             if enabled is None and not opts.urn:
@@ -268,7 +267,7 @@ class EmailNotificationIntegration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedRecipients")
-    def allowed_recipients(self) -> pulumi.Output[Sequence[str]]:
+    def allowed_recipients(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of email addresses that should receive notifications.
         """

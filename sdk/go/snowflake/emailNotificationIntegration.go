@@ -67,9 +67,6 @@ func NewEmailNotificationIntegration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AllowedRecipients == nil {
-		return nil, errors.New("invalid value for required argument 'AllowedRecipients'")
-	}
 	if args.Enabled == nil {
 		return nil, errors.New("invalid value for required argument 'Enabled'")
 	}
