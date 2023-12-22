@@ -4263,7 +4263,6 @@
                 }
             },
             "required": [
-                "allowedRecipients",
                 "enabled",
                 "name"
             ],
@@ -4288,7 +4287,6 @@
                 }
             },
             "requiredInputs": [
-                "allowedRecipients",
                 "enabled"
             ],
             "stateInputs": {
