@@ -106,7 +106,7 @@ namespace Pulumi.Snowflake
 
     public sealed class EmailNotificationIntegrationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("allowedRecipients", required: true)]
+        [Input("allowedRecipients")]
         private InputList<string>? _allowedRecipients;
 
         /// <summary>

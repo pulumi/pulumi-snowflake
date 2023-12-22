@@ -55,7 +55,7 @@ export class EmailNotificationIntegration extends pulumi.CustomResource {
     /**
      * List of email addresses that should receive notifications.
      */
-    public readonly allowedRecipients!: pulumi.Output<string[]>;
+    public readonly allowedRecipients!: pulumi.Output<string[] | undefined>;
     /**
      * A comment for the email integration.
      */
@@ -82,9 +82,6 @@ export class EmailNotificationIntegration extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as EmailNotificationIntegrationArgs | undefined;
-            if ((!args || args.allowedRecipients === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'allowedRecipients'");
-            }
             if ((!args || args.enabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
@@ -121,7 +118,7 @@ export interface EmailNotificationIntegrationArgs {
     /**
      * List of email addresses that should receive notifications.
      */
-    allowedRecipients: pulumi.Input<pulumi.Input<string>[]>;
+    allowedRecipients?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A comment for the email integration.
      */

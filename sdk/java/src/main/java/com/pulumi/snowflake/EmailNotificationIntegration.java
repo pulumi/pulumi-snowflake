@@ -63,14 +63,14 @@ public class EmailNotificationIntegration extends com.pulumi.resources.CustomRes
      * 
      */
     @Export(name="allowedRecipients", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> allowedRecipients;
+    private Output</* @Nullable */ List<String>> allowedRecipients;
 
     /**
      * @return List of email addresses that should receive notifications.
      * 
      */
-    public Output<List<String>> allowedRecipients() {
-        return this.allowedRecipients;
+    public Output<Optional<List<String>>> allowedRecipients() {
+        return Codegen.optional(this.allowedRecipients);
     }
     /**
      * A comment for the email integration.

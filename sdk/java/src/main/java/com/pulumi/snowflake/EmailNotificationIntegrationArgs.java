@@ -21,15 +21,15 @@ public final class EmailNotificationIntegrationArgs extends com.pulumi.resources
      * List of email addresses that should receive notifications.
      * 
      */
-    @Import(name="allowedRecipients", required=true)
-    private Output<List<String>> allowedRecipients;
+    @Import(name="allowedRecipients")
+    private @Nullable Output<List<String>> allowedRecipients;
 
     /**
      * @return List of email addresses that should receive notifications.
      * 
      */
-    public Output<List<String>> allowedRecipients() {
-        return this.allowedRecipients;
+    public Optional<Output<List<String>>> allowedRecipients() {
+        return Optional.ofNullable(this.allowedRecipients);
     }
 
     /**
@@ -94,7 +94,7 @@ public final class EmailNotificationIntegrationArgs extends com.pulumi.resources
          * @return builder
          * 
          */
-        public Builder allowedRecipients(Output<List<String>> allowedRecipients) {
+        public Builder allowedRecipients(@Nullable Output<List<String>> allowedRecipients) {
             $.allowedRecipients = allowedRecipients;
             return this;
         }
@@ -159,7 +159,6 @@ public final class EmailNotificationIntegrationArgs extends com.pulumi.resources
         }
 
         public EmailNotificationIntegrationArgs build() {
-            $.allowedRecipients = Objects.requireNonNull($.allowedRecipients, "expected parameter 'allowedRecipients' to be non-null");
             $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
             return $;
         }
